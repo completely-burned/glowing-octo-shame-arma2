@@ -1,0 +1,453 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"cacharacters2",
+		"warfarebuildings",
+		"CAWheeled2_MMT",
+		"CAWheeled",
+		"camisc3",
+		"caweapons_ammoboxes",
+		"CABuildings",
+		"fdf_isle1_a",
+		"FDF_Car_Defender",
+		"caweapons_baf",
+		"fdf_men_m05",
+		"fdf_men_sj",
+		"fdf_men_misc",
+		"fdf_weapons_pkm"
+	};
+	addOnsAuto[]=
+	{
+		"cacharacters2",
+		"fdf_men_m05",
+		"fdf_men_sj",
+		"fdf_men_misc",
+		"warfarebuildings",
+		"CAWheeled2_MMT",
+		"FDF_Car_Defender",
+		"camisc3",
+		"caweapons_ammoboxes",
+		"caweapons_baf",
+		"CABuildings",
+		"fdf_isle1_a"
+	};
+	randomSeed=16581394;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0.25;
+		year=2008;
+		month=8;
+		day=14;
+		hour=16;
+		minute=0;
+	};
+	class Groups
+	{
+		items=5;
+		class Item0
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8371.9375,5.0005341,5173.3652};
+					azimut=272.44299;
+					id=5;
+					side="CIV";
+					vehicle="RU_Citizen1";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item1
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=7;
+				class Item0
+				{
+					position[]={8369.3555,5.0005341,5164.6914};
+					id=12;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_NCO";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item1
+				{
+					position[]={8372.3555,5.0054355,5159.6914};
+					id=13;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_MG";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item2
+				{
+					position[]={8374.3555,5.0093417,5159.6914};
+					id=14;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_MG_Asst";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item3
+				{
+					position[]={8376.3555,5.013248,5159.6914};
+					id=15;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_Soldier_AT";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item4
+				{
+					position[]={8378.3555,5.0171547,5159.6914};
+					id=16;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_Soldier_AT";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item5
+				{
+					position[]={8380.3555,5.0208068,5159.6914};
+					id=17;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_Soldier";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item6
+				{
+					position[]={8382.3555,5.0266647,5159.6914};
+					id=18;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_Asst_Squad_Leader";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+			};
+		};
+		class Item2
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=3;
+				class Item0
+				{
+					position[]={8368.6846,5.0005341,5160.8311};
+					id=19;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_Soldier_HeavyAT";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item1
+				{
+					position[]={8371.6846,4.7604485,5155.8311};
+					id=20;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_Soldier_HeavyAT";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item2
+				{
+					position[]={8373.6846,4.9635892,5155.8311};
+					id=21;
+					side="GUER";
+					vehicle="FDF_M05_FRDF_Soldier_HeavyAT";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+			};
+		};
+		class Item3
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={8368.6836,4.5199447,5155.1274};
+					id=22;
+					side="GUER";
+					vehicle="FDF_SJ_Assault";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item1
+				{
+					position[]={8371.6836,4.1978025,5150.1274};
+					id=23;
+					side="GUER";
+					vehicle="FDF_SJ_Breach";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item2
+				{
+					position[]={8373.6836,4.4008813,5150.1274};
+					id=24;
+					side="GUER";
+					vehicle="FDF_SJ_Assault";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item3
+				{
+					position[]={8375.6836,4.6040215,5150.1274};
+					id=25;
+					side="GUER";
+					vehicle="FDF_SJ_Assault";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+			};
+		};
+		class Item4
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={8368.6836,4.1440458,5151.2666};
+					id=26;
+					side="GUER";
+					vehicle="FDF_Sniper";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item1
+				{
+					position[]={8371.6836,4.3930254,5146.2666};
+					id=27;
+					side="GUER";
+					vehicle="FDF_Spotter";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=11;
+		class Item0
+		{
+			position[]={8336.9355,5.1007838,5178.1338};
+			azimut=-48.439499;
+			id=0;
+			side="EMPTY";
+			vehicle="BRDM2_HQ_Gue_unfolded";
+			skill=0.60000002;
+		};
+		class Item1
+		{
+			position[]={8354.4736,5.0216093,5183.5967};
+			azimut=314.18201;
+			id=1;
+			side="EMPTY";
+			vehicle="WarfareBCamp";
+			skill=0.2;
+			init="this allowDamage false";
+		};
+		class Item2
+		{
+			position[]={8346.7725,5.0289011,5175.7666};
+			azimut=153.23747;
+			id=2;
+			side="EMPTY";
+			vehicle="MMT_Civ";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true]";
+		};
+		class Item3
+		{
+			position[]={8336.5752,5.1990976,5189.354};
+			azimut=338.147;
+			id=3;
+			side="EMPTY";
+			vehicle="FDF_Defender";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true]";
+		};
+		class Item4
+		{
+			position[]={8312.5088,5.0297952,5146.8545};
+			azimut=180;
+			id=4;
+			side="EMPTY";
+			vehicle="HeliH";
+			skill=0.60000002;
+		};
+		class Item5
+		{
+			position[]={8342.1396,5.2125435,5192.1895};
+			azimut=92.443298;
+			id=6;
+			side="EMPTY";
+			vehicle="LocalBasicWeaponsBox";
+			skill=0.60000002;
+			init="this allowDamage false";
+		};
+		class Item6
+		{
+			position[]={8344.6035,5.0990596,5195.5034};
+			azimut=92.443298;
+			id=7;
+			side="EMPTY";
+			vehicle="GuerillaCacheBox";
+			skill=0.60000002;
+			init="this allowDamage false";
+		};
+		class Item7
+		{
+			position[]={8349.9531,5.3336229,5201.0928};
+			azimut=92.443298;
+			id=8;
+			side="EMPTY";
+			vehicle="SpecialWeaponsBox";
+			skill=0.60000002;
+			init="this allowDamage false";
+		};
+		class Item8
+		{
+			position[]={8348.001,5.2436438,5198.0317};
+			azimut=92.443298;
+			id=9;
+			side="EMPTY";
+			vehicle="BAF_IEDBox";
+			skill=0.60000002;
+			init="this allowDamage false";
+		};
+		class Item9
+		{
+			position[]={8353.7344,4.8281832,5203.1846};
+			azimut=92.443298;
+			id=10;
+			side="EMPTY";
+			vehicle="LocalBasicAmmunitionBox";
+			skill=0.60000002;
+			init="this allowDamage false";
+		};
+		class Item10
+		{
+			position[]={8331.3896,5.0975704,5184.8662};
+			azimut=39.446041;
+			id=11;
+			side="EMPTY";
+			vehicle="MASH";
+			leader=1;
+			skill=0.59999996;
+		};
+	};
+	class Markers
+	{
+		items=2;
+		class Item0
+		{
+			position[]={8354.3164,5.0218844,5183.6436};
+			name="respawn_guerrila";
+			type="Depot";
+			colorName="ColorGreen";
+			angle=92.443298;
+		};
+		class Item1
+		{
+			position[]={8354.3164,5.0218844,5183.6436};
+			name="respawn_civilian";
+			type="Depot";
+			colorName="ColorYellow";
+			angle=92.443306;
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"fdf_isle1_a"
+	};
+	addOnsAuto[]=
+	{
+		"fdf_isle1_a"
+	};
+	randomSeed=177011;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0.25;
+		year=2008;
+		month=8;
+		day=14;
+		hour=16;
+		minute=0;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"fdf_isle1_a"
+	};
+	addOnsAuto[]=
+	{
+		"fdf_isle1_a"
+	};
+	randomSeed=15661687;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0.25;
+		year=2008;
+		month=8;
+		day=14;
+		hour=16;
+		minute=0;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"fdf_isle1_a"
+	};
+	addOnsAuto[]=
+	{
+		"fdf_isle1_a"
+	};
+	randomSeed=1010667;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0.25;
+		year=2008;
+		month=8;
+		day=14;
+		hour=16;
+		minute=0;
+	};
+};
