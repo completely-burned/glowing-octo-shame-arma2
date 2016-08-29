@@ -92,6 +92,7 @@ while {true} do {
 	_Objects = (nearestObjects [player, [
 	//"ReammoBox",
 	"LandVehicle",
+	"Air",
 	"Land_nav_pier_m_2","Land_nav_pier_m_F",
 	"Base_WarfareBVehicleServicePoint",
 	"Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F",
@@ -151,10 +152,15 @@ while {true} do {
 					};
 				};
 
-				if ([[_type],["LandVehicle"]] call m_fnc_CheckIsKindOfArray) then {
+				if ([[_type],["LandVehicle","Air"]] call m_fnc_CheckIsKindOfArray) then {
 					_Object setAmmoCargo 1;
 					_Object setRepairCargo 1;
 					_Object setFuelCargo 1;
+					if (isNil {_Object getVariable "hintCrewAction"}) then {
+						private["_action"];
+						_action = _Object addAction ['Crew','m\client\ACT\ACT_HintCrew.sqf',[],0, false];
+						_Object setVariable ["hintCrewAction",_action];
+					};
 				};
 			};
 		} foreach _Objects;
