@@ -47,6 +47,7 @@ m_FirstAid = compile (preprocessFileLineNumbers (_path + "m_FirstAid.sqf"));
 m_FirstAid_handleDamage = compile (preprocessFileLineNumbers (_path + "m_FirstAid_handleDamage.sqf"));
 m_FirstAid_handleHeal = compile (preprocessFileLineNumbers (_path + "m_FirstAid_handleHeal.sqf"));
 m_fnc_vehInit = compile (preprocessFileLineNumbers (_path + "m_fnc_vehInit.sqf"));
+m_fnc_SalvageTruck = compile (preprocessFileLineNumbers (_path + "m_fnc_SalvageTruck.sqf"));
 
 m_fnc_init = true;
 

@@ -61,7 +61,7 @@ while {true} do {
 	};
 		
 	if( (_time2 select _time2_select) < time )then{
-		_time2 set [_time2_select,time+30+random 5]; _time2_select = _time2_select + 1;
+		_time2 set [_time2_select,time+5+random 5]; _time2_select = _time2_select + 1;
 		#include "server_update_vehicles.sqf";
 	};
 		
