@@ -3,6 +3,9 @@ if(toLower worldname in ["zargabad", "takistan", "utes", "chernarus"])then{m_fri
 if(toLower worldname in ["shapur_baf", "mountains_acr"])then{m_friendlySide = [west]};
 if(toLower worldname in ["fdf_isle1_a"])then{m_friendlySide = [resistance]};
 
+listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","WarfareSalvageTruck_CDF","WarfareSalvageTruck_Gue","WarfareSalvageTruck_INS",
+"MtvrSalvage_DES_EP1","UralSalvage_TK_EP1","V3S_Salvage_TK_GUE_EP1"];
+
 /// listCrew + listMHQ ///
 
 private ["_i"];

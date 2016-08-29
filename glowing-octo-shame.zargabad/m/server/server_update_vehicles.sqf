@@ -76,6 +76,8 @@ _deleteList=[];
 				};
 			};
 		};
+
+		_veh call m_fnc_SalvageTruck;
 		
 	}else{
 		if !(_delete) then{
