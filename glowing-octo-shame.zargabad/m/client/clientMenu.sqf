@@ -167,7 +167,7 @@ _fnc_vehicles_support = {
 					_libEnabled = [_entry] call fnc_libEnabled;
 					if (_libEnabled) then
 					{
-						if ((getNumber(_entry >> "transportammo")> 0) or (getNumber(_entry >> "transportrepair")> 0) or (getNumber(_entry >> "transportfuel")> 0)) then {
+						if ((getNumber(_entry >> "transportammo")> 0) or (getNumber(_entry >> "transportrepair")> 0) or (getNumber(_entry >> "transportfuel")> 0) or ([[configname _entry], listSalvageTruck] call m_fnc_CheckIsKindOfArray)) then {
 							if ((getText(_entry >> "simulation")) == "soldier") then{
 								if (getNumber(_entry >> "isMan") == 1) then{
 									_dataListVeh = _dataListVeh + [configname _entry];
