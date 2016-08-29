@@ -296,9 +296,9 @@ while {true} do {
 			private ["_action"];
 			_action = player addaction [localize "str_buy_gear_buy" + " " + gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName"), "m\functions\action_buy_menu.sqf", "#USER:Plane_0", 1, false, false];
 			player setvariable ["_Buy_Plane",_action];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + "Support", "m\functions\action_buy_menu.sqf", "#USER:Support_0", 1, false, false];
+			_action = player addaction [localize "str_buy_gear_buy" + " " + localize "str_support", "m\functions\action_buy_menu.sqf", "#USER:Support_0", 1, false, false];
 			player setvariable ["_Buy_Support",_action];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + "Pilot", "m\functions\action_buy_menu.sqf", "#USER:Pilot_0", 1, false, false];
+			_action = player addaction [localize "str_buy_gear_buy" + " " + localize "str_getin_pos_pilot", "m\functions\action_buy_menu.sqf", "#USER:Pilot_0", 1, false, false];
 			player setvariable ["_Buy_Pilot",_action];
 		};
 	}else{
