@@ -8,8 +8,21 @@
 	// LIB_ahAvail = false;
 	// if (configName(configFile >> "CfgVehicles" >> "TK_Soldier_Officer_EP1") != "") then {LIB_ahAvail = true};
 // };
+
+private["_isPlayer"];
+if(count _this > 1)then{
+	_isPlayer = _this select 1;
+}else{
+	_isPlayer = false;
+};
+ 
 private["_Bombs"];
-_Bombs=false;
+if(_isPlayer)then{
+	_Bombs=true;
+}else{
+	_Bombs=false;
+};
+
 // if (LIB_ahAvail) then { _Bombs=true;};
 // private["_LaserBombs"];
 // _LaserBombs=false;
@@ -18,7 +31,11 @@ _Bombs=false;
 	private["_type","_veh"];
 	_veh = _x;
 	_type = TypeOf _veh;
-	
+
+	if(_isPlayer)then{
+		_veh allowCrewInImmobile true;
+	};
+
 	/// --- ������� --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// 
 	if (_type isKindOf "Air") then{
 		_veh setSkill ["aimingAccuracy", 0.4];
@@ -141,7 +158,9 @@ _Bombs=false;
 		};
 		if (LIB_ahAvail) then {
 			if (_type isKindOf "Su34") then{
-				_veh removeMagazine "180Rnd_30mm_GSh301";
+				if!(_isPlayer)then{
+					_veh removeMagazine "180Rnd_30mm_GSh301";
+				};
 				//_veh addMagazine ["180Rnd_30mm_GSh301",0];
 			};
 		};
@@ -350,5 +369,4 @@ _Bombs=false;
 	// _veh setSkill ["aimingSpeed",1];
 	// _veh setSkill ["spotDistance", 1];
 	// _veh setSkill ["spotTime", 1];
-	sleep 0.02;
-}forEach _this;
+}forEach (_this select 0);

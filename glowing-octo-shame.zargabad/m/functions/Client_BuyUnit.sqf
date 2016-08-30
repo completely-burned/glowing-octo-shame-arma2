@@ -18,6 +18,7 @@ _fnc_1={
 	group player addVehicle _this;
 	player reveal _this;
 	_veh call m_fnc_vehInit;
+	[[_veh], true] call m_fnc_reweapon;
 };
 
 private ["_respawn_pos"];
