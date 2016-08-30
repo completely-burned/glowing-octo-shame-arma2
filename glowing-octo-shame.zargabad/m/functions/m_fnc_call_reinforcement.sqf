@@ -114,7 +114,7 @@ _cargo2 = _cargo - (units (_groups select 0));
 	_x call m_fnc_vehInit;
 } foreach _units + _vehicles;
 
-_units + _vehicles call m_fnc_reweapon; // перевооружить
+[_units + _vehicles] call m_fnc_reweapon; // перевооружить
 // _units call m_fnc_RankToSkill; //выставить skill в зависимости от ранга
 if (count _vehicles > 0) then {
 	[_vehicles, _cargo] call m_fnc_MoveInCargo; // посадить в багажное отделение
