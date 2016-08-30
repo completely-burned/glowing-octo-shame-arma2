@@ -218,12 +218,6 @@ while {true} do {
 		vehicle player setvariable ["_teleport_action",_action];
 	};
 
-	if (isnil {player getvariable "_join_grpNull"} && !isnull player) then {
-		private ["_action"];
-		_action = player addaction ["leave group", "m\functions\join_grpNull.sqf", "", 0.5, false, false, "","((_target == player) && ((count units player)>1))"];
-		player setvariable ["_join_grpNull",_action];
-	};
-
 	if (_Buy_Man) then {
 		// (BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + 0)) CtrlSetText ("\CA\Warfare2\Images\icon_barracks.paa");
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_gear_ca.paa")]; 
