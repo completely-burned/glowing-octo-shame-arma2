@@ -28,7 +28,8 @@ _list_BIS_FNC_createmenu=([
 	// ["setCaptive true","player setCaptive true"],
 	["player setDammage 1","player setDammage 1"],
 	["crew", "[] execvm 'm\client\ACT\ACT_HintCrew.sqf'"],
-	["nearestVehicle setVectorUp [0,0,100]", "{_x setVectorUp [0,0,100]}foreach [nearestObject [getpos player,'AllVehicles']];"]
+	["nearestVehicle setVectorUp [0,0,100]", "{_x setVectorUp [0,0,100]}foreach [nearestObject [getpos player,'AllVehicles']];"],
+	["leave group", "[] execVM 'm\functions\join_grpNull.sqf'"]
 	// ["setdamage 0 LandVehicle nearestObject", "{_x setdamage 0}foreach [nearestObject [getpos player,'LandVehicle']];"],
 	// ["leader move player","leader player move getpos player"],
 	// ["setAccTime 0.5","setAccTime 0.5"],
