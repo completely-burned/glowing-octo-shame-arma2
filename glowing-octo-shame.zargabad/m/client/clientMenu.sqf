@@ -196,6 +196,10 @@ _fnc_vehicles_support = {
 
 ["#USER:c_0", "c", [_list_BIS_FNC_createmenu select 1, _list_BIS_FNC_createmenu select 0, _list_BIS_FNC_createmenu select 2], "","%1"] call BIS_FNC_createmenu; 
 ["setTerrainGrid", "setTerrainGrid", [[50,25,12.5,6.25,3.125],["50","25","12.5","6.25","3.125"]], "","setTerrainGrid %1"] call BIS_FNC_createmenu; 
+["setViewDistance", "setViewDistance", [
+	[ -1,  1600,  2000,  2500,  3000,  3500,  4000,  4500,  5000,  5500,  6000,  6500,  7000,  7500,  8000,  8500,  9000,  9500,  10000],
+	["-1","1600","2000","2500","3000","3500","4000","4500","5000","5500","6000","6500","7000","7500","8000","8500","9000","9500","10000"]
+], "","setViewDistance %1"] call BIS_FNC_createmenu; 
 
 
 
@@ -215,9 +219,11 @@ BIS_MENU_GroupCommunication = [
 
 	["setTerrainGrid", [4], "#USER:setTerrainGrid_0", -5, [["expression", ""]], "1", "1"],
 
+	["setViewDistance", [5], "#USER:setViewDistance_0", -5, [["expression", ""]], "1", "1"],
+
 	// [format ["%1, %2, %3",localize "str_dn_cars" ,localize "str_dn_armored" ,localize "str_dn_air"], [5], "#USER:d_0", -5, [["expression", ""]], "1", "1"],
 
-	[localize "STR_SOM_REQUEST_SUPPORT", [5], "#USER:BIS_MENU_SOM_Support", -5, [["expression", ""]], "1", "1", -1],
+	[localize "STR_SOM_REQUEST_SUPPORT", [6], "#USER:BIS_MENU_SOM_Support", -5, [["expression", ""]], "1", "1", -1],
 
 	// [ "s_dn_mo", [6], "#USER:f_0", -5, [["expression", ""]], "1", "1"],
 
