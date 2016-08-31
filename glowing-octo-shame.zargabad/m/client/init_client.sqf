@@ -16,6 +16,7 @@ SetGroupIconsVisible [true,false];
 };
 
 
+[] spawn ACT_WinchManager;
 [] spawn compile preprocessFileLineNumbers "m\client\clientMenu.sqf";
 [] spawn compile preprocessFileLineNumbers "m\client\updateClient.sqf";
 
