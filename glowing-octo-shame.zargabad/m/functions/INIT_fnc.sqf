@@ -17,6 +17,7 @@ if (!IsDedicated) then {
 	m_fnc_teleport2 = compile (preprocessFileLineNumbers (_path + "m_fnc_teleport2.sqf"));
 	m_fnc_resetActions = compile (preprocessFileLineNumbers (_path + "m_fnc_resetActions.sqf"));
 	Common_GetSafePosition = compile (preprocessFileLineNumbers (_path + "Common_GetSafePosition.sqf"));
+	ACT_WinchManager = compile (preprocessFileLineNumbers (_path + "ACT_WinchManager.sqf"));
 };
 m_fnc_check_config_use = compile (preprocessFileLineNumbers (_path + "m_fnc_check_config_use.sqf"));
 // m_fnc_returnGroupType = compile (preprocessFileLineNumbers (_path + "m_fnc_returnGroupType.sqf"));
