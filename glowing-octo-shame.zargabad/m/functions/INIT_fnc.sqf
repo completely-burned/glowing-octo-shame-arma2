@@ -18,6 +18,7 @@ if (!IsDedicated) then {
 	m_fnc_resetActions = compile (preprocessFileLineNumbers (_path + "m_fnc_resetActions.sqf"));
 	Common_GetSafePosition = compile (preprocessFileLineNumbers (_path + "Common_GetSafePosition.sqf"));
 	ACT_WinchManager = compile (preprocessFileLineNumbers (_path + "ACT_WinchManager.sqf"));
+	m_fnc_rating = compile (preprocessFileLineNumbers (_path + "m_fnc_rating.sqf"));
 };
 m_fnc_check_config_use = compile (preprocessFileLineNumbers (_path + "m_fnc_check_config_use.sqf"));
 // m_fnc_returnGroupType = compile (preprocessFileLineNumbers (_path + "m_fnc_returnGroupType.sqf"));
