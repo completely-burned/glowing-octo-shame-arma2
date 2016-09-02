@@ -23,9 +23,9 @@ class Params {
 	};
 	class minGroups {		
 		title="(AI) minimum groups";
-		values[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150};
-		texts[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150};
-		default=20;
+		values[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
+		texts[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
+		default=40;
 	};
 	class maxGroups {		
 		title="(AI) maximum groups";
