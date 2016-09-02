@@ -6,10 +6,11 @@ waitUntil {!isNil "locationStarted"};
 waitUntil {!isNil "GroupsStarted"};
 waitUntil {!isNil "serverFPS"};
 
-private["_minFPS","_minGroups","_maxGroups"];
+private["_minFPS","_minGroups","_maxGroups","_enemyCoefficient"];
 _minFPS = missionNamespace getVariable "serverFPSmin";
 _minGroups = missionNamespace getVariable "minGroups";
 _maxGroups = missionNamespace getVariable "maxGroups";
+_enemyCoefficient = missionNamespace getVariable "enemyCoefficient";
 
 private["_all_groups","_friendlyGroups","_friendlyPatrols","_enemyGroups","_enemyPatrols","_enemySide"];
 	
@@ -76,17 +77,17 @@ while{true}do{
 			private ["_difference"];
 			_difference = ((_all_groups / 5) min 4);
 			// diag_log format ["UpdateReinforcement.sqf 106, %1", time];
-			if (_friendlyGroups * 1.75 + _difference >= _enemyGroups) then {
+			if (_friendlyGroups * _enemyCoefficient + _difference >= _enemyGroups) then {
 				[_enemySide call BIS_fnc_selectRandom] call m_fnc_call_reinforcement;
 			};
-			if (_enemyGroups + _difference >= _friendlyGroups * 1.75) then {
+			if (_enemyGroups + _difference >= _friendlyGroups * _enemyCoefficient) then {
 				[m_friendlySide call BIS_fnc_selectRandom] call m_fnc_call_reinforcement;
 			};
 			if ((_enemyPatrols + _friendlyPatrols) < ((_enemyGroups + _friendlyGroups) / 4)) then {
-				if (_friendlyPatrols + _difference >= _enemyPatrols) then {
+				if (_friendlyPatrols * _enemyCoefficient + _difference >= _enemyPatrols) then {
 					[_enemySide call BIS_fnc_selectRandom,"patrol"] call m_fnc_call_reinforcement;
 				};
-				if (_enemyPatrols + _difference >= _friendlyPatrols) then {
+				if (_enemyPatrols + _difference >= _friendlyPatrols * _enemyCoefficient) then {
 					[m_friendlySide call BIS_fnc_selectRandom,"patrol"] call m_fnc_call_reinforcement;
 				};
 			};
