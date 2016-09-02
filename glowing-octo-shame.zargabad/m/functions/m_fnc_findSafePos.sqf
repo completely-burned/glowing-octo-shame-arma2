@@ -74,7 +74,7 @@ while {_visible} do {
 			{
 				private "_leader";
 				_leader = leader _x;
-				if (!isNull _leader) then {
+				if (alive _leader) then {
 					if (( side _x getFriend _side) < 0.6 ) then {
 						if ((leader _x distance _testPos) < (_minDist min 1500))then {
 													_visible = true;
