@@ -18,6 +18,12 @@ SetGroupIconsVisible [true,false];
 
 [] spawn m_fnc_rating;
 [] spawn ACT_WinchManager;
+[] spawn m_fnc_handleFirstAid;
+[] spawn m_fnc_handlePlayableUnitsMarker;
+[] spawn m_fnc_handleJoinGroup;
+[] spawn m_fnc_handleTeleport;
+[] spawn m_fnc_handleLocationTask;
+[] spawn m_fnc_handleBuyMenu;
 [] spawn compile preprocessFileLineNumbers "m\client\clientMenu.sqf";
 [] spawn compile preprocessFileLineNumbers "m\client\updateClient.sqf";
 
