@@ -36,13 +36,18 @@ m_fnc_Locations_weights={
 };
 // private["_locationNext"];
 locationNext={
-	CivilianLocation setVariable ["time",time];
+	if(!isNil {CivilianLocation})then{
+		CivilianLocation setVariable ["time",time];
+	};
 	
 	private["_sizeLocation"];
-			_sizeLocation = 500;
+	_sizeLocation = 500;
 	private["_NextLocations"];
-		private["_NextLocation"];
-	_NextLocations = (nearestLocations [civilianBasePos, locationTypes, 5000] - [CivilianLocation]);
+	private["_NextLocation"];
+	_NextLocations = (nearestLocations [civilianBasePos, locationTypes, 5000]);
+	if(!isNil {CivilianLocation})then{
+		_NextLocations = (_NextLocations - [CivilianLocation]);
+	};
 	if(count _NextLocations >0 )then{
 		_NextLocation = (_NextLocations call m_fnc_Locations_weights) call BIS_fnc_selectRandomWeighted;
 		CivilianLocation = _NextLocation;
@@ -77,7 +82,7 @@ CreateMarker ["MainTown", getPos player];
 "MainTown" setMarkerShape "ELLIPSE";
 "MainTown" setMarkerColor "ColorBlack";
 
-CivilianLocation = locationNull;
+// CivilianLocation = locationNull;
 if(isMultiplayer)then{
 	private["_locationNull"];
 	_locationNull = true;
