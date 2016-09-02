@@ -57,6 +57,12 @@ class Params {
 		// texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00};
 		// default=1;
 	// };
+	class enemyCoefficient {
+		title="(AI) enemy coefficient";
+		values[] = {0.5,0.75,1,1.25,1.50,1.75,2,2.25,2.50,2.75,3,3.25,3.50,3.75,4};
+		texts[] = {0.5,0.75,1,1.25,1.50,1.75,2,2.25,2.50,2.75,3,3.25,3.50,3.75,4};
+		default=2;
+	};
 };
 
 class Weapons {
