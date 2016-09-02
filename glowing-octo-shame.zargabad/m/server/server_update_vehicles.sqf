@@ -32,7 +32,7 @@ _deleteList=[];
 			_veh setAmmoCargo 1;
 			if (_delete) then{
 				_count_transportammo = _count_transportammo + 1;
-				if (_count_transportammo <= 15) then {
+				if (_count_transportammo <= 50) then {
 					_delete = false;
 				};
 			};
@@ -41,7 +41,7 @@ _deleteList=[];
 			_veh setRepairCargo 1;
 			if (_delete) then{
 				_count_transportrepair = _count_transportrepair + 1;
-				if (_count_transportrepair <= 15) then {
+				if (_count_transportrepair <= 50) then {
 					_delete = false;
 				};
 			};
@@ -51,7 +51,7 @@ _deleteList=[];
 			_veh setFuel 1;
 			if (_delete) then{
 				_count_transportfuel = _count_transportfuel + 1;
-				if (_count_transportfuel <= 15) then {
+				if (_count_transportfuel <= 50) then {
 					_delete = false;
 				};
 			};
@@ -71,7 +71,7 @@ _deleteList=[];
 		if (_delete) then{
 			if ([[_veh], listMHQ] call m_fnc_CheckIsKindOfArray) then {
 				_countMHQ = _countMHQ + 1;
-				if (_countMHQ <= 15) then {
+				if (_countMHQ <= 50) then {
 					_delete = false;
 				};
 			};
