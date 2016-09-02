@@ -19,6 +19,11 @@ if (!IsDedicated) then {
 	Common_GetSafePosition = compile (preprocessFileLineNumbers (_path + "Common_GetSafePosition.sqf"));
 	ACT_WinchManager = compile (preprocessFileLineNumbers (_path + "ACT_WinchManager.sqf"));
 	m_fnc_rating = compile (preprocessFileLineNumbers (_path + "m_fnc_rating.sqf"));
+	m_fnc_handlePlayableUnitsMarker = compile (preprocessFileLineNumbers (_path + "m_fnc_handlePlayableUnitsMarker.sqf"));
+	m_fnc_handleJoinGroup = compile (preprocessFileLineNumbers (_path + "m_fnc_handleJoinGroup.sqf"));
+	m_fnc_handleTeleport = compile (preprocessFileLineNumbers (_path + "m_fnc_handleTeleport.sqf"));
+	m_fnc_handleLocationTask = compile (preprocessFileLineNumbers (_path + "m_fnc_handleLocationTask.sqf"));
+	m_fnc_handleBuyMenu = compile (preprocessFileLineNumbers (_path + "m_fnc_handleBuyMenu.sqf"));
 };
 m_fnc_check_config_use = compile (preprocessFileLineNumbers (_path + "m_fnc_check_config_use.sqf"));
 // m_fnc_returnGroupType = compile (preprocessFileLineNumbers (_path + "m_fnc_returnGroupType.sqf"));
@@ -50,6 +55,7 @@ m_FirstAid_handleDamage = compile (preprocessFileLineNumbers (_path + "m_FirstAi
 m_FirstAid_handleHeal = compile (preprocessFileLineNumbers (_path + "m_FirstAid_handleHeal.sqf"));
 m_fnc_vehInit = compile (preprocessFileLineNumbers (_path + "m_fnc_vehInit.sqf"));
 m_fnc_SalvageTruck = compile (preprocessFileLineNumbers (_path + "m_fnc_SalvageTruck.sqf"));
+m_fnc_handleFirstAid = compile (preprocessFileLineNumbers (_path + "m_fnc_handleFirstAid.sqf"));
 
 m_fnc_init = true;
 
