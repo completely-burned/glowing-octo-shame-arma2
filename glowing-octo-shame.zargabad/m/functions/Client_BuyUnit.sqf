@@ -54,6 +54,7 @@ if ((_type isKindOf "ReammoBox") or (getText(configFile >> "CfgVehicles" >> _typ
 			Private["_veh"];
 			_veh = (createVehicle [_type, _pos, [], 0.2, "FORM"]);
 			player reveal _veh;
+			hint format["%1: %2", localize "str_support_done", _type];
 	};
 };
 if (_type isKindOf "Man") then {
@@ -81,6 +82,7 @@ if (_type isKindOf "Man") then {
 					_veh setRank _rank;
 				};
 				_veh call _fnc_1;
+				hint format["%1: %2", localize "str_support_done", _type];
 			}else{
 				// _type createUnit [_pos, group player,"
 								// if (isServer) then {
@@ -109,6 +111,7 @@ if (_type isKindOf "Car") then {
 		player moveInDriver _veh;
 		_veh setPos _pos;
 		_veh call _fnc_1;
+		hint format["%1: %2", localize "str_support_done", _type];
 	};
 };
 if (_type isKindOf "Motorcycle") then {
@@ -124,6 +127,7 @@ if (_type isKindOf "Motorcycle") then {
 		player moveInDriver _veh;
 		_veh setPos _pos;
 		_veh call _fnc_1;
+		hint format["%1: %2", localize "str_support_done", _type];
 	};
 };
 if (_type isKindOf "Tank") then {
@@ -139,6 +143,7 @@ if (_type isKindOf "Tank") then {
 		player moveInDriver _veh;
 		_veh setPos _pos;
 		_veh call _fnc_1;
+		hint format["%1: %2", localize "str_support_done", _type];
 	};
 };
 if (_type isKindOf "Helicopter") then {
@@ -154,6 +159,7 @@ if (_type isKindOf "Helicopter") then {
 		player moveInDriver _veh;
 		_veh setPos _pos;
 		_veh call _fnc_1;
+		hint format["%1: %2", localize "str_support_done", _type];
 	};
 };
 if (_type isKindOf "Plane") then {
@@ -184,6 +190,7 @@ if (_type isKindOf "Plane") then {
 			_veh setPos _pos;
 			_veh call _fnc_1;
 		};
+		hint format["%1: %2", localize "str_support_done", _type];
 	}else{
 		if (_type isKindOf "MV22") then {
 			_Objects = (nearestObjects [player, ["Base_WarfareBAircraftFactory"]+_HQ, 100]);
@@ -197,6 +204,7 @@ if (_type isKindOf "Plane") then {
 				player moveInDriver _veh;
 				_veh setPos _pos;
 				_veh call _fnc_1;
+				hint format["%1: %2", localize "str_support_done", _type];
 			};
 		};
 	};
@@ -220,6 +228,7 @@ if ((_type isKindOf "Ship")) then {
 		_veh setVelocity [(_vel select 0)+(sin _dir*_speed),(_vel select 1)+ (cos _dir*_speed),0];
 		player moveInDriver _veh;
 		_veh call _fnc_1;
+		hint format["%1: %2", localize "str_support_done", _type];
 	};
 };
 }else{
