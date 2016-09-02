@@ -150,7 +150,7 @@ _fnc_vehicles = {
 	[_x, _x, [_x] call _fnc_vehicles, "","['%1'] call Client_BuyUnit"] call BIS_FNC_createmenu; 
 } forEach ["Car","Tank","Helicopter","Plane","Motorcycle","Ship"];
 
-["Pilot", "Pilot", ["USMC_Soldier_Pilot", "CDF_Soldier_Pilot", "RU_Soldier_Pilot", "Ins_Soldier_Pilot", "GUE_Soldier_Pilot", "US_Soldier_Pilot_EP1", "TK_Soldier_Pilot_EP1", "UN_CDF_Soldier_Pilot_EP1", "Soldier_Pilot_PMC", "BAF_Pilot_MTP"] call _fnc_units, "","['%1'] call Client_BuyUnit"] call BIS_FNC_createmenu; 
+["Pilot", "Pilot", ["USMC_Soldier_Pilot", "CDF_Soldier_Pilot", "RU_Soldier_Pilot", "Ins_Soldier_Pilot", "GUE_Soldier_Pilot", "US_Soldier_Pilot_EP1", "TK_Soldier_Pilot_EP1", "UN_CDF_Soldier_Pilot_EP1", "Soldier_Pilot_PMC", "BAF_Pilot_MTP", "Pilot"] call _fnc_units, "","['%1'] call Client_BuyUnit"] call BIS_FNC_createmenu; 
 
 private ["_fnc_vehicles_support"];
 _fnc_vehicles_support = {
