@@ -29,7 +29,8 @@ _list_BIS_FNC_createmenu=([
 	["player setDammage 1","player setDammage 1"],
 	["crew", "[] execvm 'm\client\ACT\ACT_HintCrew.sqf'"],
 	["nearestVehicle setVectorUp [0,0,100]", "{_x setVectorUp [0,0,100]}foreach [nearestObject [getpos player,'AllVehicles']];"],
-	["leave group", "[] execVM 'm\functions\join_grpNull.sqf'"]
+	["leave group", "[] execVM 'm\functions\join_grpNull.sqf'"],
+	["deleteVehicle vehicle player", "if(({alive _x} count crew vehicle player)<=1)then {deleteVehicle vehicle player};"]
 	// ["setdamage 0 LandVehicle nearestObject", "{_x setdamage 0}foreach [nearestObject [getpos player,'LandVehicle']];"],
 	// ["leader move player","leader player move getpos player"],
 	// ["setAccTime 0.5","setAccTime 0.5"],
@@ -233,8 +234,8 @@ BIS_MENU_GroupCommunication = [
 	["Teleport", [8], "#USER:teleport_0", -5, [["expression", ""]], "1", "1"],
 	// ["Teleport", [8], "", -5, [["expression", "[] call m_fnc_teleport"]], "1", "1"],
 
-	[Localize "STR_SQLCOMMDISBANDSEL" + " (%SELECTED_UNIT_ID)",[9],"",-5,[["expression","{moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"]],"1","1",-1],
+	[Localize "STR_SQLCOMMDISBANDSEL" + " (%SELECTED_UNIT_ID)",[9],"",-5,[["expression","{moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"]],"1","1",-1]
 
-	["ygaJIuTb TexHuKy",[10],"",-5,[["expression","deleteVehicle vehicle player"]],"1","IsAloneInVehicle"]
+	// ["ygaJIuTb TexHuKy",[10],"",-5,[["expression","deleteVehicle vehicle player"]],"1","IsAloneInVehicle"]
 
 ]; 
