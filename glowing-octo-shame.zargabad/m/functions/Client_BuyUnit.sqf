@@ -44,6 +44,7 @@ switch (playerSide) do {
 	};
 };
 
+if (_respawn_pos distance player > safeDistance) then {
 if ((_type isKindOf "ReammoBox") or (getText(configFile >> "CfgVehicles" >> _type >> "vehicleclass") in ["Ammo","ACE_Ammunition"])) then {
 	Private["_Objects"];
 	_Objects = (nearestObjects [player, ["Base_WarfareBBarracks"]+_HQ, 100]);
@@ -220,4 +221,7 @@ if ((_type isKindOf "Ship")) then {
 		player moveInDriver _veh;
 		_veh call _fnc_1;
 	};
+};
+}else{
+	hint format ["respawn safe distance %1m",safeDistance];
 };
