@@ -143,7 +143,7 @@ _getOut=[];
 				if (!_delete) then {
 					if (isNull _assignedVehicle) then {
 						if (isNil {group _x getVariable "patrol"}) then {
-							if (_x distance civilianBasePos > 1200 max sizeLocation) then {
+							if (_x distance civilianBasePos > 2500 max sizeLocation) then {
 								_delete = true;
 								_x setVariable ["time", time];
 							};
