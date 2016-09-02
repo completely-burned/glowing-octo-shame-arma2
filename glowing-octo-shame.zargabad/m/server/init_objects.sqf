@@ -37,7 +37,7 @@ respawnVehicleList=[];
 {
 	_x allowDamage false;
 	_x setVariable ["_noDelete",true];
-}forEach(allMissionObjects 'MASH')+(allMissionObjects 'ReammoBox'); 
+}forEach(allMissionObjects 'MASH')+(allMissionObjects 'ReammoBox')+(allMissionObjects 'WarfareBCamp'); 
 
 {
 	_x allowDamage false;

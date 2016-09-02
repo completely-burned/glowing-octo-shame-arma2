@@ -24,3 +24,4 @@ if (configName(configFile >> "CfgMods" >> "acex_usnavy") != "") then {acex_usnav
 listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","WarfareSalvageTruck_CDF","WarfareSalvageTruck_Gue","WarfareSalvageTruck_INS",
 "MtvrSalvage_DES_EP1","UralSalvage_TK_EP1","V3S_Salvage_TK_GUE_EP1"];
 
+safeDistance = 15;

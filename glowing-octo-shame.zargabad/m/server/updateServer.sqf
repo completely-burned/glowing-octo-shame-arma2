@@ -21,17 +21,6 @@ while {true} do {
 	if( (_time2 select _time2_select) < time )then{
 		_time2 set [_time2_select,time+5+random 5]; _time2_select = _time2_select + 1;
 		{
-			if(!alive _x)then{
-				if (((_x distance getMarkerPos "respawn_guerrila") < 100 ) or ((_x distance getMarkerPos "respawn_civilian") < 100 ) or ((_x distance getMarkerPos "respawn_west") < 100 ) or ((_x distance getMarkerPos "respawn_east") < 100 )) then {
-					deleteVehicle _x;
-				};
-			};
-		}forEach vehicles;
-	};
-	
-	if( (_time2 select _time2_select) < time )then{
-		_time2 set [_time2_select,time+5+random 5]; _time2_select = _time2_select + 1;
-		{
 			Private["_veh"];
 			_veh=_x;
 			if ([[_veh], listMHQ+["Warfare_HQ_base_unfolded"]] call m_fnc_CheckIsKindOfArray) then {
@@ -66,7 +55,7 @@ while {true} do {
 	};
 		
 	if( (_time2 select _time2_select) < time )then{
-		_time2 set [_time2_select,time+30+random 5]; _time2_select = _time2_select + 1;
+		_time2 set [_time2_select,time+5+random 5]; _time2_select = _time2_select + 1;
 		#include "server_update_other.sqf";
 	};
 		
