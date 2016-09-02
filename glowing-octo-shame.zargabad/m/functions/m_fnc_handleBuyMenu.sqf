@@ -85,6 +85,8 @@ while {true} do {
 					_Object setrepaircargo 1;
 				};
 
+				if (_respawn_pos distance player > safeDistance) then {
+
 				if (!_Buy_Man) then {
 					if ([[_type],["Base_WarfareBBarracks"]] call m_fnc_CheckIsKindOfArray) then {
 						_Buy_Man = true;
@@ -120,6 +122,8 @@ while {true} do {
 					if ([[_type],["Land_nav_pier_m_2","Land_nav_pier_m_F"]] call m_fnc_CheckIsKindOfArray) then {
 						_Buy_Ship = true;
 					};
+				};
+
 				};
 
 				if ([[_type],["LandVehicle","Air"]] call m_fnc_CheckIsKindOfArray) then {
