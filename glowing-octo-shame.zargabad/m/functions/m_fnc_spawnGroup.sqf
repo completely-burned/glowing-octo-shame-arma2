@@ -77,7 +77,6 @@ _groups = [];
 						_unit setRank _rank;
 			};
 			
-		sleep 0.001;
 	};
 
 	private ["_bestCandidate","_units"];
