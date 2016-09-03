@@ -230,9 +230,9 @@ _getOut=[];
 			
 		};
 
-		if(isDedicated)then{
-			_x call m_FirstAid;
-		};
+		// if(isDedicated)then{
+			// _x call m_FirstAid;
+		// };
 	};
 
 	if!(_allowGetin)then{

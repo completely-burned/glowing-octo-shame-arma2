@@ -1,14 +1,14 @@
 if (getNumber(configFile >> "CfgVehicles" >> typeOf _this >> "isMan") == 1) then {
 	if(isPlayer leader _this or isPlayer _this)then{
-		[nil, nil, "per", rSPAWN, _this, {
-			_this addeventhandler ["handledamage",{
-				_this call m_FirstAid_handleDamage
-			}];
-			_this addeventhandler ["handleheal",{
-				_this spawn m_FirstAid_handleHeal;
-				true;
-			}];
-		}] call RE;
+		// [nil, nil, "per", rSPAWN, _this, {
+			// _this addeventhandler ["handledamage",{
+				// _this call m_FirstAid_handleDamage
+			// }];
+			// _this addeventhandler ["handleheal",{
+				// _this spawn m_FirstAid_handleHeal;
+				// true;
+			// }];
+		// }] call RE;
 	};
 }else{
 	_this addEventHandler ["GetIn",{
