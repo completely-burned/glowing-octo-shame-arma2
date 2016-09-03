@@ -129,8 +129,9 @@ if(_isPlayer)then{
 			_veh removeMagazine "6Rnd_GBU12_AV8B"; 
 			_veh addMagazine "2Rnd_Maverick_A10";
 			_veh addMagazine "2Rnd_Maverick_A10";
-			_veh addMagazine "2Rnd_Maverick_A10";
 			_veh addWeapon "MaverickLauncher"; 
+			_veh addMagazine "2Rnd_Sidewinder_AH1Z";
+			_veh addWeapon "SidewinderLaucher_AH1Z"; 
 		};
 		if (_type isKindOf "F35B") then{
 			_veh forceSpeed 10000;
