@@ -72,7 +72,7 @@ while{true}do{
 	if(_all_groups < _maxGroups or _maxGroups == 0)then{
 		if((serverFPS > _minFPS) or (_all_groups < _minGroups))then{
 			private ["_difference"];
-			_difference = ((_all_groups / 5) min 4);
+			_difference = (((_all_groups / 5) min 4) max 2);
 			// diag_log format ["UpdateReinforcement.sqf 106, %1", time];
 			if (_friendlyGroups * _enemyCoefficient + _difference >= _enemyGroups) then {
 				[_enemySide call BIS_fnc_selectRandom] call m_fnc_call_reinforcement;
