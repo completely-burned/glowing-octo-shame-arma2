@@ -19,6 +19,3 @@ detach _healer;
 _unit setdamage (damage _unit / 2);
 
 _unit setvariable ["BIS_lifeState","ALIVE",true];
-_unit setvariable ["BIS_IS_inAgony",false,true];
-
-true;

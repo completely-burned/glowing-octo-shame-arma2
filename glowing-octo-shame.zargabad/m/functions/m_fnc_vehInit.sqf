@@ -5,7 +5,8 @@ if (getNumber(configFile >> "CfgVehicles" >> typeOf _this >> "isMan") == 1) then
 				_this call m_FirstAid_handleDamage
 			}];
 			_this addeventhandler ["handleheal",{
-				_this spawn m_FirstAid_handleHeal
+				_this spawn m_FirstAid_handleHeal;
+				true;
 			}];
 		}] call RE;
 	};
