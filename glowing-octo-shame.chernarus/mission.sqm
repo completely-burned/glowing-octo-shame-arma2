@@ -3181,7 +3181,7 @@ class Mission
 		class Item19
 		{
 			position[]={7523.6909,304.45483,6830.2925};
-			azimut=90;
+			azimut=270;
 			id=287;
 			side="EMPTY";
 			vehicle="RU_WarfareBAntiAirRadar";
