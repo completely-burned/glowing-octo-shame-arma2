@@ -104,10 +104,10 @@ if(ACE_Avail)then{
 // publicVariable "BIS_HC_mainscope";
 // };
 // эффекты 
-if ( LIB_ahAvail ) then {
-	(group_logic) createUnit ["WeatherPostprocessManager",[1000,10,0],[],0,"none"];
-	(group_logic) createUnit ["WeatherParticlesManager",[1000,10,0],[],0,"none"];
-};
+// if ( LIB_ahAvail ) then {
+	// (group_logic) createUnit ["WeatherPostprocessManager",[1000,10,0],[],0,"none"];
+	// (group_logic) createUnit ["WeatherParticlesManager",[1000,10,0],[],0,"none"];
+// };
 (group_logic) createUnit ["BIS_clouds_Logic",[1000,10,0],[],0,"none"];
 
 // гражданские
