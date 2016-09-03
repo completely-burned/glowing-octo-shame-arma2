@@ -9,7 +9,6 @@ if(isMultiplayer)then
 		{
 			[_players, _x] call BIS_fnc_arrayPush;
 		};
-		sleep 0.01;
 	} foreach playableunits;
 }
 else
@@ -26,7 +25,6 @@ if(count _players > 0)then{
 		if((_pos distance getpos _x) < _dist)then{
 			_nearestPlayer = _x
 		};
-		sleep 0.01;
 	} foreach _players;
 };
 [_nearestPlayer,_dist]

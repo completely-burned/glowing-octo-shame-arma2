@@ -33,7 +33,6 @@ while{true}do{
 				_visible = true;
 				BreakTo "Check1";
 			};
-			sleep 0.01;
 		} forEach (units _grp);
 
 		if(_visible)then{
@@ -55,14 +54,12 @@ while{true}do{
 		}else{
 			deleteGroup _grp;
 		};
-		sleep 0.01;
 	}forEach allGroups;
 
 	_all_groups=(_friendlyPatrols+_enemyPatrols+_friendlyGroups+_enemyGroups);
 	
 	if (isMultiplayer)then{
 		{
-			sleep 0.01;
 			if(isPlayer _x)then{
 				_friendlyGroups = _friendlyGroups + 3.5;
 			};
@@ -94,6 +91,6 @@ while{true}do{
 		};
 	};
 	// diag_log format ["UpdateReinforcement.sqf 121, %1", time];
-	sleep 15;
+	sleep 0.1;
 };
 		// if ((_guer < maxGroups/7*2)&&(_east+4 > _guer)&&(_west+4 > _guer)) then {

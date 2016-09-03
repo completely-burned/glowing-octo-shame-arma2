@@ -11,6 +11,5 @@ _Vehicles=[];
 			};
 		};
 	};
-	sleep 0.1;
 }foreach (units _this);
 _Vehicles;
