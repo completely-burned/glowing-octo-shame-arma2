@@ -12,10 +12,12 @@ _healer setdir 90;
 
 _healer playActionNow "medicStart";
 sleep 5;
+detach _healer;
+if (_healer getVariable "BIS_lifeState" == "UNCONSCIOUS") exitWith {false};
 _healer playActionNow "medicStop";
 
-AISFinishHeal _this;
-detach _healer;
 _unit setdamage (damage _unit / 2);
 
 _unit setvariable ["BIS_lifeState","ALIVE",true];
+waitUntil{lifestate _unit == "ALIVE" or !alive _unit or !alive _healer};
+AISFinishHeal _this;
