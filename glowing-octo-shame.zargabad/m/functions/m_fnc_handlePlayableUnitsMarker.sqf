@@ -25,11 +25,12 @@ if(isMultiplayer)then{
 					// _marker setMarkerDirLocal getDir _veh;
 					_marker setMarkerSizeLocal [3,3];
 					private ["_text"];
-					_text = name _unit;
+					_text = "";
+					_text = (_text + " " + "[" + getText(configFile >> 'CfgVehicles' >> (typeOf _veh) >> 'displayName') + "]");
 					if (lifeState _unit == "UNCONSCIOUS") then {
 						_text = _text + (" " + "{" + Localize "str_reply_injured" + "}");
 					};
-					_text = (_text + " " + "[" + getText(configFile >> 'CfgVehicles' >> (typeOf _veh) >> 'displayName') + "]");
+					_text = (_text + " " + name _unit);
 					_marker setMarkerTextLocal _text;
 				}else{
 					//set marker to invisible area on the map
