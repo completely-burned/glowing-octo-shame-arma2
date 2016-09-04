@@ -66,7 +66,7 @@ if(!isNull _grp)then{
 			_wp setWaypointType "MOVE";
 			_wp setWaypointTimeout [0, 0, 0];
 		}else{
-			_wp setWaypointType "DISMISS";
+			_wp setWaypointType "SAD";
 			_wp setWaypointTimeout [20, 60, 180];
 		};
 	}else{
