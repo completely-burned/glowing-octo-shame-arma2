@@ -2,9 +2,14 @@ waitUntil {!isNil "bis_fnc_init" && !isNil "m_fnc_init"};
 waitUntil {!isNil "listCrew" && !isNil "listMHQ"};
 waitUntil {!isNil "silvieManagerBlacklist" && !isNil "silvieManagerVehicles"};
 
-// #include "server_update_location.sqf";
-private["_east1","_west1","_resistance1"];
-_east1 = 0;_west1 = 0;_resistance1 = 0;
+private["_path"];
+_path = "m\server\";
+[] execVM (_path + "server_update_units.sqf");
+[] execVM (_path + "server_update_vehicles.sqf");
+[] execVM (_path + "server_update_respawnVehicles.sqf");
+[] execVM (_path + "server_update_other.sqf");
+[] execVM (_path + "server_update_location.sqf");
+[] execVM (_path + "server_update_silvieManager.sqf");
 
 private ["_time2","_delay","_time2_select"];
 _time2 = [time,time,time,time,time,time,time,time,time,time,time,time,time,time];
@@ -43,32 +48,4 @@ while {true} do {
 	// if(true)then{
 		// #include "server_update_groups.sqf";
 	// };
-		
-	if( (_time2 select _time2_select) < time )then{
-		_time2 set [_time2_select,time+4+random 2]; _time2_select = _time2_select + 1;
-		#include "server_update_units.sqf";
-	};
-		
-	if( (_time2 select _time2_select) < time )then{
-		_time2 set [_time2_select,time+5+random 5]; _time2_select = _time2_select + 1;
-		#include "server_update_vehicles.sqf";
-	};
-		
-	if( (_time2 select _time2_select) < time )then{
-		_time2 set [_time2_select,time+5+random 5]; _time2_select = _time2_select + 1;
-		#include "server_update_other.sqf";
-	};
-		
-	if(true)then{
-		#include "server_update_respawnVehicles.sqf";
-	};
-		
-	if( (_time2 select _time2_select) < time )then{
-		_time2 set [_time2_select,time+30+random 5]; _time2_select = _time2_select + 1;
-		#include "server_update_silvieManager.sqf";
-	};
-		
-	if(true)then{
-		#include "server_update_location.sqf";
-	};
 };

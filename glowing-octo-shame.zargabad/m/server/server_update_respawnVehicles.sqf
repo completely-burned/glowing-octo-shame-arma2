@@ -1,4 +1,5 @@
-﻿for "_i" from 0 to (count respawnVehicleList - 1) do {
+﻿while{true}do{
+for "_i" from 0 to (count respawnVehicleList - 1) do {
 	private["_veh","_pos","_dir","_type","_veh1"];
 	_veh = respawnVehicleList select _i;
 	_pos = _veh select 1;
@@ -37,3 +38,5 @@
 	sleep 0.01
 };
 
+	sleep 1;
+};

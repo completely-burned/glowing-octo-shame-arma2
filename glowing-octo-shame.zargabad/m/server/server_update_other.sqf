@@ -1,4 +1,5 @@
-﻿Private "_deleteList";
+﻿while{true}do{
+Private "_deleteList";
 _deleteList=[];
 
 {
@@ -48,3 +49,5 @@ forEach (allMissionObjects "Base_WarfareBVehicleServicePoint");
 	} forEach (nearestObjects [getMarkerPos "respawn_guerrila", ["AllVehicles","Strategic"], safeDistance])+(nearestObjects [getMarkerPos "respawn_civilian", ["AllVehicles","Strategic"], safeDistance])+(nearestObjects [getMarkerPos "respawn_west", ["AllVehicles","Strategic"], safeDistance])+(nearestObjects [getMarkerPos "respawn_east", ["AllVehicles","Strategic"], safeDistance]);
 	
 (_deleteList) call fnc_cleanup;
+	sleep 1;
+};

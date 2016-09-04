@@ -1,4 +1,5 @@
-﻿		private ["_twns"];
+﻿while{true}do{
+		private ["_twns"];
 		_twns=[];
 		{
 			private ["_twn"];
@@ -79,3 +80,5 @@
 			sleep 0.01;
 		}forEach ([] call BIS_fnc_listPlayers);
 			
+	sleep 10;
+};
