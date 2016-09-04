@@ -53,7 +53,7 @@ if ((_type isKindOf "ReammoBox") or (getText(configFile >> "CfgVehicles" >> _typ
 			_pos = position player;
 			_pos = [_pos, 1.5, getDir player] call BIS_fnc_relPos;
 			Private["_veh"];
-			_veh = (createVehicle [_type, _pos, [], 0.2, "FORM"]);
+			_veh = (_type createVehicleLocal _pos);
 			_veh setPos _pos;
 			player reveal _veh;
 			hint format["%1: %2", localize "str_support_done", _type];

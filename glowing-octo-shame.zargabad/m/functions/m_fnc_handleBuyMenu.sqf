@@ -50,6 +50,19 @@ switch (playerSide) do {
 	};
 };
 
+private ["_nearestObjects"];
+_nearestObjects = [
+	"LandVehicle",
+	"Air",
+	"Land_nav_pier_m_2","Land_nav_pier_m_F",
+	"Base_WarfareBVehicleServicePoint",
+	"Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F",
+	"Base_WarfareBBarracks","Base_WarfareBLightFactory",
+	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"];
+	if(!isServer)then{
+		_nearestObjects set [count _nearestObjects,"ReammoBox"];
+	};
+
 while {true} do {
 	private["_Objects"];
 	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship"];
@@ -59,15 +72,7 @@ while {true} do {
 		// _Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;
 	// };
 
-	_Objects = (nearestObjects [player, [
-	//"ReammoBox",
-	"LandVehicle",
-	"Air",
-	"Land_nav_pier_m_2","Land_nav_pier_m_F",
-	"Base_WarfareBVehicleServicePoint",
-	"Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F",
-	"Base_WarfareBBarracks","Base_WarfareBLightFactory",
-	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"], 100]);
+	_Objects = (nearestObjects [player, _nearestObjects, 100]);
 	if ((count _Objects > 0) && (vehicle player == player)) then {
 		{
 			private["_type","_Object"];
@@ -134,6 +139,16 @@ while {true} do {
 						private["_action"];
 						_action = _Object addAction ['Crew','m\client\ACT\ACT_HintCrew.sqf',[],0, false];
 						_Object setVariable ["hintCrewAction",_action];
+					};
+				};
+
+				if ([[_type],["ReammoBox"]] call m_fnc_CheckIsKindOfArray) then {
+					if (alive _Object) then {
+						_Object call m_fnc_updateReammoBox;
+					}else{
+						if (local _Object) then {
+							deleteVehicle _Object;
+						};
 					};
 				};
 			};
