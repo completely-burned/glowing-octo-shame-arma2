@@ -1,4 +1,5 @@
 ﻿
+while{true}do{
 private ["_allowGetin","_deleteList","_getOut"];
 _deleteList=[];
 _getOut=[];
@@ -247,3 +248,5 @@ _getOut allowGetin false;
 allUnits-_getOut allowGetin true;
 
 _deleteList call fnc_cleanup;
+	sleep 1;
+};
