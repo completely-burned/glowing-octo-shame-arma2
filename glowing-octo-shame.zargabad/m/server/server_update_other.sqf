@@ -19,7 +19,6 @@ forEach (allMissionObjects 'MASH');
 				_deleteList set [count _deleteList,_x];
 			};
 			_x call m_fnc_updateReammoBox;
-			sleep 1;
 		};
 	};
 }
