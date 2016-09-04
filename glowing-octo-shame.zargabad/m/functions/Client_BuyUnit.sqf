@@ -51,9 +51,11 @@ if ((_type isKindOf "ReammoBox") or (getText(configFile >> "CfgVehicles" >> _typ
 	if ( (count _Objects > 0) or ((player distance _respawn_pos) < 100 )) then {
 			Private["_pos"];
 			_pos = position player;
+			_pos = [_pos, 1, getDir player] call BIS_fnc_relPos;
 			Private["_veh"];
-			_veh = (createVehicle [_type, _pos, [], 0.2, "FORM"]);
+			_veh = (_type createVehicleLocal _pos);
 			player reveal _veh;
+			_veh setPos _pos;
 			hint format["%1: %2", localize "str_support_done", _type];
 	};
 };

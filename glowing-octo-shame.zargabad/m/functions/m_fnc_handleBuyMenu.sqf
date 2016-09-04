@@ -60,7 +60,7 @@ while {true} do {
 	// };
 
 	_Objects = (nearestObjects [player, [
-	//"ReammoBox",
+	"ReammoBox",
 	"LandVehicle",
 	"Air",
 	"Land_nav_pier_m_2","Land_nav_pier_m_F",
@@ -134,6 +134,16 @@ while {true} do {
 						private["_action"];
 						_action = _Object addAction ['Crew','m\client\ACT\ACT_HintCrew.sqf',[],0, false];
 						_Object setVariable ["hintCrewAction",_action];
+					};
+				};
+
+				if ([[_type],["ReammoBox"]] call m_fnc_CheckIsKindOfArray) then {
+					if (local _Object) then {
+						if (alive _Object) then {
+							_Object call m_fnc_updateReammoBox;
+						}else{
+							deleteVehicle _Object;
+						};
 					};
 				};
 			};
