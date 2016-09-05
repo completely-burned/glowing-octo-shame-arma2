@@ -113,7 +113,7 @@ _fnc_vehicles = {
 		_entry = ((configFile >> "CfgVehicles") select _i);
 		if (isClass _entry) then
 		{
-			if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side"))) or (!isMultiplayer)) then
+			if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side"))) or (!isMultiplayer) or true) then
 			{
 				if ((getNumber(_entry >> "scope")) == 2) then
 				{
