@@ -52,7 +52,7 @@ if(!isNull _grp)then{
 	if(_landing && _air)then{
 		_pos = civilianBasePos;
 		_maxDist = sizeLocation/2;
-		_WaypointCompletionRadius = (sizeLocation max 500);
+		_WaypointCompletionRadius = (sizeLocation max 750);
 		_SpeedMode = "NORMAL";
 	};
 
