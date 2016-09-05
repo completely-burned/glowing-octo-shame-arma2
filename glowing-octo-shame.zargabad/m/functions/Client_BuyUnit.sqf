@@ -152,16 +152,26 @@ if (_type isKindOf "Helicopter") then {
 	Private["_Objects"];
 	_Objects = (nearestObjects [player, ["Base_WarfareBAircraftFactory"]+_HQ, 100]);
 	if ( (count _Objects > 0) or ((player distance _respawn_pos) < 100 )) then {
-		Private["_veh"];
-		_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
-		_veh setDir getDir player;
-		Private["_pos"];
-		_pos = position player;
-		_pos resize 2;
-		player moveInDriver _veh;
-		_veh setPos _pos;
-		_veh call _fnc_1;
-		hint format["%1: %2", localize "str_support_done", _type];
+		if(_isUAV)then{
+			_pos = position player;
+			_pos resize 2;
+			Private["_veh"];
+			_veh = createVehicle [_type, _pos, [], 20, "FORM"];
+			_veh call _fnc_1;
+			[_veh, createGroup playerSide] call m_fnc_spawnCrew;
+			hint format["%1: %2", localize "str_support_done", _type];
+		}else{
+			Private["_veh"];
+			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+			_veh setDir getDir player;
+			Private["_pos"];
+			_pos = position player;
+			_pos resize 2;
+			player moveInDriver _veh;
+			_veh setPos _pos;
+			_veh call _fnc_1;
+			hint format["%1: %2", localize "str_support_done", _type];
+		};
 	};
 };
 if (_type isKindOf "Plane") then {
