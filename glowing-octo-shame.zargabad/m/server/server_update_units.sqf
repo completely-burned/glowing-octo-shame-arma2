@@ -173,7 +173,7 @@ _getOut=[];
 						_delete = false;
 						if ( _time < ( time + 180 ) )then {
 							_time = time + 180;
-							_veh setVariable ["time", _time];
+							_x setVariable ["time", _time];
 						};
 					};
 				};
