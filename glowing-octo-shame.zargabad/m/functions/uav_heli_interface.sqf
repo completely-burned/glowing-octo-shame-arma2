@@ -10,7 +10,7 @@ scriptName "UAV_Heli\data\scripts\uav_interface.sqf";
 		Nothing
 */
 _arguments = _this select 3;
-_logic = _arguments select 0;
+_logic = _arguments select 1 select 0;
 _defaultPlayer = _arguments select 1;
 _defaultTeamswitch = teamswitchenabled;
 
@@ -24,7 +24,7 @@ _uav = objnull;
 {
 	_unit = vehicle _x;
 	_isUAV = getnumber (configfile >> "cfgvehicles" >> typeof _unit >> "isUav");
-	if (_isUAV == 1 && alive vehicle _x && canmove vehicle _x && playerSide == side _x) then {_uav = _unit};
+	if (_isUAV == 1 && alive vehicle _x && canmove vehicle _x) then {_uav = _unit};
 } foreach _linked;
 
 //--- UAV destroyed
@@ -167,8 +167,10 @@ _eh_fired = _veh addeventhandler ["fired",{
 
 
 //--- HUD
-_classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getvariable "BIS_ULB_display"} else {"RscUnitInfoUAVHeli"};
-1001 cutrsc [_classDisplay,"plain"];
+with uinamespace do {
+	_classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getvariable "BIS_ULB_display"} else {"RscUnitInfoUAVHeli"};
+	1001 cutrsc [_classDisplay,"plain"];
+};
 
 //--- UAV Megaloop
 [_uav,_logic] spawn {
@@ -188,12 +190,12 @@ _classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getv
 
 	//--- LOOP -------------------------------------------------
 	while {cameraon == _uav} do {
-		if (visiblemap) then {1001 cuttext ["","plain"];};
+		if (visiblemap) then {1001 cuttext ["","plain"]; with uinamespace do {BIS_UAV_HELI_DISPLAY = nil;}};
 		waituntil {!visiblemap || cameraon != _uav};
 		if (cameraon != _uav) exitwith {};
 
 		(vehicle player) setvelocity [0,0,0];
-		(vehicle player) setdir (direction (vehicle player) );
+		(vehicle player) setdir (direction (vehicle player));
 
 		_i = _i + 1;
 		_target = lasertarget _uav;
@@ -233,10 +235,9 @@ _classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getv
 		};
 
 		with uinamespace do {
-			if (isnull BIS_UAV_HELI_DISPLAY) then {
+			if (isNil "BIS_UAV_HELI_DISPLAY") then {
 				_classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getvariable "BIS_ULB_display"} else {"RscUnitInfoUAVHeli"};
 				1001 cutrsc [_classDisplay,"plain"];
-				//1002 cuttext ["","black in",1];
 				[_logic] call BIS_UAV_HELI_eventHandlers;
 			};
 
@@ -256,8 +257,10 @@ _classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getv
 				_status = _this select 0;
 				_frames = _this select 1;
 				{
-					(BIS_UAV_HELI_DISPLAY displayctrl _x) ctrlshow _status;
-					(BIS_UAV_HELI_DISPLAY displayctrl _x) ctrlcommit 0;
+					if (!isNil "BIS_UAV_HELI_DISPLAY") then {
+						(BIS_UAV_HELI_DISPLAY displayctrl _x) ctrlshow _status;
+						(BIS_UAV_HELI_DISPLAY displayctrl _x) ctrlcommit 0;
+					};
 				} foreach _frames;
 			};
 			//------------------------
@@ -303,10 +306,12 @@ _classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getv
 						_dis = _pos distance [0.5,0.5];
 						_disFinal = 0.2 / _dis;
 						_pos = [0.5 + (((_pos select 0) - 0.5) * _disFinal),0.5 + (((_pos select 1) - 0.5) * _disFinal)];
-
-						(BIS_UAV_HELI_DISPLAY displayctrl 1006) ctrlsetposition [(_pos select 0)-0.04*safezoneH,(_pos select 1)-0.04*safezoneH,0.08*safezoneH,0.08*safezoneH];
-						(BIS_UAV_HELI_DISPLAY displayctrl 1006) ctrlshow true;
-						(BIS_UAV_HELI_DISPLAY displayctrl 1006) ctrlcommit 0;
+						
+						if (!isNil "BIS_UAV_HELI_DISPLAY") then {
+							(BIS_UAV_HELI_DISPLAY displayctrl 1006) ctrlsetposition [(_pos select 0)-0.04*safezoneH,(_pos select 1)-0.04*safezoneH,0.08*safezoneH,0.08*safezoneH];
+							(BIS_UAV_HELI_DISPLAY displayctrl 1006) ctrlshow true;
+							(BIS_UAV_HELI_DISPLAY displayctrl 1006) ctrlcommit 0;
+						};
 					} else {[false,[1006]] call _showFrame;};
 					[true,_accFrames] call _showFrame;
 				} else {
@@ -321,10 +326,12 @@ _classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getv
 			} else {
 				_pos = worldtoscreen position _targetCursor;
 				if (count _pos > 0) then {
-					(BIS_UAV_HELI_DISPLAY displayctrl 1003) ctrlsetposition [(_pos select 0)-0.04*safezoneH,(_pos select 1)-0.04*safezoneH,0.08*safezoneH,0.08*safezoneH];
-					(BIS_UAV_HELI_DISPLAY displayctrl 1003) ctrlshow true;
-					(BIS_UAV_HELI_DISPLAY displayctrl 1003) ctrlcommit 0;
-					[true,_targetCursorFrames] call _showFrame;
+					if (!isNil "BIS_UAV_HELI_DISPLAY") then {
+						(BIS_UAV_HELI_DISPLAY displayctrl 1003) ctrlsetposition [(_pos select 0)-0.04*safezoneH,(_pos select 1)-0.04*safezoneH,0.08*safezoneH,0.08*safezoneH];
+						(BIS_UAV_HELI_DISPLAY displayctrl 1003) ctrlshow true;
+						(BIS_UAV_HELI_DISPLAY displayctrl 1003) ctrlcommit 0;
+						[true,_targetCursorFrames] call _showFrame;
+					};
 				};
 				_side = side _targetCursor;
 				if (_side == civilian) then {_side = ""};
@@ -338,8 +345,11 @@ _classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getv
 				_vehdistance,
 				if (isnull _target) then {""} else {round (_veh distance _target)}
 			];
-			(BIS_UAV_HELI_DISPLAY displayctrl 1010) ctrlsettext _text;
-			(BIS_UAV_HELI_DISPLAY displayctrl 1010) ctrlcommit 0;
+			
+			if (!isNil "BIS_UAV_HELI_DISPLAY") then {
+				(BIS_UAV_HELI_DISPLAY displayctrl 1010) ctrlsettext _text;
+				(BIS_UAV_HELI_DISPLAY displayctrl 1010) ctrlcommit 0;
+			};
 
 			//--- Left Bottom
 			_text = format [
@@ -347,8 +357,11 @@ _classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getv
 				_wpnName,
 				_veh ammo _weapon
 			];
-			(BIS_UAV_HELI_DISPLAY displayctrl 1011) ctrlsettext _text;
-			(BIS_UAV_HELI_DISPLAY displayctrl 1011) ctrlcommit 0;
+			
+			if (!isNil "BIS_UAV_HELI_DISPLAY") then {
+				(BIS_UAV_HELI_DISPLAY displayctrl 1011) ctrlsettext _text;
+				(BIS_UAV_HELI_DISPLAY displayctrl 1011) ctrlcommit 0;
+			};
 
 			//--- Right
 			_text = format [
@@ -357,8 +370,10 @@ _classDisplay = if (!isnil {_uav getvariable "BIS_ULB_display"}) then {_uav getv
 				_side,
 				if (isnull _target) then {""} else {round (_uav distance _target)}
 			];
-			(BIS_UAV_HELI_DISPLAY displayctrl 1020) ctrlsettext _text;
-			(BIS_UAV_HELI_DISPLAY displayctrl 1020) ctrlcommit 0;
+			if (!isNil "BIS_UAV_HELI_DISPLAY") then {
+				(BIS_UAV_HELI_DISPLAY displayctrl 1020) ctrlsettext _text;
+				(BIS_UAV_HELI_DISPLAY displayctrl 1020) ctrlcommit 0;
+			};
 		};
 
 		sleep _delay;
@@ -515,6 +530,7 @@ objnull remoteControl _camera;
 enableteamswitch _defaultTeamswitch;
 bis_uav_terminate = nil;
 1001 cuttext ["","plain"];
+with uinamespace do {BIS_UAV_HELI_DISPLAY = nil};
 
 //--- Reenable sentences
 enableSentences true;
