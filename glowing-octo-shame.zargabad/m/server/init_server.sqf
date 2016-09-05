@@ -5,6 +5,10 @@
 
 onPlayerConnected {
 	"MainTown" setMarkerPos getMarkerPos "MainTown";
+	"respawn_west" setMarkerPos getMarkerPos "respawn_west";
+	"respawn_east" setMarkerPos getMarkerPos "respawn_east";
+	"respawn_guerrila" setMarkerPos getMarkerPos "respawn_guerrila";
+	"respawn_civilian" setMarkerPos getMarkerPos "respawn_civilian";
 };
 
 if(isMultiplayer)then{
