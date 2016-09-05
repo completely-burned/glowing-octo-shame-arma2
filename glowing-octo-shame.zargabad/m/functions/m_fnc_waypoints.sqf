@@ -83,7 +83,7 @@ if(!isNull _grp)then{
 				_x spawn {
 					private ["_grp"];
 					_grp = group _this;
-					waitUntil{(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= waypointCompletionRadius [_grp, currentwaypoint _grp])};
+					waitUntil{(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 100 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
 					{
 						if(group _x != _grp)then{
 							if(_this isKindOf "Plane")then{
