@@ -15,7 +15,11 @@ if ((count _this) > 2) then {
 	_crewType = (_typicalCargo select 0);
 }else{
 	_typicalCargo=[];
-	_crewType = getText (_entry >> "crew");
+	if (((getNumber (_entry >> "side")) call m_fnc_getSide) == side _grp) then {
+		_crewType = getText (_entry >> "crew");
+	}else{
+		_crewType = ([side _grp, _type] call m_fnc_defaultCrew);
+	};
 };
 
 _hasDriver = getNumber (_entry >> "hasDriver");
@@ -42,11 +46,10 @@ if(_type == "FDF_leopard2a4")then{
 {
 	if (isNull (_vehicle turretUnit _x)) then {
 		if(count _typicalCargo > count _crew)then{
-			_crewType = (_typicalCargo select (count _crew));
+			_unit = _grp createUnit [(_typicalCargo select (count _crew)), position _vehicle, [], 0, "FORM"];
 		}else{
-			_crewType = getText (_entry >> "crew");
+			_unit = _grp createUnit [_crewType, position _vehicle, [], 0, "FORM"];
 		};
-		_unit = _grp createUnit [_crewType, position _vehicle, [], 0, "FORM"];
 		_crew = _crew + [_unit];
 		_unit moveInTurret [_vehicle, _x];
 	};
