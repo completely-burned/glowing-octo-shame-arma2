@@ -6,7 +6,6 @@ private["_path"];
 _path = "m\server\";
 [] execVM (_path + "server_update_units.sqf");
 [] execVM (_path + "server_update_vehicles.sqf");
-[] execVM (_path + "server_update_respawnVehicles.sqf");
 [] execVM (_path + "server_update_other.sqf");
 [] execVM (_path + "server_update_location.sqf");
 [] execVM (_path + "server_update_silvieManager.sqf");

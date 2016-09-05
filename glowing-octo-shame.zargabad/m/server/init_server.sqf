@@ -1,3 +1,5 @@
+[] execVM ("m\server\" + "server_update_respawnVehicles.sqf");
+
 ///--- настройки миссии
 
 // OnPlayerConnected "[_id, _uid, _name] ExecVM (corePath + ""Server\Server_PlayerConnected.sqf"")";
