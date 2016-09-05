@@ -122,36 +122,29 @@ if (count _vehicles > 0) then {
 
 
 // время удаления, и прочее
+private["_random2","_random5","_random10"];
+_random2 = random 2; _random5 = random 5; _random10 = random 10;
 if (_patrol)then{
 	{
-		_x setVariable ["time", time + 60];
-	} foreach _vehicles;
-	{
-		_x setVariable ["time", time + (60 * 2) + (60 * (1.5))];
+		_x setVariable ["time", time + (60 * 9) + (60 * _random2)];
 	} foreach (_units );
 	_groups select 0 setVariable ["patrol_pos", _pos_resp];
 	_groups select 0 setBehaviour "SAFE";
 }else{
 	if (("air" in _types) || ("plane" in _types) || ("uav" in _types))then{
 		{
-			_x setVariable ["time", time + 60];
-		} foreach _vehicles;
-		{
-			_x setVariable ["time", time + (60 * (5 + random 5))];
+			_x setVariable ["time", time + (60 * (5 + _random5))];
 		} foreach _units;
 	}else{
 		{
-			_x setVariable ["time", time + 60];
-		} foreach _vehicles;
-		{
-			_x setVariable ["time", time + (60 * (30))];
+			_x setVariable ["time", time + (60 * (40 + _random10))];
 		} foreach (_units);
 	};
 };
 
 if(count _cargo2 > 0)then{
 	{
-		_x setVariable ["time", time + (60 * (10))];
+		_x setVariable ["time", time + (60 * (10 + _random5))];
 	} foreach (_cargo2);
 };
 
