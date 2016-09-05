@@ -785,7 +785,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=15;
+		items=14;
 		class Item0
 		{
 			position[]={4963.3589,79.494255,11776.477};
@@ -808,7 +808,7 @@ class Mission
 		};
 		class Item2
 		{
-			position[]={5001.4185,83.497742,11777.018};
+			position[]={4971.9478,80.374512,11772.466};
 			azimut=180;
 			id=2;
 			side="EMPTY";
@@ -908,29 +908,19 @@ class Mission
 		};
 		class Item12
 		{
-			position[]={4971.7993,80.356506,11772.741};
-			azimut=175.14195;
-			id=76;
-			side="EMPTY";
-			vehicle="UAZ_Unarmed_TK_EP1";
-			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true]";
-		};
-		class Item13
-		{
 			position[]={5872.9438,83.290001,11391.178};
 			azimut=-137.03181;
-			id=77;
+			id=76;
 			side="EMPTY";
 			vehicle="BMP2_HQ_TK_unfolded_Base_EP1";
 			skill=0.60000002;
 			init="this allowDamage false;";
 		};
-		class Item14
+		class Item13
 		{
 			position[]={8049.8926,296.04001,1981.8599};
 			azimut=-299.53711;
-			id=78;
+			id=77;
 			side="EMPTY";
 			vehicle="BMP2_HQ_TK_unfolded_Base_EP1";
 			skill=0.60000002;
