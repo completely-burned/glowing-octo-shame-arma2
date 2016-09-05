@@ -25,10 +25,8 @@ class Mission
 		"warfarebuildings",
 		"CAWheeled2_MMT",
 		"CAWheeled_E_ATV",
-		"camisc3",
 		"caweapons_acr",
 		"CAWheeled_E_LandRover",
-		"camisc_e",
 		"caweapons_e_ammoboxes",
 		"mountains_acr"
 	};
@@ -53,9 +51,9 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={3234.4221,225.53207,4415.7446};
-					azimut=-61.852776;
-					id=5;
+					position[]={6136.8027,336.28491,4864.1567};
+					azimut=246.93544;
+					id=4;
 					side="CIV";
 					vehicle="TK_CIV_Takistani01_EP1";
 					leader=1;
@@ -71,8 +69,9 @@ class Mission
 				items=9;
 				class Item0
 				{
-					position[]={3222.4604,225.5092,4436.8872};
-					id=12;
+					position[]={6112.8325,335.74945,4868.0815};
+					azimut=308.78818;
+					id=9;
 					side="WEST";
 					vehicle="CZ_Soldier_SL_DES_EP1";
 					player="PLAYER COMMANDER";
@@ -82,8 +81,9 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={3225.4604,225.49759,4431.8872};
-					id=13;
+					position[]={6118.6074,335.78333,4867.2842};
+					azimut=308.78818;
+					id=10;
 					side="WEST";
 					vehicle="CZ_Soldier_805g_Dst_ACR";
 					player="PLAY CDG";
@@ -92,8 +92,9 @@ class Mission
 				};
 				class Item2
 				{
-					position[]={3227.4604,225.48799,4431.8872};
-					id=14;
+					position[]={6119.8633,335.74316,4868.8438};
+					azimut=308.78818;
+					id=11;
 					side="WEST";
 					vehicle="CZ_Soldier_MG2_Dst_ACR";
 					player="PLAY CDG";
@@ -102,8 +103,9 @@ class Mission
 				};
 				class Item3
 				{
-					position[]={3229.4604,225.47839,4431.8872};
-					id=15;
+					position[]={6121.1138,335.76917,4870.4058};
+					azimut=308.78818;
+					id=12;
 					side="WEST";
 					vehicle="CZ_Soldier805_DES_ACR";
 					player="PLAY CDG";
@@ -112,8 +114,9 @@ class Mission
 				};
 				class Item4
 				{
-					position[]={3231.4604,225.47519,4431.8872};
-					id=16;
+					position[]={6122.3643,335.78598,4871.96};
+					azimut=308.78818;
+					id=13;
 					side="WEST";
 					vehicle="CZ_Sharpshooter_DES_ACR";
 					player="PLAY CDG";
@@ -122,8 +125,9 @@ class Mission
 				};
 				class Item5
 				{
-					position[]={3233.4604,225.52638,4431.8872};
-					id=17;
+					position[]={6123.6187,335.91309,4873.521};
+					azimut=308.78818;
+					id=14;
 					side="WEST";
 					vehicle="CZ_Soldier_RPG_Dst_ACR";
 					player="PLAY CDG";
@@ -132,8 +136,9 @@ class Mission
 				};
 				class Item6
 				{
-					position[]={3235.4604,225.57759,4431.8872};
-					id=18;
+					position[]={6124.8745,335.92307,4875.0806};
+					azimut=308.78818;
+					id=15;
 					side="WEST";
 					vehicle="CZ_Soldier_RPG_Ass_Dst_ACR";
 					player="PLAY CDG";
@@ -141,8 +146,9 @@ class Mission
 				};
 				class Item7
 				{
-					position[]={3237.4604,225.63261,4431.8872};
-					id=19;
+					position[]={6126.1211,335.93002,4876.6392};
+					azimut=308.78818;
+					id=16;
 					side="WEST";
 					vehicle="CZ_Soldier_medik_DES_EP1";
 					player="PLAY CDG";
@@ -150,8 +156,9 @@ class Mission
 				};
 				class Item8
 				{
-					position[]={3226.574,225.45256,4434.3682};
-					id=20;
+					position[]={6117.3677,335.72,4869.708};
+					azimut=308.78818;
+					id=17;
 					side="WEST";
 					vehicle="CZ_Soldier_Engineer_Dst_ACR";
 					player="PLAY CDG";
@@ -162,11 +169,11 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=11;
+		items=8;
 		class Item0
 		{
-			position[]={3194.1682,222.26955,4391.2729};
-			azimut=-211.07899;
+			position[]={6128.7783,336.31381,4861.0923};
+			azimut=97.709206;
 			id=0;
 			side="EMPTY";
 			vehicle="M1130_HQ_unfolded_Base_EP1";
@@ -175,18 +182,18 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={3195.2512,226.33055,4422.6641};
-			azimut=180;
+			position[]={6156.5781,337.29025,4850.0586};
+			azimut=488.78806;
 			id=1;
 			side="EMPTY";
-			vehicle="WarfareBDepot";
+			vehicle="WarfareBCamp";
 			skill=0.2;
 			init="this allowDamage false";
 		};
 		class Item2
 		{
-			position[]={3175.771,227.27283,4414.7856};
-			azimut=198.23801;
+			position[]={6150.5146,338.06912,4829.9419};
+			azimut=507.02606;
 			id=2;
 			side="EMPTY";
 			vehicle="MMT_USMC";
@@ -195,8 +202,8 @@ class Mission
 		};
 		class Item3
 		{
-			position[]={3180.259,226.53458,4411.5034};
-			azimut=-896.37;
+			position[]={6155.8857,338.05725,4831.3804};
+			azimut=-587.58246;
 			id=3;
 			side="EMPTY";
 			vehicle="ATV_CZ_EP1";
@@ -205,71 +212,43 @@ class Mission
 		};
 		class Item4
 		{
-			position[]={3234.928,225.54163,4415.4204};
-			azimut=-21.650032;
-			id=4;
+			position[]={6153.2007,337.69531,4837.3291};
+			azimut=308.78818;
+			id=5;
 			side="EMPTY";
-			vehicle="HeliHEmpty";
+			vehicle="CZBasicWeapons_EP1";
 			skill=0.60000002;
 			init="this allowDamage false";
 		};
 		class Item5
 		{
-			position[]={3183.2124,226.75975,4415.7944};
+			position[]={6170.1787,337.10416,4858.082};
+			azimut=121.10215;
 			id=6;
-			side="EMPTY";
-			vehicle="CZBasicWeapons_EP1";
-			skill=0.60000002;
-			init="this allowDamage false";
-		};
-		class Item6
-		{
-			position[]={3192.8674,226.26959,4419.1553};
-			azimut=90;
-			id=7;
-			side="EMPTY";
-			vehicle="CZBasicWeapons_EP1";
-			skill=0.60000002;
-			init="this allowDamage false; this setPos [getPos this select 0, getPos this select 1, (getPos this select 2) + 1]";
-		};
-		class Item7
-		{
-			position[]={3210.0251,225.3791,4417.0874};
-			azimut=-187.686;
-			id=8;
 			side="EMPTY";
 			vehicle="LandRover_CZ_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true]";
 		};
-		class Item8
+		class Item6
 		{
-			position[]={3210.2268,225.77928,4423.5996};
-			azimut=-450.0513;
-			id=9;
-			side="EMPTY";
-			vehicle="MASH_EP1";
-			skill=0.60000002;
-			init="this allowDamage false";
-		};
-		class Item9
-		{
-			position[]={3197.6655,225.95929,4419.1284};
-			azimut=90;
-			id=10;
+			position[]={6151.3687,337.57721,4839.0903};
+			azimut=398.78809;
+			id=7;
 			side="EMPTY";
 			vehicle="TKBasicAmmunitionBox_EP1";
 			skill=0.60000002;
-			init="this allowDamage false; this setPos [getPos this select 0, getPos this select 1, (getPos this select 2) + 1]";
+			init="this allowDamage false;";
 		};
-		class Item10
+		class Item7
 		{
-			position[]={3195.4512,226.40781,4423.9795};
-			id=11;
+			position[]={6148.8916,337.44171,4840.9248};
+			azimut=308.78818;
+			id=8;
 			side="EMPTY";
 			vehicle="USLaunchers_EP1";
 			skill=0.60000002;
-			init="this allowDamage false; this setPos [getPos this select 0, getPos this select 1, (getPos this select 2) + 3.45]";
+			init="this allowDamage false;";
 		};
 	};
 	class Markers
@@ -277,14 +256,14 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={3195.3372,226.31686,4422.5303};
+			position[]={6156.7334,337.29175,4850.042};
 			name="respawn_west";
 			type="Depot";
 			colorName="ColorBlue";
 		};
 		class Item1
 		{
-			position[]={3195.3372,226.31686,4422.5303};
+			position[]={6156.7334,337.29175,4850.042};
 			name="respawn_civilian";
 			type="Depot";
 			colorName="ColorYellow";
