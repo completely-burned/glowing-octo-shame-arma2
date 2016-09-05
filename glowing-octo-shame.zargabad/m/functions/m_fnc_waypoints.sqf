@@ -52,7 +52,7 @@ if(!isNull _grp)then{
 	if(_landing && _air)then{
 		_pos = civilianBasePos;
 		_maxDist = sizeLocation/2;
-		_WaypointCompletionRadius = (sizeLocation max 500);
+		_WaypointCompletionRadius = (sizeLocation max 800);
 		_SpeedMode = "NORMAL";
 	};
 
@@ -80,7 +80,10 @@ if(!isNull _grp)then{
 				_x spawn {
 					private ["_grp","_distance"];
 					_grp = group _this;
-					_distance = _WaypointCompletionRadius;
+					_distance = waypointCompletionRadius [_grp, currentwaypoint _grp];
+					if(_this isKindOf "Plane")then{
+						_distance = _distance max 1200;
+					};
 					waitUntil{(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= _distance)};
 					{
 						if(group _x != _grp)then{
