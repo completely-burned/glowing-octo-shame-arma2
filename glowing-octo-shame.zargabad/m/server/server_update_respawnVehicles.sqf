@@ -1,4 +1,22 @@
-﻿while{true}do{
+﻿waitUntil{!isNil "m_fnc_init"};
+waitUntil {!isNil "BIS_fnc_init"};
+
+respawnVehicleList=[];
+{
+	private ["_respawnVehicle"];
+	_respawnVehicle = (_x getVariable "respawnVehicle");
+	if (!isNil "_respawnVehicle") then {
+		private ["_type"]; 
+		_type = _x getVariable "respawnType"; 
+		if(isNil "_type")then{
+			_type = typeOf _x;
+		}; 
+		respawnVehicleList = respawnVehicleList + [[_x, [getPos _x, getDir _x], _type]];
+		_x setVehicleLock "UNLOCKED";
+	};
+}forEach vehicles;
+
+while{true}do{
 for "_i" from 0 to (count respawnVehicleList - 1) do {
 	private["_veh","_pos","_dir","_type","_veh1"];
 	_veh = respawnVehicleList select _i;
