@@ -22,22 +22,6 @@ while {true} do {
 
 	allDead call fnc_cleanup;
 	
-	if( (_time2 select _time2_select) < time )then{
-		_time2 set [_time2_select,time+5+random 5]; _time2_select = _time2_select + 1;
-		{
-			Private["_veh"];
-			_veh=_x;
-			if ([[_veh], listMHQ+["Warfare_HQ_base_unfolded"]] call m_fnc_CheckIsKindOfArray) then {
-				Private["_coin"];
-				_coin = (_veh getvariable "m_COIN_ID");
-				if (isNil "_coin") then {
-					_veh setvariable ["m_COIN_ID",true]; 
-					_veh spawn m_fnc_mobileHQ_init;
-				};
-			};
-		}forEach vehicles+(allMissionObjects "Warfare_HQ_base_unfolded");
-	};
-		
 	// BIS_GC_trashItFunc
 	if( (_time2 select _time2_select) < time )then{
 		_time2 set [_time2_select,time+30+random 5]; _time2_select = _time2_select + 1;

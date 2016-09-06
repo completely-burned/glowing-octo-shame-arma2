@@ -9,20 +9,6 @@ _HQ = [];
 	};
 } forEach ["BRDM2_HQ_Base","BTR90_HQ","LAV25_HQ","BMP2_HQ_Base","M1130_CV_EP1","Warfare_HQ_base_unfolded"];
 
-_BuyMenu = [
-	["#USER:Man_0","#USER:Ammo_0","#USER:Car_0","#USER:Tank_0","#USER:Helicopter_0","#USER:Plane_0","#USER:Motorcycle_0","#USER:Ship_0","#USER:UAV_0"],
-	[gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName"),
-	gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName"),
-	gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName"),
-	gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName"),
-	gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName"),
-	gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName"),
-	gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName"),
-	gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName"),
-	gettext(configfile >> "cfgvehicles" >> "UAV" >> "displayName")],
-	[0,0,0,0,0,0,0,0,0]
-];
-
 40 CutRsc["OptionsAvailable","PLAIN",0];
 
 _OptionsAvailable = [];
@@ -52,6 +38,7 @@ switch (playerSide) do {
 
 private ["_nearestObjects"];
 _nearestObjects = [
+	"Warfare_HQ_base_unfolded",
 	"LandVehicle",
 	"Air",
 	"Land_nav_pier_m_2","Land_nav_pier_m_F",
@@ -65,12 +52,14 @@ _nearestObjects = [
 
 while {true} do {
 	private["_Objects"];
-	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship"];
-	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false;
+	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport"];
+	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false;
 
-	// if ((player distance _respawn_pos) < 100 ) then {
-		// _Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;
-	// };
+	if ((player distance _respawn_pos) < 100 ) then {
+		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
+	};
+
+	_BuyMenu = [[],[],[]];
 
 	_Objects = (nearestObjects [player, _nearestObjects, 100]);
 	if ((count _Objects > 0) && (vehicle player == player)) then {
@@ -83,6 +72,12 @@ while {true} do {
 				// if (true && _type isKindOf "ReammoBox") then {
 					// [_Object,_type] call _fnc_reamoBox;
 				// };
+
+				if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
+					if ([[_type],["Warfare_HQ_base_unfolded"]+listMHQ] call m_fnc_CheckIsKindOfArray) then {
+						_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
+					};
+				};
 
 				if (_type isKindOf "Base_WarfareBVehicleServicePoint") then {
 					_Object setammocargo 1;
@@ -119,7 +114,7 @@ while {true} do {
 
 				if !(_Buy_Plane) then {
 					if ([[_type],["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F"]] call m_fnc_CheckIsKindOfArray) then {
-						_Buy_Plane = true;
+						_Buy_Plane = true; _Airport = true;
 					};
 				};
 
@@ -204,109 +199,97 @@ while {true} do {
 		// (BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + 0)) CtrlSetText ("\CA\Warfare2\Images\icon_barracks.paa");
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_gear_ca.paa")]; 
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_barracks_ca.paa")]; 
-		_Buy_Man = 1;
-		if (isnil {player getvariable "_Buy_Man"} && !isnull player && (leader player == player)) then {
-			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName"), "m\functions\action_buy_menu.sqf", "#USER:Man_0", 1, false, false];
-			player setvariable ["_Buy_Man",_action];
+
+		private["_0","_1","_2"];
+		if (leader player == player) then {
+			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+			_0 set [count _0, "#USER:Man_0"];
+			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
+			_2 set [count _2, 1];
+			_BuyMenu = [_0,_1,_2];
 		};
-		if (isnil {player getvariable "_Buy_Ammo"} && !isnull player) then {
-			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName"), "m\functions\action_buy_menu.sqf", "#USER:Ammo_0", 1, false, false];
-			player setvariable ["_Buy_Ammo",_action];
-		};
-	}else{
-		// (BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + 0)) CtrlSetText ("");
-		_Buy_Man = 0;
-		player removeAction (player getVariable "_Buy_Man");
-		player setvariable ["_Buy_Man", nil];
-		player removeAction (player getVariable "_Buy_Ammo");
-		player setvariable ["_Buy_Ammo", nil];
+
+		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+		_0 set [count _0, "#USER:Ammo_0"];
+		_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
+		_2 set [count _2, 1];
+		_BuyMenu = [_0,_1,_2];
 	};
 	if (_Buy_Car or _Buy_Ship) then {
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_lvs_ca.paa")]; 
 	};
 	if (_Buy_Car) then {
-		_Buy_Car = 1;
-		if (isnil {player getvariable "_Buy_Car"} && !isnull player) then {
-			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName"), "m\functions\action_buy_menu.sqf", "#USER:Car_0", 1, false, false];
-			player setvariable ["_Buy_Car",_action];
-		};
-		if (isnil {player getvariable "_Buy_Motorcycle"} && !isnull player) then {
-			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName"), "m\functions\action_buy_menu.sqf", "#USER:Motorcycle_0", 1, false, false];
-			player setvariable ["_Buy_Motorcycle",_action];
-		};
-	}else{
-		_Buy_Car = 0;
-		player removeAction (player getVariable "_Buy_Car");
-		player setvariable ["_Buy_Car", nil];
-		player removeAction (player getVariable "_Buy_Motorcycle");
-		player setvariable ["_Buy_Motorcycle", nil];
+		private["_0","_1","_2"];
+		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+		_0 set [count _0, "#USER:Car_0"];
+		_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName")];
+		_2 set [count _2, 1];
+		_BuyMenu = [_0,_1,_2];
+		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+		_0 set [count _0, "#USER:Motorcycle_0"];
+		_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName")];
+		_2 set [count _2, 1];
+		_BuyMenu = [_0,_1,_2];
 	};
 	if (_Buy_Tank) then {
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hvs_ca.paa")]; 
-		_Buy_Tank = 1;
-		if (isnil {player getvariable "_Buy_Tank"} && !isnull player) then {
-			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName"), "m\functions\action_buy_menu.sqf", "#USER:Tank_0", 1, false, false];
-			player setvariable ["_Buy_Tank",_action];
-		};
-	}else{
-		_Buy_Tank = 0;
-		player removeAction (player getVariable "_Buy_Tank");
-		player setvariable ["_Buy_Tank", nil];
+		private["_0","_1","_2"];
+		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+		_0 set [count _0, "#USER:Tank_0"];
+		_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName")];
+		_2 set [count _2, 1];
+		_BuyMenu = [_0,_1,_2];
 	};
 	if (_Buy_Helicopter) then {
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_air_ca.paa")]; 
-		_Buy_Helicopter = 1;
-		if (isnil {player getvariable "_Buy_Helicopter"} && !isnull player) then {
-			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName"), "m\functions\action_buy_menu.sqf", "#USER:Helicopter_0", 1, false, false];
-			player setvariable ["_Buy_Helicopter",_action];
-		};
-	}else{
-		_Buy_Helicopter = 0;
-		player removeAction (player getVariable "_Buy_Helicopter");
-		player setvariable ["_Buy_Helicopter", nil];
+		private["_0","_1","_2"];
+		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+		_0 set [count _0, "#USER:Helicopter_0"];
+		_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName")];
+		_2 set [count _2, 1];
+		_BuyMenu = [_0,_1,_2];
 	};
 	if (_Buy_Plane) then {
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hangar_ca.paa")]; 
-		_Buy_Plane = 1;
-		if (isnil {player getvariable "_Buy_Plane"} && !isnull player) then {
-			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName"), "m\functions\action_buy_menu.sqf", "#USER:Plane_0", 1, false, false];
-			player setvariable ["_Buy_Plane",_action];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + localize "str_support", "m\functions\action_buy_menu.sqf", "#USER:Support_0", 1, false, false];
-			player setvariable ["_Buy_Support",_action];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + localize "str_getin_pos_pilot", "m\functions\action_buy_menu.sqf", "#USER:Pilot_0", 1, false, false];
-			player setvariable ["_Buy_Pilot",_action];
+		private["_0","_1","_2"];
+		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+		_0 set [count _0, "#USER:Plane_0"];
+		_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName")];
+		_2 set [count _2, 1];
+		_BuyMenu = [_0,_1,_2];
+		if (_Airport) then {
+			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+			_0 set [count _0, "#USER:Support_0"];
+			_1 set [count _1, localize "str_support"];
+			_2 set [count _2, 1];
+			_BuyMenu = [_0,_1,_2];
+			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+			_0 set [count _0, "#USER:Pilot_0"];
+			_1 set [count _1, localize "str_getin_pos_pilot"];
+			_2 set [count _2, 1];
+			_BuyMenu = [_0,_1,_2];
 		};
-	}else{
-		_Buy_Plane = 0;
-		player removeAction (player getVariable "_Buy_Plane");
-		player setvariable ["_Buy_Plane", nil];
-		player removeAction (player getVariable "_Buy_Support");
-		player setvariable ["_Buy_Support", nil];
-		player removeAction (player getVariable "_Buy_Pilot");
-		player setvariable ["_Buy_Pilot", nil];
 	};
 	if (_Buy_Ship) then {
-		_Buy_Ship = 1;
-		if (isnil {player getvariable "_Buy_Ship"} && !isnull player) then {
+		private["_0","_1","_2"];
+		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+		_0 set [count _0, "#USER:Ship_0"];
+		_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
+		_2 set [count _2, 1];
+		_BuyMenu = [_0,_1,_2];
+	};
+	
+	if (_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) then {
+		if (isnil {player getvariable "_Buy_Menu"} && !isnull player) then {
 			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy" + " " + gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName"), "m\functions\action_buy_menu.sqf", "#USER:Ship_0", 1, false, false];
-			player setvariable ["_Buy_Ship",_action];
+			_action = player addaction [localize "str_buy_gear_buy", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
+			player setvariable ["_Buy_Menu",_action];
 		};
 	}else{
-		_Buy_Ship = 0;
-		player removeAction (player getVariable "_Buy_Ship");
-		player setvariable ["_Buy_Ship", nil];
+		player removeAction (player getVariable "_Buy_Menu");
+		player setvariable ["_Buy_Menu", nil];
 	};
-		_Buy_UAV = 0;
-	
-	_BuyMenu set [2,[_Buy_Man,_Buy_Man,_Buy_Car,_Buy_Tank,_Buy_Helicopter,_Buy_Plane,_Buy_Car,_Buy_Ship,_Buy_UAV]];
+
 	["BuyMenu", "BuyMenu", _BuyMenu, "%1", ""] call BIS_FNC_createmenu; 
 	
 	for "_i" from 0 to (count _OptionsAvailable - 1) do {
