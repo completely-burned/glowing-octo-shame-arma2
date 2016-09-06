@@ -295,7 +295,7 @@ while {true} do {
 	for "_i" from 0 to (count _OptionsAvailable - 1) do {
 		(BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + _i)) CtrlSetText (_OptionsAvailable select _i);
 	};
-	for "_i" from (count _OptionsAvailable) to (4) do {
+	for "_i" from (count _OptionsAvailable) to (10) do {
 		(BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + _i)) CtrlSetText ("");
 	};
 	_OptionsAvailable = [];
