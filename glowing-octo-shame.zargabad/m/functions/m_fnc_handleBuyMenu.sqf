@@ -112,9 +112,9 @@ while {true} do {
 					};
 				};
 
-				if !(_Buy_Plane) then {
+				if (!_Buy_Plane or !_Buy_Helicopter) then {
 					if ([[_type],["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F"]] call m_fnc_CheckIsKindOfArray) then {
-						_Buy_Plane = true; _Airport = true;
+						_Buy_Plane = true; _Airport = true; _Buy_Helicopter = true;
 					};
 				};
 
