@@ -53,7 +53,7 @@ _teleportLocations resize (5 min count _teleportLocations);
 		};
 		default {};
 	};
-} foreach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital")+(allMissionObjects "Warfare_HQ_base_unfolded")+vehicles
+} foreach (allMissionObjects "WarfareBDepot")+(allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital")+(allMissionObjects "Warfare_HQ_base_unfolded")+vehicles
 +[_reapawnPlayer]
 +_teleportLocations;
 
