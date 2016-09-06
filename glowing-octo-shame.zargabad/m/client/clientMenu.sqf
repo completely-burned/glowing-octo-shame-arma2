@@ -85,7 +85,7 @@ _fnc_units = {
 								if (_libEnabled) then {
 									if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
 										if ([[(configname _entry)],_this] call m_fnc_CheckIsKindOfArray) then {
-											_dataListUnit = _dataListUnit + [configname _entry];
+											_dataListUnit set [count _dataListUnit, configname _entry];
 										};
 									};
 								};
@@ -99,7 +99,7 @@ _fnc_units = {
 	private ["_dataListUnitNames"];
 	_dataListUnitNames = [];
 	{
-		_dataListUnitNames = _dataListUnitNames + [format ["%1, %2, %3", getText(configfile >> "CfgVehicles" >> _x >> "displayName"),getText(configFile >> "CfgFactionClasses" >> (getText(configfile >> "CfgVehicles" >> _x >> "faction")) >> "displayName"),getText(configFile >> "CfgvehicleClasses" >> (getText(configfile >> "CfgVehicles" >> _x >> "vehicleclass")) >> "displayName")]];
+		_dataListUnitNames set [count _dataListUnitNames, format ["%1, %2, %3", getText(configfile >> "CfgVehicles" >> _x >> "displayName"),getText(configFile >> "CfgFactionClasses" >> (getText(configfile >> "CfgVehicles" >> _x >> "faction")) >> "displayName"),getText(configFile >> "CfgvehicleClasses" >> (getText(configfile >> "CfgVehicles" >> _x >> "vehicleclass")) >> "displayName")]];
 	}foreach _dataListUnit;
 	[_dataListUnit, _dataListUnitNames];
 };
@@ -123,12 +123,12 @@ _fnc_vehicles = {
 						if ([[(configname _entry)],_this] call m_fnc_CheckIsKindOfArray) then {
 							if ((getText(_entry >> "simulation")) == "soldier") then{
 								if (getNumber(_entry >> "isMan") == 1) then{
-									_dataListVeh = _dataListVeh + [configname _entry];
+									_dataListVeh set [count _dataListVeh, configname _entry];
 								};
 							}else{
 								if !(getText(_entry >> "simulation") in ["invisible", "house", "thing", "flagcarrier", "fire", "breakablehouseproxy", "breakablehouse", "parachute"]) then {
 									if!(configname _entry isKindOf "Chukar")then{
-										_dataListVeh = _dataListVeh + [configname _entry];
+										_dataListVeh set [count _dataListVeh, configname _entry];
 									};
 								};
 							};
@@ -140,7 +140,7 @@ _fnc_vehicles = {
 	};
 	_dataListVehNames = [];
 	{
-		_dataListVehNames = _dataListVehNames + [format ["%1 %2", getText(configfile >> "CfgVehicles" >> _x >> "displayName"),getText(configFile >> "CfgFactionClasses" >> (getText(configfile >> "CfgVehicles" >> _x >> "faction")) >> "displayName")]];
+		_dataListVehNames set [count _dataListVehNames, format ["%1 %2", getText(configfile >> "CfgVehicles" >> _x >> "displayName"),getText(configFile >> "CfgFactionClasses" >> (getText(configfile >> "CfgVehicles" >> _x >> "faction")) >> "displayName")]];
 	}foreach _dataListVeh;
 	[_dataListVeh, _dataListVehNames];
 };
@@ -172,12 +172,12 @@ _fnc_vehicles_support = {
 						if ((getNumber(_entry >> "transportammo")> 0) or (getNumber(_entry >> "transportrepair")> 0) or (getNumber(_entry >> "transportfuel")> 0) or ([[configname _entry], listSalvageTruck] call m_fnc_CheckIsKindOfArray)) then {
 							if ((getText(_entry >> "simulation")) == "soldier") then{
 								if (getNumber(_entry >> "isMan") == 1) then{
-									_dataListVeh = _dataListVeh + [configname _entry];
+									_dataListVeh set [count _dataListVeh, configname _entry];
 								};
 							}else{
 								if !(getText(_entry >> "simulation") in ["invisible", "house", "thing", "flagcarrier", "fire", "breakablehouseproxy", "breakablehouse", "parachute"]) then {
 									if!(configname _entry isKindOf "Chukar")then{
-										_dataListVeh = _dataListVeh + [configname _entry];
+										_dataListVeh set [count _dataListVeh, configname _entry];
 									};
 								};
 							};
@@ -189,7 +189,7 @@ _fnc_vehicles_support = {
 	};
 	_dataListVehNames = [];
 	{
-		_dataListVehNames = _dataListVehNames + [format ["%1 %2", getText(configfile >> "CfgVehicles" >> _x >> "displayName"),getText(configFile >> "CfgFactionClasses" >> (getText(configfile >> "CfgVehicles" >> _x >> "faction")) >> "displayName")]];
+		_dataListVehNames set [count _dataListVehNames, format ["%1 %2", getText(configfile >> "CfgVehicles" >> _x >> "displayName"),getText(configFile >> "CfgFactionClasses" >> (getText(configfile >> "CfgVehicles" >> _x >> "faction")) >> "displayName")]];
 	}foreach _dataListVeh;
 	[_dataListVeh, _dataListVehNames];
 };
