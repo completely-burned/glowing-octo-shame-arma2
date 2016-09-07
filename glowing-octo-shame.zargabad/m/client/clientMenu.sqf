@@ -2,9 +2,7 @@
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu; 
 
-waitUntil{!isNil "fnc_libEnabled"};
 waitUntil{!isNil "BIS_FNC_createmenu"};
-waitUntil{!isNil "m_fnc_CheckIsKindOfArray"};
 
 _list_BIS_FNC_createmenu2=
 {
@@ -38,7 +36,49 @@ _list_BIS_FNC_createmenu=([
 	// ["hint typeof nearestBuilding player","hint typeof nearestBuilding player"]
 ] call _list_BIS_FNC_createmenu2);
 
+["#USER:c_0", "c", [_list_BIS_FNC_createmenu select 1, _list_BIS_FNC_createmenu select 0, _list_BIS_FNC_createmenu select 2], "","%1"] call BIS_FNC_createmenu; 
+["setTerrainGrid", "setTerrainGrid", [[50,25,12.5,6.25,3.125],["50","25","12.5","6.25","3.125"]], "","setTerrainGrid %1"] call BIS_FNC_createmenu; 
+["setViewDistance", "setViewDistance", [
+	[ -1,  2000,  2500,  3000,  3500,  4000,  4500,  5000,  5500,  6000,  6500,  7000,  7500,  8000,  8500,  9000,  9500,  10000],
+	["-1","2000","2500","3000","3500","4000","4500","5000","5500","6000","6500","7000","7500","8000","8500","9000","9500","10000"]
+], "","setViewDistance %1"] call BIS_FNC_createmenu; 
 
+BIS_MENU_GroupCommunication = [
+
+	//--- Name, context sensitive
+
+	["User menu",true],
+
+	//--- Item name, shortcut, -5 (do not change), expression, show, enable
+
+	["BuyMenu", [2], "#USER:BuyMenu_0", -3, [["expression", ""]], "1", "1"],
+
+	[localize "str_usract_lock_target", [3], "#WATCH", -5, [["expression", ""]], "1", "1"],
+
+	["setTerrainGrid", [4], "#USER:setTerrainGrid_0", -5, [["expression", ""]], "1", "1"],
+
+	["setViewDistance", [5], "#USER:setViewDistance_0", -5, [["expression", ""]], "1", "1"],
+
+	// [format ["%1, %2, %3",localize "str_dn_cars" ,localize "str_dn_armored" ,localize "str_dn_air"], [5], "#USER:d_0", -5, [["expression", ""]], "1", "1"],
+
+	[localize "STR_SOM_REQUEST_SUPPORT", [6], "#USER:BIS_MENU_SOM_Support", -5, [["expression", ""]], "1", "1", -1],
+
+	// [ "s_dn_mo", [6], "#USER:f_0", -5, [["expression", ""]], "1", "1"],
+
+	[localize "str_more_menu", [7], "#USER:c_0", -5, [["expression", ""]], "1", "1"],
+
+	["Teleport", [8], "#USER:teleport_0", -5, [["expression", ""]], "1", "1"],
+	// ["Teleport", [8], "", -5, [["expression", "[] call m_fnc_teleport"]], "1", "1"],
+
+	[Localize "STR_SQLCOMMDISBANDSEL" + " (%SELECTED_UNIT_ID)",[9],"",-5,[["expression","{moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"]],"1","1",-1]
+
+	// ["ygaJIuTb TexHuKy",[10],"",-5,[["expression","deleteVehicle vehicle player"]],"1","IsAloneInVehicle"]
+
+]; 
+
+
+waitUntil{!isNil "fnc_libEnabled"};
+waitUntil{!isNil "m_fnc_CheckIsKindOfArray"};
 		
 private ["_dataListAmmoBox"];
 _dataListAmmoBox = [];
@@ -196,46 +236,6 @@ _fnc_vehicles_support = {
 ["Support", "Support", "Support" call _fnc_vehicles_support, "","['%1'] call Client_BuyUnit"] call BIS_FNC_createmenu; 
 
 
-["#USER:c_0", "c", [_list_BIS_FNC_createmenu select 1, _list_BIS_FNC_createmenu select 0, _list_BIS_FNC_createmenu select 2], "","%1"] call BIS_FNC_createmenu; 
-["setTerrainGrid", "setTerrainGrid", [[50,25,12.5,6.25,3.125],["50","25","12.5","6.25","3.125"]], "","setTerrainGrid %1"] call BIS_FNC_createmenu; 
-["setViewDistance", "setViewDistance", [
-	[ -1,  2000,  2500,  3000,  3500,  4000,  4500,  5000,  5500,  6000,  6500,  7000,  7500,  8000,  8500,  9000,  9500,  10000],
-	["-1","2000","2500","3000","3500","4000","4500","5000","5500","6000","6500","7000","7500","8000","8500","9000","9500","10000"]
-], "","setViewDistance %1"] call BIS_FNC_createmenu; 
-
 
 
 buyMenuLoaded=true;
-
-BIS_MENU_GroupCommunication = [
-
-	//--- Name, context sensitive
-
-	["User menu",true],
-
-	//--- Item name, shortcut, -5 (do not change), expression, show, enable
-
-	["BuyMenu", [2], "#USER:BuyMenu_0", -3, [["expression", ""]], "1", "1"],
-
-	[localize "str_usract_lock_target", [3], "#WATCH", -5, [["expression", ""]], "1", "1"],
-
-	["setTerrainGrid", [4], "#USER:setTerrainGrid_0", -5, [["expression", ""]], "1", "1"],
-
-	["setViewDistance", [5], "#USER:setViewDistance_0", -5, [["expression", ""]], "1", "1"],
-
-	// [format ["%1, %2, %3",localize "str_dn_cars" ,localize "str_dn_armored" ,localize "str_dn_air"], [5], "#USER:d_0", -5, [["expression", ""]], "1", "1"],
-
-	[localize "STR_SOM_REQUEST_SUPPORT", [6], "#USER:BIS_MENU_SOM_Support", -5, [["expression", ""]], "1", "1", -1],
-
-	// [ "s_dn_mo", [6], "#USER:f_0", -5, [["expression", ""]], "1", "1"],
-
-	[localize "str_more_menu", [7], "#USER:c_0", -5, [["expression", ""]], "1", "1"],
-
-	["Teleport", [8], "#USER:teleport_0", -5, [["expression", ""]], "1", "1"],
-	// ["Teleport", [8], "", -5, [["expression", "[] call m_fnc_teleport"]], "1", "1"],
-
-	[Localize "STR_SQLCOMMDISBANDSEL" + " (%SELECTED_UNIT_ID)",[9],"",-5,[["expression","{moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"]],"1","1",-1]
-
-	// ["ygaJIuTb TexHuKy",[10],"",-5,[["expression","deleteVehicle vehicle player"]],"1","IsAloneInVehicle"]
-
-]; 
