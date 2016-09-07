@@ -26,6 +26,7 @@ if (count _nearestLocations > 0) then {
 
 _pos resize 2;
 
+vehicle player setVelocity [0, 0, 0];
 vehicle player setPos (([_pos] call Common_GetSafePosition) findEmptyPosition [0,100]);
 vehicle player setVectorUp [0,0,1];
 private ["_inList"];
