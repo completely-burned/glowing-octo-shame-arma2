@@ -24,6 +24,7 @@ if (!IsDedicated) then {
 	m_fnc_handleTeleport = compile (preprocessFileLineNumbers (_path + "m_fnc_handleTeleport.sqf"));
 	m_fnc_handleLocationTask = compile (preprocessFileLineNumbers (_path + "m_fnc_handleLocationTask.sqf"));
 	m_fnc_handleBuyMenu = compile (preprocessFileLineNumbers (_path + "m_fnc_handleBuyMenu.sqf"));
+	m_fnc_turnVehicle = compile (preprocessFileLineNumbers (_path + "m_fnc_turnVehicle.sqf"));
 };
 m_fnc_check_config_use = compile (preprocessFileLineNumbers (_path + "m_fnc_check_config_use.sqf"));
 // m_fnc_returnGroupType = compile (preprocessFileLineNumbers (_path + "m_fnc_returnGroupType.sqf"));
