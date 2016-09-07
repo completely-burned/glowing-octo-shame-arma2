@@ -6,11 +6,12 @@ waitUntil {!isNil "locationStarted"};
 waitUntil {!isNil "GroupsStarted"};
 waitUntil {!isNil "serverFPS"};
 
-private["_minFPS","_minGroups","_maxGroups","_enemyCoefficient"];
+private["_minFPS","_minGroups","_maxGroups","_enemyCoefficient","_playerCoefficient"];
 _minFPS = missionNamespace getVariable "serverFPSmin";
 _minGroups = missionNamespace getVariable "minGroups";
 _maxGroups = missionNamespace getVariable "maxGroups";
 _enemyCoefficient = missionNamespace getVariable "enemyCoefficient";
+_playerCoefficient = missionNamespace getVariable "playerCoefficient";
 
 private["_all_groups","_friendlyGroups","_friendlyPatrols","_enemyGroups","_enemyPatrols","_enemySide"];
 	
@@ -61,11 +62,11 @@ while{true}do{
 	if (isMultiplayer)then{
 		{
 			if(isPlayer _x)then{
-				_friendlyGroups = _friendlyGroups + 3.5;
+				_friendlyGroups = _friendlyGroups + _playerCoefficient;
 			};
 		}forEach playableUnits;
 	}else{
-		_friendlyGroups = _friendlyGroups + 4.5;
+		_friendlyGroups = _friendlyGroups + _playerCoefficient;
 	};
 
 	
