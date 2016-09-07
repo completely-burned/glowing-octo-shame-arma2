@@ -25,7 +25,7 @@ _list_BIS_FNC_createmenu=([
 	["SetGroupIconsVisible [true,true]","SetGroupIconsVisible [true,true];"],
 	// ["setCaptive true","player setCaptive true"],
 	["player setDammage 1","player setDammage 1"],
-	["crew", "[] execvm 'm\client\ACT\ACT_HintCrew.sqf'"],
+	// ["crew", "[] execvm 'm\client\ACT\ACT_HintCrew.sqf'"],
 	["turn vehicle", "nearestObjects [getpos player, ['AllVehicles'], 10] call m_fnc_turnVehicle;"],
 	["leave group", "[] execVM 'm\functions\join_grpNull.sqf'"],
 	["deleteVehicle vehicle player", "if(({alive _x} count crew vehicle player)<=1)then {deleteVehicle vehicle player};"]
