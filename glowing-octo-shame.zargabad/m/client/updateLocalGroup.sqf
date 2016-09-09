@@ -8,7 +8,7 @@ while {true} do {
 					doStop _x;
 				};
 			};
-		}forEach units _player;
+		}forEach units _player - [_player];
 	};
 	sleep 2;
 };
