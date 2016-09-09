@@ -3340,7 +3340,7 @@ class Mission
 					vehicle="LocationLogicCityCenter";
 					leader=1;
 					skill=0.60000002;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""infantry"", true];";
+					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
