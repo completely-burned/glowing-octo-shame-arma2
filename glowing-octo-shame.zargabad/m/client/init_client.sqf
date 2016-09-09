@@ -26,6 +26,7 @@ SetGroupIconsVisible [true,false];
 [] spawn m_fnc_handleBuyMenu;
 [] spawn compile preprocessFileLineNumbers "m\client\clientMenu.sqf";
 [] spawn compile preprocessFileLineNumbers "m\client\updateClient.sqf";
+[] execVM "m\client\updateLocalGroup.sqf";
 
 
 waitUntil{(!isNull player)};
