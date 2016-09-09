@@ -26,3 +26,50 @@ listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","Warfare
 Airport = ["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F"];
 
 safeDistance = 15;
+
+/// listCrew + listMHQ ///
+listCrew = [];
+listMHQ=["BRDM2_HQ_Base","BMP2_HQ_Base"];
+if ( LIB_a2Avail ) then {
+	listMHQ=listMHQ+[
+		"BTR90_HQ",
+		"LAV25_HQ"
+	];
+	listCrew=listCrew+[
+		"USMC_Soldier_Crew", 
+		"USMC_Soldier_Pilot", 
+		"CDF_Soldier_Crew", 
+		"CDF_Soldier_Pilot", 
+		"RU_Soldier_Crew", 
+		"RU_Soldier_Pilot", 
+		"Ins_Soldier_Crew", 
+		"Ins_Soldier_Pilot", 
+		"GUE_Soldier_Crew", 
+		"GUE_Soldier_Pilot"
+	];
+};
+if ( LIB_ahAvail ) then {
+	listMHQ=listMHQ+[
+		"M1130_CV_EP1"
+	];
+	listCrew=listCrew+[
+		"US_Soldier_Crew_EP1", 
+		"US_Soldier_Pilot_EP1", 
+		"TK_Soldier_Crew_EP1", 
+		"TK_Soldier_Pilot_EP1", 
+		"UN_CDF_Soldier_Crew_EP1", 
+		"UN_CDF_Soldier_Pilot_EP1",
+		"Soldier_Crew_PMC", 
+		"Soldier_Pilot_PMC",
+		"BAF_crewman_MTP", 
+		"BAF_crewman_w",
+		"BAF_Pilot_MTP"
+	];
+};
+if ( configName(configFile >> "CfgMods" >> "ACR") != "" ) then {
+	listCrew=listCrew+[
+		"CZ_Soldier_Crew_Dst_ACR",
+		"CZ_Soldier_Crew_Wdl_ACR",
+		"CZ_Soldier_Pilot_EP1"
+	];
+};
