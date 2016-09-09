@@ -27,9 +27,10 @@ for "_i" from 0 to (count respawnVehicleList - 1) do {
 	_veh = _veh select 0;
 	if((_veh distance _pos) > sizeOf _type)then{
 		_veh setVariable ["time", time];
-		_veh1 = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
+		_veh1 = createVehicle [_type, [0, 0], [], 0, "CAN_COLLIDE"];
 		_veh1 call m_fnc_vehInit;
 		_veh1 setDir _dir;
+		_veh1 setPos _pos;
 		_veh1 setVectorUp [0,0,1];
 		[respawnVehicleList, [_i, 0], _veh1] call BIS_fnc_setNestedElement;
 	}else{
@@ -40,7 +41,7 @@ for "_i" from 0 to (count respawnVehicleList - 1) do {
 				// {
 					// if(!alive _x)then{deleteVehicle _x};
 				// }forEach (_pos nearObjects ["AllVehicles",sizeOf _type]);
-				_veh1 = createVehicle [_type, [_pos select 0, _pos select 1], [], 0, "CAN_COLLIDE"];
+				_veh1 = createVehicle [_type, [0, 0], [], 0, "CAN_COLLIDE"];
 				_veh1 call m_fnc_vehInit;
 				_veh1 setDir _dir;
 				_veh1 setPos _pos;
