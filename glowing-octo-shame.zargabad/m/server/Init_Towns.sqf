@@ -34,6 +34,10 @@ m_fnc_Locations_weights={
 	};
 	[_this,_weights];
 };
+
+waitUntil {!isNil "AllGroupsWestOld"};
+waitUntil {!isNil "AllGroupsEastOld"};
+waitUntil {!isNil "AllGroupsGuerrilaOld"};
 // private["_locationNext"];
 locationNext={
 	if(!isNil {CivilianLocation})then{
@@ -70,7 +74,41 @@ locationNext={
 		// CivilianLocation = locationNull;
 	};
 
+	if (isNil {CivilianLocation getVariable "infantry"}) then {
+		AllGroupsWest 		= AllGroupsWestOld;
+		AllGroupsEast 		= AllGroupsEastOld;
+		AllGroupsGuerrila 	= AllGroupsGuerrilaOld;
+	}else{
+		private["_fnc4"];
+		_fnc4={
+			private["_grp","_types"];
+			_grp = _this select 0;
+			for "_i" from 0 to ((count (_grp select 0)) - 1) do {
+				_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
+				{
+					if ([_types, _x select 0] call m_fnc_CheckIsKindOfArray) then {
+						private["_rarity"];
+						_rarity = ([_grp, [1, _i]] call BIS_fnc_returnNestedElement);
+						_rarity = (_rarity * (_x select 1));
+						[_grp, [1, _i],  _rarity] call BIS_fnc_setNestedElement;
+					};
+				
+				}forEach (_this select 1);
+			};
+			_grp
+		};
 
+		private["_infantry"];
+		_infantry=[
+			[["Air"], 				0],
+			[["Tank"], 				0],
+			[["Car","Motorcycle"], 0]
+		];
+
+		AllGroupsWest 		= ([AllGroupsWestOld, _infantry] call _fnc4);
+		AllGroupsEast 		= ([AllGroupsEastOld, _infantry] call _fnc4);
+		AllGroupsGuerrila 	= ([AllGroupsGuerrilaOld, _infantry] call _fnc4);
+	};
 
 	"MainTown" setMarkerPos civilianBasePos;
 	"MainTown" setMarkerSize [_sizeLocation,_sizeLocation];
