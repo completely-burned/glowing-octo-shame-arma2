@@ -262,7 +262,7 @@ _fnc_vehicles = {
 };
 {
 	_x call _fnc_vehicles
-} forEach ["Car","Tank","Helicopter","Plane","Motorcycle","Ship"];
+} forEach ["Car","Tank","Helicopter","Plane","Motorcycle","Ship","StaticWeapon"];
 
 /// Pilot
 private ["_list"];

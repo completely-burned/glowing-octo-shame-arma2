@@ -214,6 +214,12 @@ while {true} do {
 		_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
 		_2 set [count _2, 1];
 		_BuyMenu = [_0,_1,_2];
+
+		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+		_0 set [count _0, "#USER:StaticWeapon_0"];
+		_1 set [count _1, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
+		_2 set [count _2, 1];
+		_BuyMenu = [_0,_1,_2];
 	};
 	if (_Buy_Car or _Buy_Ship) then {
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_lvs_ca.paa")]; 
