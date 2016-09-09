@@ -111,24 +111,18 @@ _fnc_create_buy_menu = {
 waitUntil{!isNil "fnc_libEnabled"};
 waitUntil{!isNil "m_fnc_CheckIsKindOfArray"};
 waitUntil{!isNil "m_fnc_setNestedElement"};
+waitUntil{!isNil "availableVehicles"};
 
 /// Ammo
 private ["_list"];
 _list = [[],[],[]];
-for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
-	private ["_entry"];
-	_entry = ((configFile >> "CfgVehicles") select _i);
-	if (isClass _entry) then
-	{
-			if ((getNumber(_entry >> "scope")) == 2) then
-			{
-				_libEnabled = [_entry] call fnc_libEnabled;
-				if (_libEnabled) then
-				{
+{
+	private ["_entry"]; private["_type"];
+	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
 					if (getText(_entry >> "vehicleclass") in ["Ammo","ACE_Ammunition"]) then
 					{
-						private["_faction"]; private["_vehicleclass"]; private["_type"];
-						_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass"); _type = configName _entry;
+						private["_faction"]; private["_vehicleclass"];
+						_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 						private["_factionclasses"];
 						_factionclasses = _list select 0;
 						private["_find_faction"];
@@ -162,10 +156,7 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 							[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call m_fnc_setNestedElement;
 						};
 					};
-				};
-			};
-	};
-};
+}forEach availableVehicles;
 [_list,"Ammo"] call _fnc_create_buy_menu;
 
 // _dataListAmmoBox = _dataListAmmoBox + [["all","[] execvm 'm\functions\m_fnc_MegaAmmoBox.sqf'"]];
@@ -174,20 +165,13 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 /// Units
 private ["_list"];
 _list = [[],[],[]];
-for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
-	private ["_entry"];
-	_entry = ((configFile >> "CfgVehicles") select _i);
-	if (isClass _entry) then
-	{
-			if ((getNumber(_entry >> "scope")) == 2) then
-			{
-				_libEnabled = [_entry] call fnc_libEnabled;
-				if (_libEnabled) then
-				{
+{
+	private ["_entry"]; private["_type"];
+	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
 					if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side")))) then {
 						if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
-							private["_faction"]; private["_vehicleclass"]; private["_type"];
-							_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass"); _type = configName _entry;
+							private["_faction"]; private["_vehicleclass"];
+							_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 							private["_factionclasses"];
 							_factionclasses = _list select 0;
 							private["_find_faction"];
@@ -222,10 +206,7 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 							};
 						};
 					};
-				};
-			};
-	};
-};
+}forEach availableVehicles;
 [_list,"Man"] call _fnc_create_buy_menu;
 
 /// vehicles
@@ -233,21 +214,14 @@ private ["_fnc_vehicles"];
 _fnc_vehicles = {
 	private ["_list"];
 	_list = [[],[],[]];
-	for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
-		private ["_entry"];
-		_entry = ((configFile >> "CfgVehicles") select _i);
-		if (isClass _entry) then
-		{
-				if ((getNumber(_entry >> "scope")) == 2) then
-				{
-					_libEnabled = [_entry] call fnc_libEnabled;
-					if (_libEnabled) then
-					{
+	{
+		private ["_entry"]; private["_type"];
+		_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
 						if !(getText(_entry >> "simulation") in ["invisible", "house", "thing", "flagcarrier", "fire", "breakablehouseproxy", "breakablehouse", "parachute"]) then {
 							if!(configname _entry isKindOf "Chukar")then{
 								if ([[(configname _entry)],[_this]] call m_fnc_CheckIsKindOfArray) then {
-									private["_faction"]; private["_vehicleclass"]; private["_type"];
-									_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass"); _type = configName _entry;
+									private["_faction"]; private["_vehicleclass"];
+									_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 									private["_factionclasses"];
 									_factionclasses = _list select 0;
 									private["_find_faction"];
@@ -283,10 +257,7 @@ _fnc_vehicles = {
 								};
 							};
 						};
-					};
-				};
-		};
-	};
+	}forEach availableVehicles;
 	[_list,_this] call _fnc_create_buy_menu;
 };
 {
@@ -296,21 +267,14 @@ _fnc_vehicles = {
 /// Pilot
 private ["_list"];
 _list = [[],[],[]];
-for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
-	private ["_entry"];
-	_entry = ((configFile >> "CfgVehicles") select _i);
-	if (isClass _entry) then
-	{
-			if ((getNumber(_entry >> "scope")) == 2) then
-			{
-				_libEnabled = [_entry] call fnc_libEnabled;
-				if (_libEnabled) then
-				{
+{
+	private ["_entry"]; private["_type"];
+	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
 					if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side")))) then {
 						if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
 							if ([[(configname _entry)],["USMC_Soldier_Pilot", "CDF_Soldier_Pilot", "RU_Soldier_Pilot", "Ins_Soldier_Pilot", "GUE_Soldier_Pilot", "US_Soldier_Pilot_EP1", "TK_Soldier_Pilot_EP1", "UN_CDF_Soldier_Pilot_EP1", "Soldier_Pilot_PMC", "BAF_Pilot_MTP", "Pilot", "TK_CIV_Takistani01_EP1"]] call m_fnc_CheckIsKindOfArray) then {
-								private["_faction"]; private["_vehicleclass"]; private["_type"];
-								_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass"); _type = configName _entry;
+								private["_faction"]; private["_vehicleclass"];
+								_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 								private["_factionclasses"];
 								_factionclasses = _list select 0;
 								private["_find_faction"];
@@ -346,30 +310,20 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 							};
 						};
 					};
-				};
-			};
-	};
-};
+}forEach availableVehicles;;
 [_list,"Pilot"] call _fnc_create_buy_menu;
 
 /// Support
 private ["_list"];
 _list = [[],[],[]];
-for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
-	private ["_entry"];
-	_entry = ((configFile >> "CfgVehicles") select _i);
-	if (isClass _entry) then
-	{
-			if ((getNumber(_entry >> "scope")) == 2) then
-			{
-				_libEnabled = [_entry] call fnc_libEnabled;
-				if (_libEnabled) then
-				{
+{
+	private ["_entry"]; private["_type"];
+	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
 					if !(getText(_entry >> "simulation") in ["invisible", "house", "thing", "flagcarrier", "fire", "breakablehouseproxy", "breakablehouse", "parachute"]) then {
 						if!(configname _entry isKindOf "Chukar")then{
 							if ((getNumber(_entry >> "transportammo")> 0) or (getNumber(_entry >> "transportrepair")> 0) or (getNumber(_entry >> "transportfuel")> 0) or ([[configname _entry], listSalvageTruck] call m_fnc_CheckIsKindOfArray)) then {
-								private["_faction"]; private["_vehicleclass"]; private["_type"];
-								_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass"); _type = configName _entry;
+								private["_faction"]; private["_vehicleclass"];
+								_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 								private["_factionclasses"];
 								_factionclasses = _list select 0;
 								private["_find_faction"];
@@ -405,10 +359,7 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 							};
 						};
 					};
-				};
-			};
-	};
-};
+}forEach availableVehicles;;
 [_list,"Support"] call _fnc_create_buy_menu;
 
 buyMenuLoaded=true;

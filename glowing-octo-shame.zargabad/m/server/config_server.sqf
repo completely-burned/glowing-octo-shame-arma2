@@ -106,3 +106,6 @@ for [{_i = 0}, {_i < count (configfile >> "cfgVehicles")}, {_i = _i + 1}] do {
 	};
 };
 /// silvieManager ///
+
+availableVehicles = [] call m_fnc_availableVehicles;
+publicVariable "availableVehicles";
