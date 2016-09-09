@@ -243,6 +243,22 @@ if ((_type isKindOf "Ship")) then {
 		hint format["%1: %2", localize "str_support_done", _type];
 	};
 };
+if (_type isKindOf "StaticWeapon") then {
+	Private["_Objects"];
+	_Objects = (nearestObjects [player, ["Base_WarfareBBarracks"]+_HQ+Airport, 100]);
+	if ( (count _Objects > 0) or ((player distance _respawn_pos) < 100 )) then {
+		Private["_veh"];
+		_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+		_veh setDir getDir player;
+		Private["_pos"];
+		_pos = position player;
+		_pos resize 2;
+		player moveInGunner _veh;
+		_veh setPos _pos;
+		_veh call _fnc_1;
+		hint format["%1: %2", localize "str_support_done", _type];
+	};
+};
 }else{
 	hint format ["respawn safe distance %1m",safeDistance];
 };
