@@ -96,3 +96,10 @@ if(debug)then{
 };
 
 // player addAction ["main menu", "m\client\main_menu.sqf", nil, 1.5, false];
+
+if !([LIB_cfgWea, weapons player,"simulation","NVGoggles"] call m_fnc_check_config_use) then {
+		player addWeapon "NVGoggles";
+};
+if !([LIB_cfgWea, weapons player,"simulation","Binocular"] call m_fnc_check_config_use) then {
+		player addWeapon "Binocular";
+};
