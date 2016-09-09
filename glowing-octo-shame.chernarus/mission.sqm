@@ -1082,7 +1082,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={4941.5181,339.08075,10047.434};
+					position[]={4846.3657,339.08075,10217.116};
 					id=58;
 					side="LOGIC";
 					vehicle="Logic";
@@ -3085,8 +3085,8 @@ class Mission
 		};
 		class Item8
 		{
-			position[]={4793.5757,339,10012.667};
-			azimut=324.37714;
+			position[]={4729.0977,339,10203.569};
+			azimut=330;
 			id=57;
 			side="EMPTY";
 			vehicle="BTR90_HQ_unfolded";
@@ -3095,8 +3095,8 @@ class Mission
 		};
 		class Item9
 		{
-			position[]={1151.4475,5.5878091,2504.0571};
-			azimut=241.27773;
+			position[]={4869.3413,8.9245539,2511.6653};
+			azimut=210;
 			id=61;
 			side="EMPTY";
 			vehicle="BTR90_HQ_unfolded";
@@ -3105,8 +3105,8 @@ class Mission
 		};
 		class Item10
 		{
-			position[]={10117.403,138.79613,13451.2};
-			azimut=-323.47662;
+			position[]={11834.042,159,12692.778};
+			azimut=25;
 			id=62;
 			side="EMPTY";
 			vehicle="BTR90_HQ_unfolded";
