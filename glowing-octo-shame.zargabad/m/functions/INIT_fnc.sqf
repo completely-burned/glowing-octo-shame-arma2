@@ -58,6 +58,6 @@ m_fnc_vehInit = compile (preprocessFileLineNumbers (_path + "m_fnc_vehInit.sqf")
 m_fnc_SalvageTruck = compile (preprocessFileLineNumbers (_path + "m_fnc_SalvageTruck.sqf"));
 m_fnc_handleFirstAid = compile (preprocessFileLineNumbers (_path + "m_fnc_handleFirstAid.sqf"));
 m_fnc_defaultCrew = compile (preprocessFileLineNumbers (_path + "m_fnc_defaultCrew.sqf"));
+m_fnc_setNestedElement = compile (preprocessFileLineNumbers (_path + "fn_setNestedElement.sqf"));
 
 m_fnc_init = true;
-
