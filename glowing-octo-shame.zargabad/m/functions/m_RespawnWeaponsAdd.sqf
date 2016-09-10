@@ -23,10 +23,10 @@ switch (_this) do {
 	};
 	case ("respawn"):
 	{
+		private "_player";
+		WaitUntil {alive player};
+		_player=player;
 		if(!isNil "SAVELOADOUT")then{
-			private "_player";
-			WaitUntil {alive player};
-			_player=player;
 			
 			removeAllWeapons _player;
 			{_player removeMagazine _x} forEach magazines _player;
@@ -51,6 +51,12 @@ switch (_this) do {
 			if((SAVELOADOUT select 2) != "")then{
 				_player selectWeapon (SAVELOADOUT select 2);
 			};
+		};
+		if !([LIB_cfgWea, weapons _player,"simulation","NVGoggles"] call m_fnc_check_config_use) then {
+				_player addWeapon "NVGoggles";
+		};
+		if !([LIB_cfgWea, weapons _player,"simulation","Binocular"] call m_fnc_check_config_use) then {
+				_player addWeapon "Binocular";
 		};
 	};
 	default {};
