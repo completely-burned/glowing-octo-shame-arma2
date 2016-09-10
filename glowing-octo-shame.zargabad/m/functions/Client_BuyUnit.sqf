@@ -1,7 +1,7 @@
 ﻿private ["_type","_HQ","_fnc_1","_isUAV"];
 _type = _this Select 0;
 
-_HQ = ["BRDM2_HQ_Base","BTR90_HQ","LAV25_HQ","BMP2_HQ_Base","M1130_CV_EP1","Warfare_HQ_base_unfolded"];
+_HQ = ["Warfare_HQ_base_unfolded"]+listMHQ;
 
 _isUAV=false;
 if(_type isKindOf "UAV")then{
@@ -176,7 +176,7 @@ if (_type isKindOf "Helicopter") then {
 };
 if (_type isKindOf "Plane") then {
 	Private["_Objects"];
-	_Objects = (nearestObjects [player, Airport, 100]);
+	_Objects = (nearestObjects [player, _HQ+Airport, 100]);
 	if ( (count _Objects > 0) or ((player distance _respawn_pos) < 100 )) then {
 		if(_type isKindOf "UAV")then{
 			Private["_Object"];
