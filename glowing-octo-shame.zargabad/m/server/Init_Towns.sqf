@@ -54,6 +54,7 @@ locationNext={
 	};
 	if(count _NextLocations >0 )then{
 		_NextLocation = (_NextLocations call m_fnc_Locations_weights) call BIS_fnc_selectRandomWeighted;
+		CivilianLocationStartTime = time;
 		CivilianLocation = _NextLocation;
 		civilianBasePos = getPos CivilianLocation;
 		civilianBasePos resize 2;
@@ -72,7 +73,6 @@ locationNext={
 		// {_x setDamage 0} forEach (nearestObjects [getMarkerpos "", [], 1000]);
 	// }else{
 		// CivilianLocation = locationNull;
-		CivilianLocation setVariable ["startTime",time];
 	};
 
 	if (isNil {CivilianLocation getVariable "infantry"}) then {

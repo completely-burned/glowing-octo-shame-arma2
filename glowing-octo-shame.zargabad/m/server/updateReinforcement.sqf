@@ -70,9 +70,9 @@ while{true}do{
 		_friendlyGroups = _friendlyGroups + _playerCoefficient;
 	};
 
-	if(!isNil {CivilianLocation})then{
+	if(!isNil {CivilianLocationStartTime})then{
 		private["_time"];
-		_time = time - (CivilianLocation getVariable "startTime");
+		_time = time - CivilianLocationStartTime;
 		_enemyCoefficient =  _timeFriendlyReinforcements / _time;
 		_enemyCoefficient = _enemyCoefficientCfg min _enemyCoefficient;
 	}else{
