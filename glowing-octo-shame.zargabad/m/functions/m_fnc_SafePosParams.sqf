@@ -14,6 +14,7 @@ _safePositionRadius =  (getNumber(configfile>> "cfgWorlds">> worldname >> "safeP
 
 if ([_types, ["LandVehicle"]] call m_fnc_CheckIsKindOfArray) then{
 	_minDist = 1500;
+	_maxDist = _minDist*2;
 	_waterMode = 0;
 	// if("canfloat" in _types)then{_waterMode = 1};
 	_objDist = 15;
@@ -21,6 +22,7 @@ if ([_types, ["LandVehicle"]] call m_fnc_CheckIsKindOfArray) then{
 
 if ([_types, ["Air"]] call m_fnc_CheckIsKindOfArray) then{
 	_minDist = 3500;
+	_maxDist = _minDist*2;
 	_waterMode = 1;
 	_objDist = 0;
 	_blacklist=[];
