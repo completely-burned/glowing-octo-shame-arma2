@@ -72,6 +72,7 @@ locationNext={
 		// {_x setDamage 0} forEach (nearestObjects [getMarkerpos "", [], 1000]);
 	// }else{
 		// CivilianLocation = locationNull;
+		CivilianLocation setVariable ["startTime",time];
 	};
 
 	if (isNil {CivilianLocation getVariable "infantry"}) then {

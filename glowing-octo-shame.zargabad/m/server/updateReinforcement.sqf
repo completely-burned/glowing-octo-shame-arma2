@@ -6,12 +6,13 @@ waitUntil {!isNil "locationStarted"};
 waitUntil {!isNil "GroupsStarted"};
 waitUntil {!isNil "serverFPS"};
 
-private["_minFPS","_minGroups","_maxGroups","_enemyCoefficient","_playerCoefficient"];
+private["_minFPS","_minGroups","_maxGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements"];
 _minFPS = missionNamespace getVariable "serverFPSmin";
 _minGroups = missionNamespace getVariable "minGroups";
 _maxGroups = missionNamespace getVariable "maxGroups";
-_enemyCoefficient = missionNamespace getVariable "enemyCoefficient";
+_enemyCoefficientCfg = missionNamespace getVariable "enemyCoefficient";
 _playerCoefficient = missionNamespace getVariable "playerCoefficient";
+_timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 
 private["_all_groups","_friendlyGroups","_friendlyPatrols","_enemyGroups","_enemyPatrols","_enemySide"];
 	
@@ -69,7 +70,15 @@ while{true}do{
 		_friendlyGroups = _friendlyGroups + _playerCoefficient;
 	};
 
-	
+	if(!isNil {CivilianLocation})then{
+		private["_time"];
+		_time = time - (CivilianLocation getVariable "startTime");
+		_enemyCoefficient =  _timeFriendlyReinforcements / _time;
+		_enemyCoefficient = _enemyCoefficientCfg min _enemyCoefficient;
+	}else{
+		_enemyCoefficient = _enemyCoefficientCfg;
+	};
+
 	if(_all_groups < _maxGroups or _maxGroups == 0)then{
 		if((serverFPS > _minFPS) or (_all_groups < _minGroups))then{
 			private ["_difference"];
