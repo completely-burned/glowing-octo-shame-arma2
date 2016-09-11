@@ -4,7 +4,7 @@ private ["_minDist", "_maxDist", "_objDist", "_waterMode", "_maxGradient", "_sho
 _minDist = 1000;
 _objDist = 0;
 _waterMode = 0;
-_maxGradient = 0;
+_maxGradient = -1;
 _shoreMode = 0;
 _defaultPos=[];
 _blacklist=PosBlacklist;
@@ -23,7 +23,7 @@ if ([_types, ["LandVehicle"]] call m_fnc_CheckIsKindOfArray) then{
 if ([_types, ["Air"]] call m_fnc_CheckIsKindOfArray) then{
 	_minDist = 3500;
 	_maxDist = _minDist*2;
-	_waterMode = 1;
+	_waterMode = -1;
 	_objDist = 0;
 	_blacklist=[];
 	_maxGradient= (100 * (pi / 180));
