@@ -98,6 +98,9 @@ while{true}do{
 					[m_friendlySide call BIS_fnc_selectRandom,"patrol"] call m_fnc_call_reinforcement;
 				};
 			};
+			if (debug) then {
+				player globalChat format ["UpdateReinforcement.sqf: %1", _all_groups];
+			};
 		};
 	};
 	// diag_log format ["UpdateReinforcement.sqf 121, %1", time];
