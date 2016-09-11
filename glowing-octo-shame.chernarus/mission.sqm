@@ -43,7 +43,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=35;
+		items=33;
 		class Item0
 		{
 			side="EAST";
@@ -3208,7 +3208,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={9087.8975,302.66531,7599.6348};
+					position[]={8111.4248,447.26987,7812.936};
 					id=292;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
@@ -3226,7 +3226,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8111.4248,447.26987,7812.936};
+					position[]={10350.064,265.83423,6400.8721};
 					id=293;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
@@ -3244,7 +3244,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={10350.064,265.83423,6400.8721};
+					position[]={10861.625,265.57285,7321.4087};
 					id=294;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
@@ -3262,7 +3262,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={10861.625,265.57285,7321.4087};
+					position[]={11467.759,174.63399,8636.1875};
 					id=295;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
@@ -3280,7 +3280,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={11467.759,174.63399,8636.1875};
+					position[]={6881.6357,393.85052,11430.36};
 					id=296;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
@@ -3298,49 +3298,13 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={6881.6357,393.85052,11430.36};
+					position[]={5338.0322,254.31099,11373.865};
 					id=297;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
 					skill=0.60000002;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""infantry"", true];";
-				};
-			};
-		};
-		class Item33
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={5338.0322,254.31099,11373.865};
-					id=298;
-					side="LOGIC";
-					vehicle="LocationLogicCityCenter";
-					leader=1;
-					skill=0.60000002;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""infantry"", true];";
-				};
-			};
-		};
-		class Item34
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={6982.3237,376.22751,8839.0703};
-					id=299;
-					side="LOGIC";
-					vehicle="LocationLogicCityCenter";
-					leader=1;
-					skill=0.60000002;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
