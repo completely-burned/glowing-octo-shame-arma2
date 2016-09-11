@@ -98,7 +98,7 @@ while {_visible} do {
 	
 	if(!_visible)then{
 		// sleep 0.01;
-		_testPos = (_testPos isFlatEmpty [_objDist, 0, _maxGradient, _objDist, _waterMode, _shoreMode, objNull]);
+		_testPos = (_testPos isFlatEmpty [_objDist, -1, _maxGradient, _objDist, _waterMode, _shoreMode, objNull]);
 		if(count _testPos == 0)then {_visible=true};
 	};
 		
