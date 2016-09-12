@@ -83,7 +83,7 @@ locationNext={
 		private["_fnc4"];
 		_fnc4={
 			private["_grp","_types"];
-			_grp = _this select 0;
+			_grp = +(_this select 0);
 			for "_i" from 0 to ((count (_grp select 0)) - 1) do {
 				_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
 				{
