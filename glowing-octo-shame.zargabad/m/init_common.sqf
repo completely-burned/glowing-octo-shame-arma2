@@ -84,3 +84,5 @@ if(isMultiplayer)then{
 		missionNamespace setVariable [configName ((missionConfigFile/"Params") select _i),getNumber (((missionConfigFile/"Params") select _i)/"default")];
 	};
 };
+
+m_skill = (missionNamespace getVariable "m_skill") / 100;
