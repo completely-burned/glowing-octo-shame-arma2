@@ -36,7 +36,7 @@ _fnc5={
 
 _fnc4={
 	private["_grp","_types"];
-	_grp = _this select 0; // [[[[[_types,_positions,_ranks],[_types,_positions,_ranks]]],[[_types,_positions,_ranks]]],[0.5,0.5]]
+	_grp = +(_this select 0); // [[[[[_types,_positions,_ranks],[_types,_positions,_ranks]]],[[_types,_positions,_ranks]]],[0.5,0.5]]
 	for "_i" from 0 to ((count (_grp select 0)) - 1) do {
 		_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
 		{
