@@ -288,7 +288,7 @@ while {true} do {
 	if (_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) then {
 		if (isnil {player getvariable "_Buy_Menu"} && !isnull player) then {
 			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
+			_action = player addaction [localize "str_buy_gear_buy", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false, "", "_target == _this"];
 			player setvariable ["_Buy_Menu",_action];
 		};
 	}else{
