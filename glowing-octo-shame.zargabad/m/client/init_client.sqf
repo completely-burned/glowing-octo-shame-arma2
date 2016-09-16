@@ -79,8 +79,8 @@ if ( isMultiplayer ) then {
 	EnableTeamSwitch true;
 	
 	waitUntil{!isNil "m_fnc_init"};
-	// PlayerType = [typeOf player, rank player];
-	// player addEventHandler ["killed", {_this call m_fnc_playerRespawnSP}];
+	PlayerType = [typeOf player, rank player];
+	player addEventHandler ["killed", {_this call m_fnc_playerRespawnSP}];
 	[] spawn m_fnc_playerRespawn;
 };
 
