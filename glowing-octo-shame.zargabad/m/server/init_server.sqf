@@ -105,14 +105,14 @@ if(!ACE_Avail)then{
 (group_logic) createUnit ["BIS_clouds_Logic",[1000,10,0],[],0,"none"];
 
 // гражданские
-if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk"])then{
-	(group_logic) createUnit ["AliceManager",[1000,10,0],[],0,"none"];
-}else{
-	(group_logic) createUnit ["Alice2Manager",[1000,10,0],[],0,"none"];
-};
+// if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk"])then{
+	// (group_logic) createUnit ["AliceManager",[1000,10,0],[],0,"none"];
+// }else{
+	// (group_logic) createUnit ["Alice2Manager",[1000,10,0],[],0,"none"];
+// };
 
 // животные
-(group_logic) createUnit ["BIS_animals_Logic",[1000,10,0],[],0,"none"];
+// (group_logic) createUnit ["BIS_animals_Logic",[1000,10,0],[],0,"none"];
 
 if ( ACE_Avail ) then {
 	// отключение усталость
