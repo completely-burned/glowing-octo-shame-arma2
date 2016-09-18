@@ -63,7 +63,7 @@ while {true} do {
 	_BuyMenu = [[],[],[]];
 
 	_Objects = (nearestObjects [player, _nearestObjects, 100]);
-	if ((count _Objects > 0) && (vehicle player == player)) then {
+	if ((count _Objects > 0)) then {
 		{
 			private["_type","_Object"];
 			_Object = _x;
