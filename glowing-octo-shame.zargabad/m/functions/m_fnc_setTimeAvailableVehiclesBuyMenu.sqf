@@ -11,7 +11,7 @@ private["_cost"];
 _cost = getNumber (configFile >> "CfgVehicles" >> _type >> "cost");
 
 private["_time"];
-_time = time + (_cost/600);
+_time = time + (_cost/5000);
 
 if (_num < 0) then {
 	private["_count"];
