@@ -1,7 +1,9 @@
 private["_unit"];
 _unit = _this;
 if (_unit getvariable "BIS_lifestate" == "ALIVE") then {
-	if (lifestate _unit == "UNCONSCIOUS" or captive _unit) then {
+	private["_aliveAnimationState"];
+	_aliveAnimationState = ["amovppnemstpsraswrfldnon_injured","ainjppnemstpsnonwrfldnon_rolltoback","ainjppnemstpsnonwrfldnon","ainjppnemstpsnonwrfldnon_rolltofront","amovppnemsprslowwrfldf_injured"];
+	if (lifestate _unit == "UNCONSCIOUS" or captive _unit or tolower animationState _unit in _aliveAnimationState) then {
 		_unit playactionnow "agonyStop";
 		_unit setvariable ["BIS_lifeState","ALIVE",true];
 		_unit setUnconscious false;
