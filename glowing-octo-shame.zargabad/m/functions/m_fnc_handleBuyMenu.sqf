@@ -125,14 +125,12 @@ while {true} do {
 					};
 				};
 
-					if ([[_type],["WarfareBDepot","WarfareBCamp","WarfareBBaseStructure","BASE_WarfareBFieldhHospital","Warfare_HQ_base_unfolded"]+listMHQ] call m_fnc_CheckIsKindOfArray) then {
-						if (isnil {vehicle player getvariable "_teleport_action"} && !isnull player) then {
-							private ["_action"];
-							_action = vehicle player addaction ["Teleport", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false, "","_target == vehicle player"];
-							vehicle player setvariable ["_teleport_action",_action];
-						};
-					};
+				};
 
+				if !(_teleport) then {
+					if ([[_type],["WarfareBDepot","WarfareBCamp","WarfareBBaseStructure","BASE_WarfareBFieldhHospital","Warfare_HQ_base_unfolded"]+listMHQ] call m_fnc_CheckIsKindOfArray) then {
+						_teleport = true;
+					};
 				};
 
 				if ([[_type],["LandVehicle","Air"]] call m_fnc_CheckIsKindOfArray) then {
@@ -206,6 +204,21 @@ while {true} do {
 
 	if (_Buy_Man or _teleport) then {
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_gear_ca.paa")]; 
+	};
+
+	if (_teleport) then {
+		private["_veh"];
+		_veh = vehicle player;
+		if (isnil {_veh getvariable "_teleport_action"} && !isnull _veh) then {
+			private ["_action"];
+			_action = _veh addaction ["Teleport", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false, "","_target == vehicle player"];
+			_veh setvariable ["_teleport_action",_action];
+		};
+	}else{
+		private["_veh"];
+		_veh = vehicle player;
+		_veh removeAction (_veh getVariable "_teleport_action");
+		_veh setvariable ["_teleport_action", nil];
 	};
 
 	if (_Buy_Man) then {

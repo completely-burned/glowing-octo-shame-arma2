@@ -9,3 +9,5 @@ player removeAction (player getVariable "_join_grpNull");
 player setvariable ["_join_grpNull",nil];
 player removeAction (player getVariable "_Buy_Menu");
 player setvariable ["_Buy_Menu",nil];
+player removeAction (player getVariable "_teleport_action");
+player setvariable ["_teleport_action",nil];
