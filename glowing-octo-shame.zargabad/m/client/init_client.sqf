@@ -70,9 +70,9 @@ if ( isMultiplayer ) then {
 }else{
 	onTeamSwitch {
 		SetGroupIconsVisible [true,false];
-		if(side _from != side _to)then{
-			[] call compile preprocessFileLineNumbers "m\Client\ClientMenu.sqf";
-		};
+		// if(side _from != side _to)then{
+			// [] call compile preprocessFileLineNumbers "m\Client\ClientMenu.sqf";
+		// };
 		40 CutRsc["OptionsAvailable","PLAIN",0];
 	};
 	{deleteVehicle _x}forEach SwitchableUnits-(units group player);

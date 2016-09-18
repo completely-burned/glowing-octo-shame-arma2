@@ -168,7 +168,7 @@ _list = [[],[],[]];
 {
 	private ["_entry"]; private["_type"];
 	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
-					if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side")))) then {
+					if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side"))) or !isMultiplayer) then {
 						if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
 							private["_faction"]; private["_vehicleclass"];
 							_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
