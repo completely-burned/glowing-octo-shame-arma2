@@ -53,7 +53,7 @@ while {_visible} do {
 	}else{
 		private ["_dir","_dist2"];
 		_dir = random 360;
-		_dist2 = random _dist;
+		_dist2 = (_minDist + random (_dist - _minDist));
 		_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
 	};
 	
