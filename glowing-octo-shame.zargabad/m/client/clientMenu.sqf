@@ -95,13 +95,14 @@ _fnc_create_buy_menu = {
 			_items2 set [count _items2, "#USER:" + _usermenu2 + "_0"];
 			_itemsName2 set [count _itemsName2, getText (configFile >> "CfgVehicleClasses" >> _list select 1 select _i select _ii >> "displayName")];
 
-			private["_items3","_itemsName3"];
-			_items3 = []; _itemsName3 = [];
+			private["_items3","_itemsName3","_itemEnable"];
+			_items3 = []; _itemsName3 = []; _itemEnable = [];
 			for "_iii" from 0 to ((count (((_list select 2) select _i) select _ii)) - 1) do {
 				_items3 set [count _items3, (((_list select 2) select _i) select _ii) select _iii];
 				_itemsName3 set [count _itemsName3, getText (configFile >> "CfgVehicles" >> (((_list select 2) select _i) select _ii) select _iii >> "displayName")];
+				_itemEnable set [count _itemEnable, [(((_list select 2) select _i) select _ii) select _iii] call m_fnc_CheckTimeAvailableVehiclesBuyMenu];
 			};
-			[_usermenu2, _usermenu2, [_items3, _itemsName3], "","['%1'] call Client_BuyUnit"] call BIS_FNC_createmenu;
+			[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "","['%1'] call Client_BuyUnit"] call BIS_FNC_createmenu;
 		};
 		[_usermenu, _usermenu, [_items2, _itemsName2], "%1",""] call BIS_FNC_createmenu;
 	};

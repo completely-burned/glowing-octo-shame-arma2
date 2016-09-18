@@ -60,5 +60,7 @@ m_fnc_handleFirstAid = compile (preprocessFileLineNumbers (_path + "m_fnc_handle
 m_fnc_defaultCrew = compile (preprocessFileLineNumbers (_path + "m_fnc_defaultCrew.sqf"));
 m_fnc_setNestedElement = compile (preprocessFileLineNumbers (_path + "fn_setNestedElement.sqf"));
 m_fnc_availableVehicles = compile (preprocessFileLineNumbers (_path + "m_fnc_availableVehicles.sqf"));
+m_fnc_CheckTimeAvailableVehiclesBuyMenu = compile (preprocessFileLineNumbers (_path + "m_fnc_CheckTimeAvailableVehiclesBuyMenu.sqf"));
+m_fnc_setTimeAvailableVehiclesBuyMenu = compile (preprocessFileLineNumbers (_path + "m_fnc_setTimeAvailableVehiclesBuyMenu.sqf"));
 
 m_fnc_init = true;

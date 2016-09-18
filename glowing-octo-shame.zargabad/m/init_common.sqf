@@ -27,6 +27,8 @@ Airport = ["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar
 
 safeDistance = 15;
 
+availableVehiclesBuyMenu = [[],[],[]];
+
 /// listCrew + listMHQ ///
 listCrew = [];
 listMHQ=["BRDM2_HQ_Base","BMP2_HQ_Base"];
