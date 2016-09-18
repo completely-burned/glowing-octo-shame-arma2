@@ -259,7 +259,7 @@ if (_respawn_pos distance player > safeDistance) then {
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
 	};
-	[_type] call m_fnc_setTimeAvailableVehiclesBuyMenu;
+	// [_type] call m_fnc_setTimeAvailableVehiclesBuyMenu;
 }else{
 	hint format ["respawn safe distance %1m",safeDistance];
 };
