@@ -38,6 +38,7 @@ switch (playerSide) do {
 
 private ["_nearestObjects"];
 _nearestObjects = [
+	"WarfareBDepot","WarfareBCamp",
 	"Warfare_HQ_base_unfolded",
 	"LandVehicle",
 	"Air",
@@ -74,7 +75,7 @@ while {true} do {
 				// };
 
 				if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
-					if ([[_type],["Warfare_HQ_base_unfolded"]+listMHQ] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],["Warfare_HQ_base_unfolded"]+listMHQ+["WarfareBDepot","WarfareBCamp"]] call m_fnc_CheckIsKindOfArray) then {
 						_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
 					};
 				};
