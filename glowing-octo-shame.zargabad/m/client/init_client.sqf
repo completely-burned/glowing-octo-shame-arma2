@@ -1,6 +1,8 @@
 waitUntil{!isNil "bis_fnc_init"};	
 waitUntil{!isNil "m_fnc_init"};
 
+availableVehiclesBuyMenu = [[],[],[]];
+
 // setTerrainGrid 12.5;
 // enableRadio false;
 if(worldName == "namalsk")then{
