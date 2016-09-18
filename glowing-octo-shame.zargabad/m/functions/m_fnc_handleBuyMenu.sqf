@@ -53,8 +53,8 @@ _nearestObjects = [
 
 while {true} do {
 	private["_Objects"];
-	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport"];
-	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false;
+	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport"];
+	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false;
 
 	if ((player distance _respawn_pos) < 100 ) then {
 		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
@@ -124,6 +124,14 @@ while {true} do {
 						_Buy_Ship = true;
 					};
 				};
+
+					if ([[_type],["WarfareBDepot","WarfareBCamp","WarfareBBaseStructure","BASE_WarfareBFieldhHospital","Warfare_HQ_base_unfolded"]+listMHQ] call m_fnc_CheckIsKindOfArray) then {
+						if (isnil {vehicle player getvariable "_teleport_action"} && !isnull player) then {
+							private ["_action"];
+							_action = vehicle player addaction ["Teleport", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false, "","_target == vehicle player"];
+							vehicle player setvariable ["_teleport_action",_action];
+						};
+					};
 
 				};
 
@@ -196,13 +204,16 @@ while {true} do {
 		player setvariable ["_uav_heli_action", nil];
 	};
 
+	if (_Buy_Man or _teleport) then {
+		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_gear_ca.paa")]; 
+	};
+
 	if (_Buy_Man) then {
 		// (BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + 0)) CtrlSetText ("\CA\Warfare2\Images\icon_barracks.paa");
-		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_gear_ca.paa")]; 
-			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_barracks_ca.paa")]; 
 
 		private["_0","_1","_2"];
 		if (leader player == player) then {
+			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_barracks_ca.paa")]; 
 			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 			_0 set [count _0, "#USER:Man_0"];
 			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
