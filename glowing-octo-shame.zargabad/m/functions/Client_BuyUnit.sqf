@@ -179,16 +179,26 @@ if (_respawn_pos distance player > safeDistance) then {
 		_Objects = (nearestObjects [player, _HQ+Airport+["WarfareBDepot","WarfareBCamp"], 100]);
 		if ( (count _Objects > 0) or ((player distance _respawn_pos) < 100 )) then {
 			if(_type isKindOf "UAV")then{
-				Private["_Object"];
-				_Object = (_Objects select 0);
-				Private["_dir"];
-				_dir = direction _Object;
-				Private["_pos"];
-				_pos = position (_Objects select 0);
-				_pos = ([_pos, (sizeOf typeOf _Object) / 2 + (sizeOf _type) / 2, (180 + _dir)] call BIS_fnc_relPos);
 				Private["_veh"];
-				_veh = createVehicle [_type, _pos, [], 20, "FORM"];
-				_veh setDir (180 + _dir);
+				if (count _Objects > 0) then {
+					Private["_Object"];
+					_Object = (_Objects select 0);
+					Private["_dir"];
+					_dir = direction _Object;
+					Private["_pos"];
+					_pos = position (_Objects select 0);
+					_pos = ([_pos, (sizeOf typeOf _Object) / 2 + (sizeOf _type) / 2, (180 + _dir)] call BIS_fnc_relPos);
+					_veh = createVehicle [_type, _pos, [], 20, "FORM"];
+					_veh setDir (180 + _dir);
+				}else{
+					Private["_pos"];
+					_pos = position player;
+					Private["_dir"];
+					_dir = direction player;
+					_pos = ([_pos, sizeOf _type, _dir] call BIS_fnc_relPos);
+					_veh = createVehicle [_type, _pos, [], 20, "FORM"];
+					_veh setDir _dir;
+				};
 				_veh call _fnc_1;
 				[_veh, createGroup playerSide] call m_fnc_spawnCrew;
 			}else{
