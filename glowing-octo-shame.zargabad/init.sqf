@@ -32,6 +32,10 @@
 			};
 		};
 	};
+	if (isServer) then {
+		[] Call Compile preprocessFileLineNumbers "m\server\params.sqf";
+		[] execVM "m\server\StartTime.sqf"
+	};
 	[] Call Compile preprocessFileLineNumbers "m\init_common.sqf";
 	if (isServer) then {
 		[] spawn Compile preprocessFileLineNumbers "m\server\init_server.sqf";
