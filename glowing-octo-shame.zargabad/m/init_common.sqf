@@ -73,3 +73,5 @@ if ( configName(configFile >> "CfgMods" >> "ACR") != "" ) then {
 		"CZ_Soldier_Pilot_EP1"
 	];
 };
+
+HQ = listMHQ + ["Warfare_HQ_base_unfolded","WarfareBDepot","WarfareBCamp"];

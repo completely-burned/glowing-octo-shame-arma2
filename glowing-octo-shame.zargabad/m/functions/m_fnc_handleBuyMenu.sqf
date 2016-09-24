@@ -7,7 +7,7 @@ _HQ = [];
 	if(configName(configFile >> "CfgVehicles" >> _x) != "")then{
 		_HQ = _HQ + [_x]; 
 	};
-} forEach ["BRDM2_HQ_Base","BTR90_HQ","LAV25_HQ","BMP2_HQ_Base","M1130_CV_EP1","Warfare_HQ_base_unfolded"];
+} forEach HQ;
 
 40 CutRsc["OptionsAvailable","PLAIN",0];
 
@@ -38,15 +38,13 @@ switch (playerSide) do {
 
 private ["_nearestObjects"];
 _nearestObjects = [
-	"WarfareBDepot","WarfareBCamp",
-	"Warfare_HQ_base_unfolded",
 	"LandVehicle",
 	"Air",
 	"Land_nav_pier_m_2","Land_nav_pier_m_F",
 	"Base_WarfareBVehicleServicePoint",
 	"Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F",
 	"Base_WarfareBBarracks","Base_WarfareBLightFactory",
-	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"];
+	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"] + HQ;
 	if(!isServer)then{
 		_nearestObjects set [count _nearestObjects,"ReammoBox"];
 	};
@@ -75,7 +73,7 @@ while {true} do {
 				// };
 
 				if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
-					if ([[_type],["Warfare_HQ_base_unfolded"]+listMHQ+["WarfareBDepot","WarfareBCamp"]] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],HQ] call m_fnc_CheckIsKindOfArray) then {
 						_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
 					};
 				};
@@ -114,7 +112,7 @@ while {true} do {
 				};
 
 				if (!_Buy_Plane or !_Buy_Helicopter) then {
-					if ([[_type],["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F"]] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],Airport] call m_fnc_CheckIsKindOfArray) then {
 						_Buy_Plane = true; _Airport = true; _Buy_Helicopter = true;
 					};
 				};
@@ -128,7 +126,7 @@ while {true} do {
 				};
 
 				if !(_teleport) then {
-					if ([[_type],["WarfareBDepot","WarfareBCamp","WarfareBBaseStructure","BASE_WarfareBFieldhHospital","Warfare_HQ_base_unfolded"]+listMHQ] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]+HQ] call m_fnc_CheckIsKindOfArray) then {
 						_teleport = true;
 					};
 				};
