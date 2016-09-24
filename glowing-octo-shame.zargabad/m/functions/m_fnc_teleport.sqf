@@ -32,7 +32,7 @@ _teleportLocations = [];
 	switch (typeName _x) do {
 		case ("OBJECT"):
 		{
-			if([[_x],["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital","Warfare_HQ_base_unfolded","WarfareBDepot","WarfareBCamp"]+listMHQ] call m_fnc_CheckIsKindOfArray)then{
+			if([[_x],["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"]+HQ] call m_fnc_CheckIsKindOfArray)then{
 				if (alive _x) then {
 					_list = _list + [count _list];
 					_teleport_list = _teleport_list + [_x];

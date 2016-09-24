@@ -1,7 +1,7 @@
 ﻿private ["_type","_HQ","_fnc_1","_isUAV"];
 _type = _this Select 0;
 
-_HQ = ["Warfare_HQ_base_unfolded"]+listMHQ;
+_HQ = HQ;
 
 _isUAV=false;
 if(_type isKindOf "UAV")then{
