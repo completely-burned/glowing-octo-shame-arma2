@@ -67,7 +67,7 @@ BIS_MENU_GroupCommunication = [
 
 	[localize "str_more_menu", [7], "#USER:c_0", -5, [["expression", ""]], "1", "1"],
 
-	["Teleport", [8], "#USER:teleport_0", -5, [["expression", ""]], "1", "1"],
+	// ["Teleport", [8], "#USER:teleport_0", -5, [["expression", ""]], "1", "1"],
 	// ["Teleport", [8], "", -5, [["expression", "[] call m_fnc_teleport"]], "1", "1"],
 
 	[Localize "STR_SQLCOMMDISBANDSEL" + " (%SELECTED_UNIT_ID)",[9],"",-5,[["expression","{moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"]],"1","1",-1]
