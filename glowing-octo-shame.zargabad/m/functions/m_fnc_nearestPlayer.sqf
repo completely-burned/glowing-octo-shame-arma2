@@ -21,8 +21,8 @@ _dist = -1;
 if(count _players > 0)then{
 	_nearestPlayer = _players select 0;
 	{
-		_dist = _pos distance getpos _nearestPlayer;
-		if((_pos distance getpos _x) < _dist)then{
+		_dist = _pos distance vehicle _nearestPlayer;
+		if((_pos distance vehicle _x) < _dist)then{
 			_nearestPlayer = _x
 		};
 	} foreach _players;

@@ -54,13 +54,13 @@ while {true} do {
 	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport"];
 	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false;
 
-	if ((player distance _respawn_pos) < 100 ) then {
+	if ((vehicle player distance _respawn_pos) < 100 ) then {
 		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
 	};
 
 	_BuyMenu = [[],[],[]];
 
-	_Objects = (nearestObjects [player, _nearestObjects, 100]);
+	_Objects = (nearestObjects [vehicle player, _nearestObjects, 100]);
 	if ((count _Objects > 0)) then {
 		{
 			private["_type","_Object"];
@@ -84,7 +84,7 @@ while {true} do {
 					_Object setrepaircargo 1;
 				};
 
-				if (_respawn_pos distance player > safeDistance) then {
+				if (_respawn_pos distance vehicle player > safeDistance) then {
 
 				if (!_Buy_Man) then {
 					if ([[_type],["Base_WarfareBBarracks"]] call m_fnc_CheckIsKindOfArray) then {
@@ -158,7 +158,7 @@ while {true} do {
 	private["_uav_action","_uav_terminals"];
 	_uav_action = false;
 	_uav_terminals = [];
-	_Objects = (nearestObjects [player, ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"], 10]);
+	_Objects = (nearestObjects [vehicle player, ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"], 10]);
 	if (count _Objects > 0) then {
 		{
 				private["_type","_Object"];
