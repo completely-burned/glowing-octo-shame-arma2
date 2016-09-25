@@ -76,7 +76,7 @@ while {_visible} do {
 				_leader = leader _x;
 				if (alive _leader) then {
 					if (( side _x getFriend _side) < 0.6 ) then {
-						if ((leader _x distance _testPos) < (_minDist min 1500))then {
+						if ((vehicle leader _x distance _testPos) < (_minDist min 1500))then {
 													_visible = true;
 							BreakTo "CheckForEnemy";
 						};

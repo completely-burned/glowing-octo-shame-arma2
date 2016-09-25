@@ -6,10 +6,10 @@ _player = objNull;
 if(isMultiplayer)then{
 	ScopeName "CheckPlayer";
 	{
-		_player = _x;
+		_player = vehicle _x;
 		if (IsPlayer _player) then {
 			if (!isNull _player)then{
-				if (((getPos  _player) distance _Pos) <= _distance)then{
+				if (((getPos _player) distance _Pos) <= _distance)then{
 					_visible = true;
 					BreakTo "CheckPlayer";
 				};
@@ -19,7 +19,7 @@ if(isMultiplayer)then{
 	} foreach playableunits;
 }else{
 	// if (([player, _pos] call BIS_fnc_distance2D) < _distance)then{
-	_player = player;
+	_player = vehicle player;
 	if (!isNull _player)then{
 		if ((getPos _player distance _Pos) <= _distance)then{
 			_visible = true;
