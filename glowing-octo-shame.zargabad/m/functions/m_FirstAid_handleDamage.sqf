@@ -10,7 +10,7 @@ _damageNone = if (_canDie) then {_damage} else {0};
 
 _m_true = true;
 if(_m_true)then{
-	if(_selection == "" && _damage >= 0.8 && !_canDie)then{
+	if(_selection == "" && _damage >= 0.8 && !_canDie && alive _unit)then{
 		_unit setvariable ["BIS_lifeState","UNCONSCIOUS",true];
 		_unit setvariable ["BIS_IS_inAgony",true,true];
 		_m_true = false;
