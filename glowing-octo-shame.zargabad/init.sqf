@@ -4,6 +4,7 @@
 	debug=false;
 	if (!IsDedicated) then {
 		[] execVM "m\client\playerSetPosRespawn.sqf"
+		[] execVM "m\client\StartTime.sqf"
 	};
 	if (isServer) then {
 		[] Call Compile preprocessFileLineNumbers "m\server\params.sqf";
