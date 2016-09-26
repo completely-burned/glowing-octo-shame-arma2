@@ -5,10 +5,14 @@ if (_startTime != -1) then
 	//Random starting time.
 	if (_startTime == 100) then
 	{
-		SkipTime Random 24;
+		m_SkipTime = Random 24;
 	}
 	else
 	{
-		SkipTime (_startTime - daytime);
+		m_SkipTime = (_startTime - daytime);
 	};
 };
+
+publicVariable "m_SkipTime";
+
+SkipTime m_SkipTime;
