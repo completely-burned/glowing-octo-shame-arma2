@@ -23,8 +23,10 @@ while{true}do{
 		_resistancePlayers = 0;
 		
 		{
-			if(isPlayer _x)then{
-				switch (side _x) do {
+			private["_veh"];
+			_veh = effectiveCommander _x;
+			if(isPlayer _veh)then{
+				switch (side _veh) do {
 					case (west):
 					{
 						_westPlayers = _westPlayers + 1;
