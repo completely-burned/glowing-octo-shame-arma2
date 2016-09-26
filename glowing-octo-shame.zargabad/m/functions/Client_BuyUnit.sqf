@@ -233,7 +233,7 @@ if (_respawn_pos distance vehicle player > safeDistance) then {
 	};
 	if ((_type isKindOf "Ship")) then {
 		Private["_Objects"];
-		_Objects = (nearestObjects [vehicle player, ["Land_nav_pier_m_2","Land_nav_pier_m_F"], 100]);
+		_Objects = (nearestObjects [vehicle player, pier, 100]);
 		if ( count _Objects > 0 ) then {
 			Private["_Object","_dir","_pos","_veh","_vel","_speed"];
 			_Object = (_Objects select 0);
