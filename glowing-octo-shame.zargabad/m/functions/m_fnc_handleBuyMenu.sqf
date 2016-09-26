@@ -40,11 +40,9 @@ private ["_nearestObjects"];
 _nearestObjects = [
 	"LandVehicle",
 	"Air",
-	"Land_nav_pier_m_2","Land_nav_pier_m_F",
 	"Base_WarfareBVehicleServicePoint",
-	"Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F",
 	"Base_WarfareBBarracks","Base_WarfareBLightFactory",
-	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"] + HQ;
+	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"] + HQ + Airport + pier;
 	if(!isServer)then{
 		_nearestObjects set [count _nearestObjects,"ReammoBox"];
 	};
@@ -118,7 +116,7 @@ while {true} do {
 				};
 
 				if !(_Buy_Ship) then {
-					if ([[_type],["Land_nav_pier_m_2","Land_nav_pier_m_F"]] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],pier] call m_fnc_CheckIsKindOfArray) then {
 						_Buy_Ship = true;
 					};
 				};
