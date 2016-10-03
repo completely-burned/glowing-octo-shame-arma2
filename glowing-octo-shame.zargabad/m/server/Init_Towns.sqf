@@ -32,6 +32,9 @@ m_fnc_Locations_weights={
 		_rarity = _rarity * (1-((_i+1)/(count _this)));
 		_weights = _weights + [_rarity];
 	};
+	if(count _weights == 1)then{
+		_weights = [1];
+	};
 	[_this,_weights];
 };
 
@@ -47,16 +50,14 @@ locationNext={
 	private["_sizeLocation"];
 	_sizeLocation = 500;
 	private["_NextLocations"];
-	private["_NextLocation"];
 	_NextLocations = (nearestLocations [civilianBasePos, locationTypes, 5000]);
 	if(!isNil {CivilianLocation})then{
 		_NextLocations = (_NextLocations - [CivilianLocation]);
 	};
 	if(count _NextLocations >0 )then{
-		_NextLocation = (_NextLocations call m_fnc_Locations_weights) call BIS_fnc_selectRandomWeighted;
 		CivilianLocationStartTime = time;
-		CivilianLocation = _NextLocation;
-		civilianBasePos = getPos CivilianLocation;
+		CivilianLocation = (_NextLocations call m_fnc_Locations_weights) call BIS_fnc_selectRandomWeighted;
+		civilianBasePos = locationPosition CivilianLocation;
 		civilianBasePos resize 2;
 		publicVariable "civilianBasePos";
 		publicVariable "CivilianLocation";
