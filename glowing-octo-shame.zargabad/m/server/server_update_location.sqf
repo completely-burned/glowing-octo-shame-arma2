@@ -1,4 +1,6 @@
-﻿private["_east1","_west1","_resistance1"];
+﻿waitUntil {!isNil "locationStarted"; sleep 5;};
+
+private["_east1","_west1","_resistance1"];
 _east1 = 0;_west1 = 0;_resistance1 = 0;
 
 _time = time;
@@ -7,7 +9,7 @@ while{true}do{
 	_delay = (time - _time); 
 	_time = time;
 
-	if (!(isNull CivilianLocation) && true) then {		
+	if !(isNil CivilianLocation) then {		
 		Private["_objects"];
 		_objects = (civilianBasePos nearEntities [["Man","Air","Car","Motorcycle","Tank"], sizeLocation]);
 		
