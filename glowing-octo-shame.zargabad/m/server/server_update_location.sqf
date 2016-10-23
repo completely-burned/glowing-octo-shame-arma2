@@ -11,7 +11,7 @@ while{true}do{
 
 	if !(isNil "CivilianLocation") then {	
 		private["_sizeLocation"];
-		_sizeLocation = (({!isPlayer leader _x} count allGroups) * 10);
+		_sizeLocation = (({!isPlayer leader _x} count allGroups) * 10) max 250;
 		if(sizeLocation != _sizeLocation)then{
 			sizeLocation = +_sizeLocation;
 			publicVariable "sizeLocation";
