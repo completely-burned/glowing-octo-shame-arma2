@@ -48,7 +48,7 @@ locationNext={
 	};
 	
 	private["_sizeLocation"];
-	_sizeLocation = 500;
+	_sizeLocation = + 500;
 	private["_NextLocations"];
 	_NextLocations = (nearestLocations [civilianBasePos, locationTypes, 5000]);
 	if(!isNil {CivilianLocation})then{
