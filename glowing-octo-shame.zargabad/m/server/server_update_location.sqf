@@ -9,7 +9,15 @@ while{true}do{
 	_delay = (time - _time); 
 	_time = time;
 
-	if !(isNil CivilianLocation) then {		
+	if !(isNil "CivilianLocation") then {	
+		private["_sizeLocation"];
+		_sizeLocation = (({!isPlayer leader _x} count allGroups) * 10);
+		if(sizeLocation != _sizeLocation)then{
+			sizeLocation = +_sizeLocation;
+			publicVariable "sizeLocation";
+			"MainTown" setMarkerSize [_sizeLocation,_sizeLocation];
+		};
+
 		Private["_objects"];
 		_objects = (civilianBasePos nearEntities [["Man","Air","Car","Motorcycle","Tank"], sizeLocation]);
 		
