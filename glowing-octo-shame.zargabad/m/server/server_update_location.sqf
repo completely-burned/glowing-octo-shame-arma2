@@ -1,4 +1,4 @@
-﻿waitUntil {!isNil "locationStarted"; sleep 5;};
+﻿waitUntil {sleep 5; !isNil "locationStarted"};
 
 private["_east1","_west1","_resistance1"];
 _east1 = 0;_west1 = 0;_resistance1 = 0;
