@@ -2,9 +2,6 @@
 	failMission "LOSER";
 }else{
 	debug=false;
-	if (!IsDedicated) then {
-		[] execVM "m\client\playerSetPosRespawn.sqf";
-	};
 	if (isServer) then {
 		[] Call Compile preprocessFileLineNumbers "m\server\params.sqf";
 		[] execVM "m\server\StartTime.sqf"
