@@ -100,10 +100,6 @@ while{true}do{
 		// _resistance = (_resistance min 50) ;
 
 		// _countGroups = count allGroups;
-		_east = ((_east * ( _delay)) );
-		_west = ((_west * ( _delay)) );
-		_resistance = (_resistance * ( _delay)) ;
-
 		// _east1 = ((_east1 + _east) max 0);
 		// _west1 = ((_west1 + _west) max 0);
 		// _resistance1 = ((_resistance1 + _resistance) max 0);
@@ -112,6 +108,10 @@ while{true}do{
 		_west1 = (_west1 + _west);
 		_resistance1 = (_resistance1 + _resistance);
 		
+		_east1 = ((_east1 * ( _delay)) );
+		_west1 = ((_west1 * ( _delay)) );
+		_resistance1 = (_resistance1 * ( _delay)) ;
+
 		_east1 = (_east1 max 0);
 		_west1 = (_west1 max 0);
 		_resistance1 = (_resistance1 max 0) ;
@@ -127,11 +127,11 @@ while{true}do{
 		private["_next"];
 		_next = false;
 		if(isMultiplayer)then{
-			if (((_east1 >=  50000 && east CountSide playableUnits > 0 && _eastEnemies < 5) || (_west1 >=  50000 && west CountSide playableUnits > 0 && _westEnemies < 5) || (_resistance1 >=  50000 && resistance CountSide playableUnits > 0 && _resistanceEnemies < 5))) then {
+			if (((_east1 >=  50000 && east CountSide playableUnits > 0 && _eastEnemies * 4 < _east) || (_west1 >=  50000 && west CountSide playableUnits > 0 && _westEnemies * 4 < _west) || (_resistance1 >=  50000 && resistance CountSide playableUnits > 0 && _resistanceEnemies * 4 < _resistance))) then {
 				_next = true;
 			};
 		}else{
-			if (((_east1 >=  50000 && playerSide == east  && _eastEnemies < 5) || (_west1 >=  50000 && playerSide == west && _westEnemies < 5) || (_resistance1 >=  50000 && playerSide == resistance && _resistanceEnemies < 5))) then {
+			if (((_east1 >=  50000 && playerSide == east  && _eastEnemies * 4 < _east) || (_west1 >=  50000 && playerSide == west && _westEnemies * 4 < _west) || (_resistance1 >=  50000 && playerSide == resistance && _resistanceEnemies * 4 < _resistance))) then {
 				_next = true;
 			};
 		};
