@@ -104,14 +104,10 @@ while{true}do{
 		// _west1 = ((_west1 + _west) max 0);
 		// _resistance1 = ((_resistance1 + _resistance) max 0);
 
-		_east1 = (_east1 + _east);
-		_west1 = (_west1 + _west);
-		_resistance1 = (_resistance1 + _resistance);
+		_east1 = (_east1 + (_east *  _delay));
+		_west1 = (_west1 + (_west *  _delay));
+		_resistance1 = (_resistance1 + (_resistance *  _delay));
 		
-		_east1 = ((_east1 * ( _delay)) );
-		_west1 = ((_west1 * ( _delay)) );
-		_resistance1 = (_resistance1 * ( _delay)) ;
-
 		_east1 = (_east1 max 0);
 		_west1 = (_west1 max 0);
 		_resistance1 = (_resistance1 max 0) ;
