@@ -35,27 +35,38 @@ if(count _this > 1)then{
 	//_typeList=GroupsAll;
 };
 
-switch (_side) do {
-	case (east):
-	{
-		//_pos=eastBasePos;
-		_typeList=AllGroupsEast;
+if(_patrol)then{
+	switch (_side) do {
+		case (east):
+		{
+			_typeList=AllGroupsEastOld;
+		};
+		case (west):
+		{
+			_typeList=AllGroupsWestOld;
+		};
+		case (resistance):
+		{
+			_typeList=AllGroupsGuerrilaOld;
+		};
+		default {};
 	};
-	case (west):
-	{
-		//_pos= westBasePos;
-		_typeList=AllGroupsWest;
+}else{
+	switch (_side) do {
+		case (east):
+		{
+			_typeList=AllGroupsEast;
+		};
+		case (west):
+		{
+			_typeList=AllGroupsWest;
+		};
+		case (resistance):
+		{
+			_typeList=AllGroupsGuerrila;
+		};
+		default {};
 	};
-	case (resistance):
-	{
-		//_pos= resistanceBasePos;
-		_typeList=AllGroupsGuerrila;
-	};
-	// case (civilian):
-	// {
-		// _pos= getmarkerpos "respawn_civilian";
-	// };
-	default {};
 };
 		
 private["_grp1"];
