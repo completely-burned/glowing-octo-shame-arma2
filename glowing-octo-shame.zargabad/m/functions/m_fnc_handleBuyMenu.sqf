@@ -156,7 +156,7 @@ while {true} do {
 	private["_uav_action","_uav_terminals"];
 	_uav_action = false;
 	_uav_terminals = [];
-	_Objects = (nearestObjects [vehicle player, ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"], 10]);
+	_Objects = (nearestObjects [vehicle player, UAVterminal, 10]);
 	if (count _Objects > 0) then {
 		{
 				private["_type","_Object"];
@@ -165,7 +165,7 @@ while {true} do {
 				
 				if (alive _Object) then {
 					if !(_uav_action) then {
-						if ([[_type],["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"]] call m_fnc_CheckIsKindOfArray) then {
+						if ([[_type],UAVterminal] call m_fnc_CheckIsKindOfArray) then {
 							_uav_action = true; _uav_terminals set [count _uav_terminals, _Object];
 						};
 					};
