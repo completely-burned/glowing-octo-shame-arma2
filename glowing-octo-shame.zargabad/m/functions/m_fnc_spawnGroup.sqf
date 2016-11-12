@@ -8,6 +8,7 @@ _groups = [];
 	_grp = createGroup _side;
 	_groups set [count _groups, _grp];
 
+	if(!isNull _grp)then{
 	private ["_types"];
 	_types = _x;
 
@@ -90,6 +91,7 @@ _groups = [];
 		}forEach _units;
 	};
 	_grp selectLeader _bestCandidate;
+	};
 
 }forEach (_this select 2);
 
