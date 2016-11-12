@@ -3,7 +3,7 @@ private ["_count_deleteList"];
 _count_deleteList = (count _this);
 if (_count_deleteList > 0)then{
 	Private["_dist"];
-	_dist = ((1000 - (_count_deleteList * 10)) max 100);// _dist = 1;
+	_dist = ((10000 - (_count_deleteList * 10)) max 1600);// _dist = 1;
 	{
 		Private["_type"];
 		_type = typeOf _x;
