@@ -44,7 +44,7 @@ switch (playerSide) do {
 	};
 };
 
-if (_respawn_pos distance vehicle player > safeDistance) then {
+if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
 	if ((_type isKindOf "ReammoBox") or (getText(configFile >> "CfgVehicles" >> _type >> "vehicleclass") in ["Ammo","ACE_Ammunition"])) then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBBarracks"]+_HQ+["WarfareBDepot","WarfareBCamp"], 100]);
