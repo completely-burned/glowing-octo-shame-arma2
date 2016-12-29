@@ -62,5 +62,6 @@ m_fnc_setNestedElement = compile (preprocessFileLineNumbers (_path + "fn_setNest
 m_fnc_availableVehicles = compile (preprocessFileLineNumbers (_path + "m_fnc_availableVehicles.sqf"));
 m_fnc_CheckTimeAvailableVehiclesBuyMenu = compile (preprocessFileLineNumbers (_path + "m_fnc_CheckTimeAvailableVehiclesBuyMenu.sqf"));
 m_fnc_setTimeAvailableVehiclesBuyMenu = compile (preprocessFileLineNumbers (_path + "m_fnc_setTimeAvailableVehiclesBuyMenu.sqf"));
+draga_fn_createmenu = compile (preprocessFileLineNumbers (_path + "draga_fn_createmenu.sqf"));
 
 m_fnc_init = true;
