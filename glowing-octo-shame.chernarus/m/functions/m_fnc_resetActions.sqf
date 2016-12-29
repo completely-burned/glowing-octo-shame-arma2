@@ -11,3 +11,5 @@ player removeAction (player getVariable "_Buy_Menu");
 player setvariable ["_Buy_Menu",nil];
 player removeAction (player getVariable "_teleport_action");
 player setvariable ["_teleport_action",nil];
+player removeAction (player getVariable "_menu_action");
+player setvariable ["_menu_action",nil];

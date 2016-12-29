@@ -49,8 +49,8 @@ _nearestObjects = [
 
 while {true} do {
 	private["_Objects"];
-	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport"];
-	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false;
+	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu"];
+	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
 
 	if ((vehicle player distance _respawn_pos) < 100 ) then {
 		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
@@ -149,6 +149,12 @@ while {true} do {
 						};
 					};
 				};
+
+				if !(_menu) then {
+					if ([[_type],HQ] call m_fnc_CheckIsKindOfArray) then {
+						_menu = true;
+					};
+				};
 			};
 		} foreach _Objects;
 	};
@@ -215,6 +221,21 @@ while {true} do {
 		_veh = vehicle player;
 		_veh removeAction (_veh getVariable "_teleport_action");
 		_veh setvariable ["_teleport_action", nil];
+	};
+
+	if (_menu) then {
+		private["_veh"];
+		_veh = vehicle player;
+		if (isnil {_veh getvariable "_menu_action"} && !isnull _veh) then {
+			private ["_action"];
+			_action = _veh addaction ["Menu", "m\client\main_menu.sqf", '#User:BIS_Menu_GroupCommunication', 0.5, false, false, "","_target == vehicle player"];
+			_veh setvariable ["_menu_action",_action];
+		};
+	}else{
+		private["_veh"];
+		_veh = vehicle player;
+		_veh removeAction (_veh getVariable "_menu_action");
+		_veh setvariable ["_menu_action", nil];
 	};
 
 	if (_Buy_Man) then {
