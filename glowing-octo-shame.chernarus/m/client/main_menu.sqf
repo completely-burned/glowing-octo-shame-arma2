@@ -1,1 +1,1 @@
-showCommandingMenu "#User:BIS_Menu_GroupCommunication";
+showCommandingMenu "#USER:c_0";
