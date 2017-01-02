@@ -19,7 +19,7 @@ switch (_this) do {
 
 		SAVELOADOUT = [magazines _player, weapons _player, _weapon, _typeBackpack,_magazinesBackpack];
 		
-		hint format ["'%1' %2 OK",(gettext (configFile >> "CfgWeapons" >> _weapon >> "displayname")),localize "str_save_game"];
+		hint format ["'%1' %2",(gettext (configFile >> "CfgWeapons" >> _weapon >> "displayname")),localize "draga_str_saved"];
 	};
 	case ("respawn"):
 	{
