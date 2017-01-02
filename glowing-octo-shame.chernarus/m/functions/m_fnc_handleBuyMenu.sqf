@@ -135,7 +135,7 @@ while {true} do {
 					_Object setFuelCargo 1;
 					if (isNil {_Object getVariable "hintCrewAction"}) then {
 						private["_action"];
-						_action = _Object addAction ['Crew','m\client\ACT\ACT_HintCrew.sqf',[],0, false];
+						_action = _Object addAction [format ["%1 %2",localize "STR_ACT_Crew",getText (configFile >> "CfgVehicles" >> _type >> "displayName")],'m\client\ACT\ACT_HintCrew.sqf',[],0, false];
 						_Object setVariable ["hintCrewAction",_action];
 					};
 				};
@@ -213,7 +213,7 @@ while {true} do {
 		_veh = vehicle player;
 		if (isnil {_veh getvariable "_teleport_action"} && !isnull _veh) then {
 			private ["_action"];
-			_action = _veh addaction ["Teleport", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false, "","_target == vehicle player"];
+			_action = _veh addaction [localize "draga_str_teleportation", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false, "","_target == vehicle player"];
 			_veh setvariable ["_teleport_action",_action];
 		};
 	}else{
@@ -330,7 +330,7 @@ while {true} do {
 	if (_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) then {
 		if (isnil {player getvariable "_Buy_Menu"} && !isnull player) then {
 			private ["_action"];
-			_action = player addaction [localize "str_buy_gear_buy", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false, "", "_target == _this"];
+			_action = player addaction [localize "draga_str_purchase", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false, "", "_target == _this"];
 			player setvariable ["_Buy_Menu",_action];
 		};
 	}else{
