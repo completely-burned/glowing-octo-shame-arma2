@@ -72,6 +72,7 @@
 							// _veh1 setPosATL _pos;
 							_veh1 setVectorUp [0,0,1];
 							// _veh1 addEventHandler ["GetIn",{_this call m_fnc_EH_GetIn}];
+							_veh1 call m_fnc_vehInit;
 							sleep 0.01;
 						};
 					};
