@@ -14,7 +14,6 @@ if(_type isKindOf "UAV")then{
 
 _fnc_1={
 	_this setVectorUp [0,0,1];
-	_this setVehicleLock "UNLOCKED";
 	group player addVehicle _this;
 	player reveal _this;
 	_veh call m_fnc_vehInit;

@@ -46,4 +46,5 @@ if (getNumber(configFile >> "CfgVehicles" >> typeOf _this >> "isMan") == 1) then
 			};
 		};
 	}];
+	_this setVehicleLock "UNLOCKED";
 };
