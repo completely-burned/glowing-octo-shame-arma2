@@ -53,7 +53,7 @@ while {true} do {
 	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
 
 	if ((vehicle player distance _respawn_pos) < 100 ) then {
-		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
+		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true; _teleport = true; _menu = true;
 	};
 
 	_BuyMenu = [[],[],[]];
