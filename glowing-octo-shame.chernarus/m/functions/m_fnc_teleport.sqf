@@ -27,12 +27,18 @@ switch (playerSide) do {
 
 // _teleportLocations = ((nearestLocations [civilianBasePos, ["CityCenter"],5000])-[CivilianLocation]);
 // _teleportLocations resize (5 min count _teleportLocations);
+
+_draga_objectsTeleport = [];
+{
+	_draga_objectsTeleport = _draga_objectsTeleport + allMissionObjects _x;
+} foreach draga_objectsTeleport;
+
 _teleportLocations = [];
 {
 	switch (typeName _x) do {
 		case ("OBJECT"):
 		{
-			if([[_x],["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"]+HQ] call m_fnc_CheckIsKindOfArray)then{
+			if([[_x],draga_objectsTeleport] call m_fnc_CheckIsKindOfArray)then{
 				if (alive _x) then {
 					_list = _list + [count _list];
 					_teleport_list = _teleport_list + [_x];
@@ -54,7 +60,7 @@ _teleportLocations = [];
 		};
 		default {};
 	};
-} foreach (allMissionObjects "WarfareBDepot")+(allMissionObjects "WarfareBCamp")+(allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital")+(allMissionObjects "Warfare_HQ_base_unfolded")+vehicles
+} foreach _draga_objectsTeleport
 +[_reapawnPlayer]
 +_teleportLocations;
 

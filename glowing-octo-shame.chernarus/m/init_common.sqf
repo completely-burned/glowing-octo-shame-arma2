@@ -78,3 +78,5 @@ if ( configName(configFile >> "CfgMods" >> "ACR") != "" ) then {
 HQ = listMHQ + ["Warfare_HQ_base_unfolded","WarfareBDepot","WarfareBCamp"];
 
 UAVterminal = HQ + ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
+
+draga_objectsTeleport = HQ + ["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"];
