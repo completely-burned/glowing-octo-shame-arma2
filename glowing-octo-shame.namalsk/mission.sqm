@@ -19,7 +19,7 @@ class Mission
 	randomSeed=9272243;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.21";
+		briefingName="glowing-octo-shame v0.0.3.22";
 		startWeather=0;
 		forecastWeather=0;
 		year=2011;
@@ -391,17 +391,6 @@ class Mission
 			vehicle="WarfareBCamp";
 			leader=1;
 			skill=0.46666664;
-		};
-	};
-	class Markers
-	{
-		items=1;
-		class Item0
-		{
-			position[]={6287.8931,42.035824,9406.3076};
-			name="respawn-west";
-			type="Depot";
-			colorName="ColorBlue";
 		};
 	};
 };

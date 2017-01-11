@@ -61,7 +61,6 @@ _teleportLocations = [];
 		default {};
 	};
 } foreach _draga_objectsTeleport
-+[_reapawnPlayer]
 +_teleportLocations;
 
 

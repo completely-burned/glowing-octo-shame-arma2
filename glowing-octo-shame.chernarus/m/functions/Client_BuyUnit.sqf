@@ -21,33 +21,13 @@ _fnc_1={
 };
 
 private ["_respawn_pos"];
-switch (playerSide) do {
-	case (resistance):
-	{
-		_respawn_pos = getMarkerPos "respawn_guerrila";
-	};
-	case (civilian):
-	{
-		_respawn_pos = getMarkerPos "respawn_civilian";
-	};
-	case (west):
-	{
-		_respawn_pos = getMarkerPos "respawn_west";
-	};
-	case (east):
-	{
-		_respawn_pos = getMarkerPos "respawn_east";
-	};
-	default {
-		_respawn_pos = getMarkerPos format["respawn_%1", playerSide];
-	};
-};
+_respawn_pos = [vehicle player, 101] call draga_fnc_CheckRespawnDistance;
 
-if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
+if (true) then {
 	if ((_type isKindOf "ReammoBox") or (getText(configFile >> "CfgVehicles" >> _type >> "vehicleclass") in ["Ammo","ACE_Ammunition"])) then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBBarracks"]+_HQ+["WarfareBDepot","WarfareBCamp"], 100]);
-		if ( (count _Objects > 0) or ((vehicle player distance _respawn_pos) < 100 )) then {
+		if ( (count _Objects > 0) or _respawn_pos) then {
 				Private["_pos"];
 				_pos = position vehicle player;
 				_pos = [_pos, 1.5, getDir vehicle player] call BIS_fnc_relPos;
@@ -61,7 +41,7 @@ if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
 	if (_type isKindOf "Man") then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBBarracks"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], 100]);
-		if ( (count _Objects > 0 ) or ((vehicle player distance _respawn_pos) < 100 )) then {
+		if ( (count _Objects > 0 ) or _respawn_pos) then {
 			if ((count units player) < 10 or true)then{
 				Private["_pos"];
 				_pos = position vehicle player;
@@ -102,7 +82,7 @@ if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
 	if (_type isKindOf "Car") then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBLightFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], 100]);
-		if ( (count _Objects > 0)  or ((vehicle player distance _respawn_pos) < 100 )) then {
+		if ( (count _Objects > 0)  or _respawn_pos) then {
 			Private["_veh"];
 			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
@@ -118,7 +98,7 @@ if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
 	if (_type isKindOf "Motorcycle") then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBLightFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], 100]);
-		if ( (count _Objects > 0) or ((vehicle player distance _respawn_pos) < 100 )) then {
+		if ( (count _Objects > 0) or _respawn_pos) then {
 			Private["_veh"];
 			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
@@ -134,7 +114,7 @@ if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
 	if (_type isKindOf "Tank") then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBHeavyFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], 100]);
-		if ( (count _Objects > 0) or ((vehicle player distance _respawn_pos) < 100 )) then {
+		if ( (count _Objects > 0) or _respawn_pos) then {
 			Private["_veh"];
 			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
@@ -150,7 +130,7 @@ if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
 	if (_type isKindOf "Helicopter") then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBAircraftFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], 100]);
-		if ( (count _Objects > 0) or ((vehicle player distance _respawn_pos) < 100 )) then {
+		if ( (count _Objects > 0) or _respawn_pos) then {
 			if(_isUAV)then{
 				_pos = position vehicle player;
 				_pos resize 2;
@@ -176,7 +156,7 @@ if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
 	if (_type isKindOf "Plane") then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, _HQ+Airport+["WarfareBDepot","WarfareBCamp"], 100]);
-		if ( (count _Objects > 0) or ((vehicle player distance _respawn_pos) < 100 )) then {
+		if ( (count _Objects > 0) or _respawn_pos) then {
 			if(_type isKindOf "UAV")then{
 				Private["_veh"];
 				if (count _Objects > 0) then {
@@ -215,7 +195,7 @@ if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
 		}else{
 			if (_type isKindOf "MV22") then {
 				_Objects = (nearestObjects [vehicle player, ["Base_WarfareBAircraftFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], 100]);
-				if ( (count _Objects > 0) or ((vehicle player distance _respawn_pos) < 100 )) then {
+				if ( (count _Objects > 0) or _respawn_pos) then {
 					Private["_veh"];
 					_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 					_veh setDir getDir vehicle player;
@@ -255,7 +235,7 @@ if ((_respawn_pos distance vehicle player > safeDistance) or true) then {
 	if (_type isKindOf "StaticWeapon") then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBBarracks"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], 100]);
-		if ( (count _Objects > 0) or ((vehicle player distance _respawn_pos) < 100 )) then {
+		if ( (count _Objects > 0) or _respawn_pos) then {
 			Private["_veh"];
 			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;

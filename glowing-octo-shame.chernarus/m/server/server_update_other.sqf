@@ -38,25 +38,27 @@ forEach (allMissionObjects "Base_WarfareBVehicleServicePoint");
 	};
 } forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "Warfare_HQ_base_unfolded")+(allMissionObjects "BASE_WarfareBFieldhHospital"); 
 
-	{
-		private["_veh"];
-		_veh = _x;
-		if( isNil {_veh getVariable "_noDelete"} )then{
-			if (({alive _x} count crew _veh)==0) then{
-				deleteVehicle _veh;
-			};
-		};
-	} forEach (nearestObjects [getMarkerPos "respawn_guerrila", ["AllVehicles","Strategic"], safeDistance])+(nearestObjects [getMarkerPos "respawn_civilian", ["AllVehicles","Strategic"], safeDistance])+(nearestObjects [getMarkerPos "respawn_west", ["AllVehicles","Strategic"], safeDistance])+(nearestObjects [getMarkerPos "respawn_east", ["AllVehicles","Strategic"], safeDistance]);
-
 {
-	private["_veh"];
-	_veh = _x;
-	if( isNil {_veh getVariable "_noDelete"} )then{
-		if(!alive _veh)then{
-			deleteVehicle _veh;
-		};
-	};
-} forEach (nearestObjects [getMarkerPos "respawn_guerrila", ["AllVehicles","Strategic"], 100])+(nearestObjects [getMarkerPos "respawn_civilian", ["AllVehicles","Strategic"], 100])+(nearestObjects [getMarkerPos "respawn_west", ["AllVehicles","Strategic"], 100])+(nearestObjects [getMarkerPos "respawn_east", ["AllVehicles","Strategic"], 100]);
+	private ["_objects"];
+	_objects = allMissionObjects _x;
+	{
+		private ["_obj"];
+		_obj = _x;
+		{
+			if( isNil {_x getVariable "_noDelete"} )then{
+				if(!alive _x)then{
+					deleteVehicle _x;
+				}else{
+					if(_obj distance _x < 10)then{
+						if (({alive _x} count crew _x)==0) then{
+							deleteVehicle _x;
+						};
+					};
+				};
+			};
+		} forEach nearestObjects [getPos _obj, ["AllVehicles","Strategic"], 50]
+	} forEach _objects;
+} forEach HQ;
 	
 (_deleteList) call fnc_cleanup;
 	sleep 1;

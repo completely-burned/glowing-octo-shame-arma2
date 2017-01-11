@@ -13,29 +13,6 @@ _HQ = [];
 
 _OptionsAvailable = [];
 
-private ["_respawn_pos"];
-switch (playerSide) do {
-	case (resistance):
-	{
-		_respawn_pos = getMarkerPos "respawn_guerrila";
-	};
-	case (civilian):
-	{
-		_respawn_pos = getMarkerPos "respawn_civilian";
-	};
-	case (west):
-	{
-		_respawn_pos = getMarkerPos "respawn_west";
-	};
-	case (east):
-	{
-		_respawn_pos = getMarkerPos "respawn_east";
-	};
-	default {
-		_respawn_pos = getMarkerPos format["respawn_%1", playerSide];
-	};
-};
-
 private ["_nearestObjects"];
 _nearestObjects = [
 	"LandVehicle",
@@ -52,7 +29,9 @@ while {true} do {
 	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu"];
 	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
 
-	if ((vehicle player distance _respawn_pos) < 100 ) then {
+	private ["_respawn_pos"];
+	_respawn_pos = [vehicle player, 100] call draga_fnc_CheckRespawnDistance;
+	if (_respawn_pos) then {
 		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true; _teleport = true; _menu = true;
 	};
 
@@ -81,8 +60,6 @@ while {true} do {
 					_Object setfuelcargo 1;
 					_Object setrepaircargo 1;
 				};
-
-				if (_respawn_pos distance vehicle player > safeDistance) then {
 
 				if (!_Buy_Man) then {
 					if ([[_type],["Base_WarfareBBarracks"]] call m_fnc_CheckIsKindOfArray) then {
@@ -119,8 +96,6 @@ while {true} do {
 					if ([[_type],pier] call m_fnc_CheckIsKindOfArray) then {
 						_Buy_Ship = true;
 					};
-				};
-
 				};
 
 				if !(_teleport) then {

@@ -18,6 +18,7 @@ SetGroupIconsVisible [true,false];
 };
 
 
+[] execVM "m\client\initRespawnMarkers.sqf";
 [] spawn m_fnc_rating;
 [] spawn ACT_WinchManager;
 [] spawn m_fnc_handleFirstAid;
