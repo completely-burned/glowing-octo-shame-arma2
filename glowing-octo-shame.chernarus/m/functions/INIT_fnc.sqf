@@ -64,4 +64,5 @@ m_fnc_CheckTimeAvailableVehiclesBuyMenu = compile (preprocessFileLineNumbers (_p
 m_fnc_setTimeAvailableVehiclesBuyMenu = compile (preprocessFileLineNumbers (_path + "m_fnc_setTimeAvailableVehiclesBuyMenu.sqf"));
 draga_fn_createmenu = compile (preprocessFileLineNumbers (_path + "draga_fn_createmenu.sqf"));
 
+draga_fnc_CheckRespawnDistance = compile (preprocessFileLineNumbers (_path + "draga_fnc_CheckRespawnDistance.sqf"));
 m_fnc_init = true;
