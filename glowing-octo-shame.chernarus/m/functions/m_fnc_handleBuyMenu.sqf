@@ -24,12 +24,13 @@ _nearestObjects = [
 		_nearestObjects set [count _nearestObjects,"ReammoBox"];
 	};
 
+private["_Objects"];
+private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu"];
+private ["_respawn_pos"];
+private["_uav_action","_uav_terminals"];
 while {true} do {
-	private["_Objects"];
-	private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu"];
 	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
 
-	private ["_respawn_pos"];
 	_respawn_pos = [vehicle player, 100] call draga_fnc_CheckRespawnDistance;
 	if (_respawn_pos) then {
 		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true; _teleport = true; _menu = true;
@@ -134,7 +135,6 @@ while {true} do {
 		} foreach _Objects;
 	};
 
-	private["_uav_action","_uav_terminals"];
 	_uav_action = false;
 	_uav_terminals = [];
 	_Objects = (nearestObjects [vehicle player, UAVterminal, 10]);

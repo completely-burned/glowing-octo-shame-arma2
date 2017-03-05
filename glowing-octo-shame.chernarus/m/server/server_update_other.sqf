@@ -1,5 +1,5 @@
-﻿while{true}do{
-Private "_deleteList";
+﻿Private "_deleteList";
+while{true}do{
 _deleteList=[];
 
 {

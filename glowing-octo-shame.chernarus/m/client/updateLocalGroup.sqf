@@ -1,5 +1,5 @@
+private["_player"];
 while {true} do {
-	private["_player"];
 	_player = player;
 	if(leader _player == _player) then {
 		{

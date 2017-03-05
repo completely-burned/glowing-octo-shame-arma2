@@ -1,6 +1,6 @@
 ﻿
-while{true}do{
 private ["_allowGetin","_deleteList","_getOut"];
+while{true}do{
 _deleteList=[];
 _getOut=[];
 {

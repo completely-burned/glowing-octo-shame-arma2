@@ -10,8 +10,8 @@ _task SetSimpleTaskDescription [localize "str_disp_xbox_desc_cityconflict",local
 player setCurrentTask _task;
 [objNull,objNull,_task, "Created"] execVM "ca\Modules\MP\data\scriptCommands\taskHint.sqf";
 
+private["_pos"];
 while {true} do {
-	private["_pos"];
 	_pos = civilianBasePos;
 	if(((_pos select 0) != (_civilianBasePos select 0)) or ((_pos select 1) != (_civilianBasePos select 1)))then {
 		_civilianBasePos = _pos;

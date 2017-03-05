@@ -1,5 +1,5 @@
-﻿while{true}do{
-		private ["_twns"];
+﻿private ["_twns"];
+while{true}do{
 		_twns=[];
 		{
 			private ["_twn"];

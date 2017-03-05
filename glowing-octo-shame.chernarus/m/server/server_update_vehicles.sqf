@@ -1,5 +1,5 @@
-﻿while{true}do{
-private ["_countMHQ","_deleteList","_count_transportammo","_count_transportrepair","_count_transportfuel"];
+﻿private ["_countMHQ","_deleteList","_count_transportammo","_count_transportrepair","_count_transportfuel"];
+while{true}do{
 _countMHQ = 0;
 _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0; 
 _deleteList=[];
