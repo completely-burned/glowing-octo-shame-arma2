@@ -28,7 +28,7 @@ class Mission
 	randomSeed=14018807;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.26";
+		briefingName="glowing-octo-shame v0.0.3.27";
 		startWeather=0.1;
 		forecastWeather=0.1;
 		year=2012;
