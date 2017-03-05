@@ -36,12 +36,25 @@ private ["_respawnMarkers"];
 _respawnMarkers = [];
 
 for "_i" from 0 to (count _objects - 1) do {
-	private ["_obj","_marker"];
+	private ["_obj","_marker","_pos"];
 	_obj = _objects select _i;
+	_pos = getPos _obj;
+	if(_obj isKindOf "Warfare_HQ_base_unfolded")then{
+		private ["_dir","_dist2"];
+		_dir = getDir _obj;
+		_dist2 = 6.5;
+		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
+	};
+	if(_obj isKindOf "WarfareBDepot")then{
+		private ["_dir","_dist2"];
+		_dir = getDir _obj;
+		_dist2 = 3;
+		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
+	};
 	if(_i == 0)then{
-		_marker = createMarkerLocal [format["respawn_%1",_side_str], getPos _obj];
+		_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
 	}else{
-		_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i], getPos _obj];
+		_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i], _pos];
 	};
 	_marker setMarkerTypeLocal "Depot";
 	_marker setMarkerColorLocal _markerColor;
