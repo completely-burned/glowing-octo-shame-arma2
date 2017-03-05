@@ -7,7 +7,7 @@ _HQ = [];
 	if(configName(configFile >> "CfgVehicles" >> _x) != "")then{
 		_HQ = _HQ + [_x]; 
 	};
-} forEach HQ;
+} forEach listMHQ + HQ;
 
 40 CutRsc["OptionsAvailable","PLAIN",0];
 
@@ -19,7 +19,7 @@ _nearestObjects = [
 	"Air",
 	"Base_WarfareBVehicleServicePoint",
 	"Base_WarfareBBarracks","Base_WarfareBLightFactory",
-	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"] + HQ + Airport + pier;
+	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"] + listMHQ + HQ + Airport + pier;
 	if(!isServer)then{
 		_nearestObjects set [count _nearestObjects,"ReammoBox"];
 	};
@@ -50,7 +50,7 @@ while {true} do {
 				// };
 
 				if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
-					if ([[_type],HQ] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],listMHQ + HQ] call m_fnc_CheckIsKindOfArray) then {
 						_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
 					};
 				};
@@ -99,7 +99,7 @@ while {true} do {
 				};
 
 				if !(_teleport) then {
-					if ([[_type],["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]+HQ] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]+listMHQ + HQ] call m_fnc_CheckIsKindOfArray) then {
 						_teleport = true;
 					};
 				};
@@ -126,7 +126,7 @@ while {true} do {
 				};
 
 				if !(_menu) then {
-					if ([[_type],HQ] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],listMHQ + HQ] call m_fnc_CheckIsKindOfArray) then {
 						_menu = true;
 					};
 				};
