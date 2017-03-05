@@ -1,5 +1,5 @@
-﻿{
-	private ["_leader"];
+﻿private ["_leader"];
+{
 	_leader = leader _x;
 	// _units = units _x;
 	if(!isNull _leader)then{
