@@ -1,3 +1,5 @@
+waitUntil {!isNil "draga_respawnMarkers"};
+
 private ["_pos","_units"];
 switch (playerSide) do {
 	case (resistance):
