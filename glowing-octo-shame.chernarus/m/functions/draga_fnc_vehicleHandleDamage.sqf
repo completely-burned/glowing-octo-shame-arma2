@@ -10,7 +10,7 @@ if(_unit == _source)then{
 		_damage
 	};
 }else{
-	if(playerSide getFriend side _source < 0.6)then{
+	if!(isPlayer _source && isPlayer effectiveCommander _unit)then{
 		_damage
 	};
 };
