@@ -9,6 +9,19 @@ _canDie = !isnil {_unit getvariable "BIS_allowDamage"};
 _damageNone = if (_canDie) then {_damage} else {0};
 
 _m_true = true;
+
+if(_unit == _source)then{
+	if(_projectile == "")then{
+		_m_true = false;
+		_damageNone
+	};
+}else{
+	if(isPlayer _source && isPlayer _unit)then{
+		_m_true = false;
+		_damageNone
+	};
+};
+
 if(_m_true)then{
 	if(_selection == "" && _damage >= 0.8 && !_canDie && alive _unit)then{
 		_unit setvariable ["BIS_lifeState","UNCONSCIOUS",true];
