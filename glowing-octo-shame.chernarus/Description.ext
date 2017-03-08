@@ -17,14 +17,16 @@ author="http://github.com/fearOfSociety/glowing-octo-shame-arma2";
 class Params {	
 	class serverFPSmin {		
 		title="(AI) server FPS";
-		values[] = {25,32,36,40,42,48,64};
-		texts[] = {25,32,36,40,42,48,64};
-		default=36;
+		values[] = {30,40,50,60};
+		texts[] = {30,40,50,60};
+		default=30;
 	};
 	class minGroups {		
 		title="(AI) minimum groups";
-		values[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
-		texts[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
+		// values[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
+		// texts[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
+		values[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,120};
+		texts[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,120};
 		default=50;
 	};
 	class maxGroups {		
