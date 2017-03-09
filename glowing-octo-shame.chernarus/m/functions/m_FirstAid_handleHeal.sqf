@@ -4,7 +4,8 @@ _unit = _this select 0;
 _healer = _this select 1;
 _isMedic = _this select 2;
 
-if (_unit != _healer) then {
+if (lifestate _unit == "ALIVE") exitWith {false};
+
 _healer attachto [_unit,[-0.75,0.1,0],""];
 _healer setdir 90;
 
@@ -21,4 +22,3 @@ if (_isMedic) then {
 _unit setvariable ["BIS_lifeState","ALIVE",true];
 waitUntil{lifestate _unit == "ALIVE" or lifestate _healer == "UNCONSCIOUS" or !alive _unit or !alive _healer};
 AISFinishHeal _this;
-};
