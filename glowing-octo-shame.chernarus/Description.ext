@@ -108,6 +108,6 @@ class Backpacks {
 class Header {
 	gameType = COOP;
 	minPlayers = 1;
-	maxPlayers = 20;
+	maxPlayers = 100;
 };
 
