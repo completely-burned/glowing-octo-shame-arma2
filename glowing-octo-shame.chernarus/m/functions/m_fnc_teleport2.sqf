@@ -27,7 +27,7 @@ if (count _nearestLocations > 0) then {
 _pos resize 2;
 
 vehicle player setVelocity [0, 0, 0];
-vehicle player setPos (([_pos] call Common_GetSafePosition) findEmptyPosition [0,100]);
+vehicle player setPos ([_pos,25, sizeOf typeOf vehicle player] call draga_fn_getSafePos);
 vehicle player setVectorUp [0,0,1];
 private ["_inList"];
 _inList = [];
@@ -37,7 +37,7 @@ _inList = [];
 		_veh = vehicle _x;
 		if !(_veh in _inList)then{
 			_inList set [count _inList,_veh];
-			_veh setPos (([_pos] call Common_GetSafePosition) findEmptyPosition [0,100]);
+			_veh setPos ([_pos,25, sizeOf typeOf _veh] call draga_fn_getSafePos);
 			_veh setVectorUp [0,0,1];
 		};
 	};
