@@ -18,13 +18,3 @@
 {
 	_x call m_fnc_vehInit;
 }forEach allUnits;
-
-{
-	_x allowDamage false;
-	_x setVariable ["_noDelete",true];
-}forEach(allMissionObjects 'MASH')+(allMissionObjects 'ReammoBox')+(allMissionObjects 'WarfareBCamp'); 
-
-{
-	_x allowDamage false;
-	//_x spawn m_fnc_mobileHQ_init;
-}forEach (allMissionObjects "Warfare_HQ_base_unfolded");

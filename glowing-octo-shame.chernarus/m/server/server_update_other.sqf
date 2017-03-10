@@ -1,17 +1,54 @@
-﻿Private "_deleteList";
+﻿{
+	_x allowDamage false;
+	_x setVariable ["_noDelete",true];
+}forEach(allMissionObjects 'MASH')+(allMissionObjects 'ReammoBox')+(allMissionObjects 'WarfareBCamp'); 
+
+{
+	_x allowDamage false;
+	//_x spawn m_fnc_mobileHQ_init;
+	_x setVariable ["_noDelete",true];
+}forEach (allMissionObjects "Warfare_HQ_base_unfolded");
+
+Private ["_deleteList"];
 while{true}do{
 _deleteList=[];
 
 {
 	if ( isNil {_x getVariable "_noDelete"} ) then {
 		_deleteList set [count _deleteList,_x];
+	}else{
+		if (!alive _x) then {
+			Private ["_type","_pos","_dir","_veh"];
+			_type = typeOf _x;
+			_pos = getPos _x;
+			_pos resize 2;
+			_dir = getDir _x;
+			_veh = createVehicle [_type, [0,0], [], 0, "NONE"];
+			_veh allowDamage false;
+			_veh setDir _dir;
+			_veh setPos _pos;
+			_veh setVariable ["_noDelete",true];
+		};
 	};
 }
 forEach (allMissionObjects 'MASH'); 
 
 {
 	if (!alive _x) then {
-		deleteVehicle _x;
+		if ( isNil {_x getVariable "_noDelete"} ) then {
+			deleteVehicle _x;
+		}else{
+			Private ["_type","_pos","_dir","_veh"];
+			_type = typeOf _x;
+			_pos = getPos _x;
+			_pos resize 2;
+			_dir = getDir _x;
+			_veh = createVehicle [_type, [0,0], [], 0, "NONE"];
+			_veh allowDamage false;
+			_veh setDir _dir;
+			_veh setPos _pos;
+			_veh setVariable ["_noDelete",true];
+		};
 	}else{
 		if (getNumber (configFile >> "CfgVehicles" >> typeOf _x >> "showweaponcargo") == 1) then {
 			_deleteList set [count _deleteList,_x];
