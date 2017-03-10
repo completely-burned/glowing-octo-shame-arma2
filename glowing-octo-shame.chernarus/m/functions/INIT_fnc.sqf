@@ -16,7 +16,7 @@ if (!IsDedicated) then {
 	m_fnc_teleport = compile (preprocessFileLineNumbers (_path + "m_fnc_teleport.sqf"));
 	m_fnc_teleport2 = compile (preprocessFileLineNumbers (_path + "m_fnc_teleport2.sqf"));
 	m_fnc_resetActions = compile (preprocessFileLineNumbers (_path + "m_fnc_resetActions.sqf"));
-	Common_GetSafePosition = compile (preprocessFileLineNumbers (_path + "Common_GetSafePosition.sqf"));
+	draga_fn_getSafePos = compile (preprocessFileLineNumbers (_path + "draga_fn_getSafePos.sqf"));
 	ACT_WinchManager = compile (preprocessFileLineNumbers (_path + "ACT_WinchManager.sqf"));
 	m_fnc_rating = compile (preprocessFileLineNumbers (_path + "m_fnc_rating.sqf"));
 	m_fnc_handlePlayableUnitsMarker = compile (preprocessFileLineNumbers (_path + "m_fnc_handlePlayableUnitsMarker.sqf"));
