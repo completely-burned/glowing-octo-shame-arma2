@@ -11,7 +11,12 @@ class Mission
 		"chernarus",
 		"CABuildings",
 		"corepatch_additionalobjects",
-		"ca_modules_functions"
+		"ca_modules_functions",
+		"caweapons_ammoboxes",
+		"CAWheeled",
+		"CAWheeled_E_Old_bike",
+		"caair",
+		"caair_e_an2"
 	};
 	addOnsAuto[]=
 	{
@@ -19,12 +24,19 @@ class Mission
 		"cacharacters2",
 		"ca_modules_functions",
 		"warfarebuildings",
+		"CABuildings",
+		"camisc3",
+		"caweapons_ammoboxes",
+		"CAWheeled",
+		"CAWheeled_E_Old_bike",
+		"caair",
+		"caair_e_an2",
 		"chernarus"
 	};
 	randomSeed=12852940;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.34";
+		briefingName="glowing-octo-shame v0.0.3.35";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;
@@ -3790,7 +3802,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=4;
+		items=25;
 		class Item0
 		{
 			position[]={7565.0942,307.02353,6825.8589};
@@ -3823,13 +3835,222 @@ class Mission
 		};
 		class Item3
 		{
-			position[]={11959.316,158.95648,12635.354};
+			position[]={11960.077,158.95604,12637.185};
 			azimut=25;
 			id=55;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
 			skill=0.60000002;
 			init="this allowDamage false;";
+		};
+		class Item4
+		{
+			position[]={7552.2036,306.09381,6831.1763};
+			azimut=180;
+			id=344;
+			side="EMPTY";
+			vehicle="MASH";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item5
+		{
+			position[]={7553.2954,306.34982,6825.2466};
+			id=345;
+			side="EMPTY";
+			vehicle="RUBasicWeaponsBox";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item6
+		{
+			position[]={7562.3467,306.9711,6813.3877};
+			azimut=90;
+			id=346;
+			side="EMPTY";
+			vehicle="UAZ_RU";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item7
+		{
+			position[]={7561.5669,306.47113,6838.6655};
+			azimut=98.518364;
+			id=347;
+			side="EMPTY";
+			vehicle="Old_bike_TK_INS_EP1";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item8
+		{
+			position[]={7537.6914,305.68079,6814.3232};
+			azimut=90;
+			id=348;
+			side="EMPTY";
+			vehicle="Mi17_Ins";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item9
+		{
+			position[]={4716.1411,339,10198.952};
+			azimut=153.14532;
+			id=349;
+			side="EMPTY";
+			vehicle="MASH";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item10
+		{
+			position[]={4719.7969,339,10194.155};
+			azimut=-26.854631;
+			id=350;
+			side="EMPTY";
+			vehicle="RUBasicWeaponsBox";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item11
+		{
+			position[]={4724.0264,339,10190.182};
+			azimut=-247.44791;
+			id=351;
+			side="EMPTY";
+			vehicle="UAZ_RU";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item12
+		{
+			position[]={4738.8853,339,10211.004};
+			azimut=147.91849;
+			id=352;
+			side="EMPTY";
+			vehicle="Old_bike_TK_INS_EP1";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item13
+		{
+			position[]={4690.772,339,10201.056};
+			azimut=152.61198;
+			id=353;
+			side="EMPTY";
+			vehicle="Mi17_Ins";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item14
+		{
+			position[]={4702.7456,339,10177.99};
+			azimut=152.612;
+			id=354;
+			side="EMPTY";
+			vehicle="An2_TK_EP1";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item15
+		{
+			position[]={11970.332,158.88159,12646.219};
+			azimut=289.76053;
+			id=355;
+			side="EMPTY";
+			vehicle="MASH";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item16
+		{
+			position[]={11964.382,158.9305,12647.193};
+			azimut=109.76045;
+			id=356;
+			side="EMPTY";
+			vehicle="RUBasicWeaponsBox";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item17
+		{
+			position[]={11949.112,158.99033,12643.658};
+			azimut=199.76044;
+			id=357;
+			side="EMPTY";
+			vehicle="UAZ_RU";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item18
+		{
+			position[]={11953.67,158.98224,12652.033};
+			azimut=234.48695;
+			id=358;
+			side="EMPTY";
+			vehicle="Old_bike_TK_INS_EP1";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item19
+		{
+			position[]={11945.269,159,12686.519};
+			azimut=199.76044;
+			id=359;
+			side="EMPTY";
+			vehicle="Mi17_Ins";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item20
+		{
+			position[]={4844.458,8.9072199,2531.9575};
+			azimut=295.88666;
+			id=360;
+			side="EMPTY";
+			vehicle="MASH";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item21
+		{
+			position[]={4838.647,8.984705,2533.5681};
+			azimut=115.88675;
+			id=361;
+			side="EMPTY";
+			vehicle="RUBasicWeaponsBox";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item22
+		{
+			position[]={4822.2788,8.8999996,2526.1509};
+			azimut=156.2599;
+			id=362;
+			side="EMPTY";
+			vehicle="UAZ_RU";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item23
+		{
+			position[]={4847.1089,8.9683437,2520.2651};
+			azimut=214.40498;
+			id=363;
+			side="EMPTY";
+			vehicle="Old_bike_TK_INS_EP1";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item24
+		{
+			position[]={4868.8457,8.8544769,2517.26};
+			azimut=205.88661;
+			id=364;
+			side="EMPTY";
+			vehicle="Mi17_Ins";
+			skill=0.60000002;
+			init="this setVariable [""respawnVehicle"",true];";
 		};
 	};
 };
