@@ -1,9 +1,12 @@
-﻿private ["_pos"];
+﻿private ["_pos","_allow"];
 
+_allow = true;
 switch (typeName _this) do {
 	case ("OBJECT"):
 	{
 		_pos = getPos _this;
+		if(speed _this >= 2)then{_allow = false;};
+		hint localize "draga_str_CannotTeleport";
 	};
 	case ("LOCATION"):
 	{
@@ -18,6 +21,7 @@ switch (typeName _this) do {
 	};
 };
 
+if(_allow)then{
 private ["_nearestLocations"];
 _nearestLocations = nearestLocations [_pos, ["FlatArea","FlatAreaCity","FlatAreaCitySmall"], 250];
 if (count _nearestLocations > 0) then {
@@ -37,8 +41,10 @@ _inList = [];
 		_veh = vehicle _x;
 		if !(_veh in _inList)then{
 			_inList set [count _inList,_veh];
+			_veh setVelocity [0, 0, 0];
 			_veh setPos ([_pos,25, sizeOf typeOf _veh] call draga_fn_getSafePos);
 			_veh setVectorUp [0,0,1];
 		};
 	};
 }forEach units group player;
+};
