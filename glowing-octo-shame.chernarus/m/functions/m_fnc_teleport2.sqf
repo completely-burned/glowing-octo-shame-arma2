@@ -5,7 +5,7 @@ switch (typeName _this) do {
 	case ("OBJECT"):
 	{
 		_pos = getPos _this;
-		if(speed _this >= 2 && )then{_allow = false; hint localize "draga_str_CannotTeleport";};
+		if(speed _this >= 2)then{_allow = false; hint localize "draga_str_CannotTeleport";};
 		
 	};
 	case ("LOCATION"):
