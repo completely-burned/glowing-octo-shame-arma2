@@ -533,4 +533,4 @@ draga_str_setTerrainGrid,"set Terrain Grid","настройка травы"
 draga_str_setViewDistance,"set View Distance","настройка дальности обзора"
 draga_str_join_the_squad,"join the squad","присоединиться к отряду"
 draga_str_saved,"saved","сохранено"
-
+draga_str_CannotTeleport,"You can not teleport to a moving object","нельзя телепортироваться на движущийся объект"
