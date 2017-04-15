@@ -117,6 +117,12 @@ _getOut=[];
 						_allowGetin=true;
 					};
 				};
+
+				if!(_allowGetin)then{
+					if(_assignedVehicle isKindOf "Ship")then{
+						_allowGetin=true;
+					};
+				};
 			};
 		};
 		
