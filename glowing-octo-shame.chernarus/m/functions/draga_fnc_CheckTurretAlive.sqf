@@ -3,7 +3,7 @@ private["_veh","_all","_turrets","_count_turrets","_alive_turrets","_true","_ent
 _veh = _this select 0;
 _all = _this select 1;
 
-_entry = configFile >> "CfgVehicles" >> _type;
+_entry = configFile >> "CfgVehicles" >> typeOf _veh;
 _turrets = ([_entry >> "turrets",[]] call m_fnc_returnVehicleTurrets);
 _count_turrets = count _turrets;
 _alive_turrets = 0;
