@@ -46,12 +46,11 @@ _preferRoads=false;
 	// } forEach _types;
 // };
 
-// if ([_types, ["Ship"]] call m_fnc_CheckIsKindOfArray) then{
-	// _minDist = 3500;
-	// _waterMode = 2;
-	// _objDist = 0;
-	// _blacklist=[];
-	// _maxGradient= (100 * (pi / 180));
-// };
+if ([_types, ["Ship"]] call m_fnc_CheckIsKindOfArray) then{
+	_minDist = 1500;
+	_waterMode = 2;
+	_objDist = 0;
+	_blacklist=[];
+};
 
 [_minDist,_maxDist, _objDist, _waterMode, _maxGradient, _shoreMode, _blacklist, _defaultPos, _preferRoads];

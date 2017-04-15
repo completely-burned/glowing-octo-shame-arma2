@@ -19,7 +19,7 @@ while{true}do{
 		};
 
 		Private["_objects"];
-		_objects = (civilianBasePos nearEntities [["Man","Air","Car","Motorcycle","Tank"], sizeLocation]);
+		_objects = (civilianBasePos nearEntities [["AllVehicles"], sizeLocation]);
 		
 		Private["_west","_east","_resistance"];
 		Private["_westPlayers","_eastPlayers","_resistancePlayers"];
