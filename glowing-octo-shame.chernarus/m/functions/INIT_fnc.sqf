@@ -66,4 +66,5 @@ draga_fn_createmenu = compile (preprocessFileLineNumbers (_path + "draga_fn_crea
 draga_fnc_vehicleHandleDamage = compile (preprocessFileLineNumbers (_path + "draga_fnc_vehicleHandleDamage.sqf"));
 
 draga_fnc_CheckRespawnDistance = compile (preprocessFileLineNumbers (_path + "draga_fnc_CheckRespawnDistance.sqf"));
+draga_fnc_CheckTurretAlive = compile (preprocessFileLineNumbers (_path + "draga_fnc_CheckTurretAlive.sqf"));
 m_fnc_init = true;
