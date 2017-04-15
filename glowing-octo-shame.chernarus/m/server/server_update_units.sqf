@@ -41,7 +41,7 @@ _getOut=[];
 				};
 
 				if(_allowGetin && true)then{
-					if(((civilianBasePos distance _x)<(500 max sizeLocation))or ((civilianBasePos distance _assignedVehicle)<(500 max sizeLocation)))then{
+					if(((civilianBasePos distance vehicle _x)<(500 max sizeLocation))or ((civilianBasePos distance _assignedVehicle)<(500 max sizeLocation)))then{
 						private ["_enableAttack"];
 						_enableAttack = true;
 						if(_enableAttack)then{
@@ -74,7 +74,7 @@ _getOut=[];
 				};
 
 				if(_allowGetin && true)then{
-					if(([_x, 300, side _x] call m_fnc_CheckCombatNearUnits))then{
+					if(([vehicle _x, 300, side _x] call m_fnc_CheckCombatNearUnits))then{
 						if(count _VehicleRole > 0)then{
 							if(_VehicleRole select 0 == "Cargo")then{
 								_allowGetin=false;
@@ -94,7 +94,7 @@ _getOut=[];
 					if(_assignedVehicle isKindOf "Air")then{
 						if(count _VehicleRole > 0)then{
 							if(_VehicleRole select 0 == "Cargo")then{
-								if((_assignedVehicle distance _x)>25)then{
+								if((_assignedVehicle distance vehicle _x)>25)then{
 									_allowGetin=false;
 								};
 							};
@@ -169,7 +169,7 @@ _getOut=[];
 				};
 
 				if (_delete) then {
-					if ((_x distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation)) then {
+					if ((vehicle _x distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation)) then {
 						_delete = false;
 						if ( _time < ( time + 180 ) )then {
 							_time = time + 180;
@@ -205,7 +205,7 @@ _getOut=[];
 				};
 				
 				if !(canStand _x) then {
-					if !([_x, 100] call m_fnc_CheckPlayersDistance)then{
+					if !([vehicle _x, 100] call m_fnc_CheckPlayersDistance)then{
 						_x setHit["legs",0];
 					};
 				};

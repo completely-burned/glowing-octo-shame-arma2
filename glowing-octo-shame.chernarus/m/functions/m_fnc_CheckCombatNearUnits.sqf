@@ -14,7 +14,7 @@ ScopeName "Check";
 			if (!isNull _leader) then {
 				if (!isPlayer _leader) then {
 					if ((behaviour _leader) == "COMBAT") then {
-						if ((_Pos distance _leader) <= _distance) then {
+						if ((_Pos distance vehicle _leader) <= _distance) then {
 								_visible = true;
 								BreakTo "Check";
 						};
