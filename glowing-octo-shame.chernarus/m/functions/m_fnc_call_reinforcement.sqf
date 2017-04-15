@@ -84,6 +84,7 @@ if (_patrol)then{
 
 _pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
 
+if(count _pos_resp > 0)then{
 private["_groups"];
 _groups = ([_pos_resp, _side, _grp1 select 0] call m_fnc_spawnGroup);
 
@@ -181,3 +182,6 @@ if(count _cargo2 > 0)then{
 };
 
 _groups;
+}else{
+	grpNull;
+};

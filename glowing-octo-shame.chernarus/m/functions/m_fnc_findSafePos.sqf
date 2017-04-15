@@ -36,8 +36,8 @@ _posY = _pos select 1;
 // _dist = ( _minDist / 1.25 );
 _dist = ( _minDist);
 _attempts = 0;
-// private ["_attempts2"];
-// _attempts2 = 0;
+private ["_attempts2"];
+_attempts2 = 0;
 _visible = true;
 // private ["_groupPosList"];
 // _groupPosList=[0];
@@ -46,6 +46,8 @@ if(_preferRoads)then{
 	_nearRoads = (_pos nearRoads _dist);
 };
 while {_visible} do {
+	if(_attempts2 >= 5000)exitWith{[]};
+
 	if(_preferRoads)then{
 		if(count _nearRoads > 0)then{
 			_testPos = getPos (_nearRoads call BIS_fnc_selectRandom);
@@ -103,7 +105,7 @@ while {_visible} do {
 	};
 		
 	_attempts = _attempts + 1;
-	// _attempts2 = _attempts2 + 1;
+	_attempts2 = _attempts2 + 1;
 	if ( ( _attempts > 50 ) && ( _dist < _maxDist ) ) then {
 		_dist = ( _dist + (( _minDist / 4 ) max 100 ) );
 		if(_preferRoads)then{
