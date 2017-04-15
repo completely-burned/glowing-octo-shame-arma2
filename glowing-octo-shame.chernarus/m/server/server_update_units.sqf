@@ -103,12 +103,8 @@ _getOut=[];
 				};
 
 				if(_allowGetin)then{
-					if(count(LIB_cfgVeh >> typeOf _assignedVehicle >> "Turrets")>0)then{
-						if(!alive assignedCommander _assignedVehicle)then{
-							if(!alive assignedGunner _assignedVehicle)then{
-								_allowGetin=false;
-							};
-						};
+					if!([_assignedVehicle, false] call draga_fnc_CheckTurretAlive)then{
+						_allowGetin=false;
 					};
 				};
 				
