@@ -86,10 +86,10 @@ if(!isNull _grp)then{
 					waitUntil{(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 100 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
 					{
 						if(group _x != _grp)then{
-							if(_this isKindOf "Plane")then{
+							// if(_this isKindOf "Plane")then{
 								sleep 0.5;
 								_x action ["Eject", _this];
-							};
+							// };
 							unassignVehicle _x;
 						};
 					}forEach crew _this;
