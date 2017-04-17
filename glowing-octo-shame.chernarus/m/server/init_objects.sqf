@@ -17,4 +17,4 @@
 
 {
 	_x call m_fnc_vehInit;
-}forEach allUnits;
+}forEach allUnits-playableunits;
