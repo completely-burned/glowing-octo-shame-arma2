@@ -24,7 +24,7 @@ if ([_types, ["Air"]] call m_fnc_CheckIsKindOfArray) then{
 	_minDist = 3500;
 	_maxDist = _minDist*2;
 	_waterMode = -1;
-	_objDist = 0;
+	_objDist = -1;
 	_blacklist=[];
 	_maxGradient= (100 * (pi / 180));
 }else{
@@ -49,7 +49,7 @@ _preferRoads=false;
 if ([_types, ["Ship"]] call m_fnc_CheckIsKindOfArray) then{
 	_minDist = 1500;
 	_waterMode = 2;
-	_objDist = 0;
+	_objDist = -1;
 	_blacklist=[];
 };
 
