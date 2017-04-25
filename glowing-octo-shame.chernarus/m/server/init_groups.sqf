@@ -37,20 +37,18 @@ _fnc5={
 _fnc4={
 	private["_grp","_types"];
 	_grp = +(_this select 0); // [[[[[_types,_positions,_ranks],[_types,_positions,_ranks]]],[[_types,_positions,_ranks]]],[0.5,0.5]]
+	private["_max_rarity"];
+	_max_rarity = 0;
+	{
+		_max_rarity = _max_rarity max (_x select 1);
+	}forEach (_this select 1);
 	for "_i" from 0 to ((count (_grp select 0)) - 1) do {
 		_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
 		{
 			if ([_types, _x select 0] call m_fnc_CheckIsKindOfArray) then {
 				private["_rarity"];
 				_rarity = ([_grp, [1, _i]] call BIS_fnc_returnNestedElement);
-				_rarity = (_rarity * (_x select 1));
-				
-				// _rarity = (_rarity * 100);
-				// _rarity = (round _rarity);
-				// if(_rarity != 0)then{
-					// _rarity = (_rarity / 100);
-				// };
-			
+				_rarity = ((_rarity * (_x select 1))/_max_rarity);
 				[_grp, [1, _i],  _rarity] call BIS_fnc_setNestedElement;
 			};
 		
@@ -97,13 +95,14 @@ AllGroupsGuerrilaOld	= AllGroupsGuerrila;
 _arr13453=[
 	[["Air"], 				missionNamespace getVariable "Air"],
 	[["Tank"], 				missionNamespace getVariable "Tank"],
-	[["Car","Motorcycle"], missionNamespace getVariable "Car"]
+	[["Car","Motorcycle","Ship"], missionNamespace getVariable "Car"]
 ];
 
 // _arr13453=[
 	// [["Man"], 				0],
-	// [["Air"], 				1],
+	// [["Air"], 				0],
 	// [["Tank"], 				0],
+	// [["Ship"], 				1],
 	// [["Car","Motorcycle"], 0]
 // ];
 
