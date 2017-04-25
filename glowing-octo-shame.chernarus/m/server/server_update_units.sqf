@@ -249,7 +249,6 @@ _getOut=[];
 					};
 				};
 
-				if (!_delete) then {
 					if (vehicle _x == _x) then {
 						if (surfaceIsWater getPos _x) then {
 							_timeIsWater = (_x getVariable "timeIsWater");
@@ -261,9 +260,10 @@ _getOut=[];
 									_x setDamage 1;
 								};
 							};
+						}else{
+							_x setVariable ["timeIsWater", nil];
 						};
 					};
-				};
 
 			if (_delete) then {
 				_deleteList set [count _deleteList,_x];
