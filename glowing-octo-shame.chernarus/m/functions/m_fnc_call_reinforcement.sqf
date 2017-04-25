@@ -162,7 +162,7 @@ if(count _cargo2 > 0)then{
 };
 
 {
-	[_x] call m_fnc_waypoints;
+	[_x] spawn m_fnc_waypoints;
 }forEach _groups;
 
 /// удаление группы если та не сдвинулась с места возрождения
