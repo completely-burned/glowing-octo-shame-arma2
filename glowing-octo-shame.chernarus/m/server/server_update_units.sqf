@@ -236,7 +236,35 @@ _getOut=[];
 						// };
 					// } forEach (_x nearEntities ["Man",50]);
 				// };
-									
+
+				if!(_delete)then{
+					if (!isNull _assignedVehicle) then {
+						if(_assignedVehicle isKindOf "Ship")then{
+							private["_driver"];
+							_driver = assignedDriver _assignedVehicle;
+							if(_assignedVehicle distance vehicle _driver > 2)then{
+								_delete = true;
+							};
+						};
+					};
+				};
+
+				if (!_delete) then {
+					if (vehicle _x == _x) then {
+						if (surfaceIsWater getPos _x) then {
+							_timeIsWater = (_x getVariable "timeIsWater");
+							if ( isNil "_timeIsWater" ) then {
+								_timeIsWater = ( time + ( 60 * 3 ) );
+								_x setVariable ["timeIsWater", _timeIsWater];
+							}else{
+								if ( _timeIsWater < time )then {
+									_x setDamage 1;
+								};
+							};
+						};
+					};
+				};
+
 			if (_delete) then {
 				_deleteList set [count _deleteList,_x];
 			};

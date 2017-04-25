@@ -26,9 +26,10 @@ if(!isNull _grp)then{
 	private ["_pos"];
 	_pos=civilianBasePos;
 
-	private ["_air","_AA"];
+	private ["_air","_AA","_Ship"];
 	_air = ([_vehicles, ["Air"]] call m_fnc_CheckIsKindOfArray);
 	_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call m_fnc_CheckIsKindOfArray);
+	_Ship = ([_vehicles, ["Ship"]] call m_fnc_CheckIsKindOfArray);
 
 	private ["_maxDist","_WaypointCompletionRadius","_SpeedMode"];
 	if(_air)then{
@@ -56,6 +57,13 @@ if(!isNull _grp)then{
 		_SpeedMode = "NORMAL";
 	};
 
+	if(_landing && _Ship)then{
+		_pos = civilianBasePos;
+		_maxDist = sizeLocation*2;
+		_WaypointCompletionRadius = 100;
+		_SpeedMode = "NORMAL";
+	};
+
 	if(SpeedMode _grp != _SpeedMode)then{_grp setSpeedMode _SpeedMode};
 
 	private ["_wp"];
@@ -73,7 +81,35 @@ if(!isNull _grp)then{
 		_wp = [_grp, currentwaypoint _grp];
 	};
 
-	_wp setWaypointPosition [_pos, _maxDist];
+	if(_Ship)then{
+		if(_landing)then{
+			private["_true"];
+			_true = true;
+			private ["_dir","_dist2","_testPos"];
+			while {_true && ({alive _x} count _units > 0)} do {
+				_dir = random 360;
+				_dist2 = random _maxDist;
+				_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
+				_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 0, true]);
+				if(count _testPos > 0)then {_true = false};
+			};
+			_wp setWaypointPosition [_testPos, 0];
+		}else{
+			private["_true"];
+			_true = true;
+			private ["_dir","_dist2","_testPos"];
+			while {_true && ({alive _x} count _units > 0)} do {
+				_dir = random 360;
+				_dist2 = random _maxDist;
+				_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
+				_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 2, false]);
+				if(count _testPos > 0)then {_true = false};
+			};
+			_wp setWaypointPosition [_testPos, 0];
+		};
+	}else{
+		_wp setWaypointPosition [_pos, _maxDist];
+	};
 	_wp setWaypointCompletionRadius _WaypointCompletionRadius;
 
 	if(_landing && _air)then{
@@ -83,7 +119,7 @@ if(!isNull _grp)then{
 				_x spawn {
 					private ["_grp"];
 					_grp = group _this;
-					waitUntil{(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 100 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
+					waitUntil{sleep 0.5;(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 100 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
 					{
 						if(group _x != _grp)then{
 							// if(_this isKindOf "Plane")then{
@@ -94,6 +130,24 @@ if(!isNull _grp)then{
 						};
 					}forEach crew _this;
 					// [_grp] call m_fnc_waypoints;
+				};
+			};
+		}forEach _vehicles
+	};
+
+	if(_landing && _Ship)then{
+		{
+			if(isNil {_x getVariable "_landing"})then{
+				_x setVariable ["_landing",true];
+				_x spawn {
+					private ["_grp"];
+					_grp = group _this;
+					waitUntil{sleep 0.5;(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 100 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
+					{
+						if(group _x != _grp)then{
+							unassignVehicle _x;
+						};
+					}forEach crew _this;
 				};
 			};
 		}forEach _vehicles
