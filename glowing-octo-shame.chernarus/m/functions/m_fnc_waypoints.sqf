@@ -70,18 +70,24 @@ if(!isNull _grp)then{
 	if((count waypoints _grp) < 2)then{
 		_wp = _grp addWaypoint [_pos, _maxDist];
 		_wp setWaypointStatements ["true", "[group this] call m_fnc_waypoints"];
-		if(_patrol or _air)then{
-			_wp setWaypointType "MOVE";
-			_wp setWaypointTimeout [0, 0, 0];
-		}else{
-			_wp setWaypointType "SAD";
-			_wp setWaypointTimeout [20, 60, 180];
-		};
 	}else{
 		_wp = [_grp, currentwaypoint _grp];
 	};
 
+	if(_patrol or _air or _Ship)then{
+		_wp setWaypointType "MOVE";
+		_wp setWaypointTimeout [0, 0, 0];
+	}else{
+		_wp setWaypointType "SAD";
+		_wp setWaypointTimeout [20, 60, 180];
+	};
+
 	if(_Ship)then{
+
+		if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _vehicles > 0)then{
+			_landing = true;
+		};
+
 		if(_landing)then{
 			private["_true"];
 			_true = true;
@@ -126,9 +132,10 @@ if(!isNull _grp)then{
 								sleep 0.5;
 								_x action ["Eject", _this];
 							// };
-							unassignVehicle _x;
+							_x leaveVehicle _this;
 						};
 					}forEach crew _this;
+					_this setVariable ["_landing",nil];
 					// [_grp] call m_fnc_waypoints;
 				};
 			};
@@ -144,10 +151,11 @@ if(!isNull _grp)then{
 					_grp = group _this;
 					waitUntil{sleep 0.5;(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 100 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
 					{
-						if(group _x != _grp)then{
-							unassignVehicle _x;
+						if(group _x != _grp or getNumber(LIB_cfgWea >> currentWeapon _this >> "enableAttack")==0)then{
+							_x leaveVehicle _this;
 						};
 					}forEach crew _this;
+					_this setVariable ["_landing",nil];
 				};
 			};
 		}forEach _vehicles
