@@ -11,6 +11,8 @@ if (_startTime != -1) then
 	{
 		m_SkipTime = (_startTime - daytime);
 	};
+}else{
+	m_SkipTime = 0;
 };
 
 publicVariable "m_SkipTime";
