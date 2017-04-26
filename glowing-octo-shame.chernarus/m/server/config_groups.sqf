@@ -169,7 +169,7 @@ if(LIB_a2Avail)then{
 		};
 		if(!_deserted)then{
 			_west=_west+[
-				[[[["Zodiac"],[[0,0]],["SERGEANT"]],[["USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
+				[[[["Zodiac","USMC_Soldier_GL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"],[[0,0],[5,0,0],[0,5,0],[-5,0,0],[0,-5,0]],["PRIVATE","SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],1],
 				[[[["RHIB"],[[0,0]],["SERGEANT"]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_TL","USMC_Soldier_MG","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
 				[[[["RHIB2Turret"],[[0,0]],["SERGEANT"]],[["USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1]
 			];
@@ -280,7 +280,7 @@ if(LIB_a2Avail)then{
 				[[[["MVD_Soldier_TL","MVD_Soldier_MG","MVD_Soldier_AT","MVD_Soldier_GL","MVD_Soldier_Sniper","MVD_Soldier_Marksman","MVD_Soldier_GL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.02]
 			];
 			_east=_east+[
-				[[[["PBX"],[[0,0]],["SERGEANT"]],[["RU_Soldier_GL","RU_Soldier_LAT","RU_Soldier"]]],0.1]
+				[[[["PBX","RU_Soldier_GL","RU_Soldier_LAT","RU_Soldier"],[[0,0],[5,0,0],[0,5,0],[-5,0,0]],["PRIVATE","SERGEANT","PRIVATE","PRIVATE"]]],1]
 			];
 		};
 		if(acex_ru_Avail)then{
