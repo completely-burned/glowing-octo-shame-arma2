@@ -1,8 +1,8 @@
-﻿private "_Magazines";
-_Magazines = ( _this getVariable "_Magazines" );
-if(isnil "_Magazines")then{
+﻿private ["_Magazines"];
+if(isnil {_this getVariable "draga_megaAmmoBox"})then{
 	_Magazines = (typeOf _this call m_fnc_ReammoBox);
-	_this setVariable ["_Magazines", _Magazines];
+}else{
+	_Magazines = ([] call m_fnc_megaAmmoBox);
 };
 
 private "_getMagazineCargo";

@@ -24,6 +24,21 @@ private ["_respawn_pos"];
 _respawn_pos = [vehicle player, 101] call draga_fnc_CheckRespawnDistance;
 
 if (true) then {
+	if (_type == "draga_megaAmmoBox") then {
+		Private["_Objects"];
+		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBBarracks"]+_HQ+["WarfareBDepot","WarfareBCamp"], 100]);
+		if ( (count _Objects > 0) or _respawn_pos) then {
+				Private["_pos"];
+				_pos = position vehicle player;
+				_pos = [_pos, 1.5, getDir vehicle player] call BIS_fnc_relPos;
+				Private["_veh"];
+				_veh = ("USBasicAmmunitionBox_EP1" createVehicleLocal _pos);
+				_veh setPos _pos;
+				player reveal _veh;
+				_veh setVariable ["draga_megaAmmoBox",true];
+				hint format["%1: %2", localize "str_support_done", "USBasicAmmunitionBox_EP1"];
+		};
+	};
 	if ((_type isKindOf "ReammoBox") or (getText(configFile >> "CfgVehicles" >> _type >> "vehicleclass") in ["Ammo","ACE_Ammunition"])) then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBBarracks"]+_HQ+["WarfareBDepot","WarfareBCamp"], 100]);

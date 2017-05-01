@@ -75,8 +75,13 @@ _fnc_create_buy_menu = {
 			_items3 = []; _itemsName3 = []; _itemEnable = [];
 			for "_iii" from 0 to ((count (((_list select 2) select _i) select _ii)) - 1) do {
 				_items3 set [count _items3, (((_list select 2) select _i) select _ii) select _iii];
-				_itemsName3 set [count _itemsName3, getText (configFile >> "CfgVehicles" >> (((_list select 2) select _i) select _ii) select _iii >> "displayName")];
-				// _itemEnable set [count _itemEnable, [(((_list select 2) select _i) select _ii) select _iii] call m_fnc_CheckTimeAvailableVehiclesBuyMenu];
+				private["_name"];
+				_name = (((_list select 2) select _i) select _ii) select _iii;
+				if(configName(configFile >> "CfgVehicles" >> _name >> "displayName") != "")then{
+					_itemsName3 set [count _itemsName3, getText (configFile >> "CfgVehicles" >> _name >> "displayName")];
+				}else{
+					_itemsName3 set [count _itemsName3, str _name];
+				};
 				_itemEnable set [count _itemEnable, 1];
 			};
 			[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "","['%1'] call Client_BuyUnit"] call BIS_FNC_createmenu;
@@ -90,6 +95,8 @@ waitUntil{!isNil "fnc_libEnabled"};
 waitUntil{!isNil "m_fnc_CheckIsKindOfArray"};
 waitUntil{!isNil "m_fnc_setNestedElement"};
 waitUntil{!isNil "availableVehicles"};
+waitUntil{!isNil "availableWeapons"};
+waitUntil{!isNil "availableMagazines"};
 
 /// Ammo
 private ["_list"];
@@ -97,10 +104,14 @@ _list = [[],[],[]];
 {
 	private ["_entry"]; private["_type"];
 	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
-					if (getText(_entry >> "vehicleclass") in ["Ammo","ACE_Ammunition"]) then
+	private["_faction"]; private["_vehicleclass"];
+	if(_type == "draga_megaAmmoBox")then{
+		_faction = getText(configFile >> "CfgVehicles" >> typeOf player >> "faction"); _vehicleclass = "Ammo";
+	}else{
+		_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
+	};
+					if (_vehicleclass in ["Ammo","ACE_Ammunition"]) then
 					{
-						private["_faction"]; private["_vehicleclass"];
-						_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 						private["_factionclasses"];
 						_factionclasses = _list select 0;
 						private["_find_faction"];
@@ -134,7 +145,7 @@ _list = [[],[],[]];
 							[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call m_fnc_setNestedElement;
 						};
 					};
-}forEach availableVehicles;
+}forEach availableVehicles+["draga_megaAmmoBox"];
 [_list,"Ammo"] call _fnc_create_buy_menu;
 
 // _dataListAmmoBox = _dataListAmmoBox + [["all","[] execvm 'm\functions\m_fnc_MegaAmmoBox.sqf'"]];
