@@ -110,7 +110,7 @@ _list = [[],[],[]];
 	}else{
 		_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 	};
-					if (_vehicleclass in ["Ammo","ACE_Ammunition"]) then
+					if (_vehicleclass in ["Ammo","ACE_Ammunition","Backpacks"]) then
 					{
 						private["_factionclasses"];
 						_factionclasses = _list select 0;

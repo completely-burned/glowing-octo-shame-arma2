@@ -11,7 +11,6 @@ if (_this in ["USBasicWeaponsBox","RUBasicWeaponsBox","USBasicWeapons_EP1","UNBa
 if (LIB_ahAvail) then {
 	if (_this in ["USBasicWeaponsBox","RUBasicWeaponsBox","USBasicWeapons_EP1","UNBasicWeapons_EP1","TKBasicWeapons_EP1","SpecialWeaponsBox","BAF_BasicWeapons"])then{
 		_Weapons = (_Weapons + [["Binocular_Vector",2]]);
-		_Backpacks = _Backpacks + [["US_Backpack_EP1",1],["US_UAV_Pack_EP1",1]];
 	};
 	if (_this in ["USBasicAmmunitionBox","USSpecialWeaponsBox"])then{
 		_Magazines = (_Magazines + [["8Rnd_B_Beneli_Pellets",20]]);
