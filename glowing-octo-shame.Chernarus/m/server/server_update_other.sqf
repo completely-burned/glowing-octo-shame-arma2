@@ -52,7 +52,7 @@ forEach (allMissionObjects 'MASH');
 			_veh setVariable ["_noDelete",true];
 		};
 	}else{
-		if (getNumber (configFile >> "CfgVehicles" >> typeOf _x >> "showweaponcargo") == 1) then {
+		if (getNumber (configFile >> "CfgVehicles" >> typeOf _x >> "showweaponcargo") == 1 or getText (configFile >> "CfgVehicles" >> typeOf _x >> "vehicleclass") == "Backpacks") then {
 			_deleteList set [count _deleteList,_x];
 		}else{
 			if ( isNil {_x getVariable "_noDelete"} ) then {
