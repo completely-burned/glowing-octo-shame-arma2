@@ -33,12 +33,7 @@ if ((_hasDriver == 1) && (isNull (driver _vehicle))) then
 };
 
 _turrets = ([_entry >> "turrets",[]] call m_fnc_returnVehicleTurrets);
-if(_type == "M1A2_TUSK_MG")then{
-	_turrets = [[0],[0,0]];
-};
-if(_type == "M1A2_US_TUSK_MG_EP1")then{
-	_turrets = [[0],[0,0]];
-};
+
 if(_type == "FDF_leopard2a4")then{
 	_turrets = [[0],[0,0]];
 };
