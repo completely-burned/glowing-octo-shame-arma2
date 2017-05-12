@@ -73,8 +73,8 @@ if(LIB_a2Avail)then{
 				[[[["GUE_Soldier_CO","GUE_Soldier_GL","GUE_Soldier_AR","GUE_Soldier_1","GUE_Soldier_3","GUE_Soldier_GL","GUE_Soldier_2"],[],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
 				[[[["GUE_Soldier_CO","GUE_Soldier_GL","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_AR","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_2","GUE_Soldier_1"],[],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 				[[[["GUE_Soldier_2","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_MG","GUE_Soldier_GL","GUE_Soldier_AT"],[],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.9],
-				[[[["GUE_Soldier_2","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_GL"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],1],
-				[[[["GUE_Soldier_1","GUE_Soldier_AR","GUE_Soldier_GL","GUE_Soldier_2"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],1],
+				[[[["GUE_Soldier_2","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_GL"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.9],
+				[[[["GUE_Soldier_1","GUE_Soldier_AR","GUE_Soldier_GL","GUE_Soldier_2"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.9],
 				[[[["GUE_Soldier_AT","GUE_Soldier_AT","GUE_Soldier_AR"],[],["CORPORAL","CORPORAL","PRIVATE"]]],0.8],
 				[[[["GUE_Soldier_CO","GUE_Soldier_AA","GUE_Soldier_AA","GUE_Soldier_AR"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
 				[[[["GUE_Soldier_Sniper","GUE_Soldier_Scout"],[],["SERGEANT","CORPORAL"]]],0.8],
@@ -179,7 +179,7 @@ if(LIB_a2Avail)then{
 				[[[["M1A1","M1A1"], [[0,0],[10,0]],["CAPTAIN","LIEUTENANT"]]],0.01],
 				[[[["A10"], [[-10,0],[10,0]],["CAPTAIN","LIEUTENANT"]]],0.01],
 
-				[[[["Zodiac","USMC_Soldier_GL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"],[[0,0],[5,0,0],[0,5,0],[-5,0,0],[0,-5,0]],["PRIVATE","SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],1],
+				[[[["Zodiac","USMC_Soldier_GL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"],[[0,0],[5,0,0],[0,5,0],[-5,0,0],[0,-5,0]],["PRIVATE","SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.1],
 				[[[["RHIB"],[[0,0]],["SERGEANT"]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_TL","USMC_Soldier_MG","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
 				[[[["RHIB2Turret"],[[0,0]],["SERGEANT"]],[["USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
 
@@ -289,7 +289,7 @@ if(LIB_a2Avail)then{
 				[[[["RU_Soldier_GL","UAZ_AGS30_RU","RU_Soldier_AT","UAZ_AGS30_RU"], [],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.01],
 				// [[[["RU_Soldier_GL","UAZ_RU","RU_Soldier_AR","RU_Soldier_AT"], [],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.01],
 
-				[[[["PBX","RU_Soldier_GL","RU_Soldier_LAT","RU_Soldier"],[[0,0],[5,0,0],[0,5,0],[-5,0,0]],["PRIVATE","SERGEANT","PRIVATE","PRIVATE"]]],1],
+				[[[["PBX","RU_Soldier_GL","RU_Soldier_LAT","RU_Soldier"],[[0,0],[5,0,0],[0,5,0],[-5,0,0]],["PRIVATE","SERGEANT","PRIVATE","PRIVATE"]]],0.1],
 
 				[[[["KamazReammo"], [],["PRIVATE"]]],0.01],
 				[[[["KamazRefuel"], [],["PRIVATE"]]],0.01],
@@ -910,8 +910,8 @@ if(configName(LIB_cfgVeh >> "PLA_Soldier_SL") != "")then{
 		[[[["PLA_Soldier_SL","PLA_Soldier_GL","PLA_Soldier_AR","PLA_Soldier","PLA_Soldier_LAT","PLA_Soldier_Medic","PLA_Soldier","PLA_Soldier_TL","PLA_Soldier_MG"],[],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","CORPORAL"]]],0.8],
 		[[[["PLA_Soldier_TL","PLA_Soldier_GL","PLA_Soldier_MG","PLA_Soldier_LAT","PLA_Soldier_AR","PLA_Soldier_MG","PLA_Soldier_AT","PLA_Soldier_Sniper","PLA_Soldier"],[],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 		[[[["PLA_Soldier_GL","PLA_Soldier_MG","PLA_Soldier_AT","PLA_Soldier_MG","PLA_Soldier_Sniper","PLA_Soldier_LAT"],[],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.9],
-		[[[["PLA_Soldier_TL","PLA_Soldier_MG","PLA_Soldier_AT","PLA_Soldier_GL"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],1],
-		[[[["PLA_Soldier_TL","PLA_Soldier_AR","PLA_Soldier_GL","PLA_Soldier_LAT"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],1],
+		[[[["PLA_Soldier_TL","PLA_Soldier_MG","PLA_Soldier_AT","PLA_Soldier_GL"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.9],
+		[[[["PLA_Soldier_TL","PLA_Soldier_AR","PLA_Soldier_GL","PLA_Soldier_LAT"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.9],
 		[[[["PLA_Soldier_TL","PLA_Soldier_AT","PLA_Soldier_MG","PLA_Soldier_HAT"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.8],
 		[[[["PLA_Soldier_TL","PLA_Soldier_AA","PLA_Soldier_AA","PLA_Soldier_AR"],[],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
 		[[[["PLA_SoldierS_Spotter","PLA_SoldierS_Sniper"],[],["SERGEANT","CORPORAL"]]],0.8],
