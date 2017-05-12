@@ -29,6 +29,17 @@ _deleteList=[];
 			// };
 		// };
 		
+		private["_side"];
+		_side = getNumber(LIB_cfgVeh >> _type >> "side") call m_fnc_getSide;
+		if (_side in m_friendlySide) then{
+		if(getNumber(configFile >> "CfgVehicles" >> _type >> "attendant")> 0) then{
+			if (_delete) then{
+				_count_transportammo = _count_transportammo + 1;
+				if (_count_transportammo <= 50) then {
+					_delete = false;
+				};
+			};
+		};
 		if(getNumber(configFile >> "CfgVehicles" >> _type >> "transportammo")> 0) then{
 			_veh setAmmoCargo 1;
 			if (_delete) then{
@@ -57,8 +68,9 @@ _deleteList=[];
 				};
 			};
 		};
+		};
 	
-		if (({!isNull _x} count crew _veh)>0) then{
+		if (({!alive _x} count (crew _veh + [assignedDriver _veh, assignedGunner _veh, assignedCommander _veh] + assignedCargo _veh))>0) then{
 			if(isEngineOn _veh && speed _veh == 0 && alive driver _veh)then{
 				_veh engineOn false;
 			};

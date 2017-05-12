@@ -75,6 +75,10 @@ private["_SafePosParams"];
 private["_pos_resp"];
 _grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
+
+if(_types call draga_fnc_CheckSupport)then{
+	_pos_resp = [];
+}else{
 _SafePosParams = ([_types] call m_fnc_SafePosParams);
 
 if (_patrol)then{
@@ -83,6 +87,7 @@ if (_patrol)then{
 };
 
 _pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
+};
 
 if(count _pos_resp > 0)then{
 private["_groups"];

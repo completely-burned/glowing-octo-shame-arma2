@@ -1,10 +1,11 @@
 ﻿private ["_grp"];
 _grp = (_this select 0);
 if(!isNull _grp)then{
-	private ["_leader","_units","_vehicles","_landing"];
+	private ["_leader","_units","_vehicles","_landing","_types"];
 	_leader = leader _grp;
 	_units = units _grp;
 	_vehicles = [];
+	_types = [];
 	_landing = false;
 	{	
 		private ["_veh"];
@@ -12,6 +13,7 @@ if(!isNull _grp)then{
 		if(_veh != _x)then{
 			if!(_veh in _vehicles)then{
 				_vehicles set [count _vehicles, _veh];
+				_types set [count _types, typeOf _veh];
 				if({_grp != group _x} count crew _veh > 0)then{
 					_landing = true;
 				};
@@ -80,6 +82,11 @@ if(!isNull _grp)then{
 	}else{
 		_wp setWaypointType "SAD";
 		_wp setWaypointTimeout [20, 60, 180];
+	};
+
+	if(_types call draga_fnc_CheckSupport)then{
+		_wp setWaypointType "SUPPORT";
+		_wp setWaypointTimeout [0, 0, 0];
 	};
 
 	if(_Ship)then{
