@@ -76,12 +76,13 @@ if(!isNull _grp)then{
 		_wp = [_grp, currentwaypoint _grp];
 	};
 
+	private["_WaypointType","_WaypointTimeout"];
 	if(_patrol or _air or _Ship)then{
-		_wp setWaypointType "MOVE";
-		_wp setWaypointTimeout [0, 0, 0];
+		_WaypointType = "MOVE";
+		_WaypointTimeout [0, 0, 0];
 	}else{
-		_wp setWaypointType "SAD";
-		_wp setWaypointTimeout [20, 60, 180];
+		_WaypointType "SAD";
+		_WaypointTimeout [20, 60, 180];
 	};
 
 	private["_support"];
@@ -107,9 +108,12 @@ if(!isNull _grp)then{
 		
 	}forEach _types;
 	if(_support)then{
-		_wp setWaypointType "SUPPORT";
-		_wp setWaypointTimeout [0, 0, 0];
+		_WaypointType = "SUPPORT";
+		_WaypointTimeout [0, 0, 0];
 	};
+
+	_wp setWaypointType _WaypointType;
+	_wp setWaypointTimeout _WaypointTimeout;
 
 	if(_Ship)then{
 
