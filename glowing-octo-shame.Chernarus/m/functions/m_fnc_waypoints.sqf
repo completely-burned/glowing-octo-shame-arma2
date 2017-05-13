@@ -193,4 +193,19 @@ if(!isNull _grp)then{
 			};
 		}forEach _vehicles
 	};
+
+	if(_support)then{
+		if(count _vehicles > 0)then{
+			if(isNil {_grp getVariable "_support"})then{
+				_grp setVariable ["_support",true];
+				[_vehicles select 0, _grp] spawn {
+					private["_veh","_grp"];
+					_veh = _this select 0; _grp = _this select 1;
+					waitUntil{sleep 0.5;(isNull _grp) or (isNull _veh) or (!alive _veh) or (!canMove _veh) or (_veh distance (waypointPosition [_grp, 0]) > 100 )};
+					[_grp, currentwaypoint _grp] setWaypointPosition [getPos _veh, 0];
+					_grp setVariable ["_support",nil];
+				};
+			};
+		};
+	};
 };
