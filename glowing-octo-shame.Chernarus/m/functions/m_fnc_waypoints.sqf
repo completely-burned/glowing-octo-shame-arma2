@@ -84,7 +84,29 @@ if(!isNull _grp)then{
 		_wp setWaypointTimeout [20, 60, 180];
 	};
 
-	if(_types call draga_fnc_CheckSupport)then{
+	private["_support"];
+	_support = false;
+	ScopeName "_support";
+	{
+		if(getNumber(LIB_cfgVeh >> _x >> "attendant")> 0 && _x isKindOf "LandVehicle")then{
+			_support = true;
+			BreakTo "_support";
+		};
+		if(getNumber(LIB_cfgVeh >> _x >> "transportfuel")> 0)then{
+			_support = true;
+			BreakTo "_support";
+		};
+		if(getNumber(LIB_cfgVeh >> _x >> "transportammo")> 0)then{
+			_support = true;
+			BreakTo "_support";
+		};
+		if(getNumber(LIB_cfgVeh >> _x >> "transportrepair")> 0)then{
+			_support = true;
+			BreakTo "_support";
+		};
+		
+	}forEach _types;
+	if(_support)then{
 		_wp setWaypointType "SUPPORT";
 		_wp setWaypointTimeout [0, 0, 0];
 	};
