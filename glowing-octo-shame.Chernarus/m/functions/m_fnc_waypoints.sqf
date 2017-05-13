@@ -79,10 +79,10 @@ if(!isNull _grp)then{
 	private["_WaypointType","_WaypointTimeout"];
 	if(_patrol or _air or _Ship)then{
 		_WaypointType = "MOVE";
-		_WaypointTimeout [0, 0, 0];
+		_WaypointTimeout = [0, 0, 0];
 	}else{
-		_WaypointType "SAD";
-		_WaypointTimeout [20, 60, 180];
+		_WaypointType = "SAD";
+		_WaypointTimeout = [20, 60, 180];
 	};
 
 	private["_support"];
@@ -109,7 +109,7 @@ if(!isNull _grp)then{
 	}forEach _types;
 	if(_support)then{
 		_WaypointType = "SUPPORT";
-		_WaypointTimeout [0, 0, 0];
+		_WaypointTimeout = [0, 0, 0];
 	};
 
 	_wp setWaypointType _WaypointType;
