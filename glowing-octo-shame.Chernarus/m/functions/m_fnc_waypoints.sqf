@@ -117,8 +117,14 @@ if(!isNull _grp)then{
 
 	if(_Ship)then{
 
+		if!(_patrol)then{
 		if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _vehicles > 0)then{
 			_landing = true;
+		};
+
+		if({getText(LIB_cfgVeh >> typeOf _x >> "vehicleClass") == "Submarine"} count _vehicles > 0)then{
+			_landing = true;
+		};
 		};
 
 		if(_landing)then{
@@ -182,12 +188,26 @@ if(!isNull _grp)then{
 				_x spawn {
 					private ["_grp"];
 					_grp = group _this;
-					waitUntil{sleep 0.5;(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 100 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
-					{
-						if(group _x != _grp or getNumber(LIB_cfgWea >> currentWeapon _this >> "enableAttack")==0)then{
+					if(getText(LIB_cfgVeh >> typeOf _this >> "vehicleClass") == "Submarine")then{
+						waitUntil{sleep 0.5;(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 500 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
+						private ["_driver"];
+						_driver = driver _this;
+						doStop _driver;
+						waitUntil{sleep 0.1;(isNull _this) or (!alive _this) or (!canMove _this) or (speed _this < 1)};
+						{
+							_x action ["Eject", _this];
 							_x leaveVehicle _this;
-						};
-					}forEach crew _this;
+						}forEach crew _this;
+						sleep 5;
+						_driver doFollow leader _driver;
+					}else{
+						waitUntil{sleep 0.5;(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 400 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
+						{
+							if(group _x != _grp or getNumber(LIB_cfgWea >> currentWeapon _this >> "enableAttack")==0)then{
+								_x leaveVehicle _this;
+							};
+						}forEach crew _this;
+					};
 					_this setVariable ["_landing",nil];
 				};
 			};
