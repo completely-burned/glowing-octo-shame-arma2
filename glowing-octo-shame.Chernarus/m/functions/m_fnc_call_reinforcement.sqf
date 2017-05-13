@@ -172,11 +172,10 @@ if(count _cargo2 > 0)then{
 
 /// удаление группы если та не сдвинулась с места возрождения
 [_groups select 0]+[_pos_resp]+[_units+_vehicles]spawn {
-	sleep 20;
 	private["_pos"];
-	_pos = getpos leader (_this select 0);
+	_pos = getpos vehicle leader (_this select 0);
 	sleep 60;
-	if([leader (_this select 0), _pos] call BIS_fnc_distance2D < 25)then{
+	if([vehicle leader (_this select 0), _pos] call BIS_fnc_distance2D < 25)then{
 		{
 			deleteVehicle _x;
 		} foreach (_this select 2);
