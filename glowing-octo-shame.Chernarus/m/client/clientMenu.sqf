@@ -106,7 +106,7 @@ _list = [[],[],[]];
 	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
 	private["_faction"]; private["_vehicleclass"];
 	if(_type == "draga_megaAmmoBox")then{
-		_faction = getText(configFile >> "CfgVehicles" >> typeOf player >> "faction"); _vehicleclass = "Ammo";
+		_faction = "Default"; _vehicleclass = "Ammo";
 	}else{
 		_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 	};
