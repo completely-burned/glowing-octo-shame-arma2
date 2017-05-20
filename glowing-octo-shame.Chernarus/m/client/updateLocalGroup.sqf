@@ -5,7 +5,9 @@ while {true} do {
 		{
 			if (isPlayer _x) then{
 				if (!stopped _x) then{
+				if (vehicle _x == _x) then{
 					doStop _x;
+				};
 				};
 			};
 		}forEach units _player - [_player];
