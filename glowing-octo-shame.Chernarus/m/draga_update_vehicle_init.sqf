@@ -1,5 +1,6 @@
 private["_units"];
 while{true}do{
+	if(isMultiplayer)then{
 	_units = [];
 	{
 		private["_p"];
@@ -10,6 +11,9 @@ while{true}do{
 			};
 		}forEach units _p;
 	}forEach playableUnits;
+	}else{
+		_units = [player];
+	};
 	{
 		_x call draga_fnc_vehInit2;
 	}forEach _units+vehicles;
