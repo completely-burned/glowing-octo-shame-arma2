@@ -1,4 +1,4 @@
-if(isMultiplayer)then{
+if(true)then{
 
 	private ["_markers","_units"];
 	_markers = [];
