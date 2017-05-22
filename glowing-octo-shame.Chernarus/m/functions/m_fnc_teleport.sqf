@@ -40,9 +40,11 @@ _teleportLocations = [];
 		{
 			if([[_x],draga_objectsTeleport] call m_fnc_CheckIsKindOfArray)then{
 				if (alive _x) then {
+				if !(getNumber(configFile >> "CfgVehicles">> typeOf _x >> "side") call m_fnc_getSide getFriend playerSide < 0.6) then {
 					_list = _list + [count _list];
 					_teleport_list = _teleport_list + [_x];
 					_list2= _list2 + [format ["%1, %2", text ((nearestLocations [position _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0), getText(configfile >> "CfgVehicles" >> typeof _x >> "displayName")]];
+				};
 				};
 			};
 		};
