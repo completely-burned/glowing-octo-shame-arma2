@@ -23,7 +23,7 @@ if(true)then{
 			_unit = (_units select _i);
 			_marker = (_markers select _i);
 			if (!isNull _unit && alive _unit) then {
-				if([[_unit],listMHQ] call m_fnc_CheckIsKindOfArray)then{
+				if([[_unit],listMHQ] call m_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6))then{
 					if ({isPlayer _x} count crew _unit == 0) then {	
 						_marker setMarkerPosLocal (position _unit);
 						_marker setMarkerTypeLocal "vehicle";
