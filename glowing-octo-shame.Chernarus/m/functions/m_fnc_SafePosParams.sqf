@@ -2,7 +2,7 @@
 _types = _this select 0;	
 private ["_minDist", "_maxDist", "_objDist", "_waterMode", "_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_safePositionRadius","_preferRoads"];
 _minDist = 1000;
-_objDist = 0;
+_objDist = 2;
 _waterMode = 0;
 _maxGradient = -1;
 _shoreMode = 0;
@@ -26,7 +26,9 @@ if ([_types, ["Air"]] call m_fnc_CheckIsKindOfArray) then{
 	_waterMode = -1;
 	_objDist = -1;
 	_blacklist=[];
-	_maxGradient= (100 * (pi / 180));
+	if ([_types, ["Plane"]] call m_fnc_CheckIsKindOfArray) then{
+		_maxGradient= (100 * (pi / 180));
+	};
 }else{
 	if(worldname in ["utes"])then {
 		_minDist = (_safePositionRadius / 5 min _minDist);
@@ -48,8 +50,9 @@ _preferRoads=false;
 
 if ([_types, ["Ship"]] call m_fnc_CheckIsKindOfArray) then{
 	_minDist = 1500;
+	_maxDist = _minDist*2;
 	_waterMode = 2;
-	_objDist = -1;
+	_objDist = 15;
 	_blacklist=[];
 };
 
