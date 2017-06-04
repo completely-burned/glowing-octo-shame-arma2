@@ -68,6 +68,14 @@ _deleteList=[];
 				};
 			};
 		};
+			if (_delete) then{
+				if ([[_veh], listMHQ] call m_fnc_CheckIsKindOfArray) then {
+					_countMHQ = _countMHQ + 1;
+					if (_countMHQ <= 50) then {
+						_delete = false;
+					};
+				};
+			};
 		};
 	
 		if (({!alive _x} count (crew _veh + [assignedDriver _veh, assignedGunner _veh, assignedCommander _veh] + assignedCargo _veh))>0) then{
@@ -78,15 +86,6 @@ _deleteList=[];
 			if ( _time < ( time + 180 ) )then {
 				_time = time + 180;
 				_veh setVariable ["time", _time];
-			};
-		};
-		
-		if (_delete) then{
-			if ([[_veh], listMHQ] call m_fnc_CheckIsKindOfArray) then {
-				_countMHQ = _countMHQ + 1;
-				if (_countMHQ <= 50) then {
-					_delete = false;
-				};
 			};
 		};
 
