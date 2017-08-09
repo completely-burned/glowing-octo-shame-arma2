@@ -63,11 +63,18 @@ locationNext={
 		publicVariable "CivilianLocation";
 		_sizeLocation = (((size CivilianLocation) select 0) max 250);
 		{
-			if !(isPlayer (leader _x)) then {
-				// _x fire "SmokeShellMuzzle";
-				_x setVariable ["time", time];
+			private["_grp"];
+			_grp = _x;
+			if({isPlayer _x} count units _grp == 0)then{
+				[_grp] spawn m_fnc_waypoints;
+				{
+					_x setVariable ["time", time];
+				}forEach units _grp;
 			};
-		} forEach allUnits;
+		}forEach allGroups;
+		{
+			// _x fire "SmokeShellMuzzle";
+		}forEach allUnits;
 		{_x setDamage 0} forEach (nearestObjects [civilianBasePos, [], 1000]);
 		// {_x setDamage 0} forEach (nearestObjects [getMarkerpos "", [], 1000]);
 		// {_x setDamage 0} forEach (nearestObjects [getMarkerpos "", [], 1000]);
