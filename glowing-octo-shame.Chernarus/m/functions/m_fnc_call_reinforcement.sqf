@@ -170,21 +170,6 @@ if(count _cargo2 > 0)then{
 	[_x] spawn m_fnc_waypoints;
 }forEach _groups;
 
-/// удаление группы если та не сдвинулась с места возрождения
-[_groups select 0]+[_pos_resp]+[_units+_vehicles]spawn {
-	private["_pos"];
-	_pos = getpos vehicle leader (_this select 0);
-	sleep 60;
-	if([vehicle leader (_this select 0), _pos] call BIS_fnc_distance2D < 25)then{
-		{
-			deleteVehicle _x;
-		} foreach (_this select 2);
-		// sleep 5;
-		// deleteGroup (_this select 0);
-		// {_x setVariable ["time", time + 10]} foreach (_this select 2);
-	};
-};
-
 _groups;
 }else{
 	grpNull;
