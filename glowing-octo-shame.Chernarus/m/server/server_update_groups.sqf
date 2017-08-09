@@ -56,12 +56,10 @@
 							};
 						};
 					};
-					if!(_true)then{
 						if(_oldTime2 < time)then{
 								{_x setVariable ["time", time]}forEach units _grp;
 								_true = true;
 						};
-					};
 				}else{
 					_cleanup = [getPos vehicle _leader,time+20,time+120];
 					_grp setVariable ["_cleanup",_cleanup];
