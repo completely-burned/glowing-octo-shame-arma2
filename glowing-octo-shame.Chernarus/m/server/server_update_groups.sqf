@@ -1,53 +1,73 @@
-﻿private ["_leader"];
-{
-	_leader = leader _x;
-	// _units = units _x;
-	if(!isNull _leader)then{
-		If (true) then {
-			if(alive _leader)then{
-				private ["_behaviour"];
-				_behaviour = behaviour _leader;
-
-					private ["_CurrentWaypoint"];
-					_CurrentWaypoint = CurrentWaypoint _x;
-					private ["_stopped"];
-					if(waypointType [_x,_CurrentWaypoint] == "SAD")then{
-						_stopped = true;
-					}else{
-						_stopped=false;
+﻿while{true}do{
+	{
+		private["_grp","_leader"];
+		_grp = _x;
+		_leader = leader _grp;
+		if({isPlayer _x} count units _grp == 0)then{
+			// _grp call draga_fnc_arty;
+			private["_cleanup"];
+			_cleanup = _grp getVariable "_cleanup";
+			if(isNil "_cleanup")then{
+				[_grp] spawn m_fnc_waypoints;
+				_cleanup = [getPos vehicle _leader,time+20,time+120];
+				_grp setVariable ["_cleanup",_cleanup];
+			}else{
+				if(behaviour _leader in ["CARELESS", "SAFE", "AWARE"])then{
+					private["_oldPos","_oldTime","_oldTime2"];
+					_oldPos = _cleanup select 0;
+					_oldTime = _cleanup select 1;
+					_oldTime2 = _cleanup select 2;
+					private["_pos"];
+					_pos = getPos vehicle _leader;
+					private["_true"];
+					_true = false;
+					if!(_true)then{
+						if(waypointType [_grp, currentwaypoint _grp] in ["SUPPORT"])then{
+							_cleanup = [getPos vehicle _leader,time+20,time+120];
+							_grp setVariable ["_cleanup",_cleanup];
+							_true = true;
+						};
 					};
-					
-					if(waypointAttachedVehicle [_x,0] != _leader)then{
-						[_x, 0] waypointAttachVehicle _leader;
-						[_x, 0] setWaypointType "SAD";
+					if!(_true)then{
+						if(currentCommand _leader == "FIRE AT POSITION")then{
+							_cleanup = [getPos vehicle _leader,time+20,time+120];
+							_grp setVariable ["_cleanup",_cleanup];
+							_true = true;
+						};
 					};
-					if(
-					(_behaviour != "COMBAT")
-					&& _stopped )then{
-						_x setCurrentWaypoint [_x, _CurrentWaypoint+1];
+					if!(_true)then{
+						if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{
+							_cleanup = [getPos vehicle _leader,time+20,time+120];
+							_grp setVariable ["_cleanup",_cleanup];
+							_true = true;
+						};
 					};
-					
-					if(
-					(_behaviour == "COMBAT")
-					&& !(_stopped)
-					&& ((civilianBasePos distance _leader)<(sizeLocation*0.75))
-					)then{
-						_x setCurrentWaypoint [_x, 0];
+					if!(_true)then{
+						if(_oldTime < time)then{
+							if(_oldPos distance _pos >= 1)then{
+								_cleanup = [getPos vehicle _leader,time+20,time+120];
+								_grp setVariable ["_cleanup",_cleanup];
+								_true = true;
+							}else{
+								[_grp] spawn m_fnc_waypoints;
+								_cleanup = [getPos vehicle _leader,time+20,_oldTime2];
+								_grp setVariable ["_cleanup",_cleanup];
+								_true = true;
+							};
+						};
 					};
-
-					// if((civilianBasePos distance _leader)<(250 max(sizeLocation*1.25)))then{
-						// if(_behaviour != "COMBAT")then{
-							// // [_x, _CurrentWaypoint] setWaypointBehaviour "COMBAT";
-							// _x setBehaviour "COMBAT";
-						// };
-					// }else{
-						// if(_behaviour != "AWARE")then{
-							// _x setBehaviour "AWARE";
-						// };
-					// };
-
+					if!(_true)then{
+						if(_oldTime2 < time)then{
+								{_x setVariable ["time", time]}forEach units _grp;
+								_true = true;
+						};
+					};
+				}else{
+					_cleanup = [getPos vehicle _leader,time+20,time+120];
+					_grp setVariable ["_cleanup",_cleanup];
+				};
 			};
 		};
-	};
-	sleep 0.01;
-}forEach allGroups;
+	}forEach allGroups;
+	sleep 1;
+};
