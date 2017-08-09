@@ -138,7 +138,7 @@ if(!isNull _grp)then{
 				_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 0, true]);
 				if(count _testPos > 0)then {_true = false};
 			};
-			_wp setWaypointPosition [_testPos, 0];
+			if(count _testPos > 0)then {_wp setWaypointPosition [_testPos, 0]};
 		}else{
 			private["_true"];
 			_true = true;
@@ -150,7 +150,7 @@ if(!isNull _grp)then{
 				_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 2, false]);
 				if(count _testPos > 0)then {_true = false};
 			};
-			_wp setWaypointPosition [_testPos, 0];
+			if(count _testPos > 0)then {_wp setWaypointPosition [_testPos, 0]};
 		};
 	}else{
 		_wp setWaypointPosition [_pos, _maxDist];
