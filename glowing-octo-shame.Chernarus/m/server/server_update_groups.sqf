@@ -8,7 +8,7 @@
 			private["_cleanup"];
 			_cleanup = _grp getVariable "_cleanup";
 			if(isNil "_cleanup")then{
-				[_grp] spawn m_fnc_waypoints;
+				[_grp] call m_fnc_waypoints;
 				_cleanup = [getPos vehicle _leader,time+20,time+120];
 				_grp setVariable ["_cleanup",_cleanup];
 			}else{
@@ -49,7 +49,7 @@
 								_grp setVariable ["_cleanup",_cleanup];
 								_true = true;
 							}else{
-								[_grp] spawn m_fnc_waypoints;
+								[_grp] call m_fnc_waypoints;
 								_cleanup = [getPos vehicle _leader,time+20,_oldTime2];
 								_grp setVariable ["_cleanup",_cleanup];
 								_true = true;
