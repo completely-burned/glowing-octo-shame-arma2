@@ -27,6 +27,11 @@ if (isNil "_draga_init") then {
 			};
 		}];
 		_this addEventHandler ["GetOut", {
+			private["_unit"];
+			_unit = _this select 2;
+			if(isPlayer _unit)then{
+				unassignVehicle _unit;
+			};
 			if (isServer) then {
 				private["_veh"];
 				_veh = _this select 0;
