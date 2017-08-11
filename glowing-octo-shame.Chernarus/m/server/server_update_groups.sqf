@@ -1,4 +1,6 @@
-﻿while{true}do{
+﻿waitUntil {!isNil "civilianBasePos"};
+waitUntil {!isNil "sizeLocation"};
+while{true}do{
 	{
 		private["_grp","_leader"];
 		_grp = _x;
