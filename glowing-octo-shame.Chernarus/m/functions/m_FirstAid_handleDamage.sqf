@@ -21,10 +21,12 @@ if(_unit == _source)then{
 
 if(_m_true)then{
 	if(_selection == "" && _damage >= 0.8 && alive _unit)then{
+		if(isPlayer _unit)then{
 		_unit setvariable ["BIS_lifeState","UNCONSCIOUS",true];
 		_unit setvariable ["BIS_IS_inAgony",true,true];
 		_m_true = false;
 		0.8
+		};
 	};
 };
 
