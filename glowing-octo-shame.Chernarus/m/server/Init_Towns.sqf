@@ -142,6 +142,7 @@ if(isMultiplayer)then{
 }else{
 	civilianBasePos = position player;
 };
+sizeLocation = 250;
 
 [] call locationNext;
 locationStarted = true;
