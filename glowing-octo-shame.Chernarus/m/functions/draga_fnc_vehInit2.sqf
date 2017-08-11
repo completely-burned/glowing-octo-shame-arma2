@@ -2,8 +2,10 @@ private["_draga_init"];
 _draga_init = (_this getVariable "_draga_init");
 if (isNil "_draga_init") then {
 	if (getNumber(configFile >> "CfgVehicles" >> typeOf _this >> "isMan") == 1) then {
+		if(isPlayer _this)then{
 		_this addEventHandler ["handledamage", {_this call m_FirstAid_handleDamage}];
 		_this addEventHandler ["handleheal", {_this spawn m_FirstAid_handleHeal}];
+		};
 	}else{
 		_this addEventHandler ["HandleDamage", {_this call draga_fnc_vehicleHandleDamage}];
 		_this addEventHandler ["GetIn", {
