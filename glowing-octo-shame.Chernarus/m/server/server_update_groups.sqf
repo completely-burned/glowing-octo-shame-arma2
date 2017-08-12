@@ -5,7 +5,7 @@ while{true}do{
 		private["_grp","_leader"];
 		_grp = _x;
 		_leader = leader _grp;
-		if({isPlayer _x} count units _grp == 0)then{
+		if({isPlayer _x or _x in playableUnits} count units _grp == 0)then{
 			// _grp call draga_fnc_arty;
 			private["_cleanup"];
 			_cleanup = _grp getVariable "_cleanup";
