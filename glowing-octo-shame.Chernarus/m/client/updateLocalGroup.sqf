@@ -4,13 +4,9 @@ while {true} do {
 	if(leader _player == _player) then {
 		{
 			if (isPlayer _x) then{
-				if (!stopped _x) then{
-				if (vehicle _x == _x) then{
-					doStop _x;
-				};
-				};
+				if(assignedTeam _x != "RED")then{_x assignTeam "RED"};
 			};
-		}forEach units _player - [_player];
+		}forEach units _player;
 	};
 	sleep 2;
 };
