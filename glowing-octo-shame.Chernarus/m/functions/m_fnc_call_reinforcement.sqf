@@ -170,6 +170,8 @@ if(count _cargo2 > 0)then{
 	[_x] spawn m_fnc_waypoints;
 }forEach _groups;
 
+{_x setVariable ["grp_created",true]}forEach _groups;
+
 _groups;
 }else{
 	grpNull;
