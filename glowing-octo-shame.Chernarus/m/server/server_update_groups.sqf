@@ -5,6 +5,7 @@ while{true}do{
 		private["_grp","_leader"];
 		_grp = _x;
 		_leader = leader _grp;
+		if(!isNil {_grp getVariable "grp_created"})then{
 		if({isPlayer _x or _x in playableUnits} count units _grp == 0)then{
 			// _grp call draga_fnc_arty;
 			private["_cleanup"];
@@ -67,6 +68,7 @@ while{true}do{
 					_grp setVariable ["_cleanup",_cleanup];
 				};
 			};
+		};
 		};
 	}forEach allGroups;
 	sleep 1;
