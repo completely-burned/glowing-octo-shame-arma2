@@ -60,7 +60,7 @@ while{true}do{
 						};
 					};
 						if(_oldTime2 < time)then{
-								{_x setVariable ["time", time]}forEach units _grp;
+								{_x setVariable ["time", 0]}forEach units _grp;
 								_true = true;
 						};
 				}else{
@@ -69,6 +69,16 @@ while{true}do{
 				};
 			};
 		};
+		}else{
+			private["_time"];
+			_time = (_grp getVariable "grp_created_time");
+			if ( isNil "_time" ) then {
+				_grp setVariable ["grp_created_time", time];
+			}else{
+				if ( _time + 30 < time )then {
+					_grp setVariable ["grp_created",true];
+				};
+			};
 		};
 	}forEach allGroups;
 	sleep 1;
