@@ -192,14 +192,14 @@ if(!isNull _grp)then{
 						waitUntil{sleep 0.5;(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 500 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
 						private ["_driver"];
 						_driver = driver _this;
-						doStop _driver;
+						_driver disableAI "MOVE";
 						waitUntil{sleep 0.1;(isNull _this) or (!alive _this) or (!canMove _this) or (speed _this < 1)};
 						{
 							_x action ["Eject", _this];
 							_x leaveVehicle _this;
 						}forEach crew _this;
 						sleep 5;
-						_driver doFollow leader _driver;
+						_driver enableAI "MOVE";
 					}else{
 						waitUntil{sleep 0.5;(isNull _this) or (!alive _this) or (!canMove _this) or ((_this distance (waypointPosition [_grp, currentwaypoint _grp])) <= 400 max waypointCompletionRadius [_grp, currentwaypoint _grp])};
 						{
