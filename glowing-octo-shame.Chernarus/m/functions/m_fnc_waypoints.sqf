@@ -1,5 +1,11 @@
 ﻿private ["_grp"];
 _grp = (_this select 0);
+private["_h"];
+_h = _grp getVariable "wp";
+if(!isNil "_h")then{terminate _h};
+_h = [_grp] spawn {
+private ["_grp"];
+_grp = (_this select 0);
 if(!isNull _grp)then{
 	private ["_leader","_units","_vehicles","_landing","_types"];
 	_leader = leader _grp;
@@ -28,11 +34,15 @@ if(!isNull _grp)then{
 	private ["_pos"];
 	_pos=civilianBasePos;
 
-	private ["_air","_AA","_Ship"];
+	private ["_air","_AA","_Ship","_arty"];
 	_air = ([_vehicles, ["Air"]] call m_fnc_CheckIsKindOfArray);
 	_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call m_fnc_CheckIsKindOfArray);
 	_Ship = ([_vehicles, ["Ship"]] call m_fnc_CheckIsKindOfArray);
-
+	if({getNumber(LIB_cfgVeh >> typeOf _x >> "artilleryScanner") == 1}count _vehicles > 0)then{
+		_arty = true;
+	}else{
+		_arty = false;
+	};
 	private ["_maxDist","_WaypointCompletionRadius","_SpeedMode"];
 	if(_air)then{
 		_maxDist = 4000;
@@ -49,6 +59,10 @@ if(!isNull _grp)then{
 	};
 	if(_patrol)then{
 		_pos = (_grp getVariable "patrol_pos");
+		_maxDist = ((_maxDist * 10) max 1500);
+	};
+	if(_arty)then{
+		_pos = waypointPosition [_grp, 0];
 		_maxDist = ((_maxDist * 10) max 1500);
 	};
 
@@ -77,7 +91,7 @@ if(!isNull _grp)then{
 	};
 
 	private["_WaypointType","_WaypointTimeout"];
-	if(_patrol or _air or _Ship)then{
+	if(_patrol or _air or _Ship or _arty)then{
 		_WaypointType = "MOVE";
 		_WaypointTimeout = [0, 0, 0];
 	}else{
@@ -229,3 +243,5 @@ if(!isNull _grp)then{
 		};
 	};
 };
+};
+_grp setVariable ["wp",_h];
