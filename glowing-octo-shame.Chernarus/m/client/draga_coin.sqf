@@ -251,9 +251,7 @@ while{true}do{
 			BIS_coin_lastID = 0;
 			BIS_coin_0 = _obj;
 			_obj setvehiclevarname "BIS_coin_0";
-			publicvariable "BIS_coin_0";
 			_obj setvariable ["BIS_COIN_ID",BIS_coin_lastID];
-			publicvariable (vehiclevarname _obj);
 
 			_name = if (isnil {_obj getvariable "BIS_COIN_name"}) then {""} else {_obj getvariable "BIS_COIN_name"};
 			_obj setvariable ["BIS_COIN_name",_name];
