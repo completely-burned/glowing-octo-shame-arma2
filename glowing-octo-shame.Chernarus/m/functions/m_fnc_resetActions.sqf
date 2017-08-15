@@ -13,3 +13,5 @@ player removeAction (player getVariable "_teleport_action");
 player setvariable ["_teleport_action",nil];
 player removeAction (player getVariable "_menu_action");
 player setvariable ["_menu_action",nil];
+player removeAction (player getVariable "_coin");
+player setvariable ["_coin",nil];
