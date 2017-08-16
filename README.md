@@ -8,6 +8,4 @@ glowing-octo-shame-arma2
 эта миссия может быть воспроизведен на других картах Chernarus takistan utes и т.д.
 для этого скопируйте недостающие файлы из glowing-octo-shame.Chernarus
 
-[последнюю версию можно скачать тут](../../releases)
-
 [wiki](../../wiki)
