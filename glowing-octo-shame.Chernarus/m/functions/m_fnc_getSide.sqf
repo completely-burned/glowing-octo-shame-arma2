@@ -3,5 +3,5 @@
 	case 1: {WEST};
 	case 2: {RESISTANCE};
 	case 3: {CIVILIAN};
-	default {};
+	default {sideUnknown};
 };
