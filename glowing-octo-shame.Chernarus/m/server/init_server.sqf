@@ -85,9 +85,7 @@ publicVariable "BIS_missionScope";
 waitUntil {!isNil "BIS_fnc_init"};
 
 // военные обозначения
-if(!ACE_Avail)then{
 	(group_logic) createUnit ["MartaManager",[1000,10,0],[],0,"none"];
-};
 // командование
 // if (isNil "BIS_HC_mainscope") then	{		
 // _logic = group_logic createUnit ["HighCommand",[1000,10,0],[],0,"NONE"];
