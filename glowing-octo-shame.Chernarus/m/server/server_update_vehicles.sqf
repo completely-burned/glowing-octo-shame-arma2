@@ -20,14 +20,6 @@ _deleteList=[];
 	};
 
 	if(alive _veh)then{
-		if (!_delete) then{
-			if ([[_veh], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
-				if (!someAmmo _veh) then {
-					_delete = true;
-				};
-			};
-		};
-
 		// if ([[_veh], listMHQ] call m_fnc_CheckIsKindOfArray) then {
 			// Private["_coin"];
 			// _coin = (_veh getvariable "m_COIN_ID");
