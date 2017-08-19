@@ -21,7 +21,7 @@ _deleteList=[];
 
 	if(alive _veh)then{
 		if (!_delete) then{
-			if ([[_veh], "StaticWeapon"] call m_fnc_CheckIsKindOfArray) then {
+			if ([[_veh], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 				if (!someAmmo _veh) then {
 					_delete = true;
 				};
