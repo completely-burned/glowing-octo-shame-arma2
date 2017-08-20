@@ -174,8 +174,28 @@ _mapEH_mousebuttondown = ((findDisplay 12) displayCtrl 51) ctrladdeventhandler [
 		while {count (waypoints _uav) > 0} do {deletewaypoint ((waypoints _uav) select 0)};
 
 		_worldpos = (_this select 0) posscreentoworld [_this select 2,_this select 3];
-		_wp = (group _uav) addwaypoint [_worldpos,0];
-		_wp setWaypointType 'MOVE';
+
+		_radius = 1000;
+		_wpcount = 4;
+		_step = 360 / _wpcount;
+		_add = 0;
+		_dir = 45;
+		for '_d' from 0 to (360-_step) step _step do
+		{
+			_add = _d;
+			_pos = [_worldpos, _radius, _dir+_add] call bis_fnc_relPos;
+			_wp = (group _uav) addwaypoint [_pos,0];
+			_wp setWaypointType 'MOVE';
+			_wp setwaypointdescription ' ';
+			_wp setwaypointcompletionradius (1000/_wpcount);
+		};
+		_pos = [_worldpos, _radius, _dir] call bis_fnc_relPos;
+		_wp = (group _uav) addwaypoint [_pos,0];
+		_wp setWaypointType 'CYCLE';
+		_wp setWaypointBehaviour 'CARELESS';
+		_wp setwaypointdescription ' ';
+		_wp setwaypointcompletionradius (1000/_wpcount);
+
 		(group _uav) setcurrentwaypoint _wp;
 	};
 "];
