@@ -36,6 +36,13 @@ SetGroupIconsVisible [true,false];
 
 waitUntil{(!isNull player)};
 
+if ([[player], Officers] call m_fnc_CheckIsKindOfArray) then {
+	[] call compile preprocessFileLineNumbers "m\client\draga_hc.sqf";
+	[] execVM "m\client\draga_hc_loop.sqf";
+	[player] execVM ("\ca\modules\hc\data\scripts\HC_GUI.sqf");
+	[] execVM "m\client\draga_hc_gui_wp_attack.sqf";
+};
+
 player addEventHandler ["killed", {
 	BIS_COIN_QUIT = true;
     if(!isNil "BIS_CONTROL_CAM_Handler")then{

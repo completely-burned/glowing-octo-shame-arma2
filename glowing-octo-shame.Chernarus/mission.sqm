@@ -36,7 +36,7 @@ class Mission
 	randomSeed=12852940;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.105";
+		briefingName="glowing-octo-shame v0.0.3.106";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;
@@ -48,7 +48,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=32;
+		items=33;
 		class Item0
 		{
 			side="EAST";
@@ -3796,6 +3796,26 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""infantry"", true];";
+				};
+			};
+		};
+		class Item32
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={7556.7065,304.39923,6880.9824};
+					special="NONE";
+					id=365;
+					side="EAST";
+					vehicle="RU_Commander";
+					player="PLAY CDG";
+					leader=1;
+					rank="COLONEL";
+					skill=0.60000002;
 				};
 			};
 		};
