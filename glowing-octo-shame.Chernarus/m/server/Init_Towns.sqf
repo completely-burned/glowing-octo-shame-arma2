@@ -66,7 +66,6 @@ locationNext={
 			private["_grp"];
 			_grp = _x;
 			if({isPlayer _x or _x in playableUnits} count units _grp == 0)then{
-				[_grp] spawn m_fnc_waypoints;
 				{
 					_x setVariable ["time", time];
 				}forEach units _grp;

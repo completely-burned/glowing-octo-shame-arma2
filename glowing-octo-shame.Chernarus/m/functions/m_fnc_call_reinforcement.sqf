@@ -166,10 +166,6 @@ if(count _cargo2 > 0)then{
 	} foreach (_cargo2);
 };
 
-{
-	[_x] spawn m_fnc_waypoints;
-}forEach _groups;
-
 {_x setVariable ["grp_created",true]}forEach _groups;
 
 _groups;
