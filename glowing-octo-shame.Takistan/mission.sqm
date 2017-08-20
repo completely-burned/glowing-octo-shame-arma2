@@ -27,7 +27,7 @@ class Mission
 	randomSeed=10465836;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.105";
+		briefingName="glowing-octo-shame v0.0.3.106";
 		startWeather=0.40000001;
 		forecastWeather=0.40000001;
 		year=2009;
@@ -37,7 +37,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=9;
+		items=10;
 		class Item0
 		{
 			side="EAST";
@@ -800,6 +800,26 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					init="nearestBuilding position this allowDammage false;";
+				};
+			};
+		};
+		class Item9
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6919.8496,327.63431,4909.4629};
+					special="NONE";
+					id=83;
+					side="EAST";
+					vehicle="TK_Soldier_Officer_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="COLONEL";
+					skill=0.60000002;
 				};
 			};
 		};

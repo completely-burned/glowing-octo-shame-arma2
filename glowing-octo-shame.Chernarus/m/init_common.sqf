@@ -81,4 +81,10 @@ UAVterminal = listMHQ + HQ + ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
 
 draga_objectsTeleport = listMHQ + HQ + ["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"];
 
+Officers = [
+	"RU_Commander","RU_Soldier_Officer","Ins_Commander","TK_Soldier_Officer_EP1","TK_Aziz_EP1","TK_INS_Warlord_EP1",
+	"USMC_Soldier_Officer","CDF_Commander","US_Soldier_Officer_EP1","CZ_Soldier_Office_DES_EP1","BAF_Soldier_Officer_MTP",
+	"GUE_Commander","TK_GUE_Warlord_EP1","UN_CDF_Soldier_Officer_EP1"
+];
+
 [] execVM ("m\draga_update_vehicle_init.sqf");

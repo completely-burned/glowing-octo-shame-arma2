@@ -1,5 +1,6 @@
 ﻿private ["_grp"];
 _grp = (_this select 0);
+if(!isNil "_grp")then{
 private["_h"];
 _h = _grp getVariable "wp";
 if(!isNil "_h")then{terminate _h};
@@ -245,3 +246,4 @@ if(!isNull _grp)then{
 };
 };
 _grp setVariable ["wp",_h];
+};
