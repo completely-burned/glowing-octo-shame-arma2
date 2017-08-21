@@ -149,6 +149,13 @@ while{true}do{
 					
 				}forEach _types;
 
+				private["_Submarine"];
+				if({getText(LIB_cfgVeh >> _x >> "vehicleClass") == "Submarine"} count _types > 0)then{
+					_Submarine = true;
+				}else{
+					_Submarine = false;
+				};
+
 				private ["_maxDist","_WaypointCompletionRadius","_SpeedMode"];
 				if(_air)then{
 					_maxDist = 4000;
@@ -192,14 +199,10 @@ while{true}do{
 					_WaypointType = "SUPPORT";
 				};
 
-				if(_Ship)then{
+				if(_Ship && !_Submarine)then{
 
 					if!(_patrol)then{
-						if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _vehicles > 0)then{
-							_landing = true;
-						};
-
-						if({getText(LIB_cfgVeh >> _x >> "vehicleClass") == "Submarine"} count _types > 0)then{
+						if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _types > 0)then{
 							_landing = true;
 						};
 					};
@@ -241,14 +244,14 @@ while{true}do{
 					_WaypointType = "UNLOAD";
 				};
 				if(_landing && _Ship && count _vehicles > 0)then{
-					if(getNumber(LIB_cfgWea >> currentWeapon (_vehicles select 0) >> "enableAttack")==0)then{
+					if(getNumber(LIB_cfgWea >> currentWeapon typeOf (_vehicles select 0) >> "enableAttack")==0)then{
 						_WaypointType = "GETOUT";
 					}else{
 						_WaypointType = "UNLOAD";
 					};
 				};
 
-				if(_WaypointType in ["UNLOAD","GETOUT"])then{
+				if(_WaypointType in ["UNLOAD","GETOUT"] && _air)then{
 					_pos = [_pos, _WaypointCompletionRadius, [_pos, _leaderPos] call BIS_fnc_dirTo] call bis_fnc_relPos;
 				};
 
