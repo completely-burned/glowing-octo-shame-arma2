@@ -220,7 +220,7 @@ while{true}do{
 				if(_Ship && !_Submarine)then{
 
 					if!(_patrol)then{
-						if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _types > 0)then{
+						if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _vehicles > 0)then{
 							_landing = true;
 						};
 					};
@@ -262,7 +262,7 @@ while{true}do{
 					_WaypointType = "UNLOAD";
 				};
 				if(_landing && _Ship && count _vehicles > 0)then{
-					if(getNumber(LIB_cfgWea >> currentWeapon typeOf (_vehicles select 0) >> "enableAttack")==0)then{
+					if(getNumber(LIB_cfgWea >> currentWeapon (_vehicles select 0) >> "enableAttack")==0)then{
 						_WaypointType = "GETOUT";
 					}else{
 						_WaypointType = "UNLOAD";
