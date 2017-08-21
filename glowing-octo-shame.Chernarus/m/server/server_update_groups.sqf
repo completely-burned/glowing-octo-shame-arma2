@@ -20,6 +20,11 @@ while{true}do{
 		_leaderPos = getPos vehicle _leader;
 
 		if({isPlayer _x or _x in playableUnits} count units _grp == 0)then{
+			if(!isNil {_grp getVariable "_newWP"})then{
+				_createWP = true;
+				_grp setVariable ["_newWP",nil];
+			};
+
 			if(!isNil {_grp getVariable "grp_created"})then{
 				// _grp call draga_fnc_arty;
 				private["_cleanup"];

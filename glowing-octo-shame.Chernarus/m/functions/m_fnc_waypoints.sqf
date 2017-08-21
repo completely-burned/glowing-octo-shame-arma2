@@ -1,6 +1,9 @@
 ﻿private ["_grp"];
 _grp = (_this select 0);
 if(!isNil "_grp")then{
+
+	_grp setVariable ["_newWP",true];
+
 	private ["_leader","_units","_vehicles"];
 	_leader = leader _grp;
 	_units = units _grp;
