@@ -239,7 +239,7 @@ while{true}do{
 							_attempts = _attempts + 1;
 							if(count _testPos > 0 or _attempts > 1000)then {_true = false};
 						};
-						if(count _testPos > 0)then {_pos = _testPos};
+						if(count _testPos > 0)then {_pos = _testPos; _maxDist = 0};
 					}else{
 						private["_true"];
 						_true = true;
@@ -254,7 +254,7 @@ while{true}do{
 							_attempts = _attempts + 1;
 							if(count _testPos > 0 or _attempts > 1000)then {_true = false};
 						};
-						if(count _testPos > 0)then {_pos = _testPos};
+						if(count _testPos > 0)then {_pos = _testPos; _maxDist = 0};
 					};
 				};
 
