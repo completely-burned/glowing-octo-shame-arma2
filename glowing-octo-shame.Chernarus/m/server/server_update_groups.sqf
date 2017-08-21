@@ -199,6 +199,24 @@ while{true}do{
 					_WaypointType = "SUPPORT";
 				};
 
+				if(_Submarine)then{
+						_WaypointType = "GETOUT";
+						private["_true"];
+						_true = true;
+						private ["_dir","_dist2","_testPos"];
+						private ["_attempts"];
+						_attempts = 0;
+						while {_true && ({alive _x} count _units > 0)} do {
+							_dir = random 360;
+							_dist2 = random _maxDist;
+							_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
+							_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 2, false]);
+							_attempts = _attempts + 1;
+							if(count _testPos > 0 or _attempts > 1000)then {_true = false};
+						};
+						if(count _testPos > 0)then {_pos = _testPos};
+				};
+
 				if(_Ship && !_Submarine)then{
 
 					if!(_patrol)then{
