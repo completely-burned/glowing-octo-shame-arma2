@@ -242,9 +242,9 @@ while{true}do{
 				};
 				if(_landing && _Ship && count _vehicles > 0)then{
 					if(getNumber(LIB_cfgWea >> currentWeapon (_vehicles select 0) >> "enableAttack")==0)then{
-						_WaypointType = "UNLOAD";
-					}else{
 						_WaypointType = "GETOUT";
+					}else{
+						_WaypointType = "UNLOAD";
 					};
 				};
 
