@@ -293,6 +293,7 @@ while{true}do{
 				_wp = _grp addWaypoint [_pos, _maxDist];
 				_wp setWaypointType _WaypointType;
 				_wp setWaypointSpeed _SpeedMode;
+				_wp setWaypointCompletionRadius _WaypointCompletionRadius;
 			}else{
 				_wp = [_grp,currentWaypoint _grp];
 			};
