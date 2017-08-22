@@ -91,7 +91,7 @@ while{true}do{
 			};
 
 			_wp = [_grp,_currentWP];
-			_wp setWaypointStatements ["true", "if(!isNil {this})then{[this] call m_fnc_waypoints}"];
+			_wp setWaypointStatements ["true", "if(!isNil {this})then{[this,true] call m_fnc_waypoints}"];
 		};
 	}forEach allGroups;
 	sleep 1;

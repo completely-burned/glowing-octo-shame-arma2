@@ -40,7 +40,7 @@ if(!isNil "_leader")then{
 		_Submarine = false;
 	};
 
-	if(_Submarine)then{
+	if(_Submarine && count _this > 1)then{
 		if(_typeWP == "UNLOAD")then{
 			{
 				private["_veh"];
@@ -87,7 +87,7 @@ if(!isNil "_leader")then{
 		};
 	};
 
-	if(!_Submarine)then{
+	if(!_Submarine && count _this > 1)then{
 		if(_typeWP == "UNLOAD")then{
 			private ["_Plane"];
 			_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
@@ -329,6 +329,6 @@ if(!isNil "_leader")then{
 		_wp setWaypointType _WaypointType;
 		_wp setWaypointSpeed _SpeedMode;
 		_wp setWaypointCompletionRadius _WaypointCompletionRadius;
-		_wp setWaypointStatements ["true", "if(!isNil {this})then{[this] call m_fnc_waypoints}"];
+		_wp setWaypointStatements ["true", "if(!isNil {this})then{[this,true] call m_fnc_waypoints}"];
 	};
 };
