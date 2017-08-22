@@ -68,6 +68,9 @@ locationNext={
 			if({isPlayer _x or _x in playableUnits} count units _grp == 0)then{
 				{
 					_x setVariable ["time", time];
+					if!(side _x in m_friendlySide)then{
+						_x allowFleeing 1;
+					};
 				}forEach units _grp;
 			};
 		}forEach allGroups;
