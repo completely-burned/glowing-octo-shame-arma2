@@ -33,59 +33,115 @@ if(!isNil "_leader")then{
 	_typeWP = waypointType _wp;
 
 
-	if(_typeWP == "UNLOAD")then{
-		private ["_Plane"];
-		_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
-		if(_Plane)then{
-			{
-				if(isNil {_x getVariable "_landing"})then{
-					_x setVariable ["_landing",true];
-					_x spawn {
-						{
-							sleep 0.5;
-							_x action ["Eject", _this];
-							_x leaveVehicle _this;
-						}forEach assignedCargo _this;
-						_this setVariable ["_landing",nil];
-					};
-				};
-			}forEach _vehicles
-		}else{
+	private["_Submarine"];
+	if({toLower getText(LIB_cfgVeh >> _x >> "vehicleClass") == "submarine"} count _types > 0)then{
+		_Submarine = true;
+	}else{
+		_Submarine = false;
+	};
+
+	if(_Submarine)then{
+		if(_typeWP == "UNLOAD")then{
 			{
 				private["_veh"];
 				_veh = _x;
+				_veh stop true;
+				// private ["_driver"];
+				// _driver = driver _veh;
+				// doStop _driver;
+				while{(!isNull _veh) && (alive _veh) && (speed _veh >= 1)}do{};
 				{
-					_x leaveVehicle _veh;
+					private["_unit"];
+					_unit = _x;
+					_unit action ["Eject", _veh];
+					while{(_unit in _veh) && (alive _veh) && (alive _unit)}do{};
+					_unit leaveVehicle _veh;
 				}forEach assignedCargo _veh;
-			}forEach _vehicles
+				// _driver doFollow leader _driver;
+				_veh stop false;
+			}forEach _vehicles;
+		};
+
+		if(_typeWP == "GETOUT")then{
+			{
+				private["_veh"];
+				_veh = _x;
+				_veh stop true;
+				// private ["_driver"];
+				// _driver = driver _veh;
+				// doStop _driver;
+				while{(!isNull _veh) && (alive _veh) && (speed _veh >= 1)}do{};
+				{
+					private["_unit"];
+					_unit = _x;
+					_unit action ["Eject", _veh];
+					while{(_unit in _veh) && (alive _veh) && (alive _unit)}do{};
+					_unit leaveVehicle _veh;
+				}forEach crew _veh;
+				// _driver doFollow leader _driver;
+				_veh stop false;
+			}forEach _vehicles;
+			_vehicles = [];
+			_Submarine = false;
+			hint str "_Submarine2";
 		};
 	};
 
-	if(_typeWP == "GETOUT")then{
-		private ["_Plane"];
-		_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
-		if(_Plane)then{
-			{
-				if(isNil {_x getVariable "_landing"})then{
-					_x setVariable ["_landing",true];
-					_x spawn {
-						{
-							sleep 0.5;
-							_x action ["Eject", _this];
-							_x leaveVehicle _this;
-						}forEach crew _this;
-						_this setVariable ["_landing",nil];
-					};
-				};
-			}forEach _vehicles
-		}else{
-			{
-				private["_veh"];
-				_veh = _x;
+	if(!_Submarine)then{
+		if(_typeWP == "UNLOAD")then{
+			private ["_Plane"];
+			_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
+			if(_Plane)then{
 				{
-					_x leaveVehicle _veh;
-				}forEach crew _veh;
-			}forEach _vehicles
+					if(isNil {_x getVariable "_landing"})then{
+						_x setVariable ["_landing",true];
+						_x spawn {
+							{
+								sleep 0.5;
+								_x action ["Eject", _this];
+								_x leaveVehicle _this;
+							}forEach assignedCargo _this;
+							_this setVariable ["_landing",nil];
+						};
+					};
+				}forEach _vehicles
+			}else{
+				{
+					private["_veh"];
+					_veh = _x;
+					{
+						_x leaveVehicle _veh;
+					}forEach assignedCargo _veh;
+				}forEach _vehicles
+			};
+		};
+
+		if(_typeWP == "GETOUT")then{
+			private ["_Plane"];
+			_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
+			if(_Plane)then{
+				{
+					if(isNil {_x getVariable "_landing"})then{
+						_x setVariable ["_landing",true];
+						_x spawn {
+							{
+								sleep 0.5;
+								_x action ["Eject", _this];
+								_x leaveVehicle _this;
+							}forEach crew _this;
+							_this setVariable ["_landing",nil];
+						};
+					};
+				}forEach _vehicles
+			}else{
+				{
+					private["_veh"];
+					_veh = _x;
+					{
+						_x leaveVehicle _veh;
+					}forEach crew _veh;
+				}forEach _vehicles
+			};
 		};
 	};
 
@@ -129,13 +185,6 @@ if(!isNil "_leader")then{
 			};
 			
 		}forEach _types;
-
-		private["_Submarine"];
-		if({getText(LIB_cfgVeh >> _x >> "vehicleClass") == "Submarine"} count _types > 0)then{
-			_Submarine = true;
-		}else{
-			_Submarine = false;
-		};
 
 		private ["_maxDist","_WaypointCompletionRadius","_SpeedMode"];
 		if(_air)then{
@@ -251,6 +300,10 @@ if(!isNil "_leader")then{
 			};
 		};
 
+		if(_Submarine)then{
+			_WaypointType = "GETOUT";
+		};
+
 		if(_WaypointType in ["UNLOAD","GETOUT"] && _air)then{
 			_pos = [_pos, _WaypointCompletionRadius max 1000, [_pos, _leaderPos] call BIS_fnc_dirTo] call bis_fnc_relPos;
 		};
@@ -276,5 +329,6 @@ if(!isNil "_leader")then{
 		_wp setWaypointType _WaypointType;
 		_wp setWaypointSpeed _SpeedMode;
 		_wp setWaypointCompletionRadius _WaypointCompletionRadius;
+		_wp setWaypointStatements ["true", "if(!isNil {this})then{[this] call m_fnc_waypoints}"];
 	};
 };
