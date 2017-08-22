@@ -83,7 +83,6 @@ if(!isNil "_leader")then{
 			}forEach _vehicles;
 			_vehicles = [];
 			_Submarine = false;
-			hint str "_Submarine2";
 		};
 	};
 
