@@ -17,13 +17,17 @@ if(true)then{
 				_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
 			};
 		}forEach vehicles;
+		{
+				_units set [count _units, _x];
+				_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
+		}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 
 		for "_i" from 0 to (count _units - 1) do {
 			private ["_unit","_marker"];
 			_unit = (_units select _i);
 			_marker = (_markers select _i);
 			if (!isNull _unit && alive _unit) then {
-				if([[_unit],listMHQ] call m_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6))then{
+				if([[_unit],listMHQ+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call m_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6))then{
 					if ({isPlayer _x} count crew _unit == 0) then {	
 						_marker setMarkerPosLocal (position _unit);
 						_marker setMarkerTypeLocal "vehicle";
