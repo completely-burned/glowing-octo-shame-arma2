@@ -79,7 +79,7 @@ HQ = ["Warfare_HQ_base_unfolded","WarfareBDepot","WarfareBCamp"];
 
 UAVterminal = listMHQ + HQ + ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
 
-draga_objectsTeleport = listMHQ + HQ + ["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"];
+draga_objectsTeleport = HQ + ["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"];
 
 Officers = [
 	"RU_Commander","RU_Soldier_Officer","Ins_Commander","TK_Soldier_Officer_EP1","TK_Aziz_EP1","TK_INS_Warlord_EP1",
