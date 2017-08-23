@@ -105,7 +105,7 @@ if(true)then{
 				}else{
 					private ["_veh"];
 					_veh = vehicle _unit;							
-					if ((_veh == _unit) || (_unit == (effectiveCommander _veh))) then {	
+					if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6)) then {	
 						_marker setMarkerPosLocal (position _veh);
 						_marker setMarkerTypeLocal "vehicle";
 						_marker setMarkerDirLocal getDir _veh;
