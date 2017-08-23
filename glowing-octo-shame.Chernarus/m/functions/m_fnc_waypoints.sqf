@@ -317,7 +317,7 @@ if(!isNil "_leader")then{
 				_dir = random 360;
 				_dist2 = random _maxDist;
 				_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
-				_testPos = (_testPos isFlatEmpty [0.25, -1, -1, -1, 0, false]);
+				_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 0, false]);
 				_attempts = _attempts + 1;
 				if(count _testPos > 0 or _attempts > 1000)then {_true = false};
 			};
