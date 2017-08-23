@@ -1,3 +1,30 @@
+private ["_side_str","_markerColor"];
+switch (playerSide) do {
+	case (resistance):
+	{
+		_side_str = "guerrila";
+		_markerColor = "ColorGreen";
+	};
+	case (civilian):
+	{
+		_side_str = "civilian";
+		_markerColor = "ColorYellow";
+	};
+	case (west):
+	{
+		_side_str = "west";
+		_markerColor = "ColorBlue";
+	};
+	case (east):
+	{
+		_side_str = "east";
+		_markerColor = "ColorRed";
+	};
+	default {
+		_side_str = str playerSide;
+		_markerColor = "Default";
+	};
+};
 if(true)then{
 
 	private ["_markers","_units"];
@@ -33,11 +60,16 @@ if(true)then{
 						_marker setMarkerTypeLocal "vehicle";
 						_marker setMarkerDirLocal getDir _unit;
 						_marker setMarkerSizeLocal [3,3];
-						_marker setMarkerColorLocal "ColorBlack";
-						private ["_text"];
-						_text = "";
-						_text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _unit) >> 'displayName'));
-						_marker setMarkerTextLocal _text;
+						if([[_unit],listMHQ] call m_fnc_CheckIsKindOfArray)then{
+							_marker setMarkerColorLocal "ColorBlack";
+							private ["_text"];
+							_text = "";
+							_text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _unit) >> 'displayName'));
+							_marker setMarkerTextLocal _text;
+						};
+						if([[_unit],["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call m_fnc_CheckIsKindOfArray)then{
+							_marker setMarkerColorLocal _markerColor;
+						};
 					}else{
 						_marker setMarkerPosLocal [35000,35000];
 					};
