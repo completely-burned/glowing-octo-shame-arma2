@@ -31,10 +31,10 @@ private["_uav_action","_uav_terminals"];
 while {true} do {
 	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
 
-	// _respawn_pos = [vehicle player, 100] call draga_fnc_CheckRespawnDistance;
-	// if (_respawn_pos) then {
-		// _Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true; _teleport = true; _menu = true;
-	// };
+	_respawn_pos = [vehicle player, 100] call draga_fnc_CheckRespawnDistance;
+	if (_respawn_pos) then {
+		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true; _teleport = true; _menu = true;
+	};
 
 	_BuyMenu = [[],[],[]];
 
@@ -50,11 +50,11 @@ while {true} do {
 					// [_Object,_type] call _fnc_reamoBox;
 				// };
 
-				// if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
-					// if ([[_type],listMHQ + HQ] call m_fnc_CheckIsKindOfArray) then {
-						// _Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
-					// };
-				// };
+				if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
+					if ([[_type],HQ] call m_fnc_CheckIsKindOfArray) then {
+						_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
+					};
+				};
 
 				if (_type isKindOf "Base_WarfareBVehicleServicePoint") then {
 					_Object setammocargo 1;
