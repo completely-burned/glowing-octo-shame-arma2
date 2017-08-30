@@ -93,6 +93,10 @@ while{true}do{
 		_enemyCoefficient = _enemyCoefficientCfg;
 	};
 
+	if(playerSide == civilian)then{
+		_enemyCoefficient = 1;
+	};
+
 	if(_all_groups < _maxGroups or _maxGroups == 0)then{
 		if((serverFPS > _minFPS) or (_all_groups < _minGroups))then{
 			private ["_difference"];
