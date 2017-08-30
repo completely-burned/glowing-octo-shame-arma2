@@ -88,10 +88,13 @@ if(!isNil "_leader")then{
 
 	if(!_Submarine && count _this > 1)then{
 		if(_typeWP == "UNLOAD")then{
+			private ["_crew"];
+			_crew = [];
 			private ["_Plane"];
 			_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
 			if(_Plane)then{
 				{
+					_crew set [count _crew,[_x,assignedCargo _x]];
 					if(isNil {_x getVariable "_landing"})then{
 						_x setVariable ["_landing",true];
 						_x spawn {
@@ -103,23 +106,33 @@ if(!isNil "_leader")then{
 							_this setVariable ["_landing",nil];
 						};
 					};
-				}forEach _vehicles
+				}forEach _vehicles;
 			}else{
 				{
+					_crew set [count _crew,[_x,assignedCargo _x]];
 					private["_veh"];
 					_veh = _x;
 					{
 						_x leaveVehicle _veh;
 					}forEach assignedCargo _veh;
-				}forEach _vehicles
+				}forEach _vehicles;
 			};
+			{
+				private["_veh","_crew2"];
+				_veh = _x select 0;
+				_crew2 = _x select 1;
+				while{({_x in _veh}count _crew2 > 0) && (alive _veh)}do{};
+			}forEach _crew;
 		};
 
 		if(_typeWP == "GETOUT")then{
+			private ["_crew"];
+			_crew = [];
 			private ["_Plane"];
 			_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
 			if(_Plane)then{
 				{
+					_crew set [count _crew,[_x,crew _x]];
 					if(isNil {_x getVariable "_landing"})then{
 						_x setVariable ["_landing",true];
 						_x spawn {
@@ -131,16 +144,23 @@ if(!isNil "_leader")then{
 							_this setVariable ["_landing",nil];
 						};
 					};
-				}forEach _vehicles
+				}forEach _vehicles;
 			}else{
 				{
+					_crew set [count _crew,[_x,crew _x]];
 					private["_veh"];
 					_veh = _x;
 					{
 						_x leaveVehicle _veh;
 					}forEach crew _veh;
-				}forEach _vehicles
+				}forEach _vehicles;
 			};
+			{
+				private["_veh","_crew2"];
+				_veh = _x select 0;
+				_crew2 = _x select 1;
+				while{({_x in _veh}count _crew2 > 0) && (alive _veh)}do{};
+			}forEach _crew;
 		};
 	};
 
