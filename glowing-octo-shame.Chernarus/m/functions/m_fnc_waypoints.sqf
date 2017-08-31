@@ -238,7 +238,7 @@ if(!isNil "_leader")then{
 		if(_landing && _Ship)then{
 			_pos = civilianBasePos;
 			_maxDist = sizeLocation*2;
-			_WaypointCompletionRadius = 100;
+			_WaypointCompletionRadius = 400;
 			_SpeedMode = "NORMAL";
 		};
 
