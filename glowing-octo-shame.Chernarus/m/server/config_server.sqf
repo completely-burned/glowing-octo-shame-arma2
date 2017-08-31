@@ -1,7 +1,4 @@
-m_friendlySide = [west];
-if(toLower worldname in ["zargabad", "takistan", "utes", "chernarus"])then{m_friendlySide = [east]};
-if(toLower worldname in ["shapur_baf", "mountains_acr"])then{m_friendlySide = [west]};
-if(toLower worldname in ["fdf_isle1_a"])then{m_friendlySide = [resistance]};
+m_friendlySide = [east];
 
 private ["_i"];
 
