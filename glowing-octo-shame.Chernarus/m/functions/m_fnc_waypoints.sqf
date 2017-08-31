@@ -15,6 +15,7 @@ if(!isNil "_leader")then{
 	_types = [];
 	_landing = false;
 	{	
+		_types set [count _types, typeOf _x];
 		private ["_veh"];
 		_veh = vehicle _x;
 		if(_veh != _x)then{
