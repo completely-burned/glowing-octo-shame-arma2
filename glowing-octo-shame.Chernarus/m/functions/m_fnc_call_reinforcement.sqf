@@ -115,7 +115,6 @@ _units = []; _vehicles=[]; _crew = []; _cargo=[];
 		};
 	}forEach units _grp;
 
-	_grp setCombatMode "RED";
 	_grp enableIRLasers true;
 	_grp enableGunLights true;
 

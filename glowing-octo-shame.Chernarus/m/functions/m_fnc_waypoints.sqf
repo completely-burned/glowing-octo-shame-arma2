@@ -167,6 +167,9 @@ if(!isNil "_leader")then{
 
 
 	if(count _waypoints <= _currentWP + 1)then{
+		private["_WaypointCombatMode"];
+		_WaypointCombatMode = "RED";
+
 		private ["_patrol"];
 		_patrol = _grp getVariable "patrol";
 		if (!IsNil "_patrol") then {_patrol = true}else{_patrol = false};
@@ -174,7 +177,7 @@ if(!isNil "_leader")then{
 		private ["_pos"];
 		_pos=civilianBasePos;
 
-		private ["_air","_AA","_Ship","_arty"];
+		private ["_air","_AA","_Ship","_arty","_uav"];
 		_air = ([_vehicles, ["Air"]] call m_fnc_CheckIsKindOfArray);
 		_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call m_fnc_CheckIsKindOfArray);
 		_Ship = ([_vehicles, ["Ship"]] call m_fnc_CheckIsKindOfArray);
@@ -182,6 +185,10 @@ if(!isNil "_leader")then{
 			_arty = true;
 		}else{
 			_arty = false;
+		};
+		_uav = ([_types, ["UAV"]] call m_fnc_CheckIsKindOfArray);
+		if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
+			_uav = true;
 		};
 		private["_support"];
 		_support = false;
@@ -206,6 +213,9 @@ if(!isNil "_leader")then{
 			
 		}forEach _types;
 
+		if(_uav)then{
+			_WaypointCombatMode = "BLUE";
+		};
 		private ["_maxDist","_WaypointCompletionRadius","_SpeedMode"];
 		if(_air)then{
 			_maxDist = 4000;
@@ -231,8 +241,8 @@ if(!isNil "_leader")then{
 
 		if(_landing && _air)then{
 			_pos = civilianBasePos;
-			_maxDist = sizeLocation/2;
-			_WaypointCompletionRadius = (sizeLocation max 750);
+			_maxDist = sizeLocation*2;
+			_WaypointCompletionRadius = _maxDist;
 			_SpeedMode = "NORMAL";
 		};
 
@@ -328,6 +338,10 @@ if(!isNil "_leader")then{
 			_pos = [_pos, _WaypointCompletionRadius max 1000, [_pos, _leaderPos] call BIS_fnc_dirTo] call bis_fnc_relPos;
 		};
 
+		if(_WaypointType in ["UNLOAD","GETOUT"])then{
+			_WaypointCombatMode = "GREEN";
+		};
+
 		if(count _vehicles == 0)then{
 			private["_true"];
 			_true = true;
@@ -348,6 +362,7 @@ if(!isNil "_leader")then{
 		_wp = _grp addWaypoint [_pos, _maxDist];
 		_wp setWaypointType _WaypointType;
 		_wp setWaypointSpeed _SpeedMode;
+		_wp setWaypointCombatMode _WaypointCombatMode;
 		_wp setWaypointCompletionRadius _WaypointCompletionRadius;
 		_wp setWaypointStatements ["true", "if(!isNil {this})then{[this,true] call m_fnc_waypoints}"];
 	};
