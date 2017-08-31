@@ -17,13 +17,15 @@ class Mission
 		"CACharacters_BAF",
 		"camisc_e_wf",
 		"corepatch_shapur_intro_fix",
-		"cacharacters_e"
+		"cacharacters_e",
+		"camisc_e"
 	};
 	addOnsAuto[]=
 	{
 		"ca_modules_functions",
 		"cacharacters_e",
 		"warfarebuildings",
+		"camisc_e",
 		"corepatch_shapur_intro_fix"
 	};
 	randomSeed=14018807;
@@ -266,7 +268,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			position[]={694.12567,35.380001,446.35144};
@@ -286,6 +288,14 @@ class Mission
 			vehicle="WarfareBAirport";
 			skill=0.60000002;
 			init="this allowDamage false;";
+		};
+		class Item2
+		{
+			position[]={705.9986,35.380001,436.25208};
+			id=18;
+			side="EMPTY";
+			vehicle="MASH_EP1";
+			skill=0.2;
 		};
 	};
 };
