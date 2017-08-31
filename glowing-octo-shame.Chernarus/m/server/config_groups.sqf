@@ -4,7 +4,7 @@ _west=[];_east=[];_guer=[];
 
 _woodland=false; _deserted=false;
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
-if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk"])then{_woodland=true};
+if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{_woodland=true};
 
 // A2
 if(LIB_a2Avail)then{
