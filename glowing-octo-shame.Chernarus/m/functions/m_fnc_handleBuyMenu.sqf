@@ -163,20 +163,13 @@ while {true} do {
 	if (_uav_action) then {
 		if (isnil {player getvariable "_uav_action"} && !isnull player) then {
 			private ["_action"];
-			_action = player addaction [localize "str_uav_action", "m\functions\uav_interface.sqf", [_Object, _uav_terminals], 1, false, false];
+			_action = player addaction [localize "str_uav_action", "m\functions\uav_action.sqf", [_Object, _uav_terminals], 1, false, false];
 			player setvariable ["_uav_action",_action];
-		};
-		if (isnil {player getvariable "_uav_heli_action"} && !isnull player) then {
-			private ["_action"];
-			_action = player addaction [localize "STR_EP1_ULB_action", "m\functions\uav_heli_interface.sqf", [_Object, _uav_terminals], 1, false, false];
-			player setvariable ["_uav_heli_action",_action];
 		};
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_uav_ca.paa")]; 
 	}else{
 		player removeAction (player getVariable "_uav_action");
 		player setvariable ["_uav_action", nil];
-		player removeAction (player getVariable "_uav_heli_action");
-		player setvariable ["_uav_heli_action", nil];
 	};
 
 	if (_Buy_Man or _teleport) then {

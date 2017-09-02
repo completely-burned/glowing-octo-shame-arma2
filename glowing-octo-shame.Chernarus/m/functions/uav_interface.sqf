@@ -19,12 +19,7 @@ startLoadingScreen ["UAV","RscDisplayLoadMission"];
 //////////////////////////////////////////////////
 
 //--- Select UAV
-//_linked = synchronizedobjects _logic;
-_linked = vehicles;
-_uav = objnull;
-{
-	if (vehicle _x iskindof "uav" && alive vehicle _x && playerSide == side _x) then {_uav = vehicle _x};
-} foreach _linked;
+_uav = _this select 0;
 
 //--- UAV destroyed
 if (isnull _uav) exitwith {
