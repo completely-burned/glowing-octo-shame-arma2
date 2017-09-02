@@ -19,13 +19,7 @@ startLoadingScreen ["UAV","RscDisplayLoadMission"];
 //////////////////////////////////////////////////
 
 //--- Select UAV
-_linked = vehicles;
-_uav = objnull;
-{
-	_unit = vehicle _x;
-	_isUAV = getnumber (configfile >> "cfgvehicles" >> typeof _unit >> "isUav");
-	if (_isUAV == 1 && alive vehicle _x && canmove vehicle _x) then {_uav = _unit};
-} foreach _linked;
+_uav = _this select 0;
 
 //--- UAV destroyed
 if (isnull _uav || isnull gunner _uav) exitwith {
