@@ -170,6 +170,9 @@ if(!isNil "_leader")then{
 		private["_WaypointCombatMode"];
 		_WaypointCombatMode = "RED";
 
+		private["_WaypointBehaviour"];
+		_WaypointBehaviour = "AWARE";
+
 		private ["_patrol"];
 		_patrol = _grp getVariable "patrol";
 		if (!IsNil "_patrol") then {_patrol = true}else{_patrol = false};
@@ -215,6 +218,7 @@ if(!isNil "_leader")then{
 
 		if(_uav)then{
 			_WaypointCombatMode = "BLUE";
+			_WaypointBehaviour = "CARELESS";
 		};
 		private ["_maxDist","_WaypointCompletionRadius","_SpeedMode"];
 		if(_air)then{
@@ -363,6 +367,7 @@ if(!isNil "_leader")then{
 		_wp setWaypointType _WaypointType;
 		_wp setWaypointSpeed _SpeedMode;
 		_wp setWaypointCombatMode _WaypointCombatMode;
+		_wp setWaypointBehaviour _WaypointBehaviour;
 		_wp setWaypointCompletionRadius _WaypointCompletionRadius;
 		_wp setWaypointStatements ["true", "if(!isNil {this})then{[this,true] call m_fnc_waypoints}"];
 	};
