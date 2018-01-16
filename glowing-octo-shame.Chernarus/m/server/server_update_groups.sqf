@@ -19,13 +19,17 @@ while{true}do{
 		_createWP = false;
 		_leaderPos = getPos vehicle _leader;
 
-		if({isPlayer _x or _x in playableUnits} count units _grp == 0)then{
-
+		if(isPlayer _leader)then{
+			while {(count (waypoints _grp)) > 0} do
+			{
+				deleteWaypoint ((waypoints _grp) select 0);
+			};
+		}else{
 			if(!isNil {_grp getVariable "grp_created"})then{
 				// _grp call draga_fnc_arty;
 				private["_cleanup"];
 				_cleanup = _grp getVariable "_cleanup";
-				if(isNil "_cleanup")then{
+				if(isNil "_cleanup" or (count (waypoints _grp)) <= 1)then{
 					_cleanup = [getPos vehicle _leader,time+40,time+120];
 					_grp setVariable ["_cleanup",_cleanup];
 					_createWP = true;
