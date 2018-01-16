@@ -48,6 +48,7 @@ player addEventHandler ["killed", {
     if(!isNil "BIS_CONTROL_CAM_Handler")then{
         ["",""] call BIS_CONTROL_CAM_Handler;
     };
+    bis_uav_terminate = true;
 }];
 // [] call compile preprocessFileLineNumbers  "m\Client\coin.sqf";
 
