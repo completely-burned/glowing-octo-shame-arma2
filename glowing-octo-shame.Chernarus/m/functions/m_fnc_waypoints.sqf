@@ -14,7 +14,7 @@ if(!isNil "_leader")then{
 	_vehicles = [];
 	_types = [];
 	_landing = false;
-	{	
+	{
 		_types set [count _types, typeOf _x];
 		private ["_veh"];
 		_veh = vehicle _x;
@@ -33,139 +33,6 @@ if(!isNil "_leader")then{
 	_wp = [_grp,currentWaypoint _grp];
 	_typeWP = waypointType _wp;
 
-
-	private["_Submarine"];
-	if({toLower getText(LIB_cfgVeh >> _x >> "vehicleClass") == "submarine"} count _types > 0)then{
-		_Submarine = true;
-	}else{
-		_Submarine = false;
-	};
-
-	if(_Submarine && count _this > 1)then{
-		if(_typeWP == "UNLOAD")then{
-			{
-				private["_veh"];
-				_veh = _x;
-				_veh stop true;
-				// private ["_driver"];
-				// _driver = driver _veh;
-				// doStop _driver;
-				while{(!isNull _veh) && (alive _veh) && (speed _veh >= 1)}do{};
-				{
-					private["_unit"];
-					_unit = _x;
-					_unit action ["Eject", _veh];
-					while{(_unit in _veh) && (alive _veh) && (alive _unit)}do{};
-					_unit leaveVehicle _veh;
-				}forEach assignedCargo _veh;
-				// _driver doFollow leader _driver;
-				_veh stop false;
-			}forEach _vehicles;
-		};
-
-		if(_typeWP == "GETOUT")then{
-			{
-				private["_veh"];
-				_veh = _x;
-				_veh stop true;
-				// private ["_driver"];
-				// _driver = driver _veh;
-				// doStop _driver;
-				while{(!isNull _veh) && (alive _veh) && (speed _veh >= 1)}do{};
-				{
-					private["_unit"];
-					_unit = _x;
-					_unit action ["Eject", _veh];
-					while{(_unit in _veh) && (alive _veh) && (alive _unit)}do{};
-					_unit leaveVehicle _veh;
-				}forEach crew _veh;
-				// _driver doFollow leader _driver;
-				_veh stop false;
-			}forEach _vehicles;
-			_vehicles = [];
-			_Submarine = false;
-		};
-	};
-
-	if(!_Submarine && count _this > 1)then{
-		if(_typeWP == "UNLOAD")then{
-			private ["_crew"];
-			_crew = [];
-			private ["_Plane"];
-			_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
-			if(_Plane)then{
-				{
-					_crew set [count _crew,[_x,assignedCargo _x]];
-					if(isNil {_x getVariable "_landing"})then{
-						_x setVariable ["_landing",true];
-						_x spawn {
-							{
-								sleep 0.5;
-								_x action ["Eject", _this];
-								_x leaveVehicle _this;
-							}forEach assignedCargo _this;
-							_this setVariable ["_landing",nil];
-						};
-					};
-				}forEach _vehicles;
-			}else{
-				{
-					_crew set [count _crew,[_x,assignedCargo _x]];
-					private["_veh"];
-					_veh = _x;
-					{
-						_x leaveVehicle _veh;
-					}forEach assignedCargo _veh;
-				}forEach _vehicles;
-			};
-			{
-				private["_veh","_crew2"];
-				_veh = _x select 0;
-				_crew2 = _x select 1;
-				while{({_x in _veh}count _crew2 > 0) && (alive _veh)}do{};
-			}forEach _crew;
-		};
-
-		if(_typeWP == "GETOUT")then{
-			private ["_crew"];
-			_crew = [];
-			private ["_Plane"];
-			_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
-			if(_Plane)then{
-				{
-					_crew set [count _crew,[_x,crew _x]];
-					if(isNil {_x getVariable "_landing"})then{
-						_x setVariable ["_landing",true];
-						_x spawn {
-							{
-								sleep 0.5;
-								_x action ["Eject", _this];
-								_x leaveVehicle _this;
-							}forEach crew _this;
-							_this setVariable ["_landing",nil];
-						};
-					};
-				}forEach _vehicles;
-			}else{
-				{
-					_crew set [count _crew,[_x,crew _x]];
-					private["_veh"];
-					_veh = _x;
-					{
-						_x leaveVehicle _veh;
-					}forEach crew _veh;
-				}forEach _vehicles;
-			};
-			{
-				private["_veh","_crew2"];
-				_veh = _x select 0;
-				_crew2 = _x select 1;
-				while{({_x in _veh}count _crew2 > 0) && (alive _veh)}do{};
-			}forEach _crew;
-		};
-	};
-
-
 	if(count _waypoints <= _currentWP + 1)then{
 		private["_WaypointCombatMode"];
 		_WaypointCombatMode = "RED";
@@ -179,6 +46,13 @@ if(!isNil "_leader")then{
 
 		private ["_pos"];
 		_pos=civilianBasePos;
+
+		private["_Submarine"];
+		if({toLower getText(LIB_cfgVeh >> _x >> "vehicleClass") == "submarine"} count _types > 0)then{
+			_Submarine = true;
+		}else{
+			_Submarine = false;
+		};
 
 		private ["_air","_AA","_Ship","_arty","_uav"];
 		_air = ([_vehicles, ["Air"]] call m_fnc_CheckIsKindOfArray);
@@ -213,7 +87,7 @@ if(!isNil "_leader")then{
 				_support = true;
 				BreakTo "_support";
 			};
-			
+
 		}forEach _types;
 
 		if(_uav)then{
@@ -275,7 +149,8 @@ if(!isNil "_leader")then{
 					_dir = random 360;
 					_dist2 = random _maxDist;
 					_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
-					_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 2, false]);
+					// _testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 2, false]);
+					_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 0, true]);
 					_attempts = _attempts + 1;
 					if(count _testPos > 0 or _attempts > 1000)then {_true = false};
 				};
@@ -338,10 +213,6 @@ if(!isNil "_leader")then{
 			_WaypointType = "GETOUT";
 		};
 
-		if(_WaypointType in ["UNLOAD","GETOUT"] && _air)then{
-			_pos = [_pos, _WaypointCompletionRadius max 1000, [_pos, _leaderPos] call BIS_fnc_dirTo] call bis_fnc_relPos;
-		};
-
 		if(_WaypointType in ["UNLOAD","GETOUT"])then{
 			_WaypointCombatMode = "GREEN";
 		};
@@ -369,6 +240,6 @@ if(!isNil "_leader")then{
 		_wp setWaypointCombatMode _WaypointCombatMode;
 		_wp setWaypointBehaviour _WaypointBehaviour;
 		_wp setWaypointCompletionRadius _WaypointCompletionRadius;
-		_wp setWaypointStatements ["true", "if(!isNil {this})then{[this,true] call m_fnc_waypoints}"];
+		_wp setWaypointStatements ["true", "group this setVariable ['_grp_wp_completed',true];if(!isNil {this})then{[this,true] call m_fnc_waypoints}"];
 	};
 };

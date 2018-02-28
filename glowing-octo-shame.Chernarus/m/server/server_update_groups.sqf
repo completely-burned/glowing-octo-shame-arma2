@@ -12,7 +12,7 @@ while{true}do{
 			_time = time;
 			_grp setVariable ["grp_created_time", _time];
 		};
-		
+
 		private["_currentWP","_waypoints","_createWP","_leaderPos"];
 		_currentWP = currentWaypoint _grp;
 		_waypoints = waypoints _grp;
@@ -96,7 +96,7 @@ while{true}do{
 
 			_wp = [_grp,_currentWP];
 			private["_wpStatements"];
-			_wpStatements = "if(!isNil {this})then{[this,true] call m_fnc_waypoints}";
+			_wpStatements = "group this setVariable ['_grp_wp_completed',true];if(!isNil {this})then{[this,true] call m_fnc_waypoints}";
 			if(waypointStatements _wp select 1 != _wpStatements)then{
 				_wp setWaypointStatements ["true", _wpStatements];
 			};
