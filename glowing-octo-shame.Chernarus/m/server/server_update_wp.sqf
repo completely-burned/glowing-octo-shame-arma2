@@ -141,6 +141,15 @@ while{true}do{
       						_x leaveVehicle _veh;
       					}forEach assignedCargo _veh;
       				}forEach _vehicles;
+              {
+                private["_veh"];
+      					_veh = _x;
+                while {({alive _x} count _units > 0) && !isNull _this && ({alive _x} count (crew _veh)-_units > 0)} do {
+                    sleep 1;
+                };
+              }forEach _vehicles;
+              sleep 5;
+            	deleteWaypoint [_this,currentWaypoint _this];
               _this setVariable ["UNLOAD",nil];
             };
           };
@@ -171,6 +180,15 @@ while{true}do{
       						_x leaveVehicle _veh;
       					}forEach crew _veh;
       				}forEach _vehicles;
+              {
+                private["_veh"];
+      					_veh = _x;
+                while {({alive _x} count _units > 0) && !isNull _this && ({alive _x} count crew _veh > 0)} do {
+                    sleep 1;
+                };
+              }forEach _vehicles;
+              sleep 5;
+              deleteWaypoint [_this,currentWaypoint _this];
               _this setVariable ["GETOUT",nil];
             };
           };

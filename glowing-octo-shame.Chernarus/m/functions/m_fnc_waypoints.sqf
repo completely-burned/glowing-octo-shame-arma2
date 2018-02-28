@@ -20,10 +20,12 @@ if(!isNil "_leader")then{
 		_veh = vehicle _x;
 		if(_veh != _x)then{
 			if!(_veh in _vehicles)then{
-				_vehicles set [count _vehicles, _veh];
-				_types set [count _types, typeOf _veh];
-				if(count assignedCargo _veh > 0)then{
-					_landing = true;
+				if (group effectiveCommander _veh == _grp) then {
+					_vehicles set [count _vehicles, _veh];
+					_types set [count _types, typeOf _veh];
+					if(count assignedCargo _veh > 0)then{
+						_landing = true;
+					};
 				};
 			};
 		};
