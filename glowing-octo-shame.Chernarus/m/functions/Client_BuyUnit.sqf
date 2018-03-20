@@ -104,8 +104,7 @@ if (true) then {
 			Private["_pos"];
 			_pos = position vehicle player;
 			_pos resize 2;
-			player moveInDriver _veh;
-			_veh setPos _pos;
+			_veh setPos ([_pos,25, 5 max sizeOf _type] call draga_fn_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -120,8 +119,7 @@ if (true) then {
 			Private["_pos"];
 			_pos = position vehicle player;
 			_pos resize 2;
-			player moveInDriver _veh;
-			_veh setPos _pos;
+			_veh setPos ([_pos,25, 5 max sizeOf _type] call draga_fn_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -136,8 +134,7 @@ if (true) then {
 			Private["_pos"];
 			_pos = position vehicle player;
 			_pos resize 2;
-			player moveInDriver _veh;
-			_veh setPos _pos;
+			_veh setPos ([_pos,25, 5 max sizeOf _type] call draga_fn_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -150,7 +147,8 @@ if (true) then {
 				_pos = position vehicle player;
 				_pos resize 2;
 				Private["_veh"];
-				_veh = createVehicle [_type, _pos, [], 20, "FORM"];
+				_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+				_veh setPos ([_pos,25, 5 max sizeOf _type] call draga_fn_getSafePos);
 				_veh call _fnc_1;
 				[_veh, createGroup playerSide] call m_fnc_spawnCrew;
 				hint format["%1: %2", localize "str_support_done", _type];
@@ -161,8 +159,7 @@ if (true) then {
 				Private["_pos"];
 				_pos = position vehicle player;
 				_pos resize 2;
-				player moveInDriver _veh;
-				_veh setPos _pos;
+				_veh setPos ([_pos,25, 5 max sizeOf _type] call draga_fn_getSafePos);
 				_veh call _fnc_1;
 				hint format["%1: %2", localize "str_support_done", _type];
 			};
@@ -202,8 +199,7 @@ if (true) then {
 				Private["_pos"];
 				_pos = position vehicle player;
 				_pos resize 2;
-				player moveInDriver _veh;
-				_veh setPos _pos;
+				_veh setPos ([_pos,25, 5 max sizeOf _type] call draga_fn_getSafePos);
 				_veh call _fnc_1;
 			};
 			hint format["%1: %2", localize "str_support_done", _type];
@@ -217,8 +213,7 @@ if (true) then {
 					Private["_pos"];
 					_pos = position vehicle player;
 					_pos resize 2;
-					player moveInDriver _veh;
-					_veh setPos _pos;
+					_veh setPos ([_pos,25, 5 max sizeOf _type] call draga_fn_getSafePos);
 					_veh call _fnc_1;
 					hint format["%1: %2", localize "str_support_done", _type];
 				};
@@ -234,15 +229,14 @@ if (true) then {
 			_dir = direction _Object;
 			_pos = position _Object;
 			_pos = _pos findEmptyPosition [0,100,_type];
-			_veh = createVehicle[_type, _pos, [], 5, "FORM"];
+			_veh = createVehicle[_type, [0,0], [], 5, "FORM"];
 			// _pos = ([_pos, (sizeOf typeOf _Object) / 2 + (sizeOf _type) / 2, (180 + _dir)] call BIS_fnc_relPos);
 			_dir = [_veh, _Object] call BIS_fnc_dirTo;
 			_veh setDir (_dir+180);
 			_vel = velocity _veh;
 			_dir = direction _veh;
+			_veh setPos ([_pos,25, 5 max sizeOf _type, true] call draga_fn_getSafePos);
 			_speed = -3;
-			_veh setVelocity [(_vel select 0)+(sin _dir*_speed),(_vel select 1)+ (cos _dir*_speed),0];
-			player moveInDriver _veh;
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -257,8 +251,7 @@ if (true) then {
 			Private["_pos"];
 			_pos = position vehicle player;
 			_pos resize 2;
-			player moveInGunner _veh;
-			_veh setPos _pos;
+			_veh setPos ([_pos,25, 5 max sizeOf _type] call draga_fn_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
