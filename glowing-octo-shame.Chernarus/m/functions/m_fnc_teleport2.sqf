@@ -6,7 +6,7 @@ switch (typeName _this) do {
 	{
 		_pos = getPos _this;
 		if(speed _this >= 2)then{_allow = false; hint localize "draga_str_CannotTeleport";};
-		
+
 	};
 	case ("LOCATION"):
 	{
@@ -31,7 +31,7 @@ if (count _nearestLocations > 0) then {
 _pos resize 2;
 
 vehicle player setVelocity [0, 0, 0];
-vehicle player setPos ([_pos,25, sizeOf typeOf vehicle player] call draga_fn_getSafePos);
+vehicle player setPos ([_pos,0, sizeOf typeOf vehicle player] call draga_fn_getSafePos);
 vehicle player setVectorUp [0,0,1];
 private ["_inList"];
 _inList = [];
@@ -42,7 +42,7 @@ _inList = [];
 		if !(_veh in _inList)then{
 			_inList set [count _inList,_veh];
 			_veh setVelocity [0, 0, 0];
-			_veh setPos ([_pos,25, sizeOf typeOf _veh] call draga_fn_getSafePos);
+			_veh setPos ([_pos,0, sizeOf typeOf _veh] call draga_fn_getSafePos);
 			_veh setVectorUp [0,0,1];
 		};
 	};
