@@ -25,7 +25,7 @@ class Mission
 	randomSeed=15151773;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.150 Zargabad";
+		briefingName="glowing-octo-shame v0.0.3.151 Zargabad";
 		resistanceWest=0;
 		startWeather=0.25;
 		forecastWeather=0;

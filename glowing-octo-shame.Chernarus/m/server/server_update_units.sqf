@@ -12,7 +12,7 @@ _getOut=[];
 			if(!isNull _assignedVehicle)then{
 				private ["_VehicleRole"];
 				_VehicleRole = assignedVehicleRole _x;
-				
+
 				// if(_allowGetin)then{
 					// if(!canMove _assignedVehicle)then{
 						// if(isNull assignedTarget _assignedVehicle)then{
@@ -20,7 +20,7 @@ _getOut=[];
 						// };
 					// };
 				// };
-				
+
 				if(_allowGetin)then{
 				// private ["_behaviour"];
 				// _behaviour = behaviour _x;
@@ -74,28 +74,18 @@ _getOut=[];
 				};
 
 				if(_allowGetin && true)then{
-					if(([vehicle _x, 300, side _x] call m_fnc_CheckCombatNearUnits))then{
-						if(count _VehicleRole > 0)then{
-							if(_VehicleRole select 0 == "Cargo")then{
-								_allowGetin=false;
-							};
-							if(_VehicleRole select 0 == "Turret")then{
-								if(_assignedVehicle isKindOf "BMP3")then{
-									if(([_VehicleRole, [1, 0]] call BIS_fnc_returnNestedElement) in [1,2])then{
-										_allowGetin=false;
-									};
-								};
-							};
-						};
-					};
-				};
-				
-				if(_allowGetin)then{
-					if(_assignedVehicle isKindOf "Air")then{
-						if(count _VehicleRole > 0)then{
-							if(_VehicleRole select 0 == "Cargo")then{
-								if((_assignedVehicle distance vehicle _x)>25)then{
+					if(_assignedVehicle isKindOf "LandVehicle")then{
+						if(([vehicle _x, 300, side _x] call m_fnc_CheckCombatNearUnits))then{
+							if(count _VehicleRole > 0)then{
+								if(_VehicleRole select 0 == "Cargo")then{
 									_allowGetin=false;
+								};
+								if(_VehicleRole select 0 == "Turret")then{
+									if(_assignedVehicle isKindOf "BMP3")then{
+										if(([_VehicleRole, [1, 0]] call BIS_fnc_returnNestedElement) in [1,2])then{
+											_allowGetin=false;
+										};
+									};
 								};
 							};
 						};
@@ -103,13 +93,26 @@ _getOut=[];
 				};
 
 				if(_allowGetin)then{
-					if!([_assignedVehicle, false] call draga_fnc_CheckTurretAlive)then{
-						_allowGetin=false;
+					if(_assignedVehicle != vehicle _x)then{
+						if((_assignedVehicle distance vehicle _x)>100)then{
+							_allowGetin=false;
+						};
 					};
 				};
-				
-				if!(_allowGetin)then{
-					if(getText(configFile >> "CfgVehicles" >> typeOf _assignedVehicle >> "simulation") == "airplane")then{
+
+				if(_allowGetin)then{
+					if(_assignedVehicle isKindOf "LandVehicle")then{
+						if!([_assignedVehicle, false] call draga_fnc_CheckTurretAlive)then{
+							_allowGetin=false;
+						};
+					}
+				};
+
+				if(toLower getText(configFile >> "CfgVehicles" >> typeOf _assignedVehicle >> "simulation") == "airplane")then{
+					if(_x == vehicle _x)then{
+						_allowGetin=false;
+					};
+					if(_assignedVehicle == vehicle _x)then{
 						_allowGetin=true;
 					};
 				};
@@ -127,9 +130,9 @@ _getOut=[];
 				};
 			};
 		};
-		
+
 		if (!isPlayer _x) then {
-			
+
 			Private["_time","_delete"];
 			_delete = false;
 			_time = (_x getVariable "time");
@@ -141,14 +144,14 @@ _getOut=[];
 					_delete = true;
 				};
 			};
-			
+
 				//�������� ���
-				// if (true) then { 
+				// if (true) then {
 					// if(isNull _assignedVehicle)then{
 						// _delete = true;
 					// };
 				// };
-													
+
 				if (!_delete) then {
 					if (isNull _assignedVehicle) then {
 						if (isNil {group _x getVariable "patrol"}) then {
@@ -192,9 +195,9 @@ _getOut=[];
 						_x setVariable ["time", time];
 					};
 				};
-				
+
 				// �������� ������ ������� � �������
-				if (!_delete) then { 
+				if (!_delete) then {
 					if([[_x], listCrew] call m_fnc_CheckIsKindOfArray)then{
 						// _assignedVehicle = assignedVehicle _x;
 						if(isNull _assignedVehicle)then{
@@ -202,22 +205,22 @@ _getOut=[];
 						};
 					};
 				};
-				
-				// �������� ���������� 
-				if (true) then { 
+
+				// �������� ����������
+				if (true) then {
 					if ((side _x) in [west,east,resistance]) then {
 						if ((count magazines _x) == 0) then {
 							_delete = true;
 						};
 					};
 				};
-				
+
 				if !(canStand _x) then {
 					if !([vehicle _x, 100] call m_fnc_CheckPlayersDistance)then{
 						_x setHit["legs",0];
 					};
 				};
-				
+
 				// if !(isNull assignedTarget _x) then {
 					// Private["_currentWeapon"];
 					// _currentWeapon = currentWeapon _x;
@@ -234,7 +237,7 @@ _getOut=[];
 						// };
 					// };
 				// };
-				
+
 				// if{false}then{
 					// {
 						// if((damage _x)>0.1)then{
@@ -270,7 +273,7 @@ _getOut=[];
 							_x setVariable ["timeIsWater", nil];
 						};
 					};
-					
+
 					if(waypointType [group _x, currentwaypoint group _x] == "SUPPORT")then{
 						if(!alive _assignedVehicle or !canMove _assignedVehicle)then{
 							_delete = true;
@@ -280,7 +283,7 @@ _getOut=[];
 			if (_delete) then {
 				_deleteList set [count _deleteList,_x];
 			};
-			
+
 		};
 
 		if(isDedicated)then{
@@ -294,7 +297,7 @@ _getOut=[];
 	sleep 0.01;
 } forEach allUnits-playableUnits-switchableUnits;
 
-_getOut allowGetin false; 		
+_getOut allowGetin false;
 // {unassignVehicle _x} forEach _getOut; // глючно, но это надо, а может нет
 
 allUnits-_getOut allowGetin true;
