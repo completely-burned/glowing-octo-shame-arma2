@@ -55,7 +55,9 @@ _getOut=[];
 							};
 						};
 						if!(_enableAttack)then{
-							_allowGetin=false;
+							if!(_assignedVehicle isKindOf "Air")then{
+								_allowGetin=false;
+							};
 						}else{
 							if(count _VehicleRole > 0)then{
 								if(_VehicleRole select 0 == "Cargo")then{
