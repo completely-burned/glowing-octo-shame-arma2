@@ -32,6 +32,9 @@ while{true}do{
     private["_Submarine"];
   	if({toLower getText(LIB_cfgVeh >> _x >> "vehicleClass") == "submarine"} count _types > 0)then{_Submarine = true}else{_Submarine = false};
 
+    private ["_Helicopter"];
+    _Helicopter = ([_vehicles, ["Helicopter"]] call m_fnc_CheckIsKindOfArray);
+
     private ["_Plane"];
     _Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
 
@@ -72,6 +75,71 @@ while{true}do{
         					_unit leaveVehicle _veh;
         				}forEach crew _veh;
         				_veh stop false;
+        			}forEach _vehicles;
+              _this setVariable ["GETOUT",nil];
+            };
+          };
+        };
+      };
+    };
+
+    if (_Helicopter) then {
+      if (_typeWP in ["UNLOAD"]) then {
+        if ((_leaderPos distance waypointPosition _wp < 1000) or _grp_wp_completed) then {
+          if (isNil {_grp getVariable "UNLOAD"}) then {
+            _grp setVariable ["UNLOAD",true];
+            _grp spawn {
+              private ["_units","_vehicles"];
+            	_units = units _this;
+            	_vehicles = [];
+            	{
+            		private ["_veh"];
+            		_veh = vehicle _x;
+            		if(_veh != _x)then{
+            			if!(_veh in _vehicles)then{
+            				_vehicles set [count _vehicles, _veh];
+            			};
+            		};
+            	}forEach _units;
+
+              {
+        				private["_veh"];
+        				_veh = _x;
+                {
+                  if(group _x != _this)then{
+    								_x leaveVehicle _veh;
+                  };
+  							}forEach crew _veh;
+        			}forEach _vehicles;
+              _this setVariable ["UNLOAD",nil];
+            };
+          };
+        };
+      };
+      if (_typeWP in ["GETOUT"]) then {
+        if ((_leaderPos distance waypointPosition _wp < 400) or _grp_wp_completed) then {
+          if (isNil {_grp getVariable "GETOUT"}) then {
+            _grp setVariable ["GETOUT",true];
+            _grp spawn {
+              private ["_units","_vehicles"];
+            	_units = units _this;
+            	_vehicles = [];
+            	{
+            		private ["_veh"];
+            		_veh = vehicle _x;
+            		if(_veh != _x)then{
+            			if!(_veh in _vehicles)then{
+            				_vehicles set [count _vehicles, _veh];
+            			};
+            		};
+            	}forEach _units;
+
+              {
+        				private["_veh"];
+        				_veh = _x;
+                {
+    								_x leaveVehicle _veh;
+  							}forEach crew _veh;
         			}forEach _vehicles;
               _this setVariable ["GETOUT",nil];
             };
