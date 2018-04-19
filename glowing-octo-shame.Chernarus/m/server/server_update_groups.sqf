@@ -30,9 +30,13 @@ while{true}do{
 				private["_cleanup"];
 				_cleanup = _grp getVariable "_cleanup";
 				if(isNil "_cleanup" or (count (waypoints _grp)) <= 1)then{
-					_cleanup = [getPos vehicle _leader,time+40,time+120];
-					_grp setVariable ["_cleanup",_cleanup];
-					_createWP = true;
+					if(isNil "_cleanup")then{
+						_cleanup = [getPos vehicle _leader,time+40,time+120];
+						_grp setVariable ["_cleanup",_cleanup];
+					};
+					if(count waypoints _grp <= 1)then{
+						_createWP = true;
+					};
 				}else{
 					private["_oldPos","_oldTime","_oldTime2"];
 					_oldPos = _cleanup select 0;
