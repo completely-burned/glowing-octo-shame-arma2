@@ -46,7 +46,7 @@ if(_preferRoads)then{
 	_nearRoads = (_pos nearRoads _dist);
 };
 while {_visible} do {
-	if(_attempts2 >= 5000)exitWith{[]};
+	if(_attempts2 >= 5000)exitWith{_testPos = []};
 
 	if(_preferRoads)then{
 		if(count _nearRoads > 0)then{
@@ -58,18 +58,18 @@ while {_visible} do {
 		_dist2 = (_minDist + random (_dist - _minDist));
 		_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
 	};
-	
+
 	// if(count _testPos == 0)then{
 	// };
 
 	// "test" setMarkerPos _testPos;
-	
-	_visible=false;	
+
+	_visible=false;
 	if((!_visible) && true)then
 	{
 		_visible = ([_testPos,_minDist] call m_fnc_CheckPlayersDistance);
 	};
-	
+
 	if(count _this > 10)then {
      if(!_visible)then {
 			ScopeName "CheckForEnemy";
@@ -93,18 +93,18 @@ while {_visible} do {
 			// };
 		// };
 	};
-	
+
 	if(!_visible)then{
 		_visible = ([_testPos, _blacklist] call BIS_fnc_isPosBlacklisted);
 	};
-	
+
 	if(!_visible)then{
 		// sleep 0.01;
 		_testPos = (_testPos isFlatEmpty [_objDist, -1, _maxGradient, _objDist, _waterMode, _shoreMode, objNull]);
 		if(isNil "_testPos")then{_testPos=[]};
 		if(count _testPos == 0)then {_visible=true};
 	};
-		
+
 	_attempts = _attempts + 1;
 	_attempts2 = _attempts2 + 1;
 	if ( ( _attempts > 50 ) && ( _dist < _maxDist ) ) then {
@@ -115,7 +115,7 @@ while {_visible} do {
 		_attempts = 0;
 	};
 	// sleep 0.0001;
-	
+
 };
 
 	// diag_log format ["m_fnc_findSafePos.sqf 119, %1", time];
