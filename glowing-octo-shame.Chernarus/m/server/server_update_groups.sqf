@@ -95,7 +95,16 @@ while{true}do{
 
 			private["_wp"];
 			if(_createWP)then{
-				[_leader] call m_fnc_waypoints;
+				private["_m_fnc_waypoints"];
+				_m_fnc_waypoints = _grp getVariable "_m_fnc_waypoints";
+				if (isNil {_m_fnc_waypoints}) then {
+					_m_fnc_waypoints = [_leader] spawn m_fnc_waypoints;
+					_grp setVariable ["_m_fnc_waypoints", _m_fnc_waypoints];
+				}else{
+					if (scriptDone _m_fnc_waypoints) then {
+						_grp setVariable ["_m_fnc_waypoints", nil];
+					};
+				};
 			};
 
 			_wp = [_grp,_currentWP];
