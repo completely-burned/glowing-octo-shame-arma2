@@ -96,7 +96,7 @@ _getOut=[];
 
 				if(_allowGetin)then{
 					if(_assignedVehicle != vehicle _x)then{
-						if((_assignedVehicle distance vehicle _x)>100)then{
+						if((_assignedVehicle distance vehicle _x)>1000)then{
 							_allowGetin=false;
 						};
 					};
