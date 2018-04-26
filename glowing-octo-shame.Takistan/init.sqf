@@ -1,0 +1,1 @@
+../glowing-octo-shame.Chernarus/init.sqf
