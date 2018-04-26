@@ -1,6 +1,35 @@
-m_friendlySide = [east];
+m_friendlySide = [];
 
-private ["_i"];
+private ["_i","_ii"];
+for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "Groups")}, {_i = _i + 1}] do {
+	private["_grpCFG"];
+    _grpCFG = (missionConfigFile >> "MissionSQM" >> "Mission" >> "Groups") select _i;
+		if (isClass _grpCFG) then {
+			private["_sideCFG","_unitsCFG"];
+			_sideCFG = getText (_grpCFG >> "side");
+			_unitsCFG = _grpCFG >> "Vehicles";
+			for [{_ii = 0}, {_ii < count _unitsCFG}, {_ii = _ii + 1}] do {
+				private ["_unitCFG"];
+				_unitCFG = _unitsCFG select _ii;
+				if (isClass _unitCFG) then {
+					private ["_isPlayable"];
+					_isPlayable = false;
+					if (getText (_unitCFG >> "player") in ["PLAY CDG","PLAYER COMMANDER"]) then {
+						_isPlayable = true;
+					};
+					if (_isPlayable) then {
+						switch (_sideCFG) do {
+							case "EAST": {if !(east in m_friendlySide) then {m_friendlySide = m_friendlySide + [east]}};
+							case "WEST": {if !(west in m_friendlySide) then {m_friendlySide = m_friendlySide + [west]}};
+							case "GUER": {if !(resistance in m_friendlySide) then {m_friendlySide = m_friendlySide + [resistance]}};
+							case "CIV": {if !(civilian in m_friendlySide) then {m_friendlySide = m_friendlySide + [civilian]}};
+							default {};
+						};
+					};
+				};
+			};
+		};
+};
 
 /// silvieManager ///
 silvieManagerBlacklist=[
