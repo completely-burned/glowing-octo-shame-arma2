@@ -29,7 +29,7 @@ class Mission
 	randomSeed=7310001;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.158 utes";
+		briefingName="glowing-octo-shame v0.0.3.159 utes";
 		startWeather=0.40000001;
 		forecastWeather=0.25;
 		year=2008;
@@ -706,7 +706,7 @@ class Mission
 					vehicle="LocationLogicCityCenter";
 					leader=1;
 					skill=0.60000002;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""infantry"", true];";
+					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""_grps_rarity"", [[[""Air""],0],[[""Tank""],0],[[""Car"",""Motorcycle""],0]]];";
 				};
 			};
 		};

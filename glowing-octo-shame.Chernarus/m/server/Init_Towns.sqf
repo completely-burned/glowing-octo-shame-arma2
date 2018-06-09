@@ -46,7 +46,7 @@ locationNext={
 	if(!isNil {CivilianLocation})then{
 		CivilianLocation setVariable ["time",time];
 	};
-	
+
 	private["_sizeLocation"];
 	_sizeLocation = + 500;
 	private["_NextLocations"];
@@ -85,7 +85,9 @@ locationNext={
 		// CivilianLocation = locationNull;
 	};
 
-	if (isNil {CivilianLocation getVariable "infantry"}) then {
+	private["_grps_rarity"];
+	_grps_rarity = CivilianLocation getVariable "_grps_rarity";
+	if (isNil {_grps_rarity}) then {
 		AllGroupsWest 		= AllGroupsWestOld;
 		AllGroupsEast 		= AllGroupsEastOld;
 		AllGroupsGuerrila 	= AllGroupsGuerrilaOld;
@@ -103,22 +105,15 @@ locationNext={
 						_rarity = (_rarity * (_x select 1));
 						[_grp, [1, _i],  _rarity] call BIS_fnc_setNestedElement;
 					};
-				
+
 				}forEach (_this select 1);
 			};
 			_grp
 		};
 
-		private["_infantry"];
-		_infantry=[
-			[["Air"], 				0],
-			[["Tank"], 				0],
-			[["Car","Motorcycle"], 0]
-		];
-
-		AllGroupsWest 		= ([AllGroupsWestOld, _infantry] call _fnc4);
-		AllGroupsEast 		= ([AllGroupsEastOld, _infantry] call _fnc4);
-		AllGroupsGuerrila 	= ([AllGroupsGuerrilaOld, _infantry] call _fnc4);
+		AllGroupsWest 		= ([AllGroupsWestOld, _grps_rarity] call _fnc4);
+		AllGroupsEast 		= ([AllGroupsEastOld, _grps_rarity] call _fnc4);
+		AllGroupsGuerrila 	= ([AllGroupsGuerrilaOld, _grps_rarity] call _fnc4);
 	};
 
 	"MainTown" setMarkerPos civilianBasePos;
