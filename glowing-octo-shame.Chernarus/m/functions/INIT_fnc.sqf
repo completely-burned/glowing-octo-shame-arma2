@@ -3,6 +3,7 @@ _path = "m\Functions\";
 if (isServer) then {
 	m_fnc_call_reinforcement = compile (preprocessFileLineNumbers (_path + "m_fnc_call_reinforcement.sqf"));
 	fnc_cleanup = compile (preprocessFileLineNumbers (_path + "fnc_cleanup.sqf"));
+	draga_fnc_StaticWeapon = compile (preprocessFileLineNumbers (_path + "draga_fnc_StaticWeapon.sqf"));
 	if (!IsMultiplayer) then {
 		m_fnc_playerRespawnSP = compile (preprocessFileLineNumbers (_path + "m_fnc_playerRespawnSP.sqf"));
 		m_fnc_playerRespawn = compile (preprocessFileLineNumbers (_path + "m_fnc_playerRespawn.sqf"));

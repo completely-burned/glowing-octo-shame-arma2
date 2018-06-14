@@ -2,11 +2,17 @@ private["_objOld","_obj","_Objects","_coin"];
 _objOld = objNull;
 _obj = objNull;
 while{true}do{
-	_Objects = (nearestObjects [vehicle player, listMHQ + HQ, 100]);
+	_Objects = (nearestObjects [vehicle player, listMHQ + HQ + ["Base_WarfareBBarracks","Base_WarfareBLightFactory"], 150]);
 	_coin = false;
 	if ((count _Objects > 0)) then {
-		_obj = _Objects select 0;
-		if(alive _obj)then{_coin = true};
+		ScopeName "_coin";
+		{
+			if (alive _x) then {
+				_obj = _x;
+				_coin = true;
+				BreakTo "_coin";
+			};
+		} forEach _Objects;
 	};
 	if(!(_coin) or (_obj != _objOld))then{
 		player removeAction (player getVariable "_coin");
@@ -44,7 +50,7 @@ while{true}do{
 						// ["WarfareBAirport","Base",0]
 					]
 				];
-				_obj setvariable ["BIS_COIN_rules",[west]]; 
+				_obj setvariable ["BIS_COIN_rules",[west]];
 			};
 			if(faction player in ["USMC"])then{
 				_obj setvariable ["BIS_COIN_items",
@@ -72,7 +78,7 @@ while{true}do{
 						// ["WarfareBAirport","Base",0]
 					]
 				];
-				_obj setvariable ["BIS_COIN_rules",[west]]; 
+				_obj setvariable ["BIS_COIN_rules",[west]];
 			};
 			if(faction player in ["CDF"])then{
 				_obj setvariable ["BIS_COIN_items",
@@ -100,7 +106,7 @@ while{true}do{
 						// ["WarfareBAirport","Base",0]
 					]
 				];
-				_obj setvariable ["BIS_COIN_rules",[west]]; 
+				_obj setvariable ["BIS_COIN_rules",[west]];
 			};
 
 			if(faction player in ["BIS_TK", "BIS_TK_INS"] or playerSide == east)then{
@@ -130,7 +136,7 @@ while{true}do{
 						// ["WarfareBAirport","Base",0]
 					]
 				];
-				_obj setvariable ["BIS_COIN_rules",[east]]; 
+				_obj setvariable ["BIS_COIN_rules",[east]];
 			};
 			if(faction player in ["RU"])then{
 				_obj setvariable ["BIS_COIN_items",
@@ -159,7 +165,7 @@ while{true}do{
 						// ["WarfareBAirport","Base",0]
 					]
 				];
-				_obj setvariable ["BIS_COIN_rules",[east]]; 
+				_obj setvariable ["BIS_COIN_rules",[east]];
 			};
 			if(faction player in ["INS"])then{
 				_obj setvariable ["BIS_COIN_items",
@@ -187,7 +193,7 @@ while{true}do{
 						// ["WarfareBAirport","Base",0]
 					]
 				];
-				_obj setvariable ["BIS_COIN_rules",[east]]; 
+				_obj setvariable ["BIS_COIN_rules",[east]];
 			};
 
 			if(faction player in ["BIS_TK_GUE", "BIS_UN"] or playerSide == resistance)then{
@@ -216,7 +222,7 @@ while{true}do{
 						// ["WarfareBAirport","Base",0]
 					]
 				];
-				_obj setvariable ["BIS_COIN_rules",[resistance]]; 
+				_obj setvariable ["BIS_COIN_rules",[resistance]];
 			};
 			if(faction player in ["GUE"])then{
 				_obj setvariable ["BIS_COIN_items",
@@ -241,11 +247,11 @@ while{true}do{
 						// ["WarfareBAirport","Base",0]
 					]
 				];
-				_obj setvariable ["BIS_COIN_rules",[resistance]]; 
+				_obj setvariable ["BIS_COIN_rules",[resistance]];
 			};
 
-			_obj setvariable ["BIS_COIN_categories",["Base","Defence"]]; 
-			_obj setvariable ["BIS_COIN_funds",["1000000","1000000"]]; 
+			_obj setvariable ["BIS_COIN_categories",["Base","Defence"]];
+			_obj setvariable ["BIS_COIN_funds",["1000000","1000000"]];
 
 
 			BIS_coin_lastID = 0;
@@ -268,7 +274,7 @@ while{true}do{
 			_fundsDescription = if (isnil {_obj getvariable "BIS_COIN_fundsDescription"}) then {["$"]} else {_obj getvariable "BIS_COIN_fundsDescription"};
 			if (typename _fundsDescription == "STRING") then {_fundsDescription = [_fundsDescription]};
 			_obj setvariable ["BIS_COIN_fundsDescription",_fundsDescription];
-			_areasize = if (isnil {_obj getvariable "BIS_COIN_areasize"}) then {[150,50]} else {_obj getvariable "BIS_COIN_areasize"};
+			_areasize = if (isnil {_obj getvariable "BIS_COIN_areasize"}) then {[150,150]} else {_obj getvariable "BIS_COIN_areasize"};
 			_obj setvariable ["BIS_COIN_areasize",_areasize];
 			_actionCondition = if (isnil {_obj getvariable "BIS_COIN_actionCondition"}) then {"true"} else {_obj getvariable "BIS_COIN_actionCondition"};
 			_obj setvariable ["BIS_COIN_actionCondition",_actionCondition];
@@ -290,7 +296,7 @@ while{true}do{
 
 			BIS_COIN_evalCounter = 0;
 			BIS_COIN_evalCounterDefault = 30;
-			
+
 			_obj setvariable ["BIS_COIN_evalCounter", BIS_COIN_evalCounterDefault];
 			if (isNil {_obj getVariable 'BIS_COIN_evalCondition'}) then {_obj setVariable ['BIS_COIN_evalCondition', false];};
 
@@ -305,7 +311,7 @@ while{true}do{
 				"",
 				format ["
 					BIS_COIN_evalCounter=%1 getVariable 'BIS_COIN_evalCounter';
-								
+
 					if ((BIS_COIN_evalCounter)>0) then {
 						%1 setVariable ['BIS_COIN_evalCounter',BIS_COIN_evalCounter-1];
 						%1 getVariable 'BIS_COIN_evalCondition'
@@ -314,18 +320,18 @@ while{true}do{
 						BIS_COIN_evalCounter = BIS_COIN_evalCounterDefault;
 						_player = _target;
 						_logic = %1;
-						_rules = %1 getvariable 'BIS_COIN_rules';					
-					
+						_rules = %1 getvariable 'BIS_COIN_rules';
+
 						_dis = (%1 getvariable 'BIS_COIN_areasize') select 0;
 						_lpos = position %1;
 						_ppos = position _player;
 						_customCondition = %1 getvariable 'BIS_COIN_actionCondition';
 						_isCustomCondition = if (_customCondition == 'true') then {true} else {call compile _customCondition};
-										
+
 						%1 setVariable ['BIS_COIN_evalCondition',
 							player == _player && (_player in _rules || side _player in _rules) && ([_lpos select 0,_lpos select 1] distance [_ppos select 0,_ppos select 1]) < _dis && _isCustomCondition
 						];
-					
+
 						%1 getVariable 'BIS_COIN_evalCondition'
 					};
 				",vehiclevarname _obj]

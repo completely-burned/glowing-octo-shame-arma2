@@ -1,14 +1,14 @@
 ﻿private ["_countMHQ","_deleteList","_count_transportammo","_count_transportrepair","_count_transportfuel"];
 while{true}do{
 _countMHQ = 0;
-_count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0; 
+_count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 _deleteList=[];
 {
 	Private["_delete","_time","_veh","_type"];
 	_delete = false;
 	_veh=_x;
 	_type = typeOf _veh;
-	
+
 	_time = (_veh getVariable "time");
 	if ( isNil "_time" ) then {
 		_time = ( time + ( 180 ) );
@@ -24,11 +24,11 @@ _deleteList=[];
 			// Private["_coin"];
 			// _coin = (_veh getvariable "m_COIN_ID");
 			// if (isNil "_coin") then {
-				// _veh setvariable ["m_COIN_ID",true]; 
+				// _veh setvariable ["m_COIN_ID",true];
 				// _veh spawn m_fnc_mobileHQ_init;
 			// };
 		// };
-		
+
 		private["_side"];
 		_side = getNumber(LIB_cfgVeh >> _type >> "side") call m_fnc_getSide;
 		if (_side in m_friendlySide) then{
@@ -77,7 +77,7 @@ _deleteList=[];
 				};
 			};
 		};
-	
+
 		if (({alive _x} count (crew _veh + [assignedDriver _veh, assignedGunner _veh, assignedCommander _veh] + assignedCargo _veh))>0) then{
 			if(isEngineOn _veh && speed _veh == 0 && alive driver _veh)then{
 				_veh engineOn false;
@@ -90,7 +90,9 @@ _deleteList=[];
 		};
 
 		_veh call m_fnc_SalvageTruck;
-		
+
+		_veh call draga_fnc_StaticWeapon;
+
 	}else{
 		if !(_delete) then{
 			if ( _time > ( time + 180 ) )then {
@@ -103,7 +105,7 @@ _deleteList=[];
 	};
 	sleep 0.01;
 } forEach vehicles;
-		
+
 _deleteList call fnc_cleanup;
 	sleep 1;
 };
