@@ -1,6 +1,6 @@
 #define		CLICK_DELAY	0.2
 
-_logic = player;
+_logic = draga_HC_logic;
 
 waitUntil{!isNil{player getVariable "GUI_WP_ATTACK"}};
 
@@ -17,7 +17,7 @@ _GUI_WP_ATTACK = {scriptname "HC: _GUI_WP_ATTACK";
 
 	//--- Button is still pressed - Exit
 	if (_logic getvariable "LMB_hold") exitwith {};
-	
+
 	//--- Create new waypoint
 	if !(_ctrl) then {
 

@@ -1,4 +1,4 @@
-waitUntil{!isNil "bis_fnc_init"};	
+waitUntil{!isNil "bis_fnc_init"};
 waitUntil{!isNil "m_fnc_init"};
 
 availableVehiclesBuyMenu = [[],[],[]];
@@ -37,6 +37,7 @@ SetGroupIconsVisible [true,false];
 waitUntil{(!isNull player)};
 
 if ([[player], Officers] call m_fnc_CheckIsKindOfArray) then {
+	waitUntil{!isNil "draga_HC_logic"};
 	[] call compile preprocessFileLineNumbers "m\client\draga_hc.sqf";
 	[] execVM "m\client\draga_hc_loop.sqf";
 	[player] execVM ("\ca\modules\hc\data\scripts\HC_GUI.sqf");
@@ -76,7 +77,7 @@ if ( isMultiplayer ) then {
 	};
 	{deleteVehicle _x}forEach SwitchableUnits-(units group player);
 	EnableTeamSwitch true;
-	
+
 	waitUntil{!isNil "m_fnc_init"};
 	PlayerType = [typeOf leader player, rank leader player];
 	leader player addEventHandler ["killed", {_this call m_fnc_playerRespawnSP}];
@@ -88,7 +89,7 @@ if(debug)then{
 	[] call compile preprocessFileLineNumbers  "m\Client\radio\init.sqf";
 
 	// военные обозначения, показ всех, чтобы видеть как и где создаются боты
-	waitUntil{!isNil "bis_fnc_init"};	
+	waitUntil{!isNil "bis_fnc_init"};
 	private ["_martaFactions"];
 	_martaFactions=[];
 	{ _martaFactions = (_martaFactions + [_x,1]) } foreach ([] call BIS_fnc_getFactions);

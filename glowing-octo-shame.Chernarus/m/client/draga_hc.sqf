@@ -1,5 +1,5 @@
-_logic = player;
-player setvariable ["BIS_HC_scope",player];
+_logic = draga_HC_logic;
+player setvariable ["BIS_HC_scope",draga_HC_logic];
 
 //--- Radio activations
 _radios = if (isnil {_logic getvariable "radios"}) then {[]} else {_logic getvariable "radios"};
