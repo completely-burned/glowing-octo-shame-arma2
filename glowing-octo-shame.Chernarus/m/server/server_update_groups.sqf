@@ -91,7 +91,7 @@ while{true}do{
 					};
 				};
 
-				if(count waypoints _grp <= 1)then{
+				if(count waypoints _grp == 0)then{
 					private["_timeNoWP"];
 					_timeNoWP = _grp getVariable "_timeNoWP";
 					if(isNil "_timeNoWP")then{
