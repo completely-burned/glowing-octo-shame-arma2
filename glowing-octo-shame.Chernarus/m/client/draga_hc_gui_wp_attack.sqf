@@ -2,7 +2,7 @@
 
 _logic = draga_HC_logic;
 
-waitUntil{!isNil{player getVariable "GUI_WP_ATTACK"}};
+waitUntil{!isNil{_logic getVariable "GUI_WP_ATTACK"}};
 
 _GUI_WP_ATTACK = {scriptname "HC: _GUI_WP_ATTACK";
 	_is3D = _this select 0;
