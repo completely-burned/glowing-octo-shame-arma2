@@ -39,7 +39,7 @@ _inList = [];
 	if !(isPlayer _x)then{
 		private ["_veh"];
 		_veh = vehicle _x;
-		if !(_veh in _inList)then{
+		if (!(_veh in _inList) && !(_veh typeOf "StaticWeapon"))then{
 			_inList set [count _inList,_veh];
 			_veh setVelocity [0, 0, 0];
 			_veh setPos ([_pos,0, sizeOf typeOf _veh] call draga_fn_getSafePos);
