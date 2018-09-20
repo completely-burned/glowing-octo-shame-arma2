@@ -115,8 +115,8 @@ _units = []; _vehicles=[]; _crew = []; _cargo=[];
 		};
 	}forEach units _grp;
 
-	_grp enableIRLasers true;
-	_grp enableGunLights true;
+	// _grp enableIRLasers true;
+	// _grp enableGunLights true;
 
 	while {(count (waypoints _grp)) > 0} do
 	{
