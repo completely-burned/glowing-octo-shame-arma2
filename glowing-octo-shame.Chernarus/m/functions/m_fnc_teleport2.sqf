@@ -29,7 +29,7 @@ if (count _nearestLocations > 0) then {
 };
 
 _pos resize 2;
-if !(typeOf vehicle player "StaticWeapon")then{
+if !(typeOf vehicle player == "StaticWeapon")then{
 vehicle player setVelocity [0, 0, 0];
 vehicle player setPos ([_pos,0, sizeOf typeOf vehicle player] call draga_fn_getSafePos);
 vehicle player setVectorUp [0,0,1];
@@ -39,7 +39,7 @@ _inList = [];
 	if !(isPlayer _x)then{
 		private ["_veh"];
 		_veh = vehicle _x;
-		if ( !(_veh in _inList) && !(typeOf _veh "StaticWeapon"))then{
+		if ( !(_veh in _inList) && !(typeOf _veh == "StaticWeapon"))then{
 			_inList set [count _inList,_veh];
 			_veh setVelocity [0, 0, 0];
 			_veh setPos ([_pos,0, sizeOf typeOf _veh] call draga_fn_getSafePos);
