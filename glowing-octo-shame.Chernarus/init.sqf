@@ -1,7 +1,7 @@
 ﻿if !(requiredVersion "1.60") then {
 	failMission "LOSER";
 }else{
-	debug=false;
+	debug=true;
 	if (!IsDedicated) then {
 		[] execVM "m\client\briefing.sqf";
 	};

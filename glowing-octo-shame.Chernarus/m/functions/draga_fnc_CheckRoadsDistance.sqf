@@ -13,15 +13,17 @@ draga_fnc_Roads_dist = {
     _true = true;
   };
 
-  if (_dist < _maxDist) then {
-    {
-      if !(_true) then {
-        _true = [roadsConnectedTo _x, _dist + 1, _Road2, _maxDist] call draga_fnc_Roads_dist;
-      };
-    } forEach _Roads;
-  }else{
-   _true = false;
- };
+  if !(_true) then {
+    if (_dist < _maxDist) then {
+      {
+        if !(_true) then {
+          _true = [roadsConnectedTo _x, _dist + 1, _Road2, _maxDist] call draga_fnc_Roads_dist;
+        };
+      } forEach _Roads;
+    }else{
+     _true = false;
+   };
+  };
 
   _true;
 };
