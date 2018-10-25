@@ -1,5 +1,5 @@
 ﻿private["_types"];
-_types = _this select 0;
+_types = _this select 0;	
 private ["_minDist", "_maxDist", "_objDist", "_waterMode", "_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_safePositionRadius","_preferRoads"];
 _minDist = 1000;
 _objDist = 2;
@@ -11,7 +11,6 @@ _blacklist=PosBlacklist;
 _maxDist = _minDist*2;
 _safePositionRadius =  (getNumber(configfile>> "cfgWorlds">> worldname >> "safePositionRadius"));
 // if (_safePositionRadius < 4000) then {_safePositionRadius = 4000};
-_preferRoads = false;
 
 if ([_types, ["LandVehicle"]] call m_fnc_CheckIsKindOfArray) then{
 	_minDist = 1500;
@@ -19,7 +18,6 @@ if ([_types, ["LandVehicle"]] call m_fnc_CheckIsKindOfArray) then{
 	_waterMode = 0;
 	// if("canfloat" in _types)then{_waterMode = 1};
 	_objDist = 15;
-	_preferRoads = true;
 };
 
 if ([_types, ["Air"]] call m_fnc_CheckIsKindOfArray) then{
@@ -39,6 +37,7 @@ if ([_types, ["Air"]] call m_fnc_CheckIsKindOfArray) then{
 	};
 };
 
+_preferRoads=false;
 // if(worldname in ["Chernarus", "Takistan"])then {
 	// ScopeName "_preferRoads";
 	// {

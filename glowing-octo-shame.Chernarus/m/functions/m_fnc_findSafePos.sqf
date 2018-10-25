@@ -41,17 +41,23 @@ _attempts2 = 0;
 _visible = true;
 // private ["_groupPosList"];
 // _groupPosList=[0];
-private ["_nearRoads","_nearRoads2"];
+private ["_nearRoads"];
 if(_preferRoads)then{
-	_nearRoads = (_pos nearRoads 100);
+	_nearRoads = (_pos nearRoads _dist);
 };
 while {_visible} do {
 	if(_attempts2 >= 5000)exitWith{_testPos = []};
 
+	if(_preferRoads)then{
+		if(count _nearRoads > 0)then{
+			_testPos = getPos (_nearRoads call BIS_fnc_selectRandom);
+		};
+	}else{
 		private ["_dir","_dist2"];
 		_dir = random 360;
 		_dist2 = (_minDist + random (_dist - _minDist));
 		_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
+	};
 
 	// if(count _testPos == 0)then{
 	// };
@@ -63,19 +69,6 @@ while {_visible} do {
 	{
 		_visible = ([_testPos,_minDist] call m_fnc_CheckPlayersDistance);
 	};
-
-	if(_preferRoads)then{
-		if(count _nearRoads > 0)then{
-			_nearRoads2 = (_testPos nearRoads 100);
-			if(count _nearRoads2 == 0)then{
-				_visible = true;
-			};
-			if(!_visible)then{
-				_visible = !([_nearRoads select 0, _nearRoads2 select 0, _maxDist] call draga_fnc_CheckRoadsDistance);
-			};
-		};
-	};
-
 
 	if(count _this > 10)then {
      if(!_visible)then {
@@ -116,6 +109,9 @@ while {_visible} do {
 	_attempts2 = _attempts2 + 1;
 	if ( ( _attempts > 50 ) && ( _dist < _maxDist ) ) then {
 		_dist = ( _dist + (( _minDist / 4 ) max 100 ) );
+		if(_preferRoads)then{
+			_nearRoads = (_pos nearRoads _dist);
+		};
 		_attempts = 0;
 	};
 	// sleep 0.0001;
