@@ -25,7 +25,21 @@ if ([[_this], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 							} forEach _crew;
 							_this setVariable ["_crew", nil];
 						};
-						_crew = [_this, createGroup _side] call m_fnc_spawnCrew;
+						private["_list","_grp"];
+						_list = _this nearEntities ["StaticWeapon", 300];
+						scopeName "scopeName_list";
+						private["_obj"];
+						{
+							_obj = _x;
+						    if (({isPlayer _x} count units group _obj) == 0 && (_side == side _obj)) then {
+						        _grp = group _obj;
+										breakTo "scopeName_list";
+						    };
+						} forEach _list;
+						if (isNil {_grp}) then {
+						   _grp = createGroup _side;
+						};
+						_crew = [_this, _grp] call m_fnc_spawnCrew;
 						_this setVariable ["_crew", _crew];
 			    };
 				};
