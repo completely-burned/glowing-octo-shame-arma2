@@ -34,7 +34,7 @@ if ((count _this) > 10) then {
 _posX = _pos select 0;
 _posY = _pos select 1;
 // _dist = ( _minDist / 1.25 );
-_dist = ( _minDist);
+_dist = 100;
 _attempts = 0;
 private ["_attempts2"];
 _attempts2 = 0;
@@ -55,7 +55,7 @@ while {_visible} do {
 	}else{
 		private ["_dir","_dist2"];
 		_dir = random 360;
-		_dist2 = (_minDist + random (_dist - _minDist));
+		_dist2 = random _dist;
 		_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
 	};
 
@@ -108,7 +108,7 @@ while {_visible} do {
 	_attempts = _attempts + 1;
 	_attempts2 = _attempts2 + 1;
 	if ( ( _attempts > 50 ) && ( _dist < _maxDist ) ) then {
-		_dist = ( _dist + (( _minDist / 4 ) max 100 ) );
+		_dist = ( _dist + (( _maxDist / 8 ) max 100 ) );
 		if(_preferRoads)then{
 			_nearRoads = (_pos nearRoads _dist);
 		};

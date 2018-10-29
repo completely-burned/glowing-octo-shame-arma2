@@ -41,7 +41,16 @@ if(LIB_a2Avail)then{
 				[[[["UralReammo_INS"], [],["PRIVATE"]]],0.01],
 				[[[["UralRefuel_INS"], [],["PRIVATE"]]],0.01],
 				[[[["UralRepair_INS"], [],["PRIVATE"],[["Ins_Soldier_Sapper"]]]],0.01],
-				[[[["BMP2_Ambul_INS"], [],["PRIVATE"],[["Ins_Soldier_Medic"]]]],0.05]
+				[[[["BMP2_Ambul_INS"], [],["PRIVATE"],[["Ins_Soldier_Medic"]]]],0.05],
+
+				//StaticWeapon
+				[[[["AGS_Ins"], [],["PRIVATE"]]],0.01],
+				[[[["DSHKM_Ins"], [],["PRIVATE"]]],0.01],
+				[[[["DSHkM_Mini_TriPod"], [],["PRIVATE"]]],0.01],
+				[[[["ZU23_Ins"], [],["PRIVATE"]]],0.01],
+				[[[["SearchLight_INS"], [],["PRIVATE"]]],0.01],
+				[[[["SPG9_Ins"], [],["PRIVATE"]]],0.01]
+
 			];
 			_west=_west+[
 				[[[["CDF_Soldier_TL","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier","CDF_Soldier_MG","CDF_Soldier_GL","CDF_Soldier_RPG","CDF_Soldier","CDF_Soldier_Medic","UralOpen_CDF"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[-5,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
@@ -70,7 +79,15 @@ if(LIB_a2Avail)then{
 				[[[["UralReammo_CDF"], [],["PRIVATE"]]],0.01],
 				[[[["UralRefuel_CDF"], [],["PRIVATE"]]],0.01],
 				[[[["UralRepair_CDF"], [],["PRIVATE"],[["CDF_Soldier_Engineer"]]]],0.01],
-				[[[["BMP2_Ambul_CDF"], [],["PRIVATE"],[["CDF_Soldier_Medic"]]]],0.05]
+				[[[["BMP2_Ambul_CDF"], [],["PRIVATE"],[["CDF_Soldier_Medic"]]]],0.05],
+
+				//StaticWeapon
+				[[[["DSHKM_CDF"],[],["PRIVATE"]]],0.01],
+				[[[["DSHkM_Mini_TriPod_CDF"],[],["PRIVATE"]]],0.01],
+				[[[["AGS_CDF"],[],["PRIVATE"]]],0.01],
+				[[[["ZU23_CDF"],[],["PRIVATE"]]],0.01],
+				[[[["SPG9_CDF"],[],["PRIVATE"]]],0.01],
+				[[[["SearchLight_CDF"],[],["PRIVATE"]]],0.01]
 			];
 			_guer=_guer+[
 				[[[["GUE_Soldier_CO","GUE_Soldier_GL","GUE_Soldier_AR","GUE_Soldier_1","GUE_Soldier_3","GUE_Soldier_GL","GUE_Soldier_2","GUE_Soldier_Medic"],[],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
@@ -91,7 +108,14 @@ if(LIB_a2Avail)then{
 				[[[["T34"], [[0,0],[5,0]],["SERGEANT","CORPORAL"]]],0.01],
 
 				[[[["WarfareReammoTruck_Gue"], [],["PRIVATE"]]],0.01],
-				[[[["WarfareRepairTruck_Gue"], [],["PRIVATE"]]],0.01]
+				[[[["WarfareRepairTruck_Gue"], [],["PRIVATE"]]],0.01],
+
+				//StaticWeapon
+				[[[["DSHKM_Gue"],[],["PRIVATE"]]],0.01],
+				[[[["ZU23_Gue"],[],["PRIVATE"]]],0.01],
+				[[[["SearchLight_Gue"],[],["PRIVATE"]]],0.01],
+				[[[["SPG9_Gue"],[],["PRIVATE"]]],0.01]
+
 			];
 			if(acex_ru_Avail)then{
 				_east=_east+[
@@ -190,7 +214,15 @@ if(LIB_a2Avail)then{
 				[[[["MtvrReammo"], [],["PRIVATE"]]],0.01],
 				[[[["MtvrRefuel"], [],["PRIVATE"]]],0.01],
 				[[[["MtvrRepair"], [],["PRIVATE"],[["USMC_SoldierS_Engineer"]]]],0.01],
-				[[[["HMMWV_Ambulance"], [],["PRIVATE"],[["USMC_Soldier_Medic"]]]],0.05]
+				[[[["HMMWV_Ambulance"], [],["PRIVATE"],[["USMC_Soldier_Medic"]]]],0.05],
+
+				//StaticWeapon
+				[[[["M2StaticMG"],[],["PRIVATE"]]],0.01],
+				[[[["M2HD_mini_TriPod"],[],["PRIVATE"]]],0.01],
+				[[[["MK19_TriPod"],[],["PRIVATE"]]],0.01],
+				[[[["Stinger_Pod"],[],["PRIVATE"]]],0.01],
+				[[[["TOW_TriPod"],[],["PRIVATE"]]],0.01],
+				[[[["SearchLight"],[],["PRIVATE"]]],0.01]
 			];
 		};
 		if(acex_usnavy_Avail)then{
@@ -298,7 +330,15 @@ if(LIB_a2Avail)then{
 				[[[["KamazReammo"], [],["PRIVATE"]]],0.01],
 				[[[["KamazRefuel"], [],["PRIVATE"]]],0.01],
 				[[[["KamazRepair"], [],["PRIVATE"],[["RU_Soldier_Engineer"]]]],0.01],
-				[[[["GAZ_Vodnik_MedEvac"], [],["PRIVATE"],[["RU_Soldier_Medic"]]]],0.05]
+				[[[["GAZ_Vodnik_MedEvac"], [],["PRIVATE"],[["RU_Soldier_Medic"]]]],0.05],
+
+				//StaticWeapon
+				[[[["AGS_RU"],[],["PRIVATE"]]],0.01],
+				[[[["KORD_high"],[],["PRIVATE"]]],0.01],
+				[[[["KORD"],[],["PRIVATE"]]],0.01],
+				[[[["Igla_AA_pod_East"],[],["PRIVATE"]]],0.01],
+				[[[["Metis"],[],["PRIVATE"]]],0.01],
+				[[[["SearchLight_RUS"],[],["PRIVATE"]]],0.01]
 			];
 		};
 		if(!_deserted)then{
@@ -454,7 +494,13 @@ if(true)then{
 			[[[["BAF_Soldier_SL_MTP","BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_Marksman_MTP","BAF_Offroad_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[-5,0,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 
 			[[[["BAF_Soldier_SL_MTP","BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_Marksman_MTP","BAF_FV510_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.3],
-			[[[["BAF_Soldier_AT_MTP","BAF_Soldier_AT_MTP","BAF_Soldier_HAT_MTP","BAF_Soldier_AAT_MTP","BAF_Soldier_AAT_MTP","BAF_Soldier_AHAT_MTP","BAF_FV510_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],["CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.3]
+			[[[["BAF_Soldier_AT_MTP","BAF_Soldier_AT_MTP","BAF_Soldier_HAT_MTP","BAF_Soldier_AAT_MTP","BAF_Soldier_AAT_MTP","BAF_Soldier_AHAT_MTP","BAF_FV510_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],["CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.3],
+
+			//StaticWeapon
+			[[[["BAF_GMG_Tripod_D"], [],["PRIVATE"]]],0.01],
+			[[[["BAF_GPMG_Minitripod_D"], [],["PRIVATE"]]],0.01],
+			[[[["BAF_L2A1_Tripod_D"], [],["PRIVATE"]]],0.01],
+			[[[["BAF_L2A1_Minitripod_D"], [],["PRIVATE"]]],0.01]
 		];
 	};
 	if(!_woodland)then{
@@ -485,7 +531,13 @@ if(true)then{
 		[[[["AW159_Lynx_BAF"],[],["CAPTAIN"],[["BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W"]]],[["BAF_Soldier_SL_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_Marksman_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_AAR_W"]]],0.3],
 		[[[["BAF_Merlin_HC3_D"],[],["CAPTAIN"],[["BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W"]]],[["BAF_Soldier_SL_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_Marksman_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_AAR_W"]]],0.3],
 
-		[[[["BAF_FV510_W","BAF_FV510_W","BAF_FV510_W","BAF_FV510_W"],[[0,8,0],[8,0,0],[-8,0,0],[0,-8,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.05]
+		[[[["BAF_FV510_W","BAF_FV510_W","BAF_FV510_W","BAF_FV510_W"],[[0,8,0],[8,0,0],[-8,0,0],[0,-8,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.05],
+
+		//StaticWeapon
+		[[[["BAF_GMG_Tripod_W"], [],["PRIVATE"]]],0.01],
+		[[[["BAF_L2A1_Minitripod_W"], [],["PRIVATE"]]],0.01],
+		[[[["BAF_L2A1_Tripod_W"], [],["PRIVATE"]]],0.01],
+		[[[["BAF_GPMG_Minitripod_W"], [],["PRIVATE"]]],0.01]
 		];
 	};
 	if((!_woodland) && (!_deserted))then{
@@ -560,7 +612,15 @@ if(true)then{
 			[[[["MtvrRefuel_DES_EP1"], [],["PRIVATE"]]],0.01],
 			[[[["MtvrRepair_DES_EP1"], [],["PRIVATE"],[["US_Soldier_Engineer_EP1"]]]],0.01],
 			[[[["HMMWV_Ambulance_DES_EP1"], [],["PRIVATE"],[["US_Soldier_Medic_EP1"]]]],0.01],
-			[[[["M1133_MEV_EP1"], [],["PRIVATE"],[["US_Soldier_Medic_EP1"]]]],0.01]
+			[[[["M1133_MEV_EP1"], [],["PRIVATE"],[["US_Soldier_Medic_EP1"]]]],0.01],
+
+			//StaticWeapon
+			[[[["M2StaticMG_US_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["M2HD_mini_TriPod_US_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["MK19_TriPod_US_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["Stinger_Pod_US_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["TOW_TriPod_US_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["SearchLight_US_EP1"],[],["PRIVATE"]]],0.01]
 		];
 
 		if(acex_usnavy_Avail)then{
@@ -612,7 +672,15 @@ if(true)then{
 			[[[["TK_INS_Soldier_TL_EP1","TK_INS_Soldier_AT_EP1","TK_INS_Soldier_AT_EP1","TK_INS_Soldier_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.2],
 			[[[["TK_INS_Soldier_TL_EP1","LandRover_SPG9_TK_INS_EP1","LandRover_MG_TK_INS_EP1","TK_INS_Soldier_AT_EP1"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],["SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.5],
 			[[[["TK_INS_Soldier_TL_EP1","V3S_TK_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_2_EP1","TK_INS_Soldier_AT_EP1","TK_INS_Soldier_4_EP1","TK_INS_Soldier_TL_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_AR_EP1","TK_INS_Soldier_Sniper_EP1","TK_INS_Soldier_EP1"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE"],[[],["TK_INS_Soldier_EP1"]]]],0.1],
-			[[[["TK_INS_Soldier_TL_EP1","BTR40_MG_TK_INS_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_AT_EP1","TK_INS_Soldier_4_EP1","TK_INS_Soldier_3_EP1"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.3]
+			[[[["TK_INS_Soldier_TL_EP1","BTR40_MG_TK_INS_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_AT_EP1","TK_INS_Soldier_4_EP1","TK_INS_Soldier_3_EP1"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.3],
+
+			//StaticWeapon
+			[[[["AGS_TK_INS_EP1"], [],["PRIVATE"]]],0.01],
+			[[[["DSHKM_TK_INS_EP1"], [],["PRIVATE"]]],0.01],
+			[[[["DSHkM_Mini_TriPod_TK_INS_EP1"], [],["PRIVATE"]]],0.01],
+			[[[["ZU23_TK_INS_EP1"], [],["PRIVATE"]]],0.01],
+			[[[["SearchLight_TK_INS_EP1"], [],["PRIVATE"]]],0.01],
+			[[[["SPG9_TK_INS_EP1"], [],["PRIVATE"]]],0.01]
 		];
 	};
 };
@@ -658,7 +726,17 @@ if(true)then{
 		[[[["UralReammo_TK_EP1"], [],["PRIVATE"]]],0.01],
 		[[[["UralRefuel_TK_EP1"], [],["PRIVATE"]]],0.01],
 		[[[["UralRepair_TK_EP1"], [],["PRIVATE"],[["TK_Soldier_Engineer_EP1"]]]],0.01],
-		[[[["M113Ambul_TK_EP1"], [],["PRIVATE"],[["TK_Soldier_Medic_EP1"]]]],0.01]
+		[[[["M113Ambul_TK_EP1"], [],["PRIVATE"],[["TK_Soldier_Medic_EP1"]]]],0.01],
+
+		//StaticWeapon
+		[[[["AGS_TK_EP1"], [],["PRIVATE"]]],0.01],
+		[[[["ZU23_TK_EP1"], [],["PRIVATE"]]],0.01],
+		[[[["KORD_high_TK_EP1"], [],["PRIVATE"]]],0.01],
+		[[[["KORD_TK_EP1"], [],["PRIVATE"]]],0.01],
+		[[[["Igla_AA_pod_TK_EP1"], [],["PRIVATE"]]],0.01],
+		[[[["Metis_TK_EP1"], [],["PRIVATE"]]],0.01],
+		[[[["SearchLight_TK_EP1"], [],["PRIVATE"]]],0.01]
+
 	];
 	if(acex_ru_Avail)then{
 		_east=_east+[
@@ -682,7 +760,13 @@ if(true)then{
 			[[[["UN_CDF_Soldier_SL_EP1","M113_UN_EP1","UN_CDF_Soldier_AT_EP1","UN_CDF_Soldier_MG_EP1","UN_CDF_Soldier_MG_EP1","UN_CDF_Soldier_EP1","UN_CDF_Soldier_EP1"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			[[[["Mi17_UN_CDF_EP1"],[],["CAPTAIN"]],[["UN_CDF_Soldier_Guard_EP1","UN_CDF_Soldier_EP1","UN_CDF_Soldier_AT_EP1","UN_CDF_Soldier_MG_EP1"]]],0.1],
 
-			[[[["M113Ambul_UN_EP1"], [],["PRIVATE"],[["TK_Soldier_Medic_EP1"]]]],0.01]
+			[[[["M113Ambul_UN_EP1"], [],["PRIVATE"],[["TK_Soldier_Medic_EP1"]]]],0.01],
+
+			//StaticWeapon
+			[[[["AGS_UN_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["KORD_high_UN_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["KORD_UN_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["SearchLight_UN_EP1"],[],["PRIVATE"]]],0.01]
 		];
 		if(acex_ru_Avail)then{
 			_guer=_guer+[
@@ -714,7 +798,16 @@ if(true)then{
 
 			[[[["V3S_Reammo_TK_GUE_EP1"], [],["PRIVATE"]]],0.01],
 			[[[["V3S_Refuel_TK_GUE_EP1"], [],["PRIVATE"]]],0.01],
-			[[[["V3S_Repair_TK_GUE_EP1"], [],["PRIVATE"]]],0.01]
+			[[[["V3S_Repair_TK_GUE_EP1"], [],["PRIVATE"]]],0.01],
+
+			//StaticWeapon
+			[[[["AGS_TK_GUE_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["DSHKM_TK_GUE_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["DSHkM_Mini_TriPod_TK_GUE_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["ZU23_TK_GUE_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["SearchLight_TK_GUE_EP1"],[],["PRIVATE"]]],0.01],
+			[[[["SPG9_TK_GUE_EP1"],[],["PRIVATE"]]],0.01]
+
 		];
 	};
 };
@@ -751,7 +844,11 @@ if(true)then{
 
 			[[[["Mi171Sh_CZ_EP1","Mi171Sh_CZ_EP1"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
 			[[[["Mi171Sh_CZ_EP1"],[],["CAPTAIN","LIEUTENANT"]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]],0.3],
-			[[[["Mi171Sh_rockets_CZ_EP1"],[],["CAPTAIN"]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]],0.3]
+			[[[["Mi171Sh_rockets_CZ_EP1"],[],["CAPTAIN"]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]],0.3],
+
+			//StaticWeapon
+			[[[["AGS_CZ_EP1"], [],["PRIVATE"]]],0.01],
+			[[[["DSHKM_CZ_EP1"], [],["PRIVATE"]]],0.01]
 		];
 	};
 };
@@ -775,7 +872,10 @@ if(configName(configFile >> "CfgMods" >> "ACR") != "")then{
 			[[[["T810Refuel_Des_ACR"], [],["PRIVATE"]]],0.01],
 			[[[["T810Repair_Des_ACR"], [],["PRIVATE"],[["CZ_Soldier_Engineer_Dst_ACR"]]]],0.01],
 			[[[["HMMWV_Ambulance_CZ_DES_EP1"], [],["PRIVATE"],[["CZ_Soldier_medik_DES_EP1"]]]],0.01],
-			[[[["LandRover_Ambulance_Des_ACR"], [],["PRIVATE"],[["CZ_Soldier_medik_DES_EP1"]]]],0.01]
+			[[[["LandRover_Ambulance_Des_ACR"], [],["PRIVATE"],[["CZ_Soldier_medik_DES_EP1"]]]],0.01],
+			//StaticWeapon
+			[[[["Rbs70_ACR"], [],["PRIVATE"]]],0.01]
+
 		];
 		_guer=_guer+[
 			[[[["TK_GUE_Soldier_TL_EP1","BVP1_TK_GUE_ACR","TK_GUE_Soldier_AR_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_EP1","TK_GUE_Soldier_3_EP1","TK_GUE_Soldier_2_EP1"], [[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.01]
