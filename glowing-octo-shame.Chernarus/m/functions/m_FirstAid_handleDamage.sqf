@@ -15,7 +15,7 @@ if(_unit == _source)then{
 }else{
 	if(isPlayer _source && isPlayer _unit && _source != _unit && !(vehicle _source == vehicle _unit && _projectile in ["HelicopterExploSmall","HelicopterExploBig"]))then{
 		_m_true = false;
-		diag_log _this+[name _unit, name _source];
+		diag_log format ["m_FirstAid_handleDamage, %1", _this];
 		_damage min (0.8 - 0.01)
 	};
 };
