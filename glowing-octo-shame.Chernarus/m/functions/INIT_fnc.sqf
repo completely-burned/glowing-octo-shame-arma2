@@ -73,4 +73,6 @@ draga_fnc_CheckSupport = compile (preprocessFileLineNumbers (_path + "draga_fnc_
 draga_fnc_vehInit2 = compile (preprocessFileLineNumbers (_path + "draga_fnc_vehInit2.sqf"));
 draga_fnc_CheckRespawnDistance = compile (preprocessFileLineNumbers (_path + "draga_fnc_CheckRespawnDistance.sqf"));
 draga_fnc_CheckTurretAlive = compile (preprocessFileLineNumbers (_path + "draga_fnc_CheckTurretAlive.sqf"));
+draga_fnc_uav = compile (preprocessFileLineNumbers (_path + "draga_fnc_uav.sqf"));
+m_fnc_isUAV = compile (preprocessFileLineNumbers (_path + "m_fnc_isUAV.sqf"));
 m_fnc_init = true;
