@@ -127,7 +127,7 @@ while{true}do{
 			_wp = [_grp,_currentWP];
 			private["_wpStatements"];
 			_wpStatements = "if(!isNil {this})then{group this setVariable ['_grp_wp_completed',true]; [this,true] call m_fnc_waypoints}";
-			if(waypointStatements _wp select 1 != _wpStatements)then{
+			if!(waypointStatements _wp select 1 in [_wpStatements,"vehicle this land 'GET IN'","vehicle this land 'GET OUT'"])then{
 				_wp setWaypointStatements ["true", _wpStatements];
 			};
 		};

@@ -141,3 +141,23 @@ availableMagazines = [] call m_fnc_availableMagazines;
 publicVariable "availableMagazines";
 availableBackpacks = [] call m_fnc_availableBackpacks;
 publicVariable "availableBackpacks";
+
+_woodland=false; _deserted=false;
+if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
+if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{_woodland=true};
+
+airTransportsWest=[];airTransportsEast=[];airTransportsGuer=[];
+airTransportsWest=airTransportsWest+["MV22","UH1Y"];
+airTransportsWest=airTransportsWest+["Mi171Sh_CZ_EP1","Mi171Sh_rockets_CZ_EP1","Mi24_D_CZ_ACR"];
+airTransportsWest=airTransportsWest+["AW159_Lynx_BAF","BAF_Merlin_HC3_D","CH_47F_BAF"];
+airTransportsEast=airTransportsEast+["Mi24_V","Mi24_P","Mi17_rockets_RU","Mi17_Ins","Mi24_D_TK_EP1","Mi17_TK_EP1","UH1H_TK_EP1"];
+airTransportsGuer=airTransportsGuer+["Ka60_PMC","Ka60_GL_PMC"];
+if(!_deserted)then{
+	airTransportsWest=airTransportsWest+["Mi24_D","Mi17_CDF"];
+};
+if(!_woodland)then{
+	airTransportsWest=airTransportsWest+["CH_47F_EP1","MH6J_EP1","UH60M_EP1"];
+};
+if(!_woodland)then{
+	airTransportsGuer=airTransportsGuer+["Mi17_UN_CDF_EP1","UH1H_TK_GUE_EP1"];
+};
