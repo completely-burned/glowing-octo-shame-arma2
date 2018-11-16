@@ -66,7 +66,7 @@ while{true}do{
 
 	// есть запрос и игрок рядом
 	if(!isNil {_pos})then{
-		if(_pos distance vehicle player < 200)then{
+		if(_pos distance vehicle _player < 200)then{
 
 			// создание транспорта
 			if(isNull _veh)then{
