@@ -6,10 +6,10 @@ _player = objNull;
 if(isMultiplayer)then{
 	ScopeName "CheckPlayer";
 	{
-		_player = vehicle _x;
+		_player = _x;
 		if (IsPlayer _player) then {
-			if (!isNull _player)then{
-				if ((_player distance _Pos) <= _distance)then{
+			if (!isNull vehicle _player)then{
+				if ((vehicle _player distance _Pos) <= _distance)then{
 					_visible = true;
 					BreakTo "CheckPlayer";
 				};
