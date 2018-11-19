@@ -13,7 +13,7 @@ while{true}do{
 	    case west: {_heli_types = airTransportsWest};
 			case east: {_heli_types = airTransportsEast};
 			case resistance: {_heli_types = airTransportsGuer};
-	    default {_heli_types = ["MV22"]};
+	    default {_heli_types = []};
 	};
 
 	private["_veh","_grp"];
@@ -69,7 +69,7 @@ while{true}do{
 		if(_pos distance vehicle _player < 200)then{
 
 			// создание транспорта
-			if(isNull _veh)then{
+			if(isNull _veh && count _heli_types > 0)then{
 				private["_pos_resp"];
 				_pos_resp = ([getPos _player]+[3500,7000, -1, -1, (100 * (pi / 180)), 0, [], getPos _player, false]+[side _player] call m_fnc_findSafePos);
 				_grp = createGroup side _player;
@@ -77,35 +77,37 @@ while{true}do{
 				_veh setVariable ["transportPlayer", _player];
 			};
 
-			//создание маршрута сбора
-			private["_pos2"];
-			_pos2 = _grp getVariable "draga_GET_IN_pos";
-			if(isNil {_pos2})then{ // маршрут создан?
-				_grp setVariable ["grp_created_time", time];
-				private["_m_fnc_waypoints"];
-				_m_fnc_waypoints = _grp getVariable "_m_fnc_waypoints";
-				if (!isNil {_m_fnc_waypoints}) then {
-					if (scriptDone _m_fnc_waypoints) then {
-						_grp setVariable ["_m_fnc_waypoints", nil];
+			if(!isNull _veh)then{
+				//создание маршрута сбора
+				private["_pos2"];
+				_pos2 = _grp getVariable "draga_GET_IN_pos";
+				if(isNil {_pos2})then{ // маршрут создан?
+					_grp setVariable ["grp_created_time", time];
+					private["_m_fnc_waypoints"];
+					_m_fnc_waypoints = _grp getVariable "_m_fnc_waypoints";
+					if (!isNil {_m_fnc_waypoints}) then {
+						if (scriptDone _m_fnc_waypoints) then {
+							_grp setVariable ["_m_fnc_waypoints", nil];
+						};
 					};
-				};
-				while {(count (waypoints _grp)) > 0} do {
-					deleteWaypoint ((waypoints _grp) select 0);
-				};
-				_veh land "NONE";
-				_wp = _grp addWaypoint [_pos, 0];
-				_wp setWaypointType "LOAD";
-				_wp setWaypointCombatMode "GREEN";
-				_wp setWaypointStatements ["true", "vehicle this land 'GET IN'"];
-				_grp setVariable ["draga_GET_IN_pos", _pos];
-				_veh setVariable ["draga_GET_OUT_pos", nil];
-				_veh setVariable ["transportPos", nil];
-				_player groupChat format [localize "draga_str_heli_transport_move", getText (configFile >> "CfgVehicles" >> typeOf _veh >> "displayName")];
-				_veh vehicleChat  format [localize "draga_str_heli_transport_move", getText (configFile >> "CfgVehicles" >> typeOf _veh >> "displayName")];
-			}else{ //проверка маршрута
-				if(_pos distance _pos2 > 10)then{
-					_grp setVariable ["draga_GET_IN_pos", nil];
+					while {(count (waypoints _grp)) > 0} do {
+						deleteWaypoint ((waypoints _grp) select 0);
+					};
+					_veh land "NONE";
+					_wp = _grp addWaypoint [_pos, 0];
+					_wp setWaypointType "LOAD";
+					_wp setWaypointCombatMode "GREEN";
+					_wp setWaypointStatements ["true", "vehicle this land 'GET IN'"];
+					_grp setVariable ["draga_GET_IN_pos", _pos];
 					_veh setVariable ["draga_GET_OUT_pos", nil];
+					_veh setVariable ["transportPos", nil];
+					_player groupChat format [localize "draga_str_heli_transport_move", getText (configFile >> "CfgVehicles" >> typeOf _veh >> "displayName")];
+					_veh vehicleChat  format [localize "draga_str_heli_transport_move", getText (configFile >> "CfgVehicles" >> typeOf _veh >> "displayName")];
+				}else{ //проверка маршрута
+					if(_pos distance _pos2 > 10)then{
+						_grp setVariable ["draga_GET_IN_pos", nil];
+						_veh setVariable ["draga_GET_OUT_pos", nil];
+					};
 				};
 			};
 		};

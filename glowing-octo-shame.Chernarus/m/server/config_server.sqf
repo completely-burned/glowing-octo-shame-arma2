@@ -161,3 +161,13 @@ if(!_woodland)then{
 if(!_woodland)then{
 	airTransportsGuer=airTransportsGuer+["Mi17_UN_CDF_EP1","UH1H_TK_GUE_EP1"];
 };
+
+{
+	if(configName(configfile >> "cfgVehicles" >> _x) == "")then{airTransportsWest=airTransportsWest-[_x]};
+}forEach airTransportsWest;
+{
+	if(configName(configfile >> "cfgVehicles" >> _x) == "")then{airTransportsEast=airTransportsEast-[_x]};
+}forEach airTransportsEast;
+{
+	if(configName(configfile >> "cfgVehicles" >> _x) == "")then{airTransportsGuer=airTransportsGuer-[_x]};
+}forEach airTransportsGuer;
