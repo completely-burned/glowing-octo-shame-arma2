@@ -14,7 +14,7 @@ if [ ! -d ${DIR}/out ]; then
         mkdir ${DIR}/out
 fi
 
-V=$(grep briefingName ${DIR}/glowing-octo-shame.Chernarus/mission.sqm | sed -e 's/.*glowing-octo-shame v\(.*\) .*/\1/' -e 's/\./\-/gi')
+V=$(grep briefingName ${DIR}/glowing-octo-shame-east.Chernarus/mission.sqm | sed -e 's/.*glowing-octo-shame v\(.*\) .*/\1/' -e 's/\./\-/gi')
 
 
 # Takistan
