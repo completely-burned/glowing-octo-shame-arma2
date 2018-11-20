@@ -18,61 +18,61 @@ V=$(grep briefingName ${DIR}/glowing-octo-shame-east.Chernarus/mission.sqm | sed
 
 
 # Takistan
-ln -s ./../glowing-octo-shame.Takistan ${DIR}/tmp/glowing-octo-shame.Takistan
+ln -s ./../glowing-octo-shame-east.Takistan ${DIR}/tmp/glowing-octo-shame-east.Takistan
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.Takistan ${DIR}/out/glowing-octo-shame-${V}.takistan.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Takistan ${DIR}/out/glowing-octo-shame-east-${V}.takistan.pbo
 
 
 # Zargabad
-ln -s ./../glowing-octo-shame.Zargabad ${DIR}/tmp/glowing-octo-shame.Zargabad
+ln -s ./../glowing-octo-shame-east.Zargabad ${DIR}/tmp/glowing-octo-shame-east.Zargabad
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.Zargabad ${DIR}/out/glowing-octo-shame-${V}.zargabad.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Zargabad ${DIR}/out/glowing-octo-shame-east-${V}.zargabad.pbo
 
 
 # Desert_E
-ln -s ./../glowing-octo-shame.Desert_E ${DIR}/tmp/glowing-octo-shame.Desert_E
+ln -s ./../glowing-octo-shame-east.Desert_E ${DIR}/tmp/glowing-octo-shame-east.Desert_E
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.Desert_E ${DIR}/out/glowing-octo-shame-${V}.desert_e.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Desert_E ${DIR}/out/glowing-octo-shame-east-${V}.desert_e.pbo
 
 
 # Chernarus
-ln -s ./../glowing-octo-shame.Chernarus ${DIR}/tmp/glowing-octo-shame.Chernarus
+ln -s ./../glowing-octo-shame-east.Chernarus ${DIR}/tmp/glowing-octo-shame-east.Chernarus
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.Chernarus ${DIR}/out/glowing-octo-shame-${V}.chernarus.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Chernarus ${DIR}/out/glowing-octo-shame-east-${V}.chernarus.pbo
 
 
 # utes
-ln -s ./../glowing-octo-shame.utes ${DIR}/tmp/glowing-octo-shame.utes
+ln -s ./../glowing-octo-shame-east.utes ${DIR}/tmp/glowing-octo-shame-east.utes
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.utes ${DIR}/out/glowing-octo-shame-${V}.utes.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.utes ${DIR}/out/glowing-octo-shame-east-${V}.utes.pbo
 
 
 # ProvingGrounds_PMC
-ln -s ./../glowing-octo-shame.ProvingGrounds_PMC ${DIR}/tmp/glowing-octo-shame.ProvingGrounds_PMC
+ln -s ./../glowing-octo-shame-east.ProvingGrounds_PMC ${DIR}/tmp/glowing-octo-shame-east.ProvingGrounds_PMC
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.ProvingGrounds_PMC ${DIR}/out/glowing-octo-shame-${V}.provinggrounds_pmc.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.ProvingGrounds_PMC ${DIR}/out/glowing-octo-shame-east-${V}.provinggrounds_pmc.pbo
 
 
 # Shapur_BAF
-ln -s ./../glowing-octo-shame.Shapur_BAF ${DIR}/tmp/glowing-octo-shame.Shapur_BAF
+ln -s ./../glowing-octo-shame-east.Shapur_BAF ${DIR}/tmp/glowing-octo-shame-east.Shapur_BAF
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.Shapur_BAF ${DIR}/out/glowing-octo-shame-${V}.shapur_baf.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Shapur_BAF ${DIR}/out/glowing-octo-shame-east-${V}.shapur_baf.pbo
 
 
 # Bootcamp_ACR
-ln -s ./../glowing-octo-shame.Bootcamp_ACR ${DIR}/tmp/glowing-octo-shame.Bootcamp_ACR
+ln -s ./../glowing-octo-shame-east.Bootcamp_ACR ${DIR}/tmp/glowing-octo-shame-east.Bootcamp_ACR
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.Bootcamp_ACR ${DIR}/out/glowing-octo-shame-${V}.bootcamp_acr.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Bootcamp_ACR ${DIR}/out/glowing-octo-shame-east-${V}.bootcamp_acr.pbo
 
 
 # Mountains_ACR
-ln -s ./../glowing-octo-shame.Mountains_ACR ${DIR}/tmp/glowing-octo-shame.Mountains_ACR
+ln -s ./../glowing-octo-shame-east.Mountains_ACR ${DIR}/tmp/glowing-octo-shame-east.Mountains_ACR
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.Mountains_ACR ${DIR}/out/glowing-octo-shame-${V}.mountains_acr.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Mountains_ACR ${DIR}/out/glowing-octo-shame-east-${V}.mountains_acr.pbo
 
 
 # Woodland_ACR
-ln -s ./../glowing-octo-shame.Woodland_ACR ${DIR}/tmp/glowing-octo-shame.Woodland_ACR
+ln -s ./../glowing-octo-shame-east.Woodland_ACR ${DIR}/tmp/glowing-octo-shame-east.Woodland_ACR
 
-makepbo -NM ${DIR}/tmp/glowing-octo-shame.Woodland_ACR ${DIR}/out/glowing-octo-shame-${V}.woodland_acr.pbo
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Woodland_ACR ${DIR}/out/glowing-octo-shame-east-${V}.woodland_acr.pbo
 
