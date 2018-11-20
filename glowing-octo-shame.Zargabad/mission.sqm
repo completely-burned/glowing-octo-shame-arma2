@@ -8,7 +8,6 @@ class Mission
 		"CATracked_E",
 		"CAWheeled_E_Old_bike",
 		"CAWheeled_E",
-		"camisc3",
 		"caweapons_e_ammoboxes",
 		"camisc_e_wf",
 		"corepatch_zargabad_intro_fix",
@@ -20,12 +19,12 @@ class Mission
 		"cacharacters_e",
 		"warfarebuildings",
 		"camisc_e",
-		"corepatch_zargabad_intro_fix"
+		"zargabad"
 	};
 	randomSeed=15151773;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.195 Zargabad";
+		briefingName="glowing-octo-shame v0.0.3.196 Zargabad";
 		resistanceWest=0;
 		startWeather=0.25;
 		forecastWeather=0;
@@ -629,6 +628,16 @@ class Mission
 			skill=0.2;
 		};
 	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={3460.9658,11.404488,3275.2549};
+			name="playerStartPos";
+			type="Empty";
+		};
+	};
 };
 class Intro
 {
@@ -639,7 +648,7 @@ class Intro
 	};
 	addOnsAuto[]=
 	{
-		"corepatch_zargabad_intro_fix"
+		"zargabad"
 	};
 	randomSeed=7349451;
 	class Intel
@@ -660,7 +669,7 @@ class OutroWin
 	};
 	addOnsAuto[]=
 	{
-		"corepatch_zargabad_intro_fix"
+		"zargabad"
 	};
 	randomSeed=1265246;
 	class Intel
@@ -681,7 +690,7 @@ class OutroLoose
 	};
 	addOnsAuto[]=
 	{
-		"corepatch_zargabad_intro_fix"
+		"zargabad"
 	};
 	randomSeed=4279637;
 	class Intel

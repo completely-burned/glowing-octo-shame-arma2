@@ -27,7 +27,7 @@ class Mission
 	randomSeed=12950556;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.195 Mountains_ACR";
+		briefingName="glowing-octo-shame v0.0.3.196 Mountains_ACR";
 		startWeather=0.39999998;
 		forecastWeather=0.39999998;
 		year=2009;
@@ -156,6 +156,16 @@ class Mission
 			side="EMPTY";
 			vehicle="MASH_EP1";
 			skill=0.2;
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={6163.4302,337.23837,4852.6572};
+			name="playerStartPos";
+			type="Empty";
 		};
 	};
 };

@@ -27,7 +27,7 @@ class Mission
 	randomSeed=10465836;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.195 Takistan";
+		briefingName="glowing-octo-shame v0.0.3.196 Takistan";
 		startWeather=0.40000001;
 		forecastWeather=0.40000001;
 		year=2009;
@@ -1006,6 +1006,16 @@ class Mission
 			vehicle="TKBasicWeapons_EP1";
 			skill=0.60000002;
 			init="this allowDamage false;";
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={6943.8535,327.26712,4925.2129};
+			name="playerStartPos";
+			type="Empty";
 		};
 	};
 };

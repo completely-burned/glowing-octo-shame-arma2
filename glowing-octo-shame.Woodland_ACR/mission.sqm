@@ -22,7 +22,7 @@ class Mission
 	randomSeed=6245650;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.195 Woodland_ACR";
+		briefingName="glowing-octo-shame v0.0.3.196 Woodland_ACR";
 		startWeather=0.14999998;
 		forecastWeather=0.14999998;
 		year=2010;
@@ -505,6 +505,16 @@ class Mission
 			vehicle="MASH";
 			skill=0.60000002;
 			init="this allowDamage false;";
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={4238.1543,325.57214,5106.4331};
+			name="playerStartPos";
+			type="Empty";
 		};
 	};
 };

@@ -18,7 +18,7 @@ class Mission
 	randomSeed=15354207;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.195 Desert_E";
+		briefingName="glowing-octo-shame v0.0.3.196 Desert_E";
 		startWeather=0.30000001;
 		forecastWeather=0.30000001;
 		year=2012;
@@ -144,6 +144,16 @@ class Mission
 			side="EMPTY";
 			vehicle="MASH_EP1";
 			skill=0.2;
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={1374.3322,40.830677,1461.9384};
+			name="playerStartPos";
+			type="Empty";
 		};
 	};
 };

@@ -3,6 +3,9 @@
 }else{
 	debug=false;
 	if (!IsDedicated) then {
+		[] execVM "m\client\playerSetPos.sqf";
+	};
+	if (!IsDedicated) then {
 		[] execVM "m\client\briefing.sqf";
 	};
 	if (isServer) then {

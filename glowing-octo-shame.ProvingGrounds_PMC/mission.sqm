@@ -20,7 +20,7 @@ class Mission
 	randomSeed=12923257;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.195 ProvingGrounds_PMC";
+		briefingName="glowing-octo-shame v0.0.3.196 ProvingGrounds_PMC";
 		startWeather=0.30000001;
 		forecastWeather=0.30000001;
 		year=2012;
@@ -167,6 +167,16 @@ class Mission
 			side="EMPTY";
 			vehicle="MASH_EP1";
 			skill=0.2;
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={763.78259,51.101563,1236.5305};
+			name="playerStartPos";
+			type="Empty";
 		};
 	};
 };
