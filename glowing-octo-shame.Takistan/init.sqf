@@ -1,1 +1,1 @@
-../glowing-octo-shame.Chernarus/init.sqf
+../glowing-octo-shame-east.Chernarus/init.sqf

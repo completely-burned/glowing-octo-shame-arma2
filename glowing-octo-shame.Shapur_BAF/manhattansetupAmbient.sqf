@@ -1,1 +1,1 @@
-../glowing-octo-shame.Chernarus/manhattansetupAmbient.sqf
+../glowing-octo-shame-east.Chernarus/manhattansetupAmbient.sqf
