@@ -101,8 +101,6 @@ while{true}do{
 					_grp setVariable ["draga_GET_IN_pos", _pos];
 					_veh setVariable ["draga_GET_OUT_pos", nil];
 					_veh setVariable ["transportPos", nil];
-					_player groupChat format [localize "draga_str_heli_transport_move", getText (configFile >> "CfgVehicles" >> typeOf _veh >> "displayName")];
-					_veh vehicleChat  format [localize "draga_str_heli_transport_move", getText (configFile >> "CfgVehicles" >> typeOf _veh >> "displayName")];
 				}else{ //проверка маршрута
 					if(_pos distance _pos2 > 10)then{
 						_grp setVariable ["draga_GET_IN_pos", nil];
@@ -138,8 +136,6 @@ while{true}do{
 			_veh setVariable ["draga_GET_OUT_pos", _pos_veh];
 			_grp setVariable ["draga_GET_IN_pos", nil];
 			_player setVariable ["transportPos", nil];
-			_player groupChat format [localize "draga_str_heli_transport_move", getText (configFile >> "CfgVehicles" >> typeOf _veh >> "displayName")];
-			_veh vehicleChat  format [localize "draga_str_heli_transport_move", getText (configFile >> "CfgVehicles" >> typeOf _veh >> "displayName")];
 		}else{ // проверка маршрута высадки и завершение
 			if(_pos_veh distance _pos2 > 10)then{
 				_veh setVariable ["draga_GET_OUT_pos", nil];
