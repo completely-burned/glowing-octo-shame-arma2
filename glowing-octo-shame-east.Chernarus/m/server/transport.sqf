@@ -37,7 +37,7 @@ private["_players"];
         			while {(count (waypoints _grpwpdel)) > 0} do {
         				deleteWaypoint ((waypoints _grpwpdel) select 0);
         			};
-              _x_veh land "NONE";
+              _x land "NONE";
             };
           };
 				};
