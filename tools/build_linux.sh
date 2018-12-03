@@ -40,6 +40,9 @@ ln -s ./../glowing-octo-shame-east.Chernarus ${DIR}/tmp/glowing-octo-shame-east.
 
 makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Chernarus ${DIR}/out/glowing-octo-shame-east-${V}.chernarus.pbo
 
+ln -s ./../glowing-octo-shame-guer.Chernarus ${DIR}/tmp/glowing-octo-shame-guer.Chernarus
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-guer.Chernarus ${DIR}/out/glowing-octo-shame-guer-${V}.chernarus.pbo
+
 
 # utes
 ln -s ./../glowing-octo-shame-east.utes ${DIR}/tmp/glowing-octo-shame-east.utes
