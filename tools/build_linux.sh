@@ -22,6 +22,9 @@ ln -s ./../glowing-octo-shame-east.Takistan ${DIR}/tmp/glowing-octo-shame-east.T
 
 makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Takistan ${DIR}/out/glowing-octo-shame-east-${V}.takistan.pbo
 
+ln -s ./../glowing-octo-shame-guer.Takistan ${DIR}/tmp/glowing-octo-shame-guer.Takistan
+makepbo -NM ${DIR}/tmp/glowing-octo-shame-guer.Takistan ${DIR}/out/glowing-octo-shame-guer-${V}.takistan.pbo
+
 
 # Zargabad
 ln -s ./../glowing-octo-shame-east.Zargabad ${DIR}/tmp/glowing-octo-shame-east.Zargabad
