@@ -50,8 +50,8 @@ private["_players"];
 			_x_veh = _x;
 			if(side _x_veh getFriend side _player >= 0.6)then{
 				if(_x_veh isKindOf "Helicopter" or _x_veh isKindOf "MV22")then{
-          if({group _x != group effectiveCommander _veh && alive effectiveCommander _veh}count crew _veh <= 0)then{
-            if({isPlayer _x}count units effectiveCommander _veh <= 0)then{
+          if({group _x != group effectiveCommander _x_veh && alive effectiveCommander _x_veh}count crew _x_veh <= 0)then{
+            if({isPlayer _x}count units effectiveCommander _x_veh <= 0)then{
   						if(canMove _x_veh)then{
   							if(isNil {_x_veh getVariable "transportPlayer"})then{
   								if(getDammage _x_veh < 0.75)then{
