@@ -10,10 +10,9 @@ class Mission
 		"CATracked_E",
 		"warfarebuildings",
 		"camisc_e",
-		"CAWheeled_E_Old_bike",
-		"caair_e_mi8",
 		"CorePatch_CCP_70799",
-		"cacharacters_pmc"
+		"cacharacters_pmc",
+		"CAAir_E_UH1H_EP1"
 	};
 	addOnsAuto[]=
 	{
@@ -24,14 +23,13 @@ class Mission
 		"camisc_e",
 		"caweapons_e_ammoboxes",
 		"CAWheeled_E",
-		"CAWheeled_E_Old_bike",
-		"caair_e_mi8",
+		"CAAir_E_UH1H_EP1",
 		"takistan"
 	};
 	randomSeed=10465836;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.207 Takistan guer";
+		briefingName="glowing-octo-shame v0.0.3.208 Takistan guer";
 		resistanceWest=0;
 		startWeather=0.39999998;
 		forecastWeather=0.39999998;
@@ -2346,7 +2344,7 @@ class Mission
 			azimut=100.021;
 			id=6;
 			side="EMPTY";
-			vehicle="TKBasicWeapons_EP1";
+			vehicle="GuerillaCacheBox_EP1";
 			skill=0.60000002;
 			init="this allowDamage false;";
 		};
@@ -2356,7 +2354,7 @@ class Mission
 			azimut=12.2566;
 			id=7;
 			side="EMPTY";
-			vehicle="UAZ_Unarmed_TK_EP1";
+			vehicle="UAZ_Unarmed_UN_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
 		};
@@ -2366,7 +2364,7 @@ class Mission
 			azimut=14.0765;
 			id=8;
 			side="EMPTY";
-			vehicle="Old_bike_TK_INS_EP1";
+			vehicle="Pickup_PK_TK_GUE_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
 		};
@@ -2376,7 +2374,7 @@ class Mission
 			azimut=20;
 			id=9;
 			side="EMPTY";
-			vehicle="Mi17_TK_EP1";
+			vehicle="UH1H_TK_GUE_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
 		};
@@ -2386,7 +2384,7 @@ class Mission
 			azimut=140.62199;
 			id=10;
 			side="EMPTY";
-			vehicle="Mi17_TK_EP1";
+			vehicle="UH1H_TK_GUE_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
 		};
@@ -2406,7 +2404,7 @@ class Mission
 			azimut=139.29401;
 			id=12;
 			side="EMPTY";
-			vehicle="TKBasicWeapons_EP1";
+			vehicle="GuerillaCacheBox_EP1";
 			skill=0.60000002;
 			init="this allowDamage false;";
 		};
@@ -2416,7 +2414,7 @@ class Mission
 			azimut=131.00101;
 			id=13;
 			side="EMPTY";
-			vehicle="UAZ_Unarmed_TK_EP1";
+			vehicle="UAZ_Unarmed_UN_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
 		};
@@ -2426,7 +2424,7 @@ class Mission
 			azimut=137.17999;
 			id=14;
 			side="EMPTY";
-			vehicle="Old_bike_TK_INS_EP1";
+			vehicle="Pickup_PK_TK_GUE_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
 		};
@@ -2436,7 +2434,7 @@ class Mission
 			azimut=-252.10699;
 			id=15;
 			side="EMPTY";
-			vehicle="Mi17_TK_EP1";
+			vehicle="UH1H_TK_GUE_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
 		};
@@ -2446,7 +2444,7 @@ class Mission
 			azimut=59.001202;
 			id=16;
 			side="EMPTY";
-			vehicle="Old_bike_TK_INS_EP1";
+			vehicle="Pickup_PK_TK_GUE_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
 		};
@@ -2456,7 +2454,7 @@ class Mission
 			azimut=-3.4210999;
 			id=17;
 			side="EMPTY";
-			vehicle="UAZ_Unarmed_TK_EP1";
+			vehicle="UAZ_Unarmed_UN_EP1";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
 		};
@@ -2476,7 +2474,7 @@ class Mission
 			azimut=-29.338699;
 			id=19;
 			side="EMPTY";
-			vehicle="TKBasicWeapons_EP1";
+			vehicle="GuerillaCacheBox_EP1";
 			skill=0.60000002;
 			init="this allowDamage false;";
 		};
