@@ -134,7 +134,6 @@ _cargo2 = _cargo - (units (_groups select 0));
 	_x enableAI "AUTOTARGET";
 	_x disableAI "FSM";
 	_x setSkill ["commanding", 1];
-	_x call m_fnc_vehInit;
 } foreach _units + _vehicles;
 
 [_units + _vehicles] call m_fnc_reweapon; // перевооружить

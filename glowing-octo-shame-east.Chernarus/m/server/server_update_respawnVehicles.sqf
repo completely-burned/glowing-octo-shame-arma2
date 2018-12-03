@@ -6,11 +6,11 @@ respawnVehicleList=[];
 	private ["_respawnVehicle"];
 	_respawnVehicle = (_x getVariable "respawnVehicle");
 	if (!isNil "_respawnVehicle") then {
-		private ["_type"]; 
-		_type = _x getVariable "respawnType"; 
+		private ["_type"];
+		_type = _x getVariable "respawnType";
 		if(isNil "_type")then{
 			_type = typeOf _x;
-		}; 
+		};
 		respawnVehicleList = respawnVehicleList + [[_x, [getPos _x, getDir _x], _type]];
 		_x setVehicleLock "UNLOCKED";
 	};
@@ -28,7 +28,6 @@ for "_i" from 0 to (count respawnVehicleList - 1) do {
 	if((_veh distance _pos) > sizeOf _type)then{
 		_veh setVariable ["time", time];
 		_veh1 = createVehicle [_type, [0, 0], [], 0, "CAN_COLLIDE"];
-		_veh1 call m_fnc_vehInit;
 		_veh1 setDir _dir;
 		_veh1 setPos _pos;
 		_veh1 setVectorUp [0,0,1];
@@ -42,7 +41,6 @@ for "_i" from 0 to (count respawnVehicleList - 1) do {
 					// if(!alive _x)then{deleteVehicle _x};
 				// }forEach (_pos nearObjects ["AllVehicles",sizeOf _type]);
 				_veh1 = createVehicle [_type, [0, 0], [], 0, "CAN_COLLIDE"];
-				_veh1 call m_fnc_vehInit;
 				_veh1 setDir _dir;
 				_veh1 setPos _pos;
 				_veh1 setVectorUp [0,0,1];

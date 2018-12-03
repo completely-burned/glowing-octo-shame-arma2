@@ -66,7 +66,6 @@ if ( isMultiplayer ) then {
 	player addEventHandler ["killed", {"respawn" spawn m_fnc_RespawnWeaponsAdd}];
 	player addEventHandler ["killed", {_this spawn m_fnc_resetActions}];
 	player addEventHandler ["killed", {_this select 0 call {_this setVariable ["BIS_lifestate","ALIVE",true]}}];
-	player call m_fnc_vehInit;
 }else{
 	onTeamSwitch {
 		SetGroupIconsVisible [true,false];

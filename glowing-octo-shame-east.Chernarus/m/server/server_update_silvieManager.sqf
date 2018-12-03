@@ -18,7 +18,7 @@ while{true}do{
 					private ["_scope","_side"];
 					_scope = getnumber (_actual >> "scope");
 					_side = getnumber (_actual >> "side");
-					if (_x iskindof "LandVehicle" && _scope == 2 && _side == 3 && canMove _x) then {			
+					if (_x iskindof "LandVehicle" && _scope == 2 && _side == 3 && canMove _x) then {
 						_count_vehicles=_count_vehicles+1;
 					};
 				}forEach _vehicles;
@@ -28,7 +28,7 @@ while{true}do{
 					_houselist = (_twn getVariable "_houselist");
 					if (isNil "_houselist")then{
 						_houselist = _twnpos nearobjects ["House",500];
-						
+
 
 						{
 							private ["_bbox"];
@@ -72,7 +72,6 @@ while{true}do{
 							// _veh1 setPosATL _pos;
 							_veh1 setVectorUp [0,0,1];
 							// _veh1 addEventHandler ["GetIn",{_this call m_fnc_EH_GetIn}];
-							_veh1 call m_fnc_vehInit;
 							sleep 0.01;
 						};
 					};
@@ -80,6 +79,6 @@ while{true}do{
 			};
 			sleep 0.01;
 		}forEach ([] call BIS_fnc_listPlayers);
-			
+
 	sleep 10;
 };

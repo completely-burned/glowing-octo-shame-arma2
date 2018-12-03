@@ -18,7 +18,7 @@ if (configName(configFile >> "CfgMods" >> "acex_ru") != "") then {acex_ru_Avail 
 acex_usnavy_Avail = false;
 if (configName(configFile >> "CfgMods" >> "acex_usnavy") != "") then {acex_usnavy_Avail = true};
 
-///--- функции 
+///--- функции
 [] call compile preprocessFileLineNumbers "m\functions\INIT_fnc.sqf";
 
 listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","WarfareSalvageTruck_CDF","WarfareSalvageTruck_Gue","WarfareSalvageTruck_INS",
@@ -37,15 +37,15 @@ if ( LIB_a2Avail ) then {
 		"LAV25_HQ"
 	];
 	listCrew=listCrew+[
-		"USMC_Soldier_Crew", 
-		"USMC_Soldier_Pilot", 
-		"CDF_Soldier_Crew", 
-		"CDF_Soldier_Pilot", 
-		"RU_Soldier_Crew", 
-		"RU_Soldier_Pilot", 
-		"Ins_Soldier_Crew", 
-		"Ins_Soldier_Pilot", 
-		"GUE_Soldier_Crew", 
+		"USMC_Soldier_Crew",
+		"USMC_Soldier_Pilot",
+		"CDF_Soldier_Crew",
+		"CDF_Soldier_Pilot",
+		"RU_Soldier_Crew",
+		"RU_Soldier_Pilot",
+		"Ins_Soldier_Crew",
+		"Ins_Soldier_Pilot",
+		"GUE_Soldier_Crew",
 		"GUE_Soldier_Pilot"
 	];
 };
@@ -54,15 +54,15 @@ if ( LIB_ahAvail ) then {
 		"M1130_CV_EP1"
 	];
 	listCrew=listCrew+[
-		"US_Soldier_Crew_EP1", 
-		"US_Soldier_Pilot_EP1", 
-		"TK_Soldier_Crew_EP1", 
-		"TK_Soldier_Pilot_EP1", 
-		"UN_CDF_Soldier_Crew_EP1", 
+		"US_Soldier_Crew_EP1",
+		"US_Soldier_Pilot_EP1",
+		"TK_Soldier_Crew_EP1",
+		"TK_Soldier_Pilot_EP1",
+		"UN_CDF_Soldier_Crew_EP1",
 		"UN_CDF_Soldier_Pilot_EP1",
-		"Soldier_Crew_PMC", 
+		"Soldier_Crew_PMC",
 		"Soldier_Pilot_PMC",
-		"BAF_crewman_MTP", 
+		"BAF_crewman_MTP",
 		"BAF_crewman_w",
 		"BAF_Pilot_MTP"
 	];
