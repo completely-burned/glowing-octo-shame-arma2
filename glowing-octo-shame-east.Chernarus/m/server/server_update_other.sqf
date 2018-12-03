@@ -1,7 +1,7 @@
 ﻿{
 	_x allowDamage false;
 	_x setVariable ["_noDelete",true];
-}forEach(allMissionObjects 'MASH')+(allMissionObjects 'ReammoBox')+(allMissionObjects 'WarfareBCamp'); 
+}forEach(allMissionObjects 'MASH')+(allMissionObjects 'ReammoBox')+(allMissionObjects 'WarfareBCamp');
 
 {
 	_x allowDamage false;
@@ -32,19 +32,21 @@ _deleteList=[];
 		};
 	};
 }
-forEach (allMissionObjects 'MASH'); 
+forEach (allMissionObjects 'MASH');
 
 {
-	if (!alive _x) then {
-		if ( isNil {_x getVariable "_noDelete"} ) then {
-			deleteVehicle _x;
+	private["_box"];
+	_box = _x;
+	if (!alive _box) then {
+		if ( isNil {_box getVariable "_noDelete"} ) then {
+			deleteVehicle _box;
 		}else{
 			Private ["_type","_pos","_dir","_veh"];
-			_type = typeOf _x;
-			_pos = getPos _x;
+			_type = typeOf _box;
+			_pos = getPos _box;
 			_pos resize 2;
-			_dir = getDir _x;
-			deleteVehicle _x;
+			_dir = getDir _box;
+			deleteVehicle _box;
 			_veh = createVehicle [_type, [0,0], [], 0, "NONE"];
 			_veh allowDamage false;
 			_veh setDir _dir;
@@ -52,30 +54,32 @@ forEach (allMissionObjects 'MASH');
 			_veh setVariable ["_noDelete",true];
 		};
 	}else{
-		if (getNumber (configFile >> "CfgVehicles" >> typeOf _x >> "showweaponcargo") == 1 or getText (configFile >> "CfgVehicles" >> typeOf _x >> "vehicleclass") == "Backpacks") then {
-			_deleteList set [count _deleteList,_x];
+		if (getNumber (configFile >> "CfgVehicles" >> typeOf _box >> "showweaponcargo") == 1 or getText (configFile >> "CfgVehicles" >> typeOf _box >> "vehicleclass") == "Backpacks") then {
+			_deleteList set [count _deleteList,_box];
 		}else{
-			if ( isNil {_x getVariable "_noDelete"} ) then {
-				_deleteList set [count _deleteList,_x];
+			if ( isNil {_box getVariable "_noDelete"} ) then {
+				_deleteList set [count _deleteList,_box];
 			};
-			_x call m_fnc_updateReammoBox;
+			if ({alive _x} count (nearestObjects [_box, draga_objectsReammo, draga_distanceReammo]) > 0) then {
+				_box call m_fnc_updateReammoBox;
+			};
 		};
 	};
 }
-forEach (allMissionObjects 'ReammoBox'); 
+forEach (allMissionObjects 'ReammoBox');
 
 {
 	_x setAmmoCargo 1;
 	_x setRepairCargo 1;
 	_x setFuelCargo 1;
 }
-forEach (allMissionObjects "Base_WarfareBVehicleServicePoint"); 
+forEach (allMissionObjects "Base_WarfareBVehicleServicePoint");
 
 {
 	if (!alive _x) then {
 		deleteVehicle _x;
 	};
-} forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "Warfare_HQ_base_unfolded")+(allMissionObjects "BASE_WarfareBFieldhHospital"); 
+} forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "Warfare_HQ_base_unfolded")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 
 {
 	private ["_objects"];
@@ -98,7 +102,7 @@ forEach (allMissionObjects "Base_WarfareBVehicleServicePoint");
 		} forEach nearestObjects [getPos _obj, ["AllVehicles","Strategic"], 50]
 	} forEach _objects;
 } forEach HQ;
-	
+
 (_deleteList) call fnc_cleanup;
 	sleep 1;
 };

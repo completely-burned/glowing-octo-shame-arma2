@@ -3,7 +3,7 @@ if ([[_this], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 		private["_side"];
 		_side = getNumber(LIB_cfgVeh >> typeOf _this >> "side") call m_fnc_getSide;
 		if (_side in m_friendlySide) then {
-			if ({alive _x} count (nearestObjects [_this, listMHQ + HQ + ["Base_WarfareBBarracks","Base_WarfareBLightFactory"], 150]) > 0) then {
+			if ({alive _x} count (nearestObjects [_this, draga_objectsReammo, draga_distanceReammo]) > 0) then {
 				if ([getPos _this, 10] call m_fnc_CheckPlayersDistance)then{
 					private["_crew"];
 					_crew = _this getVariable "_crew";
@@ -26,7 +26,7 @@ if ([[_this], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 							_this setVariable ["_crew", nil];
 						};
 						private["_list","_grp"];
-						_list = _this nearEntities ["StaticWeapon", 300];
+						_list = _this nearEntities ["StaticWeapon", draga_distanceReammo max 300];
 						scopeName "scopeName_list";
 						private["_obj"];
 						{
