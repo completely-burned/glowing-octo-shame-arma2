@@ -26,7 +26,7 @@ if ([[_this], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 							_this setVariable ["_crew", nil];
 						};
 						private["_list","_grp"];
-						_list = _this nearEntities ["StaticWeapon", draga_distanceReammo max 300];
+						_list = _this nearEntities ["StaticWeapon", (draga_distanceReammo*2+10) max 300];
 						scopeName "scopeName_list";
 						private["_obj"];
 						{
