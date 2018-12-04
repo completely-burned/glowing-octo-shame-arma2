@@ -92,8 +92,8 @@ if(true)then{
 			_unit = (_units select _i);
 			_marker = (_markers select _i);
 			if (!isNull _unit && alive _unit) then {
-				if([[_unit],listMHQ+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call m_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6))then{
-					if ({isPlayer _x} count crew _unit == 0) then {	
+				if([[_unit],Warfare_HQ+listMHQ+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call m_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6))then{
+					if ({isPlayer _x} count crew _unit == 0) then {
 						_marker setMarkerPosLocal (position _unit);
 						_marker setMarkerTypeLocal "vehicle";
 						_marker setMarkerDirLocal getDir _unit;
@@ -104,8 +104,8 @@ if(true)then{
 					};
 				}else{
 					private ["_veh"];
-					_veh = vehicle _unit;							
-					if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6)) then {	
+					_veh = vehicle _unit;
+					if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6)) then {
 						_marker setMarkerPosLocal (position _veh);
 						_marker setMarkerTypeLocal "vehicle";
 						_marker setMarkerDirLocal getDir _veh;
@@ -132,8 +132,7 @@ if(true)then{
 
 		_units = (_units - [-1]);
 		_markers = (_markers - [-1]);
-		
+
 		sleep 0.1
 	};
 };
-

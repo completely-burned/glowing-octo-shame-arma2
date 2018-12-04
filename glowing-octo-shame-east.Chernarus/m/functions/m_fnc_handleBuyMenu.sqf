@@ -5,7 +5,7 @@ private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV"];
 _HQ = [];
 {
 	if(configName(configFile >> "CfgVehicles" >> _x) != "")then{
-		_HQ = _HQ + [_x]; 
+		_HQ = _HQ + [_x];
 	};
 } forEach listMHQ + HQ;
 
@@ -26,25 +26,20 @@ _nearestObjects = [
 
 private["_Objects"];
 private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu"];
-private ["_respawn_pos"];
 private["_uav_action","_uav_terminals"];
 while {true} do {
 	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
 
-	_respawn_pos = [vehicle player, 100] call draga_fnc_CheckRespawnDistance;
-	if (_respawn_pos) then {
-		_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true; _teleport = true; _menu = true;
-	};
 
 	_BuyMenu = [[],[],[]];
 
-	_Objects = (nearestObjects [vehicle player, _nearestObjects, 100]);
+	_Objects = (nearestObjects [vehicle player, _nearestObjects, draga_BuyDistance]);
 	if ((count _Objects > 0)) then {
 		{
 			private["_type","_Object"];
 			_Object = _x;
 			_type = (typeOf _Object);
-			
+
 			if (alive _Object) then {
 				// if (true && _type isKindOf "ReammoBox") then {
 					// [_Object,_type] call _fnc_reamoBox;
@@ -100,7 +95,7 @@ while {true} do {
 				};
 
 				if !(_teleport) then {
-					if ([[_type],["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]+listMHQ + HQ] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"]+HQ] call m_fnc_CheckIsKindOfArray) then {
 						_teleport = true;
 					};
 				};
@@ -127,7 +122,7 @@ while {true} do {
 				};
 
 				if !(_menu) then {
-					if ([[_type],listMHQ + HQ] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],listMHQ + HQ + draga_objectsCoinBase] call m_fnc_CheckIsKindOfArray) then {
 						_menu = true;
 					};
 				};
@@ -143,7 +138,7 @@ while {true} do {
 				private["_type","_Object"];
 				_Object = _x;
 				_type = (typeOf _Object);
-				
+
 				if (alive _Object) then {
 					if !(_uav_action) then {
 						if ([[_type],UAVterminal] call m_fnc_CheckIsKindOfArray) then {
@@ -166,14 +161,14 @@ while {true} do {
 			_action = player addaction [localize "str_uav_action", "m\functions\uav_action.sqf", [_Object, _uav_terminals], 1, false, false];
 			player setvariable ["_uav_action",_action];
 		};
-		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_uav_ca.paa")]; 
+		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_uav_ca.paa")];
 	}else{
 		player removeAction (player getVariable "_uav_action");
 		player setvariable ["_uav_action", nil];
 	};
 
 	if (_Buy_Man or _teleport) then {
-		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_gear_ca.paa")]; 
+		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_gear_ca.paa")];
 	};
 
 	if (_teleport) then {
@@ -211,7 +206,7 @@ while {true} do {
 
 		private["_0","_1","_2"];
 		if (leader player == player) then {
-			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_barracks_ca.paa")]; 
+			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_barracks_ca.paa")];
 			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 			_0 set [count _0, "#USER:Man_0"];
 			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
@@ -232,7 +227,7 @@ while {true} do {
 		_BuyMenu = [_0,_1,_2];
 	};
 	if (_Buy_Car or _Buy_Ship) then {
-		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_lvs_ca.paa")]; 
+		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_lvs_ca.paa")];
 	};
 	if (_Buy_Car) then {
 		private["_0","_1","_2"];
@@ -248,7 +243,7 @@ while {true} do {
 		_BuyMenu = [_0,_1,_2];
 	};
 	if (_Buy_Tank) then {
-		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hvs_ca.paa")]; 
+		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hvs_ca.paa")];
 		private["_0","_1","_2"];
 		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 		_0 set [count _0, "#USER:Tank_0"];
@@ -257,7 +252,7 @@ while {true} do {
 		_BuyMenu = [_0,_1,_2];
 	};
 	if (_Buy_Helicopter) then {
-		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_air_ca.paa")]; 
+		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_air_ca.paa")];
 		private["_0","_1","_2"];
 		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 		_0 set [count _0, "#USER:Helicopter_0"];
@@ -266,7 +261,7 @@ while {true} do {
 		_BuyMenu = [_0,_1,_2];
 	};
 	if (_Buy_Plane) then {
-		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hangar_ca.paa")]; 
+		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hangar_ca.paa")];
 		private["_0","_1","_2"];
 		_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 		_0 set [count _0, "#USER:Plane_0"];
@@ -294,7 +289,7 @@ while {true} do {
 		_2 set [count _2, 1];
 		_BuyMenu = [_0,_1,_2];
 	};
-	
+
 	if (_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) then {
 		if (isnil {player getvariable "_Buy_Menu"} && !isnull player) then {
 			private ["_action"];
@@ -306,8 +301,8 @@ while {true} do {
 		player setvariable ["_Buy_Menu", nil];
 	};
 
-	["BuyMenu", "BuyMenu", _BuyMenu, "%1", ""] call BIS_FNC_createmenu; 
-	
+	["BuyMenu", "BuyMenu", _BuyMenu, "%1", ""] call BIS_FNC_createmenu;
+
 	for "_i" from 0 to (count _OptionsAvailable - 1) do {
 		(BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + _i)) CtrlSetText (_OptionsAvailable select _i);
 	};
@@ -315,6 +310,6 @@ while {true} do {
 		(BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + _i)) CtrlSetText ("");
 	};
 	_OptionsAvailable = [];
-	
+
 	sleep 0.5;
 };

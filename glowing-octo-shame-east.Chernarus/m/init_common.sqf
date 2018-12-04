@@ -75,7 +75,8 @@ if ( configName(configFile >> "CfgMods" >> "ACR") != "" ) then {
 	];
 };
 
-HQ = ["Warfare_HQ_base_unfolded","WarfareBDepot","WarfareBCamp"];
+HQ = ["WarfareBDepot","WarfareBCamp"];
+Warfare_HQ = ["Warfare_HQ_base_unfolded"];
 
 UAVterminal = listMHQ + HQ + ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
 
@@ -83,6 +84,12 @@ draga_objectsTeleport = HQ + ["Base_WarfareBBarracks","BASE_WarfareBFieldhHospit
 
 draga_objectsReammo = listMHQ + HQ + ["Base_WarfareBBarracks","Base_WarfareBLightFactory"];
 draga_distanceReammo = 150;
+
+draga_objectsCoinBase = Warfare_HQ;
+draga_distanceCoinBase = 150;
+draga_objectsCoinMHQ = listMHQ;
+draga_distanceCoinMHQ = 15;
+draga_BuyDistance = draga_distanceCoinBase;
 
 Officers = [
 	"RU_Commander","RU_Soldier_Officer","Ins_Commander","TK_Soldier_Officer_EP1","TK_Aziz_EP1","TK_INS_Warlord_EP1",

@@ -99,7 +99,7 @@ forEach (allMissionObjects "Base_WarfareBVehicleServicePoint");
 					};
 				};
 			};
-		} forEach nearestObjects [getPos _obj, ["AllVehicles","Strategic"], 50]
+		} forEach vehicles+(allMissionObjects 'ReammoBox');
 	} forEach _objects;
 } forEach HQ;
 

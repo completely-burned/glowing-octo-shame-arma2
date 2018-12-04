@@ -1,3 +1,6 @@
+
+[] call compile preprocessFileLineNumbers "m\client\config_client.sqf";
+
 waitUntil{!isNil "bis_fnc_init"};
 waitUntil{!isNil "m_fnc_init"};
 
@@ -46,6 +49,7 @@ if ([[player], Officers] call m_fnc_CheckIsKindOfArray) then {
 
 player addEventHandler ["killed", {
 	BIS_COIN_QUIT = true;
+	draga_COIN_QUIT = true;
     if(!isNil "BIS_CONTROL_CAM_Handler")then{
         ["",""] call BIS_CONTROL_CAM_Handler;
     };
