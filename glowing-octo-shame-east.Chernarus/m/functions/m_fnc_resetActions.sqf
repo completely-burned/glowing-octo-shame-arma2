@@ -15,3 +15,4 @@ player removeAction (player getVariable "_menu_action");
 player setvariable ["_menu_action",nil];
 player removeAction (player getVariable "_coin");
 player setvariable ["_coin",nil];
+playerResetActions_coin = true;
