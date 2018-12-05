@@ -12,7 +12,7 @@ if(isMultiplayer)then{
 		_player = _x;
 		_playerVeh = vehicle _player;
 		if (IsPlayer _player) then {
-			if ((_playerVeh distance _Pos) <= _distance)then{
+			if ([_playerVeh, _Pos] call BIS_fnc_distance2D <= _distance)then{
 				_visible = true;
 				BreakTo "CheckPlayer";
 			};
