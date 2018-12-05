@@ -35,5 +35,5 @@ if(_m_true)then{
 
 if(_m_true)then{
 	_m_true = false;
-	_damage
+	_damage min (0.8 - 0.01)
 };
