@@ -85,7 +85,7 @@ draga_objectsTeleport = HQ + ["Base_WarfareBBarracks","BASE_WarfareBFieldhHospit
 draga_objectsReammo = listMHQ + HQ + ["Base_WarfareBBarracks","Base_WarfareBLightFactory"];
 draga_distanceReammo = 150;
 
-draga_objectsCoinBase = Warfare_HQ;
+draga_objectsCoinBase = Warfare_HQ+HQ;
 draga_distanceCoinBase = 150;
 draga_objectsCoinMHQ = listMHQ;
 draga_distanceCoinMHQ = 15;

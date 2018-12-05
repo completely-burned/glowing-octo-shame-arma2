@@ -207,11 +207,15 @@ if (!isNil{draga_Coin_selectedType}) then {
       _color = _colorGray
     } else {
 
+      _dist = (sizeof typeof draga_Coin_preview) / 2 min 4;
+      if (draga_Coin_selectedType isKindOf "StaticWeapon") then {
+          _dist = 0.25;
+      };
       _isFlat = (position draga_Coin_preview) isflatempty [
-        (sizeof typeof draga_Coin_preview) / 2 min 4,	//--- Minimal distance from another object
+        _dist,	//--- Minimal distance from another object
         -1,				//--- If 0, just check position. If >0, select new one
         -1,				//--- Max gradient
-        (sizeof typeof draga_Coin_preview) / 2 min 4,	//--- Gradient area
+        _dist,	//--- Gradient area
         0,				//--- 0 for restricted water, 2 for required water,
         false,				//--- True if some water can be in 25m radius
         draga_Coin_preview			//--- Ignored object
