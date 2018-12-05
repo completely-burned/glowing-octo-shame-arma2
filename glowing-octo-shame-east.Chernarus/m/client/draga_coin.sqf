@@ -42,7 +42,7 @@ while{true}do{
 					false,
 					false,
 					"",
-					""
+					"alive _target && alive _this"
 				];
 				_coin_actions set [count _coin_actions, [_action, _x]];
 			};
@@ -61,11 +61,27 @@ while{true}do{
 					false,
 					false,
 					"",
-					""
+					"alive _target && alive _this"
 				];
 				_coin_actions set [count _coin_actions, [_action, _x]];
 			};
 		} forEach _Objects;
 	};
+	_Objects = (nearestObjects [vehicle player, Warfare_HQ, draga_distanceCoinMHQ]);
+	{
+		if (isNil{_x getVariable "Warfare_HQ_base_unfolded_coin_actions"}) then {
+			_action = _x addaction [
+				gettext(configFile >> "CfgVehicles" >> draga_MHQ >> "displayName"),
+				"m\client\coin_interface_MHQ.sqf",
+				_x,
+				1,
+				false,
+				false,
+				"",
+				"alive _target && alive _this"
+			];
+			_x setVariable ["Warfare_HQ_base_unfolded_coin_actions",_action];
+		};
+	} forEach _Objects;
 	sleep 1;
 };

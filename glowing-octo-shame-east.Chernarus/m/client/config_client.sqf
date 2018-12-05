@@ -22,6 +22,7 @@ if(faction player in ["BIS_US", "BIS_CZ", "BIS_GER"] or playerSide == west)then{
 			["WarfareBAirport","Base",0]
 		];
 		draga_COIN_MHQ = [["M1130_HQ_unfolded_Base_EP1","Base",0]];
+		draga_MHQ = "M1130_CV_EP1";
 };
 if(faction player in ["USMC"])then{
 	draga_COIN_items = [
@@ -46,6 +47,7 @@ if(faction player in ["USMC"])then{
 			["WarfareBAirport","Base",0]
 			];
 			draga_COIN_MHQ = [["LAV25_HQ_unfolded","Base",0]];
+			draga_MHQ = "LAV25_HQ";
 };
 if(faction player in ["CDF"])then{
 	draga_COIN_items = [
@@ -70,6 +72,7 @@ if(faction player in ["CDF"])then{
 			["WarfareBAirport","Base",0]
 			];
 			draga_COIN_MHQ = [["BMP2_HQ_CDF_unfolded","Base",0]];
+			draga_MHQ = "BMP2_HQ_CDF";
 };
 
 if(faction player in ["BIS_TK", "BIS_TK_INS"] or playerSide == east)then{
@@ -96,6 +99,7 @@ if(faction player in ["BIS_TK", "BIS_TK_INS"] or playerSide == east)then{
 			["WarfareBAirport","Base",0]
 			];
 			draga_COIN_MHQ = [["BMP2_HQ_TK_unfolded_Base_EP1","Base",0]];
+			draga_MHQ = "BMP2_HQ_TK_EP1";
 };
 if(faction player in ["RU"])then{
 	draga_COIN_items = [
@@ -121,6 +125,7 @@ if(faction player in ["RU"])then{
 			["WarfareBAirport","Base",0]
 			];
 			draga_COIN_MHQ = [["BTR90_HQ_unfolded","Base",0]];
+			draga_MHQ = "BTR90_HQ";
 };
 if(faction player in ["INS"])then{
 	draga_COIN_items = [
@@ -145,6 +150,7 @@ if(faction player in ["INS"])then{
 			["WarfareBAirport","Base",0]
 			];
 			draga_COIN_MHQ = [["BMP2_HQ_INS_unfolded","Base",0]];
+			draga_MHQ = "BMP2_HQ_INS";
 };
 
 if(faction player in ["BIS_TK_GUE", "BIS_UN"] or playerSide == resistance)then{
@@ -170,6 +176,7 @@ if(faction player in ["BIS_TK_GUE", "BIS_UN"] or playerSide == resistance)then{
 			["WarfareBAirport","Base",0]
 			];
 			draga_COIN_MHQ = [["BRDM2_HQ_TK_GUE_unfolded_Base_EP1","Base",0]];
+			draga_MHQ = "BRDM2_HQ_TK_GUE_EP1";
 };
 if(faction player in ["GUE"])then{
 	draga_COIN_items = [
@@ -191,4 +198,5 @@ if(faction player in ["GUE"])then{
 			["WarfareBAirport","Base",0]
 		];
 		draga_COIN_MHQ = [["BRDM2_HQ_Gue_unfolded","Base",0]];
+		draga_MHQ = "BRDM2_HQ_Gue";
 };
