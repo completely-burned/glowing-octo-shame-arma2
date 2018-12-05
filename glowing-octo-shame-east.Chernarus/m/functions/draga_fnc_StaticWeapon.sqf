@@ -4,7 +4,7 @@ if ([[_this], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 		_side = getNumber(LIB_cfgVeh >> typeOf _this >> "side") call m_fnc_getSide;
 		if (_side in m_friendlySide) then {
 			if ({alive _x} count (nearestObjects [_this, draga_objectsReammo, draga_distanceReammo]) > 0) then {
-				if ([getPos _this, 10] call m_fnc_CheckPlayersDistance)then{
+				if ([getPos _this, 1.5] call m_fnc_CheckPlayersDistance)then{
 					private["_crew"];
 					_crew = _this getVariable "_crew";
 					if (!isNil {_crew}) then {
