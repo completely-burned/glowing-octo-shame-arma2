@@ -82,26 +82,20 @@ forEach (allMissionObjects "Base_WarfareBVehicleServicePoint");
 } forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "Warfare_HQ_base_unfolded")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 
 {
-	private ["_objects"];
-	_objects = allMissionObjects _x;
-	{
-		private ["_obj"];
-		_obj = _x;
-		{
-			if( isNil {_x getVariable "_noDelete"} )then{
-				if(!alive _x)then{
-					deleteVehicle _x;
-				}else{
-					if(_obj distance _x < 10)then{
-						if (({alive _x} count crew _x)==0) then{
-							deleteVehicle _x;
-						};
-					};
+	private ["_obj"];
+	_obj = _x;
+	if ({alive _x} count nearestObjects [getPos _obj, HQ, respawnSafeDistance] > 0) then {
+		if( isNil {_obj getVariable "_noDelete"} )then{
+			if(!alive _obj)then{
+				deleteVehicle _obj;
+			}else{
+				if (({alive _x} count crew _obj)==0) then{
+					deleteVehicle _obj;
 				};
 			};
-		} forEach vehicles+(allMissionObjects 'ReammoBox');
-	} forEach _objects;
-} forEach HQ;
+		};
+	};
+} forEach vehicles+(allMissionObjects 'ReammoBox');
 
 (_deleteList) call fnc_cleanup;
 	sleep 1;
