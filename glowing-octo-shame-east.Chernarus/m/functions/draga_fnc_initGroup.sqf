@@ -394,6 +394,9 @@ while{true}do{
 
 			if(_createWP or _grp_wp_completed)then{
         _grp setVariable ['_grp_wp_completed',nil];
+        while {(count (waypoints _grp)) > 0} do {
+          deleteWaypoint ((waypoints _grp) select 0);
+        };
 				 [_leader] call m_fnc_waypoints;
 			};
 
