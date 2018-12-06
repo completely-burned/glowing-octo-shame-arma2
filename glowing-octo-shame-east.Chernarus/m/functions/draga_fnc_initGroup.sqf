@@ -1,4 +1,4 @@
-while{true}do{
+while{!isNull _this}do{
   if (true) then {
     private["_grp"];
     _grp=_this;
