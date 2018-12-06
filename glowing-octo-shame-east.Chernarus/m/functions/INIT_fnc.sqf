@@ -8,6 +8,7 @@ if (isServer) then {
 		m_fnc_playerRespawnSP = compile (preprocessFileLineNumbers (_path + "m_fnc_playerRespawnSP.sqf"));
 		m_fnc_playerRespawn = compile (preprocessFileLineNumbers (_path + "m_fnc_playerRespawn.sqf"));
 	};
+	draga_fnc_initGroup = compile (preprocessFileLineNumbers (_path + "draga_fnc_initGroup.sqf"));
 };
 if (!IsDedicated) then {
 	Client_BuyUnit = compile (preprocessFileLineNumbers (_path + "Client_BuyUnit.sqf"));
