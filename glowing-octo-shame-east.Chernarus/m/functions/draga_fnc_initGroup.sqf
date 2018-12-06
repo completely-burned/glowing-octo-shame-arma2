@@ -76,6 +76,9 @@ while{true}do{
         				}forEach crew _veh;
         				_veh stop false;
         			}forEach _vehicles;
+              while {(count (waypoints _this)) > 0} do {
+        				deleteWaypoint ((waypoints _this) select 0);
+        			};
               _this setVariable ["GETOUT",nil];
             };
           };
@@ -111,6 +114,9 @@ while{true}do{
                   };
   							}forEach crew _veh;
         			}forEach _vehicles;
+              while {(count (waypoints _this)) > 0} do {
+        				deleteWaypoint ((waypoints _this) select 0);
+        			};
               _this setVariable ["UNLOAD",nil];
             };
           };
@@ -141,6 +147,9 @@ while{true}do{
     								_x leaveVehicle _veh;
   							}forEach crew _veh;
         			}forEach _vehicles;
+              while {(count (waypoints _this)) > 0} do {
+        				deleteWaypoint ((waypoints _this) select 0);
+        			};
               _this setVariable ["GETOUT",nil];
             };
           };
@@ -176,6 +185,9 @@ while{true}do{
                   sleep 0.5;
   							}forEach assignedCargo _veh;
         			}forEach _vehicles;
+              while {(count (waypoints _this)) > 0} do {
+        				deleteWaypoint ((waypoints _this) select 0);
+        			};
               _this setVariable ["UNLOAD",nil];
             };
           };
@@ -217,7 +229,9 @@ while{true}do{
                 };
               }forEach _vehicles;
               sleep 5;
-            	deleteWaypoint [_this,currentWaypoint _this];
+              while {(count (waypoints _this)) > 0} do {
+        				deleteWaypoint ((waypoints _this) select 0);
+        			};
               _this setVariable ["UNLOAD",nil];
             };
           };
@@ -256,7 +270,9 @@ while{true}do{
                 };
               }forEach _vehicles;
               sleep 5;
-              deleteWaypoint [_this,currentWaypoint _this];
+              while {(count (waypoints _this)) > 0} do {
+        				deleteWaypoint ((waypoints _this) select 0);
+        			};
               _this setVariable ["GETOUT",nil];
             };
           };
