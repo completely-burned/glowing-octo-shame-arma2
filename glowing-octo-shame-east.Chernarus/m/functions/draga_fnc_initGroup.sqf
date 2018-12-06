@@ -301,6 +301,12 @@ while{!isNull _this}do{
 		_createWP = false;
 		_leaderPos = getPos vehicle _leader;
 
+    if (!_grp_wp_completed) then {
+      if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < 15 )then{
+        _grp_wp_completed = true;
+      };
+    };
+
 		if(isPlayer _leader)then{
 			while {(count (waypoints _grp)) > 0} do
 			{
