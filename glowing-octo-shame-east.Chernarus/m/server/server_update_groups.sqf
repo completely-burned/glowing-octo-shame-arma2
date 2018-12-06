@@ -30,7 +30,7 @@ while{true}do{
 				private["_cleanup"];
 				_cleanup = _grp getVariable "_cleanup";
 				if(isNil "_cleanup")then{
-					_cleanup = [getPos vehicle _leader,time+40,time+120,waypointPosition [_grp,_currentWP]];
+					_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]]; // инит
 					_grp setVariable ["_cleanup",_cleanup];
 				}else{
 					private["_oldPos","_oldTime","_oldTime2","_oldPosWP"];
@@ -42,51 +42,51 @@ while{true}do{
 					_pos = getPos vehicle _leader;
 					private["_true"];
 					_true = false;
-					if([waypointPosition [_grp,_currentWP], _oldPosWP] call BIS_fnc_distance2D < 5 )then{
+					if([waypointPosition [_grp,_currentWP], _oldPosWP] call BIS_fnc_distance2D < 5 )then{ // если маршрут не менялся
 						if!(_true)then{
-							if(waypointType [_grp, _currentWP] in ["SUPPORT"])then{
-								_cleanup = [getPos vehicle _leader,time+40,time+120,waypointPosition [_grp,_currentWP]];
+							if(waypointType [_grp, _currentWP] in ["SUPPORT"])then{ // поддержка
+								_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];
 								_grp setVariable ["_cleanup",_cleanup];
 								_true = true;
 							};
 						};
 						if!(_true)then{
-							if(currentCommand _leader == "FIRE AT POSITION")then{
-								_cleanup = [getPos vehicle _leader,time+40,time+120,waypointPosition [_grp,_currentWP]];
+							if(currentCommand _leader == "FIRE AT POSITION")then{ // артиллерия
+								_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];
 								_grp setVariable ["_cleanup",_cleanup];
 								_true = true;
 							};
 						};
 						if!(_true)then{
-							if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{
-								_cleanup = [getPos vehicle _leader,time+40,time+120,waypointPosition [_grp,_currentWP]];
+							if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{ // на точке
+								_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];
 								_grp setVariable ["_cleanup",_cleanup];
 								_true = true;
 							};
 						};
 						if!(_true)then{
-							if(_oldTime < time)then{
-								if(_oldPos distance _pos >= 1)then{
-									_cleanup = [getPos vehicle _leader,time+40,time+120,waypointPosition [_grp,_currentWP]];
+							if(_oldTime < time)then{ // 1 таймер
+								if(_oldPos distance _pos >= 5)then{ // сдвинулись
+									_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
 									_grp setVariable ["_cleanup",_cleanup];
 									_true = true;
 								}else{
-									while {(count (waypoints _grp)) > 0} do
+									while {(count (waypoints _grp)) > 0} do // не сдвинулись
 									{
-										deleteWaypoint ((waypoints _grp) select 0);
+										deleteWaypoint ((waypoints _grp) select 0); // для создание другого маршрута
 									};
-									_cleanup = [getPos vehicle _leader,time+40,_oldTime2,waypointPosition [_grp,_currentWP]];
+									_cleanup = [getPos vehicle _leader,time+30,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
 									_grp setVariable ["_cleanup",_cleanup];
 									_true = true;
 								};
 							};
 						};
-						if(_oldTime2 < time)then{
-								{_x setVariable ["time", 0]}forEach units _grp;
+						if(_oldTime2 < time)then{ // 2 таймер
+								{_x setVariable ["time", 0]}forEach units _grp; // на удаление
 								_true = true;
 						};
-					}else{
-						_cleanup = [getPos vehicle _leader,time+40,time+120,waypointPosition [_grp,_currentWP]];
+					}else{ // если маршрут изменился
+						_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; // обновление позиции
 						_grp setVariable ["_cleanup",_cleanup];
 					};
 				};
@@ -98,7 +98,7 @@ while{true}do{
 						_timeNoWP = time;
 						_grp setVariable ["_timeNoWP", _timeNoWP];
 					}else{
-						if(time > _timeNoWP + 10)then {
+						if(time > _timeNoWP + 5)then {
 							_createWP = true;
 							_grp setVariable ["_timeNoWP", nil];
 						};
@@ -126,7 +126,7 @@ while{true}do{
 
 			_wp = [_grp,_currentWP];
 			private["_wpStatements"];
-			_wpStatements = "if(!isNil {this})then{group this setVariable ['_grp_wp_completed',true]; [this,true] call m_fnc_waypoints}";
+			_wpStatements = "if(!isNil {this})then{group this setVariable ['_grp_wp_completed',true]}";
 			if!(waypointStatements _wp select 1 in [_wpStatements,"vehicle this land 'GET IN'","vehicle this land 'GET OUT'"])then{
 				_wp setWaypointStatements ["true", _wpStatements];
 			};

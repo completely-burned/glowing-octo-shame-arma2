@@ -264,7 +264,9 @@ while{true}do{
       };
     };
 
-    _grp setVariable ["_grp_wp_completed",nil];
+if (_grp_wp_completed) then {
+  _grp setVariable ["_grp_wp_completed",nil];
+};
 
   } forEach allGroups;
   sleep 0.01;

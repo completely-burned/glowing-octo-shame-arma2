@@ -234,6 +234,6 @@ if(!isNil "_leader")then{
 		_wp setWaypointCombatMode _WaypointCombatMode;
 		_wp setWaypointBehaviour _WaypointBehaviour;
 		_wp setWaypointCompletionRadius _WaypointCompletionRadius;
-		_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed',true]; [this,true] call m_fnc_waypoints}"];
+		_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed',true]}"];
 	};
 };
