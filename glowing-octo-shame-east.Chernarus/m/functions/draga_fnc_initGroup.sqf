@@ -414,10 +414,8 @@ while{!isNull _this}do{
                   };
                 };
 							};
-						};
 						if(_oldTime2 < time)then{ // 2 таймер
 								{_x setVariable ["time", 0]}forEach units _grp; // на удаление
-								_true = true;
 						};
 					}else{ // если маршрут изменился
 						_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; // обновление позиции
