@@ -34,8 +34,12 @@ draga_CONTROL_CAM_Handler = {
         _building setpos _pos;
         _building setdir _dir;
         _building setVectorUp surfaceNormal position _building;
-        showcommandingmenu "#USER:draga_Coin_categories_0";
-        draga_Coin_selectedType = nil;
+        if (draga_Coin_selectedType == draga_MHQ) then {
+            draga_COIN_QUIT = true;
+        } else {
+          showcommandingmenu "#USER:draga_Coin_categories_0";
+          draga_Coin_selectedType = nil;
+        };
       };
     };
 
