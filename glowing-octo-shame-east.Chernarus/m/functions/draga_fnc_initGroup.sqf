@@ -317,6 +317,8 @@ while{!isNull _this}do{
     	_units = units _grp;
     	_vehicles = [];
     	_types = [];
+      private ["_cargo"];
+      _cargo = [];
     	{
     		_types set [count _types, typeOf _x];
     		private ["_veh"];
@@ -325,6 +327,7 @@ while{!isNull _this}do{
     			if!(_veh in _vehicles)then{
     				_vehicles set [count _vehicles, _veh];
     				_types set [count _types, typeOf _veh];
+            _cargo = _cargo + assignedCargo _veh;
     			};
     		};
     	}forEach _units;
@@ -350,34 +353,43 @@ while{!isNull _this}do{
 					_oldPosWP = _cleanup select 3;
 					private["_pos"];
 					_pos = getPos vehicle _leader;
-					private["_true"];
-					_true = false;
 					if([waypointPosition [_grp,_currentWP], _oldPosWP] call BIS_fnc_distance2D < 5 )then{ // если маршрут не менялся
-						if!(_true)then{
 							if(waypointType [_grp, _currentWP] in ["SUPPORT"])then{ // поддержка
-								_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];
+                _oldTime = _oldTime max time+30;
+                _oldTime2 = _oldTime2 max time+120;
+								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 								_grp setVariable ["_cleanup",_cleanup];
-								_true = true;
 							};
-						};
-						if!(_true)then{
 							if(currentCommand _leader == "FIRE AT POSITION")then{ // артиллерия
-								_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];
+                _oldTime = _oldTime max time+30;
+                _oldTime2 = _oldTime2 max time+120;
+								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 								_grp setVariable ["_cleanup",_cleanup];
-								_true = true;
 							};
-						};
-						if!(_true)then{
+              if({currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} count _units > 0 )then{ // ATTACK
+                _oldTime = _oldTime max time+30;
+                _oldTime2 = _oldTime2 max time+60;
+								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
+								_grp setVariable ["_cleanup",_cleanup];
+							};
+							if({currentCommand _x in ["GET OUT","GET IN"]} count _cargo+_units > 0 )then{ // GET OUT
+                _oldTime = _oldTime max time+20;
+                _oldTime2 = _oldTime2 max time+40;
+								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
+								_grp setVariable ["_cleanup",_cleanup];
+							};
 							if(_oldTime < time)then{ // 1 таймер
 								if(_oldPos distance _pos >= 5)then{ // сдвинулись
                   if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{ // на точке
-  									_cleanup = [getPos vehicle _leader,time+120,time+240,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
+                    _oldTime = _oldTime max time+120;
+                    _oldTime2 = _oldTime2 max time+240;
+  									_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
   									_grp setVariable ["_cleanup",_cleanup];
-  									_true = true;
                   }else{
-                    _cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
+                    _oldTime = _oldTime max time+30;
+                    _oldTime2 = _oldTime2 max time+120;
+                    _cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
   									_grp setVariable ["_cleanup",_cleanup];
-  									_true = true;
                   };
 								}else{
 									while {(count (waypoints _grp)) > 0} do // не сдвинулись
@@ -385,18 +397,19 @@ while{!isNull _this}do{
 										deleteWaypoint ((waypoints _grp) select 0); // для создание другого маршрута
 									};
                   if(_heli)then{
-                    _cleanup = [getPos vehicle _leader,time+10,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
+                    _oldTime = _oldTime max time+10;
+                    _cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
   									_grp setVariable ["_cleanup",_cleanup];
-  									_true = true;
                   }else{
                     if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{ // на точке
-                      _cleanup = [getPos vehicle _leader,time+120,time+240,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
+                      _oldTime = _oldTime max time+120;
+                      _oldTime2 = _oldTime2 max time+240;
+                      _cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
     									_grp setVariable ["_cleanup",_cleanup];
-    									_true = true;
                     }else{
-                      _cleanup = [getPos vehicle _leader,time+30,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
+                      _oldTime = _oldTime max time+30;
+                      _cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
     									_grp setVariable ["_cleanup",_cleanup];
-    									_true = true;
                     };
                   };
                 };
