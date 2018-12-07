@@ -346,27 +346,32 @@ while{!isNull _this}do{
 							};
 						};
 						if!(_true)then{
-							if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{ // на точке
-								_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];
-								_grp setVariable ["_cleanup",_cleanup];
-								_true = true;
-							};
-						};
-						if!(_true)then{
 							if(_oldTime < time)then{ // 1 таймер
 								if(_oldPos distance _pos >= 5)then{ // сдвинулись
-									_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
-									_grp setVariable ["_cleanup",_cleanup];
-									_true = true;
+                  if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{ // на точке
+  									_cleanup = [getPos vehicle _leader,time+120,time+240,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
+  									_grp setVariable ["_cleanup",_cleanup];
+  									_true = true;
+                  }else{
+                    _cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
+  									_grp setVariable ["_cleanup",_cleanup];
+  									_true = true;
+                  };
 								}else{
 									while {(count (waypoints _grp)) > 0} do // не сдвинулись
 									{
 										deleteWaypoint ((waypoints _grp) select 0); // для создание другого маршрута
 									};
-									_cleanup = [getPos vehicle _leader,time+30,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
-									_grp setVariable ["_cleanup",_cleanup];
-									_true = true;
-								};
+                  if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{ // на точке
+  									_cleanup = [getPos vehicle _leader,time+120,time+240,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
+  									_grp setVariable ["_cleanup",_cleanup];
+  									_true = true;
+                  }else{
+                    _cleanup = [getPos vehicle _leader,time+30,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
+  									_grp setVariable ["_cleanup",_cleanup];
+  									_true = true;
+                  };
+                };
 							};
 						};
 						if(_oldTime2 < time)then{ // 2 таймер
