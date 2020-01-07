@@ -1,9 +1,14 @@
 ﻿private["_visible","_Pos","_distance","_player","_playerVeh"];
 _Pos = _this select 0;
 if (typeName _Pos == typeName objNull) then {
-    _Pos = vehicle _Pos;
+	_Pos = vehicle _Pos;
 };
-_distance = _this select 1;
+
+if (count _this > 1) then {
+	_distance = _this select 1;
+}else{
+	_distance = -1;
+};
 _visible = false;
 _player = objNull;
 if(isMultiplayer)then{
