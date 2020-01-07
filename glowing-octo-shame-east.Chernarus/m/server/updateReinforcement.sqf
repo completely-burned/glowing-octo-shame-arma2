@@ -117,7 +117,7 @@ while{true}do{
 				};
 			};
 			if (debug) then {
-				player globalChat format ["UpdateReinforcement.sqf: %1", _all_groups];
+				// player globalChat format ["UpdateReinforcement.sqf: %1", _all_groups];
 			};
 		};
 	};
