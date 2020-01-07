@@ -1,26 +1,42 @@
 waitUntil{time >= 10};
 
-private["_fps_array","_fps_array_size","_fps","_currFrameNo16"];
-_fps_array=[];
-_fps_array_size=180;
+private["_fps_array","_fps_array_time"];
+_fps_array = [];
+_fps_array_time = [];
+
+private["_fps","_fps_array_size"];
+_fps = 0;
+_fps_array_size = 0;
+
+private["_FrameNo16"];
+
 while{true}do{
 
-	_currFrameNo16 = diag_frameno +16;
+	_FrameNo16 = diag_frameno +16;
 
-	_fps_array=_fps_array+[diag_fps];
+	_fps_array 		set [count _fps_array, 		diag_fps		];
+	_fps_array_time set [count _fps_array_time, time + draga_server_diag_fps_interval];
 
-	if(count _fps_array > _fps_array_size)then{
-		_fps_array set [0,-1];
-		_fps_array = _fps_array - [-1];
+	for "_i" from 0 to (count _fps_array_time - 1) do {
+		if( _fps_array_time select _i < time )then{
+			_fps_array set [_i, -1];
+			_fps_array_time set [_i, -1];
+		}else{
+			_fps = _fps + (_fps_array select _i);
+			_fps_array_size = _fps_array_size +1;
+		};
 	};
 
-	_fps = _fps_array select 0;
-	{
-		_fps = _fps min _x;
-	}forEach _fps_array;
+	_fps_array = _fps_array - [-1];
+	_fps_array_time = _fps_array_time - [-1];
+
+	_fps = _fps / _fps_array_size;
 
 	serverFPS=_fps;
 
-	while {_currFrameNo16 > diag_frameno} do {Sleep 0.001};
+	_fps = 0;
+	_fps_array_size = 0;
+
+	while {_FrameNo16 > diag_frameno} do {Sleep 0.001};
 
 };
