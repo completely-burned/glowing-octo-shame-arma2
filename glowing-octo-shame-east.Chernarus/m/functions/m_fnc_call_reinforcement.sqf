@@ -132,7 +132,7 @@ _cargo2 = _cargo - (units (_groups select 0));
 	_x setSkill m_skill;
 	_x enableAI "TARGET";
 	_x enableAI "AUTOTARGET";
-	_x disableAI "FSM";
+	// _x disableAI "FSM";
 	_x setSkill ["commanding", 1];
 } foreach _units + _vehicles;
 
