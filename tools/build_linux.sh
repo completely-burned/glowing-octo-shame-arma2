@@ -11,7 +11,7 @@ if [ ! -d ${DIR}/tmp ]; then
 fi
 
 if [ ! -d ${DIR}/out ]; then
-        mkdir ${DIR}/out
+	mkdir ${DIR}/out
 fi
 
 V=$(grep briefingName ${DIR}/glowing-octo-shame-east.Chernarus/mission.sqm | sed -e 's/.*glowing-octo-shame v\(.*\) .* .*/\1/' -e 's/\./\-/gi')
@@ -81,4 +81,3 @@ makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Mountains_ACR ${DIR}/out/glowing-
 ln -s ./../glowing-octo-shame-east.Woodland_ACR ${DIR}/tmp/glowing-octo-shame-east.Woodland_ACR
 
 makepbo -NM ${DIR}/tmp/glowing-octo-shame-east.Woodland_ACR ${DIR}/out/glowing-octo-shame-east-${V}.woodland_acr.pbo
-
