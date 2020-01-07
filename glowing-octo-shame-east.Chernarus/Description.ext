@@ -14,7 +14,7 @@ aiKills = 0;
 weaponPool = 1;
 debriefing = 0;
 loadScreen = "ca\missions_e\scenarios\SPE1_OneShotOneKill.Takistan\loading_oneshotonekill_co.paa";
-author="http://github.com/fearOfSociety/glowing-octo-shame-arma2";
+author="http://github.com/completely-burned/glowing-octo-shame-arma2";
 
 // class cfgFunctions {
 // };
