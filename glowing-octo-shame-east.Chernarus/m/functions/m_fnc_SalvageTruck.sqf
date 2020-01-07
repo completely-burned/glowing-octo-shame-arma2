@@ -1,8 +1,10 @@
+private["_veh"];
 if ([[_this], listSalvageTruck] call m_fnc_CheckIsKindOfArray) then {
 	if (alive driver _this) then {
 		{
-			if (!alive _x or !canMove _x) then {
-				deleteVehicle _x;
+			_veh = _x;
+			if ( !alive _veh or ( !canMove _veh && ( {alive _x} count crew _veh == 0) ) ) then {
+				deleteVehicle _veh;
 			};
 		} forEach nearestObjects [getPos _this, ["AllVehicles"], 10];
 	};
