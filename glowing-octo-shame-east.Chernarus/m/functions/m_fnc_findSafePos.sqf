@@ -1,5 +1,8 @@
 ﻿	// diag_log format ["m_fnc_findSafePos.sqf 1, %1", time];
 
+private["_run_timer"];
+_run_timer = time;
+
 private ["_pos","_minDist","_maxDist","_objDist","_waterMode","_maxGradient","_shoreMode","_blacklist","_side","_posX","_posY","_dist","_attempts","_visible","_testPos","_preferRoads"];
 _pos = _this select 0;
 _minDist = _this select 1;
@@ -119,5 +122,7 @@ while {_visible} do {
 };
 
 	// diag_log format ["m_fnc_findSafePos.sqf 119, %1", time];
+
+diag_log format ["m_fnc_findSafePos.sqf time %1", time - _run_timer];
 
 _testPos;
