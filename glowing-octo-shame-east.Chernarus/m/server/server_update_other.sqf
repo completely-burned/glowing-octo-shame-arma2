@@ -61,7 +61,7 @@ forEach (allMissionObjects 'MASH');
 				_deleteList set [count _deleteList,_box];
 			};
 			if ({alive _x} count (nearestObjects [_box, draga_objectsReammo, draga_distanceReammo]) > 0) then {
-				_box call m_fnc_updateReammoBox;
+				// _box call m_fnc_updateReammoBox; // переполнение
 			};
 		};
 	};
