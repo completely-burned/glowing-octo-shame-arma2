@@ -12,6 +12,7 @@ _path = "m\server\";
 [] execVM (_path + "server_update_groups.sqf");
 [] execVM (_path + "server_update_wp.sqf");
 [] execVM (_path + "transport.sqf");
+[] execVM (_path + "server_update_StaticWeapon.sqf");
 
 private ["_time2","_delay","_time2_select"];
 _time2 = [time,time,time,time,time,time,time,time,time,time,time,time,time,time];
