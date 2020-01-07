@@ -91,7 +91,7 @@ _deleteList=[];
 
 		_veh call m_fnc_SalvageTruck;
 
-		_veh call draga_fnc_StaticWeapon;
+		// _veh call draga_fnc_StaticWeapon;
 
 		_veh call draga_fnc_uav;
 
