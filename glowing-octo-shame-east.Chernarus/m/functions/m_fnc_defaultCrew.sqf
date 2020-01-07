@@ -2,6 +2,12 @@ private["_side","_type","_typeCrew"];
 _side = _this select 0;
 _type = _this select 1;
 
+if(count _this > 2)then{
+	_side = _this select 2;
+};
+
+_typeCrew = "";
+
 if(_side == west)then{
 	if(_type isKindOf "Air")then{
 		_typeCrew = "US_Soldier_Pilot_EP1";
@@ -30,4 +36,4 @@ if(_side == civilian)then{
 	_typeCrew = "TK_CIV_Takistani01_EP1";
 };
 
-_typeCrew
+_typeCrew;

@@ -18,7 +18,7 @@ if ((count _this) > 2) then {
 	if (((getNumber (_entry >> "side")) call m_fnc_getSide) == side _grp) then {
 		_crewType = getText (_entry >> "crew");
 	}else{
-		_crewType = ([side _grp, _type] call m_fnc_defaultCrew);
+		_crewType = ([_grp, _type, side _grp] call m_fnc_defaultCrew);
 	};
 };
 
