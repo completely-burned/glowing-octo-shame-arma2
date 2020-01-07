@@ -130,6 +130,12 @@ _getOut=[];
 						_allowGetin=true;
 					};
 				};
+
+				if!(_allowGetin)then{
+					if(_assignedVehicle isKindOf "StaticWeapon")then{
+						_allowGetin=true;
+					};
+				};
 			};
 		};
 
