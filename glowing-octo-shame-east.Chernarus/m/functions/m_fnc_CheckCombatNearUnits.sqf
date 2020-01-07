@@ -1,4 +1,4 @@
-﻿private["_visible","_Pos","_distance","_side"];
+﻿private["_visible","_Pos","_distance","_side","_grp"];
 // _Pos = (position ( _this select 0 ));
 // _Pos resize 2;
 _Pos =  ( _this select 0 );
@@ -7,13 +7,14 @@ _side = ( _this select 2 );
 _visible = false;
 ScopeName "Check";
 {
-	if ((side _x) in [west,east,resistance]) then {
-		if (( _side getFriend (side _x) ) >= 0.6 ) then {
-			private["_leader"];
-			_leader = (leader _x);
-			if (!isNull _leader) then {
-				if (!isPlayer _leader) then {
-					if ((behaviour _leader) == "COMBAT") then {
+	_grp = _x;
+	if ((side _grp) in [west,east,resistance]) then {
+		if (( _side getFriend (side _grp) ) >= 0.6 ) then {
+			if( {isPlayer _x} count units _grp == 0 )then{
+				if( {currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} count units _grp > 0 )then{ // ATTACK
+					private["_leader"];
+					_leader = (leader _grp);
+					if (!isNull _leader) then {
 						if ((_Pos distance vehicle _leader) <= _distance) then {
 								_visible = true;
 								BreakTo "Check";
@@ -23,6 +24,8 @@ ScopeName "Check";
 			};
 		};
 	};
-	// sleep 0.01;
 } forEach allGroups;//( _Pos nearEntities [["Man","Car","Motorcycle","Tank"],_distance] );
+
+diag_log format ["m_fnc_CheckCombatNearUnits.sqf %1  %2", _grp, _visible ];
+
 _visible;
