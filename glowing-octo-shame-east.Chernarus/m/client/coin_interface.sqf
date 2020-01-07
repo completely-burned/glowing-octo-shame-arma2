@@ -30,10 +30,10 @@ draga_CONTROL_CAM_Handler = {
         _dir = direction draga_Coin_preview;
         deletevehicle draga_Coin_preview;
         deletevehicle draga_objectCoin;
-        _building = draga_Coin_selectedType createvehicle _pos;
-        _building setpos _pos;
+        _building = draga_Coin_selectedType createvehicle [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)), (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
         _building setdir _dir;
-        _building setVectorUp surfaceNormal position _building;
+        _building setVectorUp surfaceNormal _pos;
+        _building setpos _pos;
         if (draga_Coin_selectedType == draga_MHQ) then {
             draga_COIN_QUIT = true;
         } else {

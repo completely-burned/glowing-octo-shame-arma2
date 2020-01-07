@@ -26,7 +26,7 @@ _hasDriver = getNumber (_entry >> "hasDriver");
 
 if ((_hasDriver == 1) && (isNull (driver _vehicle))) then
 {
-		_unit = _grp createUnit [_crewType, position _vehicle, [], 0, "FORM"];
+		_unit = _grp createUnit [_crewType, [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "FORM"];
 		_crew = _crew + [_unit];
 
 		_unit moveInDriver _vehicle;
@@ -41,9 +41,9 @@ if(_type == "FDF_leopard2a4")then{
 {
 	if (isNull (_vehicle turretUnit _x)) then {
 		if(count _typicalCargo > count _crew)then{
-			_unit = _grp createUnit [(_typicalCargo select (count _crew)), position _vehicle, [], 0, "FORM"];
+			_unit = _grp createUnit [(_typicalCargo select (count _crew)), [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)), (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "FORM"];
 		}else{
-			_unit = _grp createUnit [_crewType, position _vehicle, [], 0, "FORM"];
+			_unit = _grp createUnit [_crewType, [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)), (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "FORM"];
 		};
 		_crew = _crew + [_unit];
 		_unit moveInTurret [_vehicle, _x];

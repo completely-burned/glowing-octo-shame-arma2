@@ -91,6 +91,8 @@ draga_objectsCoinMHQ = listMHQ;
 draga_distanceCoinMHQ = 15;
 draga_BuyDistance = draga_distanceCoinBase;
 respawnSafeDistance = 10;
+draga_posDefaultHiden = [200000, 200000];
+draga_posDefaultHidenRandom = 5000;
 
 Officers = [
 	"RU_Commander","RU_Soldier_Officer","Ins_Commander","TK_Soldier_Officer_EP1","TK_Aziz_EP1","TK_INS_Warlord_EP1",
