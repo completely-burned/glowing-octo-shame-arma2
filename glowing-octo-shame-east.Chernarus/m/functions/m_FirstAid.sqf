@@ -23,7 +23,7 @@ if (_unit getvariable "BIS_lifestate" == "UNCONSCIOUS") then {
 		};
 		if(_veh != _unit)then{
 			if(!(_veh isKindOf "ParachuteBase"))then{
-				_unit action ["Eject", _veh];
+				// _unit action ["Eject", _veh];
 			};
 		};
 	};
