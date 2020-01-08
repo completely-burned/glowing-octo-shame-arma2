@@ -26,6 +26,8 @@ ScopeName "Check";
 	};
 } forEach allGroups;//( _Pos nearEntities [["Man","Car","Motorcycle","Tank"],_distance] );
 
-diag_log format ["m_fnc_CheckCombatNearUnits.sqf %1  %2", _grp, _visible ];
+if (draga_loglevel > 0) then {
+	diag_log format ["m_fnc_CheckCombatNearUnits.sqf %1  %2", _grp, _visible ];
+};
 
 _visible;
