@@ -38,9 +38,9 @@ m_fnc_Locations_weights={
 	[_this,_weights];
 };
 
-waitUntil {!isNil "AllGroupsWestOld"};
-waitUntil {!isNil "AllGroupsEastOld"};
-waitUntil {!isNil "AllGroupsGuerrilaOld"};
+waitUntil {!isNil "AllGroupsWest"};
+waitUntil {!isNil "AllGroupsEast"};
+waitUntil {!isNil "AllGroupsGuer"};
 // private["_locationNext"];
 locationNext={
 	if(!isNil {CivilianLocation})then{
@@ -88,9 +88,9 @@ locationNext={
 	private["_grps_rarity"];
 	_grps_rarity = CivilianLocation getVariable "_grps_rarity";
 	if (isNil {_grps_rarity}) then {
-		AllGroupsWest 		= AllGroupsWestOld;
-		AllGroupsEast 		= AllGroupsEastOld;
-		AllGroupsGuerrila 	= AllGroupsGuerrilaOld;
+		LocationAllGroupsWest =+ AllGroupsWest;
+		LocationAllGroupsEast =+ AllGroupsEast;
+		LocationAllGroupsGuer =+ AllGroupsGuer;
 	}else{
 		private["_fnc4"];
 		_fnc4={
@@ -111,9 +111,9 @@ locationNext={
 			_grp
 		};
 
-		AllGroupsWest 		= ([AllGroupsWestOld, _grps_rarity] call _fnc4);
-		AllGroupsEast 		= ([AllGroupsEastOld, _grps_rarity] call _fnc4);
-		AllGroupsGuerrila 	= ([AllGroupsGuerrilaOld, _grps_rarity] call _fnc4);
+		LocationAllGroupsWest =+ ([AllGroupsWest, _grps_rarity] call _fnc4);
+		LocationAllGroupsEast =+ ([AllGroupsEast, _grps_rarity] call _fnc4);
+		LocationAllGroupsGuer =+ ([AllGroupsGuer, _grps_rarity] call _fnc4);
 	};
 
 	"MainTown" setMarkerPos civilianBasePos;

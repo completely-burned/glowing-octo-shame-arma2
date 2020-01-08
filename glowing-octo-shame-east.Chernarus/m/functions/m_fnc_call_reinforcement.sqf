@@ -39,22 +39,6 @@ if(_patrol)then{
 	switch (_side) do {
 		case (east):
 		{
-			_typeList=AllGroupsEastOld;
-		};
-		case (west):
-		{
-			_typeList=AllGroupsWestOld;
-		};
-		case (resistance):
-		{
-			_typeList=AllGroupsGuerrilaOld;
-		};
-		default {};
-	};
-}else{
-	switch (_side) do {
-		case (east):
-		{
 			_typeList=AllGroupsEast;
 		};
 		case (west):
@@ -63,7 +47,23 @@ if(_patrol)then{
 		};
 		case (resistance):
 		{
-			_typeList=AllGroupsGuerrila;
+			_typeList=AllGroupsGuer;
+		};
+		default {};
+	};
+}else{
+	switch (_side) do {
+		case (east):
+		{
+			_typeList=LocationAllGroupsEast;
+		};
+		case (west):
+		{
+			_typeList=LocationAllGroupsWest;
+		};
+		case (resistance):
+		{
+			_typeList=LocationAllGroupsGuer;
 		};
 		default {};
 	};

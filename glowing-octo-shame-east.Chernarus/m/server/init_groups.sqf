@@ -9,7 +9,7 @@ for [{_n = 0},{_n < 100},{_n = _n + 1}] do {
 	if !(isNil format ["PosBlacklist_%1",_n]) then {
 		PosBlacklist = PosBlacklist + [call compile format  ["PosBlacklist_%1",_n]];
 	};
-};	
+};
 
 private["_fnc4","_fnc1","_fnc5"];
 _fnc5={
@@ -26,7 +26,7 @@ _fnc5={
 					 BreakTo "Check_fnc5";
 				};
 			}forEach _types;
-			
+
 			if (_true) then {
 				[_grp, [1, _i],  0] call BIS_fnc_setNestedElement;
 			};
@@ -51,7 +51,7 @@ _fnc4={
 				_rarity = ((_rarity * (_x select 1))/_max_rarity);
 				[_grp, [1, _i],  _rarity] call BIS_fnc_setNestedElement;
 			};
-		
+
 		}forEach (_this select 1);
 	};
 	_grp
@@ -80,17 +80,17 @@ _fnc1={
 // };
 [] call compile preprocessFileLineNumbers "m\server\config_groups.sqf";
 
-AllGroupsWest 		= AllGroupsWest call _fnc1;
-AllGroupsEast 		= AllGroupsEast call _fnc1;
-AllGroupsGuerrila 	= AllGroupsGuerrila call _fnc1;
+AllGroupsWest = AllGroupsWest call _fnc1;
+AllGroupsEast = AllGroupsEast call _fnc1;
+AllGroupsGuer = AllGroupsGuer call _fnc1;
 
-AllGroupsWest 		= AllGroupsWest call _fnc5;
-AllGroupsEast 		= AllGroupsEast call _fnc5;
-AllGroupsGuerrila 	= AllGroupsGuerrila call _fnc5;
+AllGroupsWest = AllGroupsWest call _fnc5;
+AllGroupsEast = AllGroupsEast call _fnc5;
+AllGroupsGuer = AllGroupsGuer call _fnc5;
 
-AllGroupsWestOld 		= AllGroupsWest;
-AllGroupsEastOld 		= AllGroupsEast;
-AllGroupsGuerrilaOld	= AllGroupsGuerrila;
+//AllGroupsWestOld 		= AllGroupsWest;
+//AllGroupsEastOld 		= AllGroupsEast;
+//AllGroupsGuerrilaOld	= AllGroupsGuerrila;
 
 _arr13453=[
 	[["Air"], 				missionNamespace getVariable "Air"],
@@ -110,8 +110,8 @@ _arr13453=[
 // AllGroupsEastOld 		= ([AllGroupsEastOld, [[["Air"],0.5]]] call _fnc4);
 // AllGroupsGuerrilaOld 	= ([AllGroupsGuerrilaOld, [[["Air"],0.5]]] call _fnc4);
 
-AllGroupsWest 		= ([AllGroupsWestOld, _arr13453] call _fnc4);
-AllGroupsEast 		= ([AllGroupsEastOld, _arr13453] call _fnc4);
-AllGroupsGuerrila 	= ([AllGroupsGuerrilaOld, _arr13453] call _fnc4);
+AllGroupsWest = ([AllGroupsWest, _arr13453] call _fnc4);
+AllGroupsEast = ([AllGroupsEast, _arr13453] call _fnc4);
+AllGroupsGuer = ([AllGroupsGuer, _arr13453] call _fnc4);
 
 GroupsStarted=true;

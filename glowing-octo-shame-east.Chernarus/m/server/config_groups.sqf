@@ -1073,4 +1073,4 @@ if(configName(LIB_cfgVeh >> "PLA_Soldier_SL") != "")then{
 
 AllGroupsWest=_west;
 AllGroupsEast=_east;
-AllGroupsGuerrila=_guer;
+AllGroupsGuer=_guer;
