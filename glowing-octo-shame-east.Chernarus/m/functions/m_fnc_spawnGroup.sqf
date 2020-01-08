@@ -82,15 +82,15 @@ _groups = [];
 
 		private ["_bestCandidate","_units"];
 		_units = units _grp;
-		_bestCandidate = objNull;
-		if ((count _ranks) > 0) then {
-			{
-				if ((rankId _x) > (rankId _bestCandidate)) then {
-					_bestCandidate = _x;
-				};
-			}forEach _units;
-		};
-		if (!isNull _bestCandidate) then {
+		if ((count _units) > 0) then {
+			_bestCandidate = _units select 0;
+			if ((count _ranks) > 0) then {
+				{
+					if ((rankId _x) > (rankId _bestCandidate)) then {
+						_bestCandidate = _x;
+					};
+				}forEach _units;
+			};
 			_grp selectLeader _bestCandidate;
 		};
 	};
