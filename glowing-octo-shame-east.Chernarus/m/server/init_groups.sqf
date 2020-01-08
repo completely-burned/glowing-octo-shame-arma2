@@ -95,7 +95,8 @@ AllGroupsGuer = AllGroupsGuer call _fnc5;
 _arr13453=[
 	[["Air"], 				missionNamespace getVariable "Air"],
 	[["Tank"], 				missionNamespace getVariable "Tank"],
-	[["Car","Motorcycle","Ship"], missionNamespace getVariable "Car"]
+	[["Car","Motorcycle","Ship"], missionNamespace getVariable "Car"],
+	[["StaticWeapon"], 0]
 ];
 
 // _arr13453=[
