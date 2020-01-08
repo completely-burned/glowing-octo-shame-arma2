@@ -302,11 +302,10 @@ _getOut=[];
 	if!(_allowGetin)then{
 		_getOut set [count _getOut,_x];
 	};
-	sleep 0.01;
+
 } forEach allUnits-playableUnits-switchableUnits;
 
 _getOut allowGetin false;
-// {unassignVehicle _x} forEach _getOut; // глючно, но это надо, а может нет
 
 allUnits-_getOut allowGetin true;
 
