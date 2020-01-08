@@ -350,9 +350,12 @@ while{!isNull _this}do{
 			};
 
 			if(isPlayer _leader)then{
-				while {(count (waypoints _grp)) > 0} do
-				{
-					deleteWaypoint ((waypoints _grp) select 0);
+				if ( count waypoints _grp > 0 ) then{
+					[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
+					sleep 1;
+					for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+						deleteWaypoint [_grp, _i];
+					};
 				};
 				if (draga_loglevel > 0) then {
 					diag_log format ["draga_fnc_initGroup.sqf %1 isPlayer _leader deleteWaypoints", _grp ];
