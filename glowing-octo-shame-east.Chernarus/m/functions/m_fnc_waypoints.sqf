@@ -37,7 +37,7 @@ if(!isNil "_leader")then{
 
 	if(count _waypoints <= _currentWP)then{
 		private["_WaypointCombatMode"];
-		_WaypointCombatMode = "RED";
+		_WaypointCombatMode = "YELLOW";
 
 		private["_WaypointBehaviour"];
 		_WaypointBehaviour = "AWARE";
@@ -101,6 +101,7 @@ if(!isNil "_leader")then{
 			_maxDist = 4000;
 			_WaypointCompletionRadius = 500;
 			_SpeedMode = "FULL";
+			_WaypointCombatMode = "RED";
 		}else{
 			_maxDist = sizeLocation ;
 			_WaypointCompletionRadius = 50;
