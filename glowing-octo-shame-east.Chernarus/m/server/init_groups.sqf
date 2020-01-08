@@ -93,8 +93,9 @@ AllGroupsGuer = AllGroupsGuer call _fnc5;
 //AllGroupsGuerrilaOld	= AllGroupsGuerrila;
 
 _arr13453=[
-	[["Air"], 				missionNamespace getVariable "Air"],
-	[["Tank"], 				missionNamespace getVariable "Tank"],
+	[["Man"], 					missionNamespace getVariable "Man"],
+	[["Air"], 					missionNamespace getVariable "Air"],
+	[["Tank"], 					missionNamespace getVariable "Tank"],
 	[["Car","Motorcycle","Ship"], missionNamespace getVariable "Car"],
 	[["StaticWeapon"], 0]
 ];
