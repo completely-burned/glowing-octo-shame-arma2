@@ -2,6 +2,7 @@
 	failMission "LOSER";
 }else{
 	debug=false;
+	draga_loglevel = 0;
 	if (!IsDedicated) then {
 		[] execVM "m\client\playerSetPos.sqf";
 	};
