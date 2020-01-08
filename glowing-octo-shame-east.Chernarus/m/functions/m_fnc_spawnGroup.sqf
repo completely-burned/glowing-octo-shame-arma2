@@ -37,10 +37,10 @@ _groups = [];
 	_azimuth = random 360;
 
 	for "_i" from 0 to ((count _types) - 1) do {
-		
+
 			private ["_unit", "_type"];
 			_type = _types select _i;
-			
+
 			private ["_itemPos"];
 			if ((count _positions) > 0) then {
 				private ["_relPos"];
@@ -49,8 +49,8 @@ _groups = [];
 			} else {
 				_itemPos = _pos;
 			};
-		
-			if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {	
+
+			if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
 				_unit = _grp createUnit [_type, _itemPos, [], 0, "FORM"];
 				_unit setDir _azimuth;
 			} else {
@@ -62,7 +62,7 @@ _groups = [];
 				};
 				_unit = _fnc_spawnVehicle select 0;
 			};
-			
+
 			if (((count _ranks) > 0)) then {
 				_unit setRank (_ranks select _i);
 			}else{
@@ -77,12 +77,12 @@ _groups = [];
 						if(_cost>=750000)then{_rank="COLONEL"};
 						_unit setRank _rank;
 			};
-			
+
 	};
 
 	private ["_bestCandidate","_units"];
 	_units = units _grp;
-	_bestCandidate = (_units select 0);
+	_bestCandidate = objNull;
 	if ((count _ranks) > 0) then {
 		{
 			if ((rankId _x) > (rankId _bestCandidate)) then {
@@ -90,7 +90,9 @@ _groups = [];
 			};
 		}forEach _units;
 	};
-	_grp selectLeader _bestCandidate;
+	if (!isNull _bestCandidate) then {
+		_grp selectLeader _bestCandidate;
+	};
 	};
 
 }forEach (_this select 2);
