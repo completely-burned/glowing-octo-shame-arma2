@@ -45,7 +45,7 @@ _fnc4={
 	for "_i" from 0 to ((count (_grp select 0)) - 1) do {
 		_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
 		{
-			if ([_types, _x select 0] call m_fnc_CheckIsKindOfArray) then {
+			if( ([_types, _x select 0] call m_fnc_CheckIsKindOfArray) && !([_types, ["AllVehicles"], _x select 0] call m_fnc_CheckIsKindOfArray) )then {
 				private["_rarity"];
 				_rarity = ([_grp, [1, _i]] call BIS_fnc_returnNestedElement);
 				_rarity = ((_rarity * (_x select 1))/_max_rarity);
