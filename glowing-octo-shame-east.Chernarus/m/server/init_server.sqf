@@ -101,7 +101,7 @@ waitUntil {!isNil "BIS_fnc_init"};
 	// (group_logic) createUnit ["WeatherPostprocessManager",[1000,10,0],[],0,"none"];
 	// (group_logic) createUnit ["WeatherParticlesManager",[1000,10,0],[],0,"none"];
 // };
-(group_logic) createUnit ["BIS_clouds_Logic",[1000,10,0],[],0,"none"];
+// (group_logic) createUnit ["BIS_clouds_Logic",[1000,10,0],[],0,"none"];
 
 // гражданские
 // if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk"])then{
