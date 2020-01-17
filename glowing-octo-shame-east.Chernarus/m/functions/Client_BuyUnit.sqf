@@ -171,15 +171,19 @@ if (true) then {
 			if(_type isKindOf "UAV")then{
 				Private["_veh"];
 				if (count _Objects > 0) then {
-					Private["_Object"];
-					_Object = (_Objects select 0);
-					Private["_dir"];
-					_dir = direction _Object;
 					Private["_pos"];
 					_pos = position (_Objects select 0);
-					_pos = ([_pos, (sizeOf typeOf _Object) / 2 + (sizeOf _type) / 2, (180 + _dir)] call BIS_fnc_relPos);
-					_veh = createVehicle [_type, _pos, [], 20, "FORM"];
-					_veh setDir (180 + _dir);
+					Private["_side","_grp","_wp"];
+					_side = playerSide;
+					_grp = createGroup _side;
+					_pos = ([_pos]+([[_type]] call m_fnc_SafePosParams)+[_side] call m_fnc_findSafePos);
+					Private["_veh"];
+					_veh = [_pos, random 360, _type, _grp] call m_fnc_spawnVehicle;
+					_veh = _veh select 0;
+					_veh call _fnc_1;
+					_wp = _grp addWaypoint [getPos player, 100];
+					_wp setWaypointType "MOVE";
+					hint format["%1: %2", localize "str_support_done", _type];
 				}else{
 					Private["_pos"];
 					_pos = position vehicle player;
