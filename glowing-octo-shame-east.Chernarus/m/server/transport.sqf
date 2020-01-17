@@ -46,7 +46,9 @@ while{true}do{
 								_grp = group effectiveCommander _veh;
 								// diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, не поврежден", _x, _transportPlayer];
 							}else{
-								diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, поврежден", _x, _transportPlayer];
+								if (draga_loglevel > 0) then {
+									diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, поврежден", _x, _transportPlayer];
+								};
 
 								diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, удаление маршрута", _x, _transportPlayer];
 								private["_grpwpdel"];
@@ -63,7 +65,9 @@ while{true}do{
 									deleteWaypoint ((waypoints _grpwpdel) select 0);
 								};
 
-								diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, отмена посадки", _x, _transportPlayer];
+								if (draga_loglevel > 0) then {
+									diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, отмена посадки", _x, _transportPlayer];
+								};
 								_x land "NONE";
 							};
 						};
@@ -121,7 +125,9 @@ while{true}do{
 					_grp = createGroup side _player;
 					_veh = ([_pos_resp, random 360, _heli_types call BIS_fnc_selectRandom, _grp] call m_fnc_spawnVehicle) select 0;
 					_veh setVariable ["transportPlayer", _player];
-					diag_log format ["transport.sqf транспорт %1 создан, закрепление за игроком %2", _veh, _player];
+					if (draga_loglevel > 0) then {
+						diag_log format ["transport.sqf транспорт %1 создан, закрепление за игроком %2", _veh, _player];
+					};
 				};
 				if(!isNull _veh)then{
 					//создание маршрута сбора
@@ -129,7 +135,9 @@ while{true}do{
 					_pos2_destination = _grp getVariable "draga_transportwaypoint_created_GET_IN_pos";
 					if(isNil {_pos2_destination})then{
 						//создание маршрута сбора
-						diag_log format ["transport.sqf транспорт %1 движение к месту сбора", _veh];
+						if (draga_loglevel > 0) then {
+							diag_log format ["transport.sqf транспорт %1 движение к месту сбора", _veh];
+						};
 						_grp setVariable ["grp_created_time", time];
 						private["_m_fnc_waypoints"];
 						_m_fnc_waypoints = _grp getVariable "_m_fnc_waypoints";
@@ -149,14 +157,18 @@ while{true}do{
 						_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", _var_player_pos];
 						_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", nil];
 						_veh setVariable ["transportPos", nil];
-						diag_log format ["transport.sqf транспорт %1 движение к draga_transportwaypoint_created_GET_IN_pos, %2, GREEN, LOAD, (vehicle this land 'GET IN')", _veh, _var_player_pos];
+						if (draga_loglevel > 0) then {
+							diag_log format ["transport.sqf транспорт %1 движение к draga_transportwaypoint_created_GET_IN_pos, %2, GREEN, LOAD, (vehicle this land 'GET IN')", _veh, _var_player_pos];
+						};
 					}else{
 						if(_var_player_pos distance _pos2_destination > 10)then{
 							//новая позиция сбора
 							//удаление маршрута сбора
 							_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", nil];
 							_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", nil];
-							diag_log format ["transport.sqf транспорт %1, новое назначение, draga_transportwaypoint_created_GET_IN_pos nil, draga_transportwaypoint_created_GET_OUT_pos nil", _veh];
+							if (draga_loglevel > 0) then {
+								diag_log format ["transport.sqf транспорт %1, новое назначение, draga_transportwaypoint_created_GET_IN_pos nil, draga_transportwaypoint_created_GET_OUT_pos nil", _veh];
+							};
 						};
 					};
 				};
@@ -170,7 +182,9 @@ while{true}do{
 			_var_veh_pos_wp_created = _veh getVariable "draga_transportwaypoint_created_GET_OUT_pos";
 			if(isNil {_var_veh_pos_wp_created})then{
 				//создание маршрута высадки
-				diag_log format ["transport.sqf транспорт %1 движение к месту высадки", _veh];
+				if (draga_loglevel > 0) then {
+					diag_log format ["transport.sqf транспорт %1 движение к месту высадки", _veh];
+				};
 				_grp setVariable ["grp_created_time", time];
 				private["_m_fnc_waypoints"];
 				_m_fnc_waypoints = _grp getVariable "_m_fnc_waypoints";
@@ -190,14 +204,18 @@ while{true}do{
 				_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", _var_veh_pos];
 				_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", nil];
 				_player setVariable ["transportPos", nil];
-				diag_log format ["transport.sqf транспорт %1 движение к draga_transportwaypoint_created_GET_OUT_pos, %2, GREEN, UNLOAD, (vehicle this land 'GET OUT')", _veh, _var_veh_pos];
+				if (draga_loglevel > 0) then {
+					diag_log format ["transport.sqf транспорт %1 движение к draga_transportwaypoint_created_GET_OUT_pos, %2, GREEN, UNLOAD, (vehicle this land 'GET OUT')", _veh, _var_veh_pos];
+				};
 			}else{
 				if(_var_veh_pos distance _var_veh_pos_wp_created > 10)then{
 					//новая позиция высадки
 					//удаление маршрута высадки
 					_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", nil];
 					_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", nil];
-					diag_log format ["transport.sqf транспорт %1, новое назначение на технике, draga_transportwaypoint_created_GET_OUT_pos nil, draga_transportwaypoint_created_GET_IN_pos nil", _veh];
+					if (draga_loglevel > 0) then {
+						diag_log format ["transport.sqf транспорт %1, новое назначение на технике, draga_transportwaypoint_created_GET_OUT_pos nil, draga_transportwaypoint_created_GET_IN_pos nil", _veh];
+					};
 				};
 			};
 		};
@@ -218,7 +236,9 @@ while{true}do{
 					_veh setVariable ['transportPos',nil];
 					_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", nil];
 					_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", nil];
-					diag_log format ["transport.sqf транспорт %1, сброс, отмена", _veh];
+					if (draga_loglevel > 0) then {
+						diag_log format ["transport.sqf транспорт %1, сброс, отмена", _veh];
+					};
 				};
 			};
 		};
