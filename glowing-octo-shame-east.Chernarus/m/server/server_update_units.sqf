@@ -277,6 +277,7 @@ _getOut=[];
 					// } forEach (_x nearEntities ["Man",50]);
 				// };
 
+				// водитель лодки идиот // вход выход loop?
 				if!(_delete)then{
 					if (!isNull _assignedVehicle) then {
 						if(_assignedVehicle isKindOf "Ship")then{
@@ -289,6 +290,7 @@ _getOut=[];
 					};
 				};
 
+					// на воде
 					if (vehicle _x == _x) then {
 						if (surfaceIsWater getPos _x) then {
 							_timeIsWater = (_x getVariable "timeIsWater");
