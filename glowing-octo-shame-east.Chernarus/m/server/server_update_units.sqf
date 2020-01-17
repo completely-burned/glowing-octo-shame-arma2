@@ -162,7 +162,6 @@ _getOut=[];
 				};
 			};
 
-				//�������� ���
 				// if (true) then {
 					// if(isNull _assignedVehicle)then{
 						// _delete = true;
