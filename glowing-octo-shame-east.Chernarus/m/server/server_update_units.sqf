@@ -137,6 +137,15 @@ _getOut=[];
 					};
 				};
 			};
+
+			if (isPlayer _x) then {
+				if (vehicle _x == _x) then {
+					// _allowGetin=false;
+				}else{
+					_allowGetin=true;
+				};
+			};
+
 		};
 
 		if (!isPlayer _x) then {
@@ -321,7 +330,7 @@ _getOut=[];
 		_getOut set [count _getOut,_x];
 	};
 
-} forEach allUnits-playableUnits-switchableUnits;
+} forEach allUnits;
 
 _getOut allowGetin false;
 
