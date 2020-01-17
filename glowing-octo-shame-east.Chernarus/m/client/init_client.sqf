@@ -13,12 +13,14 @@ if(worldName == "namalsk")then{
 };
 SetGroupIconsVisible [true,false];
 
+/*
 [] spawn {
 	// BIS_Effects_AirDestructionStage2
 	waitUntil {!isNil "BIS_Effects_Secondaries"};
 	if (ACE_Avail) then {waitUntil {!isNil "WARFX_Effects_Init"}}; // ����� �� ����� ���� ������� ��� ���� ACE
 	BIS_Effects_AirDestructionStage2 = compile preprocessFileLineNumbers "m\Client\AirDestructionStage2.sqf";
 };
+*/
 
 
 [] execVM "m\client\initRespawnMarkers.sqf";
