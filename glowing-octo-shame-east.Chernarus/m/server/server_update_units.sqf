@@ -160,6 +160,7 @@ _getOut=[];
 					// };
 				// };
 
+/*
 				if (!_delete) then {
 					if (isNull _assignedVehicle) then {
 						if (isNil {group _x getVariable "patrol"}) then {
@@ -170,7 +171,10 @@ _getOut=[];
 						};
 					};
 				};
+*/
 
+/*
+				// хзчтоэто? водитель не боевой техники
 				if (!_delete) then {
 					if (!isNull _assignedVehicle) then {
 						if (getNumber(LIB_cfgWea >> currentWeapon _assignedVehicle >> "enableAttack")==0) then {
@@ -186,7 +190,9 @@ _getOut=[];
 						};
 					};
 				};
+*/
 
+/*
 				if (_delete) then {
 					if ((vehicle _x distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation)) then {
 						_delete = false;
@@ -196,15 +202,20 @@ _getOut=[];
 						};
 					};
 				};
+*/
 
+/*
+				// бегство
 				if (!_delete) then {
 					if (fleeing _x) then {
 						_delete = true;
 						_x setVariable ["time", time];
 					};
 				};
+*/
 
-				// �������� ������ ������� � �������
+/*
+				// экипаж танков и авиации
 				if (!_delete) then {
 					if([[_x], listCrew] call m_fnc_CheckIsKindOfArray)then{
 						// _assignedVehicle = assignedVehicle _x;
@@ -213,8 +224,10 @@ _getOut=[];
 						};
 					};
 				};
+*/
 
-				// �������� ����������
+/*
+				// без патронов
 				if (true) then {
 					if ((side _x) in [west,east,resistance]) then {
 						if ((count magazines _x) == 0) then {
@@ -222,7 +235,9 @@ _getOut=[];
 						};
 					};
 				};
+*/
 
+				// вылечить поврежденные ноги
 				if !(canStand _x) then {
 					if !([vehicle _x, 100] call m_fnc_CheckPlayersDistance)then{
 						_x setHit["legs",0];
@@ -282,11 +297,14 @@ _getOut=[];
 						};
 					};
 
+/*
+					// водитель поддержки
 					if(waypointType [group _x, currentwaypoint group _x] == "SUPPORT")then{
 						if(!alive _assignedVehicle or !canMove _assignedVehicle)then{
 							_delete = true;
 						};
 					};
+*/
 
 			if (_delete) then {
 				_deleteList set [count _deleteList,_x];
@@ -309,6 +327,6 @@ _getOut allowGetin false;
 
 allUnits-_getOut allowGetin true;
 
-_deleteList call fnc_cleanup;
+// _deleteList call fnc_cleanup;
 	sleep 1;
 };

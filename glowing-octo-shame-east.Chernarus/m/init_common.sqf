@@ -103,3 +103,8 @@ Officers = [
 ];
 
 [] execVM ("m\draga_update_vehicle_init.sqf");
+
+listCrewLower = [];
+{
+	listCrewLower set [count listCrewLower, toLower _x];
+} forEach listCrew;
