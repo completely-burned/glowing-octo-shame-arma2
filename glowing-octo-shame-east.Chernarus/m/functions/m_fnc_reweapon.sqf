@@ -15,7 +15,7 @@ if(count _this > 1)then{
 }else{
 	_isPlayer = false;
 };
- 
+
 private["_Bombs"];
 if(_isPlayer)then{
 	_Bombs=true;
@@ -27,16 +27,20 @@ if(_isPlayer)then{
 // private["_LaserBombs"];
 // _LaserBombs=false;
 
+private["_flyInHeight","_pos"];
+
 {
 	private["_type","_veh"];
 	_veh = _x;
 	_type = TypeOf _veh;
 
+	_pos = getPos _veh;
+
 	if(_isPlayer)then{
 		_veh allowCrewInImmobile true;
 	};
 
-	/// --- ������� --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// 
+			/// --- Air ---
 	if (_type isKindOf "Air") then{
 		_veh setSkill ["aimingAccuracy", 0.4];
 		_veh setSkill ["commanding", 1];
@@ -49,20 +53,25 @@ if(_isPlayer)then{
 			// _veh forceSpeed 10000;
 		};
 		if (_type isKindOf "UAV") then {
-			_veh flyInHeight 400 + random 300;
 			// if(!isNil "BIS_uav_0")then{ BIS_uav_0 synchronizeObjectsAdd [_veh] };
 			// if (_type isKindOf "MQ9PredatorB" && _LaserBombs) then{
-				// _veh removeMagazines "8Rnd_Hellfire";
-				// _veh removeWeapon "HellfireLauncher";
-				// _veh addMagazine "4Rnd_GBU12";
-				// _veh addMagazine "4Rnd_GBU12";
-				// _veh addWeapon "BombLauncherA10";
+				_veh removeMagazines "8Rnd_Hellfire";
+				_veh removeWeapon "HellfireLauncher";
+				_veh addMagazine "4Rnd_GBU12";
+				_veh addMagazine "4Rnd_GBU12";
+				_veh addWeapon "BombLauncherA10";
 			// };
 			if (LIB_ahAvail) then {
 				_veh call (compile "_this allowCrewInImmobile true;"); // OA
 			};
 			_veh setVehicleLock "LOCKED";
 			_veh addEventHandler ["GetOut", { deleteVehicle (_this Select 2) }];
+
+			_flyInHeight = 400 + random 300;
+			_veh flyInHeight _flyInHeight;
+			_veh setPos [_pos select 0, _pos select 1, _flyInHeight];
+			_veh setVelocity [50 * (sin getDir _veh), 50 * (cos getDir _veh), 0];
+
 		};
 		if (_type isKindOf "Ka137_Base_PMC") then{
 			if !("Laserdesignator_mounted" in weapons _veh) then {
@@ -76,6 +85,10 @@ if(_isPlayer)then{
 			_veh setSkill ["aimingAccuracy", 0.1];
 			_veh setVehicleLock "LOCKED";
 			_veh addEventHandler ["GetOut", { deleteVehicle (_this Select 2) }];
+
+			_flyInHeight = 400 + random 300;
+			_veh flyInHeight _flyInHeight;
+			_veh setPos [_pos select 0, _pos select 1, _flyInHeight];
 		};
 
 		if(!_Bombs)then{
@@ -98,7 +111,7 @@ if(_isPlayer)then{
 					_veh removeMagazine "4Rnd_FAB_250";
 					_veh addMagazine "4Rnd_Ch29";
 					_veh addWeapon "Ch29Launcher";
-					_veh removeMagazine "2Rnd_R73";
+					_veh removeMagazine "2Rnd_R73"; // внешний вид
 					_veh addMagazine "2Rnd_R73";
 				};
 			};
@@ -120,21 +133,20 @@ if(_isPlayer)then{
 				_veh addMagazine "2Rnd_R73";
 				_veh addWeapon "R73Launcher_2";
 			};
-			_veh removeMagazine "4Rnd_AT9_Mi24P";
+			_veh removeMagazine "4Rnd_AT9_Mi24P"; // внешний вид
 			_veh addMagazine "4Rnd_AT9_Mi24P";
 		};
 		///--- AV8B
 		if (_type isKindOf "AV8B") then{
 			_veh removeWeapon "BombLauncher";
-			_veh removeMagazine "6Rnd_GBU12_AV8B"; 
+			_veh removeMagazine "6Rnd_GBU12_AV8B";
 			_veh addMagazine "2Rnd_Maverick_A10";
 			_veh addMagazine "2Rnd_Maverick_A10";
-			_veh addWeapon "MaverickLauncher"; 
+			_veh addWeapon "MaverickLauncher";
 			_veh addMagazine "2Rnd_Sidewinder_AH1Z";
-			_veh addWeapon "SidewinderLaucher_AH1Z"; 
+			_veh addWeapon "SidewinderLaucher_AH1Z";
 		};
 		if (_type isKindOf "F35B") then{
-			_veh forceSpeed 10000;
 			_veh removeWeapon "BombLauncherF35";
 			_veh removeMagazine "2Rnd_GBU12";
 			// if (random 10 > 1) then	{
@@ -150,7 +162,7 @@ if(_isPlayer)then{
 			_veh removeMagazine "4Rnd_GBU12";
 				if((random 10 > 8)&&(LIB_ahAvail))then{
 					_veh addMagazine "4Rnd_Hellfire";
-					_veh addWeapon "HellfireLauncher_AH6"; 
+					_veh addWeapon "HellfireLauncher_AH6";
 				}
 				else{
 					_veh addMagazine "2Rnd_Maverick_A10";
@@ -160,7 +172,7 @@ if(_isPlayer)then{
 		if (LIB_ahAvail) then {
 			if (_type isKindOf "Su34") then{
 				if!(_isPlayer)then{
-					_veh removeMagazine "180Rnd_30mm_GSh301";
+					// _veh removeMagazine "180Rnd_30mm_GSh301"; // целится не правильно
 				};
 				//_veh addMagazine ["180Rnd_30mm_GSh301",0];
 			};
@@ -186,8 +198,8 @@ if(_isPlayer)then{
 		if (_type isKindOf "2S6M_Tunguska" || _type isKindOf "ZSU_Base" || _type isKindOf "Ural_ZU23_Base") then {
 			_veh setSkill ["aimingAccuracy", 0.1];
 			if (_type isKindOf "2S6M_Tunguska") then {
-				_veh removeWeapon "2A38M";
-				_veh addWeapon "2A38M";
+				// _veh removeWeapon "2A38M";
+				// _veh addWeapon "2A38M";
 			};
 		}else{
 			_veh setSkill ["aimingAccuracy", 0.7];
@@ -202,9 +214,9 @@ if(_isPlayer)then{
 		// _veh setSkill ["aimingShake", 1];
 		// _veh engineOn false;
 	};
-	
-	
-	/// --- ���� --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// --- /// 
+
+
+	/// --- Man ---
 	if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
 		private["_weapons"];
 		private["_weapon"];
@@ -293,6 +305,11 @@ if(_isPlayer)then{
 				};
 				if (random 10 > 7) then {
 					if !(daytime > 3 && daytime < 20) then {
+
+						if !([LIB_cfgWea,_weapons,"simulation","Binocular"] call m_fnc_check_config_use) then {
+								_veh addWeapon "NVGoggles";
+						};
+
 						if ( _weapon in ["AKS_74_kobra","AKS_74_pso"] ) then {
 							_veh removeWeapon _weapon;
 							_weapon = "AKS_74_NSPU";
@@ -313,7 +330,7 @@ if(_isPlayer)then{
 						};
 					};
 				};
-				///--- ����� USMC
+				///--- USMC
 				if (_type isKindOf "USMC_Soldier2") then {
 					_veh removeMagazines "8Rnd_B_Beneli_74Slug";
 					for "_i" from 1 to 8 do { _veh addMagazine "8Rnd_B_Beneli_Pellets"};
@@ -347,7 +364,7 @@ if(_isPlayer)then{
 				// _veh selectWeapon _weapon;
 			// };
 		};
-		///--- �������� �������� �� ��������
+		///--- 
 		private["_type_weapon"];
 		if (ACE_Avail) then {
 			_type_weapon=getNumber (LIB_cfgWea >> _weapon >> "ace_sys_weapons_TYPE");
