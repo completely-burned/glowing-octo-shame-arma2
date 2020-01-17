@@ -8,6 +8,8 @@ private ["_Helicopter"];
 private ["_Plane"];
 private ["_Ship"];
 private ["_StaticWeapon"];
+private ["_Air","_uav","_Car","_Tank"];
+private["_support"];
 // private ["_Stealth"];
 
 
@@ -63,13 +65,49 @@ while{!isNull _this}do{
 
 		_StaticWeapon = ([_vehicles, ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray);
 
+		_Air = ([_vehicles, ["Air"]] call m_fnc_CheckIsKindOfArray);
+
+		_Tank = ([_vehicles, ["Tank"]] call m_fnc_CheckIsKindOfArray);
+
+		_Car = ([_vehicles, ["Car"]] call m_fnc_CheckIsKindOfArray);
+
+		_uav = ([_types, ["UAV"]] call m_fnc_CheckIsKindOfArray);
+		if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
+			_uav = true;
+		};
+
+		_support = false;
+		ScopeName "_support";
+		{
+			if(getNumber(LIB_cfgVeh >> _x >> "attendant")> 0 && _x isKindOf "LandVehicle")then{
+				_support = true;
+				BreakTo "_support";
+			};
+			if(getNumber(LIB_cfgVeh >> _x >> "transportfuel")> 0)then{
+				_support = true;
+				BreakTo "_support";
+			};
+			if(getNumber(LIB_cfgVeh >> _x >> "transportammo")> 0)then{
+				_support = true;
+				BreakTo "_support";
+			};
+			if(getNumber(LIB_cfgVeh >> _x >> "transportrepair")> 0)then{
+				_support = true;
+				BreakTo "_support";
+			};
+
+		}forEach _types;
+
 		_grp_wp_completed = !isNil {_grp getVariable "_grp_wp_completed"};
 
 		if (_StaticWeapon) then {
-			while {(count (waypoints _grp)) > 0} do {
-				deleteWaypoint ((waypoints _grp) select 0);
+			if ( count waypoints _grp > 0 ) then{
+				[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
+				sleep 1;
+				for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+					deleteWaypoint [_grp, _i];
+				};
 			};
-			breakTo "main";
 		};
 
 		if (_Submarine) then {
@@ -532,12 +570,12 @@ while{!isNull _this}do{
 						};
 
 						private["_timeNoWP"];
-						_timeNoWP = _grp getVariable "_timeNoWP";
+						_timeNoWP = (_grp getVariable "_timeNoWP");
 						if(isNil "_timeNoWP")then{
 							_timeNoWP = time;
 							_grp setVariable ["_timeNoWP", _timeNoWP];
 						}else{
-							if(time > _timeNoWP + 5)then {
+							if ( time > (_timeNoWP + 5) ) then {
 								if (draga_loglevel > 0) then {
 									diag_log format ["draga_fnc_initGroup.sqf %1 добавлена в очередь на создание маршрута", _grp, currentCommand _leader ];
 								};
@@ -546,6 +584,8 @@ while{!isNull _this}do{
 							};
 						};
 
+					}else{
+						_grp setVariable ["_timeNoWP", nil];
 					};
 				}else{
 					if (draga_loglevel > 0) then {
@@ -557,10 +597,12 @@ while{!isNull _this}do{
 				};
 
 				private["_NoCreateWP"];
-				if( {currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} count units _grp > 0 )then{
-					_NoCreateWP = true;
-				}else{
-					_NoCreateWP = false;
+				_NoCreateWP = false;
+
+				if ((vehicle _leader distance civilianBasePos) <= sizeLocation or true) then {
+					if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
+						_NoCreateWP = true;
+					};
 				};
 
 
@@ -571,6 +613,7 @@ while{!isNull _this}do{
 							diag_log format ["draga_fnc_initGroup.sqf %1 currentCommand leader %2, count waypoints %3, stopping", _grp, currentCommand _leader, count waypoints _grp ];
 						};
 						[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
+						// [_grp, currentWaypoint _grp] setWaypointType "HOLD";
 						sleep 1;
 						// sleep 0.1;
 						for "_i" from count waypoints _grp - 1 to 0 step -1 do {
@@ -578,6 +621,14 @@ while{!isNull _this}do{
 						};
 					};
 				};
+
+				private["_draga_UAV_WaypointPosCenter"];
+				_draga_UAV_WaypointPosCenter = _grp getVariable "_draga_UAV_WaypointPosCenter";
+
+				if(!isNil{_draga_UAV_WaypointPosCenter})then{
+					_NoCreateWP = true;
+				};
+
 
 				// создать маршрут
 				if( !_NoCreateWP )then{
@@ -604,6 +655,100 @@ while{!isNull _this}do{
 					_wp setWaypointStatements ["true", _wpStatements];
 				};
 			};
+		};
+
+		if (true) then {
+			private["_SpeedMode","_CombatMode","_Behaviour"];
+			_SpeedMode = "NORMAL";
+			_CombatMode = "YELLOW";
+			_Behaviour = "AWARE";
+
+			private["_currentWaypoint","_currentWaypointType"];
+			_currentWaypoint = [_grp, currentWaypoint _grp];
+			_currentWaypointType = waypointType _currentWaypoint;
+
+			if ((vehicle _leader distance civilianBasePos) > sizeLocation + sizeLocation/2) then {
+				_SpeedMode = "FULL";
+			};
+
+			if(_Car)then{
+				_Behaviour = "SAFE";
+			};
+
+			if ((vehicle _leader distance civilianBasePos) <= sizeLocation) then {
+				_Behaviour = "COMBAT";
+			};
+
+			if (_Tank) then {
+				_Behaviour = "COMBAT";
+			};
+
+			if(_Air)then{
+				_Behaviour = "COMBAT";
+			};
+
+			private ["_Stealth","_StealthTypes"];
+			_Stealth = false;
+			_StealthTypes = [
+				"GUE_Soldier_Sniper","GUE_Soldier_Scout",
+				"INS_Soldier_Sniper","Ins_Soldier_Sab",
+				"CDF_Soldier_Sniper","CDF_Soldier_Spotter",
+				"USMC_SoldierS_Sniper","USMC_SoldierS_Spotter","USMC_SoldierS_SniperH",
+				"RU_Soldier_Sniper","RU_Soldier_Spotter","RU_Soldier_SniperH",
+				"BAF_Soldier_Sniper_MTP","BAF_Soldier_SniperH_MTP","BAF_Soldier_spotter_MTP","BAF_Soldier_SniperN_MTP",
+				"BAF_Soldier_Sniper_W","BAF_Soldier_SniperH_W","BAF_Soldier_spotter_W","BAF_Soldier_spotterN_W",
+				"US_Soldier_Sniper_EP1","US_Soldier_Spotter_EP1",
+				"TK_INS_Soldier_Sniper_EP1",
+				"TK_Soldier_SniperH_EP1","TK_Soldier_Spotter_EP1",
+				"TK_GUE_Soldier_Sniper_EP1"
+			];
+			private ["_countStealth"];
+			_countStealth = 0;
+			{
+				if (_x in _StealthTypes) then {
+					_countStealth = _countStealth +1;
+				};
+			} forEach _types;
+			if (_countStealth > (count _types / 2)) then {
+				_Behaviour = "STEALTH";
+			};
+
+			if(_uav)then{
+				_SpeedMode = "LIMITED";
+				_CombatMode = "BLUE";
+				_Behaviour = "CARELESS";
+			};
+
+			if(_Air)then{
+				if(_currentWaypointType in ["UNLOAD","GETOUT","GETIN"] or count _cargo > 0)then{
+					_CombatMode = "GREEN";
+					_Behaviour = "AWARE";
+					_SpeedMode = "FULL";
+				};
+			};
+
+			if(!_Air)then{
+				if(_Behaviour in ["COMBAT","STEALTH"])then{
+					if !([_leader, 800] call m_fnc_CheckPlayersDistance) then {
+						_Behaviour = "AWARE";
+					};
+				};
+			};
+
+
+			if(speedMode _grp != _SpeedMode)then{
+				_grp setSpeedMode _SpeedMode;
+			};
+			if(combatMode _grp != _CombatMode)then{
+				_grp setCombatMode _CombatMode;
+			};
+			if(behaviour _leader != _Behaviour)then{
+				_grp setBehaviour _Behaviour;
+			};
+
+
+
+
 		};
 
 	};

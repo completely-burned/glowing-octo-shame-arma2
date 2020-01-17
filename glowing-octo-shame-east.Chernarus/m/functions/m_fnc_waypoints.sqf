@@ -36,11 +36,11 @@ if(!isNil "_leader")then{
 	_typeWP = waypointType _wp;
 
 	if(count _waypoints <= _currentWP)then{
-		private["_WaypointCombatMode"];
-		_WaypointCombatMode = "YELLOW";
+		// private["_WaypointCombatMode"];
+		// _WaypointCombatMode = "YELLOW";
 
-		private["_WaypointBehaviour"];
-		_WaypointBehaviour = "AWARE";
+		// private["_WaypointBehaviour"];
+		// _WaypointBehaviour = "AWARE";
 
 		private ["_patrol"];
 		_patrol = _grp getVariable "patrol";
@@ -93,19 +93,19 @@ if(!isNil "_leader")then{
 		}forEach _types;
 
 		if(_uav)then{
-			_WaypointCombatMode = "BLUE";
-			_WaypointBehaviour = "CARELESS";
+			// _WaypointCombatMode = "BLUE";
+			// _WaypointBehaviour = "CARELESS";
 		};
 		private ["_maxDist","_WaypointCompletionRadius","_SpeedMode"];
 		if(_air)then{
 			_maxDist = 4000;
 			_WaypointCompletionRadius = 500;
-			_SpeedMode = "FULL";
-			_WaypointCombatMode = "RED";
+			// _SpeedMode = "FULL";
+			// _WaypointCombatMode = "RED";
 		}else{
 			_maxDist = sizeLocation ;
 			_WaypointCompletionRadius = 50;
-			_SpeedMode = "NORMAL";
+			// _SpeedMode = "NORMAL";
 		};
 		if(_AA)then{
 			_maxDist = 200;
@@ -124,14 +124,14 @@ if(!isNil "_leader")then{
 			_pos = civilianBasePos;
 			_maxDist = sizeLocation*2;
 			_WaypointCompletionRadius = _maxDist;
-			_SpeedMode = "NORMAL";
+			// _SpeedMode = "NORMAL";
 		};
 
 		if(_landing && _Ship)then{
 			_pos = civilianBasePos;
 			_maxDist = sizeLocation*2;
 			_WaypointCompletionRadius = 400;
-			_SpeedMode = "NORMAL";
+			// _SpeedMode = "NORMAL";
 		};
 
 		private["_WaypointType"];
@@ -219,7 +219,7 @@ if(!isNil "_leader")then{
 		};
 
 		if(_WaypointType in ["UNLOAD","GETOUT"])then{
-			_WaypointCombatMode = "GREEN";
+			// _WaypointCombatMode = "GREEN";
 		};
 
 		if(count _vehicles == 0)then{
@@ -239,10 +239,10 @@ if(!isNil "_leader")then{
 
 		_wp = _grp addWaypoint [_pos, _maxDist];
 		_wp setWaypointType _WaypointType;
-		_wp setWaypointSpeed _SpeedMode;
-		_wp setWaypointCombatMode _WaypointCombatMode;
-		_wp setWaypointBehaviour _WaypointBehaviour;
-		_wp setWaypointCompletionRadius _WaypointCompletionRadius;
+		//_wp setWaypointSpeed _SpeedMode;
+		// _wp setWaypointCombatMode _WaypointCombatMode;
+		// _wp setWaypointBehaviour _WaypointBehaviour;
+		// _wp setWaypointCompletionRadius _WaypointCompletionRadius;
 		_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed',true]}"];
 	};
 };
