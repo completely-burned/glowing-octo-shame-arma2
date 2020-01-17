@@ -7,10 +7,10 @@ while{true}do{
 		playerResetActions_coin = nil;
 	};
 	_coins = [];
-	{
+	for "_i" from 0 to ((count _coin_actions) - 1) do {
 		private["_action","_obj","_delete"];
-    _action = _x select 0;
-		_obj = _x select 1;
+		_action = _coin_actions select _i select 0;
+		_obj = _coin_actions select _i select 1;
 		_delete = false;
 		if (([[_obj], draga_objectsCoinMHQ] call m_fnc_CheckIsKindOfArray) && vehicle player distance _obj > draga_distanceCoinMHQ) then {
 			_delete = true;
@@ -22,12 +22,13 @@ while{true}do{
 			_delete = true;
 		};
 		if (_delete) then {
-	    player removeAction _action;
-			_coin_actions = _coin_actions - [_x];
+			player removeAction _action;
+			_coin_actions set [_i, -1];
 		}else{
 			_coins set [count _coins, _obj];
 		};
-	} forEach _coin_actions;
+	};
+	_coin_actions = _coin_actions - [-1];
 
 	_Objects = (nearestObjects [vehicle player, draga_objectsCoinBase, draga_distanceCoinBase]);
 	if ((count _Objects > 0)) then {
@@ -69,7 +70,8 @@ while{true}do{
 	};
 	_Objects = (nearestObjects [vehicle player, Warfare_HQ, draga_distanceCoinMHQ]);
 	{
-		if (isNil{_x getVariable "Warfare_HQ_base_unfolded_coin_actions"}) then {
+		if (alive _x && !(_x in _coins)) then {
+			private ["_action"];
 			_action = _x addaction [
 				gettext(configFile >> "CfgVehicles" >> draga_MHQ >> "displayName"),
 				"m\client\coin_interface_MHQ.sqf",
@@ -80,7 +82,7 @@ while{true}do{
 				"",
 				"alive _target && alive _this"
 			];
-			_x setVariable ["Warfare_HQ_base_unfolded_coin_actions",_action];
+			_coin_actions set [count _coin_actions, [_action, _x]];
 		};
 	} forEach _Objects;
 	sleep 1;

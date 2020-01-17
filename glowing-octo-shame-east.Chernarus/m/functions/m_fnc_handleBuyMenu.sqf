@@ -27,6 +27,9 @@ _nearestObjects = [
 private["_Objects"];
 private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu"];
 private["_uav_action","_uav_terminals"];
+
+private["_actionObj","_action_uav","_action_teleport","_action_menu","_action_buy"];
+
 while {true} do {
 	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
 
@@ -156,15 +159,18 @@ while {true} do {
 		};
 	};
 	if (_uav_action) then {
-		if (isnil {player getvariable "_uav_action"} && !isnull player) then {
+		if (isnil "_action_uav" && !isnull player) then {
 			private ["_action"];
-			_action = player addaction [localize "str_uav_action", "m\functions\uav_action.sqf", [_Object, _uav_terminals], 1, false, false];
-			player setvariable ["_uav_action",_action];
+			_actionObj = player;
+			_action = _actionObj addaction [localize "str_uav_action", "m\functions\uav_action.sqf", [_Object, _uav_terminals], 1, false, false];
+			_action_uav = ([_actionObj, _action]);
 		};
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_uav_ca.paa")];
 	}else{
-		player removeAction (player getVariable "_uav_action");
-		player setvariable ["_uav_action", nil];
+		if (!isnil "_action_uav")then{
+			_action_uav select 0 removeAction (_action_uav select 1);
+			_action_uav = nil;
+		};
 	};
 
 	if (_Buy_Man or _teleport) then {
@@ -174,31 +180,31 @@ while {true} do {
 	if (_teleport) then {
 		private["_veh"];
 		_veh = vehicle player;
-		if (isnil {_veh getvariable "_teleport_action"} && !isnull _veh) then {
+		if (isnil "_action_teleport" && !isnull _veh) then {
 			private ["_action"];
 			_action = _veh addaction [localize "draga_str_teleportation", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false, "","_target == vehicle player"];
-			_veh setvariable ["_teleport_action",_action];
+			_action_teleport = ([_veh, _action]);
 		};
 	}else{
-		private["_veh"];
-		_veh = vehicle player;
-		_veh removeAction (_veh getVariable "_teleport_action");
-		_veh setvariable ["_teleport_action", nil];
+		if (!isnil "_action_teleport")then{
+			_action_teleport select 0 removeAction (_action_teleport select 1);
+			_action_teleport = nil;
+		};
 	};
 
 	if (_menu) then {
 		private["_veh"];
 		_veh = vehicle player;
-		if (isnil {_veh getvariable "_menu_action"} && !isnull _veh) then {
+		if (isnil "_action_menu" && !isnull _veh) then {
 			private ["_action"];
 			_action = _veh addaction ["Menu", "m\client\main_menu.sqf", '#User:BIS_Menu_GroupCommunication', 0.5, false, false, "","_target == vehicle player"];
-			_veh setvariable ["_menu_action",_action];
+			_action_menu = ([_veh, _action]);
 		};
 	}else{
-		private["_veh"];
-		_veh = vehicle player;
-		_veh removeAction (_veh getVariable "_menu_action");
-		_veh setvariable ["_menu_action", nil];
+		if (!isnil "_action_menu")then{
+			_action_menu select 0 removeAction (_action_menu select 1);
+			_action_menu = nil;
+		};
 	};
 
 	if (_Buy_Man) then {
@@ -291,14 +297,17 @@ while {true} do {
 	};
 
 	if (_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) then {
-		if (isnil {player getvariable "_Buy_Menu"} && !isnull player) then {
+		if (isnil "_action_buy" && !isnull player) then {
 			private ["_action"];
-			_action = player addaction [localize "draga_str_purchase", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false, "", "_target == _this"];
-			player setvariable ["_Buy_Menu",_action];
+			_actionObj = player;
+			_action = _actionObj addaction [localize "draga_str_purchase", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false, "", "_target == _this"];
+			_action_buy = ([_actionObj, _action]);
 		};
 	}else{
-		player removeAction (player getVariable "_Buy_Menu");
-		player setvariable ["_Buy_Menu", nil];
+		if (!isnil "_action_buy")then{
+			_action_buy select 0 removeAction (_action_buy select 1);
+			_action_buy = nil;
+		};
 	};
 
 	["BuyMenu", "BuyMenu", _BuyMenu, "%1", ""] call BIS_FNC_createmenu;
