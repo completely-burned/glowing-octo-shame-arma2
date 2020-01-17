@@ -85,13 +85,14 @@ if ( isMultiplayer ) then {
 
 	waitUntil{!isNil "m_fnc_init"};
 	PlayerType = [typeOf leader player, rank leader player];
-	leader player addEventHandler ["killed", {_this call m_fnc_playerRespawnSP}];
-	[] spawn m_fnc_playerRespawn;
+	player addEventHandler ["killed", {_this call m_fnc_playerRespawnSP}];
+	// [] spawn m_fnc_playerRespawn;
+
+	// радио 0-0, чтоб разные скрипты тестировать
+	[] call compile preprocessFileLineNumbers  "m\Client\radio\init.sqf";
 };
 
 if(debug)then{
-	// радио 0-0, чтоб разные скрипты тестировать
-	[] call compile preprocessFileLineNumbers  "m\Client\radio\init.sqf";
 
 	// военные обозначения, показ всех, чтобы видеть как и где создаются боты
 	waitUntil{!isNil "bis_fnc_init"};
