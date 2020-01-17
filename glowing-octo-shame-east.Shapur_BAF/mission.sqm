@@ -8,10 +8,8 @@ class Mission
 		"warfarebuildings",
 		"CAWheeled2_MMT",
 		"CAWheeled_E_LandRover",
-		"camisc3",
 		"caweapons_baf",
 		"caweapons_e_ammoboxes",
-		"CABuildings",
 		"cawheeled_d_baf",
 		"CAWheeled_E_stryker",
 		"CACharacters_BAF",
@@ -31,7 +29,7 @@ class Mission
 	randomSeed=14018807;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.268 Shapur_BAF east";
+		briefingName="glowing-octo-shame v0.0.3.269 Shapur_BAF east";
 		startWeather=0.10000002;
 		forecastWeather=0.10000002;
 		year=2012;
@@ -42,7 +40,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=8;
+		items=9;
 		class Item0
 		{
 			side="LOGIC";
@@ -181,7 +179,7 @@ class Mission
 					id=9;
 					side="EAST";
 					vehicle="TK_Soldier_SL_EP1";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.59999996;
@@ -262,6 +260,26 @@ class Mission
 					vehicle="TK_Soldier_AMG_EP1";
 					player="PLAY CDG";
 					skill=0.2;
+				};
+			};
+		};
+		class Item8
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={687.01245,35.380001,474.26514};
+					special="NONE";
+					id=19;
+					side="EAST";
+					vehicle="TK_Soldier_Officer_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="COLONEL";
+					skill=1;
 				};
 			};
 		};
