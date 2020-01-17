@@ -29,7 +29,7 @@ class Mission
 	randomSeed=7310001;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.274 utes east";
+		briefingName="glowing-octo-shame v0.0.3.275 utes east";
 		startWeather=0.40000001;
 		forecastWeather=0.25;
 		year=2008;
