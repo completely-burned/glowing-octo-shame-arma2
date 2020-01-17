@@ -78,23 +78,31 @@ while{true}do{
 
 		// поиск готового транспорта
 		if(isNull _veh)then{
+			private["_x_veh","_x_veh_best","_dist","_Commander"];
 			{
-				private["_x_veh"];
 				_x_veh = _x;
+				_Commander = effectiveCommander _x_veh;
 				if(side _x_veh getFriend side _player >= 0.6)then{
 					if(_x_veh isKindOf "Helicopter" or _x_veh isKindOf "MV22")then{
-						if(alive effectiveCommander _x_veh)then{
-							if({group _x != group effectiveCommander _x_veh && alive effectiveCommander _x_veh}count crew _x_veh <= 0)then{
-								if({isPlayer _x}count units effectiveCommander _x_veh <= 0)then{
+						if(alive _Commander)then{
+							if({group _x != group _Commander}count crew _x_veh == 0)then{
+								if({isPlayer _x}count units _Commander == 0)then{
 									if(canMove _x_veh)then{
 										if(isNil {_x_veh getVariable "transportPlayer"})then{
 											if(getDammage _x_veh < 0.75)then{
 												if({isPlayer _x}count crew _x_veh == 0)then{
-													_grp = createGroup side group effectiveCommander _x_veh;
-													crew _x_veh join _grp;
-													_x_veh setVariable ["transportPlayer", _player];
-													_veh = _x_veh;
-													diag_log format ["transport.sqf поиск транспорт %1 готовый, закрепление за игроком %2", _veh, _player];
+													if(_x_veh emptyPositions "cargo" >= count units _player)then{
+														private["_ok"];
+														if (isNil {_dist}) then {
+															_dist = _x_veh distance vehicle player;
+															_ok = true;
+														}else{
+															_ok = false;
+														};
+														if (_ok or (_dist < _x_veh distance vehicle player)) then {
+															_x_veh_best = _x_veh;
+														};
+													};
 												};
 											};
 										};
@@ -105,6 +113,26 @@ while{true}do{
 					};
 				};
 			} forEach vehicles;
+
+			// закрепление транспорта за игроком
+			if(!isNil {_x_veh_best})then{
+				if(isNil {_x_veh_best getVariable "transportPlayer"})then{
+					private["_grp"];
+					_grp = createGroup side group _Commander;
+					{
+						if (group _x == group _Commander) then {
+							[_x] joinSilent _grp;
+						};
+					} forEach crew _x_veh_best;
+					_grp selectLeader _Commander;
+					_x_veh_best setVariable ["transportPlayer", _player];
+					_veh = _x_veh_best;
+					if (draga_loglevel > 0) then {
+						diag_log format ["transport.sqf поиск транспорт %1 готовый, закрепление за игроком %2", _x_veh_best, _player];
+					};
+				};
+			};
+
 		};
 
 		// позиция высадки, запись на техники
