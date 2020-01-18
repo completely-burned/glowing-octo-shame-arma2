@@ -607,6 +607,7 @@ while{!isNull _this}do{
 				_NoCreateWP = false;
 
 				if ((vehicle _leader distance civilianBasePos) <= sizeLocation or true) then {
+					// боты остаются на месте
 					if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
 						_NoCreateWP = true;
 					};
