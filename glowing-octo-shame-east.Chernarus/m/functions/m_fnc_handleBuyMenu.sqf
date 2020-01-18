@@ -159,9 +159,15 @@ while {true} do {
 		};
 	};
 	if (_uav_action) then {
+		_actionObj = player;
+		if (!isnil "_action_uav")then{
+			if (_action_uav select 0 != _actionObj)then{
+				_action_uav select 0 removeAction (_action_uav select 1);
+				_action_uav = nil;
+			};
+		};
 		if (isnil "_action_uav" && !isnull player) then {
 			private ["_action"];
-			_actionObj = player;
 			_action = _actionObj addaction [localize "str_uav_action", "m\functions\uav_action.sqf", [_Object, _uav_terminals], 1, false, false];
 			_action_uav = [_actionObj, _action];
 		};
@@ -180,9 +186,15 @@ while {true} do {
 	if (_teleport) then {
 		private["_veh"];
 		_veh = vehicle player;
+		if (!isnil "_action_teleport")then{
+			if (_action_teleport select 0 != _veh)then{
+				_action_teleport select 0 removeAction (_action_teleport select 1);
+				_action_teleport = nil;
+			};
+		};
 		if (isnil "_action_teleport" && !isnull _veh) then {
 			private ["_action"];
-			_action = _veh addaction [localize "draga_str_teleportation", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false, "","_target == vehicle player"];
+			_action = _veh addaction [localize "draga_str_teleportation", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false];
 			_action_teleport = [_veh, _action];
 		};
 	}else{
@@ -195,9 +207,15 @@ while {true} do {
 	if (_menu) then {
 		private["_veh"];
 		_veh = vehicle player;
+		if (!isnil "_action_menu")then{
+			if (_action_menu select 0 != _veh)then{
+				_action_menu select 0 removeAction (_action_menu select 1);
+				_action_menu = nil;
+			};
+		};
 		if (isnil "_action_menu" && !isnull _veh) then {
 			private ["_action"];
-			_action = _veh addaction ["Menu", "m\client\main_menu.sqf", '#User:BIS_Menu_GroupCommunication', 0.5, false, false, "","_target == vehicle player"];
+			_action = _veh addaction ["Menu", "m\client\main_menu.sqf", '#User:BIS_Menu_GroupCommunication', 0.5, false, false];
 			_action_menu = [_veh, _action];
 		};
 	}else{
@@ -297,10 +315,16 @@ while {true} do {
 	};
 
 	if (_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) then {
+		_actionObj = player;
+		if (!isnil "_action_buy")then{
+			if (_action_buy select 0 != _actionObj)then{
+				_action_buy select 0 removeAction (_action_buy select 1);
+				_action_buy = nil;
+			};
+		};
 		if (isnil "_action_buy" && !isnull player) then {
 			private ["_action"];
-			_actionObj = player;
-			_action = _actionObj addaction [localize "draga_str_purchase", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false, "", "_target == _this"];
+			_action = _actionObj addaction [localize "draga_str_purchase", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
 			_action_buy = [_actionObj, _action];
 		};
 	}else{
