@@ -88,7 +88,6 @@ private["_flyInHeight","_pos"];
 
 			_flyInHeight = 400 + random 300;
 			_veh flyInHeight _flyInHeight;
-			_veh setPos [_pos select 0, _pos select 1, _flyInHeight];
 		};
 
 		if(!_Bombs)then{
@@ -364,7 +363,7 @@ private["_flyInHeight","_pos"];
 				// _veh selectWeapon _weapon;
 			// };
 		};
-		///--- 
+		///---
 		private["_type_weapon"];
 		if (ACE_Avail) then {
 			_type_weapon=getNumber (LIB_cfgWea >> _weapon >> "ace_sys_weapons_TYPE");
