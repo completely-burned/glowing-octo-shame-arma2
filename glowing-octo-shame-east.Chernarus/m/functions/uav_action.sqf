@@ -11,5 +11,5 @@ _list2=[];
 	};
 } foreach vehicles;
 
-["uav", "uav", [_list,_list2], "","if(getnumber (configfile >> 'cfgvehicles' >> typeof (draga_uavs select %1 select 0) >> 'isUav') == 1)then{draga_uavs select %1 execVM 'm\functions\uav_heli_interface.sqf';}else{draga_uavs select %1 execVM 'm\functions\uav_interface.sqf';};"] call BIS_FNC_createmenu;
+["uav", "uav", [_list,_list2], "","if(getnumber (configfile >> 'cfgvehicles' >> typeof (draga_uavs select %1 select 0) >> 'isUav') == 1)then{draga_uavs select %1 execVM 'm\uav\uav_heli_interface.sqf';}else{draga_uavs select %1 execVM 'm\uav\uav_interface.sqf';};"] call BIS_FNC_createmenu;
 showCommandingMenu "#USER:uav_0";
