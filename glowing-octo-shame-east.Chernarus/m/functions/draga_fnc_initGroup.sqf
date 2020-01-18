@@ -258,9 +258,16 @@ while{!isNull _this}do{
 									sleep 0.5;
 								}forEach assignedCargo _veh;
 							}forEach _vehicles;
+
 							while {(count (waypoints _this)) > 0} do {
 								deleteWaypoint ((waypoints _this) select 0);
 							};
+
+							{
+								_x land "NONE";
+								_x action ["cancelLand", _x];
+							}forEach _vehicles;
+
 							_this setVariable ["UNLOAD",nil];
 						};
 					};
