@@ -163,7 +163,7 @@ while {true} do {
 			private ["_action"];
 			_actionObj = player;
 			_action = _actionObj addaction [localize "str_uav_action", "m\functions\uav_action.sqf", [_Object, _uav_terminals], 1, false, false];
-			_action_uav = ([_actionObj, _action]);
+			_action_uav = [_actionObj, _action];
 		};
 		_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_uav_ca.paa")];
 	}else{
@@ -183,7 +183,7 @@ while {true} do {
 		if (isnil "_action_teleport" && !isnull _veh) then {
 			private ["_action"];
 			_action = _veh addaction [localize "draga_str_teleportation", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false, "","_target == vehicle player"];
-			_action_teleport = ([_veh, _action]);
+			_action_teleport = [_veh, _action];
 		};
 	}else{
 		if (!isnil "_action_teleport")then{
@@ -198,7 +198,7 @@ while {true} do {
 		if (isnil "_action_menu" && !isnull _veh) then {
 			private ["_action"];
 			_action = _veh addaction ["Menu", "m\client\main_menu.sqf", '#User:BIS_Menu_GroupCommunication', 0.5, false, false, "","_target == vehicle player"];
-			_action_menu = ([_veh, _action]);
+			_action_menu = [_veh, _action];
 		};
 	}else{
 		if (!isnil "_action_menu")then{
@@ -301,7 +301,7 @@ while {true} do {
 			private ["_action"];
 			_actionObj = player;
 			_action = _actionObj addaction [localize "draga_str_purchase", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false, "", "_target == _this"];
-			_action_buy = ([_actionObj, _action]);
+			_action_buy = [_actionObj, _action];
 		};
 	}else{
 		if (!isnil "_action_buy")then{
