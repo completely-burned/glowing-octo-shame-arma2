@@ -665,7 +665,7 @@ while{!isNull _this}do{
 			};
 		};
 
-		if (true) then {
+		if (!isPlayer _leader) then {
 			private["_SpeedMode","_CombatMode","_Behaviour"];
 			_SpeedMode = "NORMAL";
 			_CombatMode = "YELLOW";
