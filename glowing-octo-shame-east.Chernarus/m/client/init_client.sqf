@@ -26,7 +26,7 @@ SetGroupIconsVisible [true,false];
 [] execVM "m\client\initRespawnMarkers.sqf";
 [] spawn m_fnc_rating;
 [] spawn ACT_WinchManager;
-[] spawn m_fnc_handleFirstAid;
+// [] spawn m_fnc_handleFirstAid;
 [] spawn m_fnc_handlePlayableUnitsMarker;
 [] spawn m_fnc_handleJoinGroup;
 // [] spawn m_fnc_handleTeleport;
@@ -37,6 +37,8 @@ SetGroupIconsVisible [true,false];
 [] execVM "m\client\updateLocalGroup.sqf";
 // [] execVM "m\client\handleBuyMenuTimeAvailable.sqf";
 [] execVM "m\client\draga_coin.sqf";
+
+player execVM "m\ais\draga_is.sqf";
 
 
 waitUntil{(!isNull player)};
@@ -65,13 +67,22 @@ selectPlayer _player;
 
 "respawn" spawn m_fnc_RespawnWeaponsAdd;
 
+player addEventHandler ["killed", {
+	// _this select 0 setVariable ["BIS_IS_who",nil,true];
+	// _this select 0 setVariable ["BIS_IS_Dead", true, true];
+	_this spawn {
+		waitUntil{alive player};
+		player setCaptive false;
+	};
+}];
+
 if ( isMultiplayer ) then {
 	waitUntil{!isNil "m_fnc_init"};
 	// player addEventHandler ["killed", {_this spawn m_fnc_killcam}];
 	// player addEventHandler ["respawn", {player spawn m_fnc_RespawnWeaponsAdd}];
 	player addEventHandler ["killed", {"respawn" spawn m_fnc_RespawnWeaponsAdd}];
 	player addEventHandler ["killed", {_this spawn m_fnc_resetActions}];
-	player addEventHandler ["killed", {_this select 0 call {_this setVariable ["BIS_lifestate","ALIVE",true]}}];
+	// player addEventHandler ["killed", {_this select 0 call {_this setVariable ["BIS_lifestate","ALIVE",true]}}];
 }else{
 	onTeamSwitch {
 		SetGroupIconsVisible [true,false];

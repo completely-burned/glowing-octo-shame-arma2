@@ -1,7 +1,6 @@
-while {true} do {
+while {false} do {
 	{
-		_x call m_FirstAid;
+		// _x call m_FirstAid;
 	} forEach allUnits;
 	sleep 0.5;
 };
-
