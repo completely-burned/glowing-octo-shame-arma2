@@ -101,7 +101,7 @@ format ["
 
 //textLogFormat["AIS_START agony start GROUP: %1", _group];
 
-[_this] spawn {
+[] spawn {
 
 	while {true} do {
 
