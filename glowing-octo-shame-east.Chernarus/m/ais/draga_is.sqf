@@ -103,7 +103,7 @@ format ["
 
 [_this] spawn {
 
-	while {!isNull (_this select 0)} do {
+	while {true} do {
 
 		{
 
