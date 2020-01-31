@@ -101,6 +101,7 @@ format ["
 
 //textLogFormat["AIS_START agony start GROUP: %1", _group];
 
+if (!isDedicated) then {
 [] spawn {
 
 	while {true} do {
@@ -162,6 +163,28 @@ format ["
 
 		sleep 5;
 
+	};
+};
+}else{
+	[] spawn {
+		private["_draga_FA_addActions"];
+		while {true} do {
+			{
+				if (_x isKindOf "Man") then {
+					_draga_FA_addActions = _x getVariable "draga_FA_addActions";
+					if (isNil {_draga_FA_addActions}) then {
+						_draga_FA_addActions = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "FA_addActions.sqf";
+						_x setVariable ["draga_FA_addActions", [_draga_FA_addActions,_x]];
+					}else{
+						if (_draga_FA_addActions select 1 != _x) then {
+							_draga_FA_addActions = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "FA_addActions.sqf";
+							_x setVariable ["draga_FA_addActions", [_draga_FA_addActions,_x]];
+						};
+					};
+				};
+			} forEach playableUnits;
+			sleep 5;
+		};
 	};
 };
 

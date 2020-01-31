@@ -103,6 +103,7 @@ Officers = [
 ];
 
 [] execVM ("m\draga_update_vehicle_init.sqf");
+[] execVM "m\ais\draga_is.sqf";
 
 listCrewLower = [];
 {

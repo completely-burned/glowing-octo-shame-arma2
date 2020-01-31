@@ -38,7 +38,6 @@ SetGroupIconsVisible [true,false];
 // [] execVM "m\client\handleBuyMenuTimeAvailable.sqf";
 [] execVM "m\client\draga_coin.sqf";
 
-player execVM "m\ais\draga_is.sqf";
 
 
 waitUntil{(!isNull player)};
