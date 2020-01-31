@@ -159,6 +159,9 @@ format ["
 
 			};
 		} forEach units player;
+
+		sleep 5;
+
 	};
 };
 
