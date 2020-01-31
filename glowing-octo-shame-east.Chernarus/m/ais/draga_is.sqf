@@ -102,69 +102,69 @@ format ["
 //textLogFormat["AIS_START agony start GROUP: %1", _group];
 
 if (!isDedicated) then {
-[] spawn {
+	[] spawn {
 
-	while {true} do {
+		while {true} do {
 
-		{
+			{
 
-			if (isNil {_x getVariable "BIS_IS_agonyHandle"}) then {
+				if (isNil {_x getVariable "BIS_IS_agonyHandle"}) then {
 
-				if (_x isKindOf "Man") then {
-					if (local _x) then {
+					if (_x isKindOf "Man") then {
+						if (local _x) then {
 
-						//Injury system initialization
-						//handled separately //variables accumulating damage
-						_x setVariable ["head_hit",0,true];
-						_x setVariable ["body",0,true];
-						_x setVariable ["hands",0,true];
-						_x setVariable ["legs",0,true];
-						_x setVariable ["bloodlossPerSecond",0,true];
-						_x setVariable ["bloodloss",0,true]; //blood loss in liters, 3+ is fatal
-						_x setVariable ["",0,true]; //empty name variable works - accumulates structural dammage
+							//Injury system initialization
+							//handled separately //variables accumulating damage
+							_x setVariable ["head_hit",0,true];
+							_x setVariable ["body",0,true];
+							_x setVariable ["hands",0,true];
+							_x setVariable ["legs",0,true];
+							_x setVariable ["bloodlossPerSecond",0,true];
+							_x setVariable ["bloodloss",0,true]; //blood loss in liters, 3+ is fatal
+							_x setVariable ["",0,true]; //empty name variable works - accumulates structural dammage
 
-						// if (!isNil "BIS_DEBUG_AIS") then {_x setVariable ["",5,true];};
+							// if (!isNil "BIS_DEBUG_AIS") then {_x setVariable ["",5,true];};
 
-						_x setVariable ["BIS_IS_agonyDam",BIS_IS_agonyDam,true]; //_x will be in agony if it has damage of BIS_FA_agonyDam or more
-						_x setVariable ["BIS_IS_inAgony",false,true]; //not in agony at start
+							_x setVariable ["BIS_IS_agonyDam",BIS_IS_agonyDam,true]; //_x will be in agony if it has damage of BIS_FA_agonyDam or more
+							_x setVariable ["BIS_IS_inAgony",false,true]; //not in agony at start
 
-						// private["_nic"];
+							// private["_nic"];
 
 
-						// if (!isNil "BIS_DEBUG_AIS") then {textLogFormat["AIS_START %1 agony start %1", _x];};
+							// if (!isNil "BIS_DEBUG_AIS") then {textLogFormat["AIS_START %1 agony start %1", _x];};
 
-						_x setVariable ["BIS_FA_healer",false,true];	//_x is first-aiding somebody
-						_x setVariable ["BIS_FA_healEnabled",true,true]; //option to heal - gives action, prevents fast healer.sqf reexecute (see end of healer.sqf)
-						_x setVariable ["BIS_FA_canHealTo",0.5,true]; //First-Aid given by _x will heal injured to no less than 0.5 damage //see at what damage agony ends
+							_x setVariable ["BIS_FA_healer",false,true];	//_x is first-aiding somebody
+							_x setVariable ["BIS_FA_healEnabled",true,true]; //option to heal - gives action, prevents fast healer.sqf reexecute (see end of healer.sqf)
+							_x setVariable ["BIS_FA_canHealTo",0.5,true]; //First-Aid given by _x will heal injured to no less than 0.5 damage //see at what damage agony ends
 
-					}; //local
+						}; //local
 
-					// textLogFormat["AIS_START agony start %1", _x];
+						// textLogFormat["AIS_START agony start %1", _x];
 
-					private ["_agonyHandle"];
-					_agonyHandle = [_x] execFSM BIS_AIS_path + "data\fsms\agony.fsm"; //Behavior of injured, "handleDamage" EH  //diagnostika:	//diag_debugFSM _nic;
-					_x setVariable ["BIS_IS_agonyHandle", _agonyHandle, false]; //local!
+						private ["_agonyHandle"];
+						_agonyHandle = [_x] execFSM BIS_AIS_path + "data\fsms\agony.fsm"; //Behavior of injured, "handleDamage" EH  //diagnostika:	//diag_debugFSM _nic;
+						_x setVariable ["BIS_IS_agonyHandle", _agonyHandle, false]; //local!
 
-					_x addEventHandler ["killed", "[_this select 0] call BIS_IS_initDamVars;"]; //switches AIS health variables to 0 (prevent Agony.fsm going to Agony state)
+						_x addEventHandler ["killed", "[_this select 0] call BIS_IS_initDamVars;"]; //switches AIS health variables to 0 (prevent Agony.fsm going to Agony state)
 
-					if (true) then {
-						_nic = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "FA_addActions.sqf"; //on this client add F-A actions for _x   //TODO: works when locality is changed?
-					};
+						if (true) then {
+							_nic = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "FA_addActions.sqf"; //on this client add F-A actions for _x   //TODO: works when locality is changed?
+						};
 
-				}; //kind of man
+					}; //kind of man
 
-				//variables needed in FA from other modules
-				if (isNil {_x getVariable "BIS_BC_carrier"}) then {_x setVariable ["BIS_BC_carrier",false];};
-				if (isNil {_x getVariable "BIS_BC_dragger"}) then {_x setVariable ["BIS_BC_dragger",false];};
-				if (isNil {_x getVariable "BIS_IS_inAgony"}) then {_x setVariable ["BIS_IS_inAgony",false];};
+					//variables needed in FA from other modules
+					if (isNil {_x getVariable "BIS_BC_carrier"}) then {_x setVariable ["BIS_BC_carrier",false];};
+					if (isNil {_x getVariable "BIS_BC_dragger"}) then {_x setVariable ["BIS_BC_dragger",false];};
+					if (isNil {_x getVariable "BIS_IS_inAgony"}) then {_x setVariable ["BIS_IS_inAgony",false];};
 
-			};
-		} forEach units player;
+				};
+			} forEach units player;
 
-		sleep 5;
+			sleep 5;
 
+		};
 	};
-};
 }else{
 	[] spawn {
 		private["_draga_FA_addActions"];
