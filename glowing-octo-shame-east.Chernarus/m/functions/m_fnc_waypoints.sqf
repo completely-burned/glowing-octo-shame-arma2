@@ -143,7 +143,7 @@ if(!isNil "_leader")then{
 			} forEach _nearVehList;
 
 			{
-					if (!isNil _x && !isNull _x) then {
+					if (!isNil {_x} && !isNull _x) then {
 						_nearVehList = _x nearEntities [["Land"],200];
 						_friendCount = 0;
 						if (side _grp getFriend side _x >= 0.6) then {
