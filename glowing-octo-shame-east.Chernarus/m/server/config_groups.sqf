@@ -194,7 +194,7 @@ if(LIB_a2Avail)then{
 				// [[[["MH60S"],[],["CAPTAIN"]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
 				[[[["C130J"],[],["CAPTAIN"]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
 
-				[[[["HMMWV_Avenger"], [[0,5],[-5,0],[-5,-7],[3,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"]]],0.6],
+				[[[["HMMWV_Avenger"], [[0,5],[-5,0],[-5,-7],[3,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"]]],0.8],
 				[[[["USMC_Soldier_TL","USMC_Soldier_AA","USMC_Soldier_AA"], [],["SERGEANT","CORPORAL","CORPORAL"]]],0.01],
 				[[[["USMC_SoldierS","USMC_SoldierM_Marksman"], [],["SERGEANT","SERGEANT"]]],0.01],
 				[[[["USMC_SoldierS_Sniper","USMC_SoldierS_SniperH","USMC_SoldierS_Spotter"], [],["SERGEANT","SERGEANT","CORPORAL"]]],0.01],
@@ -317,7 +317,7 @@ if(LIB_a2Avail)then{
 				[[[["Su34","Su34"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.2],
 				[[[["Pchela1T"],[],["CAPTAIN"]]],0.2],
 
-				[[[["2S6M_Tunguska"], [[0,0]], ["LIEUTENANT"]]],0.6],
+				[[[["2S6M_Tunguska"], [[0,0]], ["LIEUTENANT"]]],0.7],
 				[[[["RU_Soldier_Sniper","RU_Soldier_SniperH","RU_Soldier_Spotter"], [],["SERGEANT","SERGEANT","CORPORAL"]]],0.01],
 				[[[["RU_Soldier_GL","RU_Soldier_Engineer","RU_Soldier2"], [],["SERGEANT","CORPORAL","PRIVATE"]]],0.01],
 				[[[["RU_Soldier_GL","RU_Soldier_AR","RU_Soldier_AT","RU_Soldier_Medic"], [],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.01],
@@ -592,7 +592,7 @@ if(true)then{
 			[[[["UH60M_EP1","UH60M_EP1"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
 			[[[["UH60M_EP1"],[],["CAPTAIN"]],[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"]]],0.3],
 
-			[[[["HMMWV_Avenger_DES_EP1"], [[0,0]],["SERGEANT"]]],0.6],
+			[[[["HMMWV_Avenger_DES_EP1"], [[0,0]],["SERGEANT"]]],0.8],
 			[[[["US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_Marksman_EP1","US_Soldier_Engineer_EP1"], [],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.01],
 			// [[[["M1129_MC_EP1"], [],[]]],0.01],
 			[[[["M1135_ATGMV_EP1","M1135_ATGMV_EP1"], [[0,0],[10,0]],["SERGEANT","SERGEANT"]]],0.01],
