@@ -18,7 +18,7 @@ while{!isNull _this}do{
 
 	scopeName "main";
 
-	sleep 1;
+	sleep 10 + random 10;
 
 	if (true) then {
 
