@@ -144,22 +144,22 @@ if(!isNil "_leader")then{
 
 			{
 					if (!isNil _x && !isNull _x) then {
-					_nearVehList = _x nearEntities [["Land"],200];
-					_friendCount = 0;
-					if (side _grp getFriend side _x >= 0.6) then {
-						if ([_nearVehList, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
-							_friendCount = _friendCount + 3;
+						_nearVehList = _x nearEntities [["Land"],200];
+						_friendCount = 0;
+						if (side _grp getFriend side _x >= 0.6) then {
+							if ([_nearVehList, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+								_friendCount = _friendCount + 3;
+							};
+							if ([_nearVehList, ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+								_friendCount = _friendCount + 1;
+							};
+							if ([_nearVehList, ["Land"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+								_friendCount = _friendCount + 0.1;
+							};
+							if (_friendCount >= 3) then {
+								_friendList2 set [count _friendList2, _x];
+							};
 						};
-						if ([_nearVehList, ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
-							_friendCount = _friendCount + 1;
-						};
-						if ([_nearVehList, ["Land"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
-							_friendCount = _friendCount + 0.1;
-						};
-						if (_friendCount >= 3) then {
-							_friendList2 set [count _friendList2, _x];
-						};
-					};
 					};
 			} forEach _friendList;
 
