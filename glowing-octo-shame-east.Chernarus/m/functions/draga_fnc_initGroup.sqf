@@ -9,6 +9,7 @@ private ["_Plane"];
 private ["_Ship"];
 private ["_StaticWeapon"];
 private ["_Air","_uav","_Car","_Tank"];
+private["_AA"];
 private["_support"];
 // private ["_Stealth"];
 
@@ -75,6 +76,8 @@ while{!isNull _this}do{
 		if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
 			_uav = true;
 		};
+
+		_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call m_fnc_CheckIsKindOfArray);
 
 		_support = false;
 		ScopeName "_support";
@@ -613,6 +616,33 @@ while{!isNull _this}do{
 					};
 				};
 
+				if (_AA) then {
+
+					private["_friendCount","_nearVehList"];
+
+					_friendCount = 0;
+
+					_nearVehList = _leaderPos nearEntities [["Land"],400];
+
+					{
+							if (side _grp getFriend side _x >= 0.6) then {
+								if ([_vehicles, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+									_friendCount = _friendCount + 3;
+								};
+								if ([_vehicles, ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+									_friendCount = _friendCount + 1;
+								};
+								if ([_vehicles, ["Land"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+									_friendCount = _friendCount + 0.1;
+								};
+							};
+					} forEach _nearVehList;
+
+					if (_friendCount >= 3) then {
+						_NoCreateWP = true;
+					};
+
+				};
 
 				// остановить без маршрута
 				if( _NoCreateWP )then{
