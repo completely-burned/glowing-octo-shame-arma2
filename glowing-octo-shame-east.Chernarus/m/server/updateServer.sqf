@@ -16,6 +16,7 @@ _path = "m\server\";
 [] execVM (_path + "server_update_gc2.sqf");
 [] execVM (_path + "lag.sqf");
 [] execVM (_path + "while_vehicles_lock.sqf");
+[] execVM (_path + "server_gc_water.sqf");
 
 private ["_time2","_delay","_time2_select"];
 _time2 = [time,time,time,time,time,time,time,time,time,time,time,time,time,time];
