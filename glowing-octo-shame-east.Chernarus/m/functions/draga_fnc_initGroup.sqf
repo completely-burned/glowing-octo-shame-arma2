@@ -695,6 +695,49 @@ while{!isNull _this}do{
 			};
 		};
 
+		// лидер двигается ближе к атакующим юнитам
+		if (_leader == Vehicle _leader) then {
+
+			private["_follow"];
+
+			scopeName "_follow";
+
+			if (true) then {
+
+				// лидер двигаться в сторону атакующего юнита отряда
+				{
+					if (currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] && vehicle _x == _x ) then {
+						_follow = _x;
+						breakTo "_follow";
+					};
+				} forEach _units-[_leader];
+
+				// лидер двигаться в сторону атакующей техники отряда
+				{
+					if (currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]) then {
+						_follow = _x;
+						breakTo "_follow";
+					};
+				} forEach _vehicles;
+
+				// лидер двигаться в сторону техники отряда
+				if (count _vehicles > 0 && !(behaviour _leader in ["SAFE", "CARELESS", "AWARE"])) then {
+					_follow = _vehicles select 0;
+				};
+			};
+
+			// движение лидера
+			if (!isNil{_follow}) then {
+				if (_leader Distance _follow > 25) then {
+					Private["_position","_position1"];
+					_position = GetPos _leader;
+					_position1 = GetPos _follow;
+					_position = [((_position Select 0) + (_position1 Select 0)) / 2,((_position Select 1) + (_position1 Select 1)) / 2];
+					_grp Move _position;
+				};
+			};
+		};
+
 		if (!isPlayer _leader) then {
 			private["_SpeedMode","_CombatMode","_Behaviour"];
 			_SpeedMode = "NORMAL";
@@ -709,7 +752,7 @@ while{!isNull _this}do{
 				_SpeedMode = "FULL";
 			};
 
-			if(_Car)then{
+			if(_Car && vehicle _leader != _leader)then{
 				_Behaviour = "SAFE";
 			};
 
