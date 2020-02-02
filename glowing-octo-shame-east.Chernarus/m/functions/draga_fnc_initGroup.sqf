@@ -12,7 +12,9 @@ private ["_Air","_uav","_Car","_Tank"];
 private["_AA"];
 private["_support"];
 // private ["_Stealth"];
+private["_grp_wp_completed"];
 
+_grp=_this;
 
 while{!isNull _this}do{
 
@@ -20,9 +22,10 @@ while{!isNull _this}do{
 
 	sleep 10 + random 10;
 
-	if (true) then {
+	_grp_wp_completed = nil;
+	_grp_wp_completed = _grp getVariable "_grp_wp_completed";
 
-		_grp=_this;
+	if (true) then {
 
 		_leader = leader _grp;
 
@@ -101,8 +104,6 @@ while{!isNull _this}do{
 
 		}forEach _types;
 
-		_grp_wp_completed = !isNil {_grp getVariable "_grp_wp_completed"};
-
 		if (_StaticWeapon) then {
 			if ( count waypoints _grp > 0 ) then{
 				[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
@@ -115,7 +116,7 @@ while{!isNull _this}do{
 
 		if (_Submarine) then {
 		  if (_typeWP in ["UNLOAD","GETOUT"]) then {
-			if ((_leaderPos distance waypointPosition _wp < 400) or _grp_wp_completed) then {
+			if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 			  if (isNil {_grp getVariable "GETOUT"}) then {
 				_grp setVariable ["GETOUT",true];
 				_grp call {
@@ -161,7 +162,7 @@ while{!isNull _this}do{
 				if (draga_loglevel > 0) then {
 					diag_log format ["draga_fnc_initGroup.sqf %1 _Helicopter UNLOAD", _grp ];
 				};
-				if ((_leaderPos distance waypointPosition _wp < 1000) or _grp_wp_completed) then {
+				if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
 					if (isNil {_grp getVariable "UNLOAD"}) then {
 						_grp setVariable ["UNLOAD",true];
 						_grp call {
@@ -199,7 +200,7 @@ while{!isNull _this}do{
 				if (draga_loglevel > 0) then {
 					diag_log format ["draga_fnc_initGroup.sqf %1 _Helicopter GETOUT", _grp ];
 				};
-				if ((_leaderPos distance waypointPosition _wp < 400) or _grp_wp_completed) then {
+				if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 					if (isNil {_grp getVariable "GETOUT"}) then {
 						_grp setVariable ["GETOUT",true];
 						_grp call {
@@ -235,7 +236,7 @@ while{!isNull _this}do{
 
 		if (_Plane) then {
 			if (_typeWP in ["UNLOAD","GETOUT"]) then {
-				if ((_leaderPos distance waypointPosition _wp < 1000) or _grp_wp_completed) then {
+				if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
 					if (isNil {_grp getVariable "UNLOAD"}) then {
 						_grp setVariable ["UNLOAD",true];
 						_grp call {
@@ -280,7 +281,7 @@ while{!isNull _this}do{
 
 		if (_Ship) then {
 		  if (_typeWP in ["UNLOAD"]) then {
-			if ((_leaderPos distance waypointPosition _wp < 400) or _grp_wp_completed) then {
+			if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 			  if (isNil {_grp getVariable "UNLOAD"}) then {
 				_grp setVariable ["UNLOAD",true];
 				_grp call {
@@ -321,7 +322,7 @@ while{!isNull _this}do{
 			};
 		  };
 		  if (_typeWP in ["GETOUT"]) then {
-			if ((_leaderPos distance waypointPosition _wp < 400) or _grp_wp_completed) then {
+			if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 			  if (isNil {_grp getVariable "GETOUT"}) then {
 				_grp setVariable ["GETOUT",true];
 				_grp call {
@@ -368,8 +369,6 @@ while{!isNull _this}do{
 			_grp = _this;
 			_leader = leader _grp;
 
-			private["_grp_wp_completed"];
-			_grp_wp_completed = !isNil {_grp getVariable "_grp_wp_completed"};
 
 			// время создания группы
 			private["_time"];
@@ -388,11 +387,11 @@ while{!isNull _this}do{
 			_createWP = false;
 			_leaderPos = getPos vehicle _leader;
 
-			if (!_grp_wp_completed) then {
+			if (isNil{_grp_wp_completed}) then {
 				if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < 15 )then{
-					_grp_wp_completed = true;
+					_grp_wp_completed = time;
 					if (draga_loglevel > 0) then {
-						diag_log format ["draga_fnc_initGroup.sqf %1 _grp_wp_completed = true", _grp ];
+						diag_log format ["draga_fnc_initGroup.sqf %1 _grp_wp_completed = time", _grp ];
 					};
 				};
 			};
@@ -670,8 +669,9 @@ while{!isNull _this}do{
 
 				// создать маршрут
 				if( !_NoCreateWP )then{
-					if(_createWP or _grp_wp_completed)then{
+					if(_createWP or !isNil{_grp_wp_completed})then{
 						_grp setVariable ['_grp_wp_completed',nil];
+						_grp setVariable ["draga_grp_wp_sleep", nil];
 						while {(count (waypoints _grp)) > 0} do {
 							deleteWaypoint ((waypoints _grp) select 0);
 						};
@@ -685,7 +685,7 @@ while{!isNull _this}do{
 				private["_wp"];
 				_wp = [_grp,_currentWP];
 				private["_wpStatements"];
-				_wpStatements = "if(!isNil {this})then{group this setVariable ['_grp_wp_completed',true]}";
+				_wpStatements = "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}";
 				if!(waypointStatements _wp select 1 in [_wpStatements,"vehicle this land 'GET IN'","vehicle this land 'GET OUT'","vehicle this land 'LAND'","this land 'GET IN'","this land 'GET OUT'","this land 'LAND'"])then{
 					if (draga_loglevel > 0) then {
 						diag_log format ["draga_fnc_initGroup.sqf %1 _wpStatements %2", _grp, _wpStatements ];
