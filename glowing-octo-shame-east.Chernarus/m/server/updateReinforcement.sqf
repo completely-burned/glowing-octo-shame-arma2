@@ -27,21 +27,21 @@ while{true}do{
 		Private["_side"];
 		_side = side _grp;
 
-			if({isPlayer _x} count units _grp == 0)then{
-				if (!isNil {_grp GetVariable "patrol"}) then {
-					if (_side in m_friendlySide) then {
-						_friendlyPatrols = _friendlyPatrols + 1;
-					}else{
-						_enemyPatrols = _enemyPatrols + 1;
-					};
+		if({isPlayer _x} count units _grp == 0)then{
+			if (!isNil {_grp GetVariable "patrol"}) then {
+				if (_side in m_friendlySide) then {
+					_friendlyPatrols = _friendlyPatrols + 1;
 				}else{
-					if (_side in m_friendlySide) then {
-						_friendlyGroups = _friendlyGroups + 1;
-					}else{
-						_enemyGroups = _enemyGroups + 1;
-					};
+					_enemyPatrols = _enemyPatrols + 1;
+				};
+			}else{
+				if (_side in m_friendlySide) then {
+					_friendlyGroups = _friendlyGroups + 1;
+				}else{
+					_enemyGroups = _enemyGroups + 1;
 				};
 			};
+		};
 	}forEach allGroups;
 
 	_all_groups=(_friendlyPatrols+_enemyPatrols+_friendlyGroups+_enemyGroups);
