@@ -93,26 +93,31 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 		_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call m_fnc_CheckIsKindOfArray);
 
 		_support = false;
-		ScopeName "_support";
+		ScopeName "_true1";
 		{
-			if(getNumber(LIB_cfgVeh >> _x >> "attendant")> 0 && _x isKindOf "LandVehicle")then{
+			if(getNumber(LIB_cfgVeh >> typeOf _x >> "attendant")> 0 && _x isKindOf "LandVehicle")then{
 				_support = true;
-				BreakTo "_support";
+				BreakTo "_true1";
 			};
-			if(getNumber(LIB_cfgVeh >> _x >> "transportfuel")> 0)then{
+			if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportfuel")> 0)then{
 				_support = true;
-				BreakTo "_support";
+				BreakTo "_true1";
 			};
-			if(getNumber(LIB_cfgVeh >> _x >> "transportammo")> 0)then{
+			if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportammo")> 0)then{
 				_support = true;
-				BreakTo "_support";
+				BreakTo "_true1";
 			};
-			if(getNumber(LIB_cfgVeh >> _x >> "transportrepair")> 0)then{
+			if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportrepair")> 0)then{
 				_support = true;
-				BreakTo "_support";
+				BreakTo "_true1";
 			};
 
-		}forEach _types;
+		}forEach _assignedVehicles;
+		if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
+			if({count assignedVehicleRole _x > 0} count _units > 0)then{
+				_support = true;
+			};
+		};
 
 		if (_StaticWeapon) then {
 			if ( count waypoints _grp > 0 ) then{
@@ -617,6 +622,8 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 
 				private["_NoCreateWP"];
 				_NoCreateWP = false;
+				private["_DeleteWP"];
+				_DeleteWP = true;
 
 				if ((vehicle _leader distance civilianBasePos) <= sizeLocation or true) then {
 					// боты остаются на месте
@@ -653,8 +660,22 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 
 				};
 
+				if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
+					if({count assignedVehicleRole _x > 0} count _units > 0)then{
+						_DeleteWP = false;
+					};
+				};
+
+				if(_support)then{
+					if(waypointType [_grp, currentwaypoint _grp] != "SUPPORT")then{
+						_DeleteWP = true;
+						_NoCreateWP = false;
+						_createWP = true;
+					};
+				};
+
 				// остановить без маршрута
-				if( _NoCreateWP )then{
+				if( _NoCreateWP && _DeleteWP)then{
 					if ( count waypoints _grp > 0 ) then{
 						if (draga_loglevel > 0) then {
 							diag_log format ["draga_fnc_initGroup.sqf %1 currentCommand leader %2, count waypoints %3, stopping", _grp, currentCommand _leader, count waypoints _grp ];
@@ -678,7 +699,7 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 
 
 				// создать маршрут
-				if( !_NoCreateWP )then{
+				if( !_NoCreateWP && _DeleteWP)then{
 					if(_createWP or !isNil{_grp_wp_completed})then{
 						_grp setVariable ['_grp_wp_completed',nil];
 						_grp setVariable ["draga_grp_wp_sleep", nil];
@@ -748,7 +769,6 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 			};
 		};
 
-		// scopeName "unload";
 		private["_getOut","_allowGetin","_assignedVehicle"];
 		_getOut=[];
 		if (true) then {
@@ -901,9 +921,9 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 
 			_getOut allowGetin false;
 
-		}; // count _vehicles
+			_units - _getOut allowGetin true;
 
-		_units - _getOut allowGetin true;
+		}; // count _vehicles
 
 		if (!isPlayer _leader) then {
 			private["_SpeedMode","_CombatMode","_Behaviour"];
@@ -983,6 +1003,11 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 				};
 			};
 
+			if(_currentWaypointType in ["SUPPORT"])then{
+				_CombatMode = "GREEN";
+				_Behaviour = "SAFE";
+				_SpeedMode = "FULL";
+			};
 
 			if(speedMode _grp != _SpeedMode)then{
 				_grp setSpeedMode _SpeedMode;

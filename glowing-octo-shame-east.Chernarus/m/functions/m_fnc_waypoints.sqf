@@ -9,15 +9,21 @@ if(!isNil "_leader")then{
 	_waypoints = waypoints _grp;
 	_leaderPos = getPos vehicle _leader;
 
-	private ["_units","_vehicles","_landing","_types"];
+	private ["_units","_vehicles","_landing","_types","_assignedVehicles"];
 	_units = units _grp;
 	_vehicles = [];
 	_types = [];
+	_assignedVehicles = [];
 	_landing = false;
 	{
 		_types set [count _types, typeOf _x];
 		private ["_veh"];
 		_veh = vehicle _x;
+		private ["_assignedVehicle"];
+		_assignedVehicle = assignedVehicle _x;
+		if (!isNull _assignedVehicle) then {
+			_assignedVehicles set [count _assignedVehicles, _veh];
+		};
 		if(_veh != _x)then{
 			if!(_veh in _vehicles)then{
 				if (group effectiveCommander _veh == _grp) then {
@@ -73,24 +79,30 @@ if(!isNil "_leader")then{
 		_support = false;
 		ScopeName "_support";
 		{
-			if(getNumber(LIB_cfgVeh >> _x >> "attendant")> 0 && _x isKindOf "LandVehicle")then{
+			if(getNumber(LIB_cfgVeh >> typeOf _x >> "attendant")> 0 && _x isKindOf "LandVehicle")then{
 				_support = true;
 				BreakTo "_support";
 			};
-			if(getNumber(LIB_cfgVeh >> _x >> "transportfuel")> 0)then{
+			if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportfuel")> 0)then{
 				_support = true;
 				BreakTo "_support";
 			};
-			if(getNumber(LIB_cfgVeh >> _x >> "transportammo")> 0)then{
+			if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportammo")> 0)then{
 				_support = true;
 				BreakTo "_support";
 			};
-			if(getNumber(LIB_cfgVeh >> _x >> "transportrepair")> 0)then{
+			if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportrepair")> 0)then{
 				_support = true;
 				BreakTo "_support";
 			};
 
-		}forEach _types;
+		}forEach _assignedVehicles;
+
+		if(_typeWP == "SUPPORT")then{
+			if({count assignedVehicleRole _x > 0} count _units > 0)then{
+				_support = true;
+			};
+		};
 
 		if(_uav)then{
 			// _WaypointCombatMode = "BLUE";
@@ -189,6 +201,7 @@ if(!isNil "_leader")then{
 		if(_support)then{
 			_WaypointType = "SUPPORT";
 			_pos = _leaderPos;
+			_maxDist = -1;
 		};
 
 		if(_Submarine)then{
