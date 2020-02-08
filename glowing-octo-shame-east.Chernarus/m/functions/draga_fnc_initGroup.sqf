@@ -16,7 +16,12 @@ private["_grp_wp_completed"];
 
 _grp=_this;
 
-while{!isNull _this}do{
+private ["_waitUntilTimeCreate"];
+_waitUntilTimeCreate = time + 15;
+
+waitUntil{(isNull _this) or (time > _waitUntilTimeCreate) or ({alive _x} count units _this > 0)};
+
+while{!isNull _this && {alive _x} count units _this > 0}do{
 
 	scopeName "main";
 

@@ -24,32 +24,9 @@ while{true}do{
 	{
 		private ["_grp"];
 		_grp=_x;
-		Private["_visible"];
-		_visible = false;
 		Private["_side"];
 		_side = side _grp;
 
-		ScopeName "Check1";
-		{
-			if(alive _x)then{
-				_visible = true;
-				BreakTo "Check1";
-			};
-		} forEach (units _grp);
-
-		Private["_delete","_time"];
-		_delete = false;
-		_time = (_grp getVariable "time");
-		if ( isNil "_time" ) then {
-			_time = ( time + ( 30 ) );
-			_grp setVariable ["time", _time];
-		}else{
-			if ( _time < time )then {
-				_delete = true;
-			};
-		};
-
-		if(_visible)then{
 			if({isPlayer _x} count units _grp == 0)then{
 				if (!isNil {_grp GetVariable "patrol"}) then {
 					if (_side in m_friendlySide) then {
@@ -65,11 +42,6 @@ while{true}do{
 					};
 				};
 			};
-		}else{
-			if(_delete)then{
-			deleteGroup _grp;
-			};
-		};
 	}forEach allGroups;
 
 	_all_groups=(_friendlyPatrols+_enemyPatrols+_friendlyGroups+_enemyGroups);
