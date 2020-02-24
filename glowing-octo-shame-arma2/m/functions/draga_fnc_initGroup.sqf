@@ -783,7 +783,7 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 
 						// в бою
 						if(_allowGetin)then{
-							if((behaviour _x == "COMBAT"))then{
+							if((behaviour _x == "COMBAT" ) or ( currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]))then{
 								if(count _VehicleRole > 0)then{
 									if(_VehicleRole select 0 == "Cargo")then{
 										_allowGetin=false;
@@ -798,11 +798,6 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 								};
 							};
 						};
-						// атакует
-						if( currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] )then{
-							_allowGetin=false;
-						};
-
 
 						// на месте
 						if(_allowGetin && true)then{
@@ -867,6 +862,21 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 							}
 						};
 
+						// авиация
+						if!(_allowGetin)then{
+							if(_assignedVehicle isKindOf "Air")then{
+								_allowGetin=true;
+							};
+						};
+						if(_allowGetin)then{
+							if(_assignedVehicle isKindOf "Helicopter")then{
+								if(_x == vehicle _x)then{
+									if((_assignedVehicle distance vehicle _x)>50)then{
+										_allowGetin=false;
+									};
+								};
+							};
+						};
 						// самолеты
 						if(toLower getText(configFile >> "CfgVehicles" >> typeOf _assignedVehicle >> "simulation") == "airplane")then{
 							// юнит вне самолета
