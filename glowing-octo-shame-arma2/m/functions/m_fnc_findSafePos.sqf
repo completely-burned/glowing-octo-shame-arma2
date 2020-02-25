@@ -3,7 +3,7 @@
 private["_run_timer"];
 _run_timer = time;
 
-private ["_pos","_minDist","_maxDist","_objDist","_waterMode","_maxGradient","_shoreMode","_blacklist","_side","_posX","_posY","_dist","_attempts","_visible","_testPos","_preferRoads"];
+private ["_pos","_minDist","_maxDist","_objDist","_waterMode","_maxGradient","_shoreMode","_blacklist","_side","_posX","_posY","_dist","_attempts","_allowPos","_testPos","_preferRoads"];
 _pos = _this select 0;
 _minDist = _this select 1;
 _maxDist = _this select 2;
@@ -24,11 +24,11 @@ if ((count _this) > 7) then {
 if ((count _pos) == 0) then {
 	_pos = getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
 };
-if ((count _pos) == 0) exitWith {debugLog "Log: [findSafePos] No center position was passed!"; []};
 
 if (_maxDist == -1) then {
 	_maxDist = getNumber(configFile >> "CfgWorlds" >> worldName >> "safePositionRadius");
 };
+
 _preferRoads = _this select 9;
 if ((count _this) > 10) then {
 	_side = _this select 10;
@@ -41,14 +41,14 @@ _dist = 100;
 _attempts = 0;
 private ["_attempts2"];
 _attempts2 = 0;
-_visible = true;
+_allowPos = true;
 // private ["_groupPosList"];
 // _groupPosList=[0];
 private ["_nearRoads"];
 if(_preferRoads)then{
 	_nearRoads = (_pos nearRoads _dist);
 };
-while {_visible} do {
+while {_allowPos} do {
 	if(_attempts2 >= 5000)exitWith{_testPos = []};
 
 	if(_preferRoads)then{
@@ -67,14 +67,14 @@ while {_visible} do {
 
 	// "test" setMarkerPos _testPos;
 
-	_visible=false;
-	if((!_visible) && true)then
+	_allowPos=false;
+	if((!_allowPos) && true)then
 	{
-		_visible = ([_testPos,_minDist] call m_fnc_CheckPlayersDistance);
+		_allowPos = ([_testPos,_minDist] call m_fnc_CheckPlayersDistance);
 	};
 
 	if(count _this > 10)then {
-     if(!_visible)then {
+		if(!_allowPos)then {
 			ScopeName "CheckForEnemy";
 			{
 				private "_leader";
@@ -82,7 +82,7 @@ while {_visible} do {
 				if (alive _leader) then {
 					if (( side _x getFriend _side) < 0.6 ) then {
 						if ((vehicle leader _x distance _testPos) < (_minDist min 1500))then {
-													_visible = true;
+							_allowPos = true;
 							BreakTo "CheckForEnemy";
 						};
 					};
@@ -90,22 +90,22 @@ while {_visible} do {
 				// sleep 0.0001;
 			} forEach allGroups;
 		};
-		// if(!_visible)then {
+		// if(!_allowPos)then {
             // if ([_testPos, _minDist min 750, _side] call m_fnc_CheckCombatNearUnits ) then {
-				// _visible = true;
+				// _allowPos = true;
 			// };
 		// };
 	};
 
-	if(!_visible)then{
-		_visible = ([_testPos, _blacklist] call BIS_fnc_isPosBlacklisted);
+	if(!_allowPos)then{
+		_allowPos = ([_testPos, _blacklist] call BIS_fnc_isPosBlacklisted);
 	};
 
-	if(!_visible)then{
+	if(!_allowPos)then{
 		// sleep 0.01;
 		_testPos = (_testPos isFlatEmpty [_objDist, -1, _maxGradient, _objDist, _waterMode, _shoreMode, objNull]);
 		if(isNil "_testPos")then{_testPos=[]};
-		if(count _testPos == 0)then {_visible=true};
+		if(count _testPos == 0)then {_allowPos=true};
 	};
 
 	_attempts = _attempts + 1;
