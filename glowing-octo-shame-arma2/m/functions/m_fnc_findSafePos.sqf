@@ -91,7 +91,7 @@ while {_allowPos} do {
 			} forEach allGroups;
 		};
 		// if(!_allowPos)then {
-            // if ([_testPos, _minDist min 750, _side] call m_fnc_CheckCombatNearUnits ) then {
+			// if ([_testPos, _minDist min 750, _side] call m_fnc_CheckCombatNearUnits ) then {
 				// _allowPos = true;
 			// };
 		// };
