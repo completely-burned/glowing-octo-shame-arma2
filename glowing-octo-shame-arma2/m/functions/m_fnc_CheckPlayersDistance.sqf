@@ -15,14 +15,14 @@ if(isMultiplayer)then{
 	{
 		if (IsPlayer _x) then {
 			_player = vehicle _x;
-			if (_pos distance _player <= _distance)then{
+			if (_pos distance _player < _distance)then{
 				_visible = true;
 				BreakTo "CheckPlayer";
 			};
 		};
 	} foreach playableunits;
 }else{
-	if ((vehicle player distance _Pos) <= _distance)then{
+	if ((vehicle player distance _Pos) < _distance)then{
 		_visible = true;
 	};
 };
