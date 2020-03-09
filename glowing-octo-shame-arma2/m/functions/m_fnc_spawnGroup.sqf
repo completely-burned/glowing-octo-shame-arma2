@@ -3,6 +3,15 @@ private ["_pos", "_side", "_groups"];
 _pos = _this select 0;
 _side = _this select 1;
 _groups = [];
+
+private ["_vehicles","_roads"];
+_vehicles = [];
+_roads = _pos select 1;
+_pos = _pos select 0;
+if(count _pos == 0)then{
+	_pos = [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
+};
+
 {
 	private ["_grp"];
 	_grp = createGroup _side;
@@ -61,6 +70,15 @@ _groups = [];
 						_fnc_spawnVehicle = [_itemPos, _azimuth, _type, _grp] call m_fnc_spawnVehicle;
 					};
 					_unit = _fnc_spawnVehicle select 0;
+
+					if(count _roads > 0)then{
+						_unit setPos getPos (_roads select 0);
+						if(count _roads > 1)then{
+							_azimuth = 180 + ([_roads select 0, _roads select 1] call BIS_fnc_dirTo);
+						};
+						_unit setDir _azimuth;
+						_roads = _roads - [_roads select 0];
+					};
 				};
 
 				if (((count _ranks) > 0)) then {

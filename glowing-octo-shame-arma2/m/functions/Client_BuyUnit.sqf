@@ -176,7 +176,7 @@ if (true) then {
 					Private["_side","_grp","_wp"];
 					_side = playerSide;
 					_grp = createGroup _side;
-					_pos = ([_pos]+([[_type]] call m_fnc_SafePosParams)+[_side] call m_fnc_findSafePos);
+					_pos = ([_pos]+([[_type]] call m_fnc_SafePosParams)+[_side] call m_fnc_findSafePos) select 0;
 					Private["_veh"];
 					_veh = [_pos, random 360, _type, _grp] call m_fnc_spawnVehicle;
 					_veh = _veh select 0;

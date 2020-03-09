@@ -149,7 +149,7 @@ while{true}do{
 				if(isNull _veh && count _heli_types > 0)then{
 					// создание транспорта
 					private["_pos_resp"];
-					_pos_resp = ([getPos _player]+[3500,7000, -1, -1, (100 * (pi / 180)), 0, [], getPos _player, false]+[side _player] call m_fnc_findSafePos);
+					_pos_resp = ([getPos _player]+[3500,7000, -1, -1, (100 * (pi / 180)), 0, [], getPos _player, false]+[side _player] call m_fnc_findSafePos) select 0;
 					_grp = createGroup side _player;
 					_veh = ([_pos_resp, random 360, _heli_types call BIS_fnc_selectRandom, _grp] call m_fnc_spawnVehicle) select 0;
 					_veh setVariable ["transportPlayer", _player];

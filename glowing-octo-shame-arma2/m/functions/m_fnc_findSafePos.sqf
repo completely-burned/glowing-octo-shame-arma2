@@ -41,20 +41,44 @@ _dist = 100;
 _attempts = 0;
 private ["_attempts2"];
 _attempts2 = 0;
-_allowPos = true;
-// private ["_groupPosList"];
-// _groupPosList=[0];
-private ["_nearRoads"];
+_allowPos = false;
+
+private ["_branchesRoads","_roads","_branchRoad","_roadSize"];
+_branchesRoads = [];
 if(_preferRoads)then{
-	_nearRoads = (_pos nearRoads _dist);
+	//if(isNil{CivilianLocation getVariable "_var_draga_branchesRoads"})then{
+		private ["_nearRoads"];
+		_nearRoads = (_pos nearRoads 500);
+		if(count _nearRoads > 0)then{
+			_branchesRoads = [_nearRoads call BIS_fnc_selectRandom, 150] call draga_fnc_roads;
+		};
+		//CivilianLocation setVariable ["_var_draga_branchesRoads", _branchesRoads];
+	//}else{
+	//	_branchesRoads = CivilianLocation getVariable "_var_draga_branchesRoads";
+	//};
 };
-while {_allowPos} do {
+while {!_allowPos} do {
+
+	_allowPos=true;
+
+	_roads = [];
 	if(_attempts2 >= 5000)exitWith{_testPos = []};
 
-	if(_preferRoads)then{
-		if(count _nearRoads > 0)then{
-			_testPos = getPos (_nearRoads call BIS_fnc_selectRandom);
+	if(count _branchesRoads > 0)then{
+		_branchRoad = _branchesRoads call BIS_fnc_selectRandom;
+
+		_roadSize = 10;
+
+		if(count _branchRoad >= _roadSize)then {
+			private ["_start"];
+			_start = random (count _branchRoad - _roadSize);
+			for "_i" from _start to (_start + _roadSize) do {
+				_roads set [count _roads, _branchRoad select _i];
+			};
 		};
+
+		_testPos = getPos (_roads select 0);
+
 	}else{
 		private ["_dir","_dist2"];
 		_dir = random 360;
@@ -62,19 +86,14 @@ while {_allowPos} do {
 		_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
 	};
 
-	// if(count _testPos == 0)then{
-	// };
-
-	// "test" setMarkerPos _testPos;
-
-	_allowPos=false;
-	if((!_allowPos) && true)then
-	{
-		_allowPos = ([_testPos,_minDist] call m_fnc_CheckPlayersDistance);
+	if(_allowPos)then{
+		if([_testPos,_minDist] call m_fnc_CheckPlayersDistance)then{
+			_allowPos = false;
+		};
 	};
 
 	if(count _this > 10)then {
-		if(!_allowPos)then {
+		if(_allowPos)then {
 			ScopeName "CheckForEnemy";
 			{
 				private "_leader";
@@ -82,12 +101,11 @@ while {_allowPos} do {
 				if (alive _leader) then {
 					if (( side _x getFriend _side) < 0.6 ) then {
 						if ((vehicle leader _x distance _testPos) < (_minDist min 1500))then {
-							_allowPos = true;
+							_allowPos = false;
 							BreakTo "CheckForEnemy";
 						};
 					};
 				};
-				// sleep 0.0001;
 			} forEach allGroups;
 		};
 		// if(!_allowPos)then {
@@ -97,32 +115,28 @@ while {_allowPos} do {
 		// };
 	};
 
-	if(!_allowPos)then{
-		_allowPos = ([_testPos, _blacklist] call BIS_fnc_isPosBlacklisted);
-	};
-
-	if(!_allowPos)then{
-		// sleep 0.01;
-		_testPos = (_testPos isFlatEmpty [_objDist, -1, _maxGradient, _objDist, _waterMode, _shoreMode, objNull]);
-		if(isNil "_testPos")then{_testPos=[]};
-		if(count _testPos == 0)then {_allowPos=true};
-	};
-
-	_attempts = _attempts + 1;
-	_attempts2 = _attempts2 + 1;
-	if ( ( _attempts > 50 ) && ( _dist < _maxDist ) ) then {
-		_dist = ( _dist + (( _maxDist / 8 ) max 100 ) );
-		if(_preferRoads)then{
-			_nearRoads = (_pos nearRoads _dist);
+	if(_allowPos)then{
+		if([_testPos, _blacklist] call BIS_fnc_isPosBlacklisted)then{
+			_allowPos = false;
 		};
-		_attempts = 0;
 	};
-	// sleep 0.0001;
+
+	if(count _roads == 0)then{
+		_testPos = (_testPos isFlatEmpty [_objDist, -1, _maxGradient, _objDist, _waterMode, _shoreMode, objNull]);
+		if(count _testPos == 0)then {_allowPos=false};
+	};
+
+	if(!_allowPos)then{
+		_attempts = _attempts + 1;
+		_attempts2 = _attempts2 + 1;
+		if ( ( _attempts > 50 ) && ( _dist < _maxDist ) ) then {
+			_dist = ( _dist + (( _maxDist / 8 ) max 100 ) );
+			_attempts = 0;
+		};
+	};
 
 };
 
-	// diag_log format ["m_fnc_findSafePos.sqf 119, %1", time];
-
 diag_log format ["m_fnc_findSafePos.sqf time %1", time - _run_timer];
 
-_testPos;
+[_testPos, _roads];

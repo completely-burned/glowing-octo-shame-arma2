@@ -38,15 +38,19 @@ if ([_types, ["Air"]] call m_fnc_CheckIsKindOfArray) then{
 };
 
 _preferRoads=false;
-// if(worldname in ["Chernarus", "Takistan"])then {
-	// ScopeName "_preferRoads";
-	// {
-		// _preferRoads = getnumber (configfile >> "cfgvehicles" >>  _x >> "preferRoads") > 0;
-		// if (_preferRoads) then {
-			// BreakTo "_preferRoads";
-		// };
-	// } forEach _types;
-// };
+if ([_types, ["Car","Wheeled_APC","LandVehicle"]] call m_fnc_CheckIsKindOfArray) then{
+	_preferRoads = true;
+}else{
+	// if(worldname in ["Chernarus", "Takistan"])then {
+		ScopeName "_preferRoads";
+		{
+			if (getnumber (configfile >> "cfgvehicles" >>  _x >> "preferRoads") > 0) then {
+				BreakTo "_preferRoads";
+				_preferRoads = true;
+			};
+		} forEach _types;
+	// };
+};
 
 if ([_types, ["Ship"]] call m_fnc_CheckIsKindOfArray) then{
 	_minDist = 1500;
