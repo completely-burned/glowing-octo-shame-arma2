@@ -46,8 +46,13 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 			};
 		};
 	} ForEach [East,West,Resistance];
-	_x SetFriend [civilian,1];
-	civilian SetFriend [_x,1];
+	if (_sideCreated in m_friendlySide) then {
+		_sideCreated SetFriend [civilian,1];
+		civilian SetFriend [_sideCreated,1];
+	}else{
+		_sideCreated SetFriend [civilian,0];
+		civilian SetFriend [_sideCreated,0];
+	};
 	// _x SetFriend [sideUnknown ,0];
 	// sideUnknown  SetFriend [_x,0];
 } ForEach [East,West,Resistance];
