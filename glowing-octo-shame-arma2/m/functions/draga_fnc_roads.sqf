@@ -82,5 +82,26 @@ _new_branches = [];
 } forEach _branches;
 */
 
+private ["_size","_branch","_max_dist"];
+{
+	_branch = _x;
+
+	_max_dist = -1;
+
+	_size = 0;
+
+	for "_i" from 0 to ((count _branch) - 1) do {
+
+		if(_branch select _i distance (_branch select 0) > _max_dist)then{
+			_max_dist = (_branch select _i distance (_branch select 0));
+			_size = _i+1;
+		};
+
+	};
+
+	_branch resize _size;
+
+} forEach _branches;
+
 //_new_branches;
 _branches;
