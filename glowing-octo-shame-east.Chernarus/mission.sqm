@@ -50,7 +50,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=33;
+		items=34;
 		class Item0
 		{
 			side="EAST";
@@ -3938,6 +3938,92 @@ class Mission
 					vehicle="TK_Soldier_EP1";
 					player="PLAY CDG";
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item33
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=7;
+				class Item0
+				{
+					position[]={7542.9531,303.69284,6866.5337};
+					azimut=270;
+					id=378;
+					side="EAST";
+					vehicle="TK_Special_Forces_TL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item1
+				{
+					position[]={7546.4399,304.19122,6862.0889};
+					azimut=270;
+					id=379;
+					side="EAST";
+					vehicle="TK_Special_Forces_MG_EP1";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item2
+				{
+					position[]={7546.4399,304.08832,6864.0889};
+					azimut=270;
+					id=380;
+					side="EAST";
+					vehicle="TK_Special_Forces_EP1";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item3
+				{
+					position[]={7546.4399,303.98431,6866.0889};
+					azimut=270;
+					id=381;
+					side="EAST";
+					vehicle="TK_Special_Forces_EP1";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item4
+				{
+					position[]={7546.4399,303.88034,6868.0889};
+					azimut=270;
+					id=382;
+					side="EAST";
+					vehicle="TK_Special_Forces_MG_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item5
+				{
+					position[]={7546.4399,303.78268,6870.0889};
+					azimut=270;
+					id=383;
+					side="EAST";
+					vehicle="TK_Special_Forces_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item6
+				{
+					position[]={7546.4399,303.69205,6872.0889};
+					azimut=270;
+					id=384;
+					side="EAST";
+					vehicle="TK_Special_Forces_Medic_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
 				};
 			};
 		};
