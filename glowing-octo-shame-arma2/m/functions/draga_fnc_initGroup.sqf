@@ -734,6 +734,31 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 			scopeName "_follow";
 
 			if (true) then {
+
+				// лидер двигаться в сторону атакующей техники отряда
+				{
+					if (currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]) then {
+						_follow = _x;
+						breakTo "_follow";
+					};
+				} forEach _vehicles;
+
+				// лидер двигаться в сторону техники отряда
+				{
+					if (alive effectiveCommander _x) then {
+						_follow = _x;
+						breakTo "_follow";
+					};
+				} forEach _vehicles;
+
+				// лидер двигаться в сторону атакующего юнита отряда
+				{
+					if (currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] && vehicle _x == _x ) then {
+						_follow = _x;
+						breakTo "_follow";
+					};
+				} forEach _units-[_leader];
+
 			};
 
 			// движение лидера
