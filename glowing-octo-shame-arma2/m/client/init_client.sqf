@@ -98,9 +98,10 @@ if ( isMultiplayer ) then {
 	player addEventHandler ["killed", {_this call m_fnc_playerRespawnSP}];
 	// [] spawn m_fnc_playerRespawn;
 
-	// радио 0-0, чтоб разные скрипты тестировать
-	[] call compile preprocessFileLineNumbers  "m\Client\radio\init.sqf";
 };
+
+// радио 0-0, чтоб разные скрипты тестировать
+[] call compile preprocessFileLineNumbers  "m\Client\radio\init.sqf";
 
 if(debug)then{
 
