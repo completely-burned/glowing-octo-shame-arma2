@@ -744,12 +744,14 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 				} forEach _vehicles;
 
 				// лидер двигаться в сторону техники отряда
+				/*
 				{
 					if (alive effectiveCommander _x && !(behaviour _leader in ["SAFE", "CARELESS", "AWARE"])) then {
 						_follow = _x;
 						breakTo "_follow";
 					};
 				} forEach _vehicles;
+				*/
 
 				// лидер двигаться в сторону атакующего юнита отряда
 				{
