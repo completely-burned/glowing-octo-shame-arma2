@@ -27,7 +27,9 @@ _getMagazineCargo set [0, _namesToLower];
 		if ( _num != -1) then {
 			_count = ((_count ) - ((_getMagazineCargo select 1) select _num));
 		};
+	if (count (getMagazineCargo _this select 0) < getNumber (configfile >> "cfgVehicles">> typeOf _this >>"transportMaxMagazines")) then {
 		_this addMagazineCargo [_Magazine,_count];
+	};
 
 } foreach (_Magazines select 0);
 
@@ -50,7 +52,9 @@ _getMagazineCargo set [0, _namesToLower];
 		if ( _num != -1) then {
 			_count = ((_count ) - ((_getMagazineCargo select 1) select _num));
 		};
+	if (count (getWeaponCargo _this select 0) < getNumber (configfile >> "cfgVehicles">> typeOf _this >>"transportMaxWeapons")) then {
 		_this addWeaponCargo [_Magazine,_count];
+	};
 } foreach (_Magazines select 1);
 
 
@@ -72,7 +76,9 @@ _getMagazineCargo set [0, _namesToLower];
 		if ( _num != -1) then {
 			_count = ((_count ) - ((_getMagazineCargo select 1) select _num));
 		};
+	if (count (getBackpackCargo _this select 0) < getNumber (configfile >> "cfgVehicles">> typeOf _this >>"transportMaxBackpacks")) then {
 		_this addBackpackCargo [_Magazine,_count];
+	};
 } foreach (_Magazines select 2);
 
 _this setammocargo 1;

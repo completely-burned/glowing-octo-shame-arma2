@@ -116,7 +116,7 @@ while {true} do {
 
 				if ([[_type],["ReammoBox"]] call m_fnc_CheckIsKindOfArray) then {
 					if (alive _Object) then {
-						// _Object call m_fnc_updateReammoBox;
+						_Object call m_fnc_updateReammoBox;
 					}else{
 						if (local _Object) then {
 							deleteVehicle _Object;
