@@ -745,7 +745,7 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 
 				// лидер двигаться в сторону техники отряда
 				{
-					if (alive effectiveCommander _x) then {
+					if (alive effectiveCommander _x && !(behaviour _leader in ["SAFE", "CARELESS", "AWARE"])) then {
 						_follow = _x;
 						breakTo "_follow";
 					};
