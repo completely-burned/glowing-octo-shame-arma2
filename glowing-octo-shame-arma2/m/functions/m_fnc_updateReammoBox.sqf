@@ -6,6 +6,9 @@ if(isnil {_this getVariable "draga_megaAmmoBox"})then{
 };
 
 private "_getMagazineCargo";
+
+
+// Magazine
 _getMagazineCargo = getMagazineCargo _this;
 
 private "_namesToLower";
@@ -28,6 +31,8 @@ _getMagazineCargo set [0, _namesToLower];
 
 } foreach (_Magazines select 0);
 
+
+// Weapon
 _getMagazineCargo = getWeaponCargo _this;
 
 _namesToLower = [];
@@ -48,6 +53,8 @@ _getMagazineCargo set [0, _namesToLower];
 		_this addWeaponCargo [_Magazine,_count];
 } foreach (_Magazines select 1);
 
+
+// Backpack
 _getMagazineCargo = getBackpackCargo _this;
 
 _namesToLower = [];
