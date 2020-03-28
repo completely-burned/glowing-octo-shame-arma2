@@ -764,7 +764,8 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 					_position = GetPos _leader;
 					_position1 = GetPos _follow;
 					_position = [((_position Select 0) + (_position1 Select 0)) / 2,((_position Select 1) + (_position1 Select 1)) / 2];
-					_grp Move _position;
+					// _grp Move _position;
+					_leader doMove _position;
 				};
 			};
 		};
