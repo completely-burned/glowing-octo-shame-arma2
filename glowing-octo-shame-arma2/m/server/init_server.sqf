@@ -12,7 +12,7 @@ onPlayerConnected {
 m_skill = (missionNamespace getVariable "m_skill") / 100;
 
 enableSaving [false,false]; // отключение возможность сохраняться
-enableRadio false;
+// enableRadio false;
 // 0 fadeRadio 0;
 // enableSentences false;
 
