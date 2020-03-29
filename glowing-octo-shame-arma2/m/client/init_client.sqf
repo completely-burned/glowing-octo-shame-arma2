@@ -67,7 +67,6 @@ selectPlayer _player;
 "respawn" spawn m_fnc_RespawnWeaponsAdd;
 
 player addEventHandler ["killed", {
-	// _this select 0 setVariable ["BIS_IS_who",nil,true];
 	// _this select 0 setVariable ["BIS_IS_Dead", true, true];
 	_this spawn {
 		waitUntil{alive player};
