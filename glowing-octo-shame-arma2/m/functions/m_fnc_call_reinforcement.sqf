@@ -83,6 +83,15 @@ if(_types call draga_fnc_CheckSupport)then{
 };
 
 if(_run)then{
+	_SafePosParams = ([_types] call m_fnc_SafePosParams);
+
+	if (_patrol)then{
+		_SafePosParams set [0,((_SafePosParams select 0) * 2)];
+		_SafePosParams set [1,((_SafePosParams select 1) * 2)];
+	};
+
+	_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
+
 	private["_groups"];
 	_groups = ([_pos_resp, _side, _grp1 select 0] call m_fnc_spawnGroup);
 
