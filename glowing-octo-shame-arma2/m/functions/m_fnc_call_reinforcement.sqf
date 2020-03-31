@@ -81,100 +81,100 @@ _run = true;
 if(_types call draga_fnc_CheckSupport)then{
 	_run = false;
 }else{
-_SafePosParams = ([_types] call m_fnc_SafePosParams);
+	_SafePosParams = ([_types] call m_fnc_SafePosParams);
 
-if (_patrol)then{
-	_SafePosParams set [0,((_SafePosParams select 0) * 2)];
-	_SafePosParams set [1,((_SafePosParams select 1) * 2)];
-};
+	if (_patrol)then{
+		_SafePosParams set [0,((_SafePosParams select 0) * 2)];
+		_SafePosParams set [1,((_SafePosParams select 1) * 2)];
+	};
 
-_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
+	_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
 };
 
 if(_run)then{
-private["_groups"];
-_groups = ([_pos_resp, _side, _grp1 select 0] call m_fnc_spawnGroup);
+	private["_groups"];
+	_groups = ([_pos_resp, _side, _grp1 select 0] call m_fnc_spawnGroup);
 
-private ["_units","_vehicles","_crew","_cargo"];
-_units = []; _vehicles=[]; _crew = []; _cargo=[];
-{
-	private ["_grp"];
-	_grp = _x;
-	if(_patrol)then{
-		_grp setVariable ["patrol", true];
-	};
+	private ["_units","_vehicles","_crew","_cargo"];
+	_units = []; _vehicles=[]; _crew = []; _cargo=[];
 	{
-		_units set [count _units, _x];
-		private ["_veh"];
-		_veh = vehicle _x;
-		if(_veh != _x)then{
-			_crew set [count _crew, _x];
-			if!(_veh in _vehicles)then{
-				_vehicles set [count _vehicles, _veh];
-			};
-		}else{
-			_cargo set [count _cargo, _x];
+		private ["_grp"];
+		_grp = _x;
+		if(_patrol)then{
+			_grp setVariable ["patrol", true];
 		};
-	}forEach units _grp;
+		{
+			_units set [count _units, _x];
+			private ["_veh"];
+			_veh = vehicle _x;
+			if(_veh != _x)then{
+				_crew set [count _crew, _x];
+				if!(_veh in _vehicles)then{
+					_vehicles set [count _vehicles, _veh];
+				};
+			}else{
+				_cargo set [count _cargo, _x];
+			};
+		}forEach units _grp;
 
-	// _grp enableIRLasers true;
-	// _grp enableGunLights true;
+		// _grp enableIRLasers true;
+		// _grp enableGunLights true;
 
-	while {(count (waypoints _grp)) > 0} do
+		while {(count (waypoints _grp)) > 0} do
+		{
+			deleteWaypoint ((waypoints _grp) select 0);
+		};
+
+	}forEach _groups;
+
+	private["_cargo2"];
+	_cargo2 = _cargo - (units (_groups select 0));
+
 	{
-		deleteWaypoint ((waypoints _grp) select 0);
+		_x setSkill m_skill;
+		// _x enableAI "TARGET";
+		// _x enableAI "AUTOTARGET";
+		// _x disableAI "FSM";
+		_x setSkill ["commanding", 1];
+	} foreach _units + _vehicles;
+
+	[_units + _vehicles] call m_fnc_reweapon; // перевооружить
+	// _units call m_fnc_RankToSkill; //выставить skill в зависимости от ранга
+	if (count _vehicles > 0) then {
+		[_vehicles, _cargo] call m_fnc_MoveInCargo; // посадить в багажное отделение
 	};
 
-}forEach _groups;
 
-private["_cargo2"];
-_cargo2 = _cargo - (units (_groups select 0));
-
-{
-	_x setSkill m_skill;
-	// _x enableAI "TARGET";
-	// _x enableAI "AUTOTARGET";
-	// _x disableAI "FSM";
-	_x setSkill ["commanding", 1];
-} foreach _units + _vehicles;
-
-[_units + _vehicles] call m_fnc_reweapon; // перевооружить
-// _units call m_fnc_RankToSkill; //выставить skill в зависимости от ранга
-if (count _vehicles > 0) then {
-	[_vehicles, _cargo] call m_fnc_MoveInCargo; // посадить в багажное отделение
-};
-
-
-// время удаления, и прочее
-private["_random2","_random5","_random10"];
-_random2 = random 2; _random5 = random 5; _random10 = random 10;
-if (_patrol)then{
-	{
-		_x setVariable ["time", time + (60 * 9) + (60 * _random2)];
-	} foreach (_units );
-	_groups select 0 setVariable ["patrol_pos", _pos_resp];
-	_groups select 0 setBehaviour "SAFE";
-}else{
-	if (("air" in _types) || ("plane" in _types) || ("uav" in _types))then{
+	// время удаления, и прочее
+	private["_random2","_random5","_random10"];
+	_random2 = random 2; _random5 = random 5; _random10 = random 10;
+	if (_patrol)then{
 		{
-			_x setVariable ["time", time + (60 * (5 + _random5))];
-		} foreach _units;
+			_x setVariable ["time", time + (60 * 9) + (60 * _random2)];
+		} foreach (_units );
+		_groups select 0 setVariable ["patrol_pos", _pos_resp];
+		_groups select 0 setBehaviour "SAFE";
 	}else{
-		{
-			_x setVariable ["time", time + (60 * (40 + _random10))];
-		} foreach (_units);
+		if (("air" in _types) || ("plane" in _types) || ("uav" in _types))then{
+			{
+				_x setVariable ["time", time + (60 * (5 + _random5))];
+			} foreach _units;
+		}else{
+			{
+				_x setVariable ["time", time + (60 * (40 + _random10))];
+			} foreach (_units);
+		};
 	};
-};
 
-if(count _cargo2 > 0)then{
-	{
-		_x setVariable ["time", time + (60 * (10 + _random5))];
-	} foreach (_cargo2);
-};
+	if(count _cargo2 > 0)then{
+		{
+			_x setVariable ["time", time + (60 * (10 + _random5))];
+		} foreach (_cargo2);
+	};
 
-{_x setVariable ["grp_created",true]}forEach _groups;
+	{_x setVariable ["grp_created",true]}forEach _groups;
 
-_groups;
+	_groups;
 }else{
 	grpNull;
 };
