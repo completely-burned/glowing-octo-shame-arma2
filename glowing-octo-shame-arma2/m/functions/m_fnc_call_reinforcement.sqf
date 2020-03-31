@@ -80,15 +80,6 @@ private["_run"];
 _run = true;
 if(_types call draga_fnc_CheckSupport)then{
 	_run = false;
-}else{
-	_SafePosParams = ([_types] call m_fnc_SafePosParams);
-
-	if (_patrol)then{
-		_SafePosParams set [0,((_SafePosParams select 0) * 2)];
-		_SafePosParams set [1,((_SafePosParams select 1) * 2)];
-	};
-
-	_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
 };
 
 if(_run)then{
