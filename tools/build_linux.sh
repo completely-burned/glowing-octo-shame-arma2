@@ -4,12 +4,12 @@ DIR=$(dirname "${BASH_SOURCE[0]}")/..
 
 cd ${DIR}
 
-if [ ! -d ${DIR}/.build.tmp/ ]; then
-	mkdir ${DIR}/.build.tmp/
+if [ ! -d .build.tmp ]; then
+	mkdir .build.tmp
 fi
 
-if [ ! -d ${DIR}/.build.out/ ]; then
-	mkdir ${DIR}/.build.out/
+if [ ! -d .build.out ]; then
+	mkdir .build.out
 fi
 
 
@@ -20,7 +20,7 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 		SIDE=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* v.* .* \(.*\)".*/\1/')
 		NAME=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*"\(.*\) v.* .* .*".*/\1/')
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
-		TMPDIRNAME="${NAME,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
+		TMPDIRNAME="${NAME,,}-${VERSION,,}-${SIDE,,}.${MAP,,}"
 		if [ -d ".build.tmp/${TMPDIRNAME}/" ]; then
 			rm -rf ".build.tmp/${TMPDIRNAME}/*"
 		else
