@@ -255,6 +255,8 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 					if (isNil {_grp getVariable "UNLOAD"}) then {
 						_grp setVariable ["UNLOAD",true];
 						_grp call {
+
+							// get _vehicles
 							private ["_units","_vehicles"];
 							_units = units _this;
 							_vehicles = [];
@@ -267,6 +269,40 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 									};
 								};
 							}forEach _units;
+
+
+							if(true)then{
+
+								// группы для выпрыгивания
+								private ["_grps"];
+								_grps = [];
+								{
+									private["_veh"];
+									_veh = _x;
+									{
+										if(group _x != group _veh)then{
+											_grps set [count _grps, group _x];
+										};
+									} forEach assignedCargo _veh;
+								} forEach _vehicles;
+
+								{
+									// юниты для выпрыгивания в нужном порядке
+									private["_grp","_leader","_units"];
+									_grp = _x;
+									_leader = leader _grp;
+									_units = units _grp -[_leader]; // сомнения в -[]
+									_units = [_units, [_leader], count _units / 2] call BIS_fnc_arrayInsert; // командир в центр
+
+									// выпрыгивание
+									{
+										_x action ["Eject", vehicle _x];
+										_x leaveVehicle assignedVehicle _x;
+										sleep 0.5; // нужно учитывать скорость
+									}forEach _units;
+								} forEach _grps;
+							};
+
 
 							while {(count (waypoints _this)) > 0} do {
 								deleteWaypoint ((waypoints _this) select 0);
