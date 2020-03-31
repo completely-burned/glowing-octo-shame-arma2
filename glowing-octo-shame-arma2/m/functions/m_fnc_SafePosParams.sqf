@@ -60,7 +60,7 @@ if ([_types, ["Ship"]] call m_fnc_CheckIsKindOfArray) then{
 	_blacklist=[];
 };
 
-if ([_types, ["StaticWeapon "]] call m_fnc_CheckIsKindOfArray) then{
+if ([_types, ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then{
 	_playerDist = 1500;
 	_maxDist = sizeLocation;
 	_waterMode = 0;
