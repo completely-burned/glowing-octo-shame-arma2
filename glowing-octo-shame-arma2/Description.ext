@@ -1,5 +1,4 @@
-class MissionSQM
-{
+class MissionSQM {
 	#include "mission.sqm"
 };
 
