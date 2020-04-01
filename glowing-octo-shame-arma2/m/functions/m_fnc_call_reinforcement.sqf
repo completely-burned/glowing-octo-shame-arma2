@@ -78,9 +78,6 @@ _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
 private["_run"];
 _run = true;
-if(_types call draga_fnc_CheckSupport)then{
-	_run = false;
-};
 
 if(_run)then{
 	_SafePosParams = ([_types] call m_fnc_SafePosParams);

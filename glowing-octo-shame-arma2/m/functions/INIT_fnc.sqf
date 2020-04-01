@@ -70,7 +70,6 @@ m_fnc_setTimeAvailableVehiclesBuyMenu = compile (preprocessFileLineNumbers (_pat
 m_fnc_megaAmmoBox = compile (preprocessFileLineNumbers (_path + "m_fnc_megaAmmoBox.sqf"));
 draga_fn_createmenu = compile (preprocessFileLineNumbers (_path + "draga_fn_createmenu.sqf"));
 draga_fnc_vehicleHandleDamage = compile (preprocessFileLineNumbers (_path + "draga_fnc_vehicleHandleDamage.sqf"));
-draga_fnc_CheckSupport = compile (preprocessFileLineNumbers (_path + "draga_fnc_CheckSupport.sqf"));
 draga_fnc_vehInit2 = compile (preprocessFileLineNumbers (_path + "draga_fnc_vehInit2.sqf"));
 draga_fnc_CheckRespawnDistance = compile (preprocessFileLineNumbers (_path + "draga_fnc_CheckRespawnDistance.sqf"));
 draga_fnc_CheckTurretAlive = compile (preprocessFileLineNumbers (_path + "draga_fnc_CheckTurretAlive.sqf"));
