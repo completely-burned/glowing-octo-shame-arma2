@@ -41,6 +41,7 @@ m_fnc_Locations_weights={
 waitUntil {!isNil "AllGroupsWest"};
 waitUntil {!isNil "AllGroupsEast"};
 waitUntil {!isNil "AllGroupsGuer"};
+waitUntil {!isNil "GroupsStarted"};
 // private["_locationNext"];
 locationNext={
 	if(!isNil {CivilianLocation})then{
