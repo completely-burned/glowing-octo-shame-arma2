@@ -297,7 +297,7 @@ if(!isNil "_leader")then{
 				_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 0, false]);
 				if(count _testPos > 0 or (({alive _x} count _units) == 0))then {_true = false};
 			};
-			if(count _testPos > 0)then {_pos = _testPos; _maxDist = 0};
+			if(count _testPos > 0)then {_pos = _testPos; _maxDist = -1};
 		};
 
 		_wp = _grp addWaypoint [_pos, _maxDist];
