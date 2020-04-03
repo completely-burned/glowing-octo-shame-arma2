@@ -4,6 +4,8 @@ private["_grp","_units","_leaderPlayer","_isPlayer","_vehicle","_grpPlayer"];
 
 private["_lock"];
 
+private["_transportPlayer"];
+
 while{true}do{
 
 	_vehicles_lock = [];
@@ -56,6 +58,13 @@ while{true}do{
 
 		if (_vehicle isKindOf "UAV" or _vehicle isKindOf "Ka137_Base_PMC") then {
 			_lock = "LOCKED";
+		};
+
+		_transportPlayer = _vehicle getVariable "transportPlayer";
+		if(!isNil {_transportPlayer})then{
+			if(alive _transportPlayer)then{
+				_lock = "UNLOCKED";
+			};
 		};
 
 		_lock_old = _vehicle getVariable "draga_vehicle_lock";
