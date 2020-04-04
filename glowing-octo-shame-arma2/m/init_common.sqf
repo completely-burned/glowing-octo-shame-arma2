@@ -75,6 +75,20 @@ if ( configName(configFile >> "CfgMods" >> "ACR") != "" ) then {
 	];
 };
 
+listStealthTypes = [
+	"GUE_Soldier_Sniper","GUE_Soldier_Scout",
+	"INS_Soldier_Sniper","Ins_Soldier_Sab",
+	"CDF_Soldier_Sniper","CDF_Soldier_Spotter",
+	"USMC_SoldierS_Sniper","USMC_SoldierS_Spotter","USMC_SoldierS_SniperH",
+	"RU_Soldier_Sniper","RU_Soldier_Spotter","RU_Soldier_SniperH",
+	"BAF_Soldier_Sniper_MTP","BAF_Soldier_SniperH_MTP","BAF_Soldier_spotter_MTP","BAF_Soldier_SniperN_MTP",
+	"BAF_Soldier_Sniper_W","BAF_Soldier_SniperH_W","BAF_Soldier_spotter_W","BAF_Soldier_spotterN_W",
+	"US_Soldier_Sniper_EP1","US_Soldier_Spotter_EP1",
+	"TK_INS_Soldier_Sniper_EP1",
+	"TK_Soldier_SniperH_EP1","TK_Soldier_Spotter_EP1",
+	"TK_GUE_Soldier_Sniper_EP1"
+];
+
 HQ = ["WarfareBDepot","WarfareBCamp"];
 Warfare_HQ = ["Warfare_HQ_base_unfolded"];
 
@@ -109,3 +123,8 @@ listCrewLower = [];
 {
 	listCrewLower set [count listCrewLower, toLower _x];
 } forEach listCrew;
+
+listStealthTypesLower = [];
+{
+	listStealthTypesLower set [count listStealthTypesLower, toLower _x];
+} forEach listStealthTypes;
