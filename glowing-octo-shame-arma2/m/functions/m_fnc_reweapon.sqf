@@ -305,7 +305,7 @@ private["_flyInHeight","_pos"];
 				if (random 10 > 7) then {
 					if !(daytime > 3 && daytime < 20) then {
 
-						if !([LIB_cfgWea,_weapons,"simulation","Binocular"] call m_fnc_check_config_use) then {
+						if !([LIB_cfgWea,_weapons,"simulation","NVGoggles"] call m_fnc_check_config_use) then {
 								_veh addWeapon "NVGoggles";
 						};
 
