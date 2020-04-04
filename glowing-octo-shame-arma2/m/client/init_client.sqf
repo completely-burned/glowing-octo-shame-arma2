@@ -37,6 +37,7 @@ SetGroupIconsVisible [true,false];
 [] execVM "m\client\updateLocalGroup.sqf";
 // [] execVM "m\client\handleBuyMenuTimeAvailable.sqf";
 [] execVM "m\client\draga_coin.sqf";
+[] execVM ("m\client\while_aa_hidden.sqf");
 
 
 
