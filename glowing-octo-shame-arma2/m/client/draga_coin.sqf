@@ -23,7 +23,12 @@ while{true}do{
 			_delete = true;
 		};
 		if (_delete) then {
-			_action_obj removeAction _action;
+			_coin_actions select _i select 3;
+			if (_coin_actions select _i select 3 == 0) then {
+				_action_obj removeAction _action;
+			}else{
+				player removeAction _action;
+			};
 			_coin_actions set [_i, -1];
 		}else{
 			_coins set [count _coins, _obj];
@@ -45,7 +50,7 @@ while{true}do{
 					false,
 					false
 				];
-				_coin_actions set [count _coin_actions, [_action, _x, _player]];
+				_coin_actions set [count _coin_actions, [_action, _x, _player, 0]];
 			};
 		} forEach _Objects;
 	};
@@ -63,7 +68,7 @@ while{true}do{
 					false,
 					false
 				];
-				_coin_actions set [count _coin_actions, [_action, _x, _player]];
+				_coin_actions set [count _coin_actions, [_action, _x, _player, 0]];
 			};
 		} forEach _Objects;
 	};
@@ -79,7 +84,7 @@ while{true}do{
 				false,
 				false
 			];
-			_coin_actions set [count _coin_actions, [_action, _x, _x]];
+			_coin_actions set [count _coin_actions, [_action, _x, _x, 1]];
 		};
 	} forEach _Objects;
 	sleep 1;
