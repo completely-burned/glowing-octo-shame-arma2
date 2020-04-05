@@ -70,6 +70,10 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 // civilian setFriend [resistance, 0];
 // civilian setFriend [civilian, 0];
 
+if (isNil "group_system_units") then {
+	group_system_units = createGroup civilian;
+};
+publicVariable "group_system_units";
 
 ///--- модули
 if (isNil "group_logic") then {
