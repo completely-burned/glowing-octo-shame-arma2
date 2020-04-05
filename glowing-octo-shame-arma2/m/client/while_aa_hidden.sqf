@@ -1,4 +1,5 @@
 private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh"];
+waitUntil{!isNil {group_system_units}};
 while {true} do {
 
 		_veh = vehicle player;
@@ -65,8 +66,7 @@ while {true} do {
 						_aa = _aaType createVehicleLocal [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
 						hideObject _aa;
 
-						_grp = createGroup _aaSide;
-						_unit = _grp createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"];
+						_unit = group_system_units createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"];
 						hideObject _unit;
 						_unit setCaptive true;
 						_unit moveInGunner _aa;
@@ -82,8 +82,6 @@ while {true} do {
 							_x setDamage 1;
 							deleteVehicle _x;
 						} forEach [_unit, _aa];
-						sleep 1;
-						deleteGroup _grp;
 
 					};
 
