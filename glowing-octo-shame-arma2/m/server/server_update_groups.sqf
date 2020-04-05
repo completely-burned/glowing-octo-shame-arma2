@@ -3,6 +3,7 @@ waitUntil {!isNil "sizeLocation"};
 private["_draga_initGroup"];
 while{true}do{
 	{
+		if (_x != group_system_units) then {
 		_draga_initGroup = _x getVariable "_draga_initGroup";
 		if (isNil {_draga_initGroup}) then {
 			_draga_initGroup = _x spawn draga_fnc_initGroup;
@@ -14,6 +15,7 @@ while{true}do{
 				};
 				deleteGroup _x;
 			};
+		};
 		};
 	}forEach allGroups;
 	sleep 1;
