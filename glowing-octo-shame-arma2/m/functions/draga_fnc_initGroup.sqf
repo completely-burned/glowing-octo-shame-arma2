@@ -689,6 +689,9 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 				if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
 					if({count assignedVehicleRole _x > 0} count _units > 0)then{
 						_DeleteWP = false;
+						if(waypointAttachedVehicle [_grp, currentWaypoint _grp] != vehicle _leader)then{
+							[_grp, currentWaypoint _grp] waypointAttachVehicle vehicle _leader;
+						};
 					};
 				};
 
@@ -930,11 +933,13 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 						};
 
 						// грузовик поддержки
-						if!(_allowGetin)then{
 							if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
-								_allowGetin=true;
+								if(currentCommand _leader in ["","STOP","WAIT"])then{ // ,"SUPPORT","REPAIR","REFUEL","REARM"
+									_allowGetin=false;
+								}else{
+									_allowGetin=true;
+								};
 							};
-						};
 
 						// неподвижное
 						if!(_allowGetin)then{
