@@ -19,7 +19,7 @@ while{true}do{
 		if (([[_obj], draga_objectsCoinBase] call m_fnc_CheckIsKindOfArray) && vehicle player distance _obj > draga_distanceCoinBase) then {
 			_delete = true;
 		};
-		if (!alive _obj) then{
+		if (!alive _obj or !alive _action_obj) then{
 			_delete = true;
 		};
 		if (_delete) then {
