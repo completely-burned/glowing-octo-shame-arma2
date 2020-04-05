@@ -45,30 +45,6 @@ while{true}do{
 								_veh = _x;
 								_grp = group effectiveCommander _veh;
 								// diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, не поврежден", _x, _transportPlayer];
-							}else{
-								if (draga_loglevel > 0) then {
-									diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, поврежден", _x, _transportPlayer];
-								};
-
-								diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, удаление маршрута", _x, _transportPlayer];
-								private["_grpwpdel"];
-								_grpwpdel = group effectiveCommander _x;
-								_grpwpdel setVariable ["_m_fnc_waypoints", nil];
-								private["_m_fnc_waypoints"];
-								_m_fnc_waypoints = _grpwpdel getVariable "_m_fnc_waypoints";
-								if (!isNil {_m_fnc_waypoints}) then {
-									if (scriptDone _m_fnc_waypoints) then {
-										_grpwpdel setVariable ["_m_fnc_waypoints", nil];
-									};
-								};
-								while {(count (waypoints _grpwpdel)) > 0} do {
-									deleteWaypoint ((waypoints _grpwpdel) select 0);
-								};
-
-								if (draga_loglevel > 0) then {
-									diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, отмена посадки", _x, _transportPlayer];
-								};
-								_x land "NONE";
 							};
 						};
 					};
