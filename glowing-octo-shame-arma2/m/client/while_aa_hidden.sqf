@@ -10,15 +10,19 @@ while {true} do {
 
 			_height = (getPos _veh) select 2;
 
-			// if (_veh isKindOf "Plane") then {
-				_heightMax = 80 + random 1000;
-			// };
+			if (_veh isKindOf "Plane") then {
+				if ({_x == "CMFlareLauncher"} count getArray (configFile >> "CfgVehicles" >> typeOf _veh >> "weapons") > 0) then {
+					_heightMax = 40 + random 900;
+				}else{
+					_heightMax = 80 + random 900;
+				};
+			};
 
 			if (_veh isKindOf "Helicopter") then {
 				if ({_x == "CMFlareLauncher"} count getArray (configFile >> "CfgVehicles" >> typeOf _veh >> "weapons") > 0) then {
-					_heightMax = 25 + random 1000;
+					_heightMax = 25 + random 900;
 				}else{
-					_heightMax = 50 + random 1000;
+					_heightMax = 50 + random 900;
 				};
 			};
 
@@ -52,14 +56,13 @@ while {true} do {
 								_aaSide = WEST;
 							};
 						};
-						/*
 						if(isNil {_aaType})then{
-							if(playerSide getFriend RESISTANCE < 0.6)then{
+							// if(playerSide getFriend RESISTANCE < 0.6)then{
 								_aaType = "Igla_AA_pod_TK_EP1";
 								_aaSide = RESISTANCE;
-							};
+							// };
 						};
-						*/
+
 						if(isNil {_aaType})exitWith{};
 
 
@@ -90,6 +93,6 @@ while {true} do {
 
 		};
 
-	sleep 0.5 + random 1;
+	sleep 0.5 + random 8;
 
 };
