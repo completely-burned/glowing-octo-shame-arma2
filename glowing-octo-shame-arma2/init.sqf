@@ -1,8 +1,9 @@
 ﻿if !(requiredVersion "1.60") then {
 	failMission "LOSER";
 }else{
-	debug=false;
 	draga_loglevel = 0;
+	if(draga_loglevel>0)then{debug=true}else{debug=false};
+
 	if (!IsDedicated) then {
 		[] execVM "m\client\playerSetPos.sqf";
 	};
