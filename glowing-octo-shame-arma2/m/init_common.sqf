@@ -116,6 +116,9 @@ Officers = [
 	"GUE_Commander","TK_GUE_Warlord_EP1","UN_CDF_Soldier_Officer_EP1"
 ];
 
+// [inf,veh,air,Ship,StaticWeapon,base,]
+safeSpawnDistance = [1000,1500,3500,1500,1500,3500];
+
 [] execVM ("m\draga_update_vehicle_init.sqf");
 // [] execVM "m\ais\draga_is.sqf";
 

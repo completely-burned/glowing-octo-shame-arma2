@@ -1,7 +1,7 @@
 ﻿private["_types"];
 _types = _this select 0;
 private ["_playerDist", "_maxDist", "_objDist", "_waterMode", "_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_safePositionRadius","_preferRoads"];
-_playerDist = 1000;
+_playerDist = safeSpawnDistance select 0;
 _objDist = 2;
 _waterMode = 0;
 _maxGradient = -1;
@@ -13,7 +13,7 @@ _safePositionRadius =  (getNumber(configfile>> "cfgWorlds">> worldname >> "safeP
 // if (_safePositionRadius < 4000) then {_safePositionRadius = 4000};
 
 if ([_types, ["LandVehicle"]] call m_fnc_CheckIsKindOfArray) then{
-	_playerDist = 1500;
+	_playerDist = safeSpawnDistance select 1;
 	_maxDist = 3000;
 	_waterMode = 0;
 	// if("canfloat" in _types)then{_waterMode = 1};
@@ -21,7 +21,7 @@ if ([_types, ["LandVehicle"]] call m_fnc_CheckIsKindOfArray) then{
 };
 
 if ([_types, ["Air"]] call m_fnc_CheckIsKindOfArray) then{
-	_playerDist = 3500;
+	_playerDist = safeSpawnDistance select 2;
 	_maxDist = 7000;
 	_waterMode = -1;
 	_objDist = -1;
@@ -53,7 +53,7 @@ if ([_types, ["Car","Wheeled_APC","LandVehicle"]] call m_fnc_CheckIsKindOfArray)
 };
 
 if ([_types, ["Ship"]] call m_fnc_CheckIsKindOfArray) then{
-	_playerDist = 1500;
+	_playerDist = safeSpawnDistance select 3;
 	_maxDist = 3000;
 	_waterMode = 2;
 	_objDist = 15;
@@ -61,7 +61,7 @@ if ([_types, ["Ship"]] call m_fnc_CheckIsKindOfArray) then{
 };
 
 if ([_types, ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then{
-	_playerDist = 1500;
+	_playerDist = safeSpawnDistance select 4;
 	_maxDist = sizeLocation;
 	_waterMode = 0;
 	_objDist = 30;
