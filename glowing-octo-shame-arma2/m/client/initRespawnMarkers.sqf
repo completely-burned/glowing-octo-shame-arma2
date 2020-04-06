@@ -35,33 +35,31 @@ _objects = [];
 private ["_respawnMarkers"];
 _respawnMarkers = [];
 
+// -- статичные точки возрождения
 for "_i" from 0 to (count _objects - 1) do {
 	private ["_obj","_marker","_pos"];
 	_obj = _objects select _i;
 	_pos = getPos _obj;
-	if(_obj isKindOf "Warfare_HQ_base_unfolded")then{
-		private ["_dir","_dist2"];
-		_dir = getDir _obj;
-		_dist2 = 6.5;
-		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
-	};
+
+	// WarfareBDepot бункеры
 	if(_obj isKindOf "WarfareBDepot")then{
 		private ["_dir","_dist2"];
 		_dir = getDir _obj;
 		_dist2 = 3;
-		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
+		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
 	};
-	if(_i == 0)then{
-		_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
-	}else{
-		_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i], _pos];
-	};
+
+	_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i+1], _pos];
 	_marker setMarkerTypeLocal "Depot";
 	_marker setMarkerColorLocal _markerColor;
 	_respawnMarkers set [count _respawnMarkers, _marker];
 };
 
-draga_respawnMarkers = _respawnMarkers;
+private ["_markerMHQ","_markerMHQtype"];
+_markerMHQ = format["respawn_%1_MHQ",_side_str];
+_markerMHQtype = "Headquarters";
+
+waitUntil {!isNil {MHQ_list}};
 
 if(true)then{
 
@@ -70,29 +68,51 @@ if(true)then{
 	_units = [];
 
 	while {true} do {
+
+		// -- мобильная база, один маркер
+		{
+			if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
+				private ["_pos"];
+				_pos = getPos _x;
+				if(_x isKindOf "Warfare_HQ_base_unfolded")then{
+					private ["_dir","_dist2"];
+					_dir = getDir _x - 90;
+					_dist2 = 4;
+					_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
+				};
+				if(getMarkerType _markerMHQ != _markerMHQtype)then{
+					_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
+					_markerMHQ setMarkerTypeLocal _markerMHQtype;
+					_markerMHQ setMarkerColorLocal _markerColor;
+					draga_respawnMarkers = [_markerMHQ]+_respawnMarkers;
+				}else{
+					_markerMHQ setMarkerPos _pos;
+				};
+			};
+		} forEach vehicles + allMissionObjects "Warfare_HQ_base_unfolded";
+
+		// -- игроки
 		{
 			if(!(_x in _units) && (side _x == playerSide))then{
 				_units set [count _units, _x];
 				_markers set [count _markers, createMarkerLocal [str _x,position _x]];
 			};
 		}forEach playableUnits;
-		{
-			if(!(_x in _units) && ([[_x],listMHQ] call m_fnc_CheckIsKindOfArray))then{
-				_units set [count _units, _x];
-				_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
-			};
-		}forEach vehicles;
+
+		// -- объекты базы
 		{
 				_units set [count _units, _x];
 				_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
 		}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 
+
+		// -- маркеры
 		for "_i" from 0 to (count _units - 1) do {
 			private ["_unit","_marker"];
 			_unit = (_units select _i);
 			_marker = (_markers select _i);
 			if (!isNull _unit && alive _unit) then {
-				if([[_unit],Warfare_HQ+listMHQ+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call m_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6))then{
+				if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call m_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6))then{
 					if ({isPlayer _x} count crew _unit == 0) then {
 						_marker setMarkerPosLocal (position _unit);
 						_marker setMarkerTypeLocal "vehicle";
