@@ -2,10 +2,6 @@ private["_coin_actions","_Objects","_coins"];
 _coin_actions = [];
 
 while{true}do{
-	if (!isNil{playerResetActions_coin}) then{
-		_coin_actions =[];
-		playerResetActions_coin = nil;
-	};
 	_coins = [];
 	for "_i" from 0 to ((count _coin_actions) - 1) do {
 		private["_action","_obj","_delete","_action_obj"];
