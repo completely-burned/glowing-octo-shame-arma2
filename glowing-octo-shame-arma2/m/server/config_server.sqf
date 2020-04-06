@@ -31,6 +31,9 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "G
 		};
 };
 
+
+[] call compile preprocessFileLineNumbers "m\server\cfg_mhq.sqf";
+
 /// silvieManager ///
 silvieManagerBlacklist=[
 	"Land_sloup_vn_dratZ",

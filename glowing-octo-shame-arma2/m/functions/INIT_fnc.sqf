@@ -77,4 +77,5 @@ draga_fnc_uav = compile (preprocessFileLineNumbers (_path + "draga_fnc_uav.sqf")
 m_fnc_isUAV = compile (preprocessFileLineNumbers (_path + "m_fnc_isUAV.sqf"));
 draga_fnc_getPlayersDistance = compile (preprocessFileLineNumbers (_path + "draga_fnc_getPlayersDistance.sqf"));
 draga_fnc_roads = compile (preprocessFileLineNumbers (_path + "draga_fnc_roads.sqf"));
+fnc_get_MHQ_type = compile (preprocessFileLineNumbers (_path + "fn_get_MHQ_type.sqf"));
 m_fnc_init = true;

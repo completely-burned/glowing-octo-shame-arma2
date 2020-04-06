@@ -58,7 +58,7 @@ while{true}do{
 				_action = _player addaction [
 					localize "str_coin_action" + " - " + gettext(configFile >> "CfgVehicles" >> typeOf _x >> "displayName"),
 					"m\client\coin_interface.sqf",
-					[_x,draga_COIN_MHQ,draga_distanceCoinMHQ],
+					[_x, [[typeOf _x call fnc_get_MHQ_type,"Base",0]], draga_distanceCoinMHQ],
 					1,
 					false,
 					false
@@ -72,7 +72,7 @@ while{true}do{
 		if (alive _x && !(_x in _coins)) then {
 			private ["_action"];
 			_action = _x addaction [
-				gettext(configFile >> "CfgVehicles" >> draga_MHQ >> "displayName"),
+				gettext(configFile >> "CfgVehicles" >> typeOf _x call fnc_get_MHQ_type >> "displayName"),
 				"m\client\coin_interface_MHQ.sqf",
 				_x,
 				1,
