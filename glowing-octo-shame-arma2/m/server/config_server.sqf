@@ -32,6 +32,9 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "G
 };
 
 publicVariable "m_friendlySide";
+m_sideEnemy = [east,west,resistance]-m_friendlySide;
+publicVariable "m_sideEnemy";
+
 
 [] call compile preprocessFileLineNumbers "m\server\cfg_mhq.sqf";
 
