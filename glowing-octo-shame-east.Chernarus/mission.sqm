@@ -38,7 +38,7 @@ class Mission
 	randomSeed=12852940;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.340 Chernarus east";
+		briefingName="glowing-octo-shame v0.0.3.341 Chernarus east";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;
@@ -4030,7 +4030,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=25;
+		items=26;
 		class Item0
 		{
 			position[]={7565.0942,307.02353,6825.8589};
@@ -4279,6 +4279,14 @@ class Mission
 			vehicle="Mi17_Ins";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item25
+		{
+			position[]={7664.2046,312.98706,6880.7236};
+			id=385;
+			side="EMPTY";
+			vehicle="BTR90_HQ_unfolded";
+			skill=0.60000002;
 		};
 	};
 	class Markers
