@@ -31,6 +31,7 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "G
 		};
 };
 
+publicVariable "m_friendlySide";
 
 [] call compile preprocessFileLineNumbers "m\server\cfg_mhq.sqf";
 
