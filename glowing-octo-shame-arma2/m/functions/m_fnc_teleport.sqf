@@ -37,9 +37,8 @@ _draga_objectsTeleport = [];
 
 {
 	if(toLower typeOf _x in (MHQ_list select 0))then{
-
+		_draga_objectsTeleport set [count _draga_objectsTeleport, _x];
 	};
-	_draga_objectsTeleport set [count _draga_objectsTeleport, _x];
 } foreach vehicles;
 
 _teleportLocations = [];
@@ -47,7 +46,6 @@ _teleportLocations = [];
 	switch (typeName _x) do {
 		case ("OBJECT"):
 		{
-			if([[_x],draga_objectsTeleport] call m_fnc_CheckIsKindOfArray)then{
 				if (alive _x) then {
 				if !(getNumber(configFile >> "CfgVehicles">> typeOf _x >> "side") call m_fnc_getSide getFriend playerSide < 0.6) then {
 					_list = _list + [count _list];
@@ -55,7 +53,6 @@ _teleportLocations = [];
 					_list2= _list2 + [format ["%1, %2", text ((nearestLocations [position _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0), getText(configfile >> "CfgVehicles" >> typeof _x >> "displayName")]];
 				};
 				};
-			};
 		};
 		case ("STRING"):
 		{

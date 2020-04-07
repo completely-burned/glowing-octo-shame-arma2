@@ -1,5 +1,6 @@
 #define BIS_SSM_CURRENTDISPLAY UInamespace getVariable "currentCutDisplay"
 waitUntil {!isNil "buyMenuLoaded"};
+waitUntil {!isNil "MHQ_list"};
 
 private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV"];
 _HQ = [];
@@ -7,7 +8,7 @@ _HQ = [];
 	if(configName(configFile >> "CfgVehicles" >> _x) != "")then{
 		_HQ = _HQ + [_x];
 	};
-} forEach listMHQ + HQ;
+} forEach (MHQ_list select 0) + HQ;
 
 40 CutRsc["OptionsAvailable","PLAIN",0];
 
@@ -19,7 +20,7 @@ _nearestObjects = [
 	"Air",
 	"Base_WarfareBVehicleServicePoint",
 	"Base_WarfareBBarracks","Base_WarfareBLightFactory",
-	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"] + listMHQ + HQ + Airport + pier;
+	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"] + (MHQ_list select 0) + HQ + Airport + pier;
 	if(!isServer)then{
 		_nearestObjects set [count _nearestObjects,"ReammoBox"];
 	};
@@ -98,7 +99,7 @@ while {true} do {
 				};
 
 				if !(_teleport) then {
-					if ([[_type],["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"]+HQ] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"]+(MHQ_list select 0)+HQ] call m_fnc_CheckIsKindOfArray) then {
 						_teleport = true;
 					};
 				};
@@ -125,7 +126,7 @@ while {true} do {
 				};
 
 				if !(_menu) then {
-					if ([[_type],listMHQ + HQ + draga_objectsCoinBase] call m_fnc_CheckIsKindOfArray) then {
+					if ([[_type],(MHQ_list select 0) + HQ + draga_objectsCoinBase] call m_fnc_CheckIsKindOfArray) then {
 						_menu = true;
 					};
 				};
