@@ -1,6 +1,8 @@
 ﻿waitUntil{!isNil "m_fnc_CheckIsKindOfArray"};
 waitUntil{!isNil "civilianBasePos"};
 waitUntil{!isNil "CivilianLocation"};
+waitUntil{!isNil "MHQ_list"};
+
 private ["_list","_list2","_reapawnPlayer","_teleport_list"];
 _list=[]; 
 _teleport_list=[]; 
@@ -32,6 +34,13 @@ _draga_objectsTeleport = [];
 {
 	_draga_objectsTeleport = _draga_objectsTeleport + allMissionObjects _x;
 } foreach draga_objectsTeleport;
+
+{
+	if(toLower typeOf _x in (MHQ_list select 0))then{
+
+	};
+	_draga_objectsTeleport set [count _draga_objectsTeleport, _x];
+} foreach vehicles;
 
 _teleportLocations = [];
 {
