@@ -127,18 +127,13 @@ CreateMarker ["MainTown", getPos player];
 "MainTown" setMarkerShape "ELLIPSE";
 "MainTown" setMarkerColor "ColorBlack";
 
-// CivilianLocation = locationNull;
-if(isMultiplayer)then{
-	private["_locationNull"];
-	_locationNull = true;
-	while{_locationNull}do{
-		{
-			if(alive _x)then{civilianBasePos = position _x};
-			_locationNull = false;
-		}foreach playableunits
-	};
-}else{
-	civilianBasePos = position player;
+waitUntil{!isNil{MHQ_list}};
+while{isNil{civilianBasePos}}do{
+	{
+		if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
+			civilianBasePos = getPos _x;
+		};
+	} forEach vehicles + allMissionObjects "Warfare_HQ_base_unfolded";
 };
 sizeLocation = 250;
 
