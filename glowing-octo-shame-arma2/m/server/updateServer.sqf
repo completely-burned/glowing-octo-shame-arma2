@@ -30,7 +30,7 @@ while {true} do {
 	_time2 set [0,time];
 	_time2_select = 1;
 
-	allDead call fnc_cleanup;
+	// allDead call fnc_cleanup;
 
 	// BIS_GC_trashItFunc
 	if( (_time2 select _time2_select) < time )then{
