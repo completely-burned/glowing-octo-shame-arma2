@@ -4,7 +4,6 @@ waitUntil {!isNil "bis_fnc_init"};
 waitUntil {!isNil "m_fnc_init"};
 waitUntil {!isNil "locationStarted"};
 waitUntil {!isNil "GroupsStarted"};
-waitUntil {!isNil "maxGroups"};
 
 private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements"];
 _minGroups = missionNamespace getVariable "minGroups";
