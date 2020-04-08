@@ -165,5 +165,5 @@ if(isMultiplayer)then{
 // обновление техники и ботов, удаление
 [] spawn compile preprocessFileLineNumbers "m\server\updateServer.sqf";
 //--- патрули, боты создание
-[] spawn compile preprocessFileLineNumbers "m\server\updateFPS.sqf";
+// [] spawn compile preprocessFileLineNumbers "m\server\updateFPS.sqf";
 [] spawn compile preprocessFileLineNumbers "m\server\updateReinforcement.sqf";

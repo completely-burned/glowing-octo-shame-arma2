@@ -6,10 +6,8 @@ waitUntil {!isNil "locationStarted"};
 waitUntil {!isNil "GroupsStarted"};
 waitUntil {!isNil "maxGroups"};
 
-private["_minFPS","_minGroups","_maxGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements"];
-_minFPS = missionNamespace getVariable "serverFPSmin";
+private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements"];
 _minGroups = missionNamespace getVariable "minGroups";
-_maxGroups = missionNamespace getVariable "maxGroups";
 _enemyCoefficientCfg = missionNamespace getVariable "enemyCoefficient";
 _playerCoefficient = missionNamespace getVariable "playerCoefficient";
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
@@ -72,7 +70,7 @@ while{true}do{
 	};
 
 	if(_all_groups < _maxGroups or _maxGroups == 0)then{
-		if((count allGroups < maxGroups) or (_all_groups < _minGroups))then{
+		if(_all_groups < _minGroups)then{
 			private ["_difference"];
 			_difference = (((_all_groups / 5) min 4) max 2);
 			// diag_log format ["UpdateReinforcement.sqf 106, %1", time];
