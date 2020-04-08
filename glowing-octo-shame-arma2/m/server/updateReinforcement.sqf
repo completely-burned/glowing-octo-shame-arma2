@@ -68,7 +68,6 @@ while{true}do{
 		_enemyCoefficient = 1;
 	};
 
-	if(_all_groups < _maxGroups or _maxGroups == 0)then{
 		if(_all_groups < _minGroups)then{
 			private ["_difference"];
 			_difference = (((_all_groups / 5) min 4) max 2);
@@ -91,7 +90,6 @@ while{true}do{
 				// player globalChat format ["UpdateReinforcement.sqf: %1", _all_groups];
 			};
 		};
-	};
 	// diag_log format ["UpdateReinforcement.sqf 121, %1", time];
 	sleep 0.1;
 };
