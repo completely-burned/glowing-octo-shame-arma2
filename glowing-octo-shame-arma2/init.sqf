@@ -5,9 +5,6 @@
 	if(draga_loglevel>0)then{debug=true}else{debug=false};
 
 	if (!IsDedicated) then {
-		[] execVM "m\client\playerSetPos.sqf";
-	};
-	if (!IsDedicated) then {
 		[] execVM "m\client\briefing.sqf";
 	};
 	if (isServer) then {
