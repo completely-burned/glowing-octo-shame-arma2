@@ -13,7 +13,6 @@ _path = "m\server\";
 [] execVM (_path + "transport.sqf");
 [] execVM (_path + "server_update_StaticWeapon.sqf");
 [] execVM (_path + "server_update_gc2.sqf");
-[] execVM (_path + "lag.sqf");
 [] execVM (_path + "while_vehicles_lock.sqf");
 [] execVM (_path + "server_gc_water.sqf");
 [] execVM (_path + "while_canStand.sqf");
