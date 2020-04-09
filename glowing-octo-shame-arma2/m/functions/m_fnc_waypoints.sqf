@@ -213,7 +213,9 @@ if(!isNil "_leader")then{
 				_true = true;
 				private ["_dir","_dist2","_testPos"];
 				_testPos = [];
-				while {_true && ({alive _x} count _units > 0)} do {
+				private ["_limit"];
+				_limit = 1000;
+				while {_limit > 0 && _true && ({alive _x} count _units > 0)} do {
 					_dir = random 360;
 					_dist2 = random _maxDist;
 					_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
@@ -221,12 +223,15 @@ if(!isNil "_leader")then{
 					if(count _testPos > 0 or (({alive _x} count _units) == 0))then {_true = false};
 				};
 				if(count _testPos > 0)then {_pos = _testPos; _maxDist = 0};
+				_limit = _limit -1;
 			}else{
 				private["_true"];
 				_true = true;
 				private ["_dir","_dist2","_testPos"];
 				_testPos = [];
-				while {_true && ({alive _x} count _units > 0)} do {
+				private ["_limit"];
+				_limit = 1000;
+				while {_limit > 0 && _true && ({alive _x} count _units > 0)} do {
 					_dir = random 360;
 					_dist2 = random _maxDist;
 					_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
@@ -234,6 +239,7 @@ if(!isNil "_leader")then{
 					if(count _testPos > 0 or (({alive _x} count _units) == 0))then {_true = false};
 				};
 				if(count _testPos > 0)then {_pos = _testPos; _maxDist = 0};
+				_limit = _limit -1;
 			};
 		};
 
@@ -269,14 +275,18 @@ if(!isNil "_leader")then{
 			_true = true;
 			private ["_dir","_dist2","_testPos"];
 			_testPos = [];
-			while {_true && ({alive _x} count _units > 0)} do {
+			private ["_limit"];
+			_limit = 1000;
+			while {_limit > 0 && _true && ({alive _x} count _units > 0)} do {
 				_dir = random 360;
 				_dist2 = random _maxDist;
 				_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
-				_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 0, false]);
-				if(count _testPos > 0 or (({alive _x} count _units) == 0))then {_true = false};
+				if(!surfaceIsWater _testPos)then {
+					_true = false;
+					_pos = _testPos;
+				};
+				_limit = _limit -1;
 			};
-			if(count _testPos > 0)then {_pos = _testPos; _maxDist = -1};
 		};
 
 		_wp = _grp addWaypoint [_pos, _maxDist];
