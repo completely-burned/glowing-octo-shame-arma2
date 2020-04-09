@@ -159,7 +159,7 @@ while {true} do {
 			_uav_action = true; _uav_terminals set [count _uav_terminals, unitBackpack player];
 		};
 	};
-	if (_uav_action) then {
+	if (_uav_action && false) then {
 		_actionObj = player;
 		if (!isnil "_action_uav")then{
 			if (_action_uav select 0 != _actionObj)then{
