@@ -36,7 +36,7 @@ class Mission
 	randomSeed=12852940;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.353 Chernarus west";
+		briefingName="glowing-octo-shame v0.0.3.354 Chernarus west";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;
@@ -869,6 +869,7 @@ class Mission
 					id=83;
 					side="WEST";
 					vehicle="USMC_Soldier_Officer";
+					player="PLAYER COMMANDER";
 					leader=1;
 					rank="COLONEL";
 					skill=1;
