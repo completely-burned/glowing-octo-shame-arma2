@@ -16,27 +16,21 @@ private["_grp_wp_completed"];
 
 _grp=_this;
 
+private ["_waitUntilTimeCreate"];
+_waitUntilTimeCreate = time + 15;
 
+waitUntil{(isNull _this) or (time > _waitUntilTimeCreate) or ({alive _x} count units _this > 0)};
 
-//private ["_waitUntilTimeCreate"];
-//_waitUntilTimeCreate = time + 15;
-
-// waitUntil{(isNull _this) or (time > _waitUntilTimeCreate) or ({alive _x} count units _this > 0)};
-
-// while{!isNull _this && {alive _x} count units _this > 0}do{
+while{!isNull _this && {alive _x} count units _this > 0}do{
 
 	scopeName "main";
 
-	// sleep 10 + random 10;
+	sleep 10 + random 10;
 
 	_grp_wp_completed = nil;
 	_grp_wp_completed = _grp getVariable "_grp_wp_completed";
 
-	if((!isNil {_grp getVariable "grp_created"}) && ({alive _x} count units _grp == 0))then{
-		deleteGroup _grp;
-	}else{
-
-	//if (false) then {
+	if (true) then {
 
 		_leader = leader _grp;
 
@@ -135,6 +129,49 @@ _grp=_this;
 			};
 		};
 
+		if (_Submarine) then {
+		  if (_typeWP in ["UNLOAD","GETOUT"]) then {
+			if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
+			  if (isNil {_grp getVariable "GETOUT"}) then {
+				_grp setVariable ["GETOUT",true];
+				_grp call {
+				  private ["_units","_vehicles"];
+					_units = units _this;
+					_vehicles = [];
+					{
+						private ["_veh"];
+						_veh = vehicle _x;
+						if(_veh != _x)then{
+							if!(_veh in _vehicles)then{
+								_vehicles set [count _vehicles, _veh];
+							};
+						};
+					}forEach _units;
+
+				  {
+							private["_veh"];
+							_veh = _x;
+							_veh stop true;
+							while{(!isNull _veh) && (alive _veh) && (speed _veh >= 1)}do{};
+							{
+								private["_unit"];
+								_unit = _x;
+								_unit action ["Eject", _veh];
+								while{(_unit in _veh) && (alive _veh) && (alive _unit)}do{};
+								_unit leaveVehicle _veh;
+							}forEach crew _veh;
+							_veh stop false;
+						}forEach _vehicles;
+				  while {(count (waypoints _this)) > 0} do {
+							deleteWaypoint ((waypoints _this) select 0);
+						};
+				  _this setVariable ["GETOUT",nil];
+				};
+			  };
+			};
+		  };
+		};
+
 		if (_Helicopter) then {
 			if (_typeWP in ["UNLOAD"]) then {
 				if (draga_loglevel > 0) then {
@@ -143,7 +180,7 @@ _grp=_this;
 				if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
 					if (isNil {_grp getVariable "UNLOAD"}) then {
 						_grp setVariable ["UNLOAD",true];
-						_grp spawn {
+						_grp call {
 							private ["_units","_vehicles"];
 							_units = units _this;
 							_vehicles = [];
@@ -217,7 +254,7 @@ _grp=_this;
 				if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
 					if (isNil {_grp getVariable "UNLOAD"}) then {
 						_grp setVariable ["UNLOAD",true];
-						_grp spawn {
+						_grp call {
 
 							// get _vehicles
 							private ["_units","_vehicles"];
@@ -288,7 +325,7 @@ _grp=_this;
 			if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 			  if (isNil {_grp getVariable "UNLOAD"}) then {
 				_grp setVariable ["UNLOAD",true];
-				_grp spawn {
+				_grp call {
 				  private ["_units","_vehicles"];
 					_units = units _this;
 					_vehicles = [];
@@ -1024,4 +1061,4 @@ _grp=_this;
 
 	};
 
-// };
+};
