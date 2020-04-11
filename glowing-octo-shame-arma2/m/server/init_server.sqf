@@ -100,7 +100,6 @@ private ["_BIS_marta_mainscope"];
 // военные обозначения
 	_BIS_marta_mainscope = (group_logic) createUnit ["MartaManager",[1000,10,0],[],0,"none"];
 	_BIS_marta_mainscope setVariable ["duration", 60, true];
-	_BIS_marta_mainscope setVariable ["rules", [["o_", "colorred"], ["b_", "colorblue"], ["n_", "colorgreen"], ["n_", "coloryellow"]], true];
 // командование
 // if (isNil "BIS_HC_mainscope") then	{
 // _logic = group_logic createUnit ["HighCommand",[1000,10,0],[],0,"NONE"];
