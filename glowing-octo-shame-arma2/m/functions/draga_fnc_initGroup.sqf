@@ -762,7 +762,7 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 
 			scopeName "_follow";
 
-			if (true) then {
+			if (!isPlayer _leader) then {
 
 				// лидер двигаться в сторону атакующей техники отряда
 				{
@@ -807,7 +807,7 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 
 		private["_getOut","_allowGetin","_assignedVehicle"];
 		_getOut=[];
-		if (true) then {
+		if (!isPlayer _leader) then {
 		// if (count _assignedVehicles > 0) then {
 			{
 				_assignedVehicle = assignedVehicle _x;
