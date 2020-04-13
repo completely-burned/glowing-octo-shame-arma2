@@ -31,6 +31,7 @@ while {true} do {
 				_dir = random 360;
 				_testPos = [(_posPlayerASL select 0) + 999*sin _dir, (_posPlayerASL select 1) + 999*cos _dir, _posPlayerASL select 2];
 
+				if(!(surfaceIsWater _testPos) or (random 100 < 10))then{
 				if(!lineIntersects [_posPlayerASL, _testPos, _veh, objNull])then{
 
 					[_veh, _posPlayerASL, _dir] spawn {
@@ -88,6 +89,7 @@ while {true} do {
 
 					};
 
+				};
 				};
 			};
 
