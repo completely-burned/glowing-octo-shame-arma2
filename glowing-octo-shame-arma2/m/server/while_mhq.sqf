@@ -98,5 +98,5 @@ while{true}do{
 		};
 	};
 
-	sleep 5;
+	sleep 10;
 };
