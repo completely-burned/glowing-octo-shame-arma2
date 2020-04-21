@@ -33,6 +33,8 @@ for "_i" from 0 to (count _names - 1) do
 
 private ["_MHQ"];
 
+private ["_true"];
+
 while{true}do{
 
 	_MHQ = objNull;
@@ -69,12 +71,26 @@ while{true}do{
 		scopeName "scope1";
 		while {isNull _MHQ}do{
 			_pos = (_list call BIS_fnc_selectRandom);
-			if({(side _x in m_sideEnemy)} count (_pos nearEntities _dist) == 0)then{ // проверка дистанции врагов
+
+			_true = true;
+
+			if(!isNil {civilianBasePos})then{ // проверка дистанции точки
+				if(_pos distance civilianBasePos < _dist)then{
+					_true = false;
+				};
+			};
+
+			if({(side _x in m_sideEnemy)} count (_pos nearEntities _dist) > 0)then{ // проверка дистанции врагов
+				_true = false;
+			};
+
+			if(_true)then{
 				_MHQ = createVehicle [(MHQ_list select 0) call BIS_fnc_selectRandom, _StartingLocationsPos call BIS_fnc_selectRandom, [], 0, "NONE"]; // создание
 				breakTo "scope1";
 			}else{
 				_list = _list - [_pos];
 			};
+
 			if(count _list == 0)then{
 				_dist = _dist - ((safeSpawnDistance select 5) / 5);
 				_list =+ _StartingLocationsPos;
