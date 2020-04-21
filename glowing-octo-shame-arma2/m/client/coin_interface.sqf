@@ -173,6 +173,8 @@ _colorGray = "#(argb,8,8,3)color(0,0,0,0.25,ca)";
 while {!isnil "draga_CONTROL_CAM"} do {
 	if (!isnil "draga_COIN_QUIT") exitwith {
 
+		sleep 0.75;
+
 		if !(isnil "draga_CONTROL_CAM") then {draga_CONTROL_CAM cameraeffect ["terminate","back"];camdestroy draga_CONTROL_CAM;};
 		draga_CONTROL_CAM = nil;
 		1122 cuttext ["","plain"];
