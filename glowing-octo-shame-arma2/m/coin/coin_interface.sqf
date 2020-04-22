@@ -533,6 +533,7 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 					_building = _itemclass createvehicle _pos;//[10,10,10000];
 					_building setpos _pos;
 					_building setdir _dir;
+					_building setVectorUp surfaceNormal _pos;
 					if (_shift) then {_building setpos _pos;};
 					//if (gettext (configfile >> "cfgvehicles" >> _itemclass >> "placement") == "vertical") then {_building setpos _pos}; //--- Vertical
 					if (gettext (configfile >> "cfgvehicles" >> _itemclass >> "namesound") == "fence" || _itemclass iskindof "staticweapon") then {_building setpos _pos}; //--- Vertical
