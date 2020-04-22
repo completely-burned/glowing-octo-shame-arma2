@@ -800,7 +800,7 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 							_arrayNames = _arrayNames + [_text];
 							_arrayNamesLong = _arrayNamesLong + [_text + "                   "];
 							_arrayEnable = _arrayEnable + [_canAfford];
-							_arrayParams = _arrayParams + [[_logic getvariable "BIS_COIN_ID"] + [_x,_i]];
+							_arrayParams = _arrayParams + [[nil] + [_x,_i]];
 						};
 					} else {textLogFormat ["Log: [CoIn] ERROR: Invalid category '%1' used in '%2'",_itemcategory,_itemclass]};
 				} foreach _items;
@@ -812,11 +812,10 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 					_item = '%1';
 					_id = %2;
 					_array = (call compile '%3') select _id;
-					_logic = call compile ('BIS_COIN_'+ str (_array select 0));
 
 					_params = _array select 1;
-					_logic setvariable ['BIS_COIN_params',_params];
-					_logic setvariable ['BIS_COIN_menu',commandingmenu];
+					draga_HQ_logic setvariable ['BIS_COIN_params',_params];
+					draga_HQ_logic setvariable ['BIS_COIN_menu',commandingmenu];
 					showcommandingmenu '';
 
 				",_arrayParams] call BIS_fnc_createmenu;
