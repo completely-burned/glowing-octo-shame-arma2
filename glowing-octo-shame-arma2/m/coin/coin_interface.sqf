@@ -3,6 +3,7 @@ _logic = _this select 3 select 0;
 
 draga_HQ_logic = _logic;
 
+[_logic, nil, nil, _this select 3] call fnc_coin_variable;
 
 uinamespace setvariable ["COIN_displayMain",finddisplay 46];
 
