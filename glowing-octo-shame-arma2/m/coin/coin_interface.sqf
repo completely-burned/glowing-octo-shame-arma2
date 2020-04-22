@@ -174,6 +174,7 @@ BIS_CONTROL_CAM_Handler = {
 	_terminate = false;
 
   	if (isnil "_logic") exitwith {};
+	if(!isNull _logic)then{
 
 	//--- Closing CoIn if player not in rules
 	_rules = _logic getvariable "BIS_COIN_rules";
@@ -246,6 +247,8 @@ BIS_CONTROL_CAM_Handler = {
 				_logic setvariable ["BIS_COIN_params",[]];
 			};
 		};
+	};
+
 	};
 
 	//--- Camera no longer exists - terminate and start cleanup
@@ -351,6 +354,7 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 	_camera = BIS_CONTROL_CAM;
 
   	if (isnil "_logic") exitwith {};
+	if (isNull _logic) exitwith {};
 
 	//--- Closing CoIn if player not in rules
 	_rules = _logic getvariable "BIS_COIN_rules";
