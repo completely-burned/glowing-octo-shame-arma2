@@ -27,7 +27,7 @@ player setvariable ["bis_coin_logic",_logic];
 bis_coin_player = player;
 
 //////////////////////////////////////////////////
-startLoadingScreen [localize "str_coin_name","RscDisplayLoadMission"];
+// startLoadingScreen [localize "str_coin_name","RscDisplayLoadMission"];
 //////////////////////////////////////////////////
 
 private["_camera"];
@@ -260,7 +260,7 @@ BIS_CONTROL_CAM_Handler = {
 	//--- Camera no longer exists - terminate and start cleanup
 	if (isnil "BIS_CONTROL_CAM" || player != bis_coin_player || !isnil "BIS_COIN_QUIT") exitwith {
 		//////////////////////////////////////////////////
-		startLoadingScreen [localize "str_coin_exit" + " " + localize "str_coin_name","RscDisplayLoadMission"];
+		// startLoadingScreen [localize "str_coin_exit" + " " + localize "str_coin_name","RscDisplayLoadMission"];
 		//////////////////////////////////////////////////
 
 		if !(isnil "BIS_CONTROL_CAM") then {BIS_CONTROL_CAM cameraeffect ["terminate","back"];camdestroy BIS_CONTROL_CAM;};
@@ -303,7 +303,7 @@ BIS_CONTROL_CAM_Handler = {
 		textLogFormat ["Log: [CoIn] %1 terminated %2",player,_logic getvariable "BIS_COIN_name"];
 
 		//////////////////////////////////////////////////
-		endLoadingScreen;
+		// endLoadingScreen;
 		//////////////////////////////////////////////////
 	};
 
@@ -312,7 +312,7 @@ BIS_CONTROL_CAM_Handler = {
 
 waituntil {scriptdone _createBorderScope};
 //////////////////////////////////////////////////
-endLoadingScreen;
+// endLoadingScreen;
 //////////////////////////////////////////////////
 
 
