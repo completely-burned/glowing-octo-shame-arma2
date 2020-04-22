@@ -5,14 +5,15 @@ scriptName "CoIn\data\scripts\coin_interface.sqf";
 
 	Description:
 		Construction Interface system
+_logic = _this select 3 select 0;
 
 	Parameter(s):
 		_this - OBJECT - CoIn manager
+draga_HQ_logic = _logic;
 
 	Returned value(s):
 		Nothing
 */
-_logic = _this select 3;
 
 uinamespace setvariable ["COIN_displayMain",finddisplay 46];
 
