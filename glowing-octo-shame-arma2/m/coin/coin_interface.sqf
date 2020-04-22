@@ -1,19 +1,8 @@
-scriptName "CoIn\data\scripts\coin_interface.sqf";
-/*
-	File: coin_interface.sqf
-	Author: Karel Moricky
 
-	Description:
-		Construction Interface system
 _logic = _this select 3 select 0;
 
-	Parameter(s):
-		_this - OBJECT - CoIn manager
 draga_HQ_logic = _logic;
 
-	Returned value(s):
-		Nothing
-*/
 
 uinamespace setvariable ["COIN_displayMain",finddisplay 46];
 
