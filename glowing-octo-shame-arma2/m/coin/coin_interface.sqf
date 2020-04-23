@@ -565,7 +565,7 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 			_colorGUI = [1,1,1,0.1];
 
 			_buildings = _logic getvariable "BIS_COIN_buildings";
-			if (count _buildings > 0) then {
+			if (true) then {
 
 				//--- Selection
 				_worldpos = screentoworld [0.5,0.5];
@@ -574,9 +574,9 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 				{
 					_size = (sizeof typeof _x) / 3;
 					if (_size < 2) then {_size = 2};
-					if (_x distance _worldpos < _size) exitwith {_selected = _x;_logic setvariable ["BIS_COIN_selected",_selected]};
+					if (_x distance _worldpos < _size && !(_x isKindOf "WarfareBDepot") && !(_x isKindOf "WarfareBAirport")) exitwith {_selected = _x;_logic setvariable ["BIS_COIN_selected",_selected]};
 					_logic setvariable ["BIS_COIN_selected",objnull];
-				} foreach _buildings;
+				} foreach nearestObjects [_worldpos, ["WarfareBBaseStructure", "BASE_WarfareBFieldhHospital","StaticWeapon"], 20];
 
 				//--- Selected building
 				if !(isnull _selected) then {
