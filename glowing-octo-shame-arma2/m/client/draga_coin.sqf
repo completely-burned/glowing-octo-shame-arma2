@@ -35,7 +35,7 @@ while{true}do{
 				_player = player;
 				_action = _player addaction [
 					localize "str_coin_action" + " - " + gettext(configFile >> "CfgVehicles" >> typeOf _x >> "displayName"),
-					"m\client\coin_interface.sqf",
+					"m\coin\coin_interface.sqf",
 					[_x,draga_COIN_items,draga_distanceCoinBase],
 					1,
 					false,
@@ -53,7 +53,7 @@ while{true}do{
 				_player = player;
 				_action = _player addaction [
 					localize "str_coin_action" + " - " + gettext(configFile >> "CfgVehicles" >> typeOf _x >> "displayName"),
-					"m\client\coin_interface.sqf",
+					"m\coin\coin_interface.sqf",
 					[_x, [[typeOf _x call fnc_get_MHQ_type,"Base",0]], draga_distanceCoinMHQ],
 					1,
 					false,
