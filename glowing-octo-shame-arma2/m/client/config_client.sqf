@@ -18,8 +18,7 @@ if(faction player in ["BIS_US", "BIS_CZ", "BIS_GER"] or playerSide == west)then{
 			["US_WarfareBArtilleryRadar_EP1","Base",0],
 			["US_WarfareBUAVterminal_EP1","Base",0],
 			["US_WarfareBVehicleServicePoint_EP1","Base",0],
-			["US_WarfareBFieldhHospital_EP1","Base",0],
-			["WarfareBAirport","Base",0]
+			["US_WarfareBFieldhHospital_EP1","Base",0]
 		];
 };
 if(faction player in ["USMC"])then{
@@ -41,8 +40,7 @@ if(faction player in ["USMC"])then{
 			["USMC_WarfareBArtilleryRadar","Base",0],
 			["USMC_WarfareBUAVterminal","Base",0],
 			["USMC_WarfareBVehicleServicePoint","Base",0],
-			["USMC_WarfareBFieldhHospital","Base",0],
-			["WarfareBAirport","Base",0]
+			["USMC_WarfareBFieldhHospital","Base",0]
 			];
 };
 if(faction player in ["CDF"])then{
@@ -64,8 +62,7 @@ if(faction player in ["CDF"])then{
 			["CDF_WarfareBArtilleryRadar","Base",0],
 			["CDF_WarfareBUAVterminal","Base",0],
 			["CDF_WarfareBVehicleServicePoint","Base",0],
-			["CDF_WarfareBFieldhHospital","Base",0],
-			["WarfareBAirport","Base",0]
+			["CDF_WarfareBFieldhHospital","Base",0]
 			];
 };
 
@@ -89,8 +86,7 @@ if(faction player in ["BIS_TK", "BIS_TK_INS"] or playerSide == east)then{
 			["TK_WarfareBArtilleryRadar_EP1","Base",0],
 			["TK_WarfareBUAVterminal_EP1","Base",0],
 			["TK_WarfareBVehicleServicePoint_EP1","Base",0],
-			["TK_WarfareBFieldhHospital_EP1","Base",0],
-			["WarfareBAirport","Base",0]
+			["TK_WarfareBFieldhHospital_EP1","Base",0]
 			];
 };
 if(faction player in ["RU"])then{
@@ -113,8 +109,7 @@ if(faction player in ["RU"])then{
 			["RU_WarfareBArtilleryRadar","Base",0],
 			["RU_WarfareBUAVterminal","Base",0],
 			["RU_WarfareBVehicleServicePoint","Base",0],
-			["RU_WarfareBFieldhHospital","Base",0],
-			["WarfareBAirport","Base",0]
+			["RU_WarfareBFieldhHospital","Base",0]
 			];
 };
 if(faction player in ["INS"])then{
@@ -136,8 +131,7 @@ if(faction player in ["INS"])then{
 			["Ins_WarfareBArtilleryRadar","Base",0],
 			["Ins_WarfareBUAVterminal","Base",0],
 			["Ins_WarfareBVehicleServicePoint","Base",0],
-			["Ins_WarfareBFieldhHospital","Base",0],
-			["WarfareBAirport","Base",0]
+			["Ins_WarfareBFieldhHospital","Base",0]
 			];
 };
 
@@ -160,8 +154,7 @@ if(faction player in ["BIS_TK_GUE", "BIS_UN"] or playerSide == resistance)then{
 			["TK_GUE_WarfareBArtilleryRadar_EP1","Base",0],
 			["TK_GUE_WarfareBUAVterminal_EP1","Base",0],
 			["TK_GUE_WarfareBVehicleServicePoint_EP1","Base",0],
-			["TK_GUE_WarfareBFieldhHospital_EP1","Base",0],
-			["WarfareBAirport","Base",0]
+			["TK_GUE_WarfareBFieldhHospital_EP1","Base",0]
 			];
 };
 if(faction player in ["GUE"])then{
@@ -180,7 +173,6 @@ if(faction player in ["GUE"])then{
 			["Gue_WarfareBArtilleryRadar","Base",0],
 			["Gue_WarfareBUAVterminal","Base",0],
 			["Gue_WarfareBVehicleServicePoint","Base",0],
-			["Gue_WarfareBFieldhHospital","Base",0],
-			["WarfareBAirport","Base",0]
+			["Gue_WarfareBFieldhHospital","Base",0]
 		];
 };
