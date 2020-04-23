@@ -34,7 +34,7 @@ class Mission
 	randomSeed=12852940;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.365 Chernarus guer";
+		briefingName="glowing-octo-shame v0.0.3.366 Chernarus guer";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;
