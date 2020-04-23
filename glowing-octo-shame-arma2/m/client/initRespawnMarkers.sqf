@@ -61,6 +61,9 @@ _markerMHQtype = "Headquarters";
 
 waitUntil {!isNil {MHQ_list}};
 
+private ["_dynamicMarkers"];
+_dynamicMarkers = [];
+
 if(true)then{
 
 	private ["_markers","_units"];
@@ -90,6 +93,30 @@ if(true)then{
 				};
 			};
 		} forEach vehicles + allMissionObjects "Warfare_HQ_base_unfolded";
+
+		// -- удаление лишних динамичных маркеров
+		for "_i" from 0 to (count _dynamicMarkers - 1) do {
+			if(!alive (_dynamicMarkers select _i select 1))then{
+				deleteMarkerLocal (_dynamicMarkers select _i select 0);
+				_dynamicMarkers set [_i, -1];
+			};
+		};
+		_dynamicMarkers = _dynamicMarkers - [-1];
+
+		// -- создать динамичные маркеры казарм
+		{
+			if(true)then{ // нужно сделать проверку фракции
+				private ["_obj","_pos"];
+				_obj = _x;
+				_pos = getPos _obj;
+				private ["_dir","_dist"];
+				_dir = random 360;
+				_dist = random 10;
+				_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
+				_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
+				_dynamicMarkers set [count _dynamicMarkers, [_marker, _obj]];
+			};
+		} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital";
 
 		// -- игроки
 		{
