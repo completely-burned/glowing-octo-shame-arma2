@@ -1,4 +1,5 @@
 
+// объект радом с  котором строится
 _logic = _this select 3 select 0;
 
 draga_HQ_logic = _logic;
@@ -176,11 +177,6 @@ BIS_CONTROL_CAM_Handler = {
   	if (isnil "_logic") exitwith {};
 	if(!isNull _logic)then{
 
-	//--- Closing CoIn if player not in rules
-	_rules = _logic getvariable "BIS_COIN_rules";
-	_code = if (typename _rules == "ARRAY") then {{(player in _rules) || ((side player) in _rules)}} else {{(side player) == _rules}}; //! same condition code as in coin .fsm
-	if !(call _code) then {BIS_COIN_QUIT = true;}; //player not in rules -> close
-
 	_areasize = _logic getvariable "BIS_COIN_areasize";
 	_limitH = _areasize select 0;
 	_limitV = _areasize select 1;
@@ -355,11 +351,6 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 
   	if (isnil "_logic") exitwith {};
 	if (isNull _logic) exitwith {};
-
-	//--- Closing CoIn if player not in rules
-	_rules = _logic getvariable "BIS_COIN_rules";
-	_code = if (typename _rules == "ARRAY") then {{(player in _rules) || ((side player) in _rules)}} else {{(side player) == _rules}}; //! same condition code as in coin .fsm
-	if !(call _code) then {BIS_COIN_QUIT = true}; //player not in rules -> close
 
 	_areasize = _logic getvariable "BIS_COIN_areasize";
 	_limitH = _areasize select 0;
