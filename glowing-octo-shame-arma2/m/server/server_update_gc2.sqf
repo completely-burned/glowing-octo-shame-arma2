@@ -131,7 +131,10 @@ while {true} do {
 	{
 		_x_veh = _x;
 		if !([_x_veh, _min_dist2] call m_fnc_CheckPlayersDistance) then {
+			_x_veh setDamage 1;
+			sleep 0.25;
 			moveOut _x_veh;
+			sleep 0.25;
 			deleteVehicle _x_veh;
 		}else{
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
@@ -146,7 +149,10 @@ while {true} do {
 		_deleteListManDead = _deleteListManDead - [_x_veh];
 
 		if !([_x_veh, _min_dist2] call m_fnc_CheckPlayersDistance) then {
+			_x_veh setDamage 1;
+			sleep 0.25;
 			moveOut _x_veh;
+			sleep 0.25;
 			deleteVehicle _x_veh;
 		}else{
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
