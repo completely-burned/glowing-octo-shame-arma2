@@ -105,16 +105,19 @@ if(true)then{
 
 		// -- создать динамичные маркеры казарм
 		{
+			private ["_obj"];
+			_obj = _x;
 			if(true)then{ // нужно сделать проверку фракции
-				private ["_obj","_pos"];
-				_obj = _x;
-				_pos = getPos _obj;
-				private ["_dir","_dist"];
-				_dir = random 360;
-				_dist = random 10;
-				_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
-				_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
-				_dynamicMarkers set [count _dynamicMarkers, [_marker, _obj]];
+				if({_obj == (_x select 1)} count _dynamicMarkers == 0)then{
+					private ["_pos"];
+					_pos = getPos _obj;
+					private ["_dir","_dist"];
+					_dir = random 360;
+					_dist = random 10;
+					_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
+					_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
+					_dynamicMarkers set [count _dynamicMarkers, [_marker, _obj]];
+				};
 			};
 		} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital";
 
