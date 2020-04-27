@@ -160,8 +160,8 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 									};
 								}forEach crew _veh;
 							}forEach _vehicles;
-							while {(count (waypoints _this)) > 0} do {
-								deleteWaypoint ((waypoints _this) select 0);
+							for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+								deleteWaypoint [_grp, _i];
 							};
 							_this setVariable ["UNLOAD",nil];
 						};
@@ -196,8 +196,8 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 									_x leaveVehicle _veh;
 								}forEach crew _veh;
 							}forEach _vehicles;
-							while {(count (waypoints _this)) > 0} do {
-								deleteWaypoint ((waypoints _this) select 0);
+							for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+								deleteWaypoint [_grp, _i];
 							};
 							_this setVariable ["GETOUT",nil];
 						};
@@ -261,8 +261,8 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 							};
 
 
-							while {(count (waypoints _this)) > 0} do {
-								deleteWaypoint ((waypoints _this) select 0);
+							for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+								deleteWaypoint [_grp, _i];
 							};
 
 							{
@@ -311,9 +311,9 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 					};
 				  }forEach _vehicles;
 				  sleep 5;
-				  while {(count (waypoints _this)) > 0} do {
-							deleteWaypoint ((waypoints _this) select 0);
-						};
+				  for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+					  deleteWaypoint [_grp, _i];
+				  };
 				  _this setVariable ["UNLOAD",nil];
 				};
 			  };
@@ -352,9 +352,9 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 					};
 				  }forEach _vehicles;
 				  sleep 5;
-				  while {(count (waypoints _this)) > 0} do {
-							deleteWaypoint ((waypoints _this) select 0);
-						};
+				  for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+					  deleteWaypoint [_grp, _i];
+				  };
 				  _this setVariable ["GETOUT",nil];
 				};
 			  };
@@ -524,9 +524,8 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 									if (draga_loglevel > 0) then {
 										diag_log format ["draga_fnc_initGroup.sqf %1  маршрут не менялся, группа не сдвинулась когда 1 таймер работал, удаляю маршруты, пересоздадутся", _grp ];
 									};
-									while {(count (waypoints _grp)) > 0} do // не сдвинулись
-									{
-										deleteWaypoint ((waypoints _grp) select 0); // для создание другого маршрута
+									for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+										deleteWaypoint [_grp, _i];
 									};
 									if(_Helicopter)then{
 										_oldTime = _oldTime max time+10;
@@ -689,8 +688,8 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 					if(_createWP or !isNil{_grp_wp_completed})then{
 						_grp setVariable ['_grp_wp_completed',nil];
 						_grp setVariable ["draga_grp_wp_sleep", nil];
-						while {(count (waypoints _grp)) > 0} do {
-							deleteWaypoint ((waypoints _grp) select 0);
+						for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+							deleteWaypoint [_grp, _i];
 						};
 						[_leader] call m_fnc_waypoints;
 						if (draga_loglevel > 0) then {
