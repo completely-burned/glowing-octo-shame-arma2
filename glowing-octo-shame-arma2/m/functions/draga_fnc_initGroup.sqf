@@ -1018,3 +1018,7 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 	};
 
 };
+
+if (draga_loglevel > 0) then {
+	diag_log format ["draga_fnc_initGroup end %1", time];
+};
