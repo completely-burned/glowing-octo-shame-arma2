@@ -1,7 +1,7 @@
 ﻿if !(requiredVersion "1.60") then {
 	failMission "LOSER";
 }else{
-	draga_loglevel = 0;
+	draga_loglevel = 100;
 	if(draga_loglevel>0)then{debug=true}else{debug=false};
 
 	if (!IsDedicated) then {
