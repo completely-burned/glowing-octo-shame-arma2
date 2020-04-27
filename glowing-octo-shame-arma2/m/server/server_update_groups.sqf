@@ -11,8 +11,9 @@ while{true}do{
 		}else{
 			if (scriptDone _draga_initGroup) then {
 				if (draga_loglevel > 0) then {
-					diag_log format ["while_groups.sqf scriptDone %2 deleteGroup %1", _x, _draga_initGroup];
+					diag_log format ["while_groups.sqf scriptDone %2, deleteGroup %1, count %3", _x, _draga_initGroup, count allGroups];
 				};
+				units _x joinSilent grpNull;
 				deleteGroup _x;
 			};
 		};
