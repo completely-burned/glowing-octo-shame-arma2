@@ -23,6 +23,17 @@ waitUntil{(isNull _this) or (time > _waitUntilTimeCreate) or ({alive _x} count u
 
 while{!isNull _this && {alive _x} count units _this > 0}do{
 
+// время создания группы
+private["_time"];
+_time = (_grp getVariable "grp_created_time");
+if ( isNil "_time" ) then {
+	_time = time;
+	_grp setVariable ["grp_created_time", _time];
+	if (draga_loglevel > 0) then {
+		diag_log format ["draga_fnc_initGroup.sqf %1 grp_created_time %2", _grp, _time ];
+	};
+};
+
 	scopeName "main";
 
 	sleep 10 + random 10;
@@ -366,18 +377,6 @@ while{!isNull _this && {alive _x} count units _this > 0}do{
 			private["_grp","_leader"];
 			_grp = _this;
 			_leader = leader _grp;
-
-
-			// время создания группы
-			private["_time"];
-			_time = (_grp getVariable "grp_created_time");
-			if ( isNil "_time" ) then {
-				_time = time;
-				_grp setVariable ["grp_created_time", _time];
-				if (draga_loglevel > 0) then {
-					diag_log format ["draga_fnc_initGroup.sqf %1 grp_created_time %2", _grp, _time ];
-				};
-			};
 
 			private["_currentWP","_waypoints","_createWP","_leaderPos"];
 			_currentWP = currentWaypoint _grp;
