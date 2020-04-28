@@ -279,8 +279,8 @@ if ( isNil "_time" ) then {
 							};
 
 
-							for "_i" from count waypoints _grp - 1 to 0 step -1 do {
-								deleteWaypoint [_grp, _i];
+							for "_i" from count waypoints _this - 1 to 0 step -1 do {
+								deleteWaypoint [_this, _i];
 							};
 
 							{
