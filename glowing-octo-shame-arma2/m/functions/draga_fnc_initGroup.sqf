@@ -40,7 +40,7 @@ if ( isNil "_time" ) then {
 		if (draga_loglevel > 0) then {
 			diag_log format ["while_groups.sqf %1 join %2", _x, group_system_units];
 		};
-		units _x joinSilent group_system_units;
+		units _x joinSilent group_off_units;
 		if (draga_loglevel > 0) then {
 			diag_log format ["while_groups.sqf count units group_system_units %1", count units group_system_units];
 		};

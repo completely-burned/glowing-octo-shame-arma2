@@ -1,5 +1,7 @@
 ﻿waitUntil {!isNil "civilianBasePos"};
 waitUntil {!isNil "sizeLocation"};
+waitUntil {!isNil "group_system_units"};
+waitUntil {!isNil "group_off_units"};
 private["_draga_initGroup"];
 while{true}do{
 	{

@@ -8,6 +8,14 @@ while{true}do{
 		};
 	};
 
+	if (isNil "group_off_units") then {
+		group_off_units = createGroup sideLogic;
+		publicVariable "group_off_units";
+		if (draga_loglevel > 0) then {
+			diag_log format ["group_off_units = createGroup sideLogic; %1", time];
+		};
+	};
+
 	{
 		if(!alive _x or local _x)then{
 			deleteVehicle _x;
