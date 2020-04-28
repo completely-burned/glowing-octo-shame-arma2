@@ -178,8 +178,8 @@ if ( isNil "_time" ) then {
 									};
 								}forEach crew _veh;
 							}forEach _vehicles;
-							for "_i" from count waypoints _grp - 1 to 0 step -1 do {
-								deleteWaypoint [_grp, _i];
+							for "_i" from count waypoints _this - 1 to 0 step -1 do {
+								deleteWaypoint [_this, _i];
 							};
 							_this setVariable ["UNLOAD",nil];
 						};
@@ -214,8 +214,8 @@ if ( isNil "_time" ) then {
 									_x leaveVehicle _veh;
 								}forEach crew _veh;
 							}forEach _vehicles;
-							for "_i" from count waypoints _grp - 1 to 0 step -1 do {
-								deleteWaypoint [_grp, _i];
+							for "_i" from count waypoints _this - 1 to 0 step -1 do {
+								deleteWaypoint [_this, _i];
 							};
 							_this setVariable ["GETOUT",nil];
 						};
@@ -329,8 +329,8 @@ if ( isNil "_time" ) then {
 					};
 				  }forEach _vehicles;
 				  sleep 5;
-				  for "_i" from count waypoints _grp - 1 to 0 step -1 do {
-					  deleteWaypoint [_grp, _i];
+				  for "_i" from count waypoints _this - 1 to 0 step -1 do {
+					  deleteWaypoint [_this, _i];
 				  };
 				  _this setVariable ["UNLOAD",nil];
 				};
@@ -370,8 +370,8 @@ if ( isNil "_time" ) then {
 					};
 				  }forEach _vehicles;
 				  sleep 5;
-				  for "_i" from count waypoints _grp - 1 to 0 step -1 do {
-					  deleteWaypoint [_grp, _i];
+				  for "_i" from count waypoints _this - 1 to 0 step -1 do {
+					  deleteWaypoint [_this, _i];
 				  };
 				  _this setVariable ["GETOUT",nil];
 				};
