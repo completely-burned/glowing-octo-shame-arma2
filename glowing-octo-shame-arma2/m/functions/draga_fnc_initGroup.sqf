@@ -33,21 +33,22 @@ if ( isNil "_time" ) then {
 
 	_grp_wp_completed = _grp getVariable "_grp_wp_completed";
 
+	if (draga_loglevel > 0) then {
+		diag_log format ["draga_fnc_initGroup.sqf units %1", units _grp];
+	};
+
 	if((_time < (time - 10)) && ({alive _x} count units _grp == 0))then{
+
 		if (draga_loglevel > 0) then {
-			diag_log format ["draga_fnc_initGroup.sqf %1 units %2", _x, units _x];
+			diag_log format ["draga_fnc_initGroup.sqf deleteGroup %1, count alive %2", _grp, {alive _x} count units _grp];
 		};
+
+		deleteGroup _grp;
+
 		if (draga_loglevel > 0) then {
-			diag_log format ["draga_fnc_initGroup.sqf %1 join %2", _x, group_off_units];
+			diag_log format ["draga_fnc_initGroup.sqf deletedGroup %1", _grp];
 		};
-		units _x joinSilent group_off_units;
-		if (draga_loglevel > 0) then {
-			diag_log format ["draga_fnc_initGroup.sqf count units group_off_units %1", count units group_off_units];
-		};
-		deleteGroup _x;
-		if (draga_loglevel > 0) then {
-			diag_log format ["draga_fnc_initGroup.sqf deletedGroup %1", _x];
-		};
+
 	}else{
 
 		_leader = leader _grp;
