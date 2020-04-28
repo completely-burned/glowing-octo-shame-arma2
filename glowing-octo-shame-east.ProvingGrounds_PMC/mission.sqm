@@ -20,7 +20,7 @@ class Mission
 	randomSeed=12923257;
 	class Intel
 	{
-		briefingName="glowing-octo-shame v0.0.3.382 ProvingGrounds_PMC east";
+		briefingName="glowing-octo-shame v0.0.3.383 ProvingGrounds_PMC east";
 		startWeather=0.30000001;
 		forecastWeather=0.30000001;
 		year=2012;
