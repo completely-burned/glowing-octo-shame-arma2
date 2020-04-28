@@ -35,18 +35,18 @@ if ( isNil "_time" ) then {
 
 	if((_time < (time - 10)) && ({alive _x} count units _grp == 0))then{
 		if (draga_loglevel > 0) then {
-			diag_log format ["while_groups.sqf %1 units %2", _x, units _x];
+			diag_log format ["draga_fnc_initGroup.sqf %1 units %2", _x, units _x];
 		};
 		if (draga_loglevel > 0) then {
-			diag_log format ["while_groups.sqf %1 join %2", _x, group_system_units];
+			diag_log format ["draga_fnc_initGroup.sqf %1 join %2", _x, group_off_units];
 		};
 		units _x joinSilent group_off_units;
 		if (draga_loglevel > 0) then {
-			diag_log format ["while_groups.sqf count units group_system_units %1", count units group_system_units];
+			diag_log format ["draga_fnc_initGroup.sqf count units group_off_units %1", count units group_off_units];
 		};
 		deleteGroup _x;
 		if (draga_loglevel > 0) then {
-			diag_log format ["while_groups.sqf deleted %1", _x];
+			diag_log format ["draga_fnc_initGroup.sqf deletedGroup %1", _x];
 		};
 	}else{
 
