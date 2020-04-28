@@ -16,12 +16,6 @@ private["_grp_wp_completed"];
 
 _grp=_this;
 
-private ["_waitUntilTimeCreate"];
-_waitUntilTimeCreate = time + 15;
-
-waitUntil{(isNull _this) or (time > _waitUntilTimeCreate) or ({alive _x} count units _this > 0)};
-
-while{!isNull _this && {alive _x} count units _this > 0}do{
 
 // время создания группы
 private["_time"];
@@ -36,12 +30,25 @@ if ( isNil "_time" ) then {
 
 	scopeName "main";
 
-	sleep 10 + random 10;
 
-	_grp_wp_completed = nil;
 	_grp_wp_completed = _grp getVariable "_grp_wp_completed";
 
-	if (true) then {
+	if((_time < (time - 10)) && ({alive _x} count units _grp == 0))then{
+		if (draga_loglevel > 0) then {
+			diag_log format ["while_groups.sqf %1 units %2", _x, units _x];
+		};
+		if (draga_loglevel > 0) then {
+			diag_log format ["while_groups.sqf %1 join %2", _x, group_system_units];
+		};
+		units _x joinSilent group_system_units;
+		if (draga_loglevel > 0) then {
+			diag_log format ["while_groups.sqf count units group_system_units %1", count units group_system_units];
+		};
+		deleteGroup _x;
+		if (draga_loglevel > 0) then {
+			diag_log format ["while_groups.sqf deleted %1", _x];
+		};
+	}else{
 
 		_leader = leader _grp;
 
@@ -148,7 +155,7 @@ if ( isNil "_time" ) then {
 				if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
 					if (isNil {_grp getVariable "UNLOAD"}) then {
 						_grp setVariable ["UNLOAD",true];
-						_grp call {
+						_grp spawn {
 							private ["_units","_vehicles"];
 							_units = units _this;
 							_vehicles = [];
@@ -186,7 +193,7 @@ if ( isNil "_time" ) then {
 				if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 					if (isNil {_grp getVariable "GETOUT"}) then {
 						_grp setVariable ["GETOUT",true];
-						_grp call {
+						_grp spawn {
 							private ["_units","_vehicles"];
 							_units = units _this;
 							_vehicles = [];
@@ -222,7 +229,7 @@ if ( isNil "_time" ) then {
 				if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
 					if (isNil {_grp getVariable "UNLOAD"}) then {
 						_grp setVariable ["UNLOAD",true];
-						_grp call {
+						_grp spawn {
 
 							// get _vehicles
 							private ["_units","_vehicles"];
@@ -293,7 +300,7 @@ if ( isNil "_time" ) then {
 			if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 			  if (isNil {_grp getVariable "UNLOAD"}) then {
 				_grp setVariable ["UNLOAD",true];
-				_grp call {
+				_grp spawn {
 				  private ["_units","_vehicles"];
 					_units = units _this;
 					_vehicles = [];
@@ -334,7 +341,7 @@ if ( isNil "_time" ) then {
 			if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 			  if (isNil {_grp getVariable "GETOUT"}) then {
 				_grp setVariable ["GETOUT",true];
-				_grp call {
+				_grp spawn {
 				  private ["_units","_vehicles"];
 					_units = units _this;
 					_vehicles = [];
@@ -1015,8 +1022,6 @@ if ( isNil "_time" ) then {
 		};
 
 	};
-
-};
 
 if (draga_loglevel > 0) then {
 	diag_log format ["draga_fnc_initGroup end %1", time];
