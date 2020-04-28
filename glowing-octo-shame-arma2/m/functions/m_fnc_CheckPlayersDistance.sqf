@@ -26,7 +26,7 @@ if(isMultiplayer)then{
 		_visible = true;
 	};
 };
-if (draga_loglevel > 0) then {
+if (draga_loglevel > 100) then {
 	diag_log format ["m_fnc_CheckPlayersDistance.sqf %1 %2", _Pos, _visible];
 };
 _visible;
