@@ -11,8 +11,13 @@
 	};
 
 	debug=false;
-	draga_loglevel=0;
-	draga_loglevel = missionNamespace getVariable "debugLevel";;
+
+	draga_loglevel = missionNamespace getVariable "debugLevel";
+
+	if(isNil "draga_loglevel")then{
+		draga_loglevel=0;
+	};
+
 	if(draga_loglevel>0)then{
 		debug=true;
 	}else{
