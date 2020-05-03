@@ -37,19 +37,7 @@ if ( isNil "_time" ) then {
 		diag_log format ["draga_fnc_initGroup.sqf units %1", units _grp];
 	};
 
-	if((_time < (time - 10)) && ({alive _x} count units _grp == 0))then{
-
-		if (draga_loglevel > 0) then {
-			diag_log format ["draga_fnc_initGroup.sqf deleteGroup %1, count alive %2", _grp, {alive _x} count units _grp];
-		};
-
-		deleteGroup _grp;
-
-		if (draga_loglevel > 0) then {
-			diag_log format ["draga_fnc_initGroup.sqf deletedGroup %1", _grp];
-		};
-
-	}else{
+	if({alive _x} count units _grp > 0)then{
 
 		_leader = leader _grp;
 
