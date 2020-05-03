@@ -129,10 +129,10 @@ if(_run)then{
 
 	{
 		_x setSkill m_skill;
+		_x call m_fnc_vehInit;
 		// _x enableAI "TARGET";
 		// _x enableAI "AUTOTARGET";
 		// _x disableAI "FSM";
-		_x setSkill ["commanding", 1];
 	} foreach _units + _vehicles;
 
 	[_units + _vehicles] call m_fnc_reweapon; // перевооружить
