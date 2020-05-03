@@ -1,8 +1,6 @@
 ﻿if !(requiredVersion "1.60") then {
 	failMission "LOSER";
 }else{
-	draga_loglevel = 100;
-	if(draga_loglevel>0)then{debug=true}else{debug=false};
 
 	if (!IsDedicated) then {
 		[] execVM "m\client\briefing.sqf";
@@ -11,6 +9,15 @@
 		[] Call Compile preprocessFileLineNumbers "m\server\params.sqf";
 		[] execVM "m\server\StartTime.sqf"
 	};
+
+	draga_loglevel = missionNamespace getVariable "debugLevel";;
+	if(draga_loglevel>0)then{
+		debug=true;
+	}else{
+		debug=false;
+	};
+	draga_loglevel_perf = draga_loglevel;
+
 	[] Call Compile preprocessFileLineNumbers "m\init_common.sqf";
 	if (isServer) then {
 		[] spawn Compile preprocessFileLineNumbers "m\server\init_server.sqf";
