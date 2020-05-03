@@ -20,6 +20,8 @@ _timerAttack	= ( 60 * 2.5 );
 
 private["_time","_timeNew"];
 
+private["_i"];
+
 while {true} do {
 
 	_deleteListManAlive = [];
@@ -112,10 +114,38 @@ while {true} do {
 	{
 		if (getNumber(configFile >> "CfgVehicles" >> typeOf _x >> "isMan") == 1) then {
 			_deleteListManDead set [count _deleteListManDead, _x];
-		}else{
-			_deleteListVehDead set [count _deleteListVehDead, _x];
 		};
 	} forEach allDead;
+
+	{
+		_x_veh = _x;
+
+		_delete = false;
+
+		_time = (_x_veh getVariable "time");
+		if ( isNil "_time" ) then {
+			_time = time;
+			_x_veh setVariable ["time", _time];
+		}else{
+			if ( _time < time - 180 )then {
+				_delete = true;
+			};
+		};
+
+		if(alive _x_veh)then{
+			if (({alive _x} count (crew _x_veh + [assignedDriver _x_veh, assignedGunner _x_veh, assignedCommander _x_veh] + assignedCargo _x_veh))>0) then{
+				_delete = false;
+			};
+		};
+
+		if (_delete) then{
+			_deleteListVehDead set [count _deleteListVehDead, _x_veh];
+		}else{
+			_x_veh setVariable ["time", _time];
+		};
+
+
+	} forEach vehicles;
 
 	// vehicles - allDead;
 
@@ -141,13 +171,43 @@ while {true} do {
 
 	while { count _deleteListManDead > _min_vehicles_count } do {
 
-		_x_veh = _deleteListManDead call BIS_fnc_selectRandom;
 
-		_deleteListManDead = _deleteListManDead - [_x_veh];
+
+		_i = random (count _deleteListManDead -1);
+
+		_x_veh = _deleteListManDead select _i;
+
+		_deleteListManDead set [_i, -1];
+
+		_deleteListManDead = _deleteListManDead - [-1];
 
 		if !([_x_veh, _min_dist2] call m_fnc_CheckPlayersDistance) then {
 			_x_veh setDamage 1;
 			moveOut _x_veh;
+			deleteVehicle _x_veh;
+		}else{
+			_noDeleteCountTmp = _noDeleteCountTmp +1;
+		};
+
+
+	};
+
+	while { count _deleteListVehDead > _min_vehicles_count } do {
+
+		_i = random (count _deleteListVehDead -1);
+
+		_x_veh = _deleteListVehDead select _i;
+
+		_deleteListVehDead set [_i, -1];
+
+		_deleteListVehDead = _deleteListVehDead - [-1];
+
+
+		if !([_x_veh, _min_dist2] call m_fnc_CheckPlayersDistance) then {
+			if (draga_loglevel > 0) then {
+				diag_log format ["while_gc2.sqf deleteVeh %1", _x_veh];
+			};
+			// _x_veh setDamage 1;
 			deleteVehicle _x_veh;
 		}else{
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
