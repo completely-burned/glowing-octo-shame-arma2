@@ -686,7 +686,7 @@ if ( isNil "_time" ) then {
 						for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 							deleteWaypoint [_grp, _i];
 						};
-						[_leader] call m_fnc_waypoints;
+						[_leader] spawn m_fnc_waypoints;
 						if (draga_loglevel > 0) then {
 							diag_log format ["draga_fnc_initGroup.sqf %1  создание маршрута", _grp ];
 						};
