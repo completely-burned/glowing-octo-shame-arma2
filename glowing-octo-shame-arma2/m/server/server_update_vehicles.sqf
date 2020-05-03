@@ -105,9 +105,7 @@ _deleteList=[];
 	if (_delete) then{
 		_deleteList set [count _deleteList,_veh];
 	};
-	sleep 0.01;
 } forEach vehicles;
 
-_deleteList call fnc_cleanup;
-	sleep 1;
+	sleep 10;
 };
