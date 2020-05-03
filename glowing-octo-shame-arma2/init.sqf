@@ -10,6 +10,8 @@
 		[] execVM "m\server\StartTime.sqf"
 	};
 
+	debug=false;
+	draga_loglevel=0;
 	draga_loglevel = missionNamespace getVariable "debugLevel";;
 	if(draga_loglevel>0)then{
 		debug=true;
