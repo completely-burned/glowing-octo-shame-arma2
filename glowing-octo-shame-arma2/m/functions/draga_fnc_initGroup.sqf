@@ -995,6 +995,10 @@ if ( isNil "_time" ) then {
 				_SpeedMode = "FULL";
 			};
 
+			if(_Tank)then{
+				_CombatMode = "RED";
+			};
+
 			if(speedMode _grp != _SpeedMode)then{
 				_grp setSpeedMode _SpeedMode;
 			};
