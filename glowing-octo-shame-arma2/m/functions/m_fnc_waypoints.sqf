@@ -1,4 +1,7 @@
-﻿private["_leader"];
+if(draga_loglevel>0)then{
+	diag_log format ["fnc_waypoints.sqf start %1", _this];
+};
+private["_leader"];
 _leader = (_this select 0);
 if(!isNil "_leader")then{
 	private ["_grp"];
@@ -137,6 +140,10 @@ if(!isNil "_leader")then{
 
 		if(_AA)then{
 
+			if(draga_loglevel>0)then{
+				diag_log format ["fnc_waypoints.sqf AA %1", _this];
+			};
+
 			private["_friendList","_friendCount","_nearVehList","_friendList2"];
 
 			_friendList = [];
@@ -201,6 +208,10 @@ if(!isNil "_leader")then{
 		};
 
 		if(_Ship && !_Submarine)then{
+
+			if(draga_loglevel>0)then{
+				diag_log format ["fnc_waypoints.sqf Ship %1", _this];
+			};
 
 			if!(_patrol)then{
 				if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _vehicles > 0)then{
@@ -271,6 +282,10 @@ if(!isNil "_leader")then{
 		};
 
 		if(count _vehicles == 0)then{
+			if(draga_loglevel>0)then{
+				diag_log format ["fnc_waypoints.sqf Inf %1", _this];
+			};
+
 			private["_true"];
 			_true = true;
 			private ["_dir","_dist2","_testPos"];
@@ -289,6 +304,10 @@ if(!isNil "_leader")then{
 			};
 		};
 
+		if(draga_loglevel>0)then{
+			diag_log format ["fnc_waypoints.sqf addWaypoint %1", _this];
+		};
+
 		_wp = _grp addWaypoint [_pos, _maxDist];
 		_wp setWaypointType _WaypointType;
 		//_wp setWaypointSpeed _SpeedMode;
@@ -297,5 +316,13 @@ if(!isNil "_leader")then{
 		// _wp setWaypointCompletionRadius _WaypointCompletionRadius;
 		_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically";
 		_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"];
+
+		if(draga_loglevel>0)then{
+			diag_log format ["fnc_waypoints.sqf added %1", _wp];
+		};
 	};
+};
+
+if(draga_loglevel>0)then{
+	diag_log format ["fnc_waypoints.sqf end %1", _this];
 };
