@@ -965,6 +965,7 @@ if ( isNil "_time" ) then {
 			} forEach _types;
 			if (_countStealth > (count _types / 2)) then {
 				_Behaviour = "STEALTH";
+				_CombatMode = "WHITE";
 			};
 
 			if(_uav)then{
