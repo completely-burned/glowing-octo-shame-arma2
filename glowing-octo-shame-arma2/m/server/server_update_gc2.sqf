@@ -1,6 +1,6 @@
 private["_min_dist","_min_vehicles_count","_min_dist2"];
-_min_dist = 7000;
-_min_vehicles_count = 100;
+_min_dist = 2000;
+_min_vehicles_count = 20;
 
 private["_x_veh"];
 private["_type"];
