@@ -16,9 +16,9 @@ fi
 
 for DIR in $(find ./ -maxdepth 1 -type d); do
 	if [ -f "${DIR}/mission.sqm" ]; then
-		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* v\(.*\) .* .*".*/\1/' -e 's/\./\-/gi')
-		SIDE=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* v.* .* \(.*\)".*/\1/')
-		NAME=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*"\(.*\) v.* .* .*".*/\1/')
+		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* .* v\(.*\)".*/\1/' -e 's/\./\-/gi')
+		SIDE=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* \(.*\) v.*".*/\1/')
+		NAME=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*"\(.*\) .* .* v.*".*/\1/')
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
 		TMPDIRNAME="${NAME,,}-${VERSION,,}-${SIDE,,}.${MAP,,}"
 		if [ -d ".build.tmp/${TMPDIRNAME}/" ]; then
