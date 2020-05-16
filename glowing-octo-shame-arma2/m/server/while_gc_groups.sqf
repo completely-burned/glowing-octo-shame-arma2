@@ -1,5 +1,7 @@
 private["_time","_grp"];
 
+waitUntil {!isNil "group_system_units"};
+
 while{true}do{
 
 	sleep 5;
@@ -29,6 +31,6 @@ while{true}do{
 			};
 
 		};
-	} forEach allGroups;
+	} forEach allGroups-[group_system_units];
 
 };

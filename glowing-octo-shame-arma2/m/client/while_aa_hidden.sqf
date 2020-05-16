@@ -1,5 +1,10 @@
-private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh"];
+
+private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit"];
 waitUntil{!isNil {group_system_units}};
+
+_aa = objNull;
+_unit = objNull;
+
 while {true} do {
 
 		_veh = vehicle player;
@@ -35,12 +40,7 @@ while {true} do {
 
 					if(!lineIntersects [_posPlayerASL, _testPos, _veh, objNull])then{
 
-						[_veh, _posPlayerASL, _dir] spawn {
-
-							private["_testPos","_dir","_dist","_posPlayerASL","_veh","_aaType","_aa","_grp","_unit","_aaSide"];
-							_veh = _this select 0;
-							_posPlayerASL = _this select 1;
-							_dir = _this select 2;
+							private["_dist","_aaType","_grp","_aaSide"];
 
 							_dist = 3000 + random 2000;
 							_testPos = [(_posPlayerASL select 0) + _dist*sin _dir, (_posPlayerASL select 1) + _dist*cos _dir, _posPlayerASL select 2];
@@ -67,14 +67,24 @@ while {true} do {
 
 							if(isNil {_aaType})exitWith{};
 
+							if(!canFire _aa or !alive _unit or isNull _unit or isNull _aa)then{
 
-							_aa = _aaType createVehicleLocal [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
-							hideObject _aa;
+								{
+									_x setDamage 1;
+									deleteVehicle _x;
+								} forEach [_unit, _aa];
 
-							_unit = group_system_units createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"];
-							hideObject _unit;
-							_unit setCaptive true;
-							_unit moveInGunner _aa;
+								_aa = _aaType createVehicleLocal [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
+
+								_unit = (group_system_units createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)), 10000], [], 0, "CAN_COLLIDE"]);
+
+								hideObject _aa;
+								hideObject _unit;
+
+								_unit setCaptive true;
+								_unit moveInGunner _aa;
+
+							};
 
 							_aa setPosASL _testPos;
 							_aa setDir (_dir - 180);
@@ -83,12 +93,7 @@ while {true} do {
 
 							_aa fireAtTarget [_veh];
 
-							{
-								_x setDamage 1;
-								deleteVehicle _x;
-							} forEach [_unit, _aa];
-
-						};
+							_aa setPos [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
 
 					};
 
