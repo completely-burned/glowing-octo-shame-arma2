@@ -72,14 +72,16 @@ while {!_allowPos} do {
 		if(count _branchRoad >= _roadSize)then {
 			private ["_start"];
 			_start = random (count _branchRoad - _roadSize);
-			for "_i" from _start to (_start + _roadSize) do {
+			for "_i" from _start to (_start + _roadSize - 1) do {
 				_roads set [count _roads, _branchRoad select _i];
 			};
 		};
 
 		_testPos = getPos (_roads select 0);
 
-	}else{
+	};
+
+	if(count _roads < _roadSize)then{
 		private ["_dir","_dist2"];
 		_dir = random 360;
 		_dist2 = random _dist;
