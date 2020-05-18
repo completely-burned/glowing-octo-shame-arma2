@@ -12,11 +12,12 @@ private["_assignedVehicle"];
 
 Private["_deleteListManAlive","_deleteListVehAlive","_deleteListManDead","_deleteListVehDead"];
 
-private["_timerDelete","_timerLocation","_timerPlayer","_timerAttack"];
+private["_timerDelete","_timerLocation","_timerPlayer","_timerAttack","_timerParachute"];
 _timerDelete	= ( 60 * 2.5 );
 _timerLocation	= ( 60 * 5 );
 _timerPlayer	= ( 60 * 5 );
 _timerAttack	= ( 60 * 2.5 );
+_timerParachute	= ( 60 * 2.5 );
 
 private["_time","_timeNew"];
 
@@ -49,7 +50,7 @@ while {true} do {
 			// не патрульный бот, далеко от точки и без транспорта
 			if (isNull _assignedVehicle) then {
 				if (isNil {group _x_veh getVariable "patrol"}) then {
-					if (_x_veh distance civilianBasePos > 2500 max sizeLocation) then {
+					if (vehicle _x_veh distance civilianBasePos > 2500 max sizeLocation) then {
 						_timeNew = _time min (time + _timerDelete);
 					};
 				};
@@ -89,6 +90,10 @@ while {true} do {
 				_timeNew = _time max (time + _timerPlayer);
 			};
 
+			// парашют !не удалять!
+			if (vehicle _x_veh isKindOf "ParachuteBase") then {
+				_timeNew = _time max (time + _timerParachute);
+			};
 
 			// обновить время удаления
 			if (!isNil {_timeNew}) then {
