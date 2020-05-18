@@ -86,6 +86,7 @@ while {!_allowPos} do {
 		_dir = random 360;
 		_dist2 = random _dist;
 		_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
+		_roads = [];
 	};
 
 	if(_allowPos)then{
