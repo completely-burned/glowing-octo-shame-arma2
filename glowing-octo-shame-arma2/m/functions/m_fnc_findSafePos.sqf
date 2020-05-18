@@ -57,6 +57,9 @@ if(_preferRoads)then{
 	//	_branchesRoads = CivilianLocation getVariable "_var_draga_branchesRoads";
 	//};
 };
+
+_roadSize = 10;
+
 while {!_allowPos} do {
 
 	_allowPos=true;
@@ -66,8 +69,6 @@ while {!_allowPos} do {
 
 	if(count _branchesRoads > 0)then{
 		_branchRoad = _branchesRoads call BIS_fnc_selectRandom;
-
-		_roadSize = 10;
 
 		if(count _branchRoad >= _roadSize)then {
 			private ["_start"];
