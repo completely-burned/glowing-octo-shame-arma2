@@ -1,10 +1,8 @@
-waitUntil {time > 0};
-
-startLoadingScreen["Loading My Mission"];
-
 waitUntil {!isNull player};
 player setPos [-2000 - random 500, 1000 - random 500];
-progressLoadingScreen 0.25;
+
+waitUntil {time > 0};
+startLoadingScreen["Loading My Mission"];
 
 waitUntil {!isNil "m_fnc_init"};
 progressLoadingScreen 0.5;
