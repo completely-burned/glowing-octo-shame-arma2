@@ -9,10 +9,6 @@ draga_HQ_logic = _logic;
 uinamespace setvariable ["COIN_displayMain",finddisplay 46];
 
 
-//textLogFormat ["Log: [CoIn] %1 executed %2",player,_logic getvariable "BIS_COIN_name"];
-//textLogFormat ["WF_CONS [CoIn] %1",_this];
-
-
 //--- Terminate of system is already running
 if !(isnil {player getvariable "bis_coin_logic"}) exitwith {debuglog "Log: [CoIn] Camera script is already running"};
 player setvariable ["bis_coin_logic",_logic];
@@ -27,8 +23,6 @@ private["_camera"];
 //--- Execute designer defined code - onStart
 _code = _logic getvariable "BIS_COIN_onStart";
 [_logic] call _code;
-
-textLogFormat ["COIN_ after onStart %1",_logic];
 
 if (isnil "BIS_CONTROL_CAM") then {
 	_camera = "camconstruct" camcreate [position player select 0,position player select 1,15];
@@ -60,12 +54,6 @@ COIN_EH_mousebuttonup =		(uinamespace getvariable "COIN_displayMain") displayadd
 
 BIS_CONTROL_CAM_keys = [];
 
-if (isnil "BIS_CONTROL_CAM_ASL") then {
-	createcenter sidelogic;
-	_logicGrp = creategroup sidelogic;
-	_logicASL = _logicGrp createunit ["Logic",position player,[],0,"none"];
-	BIS_CONTROL_CAM_ASL = _logicASL;
-};
 
 _logic setvariable ["BIS_COIN_selected",objnull];
 _logic setvariable ["BIS_COIN_params",[]];
@@ -76,8 +64,6 @@ _nvgstate = if (daytime > 18.5 || daytime < 5.5) then {true} else {false};
 camusenvg _nvgstate;
 _logic setvariable ["BIS_COIN_nvg",_nvgstate];
 
-
-textLogFormat ["COIN_ open menu %1",_logic];
 
 //--- Open menu
 _logic spawn {
@@ -95,8 +81,6 @@ _logic spawn {
 		sleep 0.01;
 	};
 };
-
-textLogFormat ["COIN_ border %1",_logic];
 
 //--- Border - temporary solution //TODO: move border if position of logic changes (eg. by placing hq)
 _createBorder = {
@@ -118,7 +102,7 @@ _createBorder = {
 	_width = 9.83; //20/14
 	_width = 9.48; //10/8
 	_width = 10 - (0.1/(_size * 0.2));
-_width = 10;
+	_width = 10;
 
 	_pi = 3.14159265358979323846;
 	_perimeter = (_size * _pi);
@@ -126,20 +110,8 @@ _width = 10;
 	_size = (_perimeter / _pi);
 	_wallcount = _perimeter / _width * 2;
 	_total = _wallcount;
-//_size = sqrt (((_size *4)^2)/(_width^2));
 
-/*
-	_pi = 3.14159265358979323846;
-	_perimeterOrig = (_size * 2 * _pi);
-	_perimeterOrig = _perimeterOrig + _width - (_perimeterOrig % _width);
 
-	_total = _perimeterOrig / _width;
-	_perimeter = _perimeterOrig / _width;
-	_minD = 2 * sqrt ((_size/2)^2 - _total);
-	_size = _minD;
-*/
-
-//hintc str [_total,_size];
 	for "_i" from 1 to _total do {
 		_dir = (360 / _total) * _i;
 		_xpos = (_center select 0) + (sin _dir * _size);
@@ -157,13 +129,6 @@ _width = 10;
 };
 _createBorderScope = _logic spawn _createBorder;
 
-//"chromAberration" ppEffectEnable true;
-//"chromAberration" ppEffectAdjust [0.015*0.666, 0.0175*0.666, false];
-//"chromAberration" ppEffectCommit 0;
-
-textLogFormat ["COIN_ cam handler %1",_logic];
-
-
 //--- This block is pretty important
 if !(isnil "BIS_CONTROL_CAM_Handler") exitwith {endLoadingScreen};
 
@@ -174,7 +139,7 @@ BIS_CONTROL_CAM_Handler = {
 	_logic = bis_coin_player getvariable "bis_coin_logic";
 	_terminate = false;
 
-  	if (isnil "_logic") exitwith {};
+	if (isnil "_logic") exitwith {};
 	if(!isNull _logic)then{
 
 	_areasize = _logic getvariable "BIS_COIN_areasize";
@@ -189,12 +154,6 @@ BIS_CONTROL_CAM_Handler = {
 	//_keysSelectAll		= actionKeys "SelectAll";
 	_keyNightVision		= actionKeys "NightVision";
 
-
-	//--- Mouse Moving/Holding
-	//if (_mode in ["mousemoving","mouseholding"]) then {
-		///_logic = bis_coin_player getvariable "bis_coin_logic";
-		//_logic setvariable ["BIS_COIN_mousepos",_input];
-	//};
 
 	//--- Mouse DOWN
 	if (_mode == "mousedown") then {
@@ -232,9 +191,7 @@ BIS_CONTROL_CAM_Handler = {
 		if (isnil "BIS_Coin_noExit") then {
 			if (_menu == "#USER:BIS_Coin_categories_0") then {
 				if (!(isNil "BIS_CONTROL_CAM")) then {
-					BIS_CONTROL_CAM cameraeffect ["terminate","back"];
-					camdestroy BIS_CONTROL_CAM;
-					BIS_CONTROL_CAM = nil;
+					BIS_COIN_QUIT = true;
 				};
 			} else {
 				_preview = _logic getvariable "BIS_COIN_preview";
@@ -247,56 +204,6 @@ BIS_CONTROL_CAM_Handler = {
 
 	};
 
-	//--- Camera no longer exists - terminate and start cleanup
-	if (isnil "BIS_CONTROL_CAM" || player != bis_coin_player || !isnil "BIS_COIN_QUIT") exitwith {
-		//////////////////////////////////////////////////
-		// startLoadingScreen [localize "str_coin_exit" + " " + localize "str_coin_name","RscDisplayLoadMission"];
-		//////////////////////////////////////////////////
-
-		if !(isnil "BIS_CONTROL_CAM") then {BIS_CONTROL_CAM cameraeffect ["terminate","back"];camdestroy BIS_CONTROL_CAM;};
-		BIS_CONTROL_CAM = nil;
-		BIS_CONTROL_CAM_Handler = nil;
-		1122 cuttext ["","plain"];
-		_player = bis_coin_player;
-		_player setvariable ["bis_coin_logic",nil];
-		bis_coin_player = objnull;
-		_preview = _logic getvariable "BIS_COIN_preview";
-		if !(isnil "_preview") then {deletevehicle _preview};
-		//_logic setvariable ["BIS_COIN_mousepos",nil];
-		_logic setvariable ["BIS_COIN_preview",nil];
-		_logic setvariable ["BIS_COIN_selected",nil];
-		_logic setvariable ["BIS_COIN_params",nil];
-		_logic setvariable ["BIS_COIN_lastdir",nil];
-		_logic setvariable ["BIS_COIN_tooltip",nil];
-		_logic setvariable ["BIS_COIN_fundsOld",nil];
-		_logic setvariable ["BIS_COIN_restart",nil];
-		_logic setvariable ["BIS_COIN_nvg",nil];
-		showcommandingmenu "";
-
-		//_display = finddisplay 46;
-		//(uinamespace getvariable "COIN_displayMain") displayremoveeventhandler ["KeyDown",		""];
-		//(uinamespace getvariable "COIN_displayMain") displayremoveeventhandler ["KeyUp",		""];
-		//(uinamespace getvariable "COIN_displayMain") displayremoveeventhandler ["MouseButtonDown",	""];
-		//(uinamespace getvariable "COIN_displayMain") displayremoveeventhandler ["MouseButtonUp",	""];
-		//(uinamespace getvariable "COIN_displayMain") displayremoveeventhandler ["MouseMoving",		""];
-		//(uinamespace getvariable "COIN_displayMain") displayseteventhandler ["MouseHolding",	""];
-		//(uinamespace getvariable "COIN_displayMain") displayseteventhandler ["MouseZChanged",	""];
-
-		//--- Behold the placeholders
-		BIS_COIN_QUIT = nil;
-		_border = missionnamespace getvariable "BIS_COIN_border";
-		if (!(isNil "_border")) then {{deletevehicle _x} foreach _border;};
-		missionnamespace setvariable ["BIS_COIN_border",nil];
-		//"chromAberration" ppEffectEnable false;
-		//if !(isnil "BIS_WF_CoreCommonInitialized") then {(uinamespace getvariable "COIN_displayMain") displaySetEventHandler ["keydown","if ((_this select 1) In actionKeys ""TeamSwitch"") then {[] Exec (corePath + ""Client\Action\Action_OpenOptionsMenu.sqs"")};"];};
-
-		textLogFormat ["Log: [CoIn] %1 terminated %2",player,_logic getvariable "BIS_COIN_name"];
-
-		//////////////////////////////////////////////////
-		// endLoadingScreen;
-		//////////////////////////////////////////////////
-	};
-
 	//coinn = coinn + 1;
 };
 
@@ -304,12 +211,6 @@ waituntil {scriptdone _createBorderScope};
 //////////////////////////////////////////////////
 // endLoadingScreen;
 //////////////////////////////////////////////////
-
-
-
-
-
-
 
 
 /*******************************************************************************************************************************************************
@@ -323,7 +224,7 @@ _limitVOld = -1;
 _loaded = false;
 _localtime = time;
 
-while {!isnil "BIS_CONTROL_CAM"} do {
+while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_QUIT"} do {
 	if (isnull (uinamespace getvariable 'BIS_CONTROL_CAM_DISPLAY') && !_loaded) then {
 		cameraEffectEnableHUD true;
 		1122 cutrsc ["constructioninterface","plain"];
@@ -370,17 +271,6 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 
 	_keysBanned		= [1];
 	_keysSelectAll		= actionKeys "SelectAll";
-
-/*
-	//--- Close
-	if (BIS_CONTROL_CAM_RMB && 65665 in (actionkeys "MenuBack") && isnil "BIS_Coin_noExit") then {
-		if (commandingmenu == "#USER:BIS_Coin_categories_0") then {
-			BIS_CONTROL_CAM cameraeffect ["terminate","back"];
-			camdestroy BIS_CONTROL_CAM;
-			BIS_CONTROL_CAM = nil;
-		};
-	};
-*/
 
 	//--- Mouse moving or holding
 	if (_mode in ["mousemoving","mouseholding"]) then {
@@ -430,7 +320,6 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 			//--- Preview building
 			_preview = camtarget BIS_CONTROL_CAM;
 			if (typeof _preview != _itemclass_preview) then {
-//debuglog str ["Log:::::::::",time,_itemclass,_itemclass_preview,(configfile >> "CfgVehicles" >> _itemclass >> "ghostpreview")];
 				//--- No preview
 				deletevehicle _preview;
 				if !(isnil {_logic getvariable "BIS_COIN_preview"}) then {deletevehicle (_logic getvariable "BIS_COIN_preview")}; //--- Serialization hack
@@ -554,13 +443,6 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 			};
 
 			//--- Deselect
-/*
-			if (BIS_CONTROL_CAM_RMB) then {
-				deletevehicle _preview;
-				_logic setvariable ["BIS_COIN_preview",nil];
-				_logic setvariable ["BIS_COIN_params",[]];
-			};
-*/
 		} else {
 			_colorGUI = [1,1,1,0.1];
 
@@ -829,3 +711,40 @@ while {!isnil "BIS_CONTROL_CAM"} do {
 
 	sleep 0.01;
 };
+
+
+//--- Camera no longer exists - terminate and start cleanup
+	//////////////////////////////////////////////////
+	// startLoadingScreen [localize "str_coin_exit" + " " + localize "str_coin_name","RscDisplayLoadMission"];
+	//////////////////////////////////////////////////
+
+	BIS_CONTROL_CAM cameraeffect ["terminate","back"];
+	camdestroy BIS_CONTROL_CAM;
+	BIS_CONTROL_CAM = nil;
+	BIS_CONTROL_CAM_Handler = nil;
+	1122 cuttext ["","plain"];
+	_player = bis_coin_player;
+	_player setvariable ["bis_coin_logic",nil];
+	bis_coin_player = objnull;
+	_preview = _logic getvariable "BIS_COIN_preview";
+	if !(isnil "_preview") then {deletevehicle _preview};
+	//_logic setvariable ["BIS_COIN_mousepos",nil];
+	_logic setvariable ["BIS_COIN_preview",nil];
+	_logic setvariable ["BIS_COIN_selected",nil];
+	_logic setvariable ["BIS_COIN_params",nil];
+	_logic setvariable ["BIS_COIN_lastdir",nil];
+	_logic setvariable ["BIS_COIN_tooltip",nil];
+	_logic setvariable ["BIS_COIN_fundsOld",nil];
+	_logic setvariable ["BIS_COIN_restart",nil];
+	_logic setvariable ["BIS_COIN_nvg",nil];
+	showcommandingmenu "";
+
+	//--- Behold the placeholders
+	BIS_COIN_QUIT = nil;
+	_border = missionnamespace getvariable "BIS_COIN_border";
+	if (!(isNil "_border")) then {{deletevehicle _x} foreach _border;};
+	missionnamespace setvariable ["BIS_COIN_border",nil];
+
+	//////////////////////////////////////////////////
+	// endLoadingScreen;
+	//////////////////////////////////////////////////
