@@ -79,4 +79,6 @@ draga_fnc_getPlayersDistance = compile (preprocessFileLineNumbers (_path + "drag
 draga_fnc_roads = compile (preprocessFileLineNumbers (_path + "draga_fnc_roads.sqf"));
 fnc_get_MHQ_type = compile (preprocessFileLineNumbers (_path + "fn_get_MHQ_type.sqf"));
 fnc_coin_variable = compile (preprocessFileLineNumbers (_path + "fn_coin_variable.sqf"));
+fnc_smoke = compile (preprocessFileLineNumbers (_path + "fn_smoke.sqf"));
+
 m_fnc_init = true;
