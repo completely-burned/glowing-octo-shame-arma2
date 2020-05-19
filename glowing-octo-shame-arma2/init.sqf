@@ -3,7 +3,7 @@
 }else{
 
 	if (!IsDedicated) then {
-		onPreloadStarted {[] execVM "m\client\playerStartPos.sqf"};
+		[] execVM "m\client\playerStartPos.sqf";
 		[] execVM "m\client\briefing.sqf";
 	};
 	if (isServer) then {

@@ -64,6 +64,8 @@ waitUntil {!isNil {MHQ_list}};
 private ["_dynamicMarkers"];
 _dynamicMarkers = [];
 
+draga_respawnMarkers = _respawnMarkers;
+
 if(true)then{
 
 	private ["_markers","_units"];
