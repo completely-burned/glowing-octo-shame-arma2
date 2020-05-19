@@ -77,9 +77,6 @@ while {!_allowPos} do {
 				_roads set [count _roads, _branchRoad select _i];
 			};
 		};
-
-		_testPos = getPos (_roads select 0);
-
 	};
 
 	if(count _roads < _roadSize)then{
@@ -88,6 +85,8 @@ while {!_allowPos} do {
 		_dist2 = random _dist;
 		_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
 		_roads = [];
+	}else{
+		_testPos = getPos (_roads select 0);
 	};
 
 	if(_allowPos)then{
