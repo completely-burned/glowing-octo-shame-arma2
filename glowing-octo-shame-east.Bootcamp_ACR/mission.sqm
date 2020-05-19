@@ -36,7 +36,7 @@ class Mission
 	randomSeed=6222077;
 	class Intel
 	{
-		briefingName="glowing-octo-shame Bootcamp_ACR east v0.0.3.414";
+		briefingName="glowing-octo-shame Bootcamp_ACR east v0.0.3.415";
 		startWeather=0.25;
 		forecastWeather=0.25;
 		year=2008;
@@ -62,7 +62,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					init="nearestBuilding position this allowDammage false;";
+					init="_nic = [this] execVM ""m\common\airport.sqf"";";
 				};
 			};
 		};

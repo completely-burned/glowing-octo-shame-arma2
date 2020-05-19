@@ -27,7 +27,7 @@ class Mission
 	randomSeed=10465836;
 	class Intel
 	{
-		briefingName="glowing-octo-shame Takistan east v0.0.3.414";
+		briefingName="glowing-octo-shame Takistan east v0.0.3.415";
 		startWeather=0.40000001;
 		forecastWeather=0.40000001;
 		year=2009;
@@ -781,7 +781,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					init="nearestBuilding position this allowDammage false;";
+					init="_nic = [this] execVM ""m\common\airport.sqf"";";
 				};
 			};
 		};
@@ -799,7 +799,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					init="nearestBuilding position this allowDammage false;";
+					init="_nic = [this] execVM ""m\common\airport.sqf"";";
 				};
 			};
 		};

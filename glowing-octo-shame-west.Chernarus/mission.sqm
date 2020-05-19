@@ -36,7 +36,7 @@ class Mission
 	randomSeed=12852940;
 	class Intel
 	{
-		briefingName="glowing-octo-shame Chernarus west v0.0.3.414";
+		briefingName="glowing-octo-shame Chernarus west v0.0.3.415";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;
@@ -63,7 +63,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					init="nearestBuilding position this allowDammage false;";
+					init="_nic = [this] execVM ""m\common\airport.sqf"";";
 				};
 			};
 		};
@@ -81,7 +81,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					init="nearestBuilding position this allowDammage false;";
+					init="_nic = [this] execVM ""m\common\airport.sqf"";";
 				};
 			};
 		};
@@ -99,7 +99,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					init="nearestBuilding position this allowDammage false;";
+					init="_nic = [this] execVM ""m\common\airport.sqf"";";
 				};
 			};
 		};
