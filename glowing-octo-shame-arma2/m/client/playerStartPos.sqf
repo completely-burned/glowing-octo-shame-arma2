@@ -1,3 +1,5 @@
+waitUntil {time > 0};
+
 startLoadingScreen["Loading My Mission"];
 
 waitUntil {!isNull player};
