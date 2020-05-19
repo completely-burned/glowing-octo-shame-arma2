@@ -105,7 +105,7 @@ draga_objectsCoinMHQ = listMHQ;
 draga_distanceCoinMHQ = 15;
 draga_BuyDistance = draga_distanceCoinBase;
 respawnSafeDistance = 10;
-draga_posDefaultHiden = [-1000, -1000];
+draga_posDefaultHiden = [-2000, 0];
 draga_posDefaultHidenRandom = 1000;
 
 draga_server_diag_fps_interval = 600;
