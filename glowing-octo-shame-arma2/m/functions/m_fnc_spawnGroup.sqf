@@ -1,13 +1,12 @@
 ﻿// diag_log str _this;
 private ["_pos", "_side", "_groups"];
-_pos = _this select 0;
 _side = _this select 1;
 _groups = [];
 
 private ["_vehicles","_roads"];
 _vehicles = [];
-_roads = _pos select 1;
-_pos = _pos select 0;
+_roads = _this select 0 select 1;
+_pos = _this select 0 select 0;
 if(count _pos == 0)then{
 	_pos = [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
 };
