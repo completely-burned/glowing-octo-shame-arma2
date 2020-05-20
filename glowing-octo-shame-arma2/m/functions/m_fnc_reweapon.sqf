@@ -382,6 +382,10 @@ private["_flyInHeight","_pos"];
 				// _veh setSkill ["aimingShake", 0.5];
 			};
 		};
+
+		if(toLower _type in listCrewLower)then{
+			_veh setSkill ["aimingAccuracy", 0.7]; // танкисты, точность танков
+		};
 	};
 	// _veh setSkill ["aimingSpeed",1];
 	// _veh setSkill ["spotDistance", 1];
