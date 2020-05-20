@@ -26,6 +26,7 @@ while{true}do{
 
 		if (_side in [west,east,resistance]) then {
 			if({isPlayer _x} count units _grp == 0)then{
+				if({alive _x} count units _grp > 0)then{
 				if (!isNil {_grp GetVariable "patrol"}) then {
 					if (_side in m_friendlySide) then {
 						_friendlyPatrols = _friendlyPatrols + 1;
@@ -38,6 +39,7 @@ while{true}do{
 					}else{
 						_enemyGroups = _enemyGroups + 1;
 					};
+				};
 				};
 			};
 		};
