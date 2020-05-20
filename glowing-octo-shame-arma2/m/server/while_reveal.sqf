@@ -40,14 +40,12 @@ while{true}do{
 					_knowledge = _grp knowsAbout _veh;
 					if (_knowledge >= 1.5 && _knowledge < 2.5) then {
 						_grp reveal [_veh, 2.5]; // увеличить до 2.5
-					/*
 					}else{
 						if (leader _grp distance _veh < 1000) then {
 							if (side _grp knowsAbout _veh > 0) then {
 								_grp reveal _veh;
 							};
 						};
-					*/
 					};
 				} forEach allGroups;
 		} forEach allUnits + vehicles;
