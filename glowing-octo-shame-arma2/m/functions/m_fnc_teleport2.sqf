@@ -4,7 +4,7 @@ _allow = true;
 switch (typeName _this) do {
 	case ("OBJECT"):
 	{
-		_pos = getPos _this;
+		_pos = [_this] call fnc_respawnPos;
 		if(speed _this >= 2)then{_allow = false; hint localize "draga_str_CannotTeleport";};
 
 	};
@@ -17,35 +17,46 @@ switch (typeName _this) do {
 		_pos = getMarkerPos _this;
 	};
 	default {
-		_pos = getPos _this;
+		_pos = [_this] call fnc_respawnPos;
 	};
 };
 
 if(_allow)then{
-private ["_nearestLocations"];
-_nearestLocations = nearestLocations [_pos, ["FlatArea","FlatAreaCity","FlatAreaCitySmall"], 250];
-if (count _nearestLocations > 0) then {
-	_pos = locationPosition (_nearestLocations select 0);
-};
-
-_pos resize 2;
-if !(typeOf vehicle player == "StaticWeapon")then{
-vehicle player setVelocity [0, 0, 0];
-vehicle player setPos ([_pos,0, sizeOf typeOf vehicle player] call draga_fn_getSafePos);
-vehicle player setVectorUp [0,0,1];
-private ["_inList"];
-_inList = [];
-{
-	if !(isPlayer _x)then{
-		private ["_veh"];
-		_veh = vehicle _x;
-		if ( !(_veh in _inList) && !(typeOf _veh == "StaticWeapon"))then{
-			_inList set [count _inList,_veh];
-			_veh setVelocity [0, 0, 0];
-			_veh setPos ([_pos,0, sizeOf typeOf _veh] call draga_fn_getSafePos);
-			_veh setVectorUp [0,0,1];
-		};
+	/*
+	private ["_nearestLocations"];
+	_nearestLocations = nearestLocations [_pos, ["FlatArea","FlatAreaCity","FlatAreaCitySmall"], 250];
+	if (count _nearestLocations > 0) then {
+		_pos = locationPosition (_nearestLocations select 0);
 	};
-}forEach units group player;
-};
+	*/
+
+	// _pos resize 2;
+	if !(typeOf vehicle player == "StaticWeapon") then {
+		vehicle player setVelocity [0, 0, 0];
+		if (vehicle player == player) then {
+			player setPos _pos;
+		}else{
+			vehicle player setPos ([_pos,0, sizeOf typeOf vehicle player] call draga_fn_getSafePos);
+		};
+		vehicle player setVectorUp [0,0,1];
+
+		private ["_inList"];
+		_inList = [];
+		{
+			if !(isPlayer _x && alive _x) then {
+				private ["_veh"];
+				_veh = _x;
+				if ( !(vehicle _veh in _inList) && !(typeOf vehicle _veh == "StaticWeapon"))then{
+					_inList set [count _inList, vehicle _veh];
+					vehicle _veh setVelocity [0, 0, 0];
+					if (vehicle _veh == _veh) then {
+						_veh setPos _pos;
+					}else{
+						vehicle _veh setPos ([_pos,0, sizeOf typeOf vehicle _veh] call draga_fn_getSafePos);
+					};
+					vehicle _veh setVectorUp [0,0,1];
+				};
+			};
+		} forEach units group player;
+	};
 };

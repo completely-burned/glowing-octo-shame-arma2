@@ -80,5 +80,6 @@ draga_fnc_roads = compile (preprocessFileLineNumbers (_path + "draga_fnc_roads.s
 fnc_get_MHQ_type = compile (preprocessFileLineNumbers (_path + "fn_get_MHQ_type.sqf"));
 fnc_coin_variable = compile (preprocessFileLineNumbers (_path + "fn_coin_variable.sqf"));
 fnc_smoke = compile (preprocessFileLineNumbers (_path + "fn_smoke.sqf"));
+fnc_respawnPos = compile (preprocessFileLineNumbers (_path + "fn_respawnPos.sqf"));
 
 m_fnc_init = true;
