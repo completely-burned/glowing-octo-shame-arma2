@@ -23,7 +23,7 @@ while { true } do {
 
 				// пехота на воде, долгое время
 				if (vehicle _veh_x == _veh_x) then {
-					if (surfaceIsWater getPos _veh_x) then {
+					if (surfaceIsWater getPos vehicle _veh_x) then {
 						_timeIsWater = (_veh_x getVariable "timeIsWater");
 						if ( isNil "_timeIsWater" ) then {
 							_timeIsWater = ( time + 120 );
