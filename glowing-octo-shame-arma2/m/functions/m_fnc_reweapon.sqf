@@ -40,6 +40,8 @@ private["_flyInHeight","_pos"];
 		_veh allowCrewInImmobile true;
 	};
 
+	_veh setSkill ["reloadSpeed", 1];
+
 	/// --- Man ---
 	if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
 		private["_weapons"];
