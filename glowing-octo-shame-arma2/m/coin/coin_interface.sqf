@@ -10,7 +10,6 @@ uinamespace setvariable ["COIN_displayMain",finddisplay 46];
 
 
 //--- Terminate of system is already running
-if !(isnil {player getvariable "bis_coin_logic"}) exitwith {debuglog "Log: [CoIn] Camera script is already running"};
 player setvariable ["bis_coin_logic",_logic];
 bis_coin_player = player;
 
