@@ -654,6 +654,14 @@ if ( isNil "_time" ) then {
 					};
 				};
 
+				if(!_support)then{
+					if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
+						_DeleteWP = true;
+						_NoCreateWP = false;
+						_createWP = true;
+					};
+				};
+
 				// остановить без маршрута
 				if( _NoCreateWP && _DeleteWP)then{
 					if ( count waypoints _grp > 0 ) then{
