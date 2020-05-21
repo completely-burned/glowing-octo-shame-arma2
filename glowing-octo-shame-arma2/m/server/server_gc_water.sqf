@@ -4,6 +4,7 @@ while { true } do {
 	{
 		_veh_x = _x;
 
+		if (!isPlayer _veh_x) then {
 		if ({isPlayer _x} count units _veh_x == 0) then {
 
 			scopeName "forEach1";
@@ -38,6 +39,7 @@ while { true } do {
 				};
 			};
 
+		};
 		};
 
 	} forEach allUnits;
