@@ -745,7 +745,7 @@ if ( isNil "_time" ) then {
 
 			// движение лидера
 			if (!isNil{_follow}) then {
-				if (_leader Distance _follow > 25) then {
+				if (_leader Distance _follow > 75) then {
 					Private["_position","_position1"];
 					_position = GetPos _leader;
 					_position1 = GetPos _follow;
