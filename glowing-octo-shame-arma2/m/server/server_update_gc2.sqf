@@ -147,6 +147,10 @@ while {true} do {
 
 	} forEach vehicles;
 
+	if (draga_loglevel > 0) then {
+		diag_log format ["while_gc2.sqf: count allDead %1, count ManDead %2, count VehDead %3, %4", count allDead, count _deleteListManDead, count _deleteListVehDead, time];
+	};
+
 	// vehicles - allDead;
 
 	if ( !isMultiplayer ) then {
@@ -161,6 +165,11 @@ while {true} do {
 	{
 		_x_veh = _x;
 		if !([_x_veh, _min_dist2] call m_fnc_CheckPlayersDistance) then {
+
+			if (draga_loglevel > 0) then {
+				diag_log format ["while_gc2.sqf deleteA %1", _x_veh];
+			};
+
 			_x_veh setDamage 1;
 			deleteVehicle _x_veh;
 		}else{
@@ -168,6 +177,10 @@ while {true} do {
 		};
 	} forEach _deleteListManAlive;
 
+
+	if (draga_loglevel > 0) then {
+		diag_log format ["while_gc2.sqf perf 2 %1", time];
+	};
 
 	while { count _deleteListManDead > _min_vehicles_count } do {
 
@@ -182,6 +195,9 @@ while {true} do {
 		_deleteListManDead = _deleteListManDead - [-1];
 
 		if !([_x_veh, _min_dist2] call m_fnc_CheckPlayersDistance) then {
+			if (draga_loglevel > 0) then {
+				diag_log format ["while_gc2.sqf delete %1", _x_veh];
+			};
 			_x_veh setDamage 1;
 			moveOut _x_veh;
 			deleteVehicle _x_veh;

@@ -11,6 +11,10 @@ if(count _pos == 0)then{
 	_pos = [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
 };
 
+if (draga_loglevel > 0) then {
+	diag_log format ["spawn_group.sqf create %1", _this select 2];
+};
+
 {
 	private ["_grp"];
 	_grp = createGroup _side;
