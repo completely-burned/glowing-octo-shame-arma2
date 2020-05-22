@@ -8,25 +8,25 @@ _logic = _terminal;
 _defaultPlayer = player;
 
 //////////////////////////////////////////////////
-startLoadingScreen ["UAV","RscDisplayLoadMission"];
+// startLoadingScreen ["UAV","RscDisplayLoadMission"];
 //////////////////////////////////////////////////
 
 //--- UAV destroyed
 if (isnull _uav) exitwith {
-	endLoadingScreen;
+	// endLoadingScreen;
 	hintc format [localize "strwfbasestructuredestroyed",localize "str_uav_action"];
 };
 
 _gunner = gunner _uav;
 if (isnull _gunner) exitwith {
-	endLoadingScreen;
+	// endLoadingScreen;
 	hintc format [localize "strwfbasestructuredestroyed",localize "str_uav_action"];
 };
 
 //--- Select terminal
 _dis = 10;
 if (isnull _terminal) exitwith {
-	endLoadingScreen;
+	// endLoadingScreen;
 	hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
 };
 
@@ -78,7 +78,7 @@ _ppColor ppEffectCommit 0;
 
 
 //--- RSC
-progressLoadingScreen 0.5;
+// progressLoadingScreen 0.5;
 
 //--- Detect pressed keys (temporary solution)
 if (isNil {BIS_UAV_HELI_keydown}) then {
@@ -168,7 +168,7 @@ if (isNil {BIS_UAV_HELI_mapEH_mousebuttondown}) then {
 					_pos = [_worldpos, _radius, _dir+_add] call bis_fnc_relPos;
 					_wp = (group _uav) addwaypoint [_pos,0];
 					_wp setWaypointType 'MOVE';
-					_wp setwaypointdescription ' ';
+					_wp setwaypointdescription 'uav wp created by user';
 					_wp setwaypointcompletionradius (_radius/_wpcount);
 				};
 				_pos = [_worldpos, _radius, _dir] call bis_fnc_relPos;
@@ -176,7 +176,7 @@ if (isNil {BIS_UAV_HELI_mapEH_mousebuttondown}) then {
 				_wp setWaypointType 'CYCLE';
 				_wp setWaypointBehaviour 'CARELESS';
 				_wp setWaypointCombatMode 'BLUE';
-				_wp setwaypointdescription ' ';
+				_wp setwaypointdescription 'uav wp created by user';
 				_wp setwaypointcompletionradius (_radius/_wpcount);
 				{
 					if (waypointType _x != "CYCLE") then {
@@ -199,7 +199,7 @@ if (isNil {BIS_UAV_HELI_mapEH_mousebuttondown}) then {
 _mapEH_mousebuttondown = ((findDisplay 12) displayCtrl 51) ctrladdeventhandler ["mousebuttondown", "nil = _this spawn BIS_UAV_HELI_mapEH_mousebuttondown"];
 
 //////////////////////////////////////////////////
-endLoadingScreen;
+// endLoadingScreen;
 //////////////////////////////////////////////////
 
 
