@@ -4,7 +4,7 @@ class MissionSQM {
 
 enableItemsDropping = 0;
 respawnDialog = 0;
-respawnVehicleDialog = 0	;
+respawnVehicleDialog = 0;
 respawnDelay = 5;
 respawnVehicleDelay = 60;
 respawn = "BASE";
