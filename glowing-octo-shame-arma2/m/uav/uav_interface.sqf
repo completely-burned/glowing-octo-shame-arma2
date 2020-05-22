@@ -1,4 +1,4 @@
-
+skipAddAction = true;
 
 _arguments = _this select 3;
 _terminal = _this select 0;
@@ -228,3 +228,5 @@ ppEffectDestroy _ppColor;
 (finddisplay 46) displayremoveeventhandler ["mousebuttondown",_displayEH_mousebuttondown];
 //(finddisplay 46) displayremoveeventhandler ["mousezchanged",_displayEH_mousezchanged];
 ((findDisplay 12) displayCtrl 51) ctrlremoveeventhandler ["mousebuttondown",_mapEH_mousebuttondown];
+
+skipAddAction = nil;

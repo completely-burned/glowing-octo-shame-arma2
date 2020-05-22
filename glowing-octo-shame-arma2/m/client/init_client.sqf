@@ -69,10 +69,12 @@ selectPlayer _player;
 "respawn" spawn m_fnc_RespawnWeaponsAdd;
 
 player addEventHandler ["killed", {
+	skipAddAction = true;
 	// _this select 0 setVariable ["BIS_IS_Dead", true, true];
 	_this spawn {
 		waitUntil{alive player};
 		player setCaptive false;
+		skipAddAction = nil;
 	};
 }];
 

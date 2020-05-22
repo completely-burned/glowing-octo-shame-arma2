@@ -33,7 +33,7 @@ private["_actionObj","_action_uav","_action_teleport","_action_menu","_action_bu
 
 while {true} do {
 
-	if (alive player) then {
+	if (alive player && isNil {skipAddAction}) then {
 
 		_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
 
