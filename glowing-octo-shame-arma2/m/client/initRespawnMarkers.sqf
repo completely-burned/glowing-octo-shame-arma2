@@ -81,8 +81,8 @@ if(true)then{
 				_pos = getPos _x;
 				if(_x isKindOf "Warfare_HQ_base_unfolded")then{
 					private ["_dir","_dist2"];
-					_dir = getDir _x - 90;
-					_dist2 = 4;
+					_dir = getDir _x - 90 - 20 + random 10;
+					_dist2 = 3 + random 2;
 					_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
 				};
 				if(getMarkerType _markerMHQ != _markerMHQtype)then{
@@ -110,15 +110,21 @@ if(true)then{
 			private ["_obj"];
 			_obj = _x;
 			if(true)then{ // нужно сделать проверку фракции
-				if({_obj == (_x select 1)} count _dynamicMarkers == 0)then{
-					private ["_pos"];
-					_pos = getPos _obj;
-					private ["_dir","_dist"];
-					_dir = random 360;
-					_dist = random 10;
-					_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
+				private ["_pos"];
+				_pos = getPos _obj;
+				private ["_dir","_dist"];
+				_dir = random 360;
+				_dist = random 10;
+				_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
+				if({_obj == (_x select 1)} count _dynamicMarkers == 0) then {
 					_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
 					_dynamicMarkers set [count _dynamicMarkers, [_marker, _obj]];
+				}else{
+					for "_i" from 0 to (count _dynamicMarkers - 1) do {
+						if (_obj == (_dynamicMarkers select _i select 1)) then {
+							(_dynamicMarkers select _i select 0) setMarkerPos _pos;
+						};
+					};
 				};
 			};
 		} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital";
