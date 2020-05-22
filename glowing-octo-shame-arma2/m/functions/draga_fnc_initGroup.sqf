@@ -260,9 +260,11 @@ if ( isNil "_time" ) then {
 
 									// выпрыгивание
 									{
+										if(vehicle _x isKindOf "Plane" && !(vehicle _x isKindOf "ParachuteBase"))then{
 										_x action ["Eject", vehicle _x];
 										_x leaveVehicle assignedVehicle _x;
 										sleep 0.5; // нужно учитывать скорость
+										};
 									}forEach _units;
 								} forEach _grps;
 							};
