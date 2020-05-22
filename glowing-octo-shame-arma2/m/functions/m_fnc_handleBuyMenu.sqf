@@ -32,6 +32,9 @@ private["_uav_action","_uav_terminals"];
 private["_actionObj","_action_uav","_action_teleport","_action_menu","_action_buy"];
 
 while {true} do {
+
+	if (alive player) then {
+
 	_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
 
 
@@ -344,6 +347,8 @@ while {true} do {
 		(BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + _i)) CtrlSetText ("");
 	};
 	_OptionsAvailable = [];
+
+	};
 
 	sleep 0.5;
 };
