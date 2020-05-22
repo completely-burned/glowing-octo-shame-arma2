@@ -8,6 +8,7 @@ draga_HQ_logic = _logic;
 
 uinamespace setvariable ["COIN_displayMain",finddisplay 46];
 
+BIS_COIN_QUIT = nil;
 
 //--- Terminate of system is already running
 player setvariable ["bis_coin_logic",_logic];
