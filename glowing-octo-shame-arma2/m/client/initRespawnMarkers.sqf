@@ -81,7 +81,7 @@ if(true)then{
 				_pos = getPos _x;
 				if(_x isKindOf "Warfare_HQ_base_unfolded")then{
 					private ["_dir","_dist2"];
-					_dir = getDir _x - 90 - 20 + random 10;
+					_dir = getDir _x - 90 - 10 + random 20;
 					_dist2 = 3 + random 2;
 					_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
 				};
