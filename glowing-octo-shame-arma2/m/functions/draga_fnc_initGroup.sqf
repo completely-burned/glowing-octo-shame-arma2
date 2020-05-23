@@ -383,7 +383,7 @@ if ( isNil "_time" ) then {
 			_leaderPos = getPos vehicle _leader;
 
 			if (isNil{_grp_wp_completed}) then {
-				if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < 15 )then{
+				if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < 5 )then{
 					_grp_wp_completed = time;
 					if (draga_loglevel > 0) then {
 						diag_log format ["draga_fnc_initGroup.sqf %1 _grp_wp_completed = time", _grp ];
@@ -687,6 +687,16 @@ if ( isNil "_time" ) then {
 					_NoCreateWP = true;
 				};
 
+				// остановить ботов на точке 2 минут
+				if(!isNil{_grp_wp_completed})then{
+					if(!_Air && (_grp_wp_completed + 120 < time))then{
+						if ((vehicle _leader distance civilianBasePos) < sizeLocation) then {
+							_DeleteWP = true;
+							_NoCreateWP = true;
+							_createWP = false;
+						};
+					};
+				};
 
 				// создать маршрут
 				if( !_NoCreateWP && _DeleteWP)then{
