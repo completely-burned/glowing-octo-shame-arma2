@@ -79,7 +79,7 @@ _fnc6={
 	_raritySet = (_this select 2);
 
 	for "_i" from 0 to ((count (_grp select 0)) - 1) do {
-		_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
+		_types = ([_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement);
 		if( { toUpper getText (configFile >> "CfgVehicles" >> _x >> "faction") in _factions } count _types > 0)then {
 			_rarity = ([_grp, [1, _i]] call BIS_fnc_returnNestedElement);
 			_rarity = (_rarity * _raritySet);
