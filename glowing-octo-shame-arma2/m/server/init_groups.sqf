@@ -70,6 +70,26 @@ _fnc1={
 	[_groups,_weights];
 };
 
+private ["_fnc6"];
+_fnc6={
+	private["_grp","_factions","_raritySet","_types","_rarity"];
+
+	_grp = +(_this select 0);
+	_factions = (_this select 1);
+	_raritySet = (_this select 2);
+
+	for "_i" from 0 to ((count (_grp select 0)) - 1) do {
+		_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
+		if( { toUpper getText (configFile >> "CfgVehicles" >> _x >> "faction") in _factions } count _types > 0)then {
+			_rarity = ([_grp, [1, _i]] call BIS_fnc_returnNestedElement);
+			_rarity = (_rarity * _raritySet);
+			[_grp, [1, _i],  _rarity] call BIS_fnc_setNestedElement;
+		};
+	};
+
+	_grp;
+};
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // AllGroupsWest=([["west"],[],[]] call m_fnc_returnGroups);
@@ -115,5 +135,19 @@ _arr13453=[
 AllGroupsWest = ([AllGroupsWest, _arr13453] call _fnc4);
 AllGroupsEast = ([AllGroupsEast, _arr13453] call _fnc4);
 AllGroupsGuer = ([AllGroupsGuer, _arr13453] call _fnc4);
+
+if!(west in m_friendlySide or east in m_friendlySide)then{
+	AllGroupsWest = ([AllGroupsWest, [
+		"USMC",
+		"BIS_US",
+		"BIS_CZ",
+		"BIS_GER",
+		"BIS_BAF"
+	], 0.25] call _fnc6);
+	AllGroupsEast = ([AllGroupsEast, [
+		"RU",
+		"BIS_TK"
+	], 0.25] call _fnc6);
+};
 
 GroupsStarted=true;
