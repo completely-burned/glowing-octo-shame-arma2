@@ -1,3 +1,5 @@
+private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills","_dist","_aaType","_grp","_aaSide"];
+
 if(isNil {_aaType})then{
 	if(playerSide getFriend EAST < 0.6)then{
 		_aaType = "Igla_AA_pod_TK_EP1";
@@ -19,7 +21,6 @@ if(isNil {_aaType})then{
 
 if(isNil {_aaType})exitWith{};
 
-private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills","_dist","_aaType","_grp","_aaSide"];
 waitUntil{!isNil {group_system_units}};
 
 _aa = objNull;
