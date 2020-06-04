@@ -118,11 +118,6 @@ if(_run)then{
 		// _grp enableIRLasers true;
 		// _grp enableGunLights true;
 
-		while {(count (waypoints _grp)) > 0} do
-		{
-			deleteWaypoint ((waypoints _grp) select 0);
-		};
-
 	}forEach _groups;
 
 	private["_cargo2"];
