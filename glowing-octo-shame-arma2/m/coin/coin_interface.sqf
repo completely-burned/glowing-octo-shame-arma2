@@ -358,12 +358,17 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					_fundsRemaining = _funds - _itemcost;
 					if (_fundsRemaining < 0) then {_color = _colorRed};
 
+					_dist = (sizeof typeof _preview) / 2 min 4;
+					if (_itemclass isKindOf "StaticWeapon") then {
+						_dist = 0.25;
+					};
+
 					//--- No Place To Build
 					_isFlat = (position _preview) isflatempty [
-						(sizeof typeof _preview) / 2,	//--- Minimal distance from another object
+						_dist,	//--- Minimal distance from another object
 						0,				//--- If 0, just check position. If >0, select new one
 						0.7,				//--- Max gradient
-						(sizeof typeof _preview),	//--- Gradient area
+						_dist,	//--- Gradient area
 						0,				//--- 0 for restricted water, 2 for required water,
 						false,				//--- True if some water can be in 25m radius
 						_preview			//--- Ignored object
