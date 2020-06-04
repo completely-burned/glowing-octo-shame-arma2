@@ -19,7 +19,7 @@ if(isNil {_aaType})then{
 
 if(isNil {_aaType})exitWith{};
 
-private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills"];
+private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills","_dist","_aaType","_grp","_aaSide"];
 waitUntil{!isNil {group_system_units}};
 
 _aa = objNull;
@@ -66,8 +66,6 @@ while {true} do {
 					};
 
 					if(!_hills)then{
-
-							private["_dist","_aaType","_grp","_aaSide"];
 
 							_dist = 3000 + random 2000;
 							_testPos = [(_posPlayerASL select 0) + _dist*sin _dir, (_posPlayerASL select 1) + _dist*cos _dir, _posPlayerASL select 2];
