@@ -81,7 +81,7 @@ while {true} do {
 
 								_aa = _aaType createVehicleLocal [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
 
-								_unit = (group_system_units createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)), 10000], [], 0, "CAN_COLLIDE"]);
+								_unit = (group_system_units createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"]);
 
 								hideObject _aa;
 								hideObject _unit;
@@ -93,6 +93,8 @@ while {true} do {
 
 							_aa setPosASL _testPos;
 							_aa setDir (_dir - 180);
+
+							_aa doWatch _veh;
 
 							sleep 1;
 
@@ -110,6 +112,6 @@ while {true} do {
 
 		};
 
-	sleep 0.5 + random 8;
+	sleep 4 + random 8;
 
 };
