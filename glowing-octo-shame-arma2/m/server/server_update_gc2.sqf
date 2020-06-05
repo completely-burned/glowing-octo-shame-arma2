@@ -170,9 +170,9 @@ while {true} do {
 				diag_log format ["while_gc2.sqf deleteA %1", _x_veh];
 			};
 
-			_x_veh setDamage 1;
-			deleteVehicle _x_veh;
 			if (!isPlayer _x_veh) then {
+				_x_veh setDamage 1;
+				deleteVehicle _x_veh;
 			};
 		}else{
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
@@ -200,11 +200,11 @@ while {true} do {
 			if (draga_loglevel > 0) then {
 				diag_log format ["while_gc2.sqf delete %1", _x_veh];
 			};
-			_x_veh setDamage 1;
-			moveOut _x_veh;
-			deleteVehicle _x_veh;
 
 			if (!isPlayer _x_veh) then {
+				_x_veh setDamage 1;
+				moveOut _x_veh;
+				deleteVehicle _x_veh;
 			};
 		}else{
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
