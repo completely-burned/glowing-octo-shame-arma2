@@ -22,21 +22,24 @@ while{true}do{
 						_count_vehicles=_count_vehicles+1;
 					};
 				}forEach _vehicles;
-				_maxVehicles= ((((size _twn) select 0) min 200 )/100*2);
+
+				private ["_houselist"];
+				_houselist = (_twn getVariable "_houselist");
+				if (isNil "_houselist")then{
+					_houselist = _twnpos nearobjects ["House",750];
+
+
+					{
+						private ["_bbox"];
+						_bbox = abs((boundingbox _x select 1) select 0) min abs((boundingbox _x select 1) select 1);
+						if (_bbox < 2 || typeof _x in silvieManagerBlacklist) then {_houselist = _houselist - [_x]};
+					} foreach _houselist;
+					_twn setVariable ["_houselist",_houselist];
+				};
+
+				_maxVehicles = ((count _houselist / 8) max 2);
+
 				if (_count_vehicles < _maxVehicles)then{
-					private ["_houselist"];
-					_houselist = (_twn getVariable "_houselist");
-					if (isNil "_houselist")then{
-						_houselist = _twnpos nearobjects ["House",500];
-
-
-						{
-							private ["_bbox"];
-							_bbox = abs((boundingbox _x select 1) select 0) min abs((boundingbox _x select 1) select 1);
-							if (_bbox < 2 || typeof _x in silvieManagerBlacklist) then {_houselist = _houselist - [_x]};
-						} foreach _houselist;
-						_twn setVariable ["_houselist",_houselist];
-					};
 					if (count _houselist > 0) then {
 						for "_i" from 0 to (_maxVehicles-_count_vehicles) do {
 							private ["_pos","_dir","_obj","_roads"];
@@ -71,13 +74,29 @@ while{true}do{
 							_veh1 setDir _dir;
 							// _veh1 setPosATL _pos;
 							_veh1 setVectorUp [0,0,1];
+							_veh1 setVelocity [0, 0, -1];
 							// _veh1 addEventHandler ["GetIn",{_this call m_fnc_EH_GetIn}];
-							sleep 0.01;
+
+							if (draga_loglevel > -10) then {
+								diag_log format ["silvieManager createVehicle %1", _veh1];
+							};
+
+							[_veh1] spawn {
+								sleep 5;
+
+								if(getPos (_this select 0) select 2 > 0.1)then{
+
+									if (draga_loglevel > -10) then {
+										diag_log format ["silvieManager height > deleteVehicle %1", (_this select 0)];
+									};
+
+									deleteVehicle (_this select 0);
+								};
+							};
 						};
 					};
 				};
 			};
-			sleep 0.01;
 		}forEach ([] call BIS_fnc_listPlayers);
 
 	sleep 10;
