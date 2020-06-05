@@ -40,6 +40,7 @@ publicVariable "m_sideEnemy";
 
 /// silvieManager ///
 silvieManagerBlacklist=[
+	"Land_rails_bridge_40",
 	"Land_sloup_vn_dratZ",
 	"Land_sloup_vn",
 	"Land_Farm_WTower",
