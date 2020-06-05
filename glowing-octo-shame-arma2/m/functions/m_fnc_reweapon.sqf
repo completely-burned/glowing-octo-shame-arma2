@@ -354,35 +354,45 @@ private["_flyInHeight","_pos"];
 				//_veh addMagazine ["180Rnd_30mm_GSh301",0];
 			};
 		};
+
+		if (_type isKindOf "Air") then{
+			{_x setSkill ["aimingAccuracy", 0.1]} forEach (crew _veh - [driver _veh]);
+			driver _veh setSkill ["aimingAccuracy", 0.4];
+		};
+
+		if (_type isKindOf "Helicopter") then{
+			{_x setSkill ["aimingAccuracy", 0.1]} forEach (crew _veh - [driver _veh]);
+		};
+
 		if (_type isKindOf "Mi17_base") then{
-			_veh setSkill ["aimingAccuracy", 0.1];
+			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
 			if (_type isKindOf "Mi17_rockets_RU") then{
-				_veh setSkill ["aimingAccuracy", 0.4];
+				driver _veh setSkill ["aimingAccuracy", 0.4];
 			};
 		};
 		if (_type isKindOf "UH60_Base") then{
-			_veh setSkill ["aimingAccuracy", 0.1];
+			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
 		};
 		if (_type isKindOf "CH47_base_EP1") then{
-			_veh setSkill ["aimingAccuracy", 0.1];
+			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
 		};
 		if (_type isKindOf "UH1H_base") then{
-			_veh setSkill ["aimingAccuracy", 0.1];
+			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
 		};
 	};
 	if (_type isKindOf "LandVehicle") then {
 		// _veh engineOn true;
 		if (_type isKindOf "2S6M_Tunguska" || _type isKindOf "ZSU_Base" || _type isKindOf "Ural_ZU23_Base") then {
-			_veh setSkill ["aimingAccuracy", 0.1];
+			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
 			if (_type isKindOf "2S6M_Tunguska") then {
 				// _veh removeWeapon "2A38M";
 				// _veh addWeapon "2A38M";
 			};
 		}else{
-			_veh setSkill ["aimingAccuracy", 0.7];
+			{_x setSkill ["aimingAccuracy", 0.7]} forEach crew _veh;
 		};
 		if (_type isKindOf "T34") then {
-			_veh setSkill ["aimingAccuracy", 0.55];
+			{_x setSkill ["aimingAccuracy", 0.55]} forEach crew _veh;
 			if (LIB_ahAvail) then {
 				_veh call (compile "_this loadMagazine [[0],'ZiS_S_53','33Rnd_85mmHE']");
 			};
