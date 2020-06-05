@@ -172,6 +172,8 @@ while {true} do {
 
 			_x_veh setDamage 1;
 			deleteVehicle _x_veh;
+			if (!isPlayer _x_veh) then {
+			};
 		}else{
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};
@@ -201,6 +203,9 @@ while {true} do {
 			_x_veh setDamage 1;
 			moveOut _x_veh;
 			deleteVehicle _x_veh;
+
+			if (!isPlayer _x_veh) then {
+			};
 		}else{
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};
