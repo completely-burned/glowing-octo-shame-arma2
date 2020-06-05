@@ -34,22 +34,48 @@ while{true}do{
 	// обнаруженные
 	if (true) then {
 		{
+			// _veh цель
 			_veh = _x;
+
 				{
 					_grp = _x;
-					_knowledge = _grp knowsAbout _veh;
-					if (_knowledge >= 1.5 && _knowledge < 2.5) then {
-						_grp reveal [_veh, 2.5]; // увеличить до 2.5
-					}else{
-						if (leader _grp distance _veh < 1000) then {
-							if (side _grp knowsAbout _veh > 0) then {
+
+					// группа не  знает о цели
+					if (_grp knowsAbout _veh == 0) then {
+
+						// сторона знает о цели
+						if (side _grp knowsAbout _veh > 0) then {
+
+							// пехота
+							if (leader _grp distance _veh < 750) then {
 								_grp reveal _veh;
 							};
+
+							// техника
+							if ( { vehicle _x == _x } count units _grp == 0 ) then {
+
+								// авиация
+								if ( { vehicle _x isKindOf "Air" } count units _grp > 0 ) then {
+									_grp reveal _veh;
+								};
+
+								// наземная
+								if (leader _grp distance _veh < 2500) then {
+									if ({vehicle _x isKindOf "LandVehicle"} count units _grp > 0 ) then {
+										_grp reveal _veh;
+									};
+								};
+							};
+
 						};
 					};
+
 				} forEach allGroups;
+
 		} forEach allUnits + vehicles;
 	};
 
 	sleep 10;
 };
+
+// нужно установить ограничение количества целей
