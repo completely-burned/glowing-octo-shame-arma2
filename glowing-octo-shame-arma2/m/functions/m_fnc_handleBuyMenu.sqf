@@ -102,7 +102,7 @@ while {true} do {
 					};
 
 					if !(_teleport) then {
-						if ([[_type],["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"]+(MHQ_list select 0)+(MHQ_list select 1)+HQ] call m_fnc_CheckIsKindOfArray) then {
+						if ([[_type],[(MHQ_list select 0)+(MHQ_list select 1) + draga_objectsTeleport] call m_fnc_CheckIsKindOfArray) then {
 							_teleport = true;
 						};
 					};

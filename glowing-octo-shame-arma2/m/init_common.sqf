@@ -89,7 +89,7 @@ Warfare_HQ = ["Warfare_HQ_base_unfolded"];
 
 UAVterminal = listMHQ + HQ + ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
 
-draga_objectsTeleport = HQ + Warfare_HQ + ["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"];
+draga_objectsTeleport = listMHQ + HQ + Warfare_HQ + ["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"];
 
 draga_objectsReammo = listMHQ + HQ + ["Base_WarfareBBarracks","Base_WarfareBLightFactory"];
 draga_distanceReammo = 150;
