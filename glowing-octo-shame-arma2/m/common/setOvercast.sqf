@@ -1,6 +1,11 @@
-private ["_overcast"];
-_overcast = missionNamespace getVariable "Overcast";
+var_server_Overcast = missionNamespace getVariable "Overcast";
 
-if (_overcast != -1) then {
-	0 setOvercast _overcast;
+if (isServer) then {
+	publicVariable "var_server_Overcast";
+}else{
+	waitUntil {!isNil {var_server_Overcast}};
+};
+
+if (var_server_Overcast != -1) then {
+	0 setOvercast var_server_Overcast;
 };
