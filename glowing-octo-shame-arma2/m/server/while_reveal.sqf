@@ -1,3 +1,5 @@
+if(missionNamespace getVariable "reveal" != 1)exitWith{};
+
 private["_grp","_veh","_knowledge","_nearEntities"];
 
 while{true}do{
