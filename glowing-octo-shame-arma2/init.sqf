@@ -8,6 +8,11 @@
 	};
 	if (isServer) then {
 		[] Call Compile preprocessFileLineNumbers "m\server\params.sqf";
+	};
+
+	[] Call Compile preprocessFileLineNumbers "m\common\setOvercast.sqf";
+
+	if (isServer) then {
 		[] execVM "m\server\StartTime.sqf"
 	};
 
