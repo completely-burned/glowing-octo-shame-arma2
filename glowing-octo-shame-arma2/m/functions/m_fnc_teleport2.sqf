@@ -46,7 +46,7 @@ if(_allow)then{
 			if !(isPlayer _x && alive _x) then {
 				private ["_veh"];
 				_veh = _x;
-				if ( !(vehicle _veh in _inList) && !(typeOf vehicle _veh == "StaticWeapon"))then{
+				if ( !(vehicle _veh in _inList) && !(typeOf vehicle _veh == "StaticWeapon") && (damage _veh != 1))then{
 					_inList set [count _inList, vehicle _veh];
 					vehicle _veh setVelocity [0, 0, 0];
 					if (vehicle _veh == _veh) then {
