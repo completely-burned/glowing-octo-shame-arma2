@@ -5,6 +5,7 @@ if ([[_this], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 		private["_side"];
 		_side = getNumber(LIB_cfgVeh >> typeOf _this >> "side") call m_fnc_getSide;
 		if (_side in m_friendlySide) then {
+			if !(_this isKindOf "D30_Base" or _this isKindOf "M119" or _this isKindOf "StaticMortar") then {
 			// работает только в pve m_friendlySide
 			if ({alive _x} count (nearestObjects [_this, draga_objectsReammo, draga_distanceReammo]) > 0) then {
 				// рядом есть база
@@ -145,6 +146,7 @@ if ([[_this], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 						_this setVariable ["_crew", _crew];
 			    	};
 				};
+			};
 			};
 		};
 	};
