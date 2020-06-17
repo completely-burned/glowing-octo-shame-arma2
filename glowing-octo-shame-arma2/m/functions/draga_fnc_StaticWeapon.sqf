@@ -142,8 +142,11 @@ if ([[_this], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 							   _grp = createGroup _side;
 							};
 							// создать ии и поместить в установку
-							_crew = [_this, _grp] call m_fnc_spawnCrew;
-							_this setVariable ["_crew", _crew];
+							// _crew = [_this, _grp] call m_fnc_spawnCrew;
+							private ["_crewType"];
+							_crewType = getText (configFile >> "CfgVehicles" >> typeOf _this >> "crew");
+							_crew = (_grp createUnit [_crewType, [nearestObjects [_this, draga_objectsTeleport, draga_distanceReammo] call BIS_fnc_selectRandom] call fnc_respawnPos, [], 10, "NONE"]);
+							_this setVariable ["_crew", [_crew]];
 				    	};
 					};
 				};
