@@ -24,5 +24,16 @@ if(isNil {_driver getVariable "disableAIMove"} && _position != "driver")then{
 
 // пехота отходит от транспорта
 
-
-
+// экипаж раздельно
+if(toLower typeOf _unit in (listCrewLower+listPilotLower) && (!canMove _vehicle or !alive _vehicle))then{
+	if({isPlayer _x} count units _grp == 0)then{
+		private ["_newGrp"];
+		_newGrp = _grp getVariable "grpCrewNew";
+		if(isNil {_newGrp})then{
+			_newGrp = createGroup side _grp;
+			_grp setVariable ["grpCrewNew", _newGrp];
+			_newGrp setVariable ["grpCrewOld", _grp];
+		};
+		[_unit] joinSilent _newGrp;
+	};
+};
