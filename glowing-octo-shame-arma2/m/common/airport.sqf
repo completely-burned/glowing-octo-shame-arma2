@@ -1,5 +1,11 @@
 private ["_airport","_marker"];
-_airport = nearestBuilding position (_this select 0);
+
+if(_this select 0 isKindOf "Logic")then{
+	_airport = nearestBuilding position (_this select 0);
+}else{
+	_airport = (_this select 0);
+};
+
 if(isServer)then{
 	_airport allowDammage false;
 };
