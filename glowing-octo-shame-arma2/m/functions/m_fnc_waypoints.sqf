@@ -178,8 +178,10 @@ if(!isNil "_leader")then{
 					};
 			} forEach _friendList;
 
+			_pos = _leaderPos;
 			private["_distance"];
 			{
+				if(_leaderPos distance _x > 250)then{
 				if(isNil {_distance})then{
 					_distance = _x distance _leaderPos;
 					_pos = getPosASL _x;
@@ -187,6 +189,7 @@ if(!isNil "_leader")then{
 					if (_x distance _leaderPos < _distance)then{
 						_pos = getPosASL _x;
 					};
+				};
 				};
 			} foreach _friendList2;
 
