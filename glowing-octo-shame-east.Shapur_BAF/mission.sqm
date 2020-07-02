@@ -40,7 +40,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=9;
+		items=11;
 		class Item0
 		{
 			side="LOGIC";
@@ -283,6 +283,42 @@ class Mission
 				};
 			};
 		};
+		class Item9
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={87.158485,34.475647,1545.3136};
+					special="NONE";
+					id=20;
+					side="LOGIC";
+					vehicle="LocationLogicStart";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item10
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={95.168327,32.701283,90.785645};
+					special="NONE";
+					id=21;
+					side="LOGIC";
+					vehicle="LocationLogicStart";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
 	};
 	class Vehicles
 	{
@@ -305,7 +341,7 @@ class Mission
 			side="EMPTY";
 			vehicle="WarfareBAirport";
 			skill=0.60000002;
-			init="this allowDamage false;";
+			init="_nic = [this] execVM ""m\common\airport.sqf"";";
 		};
 		class Item2
 		{
@@ -314,16 +350,6 @@ class Mission
 			side="EMPTY";
 			vehicle="MASH_EP1";
 			skill=0.2;
-		};
-	};
-	class Markers
-	{
-		items=1;
-		class Item0
-		{
-			position[]={696.20123,35.380001,446.25989};
-			name="playerStartPos";
-			type="Empty";
 		};
 	};
 };
