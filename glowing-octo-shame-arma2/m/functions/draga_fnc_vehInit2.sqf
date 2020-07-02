@@ -40,6 +40,7 @@ if (isNil "_draga_init") then {
 				};
 			}];
 			_this addEventHandler ["GetOut", {
+				_this call fnc_eh_getout;
 				private["_unit"];
 				_unit = _this select 2;
 				[_unit] allowGetin false;

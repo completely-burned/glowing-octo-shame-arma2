@@ -81,5 +81,6 @@ fnc_get_MHQ_type = compile (preprocessFileLineNumbers (_path + "fn_get_MHQ_type.
 fnc_coin_variable = compile (preprocessFileLineNumbers (_path + "fn_coin_variable.sqf"));
 fnc_smoke = compile (preprocessFileLineNumbers (_path + "fn_smoke.sqf"));
 fnc_respawnPos = compile (preprocessFileLineNumbers (_path + "fn_respawnPos.sqf"));
+fnc_eh_getout = compile (preprocessFileLineNumbers (_path + "fn_eh_getout.sqf"));
 
 m_fnc_init = true;
