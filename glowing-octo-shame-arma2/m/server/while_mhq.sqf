@@ -31,6 +31,10 @@ for "_i" from 0 to (count _names - 1) do
 	};
 };
 
+{
+	_StartingLocationsPos set [count _StartingLocationsPos, getPos _x];
+} forEach allMissionObjects "LocationLogicStart";
+
 private ["_MHQ"];
 
 private ["_true"];

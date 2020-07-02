@@ -17,17 +17,23 @@ if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "moun
 			toLower "BRDM2_HQ_TK_GUE_unfolded_Base_EP1"
 		];
 	};
+	if ( east in m_friendlySide ) then {
+		_MHQ_list=_MHQ_list+[
+			toLower "BMP2_HQ_TK_EP1"
+		];
+		_MHQ_list_unfolded=_MHQ_list_unfolded+[
+			toLower "BMP2_HQ_TK_unfolded_Base_EP1"
+		];
+	};
 }else{
 	if ( east in m_friendlySide ) then {
 		_MHQ_list=_MHQ_list+[
 			toLower "BTR90_HQ",
-			toLower "BMP2_HQ_INS",
-			toLower "BMP2_HQ_TK_EP1"
+			toLower "BMP2_HQ_INS"
 		];
 		_MHQ_list_unfolded=_MHQ_list_unfolded+[
 			toLower "BTR90_HQ_unfolded",
-			toLower "BMP2_HQ_INS_unfolded",
-			toLower "BMP2_HQ_TK_unfolded_Base_EP1"
+			toLower "BMP2_HQ_INS_unfolded"
 		];
 	};
 	if ( west in m_friendlySide ) then {
