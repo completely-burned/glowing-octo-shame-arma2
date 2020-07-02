@@ -6,6 +6,9 @@ private["_lock"];
 
 private["_transportPlayer"];
 
+private["_friendly_vehicles_only"];
+_friendly_vehicles_only = missionNamespace getVariable "friendly_vehicles_only";
+
 while{true}do{
 
 	_vehicles_lock = [];
@@ -60,6 +63,12 @@ while{true}do{
 		if(!isNil {_transportPlayer})then{
 			if(alive _transportPlayer)then{
 				_lock = "UNLOCKED";
+			};
+		};
+
+		if (_friendly_vehicles_only == 1) then {
+			if !( (getNumber(configFile >> "CfgVehicles" >> typeOf _vehicle >> "side") call m_fnc_getSide) in m_friendlySide) then {
+				_lock = "LOCKED";
 			};
 		};
 
