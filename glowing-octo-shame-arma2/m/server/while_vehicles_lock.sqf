@@ -52,10 +52,6 @@ while{true}do{
 			_lock = "UNLOCKED";
 		};
 
-		if({isPlayer _x}count crew _vehicle > 0)then{
-			_lock = "UNLOCKED";
-		};
-
 		if (_vehicle isKindOf "UAV" or _vehicle isKindOf "Ka137_Base_PMC") then {
 			_lock = "LOCKED";
 		};
@@ -65,6 +61,10 @@ while{true}do{
 			if(alive _transportPlayer)then{
 				_lock = "UNLOCKED";
 			};
+		};
+
+		if({isPlayer _x}count crew _vehicle > 0)then{
+			_lock = "UNLOCKED";
 		};
 
 		_lock_old = _vehicle getVariable "draga_vehicle_lock";
