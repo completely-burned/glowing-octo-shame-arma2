@@ -124,7 +124,9 @@ if(_run)then{
 	_cargo2 = _cargo - (units (_groups select 0));
 
 	{
-		_x setSkill m_skill;
+		if (m_skill >= 0) then {
+			_x setSkill m_skill;
+		};
 		_x call m_fnc_vehInit;
 		// _x enableAI "TARGET";
 		// _x enableAI "AUTOTARGET";
