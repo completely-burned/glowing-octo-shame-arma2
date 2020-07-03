@@ -15,3 +15,4 @@ player setvariable ["_join_grpNull",nil];
 //player setvariable ["_menu_action",nil];
 //player removeAction (player getVariable "_coin");
 //player setvariable ["_coin",nil];
+player setvariable ["resetActions_handleBuyMenu", true];

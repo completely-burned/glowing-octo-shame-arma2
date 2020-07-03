@@ -31,7 +31,16 @@ private["_uav_action","_uav_terminals"];
 
 private["_actionObj","_action_uav","_action_teleport","_action_menu","_action_buy"];
 
+private["_resetActions"];
+
 while {true} do {
+
+	if (!isNil {player getVariable "resetActions_handleBuyMenu"}) then {
+		_resetActions = true;
+		player setvariable ["resetActions_handleBuyMenu", nil];
+	}else{
+		_resetActions = false;
+	};
 
 	if (alive player && isNil {skipAddAction}) then {
 
@@ -162,7 +171,7 @@ while {true} do {
 				_uav_action = true; _uav_terminals set [count _uav_terminals, unitBackpack player];
 			};
 		};
-		if (_uav_action && false) then {
+		if (_uav_action && false && !_resetActions) then {
 			_actionObj = player;
 			if (!isnil "_action_uav")then{
 				if (_action_uav select 0 != _actionObj)then{
@@ -187,7 +196,7 @@ while {true} do {
 			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_gear_ca.paa")];
 		};
 
-		if (_teleport) then {
+		if (_teleport && !_resetActions) then {
 			private["_veh"];
 			_veh = vehicle player;
 			if (!isnil "_action_teleport")then{
@@ -208,7 +217,7 @@ while {true} do {
 			};
 		};
 
-		if (_menu) then {
+		if (_menu && !_resetActions) then {
 			private["_veh"];
 			_veh = vehicle player;
 			if (!isnil "_action_menu")then{
@@ -318,7 +327,7 @@ while {true} do {
 			_BuyMenu = [_0,_1,_2];
 		};
 
-		if (_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) then {
+		if ((_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) && !_resetActions) then {
 			_actionObj = player;
 			if (!isnil "_action_buy")then{
 				if (_action_buy select 0 != _actionObj)then{
