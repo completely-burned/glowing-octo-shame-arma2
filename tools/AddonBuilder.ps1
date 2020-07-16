@@ -1,3 +1,4 @@
+# скрипт не готов, это только заготовка
 
 New-Item -Force -ItemType Directory -Path "..\.build.tmp"
 New-Item -Force -ItemType Directory -Path "..\.build.out"
