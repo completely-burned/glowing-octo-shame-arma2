@@ -14,9 +14,6 @@ weaponPool = 1;
 debriefing = 0;
 author="http://github.com/completely-burned/glowing-octo-shame-arma2";
 
-// class cfgFunctions {
-// };
-
 class Params {
 	class minGroups {
 		title="(AI) count groups";
