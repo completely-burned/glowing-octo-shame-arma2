@@ -13,7 +13,7 @@ while {true} do {
 		};
 		if (isNil "_join_action") then {
 			_player = player;
-			_join_action = _player addaction [localize "draga_str_join_the_squad" + " " + name _cursorTarget, "m\functions\join_grp.sqf", _cursorTarget, 0.5, false, false, "","group cursorTarget != group _this && alive cursorTarget && side cursorTarget == playerSide && (effectiveCommander cursorTarget) isKindOf 'Man'"];
+			_join_action = _player addaction [localize "STR_draga_join_the_squad" + " " + name _cursorTarget, "m\functions\join_grp.sqf", _cursorTarget, 0.5, false, false, "","group cursorTarget != group _this && alive cursorTarget && side cursorTarget == playerSide && (effectiveCommander cursorTarget) isKindOf 'Man'"];
 			_join_action_vehicle = _player;
 			_join_target_vehicle = _cursorTarget;
 		};

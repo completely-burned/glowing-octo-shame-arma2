@@ -207,7 +207,7 @@ while {true} do {
 			};
 			if (isnil "_action_teleport" && !isnull _veh) then {
 				private ["_action"];
-				_action = _veh addaction [localize "draga_str_teleportation", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false];
+				_action = _veh addaction [localize "STR_draga_teleportation", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false];
 				_action_teleport = [_veh, _action];
 			};
 		}else{
@@ -337,7 +337,7 @@ while {true} do {
 			};
 			if (isnil "_action_buy" && !isnull player) then {
 				private ["_action"];
-				_action = _actionObj addaction [localize "draga_str_purchase", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
+				_action = _actionObj addaction [localize "STR_draga_purchase", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
 				_action_buy = [_actionObj, _action];
 			};
 		}else{

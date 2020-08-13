@@ -5,7 +5,7 @@ switch (typeName _this) do {
 	case ("OBJECT"):
 	{
 		_pos = [_this] call fnc_respawnPos;
-		if(speed _this >= 2)then{_allow = false; hint localize "draga_str_CannotTeleport";};
+		if(speed _this >= 2)then{_allow = false; hint localize "STR_draga_CannotTeleport";};
 
 	};
 	case ("LOCATION"):

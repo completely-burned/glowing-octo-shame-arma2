@@ -26,14 +26,14 @@ _list_BIS_FNC_createmenu2=
 };
 waitUntil{!isNil "m_fnc_RespawnWeaponsAdd"};
 _list_BIS_FNC_createmenu=([
-	[localize "draga_str_maintain_equipment","'save' call m_fnc_RespawnWeaponsAdd"],
-	[localize "draga_str_leave_the_squad", "[] execVM 'm\functions\join_grpNull.sqf'"],
-	[localize "draga_str_car_flip", "nearestObjects [vehicle player, ['AllVehicles'], 10] call m_fnc_turnVehicle;"],
+	[localize "STR_draga_maintain_equipment","'save' call m_fnc_RespawnWeaponsAdd"],
+	[localize "STR_draga_leave_the_squad", "[] execVM 'm\functions\join_grpNull.sqf'"],
+	[localize "STR_draga_car_flip", "nearestObjects [vehicle player, ['AllVehicles'], 10] call m_fnc_turnVehicle;"],
 	["camera.sqf","[] execvm 'camera.sqf'"],
 	["SetGroupIconsVisible [true,true]","SetGroupIconsVisible [true,true];"],
-	[localize "draga_str_setTerrainGrid","","#USER:setTerrainGrid_0"],
-	[localize "draga_str_setViewDistance","","#USER:setViewDistance_0"],
-	[Localize "draga_str_dismiss_unit" + " (%SELECTED_UNIT_ID)","{[_x] join grpNull; moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"]
+	[localize "STR_draga_setTerrainGrid","","#USER:setTerrainGrid_0"],
+	[localize "STR_draga_setViewDistance","","#USER:setViewDistance_0"],
+	[Localize "STR_draga_dismiss_unit" + " (%SELECTED_UNIT_ID)","{[_x] join grpNull; moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"]
 	// ["deleteVehicle vehicle player", "if(({alive _x} count crew vehicle player)<=1)then {deleteVehicle vehicle player};"],
 	// ["leader move player","leader player move getpos player"],
 	// ["setAccTime 0.5","setAccTime 0.5"],
