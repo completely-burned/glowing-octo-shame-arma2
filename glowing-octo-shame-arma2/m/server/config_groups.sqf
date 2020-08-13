@@ -1035,7 +1035,7 @@ if(configName(LIB_cfgVeh >> "PLA_Soldier_SL") != "")then{
 };
 
 // @NC
- if(configName(LIB_cfgVeh >> "nac_soldier_leader") != "")then{
+if(configName(LIB_cfgVeh >> "nac_soldier_leader") != "")then{
 	_guer=_guer+[
 		[[[["nac_soldier_leader","nac_soldier_er7_att","nac_soldier_er7","nac_soldier_mg","nac_soldier_sniper2","nac_soldier_LAT","nac_soldier_gl","nac_soldier_medik","nac_soldier_2"
 			], [],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.3]
@@ -1043,7 +1043,7 @@ if(configName(LIB_cfgVeh >> "PLA_Soldier_SL") != "")then{
 };
 
 // @fdf_mod
- if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
+if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
 	_guer=_guer+[
 		[[[["FDF_M05_FRDF_NCO","FDF_M05_FRDF_MG","FDF_M05_FRDF_MG_Asst","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier","FDF_M05_FRDF_Asst_Squad_Leader"],
 			[],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],0.3],
