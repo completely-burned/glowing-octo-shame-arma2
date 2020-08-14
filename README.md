@@ -1,7 +1,7 @@
 glowing-octo-shame-arma2
 ==============================
 
-миссия для игры Arma 2: Operation Arrowhead Version 1.60
+миссия для игры Arma 2: Operation Arrowhead
 
 главное меню посмотреть нажав 0-8- BIS_MENU_GroupCommunication
 
