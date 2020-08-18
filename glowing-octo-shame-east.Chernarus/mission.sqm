@@ -4030,7 +4030,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=24;
+		items=28;
 		class Item0
 		{
 			position[]={7565.0942,307.02353,6825.8589};
@@ -4269,6 +4269,46 @@ class Mission
 			vehicle="Mi17_Ins";
 			skill=0.60000002;
 			init="this setVariable [""respawnVehicle"",true];";
+		};
+		class Item24
+		{
+			position[]={4515.7285,338.99902,10743.998};
+			azimut=240;
+			id=384;
+			side="EMPTY";
+			vehicle="RUVehicleBox";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item25
+		{
+			position[]={4760.1851,8.6999998,2562.3188};
+			azimut=210;
+			id=385;
+			side="EMPTY";
+			vehicle="RUVehicleBox";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item26
+		{
+			position[]={12041.69,158.8,12654.4};
+			azimut=25;
+			id=386;
+			side="EMPTY";
+			vehicle="RUVehicleBox";
+			skill=0.60000002;
+			init="this allowDamage false;";
+		};
+		class Item27
+		{
+			position[]={4930.4707,339,10015};
+			azimut=240;
+			id=387;
+			side="EMPTY";
+			vehicle="RUVehicleBox";
+			skill=0.60000002;
+			init="this allowDamage false;";
 		};
 	};
 	class Markers
