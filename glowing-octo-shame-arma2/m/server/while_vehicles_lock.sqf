@@ -1,6 +1,6 @@
 private["_vehicles_lock"];
 
-private["_grp","_units","_leaderPlayer","_isPlayer","_vehicle","_grpPlayer"];
+private["_grp","_units","_leaderPlayer","_isPlayer","_vehicle","_grpPlayer","_side"];
 
 private["_lock"];
 
@@ -67,8 +67,11 @@ while{true}do{
 		};
 
 		if (_friendly_vehicles_only == 1) then {
-			if !( (getNumber(configFile >> "CfgVehicles" >> typeOf _vehicle >> "side") call m_fnc_getSide) in m_friendlySide) then {
-				_lock = "LOCKED";
+			_side = getNumber(configFile >> "CfgVehicles" >> typeOf _vehicle >> "side") call m_fnc_getSide;
+			if (_side in [west,east,resistance]) then {
+				if !(_side in m_friendlySide) then {
+					_lock = "LOCKED";
+				};
 			};
 		};
 
