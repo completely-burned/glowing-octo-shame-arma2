@@ -4,8 +4,8 @@ waitUntil{!isNil "CivilianLocation"};
 waitUntil{!isNil "MHQ_list"};
 
 private ["_list","_list2","_reapawnPlayer","_teleport_list"];
-_list=[]; 
-_teleport_list=[]; 
+_list=[];
+_teleport_list=[];
 _list2=[];
 switch (playerSide) do {
 	case (west):
@@ -30,16 +30,25 @@ switch (playerSide) do {
 // _teleportLocations = ((nearestLocations [civilianBasePos, ["CityCenter"],5000])-[CivilianLocation]);
 // _teleportLocations resize (5 min count _teleportLocations);
 
+private ["_draga_objectsTeleportTmp","_draga_objectsTeleport"];
+_draga_objectsTeleportTmp = [];
 _draga_objectsTeleport = [];
 {
-	_draga_objectsTeleport = _draga_objectsTeleport + allMissionObjects _x;
+	_draga_objectsTeleportTmp = _draga_objectsTeleportTmp + allMissionObjects _x;
 } foreach draga_objectsTeleport;
 
 {
 	if(toLower typeOf _x in (MHQ_list select 0))then{
-		_draga_objectsTeleport set [count _draga_objectsTeleport, _x];
+		_draga_objectsTeleportTmp set [count _draga_objectsTeleportTmp, _x];
 	};
 } foreach vehicles;
+
+{
+	if!(_x in _draga_objectsTeleport)then{
+		_draga_objectsTeleport set [count _draga_objectsTeleport, _x];
+	};
+} foreach _draga_objectsTeleportTmp;
+
 
 _teleportLocations = [];
 {
@@ -73,4 +82,4 @@ _teleportLocations = [];
 
 
 teleport_list = _teleport_list;
-["teleport", "teleport", [_list,_list2], "","(teleport_list select %1) call m_fnc_teleport2"] call BIS_FNC_createmenu; 
+["teleport", "teleport", [_list,_list2], "","(teleport_list select %1) call m_fnc_teleport2"] call BIS_FNC_createmenu;
