@@ -507,6 +507,9 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 
 			_textHeader = "<t size='1.2'><br /></t>";
 			_textPicture = "<t size='2.8'><br /></t><br /><br />";
+
+			if (isClass (configfile >> "cfgvehicles" >> _type)) exitwith {};
+
 			_fileIcon = gettext (configfile >> "cfgvehicles" >> _type >> "icon");
 			if (str(configfile >> "CfgVehicleIcons" >> _fileIcon) != "") then {_fileIcon = gettext (configfile >> "CfgVehicleIcons" >> _fileIcon)};
 			_filePicture = gettext (configfile >> "cfgvehicles" >> _type >> "picture");
