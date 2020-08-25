@@ -717,37 +717,37 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 
 
 //--- Camera no longer exists - terminate and start cleanup
-	//////////////////////////////////////////////////
-	// startLoadingScreen [localize "str_coin_exit" + " " + localize "str_coin_name","RscDisplayLoadMission"];
-	//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+// startLoadingScreen [localize "str_coin_exit" + " " + localize "str_coin_name","RscDisplayLoadMission"];
+//////////////////////////////////////////////////
 
-	BIS_CONTROL_CAM cameraeffect ["terminate","back"];
-	camdestroy BIS_CONTROL_CAM;
-	BIS_CONTROL_CAM = nil;
-	BIS_CONTROL_CAM_Handler = nil;
-	1122 cuttext ["","plain"];
-	_player = bis_coin_player;
-	_player setvariable ["bis_coin_logic",nil];
-	bis_coin_player = objnull;
-	_preview = _logic getvariable "BIS_COIN_preview";
-	if !(isnil "_preview") then {deletevehicle _preview};
-	//_logic setvariable ["BIS_COIN_mousepos",nil];
-	_logic setvariable ["BIS_COIN_preview",nil];
-	_logic setvariable ["BIS_COIN_selected",nil];
-	_logic setvariable ["BIS_COIN_params",nil];
-	_logic setvariable ["BIS_COIN_lastdir",nil];
-	_logic setvariable ["BIS_COIN_tooltip",nil];
-	_logic setvariable ["BIS_COIN_fundsOld",nil];
-	_logic setvariable ["BIS_COIN_restart",nil];
-	_logic setvariable ["BIS_COIN_nvg",nil];
-	showcommandingmenu "";
+BIS_CONTROL_CAM cameraeffect ["terminate","back"];
+camdestroy BIS_CONTROL_CAM;
+BIS_CONTROL_CAM = nil;
+BIS_CONTROL_CAM_Handler = nil;
+1122 cuttext ["","plain"];
+_player = bis_coin_player;
+_player setvariable ["bis_coin_logic",nil];
+bis_coin_player = objnull;
+_preview = _logic getvariable "BIS_COIN_preview";
+if !(isnil "_preview") then {deletevehicle _preview};
+//_logic setvariable ["BIS_COIN_mousepos",nil];
+_logic setvariable ["BIS_COIN_preview",nil];
+_logic setvariable ["BIS_COIN_selected",nil];
+_logic setvariable ["BIS_COIN_params",nil];
+_logic setvariable ["BIS_COIN_lastdir",nil];
+_logic setvariable ["BIS_COIN_tooltip",nil];
+_logic setvariable ["BIS_COIN_fundsOld",nil];
+_logic setvariable ["BIS_COIN_restart",nil];
+_logic setvariable ["BIS_COIN_nvg",nil];
+showcommandingmenu "";
 
-	//--- Behold the placeholders
-	BIS_COIN_QUIT = nil;
-	_border = missionnamespace getvariable "BIS_COIN_border";
-	if (!(isNil "_border")) then {{deletevehicle _x} foreach _border;};
-	missionnamespace setvariable ["BIS_COIN_border",nil];
+//--- Behold the placeholders
+BIS_COIN_QUIT = nil;
+_border = missionnamespace getvariable "BIS_COIN_border";
+if (!(isNil "_border")) then {{deletevehicle _x} foreach _border;};
+missionnamespace setvariable ["BIS_COIN_border",nil];
 
-	//////////////////////////////////////////////////
-	// endLoadingScreen;
-	//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+// endLoadingScreen;
+//////////////////////////////////////////////////
