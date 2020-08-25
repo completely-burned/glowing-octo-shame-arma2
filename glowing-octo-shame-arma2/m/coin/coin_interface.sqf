@@ -140,65 +140,65 @@ BIS_CONTROL_CAM_Handler = {
 	if (isnil "_logic") exitwith {};
 	if(!isNull _logic)then{
 
-	_areasize = _logic getvariable "BIS_COIN_areasize";
-	_limitH = _areasize select 0;
-	_limitV = _areasize select 1;
+		_areasize = _logic getvariable "BIS_COIN_areasize";
+		_limitH = _areasize select 0;
+		_limitV = _areasize select 1;
 
-	_keysCancel		= actionKeys "MenuBack";
-	_keysRepair		= actionKeys "User13";
-	_keysSell		= actionKeys "User14";
+		_keysCancel		= actionKeys "MenuBack";
+		_keysRepair		= actionKeys "User13";
+		_keysSell		= actionKeys "User14";
 
-	_keysBanned		= [1];
-	//_keysSelectAll		= actionKeys "SelectAll";
-	_keyNightVision		= actionKeys "NightVision";
-
-
-	//--- Mouse DOWN
-	if (_mode == "mousedown") then {
-		_key = _input select 1;
-		if (_key == 1 && 65665 in (actionkeys "MenuBack")) then {_terminate = true};
-	};
+		_keysBanned		= [1];
+		//_keysSelectAll		= actionKeys "SelectAll";
+		_keyNightVision		= actionKeys "NightVision";
 
 
-	//--- Key DOWN
-	if (_mode == "keydown") then {
-		_key = _input select 1;
-		if !(_key in (BIS_CONTROL_CAM_keys + _keysBanned)) then {BIS_CONTROL_CAM_keys = BIS_CONTROL_CAM_keys + [_key]};
-
-		//--- Terminate CoIn
-		if (_key in _keysCancel && isnil "BIS_Coin_noExit") then {_terminate = true;};
-
-		//--- Start NVG
-		if (_key in _keyNightVision) then {
-			_NVGstate = !(_logic getvariable "BIS_COIN_nvg");
-			_logic setvariable ["BIS_COIN_nvg",_NVGstate];
-			camusenvg _NVGstate;
+		//--- Mouse DOWN
+		if (_mode == "mousedown") then {
+			_key = _input select 1;
+			if (_key == 1 && 65665 in (actionkeys "MenuBack")) then {_terminate = true};
 		};
-	};
-	//--- Key UP
-	if (_mode == "keyup") then {
-		_key = _input select 1;
-		if (_key in BIS_CONTROL_CAM_keys) then {BIS_CONTROL_CAM_keys = BIS_CONTROL_CAM_keys - [_key]};
-	};
 
-	//--- Deselect or Close
-	if (_terminate) then {
-		_menu = _this select 2;
 
-		//--- Close
-		if (isnil "BIS_Coin_noExit") then {
-			if (_menu == "#USER:BIS_Coin_categories_0") then {
-				if (!(isNil "BIS_CONTROL_CAM")) then {
-					BIS_COIN_QUIT = true;
-				};
-			} else {
-				_preview = _logic getvariable "BIS_COIN_preview";
-				if !(isnil "_preview") then {deletevehicle _preview};
-				_logic setvariable ["BIS_COIN_preview",nil];
-				_logic setvariable ["BIS_COIN_params",[]];
+		//--- Key DOWN
+		if (_mode == "keydown") then {
+			_key = _input select 1;
+			if !(_key in (BIS_CONTROL_CAM_keys + _keysBanned)) then {BIS_CONTROL_CAM_keys = BIS_CONTROL_CAM_keys + [_key]};
+
+			//--- Terminate CoIn
+			if (_key in _keysCancel && isnil "BIS_Coin_noExit") then {_terminate = true;};
+
+			//--- Start NVG
+			if (_key in _keyNightVision) then {
+				_NVGstate = !(_logic getvariable "BIS_COIN_nvg");
+				_logic setvariable ["BIS_COIN_nvg",_NVGstate];
+				camusenvg _NVGstate;
 			};
 		};
-	};
+		//--- Key UP
+		if (_mode == "keyup") then {
+			_key = _input select 1;
+			if (_key in BIS_CONTROL_CAM_keys) then {BIS_CONTROL_CAM_keys = BIS_CONTROL_CAM_keys - [_key]};
+		};
+
+		//--- Deselect or Close
+		if (_terminate) then {
+			_menu = _this select 2;
+
+			//--- Close
+			if (isnil "BIS_Coin_noExit") then {
+				if (_menu == "#USER:BIS_Coin_categories_0") then {
+					if (!(isNil "BIS_CONTROL_CAM")) then {
+						BIS_COIN_QUIT = true;
+					};
+				} else {
+					_preview = _logic getvariable "BIS_COIN_preview";
+					if !(isnil "_preview") then {deletevehicle _preview};
+					_logic setvariable ["BIS_COIN_preview",nil];
+					_logic setvariable ["BIS_COIN_params",[]];
+				};
+			};
+		};
 
 	};
 
