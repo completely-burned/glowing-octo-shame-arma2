@@ -339,6 +339,13 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					_color = _colorGray
 				} else {
 
+					// автоматическое удаление статичного оружия при наводке
+					{
+						if (!alive _x) then {
+							deleteVehicle _x;
+						};
+					} forEach (position _preview nearObjects ["StaticWeapon", 2.5]);
+
 					//--- No money
 					_funds = 0;
 					call compile format ["_funds = %1",_itemFunds];
