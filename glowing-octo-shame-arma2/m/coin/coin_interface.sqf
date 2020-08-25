@@ -413,11 +413,10 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					[_logic,objNull,_itemclass,_pos,_dir] call _code;
 
 					//--- Build
-					_building = _itemclass createvehicle _pos;//[10,10,10000];
-					_building setpos _pos;
+					_building = _itemclass createvehicle [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];//[10,10,10000];
 					_building setdir _dir;
 					_building setVectorUp surfaceNormal _pos;
-					if (_shift) then {_building setpos _pos;};
+					_building setpos _pos;
 					//if (gettext (configfile >> "cfgvehicles" >> _itemclass >> "placement") == "vertical") then {_building setpos _pos}; //--- Vertical
 					if (gettext (configfile >> "cfgvehicles" >> _itemclass >> "namesound") == "fence" || _itemclass iskindof "staticweapon") then {_building setpos _pos}; //--- Vertical
 					//waituntil {!isnull _building};
