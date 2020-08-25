@@ -260,7 +260,7 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 	_keysSelectAll		= actionKeys "SelectAll";
 
 	//--- Mouse moving or holding
-	if (_mode in ["mousemoving","mouseholding"]) then {
+	if (true) then {
 
 		//_x = _input select 1;
 		//_y = _input select 2;
