@@ -129,8 +129,6 @@ _createBorder = {
 };
 _createBorderScope = _logic spawn _createBorder;
 
-//--- This block is pretty important
-if !(isnil "BIS_CONTROL_CAM_Handler") exitwith {endLoadingScreen};
 
 BIS_CONTROL_CAM_Handler = {
 	_mode = _this select 0;
