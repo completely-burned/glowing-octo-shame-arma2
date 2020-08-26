@@ -161,4 +161,10 @@ if!(west in m_friendlySide or east in m_friendlySide)then{
 	], 0.25] call _fnc6;
 };
 
+if!(toLower worldName == "utes")then{
+	AllGroupsWest = ([AllGroupsWest, [[["Ship"], 15]]] call _fnc4);
+	AllGroupsEast = ([AllGroupsEast, [[["Ship"], 15]]] call _fnc4);
+	AllGroupsGuer = ([AllGroupsGuer, [[["Ship"], 15]]] call _fnc4);
+};
+
 GroupsStarted=true;
