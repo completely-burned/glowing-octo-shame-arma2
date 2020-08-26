@@ -41,8 +41,6 @@ if ( isNil "_time" ) then {
 
 		_leader = leader _grp;
 
-	if(local _leader)then{
-
 		_leaderPos = getPos vehicle _leader;
 
 		_currentWP = currentWaypoint _grp;
@@ -1037,7 +1035,6 @@ if ( isNil "_time" ) then {
 
 		};
 
-	};
 	};
 
 if (draga_loglevel > 0) then {
