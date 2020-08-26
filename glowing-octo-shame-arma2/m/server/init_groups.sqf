@@ -168,3 +168,4 @@ if(toLower worldName == "utes")then{
 };
 
 GroupsStarted=true;
+publicVariable "GroupsStarted";
