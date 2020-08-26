@@ -5,7 +5,10 @@ waitUntil {!isNil "m_fnc_init"};
 waitUntil {!isNil "GroupsStarted"};
 
 private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements"];
-_minGroups = 10;
+_minGroups = missionNamespace getVariable "minGroups";
+_enemyCoefficientCfg = missionNamespace getVariable "enemyCoefficient";
+_playerCoefficient = missionNamespace getVariable "playerCoefficient";
+_timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 
 private["_all_groups","_friendlyGroups","_friendlyPatrols","_enemyGroups","_enemyPatrols","_enemySide"];
 
