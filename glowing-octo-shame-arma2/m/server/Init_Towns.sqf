@@ -1,6 +1,5 @@
 ///--- бардак, комментировать нечего
 waitUntil {!isNil "bis_fnc_init"};
-waitUntil {time > 30};
 locationTypes=["CityCenter"];
 // if(worldName == "Shapur_BAF")then{
 	// locationTypes=["NameLocal","NameVillage","NameCity","NameCityCapital"];
