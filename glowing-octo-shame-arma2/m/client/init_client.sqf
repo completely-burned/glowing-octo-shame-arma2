@@ -39,6 +39,7 @@ SetGroupIconsVisible [true,false];
 [] execVM "m\client\draga_coin.sqf";
 [] execVM ("m\client\while_aa_hidden.sqf");
 [] execVM ("m\client\act_smoke.sqf");
+[] execVM ("m\client\updatePatrol.sqf");
 
 
 

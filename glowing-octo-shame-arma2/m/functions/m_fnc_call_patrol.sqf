@@ -7,20 +7,23 @@ if(count _this > 0)then{
 
 private["_pos"];
 private["_typeList"];
-_pos = civilianBasePos;
+private["_player"];
+
+_player = player;
+_pos = getPos _player;
 
 switch (_side) do {
 	case (east):
 	{
-		_typeList=LocationAllGroupsEast;
+		_typeList=AllGroupsEast;
 	};
 	case (west):
 	{
-		_typeList=LocationAllGroupsWest;
+		_typeList=AllGroupsWest;
 	};
 	case (resistance):
 	{
-		_typeList=LocationAllGroupsGuer;
+		_typeList=AllGroupsGuer;
 	};
 	default {};
 };
@@ -34,6 +37,9 @@ _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
 _SafePosParams = ([_types] call m_fnc_SafePosParams);
 
+_SafePosParams set [0,((_SafePosParams select 0) * 2)];
+_SafePosParams set [1,((_SafePosParams select 1) * 2)];
+
 _pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
 if(count (_pos_resp select 0) == 0)exitWith{grpNull};
 
@@ -45,6 +51,11 @@ _units = []; _vehicles=[]; _crew = []; _cargo=[];
 {
 	private ["_grp"];
 	_grp = _x;
+
+	// тип группы
+	_grp setVariable ["patrol", true, true];
+
+	// arrays
 	{
 		_units set [count _units, _x];
 		private ["_veh"];
@@ -61,9 +72,16 @@ _units = []; _vehicles=[]; _crew = []; _cargo=[];
 	}forEach units _grp;
 
 	// _grp enableIRLasers true;
-	// _grp enableGunLights true;
+	// фонарики
+	_grp enableGunLights true;
 
 }forEach _groups;
+
+// посадить в багажное отделение
+if (count _vehicles > 0) then {
+	[_vehicles, _cargo] call m_fnc_MoveInCargo;
+};
+
 
 {
 	// установить уровень навыков
@@ -77,11 +95,7 @@ _units = []; _vehicles=[]; _crew = []; _cargo=[];
 // перевооружить
 [_units + _vehicles] call m_fnc_reweapon;
 
-// посадить в багажное отделение
-if (count _vehicles > 0) then {
-	[_vehicles, _cargo] call m_fnc_MoveInCargo;
-};
-
+// готовность группы
 {_x setVariable ["grp_created",true,true]}forEach _groups;
 
 _groups;
