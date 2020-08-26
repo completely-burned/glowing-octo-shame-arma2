@@ -36,7 +36,7 @@ _fnc5={
 
 _fnc4={
 	private["_grp","_types"];
-	_grp = +(_this select 0); // [[[[[_types,_positions,_ranks],[_types,_positions,_ranks]]],[[_types,_positions,_ranks]]],[0.5,0.5]]
+	_grp = (_this select 0); // [[[[[_types,_positions,_ranks],[_types,_positions,_ranks]]],[[_types,_positions,_ranks]]],[0.5,0.5]]
 	private["_max_rarity"];
 	_max_rarity = 0;
 	{
@@ -54,7 +54,6 @@ _fnc4={
 
 		}forEach (_this select 1);
 	};
-	_grp
 };
 
 // функция приводит к виду [[[_groups],[_groups]],[0.5,0.5]]
@@ -141,9 +140,9 @@ _arr13453=[
 // AllGroupsEastOld 		= ([AllGroupsEastOld, [[["Air"],0.5]]] call _fnc4);
 // AllGroupsGuerrilaOld 	= ([AllGroupsGuerrilaOld, [[["Air"],0.5]]] call _fnc4);
 
-AllGroupsWest = ([AllGroupsWest, _arr13453] call _fnc4);
-AllGroupsEast = ([AllGroupsEast, _arr13453] call _fnc4);
-AllGroupsGuer = ([AllGroupsGuer, _arr13453] call _fnc4);
+[AllGroupsWest, _arr13453] call _fnc4;
+[AllGroupsEast, _arr13453] call _fnc4;
+[AllGroupsGuer, _arr13453] call _fnc4;
 
 if!(west in m_friendlySide or east in m_friendlySide)then{
 	[AllGroupsWest, [
