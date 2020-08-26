@@ -167,5 +167,8 @@ if(toLower worldName == "utes")then{
 	AllGroupsGuer = ([AllGroupsGuer, [[["Ship"], 15]]] call _fnc4);
 };
 
+publicVariable "AllGroupsWest";
+publicVariable "AllGroupsEast";
+publicVariable "AllGroupsGuer";
 GroupsStarted=true;
 publicVariable "GroupsStarted";
