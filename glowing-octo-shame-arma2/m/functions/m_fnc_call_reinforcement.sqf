@@ -9,7 +9,6 @@ if(count _this > 0)then{
 private["_pos"];
 private["_typeList"];
 private["_patrol"];
-private["_player"];
 if(count _this > 1)then{
 	private ["_players"];
 	if(isMultiplayer)then{
@@ -25,8 +24,7 @@ if(count _this > 1)then{
 		_players = [player];
 	};
 	if (count _players > 0) then {
-		_player = _players call BIS_fnc_selectRandom;
-		_pos = getPos _player;
+		_pos = getPos (_players call BIS_fnc_selectRandom);
 	}else{
 		_pos = civilianBasePos;
 	};
@@ -115,11 +113,6 @@ if(_run)then{
 			}else{
 				_cargo set [count _cargo, _x];
 			};
-
-			if(_patrol)then{
-				_x setOwner (owner _player);
-			};
-
 		}forEach units _grp;
 
 		// _grp enableIRLasers true;
