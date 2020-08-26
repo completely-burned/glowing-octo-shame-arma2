@@ -3,10 +3,6 @@
 waitUntil {!isNil "bis_fnc_init"};
 waitUntil {!isNil "m_fnc_init"};
 waitUntil {!isNil "GroupsStarted"};
-waitUntil {!isNil "AllGroupsWest"};
-waitUntil {!isNil "AllGroupsEast"};
-waitUntil {!isNil "AllGroupsGuer"};
-
 
 private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements"];
 _minGroups = 10;
