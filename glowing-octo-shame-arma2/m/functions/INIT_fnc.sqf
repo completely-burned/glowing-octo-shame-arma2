@@ -8,6 +8,7 @@ if (isServer) then {
 		m_fnc_playerRespawnSP = compile (preprocessFileLineNumbers (_path + "m_fnc_playerRespawnSP.sqf"));
 		m_fnc_playerRespawn = compile (preprocessFileLineNumbers (_path + "m_fnc_playerRespawn.sqf"));
 	};
+	draga_fnc_initGroup = compile (preprocessFileLineNumbers (_path + "draga_fnc_initGroup.sqf"));
 };
 if (!IsDedicated) then {
 	Client_BuyUnit = compile (preprocessFileLineNumbers (_path + "Client_BuyUnit.sqf"));
@@ -27,7 +28,6 @@ if (!IsDedicated) then {
 	m_fnc_handleBuyMenu = compile (preprocessFileLineNumbers (_path + "m_fnc_handleBuyMenu.sqf"));
 	m_fnc_turnVehicle = compile (preprocessFileLineNumbers (_path + "m_fnc_turnVehicle.sqf"));
 };
-draga_fnc_initGroup = compile (preprocessFileLineNumbers (_path + "draga_fnc_initGroup.sqf"));
 m_fnc_check_config_use = compile (preprocessFileLineNumbers (_path + "m_fnc_check_config_use.sqf"));
 // m_fnc_returnGroupType = compile (preprocessFileLineNumbers (_path + "m_fnc_returnGroupType.sqf"));
 m_fnc_CheckCombatNearUnits = compile (preprocessFileLineNumbers (_path + "m_fnc_CheckCombatNearUnits.sqf"));
