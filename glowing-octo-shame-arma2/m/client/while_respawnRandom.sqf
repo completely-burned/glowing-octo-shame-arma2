@@ -37,7 +37,7 @@ while {true} do {
 
 		// юниты группы
 		_units = units _grp;
-		// if ((count _units) > 0) then {
+		if ((count _units) > 0 && isNil {_grp getVariable "patrol"}) then {
 			{
 				if (isNil{_x getVariable "selectPlayerDisable"} && alive _x && !(_x in playableUnits)) then {
 					if (isNil {_bestCandidate}) then {
@@ -48,7 +48,7 @@ while {true} do {
 					};
 				};
 			} forEach _units;
-		// };
+		};
 
 		// лидеры групп
 		{
