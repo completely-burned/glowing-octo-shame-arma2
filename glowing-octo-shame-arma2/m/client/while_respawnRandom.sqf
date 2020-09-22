@@ -17,6 +17,13 @@ _fnc_swich={
 // первое не подходит
 player setVariable ["selectPlayerDisable", true, true];
 
+[] spawn {
+	waitUntil{
+		isNil{player getVariable "selectPlayerDisable"};
+	};
+	respawnDone = true;
+};
+
 while {true} do {
 
 	// тело не подходит
