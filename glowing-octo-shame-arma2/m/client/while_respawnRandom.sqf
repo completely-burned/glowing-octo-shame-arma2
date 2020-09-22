@@ -14,7 +14,8 @@ _fnc_swich={
 	_new;
 };
 
-// player setVariable ["selectPlayerDisable", true, true];
+// первое не подходит
+player setVariable ["selectPlayerDisable", true, true];
 
 while {true} do {
 
@@ -57,10 +58,10 @@ while {true} do {
 		} forEach allGroups;
 	};
 
-	// возрождение дефолт первое
+	// возрождение первое
 	if (player != _player) then {
 		[player] joinSilent grpNull;
-		_player setVariable ["selectPlayerDisable", true, true]; //2 раза
+		player setVariable ["selectPlayerDisable", true, true];
 		selectPlayer _player;
 	};
 
