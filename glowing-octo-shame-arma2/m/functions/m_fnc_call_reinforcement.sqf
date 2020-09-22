@@ -99,7 +99,7 @@ if(_run)then{
 		private ["_grp"];
 		_grp = _x;
 		if(_patrol)then{
-			_grp setVariable ["patrol", true];
+			_grp setVariable ["patrol", true, true];
 		};
 		{
 			_units set [count _units, _x];
