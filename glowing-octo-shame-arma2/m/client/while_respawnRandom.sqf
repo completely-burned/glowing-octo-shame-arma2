@@ -64,7 +64,7 @@ while {true} do {
 		selectPlayer _player;
 	};
 
-	// игрок в старом теле
+	// есть новое тело
 	if (!isNil{_bestCandidate}) then {
 		_player = ([_player, _bestCandidate] call _fnc_swich);
 		_bestCandidate = nil;
