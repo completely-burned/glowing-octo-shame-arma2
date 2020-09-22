@@ -16,7 +16,7 @@ if (isMultiplayer) then{
 				_distance = _distance min (_pos distance _player);
 			}
 		};
-	} foreach playableunits;
+	} foreach allUnits;
 }else{
 	_distance = vehicle player distance _pos;
 };

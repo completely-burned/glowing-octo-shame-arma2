@@ -20,7 +20,7 @@ if(isMultiplayer)then{
 				BreakTo "CheckPlayer";
 			};
 		};
-	} foreach playableunits;
+	} foreach allUnits;
 }else{
 	if ((vehicle player distance _Pos) < _distance)then{
 		_visible = true;
