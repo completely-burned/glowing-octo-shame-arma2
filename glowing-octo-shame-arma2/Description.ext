@@ -101,6 +101,12 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+	class respawn {
+		title="respawn";
+		values[] = {0,1};
+		texts[] = {"Base","random"};
+		default=0;
+	};
 };
 
 class Weapons {
