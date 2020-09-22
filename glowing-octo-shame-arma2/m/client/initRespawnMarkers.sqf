@@ -131,11 +131,11 @@ if(true)then{
 
 		// -- игроки
 		{
-			if(!(_x in _units) && (side _x == playerSide))then{
+			if(!(_x in _units) && (side _x == playerSide) && alive _x && isPlayer _x)then{
 				_units set [count _units, _x];
 				_markers set [count _markers, createMarkerLocal [str _x,position _x]];
 			};
-		}forEach playableUnits;
+		}forEach allUnits;
 
 		// -- объекты базы
 		{
