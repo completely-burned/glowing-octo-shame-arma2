@@ -1,4 +1,7 @@
 private["_player","_grp","_grp_owner"];
+
+[player] joinSilent grpNull;
+
 while {true} do {
 	_player = player;
 
