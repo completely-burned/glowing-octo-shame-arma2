@@ -29,7 +29,7 @@ player setVariable ["selectPlayerDisable", true, true];
 while {true} do {
 
 	// тело не подходит
-	if (!alive _player or !isNil{_player getVariable "selectPlayerDisable"}) then {
+	if (isNull player or !alive _player or !isNil{_player getVariable "selectPlayerDisable"}) then {
 
 		_grp = group _player;
 
