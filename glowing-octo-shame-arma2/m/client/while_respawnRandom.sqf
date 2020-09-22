@@ -17,10 +17,11 @@ _fnc_swich={
 // первое не подходит
 player setVariable ["selectPlayerDisable", true, true];
 
-[] spawn {
+[_player] spawn {
 	waitUntil{
 		isNil{player getVariable "selectPlayerDisable"};
 	};
+	_this select 0 setDamage 1;
 	respawnDone = true;
 };
 
@@ -68,6 +69,12 @@ while {true} do {
 	// возрождение первое
 	if (player != _player) then {
 		[player] joinSilent grpNull;
+		[player] spawn {
+			waitUntil{
+				isNil{player getVariable "selectPlayerDisable"};
+			};
+			_this select 0 setDamage 1;
+		};
 		player setVariable ["selectPlayerDisable", true, true];
 		selectPlayer _player;
 	};
