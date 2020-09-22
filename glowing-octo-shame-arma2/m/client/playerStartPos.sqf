@@ -13,6 +13,6 @@ progressLoadingScreen 0.75;
 
 player setPos getMarkerPos (draga_respawnMarkers call BIS_fnc_selectRandom);
 
-waitUntil {!isNil "respawnDone"};
+// waitUntil {!isNil "respawnDone"};
 
 endLoadingScreen;
