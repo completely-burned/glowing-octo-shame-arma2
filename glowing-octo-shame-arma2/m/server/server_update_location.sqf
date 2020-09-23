@@ -1,6 +1,7 @@
 ﻿waitUntil {sleep 5; !isNil "locationStarted"};
 
 private["_east1","_west1","_resistance1"];
+private["_listPlayers"];
 _east1 = 0;_west1 = 0;_resistance1 = 0;
 
 _time = time;
@@ -16,6 +17,10 @@ while{true}do{
 			sizeLocation = +_sizeLocation;
 			publicVariable "sizeLocation";
 			"MainTown" setMarkerSize [_sizeLocation,_sizeLocation];
+		};
+
+		if(civilianBasePos distance getMarkerPos "MainTown" > 1)then{
+			"MainTown" setMarkerPos civilianBasePos;
 		};
 
 		Private["_objects"];
@@ -120,10 +125,12 @@ while{true}do{
 			// player globalChat format["_east1: %1; _west1: %2; _guer1: %3; _delay: %4",_east1,_west1,_resistance1,_delay];
 		};
 
+		_listPlayers = [] call BIS_fnc_listPlayers;
+
 		private["_next"];
 		_next = false;
 		if(isMultiplayer)then{
-			if (((_east1 >=  50000 && east CountSide playableUnits > 0 && _eastEnemies * 3 < _east) || (_west1 >=  50000 && west CountSide playableUnits > 0 && _westEnemies * 3 < _west) || (_resistance1 >=  50000 && resistance CountSide playableUnits > 0 && _resistanceEnemies * 3 < _resistance))) then {
+			if (((_east1 >=  50000 && east CountSide _listPlayers > 0 && _eastEnemies * 3 < _east) || (_west1 >=  50000 && west CountSide _listPlayers > 0 && _westEnemies * 3 < _west) || (_resistance1 >=  50000 && resistance CountSide _listPlayers > 0 && _resistanceEnemies * 3 < _resistance))) then {
 				_next = true;
 			};
 		}else{
