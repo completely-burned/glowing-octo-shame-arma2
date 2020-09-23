@@ -7,12 +7,12 @@ if (isNil "_draga_init") then {
 		if (isNil {_this getVariable "BIS_BC_dragger"}) then {_this setVariable ["BIS_BC_dragger",false];};
 		if (isNil {_this getVariable "BIS_IS_inAgony"}) then {_this setVariable ["BIS_IS_inAgony",false];};
 
-		if(isPlayer _this or _this in playableUnits)then{
-			if (local _this) then {
+		//if(isPlayer _this or _this in playableUnits)then{
+			//if (local _this) then {
 				//_this addEventHandler ["handledamage", {_this call m_FirstAid_handleDamage}];
 				//_this addEventHandler ["handleheal", {_this spawn m_FirstAid_handleHeal}];
-			};
-		};
+			//};
+		//};
 	}else{
 		if (local _this) then {
 			//_this addEventHandler ["HandleDamage", {_this call draga_fnc_vehicleHandleDamage}];

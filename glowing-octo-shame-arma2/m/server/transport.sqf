@@ -8,7 +8,7 @@ while{true}do{
 	sleep 2.5;
 
 	if(isMultiplayer)then{
-		_players = playableUnits;
+		_players = [] call BIS_fnc_listPlayers;
 	}else{
 		_players = [player];
 	};

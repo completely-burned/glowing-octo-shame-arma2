@@ -52,7 +52,7 @@ while{true}do{
 			if(isPlayer _x)then{
 				_friendlyGroups = _friendlyGroups + _playerCoefficient;
 			};
-		}forEach playableUnits;
+		}forEach ([] call BIS_fnc_listPlayers);
 	}else{
 		_friendlyGroups = _friendlyGroups + _playerCoefficient;
 	};

@@ -12,14 +12,7 @@ private["_patrol"];
 if(count _this > 1)then{
 	private ["_players"];
 	if(isMultiplayer)then{
-		_players = [];
-		{
-			if(isPlayer _x) then
-			{
-				// [_players, _x] call BIS_fnc_arrayPush;
-				_players = (_players + [_x]);
-			}
-		} foreach playableUnits;
+		_players = [] call BIS_fnc_listPlayers;
 	}else{
 		_players = [player];
 	};

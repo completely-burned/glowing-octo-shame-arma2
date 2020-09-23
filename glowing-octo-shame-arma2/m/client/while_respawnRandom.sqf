@@ -39,7 +39,7 @@ while {true} do {
 		_units = units _grp;
 		if ((count _units) > 0 && isNil {_grp getVariable "patrol"}) then {
 			{
-				if (isNil{_x getVariable "selectPlayerDisable"} && alive _x && !(_x in playableUnits)) then {
+				if (isNil{_x getVariable "selectPlayerDisable"} && alive _x && !isPlayer _x && !isNull _x) then {
 					if (isNil {_bestCandidate}) then {
 						_bestCandidate = _x;
 					};
@@ -54,7 +54,7 @@ while {true} do {
 		{
 			if (side _x in m_friendlySide) then {
 				_leader = leader _x;
-				if (isNil{_leader getVariable "selectPlayerDisable"} && alive _leader && !(_leader in playableUnits)) then {
+				if (isNil{_leader getVariable "selectPlayerDisable"} && alive _leader && !isPlayer _leader && !isNull _leader) then {
 					if (isNil {_bestCandidate}) then {
 						_bestCandidate = _leader;
 					};

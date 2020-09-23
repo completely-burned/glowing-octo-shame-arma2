@@ -3,13 +3,7 @@ _pos = _this select 0;
 
 if(isMultiplayer)then
 {
-	_players = [];
-	{
-		if(isplayer _x) then
-		{
-			[_players, _x] call BIS_fnc_arrayPush;
-		};
-	} foreach playableunits;
+	_players = [] call BIS_fnc_listPlayers;
 }
 else
 {
