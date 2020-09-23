@@ -75,7 +75,7 @@ while{true}do{
 			};
 		};
 
-		if({isPlayer _x}count crew _vehicle > 0)then{
+		if({_x in crew _vehicle}count([] call BIS_fnc_listPlayers) > 0)then{
 			_lock = "UNLOCKED";
 		};
 
