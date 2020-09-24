@@ -13,6 +13,7 @@ while {true} do {
 			_grp = createGroup side player;
 			_grp setVariable ["_owner", owner player, false];
 			units group player joinSilent _grp;
+			_grp setVariable ["grp_created",true,true];
 		};
 		{
 			if (owner _x != owner player) then {

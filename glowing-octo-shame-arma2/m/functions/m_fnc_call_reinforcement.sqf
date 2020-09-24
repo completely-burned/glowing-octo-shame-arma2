@@ -160,7 +160,7 @@ if(_run)then{
 		} foreach (_cargo2);
 	};
 
-	{_x setVariable ["grp_created",true]}forEach _groups;
+	{_x setVariable ["grp_created",true,true]}forEach _groups;
 
 	_groups;
 }else{
