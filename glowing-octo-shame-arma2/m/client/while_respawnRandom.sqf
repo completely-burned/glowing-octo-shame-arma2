@@ -26,10 +26,27 @@ player setVariable ["selectPlayerDisable", true, true];
 	respawnDone = true;
 };
 
+private["_fnc_isFit"];
+_fnc_isFit={
+	if (
+		isNil{_this getVariable "selectPlayerDisable"} &&
+		alive _this &&
+		!isPlayer _this &&
+		!isNull _this &&
+		!(_this call m_fnc_isUAV) &&
+		!isNil{group _this getVariable "grp_created"} &&
+		isNil {group _this getVariable "patrol"}
+	) then {
+		true;
+	}else{
+		false;
+	};
+};
+
 while {true} do {
 
 	// тело не подходит
-	if (isNull player or !alive _player or !isNil{_player getVariable "selectPlayerDisable"}) then {
+	if (!(lifeState player in ["ALIVE", "UNCONSCIOUS"]) or isNull player or !alive _player or !isNil{_player getVariable "selectPlayerDisable"}) then {
 
 		_grp = group _player;
 
@@ -37,9 +54,8 @@ while {true} do {
 
 		// юниты группы
 		_units = units _grp;
-		if ((count _units) > 0 && isNil {_grp getVariable "patrol"}) then {
 			{
-				if (isNil{_x getVariable "selectPlayerDisable"} && alive _x && !isPlayer _x && !isNull _x) then {
+				if (_x call _fnc_isFit) then {
 					if (isNil {_bestCandidate}) then {
 						_bestCandidate = _x;
 					};
@@ -48,13 +64,12 @@ while {true} do {
 					};
 				};
 			} forEach _units;
-		};
 
 		// лидеры групп
 		{
 			if (side _x in m_friendlySide) then {
 				_leader = leader _x;
-				if (isNil{_leader getVariable "selectPlayerDisable"} && alive _leader && !isPlayer _leader && !isNull _leader) then {
+				if (_leader call _fnc_isFit) then {
 					if (isNil {_bestCandidate}) then {
 						_bestCandidate = _leader;
 					};
