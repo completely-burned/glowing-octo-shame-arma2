@@ -171,7 +171,7 @@ if(true)then{
 						_marker setMarkerColorLocal "ColorBlack";
 						private ["_text"];
 						_text = "";
-						_text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _veh) >> 'displayName'));
+						// _text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _veh) >> 'displayName'));
 						_text = (_text + " " + name _unit);
 						if (lifeState _unit == "UNCONSCIOUS") then {
 							_text = _text + (" " + Localize "str_reply_injured");
