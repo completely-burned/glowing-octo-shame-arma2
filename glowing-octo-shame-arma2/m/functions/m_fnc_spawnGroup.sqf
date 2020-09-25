@@ -88,7 +88,7 @@ if (draga_loglevel > 0) then {
 						_roads = _roads - [-1];
 					}else{
 						if (draga_loglevel > 0) then {
-							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this select 2];
+							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this];
 						};
 					};
 				};
