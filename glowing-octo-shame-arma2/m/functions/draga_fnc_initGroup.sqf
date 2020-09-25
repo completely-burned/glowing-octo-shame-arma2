@@ -779,7 +779,6 @@ if ( isNil "_time" ) then {
 		private["_getOut","_allowGetin","_assignedVehicle"];
 		_getOut=[];
 		if (!isPlayer _leader) then {
-		// if (count _assignedVehicles > 0) then {
 			{
 				_assignedVehicle = assignedVehicle _x;
 				_allowGetin=true;
