@@ -32,7 +32,7 @@ if(!isNil "_leader")then{
 				if (group effectiveCommander _veh == _grp) then {
 					_vehicles set [count _vehicles, _veh];
 					_types set [count _types, typeOf _veh];
-					if(count assignedCargo _veh > 0)then{
+					if({group _x != _grp}count crew _veh > 0)then{
 						_landing = true;
 					};
 				};
