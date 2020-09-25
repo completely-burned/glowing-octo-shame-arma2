@@ -14,12 +14,9 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 	};
 	[grpNull];
 };
-if(count _roads > 0)then{
-	_pos = [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
-};
 
 if (draga_loglevel > 0) then {
-	diag_log format ["spawn_group.sqf create %1", _this select 2];
+	diag_log format ["spawn_group.sqf create pos %1 grp %2", _this select 0, _this select 2];
 };
 
 {
@@ -88,6 +85,10 @@ if (draga_loglevel > 0) then {
 						};
 						_unit setDir _azimuth;
 						_roads = _roads - [_roads select 0];
+					}else{
+						if (draga_loglevel > 0) then {
+							diag_log format ["spawn_group.sqf no roads %1 units %2", _roads, units _grp];
+						};
 					};
 				};
 
