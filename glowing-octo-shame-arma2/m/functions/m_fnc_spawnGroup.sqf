@@ -7,7 +7,14 @@ private ["_vehicles","_roads"];
 _vehicles = [];
 _roads = _this select 0 select 1;
 _pos = _this select 0 select 0;
-if(count _pos == 0)then{
+
+if(count _pos == 0 && count _roads == 0)exitWith{
+	if (draga_loglevel > 0) then {
+		diag_log format ["spawn_group.sqf %1", "count _pos == 0 && count _roads == 0"];
+	};
+	[grpNull];
+};
+if(count _roads > 0)then{
 	_pos = [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
 };
 
