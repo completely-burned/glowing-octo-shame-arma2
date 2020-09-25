@@ -3,7 +3,7 @@ _pos = _this select 0;
 
 if(isMultiplayer)then
 {
-	_players = [] call BIS_fnc_listPlayers;
+	_players = ([] call BIS_fnc_listPlayers);
 }
 else
 {
