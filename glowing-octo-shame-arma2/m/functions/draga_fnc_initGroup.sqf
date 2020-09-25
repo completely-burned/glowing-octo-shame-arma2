@@ -944,7 +944,7 @@ if ( isNil "_time" ) then {
 		}; // count _vehicles
 
 		// HE Tank
-		if (!isPlayer _leader && _Tank) then {
+		if (_Tank) then {
 			private["_veh","_type","_entry","_turrets","_turret","_mags_he","_mag","_ammo","_indirectHitRange","_weapon","_mag_he","_mags","_he"];
 			{
 
@@ -952,7 +952,7 @@ if ( isNil "_time" ) then {
 
 				_type = typeOf _veh;
 
-				if (_type isKindOf "Tank") then {
+				if (_type isKindOf "Tank" && !isPlayer effectiveCommander _veh) then {
 
 
 					_entry = configFile >> "CfgVehicles" >> _type;
