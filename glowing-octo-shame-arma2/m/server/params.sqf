@@ -8,4 +8,3 @@ if(isMultiplayer)then{
 		missionNamespace setVariable [configName ((missionConfigFile/"Params") select _i),getNumber (((missionConfigFile/"Params") select _i)/"default")];
 	};
 };
-
