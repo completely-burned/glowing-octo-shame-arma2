@@ -1,4 +1,5 @@
-if(missionNamespace getVariable "respawn" != 1)exitWith{respawnDone = true};
+waitUntil{!isNil{respawn}};
+if(respawn != 1)exitWith{respawnDone = true};
 private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first"];
 
 _player = player;
