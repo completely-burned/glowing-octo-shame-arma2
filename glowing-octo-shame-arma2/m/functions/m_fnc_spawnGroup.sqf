@@ -84,10 +84,11 @@ if (draga_loglevel > 0) then {
 							_azimuth = 180 + ([_roads select 0, _roads select 1] call BIS_fnc_dirTo);
 						};
 						_unit setDir _azimuth;
-						_roads = _roads - [_roads select 0];
+						_roads set [0,-1];
+						_roads = _roads - [-1];
 					}else{
 						if (draga_loglevel > 0) then {
-							diag_log format ["spawn_group.sqf no roads %1 units %2", _roads, units _grp];
+							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this select 2];
 						};
 					};
 				};
