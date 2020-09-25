@@ -81,7 +81,7 @@ if(_run)then{
 	};
 
 	_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
-	if(count (_pos_resp select 0) == 0)exitWith{grpNull};
+	if(count (_pos_resp select 0) == 0 && count (_pos_resp select 1) == 0)exitWith{grpNull};
 
 	private["_groups"];
 	_groups = ([_pos_resp, _side, _grp1 select 0] call m_fnc_spawnGroup);
