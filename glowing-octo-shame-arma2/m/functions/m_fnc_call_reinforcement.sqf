@@ -72,6 +72,13 @@ _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 private["_run"];
 _run = true;
 
+if (_pos distance [0,0] < 1) then {
+	if (draga_loglevel > 0) then {
+		diag_log format ["m_fnc_call_reinforcement.sqf _pos = [0,0] _players = %1 ", _players];
+	};
+	_run = false;
+};
+
 if(_run)then{
 	_SafePosParams = ([_types] call m_fnc_SafePosParams);
 
