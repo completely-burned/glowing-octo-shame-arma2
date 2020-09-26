@@ -45,6 +45,18 @@ while{true}do{
 		_player = player;
 		_pos = getPos _player;
 
+		private["_run"];
+		_run = true;
+
+		if (_pos distance [0,0] < 1) then {
+			if (draga_loglevel > 0) then {
+				diag_log format ["while_patrols.sqf _pos = [0,0] _player = %1 ", _player];
+			};
+			_run = false;
+		};
+
+		if(_run)then{
+
 		switch (_side) do {
 			case (east):
 			{
@@ -88,6 +100,7 @@ while{true}do{
 
 		if (draga_loglevel > 5) then {
 			diag_log format ["while_patrols.sqf created %1 ", _groups];
+		};
 		};
 
 	};
