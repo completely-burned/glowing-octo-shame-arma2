@@ -1,7 +1,7 @@
 private["_count_groups","_grp","_leader"];
 
 if (draga_loglevel > 0) then {
-	diag_log format ["while_patrols.sqf started %1", _time ];
+	diag_log format ["while_patrols.sqf started %1", time ];
 };
 
 waitUntil {!isNil "AllGroupsWest"};
