@@ -40,6 +40,7 @@ SetGroupIconsVisible [true,false];
 [] execVM ("m\client\while_aa_hidden.sqf");
 [] execVM ("m\client\act_smoke.sqf");
 [] execVM ("m\client\while_respawnRandom.sqf");
+[] execVM ("m\client\while_patrols.sqf");
 
 
 

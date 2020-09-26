@@ -80,6 +80,7 @@ while{true}do{
 			if (_enemyGroups + _difference >= _friendlyGroups * _enemyCoefficient) then {
 				[m_friendlySide call BIS_fnc_selectRandom] call m_fnc_call_reinforcement;
 			};
+			/*
 			if ((_enemyPatrols + _friendlyPatrols) < ((_enemyGroups + _friendlyGroups) / 4)) then {
 				if (_friendlyPatrols * _enemyCoefficient + _difference >= _enemyPatrols) then {
 					[_enemySide call BIS_fnc_selectRandom,"patrol"] call m_fnc_call_reinforcement;
@@ -88,6 +89,7 @@ while{true}do{
 					[m_friendlySide call BIS_fnc_selectRandom,"patrol"] call m_fnc_call_reinforcement;
 				};
 			};
+			*/
 			if (debug) then {
 				// player globalChat format ["UpdateReinforcement.sqf: %1", _all_groups];
 			};
