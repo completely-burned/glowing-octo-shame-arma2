@@ -30,6 +30,7 @@
 		debug=false;
 	};
 	draga_loglevel_perf = draga_loglevel;
+	publicVariable "draga_loglevel";
 
 	[] Call Compile preprocessFileLineNumbers "m\init_common.sqf";
 	if (isServer) then {
