@@ -1,5 +1,9 @@
 private["_count_groups","_grp","_leader"];
 
+if (draga_loglevel > 0) then {
+	diag_log format ["while_patrols.sqf started %1", _time ];
+};
+
 waitUntil {!isNil "AllGroupsWest"};
 waitUntil {!isNil "AllGroupsEast"};
 waitUntil {!isNil "AllGroupsGuer"};
@@ -25,6 +29,10 @@ while{true}do{
 			};
 		};
 	} forEach allGroups;
+
+	if (draga_loglevel > 20) then {
+		diag_log format ["while_patrols.sqf _count_groups %1", _count_groups ];
+	};
 
 	if(_count_groups < 5)then{
 
@@ -65,6 +73,10 @@ while{true}do{
 		_SafePosParams set [0,((_SafePosParams select 0) * 2)];
 		_SafePosParams set [1,((_SafePosParams select 1) * 2)];
 
+		if (draga_loglevel > 5) then {
+			diag_log format ["while_patrols.sqf creating %1 ", [_pos]+_SafePosParams+[_side]];
+		};
+
 		_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
 		if(count (_pos_resp select 0) == 0)exitWith{};
 
@@ -73,6 +85,10 @@ while{true}do{
 
 
 		{_x setVariable ["grp_created",true,true]} forEach _groups;
+
+		if (draga_loglevel > 5) then {
+			diag_log format ["while_patrols.sqf created %1 ", _groups];
+		};
 
 	};
 
