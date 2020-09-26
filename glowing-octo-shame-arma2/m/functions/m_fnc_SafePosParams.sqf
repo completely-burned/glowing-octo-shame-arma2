@@ -7,7 +7,13 @@ _waterMode = 0;
 _maxGradient = -1;
 _shoreMode = 0;
 _defaultPos=[];
-_blacklist=PosBlacklist;
+
+if (isNil {PosBlacklist}) then {
+	_blacklist=[];
+} else {
+	_blacklist = PosBlacklist;
+};
+
 _maxDist = 2000;
 _safePositionRadius =  (getNumber(configfile>> "cfgWorlds">> worldname >> "safePositionRadius"));
 // if (_safePositionRadius < 4000) then {_safePositionRadius = 4000};
