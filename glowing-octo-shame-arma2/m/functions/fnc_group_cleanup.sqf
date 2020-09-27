@@ -3,6 +3,7 @@ private["_leader"];
 private["_leaderPos"];
 private["_currentWP","_wp","_typeWP"];
 private ["_units","_vehicles","_types","_cargo","_assignedVehicles"];
+private ["_Helicopter"];
 
 private["_grp_wp_completed"];
 
@@ -69,6 +70,7 @@ if ( isNil "_time" ) then {
 			};
 		};
 
+		_Helicopter = ([_vehicles, ["Helicopter"]] call m_fnc_CheckIsKindOfArray);
 
 		if (true) then {
 			private["_grp","_leader"];
