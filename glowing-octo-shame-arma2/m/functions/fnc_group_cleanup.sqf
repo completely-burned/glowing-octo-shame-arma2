@@ -2,7 +2,7 @@ private["_grp"];
 private["_leader"];
 private["_leaderPos"];
 private["_currentWP","_wp","_typeWP","_waypoints"];
-private ["_units"];
+private ["_units","_vehicles","_types","_cargo","_assignedVehicles"];
 private ["_Helicopter"];
 
 _grp=_this;
@@ -22,6 +22,26 @@ if ( isNil "_time" ) then {
 	scopeName "main";
 
 	_units = units _grp;
+	_vehicles = [];
+	_types = [];
+	_cargo = [];
+	_assignedVehicles = [];
+	{
+		_types set [count _types, typeOf _x];
+		private ["_veh","_assignedVehicle"];
+		_veh = vehicle _x;
+		_assignedVehicle = assignedVehicle _x;
+		if (!isNull _assignedVehicle) then {
+			_assignedVehicles set [count _assignedVehicles, _veh];
+		};
+		if(_veh != _x)then{
+			if!(_veh in _vehicles)then{
+				_vehicles set [count _vehicles, _veh];
+				_types set [count _types, typeOf _veh];
+				_cargo = _cargo + assignedCargo _veh;
+			};
+		};
+	}forEach _units;
 
 	if (draga_loglevel > 0) then {
 		diag_log format ["fnc_group_cleanup.sqf units %1", _units];

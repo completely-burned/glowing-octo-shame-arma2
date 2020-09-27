@@ -431,13 +431,6 @@ if({alive _x} count _units > 0)then{
 				}else{
 					_grp setVariable ["_timeNoWP", nil];
 				};
-			}else{
-				if (draga_loglevel > 0) then {
-					diag_log format ["fnc_group_wp.sqf %1  группа не готова", _grp ];
-				};
-				if ( _time + 30 < time )then {
-					_grp setVariable ["grp_created",true];
-				};
 			};
 
 			private["_NoCreateWP"];
