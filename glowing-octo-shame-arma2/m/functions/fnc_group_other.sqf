@@ -120,6 +120,172 @@ if({alive _x} count units _grp > 0)then{
 	};
 
 
+	private["_getOut","_allowGetin","_assignedVehicle"];
+	_getOut=[];
+	if (!isPlayer _leader) then {
+		{
+			_assignedVehicle = assignedVehicle _x;
+			_allowGetin=true;
+			if(!isNull _x)then{
+				if(!isNull _assignedVehicle)then{
+					private ["_VehicleRole"];
+					_VehicleRole = assignedVehicleRole _x;
+
+					// в бою
+					if(_allowGetin)then{
+						if((behaviour _x == "COMBAT" ) or ( currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]))then{
+							if(count _VehicleRole > 0)then{
+								if(_VehicleRole select 0 == "Cargo")then{
+									_allowGetin=false;
+								};
+								if(_VehicleRole select 0 == "Turret")then{
+									if(_assignedVehicle isKindOf "BMP3")then{
+										if(([_VehicleRole, [1, 0]] call BIS_fnc_returnNestedElement) in [1,2])then{
+											_allowGetin=false;
+										};
+									};
+								};
+							};
+						};
+					};
+
+					// на месте
+					if(_allowGetin && true)then{
+						if(((civilianBasePos distance vehicle _x)<(1000 max sizeLocation))or ((civilianBasePos distance _assignedVehicle)<(1000 max sizeLocation)))then{
+							private ["_enableAttack"];
+							_enableAttack = true;
+
+							// транспорт без вооружения
+							if(_enableAttack)then{
+								if(getNumber(LIB_cfgWea >> currentWeapon _assignedVehicle >> "enableAttack")==0)then{
+									_enableAttack = false;
+								};
+							};
+
+							// транспорт без вооружения 2
+							if!(_enableAttack)then{
+								if([[_assignedVehicle], ["M1128_MGS_EP1", "Pandur2_ACR"]] call m_fnc_CheckIsKindOfArray)then{
+									_enableAttack = true;
+								};
+							};
+
+							// не авиация
+							if!(_enableAttack)then{
+								if!(_assignedVehicle isKindOf "Air")then{
+									_allowGetin=false;
+								};
+							};
+
+							// техника с вооружением
+							if(_enableAttack)then{
+								if(count _VehicleRole > 0)then{
+									if(_VehicleRole select 0 == "Cargo")then{
+										_allowGetin=false;
+									};
+									if(_VehicleRole select 0 == "Turret")then{
+										if(_assignedVehicle isKindOf "BMP3")then{
+											if(([_VehicleRole, [1, 0]] call BIS_fnc_returnNestedElement) in [1,2])then{
+												_allowGetin=false;
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+
+					// расстояние до транспорта
+					if(_allowGetin)then{
+						if(_assignedVehicle != vehicle _x)then{
+							if((_assignedVehicle distance vehicle _x)>1000)then{
+								_allowGetin=false;
+							};
+						};
+					};
+
+					// без стрелка
+					if(_allowGetin)then{
+						if(_assignedVehicle isKindOf "LandVehicle")then{
+							if!([_assignedVehicle, false] call draga_fnc_CheckTurretAlive)then{
+								_allowGetin=false;
+							};
+						}
+					};
+
+					// авиация
+					if!(_allowGetin)then{
+						if(_assignedVehicle isKindOf "Air")then{
+							_allowGetin=true;
+						};
+					};
+					if(_allowGetin)then{
+						if(_assignedVehicle isKindOf "Helicopter")then{
+							if(_x == vehicle _x)then{
+								if((_assignedVehicle distance vehicle _x)>50)then{
+									_allowGetin=false;
+								};
+							};
+						};
+					};
+					// самолеты
+					if(toLower getText(configFile >> "CfgVehicles" >> typeOf _assignedVehicle >> "simulation") == "airplane")then{
+						// юнит вне самолета
+						if(_x == vehicle _x)then{
+							_allowGetin=false;
+						};
+						// юнит в самолете
+						if(_assignedVehicle == vehicle _x)then{
+							_allowGetin=true;
+						};
+					};
+
+					// корабль
+					if!(_allowGetin)then{
+						if(_assignedVehicle isKindOf "Ship")then{
+							_allowGetin=true;
+						};
+					};
+
+					// грузовик поддержки
+						if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
+							if(currentCommand _leader in ["","STOP","WAIT"])then{ // ,"SUPPORT","REPAIR","REFUEL","REARM"
+								_allowGetin=false;
+							}else{
+								_allowGetin=true;
+							};
+						};
+
+					// неподвижное
+					if!(_allowGetin)then{
+						if(_assignedVehicle isKindOf "StaticWeapon")then{
+							_allowGetin=true;
+						};
+					};
+
+					// игрок
+					if (isPlayer _x) then {
+						if (vehicle _x == _x) then {
+							// _allowGetin=false;
+						}else{
+							_allowGetin=true;
+						};
+					};
+
+				}; // isNull _assignedVehicle
+
+				if!(_allowGetin)then{
+					_getOut set [count _getOut, _x];
+				};
+
+			}; // isNull _x
+
+		} forEach _units;
+
+		_getOut allowGetin false;
+
+		_units - _getOut allowGetin true;
+
+	}; // count _vehicles
 
 	// HE Tank
 	if (_Tank or _Wheeled_APC) then {
