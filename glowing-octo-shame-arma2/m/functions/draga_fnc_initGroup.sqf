@@ -9,6 +9,7 @@ private ["_Plane"];
 private ["_Ship"];
 private ["_StaticWeapon"];
 private ["_Air","_uav","_Car","_Tank"];
+private ["_Tracked_APC","_Wheeled_APC"];
 private["_AA"];
 private["_support"];
 // private ["_Stealth"];
@@ -91,6 +92,9 @@ if ( isNil "_time" ) then {
 		_Tank = ([_vehicles, ["Tank"]] call m_fnc_CheckIsKindOfArray);
 
 		_Car = ([_vehicles, ["Car"]] call m_fnc_CheckIsKindOfArray);
+
+		_Tracked_APC = ([_vehicles, ["Tracked_APC"]] call m_fnc_CheckIsKindOfArray);
+		_Wheeled_APC = ([_vehicles, ["Wheeled_APC"]] call m_fnc_CheckIsKindOfArray);
 
 		_uav = ([_types, ["UAV"]] call m_fnc_CheckIsKindOfArray);
 		if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
