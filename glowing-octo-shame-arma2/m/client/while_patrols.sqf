@@ -100,7 +100,10 @@ while{true}do{
 			_groups = ([_pos_resp, _side, _grp1 select 0] call m_fnc_spawnGroup);
 
 
-			{_x setVariable ["grp_created",true,true]} forEach _groups;
+			{
+				_x setVariable ["patrol", true, true];
+				_x setVariable ["grp_created", true, true];
+			} forEach _groups;
 
 			if (draga_loglevel > 5) then {
 				diag_log format ["while_patrols.sqf created %1 ", _groups];
