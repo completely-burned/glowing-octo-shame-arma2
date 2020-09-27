@@ -8,7 +8,6 @@ _path = "m\server\";
 [] execVM (_path + "server_update_other.sqf");
 [] execVM (_path + "server_update_location.sqf");
 [] execVM (_path + "server_update_silvieManager.sqf");
-[] execVM (_path + "server_update_groups.sqf");
 [] execVM (_path + "server_update_wp.sqf");
 // [] execVM (_path + "transport.sqf");
 // [] execVM (_path + "server_update_StaticWeapon.sqf");
@@ -20,6 +19,10 @@ _path = "m\server\";
 [] execVM (_path + "while_group_system_units.sqf");
 [] execVM (_path + "while_mhq.sqf");
 [] execVM (_path + "while_gc_groups.sqf");
+
+[] execVM (_path + "server_update_groups_cleanup.sqf");
+[] execVM (_path + "server_update_groups_other.sqf");
+[] execVM (_path + "server_update_groups_wp.sqf");
 
 private ["_time2","_delay","_time2_select"];
 _time2 = [time,time,time,time,time,time,time,time,time,time,time,time,time,time];
