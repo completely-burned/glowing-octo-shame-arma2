@@ -8,8 +8,12 @@ if (isServer) then {
 		m_fnc_playerRespawnSP = compile (preprocessFileLineNumbers (_path + "m_fnc_playerRespawnSP.sqf"));
 		m_fnc_playerRespawn = compile (preprocessFileLineNumbers (_path + "m_fnc_playerRespawn.sqf"));
 	};
-	draga_fnc_initGroup = compile (preprocessFileLineNumbers (_path + "draga_fnc_initGroup.sqf"));
 };
+
+draga_fnc_initGroup = compile (preprocessFileLineNumbers (_path + "draga_fnc_initGroup.sqf"));
+fnc_group_other = compile (preprocessFileLineNumbers (_path + "fnc_group_other.sqf"));
+fnc_group_wp = compile (preprocessFileLineNumbers (_path + "fnc_group_wp.sqf"));
+
 if (!IsDedicated) then {
 	Client_BuyUnit = compile (preprocessFileLineNumbers (_path + "Client_BuyUnit.sqf"));
 	m_fnc_respawnWeaponsAdd = compile (preprocessFileLineNumbers (_path + "m_respawnWeaponsAdd.sqf"));
