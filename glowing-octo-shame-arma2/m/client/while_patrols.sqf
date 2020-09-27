@@ -12,6 +12,8 @@ waitUntil {!isNil "GroupsStarted"};
 waitUntil {!isNil "bis_fnc_init"};
 waitUntil {!isNil "m_fnc_init"};
 
+waitUntil {!isNil "playerReady"};
+
 while{true}do{
 
 	sleep 2;

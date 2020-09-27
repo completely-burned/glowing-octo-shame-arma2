@@ -16,3 +16,5 @@ player setPos getMarkerPos (draga_respawnMarkers call BIS_fnc_selectRandom);
 waitUntil {!isNil "respawnDone" or time > 30};
 
 endLoadingScreen;
+
+playerReady = true;
