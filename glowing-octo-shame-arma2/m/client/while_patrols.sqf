@@ -14,6 +14,8 @@ waitUntil {!isNil "m_fnc_init"};
 
 while{true}do{
 
+	sleep 2;
+
 	_count_groups = 0;
 	{
 		_grp = _x;
