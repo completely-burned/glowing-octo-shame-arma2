@@ -1113,7 +1113,8 @@ if ( isNil "_time" ) then {
 				_SpeedMode = "FULL";
 			};
 
-			if(_Tank)then{
+			// танки
+			if(_Tank && !_Tracked_APC)then{
 				_CombatMode = "RED";
 			};
 
