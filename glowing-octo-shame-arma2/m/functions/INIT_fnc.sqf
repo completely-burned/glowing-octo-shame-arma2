@@ -10,7 +10,7 @@ if (isServer) then {
 	};
 };
 
-draga_fnc_initGroup = compile (preprocessFileLineNumbers (_path + "draga_fnc_initGroup.sqf"));
+fnc_group_cleanup = compile (preprocessFileLineNumbers (_path + "fnc_group_cleanup.sqf"));
 fnc_group_other = compile (preprocessFileLineNumbers (_path + "fnc_group_other.sqf"));
 fnc_group_wp = compile (preprocessFileLineNumbers (_path + "fnc_group_wp.sqf"));
 
