@@ -948,7 +948,7 @@ if ( isNil "_time" ) then {
 		}; // count _vehicles
 
 		// HE Tank
-		if (_Tank) then {
+		if (_Tank or _Wheeled_APC) then {
 			private["_veh","_type","_entry","_turrets","_turret","_mags_he","_mag","_ammo","_indirectHitRange","_weapon","_mag_he","_mags","_he"];
 			{
 
