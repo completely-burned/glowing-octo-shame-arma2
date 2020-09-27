@@ -1,11 +1,9 @@
 private["_grp"];
 private["_leader"];
 private["_leaderPos"];
-private["_currentWP","_wp","_typeWP"];
-private ["_units","_vehicles","_types","_cargo","_assignedVehicles"];
+private["_currentWP","_wp","_typeWP","_waypoints"];
+private ["_units"];
 private ["_Helicopter"];
-
-private["_grp_wp_completed"];
 
 _grp=_this;
 
@@ -23,9 +21,6 @@ if ( isNil "_time" ) then {
 
 	scopeName "main";
 
-
-	_grp_wp_completed = _grp getVariable "_grp_wp_completed";
-
 	_units = units _grp;
 
 	if (draga_loglevel > 0) then {
@@ -41,28 +36,9 @@ if ( isNil "_time" ) then {
 		_currentWP = currentWaypoint _grp;
 		_wp = [_grp,_currentWP];
 		_typeWP = waypointType _wp;
+		_waypoints = waypoints _grp;
 
-		_vehicles = [];
-		_types = [];
-		_cargo = [];
-		_assignedVehicles = [];
-		{
-			_types set [count _types, typeOf _x];
-			private ["_veh","_assignedVehicle"];
-			_veh = vehicle _x;
-			_assignedVehicle = assignedVehicle _x;
-			if (!isNull _assignedVehicle) then {
-				_assignedVehicles set [count _assignedVehicles, _veh];
-			};
-			if(_veh != _x)then{
-				if!(_veh in _vehicles)then{
-					_vehicles set [count _vehicles, _veh];
-					_types set [count _types, typeOf _veh];
-					_cargo = _cargo + assignedCargo _veh;
-				};
-			};
-		}forEach _units;
-
+		// транспортный вертолет игнор
 		if( ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))then{
 			breakTo "main";
 			if (draga_loglevel > 0) then {
@@ -73,27 +49,20 @@ if ( isNil "_time" ) then {
 		_Helicopter = ([_vehicles, ["Helicopter"]] call m_fnc_CheckIsKindOfArray);
 
 		if (true) then {
-			private["_grp","_leader"];
-			_grp = _this;
-			_leader = leader _grp;
-
-			private["_currentWP","_waypoints","_createWP","_leaderPos"];
-			_currentWP = currentWaypoint _grp;
-			_waypoints = waypoints _grp;
-			_createWP = false;
-			_leaderPos = getPos vehicle _leader;
-
 
 			if(isPlayer _leader)then{
 			}else{
 
+				// если группа создана
 				if(!isNil {_grp getVariable "grp_created"})then{
 					if (draga_loglevel > 0) then {
 						diag_log format ["fnc_group_cleanup.sqf %1  группа готова", _grp ];
 					};
-					// _grp call draga_fnc_arty;
+
+					// таймеры _cleanup [позицияЛидера, таймер1, таймер2, позицияМаршрута]
 					private["_cleanup"];
 					_cleanup = _grp getVariable "_cleanup";
+					// инициализация
 					if(isNil "_cleanup")then{
 						if(_Helicopter)then{
 							_cleanup = [getPos vehicle _leader,time+10,time+120,waypointPosition [_grp,_currentWP]]; // инит
@@ -104,14 +73,14 @@ if ( isNil "_time" ) then {
 						if (draga_loglevel > 0) then {
 							diag_log format ["fnc_group_cleanup.sqf %1 _cleanup init %2", _grp, _cleanup ];
 						};
-					}else{
+					};
+
+					if(!isNil "_cleanup")then{
 						private["_oldPos","_oldTime","_oldTime2","_oldPosWP"];
 						_oldPos = _cleanup select 0;
 						_oldTime = _cleanup select 1;
 						_oldTime2 = _cleanup select 2;
 						_oldPosWP = _cleanup select 3;
-						private["_pos"];
-						_pos = getPos vehicle _leader;
 						if([waypointPosition [_grp,_currentWP], _oldPosWP] call BIS_fnc_distance2D < 5 )then{ // если маршрут не менялся
 							if (draga_loglevel > 0) then {
 								diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся", _grp ];
@@ -122,7 +91,7 @@ if ( isNil "_time" ) then {
 								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 								_grp setVariable ["_cleanup",_cleanup];
 								if (draga_loglevel > 0) then {
-									diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, поддержка, местоположение перезаписано, таймер 30 120", _grp ];
+									diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, поддержка, местоположение перезаписано, таймер +30 +120", _grp ];
 								};
 							};
 							if(currentCommand _leader == "FIRE AT POSITION")then{ // артиллерия
@@ -131,7 +100,7 @@ if ( isNil "_time" ) then {
 								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 								_grp setVariable ["_cleanup",_cleanup];
 								if (draga_loglevel > 0) then {
-									diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, артиллерия, местоположение перезаписано, таймер 30 120", _grp ];
+									diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, артиллерия, местоположение перезаписано, таймер +30 +120", _grp ];
 								};
 							};
 							if({currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} count _units > 0 )then{ // ATTACK
@@ -140,7 +109,7 @@ if ( isNil "_time" ) then {
 								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 								_grp setVariable ["_cleanup",_cleanup];
 								if (draga_loglevel > 0) then {
-									diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, атакует, местоположение перезаписано, таймер 30 60", _grp ];
+									diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, атакует, местоположение перезаписано, таймер +30 +60", _grp ];
 								};
 							};
 							if({currentCommand _x in ["GET OUT","GET IN"]} count _cargo+_units > 0 )then{ // GET OUT
@@ -149,7 +118,7 @@ if ( isNil "_time" ) then {
 								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 								_grp setVariable ["_cleanup",_cleanup];
 								if (draga_loglevel > 0) then {
-									diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, входвыход с транспортом, местоположение перезаписано, таймер 20 40", _grp ];
+									diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, входвыход с транспортом, местоположение перезаписано, таймер +20 +40", _grp ];
 								};
 							};
 
@@ -157,7 +126,7 @@ if ( isNil "_time" ) then {
 								if (draga_loglevel > 0) then {
 									diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, 1 таймер сработал", _grp ];
 								};
-								if(_oldPos distance _pos >= 5)then{ // сдвинулись
+								if(_oldPos distance _leaderPos >= 5)then{ // сдвинулись
 									if (draga_loglevel > 0) then {
 										diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, группа сдвинулась когда 1 таймер работал", _grp ];
 									};
@@ -167,7 +136,7 @@ if ( isNil "_time" ) then {
 										_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
 										_grp setVariable ["_cleanup",_cleanup];
 										if (draga_loglevel > 0) then {
-											diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, группа на точке, местоположение перезаписано, таймер 120 240", _grp ];
+											diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, группа на точке, сдвинулись, местоположение перезаписано, таймер +120 +240", _grp ];
 										};
 									}else{
 										_oldTime = _oldTime max time+30;
@@ -175,7 +144,7 @@ if ( isNil "_time" ) then {
 										_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];// 1 и 2 таймер обновление
 										_grp setVariable ["_cleanup",_cleanup];
 										if (draga_loglevel > 0) then {
-											diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, группа не на точке, местоположение перезаписано, таймер 30 120", _grp ];
+											diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, группа не на точке, сдвинулись, местоположение перезаписано, таймер +30 +120", _grp ];
 										};
 									};
 								}else{
@@ -190,7 +159,7 @@ if ( isNil "_time" ) then {
 										_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
 										_grp setVariable ["_cleanup",_cleanup];
 										if (draga_loglevel > 0) then {
-											diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, _Helicopter, группа не сдвинулась когда 1 таймер работал, местоположение перезаписано, таймер 10 --", _grp ];
+											diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, _Helicopter, группа не сдвинулась когда 1 таймер работал, местоположение перезаписано, таймер +10 --", _grp ];
 										};
 									}else{
 										if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{ // на точке
@@ -199,7 +168,7 @@ if ( isNil "_time" ) then {
 											_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; // 1 таймер обновление
 											_grp setVariable ["_cleanup",_cleanup];
 											if (draga_loglevel > 0) then {
-												diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, группа на точке, группа не сдвинулась когда 1 таймер работал, местоположение перезаписано, таймер 120 240", _grp ];
+												diag_log format ["fnc_group_cleanup.sqf %1  маршрут не менялся, группа на точке, группа не сдвинулась когда 1 таймер работал, местоположение перезаписано, таймер +120 +240", _grp ];
 											};
 										}else{
 											_oldTime = _oldTime max time+30;
@@ -234,6 +203,9 @@ if ( isNil "_time" ) then {
 					};
 					if ( _time + 30 < time )then {
 						_grp setVariable ["grp_created",true];
+						if (draga_loglevel > 0) then {
+							diag_log format ["fnc_group_cleanup.sqf %1  группа 30 сек grp_created true", _grp ];
+						};
 					};
 				};
 
