@@ -9,5 +9,5 @@ while{true}do{
 			_draga_initGroup = _x call fnc_group_other;
 		};
 	}forEach allGroups;
-	sleep 10;
+	sleep 1;
 };
