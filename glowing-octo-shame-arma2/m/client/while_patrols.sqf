@@ -1,4 +1,5 @@
 private["_count_groups","_grp","_leader"];
+private["_friendlyPatrols","_enemyPatrols","_enemySide","_side"];
 
 if (draga_loglevel > 0) then {
 	diag_log format ["while_patrols.sqf started %1", time ];
@@ -14,33 +15,47 @@ waitUntil {!isNil "m_fnc_init"};
 
 waitUntil {!isNil "playerReady"};
 
+waitUntil {!isNil "enemyCoefficient" && !isNil "m_friendlySide"};
+_enemySide = [west,east,resistance] - m_friendlySide;
+
 while{true}do{
 
 	sleep 2;
 
-	_count_groups = 0;
+	_friendlyPatrols = 0; _enemyPatrols = 0;
 	{
-		_grp = _x;
+		_grp=_x;
+		_side = side _grp;
 		_leader = leader _grp;
 
-		if(isServer)then{
-			if(!isNil {_grp getVariable "grp_created"})then{
-				_count_groups = _count_groups +1;
-			};
-		}else{
-			if(local _leader && !isPlayer _leader)then{
-				_count_groups = _count_groups +1;
+		if (local _leader && _side in [west,east,resistance]) then {
+			if({isPlayer _x} count units _grp == 0)then{
+				if({alive _x} count units _grp > 0)then{
+					if (!isNil {_grp GetVariable "patrol"}) then {
+						if (_side in m_friendlySide) then {
+							_friendlyPatrols = _friendlyPatrols + 1;
+						}else{
+							_enemyPatrols = _enemyPatrols + 1;
+						};
+					};
+				};
 			};
 		};
-	} forEach allGroups;
+	}forEach allGroups;
 
 	if (draga_loglevel > 20) then {
-		diag_log format ["while_patrols.sqf _count_groups %1", _count_groups ];
+		diag_log format ["while_patrols.sqf _friendlyPatrols %1 _enemyPatrols %2", _friendlyPatrols, _enemyPatrols ];
 	};
 
-	if(_count_groups < 5)then{
+	if(_friendlyPatrols+_enemyPatrols < 5)then{
 
-		_side = [[east,west,resistance],[0.5,0.5,0.5]] call BIS_fnc_selectRandomWeighted;
+		private ["_difference"];
+		_difference = 0;
+		if (_friendlyPatrols * enemyCoefficient + _difference >= _enemyPatrols) then {
+			_side = _enemySide call BIS_fnc_selectRandom;
+		}else{
+			_side = m_friendlySide call BIS_fnc_selectRandom;
+		};
 
 		private["_pos"];
 		private["_typeList"];
