@@ -29,6 +29,17 @@ if (draga_loglevel > 0) then {
 
 if({alive _x} count _units > 0)then{
 
+	// удалить [0,0]
+	for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+		if([waypointPosition [_grp, _i], [0,0]] call BIS_fnc_distance2D < 1 )then{
+			if (draga_loglevel > 0) then {
+				diag_log format ["fnc_group_wp.sqf %1  позиция wp [0,0] удаление", _grp ];
+			};
+			deleteWaypoint [_grp, _i];
+		};
+	};
+
+
 	_leader = leader _grp;
 
 	_leaderPos = getPos vehicle _leader;
