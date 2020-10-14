@@ -47,7 +47,7 @@ while{true}do{
 		diag_log format ["while_patrols.sqf _friendlyPatrols %1 _enemyPatrols %2", _friendlyPatrols, _enemyPatrols ];
 	};
 
-	if(_friendlyPatrols+_enemyPatrols < 10)then{
+	if(_friendlyPatrols+_enemyPatrols < 5)then{
 
 		private ["_difference"];
 		_difference = 0;
