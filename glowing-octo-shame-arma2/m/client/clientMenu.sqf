@@ -84,7 +84,7 @@ _fnc_create_buy_menu = {
 				};
 				_itemEnable set [count _itemEnable, 1];
 			};
-			[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "","['%1'] call Client_BuyUnit"] call BIS_FNC_createmenu;
+			[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "","['%1'] spawn Client_BuyUnit"] call BIS_FNC_createmenu;
 		};
 		[_usermenu, _usermenu, [_items2, _itemsName2], "%1",""] call BIS_FNC_createmenu;
 	};

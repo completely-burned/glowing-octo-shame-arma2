@@ -101,8 +101,7 @@ if (true) then {
 			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
 			Private["_pos"];
-			_pos = position vehicle player;
-			_pos resize 2;
+			_pos = player;
 			_veh setPos ([_pos,0, 1 max sizeOf _type] call draga_fn_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
@@ -116,8 +115,7 @@ if (true) then {
 			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
 			Private["_pos"];
-			_pos = position vehicle player;
-			_pos resize 2;
+			_pos = player;
 			_veh setPos ([_pos,0, 1 max sizeOf _type] call draga_fn_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
@@ -131,8 +129,7 @@ if (true) then {
 			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
 			Private["_pos"];
-			_pos = position vehicle player;
-			_pos resize 2;
+			_pos = player;
 			_veh setPos ([_pos,0, 1 max sizeOf _type] call draga_fn_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
@@ -143,8 +140,7 @@ if (true) then {
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBAircraftFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], draga_distanceCoinBase]);
 		if ( (count _Objects > 0) or _respawn_pos) then {
 			if(_isUAV)then{
-				_pos = position vehicle player;
-				_pos resize 2;
+				_pos = player;
 				Private["_veh"];
 				_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 				_veh setPos ([_pos,0, 1 max sizeOf _type] call draga_fn_getSafePos);
@@ -156,8 +152,7 @@ if (true) then {
 				_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 				_veh setDir getDir vehicle player;
 				Private["_pos"];
-				_pos = position vehicle player;
-				_pos resize 2;
+				_pos = player;
 				_veh setPos ([_pos,0, 1 max sizeOf _type] call draga_fn_getSafePos);
 				_veh call _fnc_1;
 				hint format["%1: %2", localize "str_support_done", _type];
@@ -200,8 +195,7 @@ if (true) then {
 				_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 				_veh setDir getDir vehicle player;
 				Private["_pos"];
-				_pos = position vehicle player;
-				_pos resize 2;
+				_pos = player;
 				_veh setPos ([_pos,0, 1 max sizeOf _type] call draga_fn_getSafePos);
 				_veh call _fnc_1;
 			};
@@ -214,8 +208,7 @@ if (true) then {
 					_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 					_veh setDir getDir vehicle player;
 					Private["_pos"];
-					_pos = position vehicle player;
-					_pos resize 2;
+					_pos = player;
 					_veh setPos ([_pos,0, 1 max sizeOf _type] call draga_fn_getSafePos);
 					_veh call _fnc_1;
 					hint format["%1: %2", localize "str_support_done", _type];
@@ -252,8 +245,7 @@ if (true) then {
 			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
 			Private["_pos"];
-			_pos = position vehicle player;
-			_pos resize 2;
+			_pos = player;
 			_veh setPos ([_pos,0, 1 max sizeOf _type] call draga_fn_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
