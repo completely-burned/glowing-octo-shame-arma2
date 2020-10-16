@@ -123,7 +123,16 @@ if(!isNil "_leader")then{
 			_WaypointCompletionRadius = 1000;
 		};
 		if(_patrol)then{
-			_pos = _leaderPos;
+
+			_pos = getPos ([] call BIS_fnc_listPlayers call BIS_fnc_selectRandom);
+
+			if([_pos, [0,0]] call BIS_fnc_distance2D < 1 )then{
+				if (draga_loglevel > 0) then {
+					diag_log format ["m_fnc_waypoints.sqf %1  позиция wp [0,0] удаление, _pos = _leaderPos", _grp ];
+				};
+				_pos = _leaderPos;
+			};
+
 			_maxDist = ((_maxDist * 10) max 1500);
 		};
 		if(_arty)then{
