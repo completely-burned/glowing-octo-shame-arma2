@@ -123,7 +123,7 @@ if({alive _x} count _units > 0)then{
 			BreakTo "_true1";
 		};
 
-	}forEach _assignedVehicles;
+	}forEach _vehicles+_assignedVehicles;
 	if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
 		if({count assignedVehicleRole _x > 0} count _units > 0)then{
 			_support = true;

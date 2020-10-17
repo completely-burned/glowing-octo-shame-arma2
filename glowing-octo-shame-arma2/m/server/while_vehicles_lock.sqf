@@ -39,7 +39,11 @@ while{true}do{
 
 			_vehicle = assignedVehicle _x;
 
-			if(!isNull _vehicle && !_leaderPlayer && !_grpPlayer)then{
+			if(isNull _vehicle)then{
+				_vehicle = vehicle _x;
+			};
+
+			if(!isNull _vehicle && !_leaderPlayer && !_grpPlayer && _vehicle != _x)then{
 				_vehicles_lock set [count _vehicles_lock, _vehicle];
 			};
 

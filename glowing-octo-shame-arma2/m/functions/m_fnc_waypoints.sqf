@@ -103,7 +103,7 @@ if(!isNil "_leader")then{
 				BreakTo "_support";
 			};
 
-		}forEach _assignedVehicles;
+		}forEach _vehicles+_assignedVehicles;
 
 		if(_typeWP == "SUPPORT")then{
 			if({count assignedVehicleRole _x > 0} count _units > 0)then{
