@@ -118,10 +118,14 @@ if(!isNil "_leader")then{
 			_WaypointCompletionRadius = 50;
 			// _SpeedMode = "NORMAL";
 		};
+
+		// ПВО
 		if(_AA)then{
 			_maxDist = 200;
 			_WaypointCompletionRadius = 1000;
 		};
+
+		// патруль
 		if(_patrol)then{
 
 			_pos = getPos ([] call BIS_fnc_listPlayers call BIS_fnc_selectRandom);
@@ -135,11 +139,14 @@ if(!isNil "_leader")then{
 
 			_maxDist = ((_maxDist * 10) max 1500);
 		};
+
+		// артиллерия
 		if(_arty)then{
 			_pos = _leaderPos;
 			_maxDist = ((_maxDist * 10) max 1500);
 		};
 
+		// десант
 		if(_landing && _air)then{
 			_pos = civilianBasePos;
 			_maxDist = sizeLocation*2;
@@ -147,6 +154,7 @@ if(!isNil "_leader")then{
 			// _SpeedMode = "NORMAL";
 		};
 
+		// ПВО
 		if(_AA)then{
 
 			if(draga_loglevel>0)then{
@@ -204,6 +212,7 @@ if(!isNil "_leader")then{
 
 		};
 
+		// лодки та точке
 		if(_landing && _Ship)then{
 			_pos = civilianBasePos;
 			_maxDist = sizeLocation*2;
@@ -211,6 +220,7 @@ if(!isNil "_leader")then{
 			// _SpeedMode = "NORMAL";
 		};
 
+		// грузовики поддержки
 		private["_WaypointType"];
 		_WaypointType = "MOVE";
 		if(_support)then{
@@ -219,6 +229,7 @@ if(!isNil "_leader")then{
 			_maxDist = -1;
 		};
 
+		// лодки позиция маршрута
 		if(_Ship && !_Submarine)then{
 
 			if(draga_loglevel>0)then{
@@ -266,9 +277,12 @@ if(!isNil "_leader")then{
 			};
 		};
 
+		// авиация десант тип маршрута
 		if(_landing && _air)then{
 			_WaypointType = "UNLOAD";
 		};
+
+		// лодки тип маршрута
 		if(_landing && _Ship && count _vehicles > 0)then{
 			if((
 				(
@@ -285,6 +299,7 @@ if(!isNil "_leader")then{
 			};
 		};
 
+		// подлодки тип маршрута
 		if(_Submarine)then{
 			_WaypointType = "GETOUT";
 		};
@@ -293,6 +308,7 @@ if(!isNil "_leader")then{
 			// _WaypointCombatMode = "GREEN";
 		};
 
+		// пехота
 		if(count _vehicles == 0)then{
 			if(draga_loglevel>0)then{
 				diag_log format ["fnc_waypoints.sqf Inf %1", _this];
@@ -320,6 +336,7 @@ if(!isNil "_leader")then{
 			diag_log format ["fnc_waypoints.sqf addWaypoint %1", _this];
 		};
 
+		// создать маршрут
 		_wp = _grp addWaypoint [_pos, _maxDist];
 		_wp setWaypointType _WaypointType;
 		//_wp setWaypointSpeed _SpeedMode;
