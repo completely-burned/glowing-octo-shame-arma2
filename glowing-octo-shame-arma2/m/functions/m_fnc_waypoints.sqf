@@ -44,7 +44,15 @@ if(!isNil "_leader")then{
 	_wp = [_grp,currentWaypoint _grp];
 	_typeWP = waypointType _wp;
 
-	if(count _waypoints <= _currentWP)then{
+	if(true)then{
+
+		for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+			if (draga_loglevel > 0) then {
+				diag_log format ["m_fnc_waypoints.sqf %1 удаление wp #%2", _grp, _i ];
+			};
+			deleteWaypoint [_grp, _i];
+		};
+
 		// private["_WaypointCombatMode"];
 		// _WaypointCombatMode = "YELLOW";
 
