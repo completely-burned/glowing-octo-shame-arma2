@@ -34,6 +34,18 @@ if({alive _x} count units _grp > 0)then{
 
 	_leader = leader _grp;
 
+	// нужно проверять локальных
+	if(
+		local _leader or
+		(isServer && (owner _leader > 2)) or
+		(!isServer && (owner _leader == 2))
+	)then{
+		if (draga_loglevel > 0) then {
+			diag_log format ["fnc_group_other.sqf breakTo main, owner: %1  %2  server = %3", _leader, owner _leader, isServer];
+		};
+		breakTo "main";
+	};
+
 	_leaderPos = getPos vehicle _leader;
 
 	_currentWP = currentWaypoint _grp;
