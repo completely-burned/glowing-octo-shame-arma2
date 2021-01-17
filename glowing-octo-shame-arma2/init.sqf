@@ -39,4 +39,8 @@
 	if (!IsDedicated) then {
 		[] Call Compile preprocessFileLineNumbers "m\client\init_client.sqf";
 	};
+
+	if (!hasInterface && !isServer) then {
+		execVM "init_HC.sqf";
+	};
 };
