@@ -1,3 +1,5 @@
+// эта функция отвечает за создание маршрутных точек для ии
+
 private["_grp"];
 private["_leader"];
 private["_leaderPos"];
@@ -19,7 +21,7 @@ _grp=_this;
 
 scopeName "main";
 
-
+// переменная _grp_wp_completed устанавливается при достижении группой маршрутной точки
 _grp_wp_completed = _grp getVariable "_grp_wp_completed";
 
 _units = units _grp;
@@ -27,9 +29,10 @@ if (draga_loglevel > 0) then {
 	diag_log format ["fnc_group_wp.sqf units %1", _units];
 };
 
+// выполнять только есть в группе есть юниты
 if({alive _x} count _units > 0)then{
 
-	// удалить [0,0]
+	// удалить [0,0], маршрутная точка на неправильной позиции
 	for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 		if([waypointPosition [_grp, _i], [0,0]] call BIS_fnc_distance2D < 1 )then{
 			if (draga_loglevel > 0) then {
@@ -69,7 +72,7 @@ if({alive _x} count _units > 0)then{
 		};
 	}forEach _units;
 
-	// транспортный вертолет
+	// транспортный вертолет вызываемый игроками, отличается поведением и генерирует маршруты в другом скрипте, пропускаем его
 	if( ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))then{
 		breakTo "main";
 		if (draga_loglevel > 0) then {
@@ -77,32 +80,22 @@ if({alive _x} count _units > 0)then{
 		};
 	};
 
+	// узнаем тип отряда для типа маршрута
 	if({toLower getText(LIB_cfgVeh >> _x >> "vehicleClass") == "submarine"} count _types > 0)then{_Submarine = true}else{_Submarine = false};
-
 	_Helicopter = ([_vehicles, ["Helicopter"]] call m_fnc_CheckIsKindOfArray);
-
 	_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
-
 	_Ship = ([_vehicles, ["Ship"]] call m_fnc_CheckIsKindOfArray);
-
 	_StaticWeapon = ([_vehicles, ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray);
-
 	_Air = ([_vehicles, ["Air"]] call m_fnc_CheckIsKindOfArray);
-
 	_Tank = ([_vehicles, ["Tank"]] call m_fnc_CheckIsKindOfArray);
-
 	_Car = ([_vehicles, ["Car"]] call m_fnc_CheckIsKindOfArray);
-
 	_Tracked_APC = ([_vehicles, ["Tracked_APC"]] call m_fnc_CheckIsKindOfArray);
 	_Wheeled_APC = ([_vehicles, ["Wheeled_APC"]] call m_fnc_CheckIsKindOfArray);
-
 	_uav = ([_types, ["UAV"]] call m_fnc_CheckIsKindOfArray);
 	if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
 		_uav = true;
 	};
-
 	_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call m_fnc_CheckIsKindOfArray);
-
 	_support = false;
 	ScopeName "_true1";
 	{
@@ -122,7 +115,6 @@ if({alive _x} count _units > 0)then{
 			_support = true;
 			BreakTo "_true1";
 		};
-
 	}forEach _vehicles+_assignedVehicles;
 	if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
 		if({count assignedVehicleRole _x > 0} count _units > 0)then{
@@ -130,7 +122,7 @@ if({alive _x} count _units > 0)then{
 		};
 	};
 
-	// удалить статичным
+	// удалить неподвижным ии маршруты, чтобы не убегали
 	if (_StaticWeapon) then {
 		if ( count waypoints _grp > 0 ) then{
 			[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
@@ -141,12 +133,16 @@ if({alive _x} count _units > 0)then{
 		};
 	};
 
+	// десант вертолетный
 	if (_Helicopter) then {
 		if (_typeWP in ["UNLOAD"]) then {
 			if (draga_loglevel > 0) then {
 				diag_log format ["fnc_group_wp.sqf %1 _Helicopter UNLOAD", _grp ];
 			};
+
+			// начать выгрузку за 1000 метров до цели, мне было лень делать точную и безопасную модель поиска позиции для десанта
 			if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
+				// переменная UNLOAD утанавливается на процесс выгрузки, для предотвращения повторного запуска
 				if (isNil {_grp getVariable "UNLOAD"}) then {
 					_grp setVariable ["UNLOAD",true];
 					_grp spawn {
@@ -163,6 +159,7 @@ if({alive _x} count _units > 0)then{
 							};
 						}forEach _units;
 
+						// отвязываем вертолет от десанта, чтобы он не лез в него обратно
 						{
 							private["_veh"];
 							_veh = _x;
@@ -173,18 +170,26 @@ if({alive _x} count _units > 0)then{
 								};
 							}forEach crew _veh;
 						}forEach _vehicles;
+
+						// удаляем маршруты для генерации новых
 						for "_i" from count waypoints _this - 1 to 0 step -1 do {
 							deleteWaypoint [_this, _i];
 						};
+
 						_this setVariable ["UNLOAD",nil];
 					};
 				};
 			};
 		};
+
+		// тоже самое только для маршрута типа "GETOUT"
 		if (_typeWP in ["GETOUT"]) then {
 			if (draga_loglevel > 0) then {
 				diag_log format ["fnc_group_wp.sqf %1 _Helicopter GETOUT", _grp ];
 			};
+
+			// расстояние другое т.к. этот тип маршрута создает HQ игрок и ин должен быть более точным
+			// начать выгрузку за 400 метров до цели, мне было лень делать точную и безопасную модель поиска позиции для десанта
 			if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 				if (isNil {_grp getVariable "GETOUT"}) then {
 					_grp setVariable ["GETOUT",true];
@@ -202,6 +207,7 @@ if({alive _x} count _units > 0)then{
 							};
 						}forEach _units;
 
+						// отвязываем вертолет от десанта, чтобы он не лез в него обратно
 						{
 							private["_veh"];
 							_veh = _x;
@@ -210,9 +216,12 @@ if({alive _x} count _units > 0)then{
 								unassignVehicle _x;
 							}forEach crew _veh;
 						}forEach _vehicles;
+
+						// удаляем маршруты для генерации новых
 						for "_i" from count waypoints _this - 1 to 0 step -1 do {
 							deleteWaypoint [_this, _i];
 						};
+
 						_this setVariable ["GETOUT",nil];
 					};
 				};
@@ -220,6 +229,7 @@ if({alive _x} count _units > 0)then{
 		};
 	};
 
+	// десант самолета
 	if (_Plane) then {
 		if (_typeWP in ["UNLOAD","GETOUT"]) then {
 			if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
@@ -267,21 +277,23 @@ if({alive _x} count _units > 0)then{
 
 								// выпрыгивание
 								{
+									// выполнять десантирование только из самолета и главное не десантироваться из парашюта, иначе смерть от удара об землю
 									if(vehicle _x isKindOf "Plane" && !(vehicle _x isKindOf "ParachuteBase"))then{
 										_x action ["Eject", vehicle _x];
 										// _x leaveVehicle assignedVehicle _x;
 										sleep 0.5; // нужно учитывать скорость
-										unassignVehicle _x;
+										unassignVehicle _x; // отвязка от самолета, чтобы не лезть в него обратно
 									};
 								} forEach _units;
 							} forEach _grps;
 						};
 
-
+						// удаление маршрута, для новой генерации
 						for "_i" from count waypoints _this - 1 to 0 step -1 do {
 							deleteWaypoint [_this, _i];
 						};
 
+						// самолет должен продолжить полет, отключить автопилот приземления, он включается при достижении маршрутной точки определенного типа
 						{
 							_x land "NONE";
 							_x action ["cancelLand", _x];
@@ -294,8 +306,10 @@ if({alive _x} count _units > 0)then{
 		};
 	};
 
+	// лодки
 	if (_Ship) then {
 	  if (_typeWP in ["UNLOAD"]) then {
+		// не помню почему 400 метров, возможно на такой или меньшей дистанции лодка уже ищет береговую линию для десантирования
 		if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 		  if (isNil {_grp getVariable "UNLOAD"}) then {
 			_grp setVariable ["UNLOAD",true];
@@ -324,6 +338,8 @@ if({alive _x} count _units > 0)then{
 			  {
 				private["_veh"];
 						_veh = _x;
+
+				// выполняется десантирование и пока живы юниты генерация нового маршрута должна быть приостановлена
 				while {({alive _x} count _units > 0) && !isNull _this && ({alive _x} count (crew _veh)-_units > 0)} do {
 					sleep 1;
 				};
@@ -392,6 +408,7 @@ if({alive _x} count _units > 0)then{
 		_createWP = false;
 		_leaderPos = getPos vehicle _leader;
 
+		// если отряд у цели установить переменную _grp_wp_completed если она не установлена
 		if (isNil{_grp_wp_completed}) then {
 			if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < 5 )then{
 				_grp_wp_completed = time;
@@ -401,6 +418,7 @@ if({alive _x} count _units > 0)then{
 			};
 		};
 
+		// если лидер отряда игрок удалить маршруты, чтобы не мешали
 		if(isPlayer _leader)then{
 			if ( count waypoints _grp > 0 ) then{
 				[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
@@ -414,6 +432,7 @@ if({alive _x} count _units > 0)then{
 			};
 		}else{
 
+			// выполнять только если группа готова // эта проверка должна быть в другом месте выше в скрипте?
 			if(!isNil {_grp getVariable "grp_created"})then{
 				if (draga_loglevel > 0) then {
 					diag_log format ["fnc_group_wp.sqf %1  группа готова", _grp ];
