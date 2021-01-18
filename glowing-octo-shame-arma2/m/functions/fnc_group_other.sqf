@@ -36,12 +36,14 @@ if({alive _x} count units _grp > 0)then{
 
 	// нужно проверять локальных
 	if(
-		local _leader or
+		// если не локальные
+		!local _leader or
 		(isServer && (owner _leader > 2)) or
 		(!isServer && (owner _leader == 2))
 	)then{
+		// то пропуск
 		if (draga_loglevel > 0) then {
-			diag_log format ["fnc_group_other.sqf breakTo main, owner: %1  %2  server = %3", _leader, owner _leader, isServer];
+			diag_log format ["fnc_group_other.sqf breakTo main, owner: %1  %2,  isServer = %3, isLocal = %4", _leader, owner _leader, isServer, local _leader];
 		};
 		breakTo "main";
 	};
