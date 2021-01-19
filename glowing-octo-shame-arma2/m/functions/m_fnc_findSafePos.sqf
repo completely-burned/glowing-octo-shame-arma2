@@ -29,7 +29,7 @@ if (_maxDist == -1) then {
 	_maxDist = getNumber(configFile >> "CfgWorlds" >> worldName >> "safePositionRadius");
 };
 
-_preferRoads = _this select 9;
+_preferRoads = (_this select 9 select 0);
 if ((count _this) > 10) then {
 	_side = _this select 10;
 };
@@ -58,7 +58,8 @@ if(_preferRoads)then{
 	//};
 };
 
-_roadSize = 10;
+// минимальное количество дорог 2, для верного направления
+_roadSize = (_this select 9 select 1) max 2;
 
 while {!_allowPos} do {
 

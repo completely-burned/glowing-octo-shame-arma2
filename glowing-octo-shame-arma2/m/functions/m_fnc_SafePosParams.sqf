@@ -1,6 +1,6 @@
 ﻿private["_types"];
 _types = _this select 0;
-private ["_playerDist", "_maxDist", "_objDist", "_waterMode", "_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_safePositionRadius","_preferRoads"];
+private ["_playerDist", "_maxDist", "_objDist", "_waterMode", "_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_safePositionRadius","_preferRoads","_roadSize"];
 _playerDist = safeSpawnDistance select 0;
 _objDist = 2;
 _waterMode = 0;
@@ -73,5 +73,6 @@ if ([_types, ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then{
 	_objDist = 30;
 };
 
+_roadSize = ({_x isKindOf "LandVehicle"} count _types);
 
-[_playerDist,_maxDist, _objDist, _waterMode, _maxGradient, _shoreMode, _blacklist, _defaultPos, _preferRoads];
+[_playerDist,_maxDist, _objDist, _waterMode, _maxGradient, _shoreMode, _blacklist, _defaultPos, [_preferRoads, _roadSize]];
