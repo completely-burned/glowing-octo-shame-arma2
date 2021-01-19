@@ -138,7 +138,7 @@ _getOut=[];
 				};
 			};
 
-			if (isPlayer _x) then {
+			if (_x call fnc_isPlayer) then {
 				if (vehicle _x == _x) then {
 					// _allowGetin=false;
 				}else{
@@ -148,7 +148,7 @@ _getOut=[];
 
 		};
 
-		if (!isPlayer _x) then {
+		if !(_x call fnc_isPlayer) then {
 
 			Private["_time","_delete"];
 			_delete = false;

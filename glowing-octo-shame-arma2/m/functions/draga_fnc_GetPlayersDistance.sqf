@@ -8,7 +8,7 @@ if (typeName _pos == typeName objNull) then {
 _player = objNull;
 if (isMultiplayer) then{
 	{
-		if (IsPlayer _x) then {
+		if (_x call fnc_isPlayer) then {
 			_player = vehicle _x;
 			if (isNil {_distance}) then {
 				_distance = _pos distance _player;

@@ -32,7 +32,7 @@ _fnc_isFit={
 	if (
 		isNil{_this getVariable "selectPlayerDisable"} &&
 		alive _this &&
-		!isPlayer _this &&
+		!(_this call fnc_isPlayer) &&
 		!isNull _this &&
 		!(_this call m_fnc_isUAV) &&
 		!isNil{group _this getVariable "grp_created"} &&

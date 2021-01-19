@@ -419,7 +419,7 @@ if({alive _x} count _units > 0)then{
 		};
 
 		// если лидер отряда игрок удалить маршруты, чтобы не мешали
-		if(isPlayer _leader)then{
+		if(_leader call fnc_isPlayer)then{
 			if ( count waypoints _grp > 0 ) then{
 				[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
 				sleep 1;

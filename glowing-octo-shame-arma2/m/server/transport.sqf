@@ -39,7 +39,7 @@ while{true}do{
 					// diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, может двигаться", _x, _transportPlayer];
 					if(alive effectiveCommander _x)then{
 						// diag_log format ["transport.sqf транспорт %1 закреплен за игроком %2, жив effectiveCommander", _x, _transportPlayer];
-						if(!isPlayer effectiveCommander _x)then{
+						if!(effectiveCommander _x call fnc_isPlayer)then{
 							// diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, жив effectiveCommander", _x, _transportPlayer];
 							if(_transportPlayer == _player && getDammage _x < 0.75)then{
 								_veh = _x;
@@ -62,11 +62,11 @@ while{true}do{
 					if(_x_veh isKindOf "Helicopter" or _x_veh isKindOf "MV22")then{
 						if(alive _Commander)then{
 							if({group _x != group _Commander}count crew _x_veh == 0)then{
-								if({isPlayer _x}count units _Commander == 0)then{
+								if({_x call fnc_isPlayer}count units _Commander == 0)then{
 									if(canMove _x_veh)then{
 										if(isNil {_x_veh getVariable "transportPlayer"})then{
 											if(getDammage _x_veh < 0.75)then{
-												if({isPlayer _x}count crew _x_veh == 0)then{
+												if({_x call fnc_isPlayer}count crew _x_veh == 0)then{
 													if(_x_veh emptyPositions "cargo" >= count units _player)then{
 														private["_ok"];
 														if (isNil {_dist}) then {

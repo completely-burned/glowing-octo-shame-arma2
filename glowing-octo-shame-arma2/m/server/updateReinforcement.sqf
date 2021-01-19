@@ -25,7 +25,7 @@ while{true}do{
 		_side = side _grp;
 
 		if (_side in [west,east,resistance]) then {
-			if({isPlayer _x} count units _grp == 0)then{
+			if({_x call fnc_isPlayer} count units _grp == 0)then{
 				if({alive _x} count units _grp > 0)then{
 					if (!isNil {_grp GetVariable "patrol"}) then {
 						if (_side in m_friendlySide) then {
@@ -49,7 +49,7 @@ while{true}do{
 
 	if (isMultiplayer)then{
 		{
-			if(isPlayer _x)then{
+			if(_x call fnc_isPlayer)then{
 				_friendlyGroups = _friendlyGroups + _playerCoefficient;
 			};
 		}forEach ([] call BIS_fnc_listPlayers);

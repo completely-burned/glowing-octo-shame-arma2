@@ -4,8 +4,8 @@ while { true } do {
 	{
 		_veh_x = _x;
 
-		if (!isPlayer _veh_x) then {
-			if ({isPlayer _x} count units _veh_x == 0) then {
+		if !(_veh_x call fnc_isPlayer) then {
+			if ({_x call fnc_isPlayer} count units _veh_x == 0) then {
 
 				scopeName "forEach1";
 

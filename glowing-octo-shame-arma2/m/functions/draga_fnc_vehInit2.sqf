@@ -44,7 +44,7 @@ if (isNil "_draga_init") then {
 				private["_unit"];
 				_unit = _this select 2;
 				[_unit] allowGetin false;
-				if(isPlayer _unit)then{
+				if(_unit call fnc_isPlayer)then{
 					unassignVehicle _unit;
 				};
 				if (isServer) then {

@@ -42,7 +42,7 @@ while {true} do {
 			_x_veh setVariable ["draga_timeDeleteVehicle", _time];
 		};
 
-		if (!isPlayer _x_veh) then {
+		if !(_x_veh call fnc_isPlayer) then {
 
 			_assignedVehicle = assignedVehicle _x_veh;
 
@@ -85,7 +85,7 @@ while {true} do {
 			};
 
 			// отряд игрока !не удалять!
-			if ({isPlayer _x} count units _x_veh > 0) then {
+			if ({_x call fnc_isPlayer} count units _x_veh > 0) then {
 				_timeNew = _time max (time + _timerPlayer);
 			};
 
@@ -170,7 +170,7 @@ while {true} do {
 				diag_log format ["while_gc2.sqf deleteA %1", _x_veh];
 			};
 
-			if (!isPlayer _x_veh) then {
+			if !(_x_veh call fnc_isPlayer) then {
 				_x_veh setDamage 1;
 				deleteVehicle _x_veh;
 			};
@@ -201,7 +201,7 @@ while {true} do {
 				diag_log format ["while_gc2.sqf delete %1", _x_veh];
 			};
 
-			if (!isPlayer _x_veh) then {
+			if !(_x_veh call fnc_isPlayer) then {
 				_x_veh setDamage 1;
 				moveOut _x_veh;
 				deleteVehicle _x_veh;

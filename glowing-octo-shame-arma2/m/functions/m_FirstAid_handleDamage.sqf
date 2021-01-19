@@ -24,7 +24,7 @@ if(_unit == _source)then{
 
 if(_m_true)then{
 	if(_selection == "" && _damage >= 0.8 && alive _unit)then{ // если повреждения >= 0.8
-		if(isPlayer _unit)then{
+		if(_unit call fnc_isPlayer)then{
 		_unit setvariable ["BIS_lifeState","UNCONSCIOUS",true];
 		_unit setvariable ["BIS_IS_inAgony",true,true];
 		_m_true = false;

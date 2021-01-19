@@ -21,7 +21,7 @@ _radius = 0;
 while{isNil {_currentPosition}}do{
 	if (TypeName _position != "ARRAY") then {
 		private["_pos"];
-		if (isPlayer _position) then {
+		if (_position call fnc_isPlayer) then {
 			_pos = Position vehicle player;
 		}else{
 			_pos = Position _position;

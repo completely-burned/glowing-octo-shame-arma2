@@ -43,7 +43,7 @@ if(_allow)then{
 		private ["_inList"];
 		_inList = [];
 		{
-			if !(isPlayer _x && alive _x) then {
+			if !(_x call fnc_isPlayer && alive _x) then {
 				private ["_veh"];
 				_veh = _x;
 				if ( !(vehicle _veh in _inList) && !(typeOf vehicle _veh == "StaticWeapon") && (damage _veh != 1))then{

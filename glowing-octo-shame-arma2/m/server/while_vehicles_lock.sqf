@@ -16,7 +16,7 @@ while{true}do{
 		_grp = _x;
 		_units = units _grp;
 
-		if(isPlayer leader _grp)then{
+		if(leader _grp call fnc_isPlayer)then{
 			_leaderPlayer = true;
 		}else{
 			_leaderPlayer = false;
@@ -31,7 +31,7 @@ while{true}do{
 			};
 */
 
-			if({isPlayer _x}count _units > 0)then{
+			if({_x call fnc_isPlayer}count _units > 0)then{
 				_grpPlayer = true;
 			}else{
 				_grpPlayer = false;

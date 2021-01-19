@@ -10,7 +10,7 @@ ScopeName "Check";
 	_grp = _x;
 	if ((side _grp) in [west,east,resistance]) then {
 		if (( _side getFriend (side _grp) ) >= 0.6 ) then {
-			if( {isPlayer _x} count units _grp == 0 )then{
+			if( {_x call fnc_isPlayer} count units _grp == 0 )then{
 				if( {currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} count units _grp > 0 )then{ // ATTACK
 					private["_leader"];
 					_leader = (leader _grp);

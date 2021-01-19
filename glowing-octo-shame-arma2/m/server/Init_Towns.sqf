@@ -66,7 +66,7 @@ locationNext={
 		{
 			private["_grp"];
 			_grp = _x;
-			if({isPlayer _x} count units _grp == 0)then{
+			if({_x call fnc_isPlayer} count units _grp == 0)then{
 				{
 					_x setVariable ["time", time];
 					if!(side _x in m_friendlySide)then{

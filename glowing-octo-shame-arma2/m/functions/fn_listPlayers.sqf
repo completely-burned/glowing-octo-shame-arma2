@@ -2,10 +2,10 @@
 if(isMultiplayer)then{
 	_players = [];
 	{
-		if(isPlayer _x)then{
+		if(_x call fnc_isPlayer)then{
 			_players = (_players + [_x]);
 		};
-	} foreach playableunits;
+	} foreach allUnits;
 }else{
 	_players = [player];
 };

@@ -70,7 +70,7 @@ if ( isNil "_time" ) then {
 
 		if (true) then {
 
-			if(isPlayer _leader)then{
+			if(_leader call fnc_isPlayer)then{
 			}else{
 
 				// если группа создана

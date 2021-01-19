@@ -138,7 +138,7 @@ if({alive _x} count units _grp > 0)then{
 
 	private["_getOut","_allowGetin","_assignedVehicle"];
 	_getOut=[];
-	if (!isPlayer _leader) then {
+	if !(_leader call fnc_isPlayer) then {
 		{
 			_assignedVehicle = assignedVehicle _x;
 			_allowGetin=true;
@@ -279,7 +279,7 @@ if({alive _x} count units _grp > 0)then{
 					};
 
 					// игрок
-					if (isPlayer _x) then {
+					if (_x call fnc_isPlayer) then {
 						if (vehicle _x == _x) then {
 							// _allowGetin=false;
 						}else{
@@ -312,7 +312,7 @@ if({alive _x} count units _grp > 0)then{
 
 			_type = typeOf _veh;
 
-			if (_type isKindOf "Tank" && !isPlayer effectiveCommander _veh) then {
+			if (_type isKindOf "Tank" && !(effectiveCommander _veh call fnc_isPlayer)) then {
 
 
 				_entry = configFile >> "CfgVehicles" >> _type;
@@ -403,7 +403,7 @@ if({alive _x} count units _grp > 0)then{
 
 		scopeName "_follow";
 
-		if (!isPlayer _leader) then {
+		if !(_leader call fnc_isPlayer) then {
 
 			// лидер двигаться в сторону атакующей техники отряда
 			{
@@ -447,7 +447,7 @@ if({alive _x} count units _grp > 0)then{
 	};
 
 
-	if (!isPlayer _leader) then {
+	if !(_leader call fnc_isPlayer) then {
 		private["_SpeedMode","_CombatMode","_Behaviour"];
 		_SpeedMode = "NORMAL";
 		_CombatMode = "YELLOW";

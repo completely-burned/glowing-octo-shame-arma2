@@ -13,7 +13,7 @@ _player = objNull;
 if(isMultiplayer)then{
 	ScopeName "CheckPlayer";
 	{
-		if (IsPlayer _x) then {
+		if (_x call fnc_isPlayer) then {
 			_player = vehicle _x;
 			if (_pos distance _player < _distance)then{
 				_visible = true;

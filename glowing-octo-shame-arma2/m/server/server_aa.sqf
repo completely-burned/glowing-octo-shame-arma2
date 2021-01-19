@@ -3,7 +3,7 @@ while {true} do {
 		_veh = _x;
 
 		if (_veh isKindOf "LandVehicle") then {
-			if ( ({isPlayer _x} count units _veh == 0) && canFire _veh) then {
+			if ( ({_x call fnc_isPlayer} count units _veh == 0) && canFire _veh) then {
 
 				_magazines = magazines _veh;
 				_weapons = weapons _veh;
