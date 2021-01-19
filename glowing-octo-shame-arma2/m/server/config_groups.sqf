@@ -1,5 +1,9 @@
 ﻿
 private ["_west","_east","_guer","_woodland","_deserted"];
+private ["_westPatrol","_eastPatrol","_guerPatrol"];
+private ["_westAttack","_eastAttack","_guerAttack"];
+_westPatrol=[];_eastPatrol=[];_guerPatrol=[];
+_westAttack=[];_eastAttack=[];_guerAttack=[];
 _west=[];_east=[];_guer=[];
 
 _woodland=false; _deserted=false;
