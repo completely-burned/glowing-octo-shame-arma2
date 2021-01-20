@@ -44,7 +44,7 @@ if(toLower typeOf _unit in (listCrewLower+listPilotLower) && (!canMove _vehicle 
 		diag_log format ["fn_eh_getout.sqf: crew %1", _this];
 	};
 
-	if({isPlayer _x} count units _grp == 0)then{
+	if({_x call fnc_isPlayer} count units _grp == 0)then{
 		private ["_newGrp"];
 		_newGrp = _grp getVariable "grpCrewNew";
 		if(isNil {_newGrp})then{

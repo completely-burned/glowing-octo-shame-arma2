@@ -130,7 +130,7 @@ if ([[_this], ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray) then {
 							private["_obj"];
 							{
 								_obj = _x;
-							    if (({isPlayer _x} count units group _obj) == 0 && (_side == side _obj)) then {
+							    if (({_x call fnc_isPlayer} count units group _obj) == 0 && (_side == side _obj)) then {
 									// использовать группу другого ии в установках рядом
 									// ! группа может удалится в другом скрипте до подключения к ней ии
 							        _grp = group _obj;

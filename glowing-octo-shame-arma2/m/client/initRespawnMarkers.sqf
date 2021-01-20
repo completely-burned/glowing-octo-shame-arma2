@@ -98,7 +98,7 @@ if(true)then{
 
 		// -- удаление лишних динамичных маркеров
 		for "_i" from 0 to (count _dynamicMarkers - 1) do {
-			if(!alive (_dynamicMarkers select _i select 1) or ((_dynamicMarkers select _i select 1) isKindOf "Man" && !isPlayer (_dynamicMarkers select _i select 1)))then{
+			if(!alive (_dynamicMarkers select _i select 1) or ((_dynamicMarkers select _i select 1) isKindOf "Man" && !((_dynamicMarkers select _i select 1) call fnc_isPlayer)))then{
 				deleteMarkerLocal (_dynamicMarkers select _i select 0);
 				_dynamicMarkers set [_i, -1];
 			};
@@ -131,7 +131,7 @@ if(true)then{
 
 		// -- игроки
 		{
-			if(!(_x in _units) && (side _x == playerSide) && alive _x && isPlayer _x)then{
+			if(!(_x in _units) && (side _x == playerSide) && alive _x && (_x call fnc_isPlayer))then{
 				_units set [count _units, _x];
 				_markers set [count _markers, createMarkerLocal [str _x,position _x]];
 			};
@@ -151,7 +151,7 @@ if(true)then{
 			_marker = (_markers select _i);
 			if (!isNull _unit && alive _unit) then {
 				if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call m_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6))then{
-					if ({isPlayer _x} count crew _unit == 0) then {
+					if ({_x call fnc_isPlayer} count crew _unit == 0) then {
 						_marker setMarkerPosLocal (position _unit);
 						_marker setMarkerTypeLocal "vehicle";
 						_marker setMarkerDirLocal getDir _unit;
