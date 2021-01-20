@@ -14,6 +14,7 @@ fnc_group_cleanup = compile (preprocessFileLineNumbers (_path + "fnc_group_clean
 fnc_group_other = compile (preprocessFileLineNumbers (_path + "fnc_group_other.sqf"));
 fnc_group_wp = compile (preprocessFileLineNumbers (_path + "fnc_group_wp.sqf"));
 fnc_isPlayer = compile (preprocessFileLineNumbers (_path + "fnc_isPlayer.sqf"));
+BIS_fnc_listPlayers = compile (preprocessFileLineNumbers (_path + "fn_listPlayers.sqf"));
 
 if (!IsDedicated) then {
 	Client_BuyUnit = compile (preprocessFileLineNumbers (_path + "Client_BuyUnit.sqf"));
