@@ -7,14 +7,18 @@ while {true} do {
 
 	// лидер группы игрок
 	if (leader player == player) then {
-		// юниты не в локальной группе
+
+		// юнитов группы нужно переместить в локальную лидеру группу для лучшей связи
+		// локальную переменную видит только игрок, нужна для проверки локальности группы
 		if (isNil {group player getVariable "_owner"}) then {
-			// переместить юнитов в локальную игроку группу
+			// создать локальную игроку группу и переместить в нее юнитов
 			_grp = createGroup side player;
 			_grp setVariable ["_owner", owner player, false];
 			units group player joinSilent _grp;
 			_grp setVariable ["grp_created",true,true];
 		};
+
+		// отдать юнитов группы игрока компьютеру игрока
 		{
 			if (owner _x != owner player) then {
 				// юнитов сделать локальными
@@ -24,7 +28,7 @@ while {true} do {
 
 	} else { // лидер группы не игрок
 
-		// группа игрока локальная игроку
+		// группа игрока локальная игроку и поэтому игрок устанавливается лидером
 		_grp_owner = group player getVariable "_owner";
 		if (!isNil {_grp_owner}) then {
 			// игрок не лидер
