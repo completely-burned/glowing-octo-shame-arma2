@@ -104,7 +104,7 @@ class Params {
 	class respawn {
 		title="respawn";
 		values[] = {0,1};
-		texts[] = {"Base","Random unit"};
+		texts[] = {"Base","Random unit (not working)"};
 		default=0;
 	};
 };
