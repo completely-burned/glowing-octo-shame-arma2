@@ -96,7 +96,7 @@ class Params {
 		default=0;
 	};
 	class friendly_vehicles_only {
-		title="$STR_friendly_vehicles_only";
+		title="$STR_friendly_vehicles_only (not working in respawn_random_unit mode)";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
