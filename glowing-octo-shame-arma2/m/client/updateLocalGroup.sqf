@@ -27,7 +27,7 @@ while {true} do {
 	};
 
 	// группа игрока локальная игроку и поэтому игрок устанавливается лидером
-	if (!isNil {_grp_owner} && leader player == player) then {
+	if (!isNil {_grp_owner} && leader player != player) then {
 		// игрок не лидер
 		if (leader player != player) then {
 			// игрока сделать лидером локальной группе
