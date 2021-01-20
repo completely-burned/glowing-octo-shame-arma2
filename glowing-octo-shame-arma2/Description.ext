@@ -105,7 +105,7 @@ class Params {
 		title="respawn";
 		values[] = {0,1};
 		texts[] = {"Base","Random unit"};
-		default=0;
+		default=1;
 	};
 };
 
