@@ -37,7 +37,7 @@ while{true}do{
 				_grpPlayer = false;
 			};
 
-			_vehicle = assignedVehicle _x;
+			_vehicle = assignedVehicle _x; // assignedVehicle works only local, need to fix
 
 			if(isNull _vehicle)then{
 				_vehicle = vehicle _x;
