@@ -60,6 +60,12 @@ if({alive _x} count _units > 0)then{
 		private ["_veh","_assignedVehicle"];
 		_veh = vehicle _x;
 		_assignedVehicle = assignedVehicle _x;
+
+		if (isNull _assignedVehicle) then {
+			_assignedVehicle = _x getVariable "assignedVehicle";
+		};
+		if (isNil {_assignedVehicle}) then {_assignedVehicle = objNull};
+
 		if (!isNull _assignedVehicle) then {
 			_assignedVehicles set [count _assignedVehicles, _veh];
 		};

@@ -24,6 +24,12 @@ if(!isNil "_leader")then{
 		_veh = vehicle _x;
 		private ["_assignedVehicle"];
 		_assignedVehicle = assignedVehicle _x;
+
+		if (isNull _assignedVehicle) then {
+			_assignedVehicle = _x getVariable "assignedVehicle";
+		};
+		if (isNil {_assignedVehicle}) then {_assignedVehicle = objNull};
+
 		if (!isNull _assignedVehicle) then {
 			_assignedVehicles set [count _assignedVehicles, _veh];
 		};

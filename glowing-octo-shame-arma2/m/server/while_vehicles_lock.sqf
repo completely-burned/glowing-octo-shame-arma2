@@ -37,7 +37,13 @@ while{true}do{
 				_grpPlayer = false;
 			};
 
-			_vehicle = assignedVehicle _x; // assignedVehicle works only local, need to fix
+			_vehicle = assignedVehicle _x;
+
+			if (isNull _vehicle) then {
+				_vehicle = _x getVariable "assignedVehicle";
+				if (isNil {_vehicle}) then {_vehicle = objNull};
+			};
+
 
 			if(isNull _vehicle)then{
 				_vehicle = vehicle _x;
