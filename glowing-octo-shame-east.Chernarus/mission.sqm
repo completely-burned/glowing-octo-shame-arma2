@@ -4038,6 +4038,7 @@ class Mission
 					position[]={7656.4355,326.96924,7085.1069};
 					id=388;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Profiteer4";
 					player="PLAY CDG";
 					leader=1;
@@ -4048,6 +4049,7 @@ class Mission
 					position[]={7659.3599,327.71628,7082.6128};
 					id=389;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Worker2";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4057,6 +4059,7 @@ class Mission
 					position[]={7661.3599,328.12161,7082.6128};
 					id=390;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Functionary1";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4066,6 +4069,7 @@ class Mission
 					position[]={7663.3599,328.51913,7082.6128};
 					id=391;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Woodlander4";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4075,6 +4079,7 @@ class Mission
 					position[]={7665.3599,328.91135,7082.6128};
 					id=392;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Rocker1";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4084,6 +4089,7 @@ class Mission
 					position[]={7667.3599,329.31668,7082.6128};
 					id=393;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Worker3";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4093,6 +4099,7 @@ class Mission
 					position[]={7669.3599,329.72202,7082.6128};
 					id=394;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Profiteer3";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4102,6 +4109,7 @@ class Mission
 					position[]={7675.5376,330.90125,7083.2969};
 					id=395;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Profiteer2";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4111,6 +4119,7 @@ class Mission
 					position[]={7673.1831,330.45557,7082.8394};
 					id=396;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Worker4";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4120,6 +4129,7 @@ class Mission
 					position[]={7671.5879,330.12628,7082.9927};
 					id=397;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Profiteer1";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4137,6 +4147,7 @@ class Mission
 					position[]={7656.5405,327.34473,7079.2671};
 					id=398;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Profiteer4";
 					player="PLAY CDG";
 					leader=1;
@@ -4147,6 +4158,7 @@ class Mission
 					position[]={7660.0723,328.16293,7077.5337};
 					id=399;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Worker2";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4156,6 +4168,7 @@ class Mission
 					position[]={7662.0723,328.56824,7077.5337};
 					id=400;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Functionary1";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4165,6 +4178,7 @@ class Mission
 					position[]={7664.0723,328.97357,7077.5337};
 					id=401;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Woodlander4";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4174,6 +4188,7 @@ class Mission
 					position[]={7666.0723,329.38461,7077.5337};
 					id=402;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Rocker1";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4183,6 +4198,7 @@ class Mission
 					position[]={7668.0723,329.79736,7077.5337};
 					id=403;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Worker3";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4192,6 +4208,7 @@ class Mission
 					position[]={7670.0723,330.2027,7077.5337};
 					id=404;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Profiteer3";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4201,6 +4218,7 @@ class Mission
 					position[]={7675.7173,331.36523,7077.5332};
 					id=405;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Profiteer2";
 					player="PLAY CDG";
 					skill=0.2;
@@ -4210,6 +4228,7 @@ class Mission
 					position[]={7674.0474,331.01865,7077.5337};
 					id=406;
 					side="CIV";
+					forceHeadlessClient=1;
 					vehicle="Worker4";
 					player="PLAY CDG";
 					skill=0.2;
