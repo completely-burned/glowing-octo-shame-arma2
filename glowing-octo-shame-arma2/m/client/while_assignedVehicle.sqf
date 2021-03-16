@@ -5,6 +5,12 @@ while{true}do{
 	_assignedVehicle = assignedVehicle player;
 
 	if (isNull _assignedVehicle) then {
+		if (vehicle player != player) then {
+			_assignedVehicle = vehicle player;
+		};
+	};
+
+	if (isNull _assignedVehicle) then {
 		player setVariable ["assignedVehicle", nil];
 	} else {
 		_assignedVehicleVar = player getVariable "assignedVehicle";
