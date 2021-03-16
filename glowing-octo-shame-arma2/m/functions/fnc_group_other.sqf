@@ -461,7 +461,8 @@ if({alive _x} count units _grp > 0)then{
 			_SpeedMode = "FULL";
 		};
 
-		if(_Car && vehicle _leader != _leader)then{
+		// для машин, пехотинцы при SAFE_Behaviour идут медленно, поэтому делать SAFE_Behaviour только если все находятся в транспорте.
+		if(_Car && ({vehicle _x == _x} count _units == 0))then{
 			_Behaviour = "SAFE";
 		};
 
