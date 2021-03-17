@@ -505,6 +505,7 @@ if({alive _x} count _units > 0)then{
 						};
 				} forEach _nearVehList;
 
+				// рядом с пво союзные войска, нужно остановиться
 				if (_friendCount >= 3) then {
 					_NoCreateWP = true;
 				};
@@ -569,7 +570,7 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 
-			// создать новый маршрут
+			// создать новый маршрут, если не запрещено создание и удалены маршруты
 			if( !_NoCreateWP && _DeleteWP)then{
 				if(_createWP or !isNil{_grp_wp_completed})then{
 					_grp setVariable ['_grp_wp_completed',nil];
