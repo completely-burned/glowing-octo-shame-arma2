@@ -171,6 +171,11 @@ if({alive _x} count units _grp > 0)then{
 						private "_getout_dist";
 						// дистанция возрождения пехоты подходит для безопасной высадки
 						_getout_dist = safeSpawnDistance select 0;
+						// если пехота покинула транспорт или он застрял, нет необходимости забираться обратно если он на приемлемой дистанции до цели, дистанция возрождения техники может подойти
+						if(_leader == vehicle _leader or speed vehicle _leader < 5)then{
+							_getout_dist = safeSpawnDistance select 1;
+						};
+
 						if( ((civilianBasePos distance vehicle _x)<(_getout_dist max sizeLocation)) or ((civilianBasePos distance _assignedVehicle)<(_getout_dist max sizeLocation)) )then{
 							private ["_enableAttack"];
 							_enableAttack = true;
