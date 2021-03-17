@@ -494,13 +494,13 @@ if({alive _x} count _units > 0)then{
 				{
 						if (side _grp getFriend side _x >= 0.6) then {
 							if ([_vehicles, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
-								_friendCount = _friendCount + 3;
+								_friendCount = _friendCount + 2;
 							};
 							if ([_vehicles, ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
 								_friendCount = _friendCount + 1;
 							};
 							if ([_vehicles, ["Land"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
-								_friendCount = _friendCount + 0.1;
+								_friendCount = _friendCount + 0.34;
 							};
 						};
 				} forEach _nearVehList;
