@@ -473,6 +473,8 @@ if({alive _x} count _units > 0)then{
 			_NoCreateWP = false; // не создавать
 			private["_DeleteWP"];
 			_DeleteWP = true; // удалить
+			private["_StopWP"];
+			_StopWP = false; // остановиться
 
 			// не создавать маршрут если боты атакуют
 			if ((vehicle _leader distance civilianBasePos) <= sizeLocation or true) then {
@@ -507,7 +509,7 @@ if({alive _x} count _units > 0)then{
 
 				// рядом с пво союзные войска, нужно остановиться
 				if (_friendCount >= 3) then {
-					_NoCreateWP = true;
+					_StopWP = true;
 				};
 
 			};
@@ -536,16 +538,24 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 
-			// остановить без маршрута
-			if( _NoCreateWP && _DeleteWP)then{
+			// остановиться
+			if(_StopWP or (_NoCreateWP && _DeleteWP))then{
 				if ( count waypoints _grp > 0 ) then{
 					if (draga_loglevel > 0) then {
-						diag_log format ["fnc_group_wp.sqf %1 currentCommand leader %2, count waypoints %3, stopping", _grp, currentCommand _leader, count waypoints _grp ];
+						diag_log format ["Log: [fnc_group_wp.sqf] остановка группы %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
 					};
 					[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
 					// [_grp, currentWaypoint _grp] setWaypointType "HOLD";
 					sleep 1;
-					// sleep 0.1;
+				};
+			};
+
+			// удалить маршруты
+			if( _NoCreateWP && _DeleteWP)then{
+				if ( count waypoints _grp > 0 ) then{
+					if (draga_loglevel > 0) then {
+						diag_log format ["Log: [fnc_group_wp.sqf] удаление waypoints группы %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
+					};
 					for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 						deleteWaypoint [_grp, _i];
 					};
