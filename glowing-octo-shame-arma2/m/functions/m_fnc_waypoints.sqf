@@ -182,6 +182,14 @@ if(!isNil "_leader")then{
 
 			_nearVehList = _leaderPos nearEntities [["Land"], 2000];
 
+			// в защите пво не нуждается техника без экипажа
+			for "_i" from 0 to (count _nearVehList - 1) do {
+				if (!alive effectiveCommander (_nearVehList select _i)) then {
+					_nearVehList set [_i, -1];
+				};
+			};
+			_nearVehList = (_nearVehList - [-1]);
+
 			{
 				if (side _grp getFriend side _x >= 0.6) then {
 					_friendList set [count _friendList, _x];
@@ -191,6 +199,15 @@ if(!isNil "_leader")then{
 			{
 					if (!isNil {_x} && !isNull _x) then {
 						_nearVehList = _x nearEntities [["Land"],200];
+
+						// в защите пво не нуждается техника без экипажа
+						for "_i" from 0 to (count _nearVehList - 1) do {
+							if (!alive effectiveCommander (_nearVehList select _i)) then {
+								_nearVehList set [_i, -1];
+							};
+						};
+						_nearVehList = (_nearVehList - [-1]);
+
 						_friendCount = 0;
 						if (side _grp getFriend side _x >= 0.6) then {
 							if ([_nearVehList, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
