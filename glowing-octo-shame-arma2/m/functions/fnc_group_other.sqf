@@ -455,6 +455,26 @@ if({alive _x} count units _grp > 0)then{
 		};
 	};
 
+	// ии не нужно следовать маршруту в бою
+	if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
+		if ( count waypoints _grp > 0 ) then{
+			// установить маршрут группы на себя
+			if (draga_loglevel > 0) then {
+				diag_log format ["Log: [fnc_group_other.sqf] установить маршрут группы на себя %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
+			};
+			[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
+			sleep 1;
+			// удалить маршруты
+			if ( count waypoints _grp > 0 ) then{
+				if (draga_loglevel > 0) then {
+					diag_log format ["Log: [fnc_group_other.sqf] удаление waypoints группы %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
+				};
+				for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+					deleteWaypoint [_grp, _i];
+				};
+			};
+		};
+	};
 
 	if !(_leader call fnc_isPlayer) then {
 		private["_SpeedMode","_CombatMode","_Behaviour"];
