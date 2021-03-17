@@ -457,6 +457,12 @@ if({alive _x} count units _grp > 0)then{
 
 	// ии не нужно следовать маршруту в бою
 	if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
+		// транспортный вертолет вызываемый игроками, отличается поведением и его маршруты в этом скрипте не нужно трогать, пропускаем его
+		if( ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))exitWith{
+			if (draga_loglevel > 0) then {
+				diag_log format ["Log: [fnc_group_other.sqf] %1 танспортный вертолет, пропуск", _grp ];
+			};
+		};
 		if ( count waypoints _grp > 0 ) then{
 			// установить маршрут группы на себя
 			if (draga_loglevel > 0) then {
