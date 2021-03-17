@@ -167,7 +167,11 @@ if({alive _x} count units _grp > 0)then{
 
 					// на месте
 					if(_allowGetin && true)then{
-						if(((civilianBasePos distance vehicle _x)<(1000 max sizeLocation))or ((civilianBasePos distance _assignedVehicle)<(1000 max sizeLocation)))then{
+
+						private "_getout_dist";
+						// дистанция возрождения пехоты подходит для безопасной высадки
+						_getout_dist = safeSpawnDistance select 0;
+						if( ((civilianBasePos distance vehicle _x)<(_getout_dist max sizeLocation)) or ((civilianBasePos distance _assignedVehicle)<(_getout_dist max sizeLocation)) )then{
 							private ["_enableAttack"];
 							_enableAttack = true;
 
