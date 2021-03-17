@@ -66,6 +66,11 @@ private["_grp1"];
 private["_types"];
 private["_SafePosParams"];
 private["_pos_resp"];
+if (isNil "_typeList") exitWith {
+	if (draga_loglevel > 5) then {
+		diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
+	};
+};
 _grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
