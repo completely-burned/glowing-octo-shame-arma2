@@ -177,35 +177,37 @@ if(!isNil "_leader")then{
 
 			private["_friendList","_friendCount","_nearVehList","_friendList2"];
 
-			_friendList = [];
 			_friendList2 = [];
 
-			_nearVehList = _leaderPos nearEntities [["Land"], 2000];
+			// наземные юниты находящиеся в зоне передвижения пво используемые для поиска подходящего маршрута
+			_friendList = _leaderPos nearEntities [["Land"], 2000];
 
-			// в защите пво не нуждается техника без экипажа
-			for "_i" from 0 to (count _nearVehList - 1) do {
-				if (!alive effectiveCommander (_nearVehList select _i)) then {
-					_nearVehList set [_i, -1];
-				};
-			};
-			_nearVehList = (_nearVehList - [-1]);
-
+			// поиск подходящего маршрута
 			{
-				if (side _grp getFriend side _x >= 0.6) then {
-					_friendList set [count _friendList, _x];
-				};
-			} forEach _nearVehList;
-
-			{
-					if (!isNil {_x} && !isNull _x) then {
+				if (!isNil {_x} && !isNull _x) then {
+					// учитывать нужно союзников
+					if (side _grp getFriend side _x >= 0.6) then {
+						// союзные наземные юниты находящиеся рядом с предполагаемой позицией маршрута
 						_nearVehList = _x nearEntities [["Land"],200];
-
-						// в защите пво не нуждается техника без экипажа
 						for "_i" from 0 to (count _nearVehList - 1) do {
-							if (!alive effectiveCommander (_nearVehList select _i)) then {
-								_nearVehList set [_i, -1];
+							// подсчитывать нужно союзников
+							if (side _grp getFriend side (_nearVehList select _i) >= 0.6) then {
+								// затрагиваем только технику, боты вне техники не нуждается в особом подсчёте
+								if (getNumber(configFile >> "CfgVehicles" >> typeOf (_nearVehList select _i) >> "isMan") != 1) then {
+									// если командир техники живой
+									if (alive effectiveCommander (_nearVehList select _i)) then {
+										// нужно подчитывать людей в технике, добавляем их в список
+										_nearVehList = _nearVehList+crew(_nearVehList select _i);
+									}else{
+										// в защите пво не нуждается техника без экипажа, на удаление ее из списка
+										_nearVehList set [_i, -1];
+									};
+								};
+							}else{
+								_nearVehList set [_i, -1]; // не являются союзниками
 							};
 						};
+						// удаляем из списка лишнее
 						_nearVehList = (_nearVehList - [-1]);
 
 						_friendCount = 0;
@@ -224,6 +226,7 @@ if(!isNil "_leader")then{
 							};
 						};
 					};
+				};
 			} forEach _friendList;
 
 			_pos = _leaderPos;
