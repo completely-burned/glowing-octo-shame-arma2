@@ -23,40 +23,49 @@ while{true}do{
 	_vehicles_lock = [];
 	{
 		_grp = _x;
-		_units = units _grp;
 
+		// можно не выполнять другие вычисления если игрок лидер
 		if(leader _grp call fnc_isPlayer)then{
-			_leaderPlayer = true;
+			if (draga_loglevel > 0) then {
+				diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия отменен, игрок лидер группы %1", _grp];
+			};
 		}else{
-			_leaderPlayer = false;
-		};
-
-		{
-
+			// можно не выполнять другие вычисления если игрок в группе, но долго проверяются все юниты в группе
+			_units = units _grp;
 			if({_x call fnc_isPlayer}count _units > 0)then{
-				_grpPlayer = true;
+				if (draga_loglevel > 0) then {
+					diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия отменен, игроки в группе %1", _grp];
+				};
 			}else{
-				_grpPlayer = false;
+				// транспорт чужой группы нужно закрывать
+				if (draga_loglevel > 0) then {
+					diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия %1", _grp];
+				};
+				// находим транспорт
+				{
+					_vehicle = assignedVehicle _x;
+
+					if (isNull _vehicle) then {
+						_vehicle = _x getVariable "assignedVehicle";
+						if (isNil {_vehicle}) then {_vehicle = objNull};
+					};
+
+					if(isNull _vehicle)then{
+						_vehicle = vehicle _x;
+					};
+
+					if(!isNull _vehicle && _vehicle != _x && !(_vehicle in _vehicles_lock))then{
+						_vehicles_lock set [count _vehicles_lock, _vehicle];
+					};
+
+				} forEach _units;
 			};
-
-			_vehicle = assignedVehicle _x;
-
-			if (isNull _vehicle) then {
-				_vehicle = _x getVariable "assignedVehicle";
-				if (isNil {_vehicle}) then {_vehicle = objNull};
-			};
-
-
-			if(isNull _vehicle)then{
-				_vehicle = vehicle _x;
-			};
-
-			if(!isNull _vehicle && !_leaderPlayer && !_grpPlayer && _vehicle != _x)then{
-				_vehicles_lock set [count _vehicles_lock, _vehicle];
-			};
-
-		} forEach _units;
+		};
 	} forEach allGroups;
+
+	if (draga_loglevel > 0) then {
+		diag_log format ["Log: [while_vehicles_lock.sqf] транспорт для закрытия %1", _vehicles_lock];
+	};
 
 	{
 		// проверка только живого тс должно повысить производительность в случае большого числа уничтоженного транспорта
