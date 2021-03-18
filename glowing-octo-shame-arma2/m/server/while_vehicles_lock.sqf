@@ -1,3 +1,11 @@
+/*
+	setVehicleLock "UNLOCKED" = same as "lock 0"
+	setVehicleLock "DEFAULT" = same as "lock 1"
+	setVehicleLock "LOCKED" = same as "lock 2"
+	setVehicleLock "LOCKEDPLAYER" = same as "lock 3"
+*/
+
+
 private["_vehicles_lock"];
 
 private["_grp","_units","_leaderPlayer","_isPlayer","_vehicle","_grpPlayer","_side"];
@@ -11,6 +19,7 @@ _friendly_vehicles_only = missionNamespace getVariable "friendly_vehicles_only";
 
 while{true}do{
 
+	// перечислить транспорт который нужно закрыть
 	_vehicles_lock = [];
 	{
 		_grp = _x;
@@ -23,13 +32,6 @@ while{true}do{
 		};
 
 		{
-/*
-			if(isPlayer _x)then{
-				_isPlayer = true;
-			}else{
-				_isPlayer = false;
-			};
-*/
 
 			if({_x call fnc_isPlayer}count _units > 0)then{
 				_grpPlayer = true;
@@ -54,25 +56,24 @@ while{true}do{
 			};
 
 		} forEach _units;
-
 	} forEach allGroups;
 
 	{
 		_vehicle = _x;
 		if (_vehicle in _vehicles_lock) then {
-			_lock = "LOCKED";
+			_lock = 2;
 		}else{
-			_lock = "UNLOCKED";
+			_lock = 0;
 		};
 
 		if (_vehicle isKindOf "UAV" or _vehicle isKindOf "Ka137_Base_PMC") then {
-			_lock = "LOCKED";
+			_lock = 2;
 		};
 
 		_transportPlayer = _vehicle getVariable "transportPlayer";
 		if(!isNil {_transportPlayer})then{
 			if(alive _transportPlayer)then{
-				_lock = "UNLOCKED";
+				_lock = 0;
 			};
 		};
 
@@ -80,31 +81,31 @@ while{true}do{
 			_side = getNumber(configFile >> "CfgVehicles" >> typeOf _vehicle >> "side") call m_fnc_getSide;
 			if (_side in [west,east,resistance]) then {
 				if !(_side in m_friendlySide) then {
-					_lock = "LOCKED";
+					_lock = 2;
 				};
 			};
 		};
 
-		if({_x in crew _vehicle}count([] call BIS_fnc_listPlayers) > 0)then{
-			_lock = "UNLOCKED";
+		if({_x call fnc_isPlayer}count crew _vehicle > 0)then{
+			_lock = 0;
 		};
 
-		_lock_old = _vehicle getVariable "draga_vehicle_lock";
-		if (isNil{_lock_old}) then {
-			_vehicle setVariable ["draga_vehicle_lock", _lock, true];
-			//if (local _x) then {
-				_vehicle setVehicleLock _lock;
-			//};
-		}else{
-			if (_lock_old != _lock) then {
-				_vehicle setVariable ["draga_vehicle_lock", _lock, true];
-				//if (local _x) then {
-					_vehicle setVehicleLock _lock;
-				//};
-			};
+		_lock_old = locked _vehicle;
+
+		if (draga_loglevel > 0) then {
+			diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 локальный = %4, нужно lock %2, сейчас %3", _vehicle, _lock, _lock_old, local _vehicle];
+		};
+
+		if (_lock == 2) then {_lock = true}else{_lock = false};
+
+		if (!_lock_old && _lock) then {
+			_vehicle lock _lock;
+		};
+		if (_lock_old && !_lock) then {
+			_vehicle lock _lock;
 		};
 
 	} forEach vehicles;
 
-	sleep 10;
+	sleep 5;
 };
