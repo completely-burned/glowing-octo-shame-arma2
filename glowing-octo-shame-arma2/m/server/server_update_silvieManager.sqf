@@ -77,18 +77,14 @@ while{true}do{
 							_veh1 setVelocity [0, 0, -1];
 							// _veh1 addEventHandler ["GetIn",{_this call m_fnc_EH_GetIn}];
 
-							if (draga_loglevel > 0) then {
 								diag_log format ["silvieManager createVehicle %1", _veh1];
-							};
 
 							[_veh1] spawn {
 								sleep 5;
 
 								if(getPos (_this select 0) select 2 > 0.1)then{
 
-									if (draga_loglevel > 0) then {
 										diag_log format ["silvieManager height > deleteVehicle %1", (_this select 0)];
-									};
 
 									deleteVehicle (_this select 0);
 								};

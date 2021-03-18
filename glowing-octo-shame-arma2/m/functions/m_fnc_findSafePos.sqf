@@ -141,8 +141,6 @@ while {!_allowPos} do {
 
 };
 
-if (draga_loglevel > 0) then {
 	diag_log format ["m_fnc_findSafePos.sqf time %1", time - _run_timer];
-};
 
 [_testPos, _roads];

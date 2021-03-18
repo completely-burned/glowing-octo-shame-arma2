@@ -67,9 +67,7 @@ private["_types"];
 private["_SafePosParams"];
 private["_pos_resp"];
 if (isNil "_typeList") exitWith {
-	if (draga_loglevel > 5) then {
 		diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
-	};
 };
 _grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
@@ -78,9 +76,7 @@ private["_run"];
 _run = true;
 
 if (_pos distance [0,0] < 1) then {
-	if (draga_loglevel > 0) then {
 		diag_log format ["m_fnc_call_reinforcement.sqf _pos = [0,0] _players = %1 ", _players];
-	};
 	_run = false;
 };
 

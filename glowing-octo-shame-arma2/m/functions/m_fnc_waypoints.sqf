@@ -1,6 +1,4 @@
-if(draga_loglevel>0)then{
 	diag_log format ["fnc_waypoints.sqf start %1", _this];
-};
 private["_leader"];
 _leader = (_this select 0);
 if(!isNil "_leader")then{
@@ -53,9 +51,7 @@ if(!isNil "_leader")then{
 	if(true)then{
 
 		for "_i" from count waypoints _grp - 1 to 0 step -1 do {
-			if (draga_loglevel > 0) then {
 				diag_log format ["m_fnc_waypoints.sqf %1 удаление wp #%2", _grp, _i ];
-			};
 			deleteWaypoint [_grp, _i];
 		};
 
@@ -145,9 +141,7 @@ if(!isNil "_leader")then{
 			_pos = getPos ([] call BIS_fnc_listPlayers call BIS_fnc_selectRandom);
 
 			if([_pos, [0,0]] call BIS_fnc_distance2D < 1 )then{
-				if (draga_loglevel > 0) then {
 					diag_log format ["m_fnc_waypoints.sqf %1  позиция wp [0,0] удаление, _pos = _leaderPos", _grp ];
-				};
 				_pos = _leaderPos;
 			};
 
@@ -194,9 +188,7 @@ if(!isNil "_leader")then{
 		// лодки позиция маршрута
 		if(_Ship && !_Submarine)then{
 
-			if(draga_loglevel>0)then{
 				diag_log format ["fnc_waypoints.sqf Ship %1", _this];
-			};
 
 			if!(_patrol)then{
 				if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _vehicles > 0)then{
@@ -272,9 +264,7 @@ if(!isNil "_leader")then{
 
 		// пехота
 		if(count _vehicles == 0)then{
-			if(draga_loglevel>0)then{
 				diag_log format ["fnc_waypoints.sqf Inf %1", _this];
-			};
 
 			private["_true"];
 			_true = true;
@@ -294,9 +284,7 @@ if(!isNil "_leader")then{
 			};
 		};
 
-		if(draga_loglevel>0)then{
 			diag_log format ["fnc_waypoints.sqf addWaypoint %1", _this];
-		};
 
 		// создать маршрут
 		_wp = _grp addWaypoint [_pos, _maxDist];
@@ -308,12 +296,8 @@ if(!isNil "_leader")then{
 		_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically";
 		_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"];
 
-		if(draga_loglevel>0)then{
 			diag_log format ["fnc_waypoints.sqf added %1", _wp];
-		};
 	};
 };
 
-if(draga_loglevel>0)then{
 	diag_log format ["fnc_waypoints.sqf end %1", _this];
-};

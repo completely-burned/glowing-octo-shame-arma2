@@ -1,9 +1,7 @@
 private["_count_groups","_grp","_leader"];
 private["_friendlyPatrols","_enemyPatrols","_enemySide","_side"];
 
-if (draga_loglevel > 0) then {
 	diag_log format ["while_patrols.sqf started %1", time ];
-};
 
 waitUntil {!isNil "AllGroupsWest"};
 waitUntil {!isNil "AllGroupsEast"};
@@ -43,9 +41,7 @@ while{true}do{
 		};
 	}forEach allGroups;
 
-	if (draga_loglevel > 20) then {
 		diag_log format ["while_patrols.sqf _friendlyPatrols %1 _enemyPatrols %2", _friendlyPatrols, _enemyPatrols ];
-	};
 
 	if(_friendlyPatrols+_enemyPatrols < 5)then{
 
@@ -68,9 +64,7 @@ while{true}do{
 		_run = true;
 
 		if (_pos distance [0,0] < 1) then {
-			if (draga_loglevel > 0) then {
 				diag_log format ["while_patrols.sqf _pos = [0,0] _player = %1 ", _player];
-			};
 			_run = false;
 		};
 
@@ -97,9 +91,7 @@ while{true}do{
 			private["_SafePosParams"];
 			private["_pos_resp"];
 			if (isNil "_typeList") exitWith {
-				if (draga_loglevel > 5) then {
 					diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
-				};
 			};
 			_grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
 			_types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
@@ -109,9 +101,7 @@ while{true}do{
 			_SafePosParams set [0,((_SafePosParams select 0) * 2)];
 			_SafePosParams set [1,((_SafePosParams select 1) * 2)];
 
-			if (draga_loglevel > 5) then {
 				diag_log format ["while_patrols.sqf creating %1 ", [_pos]+_SafePosParams+[_side]];
-			};
 
 			_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
 			if(count (_pos_resp select 0) == 0)exitWith{};
@@ -125,9 +115,7 @@ while{true}do{
 				_x setVariable ["grp_created", true, true];
 			} forEach _groups;
 
-			if (draga_loglevel > 5) then {
 				diag_log format ["while_patrols.sqf created %1 ", _groups];
-			};
 		};
 
 	};

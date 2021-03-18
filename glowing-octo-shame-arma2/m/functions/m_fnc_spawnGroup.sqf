@@ -9,15 +9,11 @@ _roads = _this select 0 select 1;
 _pos = _this select 0 select 0;
 
 if(count _pos == 0 && count _roads == 0)exitWith{
-	if (draga_loglevel > 0) then {
 		diag_log format ["spawn_group.sqf %1", "count _pos == 0 && count _roads == 0"];
-	};
 	[grpNull];
 };
 
-if (draga_loglevel > 0) then {
 	diag_log format ["spawn_group.sqf create pos %1 grp %2", _this select 0, _this select 2];
-};
 
 {
 	private ["_grp"];
@@ -87,9 +83,7 @@ if (draga_loglevel > 0) then {
 						_roads set [0,-1];
 						_roads = _roads - [-1];
 					}else{
-						if (draga_loglevel > 0) then {
 							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this];
-						};
 					};
 				};
 

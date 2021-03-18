@@ -79,19 +79,13 @@ _fnc6={
 
 	for "_i" from 0 to ((count (_grp select 0)) - 1) do {
 		_types = ([_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement);
-		if (draga_loglevel > 0) then {
 			diag_log format ["init_groups.sqf _rarity_fnc6 %1", _types];
-		};
 		if( { toUpper getText (configFile >> "CfgVehicles" >> _x >> "faction") in _factions } count _types > 0)then {
 			_rarity = ([_grp, [1, _i]] call BIS_fnc_returnNestedElement);
-			if (draga_loglevel > 0) then {
 				diag_log format ["init_groups.sqf _rarity %1", _rarity];
-			};
 			_rarity = (_rarity * _raritySet);
 			[_grp, [1, _i],  _rarity] call BIS_fnc_setNestedElement;
-			if (draga_loglevel > 0) then {
 				diag_log format ["init_groups.sqf _rarity new %1", ([_grp, [1, _i]] call BIS_fnc_returnNestedElement)];
-			};
 		};
 	};
 
