@@ -412,7 +412,7 @@ if({alive _x} count _units > 0)then{
 		if(_leader call fnc_isPlayer)then{
 			if ( count waypoints _grp > 0 ) then{
 				[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
-				sleep 1;
+				sleep 0.1;
 				for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 					deleteWaypoint [_grp, _i];
 				};
@@ -604,7 +604,7 @@ if({alive _x} count _units > 0)then{
 					};
 					[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
 					// [_grp, currentWaypoint _grp] setWaypointType "HOLD";
-					sleep 1;
+					sleep 0.1;
 				};
 			};
 
