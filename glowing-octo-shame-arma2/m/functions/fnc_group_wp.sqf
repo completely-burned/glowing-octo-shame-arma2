@@ -1,21 +1,6 @@
 // эта функция отвечает за создание маршрутных точек для ии
 
-private["_grp"];
-private["_leader"];
-private["_leaderPos"];
-private["_currentWP","_wp","_typeWP"];
-private ["_units","_vehicles","_types","_cargo","_assignedVehicles"];
-private["_Submarine"];
-private ["_Helicopter"];
-private ["_Plane"];
-private ["_Ship"];
-private ["_StaticWeapon"];
-private ["_Air","_uav","_Car","_Tank"];
-private ["_Tracked_APC","_Wheeled_APC"];
-private["_AA"];
-private["_support"];
-// private ["_Stealth"];
-private["_grp_wp_completed"];
+private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_Submarine","_Helicopter","_Plane","_Ship","_StaticWeapon","_Air","_uav","_Car","_Tank","_Tracked_APC","_Wheeled_APC","_AA","_support","_grp_wp_completed"];
 
 _grp=_this;
 
@@ -404,11 +389,10 @@ if({alive _x} count _units > 0)then{
 	};
 
 	if (true) then {
-		private["_grp","_leader"];
+		private["_grp","_leader""_currentWP","_waypoints","_createWP","_leaderPos"];
 		_grp = _this;
 		_leader = leader _grp;
 
-		private["_currentWP","_waypoints","_createWP","_leaderPos"];
 		_currentWP = currentWaypoint _grp;
 		_waypoints = waypoints _grp;
 		_createWP = false;
