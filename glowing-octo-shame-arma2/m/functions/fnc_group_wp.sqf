@@ -487,30 +487,103 @@ if({alive _x} count _units > 0)then{
 			// ПВО
 			if (_AA) then {
 
-				private["_friendCount","_nearVehList"];
+				if(draga_loglevel>0)then{
+					diag_log format ["Log: [fnc_group_wp.sqf] [AA] %1", _this];
+				};
 
-				_friendCount = 0;
+				// не нужно создавать маршрут функцией для пво
+				_StopWP = false;
+				_NoCreateWP = true;
+				_DeleteWP = false;
 
-				_nearVehList = _leaderPos nearEntities [["Land"],400];
+				private["_friendList","_friendCount","_nearVehList","_friendList2","_pos"];
 
-				// подсчитывать цели защиты пво нужно иначе
+				_friendList2 = [];
+
+				// наземные юниты находящиеся в зоне передвижения пво используемые для поиска подходящего маршрута
+				_friendList = _leaderPos nearEntities [["Land"], 2000];
+
+				// поиск подходящих маршрутов
+				{
+					if (!isNil {_x} && !isNull _x) then {
+						// учитывать нужно союзников
 						if (side _grp getFriend side _x >= 0.6) then {
-							if ([_nearVehList, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
-								_friendCount = _friendCount + 2;
+							// союзные наземные юниты находящиеся рядом с предполагаемой позицией маршрута
+							_nearVehList = _x nearEntities [["Land"],400];
+							for "_i" from 0 to (count _nearVehList - 1) do {
+								// подсчитывать нужно союзников
+								if (side _grp getFriend side (_nearVehList select _i) >= 0.6) then {
+									// затрагиваем только технику, боты вне техники не нуждается в особом подсчёте
+									if (getNumber(configFile >> "CfgVehicles" >> typeOf (_nearVehList select _i) >> "isMan") != 1) then {
+										// если командир техники живой
+										if (alive effectiveCommander (_nearVehList select _i)) then {
+											// нужно подчитывать людей в технике, добавляем их в список
+											_nearVehList = _nearVehList+crew(_nearVehList select _i);
+										}else{
+											// в защите пво не нуждается техника без экипажа, на удаление ее из списка
+											_nearVehList set [_i, -1];
+										};
+									};
+								}else{
+									_nearVehList set [_i, -1]; // не являются союзниками
+								};
 							};
-							if ([_nearVehList, ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
-								_friendCount = _friendCount + 1;
-							};
-							if ([_nearVehList, ["Land"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
-								_friendCount = _friendCount + 0.34;
+							// удаляем из списка лишнее
+							_nearVehList = (_nearVehList - [-1]);
+
+							_friendCount = 0;
+							if (side _grp getFriend side _x >= 0.6) then {
+								if ([_nearVehList, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+									_friendCount = _friendCount + 2;
+								};
+								if ([_nearVehList, ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+									_friendCount = _friendCount + 1;
+								};
+								if ([_nearVehList, ["Land"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+									_friendCount = _friendCount + 0.25;
+								};
+								if (_friendCount >= 3) then {
+									_friendList2 set [count _friendList2, _x];
+								};
 							};
 						};
+					};
+				} forEach _friendList;
+				if(draga_loglevel>0)then{
+					diag_log format ["Log: [fnc_group_wp.sqf] [AA] %1 маршруты подходят %2", _grp, _friendList2];
+				};
 
-				// рядом с пво союзные войска, нужно остановиться, удалить маршруты и не создавать новый маршрут
-				if (_friendCount >= 3) then {
-					_StopWP = true;
-					_NoCreateWP = true;
-					_DeleteWP = true;
+				if(count _friendList2 > 0)then{
+					if(draga_loglevel>0)then{
+						diag_log format ["Log: [fnc_group_wp.sqf] [AA] %1 выбор маршрута", _grp];
+					};
+					// выбор подходящего маршрута
+					_pos = _leaderPos;
+					private["_distance"];
+					{
+						if(_leaderPos distance _x > 250)then{
+							if(isNil {_distance})then{
+								_distance = _x distance _leaderPos;
+								_pos = getPosASL _x;
+							}else{
+								if (_x distance _leaderPos < _distance)then{
+									_pos = getPosASL _x;
+								};
+							};
+						};
+					} foreach _friendList2;
+
+					if(draga_loglevel>0)then{
+						diag_log format ["Log: [fnc_group_wp.sqf] [AA] %1 установка маршрута на позицию %2", _grp, _pos];
+					};
+					// установка маршрута
+					[_grp,(currentWaypoint _grp)] setWaypointPosition [_pos, 50];
+				}else{
+					if(draga_loglevel>0)then{
+						diag_log format ["Log: [fnc_group_wp.sqf] [AA] %1 выбор обычного маршрута", _grp];
+					};
+					_NoCreateWP = false;
+					_createWP = true;
 				};
 
 			};
