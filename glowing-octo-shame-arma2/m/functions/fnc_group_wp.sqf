@@ -507,10 +507,11 @@ if({alive _x} count _units > 0)then{
 						};
 				} forEach _nearVehList;
 
-				// рядом с пво союзные войска, нужно остановиться и не создавать новый маршрут
+				// рядом с пво союзные войска, нужно остановиться, удалить маршруты и не создавать новый маршрут
 				if (_friendCount >= 3) then {
 					_StopWP = true;
 					_NoCreateWP = true;
+					_DeleteWP = true;
 				};
 
 			};
