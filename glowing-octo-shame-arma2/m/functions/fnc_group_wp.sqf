@@ -493,19 +493,18 @@ if({alive _x} count _units > 0)then{
 
 				_nearVehList = _leaderPos nearEntities [["Land"],400];
 
-				{
+				// подсчитывать цели защиты пво нужно иначе
 						if (side _grp getFriend side _x >= 0.6) then {
-							if ([_vehicles, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+							if ([_nearVehList, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
 								_friendCount = _friendCount + 2;
 							};
-							if ([_vehicles, ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+							if ([_nearVehList, ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
 								_friendCount = _friendCount + 1;
 							};
-							if ([_vehicles, ["Land"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
+							if ([_nearVehList, ["Land"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call m_fnc_CheckIsKindOfArray) then {
 								_friendCount = _friendCount + 0.34;
 							};
 						};
-				} forEach _nearVehList;
 
 				// рядом с пво союзные войска, нужно остановиться, удалить маршруты и не создавать новый маршрут
 				if (_friendCount >= 3) then {
