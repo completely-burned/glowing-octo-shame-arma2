@@ -60,6 +60,8 @@ while{true}do{
 		diag_log format ["Log: [while_vehicles_lock.sqf] транспорт для закрытия %1", _vehicles_lock];
 
 	{
+		// lock агрументы должны быть локальными
+		if (Local _x) then {
 		// проверка только живого тс должно повысить производительность в случае большого числа уничтоженного транспорта
 		if (alive _x) then {
 			_vehicle = _x;
@@ -105,6 +107,7 @@ while{true}do{
 			if (_lock_old && !_lock) then {
 				_vehicle lock _lock;
 			};
+		};
 		};
 
 	} forEach vehicles;
