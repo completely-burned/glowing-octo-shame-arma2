@@ -30,12 +30,20 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 			mkdir ".build.tmp/${TMPDIRNAME}/"
 		fi
 
+		# символьные ссылки чтобы не копировать шурша диском
 		#find glowing-octo-shame-arma2/ -mindepth 1 -maxdepth 1 -exec ln -snf ../../{} ".build.tmp/${TMPDIRNAME}/" \;
 		#find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -snf ../../{} ".build.tmp/${TMPDIRNAME}/" \;
+
+		# делаем копию чтобы изменить файлы не затронув git директорию перед сборкой .pbo
 		cp -r glowing-octo-shame-arma2/* .build.tmp/${TMPDIRNAME}/
 		cp -r ${DIR}/* .build.tmp/${TMPDIRNAME}/
+
+		# строки начинающиеся с diag_log нужны для отладки
+		# они возможно снижают производительность
+		# поэтому удаляем их
 		find .build.tmp/${TMPDIRNAME}/ -type f -exec sed -i "/^.*diag_log.*/d" {} \;
 
+		# сборка .pbo
 		makepbo -M .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo &>/dev/null
 		armake build --packonly --force .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo &>/dev/null
 		armake2 pack -v .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo &>/dev/null
