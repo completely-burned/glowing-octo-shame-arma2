@@ -16,9 +16,10 @@ _fnc_swich={
 	_new;
 };
 
-// первое не подходит
+// первое тело данное при старте миссии при возрождении ведет себя иначе и не подходит
 player setVariable ["selectPlayerDisable", true, true];
 
+// после переключения на новое тело уничтожаем первое тело данное при старте т.к. оно расположено на неподходящей позиции и нужно только для старта миссии
 [_player] spawn {
 	waitUntil{
 		isNil{player getVariable "selectPlayerDisable"};
@@ -27,6 +28,7 @@ player setVariable ["selectPlayerDisable", true, true];
 	respawnDone = true;
 };
 
+// функция отсеивает неподходящие тела для перерождения
 private["_fnc_isFit"];
 _fnc_isFit={
 	if (
@@ -46,14 +48,14 @@ _fnc_isFit={
 
 while {true} do {
 
-	// тело не подходит
+	// ищем подходящее тело при условии
 	if (!(lifeState player in ["ALIVE", "UNCONSCIOUS"]) or isNull player or !alive _player or !isNil{_player getVariable "selectPlayerDisable"}) then {
 
 		_grp = group _player;
 
 		_pos = getPos _player;
 
-		// юниты группы
+		// ищем новое тело из юнитов группы т.к. они находятся рядом
 		_units = units _grp;
 			{
 				if (_x call _fnc_isFit) then {
@@ -66,7 +68,7 @@ while {true} do {
 				};
 			} forEach _units;
 
-		// лидеры групп
+		// ищем новое тело среди лидеров групп т.к. игроки лучше командуют отрядом
 		{
 			if (side _x in m_friendlySide) then {
 				_leader = leader _x;
@@ -83,7 +85,7 @@ while {true} do {
 		} forEach allGroups;
 	};
 
-	// возрождение первое
+	// защита от непланируемого поведения, после первой смерти еще одно тело появляется на точке возрождения и переключает игрока в это тело, здесь мы переключаем его обратно в нужное тело, а созданное на точке возрождения отключаем
 	if (player != _player) then {
 		[player] joinSilent grpNull;
 		[player] spawn {
@@ -96,7 +98,7 @@ while {true} do {
 		selectPlayer _player;
 	};
 
-	// есть новое тело
+	// выбрано новое тело, переключаем
 	if (!isNil{_bestCandidate}) then {
 		_player = ([_player, _bestCandidate] call _fnc_swich);
 		_bestCandidate = nil;
