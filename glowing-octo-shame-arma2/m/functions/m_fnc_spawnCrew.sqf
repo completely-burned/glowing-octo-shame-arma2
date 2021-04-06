@@ -27,7 +27,7 @@ _hasDriver = getNumber (_entry >> "hasDriver");
 if ((_hasDriver == 1) && (isNull (driver _vehicle))) then
 {
 		_unit = _grp createUnit [_crewType, getPos _vehicle, [], 0, "FORM"];
-		_crew = _crew + [_unit];
+		_crew set [count _crew, _unit];
 
 		_unit moveInDriver _vehicle;
 };
@@ -45,7 +45,7 @@ if(_type == "FDF_leopard2a4")then{
 		}else{
 			_unit = _grp createUnit [_crewType, getPos _vehicle, [], 0, "FORM"];
 		};
-		_crew = _crew + [_unit];
+		_crew set [count _crew, _unit];
 		_unit moveInTurret [_vehicle, _x];
 	};
 } forEach _turrets;
