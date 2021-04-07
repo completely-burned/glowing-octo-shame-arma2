@@ -20,6 +20,7 @@ while{true}do{
 
 	sleep 2;
 
+	// считаем группы чтобы не создавать лишние и для баланса
 	_friendlyPatrols = 0; _enemyPatrols = 0;
 	{
 		_grp=_x;
@@ -43,8 +44,10 @@ while{true}do{
 
 		diag_log format ["while_patrols.sqf _friendlyPatrols %1 _enemyPatrols %2", _friendlyPatrols, _enemyPatrols ];
 
+	// ограничим временно <5 созданных локально игроку
 	if(_friendlyPatrols+_enemyPatrols < 5)then{
 
+		// поддерживаем соотношение союзников и противников выбираем side для создания
 		private ["_difference"];
 		_difference = 0;
 		if (_friendlyPatrols * enemyCoefficient + _difference >= _enemyPatrols) then {
@@ -55,12 +58,14 @@ while{true}do{
 
 		private["_player","_typeList","_pos"];
 
+		// патрули создаются рядом с игроком
 		_player = player;
 		_pos = getPos _player;
 
 		private["_run"];
 		_run = true;
 
+		// нормальный игрок не должен быть в позиции [0,0], игнорируем его
 		if (_pos distance [0,0] < 1) then {
 				diag_log format ["while_patrols.sqf _pos = [0,0] _player = %1 ", _player];
 			_run = false;
@@ -86,6 +91,7 @@ while{true}do{
 
 			private["_pos_resp","_SafePosParams","_types","_grp1"];
 			if (isNil "_typeList") exitWith {
+				// иногда _typeList пустой, нужно исправить
 					diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
 			};
 			_grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
@@ -99,12 +105,12 @@ while{true}do{
 				diag_log format ["while_patrols.sqf creating %1 ", [_pos]+_SafePosParams+[_side]];
 
 			_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
-			if(count (_pos_resp select 0) == 0)exitWith{};
+			if(count (_pos_resp select 0) == 0)exitWith{}; // _pos_resp без позиции если не нашлось подходящей позиции
 
 			private["_groups"];
 			_groups = ([_pos_resp, _side, _grp1 select 0] call m_fnc_spawnGroup);
 
-
+			// помечаем группу что это патруль и она готова для дальнейших скриптов
 			{
 				_x setVariable ["patrol", true, true];
 				_x setVariable ["grp_created", true, true];
