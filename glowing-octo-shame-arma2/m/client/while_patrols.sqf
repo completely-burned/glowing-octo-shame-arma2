@@ -53,8 +53,8 @@ while{true}do{
 
 		diag_log format ["Log: [while_patrols.sqf] _friendlyPatrols %1 _enemyPatrols %2, _friendlyGroups %3 _enemyGroups %4", _friendlyPatrols, _enemyPatrols, _friendlyGroups, _enemyGroups];
 
-	// ограничим временно <3 созданных локально игроку патрулей
-	if(_friendlyPatrols+_enemyPatrols < 3)then{
+	// ограничим временно <2 созданных локально игроку патрулей
+	if(_friendlyPatrols+_enemyPatrols < 2)then{
 
 		// поддерживаем соотношение союзников и противников выбираем side для создания
 		private ["_difference"];
@@ -130,8 +130,8 @@ while{true}do{
 
 	};
 
-	// ограничим временно <3 созданных локально игроку подкреплений
-	if(_friendlyGroups+_enemyGroups < 3)then{
+	// ограничим временно <2 созданных локально игроку подкреплений
+	if(_friendlyGroups+_enemyGroups < 2)then{
 
 
 
