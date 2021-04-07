@@ -84,7 +84,6 @@ if(_run)then{
 	_SafePosParams = ([_types] call m_fnc_SafePosParams);
 
 	if (_patrol)then{
-		_SafePosParams set [0,((_SafePosParams select 0) * 2)];
 		_SafePosParams set [1,((_SafePosParams select 1) * 2)];
 	};
 
