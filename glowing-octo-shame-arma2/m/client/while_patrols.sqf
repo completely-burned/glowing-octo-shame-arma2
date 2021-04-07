@@ -99,7 +99,6 @@ while{true}do{
 
 			_SafePosParams = ([_types] call m_fnc_SafePosParams);
 
-			_SafePosParams set [0,((_SafePosParams select 0) * 2)];
 			_SafePosParams set [1,((_SafePosParams select 1) * 2)];
 
 				diag_log format ["while_patrols.sqf creating %1 ", [_pos]+_SafePosParams+[_side]];
