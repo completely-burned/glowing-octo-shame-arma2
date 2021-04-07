@@ -99,6 +99,7 @@ while{true}do{
 
 			_SafePosParams = ([_types] call m_fnc_SafePosParams);
 
+			// увеличивает максимальный радиус поиска позиции для создания патруля
 			_SafePosParams set [1,((_SafePosParams select 1) * 2)];
 
 				diag_log format ["while_patrols.sqf creating %1 ", [_pos]+_SafePosParams+[_side]];
