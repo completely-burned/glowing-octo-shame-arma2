@@ -53,9 +53,7 @@ while{true}do{
 			_side = m_friendlySide call BIS_fnc_selectRandom;
 		};
 
-		private["_pos"];
-		private["_typeList"];
-		private["_player"];
+		private["_player","_typeList","_pos"];
 
 		_player = player;
 		_pos = getPos _player;
@@ -86,10 +84,7 @@ while{true}do{
 				default {};
 			};
 
-			private["_grp1"];
-			private["_types"];
-			private["_SafePosParams"];
-			private["_pos_resp"];
+			private["_pos_resp","_SafePosParams","_types","_grp1"];
 			if (isNil "_typeList") exitWith {
 					diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
 			};
