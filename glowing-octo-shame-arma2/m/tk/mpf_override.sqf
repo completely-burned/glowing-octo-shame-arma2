@@ -64,8 +64,8 @@ _library = [
 // "execfsm", // используется
 // "execVM",// замена не запускается
 "spawn",
-"JIPrequest", //requesting JIP (RE persistent commands) from server by executing this via RE (on server) - parameter: logic local on client
-"JIPexec", // custom scripting functions
+// "JIPrequest", //requesting JIP (RE persistent commands) from server by executing this via RE (on server) - parameter: logic local on client
+// "JIPexec", // custom scripting functions
 
 "addAction",
 "skiptime", //bad
