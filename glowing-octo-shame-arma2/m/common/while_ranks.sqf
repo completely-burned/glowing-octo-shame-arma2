@@ -17,4 +17,5 @@ while{true}do{
 			};
 		};
 	} forEach allUnits;
+	sleep 5;
 };
