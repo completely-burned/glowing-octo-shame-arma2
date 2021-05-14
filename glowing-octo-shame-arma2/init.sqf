@@ -2,6 +2,8 @@
 	failMission "LOSER";
 }else{
 
+	[] execVM "m\tk\mpf_override.sqf";
+
 	if (!IsDedicated) then {
 		[] execVM "m\client\playerStartPos.sqf";
 		[] execVM "m\client\briefing.sqf";
