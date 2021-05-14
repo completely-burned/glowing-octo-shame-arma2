@@ -93,7 +93,9 @@ _libraryCustom =
 ];
 
 private ["_code"];
-_code = {diag_log format ['Log: [TK] %1', _this];};
+_code = {
+	diag_log format ['Log: [TK] %1', _this];
+};
 
 private["_i", "_name"];
 for [{_i=0}, {_i< count _library}, {_i = _i + 1}] do
