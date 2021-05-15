@@ -50,4 +50,18 @@ if(_type == "FDF_leopard2a4")then{
 	};
 } forEach _turrets;
 
+//if (_type isKindOf "Tank") then {
+	private["_commander","_gunner"];
+	_commander = commander _vehicle;
+	_gunner = gunner _vehicle;
+	{
+		_x setRank "CORPORAL";
+		_x setVariable ["rank", "CORPORAL", true];
+	} forEach _crew-[_commander]-[_gunner]-[driver _vehicle];
+	_commander setRank "LIEUTENANT";
+	_commander setVariable ["rank", "LIEUTENANT", true];
+	_gunner setRank "SERGEANT";
+	_gunner setVariable ["rank", "SERGEANT", true];
+//};
+
 _crew
