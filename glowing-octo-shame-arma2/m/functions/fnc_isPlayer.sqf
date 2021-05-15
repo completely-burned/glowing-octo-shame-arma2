@@ -1,8 +1,5 @@
-private "_isPlayer";
-_isPlayer = isPlayer _this;
-
-if (_isPlayer) exitWith {
-	_isPlayer
+if (isPlayer _this) exitWith {
+	true
 };
 
 if (getPlayerUID _this != "") exitWith {
