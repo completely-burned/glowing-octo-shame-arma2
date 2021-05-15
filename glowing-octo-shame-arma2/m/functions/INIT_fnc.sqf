@@ -89,5 +89,6 @@ fnc_smoke = compile (preprocessFileLineNumbers (_path + "fn_smoke.sqf"));
 fnc_respawnPos = compile (preprocessFileLineNumbers (_path + "fn_respawnPos.sqf"));
 fnc_eh_getout = compile (preprocessFileLineNumbers (_path + "fn_eh_getout.sqf"));
 fnc_eh_getin = compile (preprocessFileLineNumbers (_path + "fn_eh_getin.sqf"));
+fnc_teamDamaging = compile (preprocessFileLineNumbers (_path + "fnc_teamDamaging.sqf"));
 
 m_fnc_init = true;

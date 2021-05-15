@@ -42,6 +42,7 @@ SetGroupIconsVisible [true,false];
 [] execVM ("m\client\while_respawnRandom.sqf");
 [] execVM ("m\client\while_patrols.sqf");
 [] execVM ("m\client\while_assignedVehicle.sqf");
+[] execVM ("m\ban\teamDamaging.sqf");
 
 if(!isServer)then{
 	[] execVM ("m\server\server_update_groups_other.sqf"); // сервер не может считать assignedVehicle для не серверных ии
