@@ -1,6 +1,3 @@
-﻿#define true 1
-#define false 0
-
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle","_grp","_entry","_hasDriver","_turrets"];
 _vehicle = _this select 0;
 _grp = _this select 1;
