@@ -50,6 +50,8 @@ if(_type == "FDF_leopard2a4")then{
 	};
 } forEach _turrets;
 
+#undef true
+#undef false
 //if (_type isKindOf "Tank") then {
 	private["_commander","_gunner"];
 	_commander = commander _vehicle;
