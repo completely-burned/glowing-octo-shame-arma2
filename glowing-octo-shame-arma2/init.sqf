@@ -2,7 +2,7 @@
 	failMission "LOSER";
 }else{
 
-	[] execVM "m\tk\mpf_override.sqf";
+	[] execVM "m\ban\mpf_override.sqf";
 
 	if (!IsDedicated) then {
 		[] execVM "m\client\playerStartPos.sqf";
