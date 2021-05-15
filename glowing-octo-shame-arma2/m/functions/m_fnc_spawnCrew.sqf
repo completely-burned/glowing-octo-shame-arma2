@@ -52,6 +52,8 @@ if(_type == "FDF_leopard2a4")then{
 
 #undef true
 #undef false
+#undef 1
+#undef 0
 //if (_type isKindOf "Tank") then {
 	private["_commander","_gunner"];
 	_commander = commander _vehicle;
