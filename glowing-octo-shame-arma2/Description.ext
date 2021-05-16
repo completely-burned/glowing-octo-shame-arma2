@@ -101,13 +101,13 @@ class Params {
 		texts[] = {"Base","Random unit"};
 		default=0;
 	};
-	class gc_count {
+	class gc_dist {
 		title="Garbage Collector count queue size";
 		values[] = {0,100,500,1000,1500,2000,2500,3000,4000,5000,6000,7000};
 		texts[]  = {0,100,500,1000,1500,2000,2500,3000,4000,5000,6000,7000};
 		default=7000;
 	};
-	class gc_dist {
+	class gc_count {
 		title="Garbage Collector distance multiplier";
 		values[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
 		texts[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
