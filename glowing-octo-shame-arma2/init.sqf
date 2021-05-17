@@ -20,19 +20,19 @@
 
 	debug=false;
 
-	draga_loglevel = missionNamespace getVariable "debugLevel";
+	gosa_loglevel = missionNamespace getVariable "debugLevel";
 
-	if(isNil "draga_loglevel")then{
-		draga_loglevel=0;
+	if(isNil "gosa_loglevel")then{
+		gosa_loglevel=0;
 	};
 
-	if(draga_loglevel>0)then{
+	if(gosa_loglevel>0)then{
 		debug=true;
 	}else{
 		debug=false;
 	};
-	draga_loglevel_perf = draga_loglevel;
-	publicVariable "draga_loglevel";
+	gosa_loglevel_perf = gosa_loglevel;
+	publicVariable "gosa_loglevel";
 
 	[] Call Compile preprocessFileLineNumbers "m\init_common.sqf";
 	if (isServer) then {

@@ -1,7 +1,7 @@
 // тут все сделано неправильно, надо исправить
 
 waitUntil {!isNil "bis_fnc_init"};
-waitUntil {!isNil "m_fnc_init"};
+waitUntil {!isNil "gosa_fnc_init"};
 waitUntil {!isNil "locationStarted"};
 waitUntil {!isNil "GroupsStarted"};
 
@@ -25,7 +25,7 @@ while{true}do{
 		_side = side _grp;
 
 		if (_side in [west,east,resistance]) then {
-			if({_x call fnc_isPlayer} count units _grp == 0)then{
+			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
 				if({alive _x} count units _grp > 0)then{
 					if (!isNil {_grp GetVariable "patrol"}) then {
 						if (_side in m_friendlySide) then {
@@ -49,7 +49,7 @@ while{true}do{
 
 	if (isMultiplayer)then{
 		{
-			if(_x call fnc_isPlayer)then{
+			if(_x call gosa_fnc_isPlayer)then{
 				_friendlyGroups = _friendlyGroups + _playerCoefficient;
 			};
 		}forEach ([] call BIS_fnc_listPlayers);
@@ -75,18 +75,18 @@ while{true}do{
 			_difference = (((_all_groups / 5) min 4) max 2);
 			// diag_log format ["UpdateReinforcement.sqf 106, %1", time];
 			if (_friendlyGroups * _enemyCoefficient + _difference >= _enemyGroups) then {
-				[_enemySide call BIS_fnc_selectRandom] call m_fnc_call_reinforcement;
+				[_enemySide call BIS_fnc_selectRandom] call gosa_fnc_call_reinforcement;
 			};
 			if (_enemyGroups + _difference >= _friendlyGroups * _enemyCoefficient) then {
-				[m_friendlySide call BIS_fnc_selectRandom] call m_fnc_call_reinforcement;
+				[m_friendlySide call BIS_fnc_selectRandom] call gosa_fnc_call_reinforcement;
 			};
 			/*
 			if ((_enemyPatrols + _friendlyPatrols) < ((_enemyGroups + _friendlyGroups) / 4)) then {
 				if (_friendlyPatrols * _enemyCoefficient + _difference >= _enemyPatrols) then {
-					[_enemySide call BIS_fnc_selectRandom,"patrol"] call m_fnc_call_reinforcement;
+					[_enemySide call BIS_fnc_selectRandom,"patrol"] call gosa_fnc_call_reinforcement;
 				};
 				if (_enemyPatrols + _difference >= _friendlyPatrols * _enemyCoefficient) then {
-					[m_friendlySide call BIS_fnc_selectRandom,"patrol"] call m_fnc_call_reinforcement;
+					[m_friendlySide call BIS_fnc_selectRandom,"patrol"] call gosa_fnc_call_reinforcement;
 				};
 			};
 			*/

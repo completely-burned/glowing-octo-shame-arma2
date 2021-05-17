@@ -9,7 +9,7 @@ waitUntil {!isNil "AllGroupsGuer"};
 waitUntil {!isNil "GroupsStarted"};
 
 waitUntil {!isNil "bis_fnc_init"};
-waitUntil {!isNil "m_fnc_init"};
+waitUntil {!isNil "gosa_fnc_init"};
 
 waitUntil {!isNil "playerReady"};
 
@@ -31,7 +31,7 @@ while{true}do{
 		_leader = leader _grp;
 
 		if (local _leader && _side in [west,east,resistance]) then {
-			if({_x call fnc_isPlayer} count units _grp == 0)then{
+			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
 				if({alive _x} count units _grp > 0)then{
 					if (!isNil {_grp GetVariable "patrol"}) then {
 						if (_side in m_friendlySide) then {
@@ -106,18 +106,18 @@ while{true}do{
 			_grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
 			_types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
-			_SafePosParams = ([_types] call m_fnc_SafePosParams);
+			_SafePosParams = ([_types] call gosa_fnc_SafePosParams);
 
 			// увеличивает максимальный радиус поиска позиции для создания патруля
 			_SafePosParams set [1,((_SafePosParams select 1) * 2)];
 
 				diag_log format ["Log: [while_patrols.sqf] creating %1 ", [_pos]+_SafePosParams+[_side]];
 
-			_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
+			_pos_resp = ([_pos]+_SafePosParams+[_side] call gosa_fnc_findSafePos);
 			if(count (_pos_resp select 0) == 0)exitWith{}; // _pos_resp без позиции если не нашлось подходящей позиции
 
 			private["_groups"];
-			_groups = ([_pos_resp, _side, _grp1 select 0] call m_fnc_spawnGroup);
+			_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
 
 			// помечаем группу что это патруль и она готова для дальнейших скриптов
 			{
@@ -209,15 +209,15 @@ while{true}do{
 			_grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
 			_types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
-			_SafePosParams = ([_types] call m_fnc_SafePosParams);
+			_SafePosParams = ([_types] call gosa_fnc_SafePosParams);
 
 			diag_log format ["Log: [while_patrols.sqf] creating %1 ", [_pos]+_SafePosParams+[_side]];
 
-			_pos_resp = ([_pos]+_SafePosParams+[_side] call m_fnc_findSafePos);
+			_pos_resp = ([_pos]+_SafePosParams+[_side] call gosa_fnc_findSafePos);
 			if(count (_pos_resp select 0) == 0)exitWith{}; // _pos_resp без позиции если не нашлось подходящей позиции
 
 			private["_groups"];
-			_groups = ([_pos_resp, _side, _grp1 select 0] call m_fnc_spawnGroup);
+			_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
 
 			// помечаем группу что она готова для дальнейших скриптов
 			{

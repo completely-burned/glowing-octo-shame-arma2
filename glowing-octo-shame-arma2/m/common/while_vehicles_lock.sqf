@@ -25,12 +25,12 @@ while{true}do{
 		_grp = _x;
 
 		// можно не выполнять другие вычисления если игрок лидер
-		if(leader _grp call fnc_isPlayer)then{
+		if(leader _grp call gosa_fnc_isPlayer)then{
 				diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия отменен, игрок лидер группы %1", _grp];
 		}else{
 			// можно не выполнять другие вычисления если игрок в группе, но долго проверяются все юниты в группе
 			_units = units _grp;
-			if({_x call fnc_isPlayer}count _units > 0)then{
+			if({_x call gosa_fnc_isPlayer}count _units > 0)then{
 					diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия отменен, игроки в группе %1", _grp];
 			}else{
 				// транспорт чужой группы нужно закрывать
@@ -83,7 +83,7 @@ while{true}do{
 				};
 
 				if (_friendly_vehicles_only == 1) then {
-					_side = getNumber(configFile >> "CfgVehicles" >> typeOf _vehicle >> "side") call m_fnc_getSide;
+					_side = getNumber(configFile >> "CfgVehicles" >> typeOf _vehicle >> "side") call gosa_fnc_getSide;
 					if (_side in [west,east,resistance]) then {
 						if !(_side in m_friendlySide) then {
 							_lock = 2;
@@ -91,7 +91,7 @@ while{true}do{
 					};
 				};
 
-				if({_x call fnc_isPlayer}count crew _vehicle > 0)then{
+				if({_x call gosa_fnc_isPlayer}count crew _vehicle > 0)then{
 					_lock = 0;
 				};
 

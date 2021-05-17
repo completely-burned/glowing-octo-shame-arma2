@@ -142,13 +142,13 @@ for [{_i = 0}, {_i < count (configfile >> "cfgVehicles")}, {_i = _i + 1}] do {
 };
 /// silvieManager ///
 
-availableVehicles = [] call m_fnc_availableVehicles;
+availableVehicles = [] call gosa_fnc_availableVehicles;
 publicVariable "availableVehicles";
-availableWeapons = [] call m_fnc_availableWeapons;
+availableWeapons = [] call gosa_fnc_availableWeapons;
 publicVariable "availableWeapons";
-availableMagazines = [] call m_fnc_availableMagazines;
+availableMagazines = [] call gosa_fnc_availableMagazines;
 publicVariable "availableMagazines";
-availableBackpacks = [] call m_fnc_availableBackpacks;
+availableBackpacks = [] call gosa_fnc_availableBackpacks;
 publicVariable "availableBackpacks";
 
 _woodland=false; _deserted=false;

@@ -39,7 +39,7 @@ while{true}do{
 					// diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, может двигаться", _x, _transportPlayer];
 					if(alive effectiveCommander _x)then{
 						// diag_log format ["transport.sqf транспорт %1 закреплен за игроком %2, жив effectiveCommander", _x, _transportPlayer];
-						if!(effectiveCommander _x call fnc_isPlayer)then{
+						if!(effectiveCommander _x call gosa_fnc_isPlayer)then{
 							// diag_log format ["transport.sqf поиск транспорт %1 закреплен за игроком %2, жив effectiveCommander", _x, _transportPlayer];
 							if(_transportPlayer == _player && getDammage _x < 0.75)then{
 								_veh = _x;
@@ -62,11 +62,11 @@ while{true}do{
 					if(_x_veh isKindOf "Helicopter" or _x_veh isKindOf "MV22")then{
 						if(alive _Commander)then{
 							if({group _x != group _Commander}count crew _x_veh == 0)then{
-								if({_x call fnc_isPlayer}count units _Commander == 0)then{
+								if({_x call gosa_fnc_isPlayer}count units _Commander == 0)then{
 									if(canMove _x_veh)then{
 										if(isNil {_x_veh getVariable "transportPlayer"})then{
 											if(getDammage _x_veh < 0.75)then{
-												if({_x call fnc_isPlayer}count crew _x_veh == 0)then{
+												if({_x call gosa_fnc_isPlayer}count crew _x_veh == 0)then{
 													if(_x_veh emptyPositions "cargo" >= count units _player)then{
 														private["_ok"];
 														if (isNil {_dist}) then {
@@ -123,25 +123,25 @@ while{true}do{
 				if(isNull _veh && count _heli_types > 0)then{
 					// создание транспорта
 					private["_pos_resp"];
-					_pos_resp = ([getPos _player]+[3500,7000, -1, -1, (100 * (pi / 180)), 0, [], getPos _player, [false, 0]]+[side _player] call m_fnc_findSafePos) select 0;
+					_pos_resp = ([getPos _player]+[3500,7000, -1, -1, (100 * (pi / 180)), 0, [], getPos _player, [false, 0]]+[side _player] call gosa_fnc_findSafePos) select 0;
 					_grp = createGroup side _player;
-					_veh = ([_pos_resp, random 360, _heli_types call BIS_fnc_selectRandom, _grp] call m_fnc_spawnVehicle) select 0;
+					_veh = ([_pos_resp, random 360, _heli_types call BIS_fnc_selectRandom, _grp] call gosa_fnc_spawnVehicle) select 0;
 					_veh setVariable ["transportPlayer", _player];
 						diag_log format ["transport.sqf транспорт %1 создан, закрепление за игроком %2", _veh, _player];
 				};
 				if(!isNull _veh)then{
 					//создание маршрута сбора
 					private["_pos2_destination"];
-					_pos2_destination = _grp getVariable "draga_transportwaypoint_created_GET_IN_pos";
+					_pos2_destination = _grp getVariable "gosa_transportwaypoint_created_GET_IN_pos";
 					if(isNil {_pos2_destination})then{
 						//создание маршрута сбора
 							diag_log format ["transport.sqf транспорт %1 движение к месту сбора", _veh];
 						_grp setVariable ["grp_created_time", time];
-						private["_m_fnc_waypoints"];
-						_m_fnc_waypoints = _grp getVariable "_m_fnc_waypoints";
-						if (!isNil {_m_fnc_waypoints}) then {
-							if (scriptDone _m_fnc_waypoints) then {
-								_grp setVariable ["_m_fnc_waypoints", nil];
+						private["_gosa_fnc_waypoints"];
+						_gosa_fnc_waypoints = _grp getVariable "_gosa_fnc_waypoints";
+						if (!isNil {_gosa_fnc_waypoints}) then {
+							if (scriptDone _gosa_fnc_waypoints) then {
+								_grp setVariable ["_gosa_fnc_waypoints", nil];
 							};
 						};
 						while {(count (waypoints _grp)) > 0} do {
@@ -152,17 +152,17 @@ while{true}do{
 						_wp setWaypointType "LOAD";
 						_wp setWaypointCombatMode "GREEN";
 						_wp setWaypointStatements ["true", "vehicle this land 'GET IN'"];
-						_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", _var_player_pos];
-						_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", nil];
+						_grp setVariable ["gosa_transportwaypoint_created_GET_IN_pos", _var_player_pos];
+						_veh setVariable ["gosa_transportwaypoint_created_GET_OUT_pos", nil];
 						_veh setVariable ["transportPos", nil];
-							diag_log format ["transport.sqf транспорт %1 движение к draga_transportwaypoint_created_GET_IN_pos, %2, GREEN, LOAD, (vehicle this land 'GET IN')", _veh, _var_player_pos];
+							diag_log format ["transport.sqf транспорт %1 движение к gosa_transportwaypoint_created_GET_IN_pos, %2, GREEN, LOAD, (vehicle this land 'GET IN')", _veh, _var_player_pos];
 					}else{
 						if(_var_player_pos distance _pos2_destination > 10)then{
 							//новая позиция сбора
 							//удаление маршрута сбора
-							_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", nil];
-							_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", nil];
-								diag_log format ["transport.sqf транспорт %1, новое назначение, draga_transportwaypoint_created_GET_IN_pos nil, draga_transportwaypoint_created_GET_OUT_pos nil", _veh];
+							_grp setVariable ["gosa_transportwaypoint_created_GET_IN_pos", nil];
+							_veh setVariable ["gosa_transportwaypoint_created_GET_OUT_pos", nil];
+								diag_log format ["transport.sqf транспорт %1, новое назначение, gosa_transportwaypoint_created_GET_IN_pos nil, gosa_transportwaypoint_created_GET_OUT_pos nil", _veh];
 						};
 					};
 				};
@@ -173,16 +173,16 @@ while{true}do{
 		private["_var_veh_pos_wp_created"];
 		if (!isNil {_var_veh_pos}) then {
 			// есть позиция высадки на технике
-			_var_veh_pos_wp_created = _veh getVariable "draga_transportwaypoint_created_GET_OUT_pos";
+			_var_veh_pos_wp_created = _veh getVariable "gosa_transportwaypoint_created_GET_OUT_pos";
 			if(isNil {_var_veh_pos_wp_created})then{
 				//создание маршрута высадки
 					diag_log format ["transport.sqf транспорт %1 движение к месту высадки", _veh];
 				_grp setVariable ["grp_created_time", time];
-				private["_m_fnc_waypoints"];
-				_m_fnc_waypoints = _grp getVariable "_m_fnc_waypoints";
-				if (!isNil {_m_fnc_waypoints}) then {
-					if (scriptDone _m_fnc_waypoints) then {
-						_grp setVariable ["_m_fnc_waypoints", nil];
+				private["_gosa_fnc_waypoints"];
+				_gosa_fnc_waypoints = _grp getVariable "_gosa_fnc_waypoints";
+				if (!isNil {_gosa_fnc_waypoints}) then {
+					if (scriptDone _gosa_fnc_waypoints) then {
+						_grp setVariable ["_gosa_fnc_waypoints", nil];
 					};
 				};
 				while {(count (waypoints _grp)) > 0} do {
@@ -193,17 +193,17 @@ while{true}do{
 				_wp setWaypointType "UNLOAD";
 				_wp setWaypointCombatMode "GREEN";
 				_wp setWaypointStatements ["true", "vehicle this land 'GET OUT'"];
-				_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", _var_veh_pos];
-				_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", nil];
+				_veh setVariable ["gosa_transportwaypoint_created_GET_OUT_pos", _var_veh_pos];
+				_grp setVariable ["gosa_transportwaypoint_created_GET_IN_pos", nil];
 				_player setVariable ["transportPos", nil];
-					diag_log format ["transport.sqf транспорт %1 движение к draga_transportwaypoint_created_GET_OUT_pos, %2, GREEN, UNLOAD, (vehicle this land 'GET OUT')", _veh, _var_veh_pos];
+					diag_log format ["transport.sqf транспорт %1 движение к gosa_transportwaypoint_created_GET_OUT_pos, %2, GREEN, UNLOAD, (vehicle this land 'GET OUT')", _veh, _var_veh_pos];
 			}else{
 				if(_var_veh_pos distance _var_veh_pos_wp_created > 10)then{
 					//новая позиция высадки
 					//удаление маршрута высадки
-					_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", nil];
-					_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", nil];
-						diag_log format ["transport.sqf транспорт %1, новое назначение на технике, draga_transportwaypoint_created_GET_OUT_pos nil, draga_transportwaypoint_created_GET_IN_pos nil", _veh];
+					_veh setVariable ["gosa_transportwaypoint_created_GET_OUT_pos", nil];
+					_grp setVariable ["gosa_transportwaypoint_created_GET_IN_pos", nil];
+						diag_log format ["transport.sqf транспорт %1, новое назначение на технике, gosa_transportwaypoint_created_GET_OUT_pos nil, gosa_transportwaypoint_created_GET_IN_pos nil", _veh];
 				};
 			};
 		};
@@ -222,8 +222,8 @@ while{true}do{
 					_veh land "NONE";
 					_player setVariable ['transportPos',nil];
 					_veh setVariable ['transportPos',nil];
-					_veh setVariable ["draga_transportwaypoint_created_GET_OUT_pos", nil];
-					_grp setVariable ["draga_transportwaypoint_created_GET_IN_pos", nil];
+					_veh setVariable ["gosa_transportwaypoint_created_GET_OUT_pos", nil];
+					_grp setVariable ["gosa_transportwaypoint_created_GET_IN_pos", nil];
 						diag_log format ["transport.sqf транспорт %1, сброс, отмена", _veh];
 				};
 			};

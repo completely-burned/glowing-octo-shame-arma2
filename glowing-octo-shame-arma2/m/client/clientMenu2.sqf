@@ -3,7 +3,7 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 	private "_entry"; _entry = ((configFile >> "CfgVehicles") select _i);
 	if (isClass _entry) then {
 		if ((getNumber(_entry >> "scope")) == 2) then {
-			_libEnabled = [_entry] call fnc_libEnabled;
+			_libEnabled = [_entry] call gosa_fnc_libEnabled;
 			if (_libEnabled) then {
 				private ["_faction","_vehicleclass","_type"];
 				_faction = getText(_entry >> "faction");

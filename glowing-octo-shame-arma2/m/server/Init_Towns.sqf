@@ -5,7 +5,7 @@ locationTypes=["CityCenter"];
 	// locationTypes=["NameLocal","NameVillage","NameCity","NameCityCapital"];
 // };
 // private["_fnc_Locations_1"];
-m_fnc_Locations_weights={
+gosa_fnc_Locations_weights={
 	private["_weights","_timeMax"];
 	_weights=[]; _timeMax=0;
 	{
@@ -57,7 +57,7 @@ locationNext={
 	};
 	if(count _NextLocations >0 )then{
 		CivilianLocationStartTime = time;
-		CivilianLocation = (_NextLocations call m_fnc_Locations_weights) call BIS_fnc_selectRandomWeighted;
+		CivilianLocation = (_NextLocations call gosa_fnc_Locations_weights) call BIS_fnc_selectRandomWeighted;
 		civilianBasePos = locationPosition CivilianLocation;
 		civilianBasePos resize 2;
 		publicVariable "civilianBasePos";
@@ -66,7 +66,7 @@ locationNext={
 		{
 			private["_grp"];
 			_grp = _x;
-			if({_x call fnc_isPlayer} count units _grp == 0)then{
+			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
 				{
 					_x setVariable ["time", time];
 					if!(side _x in m_friendlySide)then{
@@ -100,7 +100,7 @@ locationNext={
 			for "_i" from 0 to ((count (_grp select 0)) - 1) do {
 				_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
 				{
-					if ([_types, _x select 0] call m_fnc_CheckIsKindOfArray) then {
+					if ([_types, _x select 0] call gosa_fnc_CheckIsKindOfArray) then {
 						private["_rarity"];
 						_rarity = ([_grp, [1, _i]] call BIS_fnc_returnNestedElement);
 						_rarity = (_rarity * (_x select 1));

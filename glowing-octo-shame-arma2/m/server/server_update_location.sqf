@@ -12,7 +12,7 @@ while{true}do{
 
 	if !(isNil "CivilianLocation") then {
 		private["_sizeLocation"];
-		_sizeLocation = (({{alive _x && !(_x call fnc_isPlayer)} count units _x > 0} count allGroups) * 12.5) max 250;
+		_sizeLocation = (({{alive _x && !(_x call gosa_fnc_isPlayer)} count units _x > 0} count allGroups) * 12.5) max 250;
 		if(sizeLocation != _sizeLocation)then{
 			sizeLocation = +_sizeLocation;
 			publicVariable "sizeLocation";
@@ -40,7 +40,7 @@ while{true}do{
 		{
 			private["_veh"];
 			_veh = effectiveCommander _x;
-			if(_veh call fnc_isPlayer)then{
+			if(_veh call gosa_fnc_isPlayer)then{
 				switch (side _veh) do {
 					case (west):
 					{

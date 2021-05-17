@@ -5,7 +5,7 @@
 
 {
 	_x allowDamage false;
-	//_x spawn m_fnc_mobileHQ_init;
+	//_x spawn gosa_fnc_mobileHQ_init;
 	_x setVariable ["_noDelete",true];
 }forEach (allMissionObjects "Warfare_HQ_base_unfolded");
 
@@ -60,7 +60,7 @@ forEach (allMissionObjects 'MASH');
 			if ( isNil {_box getVariable "_noDelete"} ) then {
 				_deleteList set [count _deleteList,_box];
 			};
-			_box call m_fnc_updateReammoBox;
+			_box call gosa_fnc_updateReammoBox;
 		};
 	};
 }
@@ -95,6 +95,6 @@ forEach (allMissionObjects "Base_WarfareBVehicleServicePoint");
 	};
 } forEach vehicles+(allMissionObjects 'ReammoBox');
 
-(_deleteList) call fnc_cleanup;
+(_deleteList) call gosa_fnc_cleanup;
 	sleep 1;
 };

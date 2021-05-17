@@ -6,7 +6,7 @@ while{true}do{
 
 	if (vehicle player != player)then{
 		if (isNil {_moduleName_keyDownEHId})then{
-			_moduleName_keyDownEHId = (findDisplay 46) displayAddEventHandler ["KeyDown", "_this call fnc_smoke"];
+			_moduleName_keyDownEHId = (findDisplay 46) displayAddEventHandler ["KeyDown", "_this call gosa_fnc_smoke"];
 		};
 	}else{
 		if (!isNil {_moduleName_keyDownEHId})then{

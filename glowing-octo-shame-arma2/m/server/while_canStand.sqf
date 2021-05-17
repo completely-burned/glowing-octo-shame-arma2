@@ -1,7 +1,7 @@
 while{true}do{
 	{
 		if !(canStand _x) then {
-			if !([vehicle _x, 100] call m_fnc_CheckPlayersDistance)then{
+			if !([vehicle _x, 100] call gosa_fnc_CheckPlayersDistance)then{
 				_x setHit["legs",0];
 			};
 		};

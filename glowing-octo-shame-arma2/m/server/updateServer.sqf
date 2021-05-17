@@ -1,4 +1,4 @@
-waitUntil {!isNil "bis_fnc_init" && !isNil "m_fnc_init"};
+waitUntil {!isNil "bis_fnc_init" && !isNil "gosa_fnc_init"};
 waitUntil {!isNil "listCrew" && !isNil "listMHQ"};
 waitUntil {!isNil "silvieManagerBlacklist" && !isNil "silvieManagerVehicles"};
 
@@ -33,7 +33,7 @@ while {false} do {
 	_time2 set [0,time];
 	_time2_select = 1;
 
-	// allDead call fnc_cleanup;
+	// allDead call gosa_fnc_cleanup;
 
 	// BIS_GC_trashItFunc
 	if( (_time2 select _time2_select) < time )then{

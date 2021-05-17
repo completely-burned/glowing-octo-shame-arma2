@@ -2,9 +2,9 @@
 // объект радом с  котором строится
 _logic = _this select 3 select 0;
 
-draga_HQ_logic = _logic;
+gosa_HQ_logic = _logic;
 
-[_logic, nil, nil, _this select 3] call fnc_coin_variable;
+[_logic, nil, nil, _this select 3] call gosa_fnc_coin_variable;
 
 uinamespace setvariable ["COIN_displayMain",finddisplay 46];
 
@@ -413,7 +413,7 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					[_logic,objNull,_itemclass,_pos,_dir] call _code;
 
 					//--- Build
-					_building = _itemclass createvehicle [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];//[10,10,10000];
+					_building = _itemclass createvehicle [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)) , (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))];//[10,10,10000];
 					_building setdir _dir;
 					_building setVectorUp surfaceNormal _pos;
 					_building setpos _pos;
@@ -684,8 +684,8 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					_array = (call compile '%3') select _id;
 
 					_params = _array select 1;
-					draga_HQ_logic setvariable ['BIS_COIN_params',_params];
-					draga_HQ_logic setvariable ['BIS_COIN_menu',commandingmenu];
+					gosa_HQ_logic setvariable ['BIS_COIN_params',_params];
+					gosa_HQ_logic setvariable ['BIS_COIN_menu',commandingmenu];
 					showcommandingmenu '';
 
 				",_arrayParams] call BIS_fnc_createmenu;

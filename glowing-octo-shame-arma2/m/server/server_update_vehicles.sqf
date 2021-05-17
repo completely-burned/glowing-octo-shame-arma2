@@ -20,17 +20,17 @@ _deleteList=[];
 	};
 
 	if(alive _veh)then{
-		// if ([[_veh], listMHQ] call m_fnc_CheckIsKindOfArray) then {
+		// if ([[_veh], listMHQ] call gosa_fnc_CheckIsKindOfArray) then {
 			// Private["_coin"];
 			// _coin = (_veh getvariable "m_COIN_ID");
 			// if (isNil "_coin") then {
 				// _veh setvariable ["m_COIN_ID",true];
-				// _veh spawn m_fnc_mobileHQ_init;
+				// _veh spawn gosa_fnc_mobileHQ_init;
 			// };
 		// };
 
 		private["_side"];
-		_side = getNumber(LIB_cfgVeh >> _type >> "side") call m_fnc_getSide;
+		_side = getNumber(LIB_cfgVeh >> _type >> "side") call gosa_fnc_getSide;
 		if (_side in m_friendlySide) then{
 		if(getNumber(configFile >> "CfgVehicles" >> _type >> "attendant")> 0) then{
 			if (_delete) then{
@@ -69,7 +69,7 @@ _deleteList=[];
 			};
 		};
 			if (_delete) then{
-				if ([[_veh], listMHQ] call m_fnc_CheckIsKindOfArray) then {
+				if ([[_veh], listMHQ] call gosa_fnc_CheckIsKindOfArray) then {
 					_countMHQ = _countMHQ + 1;
 					if (_countMHQ <= 50) then {
 						_delete = false;
@@ -89,11 +89,11 @@ _deleteList=[];
 			};
 		};
 
-		_veh call m_fnc_SalvageTruck;
+		_veh call gosa_fnc_SalvageTruck;
 
-		// _veh call draga_fnc_StaticWeapon;
+		// _veh call gosa_fnc_StaticWeapon;
 
-		// _veh call draga_fnc_uav;
+		// _veh call gosa_fnc_uav;
 
 	}else{
 		if !(_delete) then{

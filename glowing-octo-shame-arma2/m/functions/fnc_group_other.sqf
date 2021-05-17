@@ -26,8 +26,8 @@ _grp_wp_completed = _grp getVariable "_grp_wp_completed";
 
 _units = units _grp;
 
-if (draga_loglevel > 0) then {
-	diag_log format ["fnc_group_other.sqf units %1", _units];
+if (gosa_loglevel > 0) then {
+	diag_log format ["gosa_fnc_group_other.sqf units %1", _units];
 };
 
 if({alive _x} count units _grp > 0)then{
@@ -42,8 +42,8 @@ if({alive _x} count units _grp > 0)then{
 		(!isServer && (owner _leader == 2))
 	)then{
 		// то пропуск
-		if (draga_loglevel > 0) then {
-			diag_log format ["fnc_group_other.sqf breakTo main, owner: %1  %2,  isServer = %3, isLocal = %4", _leader, owner _leader, isServer, local _leader];
+		if (gosa_loglevel > 0) then {
+			diag_log format ["gosa_fnc_group_other.sqf breakTo main, owner: %1  %2,  isServer = %3, isLocal = %4", _leader, owner _leader, isServer, local _leader];
 		};
 		breakTo "main";
 	};
@@ -75,38 +75,38 @@ if({alive _x} count units _grp > 0)then{
 		};
 	}forEach _units;
 
-	if( ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))then{
+	if( ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))then{
 		breakTo "main";
-		if (draga_loglevel > 0) then {
-			diag_log format ["fnc_group_other.sqf %1 breakTo main, transport", _grp ];
+		if (gosa_loglevel > 0) then {
+			diag_log format ["gosa_fnc_group_other.sqf %1 breakTo main, transport", _grp ];
 		};
 	};
 
 	if({toLower getText(LIB_cfgVeh >> _x >> "vehicleClass") == "submarine"} count _types > 0)then{_Submarine = true}else{_Submarine = false};
 
-	_Helicopter = ([_vehicles, ["Helicopter"]] call m_fnc_CheckIsKindOfArray);
+	_Helicopter = ([_vehicles, ["Helicopter"]] call gosa_fnc_CheckIsKindOfArray);
 
-	_Plane = ([_vehicles, ["Plane"]] call m_fnc_CheckIsKindOfArray);
+	_Plane = ([_vehicles, ["Plane"]] call gosa_fnc_CheckIsKindOfArray);
 
-	_Ship = ([_vehicles, ["Ship"]] call m_fnc_CheckIsKindOfArray);
+	_Ship = ([_vehicles, ["Ship"]] call gosa_fnc_CheckIsKindOfArray);
 
-	_StaticWeapon = ([_vehicles, ["StaticWeapon"]] call m_fnc_CheckIsKindOfArray);
+	_StaticWeapon = ([_vehicles, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray);
 
-	_Air = ([_vehicles, ["Air"]] call m_fnc_CheckIsKindOfArray);
+	_Air = ([_vehicles, ["Air"]] call gosa_fnc_CheckIsKindOfArray);
 
-	_Tank = ([_vehicles, ["Tank"]] call m_fnc_CheckIsKindOfArray);
+	_Tank = ([_vehicles, ["Tank"]] call gosa_fnc_CheckIsKindOfArray);
 
-	_Car = ([_vehicles, ["Car"]] call m_fnc_CheckIsKindOfArray);
+	_Car = ([_vehicles, ["Car"]] call gosa_fnc_CheckIsKindOfArray);
 
-	_Tracked_APC = ([_vehicles, ["Tracked_APC"]] call m_fnc_CheckIsKindOfArray);
-	_Wheeled_APC = ([_vehicles, ["Wheeled_APC"]] call m_fnc_CheckIsKindOfArray);
+	_Tracked_APC = ([_vehicles, ["Tracked_APC"]] call gosa_fnc_CheckIsKindOfArray);
+	_Wheeled_APC = ([_vehicles, ["Wheeled_APC"]] call gosa_fnc_CheckIsKindOfArray);
 
-	_uav = ([_types, ["UAV"]] call m_fnc_CheckIsKindOfArray);
+	_uav = ([_types, ["UAV"]] call gosa_fnc_CheckIsKindOfArray);
 	if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
 		_uav = true;
 	};
 
-	_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call m_fnc_CheckIsKindOfArray);
+	_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call gosa_fnc_CheckIsKindOfArray);
 
 	_support = false;
 	ScopeName "_true1";
@@ -138,7 +138,7 @@ if({alive _x} count units _grp > 0)then{
 
 	private["_getOut","_allowGetin","_assignedVehicle"];
 	_getOut=[];
-	if !(_leader call fnc_isPlayer) then {
+	if !(_leader call gosa_fnc_isPlayer) then {
 		{
 			_assignedVehicle = assignedVehicle _x;
 			_allowGetin=true;
@@ -189,7 +189,7 @@ if({alive _x} count units _grp > 0)then{
 
 							// транспорт без вооружения 2
 							if!(_enableAttack)then{
-								if([[_assignedVehicle], ["M1128_MGS_EP1", "Pandur2_ACR"]] call m_fnc_CheckIsKindOfArray)then{
+								if([[_assignedVehicle], ["M1128_MGS_EP1", "Pandur2_ACR"]] call gosa_fnc_CheckIsKindOfArray)then{
 									_enableAttack = true;
 								};
 							};
@@ -231,7 +231,7 @@ if({alive _x} count units _grp > 0)then{
 					// без стрелка
 					if(_allowGetin)then{
 						if(_assignedVehicle isKindOf "LandVehicle")then{
-							if!([_assignedVehicle, false] call draga_fnc_CheckTurretAlive)then{
+							if!([_assignedVehicle, false] call gosa_fnc_CheckTurretAlive)then{
 								_allowGetin=false;
 							};
 						}
@@ -288,7 +288,7 @@ if({alive _x} count units _grp > 0)then{
 					};
 
 					// игрок
-					if (_x call fnc_isPlayer) then {
+					if (_x call gosa_fnc_isPlayer) then {
 						if (vehicle _x == _x) then {
 							// _allowGetin=false;
 						}else{
@@ -321,12 +321,12 @@ if({alive _x} count units _grp > 0)then{
 
 			_type = typeOf _veh;
 
-			if (_type isKindOf "Tank" && !(effectiveCommander _veh call fnc_isPlayer)) then {
+			if (_type isKindOf "Tank" && !(effectiveCommander _veh call gosa_fnc_isPlayer)) then {
 
 
 				_entry = configFile >> "CfgVehicles" >> _type;
 
-				_turrets = ([_entry >> "turrets",[]] call m_fnc_returnVehicleTurrets);
+				_turrets = ([_entry >> "turrets",[]] call gosa_fnc_returnVehicleTurrets);
 
 				{
 					_turret = _x;
@@ -412,7 +412,7 @@ if({alive _x} count units _grp > 0)then{
 
 		scopeName "_follow";
 
-		if !(_leader call fnc_isPlayer) then {
+		if !(_leader call gosa_fnc_isPlayer) then {
 
 			// лидер двигаться в сторону атакующей техники отряда
 			{
@@ -458,22 +458,22 @@ if({alive _x} count units _grp > 0)then{
 	// ии не нужно следовать маршруту в бою, исключение десант будет следовать маршруту
 	if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 && !_Air && !_Ship )then{
 		// транспортный вертолет вызываемый игроками, отличается поведением и его маршруты в этом скрипте не нужно трогать, пропускаем его
-		if( ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "draga_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))exitWith{
-			if (draga_loglevel > 0) then {
-				diag_log format ["Log: [fnc_group_other.sqf] %1 танспортный вертолет, пропуск", _grp ];
+		if( ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))exitWith{
+			if (gosa_loglevel > 0) then {
+				diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 танспортный вертолет, пропуск", _grp ];
 			};
 		};
 		if ( count waypoints _grp > 0 ) then{
 			// установить маршрут группы на себя
-			if (draga_loglevel > 0) then {
-				diag_log format ["Log: [fnc_group_other.sqf] установить маршрут группы на себя %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
+			if (gosa_loglevel > 0) then {
+				diag_log format ["Log: [gosa_fnc_group_other.sqf] установить маршрут группы на себя %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
 			};
 			[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
 			sleep 1;
 			// удалить маршруты
 			if ( count waypoints _grp > 0 ) then{
-				if (draga_loglevel > 0) then {
-					diag_log format ["Log: [fnc_group_other.sqf] удаление waypoints группы %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
+				if (gosa_loglevel > 0) then {
+					diag_log format ["Log: [gosa_fnc_group_other.sqf] удаление waypoints группы %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
 				};
 				for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 					deleteWaypoint [_grp, _i];
@@ -482,7 +482,7 @@ if({alive _x} count units _grp > 0)then{
 		};
 	};
 
-	if !(_leader call fnc_isPlayer) then {
+	if !(_leader call gosa_fnc_isPlayer) then {
 		private["_SpeedMode","_CombatMode","_Behaviour"];
 		_SpeedMode = "NORMAL";
 		_CombatMode = "YELLOW";
@@ -543,7 +543,7 @@ if({alive _x} count units _grp > 0)then{
 
 		if(!_Air)then{
 			if(_Behaviour in ["COMBAT","STEALTH"])then{
-				if !([_leader, 800] call m_fnc_CheckPlayersDistance) then {
+				if !([_leader, 800] call gosa_fnc_CheckPlayersDistance) then {
 					_Behaviour = "AWARE";
 				};
 			};
@@ -577,6 +577,6 @@ if({alive _x} count units _grp > 0)then{
 
 };
 
-if (draga_loglevel > 0) then {
-	diag_log format ["fnc_group_other end %1", time];
+if (gosa_loglevel > 0) then {
+	diag_log format ["gosa_fnc_group_other end %1", time];
 };

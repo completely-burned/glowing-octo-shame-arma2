@@ -1,6 +1,6 @@
-draga_COIN_items = [];
+gosa_COIN_items = [];
 if(faction player in ["BIS_US", "BIS_CZ", "BIS_GER"] or playerSide == west)then{
-	draga_COIN_items = [
+	gosa_COIN_items = [
 			["WarfareBMGNest_M240_US_EP1","Defence",0],
 			["M2StaticMG_US_EP1","Defence",0],
 			["M2HD_mini_TriPod_US_EP1","Defence",0],
@@ -22,7 +22,7 @@ if(faction player in ["BIS_US", "BIS_CZ", "BIS_GER"] or playerSide == west)then{
 		];
 };
 if(faction player in ["USMC"])then{
-	draga_COIN_items = [
+	gosa_COIN_items = [
 			["USMC_WarfareBMGNest_M240","Defence",0],
 			["M2StaticMG","Defence",0],
 			["M2HD_mini_TriPod","Defence",0],
@@ -44,7 +44,7 @@ if(faction player in ["USMC"])then{
 			];
 };
 if(faction player in ["CDF"])then{
-	draga_COIN_items = [
+	gosa_COIN_items = [
 			["CDF_WarfareBMGNest_PK","Defence",0],
 			["DSHKM_CDF","Defence",0],
 			["DSHkM_Mini_TriPod_CDF","Defence",0],
@@ -67,7 +67,7 @@ if(faction player in ["CDF"])then{
 };
 
 if(faction player in ["BIS_TK", "BIS_TK_INS"] or playerSide == east)then{
-	draga_COIN_items = [
+	gosa_COIN_items = [
 			["WarfareBMGNest_PK_TK_EP1","Defence",0],
 			["KORD_high_TK_EP1","Defence",0],
 			["KORD_TK_EP1","Defence",0],
@@ -90,7 +90,7 @@ if(faction player in ["BIS_TK", "BIS_TK_INS"] or playerSide == east)then{
 			];
 };
 if(faction player in ["RU"])then{
-	draga_COIN_items = [
+	gosa_COIN_items = [
 			["RU_WarfareBMGNest_PK","Defence",0],
 			["KORD_high","Defence",0],
 			["KORD","Defence",0],
@@ -113,7 +113,7 @@ if(faction player in ["RU"])then{
 			];
 };
 if(faction player in ["INS"])then{
-	draga_COIN_items = [
+	gosa_COIN_items = [
 			["Ins_WarfareBMGNest_PK","Defence",0],
 			["DSHKM_Ins","Defence",0],
 			["DSHkM_Mini_TriPod","Defence",0],
@@ -136,7 +136,7 @@ if(faction player in ["INS"])then{
 };
 
 if(faction player in ["BIS_TK_GUE", "BIS_UN"] or playerSide == resistance)then{
-	draga_COIN_items = [
+	gosa_COIN_items = [
 			["WarfareBMGNest_PK_TK_GUE_EP1","Defence",0],
 			["DSHKM_TK_GUE_EP1","Defence",0],
 			["DSHkM_Mini_TriPod_TK_GUE_EP1","Defence",0],
@@ -158,7 +158,7 @@ if(faction player in ["BIS_TK_GUE", "BIS_UN"] or playerSide == resistance)then{
 			];
 };
 if(faction player in ["GUE"])then{
-	draga_COIN_items = [
+	gosa_COIN_items = [
 			["GUE_WarfareBMGNest_PK","Defence",0],
 			["DSHKM_Gue","Defence",0],
 			["ZU23_Gue","Defence",0],

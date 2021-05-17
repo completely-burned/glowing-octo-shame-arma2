@@ -113,7 +113,7 @@ rsetRankcode = {
 	// _state = _this select 2;
 
 	// Поведение при использовании на игроков в многопользовательской кажется непредсказуемым
-	if !(_this select 1 call fnc_isPlayer)then{
+	if !(_this select 1 call gosa_fnc_isPlayer)then{
 		_this select 1 setRank (_this select 2);
 	};
 };

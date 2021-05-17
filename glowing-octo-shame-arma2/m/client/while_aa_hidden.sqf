@@ -70,7 +70,7 @@ while {true} do {
 
 							_dist = 3000 + random 2000;
 							_testPos = [(_posPlayerASL select 0) + _dist*sin _dir, (_posPlayerASL select 1) + _dist*cos _dir, _posPlayerASL select 2];
-							if([_testPos, 3000] call m_fnc_CheckPlayersDistance)exitWith{};
+							if([_testPos, 3000] call gosa_fnc_CheckPlayersDistance)exitWith{};
 
 							if(!canFire _aa or !alive _unit or isNull _unit or isNull _aa)then{
 
@@ -79,9 +79,9 @@ while {true} do {
 									deleteVehicle _x;
 								} forEach [_unit, _aa];
 
-								_aa = _aaType createVehicleLocal [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))];
+								_aa = _aaType createVehicleLocal [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)) , (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))];
 
-								_unit = (group_system_units createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)) , (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"]);
+								_unit = (group_system_units createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)) , (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"]);
 
 								hideObject _aa;
 								hideObject _unit;

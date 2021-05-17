@@ -1,4 +1,4 @@
-﻿waitUntil{!isNil "m_fnc_init"};
+﻿waitUntil{!isNil "gosa_fnc_init"};
 waitUntil {!isNil "BIS_fnc_init"};
 
 respawnVehicleList=[];
@@ -27,7 +27,7 @@ for "_i" from 0 to (count respawnVehicleList - 1) do {
 	_veh = _veh select 0;
 	if((_veh distance _pos) > sizeOf _type)then{
 		_veh setVariable ["time", time];
-		_veh1 = createVehicle [_type, [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)), (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"];
+		_veh1 = createVehicle [_type, [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)), (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"];
 		_veh1 setDir _dir;
 		_veh1 setPos _pos;
 		_veh1 setVectorUp [0,0,1];
@@ -40,7 +40,7 @@ for "_i" from 0 to (count respawnVehicleList - 1) do {
 				// {
 					// if(!alive _x)then{deleteVehicle _x};
 				// }forEach (_pos nearObjects ["AllVehicles",sizeOf _type]);
-				_veh1 = createVehicle [_type, [(draga_posDefaultHiden select 0) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2)), (draga_posDefaultHiden select 1) + ((random draga_posDefaultHidenRandom) - (draga_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"];
+				_veh1 = createVehicle [_type, [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)), (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"];
 				_veh1 setDir _dir;
 				_veh1 setPos _pos;
 				_veh1 setVectorUp [0,0,1];

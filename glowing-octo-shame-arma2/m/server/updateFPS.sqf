@@ -22,7 +22,7 @@ while{true}do{
 
 
 	_fps_array 		set [count _fps_array, 		diag_fps		];
-	_fps_array_time set [count _fps_array_time, time + draga_server_diag_fps_interval];
+	_fps_array_time set [count _fps_array_time, time + gosa_server_diag_fps_interval];
 	_fps_array_countGroups set [count _fps_array_countGroups, count allGroups];
 
 

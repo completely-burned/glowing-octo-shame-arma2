@@ -12,7 +12,7 @@ for "_i" from 0 to (_count_m_GC_queue - 1) do {
 			switch (typeName _object) do {
 				case ("OBJECT"):
 				{
-					if !([_object, 750 - (_count_m_GC_queue * 10)] call m_fnc_CheckPlayersDistance)then{
+					if !([_object, 750 - (_count_m_GC_queue * 10)] call gosa_fnc_CheckPlayersDistance)then{
 						deleteVehicle _object;
 						m_GC_queue set [_i, -1];
 					};

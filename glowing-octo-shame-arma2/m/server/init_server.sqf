@@ -75,8 +75,8 @@ if (isNil "group_logic") then {
 	group_logic = createGroup sideLogic;
 };
 
-draga_HC_logic = (group_logic) createUnit ["logic",[1000,10,0],[],0,"none"];;
-publicVariable "draga_HC_logic";
+gosa_HC_logic = (group_logic) createUnit ["logic",[1000,10,0],[],0,"none"];;
+publicVariable "gosa_HC_logic";
 
 BIS_silvie_mainscope = objNull;
 // мусоросборник, изменен
@@ -131,7 +131,7 @@ if ( ACE_Avail ) then {
 	// _logic = (group_logic) createUnit ["AlternativeInjurySimulation",[1000,10,0],[],0,"none"];
 	// _logic synchronizeObjectsAdd playableUnits;
 };
-waitUntil{!isNil "m_fnc_init"};
+waitUntil{!isNil "gosa_fnc_init"};
 
 
 ///--- создание и удаление объектов, базы

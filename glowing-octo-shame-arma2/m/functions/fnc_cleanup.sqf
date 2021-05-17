@@ -17,11 +17,11 @@ while { count _deleteList > _min_vehicles_count } do {
 
 	_deleteList = _deleteList - [_veh];
 
-	if !([_veh, _min_dist] call m_fnc_CheckPlayersDistance) then {
+	if !([_veh, _min_dist] call gosa_fnc_CheckPlayersDistance) then {
 		if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
 			moveOut _veh;
 		};
-		diag_log format ["fnc_cleanup.sqf deleteVehicle %1", _veh];
+		diag_log format ["gosa_fnc_cleanup.sqf deleteVehicle %1", _veh];
 		deleteVehicle _veh;
 	};
 

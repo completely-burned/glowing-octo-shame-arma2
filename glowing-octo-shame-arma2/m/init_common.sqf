@@ -89,21 +89,21 @@ Warfare_HQ = ["Warfare_HQ_base_unfolded"];
 
 UAVterminal = listMHQ + HQ + ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
 
-draga_objectsTeleport = listMHQ + HQ + Warfare_HQ + ["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"];
+gosa_objectsTeleport = listMHQ + HQ + Warfare_HQ + ["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"];
 
-draga_objectsReammo = listMHQ + HQ + ["Base_WarfareBBarracks","Base_WarfareBLightFactory"];
-draga_distanceReammo = 150;
+gosa_objectsReammo = listMHQ + HQ + ["Base_WarfareBBarracks","Base_WarfareBLightFactory"];
+gosa_distanceReammo = 150;
 
-draga_objectsCoinBase = Warfare_HQ+HQ;
-draga_distanceCoinBase = 150;
-draga_objectsCoinMHQ = listMHQ;
-draga_distanceCoinMHQ = 15;
-draga_BuyDistance = draga_distanceCoinBase;
+gosa_objectsCoinBase = Warfare_HQ+HQ;
+gosa_distanceCoinBase = 150;
+gosa_objectsCoinMHQ = listMHQ;
+gosa_distanceCoinMHQ = 15;
+gosa_BuyDistance = gosa_distanceCoinBase;
 respawnSafeDistance = 10;
-draga_posDefaultHiden = [-2000, 0];
-draga_posDefaultHidenRandom = 1000;
+gosa_posDefaultHiden = [-2000, 0];
+gosa_posDefaultHidenRandom = 1000;
 
-draga_server_diag_fps_interval = 600;
+gosa_server_diag_fps_interval = 600;
 
 Officers = [
 	"RU_Commander","RU_Soldier_Officer","Ins_Commander","TK_Soldier_Officer_EP1","TK_Aziz_EP1","TK_INS_Warlord_EP1",
@@ -114,8 +114,8 @@ Officers = [
 // [inf,veh,air,Ship,StaticWeapon,base,]
 safeSpawnDistance = [1000,1500,3500,1500,1500,3500];
 
-[] execVM ("m\draga_update_vehicle_init.sqf");
-// [] execVM "m\ais\draga_is.sqf";
+[] execVM ("m\gosa_update_vehicle_init.sqf");
+// [] execVM "m\ais\gosa_is.sqf";
 [] execVM ("m\common\while_vehicles_lock.sqf");
 
 listCrewLower = [];

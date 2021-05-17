@@ -150,9 +150,9 @@ if (isNil {BIS_UAV_HELI_mapEH_mousebuttondown}) then {
 				_uav = BIS_UAV_PLANE;
 				// if (!isnil {(vehicle _uav) getvariable 'BIS_UAV_keepWaypoints'}) exitwith {};
 				// if (!isnil {(group _uav) getvariable 'BIS_UAV_keepWaypoints'}) exitwith {};
-				// _draga_UAV_WaypointPosCenter = _uav getVariable "_draga_UAV_WaypointPosCenter";
+				// _gosa_UAV_WaypointPosCenter = _uav getVariable "_gosa_UAV_WaypointPosCenter";
 				_worldpos = (_this select 0) posscreentoworld [_this select 2,_this select 3];
-				group _uav setVariable ["_draga_UAV_WaypointPosCenter", _worldpos, true];
+				group _uav setVariable ["_gosa_UAV_WaypointPosCenter", _worldpos, true];
 				while {count (waypoints _uav) > 0} do {deletewaypoint ((waypoints _uav) select 0)};
 				/*for "_i" from count waypoints _uav - 1 to 1 step -1 do {
 					deleteWaypoint [group _uav, _i];
@@ -188,7 +188,7 @@ if (isNil {BIS_UAV_HELI_mapEH_mousebuttondown}) then {
 						if (_DirUav+1000000 <= _plus+1000000 && _DirUav+1000000 > _minus+1000000) then {
 							_wp = _x;
 						};
-						diag_log format ["draga_UAV_wp %1", [_DirWP, _DirUav, _x, [_minus,_plus]] ];
+						diag_log format ["gosa_UAV_wp %1", [_DirWP, _DirUav, _x, [_minus,_plus]] ];
 					};
 				} forEach waypoints (group _uav);
 				(group _uav) setcurrentwaypoint _wp;

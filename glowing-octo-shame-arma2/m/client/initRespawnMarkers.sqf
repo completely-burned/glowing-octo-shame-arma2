@@ -64,7 +64,7 @@ waitUntil {!isNil {MHQ_list}};
 private ["_dynamicMarkers"];
 _dynamicMarkers = [];
 
-draga_respawnMarkers = _respawnMarkers;
+gosa_respawnMarkers = _respawnMarkers;
 
 if(true)then{
 
@@ -89,7 +89,7 @@ if(true)then{
 					_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
 					_markerMHQ setMarkerTypeLocal _markerMHQtype;
 					_markerMHQ setMarkerColorLocal _markerColor;
-					draga_respawnMarkers = [_markerMHQ]+_respawnMarkers;
+					gosa_respawnMarkers = [_markerMHQ]+_respawnMarkers;
 				}else{
 					_markerMHQ setMarkerPos _pos;
 				};
@@ -98,7 +98,7 @@ if(true)then{
 
 		// -- удаление лишних динамичных маркеров
 		for "_i" from 0 to (count _dynamicMarkers - 1) do {
-			if(!alive (_dynamicMarkers select _i select 1) or ((_dynamicMarkers select _i select 1) isKindOf "Man" && !((_dynamicMarkers select _i select 1) call fnc_isPlayer)))then{
+			if(!alive (_dynamicMarkers select _i select 1) or ((_dynamicMarkers select _i select 1) isKindOf "Man" && !((_dynamicMarkers select _i select 1) call gosa_fnc_isPlayer)))then{
 				deleteMarkerLocal (_dynamicMarkers select _i select 0);
 				_dynamicMarkers set [_i, -1];
 			};
@@ -131,7 +131,7 @@ if(true)then{
 
 		// -- игроки
 		{
-			if(!(_x in _units) && (side _x == playerSide) && alive _x && (_x call fnc_isPlayer))then{
+			if(!(_x in _units) && (side _x == playerSide) && alive _x && (_x call gosa_fnc_isPlayer))then{
 				_units set [count _units, _x];
 				_markers set [count _markers, createMarkerLocal [str _x,position _x]];
 			};
@@ -150,8 +150,8 @@ if(true)then{
 			_unit = (_units select _i);
 			_marker = (_markers select _i);
 			if (!isNull _unit && alive _unit) then {
-				if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call m_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6))then{
-					if ({_x call fnc_isPlayer} count crew _unit == 0) then {
+				if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call gosa_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6))then{
+					if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
 						_marker setMarkerPosLocal (position _unit);
 						_marker setMarkerTypeLocal "vehicle";
 						_marker setMarkerDirLocal getDir _unit;
@@ -163,7 +163,7 @@ if(true)then{
 				}else{
 					private ["_veh"];
 					_veh = vehicle _unit;
-					if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call m_fnc_getSide getFriend playerSide < 0.6)) then {
+					if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6)) then {
 						_marker setMarkerPosLocal (position _veh);
 						_marker setMarkerTypeLocal "vehicle";
 						_marker setMarkerDirLocal getDir _veh;

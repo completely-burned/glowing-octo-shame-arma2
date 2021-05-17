@@ -75,7 +75,7 @@ while{true}do{
 							// _veh1 setPosATL _pos;
 							_veh1 setVectorUp [0,0,1];
 							_veh1 setVelocity [0, 0, -1];
-							// _veh1 addEventHandler ["GetIn",{_this call m_fnc_EH_GetIn}];
+							// _veh1 addEventHandler ["GetIn",{_this call gosa_fnc_EH_GetIn}];
 
 								diag_log format ["silvieManager createVehicle %1", _veh1];
 

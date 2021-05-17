@@ -36,13 +36,13 @@ while {true} do {
 		_x_veh = _x;
 
 		// узнать время удаления
-		_time = (_x_veh getVariable "draga_timeDeleteVehicle");
+		_time = (_x_veh getVariable "gosa_timeDeleteVehicle");
 		if ( isNil "_time" ) then {
 			_time = ( time + ( 60 * 30 ) );
-			_x_veh setVariable ["draga_timeDeleteVehicle", _time];
+			_x_veh setVariable ["gosa_timeDeleteVehicle", _time];
 		};
 
-		if !(_x_veh call fnc_isPlayer) then {
+		if !(_x_veh call gosa_fnc_isPlayer) then {
 
 			_assignedVehicle = assignedVehicle _x_veh;
 
@@ -90,7 +90,7 @@ while {true} do {
 			};
 
 			// отряд игрока !не удалять!
-			if ({_x call fnc_isPlayer} count units _x_veh > 0) then {
+			if ({_x call gosa_fnc_isPlayer} count units _x_veh > 0) then {
 				_timeNew = _time max (time + _timerPlayer);
 			};
 
@@ -99,7 +99,7 @@ while {true} do {
 			if (!isNil {_timeNew}) then {
 				if (_time != _timeNew) then {
 					_time = _timeNew;
-					_x_veh setVariable ["draga_timeDeleteVehicle", _timeNew];
+					_x_veh setVariable ["gosa_timeDeleteVehicle", _timeNew];
 				};
 			};
 
@@ -167,11 +167,11 @@ while {true} do {
 
 	{
 		_x_veh = _x;
-		if !([_x_veh, _min_dist2] call m_fnc_CheckPlayersDistance) then {
+		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 
 				diag_log format ["while_gc2.sqf deleteA %1", _x_veh];
 
-			if !(_x_veh call fnc_isPlayer) then {
+			if !(_x_veh call gosa_fnc_isPlayer) then {
 				_x_veh setDamage 1;
 				deleteVehicle _x_veh;
 			};
@@ -195,10 +195,10 @@ while {true} do {
 
 		_deleteListManDead = _deleteListManDead - [-1];
 
-		if !([_x_veh, _min_dist2] call m_fnc_CheckPlayersDistance) then {
+		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 				diag_log format ["while_gc2.sqf delete %1", _x_veh];
 
-			if !(_x_veh call fnc_isPlayer) then {
+			if !(_x_veh call gosa_fnc_isPlayer) then {
 				_x_veh setDamage 1;
 				moveOut _x_veh;
 				deleteVehicle _x_veh;
@@ -221,7 +221,7 @@ while {true} do {
 		_deleteListVehDead = _deleteListVehDead - [-1];
 
 
-		if !([_x_veh, _min_dist2] call m_fnc_CheckPlayersDistance) then {
+		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 				diag_log format ["while_gc2.sqf deleteVeh %1", _x_veh];
 			// _x_veh setDamage 1;
 			deleteVehicle _x_veh;

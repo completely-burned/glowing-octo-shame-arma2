@@ -8,7 +8,7 @@ while{true}do{
 	if (false) then {
 		{
 			_veh = _x;
-			if (_veh call m_fnc_isUAV) then {
+			if (_veh call gosa_fnc_isUAV) then {
 				_nearEntities = (position _veh nearEntities 1000);
 				{
 					_grp = _x;
