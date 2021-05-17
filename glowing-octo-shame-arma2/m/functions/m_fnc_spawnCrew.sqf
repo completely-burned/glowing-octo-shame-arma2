@@ -57,13 +57,10 @@ if(_type == "FDF_leopard2a4")then{
 	_commander = commander _vehicle;
 	_gunner = gunner _vehicle;
 	{
-		_x setRank "CORPORAL";
-		_x setVariable ["rank", "CORPORAL", true];
+		[nil, _x, "per", rsetRank, "CORPORAL"] call RE;
 	} forEach _crew-[_commander]-[_gunner]-[driver _vehicle];
-	_commander setRank "LIEUTENANT";
-	_commander setVariable ["rank", "LIEUTENANT", true];
-	_gunner setRank "SERGEANT";
-	_gunner setVariable ["rank", "SERGEANT", true];
+	[nil, _commander, "per", rsetRank, "LIEUTENANT"] call RE;
+	[nil, _gunner, "per", rsetRank, "SERGEANT"] call RE;
 //};
 
 _crew

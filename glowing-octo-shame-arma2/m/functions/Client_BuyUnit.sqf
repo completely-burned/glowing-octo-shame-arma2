@@ -74,7 +74,7 @@ if (true) then {
 						if(_cost>=350000)then{_rank="CAPTAIN"};
 						if(_cost>=500000)then{_rank="MAJOR"};
 						if(_cost>=750000)then{_rank="COLONEL"};
-						_veh setRank _rank;
+						[nil, _veh, "per", rsetRank, _rank] call RE;
 					};
 					_veh call _fnc_1;
 					hint format["%1: %2", localize "str_support_done", _type];

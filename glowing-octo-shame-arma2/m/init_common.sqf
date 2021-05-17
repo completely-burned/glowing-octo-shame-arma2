@@ -117,7 +117,6 @@ safeSpawnDistance = [1000,1500,3500,1500,1500,3500];
 [] execVM ("m\draga_update_vehicle_init.sqf");
 // [] execVM "m\ais\draga_is.sqf";
 [] execVM ("m\common\while_vehicles_lock.sqf");
-[] execVM ("m\common\while_ranks.sqf");
 
 listCrewLower = [];
 {

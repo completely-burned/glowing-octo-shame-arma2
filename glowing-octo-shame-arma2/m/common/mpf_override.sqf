@@ -105,4 +105,17 @@ for [{_i=0}, {_i< count _library}, {_i = _i + 1}] do
   call compile format ["%1code = %3",_name, (_library select _i), _code];
 };
 
+rsetRank = 'setRank';
+rsetRankcode = {
+	// private ["_caller", "_target", "_state"];
+	// _caller = _this select 0;
+	// _target = _this select 1;
+	// _state = _this select 2;
+
+	// Поведение при использовании на игроков в многопользовательской кажется непредсказуемым
+	if !(_this select 1 call fnc_isPlayer)then{
+		_this select 1 setRank (_this select 2);
+	};
+};
+
 diag_log format ['Log: [mpf_override.sqf] done %1', time];
