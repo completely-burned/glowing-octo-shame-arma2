@@ -1,6 +1,6 @@
 ﻿/*
 
-	private["_ok"]; _ok = [this] execVM "m\functions\gosa_fnc_reweapon.sqf";
+	private["_ok"]; _ok = [this] execVM "dir\functions\gosa_fnc_reweapon.sqf";
 
 */
 

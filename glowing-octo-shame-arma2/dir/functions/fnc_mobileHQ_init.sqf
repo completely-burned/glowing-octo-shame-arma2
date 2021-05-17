@@ -239,5 +239,5 @@ if(_coin)then{
 	_this addEventHandler ["killed", {_this select 0 setvariable ["BIS_COIN_rules", nil]}];
 	_this setvariable ["BIS_COIN_categories",["Base","Defence"]]; 
 	_this setvariable ["BIS_COIN_funds",["1000000","1000000"]]; 
-	[_this] execVM "m\Functions\coin.sqf"; 
+	[_this] execVM "dir\Functions\coin.sqf"; 
 };

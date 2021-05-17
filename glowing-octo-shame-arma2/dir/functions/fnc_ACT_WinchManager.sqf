@@ -38,7 +38,7 @@ while {true} do {
 			if (isNil {_action}) then {
 				private["_name"];
 				_name = gettext(configFile >> "CfgVehicles" >> (typeof _vehicle) >> "displayName");
-				_action = _vehPlayer addAction [format["Pick: %1",_name], "m\functions\ACT_WinchPick.sqf", _vehicle];
+				_action = _vehPlayer addAction [format["Pick: %1",_name], "dir\functions\ACT_WinchPick.sqf", _vehicle];
 				_actionVehicleCargo = _vehicle;
 			};
 		}else{

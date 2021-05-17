@@ -100,7 +100,7 @@ _fnc6={
 // if (configName(configFile >> "CfgGroups" >> "PLAgrps") != "") then {
 	// AllGroupsGuerrila=(AllGroupsGuerrila+([["PLAgrps"],[],[]] call gosa_fnc_returnGroups));
 // };
-[] call compile preprocessFileLineNumbers "m\server\config_groups.sqf";
+[] call compile preprocessFileLineNumbers "dir\server\config_groups.sqf";
 
 AllGroupsWest = AllGroupsWest call _fnc1;
 AllGroupsEast = AllGroupsEast call _fnc1;

@@ -1,5 +1,5 @@
 
-[] call compile preprocessFileLineNumbers "m\client\config_client.sqf";
+[] call compile preprocessFileLineNumbers "dir\client\config_client.sqf";
 
 waitUntil{!isNil "bis_fnc_init"};
 waitUntil{!isNil "gosa_fnc_init"};
@@ -18,12 +18,12 @@ SetGroupIconsVisible [true,false];
 	// BIS_Effects_AirDestructionStage2
 	waitUntil {!isNil "BIS_Effects_Secondaries"};
 	if (ACE_Avail) then {waitUntil {!isNil "WARFX_Effects_Init"}}; // ����� �� ����� ���� ������� ��� ���� ACE
-	BIS_Effects_AirDestructionStage2 = compile preprocessFileLineNumbers "m\Client\AirDestructionStage2.sqf";
+	BIS_Effects_AirDestructionStage2 = compile preprocessFileLineNumbers "dir\Client\AirDestructionStage2.sqf";
 };
 */
 
 
-[] execVM "m\client\initRespawnMarkers.sqf";
+[] execVM "dir\client\initRespawnMarkers.sqf";
 [] spawn gosa_fnc_rating;
 [] spawn gosa_fnc_ACT_WinchManager;
 // [] spawn gosa_fnc_handleFirstAid;
@@ -32,20 +32,20 @@ SetGroupIconsVisible [true,false];
 // [] spawn gosa_fnc_handleTeleport;
 [] spawn gosa_fnc_handleLocationTask;
 [] spawn gosa_fnc_handleBuyMenu;
-[] execVM "m\client\clientMenu.sqf";
-[] execVM "m\client\updateClient.sqf";
-[] execVM "m\client\updateLocalGroup.sqf";
-// [] execVM "m\client\handleBuyMenuTimeAvailable.sqf";
-[] execVM "m\client\gosa_coin.sqf";
-[] execVM ("m\client\while_aa_hidden.sqf");
-[] execVM ("m\client\act_smoke.sqf");
-[] execVM ("m\client\while_respawnRandom.sqf");
-[] execVM ("m\client\while_patrols.sqf");
-[] execVM ("m\client\while_assignedVehicle.sqf");
-[] execVM ("m\ban\teamDamaging.sqf");
+[] execVM "dir\client\clientMenu.sqf";
+[] execVM "dir\client\updateClient.sqf";
+[] execVM "dir\client\updateLocalGroup.sqf";
+// [] execVM "dir\client\handleBuyMenuTimeAvailable.sqf";
+[] execVM "dir\client\gosa_coin.sqf";
+[] execVM ("dir\client\while_aa_hidden.sqf");
+[] execVM ("dir\client\act_smoke.sqf");
+[] execVM ("dir\client\while_respawnRandom.sqf");
+[] execVM ("dir\client\while_patrols.sqf");
+[] execVM ("dir\client\while_assignedVehicle.sqf");
+[] execVM ("dir\ban\teamDamaging.sqf");
 
 if(!isServer)then{
-	[] execVM ("m\server\server_update_groups_other.sqf"); // сервер не может считать assignedVehicle для не серверных ии
+	[] execVM ("dir\server\server_update_groups_other.sqf"); // сервер не может считать assignedVehicle для не серверных ии
 };
 
 
@@ -53,10 +53,10 @@ waitUntil{(!isNull player)};
 
 if ([[player], Officers] call gosa_fnc_CheckIsKindOfArray) then {
 	waitUntil{!isNil "gosa_HC_logic"};
-	[] call compile preprocessFileLineNumbers "m\client\gosa_hc.sqf";
-	[] execVM "m\client\gosa_hc_loop.sqf";
+	[] call compile preprocessFileLineNumbers "dir\client\gosa_hc.sqf";
+	[] execVM "dir\client\gosa_hc_loop.sqf";
 	[player] execVM ("\ca\modules\hc\data\scripts\HC_GUI.sqf");
-	[] execVM "m\client\gosa_hc_gui_wp_attack.sqf";
+	[] execVM "dir\client\gosa_hc_gui_wp_attack.sqf";
 };
 
 player addEventHandler ["killed", {
@@ -67,7 +67,7 @@ player addEventHandler ["killed", {
     };
     bis_uav_terminate = true;
 }];
-// [] call compile preprocessFileLineNumbers  "m\Client\coin.sqf";
+// [] call compile preprocessFileLineNumbers  "dir\Client\coin.sqf";
 
 /* _player = (createVehicle [typeOf player, position player, [], 0, "FORM"]);
 selectPlayer _player;
@@ -96,7 +96,7 @@ if ( isMultiplayer ) then {
 	onTeamSwitch {
 		SetGroupIconsVisible [true,false];
 		// if(side _from != side _to)then{
-			// [] call compile preprocessFileLineNumbers "m\Client\ClientMenu.sqf";
+			// [] call compile preprocessFileLineNumbers "dir\Client\ClientMenu.sqf";
 		// };
 		40 CutRsc["OptionsAvailable","PLAIN",0];
 	};
@@ -111,7 +111,7 @@ if ( isMultiplayer ) then {
 };
 
 // радио 0-0, чтоб разные скрипты тестировать
-[] call compile preprocessFileLineNumbers  "m\Client\radio\init.sqf";
+[] call compile preprocessFileLineNumbers  "dir\Client\radio\init.sqf";
 
 if(debug)then{
 
@@ -124,4 +124,4 @@ if(debug)then{
 	SetGroupIconsVisible [true,true];
 };
 
-// player addAction ["main menu", "m\client\main_menu.sqf", nil, 1.5, false];
+// player addAction ["main menu", "dir\client\main_menu.sqf", nil, 1.5, false];

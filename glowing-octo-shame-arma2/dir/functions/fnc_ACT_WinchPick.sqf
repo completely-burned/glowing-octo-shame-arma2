@@ -8,7 +8,7 @@ if ((isNull _cargo) || ((_cargo distance _veh) > 25) ) exitWith {};
 _veh setVariable ["gosa_fnc_WinchManager_cargo", _cargo];
 
 _name=gettext(configFile >> "CfgVehicles" >> (typeof _cargo) >> "displayName");
-_actid = _veh addAction [format ["Drop: %1", _name], "m\functions\ACT_WinchDrop.sqf", _cargo];
+_actid = _veh addAction [format ["Drop: %1", _name], "dir\functions\ACT_WinchDrop.sqf", _cargo];
 
 while{(!isNil {_veh getVariable "gosa_fnc_WinchManager_cargo"}) && (alive _veh) && ((_veh emptyPositions "driver")==0) && (({alive _x} count (crew _cargo))==0)} do 
 {

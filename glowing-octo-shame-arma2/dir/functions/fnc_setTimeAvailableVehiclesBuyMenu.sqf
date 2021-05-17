@@ -25,4 +25,4 @@ if (_num < 0) then {
 	_enable set [_num, 0];
 };
 
-[] call compile preprocessFileLineNumbers "m\Client\ClientMenu.sqf";
+[] call compile preprocessFileLineNumbers "dir\Client\ClientMenu.sqf";

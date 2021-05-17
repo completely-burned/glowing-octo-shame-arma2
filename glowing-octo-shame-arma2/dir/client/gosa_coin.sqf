@@ -35,7 +35,7 @@ while{true}do{
 				_player = player;
 				_action = _player addaction [
 					localize "str_coin_action" + " - " + gettext(configFile >> "CfgVehicles" >> typeOf _x >> "displayName"),
-					"m\coin\coin_interface.sqf",
+					"dir\coin\coin_interface.sqf",
 					[_x,gosa_COIN_items,gosa_distanceCoinBase],
 					1,
 					false,
@@ -53,7 +53,7 @@ while{true}do{
 				_player = player;
 				_action = _player addaction [
 					localize "str_coin_action" + " - " + gettext(configFile >> "CfgVehicles" >> typeOf _x >> "displayName"),
-					"m\coin\coin_interface.sqf",
+					"dir\coin\coin_interface.sqf",
 					[_x, [[typeOf _x call gosa_fnc_get_MHQ_type,"Base",0]], gosa_distanceCoinMHQ],
 					1,
 					false,
@@ -69,7 +69,7 @@ while{true}do{
 			private ["_action"];
 			_action = _x addaction [
 				gettext(configFile >> "CfgVehicles" >> typeOf _x call gosa_fnc_get_MHQ_type >> "displayName"),
-				"m\client\coin_interface_MHQ.sqf",
+				"dir\client\coin_interface_MHQ.sqf",
 				_x,
 				1,
 				false,

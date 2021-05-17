@@ -56,7 +56,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					init="_nic = [this] execVM ""m\common\airport.sqf"";";
+					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
 		};
@@ -74,7 +74,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					init="_nic = [this] execVM ""m\common\airport.sqf"";";
+					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
 		};

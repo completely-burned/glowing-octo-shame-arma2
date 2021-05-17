@@ -1,4 +1,4 @@
-[] execVM ("m\server\" + "server_update_respawnVehicles.sqf");
+[] execVM ("dir\server\" + "server_update_respawnVehicles.sqf");
 
 ///--- настройки миссии
 
@@ -24,7 +24,7 @@ if(debug)then{
 // "AwareFormationSoft" enableAIFeature false;
 // "CombatFormationSoft" enableAIFeature false;
 
-[] call compile preprocessFileLineNumbers "m\server\config_server.sqf";
+[] call compile preprocessFileLineNumbers "dir\server\config_server.sqf";
 
 ///--- создание сторон
 if (( sideLogic CountSide AllUnits ) < 1) then { CreateCenter sideLogic };
@@ -152,15 +152,15 @@ if(isMultiplayer)then{
 
 
 //
-[] call compile preprocessFileLineNumbers "m\server\init_objects.sqf";
+[] call compile preprocessFileLineNumbers "dir\server\init_objects.sqf";
 
 // списки групп
-[] call compile preprocessFileLineNumbers "m\server\init_groups.sqf";
+[] call compile preprocessFileLineNumbers "dir\server\init_groups.sqf";
 // локации, города
-[] execVM "m\server\init_towns.sqf";
+[] execVM "dir\server\init_towns.sqf";
 
 // обновление техники и ботов, удаление
-[] spawn compile preprocessFileLineNumbers "m\server\updateServer.sqf";
+[] spawn compile preprocessFileLineNumbers "dir\server\updateServer.sqf";
 //--- патрули, боты создание
-// [] spawn compile preprocessFileLineNumbers "m\server\updateFPS.sqf";
-[] spawn compile preprocessFileLineNumbers "m\server\updateReinforcement.sqf";
+// [] spawn compile preprocessFileLineNumbers "dir\server\updateFPS.sqf";
+[] spawn compile preprocessFileLineNumbers "dir\server\updateReinforcement.sqf";

@@ -3,7 +3,7 @@ waitUntil {!isNil "listCrew" && !isNil "listMHQ"};
 waitUntil {!isNil "silvieManagerBlacklist" && !isNil "silvieManagerVehicles"};
 
 private["_path"];
-_path = "m\server\";
+_path = "dir\server\";
 [] execVM (_path + "server_update_vehicles.sqf");
 [] execVM (_path + "server_update_other.sqf");
 [] execVM (_path + "server_update_location.sqf");

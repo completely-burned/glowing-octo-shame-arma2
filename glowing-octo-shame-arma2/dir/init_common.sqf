@@ -19,7 +19,7 @@ acex_usnavy_Avail = false;
 if (configName(configFile >> "CfgMods" >> "acex_usnavy") != "") then {acex_usnavy_Avail = true};
 
 ///--- функции
-[] call compile preprocessFileLineNumbers "m\functions\INIT_fnc.sqf";
+[] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
 
 listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","WarfareSalvageTruck_CDF","WarfareSalvageTruck_Gue","WarfareSalvageTruck_INS",
 "MtvrSalvage_DES_EP1","UralSalvage_TK_EP1","V3S_Salvage_TK_GUE_EP1"];
@@ -114,9 +114,9 @@ Officers = [
 // [inf,veh,air,Ship,StaticWeapon,base,]
 safeSpawnDistance = [1000,1500,3500,1500,1500,3500];
 
-[] execVM ("m\gosa_update_vehicle_init.sqf");
-// [] execVM "m\ais\gosa_is.sqf";
-[] execVM ("m\common\while_vehicles_lock.sqf");
+[] execVM ("dir\gosa_update_vehicle_init.sqf");
+// [] execVM "dir\ais\gosa_is.sqf";
+[] execVM ("dir\common\while_vehicles_lock.sqf");
 
 listCrewLower = [];
 {

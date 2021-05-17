@@ -181,7 +181,7 @@ while {true} do {
 			};
 			if (isnil "_action_uav" && !isnull player) then {
 				private ["_action"];
-				_action = _actionObj addaction [localize "str_uav_action", "m\functions\uav_action.sqf", [_Object, _uav_terminals], 1, false, false];
+				_action = _actionObj addaction [localize "str_uav_action", "dir\functions\uav_action.sqf", [_Object, _uav_terminals], 1, false, false];
 				_action_uav = [_actionObj, _action];
 			};
 			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_uav_ca.paa")];
@@ -207,7 +207,7 @@ while {true} do {
 			};
 			if (isnil "_action_teleport" && !isnull _veh) then {
 				private ["_action"];
-				_action = _veh addaction [localize "STR_gosa_teleportation", "m\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false];
+				_action = _veh addaction [localize "STR_gosa_teleportation", "dir\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false];
 				_action_teleport = [_veh, _action];
 			};
 		}else{
@@ -228,7 +228,7 @@ while {true} do {
 			};
 			if (isnil "_action_menu" && !isnull _veh) then {
 				private ["_action"];
-				_action = _veh addaction ["Menu", "m\client\main_menu.sqf", '#User:BIS_Menu_GroupCommunication', 0.5, false, false];
+				_action = _veh addaction ["Menu", "dir\client\main_menu.sqf", '#User:BIS_Menu_GroupCommunication', 0.5, false, false];
 				_action_menu = [_veh, _action];
 			};
 		}else{
@@ -337,7 +337,7 @@ while {true} do {
 			};
 			if (isnil "_action_buy" && !isnull player) then {
 				private ["_action"];
-				_action = _actionObj addaction [localize "STR_gosa_purchase", "m\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
+				_action = _actionObj addaction [localize "STR_gosa_purchase", "dir\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
 				_action_buy = [_actionObj, _action];
 			};
 		}else{

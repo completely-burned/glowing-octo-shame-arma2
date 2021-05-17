@@ -1,5 +1,5 @@
 ﻿private["_path","_prefix"];
-_path = "m\Functions\";
+_path = "dir\Functions\";
 
 // файлы без приставки
 _prefix="gosa_";

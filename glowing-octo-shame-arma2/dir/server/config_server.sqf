@@ -36,7 +36,7 @@ m_sideEnemy = [east,west,resistance]-m_friendlySide;
 publicVariable "m_sideEnemy";
 
 
-[] call compile preprocessFileLineNumbers "m\server\cfg_mhq.sqf";
+[] call compile preprocessFileLineNumbers "dir\server\cfg_mhq.sqf";
 
 /// silvieManager ///
 silvieManagerBlacklist=[

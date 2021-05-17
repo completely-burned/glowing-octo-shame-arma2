@@ -8,12 +8,12 @@ while {true} do {
 		if (_enable select _i == 1) then {
 			if (_times select _i > time) then {
 				_enable set [_i, 0];
-				[] call compile preprocessFileLineNumbers "m\Client\ClientMenu.sqf";
+				[] call compile preprocessFileLineNumbers "dir\Client\ClientMenu.sqf";
 			};
 		}else{
 			if (_times select _i < time) then {
 				_enable set [_i, 1];
-				[] call compile preprocessFileLineNumbers "m\Client\ClientMenu.sqf";
+				[] call compile preprocessFileLineNumbers "dir\Client\ClientMenu.sqf";
 			};
 		};
 	};

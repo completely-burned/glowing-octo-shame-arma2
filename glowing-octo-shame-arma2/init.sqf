@@ -2,20 +2,20 @@
 	failMission "LOSER";
 }else{
 
-	[] execVM "m\common\mpf_override.sqf";
+	[] execVM "dir\common\mpf_override.sqf";
 
 	if (!IsDedicated) then {
-		[] execVM "m\client\playerStartPos.sqf";
-		[] execVM "m\client\briefing.sqf";
+		[] execVM "dir\client\playerStartPos.sqf";
+		[] execVM "dir\client\briefing.sqf";
 	};
 	if (isServer) then {
-		[] Call Compile preprocessFileLineNumbers "m\server\params.sqf";
+		[] Call Compile preprocessFileLineNumbers "dir\server\params.sqf";
 	};
 
-	[] execVM "m\common\setOvercast.sqf";
+	[] execVM "dir\common\setOvercast.sqf";
 
 	if (isServer) then {
-		[] execVM "m\server\StartTime.sqf"
+		[] execVM "dir\server\StartTime.sqf"
 	};
 
 	debug=false;
@@ -34,12 +34,12 @@
 	gosa_loglevel_perf = gosa_loglevel;
 	publicVariable "gosa_loglevel";
 
-	[] Call Compile preprocessFileLineNumbers "m\init_common.sqf";
+	[] Call Compile preprocessFileLineNumbers "dir\init_common.sqf";
 	if (isServer) then {
-		[] spawn Compile preprocessFileLineNumbers "m\server\init_server.sqf";
+		[] spawn Compile preprocessFileLineNumbers "dir\server\init_server.sqf";
 	};
 	if (!IsDedicated) then {
-		[] Call Compile preprocessFileLineNumbers "m\client\init_client.sqf";
+		[] Call Compile preprocessFileLineNumbers "dir\client\init_client.sqf";
 	};
 
 	if (!hasInterface && !isServer) then {
