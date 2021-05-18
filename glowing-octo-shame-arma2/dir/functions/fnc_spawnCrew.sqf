@@ -64,7 +64,7 @@ if(_type == "FDF_leopard2a4")then{
 			_rank = "LIEUTENANT";
 		};
 		//--- set rank
-		[nil, _unit, "per", rsetRank, _rank] call RE;
+		[nil, _unit, rsetRank, _rank] call RE;
 
 		_unit moveInTurret [_vehicle, _t];
 	};

@@ -89,7 +89,7 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 
 				if (((count _ranks) > 0)) then {
 					_unit setRank (_ranks select _i);
-					[nil, _unit, "per", rsetRank, _ranks select _i] call RE;
+					[nil, _unit, rsetRank, _ranks select _i] call RE;
 				}else{
 							Private["_cost","_rank"];
 							_cost = getNumber (configFile >> "CfgVehicles" >> _type >> "cost");
@@ -100,7 +100,7 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 							if(_cost>=350000)then{_rank="CAPTAIN"};
 							if(_cost>=500000)then{_rank="MAJOR"};
 							if(_cost>=750000)then{_rank="COLONEL"};
-							[nil, _unit, "per", rsetRank, _rank] call RE;
+							[nil, _unit, rsetRank, _rank] call RE;
 				};
 
 		};
