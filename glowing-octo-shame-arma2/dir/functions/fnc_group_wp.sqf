@@ -440,11 +440,13 @@ if({alive _x} count _units > 0)then{
 			private["_StopWP"];
 			_StopWP = false; // остановиться
 
-			// не создавать маршрут если боты атакуют
+			// остановить группу, удалить и не создавать маршрут если боты атакуют
 			if ((vehicle _leader distance civilianBasePos) <= sizeLocation or true) then {
 				if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
 					// боты остаются на месте
 					_NoCreateWP = true;
+					_StopWP = true;
+					_DeleteWP = true;
 				};
 			};
 
