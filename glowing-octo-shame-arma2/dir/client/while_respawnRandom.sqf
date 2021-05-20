@@ -1,6 +1,6 @@
 waitUntil{!isNil{respawn}};
 if(respawn != 1)exitWith{respawnDone = true};
-private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first"];
+private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers"];
 
 _player = player;
 
@@ -67,6 +67,46 @@ while {true} do {
 					};
 				};
 			} forEach _units;
+
+		_listPlayers = call BIS_fnc_listPlayers;
+
+		// ищем группу с игроками и подключаем игрока к группе для кооперации
+		{
+			_grp = group _x;
+			if (side _grp in m_friendlySide) then {
+				_units = units _grp;
+				// в группе с большим количеством игроков не интересно (корень количества игроков)
+				if (sqrt count _listPlayers > {_x call gosa_fnc_isPlayer} count _units) then {
+					{
+						if (_x call _fnc_isFit) then {
+							if (isNil {_bestCandidate}) then {
+								_bestCandidate = _x;
+							};
+							if ((rankId _x) > (rankId _bestCandidate)) then {
+								_bestCandidate = _x;
+							};
+						};
+					} forEach _units;
+				};
+			};
+		} forEach _listPlayers;
+
+		// ищем новое тело среди групп локальных игроку для лучшего командования подчиненными
+		{
+			if (side _x in m_friendlySide) then {
+				_leader = leader _x;
+				if (local _leader) then {
+				if (_leader call _fnc_isFit) then {
+					if (isNil {_bestCandidate}) then {
+						_bestCandidate = _leader;
+					};
+					if ((_pos distance _leader) < (_pos distance _bestCandidate)) then {
+						_bestCandidate = _leader;
+					};
+				};
+				};
+			};
+		} forEach allGroups;
 
 		// ищем новое тело среди лидеров групп т.к. игроки лучше командуют отрядом
 		{
