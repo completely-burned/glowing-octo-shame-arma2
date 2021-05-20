@@ -101,6 +101,12 @@ class Params {
 		texts[] = {"Base","Random unit"};
 		default=0;
 	};
+	class ai_client_count {
+		title="(cl) count ai groups on the client cpu";
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+		texts[]  = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
+		default=4;
+	};
 	class gc_dist {
 		title="Garbage Collector distance multiplier";
 		values[] = {0,100,500,1000,1500,2000,2500,3000,4000,5000,6000,7000};
