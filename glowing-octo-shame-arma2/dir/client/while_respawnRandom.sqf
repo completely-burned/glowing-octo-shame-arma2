@@ -1,3 +1,7 @@
+/* скрипт возрождния в случайного юнита.
+нужна проверка AFK на игроков и лидеров группы
+*/
+
 waitUntil{!isNil{respawn}};
 if(respawn != 1)exitWith{respawnDone = true};
 private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers"];
@@ -56,6 +60,7 @@ while {true} do {
 		_pos = getPos _player;
 
 		// ищем новое тело из юнитов группы т.к. они находятся рядом
+		if (isNil{_bestCandidate}) then {
 		_units = units _grp;
 			{
 				if (_x call _fnc_isFit) then {
@@ -67,10 +72,12 @@ while {true} do {
 					};
 				};
 			} forEach _units;
+		};
 
 		_listPlayers = call BIS_fnc_listPlayers;
 
 		// ищем группу с игроками и подключаем игрока к группе для кооперации
+		if (isNil{_bestCandidate}) then {
 		{
 			_grp = group _x;
 			if (side _grp in m_friendlySide) then {
@@ -90,8 +97,10 @@ while {true} do {
 				};
 			};
 		} forEach _listPlayers;
+		};
 
 		// ищем новое тело среди групп локальных игроку для лучшего командования подчиненными
+		if (isNil{_bestCandidate}) then {
 		{
 			if (side _x in m_friendlySide) then {
 				_leader = leader _x;
@@ -107,8 +116,10 @@ while {true} do {
 				};
 			};
 		} forEach allGroups;
+		};
 
 		// ищем новое тело среди лидеров групп т.к. игроки лучше командуют отрядом
+		if (isNil{_bestCandidate}) then {
 		{
 			if (side _x in m_friendlySide) then {
 				_leader = leader _x;
@@ -123,6 +134,7 @@ while {true} do {
 			};
 
 		} forEach allGroups;
+		};
 	};
 
 	// защита от непланируемого поведения, после первой смерти еще одно тело появляется на точке возрождения и переключает игрока в это тело, здесь мы переключаем его обратно в нужное тело, а созданное на точке возрождения отключаем
