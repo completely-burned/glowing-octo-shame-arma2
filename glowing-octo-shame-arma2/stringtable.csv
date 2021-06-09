@@ -541,3 +541,4 @@ STR_gosa_Сontacts2,"The latest version of the script can be downloaded from the
 STR_gosa_heli_transport,"air transportation","воздушный транспорт"
 STR_gosa_heli_transport_move,"%1 in transit","%1 в пути"
 STR_friendly_vehicles_only,"friendly vehicles only","только дружественные транспортные средства"
+STR_gosa_cheat_detected,"cheat detected","чит обнаружен"

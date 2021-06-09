@@ -118,4 +118,9 @@ rsetRankcode = {
 	};
 };
 
+rspawn = 'spawn';
+rspawncode = {
+	systemChat format["MF spawn code %1: %2", localize "STR_gosa_cheat_detected", _this];
+};
+
 diag_log format ['Log: [mpf_override.sqf] done %1', time];
