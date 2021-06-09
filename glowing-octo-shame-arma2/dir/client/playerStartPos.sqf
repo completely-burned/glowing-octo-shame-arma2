@@ -1,3 +1,12 @@
+if(!isMultiplayer)exitWith{
+	playerReady = true;
+
+	// подготовить объекты. обнаруживает противников
+	{
+		player reveal _x;
+	} forEach (player nearObjects 100);
+};
+
 waitUntil {!isNull player};
 player setPos [-2000 - random 500, 1000 - random 500];
 
@@ -17,3 +26,8 @@ waitUntil {!isNil "respawnDone" or time > 30};
 endLoadingScreen;
 
 playerReady = true;
+
+// подготовить объекты. обнаруживает противников
+{
+	player reveal _x;
+} forEach (player nearObjects 100);
