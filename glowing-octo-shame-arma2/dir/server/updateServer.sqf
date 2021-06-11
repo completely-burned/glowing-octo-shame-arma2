@@ -22,6 +22,7 @@ _path = "dir\server\";
 [] execVM (_path + "server_update_groups_cleanup.sqf");
 [] execVM (_path + "server_update_groups_other.sqf");
 [] execVM (_path + "server_update_groups_wp.sqf");
+[] execVM "dir\testing\laser.sqf";
 
 private ["_time2","_delay","_time2_select"];
 _time2 = [time,time,time,time,time,time,time,time,time,time,time,time,time,time];
