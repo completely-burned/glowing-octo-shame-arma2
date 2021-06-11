@@ -122,7 +122,7 @@ while {true} do {
 						_Object setFuelCargo 1;
 						if (isNil {_Object getVariable "hintCrewAction"}) then {
 							private["_action"];
-							_action = _Object addAction [format ["%1 %2",localize "STR_ACT_Crew",getText (configFile >> "CfgVehicles" >> _type >> "displayName")],'m\client\ACT\ACT_HintCrew.sqf',[],0, false];
+							_action = _Object addAction [format ["%1 %2",localize "STR_ACT_Crew",getText (configFile >> "CfgVehicles" >> _type >> "displayName")],'dir\client\ACT\ACT_HintCrew.sqf',[],0, false];
 							_Object setVariable ["hintCrewAction",_action];
 						};
 					};
