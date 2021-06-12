@@ -374,6 +374,7 @@ if(LIB_a2Avail)then{
 				// [[[["T90","T90","T90"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.6],
 
 				[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier","RU_Soldier2","RU_Soldier_Medic"]]],0.3],
+				[[[["Mi24_V2","Mi24_V2"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier","RU_Soldier2","RU_Soldier_Medic"]]],0.3],
 				[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier","RU_Soldier2","RU_Soldier_Medic"]]],0.3],
 				[[[["Ka52"],[],["CAPTAIN"]]],0.1],
 				[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
