@@ -168,7 +168,7 @@ if(LIB_a2Avail)then{
 				[[[["GUE_Soldier_AR","BRDM2_GUE","GUE_Soldier_GL","GUE_Soldier_1"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
 				[[[["GUE_Soldier_CO","BMP2_GUE","GUE_Soldier_MG","GUE_Soldier_GL","GUE_Soldier_3","GUE_Soldier_AR","GUE_Soldier_Sniper","GUE_Soldier_AT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","LIEUTENANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.05],
 				[[[["T72_GUE","T72_GUE"],[[0,10,0],[5,0,0]],["LIEUTENANT","LIEUTENANT"]]],0.01],
-				[[[["Ural_ZU23_Gue","GUE_Soldier_AA","GUE_Soldier_AA","GUE_Soldier_AA"], [[10,0],[0,0],[0,0],[0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5],
+				[[[["Ural_ZU23_Gue","GUE_Soldier_AA","GUE_Soldier_AA","GUE_Soldier_AA"], [[10,0],[0,0],[0,0],[0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.01],
 				[[[["T34"], [[0,0],[5,0]],["LIEUTENANT","LIEUTENANT"]]],0.01],
 
 				[[[["WarfareReammoTruck_Gue"], [],["PRIVATE"]]],0.01],
