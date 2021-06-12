@@ -17,6 +17,7 @@ _fnc_swich={
 	_new = (_this select 1);
 	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
 	selectPlayer _new;
+	_new call gosa_fnc_initBriefing;
 	_new;
 };
 
