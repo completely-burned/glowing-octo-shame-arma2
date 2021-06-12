@@ -173,6 +173,12 @@ if(LIB_a2Avail)then{
 				"GUE_Soldier_AR","GUE_Soldier_Sniper"
 				],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL"]]],0.01],
 				[[[["GUE_Soldier_CO","BMP2_GUE","GUE_Soldier_MG","GUE_Soldier_GL","GUE_Soldier_3","GUE_Soldier_AR","GUE_Soldier_Sniper","GUE_Soldier_AT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","LIEUTENANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.05],
+				[[[["GUE_Soldier_CO",
+				"BMP1_INS_CP","GUE_Soldier_MG",
+				"GUE_Soldier_GL","GUE_Soldier_3",
+				"GUE_Soldier_AR","GUE_Soldier_Sniper",
+				"GUE_Soldier_AT"
+				],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","LIEUTENANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.01],
 				[[[["T72_GUE","T72_GUE"],[[0,10,0],[5,0,0]],["LIEUTENANT","LIEUTENANT"]]],0.01],
 				[[[["Ural_ZU23_Gue","GUE_Soldier_AA","GUE_Soldier_AA","GUE_Soldier_AA"], [[10,0],[0,0],[0,0],[0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.01],
 				[[[["T34"], [[0,0],[5,0]],["LIEUTENANT","LIEUTENANT"]]],0.01],
