@@ -1,5 +1,7 @@
 ﻿EnableTeamSwitch false;
 
+BIS_WFdPath = "\CA\Warfare2\";
+
 LIB_cfgVeh = configFile >> "CfgVehicles";
 LIB_cfgWea = configFile >> "CfgWeapons";
 // LIB_cfgAmm = configFile >> "CfgAmmo";

@@ -158,6 +158,7 @@ if(isMultiplayer)then{
 [] call compile preprocessFileLineNumbers "dir\server\init_groups.sqf";
 // локации, города
 [] execVM "dir\server\init_towns.sqf";
+[] execVM "dir\server\init_alltowns.sqf";
 
 // обновление техники и ботов, удаление
 [] spawn compile preprocessFileLineNumbers "dir\server\updateServer.sqf";

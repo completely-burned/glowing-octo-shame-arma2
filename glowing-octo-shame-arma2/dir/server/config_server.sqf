@@ -180,3 +180,9 @@ if(!_woodland)then{
 {
 	if(configName(configfile >> "cfgVehicles" >> _x) == "")then{airTransportsGuer=airTransportsGuer-[_x]};
 }forEach airTransportsGuer;
+
+// бункеры
+gosa_constructedList = [];
+[] call compile preprocessFileLineNumbers "dir\server\config_compositions.sqf";
+gosa_rangeSizeModifier = 0;
+gosa_rangeModifier = gosa_rangeSizeModifier * 25;
