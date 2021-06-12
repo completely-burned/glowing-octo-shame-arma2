@@ -69,7 +69,7 @@ locationNext={
 			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
 				{
 					_x setVariable ["time", time];
-					if!(side _x in m_friendlySide)then{
+					if!(side _x in gosa_friendlyside)then{
 						_x allowFleeing 1;
 					};
 				}forEach units _grp;

@@ -85,7 +85,7 @@ while{true}do{
 				if (_friendly_vehicles_only == 1) then {
 					_side = getNumber(configFile >> "CfgVehicles" >> typeOf _vehicle >> "side") call gosa_fnc_getSide;
 					if (_side in [west,east,resistance]) then {
-						if !(_side in m_friendlySide) then {
+						if !(_side in gosa_friendlyside) then {
 							_lock = 2;
 						};
 					};

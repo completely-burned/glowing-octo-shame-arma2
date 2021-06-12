@@ -31,7 +31,7 @@ _deleteList=[];
 
 		private["_side"];
 		_side = getNumber(LIB_cfgVeh >> _type >> "side") call gosa_fnc_getSide;
-		if (_side in m_friendlySide) then{
+		if (_side in gosa_friendlyside) then{
 		if(getNumber(configFile >> "CfgVehicles" >> _type >> "attendant")> 0) then{
 			if (_delete) then{
 				_count_transportammo = _count_transportammo + 1;

@@ -37,7 +37,7 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 	_sideCreated = _x;
 	{
 		if (_x != _sideCreated) then {
-			if ((_x in m_friendlySide && !(_sideCreated in m_friendlySide)) or (!(_x in m_friendlySide) && _sideCreated in m_friendlySide)) then {
+			if ((_x in gosa_friendlyside && !(_sideCreated in gosa_friendlyside)) or (!(_x in gosa_friendlyside) && _sideCreated in gosa_friendlyside)) then {
 				_x SetFriend [_sideCreated,0];
 				_sideCreated SetFriend [_x,0];
 			}else{
@@ -46,7 +46,7 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 			};
 		};
 	} ForEach [East,West,Resistance];
-	if (_sideCreated in m_friendlySide) then {
+	if (_sideCreated in gosa_friendlyside) then {
 		_sideCreated SetFriend [civilian,1];
 		civilian SetFriend [_sideCreated,1];
 	}else{

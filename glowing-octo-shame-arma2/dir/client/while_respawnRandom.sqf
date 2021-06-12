@@ -81,7 +81,7 @@ while {true} do {
 		if (isNil{_bestCandidate}) then {
 		{
 			_grp = group _x;
-			if (side _grp in m_friendlySide) then {
+			if (side _grp in gosa_friendlyside) then {
 				_units = units _grp;
 				// в группе с большим количеством игроков не интересно (корень количества игроков)
 				if (sqrt count _listPlayers > {_x call gosa_fnc_isPlayer} count _units) then {
@@ -103,7 +103,7 @@ while {true} do {
 		// ищем новое тело среди групп локальных игроку для лучшего командования подчиненными
 		if (isNil{_bestCandidate}) then {
 		{
-			if (side _x in m_friendlySide) then {
+			if (side _x in gosa_friendlyside) then {
 				_leader = leader _x;
 				if (local _leader) then {
 				if (_leader call _fnc_isFit) then {
@@ -122,7 +122,7 @@ while {true} do {
 		// ищем новое тело среди лидеров групп т.к. игроки лучше командуют отрядом
 		if (isNil{_bestCandidate}) then {
 		{
-			if (side _x in m_friendlySide) then {
+			if (side _x in gosa_friendlyside) then {
 				_leader = leader _x;
 				if (_leader call _fnc_isFit) then {
 					if (isNil {_bestCandidate}) then {

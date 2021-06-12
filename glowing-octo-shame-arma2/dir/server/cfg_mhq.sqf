@@ -1,7 +1,7 @@
 private ["_MHQ_list","_MHQ_list_unfolded"];
 _MHQ_list=[];_MHQ_list_unfolded=[];
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{
-	if ( west in m_friendlySide ) then {
+	if ( west in gosa_friendlyside ) then {
 		_MHQ_list=_MHQ_list+[
 			toLower "M1130_CV_EP1"
 		];
@@ -9,7 +9,7 @@ if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "moun
 			toLower "M1130_HQ_unfolded_Base_EP1"
 		];
 	};
-	if ( resistance in m_friendlySide ) then {
+	if ( resistance in gosa_friendlyside ) then {
 		_MHQ_list=_MHQ_list+[
 			toLower "BRDM2_HQ_TK_GUE_EP1"
 		];
@@ -17,7 +17,7 @@ if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "moun
 			toLower "BRDM2_HQ_TK_GUE_unfolded_Base_EP1"
 		];
 	};
-	if ( east in m_friendlySide ) then {
+	if ( east in gosa_friendlyside ) then {
 		_MHQ_list=_MHQ_list+[
 			toLower "BMP2_HQ_TK_EP1"
 		];
@@ -26,7 +26,7 @@ if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "moun
 		];
 	};
 }else{
-	if ( east in m_friendlySide ) then {
+	if ( east in gosa_friendlyside ) then {
 		_MHQ_list=_MHQ_list+[
 			toLower "BTR90_HQ",
 			toLower "BMP2_HQ_INS"
@@ -36,7 +36,7 @@ if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "moun
 			toLower "BMP2_HQ_INS_unfolded"
 		];
 	};
-	if ( west in m_friendlySide ) then {
+	if ( west in gosa_friendlyside ) then {
 		_MHQ_list=_MHQ_list+[
 			toLower "LAV25_HQ",
 			toLower "BMP2_HQ_CDF"
@@ -46,7 +46,7 @@ if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "moun
 			toLower "BMP2_HQ_CDF_unfolded"
 		];
 	};
-	if ( resistance in m_friendlySide ) then {
+	if ( resistance in gosa_friendlyside ) then {
 		_MHQ_list=_MHQ_list+[
 			toLower "BRDM2_HQ_Gue"
 		];

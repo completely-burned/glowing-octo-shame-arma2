@@ -138,7 +138,7 @@ _arr13453=[
 [AllGroupsEast, _arr13453] call _fnc4;
 [AllGroupsGuer, _arr13453] call _fnc4;
 
-if!(west in m_friendlySide or east in m_friendlySide)then{
+if!(west in gosa_friendlyside or east in gosa_friendlyside)then{
 	[AllGroupsWest, [
 		"USMC",
 		"BIS_US",

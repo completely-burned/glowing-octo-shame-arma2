@@ -13,8 +13,8 @@ waitUntil {!isNil "gosa_fnc_init"};
 
 waitUntil {!isNil "playerReady"};
 
-waitUntil {!isNil "enemyCoefficient" && !isNil "m_friendlySide"};
-_enemySide = [west,east,resistance] - m_friendlySide;
+waitUntil {!isNil "enemyCoefficient" && !isNil "gosa_friendlyside"};
+_enemySide = [west,east,resistance] - gosa_friendlyside;
 
 // _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 
@@ -37,13 +37,13 @@ while{true}do{
 			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
 				if({alive _x} count units _grp > 0)then{
 					if (!isNil {_grp GetVariable "patrol"}) then {
-						if (_side in m_friendlySide) then {
+						if (_side in gosa_friendlyside) then {
 							_friendlyPatrols = _friendlyPatrols + 1;
 						}else{
 							_enemyPatrols = _enemyPatrols + 1;
 						};
 					}else{
-						if (_side in m_friendlySide) then {
+						if (_side in gosa_friendlyside) then {
 							_friendlyGroups = _friendlyGroups + 1;
 						}else{
 							_enemyGroups = _enemyGroups + 1;
@@ -65,7 +65,7 @@ while{true}do{
 		if (_friendlyPatrols * enemyCoefficient + _difference >= _enemyPatrols) then {
 			_side = _enemySide call BIS_fnc_selectRandom;
 		}else{
-			_side = m_friendlySide call BIS_fnc_selectRandom;
+			_side = gosa_friendlyside call BIS_fnc_selectRandom;
 		};
 
 		private["_player","_typeList","_pos"];
@@ -165,7 +165,7 @@ while{true}do{
 		if (_friendlyGroups * _enemyCoefficient >= _enemyGroups) then {
 			_side = _enemySide call BIS_fnc_selectRandom;
 		}else{
-			_side = m_friendlySide call BIS_fnc_selectRandom;
+			_side = gosa_friendlyside call BIS_fnc_selectRandom;
 		};
 
 

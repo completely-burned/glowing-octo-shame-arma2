@@ -2,7 +2,7 @@
 waitUntil{!isNil {MHQ_list}};
 waitUntil{!isNil {bis_fnc_init}};
 waitUntil{!isNil {safeSpawnDistance}};
-waitUntil{!isNil {m_friendlySide}};
+waitUntil{!isNil {gosa_friendlyside}};
 
 
 // -- стартовые позиции

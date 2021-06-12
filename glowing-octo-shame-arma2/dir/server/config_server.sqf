@@ -1,4 +1,4 @@
-m_friendlySide = [];
+gosa_friendlyside = [];
 
 private ["_i","_ii"];
 for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "Groups")}, {_i = _i + 1}] do {
@@ -19,10 +19,10 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "G
 					};
 					if (_isPlayable) then {
 						switch (_sideCFG) do {
-							case "EAST": {if !(east in m_friendlySide) then {m_friendlySide = m_friendlySide + [east]}};
-							case "WEST": {if !(west in m_friendlySide) then {m_friendlySide = m_friendlySide + [west]}};
-							case "GUER": {if !(resistance in m_friendlySide) then {m_friendlySide = m_friendlySide + [resistance]}};
-							case "CIV": {if !(civilian in m_friendlySide) then {m_friendlySide = m_friendlySide + [civilian]}};
+							case "EAST": {if !(east in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [east]}};
+							case "WEST": {if !(west in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [west]}};
+							case "GUER": {if !(resistance in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [resistance]}};
+							case "CIV": {if !(civilian in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [civilian]}};
 							default {};
 						};
 					};
@@ -31,8 +31,8 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "G
 		};
 };
 
-publicVariable "m_friendlySide";
-m_sideEnemy = [east,west,resistance]-m_friendlySide;
+publicVariable "gosa_friendlyside";
+m_sideEnemy = [east,west,resistance]-gosa_friendlyside;
 publicVariable "m_sideEnemy";
 
 
