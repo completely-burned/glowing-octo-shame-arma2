@@ -21,7 +21,7 @@ class Params {
 		// texts[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
 		values[] = {0,5,10,15,20,25,30,40,50,60,70,80,90,100,120};
 		texts[] = {0,5,10,15,20,25,30,40,50,60,70,80,90,100,120};
-		default=25;
+		default=15;
 	};
 	class Air {
 		title="(AI) ratio Air";
@@ -93,19 +93,19 @@ class Params {
 		title="$STR_friendly_vehicles_only";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
-		default=0;
+		default=1;
 	};
 	class respawn {
 		title="respawn";
 		values[] = {0,1};
 		texts[] = {"Base","Random unit"};
-		default=0;
+		default=1;
 	};
 	class ai_client_count {
 		title="(cl) count ai groups on the client cpu";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 		texts[]  = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
-		default=4;
+		default=6;
 	};
 	class gc_dist {
 		title="Garbage Collector distance multiplier";
@@ -117,7 +117,7 @@ class Params {
 		title="Garbage Collector count queue size";
 		values[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
 		texts[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
-		default=100;
+		default=50;
 	};
 };
 
