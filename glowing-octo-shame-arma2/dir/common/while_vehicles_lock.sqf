@@ -17,6 +17,8 @@ private["_transportPlayer"];
 private["_friendly_vehicles_only"];
 _friendly_vehicles_only = missionNamespace getVariable "friendly_vehicles_only";
 
+waitUntil{!isNil "gosa_friendlyside"};
+
 while{true}do{
 
 	// перечислить транспорт который нужно закрыть
