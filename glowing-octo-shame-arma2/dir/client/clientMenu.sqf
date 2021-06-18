@@ -91,7 +91,7 @@ _fnc_create_buy_menu = {
 	[_current, _current, [_items, _itemsName], "%1",""] call BIS_FNC_createmenu;
 };
 
-waitUntil{!isNil "fnc_libEnabled"};
+waitUntil{!isNil "gosa_fnc_libEnabled"};
 waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
 waitUntil{!isNil "gosa_fnc_setNestedElement"};
 waitUntil{!isNil "availableVehicles"};

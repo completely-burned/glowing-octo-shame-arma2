@@ -207,7 +207,7 @@ while {true} do {
 			};
 			if (isnil "_action_teleport" && !isnull _veh) then {
 				private ["_action"];
-				_action = _veh addaction [localize "STR_gosa_teleportation", "dir\functions\action_teleport.sqf", '#USER:teleport_0', 0.5, false, false];
+				_action = _veh addaction [localize "STR_gosa_teleportation", "dir\actions\act_teleport.sqf", '#USER:teleport_0', 0.5, false, false];
 				_action_teleport = [_veh, _action];
 			};
 		}else{
