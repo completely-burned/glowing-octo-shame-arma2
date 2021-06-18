@@ -7,14 +7,6 @@ if(count _this > 1)then{
 };
 
 _logic setvariable ["BIS_COIN_categories", ["Base","Defence"]];
-_logic setvariable ["BIS_COIN_onConstruct", {
-	_logic = (_this select 1);
-	if ((_this select 0) isKindOf "LandVehicle") then {
-		BIS_COIN_QUIT = true;
-		[_logic] call gosa_fnc_coin_variable;
-		deleteVehicle (_this select 0);
-	};
-}];
 
 
 //--- Get custom params ----------------------------------------------------------------------------------

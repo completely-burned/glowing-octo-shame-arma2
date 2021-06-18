@@ -21,8 +21,8 @@ bis_coin_player = player;
 private["_camera"];
 
 //--- Execute designer defined code - onStart
-_code = _logic getvariable "BIS_COIN_onStart";
-[_logic] call _code;
+//_code = _logic getvariable "BIS_COIN_onStart";
+//[_logic] call _code;
 
 if (isnil "BIS_CONTROL_CAM") then {
 	_camera = "camconstruct" camcreate [position player select 0,position player select 1,15];
@@ -319,9 +319,9 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 				_preview setvariable ["BIS_COIN_color",_colorGray];
 
 				//--- Execute designer defined code
-				_code = _logic getvariable "BIS_COIN_onSelect";
+				//_code = _logic getvariable "BIS_COIN_onSelect";
 				//[_itemclass,_preview] call _code;
-				[_logic, _preview,_itemclass] spawn _code;
+				//[_logic, _preview,_itemclass] spawn _code;
 
 				//--- Exception - preview not created
 				if (isnull _preview) then {
@@ -409,8 +409,8 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					_shift = _this select 4;
 					_itemcost = _this select 5;
 
-					_code = _logic getvariable "BIS_COIN_onPurchase";
-					[_logic,objNull,_itemclass,_pos,_dir] call _code;
+					//_code = _logic getvariable "BIS_COIN_onPurchase";
+					//[_logic,objNull,_itemclass,_pos,_dir] call _code;
 
 					//--- Build
 					_building = _itemclass createvehicle [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)) , (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))];//[10,10,10000];
@@ -428,7 +428,14 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					[_logic,"BIS_COIN_buildings",[_building],true] call bis_fnc_variablespaceadd;
 
 					//--- Execute designer defined code On Construct
-					_code = _logic getvariable "BIS_COIN_onConstruct";
+					//_code = _logic getvariable "BIS_COIN_onConstruct";
+					_code = {
+						if ((_this select 0) isKindOf "LandVehicle") then {
+							BIS_COIN_QUIT = true;
+							[_this select 1] call gosa_fnc_coin_variable;
+							deleteVehicle (_this select 0);
+						};
+					};
 					[_logic, _building,_itemclass,_pos,_dir] spawn _code;
 				};
 
@@ -471,8 +478,8 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 						//--- Repair
 						if ({_x in _keysRepair} count _keys > 0) then {
 							[_logic,_selected] spawn {
-								_code = (_this select 0) getvariable "BIS_COIN_onRepair";
-								_this call _code;
+								//_code = (_this select 0) getvariable "BIS_COIN_onRepair";
+								//_this call _code;
 								(_this select 1) setdamage 0;
 							};
 						};
@@ -480,8 +487,8 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 						//--- Sell
 						if ({_x in _keysSell} count _keys > 0) then {
 							[_logic,_selected] spawn {
-								_code = (_this select 0) getvariable "BIS_COIN_onSell";
-								_this call _code;
+								//_code = (_this select 0) getvariable "BIS_COIN_onSell";
+								//_this call _code;
 								deletevehicle (_this select 1);
 							};
 						};
@@ -531,7 +538,8 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 			_textPicture = "";
 			*/
 
-			_text1 = if (_tooltipType == "selected" && (str (_logic getvariable "BIS_COIN_onRepair") != str {})) then {
+			_onRepair = if (isnil {_logic getvariable "BIS_COIN_onRepair"}) then {{}} else {_logic getvariable "BIS_COIN_onRepair"};
+			_text1 = if (_tooltipType == "selected" && (str _onRepair != str {})) then {
 
 				//--- Repair hint
 				localize "str_coin_repair" + "<t align='right'>" + call compile (actionKeysNames ["User13",1]) + "</t><br />";
@@ -542,7 +550,8 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 				} else {"<br />"};
 			};
 
-			_text2 = if (_tooltipType == "selected" && (str (_logic getvariable "BIS_COIN_onSell") != str {})) then {
+			_onSell = if (isnil {_logic getvariable "BIS_COIN_onSell"}) then {{}} else {_logic getvariable "BIS_COIN_onSell"};
+			_text2 = if (_tooltipType == "selected" && (str _onSell != str {})) then {
 
 				//--- Sell hint
 				localize "str_coin_sell" + "<t align='right'>" + call compile (actionKeysNames ["User14",1]) + "</t><br />";
