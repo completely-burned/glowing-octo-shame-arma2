@@ -46,12 +46,13 @@ if(isMultiplayer)then{
 		};
 	} foreach allUnits;
 
-	gosa_cachePlayers = _cache-[objNull];
-
 }else{
 	if ((vehicle player distance _Pos) < _distance)then{
 		_visible = true;
 	};
 };
+
+gosa_cachePlayers = _cache-[objNull];
+
 	diag_log format ["gosa_fnc_CheckPlayersDistance.sqf %1 %2", _Pos, _visible];
 _visible;
