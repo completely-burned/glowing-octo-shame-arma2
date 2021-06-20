@@ -1,6 +1,9 @@
 * text=auto
+
 *.sqf text eol=crlf
 *.sqm text eol=crlf
 *.ext text eol=crlf
-*.sh  text eol=lf
 
+*.sh  text eol=lf
+.git* text eol=lf
+.github/* text eol=lf
