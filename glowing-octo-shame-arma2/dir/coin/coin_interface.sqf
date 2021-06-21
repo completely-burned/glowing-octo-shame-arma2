@@ -237,9 +237,6 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 	//_input = _logic getvariable "BIS_COIN_mousepos";
 	_camera = BIS_CONTROL_CAM;
 
-  	if (isnil "_logic") exitwith {};
-	if (isNull _logic) exitwith {};
-
 	_areasize = _logic getvariable "BIS_COIN_areasize";
 	_limitH = _areasize select 0;
 	_limitV = _areasize select 1;
