@@ -46,6 +46,7 @@ _logic setvariable ["BIS_COIN_areasize",_areasize];
 _actionCondition = if (isnil {_logic getvariable "BIS_COIN_actionCondition"}) then {"true"} else {_logic getvariable "BIS_COIN_actionCondition"};
 _logic setvariable ["BIS_COIN_actionCondition",_actionCondition];
 
+/*
 //--- Start code - by this adding action can be disabled
 _onStart = if (isnil {_logic getvariable "BIS_COIN_onStart"}) then {{}} else {_logic getvariable "BIS_COIN_onStart"};
 _logic setvariable ["BIS_COIN_onStart",_onStart];
@@ -69,6 +70,7 @@ _logic setvariable ["BIS_COIN_onRepair",_onRepair];
 //--- Sell code (set empty code to disable this function)
 _onSell = if (isnil {_logic getvariable "BIS_COIN_onSell"}) then {{}} else {_logic getvariable "BIS_COIN_onSell"};
 _logic setvariable ["BIS_COIN_onSell",_onSell];
+*/
 
 
 //--- Temporary variables
