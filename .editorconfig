@@ -1,0 +1,14 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+#[*]
+#end_of_line = lf # это нужно??
+#insert_final_newline = true # конфликт настроек atom editor
+
+[*.{sqf,sqm,ext}]
+end_of_line = crlf
+
+[*.sh]
+end_of_line = lf
