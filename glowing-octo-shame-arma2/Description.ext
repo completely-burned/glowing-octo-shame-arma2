@@ -95,6 +95,12 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=1;
 	};
+	class local_conflict {
+		title="local conflict";
+		values[] = {0,1};
+		texts[] = {$STRWFNO,$STRWFYES};
+		default=0;
+	};
 	class respawn {
 		title="respawn";
 		values[] = {0,1};
