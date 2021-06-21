@@ -181,7 +181,7 @@ while {true} do {
 			};
 			if (isnil "_action_uav" && !isnull player) then {
 				private ["_action"];
-				_action = _actionObj addaction [localize "str_uav_action", "dir\functions\uav_action.sqf", [_Object, _uav_terminals], 1, false, false];
+				_action = _actionObj addaction [localize "str_uav_action", "dir\actions\act_uav.sqf", [_Object, _uav_terminals], 1, false, false];
 				_action_uav = [_actionObj, _action];
 			};
 			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_uav_ca.paa")];
