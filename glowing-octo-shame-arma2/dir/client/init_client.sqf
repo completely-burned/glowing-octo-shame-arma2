@@ -34,7 +34,7 @@ SetGroupIconsVisible [true,false];
 [] spawn gosa_fnc_handleBuyMenu;
 [] execVM "dir\client\clientMenu.sqf";
 [] execVM "dir\client\updateClient.sqf";
-[] execVM "dir\client\updateLocalGroup.sqf";
+[] execVM "dir\client\while_localGroup.sqf";
 // [] execVM "dir\client\handleBuyMenuTimeAvailable.sqf";
 [] execVM "dir\client\gosa_coin.sqf";
 [] execVM ("dir\client\while_aa_hidden.sqf");
