@@ -728,6 +728,11 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 // startLoadingScreen [localize "str_coin_exit" + " " + localize "str_coin_name","RscDisplayLoadMission"];
 //////////////////////////////////////////////////
 
+uinamespace getvariable "COIN_displayMain" displayRemoveEventHandler ["KeyDown", COIN_EH_keydown];
+uinamespace getvariable "COIN_displayMain" displayRemoveEventHandler ["KeyUp", COIN_EH_keyup];
+uinamespace getvariable "COIN_displayMain" displayRemoveEventHandler ["MouseButtonDown", COIN_EH_mousebuttondown];
+uinamespace getvariable "COIN_displayMain" displayRemoveEventHandler ["MouseButtonUp", COIN_EH_mousebuttonup];
+
 BIS_CONTROL_CAM cameraeffect ["terminate","back"];
 camdestroy BIS_CONTROL_CAM;
 BIS_CONTROL_CAM = nil;
