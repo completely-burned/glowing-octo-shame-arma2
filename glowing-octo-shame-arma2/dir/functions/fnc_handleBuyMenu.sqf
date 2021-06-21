@@ -337,7 +337,7 @@ while {true} do {
 			};
 			if (isnil "_action_buy" && !isnull player) then {
 				private ["_action"];
-				_action = _actionObj addaction [localize "STR_gosa_purchase", "dir\functions\action_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
+				_action = _actionObj addaction [localize "STR_gosa_purchase", "dir\actions\act_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
 				_action_buy = [_actionObj, _action];
 			};
 		}else{
