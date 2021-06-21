@@ -23,7 +23,7 @@ SetGroupIconsVisible [true,false];
 */
 
 
-[] execVM "dir\client\initRespawnMarkers.sqf";
+[] execVM "dir\client\while_markers.sqf";
 [] spawn gosa_fnc_rating;
 [] spawn gosa_fnc_ACT_WinchManager;
 // [] spawn gosa_fnc_handleFirstAid;
