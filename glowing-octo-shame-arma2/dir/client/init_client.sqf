@@ -37,7 +37,7 @@ SetGroupIconsVisible [true,false];
 // [] execVM "dir\client\handleBuyMenuTimeAvailable.sqf";
 [] execVM "dir\client\gosa_coin.sqf";
 [] execVM ("dir\client\while_aa_hidden.sqf");
-[] execVM ("dir\client\act_smoke.sqf");
+[] execVM ("dir\client\while_act_smoke.sqf");
 [] execVM ("dir\client\while_respawnRandom.sqf");
 [] execVM ("dir\client\while_patrols.sqf");
 [] execVM ("dir\client\while_assignedVehicle.sqf");
