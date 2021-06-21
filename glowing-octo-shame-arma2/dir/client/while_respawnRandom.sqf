@@ -2,9 +2,9 @@
 нужна проверка AFK на игроков и лидеров группы
 */
 
+private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime"];
 waitUntil{!isNil{respawn}};
 if(respawn != 1)exitWith{respawnDone = true};
-private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers"];
 
 _player = player;
 
@@ -25,6 +25,7 @@ _fnc_swich={
 player setVariable ["selectPlayerDisable", true, true];
 
 // после переключения на новое тело уничтожаем первое тело данное при старте т.к. оно расположено на неподходящей позиции и нужно только для старта миссии
+// нужно для respawnDone = trueж
 [_player] spawn {
 	waitUntil{
 		isNil{player getVariable "selectPlayerDisable"};
@@ -53,8 +54,20 @@ _fnc_isFit={
 
 while {true} do {
 
+	scopeName "root";
+
 	// ищем подходящее тело при условии
 	if (!(lifeState player in ["ALIVE", "UNCONSCIOUS"]) or isNull player or !alive _player or !isNil{_player getVariable "selectPlayerDisable"}) then {
+
+		//--- таймер смерти
+		if (isNil "_deathTime") then {
+			_deathTime = time+1;
+			breakTo "root";
+		} else {
+			if (_deathTime>time) then {
+				breakTo "root";
+			};
+		};
 
 		_grp = group _player;
 
@@ -136,6 +149,8 @@ while {true} do {
 
 		} forEach allGroups;
 		};
+	}else{
+		_deathTime = nil;
 	};
 
 	// защита от непланируемого поведения, после первой смерти еще одно тело появляется на точке возрождения и переключает игрока в это тело, здесь мы переключаем его обратно в нужное тело, а созданное на точке возрождения отключаем
