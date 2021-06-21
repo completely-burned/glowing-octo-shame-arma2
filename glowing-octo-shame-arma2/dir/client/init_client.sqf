@@ -53,7 +53,7 @@ waitUntil{(!isNull player)};
 if ([[player], Officers] call gosa_fnc_CheckIsKindOfArray) then {
 	waitUntil{!isNil "gosa_HC_logic"};
 	[] call compile preprocessFileLineNumbers "dir\client\gosa_hc.sqf";
-	[] execVM "dir\client\gosa_hc_loop.sqf";
+	[] execVM "dir\client\while_hc.sqf";
 	[player] execVM ("\ca\modules\hc\data\scripts\HC_GUI.sqf");
 	[] execVM "dir\client\gosa_hc_gui_wp_attack.sqf";
 };
