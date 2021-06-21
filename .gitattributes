@@ -5,5 +5,3 @@
 *.ext text eol=crlf
 
 *.sh  text eol=lf
-.git* text eol=lf
-.github/* text eol=lf
