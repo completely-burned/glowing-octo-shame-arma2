@@ -1,5 +1,4 @@
-private["_count_groups","_grp","_leader"];
-private["_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_side"];
+private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_side","_ai_client_count","_cache","_ok"];
 
 	diag_log format ["Log: [while_patrols.sqf] started %1", time ];
 
@@ -18,24 +17,82 @@ _enemySide = [west,east,resistance] - gosa_friendlyside;
 
 // _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 
-private["_ai_client_count"];
 _ai_client_count = missionNamespace getVariable "ai_client_count";
 
-while{true}do{
+while{ _ai_client_count > 0 }do{
+
+	scopeName "while"; // перезапись scopeName в цикле ??
 
 	sleep 2;
 
 	// считаем группы чтобы не создавать лишние и для баланса
 	_friendlyPatrols = 0; _enemyPatrols = 0;
 	_friendlyGroups = 0;  _enemyGroups = 0;
+
+	// gosa_cacheLocalGroups кеширует список групп чтобы не проверять всегда все
+	if (isNil "gosa_cacheLocalGroups") then {
+		_cache = [];
+	}else{
+		_cache = gosa_cacheLocalGroups;
+	};
+
+	//--- подсчет кэшированных групп
+	for "_i" from 0 to ((count _cache) - 1) do {
+		_grp = (_cache select _i);
+
+		// нужны тесты производительности
+		_ok=false;
+		{
+				//--- если _ok==true проверка alive не выполяется и не перезаписывается _ok
+				if (!_ok && {alive _x}) then {_ok = true};
+				//--- при обнаружении игрока нет смысла проверять остальных юнитов // exitWith выходит только из forEach ??
+				if (_x call gosa_fnc_isPlayer) exitWith { _ok = false };
+		} forEach units _grp;
+
+		if(_ok)then{
+			if (!isNil {_grp GetVariable "patrol"}) then {
+				if (_side in gosa_friendlyside) then {
+					_friendlyPatrols = _friendlyPatrols + 1;
+				}else{
+					_enemyPatrols = _enemyPatrols + 1;
+				};
+			}else{
+				if (_side in gosa_friendlyside) then {
+					_friendlyGroups = _friendlyGroups + 1;
+				}else{
+					_enemyGroups = _enemyGroups + 1;
+				};
+			};
+
+			// если найдено достаточно подходящих локальных групп, то нет смысла проверять остальные
+			if (_enemyPatrols+_enemyGroups >= _ai_client_count) then {
+				breakTo "while;"
+			};
+
+		};
+	};
+
+	// если найдено достаточно локальных групп, то нет смысла проверять остальные
+	if (_enemyPatrols+_enemyGroups < _ai_client_count) then {
 	{
 		_grp=_x;
 		_side = side _grp;
 		_leader = leader _grp;
 
 		if (local _leader && _side in [west,east,resistance]) then {
-			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
-				if({alive _x} count units _grp > 0)then{
+
+			_cache set [count _cache, _grp];
+
+			// нужны тесты производительности
+			_ok=false;
+			{
+					//--- если _ok==true проверка alive не выполяется и не перезаписывается _ok
+					if (!_ok && {alive _x}) then {_ok = true};
+					//--- при обнаружении игрока нет смысла проверять остальных юнитов // exitWith выходит только из forEach ??
+					if (_x call gosa_fnc_isPlayer) exitWith { _ok = false };
+			} forEach units _grp;
+
+				if(_ok)then{
 					if (!isNil {_grp GetVariable "patrol"}) then {
 						if (_side in gosa_friendlyside) then {
 							_friendlyPatrols = _friendlyPatrols + 1;
@@ -49,10 +106,16 @@ while{true}do{
 							_enemyGroups = _enemyGroups + 1;
 						};
 					};
+
+					// если найдено достаточно локальных групп, то нет смысла проверять остальные
+					if (_enemyPatrols+_enemyGroups >= _ai_client_count) then {
+						breakTo "while;"
+					};
+
 				};
-			};
 		};
-	}forEach allGroups;
+	}forEach allGroups-_cache;
+	};
 
 		diag_log format ["Log: [while_patrols.sqf] _friendlyPatrols %1 _enemyPatrols %2, _friendlyGroups %3 _enemyGroups %4", _friendlyPatrols, _enemyPatrols, _friendlyGroups, _enemyGroups];
 
@@ -121,6 +184,8 @@ while{true}do{
 
 			private["_groups"];
 			_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
+
+			_cache=_cache+_groups;
 
 			// помечаем группу что это патруль и она готова для дальнейших скриптов
 			{
@@ -222,6 +287,8 @@ while{true}do{
 			private["_groups"];
 			_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
 
+			_cache=_cache+_groups;
+
 			// помечаем группу что она готова для дальнейших скриптов
 			{
 				_x setVariable ["grp_created", true, true];
@@ -232,4 +299,8 @@ while{true}do{
 
 	};
 
+	gosa_cacheLocalGroups = _cache-[grpNull];
+
 };
+
+diag_log format ["Log: [while_patrols.sqf] done %1 ", time];
