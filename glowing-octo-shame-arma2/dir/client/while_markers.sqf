@@ -80,8 +80,25 @@ if(true)then{
 
 	while {true} do {
 
+		// -- мобильная база (мобилизованная), один маркер
+		{
+			if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
+				private ["_pos"];
+				_pos = getPos _x;
+				if(getMarkerType _markerMHQ != _markerMHQtype)then{
+					_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
+					_markerMHQ setMarkerTypeLocal _markerMHQtype;
+					_markerMHQ setMarkerColorLocal _markerColor;
+					gosa_respawnMarkers = [_markerMHQ]+_respawnMarkers;
+				}else{
+					_markerMHQ setMarkerPos _pos;
+				};
+			};
+		} forEach vehicles;
+
 		if (visibleMap) then {
-			// -- мобильная база, один маркер
+			// -- мобильная база (развернутая), один маркер
+			// TODO: если игрок не открывал карту маркер находиться на последней позиции мобильная база (мобилизованная)
 			{
 				if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
 					private ["_pos"];
@@ -101,7 +118,7 @@ if(true)then{
 						_markerMHQ setMarkerPos _pos;
 					};
 				};
-			} forEach vehicles + allMissionObjects "Warfare_HQ_base_unfolded";
+			} forEach allMissionObjects "Warfare_HQ_base_unfolded";
 
 			// -- удаление лишних динамичных маркеров
 			for "_i" from 0 to (count _dynamicMarkers - 1) do {
