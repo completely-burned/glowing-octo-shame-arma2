@@ -75,124 +75,124 @@ if(true)then{
 	while {true} do {
 
 		if (visibleMap) then {
-		// -- мобильная база, один маркер
-		{
-			if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
-				private ["_pos"];
-				_pos = getPos _x;
-				if(_x isKindOf "Warfare_HQ_base_unfolded")then{
-					private ["_dir","_dist2"];
-					_dir = getDir _x - 90 - 10 + random 20;
-					_dist2 = 3 + random 2;
-					_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
+			// -- мобильная база, один маркер
+			{
+				if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
+					private ["_pos"];
+					_pos = getPos _x;
+					if(_x isKindOf "Warfare_HQ_base_unfolded")then{
+						private ["_dir","_dist2"];
+						_dir = getDir _x - 90 - 10 + random 20;
+						_dist2 = 3 + random 2;
+						_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
+					};
+					if(getMarkerType _markerMHQ != _markerMHQtype)then{
+						_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
+						_markerMHQ setMarkerTypeLocal _markerMHQtype;
+						_markerMHQ setMarkerColorLocal _markerColor;
+						gosa_respawnMarkers = [_markerMHQ]+_respawnMarkers;
+					}else{
+						_markerMHQ setMarkerPos _pos;
+					};
 				};
-				if(getMarkerType _markerMHQ != _markerMHQtype)then{
-					_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
-					_markerMHQ setMarkerTypeLocal _markerMHQtype;
-					_markerMHQ setMarkerColorLocal _markerColor;
-					gosa_respawnMarkers = [_markerMHQ]+_respawnMarkers;
-				}else{
-					_markerMHQ setMarkerPos _pos;
+			} forEach vehicles + allMissionObjects "Warfare_HQ_base_unfolded";
+
+			// -- удаление лишних динамичных маркеров
+			for "_i" from 0 to (count _dynamicMarkers - 1) do {
+				if(!alive (_dynamicMarkers select _i select 1) or ((_dynamicMarkers select _i select 1) isKindOf "Man" && !((_dynamicMarkers select _i select 1) call gosa_fnc_isPlayer)))then{
+					deleteMarkerLocal (_dynamicMarkers select _i select 0);
+					_dynamicMarkers set [_i, -1];
 				};
 			};
-		} forEach vehicles + allMissionObjects "Warfare_HQ_base_unfolded";
+			_dynamicMarkers = _dynamicMarkers - [-1];
 
-		// -- удаление лишних динамичных маркеров
-		for "_i" from 0 to (count _dynamicMarkers - 1) do {
-			if(!alive (_dynamicMarkers select _i select 1) or ((_dynamicMarkers select _i select 1) isKindOf "Man" && !((_dynamicMarkers select _i select 1) call gosa_fnc_isPlayer)))then{
-				deleteMarkerLocal (_dynamicMarkers select _i select 0);
-				_dynamicMarkers set [_i, -1];
-			};
-		};
-		_dynamicMarkers = _dynamicMarkers - [-1];
-
-		// -- создать динамичные маркеры казарм
-		{
-			private ["_obj"];
-			_obj = _x;
-			if(true)then{ // нужно сделать проверку фракции
-				private ["_pos"];
-				_pos = getPos _obj;
-				private ["_dir","_dist"];
-				_dir = random 360;
-				_dist = random 10;
-				_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
-				if({_obj == (_x select 1)} count _dynamicMarkers == 0) then {
-					_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
-					_dynamicMarkers set [count _dynamicMarkers, [_marker, _obj]];
-				}else{
-					for "_i" from 0 to (count _dynamicMarkers - 1) do {
-						if (_obj == (_dynamicMarkers select _i select 1)) then {
-							(_dynamicMarkers select _i select 0) setMarkerPos _pos;
+			// -- создать динамичные маркеры казарм
+			{
+				private ["_obj"];
+				_obj = _x;
+				if(true)then{ // нужно сделать проверку фракции
+					private ["_pos"];
+					_pos = getPos _obj;
+					private ["_dir","_dist"];
+					_dir = random 360;
+					_dist = random 10;
+					_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
+					if({_obj == (_x select 1)} count _dynamicMarkers == 0) then {
+						_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
+						_dynamicMarkers set [count _dynamicMarkers, [_marker, _obj]];
+					}else{
+						for "_i" from 0 to (count _dynamicMarkers - 1) do {
+							if (_obj == (_dynamicMarkers select _i select 1)) then {
+								(_dynamicMarkers select _i select 0) setMarkerPos _pos;
+							};
 						};
 					};
 				};
-			};
-		} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital";
+			} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital";
 
-		// -- игроки
-		{
-			if(!(_x in _units) && (side _x == playerSide) && alive _x && (_x call gosa_fnc_isPlayer))then{
-				_units set [count _units, _x];
-				_markers set [count _markers, createMarkerLocal [str _x,position _x]];
-			};
-		}forEach allUnits;
+			// -- игроки
+			{
+				if(!(_x in _units) && (side _x == playerSide) && alive _x && (_x call gosa_fnc_isPlayer))then{
+					_units set [count _units, _x];
+					_markers set [count _markers, createMarkerLocal [str _x,position _x]];
+				};
+			}forEach allUnits;
 
-		// -- объекты базы
-		{
-				_units set [count _units, _x];
-				_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
-		}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
+			// -- объекты базы
+			{
+					_units set [count _units, _x];
+					_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
+			}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 
 
-		// -- маркеры
-		for "_i" from 0 to (count _units - 1) do {
-			private ["_unit","_marker"];
-			_unit = (_units select _i);
-			_marker = (_markers select _i);
-			if (!isNull _unit && alive _unit) then {
-				if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call gosa_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6))then{
-					if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
-						_marker setMarkerPosLocal (position _unit);
-						_marker setMarkerTypeLocal "vehicle";
-						_marker setMarkerDirLocal getDir _unit;
-						_marker setMarkerSizeLocal [3,3];
-						_marker setMarkerColorLocal _markerColor;
+			// -- маркеры
+			for "_i" from 0 to (count _units - 1) do {
+				private ["_unit","_marker"];
+				_unit = (_units select _i);
+				_marker = (_markers select _i);
+				if (!isNull _unit && alive _unit) then {
+					if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call gosa_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6))then{
+						if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
+							_marker setMarkerPosLocal (position _unit);
+							_marker setMarkerTypeLocal "vehicle";
+							_marker setMarkerDirLocal getDir _unit;
+							_marker setMarkerSizeLocal [3,3];
+							_marker setMarkerColorLocal _markerColor;
+						}else{
+							_marker setMarkerPosLocal [35000,35000];
+						};
 					}else{
-						_marker setMarkerPosLocal [35000,35000];
+						private ["_veh"];
+						_veh = vehicle _unit;
+						if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6)) then {
+							_marker setMarkerPosLocal (position _veh);
+							_marker setMarkerTypeLocal "vehicle";
+							_marker setMarkerDirLocal getDir _veh;
+							_marker setMarkerSizeLocal [3,3];
+							_marker setMarkerColorLocal "ColorBlack";
+							private ["_text"];
+							_text = "";
+							// _text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _veh) >> 'displayName'));
+							_text = (_text + " " + name _unit);
+							if (lifeState _unit == "UNCONSCIOUS") then {
+								_text = _text + (" " + Localize "str_reply_injured");
+							};
+							_marker setMarkerTextLocal _text;
+						}else{
+							_marker setMarkerPosLocal [35000,35000];
+						};
 					};
 				}else{
-					private ["_veh"];
-					_veh = vehicle _unit;
-					if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6)) then {
-						_marker setMarkerPosLocal (position _veh);
-						_marker setMarkerTypeLocal "vehicle";
-						_marker setMarkerDirLocal getDir _veh;
-						_marker setMarkerSizeLocal [3,3];
-						_marker setMarkerColorLocal "ColorBlack";
-						private ["_text"];
-						_text = "";
-						// _text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _veh) >> 'displayName'));
-						_text = (_text + " " + name _unit);
-						if (lifeState _unit == "UNCONSCIOUS") then {
-							_text = _text + (" " + Localize "str_reply_injured");
-						};
-						_marker setMarkerTextLocal _text;
-					}else{
-						_marker setMarkerPosLocal [35000,35000];
-					};
+					deleteMarkerLocal _marker;
+					_units set [_i,-1];
+					_markers set [_i,-1];
 				};
-			}else{
-				deleteMarkerLocal _marker;
-				_units set [_i,-1];
-				_markers set [_i,-1];
 			};
-		};
 
-		_units = (_units - [-1]);
-		_markers = (_markers - [-1]);
+			_units = (_units - [-1]);
+			_markers = (_markers - [-1]);
 
-		sleep 0.1;
+			sleep 0.1;
 		}else{
 			sleep 2;
 		};
