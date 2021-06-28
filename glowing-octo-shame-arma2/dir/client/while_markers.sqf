@@ -74,6 +74,7 @@ if(true)then{
 
 	while {true} do {
 
+		if (visibleMap) then {
 		// -- мобильная база, один маркер
 		{
 			if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
@@ -192,5 +193,8 @@ if(true)then{
 		_markers = (_markers - [-1]);
 
 		sleep 0.1;
+		}else{
+			sleep 2;
+		};
 	};
 };
