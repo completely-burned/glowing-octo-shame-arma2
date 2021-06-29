@@ -30,7 +30,7 @@ while {true} do {
 
 		_veh = vehicle player;
 
-		if (effectiveCommander _veh == player && _veh isKindOf "Air") then {
+		if (_veh isKindOf "Air" && {effectiveCommander _veh == player}) then {
 
 			_posPlayerASL = getPosASL _veh;
 
