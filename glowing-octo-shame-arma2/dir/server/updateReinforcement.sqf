@@ -4,12 +4,17 @@ waitUntil {!isNil "bis_fnc_init"};
 waitUntil {!isNil "gosa_fnc_init"};
 waitUntil {!isNil "locationStarted"};
 waitUntil {!isNil "GroupsStarted"};
+waitUntil {!isNil "gosa_framesAVG"};
 
-private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements"];
+private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_avgGroups"];
 _minGroups = missionNamespace getVariable "minGroups";
+_avgGroups = _minGroups;
 _enemyCoefficientCfg = missionNamespace getVariable "enemyCoefficient";
 _playerCoefficient = missionNamespace getVariable "playerCoefficient";
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
+_limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
+_frames_required = _limit_fps * gosa_server_diag_fps_interval;
+_time = time;
 
 private["_all_groups","_friendlyGroups","_friendlyPatrols","_enemyGroups","_enemyPatrols","_enemySide"];
 
@@ -70,7 +75,7 @@ while{true}do{
 		_enemyCoefficient = 1;
 	};
 
-		if(_all_groups < _minGroups)then{
+		if(_all_groups < _avgGroups or {_all_groups < _minGroups && _limit_fps == 0})then{
 			private ["_difference"];
 			_difference = (((_all_groups / 5) min 4) max 2);
 			// diag_log format ["UpdateReinforcement.sqf 106, %1", time];
@@ -96,5 +101,13 @@ while{true}do{
 		};
 	// diag_log format ["UpdateReinforcement.sqf 121, %1", time];
 	sleep 0.1;
+	
+	if(gosa_framesAVG > _frames_required)then{
+		_avgGroups = _avgGroups + (_time / gosa_server_diag_fps_interval);
+	}else{
+		_avgGroups = _avgGroups - (_time / gosa_server_diag_fps_interval);
+	};
+	diag_log format ["Log: [UpdateReinforcement.sqf] %1, %2", time, _avgGroups];
+	_time = time;
 };
 		// if ((_guer < maxGroups/7*2)&&(_east+4 > _guer)&&(_west+4 > _guer)) then {
