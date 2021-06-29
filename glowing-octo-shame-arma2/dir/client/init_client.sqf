@@ -33,7 +33,7 @@ SetGroupIconsVisible [true,false];
 [] spawn gosa_fnc_handleBuyMenu;
 [] execVM "dir\client\clientMenu.sqf";
 [] execVM "dir\client\while_localGroup.sqf";
-[] execVM "dir\client\while_coin.sqf";
+[] execVM "dir\client\while_act_coin.sqf";
 [] execVM ("dir\client\while_aa_hidden.sqf");
 [] execVM ("dir\client\while_keyEH_smoke.sqf");
 [] execVM ("dir\client\while_respawnRandom.sqf");
