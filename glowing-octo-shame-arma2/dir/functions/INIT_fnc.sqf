@@ -40,7 +40,6 @@ if (!IsDedicated) then {
 		"fnc_getSafePos",
 		"fnc_ACT_WinchManager",
 		"fnc_rating",
-		"fnc_handlePlayableUnitsMarker",
 		"fnc_handleJoinGroup",
 		"fnc_handleTeleport",
 		"fnc_handleLocationTask",

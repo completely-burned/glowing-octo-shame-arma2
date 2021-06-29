@@ -27,7 +27,6 @@ SetGroupIconsVisible [true,false];
 [] spawn gosa_fnc_rating;
 [] spawn gosa_fnc_ACT_WinchManager;
 // [] spawn gosa_fnc_handleFirstAid;
-[] spawn gosa_fnc_handlePlayableUnitsMarker;
 [] spawn gosa_fnc_handleJoinGroup;
 // [] spawn gosa_fnc_handleTeleport;
 [] spawn gosa_fnc_handleLocationTask;
