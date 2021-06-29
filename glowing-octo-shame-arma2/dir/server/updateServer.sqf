@@ -17,9 +17,10 @@ _path = "dir\server\";
 // [] execVM (_path + "while_reveal.sqf");
 [] execVM (_path + "while_group_system_units.sqf");
 [] execVM (_path + "while_mhq.sqf");
-[] execVM (_path + "while_gc_groups.sqf");
 
-[] execVM (_path + "server_update_groups_cleanup.sqf");
+[] execVM (_path + "while_groups_gc.sqf");
+[] execVM (_path + "while_groups_cleanup.sqf");
+
 [] execVM (_path + "server_update_groups_other.sqf");
 [] execVM (_path + "server_update_groups_wp.sqf");
 [] execVM "dir\testing\laser.sqf";

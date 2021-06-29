@@ -1,3 +1,6 @@
+/*скрипт удаляет застрявшие и бездействующие отряды
+ */
+
 waitUntil {!isNil "civilianBasePos"};
 waitUntil {!isNil "sizeLocation"};
 waitUntil {!isNil "group_system_units"};
