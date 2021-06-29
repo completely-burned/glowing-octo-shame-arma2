@@ -1,3 +1,7 @@
+/*скрипт удаляет накопившуюся бесхозную технику и мертвых юнитов
+ *
+ */
+
 private["_min_dist","_min_vehicles_count","_min_dist2"];
 _min_dist			= missionNamespace getVariable "gc_dist";
 _min_vehicles_count = missionNamespace getVariable "gc_count";
