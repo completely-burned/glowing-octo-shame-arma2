@@ -10,13 +10,13 @@ _path = "dir\server\";
 [] execVM (_path + "server_update_silvieManager.sqf");
 // [] execVM (_path + "transport.sqf");
 // [] execVM (_path + "server_update_StaticWeapon.sqf");
-[] execVM (_path + "server_update_gc2.sqf");
 // [] execVM (_path + "server_gc_water.sqf");
 [] execVM (_path + "while_canStand.sqf");
 // [] execVM (_path + "while_reveal.sqf");
 [] execVM (_path + "while_group_system_units.sqf");
 [] execVM (_path + "while_mhq.sqf");
 
+[] execVM (_path + "while_obj_gc.sqf");
 [] execVM (_path + "while_groups_gc.sqf");
 [] execVM (_path + "while_groups_cleanup.sqf");
 
