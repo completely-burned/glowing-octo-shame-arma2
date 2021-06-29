@@ -4,7 +4,7 @@ waitUntil {!isNil "silvieManagerBlacklist" && !isNil "silvieManagerVehicles"};
 
 private["_path"];
 _path = "dir\server\";
-[] execVM (_path + "server_update_vehicles.sqf");
+[] execVM (_path + "while_vehicles_other.sqf");
 [] execVM (_path + "server_update_other.sqf");
 [] execVM (_path + "server_update_location.sqf");
 [] execVM (_path + "server_update_silvieManager.sqf");
