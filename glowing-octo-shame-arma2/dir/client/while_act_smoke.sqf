@@ -1,3 +1,6 @@
+/*displayEventHandler выстреливает дымовую ловушку при нажатии кнопки
+ */
+
 private["_moduleName_keyDownEHId"];
 
 waituntil{!isnull (finddisplay 46)};
