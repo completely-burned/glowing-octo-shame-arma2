@@ -39,11 +39,8 @@ if (!IsDedicated) then {
 		"fnc_resetActions",
 		"fnc_getSafePos",
 		"fnc_ACT_WinchManager",
-		"fnc_rating",
-		"fnc_handleJoinGroup",
 		"fnc_handleTeleport",
 		"fnc_handleLocationTask",
-		"fnc_handleBuyMenu",
 		"fnc_turnVehicle"
 	];
 };
