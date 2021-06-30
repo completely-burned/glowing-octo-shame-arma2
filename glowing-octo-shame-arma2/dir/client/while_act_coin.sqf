@@ -37,52 +37,52 @@ while{true}do{
 	_player = player;
 	if(alive _player)then{
 
-	_Objects = (nearestObjects [vehicle _player, gosa_objectsCoinBase, gosa_distanceCoinBase]);
-	if ((count _Objects > 0)) then {
-		{
-			if (alive _x && !(_x in _coins)) then {
-				_action = _player addaction [
-					localize "str_coin_action" + " - " + gettext(configFile >> "CfgVehicles" >> typeOf _x >> "displayName"),
-					"dir\coin\coin_interface.sqf",
-					[_x,gosa_COIN_items,gosa_distanceCoinBase],
-					1,
-					false,
-					false
-				];
-				_coin_actions set [count _coin_actions, [_action, _x, _player]];
-			};
-		} forEach _Objects;
-	};
-	_Objects = (nearestObjects [vehicle _player, gosa_objectsCoinMHQ, gosa_distanceCoinMHQ]);
-	if ((count _Objects > 0)) then {
-		{
-			if (alive _x && !(_x in _coins)) then {
-				_action = _player addaction [
-					localize "str_coin_action" + " - " + gettext(configFile >> "CfgVehicles" >> typeOf _x >> "displayName"),
-					"dir\coin\coin_interface.sqf",
-					[_x, [[typeOf _x call gosa_fnc_get_MHQ_type,"Base",0]], gosa_distanceCoinMHQ],
-					1,
-					false,
-					false
-				];
-				_coin_actions set [count _coin_actions, [_action, _x, _player]];
-			};
-		} forEach _Objects;
-	};
-	_Objects = (nearestObjects [vehicle _player, Warfare_HQ, gosa_distanceCoinMHQ]);
-	{
-		if (alive _x && !(_x in _coins)) then {
-			_action = _x addaction [
-				gettext(configFile >> "CfgVehicles" >> typeOf _x call gosa_fnc_get_MHQ_type >> "displayName"),
-				"dir\client\coin_interface_MHQ.sqf",
-				_x,
-				1,
-				false,
-				false
-			];
-			_coin_actions set [count _coin_actions, [_action, _x, _x]];
+		_Objects = (nearestObjects [vehicle _player, gosa_objectsCoinBase, gosa_distanceCoinBase]);
+		if ((count _Objects > 0)) then {
+			{
+				if (alive _x && !(_x in _coins)) then {
+					_action = _player addaction [
+						localize "str_coin_action" + " - " + gettext(configFile >> "CfgVehicles" >> typeOf _x >> "displayName"),
+						"dir\coin\coin_interface.sqf",
+						[_x,gosa_COIN_items,gosa_distanceCoinBase],
+						1,
+						false,
+						false
+					];
+					_coin_actions set [count _coin_actions, [_action, _x, _player]];
+				};
+			} forEach _Objects;
 		};
-	} forEach _Objects;
+		_Objects = (nearestObjects [vehicle _player, gosa_objectsCoinMHQ, gosa_distanceCoinMHQ]);
+		if ((count _Objects > 0)) then {
+			{
+				if (alive _x && !(_x in _coins)) then {
+					_action = _player addaction [
+						localize "str_coin_action" + " - " + gettext(configFile >> "CfgVehicles" >> typeOf _x >> "displayName"),
+						"dir\coin\coin_interface.sqf",
+						[_x, [[typeOf _x call gosa_fnc_get_MHQ_type,"Base",0]], gosa_distanceCoinMHQ],
+						1,
+						false,
+						false
+					];
+					_coin_actions set [count _coin_actions, [_action, _x, _player]];
+				};
+			} forEach _Objects;
+		};
+		_Objects = (nearestObjects [vehicle _player, Warfare_HQ, gosa_distanceCoinMHQ]);
+		{
+			if (alive _x && !(_x in _coins)) then {
+				_action = _x addaction [
+					gettext(configFile >> "CfgVehicles" >> typeOf _x call gosa_fnc_get_MHQ_type >> "displayName"),
+					"dir\client\coin_interface_MHQ.sqf",
+					_x,
+					1,
+					false,
+					false
+				];
+				_coin_actions set [count _coin_actions, [_action, _x, _x]];
+			};
+		} forEach _Objects;
 	};
 	sleep 1;
 };
