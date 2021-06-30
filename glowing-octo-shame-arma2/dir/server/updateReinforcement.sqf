@@ -105,7 +105,7 @@ while{true}do{
 	if(gosa_framesAVG > _frames_required)then{
 		_avgGroups = _avgGroups + (_time / gosa_server_diag_fps_interval);
 	}else{
-		_avgGroups = _avgGroups - (_time / gosa_server_diag_fps_interval);
+		_avgGroups = _minGroups max (_avgGroups - (_time / gosa_server_diag_fps_interval));
 	};
 	diag_log format ["Log: [UpdateReinforcement.sqf] %1, %2", time, _avgGroups];
 	_time = time;
