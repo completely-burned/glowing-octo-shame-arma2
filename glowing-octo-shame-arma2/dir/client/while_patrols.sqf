@@ -1,4 +1,4 @@
-private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_side","_ai_client_count","_cache","_ok"];
+private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_side","_ai_client_count","_cache","_ok","_avgGroups","_limit_fps","_frames_required","_time"];
 
 	diag_log format ["Log: [while_patrols.sqf] started %1", time ];
 
@@ -11,6 +11,7 @@ waitUntil {!isNil "bis_fnc_init"};
 waitUntil {!isNil "gosa_fnc_init"};
 
 waitUntil {!isNil "playerReady"};
+waitUntil {!isNil "gosa_framesAVG"};
 
 waitUntil {!isNil "enemyCoefficient" && !isNil "gosa_friendlyside"};
 _enemySide = [west,east,resistance] - gosa_friendlyside;
@@ -18,6 +19,10 @@ _enemySide = [west,east,resistance] - gosa_friendlyside;
 // _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 
 _ai_client_count = missionNamespace getVariable "ai_client_count";
+_avgGroups = _ai_client_count;
+_limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
+_frames_required = _limit_fps * gosa_server_diag_fps_interval;
+_time = time;
 
 while{ _ai_client_count > 0 }do{
 
@@ -65,7 +70,7 @@ while{ _ai_client_count > 0 }do{
 			};
 
 			// если найдено достаточно подходящих локальных групп, то нет смысла проверять остальные
-			if (_enemyPatrols+_enemyGroups >= _ai_client_count) then {
+			if (_enemyPatrols+_enemyGroups >= _avgGroups) then {
 				breakTo "while;"
 			};
 
@@ -73,7 +78,7 @@ while{ _ai_client_count > 0 }do{
 	};
 
 	// если найдено достаточно локальных групп, то нет смысла проверять остальные
-	if (_enemyPatrols+_enemyGroups < _ai_client_count) then {
+	if (_enemyPatrols+_enemyGroups < _avgGroups) then {
 	{
 		_grp=_x;
 		_side = side _grp;
@@ -108,7 +113,7 @@ while{ _ai_client_count > 0 }do{
 					};
 
 					// если найдено достаточно локальных групп, то нет смысла проверять остальные
-					if (_enemyPatrols+_enemyGroups >= _ai_client_count) then {
+					if (_enemyPatrols+_enemyGroups >= _avgGroups) then {
 						breakTo "while;"
 					};
 
@@ -120,7 +125,7 @@ while{ _ai_client_count > 0 }do{
 		diag_log format ["Log: [while_patrols.sqf] _friendlyPatrols %1 _enemyPatrols %2, _friendlyGroups %3 _enemyGroups %4", _friendlyPatrols, _enemyPatrols, _friendlyGroups, _enemyGroups];
 
 	// ограничим количество созданных локально игроку патрулей
-	if(_friendlyPatrols+_enemyPatrols < _ai_client_count/2)then{
+	if(_friendlyPatrols+_enemyPatrols < _avgGroups/2)then{
 
 		// поддерживаем соотношение союзников и противников выбираем side для создания
 		private ["_difference"];
@@ -199,7 +204,7 @@ while{ _ai_client_count > 0 }do{
 	};
 
 	// ограничим количество созданных локально игроку подкреплений
-	if(_friendlyGroups+_enemyGroups < _ai_client_count/2)then{
+	if(_friendlyGroups+_enemyGroups < _avgGroups/2)then{
 
 
 
@@ -300,6 +305,16 @@ while{ _ai_client_count > 0 }do{
 	};
 
 	gosa_cacheLocalGroups = _cache-[grpNull];
+
+	if(_limit_fps > 0)then{
+		if(gosa_framesAVG > _frames_required)then{
+			_avgGroups = _avgGroups + (_time / gosa_server_diag_fps_interval);
+		}else{
+			_avgGroups = _avgGroups - (_time / gosa_server_diag_fps_interval);
+		};
+		diag_log format ["Log: [while_patrols.sqf] %1, %2", time, _avgGroups];
+		_time = time;
+	};
 
 };
 
