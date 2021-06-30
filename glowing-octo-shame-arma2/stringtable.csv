@@ -552,7 +552,10 @@ STR_gosa_Situation2,"need to translate","
 Если долго удерживать точку то она сменится.<br/><br/>
 "
 STR_gosa_Сontacts,"Сontacts","Контакты"
-STR_gosa_Сontacts2,"The latest version of the script can be downloaded from the link http://github.com/completely-burned/glowing-octo-shame-arma2<br/>You can leave your wishes by reference http://github.com/completely-burned/glowing-octo-shame-arma2/issues","Последнюю версию сценария можно скачать по ссылке http://github.com/completely-burned/glowing-octo-shame-arma2<br/>Пожелания можно оставить по ссылке http://github.com/completely-burned/glowing-octo-shame-arma2/issues"
+STR_gosa_Сontacts2,"The latest version of the script can be downloaded from the link https://github.com/completely-burned/glowing-octo-shame-arma2<br/>
+You can leave your wishes by reference https://discord.gg/cc3ewg3 or https://github.com/completely-burned/glowing-octo-shame-arma2/discussions","
+Последнюю версию сценария можно скачать по ссылке https://github.com/completely-burned/glowing-octo-shame-arma2<br/>
+Пожелания можно оставить по ссылке https://discord.gg/cc3ewg3 или https://github.com/completely-burned/glowing-octo-shame-arma2/discussions"
 STR_gosa_heli_transport,"air transportation","воздушный транспорт"
 STR_gosa_heli_transport_move,"%1 in transit","%1 в пути"
 STR_friendly_vehicles_only,"friendly vehicles only","только дружественные транспортные средства"
