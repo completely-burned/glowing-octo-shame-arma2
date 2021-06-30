@@ -1,12 +1,13 @@
-private["_player","_grp","_grp_owner"];
+private["_player","_grp","_grp_owner","_g"];
 
 [player] joinSilent grpNull;
 
 while {true} do {
 	_player = player;
+	_g = group player;
 
 	// локальную переменную видит только игрок, нужна для проверки локальности группы
-	_grp_owner = group player getVariable "_owner";
+	_grp_owner = _g getVariable "_owner";
 
 	// если группа локальная игроку отдать юнитов группы игрока компьютеру игрока
 	if (!isNil {_grp_owner}) then {
@@ -14,7 +15,7 @@ while {true} do {
 			if (owner _x != owner player) then {
 				_x setOwner (owner player);
 			};
-		} forEach units player;
+		} forEach units _g;
 	};
 
 	// подконтрольные игроку юниты группы должны быть в локальной лидеру группе для лучшей связи
@@ -22,7 +23,8 @@ while {true} do {
 		_grp = createGroup side player;
 		_grp_owner = owner player;
 		_grp setVariable ["_owner", _grp_owner, false];
-		units group player joinSilent _grp;
+		units _g joinSilent _grp;
+		_g = _grp;
 		_grp setVariable ["grp_created",true,true];
 	};
 
@@ -31,7 +33,7 @@ while {true} do {
 		// игрок не лидер
 		if (leader player != player) then {
 			// игрока сделать лидером локальной группе
-			group player selectLeader player;
+			_g selectLeader player;
 		};
 	};
 
