@@ -21,9 +21,9 @@ _grp_wp_completed = _grp getVariable "_grp_wp_completed";
 
 _units = units _grp;
 
-if (gosa_loglevel > 0) then {
+if (gosa_loglevel > 0) then { // diag_log
 	diag_log format ["gosa_fnc_group_other.sqf units %1", _units];
-};
+}; // diag_log
 
 if({alive _x} count units _grp > 0)then{
 
@@ -37,9 +37,9 @@ if({alive _x} count units _grp > 0)then{
 		(!isServer && (owner _leader == 2))
 	)then{
 		// то пропуск
-		if (gosa_loglevel > 0) then {
+		if (gosa_loglevel > 0) then { // diag_log
 			diag_log format ["gosa_fnc_group_other.sqf breakTo main, owner: %1  %2,  isServer = %3, isLocal = %4", _leader, owner _leader, isServer, local _leader];
-		};
+		}; // diag_log
 		breakTo "main";
 	};
 
@@ -72,9 +72,9 @@ if({alive _x} count units _grp > 0)then{
 
 	if( ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))then{
 		breakTo "main";
-		if (gosa_loglevel > 0) then {
+		if (gosa_loglevel > 0) then { // diag_log
 			diag_log format ["gosa_fnc_group_other.sqf %1 breakTo main, transport", _grp ];
-		};
+		}; // diag_log
 	};
 
 	if({toLower getText(LIB_cfgVeh >> _x >> "vehicleClass") == "submarine"} count _types > 0)then{_Submarine = true}else{_Submarine = false};
@@ -454,22 +454,22 @@ if({alive _x} count units _grp > 0)then{
 	if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 && !_Air && !_Ship )then{
 		// транспортный вертолет вызываемый игроками, отличается поведением и его маршруты в этом скрипте не нужно трогать, пропускаем его
 		if( ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))exitWith{
-			if (gosa_loglevel > 0) then {
+			if (gosa_loglevel > 0) then { // diag_log
 				diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 танспортный вертолет, пропуск", _grp ];
-			};
+			}; // diag_log
 		};
 		if ( count waypoints _grp > 0 ) then{
 			// установить маршрут группы на себя
-			if (gosa_loglevel > 0) then {
+			if (gosa_loglevel > 0) then { // diag_log
 				diag_log format ["Log: [gosa_fnc_group_other.sqf] установить маршрут группы на себя %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
-			};
+			}; // diag_log
 			[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
 			sleep 1;
 			// удалить маршруты
 			if ( count waypoints _grp > 0 ) then{
-				if (gosa_loglevel > 0) then {
+				if (gosa_loglevel > 0) then { // diag_log
 					diag_log format ["Log: [gosa_fnc_group_other.sqf] удаление waypoints группы %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
-				};
+				}; // diag_log
 				for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 					deleteWaypoint [_grp, _i];
 				};
@@ -572,6 +572,6 @@ if({alive _x} count units _grp > 0)then{
 
 };
 
-if (gosa_loglevel > 0) then {
+if (gosa_loglevel > 0) then { // diag_log
 	diag_log format ["gosa_fnc_group_other end %1", time];
-};
+}; // diag_log
