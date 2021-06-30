@@ -1,21 +1,11 @@
 // функция изменяет поведение ии, например: вход и выход с транспортом, переключает тип боеприпасов, изменяет скорость, режим боя
 
-private["_grp"];
-private["_leader"];
-private["_leaderPos"];
-private["_currentWP","_wp","_typeWP"];
-private ["_units","_vehicles","_types","_cargo","_assignedVehicles"];
-private["_Submarine"];
-private ["_Helicopter"];
-private ["_Plane"];
-private ["_Ship"];
-private ["_StaticWeapon"];
-private ["_Air","_uav","_Car","_Tank"];
-private ["_Tracked_APC","_Wheeled_APC"];
-private["_AA"];
-private["_support"];
+private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP",
+"_units","_vehicles","_types","_cargo","_assignedVehicles","_Submarine",
+"_Helicopter","_Plane","_Ship","_StaticWeapon","_Air","_uav","_Car","_Tank",
+"_Tracked_APC","_Wheeled_APC","_AA","_support","_grp_wp_completed"];
+
 // private ["_Stealth"];
-private["_grp_wp_completed"];
 
 _grp=_this;
 
