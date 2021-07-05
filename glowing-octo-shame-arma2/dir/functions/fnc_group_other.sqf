@@ -8,7 +8,9 @@
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP",
 "_units","_vehicles","_types","_cargo","_assignedVehicles","_Submarine",
 "_Helicopter","_Plane","_Ship","_StaticWeapon","_Air","_uav","_Car","_Tank",
-"_Tracked_APC","_Wheeled_APC","_AA","_support","_grp_wp_completed"];
+"_Tracked_APC","_Wheeled_APC","_AA","_support","_grp_wp_completed",
+"_driver","_slu"
+];
 
 // private ["_Stealth"];
 
@@ -24,6 +26,8 @@ _units = units _grp;
 if (gosa_loglevel > 0) then { // diag_log
 	diag_log format ["gosa_fnc_group_other.sqf units %1", _units];
 }; // diag_log
+
+_slu = objNull;
 
 if({alive _x} count units _grp > 0)then{
 
@@ -449,6 +453,53 @@ if({alive _x} count units _grp > 0)then{
 			};
 		};
 	};
+
+
+	///--- ограничение скорости транспорта
+	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/76
+	//--- снимает ограничение юнитам вне транспорта
+	{
+		if(_x == vehicle _x)then{
+			if(!isNil(_x getVariable "gosa_forceSpeed"))then{
+				if (gosa_loglevel > 0) then { // diag_log
+					diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 forceSpeed -1 %2", _x, typeOf _x ];
+				}; // diag_log
+				_x forceSpeed -1;
+				_x setVariable ["gosa_forceSpeed",nil];
+			};
+			// один юнит группы вне транспорта, obj потому что хотел проверять дистанцию
+			if(isNull _slu)then{_slu = _x};
+		};
+	}forEach _units;
+
+	//--- устанавливает ограничение скорости транспорта
+	{
+		_driver = effectiveCommander _x;
+		// _driver = _x;
+		if(		!isNull _slu // есть юнит отряда вне транспорта
+			or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} // техника атакует
+			or	{count (_x nearEntities ["Man", 150]) > 0} // рядом с техникой прочая пехота
+		)then{
+			if(isNil(_driver getVariable "gosa_forceSpeed"))then{
+				if (gosa_loglevel > 0) then { // diag_log
+					diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 forceSpeed 5 %2", _driver, typeOf _driver ];
+				}; // diag_log
+				_driver setVariable ["gosa_forceSpeed",5];  // TODO: нужна переменная 5 // TODO: нужна резная скорость в разных режимах боя
+				_driver forceSpeed 5; // TODO: нужна переменная 5 // TODO: нужна резная скорость в разных режимах боя
+			};
+		}else{ //--- снятие ограничения
+			if(!isNil(_driver getVariable "gosa_forceSpeed"))then{
+				if (gosa_loglevel > 0) then { // diag_log
+					diag_log format ["Log: [gosa_fnc_group_other.sqf] forceSpeed -1 %1 %2", _driver, typeOf _driver ];
+				}; // diag_log
+				_driver setVariable ["gosa_forceSpeed",nil];
+				_driver forceSpeed -1;
+			};
+		};
+	}forEach _vehicles;
+
+	// _slu = objNull;
+
 
 	// ии не нужно следовать маршруту в бою, исключение десант будет следовать маршруту
 	if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 && !_Air && !_Ship )then{
