@@ -24,7 +24,7 @@ _grp_wp_completed = _grp getVariable "_grp_wp_completed";
 _units = units _grp;
 
 if (gosa_loglevel > 0) then { // diag_log
-	diag_log format ["gosa_fnc_group_other.sqf units %1", _units];
+	diag_log format ["Log: [gosa_fnc_group_other.sqf] units %1", _units];
 }; // diag_log
 
 _slu = objNull;
@@ -42,7 +42,7 @@ if({alive _x} count units _grp > 0)then{
 	)then{
 		// то пропуск
 		if (gosa_loglevel > 0) then { // diag_log
-			diag_log format ["gosa_fnc_group_other.sqf breakTo main, owner: %1  %2,  isServer = %3, isLocal = %4", _leader, owner _leader, isServer, local _leader];
+			diag_log format ["Log: [gosa_fnc_group_other.sqf] breakTo main, owner: %1  %2,  isServer = %3, isLocal = %4", _leader, owner _leader, isServer, local _leader];
 		}; // diag_log
 		breakTo "main";
 	};
@@ -77,7 +77,7 @@ if({alive _x} count units _grp > 0)then{
 	if( ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))then{
 		breakTo "main";
 		if (gosa_loglevel > 0) then { // diag_log
-			diag_log format ["gosa_fnc_group_other.sqf %1 breakTo main, transport", _grp ];
+			diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 breakTo main, transport", _grp ];
 		}; // diag_log
 	};
 
@@ -624,5 +624,5 @@ if({alive _x} count units _grp > 0)then{
 };
 
 if (gosa_loglevel > 0) then { // diag_log
-	diag_log format ["gosa_fnc_group_other end %1", time];
+	diag_log format ["Log: [gosa_fnc_group_other] end %1", time];
 }; // diag_log
