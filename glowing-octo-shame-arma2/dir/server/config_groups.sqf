@@ -1148,6 +1148,15 @@ if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
 	];
 };
 
+/* для тестирования групп
+_west=[
+];
+_east=[
+];
+_guer=[
+];
+*/
+
 AllGroupsWest=_west;
 AllGroupsEast=_east;
 AllGroupsGuer=_guer;
