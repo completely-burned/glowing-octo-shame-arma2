@@ -308,9 +308,9 @@ while{ _ai_client_count > 0 }do{
 
 	if(_limit_fps > 0)then{
 		if(gosa_framesAVG > _frames_required)then{
-			_avgGroups = _avgGroups + (_time / gosa_server_diag_fps_interval);
+			_avgGroups = _avgGroups + 2*(_time / gosa_server_diag_fps_interval);
 		}else{
-			_avgGroups = _avgGroups - (_time / gosa_server_diag_fps_interval);
+			_avgGroups = _avgGroups - 2*(_time / gosa_server_diag_fps_interval);
 		};
 		diag_log format ["Log: [while_patrols.sqf] %1, %2", time, _avgGroups];
 		_time = time;
