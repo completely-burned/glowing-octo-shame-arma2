@@ -40,6 +40,7 @@ SetGroupIconsVisible [true,false];
 [] execVM ("dir\client\while_patrols.sqf");
 [] execVM ("dir\client\while_assignedVehicle.sqf");
 [] execVM ("dir\ban\while_ban.sqf");
+[] execVM "dir\testing\while_act_laserBomb.sqf";
 
 if(!isServer)then{
 	[] execVM ("dir\server\server_update_groups_other.sqf"); // сервер не может считать assignedVehicle для не серверных ии
