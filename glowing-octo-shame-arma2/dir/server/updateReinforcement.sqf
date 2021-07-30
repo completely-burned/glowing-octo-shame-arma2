@@ -101,7 +101,7 @@ while{true}do{
 		};
 	// diag_log format ["UpdateReinforcement.sqf 121, %1", time];
 	sleep 0.1;
-	
+
 	if(gosa_framesAVG > _frames_required)then{
 		_avgGroups = _avgGroups + 2*(_time / gosa_server_diag_fps_interval);
 	}else{
