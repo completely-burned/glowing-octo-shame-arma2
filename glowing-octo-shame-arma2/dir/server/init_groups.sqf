@@ -166,3 +166,8 @@ publicVariable "AllGroupsEast";
 publicVariable "AllGroupsGuer";
 GroupsStarted=true;
 publicVariable "GroupsStarted";
+
+diag_log format ["Log: [init_groups.sqf] west %1", AllGroupsWest];
+diag_log format ["Log: [init_groups.sqf] east %1", AllGroupsEast];
+diag_log format ["Log: [init_groups.sqf] guer %1", AllGroupsGuer];
+diag_log format ["Log: [init_groups.sqf] end %1", time];

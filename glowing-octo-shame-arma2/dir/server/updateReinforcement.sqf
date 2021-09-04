@@ -6,6 +6,8 @@ waitUntil {!isNil "locationStarted"};
 waitUntil {!isNil "GroupsStarted"};
 waitUntil {!isNil "gosa_framesAVG"};
 
+diag_log format ["Log: [UpdateReinforcement.sqf] post waitUntil %1", time];
+
 private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_avgGroups"];
 _minGroups = missionNamespace getVariable "minGroups";
 _avgGroups = _minGroups;
@@ -111,3 +113,5 @@ while{true}do{
 	_time = time;
 };
 		// if ((_guer < maxGroups/7*2)&&(_east+4 > _guer)&&(_west+4 > _guer)) then {
+
+diag_log format ["Log: [UpdateReinforcement.sqf] scriptDone %1", time];

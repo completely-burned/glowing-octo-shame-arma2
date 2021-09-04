@@ -1,4 +1,6 @@
-﻿private["_side"];
+﻿diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
+
+private["_side"];
 if(count _this > 0)then{
 		_side = _this select 0;
 }else{
@@ -27,6 +29,8 @@ if(count _this > 1)then{
 	_patrol = false;
 	//_typeList=GroupsAll;
 };
+
+diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _patrol %1", _patrol];
 
 if(_patrol)then{
 	switch (_side) do {
@@ -61,6 +65,8 @@ if(_patrol)then{
 		default {};
 	};
 };
+
+diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _typeList];
 
 private["_grp1"];
 private["_types"];

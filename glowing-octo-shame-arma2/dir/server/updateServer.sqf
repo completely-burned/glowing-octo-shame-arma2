@@ -2,6 +2,8 @@ waitUntil {!isNil "bis_fnc_init" && !isNil "gosa_fnc_init"};
 waitUntil {!isNil "listCrew" && !isNil "listMHQ"};
 waitUntil {!isNil "silvieManagerBlacklist" && !isNil "silvieManagerVehicles"};
 
+diag_log format ["Log: [updateServer.sqf] post waitUntil %1", time];
+
 private["_path"];
 _path = "dir\server\";
 [] execVM (_path + "while_vehicles_other.sqf");

@@ -3,6 +3,8 @@
  * За 1 минуту 60fps будет 3600 фреймов
  */
 
+diag_log format ["Log: [while_fps.sqf] started %1", time];
+
 private["_f","_a","_l","_d","_n","_s","_c","_t"];
 
 // время жизни статистики

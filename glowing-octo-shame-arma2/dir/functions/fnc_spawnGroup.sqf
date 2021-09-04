@@ -1,3 +1,4 @@
+﻿diag_log format ["Log: [gosa_fnc_spawnGroup.sqf] %1", _this];
 ﻿// diag_log str _this;
 private ["_pos", "_side", "_groups"];
 _side = _this select 1;

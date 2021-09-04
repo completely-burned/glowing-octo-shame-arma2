@@ -1,4 +1,6 @@
-﻿private["_types"];
+﻿diag_log format ["Log: [gosa_fnc_SafePosParams] %1", _this];
+
+private["_types"];
 _types = _this select 0;
 private ["_playerDist", "_maxDist", "_objDist", "_waterMode", "_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_safePositionRadius","_preferRoads","_roadSize"];
 _playerDist = safeSpawnDistance select 0;
