@@ -1,3 +1,5 @@
+#define __A2OA__
+
 private ["_obj","_var"];
 
 while {!isDedicated} do {
@@ -17,7 +19,9 @@ while {!isDedicated} do {
 		{
 			_var = _obj getVariable _x;
 			if (!isNil "_var") then {
+#ifdef __A2OA__
 				systemChat format["CoIn %1: %2", localize "STR_gosa_cheat_detected", player];
+#endif
 				_obj setVariable [_x, nil];
 			};
 		} forEach ["BIS_COIN_onStart","BIS_COIN_onSelect","BIS_COIN_onPurchase","BIS_COIN_onConstruct","BIS_COIN_onRepair","BIS_COIN_onSell"];

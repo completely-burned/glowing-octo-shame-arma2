@@ -1,6 +1,8 @@
+#define __A2OA__
 /*laser скрипт при обнаружении лазерной метки создает бомбу и сбрасывает ее
 */
 
+#ifdef __A2OA__
 private ["_lt"];
 
 waitUntil{!isNil {group_system_units}};
@@ -18,3 +20,5 @@ while{true}do{
 
 	sleep 15;
 };
+
+#endif

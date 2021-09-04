@@ -1,4 +1,6 @@
-﻿#define true 1
+﻿#define __A2OA__
+
+#define true 1
 #define false 0
 
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle","_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t","_commanding"];
@@ -46,6 +48,9 @@ if(_type == "FDF_leopard2a4")then{
 		}else{
 			_unit = _grp createUnit [_crewType, getPos _vehicle, [], 0, "FORM"];
 		};
+#ifndef __A2OA__
+		_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc;}];
+#endif
 		_crew set [count _crew, _unit];
 
 		_rank = "CORPORAL";

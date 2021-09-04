@@ -1,3 +1,4 @@
+#define __A2OA__
 ///--- бардак, комментировать нечего
 waitUntil {!isNil "bis_fnc_init"};
 locationTypes=["CityCenter"];
@@ -133,7 +134,11 @@ while{isNil{civilianBasePos}}do{
 		if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
 			civilianBasePos = getPos _x;
 		};
+#ifdef __A2OA__
 	} forEach vehicles + allMissionObjects "Warfare_HQ_base_unfolded";
+#else
+	} forEach vehicles;
+#endif
 };
 sizeLocation = 250;
 

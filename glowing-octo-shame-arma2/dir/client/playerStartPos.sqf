@@ -1,3 +1,6 @@
+#define __A2OA__
+
+#ifdef __A2OA__
 if(!isMultiplayer)exitWith{
 	playerReady = true;
 
@@ -31,3 +34,5 @@ playerReady = true;
 {
 	player reveal _x;
 } forEach (player nearObjects 100);
+#endif
+playerReady = true;

@@ -1,3 +1,5 @@
+#define __A2OA__
+
 /*скрипт удаляет накопившуюся бесхозную технику и мертвых юнитов
  *
  */
@@ -25,6 +27,10 @@ _timerAttack	= ( 60 * 2.5 );
 private["_time","_timeNew"];
 
 private["_i"];
+
+#ifndef __A2OA__
+waitUntil{!isNil "allDead"};
+#endif
 
 while {true} do {
 

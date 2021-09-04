@@ -1,3 +1,6 @@
+#define __A2OA__
+
+#ifdef __A2OA__
 private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills","_dist","_aaType","_grp","_aaSide"];
 
 if(isNil {_aaType})then{
@@ -115,3 +118,5 @@ while {true} do {
 	sleep 4 + random 8;
 
 };
+
+#endif

@@ -1,3 +1,5 @@
+﻿#define __A2OA__
+
 ﻿private ["_Magazines"];
 if(isnil {_this getVariable "gosa_megaAmmoBox"})then{
 	_Magazines = (typeOf _this call gosa_fnc_ReammoBox);
@@ -8,6 +10,7 @@ if(isnil {_this getVariable "gosa_megaAmmoBox"})then{
 private "_getMagazineCargo";
 
 
+#ifdef __A2OA__
 // Magazine
 _getMagazineCargo = getMagazineCargo _this;
 
@@ -80,5 +83,6 @@ _getMagazineCargo set [0, _namesToLower];
 		_this addBackpackCargo [_Magazine,_count];
 	};
 } foreach (_Magazines select 2);
+#endif
 
 _this setammocargo 1;

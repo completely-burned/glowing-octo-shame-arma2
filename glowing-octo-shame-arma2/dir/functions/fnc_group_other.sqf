@@ -1,3 +1,5 @@
+#define __A2OA__
+
 /*функция изменяет поведение ии, 
  *например: вычисляет такое
  *когда нужен вход или выход для ботов с транспортом, 
@@ -312,6 +314,7 @@ if({alive _x} count units _grp > 0)then{
 	}; // count _vehicles
 
 	// HE Tank
+#ifdef __A2OA__
 	if (_Tank or _Wheeled_APC) then {
 		private["_veh","_type","_entry","_turrets","_turret","_mags_he","_mag","_ammo","_indirectHitRange","_weapon","_mag_he","_mags","_he"];
 		{
@@ -403,6 +406,7 @@ if({alive _x} count units _grp > 0)then{
 			};
 		} forEach _vehicles;
 	};
+#endif
 
 	// лидер двигается ближе к атакующим юнитам
 	if (_leader == Vehicle _leader) then {
@@ -457,6 +461,7 @@ if({alive _x} count units _grp > 0)then{
 
 	///--- ограничение скорости транспорта
 	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/76
+#ifdef __A2OA__
 	//--- снимает ограничение юнитам вне транспорта
 	{
 		if(_x == vehicle _x)then{
@@ -499,6 +504,7 @@ if({alive _x} count units _grp > 0)then{
 	}forEach _vehicles;
 
 	// _slu = objNull;
+#endif
 
 
 	// ии не нужно следовать маршруту в бою, исключение десант будет следовать маршруту

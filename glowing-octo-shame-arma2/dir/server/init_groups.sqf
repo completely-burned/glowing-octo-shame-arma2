@@ -1,3 +1,4 @@
+#define __A2OA__
 ///--- бардак, комментировать нечего
 private ["_arr13453","_n"];
 waitUntil{!isNil "bis_fnc_init"};
@@ -130,6 +131,7 @@ _arr13453=[
 	// [["Car","Motorcycle"], 0]
 // ];
 
+#ifdef __A2OA__
 // AllGroupsWestOld 		= ([AllGroupsWestOld, [[["Air"],0.5]]] call _fnc4);
 // AllGroupsEastOld 		= ([AllGroupsEastOld, [[["Air"],0.5]]] call _fnc4);
 // AllGroupsGuerrilaOld 	= ([AllGroupsGuerrilaOld, [[["Air"],0.5]]] call _fnc4);
@@ -160,6 +162,7 @@ if(toLower worldName == "utes")then{
 	AllGroupsEast = ([AllGroupsEast, [[["Ship"], 15]]] call _fnc4);
 	AllGroupsGuer = ([AllGroupsGuer, [[["Ship"], 15]]] call _fnc4);
 };
+#endif
 
 publicVariable "AllGroupsWest";
 publicVariable "AllGroupsEast";

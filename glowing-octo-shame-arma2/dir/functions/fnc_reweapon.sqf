@@ -1,4 +1,6 @@
-﻿/*
+﻿#define __A2OA__
+
+/*
 
 	private["_ok"]; _ok = [this] execVM "dir\functions\gosa_fnc_reweapon.sqf";
 
@@ -36,9 +38,11 @@ private["_flyInHeight","_pos"];
 
 	_pos = getPos _veh;
 
+#ifdef __A2OA__
 	if(_isPlayer)then{
 		_veh allowCrewInImmobile true;
 	};
+#endif
 
 	_veh setSkill ["reloadSpeed", 1];
 

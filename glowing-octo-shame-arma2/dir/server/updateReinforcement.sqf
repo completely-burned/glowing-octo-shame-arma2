@@ -1,3 +1,5 @@
+#define __A2OA__
+
 // тут все сделано неправильно, надо исправить
 
 waitUntil {!isNil "bis_fnc_init"};
@@ -77,7 +79,11 @@ while{true}do{
 		_enemyCoefficient = 1;
 	};
 
+#ifdef __A2OA__
 		if(_all_groups < _avgGroups or {_all_groups < _minGroups && _limit_fps == 0})then{
+#else
+		if(_all_groups < _avgGroups or (_all_groups < _minGroups && _limit_fps == 0))then{
+#endif
 			private ["_difference"];
 			_difference = (((_all_groups / 5) min 4) max 2);
 			// diag_log format ["UpdateReinforcement.sqf 106, %1", time];

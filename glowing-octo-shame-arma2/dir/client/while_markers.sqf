@@ -1,3 +1,5 @@
+#define __A2OA__
+
 /*Скрипт обновляет маркеры у игрока локально
  * Создает при старте статичные маркеры.
  * Обновляет динамичные маркеры
@@ -34,9 +36,11 @@ switch (playerSide) do {
 
 private ["_objects"];
 _objects = [];
+#ifdef __A2OA__
 {
 	_objects = _objects + allMissionObjects _x;
 } forEach HQ;
+#endif
 
 private ["_respawnMarkers"];
 _respawnMarkers = [];
@@ -99,6 +103,7 @@ if(true)then{
 		if (visibleMap) then {
 			// -- мобильная база (развернутая), один маркер
 			// TODO: если игрок не открывал карту маркер находиться на последней позиции мобильная база (мобилизованная)
+#ifdef __A2OA__
 			{
 				if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
 					private ["_pos"];
@@ -119,6 +124,7 @@ if(true)then{
 					};
 				};
 			} forEach allMissionObjects "Warfare_HQ_base_unfolded";
+#endif
 
 			// -- удаление лишних динамичных маркеров
 			for "_i" from 0 to (count _dynamicMarkers - 1) do {
@@ -130,6 +136,7 @@ if(true)then{
 			_dynamicMarkers = _dynamicMarkers - [-1];
 
 			// -- создать динамичные маркеры казарм
+#ifdef __A2OA__
 			{
 				private ["_obj"];
 				_obj = _x;
@@ -152,6 +159,7 @@ if(true)then{
 					};
 				};
 			} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital";
+#endif
 
 			// -- игроки
 			{
@@ -161,11 +169,13 @@ if(true)then{
 				};
 			}forEach allUnits;
 
+#ifdef __A2OA__
 			// -- объекты базы
 			{
 					_units set [count _units, _x];
 					_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
 			}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
+#endif
 
 
 			// -- маркеры

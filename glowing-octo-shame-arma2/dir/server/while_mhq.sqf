@@ -1,3 +1,4 @@
+#define __A2OA__
 
 waitUntil{!isNil {MHQ_list}};
 waitUntil{!isNil {bis_fnc_init}};
@@ -31,9 +32,11 @@ for "_i" from 0 to (count _names - 1) do
 	};
 };
 
+#ifdef __A2OA__
 {
 	_StartingLocationsPos set [count _StartingLocationsPos, getPos _x];
 } forEach allMissionObjects "LocationLogicStart";
+#endif
 
 private ["_MHQ"];
 
@@ -43,6 +46,7 @@ while{true}do{
 
 	_MHQ = objNull;
 
+#ifdef __A2OA__
 	// -- развернутые базы
 	{
 		if(toLower typeOf _x in (MHQ_list select 1) && alive _x)then{
@@ -53,6 +57,7 @@ while{true}do{
 			};
 		};
 	} forEach allMissionObjects "Warfare_HQ_base_unfolded";
+#endif
 
 	// -- не развернутые мобильные базы
 	{

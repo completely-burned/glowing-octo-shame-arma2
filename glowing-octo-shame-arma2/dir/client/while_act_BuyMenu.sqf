@@ -1,3 +1,5 @@
+#define __A2OA__
+
 #define BIS_SSM_CURRENTDISPLAY UInamespace getVariable "currentCutDisplay"
 waitUntil {!isNil "buyMenuLoaded"};
 waitUntil {!isNil "MHQ_list"};
@@ -166,11 +168,13 @@ while {true} do {
 		};
 
 
+#ifdef __A2OA__
 		if !(_uav_action) then {
 			if (typeOf unitBackpack player == "US_UAV_Pack_EP1") then {
 				_uav_action = true; _uav_terminals set [count _uav_terminals, unitBackpack player];
 			};
 		};
+#endif
 		if (_uav_action && false && !_resetActions) then {
 			_actionObj = player;
 			if (!isnil "_action_uav")then{

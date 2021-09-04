@@ -1,4 +1,8 @@
-﻿{
+﻿#define __A2OA__
+
+#ifdef __A2OA__
+
+{
 	_x allowDamage false;
 	_x setVariable ["_noDelete",true];
 }forEach(allMissionObjects 'MASH')+(allMissionObjects 'ReammoBox')+(allMissionObjects 'WarfareBCamp');
@@ -98,3 +102,5 @@ forEach (allMissionObjects "Base_WarfareBVehicleServicePoint");
 (_deleteList) call gosa_fnc_cleanup;
 	sleep 1;
 };
+
+#endif

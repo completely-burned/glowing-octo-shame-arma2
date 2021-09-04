@@ -1,8 +1,14 @@
-﻿if !(requiredVersion "1.60") then {
+#define __A2OA__
+
+#ifdef __A2OA__
+if !(requiredVersion "1.60") then {
 	failMission "LOSER";
 }else{
+#endif
 
+#ifdef __A2OA__
 	[] execVM "dir\common\mpf_override.sqf";
+#endif
 
 	if (!IsDedicated) then {
 		[] execVM "dir\client\playerStartPos.sqf";
@@ -42,7 +48,11 @@
 		[] Call Compile preprocessFileLineNumbers "dir\client\init_client.sqf";
 	};
 
+#ifdef __A2OA__
 	if (!hasInterface && !isServer) then {
 		execVM "init_HC.sqf";
 	};
+#endif
+#ifdef __A2OA__
 };
+#endif

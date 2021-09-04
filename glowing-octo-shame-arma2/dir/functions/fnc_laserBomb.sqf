@@ -1,3 +1,5 @@
+#define __A2OA__
+
 /*
 
 	LaserTarget Class
@@ -15,6 +17,7 @@
 		FireSectorTarget
 
  */
+ #ifdef __A2OA__
 
 	_laserMarker = _this select 0;
 	_designatorUnit = _this select 1;
@@ -99,3 +102,4 @@
 	} forEach [_unit, _vehicle];
 
 _shell;
+#endif

@@ -1,3 +1,5 @@
+#define __A2OA__
+
 private["_player","_grp","_grp_owner","_g"];
 
 [player] joinSilent grpNull;
@@ -10,6 +12,7 @@ while {true} do {
 	_grp_owner = _g getVariable "_owner";
 
 	// если группа локальная игроку отдать юнитов группы игрока компьютеру игрока
+#ifdef __A2OA__
 	if (!isNil {_grp_owner}) then {
 		{
 			if (owner _x != owner player) then {
@@ -17,6 +20,7 @@ while {true} do {
 			};
 		} forEach units _g;
 	};
+#endif
 
 	// подконтрольные игроку юниты группы должны быть в локальной лидеру группе для лучшей связи
 	if (leader player == player && isNil {_grp_owner}) then {

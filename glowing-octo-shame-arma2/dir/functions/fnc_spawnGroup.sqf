@@ -1,3 +1,5 @@
+﻿#define __A2OA__
+
 ﻿diag_log format ["Log: [gosa_fnc_spawnGroup.sqf] %1", _this];
 ﻿// diag_log str _this;
 private ["_pos", "_side", "_groups"];
@@ -65,6 +67,9 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 
 				if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
 					_unit = _grp createUnit [_type, _itemPos, [], 0, "FORM"];
+#ifndef __A2OA__
+					_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
+#endif
 					_unit setDir _azimuth;
 				} else {
 					private ["_fnc_spawnVehicle"];

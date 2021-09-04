@@ -1,3 +1,5 @@
+#define __A2OA__
+
 /*
 	setVehicleLock "UNLOCKED" = same as "lock 0"
 	setVehicleLock "DEFAULT" = same as "lock 1"
@@ -5,6 +7,7 @@
 	setVehicleLock "LOCKEDPLAYER" = same as "lock 3"
 */
 
+#ifdef __A2OA__
 
 private["_vehicles_lock"];
 
@@ -116,3 +119,4 @@ while{true}do{
 
 	sleep 5;
 };
+#endif

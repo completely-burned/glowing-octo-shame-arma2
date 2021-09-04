@@ -1,3 +1,4 @@
+#define __A2OA__
 [] execVM ("dir\server\" + "server_update_respawnVehicles.sqf");
 
 ///--- настройки миссии
@@ -80,9 +81,13 @@ publicVariable "gosa_HC_logic";
 
 BIS_silvie_mainscope = objNull;
 // мусоросборник, изменен
-m_GC_queue = [];
+#ifndef __A2OA__
+	allDead = [];
+#endif
 BIS_GC_trashItFunc = {
-	m_GC_queue = (m_GC_queue + [[_this select 0, time + 60 ]]);
+#ifndef __A2OA__
+	allDead set [count allDead, _this select 0];
+#endif
 };
 waitUntil {!isNil "BIS_GC_trashItFunc"};
 
@@ -164,7 +169,7 @@ if(isMultiplayer)then{
 [] execVM "dir\server\init_alltowns.sqf";
 
 // обновление техники и ботов, удаление
-[] spawn compile preprocessFileLineNumbers "dir\server\updateServer.sqf";
+[] execVM "dir\server\updateServer.sqf";
 //--- патрули, боты создание
 // [] spawn compile preprocessFileLineNumbers "dir\server\updateFPS.sqf";
-[] spawn compile preprocessFileLineNumbers "dir\server\updateReinforcement.sqf";
+[] execVM "dir\server\updateReinforcement.sqf";

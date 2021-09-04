@@ -1,3 +1,5 @@
+﻿#define __A2OA__
+
 ﻿
 private ["_west","_east","_guer","_woodland","_deserted"];
 private ["_westPatrol","_eastPatrol","_guerPatrol"];
@@ -545,6 +547,7 @@ if(LIB_a2Avail)then{
 	};
 };
 
+#ifdef __A2OA__
 // OA
 if(LIB_ahAvail)then{
 
@@ -1156,6 +1159,7 @@ _east=[
 _guer=[
 ];
 */
+#endif
 
 AllGroupsWest=_west;
 AllGroupsEast=_east;
