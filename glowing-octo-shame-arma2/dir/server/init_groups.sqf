@@ -136,9 +136,11 @@ _arr13453=[
 // AllGroupsEastOld 		= ([AllGroupsEastOld, [[["Air"],0.5]]] call _fnc4);
 // AllGroupsGuerrilaOld 	= ([AllGroupsGuerrilaOld, [[["Air"],0.5]]] call _fnc4);
 
+/*
 [AllGroupsWest, _arr13453] call _fnc4;
 [AllGroupsEast, _arr13453] call _fnc4;
 [AllGroupsGuer, _arr13453] call _fnc4;
+*/
 
 if(!(west in gosa_friendlyside or east in gosa_friendlyside) or (missionNamespace getVariable "local_conflict" == 1))then{
 	[AllGroupsWest, [
@@ -157,11 +159,13 @@ if(!(west in gosa_friendlyside or east in gosa_friendlyside) or (missionNamespac
 	], 0.25] call _fnc6;
 };
 
+/*
 if(toLower worldName == "utes")then{
 	AllGroupsWest = ([AllGroupsWest, [[["Ship"], 15]]] call _fnc4);
 	AllGroupsEast = ([AllGroupsEast, [[["Ship"], 15]]] call _fnc4);
 	AllGroupsGuer = ([AllGroupsGuer, [[["Ship"], 15]]] call _fnc4);
 };
+*/
 #endif
 
 publicVariable "AllGroupsWest";
