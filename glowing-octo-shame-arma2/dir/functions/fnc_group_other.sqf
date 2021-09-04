@@ -171,7 +171,7 @@ if({alive _x} count units _grp > 0)then{
 						// дистанция возрождения пехоты подходит для безопасной высадки
 						_getout_dist = safeSpawnDistance select 0;
 						// если пехота покинула транспорт или он застрял, нет необходимости забираться обратно если он на приемлемой дистанции до цели, дистанция возрождения техники может подойти
-						if(_leader == vehicle _leader or speed vehicle _leader < 5)then{
+						if(_leader == vehicle _leader or speed vehicle _leader < 5)then{ // TODO: транспорт создается остановленным
 							_getout_dist = safeSpawnDistance select 1;
 						};
 
