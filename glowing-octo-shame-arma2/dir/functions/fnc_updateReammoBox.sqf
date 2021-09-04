@@ -1,6 +1,6 @@
 ﻿#define __A2OA__
 
-﻿private ["_Magazines"];
+private ["_Magazines"];
 if(isnil {_this getVariable "gosa_megaAmmoBox"})then{
 	_Magazines = (typeOf _this call gosa_fnc_ReammoBox);
 }else{

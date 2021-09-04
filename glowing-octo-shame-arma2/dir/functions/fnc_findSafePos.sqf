@@ -1,5 +1,5 @@
 ﻿diag_log format ["Log: [gosa_fnc_findSafePos] %1", _this];
-﻿	// diag_log format ["gosa_fnc_findSafePos.sqf 1, %1", time];
+// diag_log format ["gosa_fnc_findSafePos.sqf 1, %1", time];
 
 private["_run_timer"];
 _run_timer = time;

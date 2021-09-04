@@ -1,6 +1,6 @@
 ﻿#define __A2OA__
 
-﻿waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
+waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
 waitUntil{!isNil "civilianBasePos"};
 waitUntil{!isNil "CivilianLocation"};
 waitUntil{!isNil "MHQ_list"};

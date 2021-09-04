@@ -1,6 +1,5 @@
 ﻿#define __A2OA__
 
-﻿
 private ["_west","_east","_guer","_woodland","_deserted"];
 private ["_westPatrol","_eastPatrol","_guerPatrol"];
 private ["_westAttack","_eastAttack","_guerAttack"];
