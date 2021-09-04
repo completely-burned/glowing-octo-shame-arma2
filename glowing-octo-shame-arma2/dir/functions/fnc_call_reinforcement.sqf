@@ -94,7 +94,10 @@ if(_run)then{
 	};
 
 	_pos_resp = ([_pos]+_SafePosParams+[_side] call gosa_fnc_findSafePos);
-	if(count (_pos_resp select 0) == 0 && count (_pos_resp select 1) == 0)exitWith{grpNull};
+	if(count (_pos_resp select 0) == 0 && count (_pos_resp select 1) == 0)exitWith{
+		diag_log format ["Log: [__FILE__] _pos_resp %1 ", _pos_resp];
+		grpNull
+	};
 
 	private["_groups"];
 	_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
