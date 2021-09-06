@@ -1,5 +1,7 @@
 #define __A2OA__
 
+diag_log format ["Log: [init.sqf] *** mission starting %1 ***", worldname];
+
 #ifdef __A2OA__
 if !(requiredVersion "1.60") then {
 	failMission "LOSER";
