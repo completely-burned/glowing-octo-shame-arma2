@@ -1,9 +1,11 @@
 #define __A2OA__
 
 /*скрипт удаляет накопившуюся бесхозную технику и мертвых юнитов
- *
+ * и минирует некоторых
  */
 
+
+//--- gc
 private["_min_dist","_min_vehicles_count","_min_dist2"];
 _min_dist			= missionNamespace getVariable "gc_dist";
 _min_vehicles_count = missionNamespace getVariable "gc_count";
@@ -31,6 +33,19 @@ private["_i"];
 #ifndef __A2OA__
 waitUntil{!isNil "allDead"};
 #endif
+
+//--- mining
+private["_mining","_mining_factor","_mining_list"];
+_mining_factor = (missionNamespace getVariable "mining")/100;
+_mining = if(_mining_factor > 0)then{
+	_mining_list = [];
+	true;
+}else{
+	_mining_factor = nil;
+	false;
+};
+diag_log format ["Log: [while_gc2.sqf] #mining %1", _mining];
+
 
 while {true} do {
 
@@ -243,6 +258,39 @@ while {true} do {
 	};
 
 	_noDeleteCount = _noDeleteCountTmp;
+
+	//--- mining
+	if (_mining) then {
+
+		for "_i" from 0 to (count _mining_list -1) do {
+			if (!alive (_mining_list select _i)) then {
+				diag_log format ["Log: [while_gc2.sqf] #mining %1 not alive", _mining_list select _i];
+				_mining_list set [_i,-1];
+			};
+		};
+		_mining_list = _mining_list - [-1];
+
+
+		while { count _mining_list < _mining_factor*count _deleteListVehDead && count _deleteListVehDead > 0 } do {
+
+			_i = random (count _deleteListVehDead -1);
+
+			_x_veh = _deleteListVehDead select _i;
+
+			_deleteListVehDead set [_i, -1];
+
+			_deleteListVehDead = _deleteListVehDead - [-1];
+
+			if ([_x_veh, 3] call gosa_fnc_mining) then {
+				if !([_x_veh, _min_dist2/2] call gosa_fnc_CheckPlayersDistance) then {
+					_mining_list set [count _mining_list, _x_veh];
+					[_x_veh, 1] call gosa_fnc_mining;
+					diag_log format ["Log: [while_gc2.sqf] #mining %1 mined", _x_veh];
+				};
+			};
+		};
+
+	};
 
 	sleep 5;
 

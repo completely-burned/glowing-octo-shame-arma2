@@ -117,6 +117,12 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+	class mining {
+		title="mining";
+		values[] = {0,		2,5,10,20,30,50,75}; // в процентах
+		texts[] = {$STRWFNO,2,5,10,20,30,50,75};
+		default=20;
+	};
 	class respawn {
 		title="respawn";
 		values[] = {0,1};
