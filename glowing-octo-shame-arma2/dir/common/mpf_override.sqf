@@ -1,3 +1,8 @@
+#define __A2OA__
+
+waitUntil{!isNil{BIS_MPF_InitDone}};
+
+
 private ["_library"];
 
 _library = [
@@ -120,7 +125,9 @@ rsetRankcode = {
 
 rspawn = 'spawn';
 rspawncode = {
-	systemChat format["MF spawn code %1: %2", localize "STR_gosa_cheat_detected", _this];
+#ifdef __A2OA__
+	systemChat format["%1: %2", localize "STR_gosa_cheat_detected", _this];
+#endif
 };
 
 diag_log format ['Log: [mpf_override.sqf] done %1', time];

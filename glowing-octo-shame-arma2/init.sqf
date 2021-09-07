@@ -8,9 +8,7 @@ if !(requiredVersion "1.60") then {
 }else{
 #endif
 
-#ifdef __A2OA__
 	[] execVM "dir\common\mpf_override.sqf";
-#endif
 
 	if (!IsDedicated) then {
 		[] execVM "dir\client\playerStartPos.sqf";
