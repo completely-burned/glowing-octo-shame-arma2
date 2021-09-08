@@ -45,13 +45,13 @@ while{true}do{
 				if (_count_vehicles < _maxVehicles)then{
 					if (count _houselist > 0) then {
 						for "_i" from 0 to (_maxVehicles-_count_vehicles) do {
-							private ["_pos","_dir","_obj","_roads"];
+							private ["_pos","_dir","_obj","_roads","_road"];
 							_obj = _houselist call BIS_fnc_selectRandom;
 							_pos = _obj modeltoworld [0,0,0];
 							_dir = direction _obj + (floor random 4)*90;
 							_roads =  (_pos nearroads 20);
 							if (count _roads > 0) then {
-								private ["_road","_bbox","_bboxA","_bboxB","_bboxX","_bboxY","_difmin","_difmax","_dif"];
+								private ["_bbox","_bboxA","_bboxB","_bboxX","_bboxY","_difmin","_difmax","_dif"];
 								_road = _roads call BIS_fnc_selectRandom;;
 								//---  Straight road
 								if (count (roadsconnectedto _road) <= 2) then {
