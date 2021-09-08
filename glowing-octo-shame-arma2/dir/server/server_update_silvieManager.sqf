@@ -86,17 +86,6 @@ while{true}do{
 							_veh1 setFuel 0.5 + ((random 1)^3 - (random 1)^3)/2;
 
 							diag_log format ["Log: [silvieManager] %1 создано у %2", _veh1, [_obj, _road]];
-
-							[_veh1] spawn {
-								sleep 5;
-
-								if(getPos (_this select 0) select 2 > 0.1)then{
-
-
-									diag_log format ["Log: [silvieManager] %1 над землей", (_this select 0)];
-									deleteVehicle (_this select 0);
-								};
-							};
 						};
 					};
 				};
