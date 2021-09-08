@@ -38,6 +38,9 @@ player setVariable ["selectPlayerDisable", true, true];
 private["_fnc_isFit"];
 _fnc_isFit={
 	if (
+#ifndef __A2OA__
+		local _this &&
+#endif
 		isNil{_this getVariable "selectPlayerDisable"} &&
 		alive _this &&
 		!(_this call gosa_fnc_isPlayer) &&
