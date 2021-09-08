@@ -148,6 +148,9 @@ while {true} do {
 
 	} forEach allUnits;
 
+#ifndef __A2OA__
+	allDead = allDead - [objNull];
+#endif
 	{
 		if (getNumber(configFile >> "CfgVehicles" >> typeOf _x >> "isMan") == 1) then {
 			_deleteListManDead set [count _deleteListManDead, _x];
