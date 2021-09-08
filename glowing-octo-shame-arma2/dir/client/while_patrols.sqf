@@ -80,7 +80,7 @@ while{ _ai_client_count > 0 }do{
 			};
 
 			// если найдено достаточно подходящих локальных групп, то нет смысла проверять остальные
-			if (_enemyPatrols+_enemyGroups >= _avgGroups) then {
+			if (_enemyPatrols+_enemyGroups >= _avgGroups) then { // TODO: какой-то странный подсчет o_O
 				breakTo "while;"
 			};
 
@@ -88,7 +88,7 @@ while{ _ai_client_count > 0 }do{
 	};
 
 	// если найдено достаточно локальных групп, то нет смысла проверять остальные
-	if (_enemyPatrols+_enemyGroups < _avgGroups) then {
+	if (_enemyPatrols+_enemyGroups < _avgGroups) then { // TODO: какой-то странный подсчет o_O
 	{
 		_grp=_x;
 		_side = side _grp;
@@ -127,7 +127,7 @@ while{ _ai_client_count > 0 }do{
 					};
 
 					// если найдено достаточно локальных групп, то нет смысла проверять остальные
-					if (_enemyPatrols+_enemyGroups >= _avgGroups) then {
+					if (_enemyPatrols+_enemyGroups >= _avgGroups) then { // TODO: какой-то странный подсчет o_O
 						breakTo "while;"
 					};
 
