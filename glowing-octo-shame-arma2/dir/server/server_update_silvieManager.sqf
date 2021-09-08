@@ -50,9 +50,12 @@ while{true}do{
 							_pos = _obj modeltoworld [0,0,0];
 							_dir = direction _obj + (floor random 4)*90;
 							_roads =  (_pos nearroads 20);
+							scopeName "house";
 							if (count _roads > 0) then {
+								{
 								private ["_bbox","_bboxA","_bboxB","_bboxX","_bboxY","_difmin","_difmax","_dif"];
 								_road = _roads call BIS_fnc_selectRandom;;
+								_roads = _roads - [_road];
 								//---  Straight road
 								if (count (roadsconnectedto _road) <= 2) then {
 									_dir = direction _road;
@@ -71,8 +74,12 @@ while{true}do{
 											(_pos select 0)+(sin (_dir + 90) * _dif),
 											(_pos select 1)+(cos (_dir + 90) * _dif)
 										];
+										breakTo "house";
+									}else{
+										_road = nil;
 									};
 								};
+								} foreach _roads;
 							};
 							private ["_veh1"];
 							_veh1 = createVehicle [ (silvieManagerVehicles call BIS_fnc_selectRandom), _pos, [], 0, "NONE"];
