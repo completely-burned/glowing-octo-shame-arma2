@@ -83,15 +83,15 @@ while{true}do{
 							_veh1 setVelocity [0, 0, -1];
 							// _veh1 addEventHandler ["GetIn",{_this call gosa_fnc_EH_GetIn}];
 
-								diag_log format ["silvieManager createVehicle %1", _veh1];
+							diag_log format ["Log: [silvieManager] %1 создано у %2", _veh1, [_obj, _road]];
 
 							[_veh1] spawn {
 								sleep 5;
 
 								if(getPos (_this select 0) select 2 > 0.1)then{
 
-										diag_log format ["silvieManager height > deleteVehicle %1", (_this select 0)];
 
+									diag_log format ["Log: [silvieManager] %1 над землей", (_this select 0)];
 									deleteVehicle (_this select 0);
 								};
 							};
