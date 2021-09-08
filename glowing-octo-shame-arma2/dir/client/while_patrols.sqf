@@ -230,6 +230,7 @@ while{ _ai_client_count > 0 }do{
 	if(_friendlyGroups+_enemyGroups < _avgGroups/2)then{
 #else
 	// для a2 переключение на чужую группу ломает управление, нужна минимум одна локальная группа для быстрого возрождения
+	// TODO: многие типы отрядов не подходят для перерождения и `_friendlyGroups < 1` не имеет смысла, наверное лучше реализовать специальную группу отдельным скриптом
 	if((_respawn_mode == 1 && _friendlyGroups < 1) or _friendlyGroups+_enemyGroups < _avgGroups/2)then{
 #endif
 
