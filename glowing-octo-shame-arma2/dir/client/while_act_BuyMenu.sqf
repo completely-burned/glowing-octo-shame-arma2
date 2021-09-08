@@ -64,7 +64,11 @@ while {true} do {
 					// };
 
 					if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
+#ifdef __A2OA__
 						if ([[_type],HQ] call gosa_fnc_CheckIsKindOfArray) then {
+#else
+						if ([[_type],(MHQ_list select 0) + HQ] call gosa_fnc_CheckIsKindOfArray) then {
+#endif
 							_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
 						};
 					};
