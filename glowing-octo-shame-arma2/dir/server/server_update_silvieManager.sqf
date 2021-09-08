@@ -69,8 +69,7 @@ while{true}do{
 										_pos = position _road;
 										_pos = [
 											(_pos select 0)+(sin (_dir + 90) * _dif),
-											(_pos select 1)+(cos (_dir + 90) * _dif),
-											0
+											(_pos select 1)+(cos (_dir + 90) * _dif)
 										];
 									};
 								};
