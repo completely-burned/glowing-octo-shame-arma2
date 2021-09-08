@@ -20,9 +20,10 @@ _limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
 _frames_required = _limit_fps * gosa_server_diag_fps_interval;
 _time = time;
 
-private["_all_groups","_friendlyGroups","_friendlyPatrols","_enemyGroups","_enemyPatrols","_enemySide"];
+private["_all_groups","_friendlyGroups","_friendlyPatrols","_enemyGroups","_enemyPatrols","_enemySide","_friendlySide"];
 
 _enemySide = [west,east,resistance] - gosa_friendlyside;
+_friendlySide = gosa_friendlyside - [civilian];
 
 while{true}do{
 	// diag_log format ["UpdateReinforcement.sqf 17, %1", time];
@@ -37,13 +38,13 @@ while{true}do{
 			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
 				if({alive _x} count units _grp > 0)then{
 					if (!isNil {_grp GetVariable "patrol"}) then {
-						if (_side in gosa_friendlyside) then {
+						if (_side in _friendlySide) then {
 							_friendlyPatrols = _friendlyPatrols + 1;
 						}else{
 							_enemyPatrols = _enemyPatrols + 1;
 						};
 					}else{
-						if (_side in gosa_friendlyside) then {
+						if (_side in _friendlySide) then {
 							_friendlyGroups = _friendlyGroups + 1;
 						}else{
 							_enemyGroups = _enemyGroups + 1;
@@ -91,7 +92,7 @@ while{true}do{
 				[_enemySide call BIS_fnc_selectRandom] call gosa_fnc_call_reinforcement;
 			};
 			if (_enemyGroups + _difference >= _friendlyGroups * _enemyCoefficient) then {
-				[gosa_friendlyside call BIS_fnc_selectRandom] call gosa_fnc_call_reinforcement;
+				[_friendlySide call BIS_fnc_selectRandom] call gosa_fnc_call_reinforcement;
 			};
 			/*
 			if ((_enemyPatrols + _friendlyPatrols) < ((_enemyGroups + _friendlyGroups) / 4)) then {
@@ -99,7 +100,7 @@ while{true}do{
 					[_enemySide call BIS_fnc_selectRandom,"patrol"] call gosa_fnc_call_reinforcement;
 				};
 				if (_enemyPatrols + _difference >= _friendlyPatrols * _enemyCoefficient) then {
-					[gosa_friendlyside call BIS_fnc_selectRandom,"patrol"] call gosa_fnc_call_reinforcement;
+					[_friendlySide call BIS_fnc_selectRandom,"patrol"] call gosa_fnc_call_reinforcement;
 				};
 			};
 			*/
