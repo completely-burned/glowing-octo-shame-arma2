@@ -1,6 +1,6 @@
 #define __A2OA__
 
-private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_friendlySide","_side","_ai_client_count","_cache","_ok","_avgGroups","_limit_fps","_frames_required","_time"];
+private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_friendlySide","_side","_ai_client_count","_cache","_ok","_avgGroups","_limit_fps","_frames_required","_time","_respawn_mode"];
 
 	diag_log format ["Log: [while_patrols.sqf] started %1", time ];
 
@@ -26,6 +26,9 @@ _avgGroups = _ai_client_count;
 _limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
 _frames_required = _limit_fps * gosa_server_diag_fps_interval;
 _time = time;
+
+_respawn_mode = missionNamespace getVariable "respawn";
+
 
 while{ _ai_client_count > 0 }do{
 
@@ -215,7 +218,12 @@ while{ _ai_client_count > 0 }do{
 	};
 
 	// ограничим количество созданных локально игроку подкреплений
+#ifdef __A2OA__
 	if(_friendlyGroups+_enemyGroups < _avgGroups/2)then{
+#else
+	// для a2 переключение на чужую группу ломает управление, нужна минимум одна локальная группа для быстрого возрождения
+	if((_respawn_mode == 1 && _friendlyGroups < 1) or _friendlyGroups+_enemyGroups < _avgGroups/2)then{
+#endif
 
 
 
@@ -243,7 +251,7 @@ while{ _ai_client_count > 0 }do{
 		diag_log format ["Log: [while_patrols.sqf] _enemyCoefficient = %1 ", _enemyCoefficient];
 
 		// _difference = 0;
-		if (_friendlyGroups * _enemyCoefficient >= _enemyGroups) then {
+		if (_friendlyGroups * _enemyCoefficient >= _enemyGroups && !(_respawn_mode == 1 && _friendlyGroups < 1)) then {
 			_side = _enemySide call BIS_fnc_selectRandom;
 		}else{
 			_side = _friendlySide call BIS_fnc_selectRandom;
