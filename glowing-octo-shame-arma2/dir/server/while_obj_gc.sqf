@@ -67,6 +67,13 @@ while {true} do {
 			_x_veh setVariable ["gosa_timeDeleteVehicle", _time];
 		};
 
+		//--- allUnits отображает убитых юнитов на других комьютерах, но не отображает убитых созданных на сервере
+#ifndef __A2OA__
+		if (!alive _x_veh) then {
+			_deleteListManDead set [count _deleteListManDead, _x_veh];
+		};
+#endif
+
 		if !(_x_veh call gosa_fnc_isPlayer) then {
 
 			_assignedVehicle = assignedVehicle _x_veh;
