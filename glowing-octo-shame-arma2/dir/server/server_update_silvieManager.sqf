@@ -83,6 +83,8 @@ while{true}do{
 							_veh1 setVelocity [0, 0, -1];
 							// _veh1 addEventHandler ["GetIn",{_this call gosa_fnc_EH_GetIn}];
 
+							_veh1 setFuel 0.5 + ((random 1)^3 - (random 1)^3)/2;
+
 							diag_log format ["Log: [silvieManager] %1 создано у %2", _veh1, [_obj, _road]];
 
 							[_veh1] spawn {
