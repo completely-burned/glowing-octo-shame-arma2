@@ -85,6 +85,12 @@ while{true}do{
 							_veh1 = createVehicle [ (silvieManagerVehicles call BIS_fnc_selectRandom), _pos, [], 0, "NONE"];
 							_veh1 setDir (_dir - 10 + random 20);
 							// _veh1 setPosATL _pos;
+							//--- Inside Building Check
+							if (count(nearestObjects [_veh1, [], if (_veh1 isKindOf "Truck") then {5}else{3}] - [_veh1]) > 0) exitWith {
+								diag_log format ["Log: [silvieManager] Inside Building %1", _veh1];
+								deleteVehicle _veh1;
+							};
+
 							_veh1 setVectorUp [0,0,1];
 							_veh1 setVelocity [0, 0, -1];
 							// _veh1 addEventHandler ["GetIn",{_this call gosa_fnc_EH_GetIn}];
