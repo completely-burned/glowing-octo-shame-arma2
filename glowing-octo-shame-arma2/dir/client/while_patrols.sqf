@@ -1,6 +1,6 @@
 #define __A2OA__
 
-private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_side","_ai_client_count","_cache","_ok","_avgGroups","_limit_fps","_frames_required","_time"];
+private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_friendlySide","_side","_ai_client_count","_cache","_ok","_avgGroups","_limit_fps","_frames_required","_time"];
 
 	diag_log format ["Log: [while_patrols.sqf] started %1", time ];
 
@@ -17,6 +17,7 @@ waitUntil {!isNil "gosa_framesAVG"};
 
 waitUntil {!isNil "enemyCoefficient" && !isNil "gosa_friendlyside"};
 _enemySide = [west,east,resistance] - gosa_friendlyside;
+_friendlySide = gosa_friendlyside - [civilian];
 
 // _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 
@@ -62,13 +63,13 @@ while{ _ai_client_count > 0 }do{
 
 		if(_ok)then{
 			if (!isNil {_grp GetVariable "patrol"}) then {
-				if (_side in gosa_friendlyside) then {
+				if (_side in _friendlySide) then {
 					_friendlyPatrols = _friendlyPatrols + 1;
 				}else{
 					_enemyPatrols = _enemyPatrols + 1;
 				};
 			}else{
-				if (_side in gosa_friendlyside) then {
+				if (_side in _friendlySide) then {
 					_friendlyGroups = _friendlyGroups + 1;
 				}else{
 					_enemyGroups = _enemyGroups + 1;
@@ -109,13 +110,13 @@ while{ _ai_client_count > 0 }do{
 
 				if(_ok)then{
 					if (!isNil {_grp GetVariable "patrol"}) then {
-						if (_side in gosa_friendlyside) then {
+						if (_side in _friendlySide) then {
 							_friendlyPatrols = _friendlyPatrols + 1;
 						}else{
 							_enemyPatrols = _enemyPatrols + 1;
 						};
 					}else{
-						if (_side in gosa_friendlyside) then {
+						if (_side in _friendlySide) then {
 							_friendlyGroups = _friendlyGroups + 1;
 						}else{
 							_enemyGroups = _enemyGroups + 1;
@@ -143,7 +144,7 @@ while{ _ai_client_count > 0 }do{
 		if (_friendlyPatrols * enemyCoefficient + _difference >= _enemyPatrols) then {
 			_side = _enemySide call BIS_fnc_selectRandom;
 		}else{
-			_side = gosa_friendlyside call BIS_fnc_selectRandom;
+			_side = _friendlySide call BIS_fnc_selectRandom;
 		};
 
 		private["_player","_typeList","_pos"];
@@ -245,7 +246,7 @@ while{ _ai_client_count > 0 }do{
 		if (_friendlyGroups * _enemyCoefficient >= _enemyGroups) then {
 			_side = _enemySide call BIS_fnc_selectRandom;
 		}else{
-			_side = gosa_friendlyside call BIS_fnc_selectRandom;
+			_side = _friendlySide call BIS_fnc_selectRandom;
 		};
 
 
