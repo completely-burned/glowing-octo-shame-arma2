@@ -1,3 +1,6 @@
+#define __A2OA__
+
+#ifdef __A2OA__
 private["_coin_actions","_Objects","_coins","_action","_player","_action","_obj","_delete","_action_obj"];
 
 _coin_actions = [];
@@ -86,3 +89,4 @@ while{true}do{
 	};
 	sleep 1;
 };
+#endif
