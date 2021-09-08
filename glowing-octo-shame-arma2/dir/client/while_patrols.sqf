@@ -79,16 +79,22 @@ while{ _ai_client_count > 0 }do{
 				};
 			};
 
+#ifdef __A2OA__
 			// если найдено достаточно подходящих локальных групп, то нет смысла проверять остальные
 			if (_enemyPatrols+_enemyGroups >= _avgGroups) then { // TODO: какой-то странный подсчет o_O
 				breakTo "while;"
 			};
+#endif
 
 		};
 	};
 
 	// если найдено достаточно локальных групп, то нет смысла проверять остальные
+#ifdef __A2OA__
 	if (_enemyPatrols+_enemyGroups < _avgGroups) then { // TODO: какой-то странный подсчет o_O
+#else
+	if (_respawn_mode == 1 or _enemyPatrols+_enemyGroups < _avgGroups) then { // TODO: какой-то странный подсчет o_O
+#endif
 	{
 		_grp=_x;
 		_side = side _grp;
@@ -126,10 +132,12 @@ while{ _ai_client_count > 0 }do{
 						};
 					};
 
+#ifdef __A2OA__
 					// если найдено достаточно локальных групп, то нет смысла проверять остальные
 					if (_enemyPatrols+_enemyGroups >= _avgGroups) then { // TODO: какой-то странный подсчет o_O
 						breakTo "while;"
 					};
+#endif
 
 				};
 		};
