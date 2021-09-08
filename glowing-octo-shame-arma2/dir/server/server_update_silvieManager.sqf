@@ -55,24 +55,24 @@ while{true}do{
 								_road = _roads call BIS_fnc_selectRandom;;
 								//---  Straight road
 								if (count (roadsconnectedto _road) <= 2) then {
-								_dir = direction _road;
-								_bbox = boundingbox _road;
-								_bboxA = (_bbox select 0);
-								_bboxB = (_bbox select 1);
-								_bboxX = abs(_bboxA select 0) + abs(_bboxB select 0);
-								_bboxY = abs(_bboxA select 1) + abs(_bboxB select 1);
-								_difmin = (_bboxX min _bboxY);
-								_difmax = (_bboxX max _bboxY);
-								_dif = _difmin/2 + sqrt(_difmin)*0.3;
+									_dir = direction _road;
+									_bbox = boundingbox _road;
+									_bboxA = (_bbox select 0);
+									_bboxB = (_bbox select 1);
+									_bboxX = abs(_bboxA select 0) + abs(_bboxB select 0);
+									_bboxY = abs(_bboxA select 1) + abs(_bboxB select 1);
+									_difmin = (_bboxX min _bboxY);
+									_difmax = (_bboxX max _bboxY);
+									_dif = _difmin/2 + sqrt(_difmin)*0.3;
 
-								if (_difmax < 15) then {
-									_pos = position _road;
-									_pos = [
-										(_pos select 0)+(sin (_dir + 90) * _dif),
-										(_pos select 1)+(cos (_dir + 90) * _dif),
-										0
-									];
-								};
+									if (_difmax < 15) then {
+										_pos = position _road;
+										_pos = [
+											(_pos select 0)+(sin (_dir + 90) * _dif),
+											(_pos select 1)+(cos (_dir + 90) * _dif),
+											0
+										];
+									};
 								};
 							};
 							private ["_veh1"];
