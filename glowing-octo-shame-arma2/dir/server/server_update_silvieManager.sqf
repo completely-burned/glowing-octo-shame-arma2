@@ -77,7 +77,7 @@ while{true}do{
 							};
 							private ["_veh1"];
 							_veh1 = createVehicle [ (silvieManagerVehicles call BIS_fnc_selectRandom), _pos, [], 0, "NONE"];
-							_veh1 setDir _dir;
+							_veh1 setDir (_dir - 10 + random 20);
 							// _veh1 setPosATL _pos;
 							_veh1 setVectorUp [0,0,1];
 							_veh1 setVelocity [0, 0, -1];
