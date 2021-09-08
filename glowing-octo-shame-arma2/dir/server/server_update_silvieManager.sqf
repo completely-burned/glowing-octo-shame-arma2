@@ -53,6 +53,8 @@ while{true}do{
 							if (count _roads > 0) then {
 								private ["_road","_bbox","_bboxA","_bboxB","_bboxX","_bboxY","_difmin","_difmax","_dif"];
 								_road = _roads call BIS_fnc_selectRandom;;
+								//---  Straight road
+								if (count (roadsconnectedto _road) <= 2) then {
 								_dir = direction _road;
 								_bbox = boundingbox _road;
 								_bboxA = (_bbox select 0);
@@ -70,6 +72,7 @@ while{true}do{
 										(_pos select 1)+(cos (_dir + 90) * _dif),
 										0
 									];
+								};
 								};
 							};
 							private ["_veh1"];
