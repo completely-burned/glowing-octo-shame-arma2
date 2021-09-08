@@ -1,4 +1,5 @@
-﻿private ["_type","_HQ","_fnc_1","_isUAV"];
+﻿#define __A2OA__
+private ["_type","_HQ","_fnc_1","_isUAV"];
 _type = _this Select 0;
 
 _HQ = listMHQ + HQ;
@@ -60,7 +61,6 @@ if (true) then {
 				Private["_pos"];
 				_pos = position vehicle player;
 				// _pos = ([_pos, (sizeOf typeOf (_Objects select 0)) / 2 + (sizeOf _type) / 2, random 360] call BIS_fnc_relPos);
-				if (LIB_ahAvail or !isMultiplayer) then {
 					Private["_veh"];
 					_veh = (group player createUnit [_type, _pos, [], 0.2, "FORM"]);
 					if(!isMultiplayer)then{
@@ -76,18 +76,16 @@ if (true) then {
 						if(_cost>=750000)then{_rank="COLONEL"};
 						[nil, _veh, rsetRank, _rank] call RE;
 					};
+#ifndef __A2OA__
+					if (isServer) then {
+						_veh addEventHandler ["killed",{[_this select 0] call BIS_GC_trashItFunc}];
+						if ((!alive _veh) or (isNil "BIS_GC_trashItFunc")) then {
+							deleteVehicle _veh;
+						};
+					};
+#endif
 					_veh call _fnc_1;
 					hint format["%1: %2", localize "str_support_done", _type];
-				}else{
-					// _type createUnit [_pos, group player,"
-									// if (isServer) then {
-										// this addEventHandler ['killed',{[_this select 0] call BIS_GC_trashItFunc}];
-										// if ((!alive this) or (isNil 'BIS_GC_trashItFunc')) then {
-											// deleteVehicle this;
-										// };
-									// };
-					// "];
-				};
 			}else{
 				hint "10 max";
 			};
