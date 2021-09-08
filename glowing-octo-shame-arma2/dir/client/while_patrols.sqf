@@ -49,7 +49,11 @@ while{ _ai_client_count > 0 }do{
 		_ok=false;
 		{
 				//--- если _ok==true проверка alive не выполяется и не перезаписывается _ok
+#ifdef __A2OA__
 				if (!_ok && {alive _x}) then {_ok = true};
+#else
+				if (alive _x) then {_ok = true};
+#endif
 				//--- при обнаружении игрока нет смысла проверять остальных юнитов // exitWith выходит только из forEach ??
 				if (_x call gosa_fnc_isPlayer) exitWith { _ok = false };
 		} forEach units _grp;
@@ -92,7 +96,11 @@ while{ _ai_client_count > 0 }do{
 			_ok=false;
 			{
 					//--- если _ok==true проверка alive не выполяется и не перезаписывается _ok
+#ifdef __A2OA__
 					if (!_ok && {alive _x}) then {_ok = true};
+#else
+					if (alive _x) then {_ok = true};
+#endif
 					//--- при обнаружении игрока нет смысла проверять остальных юнитов // exitWith выходит только из forEach ??
 					if (_x call gosa_fnc_isPlayer) exitWith { _ok = false };
 			} forEach units _grp;
