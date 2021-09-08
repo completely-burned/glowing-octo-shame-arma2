@@ -1,3 +1,5 @@
+#define __A2OA__
+
 private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_side","_ai_client_count","_cache","_ok","_avgGroups","_limit_fps","_frames_required","_time"];
 
 	diag_log format ["Log: [while_patrols.sqf] started %1", time ];
