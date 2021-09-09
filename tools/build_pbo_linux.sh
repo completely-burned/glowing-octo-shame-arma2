@@ -45,7 +45,7 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 
 		# cpmpat для a2 v1.11
 		if [[ $NAME == *"compat"* ]]; then
-			find .build.tmp/${TMPDIRNAME}/ -type f -exec sed -i "/^#define __A2OA__/d" {} \;
+			find .build.tmp/${TMPDIRNAME}/ -type f -exec sed -i "/^.*#define.*__A2OA__.*/d" {} \;
 		fi
 
 		# если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив
