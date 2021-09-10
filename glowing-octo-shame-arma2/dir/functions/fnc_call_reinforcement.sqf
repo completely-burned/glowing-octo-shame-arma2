@@ -60,7 +60,7 @@ if(_patrol)then{
 			if (isNil "LocationAllGroupsEast") then {
 				_typeList=AllGroupsEast;
 			} else {
-			_typeList=LocationAllGroupsEast;
+				_typeList=LocationAllGroupsEast;
 			};
 		};
 		case (west):
@@ -68,7 +68,7 @@ if(_patrol)then{
 			if (isNil "LocationAllGroupsWest") then {
 				_typeList=AllGroupsWest;
 			} else {
-			_typeList=LocationAllGroupsWest;
+				_typeList=LocationAllGroupsWest;
 			};
 		};
 		case (resistance):
@@ -76,7 +76,7 @@ if(_patrol)then{
 			if (isNil "LocationAllGroupsGuer") then {
 				_typeList=AllGroupsGuer;
 			} else {
-			_typeList=LocationAllGroupsGuer;
+				_typeList=LocationAllGroupsGuer;
 			};
 		};
 		default {};
