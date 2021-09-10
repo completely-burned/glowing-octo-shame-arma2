@@ -1,6 +1,6 @@
 #define __A2OA__
 
-private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_friendlySide","_side","_ai_client_count","_cache","_ok","_avgGroups","_limit_fps","_frames_required","_time","_respawn_mode"];
+private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_friendlySide","_side","_ai_client_count","_cache","_ok","_avgGroups","_limit_fps","_frames_required","_time","_respawn_mode","_enemyCoefficient"];
 
 	diag_log format ["Log: [while_patrols.sqf] started %1", time ];
 
@@ -16,6 +16,9 @@ waitUntil {!isNil "playerReady"};
 waitUntil {!isNil "gosa_framesAVG"};
 
 waitUntil {!isNil "enemyCoefficient" && !isNil "gosa_friendlyside"};
+
+waitUntil {!isNil "civilianBasePos"};
+
 _enemySide = [west,east,resistance] - gosa_friendlyside;
 _friendlySide = gosa_friendlyside - [civilian];
 
@@ -29,90 +32,28 @@ _time = time;
 
 _respawn_mode = missionNamespace getVariable "respawn";
 
-
 while{ _ai_client_count > 0 }do{
-
-	scopeName "while"; // перезапись scopeName в цикле ??
 
 	sleep 2;
 
 	// считаем группы чтобы не создавать лишние и для баланса
 	_friendlyPatrols = 0; _enemyPatrols = 0;
 	_friendlyGroups = 0;  _enemyGroups = 0;
-
-	// gosa_cacheLocalGroups кеширует список групп чтобы не проверять всегда все
-	if (isNil "gosa_cacheLocalGroups") then {
-		_cache = [];
-	}else{
-		_cache = gosa_cacheLocalGroups;
-	};
-
-	//--- подсчет кэшированных групп
-	for "_i" from 0 to ((count _cache) - 1) do {
-		_grp = (_cache select _i);
-
-		// нужны тесты производительности
-		_ok=false;
-		{
-				//--- если _ok==true проверка alive не выполяется и не перезаписывается _ok
-#ifdef __A2OA__
-				if (!_ok && {alive _x}) then {_ok = true};
-#else
-				if (alive _x) then {_ok = true};
-#endif
-				//--- при обнаружении игрока нет смысла проверять остальных юнитов // exitWith выходит только из forEach ??
-				if (_x call gosa_fnc_isPlayer) exitWith { _ok = false };
-		} forEach units _grp;
-
-		if(_ok)then{
-			if (!isNil {_grp GetVariable "patrol"}) then {
-				if (_side in _friendlySide) then {
-					_friendlyPatrols = _friendlyPatrols + 1;
-				}else{
-					_enemyPatrols = _enemyPatrols + 1;
-				};
-			}else{
-				if (_side in _friendlySide) then {
-					_friendlyGroups = _friendlyGroups + 1;
-				}else{
-					_enemyGroups = _enemyGroups + 1;
-				};
-			};
-
-#ifdef __A2OA__
-			// если найдено достаточно подходящих локальных групп, то нет смысла проверять остальные
-			if (_enemyPatrols+_enemyGroups >= _avgGroups) then { // TODO: какой-то странный подсчет o_O
-				breakTo "while;"
-			};
-#endif
-
-		};
-	};
-
-	// если найдено достаточно локальных групп, то нет смысла проверять остальные
-#ifdef __A2OA__
-	if (_enemyPatrols+_enemyGroups < _avgGroups) then { // TODO: какой-то странный подсчет o_O
-#else
-	if (_respawn_mode == 1 or _enemyPatrols+_enemyGroups < _avgGroups) then { // TODO: какой-то странный подсчет o_O
-#endif
 	{
 		_grp=_x;
 		_side = side _grp;
 		_leader = leader _grp;
-
+		// нужно ситать только локальные группы
 		if (local _leader && _side in [west,east,resistance]) then {
-
-			_cache set [count _cache, _grp];
-
 			// нужны тесты производительности
 			_ok=false;
 			{
 					//--- если _ok==true проверка alive не выполяется и не перезаписывается _ok
-#ifdef __A2OA__
+					#ifdef __A2OA__
 					if (!_ok && {alive _x}) then {_ok = true};
-#else
+					#else
 					if (alive _x) then {_ok = true};
-#endif
+					#endif
 					//--- при обнаружении игрока нет смысла проверять остальных юнитов // exitWith выходит только из forEach ??
 					if (_x call gosa_fnc_isPlayer) exitWith { _ok = false };
 			} forEach units _grp;
@@ -131,125 +72,15 @@ while{ _ai_client_count > 0 }do{
 							_enemyGroups = _enemyGroups + 1;
 						};
 					};
-
-#ifdef __A2OA__
-					// если найдено достаточно локальных групп, то нет смысла проверять остальные
-					if (_enemyPatrols+_enemyGroups >= _avgGroups) then { // TODO: какой-то странный подсчет o_O
-						breakTo "while;"
-					};
-#endif
-
 				};
 		};
-	}forEach allGroups-_cache;
-	};
+	} forEach allGroups;
 
-		diag_log format ["Log: [while_patrols.sqf] _friendlyPatrols %1 _enemyPatrols %2, _friendlyGroups %3 _enemyGroups %4", _friendlyPatrols, _enemyPatrols, _friendlyGroups, _enemyGroups];
-
-	// ограничим количество созданных локально игроку патрулей
-	if(_friendlyPatrols+_enemyPatrols < _avgGroups/2)then{
-
-		// поддерживаем соотношение союзников и противников выбираем side для создания
-		private ["_difference"];
-		_difference = 0;
-		if (_friendlyPatrols * enemyCoefficient + _difference >= _enemyPatrols) then {
-			_side = _enemySide call BIS_fnc_selectRandom;
-		}else{
-			_side = _friendlySide call BIS_fnc_selectRandom;
-		};
-
-		private["_player","_typeList","_pos"];
-
-		// патрули создаются рядом с игроком
-		_player = player;
-		_pos = getPos _player;
-
-		private["_run"];
-		_run = true;
-
-		// нормальный игрок не должен быть в позиции [0,0], игнорируем его
-		if (_pos distance [0,0] < 1) then {
-				diag_log format ["Log: [while_patrols.sqf] _pos = [0,0] _player = %1 ", _player];
-			_run = false;
-		};
-
-		if(_run)then{
-
-			switch (_side) do {
-				case (east):
-				{
-					_typeList=AllGroupsEast;
-				};
-				case (west):
-				{
-					_typeList=AllGroupsWest;
-				};
-				case (resistance):
-				{
-					_typeList=AllGroupsGuer;
-				};
-				default {};
-			};
-
-			private["_pos_resp","_SafePosParams","_types","_grp1"];
-			if (isNil "_typeList") exitWith {
-				// иногда _typeList пустой, нужно исправить
-					diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
-			};
-			_grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
-			_types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
-
-			_SafePosParams = ([_types] call gosa_fnc_SafePosParams);
-
-			// увеличивает максимальный радиус поиска позиции для создания патруля
-			_SafePosParams set [1,((_SafePosParams select 1) * 2)];
-
-				diag_log format ["Log: [while_patrols.sqf] creating %1 ", [_pos]+_SafePosParams+[_side]];
-
-			_pos_resp = ([_pos]+_SafePosParams+[_side] call gosa_fnc_findSafePos);
-			if(count (_pos_resp select 0) == 0)exitWith{}; // _pos_resp без позиции если не нашлось подходящей позиции
-
-			private["_groups"];
-			_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
-
-			_cache=_cache+_groups;
-
-			// помечаем группу что это патруль и она готова для дальнейших скриптов
-			{
-				_x setVariable ["patrol", true, true];
-				_x setVariable ["grp_created", true, true];
-			} forEach _groups;
-
-				diag_log format ["Log: [while_patrols.sqf] created %1 ", _groups];
-		};
-
-	};
-
-	// ограничим количество созданных локально игроку подкреплений
-#ifdef __A2OA__
-	if(_friendlyGroups+_enemyGroups < _avgGroups/2)then{
-#else
-	// для a2 переключение на чужую группу ломает управление, нужна минимум одна локальная группа для быстрого возрождения
-	// TODO: многие типы отрядов не подходят для перерождения и `_friendlyGroups < 1` не имеет смысла, наверное лучше реализовать специальную группу отдельным скриптом
-	if((_respawn_mode == 1 && _friendlyGroups < 1) or _friendlyGroups+_enemyGroups < _avgGroups/2)then{
-#endif
+	diag_log format ["Log: [while_patrols.sqf] _enemyGroups %1, _enemyPatrols %2, _friendlyGroups %3, _friendlyPatrols %4", 
+												_enemyGroups, _enemyPatrols, _friendlyGroups, _friendlyPatrols];
 
 
-
-		// поддерживаем соотношение союзников и противников выбираем side для создания
-		private ["_difference","_enemyCoefficient"];
-
-		// со временем количество противников на локации уменьшается
-		/* доделаю после
-		if(!isNil {CivilianLocationStartTime})then{
-			private["_time"];
-			_time = time - CivilianLocationStartTime;
-			_enemyCoefficient =  _timeFriendlyReinforcements / _time;
-			_enemyCoefficient = (enemyCoefficient min _enemyCoefficient) max 1;
-		}else{
-			_enemyCoefficient = enemyCoefficient;
-		};
-		*/
+		//
 		_enemyCoefficient = enemyCoefficient;
 
 		// у гражданских соотношение противники 1:1 союзники
@@ -257,93 +88,41 @@ while{ _ai_client_count > 0 }do{
 			_enemyCoefficient = 1;
 		};
 
-		diag_log format ["Log: [while_patrols.sqf] _enemyCoefficient = %1 ", _enemyCoefficient];
+		// где /2 это поровну патрули и подкрепления, у меня плохо с математекой (
+		_limits = [
+			((_avgGroups / (1+_enemyCoefficient)) * _enemyCoefficient)	/ 2,	// enemy 
+			((_avgGroups / (1+_enemyCoefficient)) * _enemyCoefficient)	/ 2,	// enemy 
+			( _avgGroups / (1+_enemyCoefficient)) 						/ 2,	// friendly
+			( _avgGroups / (1+_enemyCoefficient)) 						/ 2,	// friendly
+			_avgGroups
+		];
+		diag_log format ["Log: [while_patrols.sqf] _limits = %1", _limits];
 
-		// _difference = 0;
-		if (_friendlyGroups * _enemyCoefficient >= _enemyGroups && !(_respawn_mode == 1 && _friendlyGroups < 1)) then {
-			_side = _enemySide call BIS_fnc_selectRandom;
-		}else{
-			_side = _friendlySide call BIS_fnc_selectRandom;
+		if (_enemyGroups 	< _limits select 0) then {
+			[_enemySide call BIS_fnc_selectRandom]			call gosa_fnc_call_reinforcement;
+		};
+		if (_enemyPatrols 	< _limits select 1) then {
+			[_enemySide call BIS_fnc_selectRandom, player] call gosa_fnc_call_reinforcement;
+		};
+		if (_friendlyGroups < _limits select 2 or (_respawn_mode == 1 && _friendlyGroups < 1)) then {
+			[_friendlySide call BIS_fnc_selectRandom]		call gosa_fnc_call_reinforcement;
+		};
+		if (_friendlyPatrols < _limits select 3) then {
+			[_friendlySide call BIS_fnc_selectRandom, player] call gosa_fnc_call_reinforcement;
 		};
 
 
-		private["_run"];
-		_run = true;
-
-
-		if(_run)then{
-
-			private["_typeList","_pos","_pos_resp","_SafePosParams","_types","_grp1"];
-
-			// подкрепления создаются рядом с локацией
-			_pos = civilianBasePos;
-
-			// локация не должен быть в позиции [0,0], игнорируем его
-			if (_pos distance [0,0] < 1) then {
-				diag_log format ["Log: [while_patrols.sqf] _pos = [0,0] _player = %1 ", _player];
-				_run = false;
-			};
-
-			switch (_side) do {
-				case (east):
-				{
-					_typeList=AllGroupsEast;
-				};
-				case (west):
-				{
-					_typeList=AllGroupsWest;
-				};
-				case (resistance):
-				{
-					_typeList=AllGroupsGuer;
-				};
-				default {};
-			};
-
-			if (isNil "_typeList") exitWith {
-				// иногда _typeList пустой, нужно исправить
-				diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
-			};
-
-
-
-			_grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
-			_types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
-
-			_SafePosParams = ([_types] call gosa_fnc_SafePosParams);
-
-			diag_log format ["Log: [while_patrols.sqf] creating %1 ", [_pos]+_SafePosParams+[_side]];
-
-			_pos_resp = ([_pos]+_SafePosParams+[_side] call gosa_fnc_findSafePos);
-			if(count (_pos_resp select 0) == 0)exitWith{}; // _pos_resp без позиции если не нашлось подходящей позиции
-
-			private["_groups"];
-			_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
-
-			_cache=_cache+_groups;
-
-			// помечаем группу что она готова для дальнейших скриптов
-			{
-				_x setVariable ["grp_created", true, true];
-			} forEach _groups;
-
-			diag_log format ["Log: [while_patrols.sqf] created %1 ", _groups];
-		};
-
-	};
-
-	gosa_cacheLocalGroups = _cache-[grpNull];
-
+	// динамическое ограничение
 	if(_limit_fps > 0)then{
 		if(gosa_framesAVG > _frames_required)then{
-			_avgGroups = _avgGroups + 2*(_time / gosa_server_diag_fps_interval);
+			_avgGroups = _avgGroups + 2*(_time / gosa_server_diag_fps_interval); // TODO: при большом отклонении колл-ва групп нужно другое поведение
 		}else{
-			_avgGroups = _avgGroups - 2*(_time / gosa_server_diag_fps_interval);
+			_avgGroups = _avgGroups - 2*(_time / gosa_server_diag_fps_interval); // TODO: при большом отклонении колл-ва групп нужно другое поведение
 		};
-		diag_log format ["Log: [while_patrols.sqf] %1, %2", time, _avgGroups];
+		diag_log format ["Log: [while_patrols.sqf] %1, лимит %2", time, _avgGroups];
 		_time = time;
 	};
 
-};
+}; // main while
 
 diag_log format ["Log: [while_patrols.sqf] done %1 ", time];

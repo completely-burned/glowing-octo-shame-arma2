@@ -11,7 +11,6 @@ if (isServer) then {
 	{
 		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 	} forEach [
-		"fnc_call_reinforcement",
 		"fnc_cleanup",
 		"fnc_StaticWeapon",
 		"fnc_playerRespawnSP",
@@ -49,6 +48,7 @@ if (!IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_call_reinforcement",
 	"fnc_mining",
 	"fnc_laserBomb",
 	"fnc_check_config_use",

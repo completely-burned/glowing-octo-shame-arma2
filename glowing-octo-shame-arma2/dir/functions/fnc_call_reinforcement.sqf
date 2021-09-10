@@ -13,6 +13,10 @@ private["_typeList"];
 private["_patrol"];
 if(count _this > 1)then{
 	private ["_players"];
+	if (typeName (_this select 1) == typeName objNull) then {
+		_pos = getPos (_this select 1);
+		_players = [_this select 1];
+	} else {
 	if(isMultiplayer)then{
 		_players = ([] call BIS_fnc_listPlayers);
 	}else{
@@ -22,6 +26,7 @@ if(count _this > 1)then{
 		_pos = getPos (_players call BIS_fnc_selectRandom);
 	}else{
 		_pos = civilianBasePos;
+	};
 	};
 	_patrol = true;
 }else{
@@ -52,15 +57,27 @@ if(_patrol)then{
 	switch (_side) do {
 		case (east):
 		{
+			if (isNil "LocationAllGroupsEast") then {
+				_typeList=AllGroupsEast;
+			} else {
 			_typeList=LocationAllGroupsEast;
+			};
 		};
 		case (west):
 		{
+			if (isNil "LocationAllGroupsWest") then {
+				_typeList=AllGroupsWest;
+			} else {
 			_typeList=LocationAllGroupsWest;
+			};
 		};
 		case (resistance):
 		{
+			if (isNil "LocationAllGroupsGuer") then {
+				_typeList=AllGroupsGuer;
+			} else {
 			_typeList=LocationAllGroupsGuer;
+			};
 		};
 		default {};
 	};
