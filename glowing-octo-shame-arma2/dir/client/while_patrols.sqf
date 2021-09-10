@@ -115,9 +115,13 @@ while{ _ai_client_count > 0 }do{
 	// динамическое ограничение
 	if(_limit_fps > 0)then{
 		if(gosa_framesAVG > _frames_required)then{
-			_avgGroups = _avgGroups + 2*(_time / gosa_server_diag_fps_interval); // TODO: при большом отклонении колл-ва групп нужно другое поведение
+			_avgGroups = 0 max ( // не понижать ниже нуля
+				_avgGroups + 2*(_time / gosa_server_diag_fps_interval)
+			); // TODO: при большом отклонении колл-ва групп нужно другое поведение
 		}else{
-			_avgGroups = _avgGroups - 2*(_time / gosa_server_diag_fps_interval); // TODO: при большом отклонении колл-ва групп нужно другое поведение
+			_avgGroups = 0 max ( // не понижать ниже нуля
+				_avgGroups - 2*(_time / gosa_server_diag_fps_interval)
+			); // TODO: при большом отклонении колл-ва групп нужно другое поведение
 		};
 		diag_log format ["Log: [while_patrols.sqf] %1, лимит %2", time, _avgGroups];
 		_time = time;
