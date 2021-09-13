@@ -96,13 +96,6 @@ BIS_missionScope = (group_logic) createUnit ["FunctionsManager",[1000,10,0],[],0
 publicVariable "BIS_missionScope";
 waitUntil {!isNil "BIS_fnc_init"};
 
-// военные обозначения
-if (missionNamespace getVariable "MartaManager" == 1) then {
-	private ["_BIS_marta_mainscope"];
-	_BIS_marta_mainscope = (group_logic) createUnit ["MartaManager",[1000,10,0],[],0,"none"];
-	_BIS_marta_mainscope setVariable ["duration", 60, true];
-};
-
 // командование
 // if (isNil "BIS_HC_mainscope") then	{
 // _logic = group_logic createUnit ["HighCommand",[1000,10,0],[],0,"NONE"];
