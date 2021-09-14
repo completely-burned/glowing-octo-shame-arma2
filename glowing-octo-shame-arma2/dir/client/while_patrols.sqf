@@ -1,6 +1,9 @@
 #define __A2OA__
 
-private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups","_enemyGroups","_enemySide","_friendlySide","_side","_ai_client_count","_cache","_ok","_avgGroups","_limit_fps","_frames_required","_time","_respawn_mode","_enemyCoefficient"];
+private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups",
+	"_enemyGroups","_enemySide","_friendlySide","_side","_ai_client_count","_cache","_ok",
+	"_avgGroups","_limit_fps","_frames_required","_time","_respawn_mode","_enemyCoefficient",
+	"_run"];
 
 	diag_log format ["Log: [while_patrols.sqf] started %1", time ];
 
@@ -32,7 +35,16 @@ _time = time;
 
 _respawn_mode = missionNamespace getVariable "respawn";
 
-while{ _ai_client_count > 0 }do{
+if (_respawn_mode == 1 or
+	_ai_client_count > 0 or
+	_limit_fps > 0
+ )then{
+	_run = true;
+ }else{
+	_run = false;
+};
+
+while{_run}do{
 
 	sleep 2;
 
