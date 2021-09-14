@@ -59,7 +59,9 @@ while{ _ai_client_count > 0 }do{
 			} forEach units _grp;
 
 				if(_ok)then{
-					if (!isNil {_grp GetVariable "patrol"}) then {
+					if (!isNil {_grp GetVariable "patrol"} or
+						(vehicle _leader call gosa_fnc_isUAV)
+					) then {
 						if (_side in _friendlySide) then {
 							_friendlyPatrols = _friendlyPatrols + 1;
 						}else{
