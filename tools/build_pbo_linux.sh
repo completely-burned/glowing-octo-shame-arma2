@@ -2,6 +2,16 @@
 
 DIR=$(dirname "${BASH_SOURCE[0]}")/..
 
+DIAG_LOG=false
+while getopts "d" opt
+	do
+	case $opt in
+	d) DIAG_LOG=true;;
+	*);;
+	esac
+done
+
+
 cd ${DIR}
 
 if [ ! -d .build.tmp ]; then
@@ -41,7 +51,9 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 		# строки начинающиеся с diag_log нужны для отладки
 		# они возможно снижают производительность
 		# поэтому удаляем их
-		find .build.tmp/${TMPDIRNAME}/ -type f -exec sed -i "/^.*diag_log.*/d" {} \;
+		if ! $DIAG_LOG; then
+			find .build.tmp/${TMPDIRNAME}/ -type f -exec sed -i "/^.*diag_log.*/d" {} \;
+		fi
 
 		# cpmpat для a2 v1.11
 		if [[ $NAME == *"compat"* ]]; then
