@@ -1,12 +1,15 @@
 #define __A2OA__
 
 /* скрипт возрождния в случайного юнита.
-нужна проверка AFK на игроков и лидеров группы
-*/
+ * TODO: нужна проверка AFK на игроков и лидеров группы
+ */
 
 private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime"];
 waitUntil{!isNil{respawn}};
-if(respawn != 1)exitWith{respawnDone = true};
+if(respawn != 1)exitWith{
+	respawnDone = true;
+	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
+};
 
 _player = player;
 
@@ -20,6 +23,7 @@ _fnc_swich={
 	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
 	selectPlayer _new;
 	_new call gosa_fnc_initBriefing;
+	diag_log format ["Log: [respawnRandom] swich %1 to %2", _old, _new];
 	_new;
 };
 
@@ -34,6 +38,7 @@ player setVariable ["selectPlayerDisable", true, true];
 	};
 	_this select 0 setDamage 1;
 	respawnDone = true;
+	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };
 
 // функция отсеивает неподходящие тела для перерождения
@@ -41,7 +46,7 @@ private["_fnc_isFit"];
 _fnc_isFit={
 	if (
 #ifndef __A2OA__
-		local _this &&
+		local _this && // v1.11 если юнит не локальный не передает управление игроку
 #endif
 		isNil{_this getVariable "selectPlayerDisable"} &&
 		alive _this &&
@@ -62,7 +67,10 @@ while {true} do {
 	scopeName "root";
 
 	// ищем подходящее тело при условии
-	if (!(lifeState player in ["ALIVE", "UNCONSCIOUS"]) or isNull player or !alive _player or !isNil{_player getVariable "selectPlayerDisable"}) then {
+	if (!(lifeState player in ["ALIVE", "UNCONSCIOUS"]) or // TODO: нужно разделить на отдельные проверки и добавить diag_log
+		isNull player or !alive _player or 
+		!isNil{_player getVariable "selectPlayerDisable"}
+	) then {
 
 		//--- таймер смерти
 		if (isNil "_deathTime") then {
@@ -78,8 +86,9 @@ while {true} do {
 
 		_pos = getPos _player;
 
-		// ищем новое тело из юнитов группы т.к. они находятся рядом
+		// ищем новое тело из юнитов группы игрока т.к. они находятся рядом
 		if (isNil{_bestCandidate}) then {
+			diag_log format ["Log: [respawnRandom] поиск среди юнитов группы игрока %1", _grp];
 		_units = units _grp;
 			{
 				if (_x call _fnc_isFit) then {
@@ -103,6 +112,7 @@ while {true} do {
 				_units = units _grp;
 				// в группе с большим количеством игроков не интересно (корень количества игроков)
 				if (sqrt count _listPlayers > {_x call gosa_fnc_isPlayer} count _units) then {
+					diag_log format ["Log: [respawnRandom] ищем среди групп с игроками %1", _grp];
 					{
 						if (_x call _fnc_isFit) then {
 							if (isNil {_bestCandidate}) then {
@@ -124,6 +134,7 @@ while {true} do {
 			if (side _x in gosa_friendlyside) then {
 				_leader = leader _x;
 				if (local _leader) then {
+					diag_log format ["Log: [respawnRandom] ищем среди локальных групп %1", _x];
 				if (_leader call _fnc_isFit) then {
 					if (isNil {_bestCandidate}) then {
 						_bestCandidate = _leader;
@@ -141,6 +152,7 @@ while {true} do {
 		if (isNil{_bestCandidate}) then {
 		{
 			if (side _x in gosa_friendlyside) then {
+				diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _x];
 				_leader = leader _x;
 				if (_leader call _fnc_isFit) then {
 					if (isNil {_bestCandidate}) then {
@@ -160,15 +172,18 @@ while {true} do {
 
 	// защита от непланируемого поведения, после первой смерти еще одно тело появляется на точке возрождения и переключает игрока в это тело, здесь мы переключаем его обратно в нужное тело, а созданное на точке возрождения отключаем
 	if (player != _player) then {
+		diag_log format ["Log: [respawnRandom] защита от непланируемого поведения %1", [player, _player]];
 		[player] joinSilent grpNull;
 		[player] spawn {
 			waitUntil{
 				isNil{player getVariable "selectPlayerDisable"};
 			};
+			diag_log format ["Log: [respawnRandom] защита от непланируемого поведения %1 setDamage 1", _this];
 			_this select 0 setDamage 1;
 		};
 		player setVariable ["selectPlayerDisable", true, true];
 		selectPlayer _player;
+		diag_log format ["Log: [respawnRandom] защита от непланируемого поведения player %1", player];
 	};
 
 	// выбрано новое тело, переключаем
