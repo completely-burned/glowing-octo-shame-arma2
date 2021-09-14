@@ -110,6 +110,7 @@ if({alive _x} count _units > 0)then{
 	// удалить неподвижным ии маршруты, чтобы не убегали
 	if (_StaticWeapon) then {
 		if ( count waypoints _grp > 0 ) then{
+			diag_log format ["Log: [gosa_fnc_group_wp.sqf] удалить StaticWeapon %1 маршруты", _grp];
 			[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
 			sleep 1;
 			for "_i" from count waypoints _grp - 1 to 0 step -1 do {
@@ -129,6 +130,7 @@ if({alive _x} count _units > 0)then{
 				if (isNil {_grp getVariable "UNLOAD"}) then {
 					_grp setVariable ["UNLOAD",true];
 					_grp spawn {
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] выгрузка десанта %1", _this ];
 						private ["_units","_vehicles"];
 						_units = units _this;
 						_vehicles = [];
@@ -175,6 +177,7 @@ if({alive _x} count _units > 0)then{
 				if (isNil {_grp getVariable "GETOUT"}) then {
 					_grp setVariable ["GETOUT",true];
 					_grp spawn {
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] выгрузка десанта %1", _this ];
 						private ["_units","_vehicles"];
 						_units = units _this;
 						_vehicles = [];
@@ -217,6 +220,7 @@ if({alive _x} count _units > 0)then{
 				if (isNil {_grp getVariable "UNLOAD"}) then {
 					_grp setVariable ["UNLOAD",true];
 					_grp spawn {
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] выгрузка десанта %1", _this ];
 
 						// get _vehicles
 						private ["_units","_vehicles"];
@@ -295,6 +299,7 @@ if({alive _x} count _units > 0)then{
 		  if (isNil {_grp getVariable "UNLOAD"}) then {
 			_grp setVariable ["UNLOAD",true];
 			_grp spawn {
+				diag_log format ["Log: [gosa_fnc_group_wp.sqf] выгрузка корабля %1", _this ];
 			  private ["_units","_vehicles"];
 				_units = units _this;
 				_vehicles = [];
@@ -339,6 +344,7 @@ if({alive _x} count _units > 0)then{
 		  if (isNil {_grp getVariable "GETOUT"}) then {
 			_grp setVariable ["GETOUT",true];
 			_grp spawn {
+				diag_log format ["Log: [gosa_fnc_group_wp.sqf] выгрузка корабля %1", _this ];
 			  private ["_units","_vehicles"];
 				_units = units _this;
 				_vehicles = [];
@@ -408,8 +414,8 @@ if({alive _x} count _units > 0)then{
 			};
 		}else{
 
-			// выполнять только если группа готова // эта проверка должна быть в другом месте выше в скрипте?
-			if(!isNil {_grp getVariable "grp_created"})then{
+			// выполнять только если группа готова
+			if(!isNil {_grp getVariable "grp_created"})then{ // FIXME: эта проверка должна быть в другом месте выше в скрипте?
 					// слишком часто diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1  группа готова", _grp ];
 
 				if(count waypoints _grp == 0)then{
@@ -535,9 +541,15 @@ if({alive _x} count _units > 0)then{
 
 					// установка маршрута на позицию
 					private["_wp"];
-					_wp = [_grp, currentWaypoint _grp]; // TODO: если маршрут отсутствует невозможно установить ему позицию
-					diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] установка маршрута %1 на позицию %2", _wp, _pos];
-					_wp setWaypointPosition [_pos, 50];
+					if (count waypoints _grp == 0) then { // если маршрут отсутствует невозможно установить ему позицию
+						_wp =  _grp addWaypoint [_pos, 50];
+						_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically"; // TODO: для этого нужна функция
+						_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"]; // TODO: не работает должным образом
+					}else{
+						_wp = [_grp, currentWaypoint _grp];
+						_wp setWaypointPosition [_pos, 50];
+					};
+					diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] установлен маршрут %1 на позицию %2", _wp, _pos];
 				}else{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] %1 выбор обычного маршрута", _grp];
 					_NoCreateWP = false;
@@ -601,6 +613,7 @@ if({alive _x} count _units > 0)then{
 			if(!isNil{_grp_wp_completed})then{
 				if(!_Air && (_grp_wp_completed + 120 < time))then{
 					if ((vehicle _leader distance civilianBasePos) < sizeLocation) then {
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] остановить ии %1 на точке, time %2", _grp, [_grp_wp_completed, time]];
 						_DeleteWP = true; // удалить
 						_NoCreateWP = true; // не создавать
 						_createWP = false; // не создавать
