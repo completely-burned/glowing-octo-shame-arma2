@@ -4,7 +4,7 @@
  * TODO: нужна проверка AFK на игроков и лидеров группы
  */
 
-private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime"];
+private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime","_cam"];
 waitUntil{!isNil{respawn}};
 if(respawn != 1)exitWith{
 	respawnDone = true;
@@ -12,6 +12,8 @@ if(respawn != 1)exitWith{
 };
 
 _player = player;
+
+_cam = objNull;
 
 // переключение на новое тело
 private["_fnc_swich"];
@@ -166,7 +168,22 @@ while {true} do {
 
 		} forEach allGroups;
 		};
+
+		// переключение на птицу
+		if (isNil{_bestCandidate} && isNull _cam) then {
+			_cam = "seagull" camCreate (player modelToWorld [0,0,100]);
+			_cam cameraEffect ["FIXED", "LEFT TOP"];
+			_cam camCommand "MANUAL ON";
+			diag_log format ["Log: [respawnRandom] переключение на камеру %1", _cam];
+		};
 	}else{
+
+		if (!isNull _cam) then {
+			diag_log format ["Log: [respawnRandom] уничтожение камеры %1", _cam];
+			_cam cameraEffect ["terminate","back"];
+			camDestroy _cam;
+		};
+
 		_deathTime = nil;
 	};
 
