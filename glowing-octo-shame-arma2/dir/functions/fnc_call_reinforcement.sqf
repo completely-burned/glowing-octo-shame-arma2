@@ -95,6 +95,17 @@ if (isNil "_typeList") exitWith {
 _grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
+private["_uav"];
+_uav = false;
+_uav = ([_types, ["UAV"]] call gosa_fnc_CheckIsKindOfArray);
+if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
+	_uav = true;
+};
+if(_uav)then{
+	_patrol = true;
+};
+
+
 private["_run"];
 _run = true;
 
