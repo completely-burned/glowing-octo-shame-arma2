@@ -169,6 +169,10 @@ while {true} do {
 		} forEach allGroups;
 		};
 
+		if (isNil{_bestCandidate}) then {
+			gosa_player_needs_revival = true;
+		};
+
 		// переключение на птицу
 		if (isNil{_bestCandidate} && isNull _cam) then {
 			_cam = "seagull" camCreate (player modelToWorld [0,0,100]);
@@ -183,6 +187,8 @@ while {true} do {
 			_cam cameraEffect ["terminate","back"];
 			camDestroy _cam;
 		};
+
+		gosa_player_needs_revival = nil;
 
 		_deathTime = nil;
 	};

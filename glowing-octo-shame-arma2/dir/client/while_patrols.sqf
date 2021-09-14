@@ -110,8 +110,9 @@ while{ _ai_client_count > 0 }do{
 		// не желательно создавать лишнюю союзную группу это протит баланс
 		// в группе нет необходимости если в текущей группе достаточно юнитов для перерождения
 		// локальные группы отображають лишь alive, но нужна проверка local для отсеивания других игроков в группе
-		if (_friendlyGroups < _limits select 2 or ( _respawn_mode == 1 && _friendlyGroups < 1 && {local _x} count units player < 3 )) then {
+		if (_friendlyGroups < _limits select 2 or !isNil "gosa_player_needs_revival" or ( _respawn_mode == 1 && _friendlyGroups < 1 && {local _x} count units player < 3 )) then {
 			[_friendlySide call BIS_fnc_selectRandom]		call gosa_fnc_call_reinforcement;
+			gosa_player_needs_revival = nil;
 		};
 		if (_friendlyPatrols < _limits select 3) then {
 			[_friendlySide call BIS_fnc_selectRandom, player] call gosa_fnc_call_reinforcement;
