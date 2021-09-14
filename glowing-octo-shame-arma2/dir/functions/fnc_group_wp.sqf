@@ -533,9 +533,11 @@ if({alive _x} count _units > 0)then{
 						};
 					} foreach _friendList2;
 
-						diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] %1 установка маршрута на позицию %2", _grp, _pos];
-					// установка маршрута
-					[_grp,(currentWaypoint _grp)] setWaypointPosition [_pos, 50];
+					// установка маршрута на позицию
+					private["_wp"];
+					_wp = [_grp, currentWaypoint _grp]; // TODO: если маршрут отсутствует невозможно установить ему позицию
+					diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] установка маршрута %1 на позицию %2", _wp, _pos];
+					_wp setWaypointPosition [_pos, 50];
 				}else{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] %1 выбор обычного маршрута", _grp];
 					_NoCreateWP = false;
