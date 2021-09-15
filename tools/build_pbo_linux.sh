@@ -51,8 +51,12 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 		# строки начинающиеся с diag_log нужны для отладки
 		# они возможно снижают производительность
 		# поэтому удаляем их
-		if ! $DIAG_LOG; then
+		if $DIAG_LOG; then
+			DEBUGPOSTFIX=($(tar -cf - .build.tmp/${TMPDIRNAME}/ | sha1sum))
+			DEBUGPOSTFIX="-debug-$DEBUGPOSTFIX"
+		else
 			find .build.tmp/${TMPDIRNAME}/ -type f -exec sed -i "/^.*diag_log.*/d" {} \;
+			DEBUGPOSTFIX=""
 		fi
 
 		# cpmpat для a2 v1.11
@@ -62,13 +66,13 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 
 		# если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив
 		if [ -x "$(command -v parallel)" ]; then
-			var_parallel+=("makepbo -M .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
-			var_parallel+=("armake build --packonly --force .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo")
-			var_parallel+=("armake2 pack -v .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo")
+			var_parallel+=("makepbo -M .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
+			var_parallel+=("armake build --packonly --force .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo")
+			var_parallel+=("armake2 pack -v .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo")
 		else
-			makepbo -M .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo
-			armake build --packonly --force .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo
-			armake2 pack -v .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
+			makepbo -M .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo
+			armake build --packonly --force .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo
+			armake2 pack -v .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
 		fi
 
 	fi
