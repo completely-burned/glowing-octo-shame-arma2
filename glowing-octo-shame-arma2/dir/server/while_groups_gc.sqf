@@ -28,7 +28,7 @@ while{true}do{
 
 				//--- проверка живых юнитов в группе
 				{
-					if(alive _x)exitWith{_rm = false};
+					if(alive _x)exitWith{_rm = false}; // FIXME: лишняя проверка т.к. группа с живыми юнитамн не удаляется
 				} forEach units _g;
 
 				//--- удаление
@@ -44,4 +44,4 @@ while{true}do{
 	} forEach allGroups-[group_system_units];
 };
 
-diag_log format ["Log: [while_gc_groups.sqf] done %1", time];
+diag_log format ["Log: [while_gc_groups.sqf] scriptDone %1, ошибка, этот скрипт не должен завершаться", time];
