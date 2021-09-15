@@ -1,0 +1,1 @@
+rm .build.out/* ; ./tools/build_pbo_linux.sh -d ; rm ~/a2-server/mpmissions/* ; mv .build.out/*compat*armake.* ~/a2-server/mpmissions/
