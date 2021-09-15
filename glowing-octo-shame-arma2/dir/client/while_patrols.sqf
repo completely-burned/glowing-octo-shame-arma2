@@ -3,7 +3,7 @@
 private["_count_groups","_grp","_leader","_friendlyPatrols","_enemyPatrols","_friendlyGroups",
 	"_enemyGroups","_enemySide","_friendlySide","_side","_ai_client_count","_cache","_ok",
 	"_avgGroups","_limit_fps","_frames_required","_time","_respawn_mode","_enemyCoefficient",
-	"_run"];
+	"_run","_h","_s"];
 
 	diag_log format ["Log: [while_patrols.sqf] started %1", time ];
 
@@ -42,6 +42,11 @@ if (_respawn_mode == 1 or
 	_run = true;
  }else{
 	_run = false;
+};
+
+if (isNil "gosa_logic_local") then {
+	gosa_logic_local = (createGroup sideLogic createUnit ["logic", position player, [], 0, "CAN_COLLIDE"]);
+	diag_log format ["Log: [while_patrols.sqf] gosa_logic_local created %1", gosa_logic_local];
 };
 
 while{_run}do{
@@ -94,7 +99,7 @@ while{_run}do{
 												_enemyGroups, _enemyPatrols, _friendlyGroups, _friendlyPatrols];
 
 
-		//
+	//--- подсчет соотношений ---
 		_enemyCoefficient = enemyCoefficient;
 
 		// у гражданских соотношение противники 1:1 союзники
@@ -112,23 +117,58 @@ while{_run}do{
 		];
 		diag_log format ["Log: [while_patrols.sqf] _limits = %1", _limits];
 
-		if (_enemyGroups 	< _limits select 0) then {
-			[_enemySide call BIS_fnc_selectRandom]			call gosa_fnc_call_reinforcement;
+
+
+	//--- создание групп ---
+		if (_enemyGroups < _limits select 0 && isNil {gosa_logic_local getVariable "gosa_handle_enemyGroups"}) then {
+			_h = _enemySide spawn {
+				diag_log format ["Log: [while_patrols.sqf] _enemyGroups %1 spawn fnc_call_reinforcement", _this];
+				[_this call BIS_fnc_selectRandom] call gosa_fnc_call_reinforcement;
+				gosa_logic_local setVariable ["gosa_handle_enemyGroups", nil];
+			};
+			gosa_logic_local setVariable ["gosa_handle_enemyGroups", _h];
 		};
-		if (_enemyPatrols 	< _limits select 1) then {
-			[_enemySide call BIS_fnc_selectRandom, player] call gosa_fnc_call_reinforcement;
+
+		if (_enemyPatrols < _limits select 1 && isNil {gosa_logic_local getVariable "gosa_handle_enemyPatrols"}) then {
+			_h = _enemySide spawn {
+				diag_log format ["Log: [while_patrols.sqf] _enemyPatrols %1 spawn fnc_call_reinforcement", _this];
+				[_this call BIS_fnc_selectRandom, player] call gosa_fnc_call_reinforcement;
+				gosa_logic_local setVariable ["gosa_handle_enemyPatrols", nil];
+			};
+			gosa_logic_local setVariable ["gosa_handle_enemyPatrols", _h];
 		};
-		// создовать зарание группу перерождения нужно для быстрого и комфортного возрождения игрока, хотя она может создоватся и после смерти игрока
-		// не желательно создавать лишнюю союзную группу это протит баланс
-		// в группе нет необходимости если в текущей группе достаточно юнитов для перерождения
-		// локальные группы отображають лишь alive, но нужна проверка local для отсеивания других игроков в группе
-		if (_friendlyGroups < _limits select 2 or !isNil "gosa_player_needs_revival" or ( _respawn_mode == 1 && _friendlyGroups < 1 && {local _x} count units player < 3 )) then {
-			[_friendlySide call BIS_fnc_selectRandom]		call gosa_fnc_call_reinforcement;
-			gosa_player_needs_revival = nil;
+
+		//--- _friendlyGroups ---
+			// создовать зарание группу перерождения нужно для быстрого и комфортного возрождения игрока, хотя она может создоватся и после смерти игрока
+			// не желательно создавать лишнюю союзную группу это протит баланс
+			// в группе нет необходимости если в текущей группе достаточно юнитов для перерождения
+			// локальные группы отображають лишь alive, но нужна проверка local для отсеивания других игроков в группе
+			if (isNil {gosa_logic_local getVariable "gosa_handle_friendlyGroups"}) then {
+				// diag_log format ["Log: [while_patrols.sqf] isNil gosa_handle_friendlyGroups", nil];
+				if (_friendlyGroups < _limits select 2 or !isNil "gosa_player_needs_revival" or ( _respawn_mode == 1 && _friendlyGroups < 1 && {local _x} count units player < 3 )) then {
+					diag_log format ["Log: [while_patrols.sqf] _friendlyGroups pre spawn", nil];
+					_h = _friendlySide spawn {
+						diag_log format ["Log: [while_patrols.sqf] _friendlyGroups %1 spawn fnc_call_reinforcement", _this];
+						[_this call BIS_fnc_selectRandom] call gosa_fnc_call_reinforcement;
+						gosa_player_needs_revival = nil;
+						gosa_logic_local setVariable ["gosa_handle_friendlyGroups", nil];
+					};
+					gosa_logic_local setVariable ["gosa_handle_friendlyGroups", _h];
+				};
+			}else{
+				diag_log format ["Log: [while_patrols.sqf] !isNil gosa_handle_friendlyGroups", nil];
+			};
+
+		if (_friendlyPatrols < _limits select 3 && isNil {gosa_logic_local getVariable "gosa_handle_friendlyPatrols"}) then {
+			_h = _friendlySide spawn {
+				diag_log format ["Log: [while_patrols.sqf] _friendlyPatrols %1 spawn fnc_call_reinforcement", _this];
+				[_this call BIS_fnc_selectRandom, player] call gosa_fnc_call_reinforcement;
+				gosa_logic_local setVariable ["gosa_handle_friendlyPatrols", nil];
+			};
+			gosa_logic_local setVariable ["gosa_handle_friendlyPatrols", _h];
 		};
-		if (_friendlyPatrols < _limits select 3) then {
-			[_friendlySide call BIS_fnc_selectRandom, player] call gosa_fnc_call_reinforcement;
-		};
+
+
 
 
 	// динамическое ограничение
