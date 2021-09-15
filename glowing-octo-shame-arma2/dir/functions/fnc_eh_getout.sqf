@@ -13,8 +13,8 @@ diag_log format ["Log: [fnc_eh_getout.sqf] %1 %2", _this, _type];
 _driver = driver _vehicle;
 _grp = group _unit;
 
-if(isNil {_driver getVariable "disableAIMove"} && _position != "driver")then{
 // временная остановка транспорта чтобы не задавить
+if(isNil {_driver getVariable "disableAIMove"} && _position != "driver" && _type isKindOf "LandVehicle")then{
 	_driver spawn {
 
 		diag_log format ["Log: [fnc_eh_getout.sqf]: %1 disableAIMove, временная остановка транспорта", _this];
@@ -31,9 +31,12 @@ if(isNil {_driver getVariable "disableAIMove"} && _position != "driver")then{
 
 // пехота отходит от транспорта
 
-if(toLower typeOf _unit in (listCrewLower+listPilotLower) && (!canMove _vehicle or !alive _vehicle))then{
 // экипаж подбитой техники выходит из основной группы чтобы не задерживать движение основной группы
 // FIXME: лучше реализовать этот функционал в другом месте
+if(toLower typeOf _unit in (listCrewLower+listPilotLower) &&
+	(!canMove _vehicle or !alive _vehicle) &&
+	getnumber(configfile >> "cfgvehicles" >> _type >> "transportSoldier") == 0
+ )then{
 
 	diag_log format ["Log: [fnc_eh_getout.sqf]: %1 экипаж подбитой техники выходит из основной группы", _this];
 
