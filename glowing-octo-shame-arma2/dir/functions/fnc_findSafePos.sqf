@@ -5,7 +5,7 @@ private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient
 	"_shoreMode","_blacklist","_side","_posX","_posY","_radius","_attempts","_nearRoads",
 	"_allowPos","_testPos","_preferRoads","_tmp_dir","_tmp_radius","_run_timer",
 	"_max_square","_square","_max_attempt","_branchesRoads","_roads","_branchRoad",
-	"_roadSize","_square_step"];
+	"_roadSize","_square_step","_r"];
 
 
 _run_timer = time;
@@ -78,7 +78,7 @@ while {!_allowPos} do {
 
 	if(_attempts >= _max_attempt)exitWith{
 		diag_log format ["Log: [gosa_fnc_findSafePos] попытки закончились", nil];
-		nil;
+		_r = nil;
 	};
 
 	_allowPos=true;
@@ -157,6 +157,10 @@ while {!_allowPos} do {
 		if(count _testPos == 0)then {_allowPos=false};
 	};
 
+	if(_allowPos)then{
+		_r = [_testPos, _roads];
+	};
+
 	_attempts = _attempts + 1;
 
 };
@@ -164,4 +168,4 @@ while {!_allowPos} do {
 diag_log format ["gosa_fnc_findSafePos.sqf time %1", time - _run_timer];
 diag_log format ["gosa_fnc_findSafePos.sqf %1", [_testPos, _roads]];
 
-[_testPos, _roads];
+_r;
