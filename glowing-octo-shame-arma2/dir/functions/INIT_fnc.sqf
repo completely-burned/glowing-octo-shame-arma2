@@ -1,3 +1,7 @@
+﻿// переменные нужные для некоторых функций
+deadGroup = grpNull; // для fnc_deleteGroup
+
+
 ﻿private["_path","_prefix"];
 _path = "dir\Functions\";
 
@@ -48,6 +52,7 @@ if (!IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_deleteGroup",
 	"fnc_call_reinforcement",
 	"fnc_mining",
 	"fnc_laserBomb",

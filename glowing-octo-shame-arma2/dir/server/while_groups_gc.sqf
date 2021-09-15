@@ -33,8 +33,7 @@ while{true}do{
 
 				//--- удаление
 				if(_rm)then{
-					diag_log format ["Log: [while_gc_groups.sqf] deleteGroup %1, count alive %2", _g, {alive _x} count units _g];
-					deleteGroup _g;
+					_g call gosa_fnc_deleteGroup;
 				};
 			};
 		};
