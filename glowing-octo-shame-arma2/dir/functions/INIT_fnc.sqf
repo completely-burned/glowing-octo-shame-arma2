@@ -1,8 +1,7 @@
 ﻿// переменные нужные для некоторых функций
 deadGroup = grpNull; // для fnc_deleteGroup
 
-
-﻿private["_path","_prefix"];
+private["_path","_prefix"];
 _path = "dir\Functions\";
 
 // файлы без приставки
