@@ -5,7 +5,7 @@ private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient
 	"_shoreMode","_blacklist","_side","_posX","_posY","_radius","_attempts","_nearRoads",
 	"_allowPos","_testPos","_preferRoads","_tmp_dir","_tmp_radius","_run_timer",
 	"_max_square","_square","_max_attempt","_branchesRoads","_roads","_branchRoad",
-	"_roadSize","_square_step","_r"];
+	"_roadSize","_square_step","_r","_start_radius","_start_square"];
 
 
 _run_timer = time;
@@ -48,12 +48,18 @@ _allowPos = false;
 // в случае неудачи обычно функция вызывается с другим типом группы
 _max_attempt = 1000; // TODO: лучше передавать максимальное количество попыток при вызове функции
 
+// искать нужно сразу по достаточной площади
+_start_radius = 1250;
+
 //--- площадь круга
 _max_square = pi * (_max_radius^2); // максимальная площадь
 //_base = 2*pi*_max_radius; // основание круга
 //_max_square = 0.5*_base*_max_radius; // площадь круга
+
+_start_square = pi * (_start_radius^2);
+
 //--- шаг изменения площади
-_square_step = _max_square/_max_attempt;
+_square_step = (_max_square-_start_square)/_max_attempt;
 
 //--- находим развилки дорог
 _branchesRoads = [];
@@ -83,9 +89,10 @@ while {!_allowPos} do {
 
 	_allowPos=true;
 
-	// кучнее ии
-	_square = _square_step*_attempts; // площадь поиска этой попытки
-	_radius = (sqrt(_square/pi)) max _objDist max 500; // максимальный радиус поиска этой попытки, нет смысла искать точно в центре
+	// кучнее ии, площадь поиска этой попытки
+	_square = (_square_step*_attempts)+_start_square;
+	 // максимальный радиус поиска этой попытки, нет смысла искать точно в центре
+	_radius = (sqrt(_square/pi)) max _objDist;
 
 	diag_log format ["Log: [gosa_fnc_findSafePos] попытка %1 из %4, площадь %2, радиус %3", _attempts, _square, _radius, _max_attempt];
 
@@ -129,7 +136,7 @@ while {!_allowPos} do {
 				_leader = leader _x;
 				if (alive _leader) then {
 					if (( side _x getFriend _side) < 0.6 ) then {
-						if ((vehicle leader _x distance _testPos) < (_safe_dist min 1500))then {
+						if ((vehicle leader _x distance _testPos) < (_safe_dist min _start_radius))then {
 							_allowPos = false;
 							BreakTo "CheckForEnemy";
 						};
