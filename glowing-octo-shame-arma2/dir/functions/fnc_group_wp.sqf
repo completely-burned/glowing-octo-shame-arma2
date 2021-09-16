@@ -151,6 +151,7 @@ if({alive _x} count _units > 0)then{
 							{
 								if(group _x != _this)then{
 									// _x leaveVehicle _veh;
+									diag_log format ["Log: [gosa_fnc_group_wp.sqf] выгрузка %1 %2", _veh , _x];
 									unassignVehicle _x;
 								};
 							}forEach crew _veh;
