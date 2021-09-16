@@ -13,9 +13,12 @@
  * и вызывать падение производительности :TODO
  */
 
-if (_this != deadGroup) then { // специальные группы удалять не нужно
+private["_u"];
+_u = units _this;
 
-	diag_log format ["Log: [fnc_deleteGroup.sqf] deleteGroup %1, units %2", _this, units _this];
+if (_this != deadGroup && {_x call gosa_fnc_isPlayer} count _u == 0) then { // специальные группы удалять не нужно
+
+	diag_log format ["Log: [fnc_deleteGroup.sqf] deleteGroup %1, units %2", _this, _u];
 
 	// иногда специальная группа удаляется по неизвестной причине
 	if (isNull deadGroup) then {
@@ -23,8 +26,10 @@ if (_this != deadGroup) then { // специальные группы удаля
 	};
 
 	// перемещаем уничтоженных юнитов этой группы в специальную группу
-	units _this joinSilent deadGroup;
+	_u joinSilent deadGroup;
 
 	// юниты перемещаются не сразу, и группа скорее всего не удалиться первой попытки, если не пуста
 	deleteGroup _this;
+}else{
+    diag_log format ["Log: [fnc_deleteGroup.sqf] not deleteGroup %1, units %2", _this, _u];
 };
