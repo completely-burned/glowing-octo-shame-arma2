@@ -51,6 +51,10 @@ if (!IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_isNight",
+	"fnc_aiFlareSupport",
+	"fnc_unitFlareFire",
+	"fnc_canSee",
 	"fnc_deleteGroup",
 	"fnc_call_reinforcement",
 	"fnc_mining",

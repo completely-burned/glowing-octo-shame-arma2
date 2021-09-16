@@ -18,14 +18,22 @@ _cam = objNull;
 // переключение на новое тело
 private["_fnc_swich"];
 _fnc_swich={
-	private["_old","_new"];
+	private["_old","_new","_b"];
 	_old = (_this select 0);
 	_old setVariable ["selectPlayerDisable", true, true];
 	_new = (_this select 1);
 	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
+
+	_b = behaviour _new;
+	if (_b == "COMBAT") then { //&& (_new countEnemy (_new nearEntities ["Land", 500]) > 3)
+		_new call gosa_fnc_aiFlareSupport;
+	};
+
+	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
 	selectPlayer _new;
+
 	_new call gosa_fnc_initBriefing;
-	diag_log format ["Log: [respawnRandom] swich %1 to %2", _old, _new];
+
 	_new;
 };
 
