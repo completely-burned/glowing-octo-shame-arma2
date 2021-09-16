@@ -459,101 +459,82 @@ if({alive _x} count _units > 0)then{
 			// ПВО
 			if (_AA) then {
 
-					diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] %1", _this];
+				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA", _this];
 
-				// не нужно создавать маршрут функцией для пво
-				_StopWP = false;
-				_NoCreateWP = true;
-				_DeleteWP = false;
+				private["_list","_cost","_prio","_item","_wp_AA"];
 
-				private["_friendList","_friendCount","_nearVehList","_friendList2","_pos"];
 
-				_friendList2 = [];
+				_cost = ([side _grp, _leaderPos, 600] call gosa_fnc_find_AA_pos);
 
-				// наземные юниты находящиеся в зоне передвижения пво используемые для поиска подходящего маршрута
-				_friendList = _leaderPos nearEntities [["Land"], 2000];
-
-				// поиск подходящих маршрутов
-				{
-					if (!isNil {_x} && !isNull _x) then {
-						// учитывать нужно союзников
-						if (side _grp getFriend side _x >= 0.6) then {
-							// союзные наземные юниты находящиеся рядом с предполагаемой позицией маршрута
-							_nearVehList = _x nearEntities [["Land"],400];
-							for "_i" from 0 to (count _nearVehList - 1) do {
-								// подсчитывать нужно союзников
-								if (side _grp getFriend side (_nearVehList select _i) >= 0.6) then {
-									// затрагиваем только технику, боты вне техники не нуждается в особом подсчёте
-									if (getNumber(configFile >> "CfgVehicles" >> typeOf (_nearVehList select _i) >> "isMan") != 1) then {
-										// если командир техники живой
-										if (alive effectiveCommander (_nearVehList select _i)) then {
-											// нужно подчитывать людей в технике, добавляем их в список
-											_nearVehList = _nearVehList+crew(_nearVehList select _i);
-										}else{
-											// в защите пво не нуждается техника без экипажа, на удаление ее из списка
-											_nearVehList set [_i, -1];
-										};
-									};
-								}else{
-									_nearVehList set [_i, -1]; // не являются союзниками
-								};
-							};
-							// удаляем из списка лишнее
-							_nearVehList = (_nearVehList - [-1]);
-
-							_friendCount = 0;
-							if (side _grp getFriend side _x >= 0.6) then {
-								if ([_nearVehList, ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call gosa_fnc_CheckIsKindOfArray) then {
-									_friendCount = _friendCount + 2;
-								};
-								if ([_nearVehList, ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call gosa_fnc_CheckIsKindOfArray) then {
-									_friendCount = _friendCount + 1;
-								};
-								if ([_nearVehList, ["Land"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call gosa_fnc_CheckIsKindOfArray) then {
-									_friendCount = _friendCount + 0.25;
-								};
-								if (_friendCount >= 3) then {
-									_friendList2 set [count _friendList2, _x];
-								};
-							};
-						};
-					};
-				} forEach _friendList;
-					diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] %1 маршруты подходят %2", _grp, _friendList2];
-
-				if(count _friendList2 > 0)then{
-						diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] %1 выбор маршрута", _grp];
-					// выбор подходящего маршрута
-					_pos = _leaderPos;
-					private["_distance"];
-					{
-						if(_leaderPos distance _x > 250)then{
-							if(isNil {_distance})then{
-								_distance = _x distance _leaderPos;
-								_pos = getPosASL _x;
-							}else{
-								if (_x distance _leaderPos < _distance)then{
-									_pos = getPosASL _x;
-								};
-							};
-						};
-					} foreach _friendList2;
-
-					// установка маршрута на позицию
-					private["_wp"];
-					if (count waypoints _grp == 0) then { // если маршрут отсутствует невозможно установить ему позицию
-						_wp =  _grp addWaypoint [_pos, 50];
-						_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically"; // TODO: для этого нужна функция
-						_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"]; // TODO: не работает должным образом
-					}else{
-						_wp = [_grp, currentWaypoint _grp];
-						_wp setWaypointPosition [_pos, 50];
-					};
-					diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] установлен маршрут %1 на позицию %2", _wp, _pos];
+				if (_cost > 2) then {
+					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA остановка на оптимальной позиции %2", _grp, _leaderPos];
+					_StopWP = true;
+					_NoCreateWP = true;
+					_DeleteWP = true;
 				}else{
-						diag_log format ["Log: [gosa_fnc_group_wp.sqf] [AA] %1 выбор обычного маршрута", _grp];
-					_NoCreateWP = false;
-					_createWP = true;
+
+					private["_wp"];
+
+					if (count waypoints _grp > 0) then {
+						_wp = [_grp, currentWaypoint _grp];
+						_cost = ([side _grp, getWPPos _wp, 500] call gosa_fnc_find_AA_pos);
+						if (_cost > 2) then {
+							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA оптимальный варшрут уже выбран ранее %2", _grp, _wp];
+							_StopWP = false;
+							_NoCreateWP = true;
+							_DeleteWP = false;
+						//}else{
+						};
+					};
+
+					if (!_NoCreateWP) then {
+
+						// наземные юниты находящиеся в зоне передвижения пво используемые для поиска подходящего маршрута
+						_list = _leaderPos nearEntities [["Land"], 1500];
+
+						// поиск подходящего маршрута
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA выбор маршрута", _grp];
+						for "_i" from 0 to count _list -1 do {
+							_item = vehicle (_list select _i);
+							_cost = ([side _grp, _item, 400] call gosa_fnc_find_AA_pos);
+							if (_cost > 2.5) then {
+								if(isNil {_prio})then{
+									_prio = (_item distance _leaderPos) / _cost;
+									_wp_AA = getPosASL _item;
+								}else{
+									if ((_item distance _leaderPos) / _cost < _prio)then{
+										_wp_AA = getPosASL _item;
+									};
+								};
+							};
+						};
+
+						if(!isNil {_wp_AA})then{
+							// установка маршрута на позицию
+							if (count waypoints _grp == 0) then { // если маршрут отсутствует невозможно установить ему позицию
+								_wp =  _grp addWaypoint [_wp_AA, 50];
+								_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically"; // TODO: для этого нужна функция
+								_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"]; // TODO: не работает должным образом
+							}else{
+								_wp setWaypointPosition [_wp_AA, 50];
+							};
+
+							_StopWP = false;
+							_NoCreateWP = true;
+							_DeleteWP = false;
+
+							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA установлен маршрут на позицию %2", _wp, _wp_AA];
+						}else{
+							if (count waypoints _grp == 0) then {
+								_NoCreateWP = false;
+								_createWP = true;
+								diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA выбор обычного маршрута", _grp];
+							}else{
+								diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA маршрут уже есть", _grp];
+							};
+
+						};
+					};
 				};
 
 			};
