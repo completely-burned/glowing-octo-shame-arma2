@@ -77,7 +77,7 @@ while {true} do {
 	scopeName "root";
 
 	// ищем подходящее тело при условии
-	if (!(lifeState player in ["ALIVE", "UNCONSCIOUS"]) or // TODO: нужно разделить на отдельные проверки и добавить diag_log
+	if (!(lifeState player in ["ALIVE", "UNCONSCIOUS"]) or // TODO: нужно разделить на отдельные проверки
 		isNull player or !alive _player or 
 		!isNil{_player getVariable "selectPlayerDisable"}
 	) then {
