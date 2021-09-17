@@ -10,14 +10,17 @@ waitUntil {!isNil "gosa_framesAVG"};
 
 diag_log format ["Log: [UpdateReinforcement.sqf] post waitUntil %1", time];
 
-private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit"];
+private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
+	"_z","_dfi"];
+
+_dfi = gosa_server_diag_fps_interval;
 _minGroups = missionNamespace getVariable "minGroups";
 _dyn_limit = _minGroups;
 _enemyCoefficientCfg = missionNamespace getVariable "enemyCoefficient";
 _playerCoefficient = missionNamespace getVariable "playerCoefficient";
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 _limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
-_frames_required = _limit_fps * gosa_server_diag_fps_interval;
+_frames_required = _limit_fps * _dfi;
 _time = time;
 
 private["_all_groups","_g_friendly","_g_patrol_f","_g_enemy","_g_patrol_e","_enemySide","_friendlySide"];
@@ -111,10 +114,13 @@ while{true}do{
 	// diag_log format ["UpdateReinforcement.sqf 121, %1", time];
 	sleep 0.1;
 
+	_z = 2*((time-_time) / _dfi);
 	if(gosa_framesAVG > _frames_required)then{
-		_dyn_limit = _dyn_limit + 2*(_time / gosa_server_diag_fps_interval);
+		_dyn_limit = _dyn_limit + _z;
+		diag_log format ["Log: [UpdateReinforcement.sqf] + 2* %1 / %2 = %3", _z, _dfi, _z];
 	}else{
-		_dyn_limit = _minGroups max (_dyn_limit - 2*(_time / gosa_server_diag_fps_interval));
+		diag_log format ["Log: [UpdateReinforcement.sqf] - 2* %1 / %2 = %3", _z, _dfi, _z];
+		_dyn_limit = _minGroups max _dyn_limit - _z;
 	};
 	diag_log format ["Log: [UpdateReinforcement.sqf] _frames_current %2, _frames_required %3, _limit %4", time, gosa_framesAVG, _frames_required, _dyn_limit];
 	_time = time;
