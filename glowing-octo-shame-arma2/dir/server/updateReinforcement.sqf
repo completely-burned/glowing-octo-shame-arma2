@@ -116,7 +116,7 @@ while{true}do{
 	}else{
 		_dyn_limit = _minGroups max (_dyn_limit - 2*(_time / gosa_server_diag_fps_interval));
 	};
-	diag_log format ["Log: [UpdateReinforcement.sqf] %1, %2", time, _avgGroups];
+	diag_log format ["Log: [UpdateReinforcement.sqf] _frames_current %2, _frames_required %3, _limit %4", time, gosa_framesAVG, _frames_required, _dyn_limit];
 	_time = time;
 };
 		// if ((_guer < maxGroups/7*2)&&(_east+4 > _guer)&&(_west+4 > _guer)) then {
