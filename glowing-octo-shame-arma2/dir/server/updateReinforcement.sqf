@@ -10,9 +10,9 @@ waitUntil {!isNil "gosa_framesAVG"};
 
 diag_log format ["Log: [UpdateReinforcement.sqf] post waitUntil %1", time];
 
-private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_avgGroups"];
+private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit"];
 _minGroups = missionNamespace getVariable "minGroups";
-_avgGroups = _minGroups;
+_dyn_limit = _minGroups;
 _enemyCoefficientCfg = missionNamespace getVariable "enemyCoefficient";
 _playerCoefficient = missionNamespace getVariable "playerCoefficient";
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
@@ -81,9 +81,9 @@ while{true}do{
 	};
 
 #ifdef __A2OA__
-		if(_all_groups < _avgGroups or {_all_groups < _minGroups && _limit_fps == 0})then{
+		if(_all_groups < _dyn_limit or {_all_groups < _minGroups && _limit_fps == 0})then{
 #else
-		if(_all_groups < _avgGroups or (_all_groups < _minGroups && _limit_fps == 0))then{
+		if(_all_groups < _dyn_limit or (_all_groups < _minGroups && _limit_fps == 0))then{
 #endif
 			private ["_difference"];
 			_difference = (((_all_groups / 5) min 4) max 2);
@@ -112,9 +112,9 @@ while{true}do{
 	sleep 0.1;
 
 	if(gosa_framesAVG > _frames_required)then{
-		_avgGroups = _avgGroups + 2*(_time / gosa_server_diag_fps_interval);
+		_dyn_limit = _dyn_limit + 2*(_time / gosa_server_diag_fps_interval);
 	}else{
-		_avgGroups = _minGroups max (_avgGroups - 2*(_time / gosa_server_diag_fps_interval));
+		_dyn_limit = _minGroups max (_dyn_limit - 2*(_time / gosa_server_diag_fps_interval));
 	};
 	diag_log format ["Log: [UpdateReinforcement.sqf] %1, %2", time, _avgGroups];
 	_time = time;
