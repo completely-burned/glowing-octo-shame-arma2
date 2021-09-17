@@ -11,7 +11,9 @@ waitUntil {!isNil "gosa_framesAVG"};
 diag_log format ["Log: [UpdateReinforcement.sqf] post waitUntil %1", time];
 
 private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
-	"_z","_dfi"];
+	"_z","_dfi","_conveyer","_conveyer_limit"];
+
+_conveyer = [];
 
 _dfi = gosa_server_diag_fps_interval;
 _minGroups = missionNamespace getVariable "minGroups";
@@ -85,6 +87,17 @@ while{true}do{
 		_enemyCoefficient = 1;
 	};
 
+
+	//--- conveyer ---
+		for "_i" from 0 to count _conveyer -1 do {
+			if (scriptDone (_conveyer select _i select 0)) then {
+				_conveyer set [_i, -1];
+			};
+		};
+		_conveyer = _conveyer -[-1];
+
+		diag_log format ["Log: [UpdateReinforcement.sqf] count conveyer %1", count _conveyer];
+
 #ifdef __A2OA__
 		if(_all_groups < _dyn_limit or {_all_groups < _minGroups && _limit_fps == 0})then{
 #else
@@ -94,10 +107,10 @@ while{true}do{
 			_difference = (((_all_groups / 5) min 4) max 2);
 			// diag_log format ["UpdateReinforcement.sqf 106, %1", time];
 			if (_g_friendly * _enemyCoefficient + _difference >= _g_enemy) then {
-				[_enemySide call BIS_fnc_selectRandom] call gosa_fnc_call_reinforcement;
+				_conveyer set [count _conveyer, [[_friendlySide call BIS_fnc_selectRandom] spawn gosa_fnc_call_reinforcement, 0]];
 			};
 			if (_g_enemy + _difference >= _g_friendly * _enemyCoefficient) then {
-				[_friendlySide call BIS_fnc_selectRandom] call gosa_fnc_call_reinforcement;
+				_conveyer set [count _conveyer, [[_enemySide call BIS_fnc_selectRandom] spawn gosa_fnc_call_reinforcement, 1]];
 			};
 			/*
 			if ((_g_patrol_e + _g_patrol_f) < ((_g_enemy + _g_friendly) / 4)) then {
