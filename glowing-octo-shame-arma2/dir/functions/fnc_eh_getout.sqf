@@ -33,5 +33,6 @@ if(isNil {_driver getVariable "disableAIMove"} && _position != "driver" && _type
 // приказы ии командира
 [_unit] allowGetin false;
 if(_unit call gosa_fnc_isPlayer)then{
+	diag_log format ["Log: [fnc_eh_getout.sqf] unassignVehicle %1", _unit];
 	unassignVehicle _unit;
 };
