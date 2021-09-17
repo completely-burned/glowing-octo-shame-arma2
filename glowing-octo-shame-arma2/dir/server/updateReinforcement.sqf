@@ -60,6 +60,8 @@ while{true}do{
 
 	_all_groups=(_g_patrol_f+_g_patrol_e+_g_friendly+_g_enemy);
 
+	diag_log format ["Log: [UpdateReinforcement.sqf] count group %1", _all_groups];
+
 	if (isMultiplayer)then{
 		{
 			if(_x call gosa_fnc_isPlayer)then{
