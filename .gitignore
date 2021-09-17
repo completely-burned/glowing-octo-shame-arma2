@@ -2,3 +2,5 @@
 .build.tmp
 .build.out
 .vs
+*.sublime-workspace
+*копия*
