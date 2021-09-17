@@ -96,7 +96,7 @@ while{_run}do{
 	} forEach allGroups;
 
 	diag_log format ["Log: [while_patrols.sqf] _enemyGroups %1, _enemyPatrols %2, _friendlyGroups %3, _friendlyPatrols %4", 
-												_enemyGroups, _enemyPatrols, _friendlyGroups, _friendlyPatrols];
+												_enemyGroups, _enemyPatrols, _friendlyGroups, _friendlyPatrols]; // diag_log
 
 
 	//--- подсчет соотношений ---
