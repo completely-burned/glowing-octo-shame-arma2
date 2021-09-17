@@ -50,3 +50,9 @@ if(toLower typeOf _unit in (listCrewLower+listPilotLower) &&
 		[_unit] joinSilent _newGrp;
 	};
 };
+
+// приказы ии командира
+[_unit] allowGetin false;
+if(_unit call gosa_fnc_isPlayer)then{
+	unassignVehicle _unit;
+};

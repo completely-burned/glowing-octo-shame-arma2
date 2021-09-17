@@ -19,50 +19,10 @@ if (isNil "_gosa_init") then {
 		};
 		if (isServer) then {
 			_this addEventHandler ["GetIn", {
-				private["_veh"];
-				_veh = _this select 0;
-				private["_unit"];
-				_unit = _this select 2;
-				[_unit] allowGetin true;
-				if (isServer) then {
-					if (({!isNull _x} count crew _veh)>0) then{
-						private["_time"];
-						_time = (_veh getVariable "time");
-						if ( isNil "_time" ) then {
-							_time = ( time + ( 180 ) );
-							_veh setVariable ["time", _time];
-						};
-						if ( _time < ( time + 180 ) )then {
-							_time = time + 180;
-							_veh setVariable ["time", _time];
-						};
-					};
-				};
+				[_this select 2] allowGetin true;
 			}];
 			_this addEventHandler ["GetOut", {
-				_this call gosa_fnc_eh_getout;
-				private["_unit"];
-				_unit = _this select 2;
-				[_unit] allowGetin false;
-				if(_unit call gosa_fnc_isPlayer)then{
-					unassignVehicle _unit;
-				};
-				if (isServer) then {
-					private["_veh"];
-					_veh = _this select 0;
-					if (({!isNull _x} count crew _veh)>0) then{
-						private["_time"];
-						_time = (_veh getVariable "time");
-						if ( isNil "_time" ) then {
-							_time = ( time + ( 180 ) );
-							_veh setVariable ["time", _time];
-						};
-						if ( _time < ( time + 180 ) )then {
-							_time = time + 180;
-							_veh setVariable ["time", _time];
-						};
-					};
-				};
+				_this spawn gosa_fnc_eh_getout;
 			}];
 		};
 	};
