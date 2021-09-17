@@ -31,7 +31,7 @@ if (gosa_loglevel > 0) then { // diag_log
 
 _slu = objNull;
 
-if({alive _x} count units _grp > 0)then{
+if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)then{
 
 	_leader = leader _grp;
 
