@@ -84,7 +84,7 @@ while {!_allowPos} do {
 
 	if(_attempts >= _max_attempt)exitWith{
 		diag_log format ["Log: [gosa_fnc_findSafePos] попытки закончились", nil];
-		_r = nil;
+		_r = [];
 	};
 
 	_allowPos=true;

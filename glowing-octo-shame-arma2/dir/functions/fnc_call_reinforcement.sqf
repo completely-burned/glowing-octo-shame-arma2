@@ -122,7 +122,7 @@ if(_run)then{
 	};
 
 	_pos_resp = ([_pos]+_SafePosParams+[_side] call gosa_fnc_findSafePos);
-	if(isNil "_pos_resp")exitWith{
+	if(count _pos_resp == 0)exitWith{
 		diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _pos_resp isNil ", nil];
 		grpNull
 	};
