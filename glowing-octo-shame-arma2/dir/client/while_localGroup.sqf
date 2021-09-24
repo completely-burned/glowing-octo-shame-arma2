@@ -1,43 +1,66 @@
 #define __A2OA__
+/* командир, группа, юниты, игрок
+ * TODO: иногда может зависнуть приказ [не стрелять] на игроке
+ * в итоге не стреляет вся группа или экипаж если игрок командир :TODO
+ */
 
-private["_player","_grp","_grp_owner","_g"];
+private["_p","_g2","_gov","_g","_o",
+	"_z" // временное 
+];
 
 [player] joinSilent grpNull;
 
-while {true} do {
-	_player = player;
-	_g = group player;
+// не изменяемое
+_o = owner player;
 
-	// локальную переменную видит только игрок, нужна для проверки локальности группы
-	_grp_owner = _g getVariable "_owner";
+while {true} do {
+	_p = player;
+	_g = group _p;
+
+	/*локальную переменную видит только игрок, нужна для проверки локальности группы
+	устанавливается при создании группы, нужна т.к. не знаю других способов проверки*/
+	_gov = _g getVariable "_owner";
+
+	/*зависший приказ на командире мешает игроку командиру
+	не позволяет легко отдавать приказы*/
+	_z = currentCommand _p;
+	if (leader _p == _p && _z != "") then {
+		diag_log format ["Log: [localGroup] cc %2, doStop %1", _p, _z];
+		doStop _p;
+	};
 
 	// если группа локальная игроку отдать юнитов группы игрока компьютеру игрока
 #ifdef __A2OA__
-	if (!isNil {_grp_owner}) then {
+	if (!isNil {_gov}) then {
+		_z = units _g;
 		{
-			if (owner _x != owner player) then {
-				_x setOwner (owner player);
+			if (owner _x != _o) then {
+				diag_log format ["Log: [localGroup] %1 setOwner %2", _x, _o];
+				_x setOwner _o;
 			};
-		} forEach units _g;
+		} forEach _z;
 	};
 #endif
 
 	// подконтрольные игроку юниты группы должны быть в локальной лидеру группе для лучшей связи
-	if (leader player == player && isNil {_grp_owner}) then {
-		_grp = createGroup side player;
-		_grp_owner = owner player;
-		_grp setVariable ["_owner", _grp_owner, false];
-		units _g joinSilent _grp;
-		_g = _grp;
-		_grp setVariable ["grp_created",true,true];
+	if (leader _p == _p && isNil {_gov}) then {
+		_g2 = createGroup playerSide;
+		_gov = _o;
+		_g2 setVariable ["_owner", _gov, false];
+		_z = units _g;
+		diag_log format ["Log: [localGroup] %1 join %2", _z, _g2];
+		_z joinSilent _g2;
+		_g = _g2;
+		_g2 setVariable ["grp_created",true,true];
 	};
 
 	// группа игрока локальная игроку и поэтому игрок устанавливается лидером
-	if (!isNil {_grp_owner} && leader player != player) then {
+	if (!isNil {_gov} && leader _p != _p) then {
 		// игрок не лидер
-		if (leader player != player) then {
+		if (leader _p != _p) then {
 			// игрока сделать лидером локальной группе
-			_g selectLeader player;
+			diag_log format ["Log: [localGroup] %1 selectLeader %2", _g, _p];
+			_g selectLeader _p;
 		};
 	};
 
