@@ -11,7 +11,7 @@ private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP",
 "_units","_vehicles","_types","_cargo","_assignedVehicles","_Submarine",
 "_Helicopter","_Plane","_Ship","_StaticWeapon","_Air","_uav","_Car","_Tank",
 "_Tracked_APC","_Wheeled_APC","_AA","_support","_grp_wp_completed",
-"_driver","_slu"
+"_driver","_slu","_z"
 ];
 
 // private ["_Stealth"];
@@ -597,6 +597,19 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		if (_countStealth > (count _types / 2)) then {
 			_Behaviour = "STEALTH";
 			_CombatMode = "WHITE";
+		};
+
+		if (_countStealth == 0 && count _units < 2 && !_Air) then {
+			diag_log format ["Log: [gosa_fnc_group_other] count units %1 < min", _grp];
+			_z = ((_leaderPos nearEntities ["CAManBase", 150]) - _units);
+			{
+				if (_units select 0 call gosa_fnc_getFaction == _x call gosa_fnc_getFaction) then { // TODO: нужны доп. проверки чтобы не присоединяться к танкам или авиации
+					diag_log format ["Log: [gosa_fnc_group_other] %1 join %2", _units, _x];
+					_units join _x;
+					[_leader, leader _x] call gosa_fnc_autoLeader;
+					breakTo "main";
+				};
+			} forEach _z;
 		};
 
 		if(_uav)then{
