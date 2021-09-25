@@ -449,15 +449,15 @@ if({alive _x} count _units > 0)then{
 
 			// остановить группу, удалить и не создавать маршрут если боты атакуют рядом с точкой или игроками
 			if (!_Air && !_Ship) then {
-			if ((vehicle _leader distance civilianBasePos) <= sizeLocation*1.20 or [_leader, 400] call gosa_fnc_CheckPlayersDistance) then {
-				if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
-					diag_log format ["Log: [gosa_fnc_group_wp.sqf] группа %1 атакует рядом с точкой или игроками %2", _grp, _leaderPos];
-					// боты остаются на месте
-					_NoCreateWP = true;
-					_StopWP = true;
-					_DeleteWP = true;
+				if ((vehicle _leader distance civilianBasePos) <= sizeLocation*1.20 or [_leader, 400] call gosa_fnc_CheckPlayersDistance) then {
+					if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] группа %1 атакует рядом с точкой или игроками %2", _grp, _leaderPos];
+						// боты остаются на месте
+						_NoCreateWP = true;
+						_StopWP = true;
+						_DeleteWP = true;
+					};
 				};
-			};
 			};
 
 			// ПВО
