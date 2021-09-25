@@ -32,6 +32,7 @@ _fnc_swich={
 	};
 
 	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
+	_new setVariable ["gosa_player_owner", _o, true];
 	selectPlayer _new;
 
 	_new call gosa_fnc_initBriefing;
@@ -99,6 +100,13 @@ while {true} do {
 	if (_z != _o) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] owner %1", [_z, _o]];
+	};
+	_z = _player getVariable "gosa_player_owner";
+	if (!isNil {_z}) then {
+		if (_z != _o) then {
+			_t = true;
+			diag_log format ["Log: [respawnRandom] owner var %1", [_z, _o]];
+		};
 	};
 	if (_t) then {
 
