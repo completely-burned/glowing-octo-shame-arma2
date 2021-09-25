@@ -182,7 +182,7 @@ while {true} do {
 		};
 
 		// переключение на птицу
-		if (isNil{_bestCandidate} && isNull _cam) then {
+		if (isNil{_bestCandidate} && isNull _cam && isNull player) then {
 			_cam = "seagull" camCreate (player modelToWorld [0,0,100]);
 			_cam cameraEffect ["FIXED", "LEFT TOP"];
 			_cam camCommand "MANUAL ON";
