@@ -64,7 +64,7 @@ _crew = [];
 		} forEach (_turrets select _n);
 		_commanding = getNumber(_cfg_turret >> "commanding");
 
-		if (isNil "_sorted") then {
+		if (isNil {_sorted}) then {
 			_sorted = [[_commanding, _turrets select _n]];
 			if(count _typicalCargo > 0)then{
 				_typicalCargo2 = [_typicalCargo select _n+1]; // _n0 == driver
@@ -95,10 +95,10 @@ _crew = [];
 
 
 //--- creating turret units
-	if (!isNil "_sorted") then {
+	if (!isNil {_sorted}) then {
 		for "_i" from count _sorted - 1 to 0 step -1 do {
 			if (isNull (_vehicle turretUnit (_sorted select _i select 1))) then {
-				if(!isNil "_typicalCargo2")then{
+				if(!isNil {_typicalCargo2})then{
 					_unit = _grp createUnit [(_typicalCargo2 select _i), getPos _vehicle, [], 0, "FORM"];
 				}else{
 					_unit = _grp createUnit [_crewType, getPos _vehicle, [], 0, "FORM"];
