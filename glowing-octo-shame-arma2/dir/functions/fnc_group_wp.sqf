@@ -622,11 +622,12 @@ if({alive _x} count _units > 0)then{
 			};
 
 			// wpStatements
+			if (count waypoints _grp > 0) then {
 			private["_wp"];
 			_wp = [_grp,_currentWP];
 			private["_wpStatements"];
 			_wpStatements = "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}";
-			if!(waypointStatements _wp select 1 in [ // TODO: waypointStatements _wp select 1 возвращает пустоту
+			if!(waypointStatements _wp select 1 in [
 				_wpStatements,
 				"vehicle this land 'GET IN'",
 				"vehicle this land 'GET OUT'",
@@ -637,6 +638,7 @@ if({alive _x} count _units > 0)then{
 			])then{
 					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _wpStatements %2", _grp, _wpStatements ];
 				_wp setWaypointStatements ["true", _wpStatements];
+			};
 			};
 		};
 	};
