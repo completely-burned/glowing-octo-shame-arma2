@@ -25,8 +25,8 @@ while {true} do {
 	не позволяет легко отдавать приказы*/
 	_z = currentCommand _p;
 	if (leader _p == _p && _z != "") then {
-		diag_log format ["Log: [localGroup] cc %2, doStop %1", _p, _z];
-		doStop _p;
+		diag_log format ["Log: [localGroup] cc %2, %1 doFollow %1", _p, _z];
+		_p doFollow _p;
 	};
 
 	// если группа локальная игроку отдать юнитов группы игрока компьютеру игрока
