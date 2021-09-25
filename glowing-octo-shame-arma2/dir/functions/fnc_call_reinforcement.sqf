@@ -83,7 +83,7 @@ if(_patrol)then{
 	};
 };
 
-diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _typeList];
+diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] count _typeList %1", count _typeList];
 
 private["_grp1"];
 private["_types"];
