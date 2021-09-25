@@ -1,5 +1,7 @@
 #define __A2OA__
 
+gosa_owner = owner player;
+
 [] call compile preprocessFileLineNumbers "dir\client\config_client.sqf";
 
 waitUntil{!isNil "bis_fnc_init"};

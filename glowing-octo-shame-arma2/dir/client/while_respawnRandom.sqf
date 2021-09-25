@@ -4,7 +4,7 @@
  * TODO: нужна проверка AFK на игроков и лидеров группы
  */
 
-private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime","_cam"];
+private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime","_cam","_t","_o","_z"];
 waitUntil{!isNil{respawn}};
 if(respawn != 1)exitWith{
 	respawnDone = true;
@@ -14,6 +14,8 @@ if(respawn != 1)exitWith{
 _player = player;
 
 _cam = objNull;
+
+_o = gosa_owner;
 
 // переключение на новое тело
 private["_fnc_swich"];
@@ -76,11 +78,29 @@ while {true} do {
 
 	scopeName "root";
 
-	// ищем подходящее тело при условии
-	if (!(lifeState player in ["ALIVE", "UNCONSCIOUS"]) or // TODO: нужно разделить на отдельные проверки
-		isNull player or !alive _player or 
-		!isNil{_player getVariable "selectPlayerDisable"}
-	) then {
+	_t = false;
+	if (!alive _player) then {
+		_t = true;
+		diag_log format ["Log: [respawnRandom] not alive %1", _player];
+	};
+	if (isNull player) then {
+		_t = true;
+		diag_log format ["Log: [respawnRandom] isNull %1", player];
+	};
+	if (!isNil{_player getVariable "selectPlayerDisable"}) then {
+		_t = true;
+		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _player];
+	};
+	if !(lifeState player in ["ALIVE", "UNCONSCIOUS"]) then {
+		_t = true;
+		diag_log format ["Log: [respawnRandom] blacklisted lifeState %1", player];
+	};
+	_z = owner _player;
+	if (_z != _o) then {
+		_t = true;
+		diag_log format ["Log: [respawnRandom] owner %1", [_z, _o]];
+	};
+	if (_t) then {
 
 		//--- таймер смерти
 		if (isNil "_deathTime") then {
