@@ -109,7 +109,7 @@ class Params {
 		title="$STR_friendly_vehicles_only";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
-		default=1;
+		default=0;
 	};
 	class local_conflict {
 		title="local conflict";
