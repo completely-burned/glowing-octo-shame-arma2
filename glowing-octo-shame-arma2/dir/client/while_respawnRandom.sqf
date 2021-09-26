@@ -67,6 +67,7 @@ _fnc_isFit={
 		!isNull _this &&
 		!(_this call gosa_fnc_isUAV) &&
 		!isNil{group _this getVariable "grp_created"} &&
+		!(vehicle _this isKindOf "StaticWeapon") &&
 		isNil {group _this getVariable "patrol"}
 	) then {
 		true;
