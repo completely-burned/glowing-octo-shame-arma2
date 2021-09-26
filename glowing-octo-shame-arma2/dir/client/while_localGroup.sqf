@@ -52,6 +52,7 @@ while {true} do {
 		_z joinSilent _g2;
 		_g = _g2;
 		_g2 setVariable ["grp_created",true,true];
+		_g selectLeader _p; // FIXME: без этого баг иногда, когда проверка на командира выдает true, но игрок не командир
 	};
 
 	// группа игрока локальная игроку и поэтому игрок устанавливается лидером
