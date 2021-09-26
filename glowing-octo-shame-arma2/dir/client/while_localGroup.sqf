@@ -24,7 +24,7 @@ while {true} do {
 	/*зависший приказ на командире мешает игроку командиру
 	не позволяет легко отдавать приказы*/
 	_z = currentCommand _p;
-	if (leader _p == _p && _z != "") then {
+	if (leader _p == _p && _z != "" && vehicle _p == _p) then {
 		diag_log format ["Log: [localGroup] cc %2, %1 doFollow %1", _p, _z];
 		_p doFollow _p;
 	};
