@@ -300,9 +300,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 				}else{
 					// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
 					if(toLower typeOf _x in (listCrewLower+listPilotLower) &&
-						(!canMove _assignedVehicle or !alive _assignedVehicle) &&
-						getnumber(configfile >> "cfgvehicles" >> typeof _assignedVehicle >> "transportSoldier") == 0 &&
-						_x == vehicle _x
+						isNull _assignedVehicle
 					 )then{
 						if (isNil {_grp getVariable "gosa_grpCrewOld"}) then {
 							private["_newGrp"];
