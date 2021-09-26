@@ -90,11 +90,12 @@ _crew = [];
 			};
 		};
 	};
+
 	if (!isNil {_sorted}) then { // diag_log
-	diag_log format ["Log: [fnc_spawnCrew.sqf] _sorted = %1", _sorted];
+		diag_log format ["Log: [fnc_spawnCrew.sqf] _sorted = %1", _sorted];
 	}; // diag_log
 	if (!isNil {_typicalCargo2}) then { // diag_log
-	diag_log format ["Log: [fnc_spawnCrew.sqf] _typicalCargo2 = %1", _typicalCargo2];
+		diag_log format ["Log: [fnc_spawnCrew.sqf] _typicalCargo2 = %1", _typicalCargo2];
 	}; // diag_log
 
 
