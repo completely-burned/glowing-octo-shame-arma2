@@ -597,11 +597,11 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_CombatMode = "WHITE";
 		};
 
-		if (_countStealth == 0 && count _units < 2 && !_Air) then {
+		if (_countStealth == 0 && count _units < 2 && !_Air && !_StaticWeapon) then {
 			diag_log format ["Log: [gosa_fnc_group_other] count units %1 < min", _grp];
 			_z = ((_leaderPos nearEntities ["CAManBase", 150]) - _units);
 			{
-				if (_units select 0 call gosa_fnc_getFaction == _x call gosa_fnc_getFaction) then { // TODO: нужны доп. проверки чтобы не присоединяться к танкам или авиации
+				if (_units select 0 call gosa_fnc_getFaction == _x call gosa_fnc_getFaction && !(vehicle _x isKindOf "StaticWeapon")) then { // TODO: нужны доп. проверки чтобы не присоединяться к танкам или авиации
 					diag_log format ["Log: [gosa_fnc_group_other] %1 join %2", _units, _x];
 					_units join _x;
 					[_leader, leader _x] call gosa_fnc_autoLeader;
