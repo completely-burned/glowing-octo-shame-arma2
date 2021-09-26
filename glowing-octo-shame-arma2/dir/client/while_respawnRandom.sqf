@@ -67,6 +67,7 @@ _fnc_isFit={
 		!isNull _this &&
 		!(_this call gosa_fnc_isUAV) &&
 		!isNil{group _this getVariable "grp_created"} &&
+		!(WaypointType [group _this, currentwaypoint group _this] in ["UNLOAD","GETOUT"]) && // TODO: нужно реализовать десант с игроками тоже
 		!(vehicle _this isKindOf "StaticWeapon") &&
 		isNil {group _this getVariable "patrol"}
 	) then {
