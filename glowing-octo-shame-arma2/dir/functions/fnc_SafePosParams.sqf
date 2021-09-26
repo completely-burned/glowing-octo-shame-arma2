@@ -73,6 +73,7 @@ if ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then{
 	_maxDist = sizeLocation;
 	_waterMode = 0;
 	_objDist = 30;
+	_preferRoads = false;
 };
 
 _roadSize = ({_x isKindOf "LandVehicle"} count _types);
