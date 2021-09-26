@@ -105,6 +105,13 @@ if(_uav)then{
 	_patrol = true;
 };
 
+private["_z"];
+_z = ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray);
+if(_z)then{
+	_pos = civilianBasePos;
+	_patrol = false;
+};
+
 
 private["_run"];
 _run = true;
