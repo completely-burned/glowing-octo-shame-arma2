@@ -76,7 +76,7 @@ while{true}do{
 										];
 										breakTo "house";
 									}else{
-										_road = nil;
+										_road = objNull;
 									};
 								};
 								} foreach _roads;
