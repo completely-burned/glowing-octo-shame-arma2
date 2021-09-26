@@ -1,6 +1,6 @@
 ﻿diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
-private["_side"];
+private["_side","_z","_run","_uav","_grp1","_types","_SafePosParams","_pos_resp","_pos","_typeList","_patrol"];
 if(count _this > 0)then{
 		_side = _this select 0;
 }else{
@@ -8,9 +8,6 @@ if(count _this > 0)then{
 		_side = [[east,west,resistance],[0.5,0.5,0.5]] call BIS_fnc_selectRandomWeighted;
 };
 
-private["_pos"];
-private["_typeList"];
-private["_patrol"];
 if(count _this > 1)then{
 	private ["_players"];
 	if (typeName (_this select 1) == typeName objNull) then {
@@ -85,17 +82,12 @@ if(_patrol)then{
 
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] count _typeList %1", count _typeList];
 
-private["_grp1"];
-private["_types"];
-private["_SafePosParams"];
-private["_pos_resp"];
 if (isNil "_typeList") exitWith {
 		diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
 };
 _grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
-private["_uav"];
 _uav = false;
 _uav = ([_types, ["UAV"]] call gosa_fnc_CheckIsKindOfArray);
 if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
@@ -105,7 +97,6 @@ if(_uav)then{
 	_patrol = true;
 };
 
-private["_z"];
 _z = ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray);
 if(_z)then{
 	_pos = civilianBasePos;
@@ -113,7 +104,6 @@ if(_z)then{
 };
 
 
-private["_run"];
 _run = true;
 
 if (_pos distance [0,0] < 1) then {
