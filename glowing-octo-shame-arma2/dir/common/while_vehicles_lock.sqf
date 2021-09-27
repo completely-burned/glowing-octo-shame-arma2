@@ -31,15 +31,15 @@ while{true}do{
 
 		// можно не выполнять другие вычисления если игрок лидер
 		if(leader _grp call gosa_fnc_isPlayer)then{
-				diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия отменен, игрок лидер группы %1", _grp];
+				//diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия отменен, игрок лидер группы %1", _grp];
 		}else{
 			// можно не выполнять другие вычисления если игрок в группе, но долго проверяются все юниты в группе
 			_units = units _grp;
 			if({_x call gosa_fnc_isPlayer}count _units > 0)then{
-					diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия отменен, игроки в группе %1", _grp];
+					//diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия отменен, игроки в группе %1", _grp];
 			}else{
 				// транспорт чужой группы нужно закрывать
-					diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия %1", _grp];
+				//	diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия %1", _grp];
 				// находим транспорт
 				{
 					_vehicle = assignedVehicle _x;
@@ -102,14 +102,15 @@ while{true}do{
 
 				_lock_old = locked _vehicle;
 
-					diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 локальный = %4, нужно lock %2, сейчас %3", _vehicle, _lock, _lock_old, local _vehicle];
 
 				if (_lock == 2) then {_lock = true}else{_lock = false};
 
 				if (!_lock_old && _lock) then {
+					diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _vehicle, _lock, _lock_old, local _vehicle, typeOf _vehicle];
 					_vehicle lock _lock;
 				};
 				if (_lock_old && !_lock) then {
+					diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _vehicle, _lock, _lock_old, local _vehicle, typeOf _vehicle];
 					_vehicle lock _lock;
 				};
 			};
