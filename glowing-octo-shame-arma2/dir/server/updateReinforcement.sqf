@@ -112,6 +112,47 @@ while{true}do{
 			diag_log format ["Log: [UpdateReinforcement.sqf] _limits %1 [f,e,-,-,all]", _limits];
 
 
+	//--- чистка при значительном превышении лимита
+		_z = (_dyn_limit*1.4+1) max (_dyn_limit+5);
+		if (_all_groups + count _conveyer > _z) then {
+			private["_side","_l","_grp","_rm","_d"];
+			diag_log format ["Log: [UpdateReinforcement.sqf] групп слишком много %1+%2 > %3", _all_groups, count _conveyer, _z];
+			{
+				_grp=_x;
+				//_side = side _grp;
+				_l = leader _grp;
+				if (local _l) then {
+					if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
+
+						if (isNil {_d}) then {
+							_d = civilianBasePos distance vehicle _l;
+							_rm = [_grp];
+						}else{
+							if (_d < civilianBasePos distance vehicle _l) then {
+								_rm = [_grp]+_rm;
+								_rm resize round ((_all_groups-_z) min count _rm);
+							};
+						};					
+						diag_log format ["Log: [UpdateReinforcement.sqf] rm %1", _rm];
+					};
+				};
+			}forEach allGroups;
+
+			if (!isNil {_rm}) then {
+				if (count _rm > 0) then {
+					for "_i" from 0 to count _rm -1 do {
+						{
+							diag_log format ["Log: [UpdateReinforcement.sqf] %1 в очередь на удаление", vehicle _x];
+							vehicle _x setVariable ["gosa_timeDeleteVehicle", 0];
+							diag_log format ["Log: [UpdateReinforcement.sqf] %1 в очередь на удаление", _x];
+							_x setVariable ["gosa_timeDeleteVehicle", 0];
+						}forEach units (_rm select _i);
+					};
+				};
+			};
+		};
+
+
 #ifdef __A2OA__
 		if(_all_groups < _dyn_limit or {_all_groups < _minGroups && _limit_fps == 0})then{
 #else
