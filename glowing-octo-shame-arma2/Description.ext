@@ -25,8 +25,8 @@ class Params {
 	};
 	class gosa_ai_create_fps {
 		title="if higher fps, create ai [sv,ai,fps]";
-		values[] = {0,		5,10,15,20,25,30,40,45,50,60,70,80,90,100,120};
-		texts[] = {"manual",5,10,15,20,25,30,40,45,50,60,70,80,90,100,120};
+		values[] = {0,		5,10,15,20,25,30,35,40,45,50};
+		texts[] = {"manual",5,10,15,20,25,30,35,40,45,50};
 		default=45;
 	};
 	class Air {
