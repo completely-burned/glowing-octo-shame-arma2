@@ -49,7 +49,18 @@ _list_BIS_FNC_createmenu=([
 BIS_MENU_GroupCommunication = [
 	["User menu",true],
 	[localize "str_more_menu", [2], "#USER:c_0", -5, [["expression", ""]], "1", "1"],
-	[localize "str_usract_lock_target", [3], "#WATCH", -5, [["expression", ""]], "1", "1"]
+	[localize "str_usract_lock_target", [3], "#WATCH", -5, [["expression", ""]], "1", "1"],
+	[localize "STR_gosa_heli_transport"+ " (testing) CursorOnGround", [4], "", -5, [["expression", 
+		"
+			if (vehicle player == player) then {
+				player setVariable ['gosa_transportPos', _pos, true];
+				vehicle player setVariable ['gosa_transportPosVeh',  nil, true];
+			}else{
+				player setVariable ['gosa_transportPos',  nil, true];
+				vehicle player setVariable ['gosa_transportPosVeh', _pos, true];
+			}
+		"
+	]], "1", "CursorOnGround", "\ca\ui\data\cursor_support_ca.paa"]
 ];
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
