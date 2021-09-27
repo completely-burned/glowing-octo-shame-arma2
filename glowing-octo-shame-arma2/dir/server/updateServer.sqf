@@ -10,7 +10,7 @@ _path = "dir\server\";
 [] execVM (_path + "server_update_other.sqf");
 [] execVM (_path + "server_update_location.sqf");
 [] execVM (_path + "server_update_silvieManager.sqf");
-// [] execVM (_path + "transport.sqf");
+[] execVM (_path + "transport.sqf");
 // [] execVM (_path + "server_update_StaticWeapon.sqf");
 // [] execVM (_path + "server_gc_water.sqf");
 [] execVM (_path + "while_canStand.sqf");
