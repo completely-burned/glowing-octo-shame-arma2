@@ -1,6 +1,9 @@
 /*скрипт добавляет игроку с лазерным указателем в меню действие для сброса бомбы
  */
 
+ if (gosa_laserDesignator == 0) exitWith {
+ };
+
 private ["_shell","_act_create","_act"];
 
 _act_create = false;
