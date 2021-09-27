@@ -27,7 +27,7 @@ while {true} do {
 			_act set [0, player];
 			_act set [1,
 				_act select 0 addAction [
-					"act_laserBomb",
+					"laserBomb (testing)",
 					"dir\actions\act_laserBomb.sqf"
 				]
 			];
