@@ -40,7 +40,7 @@ while{true}do{
 		Private["_side"];
 		_side = side _grp;
 
-		if (_side in [west,east,resistance]) then {
+		if (local leader _grp && _side in [west,east,resistance]) then {
 			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
 				if({alive _x} count units _grp > 0)then{
 					if (!isNil {_grp GetVariable "patrol"}) then {
