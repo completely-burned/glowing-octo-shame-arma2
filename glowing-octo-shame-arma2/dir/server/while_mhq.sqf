@@ -38,6 +38,10 @@ for "_i" from 0 to (count _names - 1) do
 } forEach allMissionObjects "LocationLogicStart";
 #endif
 
+if (count _StartingLocationsPos == 0) then {
+	_StartingLocationsPos = [getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor")];
+};
+
 private ["_MHQ"];
 
 private ["_true"];
