@@ -35,15 +35,13 @@
 
 	// начальная позиция бомбы, нуждается в доработке
 	_dirB = random 360;
-	_posB = [_laserMarker, random 500, _dirB] call BIS_fnc_relPos;
-	_posB set [2,5000]; // высота
+	_posB = [_laserMarker, random 300, _dirB] call BIS_fnc_relPos;
+	_posB set [2,2000]; // высота
 
 	// получилось только с A10, мишень лучше имхо
-	_vehicle = "A10" createVehicle [
-		(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)),
-		(gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)),
-		 200
-	 ];
+	// не работает если переместить подземлю, сразу уничтожается
+	// не работает при создании на большем растоянии от игрока, проблемы синхронизации
+	_vehicle = createVehicle ["A10", _posB, [], 0, "CAN_COLLIDE"];
 
 	// удаляем эффекты
 	_vehicle removeAllEventHandlers "Killed";
@@ -56,9 +54,10 @@
 	// стрелок
 	_unit = group_system_units createUnit [
 		getText (configFile >> "CfgVehicles" >> "A10" >> "crew"), [
-			(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)),
-			(gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))
-		 ], [], 0, "NONE"
+			(getPos player select 0) + 100, // TODO: может зацепить игроков
+			getPos player select 1,
+			100 // при столкновении ничего страшного, но нужно незаметно
+		], [], 0, "CAN_COLLIDE"
 	];
 
 	// скрытие возможно не понадобится если делать выстрел за пределами видимости и после setPos для бомбы на нужною позицию
@@ -79,6 +78,7 @@
 
 	_ammo = "Bo_GBU12_LGB";
 
+	sleep 2; // на всякий случай, а вдруг лучше
 	_vehicle fireAtTarget [_laserMarker, "BombLauncherA10"];
 
 	// addEventHandler "fired" не действует ??
@@ -101,7 +101,7 @@
 	diag_log format["Log: [fnc_laserBomb] отправленно %1", _shell];
 
 	// игроки могут пролетать рядом, но это маловероятно
-	_shell setPos _posB;
+	// _shell setPos _posB;
 
 	diag_log format["Log: [fnc_laserBomb] %1 новая позиция %2", _shell, getPos _shell];
 
