@@ -22,11 +22,15 @@
 	_laserMarker = _this select 0;
 	_designatorUnit = _this select 1;
 
-	if (isNull _laserMarker) exitWith {objNull};
+	if (isNull _laserMarker) exitWith {
+		diag_log format["Log: [fnc_laserBomb] _laserMarker %1", _laserMarker];
+		objNull;
+	};
 
 	// не нужно много бомб, выйти если бомба уже в полете
 	_shell = _designatorUnit getVariable "gosa_laserBoShell";
 	if (!isNil {_shell} && {alive _shell}) exitWith {
+		diag_log format["Log: [fnc_laserBomb] бомба %1 уже отправленна", _shell];
 	};
 
 	// начальная позиция бомбы, нуждается в доработке
@@ -71,10 +75,13 @@
 	// reveal за 1000m возможно не имеет смысла
 	//_vehicle reveal _laserMarker;
 
+	diag_log format["Log: [fnc_laserBomb] создано %1 %2", _vehicle, getPos _vehicle];
+
+	_ammo = "Bo_GBU12_LGB";
+
 	_vehicle fireAtTarget [_laserMarker, "BombLauncherA10"];
 
 	// addEventHandler "fired" не действует ??
-	_ammo = "Bo_GBU12_LGB";
 	_shell = nearestObject [_vehicle, _ammo];
 
 	if (isNull(_shell)) then
@@ -91,8 +98,12 @@
 		} forEach _l;
 	};
 
+	diag_log format["Log: [fnc_laserBomb] отправленно %1", _shell];
+
 	// игроки могут пролетать рядом, но это маловероятно
 	_shell setPos _posB;
+
+	diag_log format["Log: [fnc_laserBomb] %1 новая позиция %2", _shell, getPos _shell];
 
 	_designatorUnit setVariable ["gosa_laserBoShell", _shell];
 
@@ -100,6 +111,8 @@
 		_x setDamage 1; // нужно отключить эффект смерти
 		deleteVehicle _x;
 	} forEach [_unit, _vehicle];
+
+	diag_log format["Log: [fnc_laserBomb] чистка %1", [_unit, _vehicle]];
 
 _shell;
 #endif
