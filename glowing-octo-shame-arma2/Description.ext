@@ -161,6 +161,12 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+	class gosa_laserDesignator {
+		title="laserDesignator";
+		values[] = {0,1};
+		texts[] = {$STRWFNO,$STRWFYES};
+		default=0;
+	};
 };
 
 class Weapons {
