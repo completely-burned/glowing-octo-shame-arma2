@@ -483,7 +483,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	//--- снимает ограничение юнитам вне транспорта
 	{
 		if(_x == vehicle _x)then{
-			if(!isNil(_x getVariable "gosa_forceSpeed"))then{
+			if(!isNil{_x getVariable "gosa_forceSpeed"})then{
 				if (gosa_loglevel > 0) then { // diag_log
 					diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 forceSpeed -1 %2", _x, typeOf _x ];
 				}; // diag_log
