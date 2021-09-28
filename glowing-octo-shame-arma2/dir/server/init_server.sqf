@@ -6,10 +6,6 @@
 // OnPlayerConnected "[_id, _uid, _name] ExecVM (corePath + ""Server\Server_PlayerConnected.sqf"")";
 	// OnPlayerDisconnected "[_id, _uid, _name] ExecVM (corePath + ""Server\Server_PlayerDisconnected.sqf"")";
 
-onPlayerConnected {
-	"MainTown" setMarkerPos getMarkerPos "MainTown";
-};
-
 m_skill = (missionNamespace getVariable "m_skill") / 100;
 
 enableSaving [false,false]; // отключение возможность сохраняться
