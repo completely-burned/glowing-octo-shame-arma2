@@ -128,9 +128,6 @@ while{true}do{
 		_west1 = (_west1 min 50000);
 		_resistance1 = (_resistance1 min 50000) ;
 
-		if(debug && !isDedicated)then{
-			// player globalChat format["_east1: %1; _west1: %2; _guer1: %3; _delay: %4",_east1,_west1,_resistance1,_delay];
-		};
 
 		_listPlayers = ([] call BIS_fnc_listPlayers);
 
