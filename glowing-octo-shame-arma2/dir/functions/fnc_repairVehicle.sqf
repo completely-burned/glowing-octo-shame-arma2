@@ -4,7 +4,7 @@
  */
 
 
-private["_item","_l","_e","_t","_v","_n"];
+private["_item","_l","_e","_v","_n"];
 
 _v = _this select 0;
 
@@ -13,12 +13,12 @@ if ({alive _x}count crew _v > 0) exitWith {
 };
 
 _l  = [];
+_e  = [];
 
-// если точный type не сработает
+// точный type не работает должным образом, если добавить не действительные даже веселее
 {
-	if (_v isKindOf _x) exitWith {
-		_t = configFile >> "CfgVehicles" >> _x >> "HitPoints";
-	};
+	_e set [count _e, configFile >> "CfgVehicles" >> _x >> "HitPoints"];
+	_e set [count _e, configFile >> "CfgVehicles" >> _x >> "Turrets" >> "MainTurret" >>"HitPoints"];
 } forEach ["Wheeled_APC","Tracked_APC","Tank","Car","Helicopter","Plane"];
 
 
@@ -37,7 +37,7 @@ _l  = [];
 		};
 	};
 } forEach [configFile >> "CfgVehicles" >> typeOf _v >> "HitPoints",
-			configFile >> "CfgVehicles" >> typeOf _v >> "Turrets" >> "MainTurret" >>"HitPoints", _t];
+			configFile >> "CfgVehicles" >> typeOf _v >> "Turrets" >> "MainTurret" >>"HitPoints"] + _e;
 
 
 gosa_repair_array = _l;
