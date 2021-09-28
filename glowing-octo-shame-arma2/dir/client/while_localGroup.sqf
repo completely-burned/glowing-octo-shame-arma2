@@ -4,7 +4,7 @@
  * в итоге не стреляет вся группа или экипаж если игрок командир :TODO
  */
 
-private["_p","_g2","_gov","_g","_o",
+private["_p","_g2","_gov","_g","_o","_v",
 	"_z" // временное 
 ];
 
@@ -16,6 +16,7 @@ _o = owner player;
 while {true} do {
 	_p = player;
 	_g = group _p;
+	_v = vehicle _p;
 
 	/*локальную переменную видит только игрок, нужна для проверки локальности группы
 	устанавливается при создании группы, нужна т.к. не знаю других способов проверки*/
@@ -64,6 +65,29 @@ while {true} do {
 			_g selectLeader _p;
 		};
 	};
+
+
+#ifdef __A2OA__
+	// не покидать поврежденное тс
+	if (leader _p == _p) then {
+		if (_v != _p) then {
+			if (isNil {_v getVariable "gosa_allowCrewInImmobile"} && {_v isKindOf "LandVehicle"}) then {
+				_v allowCrewInImmobile true;
+				_v setVariable ["gosa_allowCrewInImmobile", true, true];
+				diag_log format ["Log: [localGroup] %1 allowCrewInImmobile true", _v];
+			};
+		};
+
+		{
+			_v = assignedVehicle _x;
+			if (!isNull _v && {isNil {_v getVariable "gosa_allowCrewInImmobile"}} && {_v isKindOf "LandVehicle"}) then {
+				_v allowCrewInImmobile true;
+				_v setVariable ["gosa_allowCrewInImmobile", true, true];
+				diag_log format ["Log: [localGroup] %1 allowCrewInImmobile true", [_x,_v]];
+			};
+		} forEach units _g;
+	};
+#endif
 
 	sleep 0.1;
 };
