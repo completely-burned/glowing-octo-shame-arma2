@@ -118,15 +118,9 @@ locationNext={
 		LocationAllGroupsGuer =+ ([AllGroupsGuer, _grps_rarity] call _fnc4);
 	};
 
-	"MainTown" setMarkerPos civilianBasePos;
-	"MainTown" setMarkerSize [_sizeLocation,_sizeLocation];
 	sizeLocation=_sizeLocation;
 	publicVariable "sizeLocation";
 };
-
-CreateMarker ["MainTown", getPos player];
-"MainTown" setMarkerShape "ELLIPSE";
-"MainTown" setMarkerColor "ColorBlack";
 
 waitUntil{!isNil{MHQ_list}};
 while{isNil{civilianBasePos}}do{

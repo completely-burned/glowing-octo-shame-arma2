@@ -23,11 +23,6 @@ while{true}do{
 		if(sizeLocation != _sizeLocation)then{
 			sizeLocation = +_sizeLocation;
 			publicVariable "sizeLocation";
-			"MainTown" setMarkerSize [_sizeLocation,_sizeLocation];
-		};
-
-		if(civilianBasePos distance getMarkerPos "MainTown" > 1)then{
-			"MainTown" setMarkerPos civilianBasePos;
 		};
 
 		Private["_objects"];

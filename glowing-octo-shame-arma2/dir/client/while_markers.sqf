@@ -76,6 +76,10 @@ _dynamicMarkers = [];
 
 gosa_respawnMarkers = _respawnMarkers;
 
+createMarkerLocal ["MainMarker", [0,0]];
+"MainMarker" setMarkerShapeLocal "ELLIPSE";
+"MainMarker" setMarkerColorLocal "ColorBlack";
+
 if(true)then{
 
 	private ["_markers","_units"];
@@ -101,6 +105,16 @@ if(true)then{
 		} forEach vehicles;
 
 		if (visibleMap) then {
+
+
+			//--- главный маркер поля боя
+				if(markerSize "MainMarker" select 0 != sizeLocation)then{
+					"MainMarker" setMarkerSizeLocal [sizeLocation, sizeLocation];
+				};
+				if(civilianBasePos distance getMarkerPos "MainMarker" > 1)then{
+					"MainMarker" setMarkerPosLocal civilianBasePos;
+				};
+
 			// -- мобильная база (развернутая), один маркер
 			// TODO: если игрок не открывал карту маркер находиться на последней позиции мобильная база (мобилизованная)
 #ifdef __A2OA__
