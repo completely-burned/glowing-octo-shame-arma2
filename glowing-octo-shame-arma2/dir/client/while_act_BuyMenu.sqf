@@ -133,6 +133,8 @@ while {true} do {
 						};
 					};
 
+					[_Object, _type] call gosa_fnc_act_repairVehicle;
+
 					if ([[_type],["ReammoBox"]] call gosa_fnc_CheckIsKindOfArray) then {
 						if (alive _Object) then {
 							_Object call gosa_fnc_updateReammoBox;
