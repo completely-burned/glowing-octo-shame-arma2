@@ -36,6 +36,9 @@ for "_i" from 0 to (count _names - 1) do
 {
 	_StartingLocationsPos set [count _StartingLocationsPos, getPos _x];
 } forEach allMissionObjects "LocationLogicStart";
+{
+	_StartingLocationsPos set [count _StartingLocationsPos, getPos _x];
+} forEach allMissionObjects "LocationLogicFlat";
 #endif
 
 if (count _StartingLocationsPos == 0) then {
