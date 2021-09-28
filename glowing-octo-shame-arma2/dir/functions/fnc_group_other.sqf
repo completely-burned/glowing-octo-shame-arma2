@@ -497,7 +497,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 	//--- устанавливает ограничение скорости транспорта
 	{
-		_driver = effectiveCommander _x;
+		_driver = driver _x;
 		// _driver = _x;
 		if(		!isNull _slu // есть юнит отряда вне транспорта
 			or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} // техника атакует
