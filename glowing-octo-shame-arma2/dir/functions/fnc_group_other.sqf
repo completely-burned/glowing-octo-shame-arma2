@@ -11,7 +11,7 @@ private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP",
 "_units","_vehicles","_types","_cargo","_assignedVehicles","_Submarine",
 "_Helicopter","_Plane","_Ship","_StaticWeapon","_Air","_uav","_Car","_Tank",
 "_Tracked_APC","_Wheeled_APC","_AA","_support","_grp_wp_completed",
-"_driver","_slu","_z"
+"_driver","_slu","_z","_n"
 ];
 
 // private ["_Stealth"];
@@ -496,22 +496,24 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	}forEach _units;
 
 	//--- устанавливает ограничение скорости транспорта
+	_n = if (behaviour _leader == "COMBAT") then {1}else{5};
 	{
 		_driver = driver _x;
 		// _driver = _x;
+		_z = _driver getVariable "gosa_forceSpeed";
 		if(		!isNull _slu // есть юнит отряда вне транспорта
 			or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} // техника атакует
 			or	{count (_x nearEntities ["Man", 150]) > 0} // рядом с техникой прочая пехота
 		)then{
-			if(isNil(_driver getVariable "gosa_forceSpeed"))then{
+			if(isNil {_z} or {_z != _n})then{
 				if (gosa_loglevel > 0) then { // diag_log
-					diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 forceSpeed 5 %2", _driver, typeOf _driver ];
+					diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 forceSpeed %2 %3", _driver, _n, typeOf _driver ];
 				}; // diag_log
-				_driver setVariable ["gosa_forceSpeed",5];  // TODO: нужна переменная 5 // TODO: нужна резная скорость в разных режимах боя
-				_driver forceSpeed 5; // TODO: нужна переменная 5 // TODO: нужна резная скорость в разных режимах боя
+				_driver setVariable ["gosa_forceSpeed",_n];
+				_driver forceSpeed _n;
 			};
 		}else{ //--- снятие ограничения
-			if(!isNil(_driver getVariable "gosa_forceSpeed"))then{
+			if(!isNil {_z})then{
 				if (gosa_loglevel > 0) then { // diag_log
 					diag_log format ["Log: [gosa_fnc_group_other.sqf] forceSpeed -1 %1 %2", _driver, typeOf _driver ];
 				}; // diag_log
