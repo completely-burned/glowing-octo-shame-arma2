@@ -33,7 +33,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=19;
+		items=26;
 		class Item0
 		{
 			side="EAST";
@@ -480,6 +480,139 @@ class Mission
 					leader=1;
 					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
+				};
+			};
+		};
+		class Item19
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2794.4275,276.1459,5076.2168};
+					azimut=25;
+					special="NONE";
+					id=32;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+					leader=1;
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item20
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1253.0017,223.9025,3850.1689};
+					azimut=25;
+					special="NONE";
+					id=33;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+					leader=1;
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item21
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3242.4736,330.12506,7258.502};
+					azimut=25;
+					special="NONE";
+					id=34;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+					leader=1;
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item22
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6078.3677,1.9848108,2351.9265};
+					azimut=25;
+					special="NONE";
+					id=35;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+					leader=1;
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item23
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5767.1401,260.0325,3954.7805};
+					azimut=25;
+					special="NONE";
+					id=36;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+					leader=1;
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item24
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4743.2979,267.19849,5049.4551};
+					azimut=25;
+					special="NONE";
+					id=37;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+					leader=1;
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item25
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={7010.7813,169.41479,6001.9741};
+					azimut=25;
+					special="NONE";
+					id=38;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+					leader=1;
+					skill=0.59999996;
 				};
 			};
 		};
