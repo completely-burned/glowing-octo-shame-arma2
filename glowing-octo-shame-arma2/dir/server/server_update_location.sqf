@@ -1,8 +1,15 @@
 ﻿waitUntil {sleep 5; !isNil "locationStarted"};
 
-private["_east1","_west1","_resistance1"];
-private["_listPlayers"];
+private["_east1","_west1","_resistance1","_listPlayers","_s_1g"];
 _east1 = 0;_west1 = 0;_resistance1 = 0;
+
+// пространство на отряд
+_s_1g = 130^2;
+
+/* количество отрядов
+_s_all = _s_1g * ({{alive _x && !(_x call gosa_fnc_isPlayer)} count units _x > 0} count allGroups);
+// радиус
+_r = sqrt(_s_all/pi);*/
 
 _time = time;
 
@@ -12,7 +19,7 @@ while{true}do{
 
 	if !(isNil "CivilianLocation") then {
 		private["_sizeLocation"];
-		_sizeLocation = (({{alive _x && !(_x call gosa_fnc_isPlayer)} count units _x > 0} count allGroups) * 12.5) max 250;
+		_sizeLocation = sqrt((_s_1g * ({{alive _x && !(_x call gosa_fnc_isPlayer)} count units _x > 0} count allGroups))/pi) max 100;
 		if(sizeLocation != _sizeLocation)then{
 			sizeLocation = +_sizeLocation;
 			publicVariable "sizeLocation";
