@@ -28,7 +28,11 @@ _l  = [];
 		if (isClass _item) then {
 			_n = getText (_item >> "name");
 			if !(_n in _l) then {
-				_l  set [count _l,  _n];
+				if (random 10 > 5) then { // перемешать порядок
+					_l  set [count _l,  _n];
+				}else{
+					_l = [_n]+_l;
+				};
 			};
 		};
 	};
