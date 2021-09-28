@@ -153,11 +153,6 @@ while{true}do{
 		};
 
 
-#ifdef __A2OA__
-		if(_all_groups < _dyn_limit or {_all_groups < _minGroups && _limit_fps == 0})then{
-#else
-		if(_all_groups < _dyn_limit or (_all_groups < _minGroups && _limit_fps == 0))then{
-#endif
 			// diag_log format ["UpdateReinforcement.sqf 106, %1", time];
 			_z = {_x select 1 == 0} count _conveyer;
 			if (_g_friendly + _g_patrol_f +_z < (_limits select 0) && count _conveyer < _conveyer_limit) then {
@@ -177,7 +172,6 @@ while{true}do{
 				};
 			};
 			*/
-		};
 	// diag_log format ["UpdateReinforcement.sqf 121, %1", time];
 	sleep 0.1;
 
