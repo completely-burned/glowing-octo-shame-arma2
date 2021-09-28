@@ -17,16 +17,14 @@ _l  = [];
 // если точный type не сработает
 {
 	if (_v isKindOf _x) exitWith {
-		_t = _x;
+		_t = configFile >> "CfgVehicles" >> _x >> "HitPoints";
 	};
 } forEach ["Wheeled_APC","Tracked_APC","Tank","Car","Helicopter","Plane"];
 
 
 {
-	_e = (configFile >> "CfgVehicles" >> _x >> "HitPoints");
-
-	for "_i" from 0 to (count _e -1) do {
-		_item = _e select _i;
+	for "_i" from 0 to (count _x -1) do {
+		_item = _x select _i;
 		if (isClass _item) then {
 			_n = getText (_item >> "name");
 			if !(_n in _l) then {
@@ -34,7 +32,8 @@ _l  = [];
 			};
 		};
 	};
-} forEach [typeOf _v, _t];
+} forEach [configFile >> "CfgVehicles" >> typeOf _v >> "HitPoints",
+			configFile >> "CfgVehicles" >> typeOf _v >> "Turrets" >> "MainTurret" >>"HitPoints", _t];
 
 
 gosa_repair_array = _l;
