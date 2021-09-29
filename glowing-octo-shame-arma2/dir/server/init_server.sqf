@@ -47,8 +47,9 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 		_sideCreated SetFriend [civilian,1];
 		civilian SetFriend [_sideCreated,1];
 	}else{
-		_sideCreated SetFriend [civilian,0];
-		civilian SetFriend [_sideCreated,0];
+		// стреляют по машинам и бочкам при <0.6
+		_sideCreated SetFriend [civilian,1]; 
+		civilian SetFriend [_sideCreated,1];
 	};
 	// _x SetFriend [sideUnknown ,0];
 	// sideUnknown  SetFriend [_x,0];
