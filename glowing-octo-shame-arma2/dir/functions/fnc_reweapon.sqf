@@ -68,7 +68,6 @@ private["_flyInHeight","_pos"];
 					_veh removeWeapon _weapon;
 					_weapon = "ACE_AK74M_TWS_FL";
 					_veh addWeapon _weapon;
-					_veh selectWeapon _weapon;
 				};
 			};
 			if !(daytime > 3 && daytime < 20) then {
@@ -77,13 +76,11 @@ private["_flyInHeight","_pos"];
 						_veh removeWeapon _weapon;
 						_weapon = "ACE_AK74M_PSO_FL";
 						_veh addWeapon _weapon;
-						_veh selectWeapon _weapon;
 					};
 					if ( _weapon in ["ACE_AK74M_Kobra"] ) then {
 						_veh removeWeapon _weapon;
 						_weapon = "ACE_AK74M_Kobra_FL";
 						_veh addWeapon _weapon;
-						_veh selectWeapon _weapon;
 					};
 					// if ( _weapon in ["ACE_AK74M_GL_Kobra"] ) then {
 						// _veh removeWeapon _weapon;
@@ -113,13 +110,11 @@ private["_flyInHeight","_pos"];
 						_veh removeWeapon _weapon;
 						_weapon = "AKS_74_GOSHAWK";
 						_veh addWeapon _weapon;
-						_veh selectWeapon _weapon;
 					};
 					if ( _weapon in ["m107"] ) then {
 						_veh removeWeapon _weapon;
 						_weapon = "m107_TWS_EP1";
 						_veh addWeapon _weapon;
-						_veh selectWeapon _weapon;
 					};
 				};
 				if (random 10 > 6.5) then {
@@ -133,7 +128,6 @@ private["_flyInHeight","_pos"];
 						_veh removeWeapon _weapon;
 						_weapon = "M249_m145_EP1"; // [["M249_m145_EP1", "M249_TWS_EP1"],[0.5,0.1]] call BIS_fnc_selectRandomWeighted;
 						_veh addWeapon _weapon;
-						_veh selectWeapon _weapon;
 					};
 				};
 				if (random 10 > 7) then {
@@ -147,19 +141,16 @@ private["_flyInHeight","_pos"];
 							_veh removeWeapon _weapon;
 							_weapon = "AKS_74_NSPU";
 							_veh addWeapon _weapon;
-							_veh selectWeapon _weapon;
 						};
 						if ( _weapon in ["SVD","SVD_des_EP1","SVD_CAMO"] ) then {
 							_veh removeWeapon _weapon;
 							_weapon = "SVD_NSPU_EP1";
 							_veh addWeapon _weapon;
-							_veh selectWeapon _weapon;
 						};
 						if ( _weapon in ["FN_FAL"] ) then {
 							_veh removeWeapon _weapon;
 							_weapon = "FN_FAL_ANPVS4";
 							_veh addWeapon _weapon;
-							_veh selectWeapon _weapon;
 						};
 					};
 				};
@@ -179,7 +170,6 @@ private["_flyInHeight","_pos"];
 				for "_i" from 1 to 3 do { _veh addMagazine "30Rnd_545x39_AK"};
 				_weapon = "AKS_74_GOSHAWK";
 				_veh addWeapon _weapon;
-				_veh selectWeapon "revolver_gold_EP1";
 			};
 		};
 		///--- Bardak
@@ -187,7 +177,6 @@ private["_flyInHeight","_pos"];
 			for "_i" from 1 to 3 do { _veh addMagazine "30Rnd_762x39_AK47"};
 			_weapon = "AKS_GOLD";
 			_veh addWeapon _weapon;
-			_veh selectWeapon _weapon;
 		};
 		if (_type isKindOf "RUS_Soldier_TL") then{
 			// if ( _weapon in ["AKS_74_U"] ) then {
@@ -259,7 +248,6 @@ private["_flyInHeight","_pos"];
 			if !("Laserdesignator_mounted" in weapons _veh) then {
 				_veh addmagazine "laserbatteries";
 				_veh addweapon "laserdesignator_mounted";
-				_veh selectweapon "laserdesignator_mounted";
 			};
 			if (LIB_ahAvail) then {
 				_veh call (compile "_this allowCrewInImmobile true;"); // OA
