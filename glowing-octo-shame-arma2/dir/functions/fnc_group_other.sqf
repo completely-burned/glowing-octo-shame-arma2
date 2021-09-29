@@ -8,10 +8,8 @@
  */
 
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP",
-"_units","_vehicles","_types","_cargo","_assignedVehicles","_Submarine",
-"_Helicopter","_Plane","_Ship","_StaticWeapon","_Air","_uav","_Car","_Tank",
-"_Tracked_APC","_Wheeled_APC","_AA","_support","_grp_wp_completed",
-"_driver","_slu","_z","_n"
+"_units","_vehicles","_types","_cargo","_assignedVehicles",
+"_grp_wp_completed","_driver","_slu","_z","_n","_grp_type"
 ];
 
 // private ["_Stealth"];
@@ -83,56 +81,14 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		}; // diag_log
 	};
 
-	if({toLower getText(LIB_cfgVeh >> _x >> "vehicleClass") == "submarine"} count _types > 0)then{_Submarine = true}else{_Submarine = false};
+	_grp_type = _units+_vehicles+_assignedVehicles call gosa_fnc_getGroupType;
 
-	_Helicopter = ([_vehicles, ["Helicopter"]] call gosa_fnc_CheckIsKindOfArray);
-
-	_Plane = ([_vehicles, ["Plane"]] call gosa_fnc_CheckIsKindOfArray);
-
-	_Ship = ([_vehicles, ["Ship"]] call gosa_fnc_CheckIsKindOfArray);
-
-	_StaticWeapon = ([_vehicles, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray);
-
-	_Air = ([_vehicles, ["Air"]] call gosa_fnc_CheckIsKindOfArray);
-
-	_Tank = ([_vehicles, ["Tank"]] call gosa_fnc_CheckIsKindOfArray);
-
-	_Car = ([_vehicles, ["Car"]] call gosa_fnc_CheckIsKindOfArray);
-
-	_Tracked_APC = ([_vehicles, ["Tracked_APC"]] call gosa_fnc_CheckIsKindOfArray);
-	_Wheeled_APC = ([_vehicles, ["Wheeled_APC"]] call gosa_fnc_CheckIsKindOfArray);
-
-	_uav = ([_types, ["UAV"]] call gosa_fnc_CheckIsKindOfArray);
-	if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
-		_uav = true;
-	};
-
-	_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call gosa_fnc_CheckIsKindOfArray);
-
-	_support = false;
-	ScopeName "_true1";
-	{
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "attendant")> 0 && _x isKindOf "LandVehicle")then{
-			_support = true;
-			BreakTo "_true1";
-		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportfuel")> 0)then{
-			_support = true;
-			BreakTo "_true1";
-		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportammo")> 0)then{
-			_support = true;
-			BreakTo "_true1";
-		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportrepair")> 0)then{
-			_support = true;
-			BreakTo "_true1";
-		};
-
-	}forEach _vehicles+_assignedVehicles;
-	if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
-		if({count assignedVehicleRole _x > 0} count _units > 0)then{
-			_support = true;
+	_z = "SUPPORT";
+	if !(_z in _grp_type) then {
+		if(waypointType [_grp, currentwaypoint _grp] == _z)then{
+			if({count assignedVehicleRole _x > 0} count _units > 0)then{
+				_grp_type set [count _grp_type, _z];
+			};
 		};
 	};
 
@@ -333,7 +289,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 	// HE Tank
 #ifdef __A2OA__
-	if (_Tank or _Wheeled_APC) then {
+	if ("Tank" in _grp_type or "Wheeled_APC" in _grp_type) then {
 		private["_veh","_type","_entry","_turrets","_turret","_mags_he","_mag","_ammo","_indirectHitRange","_weapon","_mag_he","_mags","_he"];
 		{
 
@@ -573,7 +529,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		};
 
 		// для машин, пехотинцы при SAFE_Behaviour идут медленно, поэтому делать SAFE_Behaviour только если все находятся в транспорте.
-		if(_Car && ({vehicle _x == _x} count _units == 0))then{
+		if("Car" in _grp_type && ({vehicle _x == _x} count _units == 0))then{
 			_Behaviour = "SAFE";
 		};
 
@@ -581,11 +537,11 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_Behaviour = "COMBAT";
 		};
 
-		if (_Tank) then {
+		if ("Tank" in _grp_type) then {
 			_Behaviour = "COMBAT";
 		};
 
-		if(_Air)then{
+		if("Air" in _grp_type)then{
 			_Behaviour = "COMBAT";
 		};
 
@@ -603,7 +559,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_CombatMode = "WHITE";
 		};
 
-		if (_countStealth == 0 && count _units < 2 && !_Air && !_StaticWeapon) then {
+		if (_countStealth == 0 && count _units < 2 && !("Air" in _grp_type) && !("StaticWeapon" in _grp_type)) then {
 			diag_log format ["Log: [gosa_fnc_group_other] count units %1 < min", _grp];
 			_z = ((_leaderPos nearEntities ["CAManBase", 150]) - _units);
 			{
@@ -616,13 +572,13 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			} forEach _z;
 		};
 
-		if(_uav)then{
+		if("UAV" in _grp_type)then{
 			_SpeedMode = "LIMITED";
 			_CombatMode = "BLUE";
 			_Behaviour = "CARELESS";
 		};
 
-		if(_Air)then{
+		if("Air" in _grp_type)then{
 			if(_currentWaypointType in ["UNLOAD","GETOUT","GETIN"] or count _cargo > 0)then{
 				_CombatMode = "GREEN";
 				_Behaviour = "AWARE";
@@ -630,7 +586,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			};
 		};
 
-		if(!_Air)then{
+		if!("Air" in _grp_type)then{
 			if(_Behaviour in ["COMBAT","STEALTH"])then{
 				if !([_leader, 800] call gosa_fnc_CheckPlayersDistance) then {
 					_Behaviour = "AWARE";
@@ -645,7 +601,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		};
 
 		// танки
-		if(_Tank && !_Tracked_APC)then{
+		if("Tank" in _grp_type && !("Tracked_APC" in _grp_type))then{
 			_CombatMode = "RED";
 		};
 
