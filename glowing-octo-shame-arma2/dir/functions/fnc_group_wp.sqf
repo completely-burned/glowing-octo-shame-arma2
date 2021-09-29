@@ -1,6 +1,6 @@
 // эта функция отвечает за создание маршрутных точек для ии
 
-private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_Submarine","_Helicopter","_Plane","_Ship","_StaticWeapon","_Air","_uav","_Car","_Tank","_Tracked_APC","_Wheeled_APC","_AA","_support","_grp_wp_completed"];
+private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_grp_wp_completed"];
 
 _grp=_this;
 
@@ -66,49 +66,19 @@ if({alive _x} count _units > 0)then{
 	};
 
 	// узнаем тип отряда для типа маршрута
-	if({toLower getText(LIB_cfgVeh >> _x >> "vehicleClass") == "submarine"} count _types > 0)then{_Submarine = true}else{_Submarine = false};
-	_Helicopter = ([_vehicles, ["Helicopter"]] call gosa_fnc_CheckIsKindOfArray);
-	_Plane = ([_vehicles, ["Plane"]] call gosa_fnc_CheckIsKindOfArray);
-	_Ship = ([_vehicles, ["Ship"]] call gosa_fnc_CheckIsKindOfArray);
-	_StaticWeapon = ([_vehicles, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray);
-	_Air = ([_vehicles, ["Air"]] call gosa_fnc_CheckIsKindOfArray);
-	_Tank = ([_vehicles, ["Tank"]] call gosa_fnc_CheckIsKindOfArray);
-	_Car = ([_vehicles, ["Car"]] call gosa_fnc_CheckIsKindOfArray);
-	_Tracked_APC = ([_vehicles, ["Tracked_APC"]] call gosa_fnc_CheckIsKindOfArray);
-	_Wheeled_APC = ([_vehicles, ["Wheeled_APC"]] call gosa_fnc_CheckIsKindOfArray);
-	_uav = ([_types, ["UAV"]] call gosa_fnc_CheckIsKindOfArray);
-	if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
-		_uav = true;
-	};
-	_AA = ([_vehicles, ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1"]] call gosa_fnc_CheckIsKindOfArray);
-	_support = false;
-	ScopeName "_true1";
-	{
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "attendant")> 0 && _x isKindOf "LandVehicle")then{
-			_support = true;
-			BreakTo "_true1";
-		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportfuel")> 0)then{
-			_support = true;
-			BreakTo "_true1";
-		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportammo")> 0)then{
-			_support = true;
-			BreakTo "_true1";
-		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportrepair")> 0)then{
-			_support = true;
-			BreakTo "_true1";
-		};
-	}forEach _vehicles+_assignedVehicles;
-	if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
+	_grp_type = _units+_vehicles+_assignedVehicles call gosa_fnc_getGroupType;
+
+	_z = "SUPPORT";
+	if !(_z in _grp_type) then {
+	if(waypointType [_grp, currentwaypoint _grp] == _z)then{
 		if({count assignedVehicleRole _x > 0} count _units > 0)then{
-			_support = true;
+			_grp_type set [count _grp_type, _z];
 		};
+	};
 	};
 
 	// удалить неподвижным ии маршруты, чтобы не убегали
-	if (_StaticWeapon) then {
+	if ("StaticWeapon" in _grp_type) then {
 		if ( count waypoints _grp > 0 ) then{
 			diag_log format ["Log: [gosa_fnc_group_wp.sqf] удалить StaticWeapon %1 маршруты", _grp];
 			[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
@@ -120,7 +90,7 @@ if({alive _x} count _units > 0)then{
 	};
 
 	// десант вертолетный
-	if (_Helicopter) then {
+	if ("Helicopter" in _grp_type) then {
 		if (_typeWP in ["UNLOAD"]) then {
 				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _Helicopter UNLOAD", _grp ];
 
@@ -215,7 +185,7 @@ if({alive _x} count _units > 0)then{
 	};
 
 	// десант самолета
-	if (_Plane) then {
+	if ("Plane" in _grp_type) then {
 		if (_typeWP in ["UNLOAD","GETOUT"]) then {
 			if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
 				if (isNil {_grp getVariable "UNLOAD"}) then {
@@ -293,7 +263,7 @@ if({alive _x} count _units > 0)then{
 	};
 
 	// лодки
-	if (_Ship) then {
+	if ("Ship" in _grp_type) then {
 	  if (_typeWP in ["UNLOAD"]) then {
 		// не помню почему 400 метров, возможно на такой или меньшей дистанции лодка уже ищет береговую линию для десантирования
 		if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
@@ -440,15 +410,13 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 
-			private["_NoCreateWP"];
+			private["_NoCreateWP","_DeleteWP","_StopWP"];
 			_NoCreateWP = false; // не создавать
-			private["_DeleteWP"];
 			_DeleteWP = true; // удалить
-			private["_StopWP"];
 			_StopWP = false; // остановиться
 
 			// остановить группу, удалить и не создавать маршрут если боты атакуют рядом с точкой или игроками
-			if (!_Air && !_Ship) then {
+			if (!("Air" in _grp_type) && !("Ship" in _grp_type)) then {
 				if ((vehicle _leader distance civilianBasePos) <= sizeLocation*1.20 or [_leader, 400] call gosa_fnc_CheckPlayersDistance) then {
 					if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] группа %1 атакует рядом с точкой или игроками %2", _grp, _leaderPos];
@@ -461,7 +429,7 @@ if({alive _x} count _units > 0)then{
 			};
 
 			// ПВО
-			if (_AA) then {
+			if ("AA" in _grp_type) then {
 
 				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA", _this];
 
@@ -543,8 +511,9 @@ if({alive _x} count _units > 0)then{
 
 			};
 
+			_z = "SUPPORT";
 			// грузовики поддержки
-			if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
+			if(waypointType [_grp, currentwaypoint _grp] == _z)then{
 				if({count assignedVehicleRole _x > 0} count _units > 0)then{
 					_DeleteWP = false;
 					if(waypointAttachedVehicle [_grp, currentWaypoint _grp] != vehicle _leader)then{
@@ -552,15 +521,15 @@ if({alive _x} count _units > 0)then{
 					};
 				};
 			};
-			if(_support)then{
-				if(waypointType [_grp, currentwaypoint _grp] != "SUPPORT")then{
+			if(_z in _grp_type)then{
+				if(waypointType [_grp, currentwaypoint _grp] != _z)then{
 					_DeleteWP = true;
 					_NoCreateWP = false;
 					_createWP = true;
 				};
 			};
-			if(!_support)then{
-				if(waypointType [_grp, currentwaypoint _grp] == "SUPPORT")then{
+			if!(_z in _grp_type)then{
+				if(waypointType [_grp, currentwaypoint _grp] == _z)then{
 					_DeleteWP = true;
 					_NoCreateWP = false;
 					_createWP = true;
@@ -588,15 +557,14 @@ if({alive _x} count _units > 0)then{
 			};
 
 			// UAV не создавать маршрут
-			private["_gosa_UAV_WaypointPosCenter"];
-			_gosa_UAV_WaypointPosCenter = _grp getVariable "_gosa_UAV_WaypointPosCenter";
-			if(!isNil{_gosa_UAV_WaypointPosCenter})then{
+			_z = _grp getVariable "_gosa_UAV_WaypointPosCenter";
+			if(!isNil{_z})then{
 				_NoCreateWP = true; // не создавать
 			};
 
 			// остановить ботов на точке 2 минут
 			if(!isNil{_grp_wp_completed})then{
-				if(!_Air && (_grp_wp_completed + 120 < time))then{
+				if(!("Air" in _grp_type) && (_grp_wp_completed + 120 < time))then{
 					if ((vehicle _leader distance civilianBasePos) < sizeLocation) then {
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] остановить ии %1 на точке, time %2", _grp, [_grp_wp_completed, time]];
 						_DeleteWP = true; // удалить
@@ -615,7 +583,7 @@ if({alive _x} count _units > 0)then{
 						deleteWaypoint [_grp, _i];
 					};
 					// создать новый маршрут
-					[_leader] spawn gosa_fnc_waypoints;
+					[_leader, _units, [_grp_type, _vehicles, _assignedVehicles, _cargo, _types, _grp]] spawn gosa_fnc_waypoints;
 
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1  создание маршрута", _grp ];
 				};
@@ -623,11 +591,10 @@ if({alive _x} count _units > 0)then{
 
 			// wpStatements
 			if (count waypoints _grp > 0) then {
-				private["_wp"];
-				_wp = [_grp,_currentWP];
+				_z = [_grp,_currentWP];
 				private["_wpStatements"];
 				_wpStatements = "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}";
-				if!(waypointStatements _wp select 1 in [
+				if!(waypointStatements _z select 1 in [
 					_wpStatements,
 					"vehicle this land 'GET IN'",
 					"vehicle this land 'GET OUT'",
@@ -637,7 +604,7 @@ if({alive _x} count _units > 0)then{
 					"this land 'LAND'"
 				])then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _wpStatements %2", _grp, _wpStatements ];
-					_wp setWaypointStatements ["true", _wpStatements];
+					_z setWaypointStatements ["true", _wpStatements];
 				};
 			};
 		};
