@@ -186,34 +186,10 @@ private["_flyInHeight","_pos"];
 				// _veh selectWeapon _weapon;
 			// };
 		};
-		///---
-		private["_type_weapon"];
-		if (ACE_Avail) then {
-			_type_weapon=getNumber (LIB_cfgWea >> _weapon >> "ace_sys_weapons_TYPE");
-		}else{
-			_type_weapon=getNumber (LIB_cfgWea >> _weapon >> "type");
-		};
-		if (_type_weapon == 5) then {
-			if (getNumber (LIB_cfgWea >> _weapon >> "autoFire") != 1) then {
-				_veh setSkill ["aimingAccuracy", 1]; // снайперские?
-			}else{
-				if (([[_weapon],["M1014","Saiga12K","AA12_PMC"]] call gosa_fnc_CheckIsKindOfArray)) then {
-					_veh setSkill ["aimingAccuracy", 0.09]; // дробовики
-				}else{
-					_veh setSkill ["aimingAccuracy", 0.75];
-				};
-				// _veh setSkill ["aimingShake", 0.5];
-			};
-		};
-
-		if(toLower _type in listCrewLower)then{
-			_veh setSkill ["aimingAccuracy", 0.7]; // танкисты, точность танков
-		};
 	};
 
 			/// --- Air ---
 	if (_type isKindOf "Air") then{
-		_veh setSkill ["aimingAccuracy", 0.4];
 		_veh setSkill ["commanding", 1];
 		_veh setSkill ["spotDistance", 1];
 		if (worldName == "FDF_Isle1_a")then {_veh flyInHeight 200};
@@ -252,7 +228,6 @@ private["_flyInHeight","_pos"];
 			if (LIB_ahAvail) then {
 				_veh call (compile "_this allowCrewInImmobile true;"); // OA
 			};
-			_veh setSkill ["aimingAccuracy", 0.1];
 			_veh setVehicleLock "LOCKED";
 			_veh addEventHandler ["GetOut", { deleteVehicle (_this Select 2) }];
 
@@ -283,11 +258,6 @@ private["_flyInHeight","_pos"];
 					_veh removeMagazine "2Rnd_R73"; // внешний вид
 					_veh addMagazine "2Rnd_R73";
 				};
-			};
-		};
-		if (_type isKindOf "Ka52") then {
-			if (LIB_ahAvail) then {
-				_veh call (compile "_this loadMagazine [[0],'2A42','230Rnd_30mmHE_2A42']");
 			};
 		};
 		///--- Mi24_P
@@ -346,55 +316,9 @@ private["_flyInHeight","_pos"];
 				//_veh addMagazine ["180Rnd_30mm_GSh301",0];
 			};
 		};
-
-		if (_type isKindOf "Air") then{
-			{_x setSkill ["aimingAccuracy", 0.1]} forEach (crew _veh - [driver _veh]);
-			driver _veh setSkill ["aimingAccuracy", 0.4];
-		};
-
-		if (_type isKindOf "Helicopter") then{
-			{_x setSkill ["aimingAccuracy", 0.1]} forEach (crew _veh - [driver _veh]);
-		};
-
-		if (_type isKindOf "Mi17_base") then{
-			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
-			if (_type isKindOf "Mi17_rockets_RU") then{
-				driver _veh setSkill ["aimingAccuracy", 0.4];
-			};
-		};
-		if (_type isKindOf "UH60_Base") then{
-			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
-		};
-		if (_type isKindOf "CH47_base_EP1") then{
-			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
-		};
-		if (_type isKindOf "UH1H_base") then{
-			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
-		};
 	};
 	if (_type isKindOf "LandVehicle") then {
-		// _veh engineOn true;
-		if (_type isKindOf "2S6M_Tunguska" || _type isKindOf "ZSU_Base" || _type isKindOf "Ural_ZU23_Base") then {
-			{_x setSkill ["aimingAccuracy", 0.1]} forEach crew _veh;
-			if (_type isKindOf "2S6M_Tunguska") then {
-				// _veh removeWeapon "2A38M";
-				// _veh addWeapon "2A38M";
-			};
-		}else{
-			{_x setSkill ["aimingAccuracy", 0.7]} forEach crew _veh;
-		};
-		if (_type isKindOf "T34") then {
-			{_x setSkill ["aimingAccuracy", 0.55]} forEach crew _veh;
-			if (LIB_ahAvail) then {
-				_veh call (compile "_this loadMagazine [[0],'ZiS_S_53','33Rnd_85mmHE']");
-			};
-		};
 		_veh setSkill ["commanding", 1];
-		// _veh setSkill ["aimingShake", 1];
-		// _veh engineOn false;
 	};
 
-	// _veh setSkill ["aimingSpeed",1];
-	// _veh setSkill ["spotDistance", 1];
-	// _veh setSkill ["spotTime", 1];
 }forEach (_this select 0);

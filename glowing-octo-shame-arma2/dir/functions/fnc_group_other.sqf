@@ -526,6 +526,10 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	// _slu = objNull;
 #endif
 
+	//--- точность ии
+	{
+		[_x] call gosa_fnc_dynSkill;
+	} forEach _units+_vehicles;
 
 	// ии не нужно следовать маршруту в бою, исключение десант будет следовать маршруту
 	/* дублируется в fnc_group_wp.sqf if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 && !_Air && !_Ship )then{
