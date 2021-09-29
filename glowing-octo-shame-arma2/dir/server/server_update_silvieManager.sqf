@@ -80,6 +80,8 @@ while{true}do{
 									};
 								};
 								} foreach _roads;
+							}else{ // diag_log Undefined variable
+								_road = objNull; // diag_log Undefined variable
 							};
 							private ["_veh1"];
 							_veh1 = createVehicle [ (silvieManagerVehicles call BIS_fnc_selectRandom), _pos, [], 0, "NONE"];
