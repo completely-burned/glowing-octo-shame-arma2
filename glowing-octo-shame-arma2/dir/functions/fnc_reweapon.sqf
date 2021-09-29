@@ -105,7 +105,7 @@ private["_flyInHeight","_pos"];
 						// };
 					// };
 				// };
-				if (random 10 > 8) then {
+				if (random 100 > 95) then {
 					if ( _weapon in ["AKS_74_kobra","AKS_74_pso"] ) then {
 						_veh removeWeapon _weapon;
 						_weapon = "AKS_74_GOSHAWK";
