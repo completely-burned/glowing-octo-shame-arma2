@@ -176,34 +176,6 @@ if(_run)then{
 		[_vehicles, _cargo] call gosa_fnc_MoveInCargo; // посадить в багажное отделение
 	};
 
-
-	// время удаления, и прочее
-	private["_random2","_random5","_random10"];
-	_random2 = random 2; _random5 = random 5; _random10 = random 10;
-	if (_patrol)then{
-		{
-			_x setVariable ["time", time + (60 * 9) + (60 * _random2)];
-		} foreach (_units );
-		_groups select 0 setVariable ["patrol_pos", _pos_resp];
-		_groups select 0 setBehaviour "SAFE";
-	}else{
-		if (("air" in _types) || ("plane" in _types) || ("uav" in _types))then{
-			{
-				_x setVariable ["time", time + (60 * (5 + _random5))];
-			} foreach _units;
-		}else{
-			{
-				_x setVariable ["time", time + (60 * (40 + _random10))];
-			} foreach (_units);
-		};
-	};
-
-	if(count _cargo2 > 0)then{
-		{
-			_x setVariable ["time", time + (60 * (10 + _random5))];
-		} foreach (_cargo2);
-	};
-
 	{_x setVariable ["grp_created",true,true]}forEach _groups;
 
 	_groups;
