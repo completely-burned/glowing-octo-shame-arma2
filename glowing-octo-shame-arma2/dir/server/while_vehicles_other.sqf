@@ -24,14 +24,6 @@ _deleteList=[];
 	};
 
 	if(alive _veh)then{
-		// if ([[_veh], listMHQ] call gosa_fnc_CheckIsKindOfArray) then {
-			// Private["_coin"];
-			// _coin = (_veh getvariable "m_COIN_ID");
-			// if (isNil "_coin") then {
-				// _veh setvariable ["m_COIN_ID",true];
-				// _veh spawn gosa_fnc_mobileHQ_init;
-			// };
-		// };
 
 		private["_side"];
 		_side = getNumber(LIB_cfgVeh >> _type >> "side") call gosa_fnc_getSide;
