@@ -162,12 +162,13 @@ while {true} do {
 
 		_delete = false;
 
-		_time = (_x_veh getVariable "time");
+		_time = (_x_veh getVariable "gosa_timeDeleteVehicle");
 		if ( isNil "_time" ) then {
-			_time = time;
-			_x_veh setVariable ["time", _time];
+			_time = time + _timerDelete;
+			_x_veh setVariable ["gosa_timeDeleteVehicle", _time];
+			diag_log format ["Log: [GC] %1 setTime %2", _x_veh, _time];
 		}else{
-			if ( _time < time - 180 )then {
+			if ( _time < time )then {
 				_delete = true;
 			};
 		};
@@ -175,15 +176,22 @@ while {true} do {
 		if(alive _x_veh)then{
 			if (({alive _x} count (crew _x_veh + [assignedDriver _x_veh, assignedGunner _x_veh, assignedCommander _x_veh] + assignedCargo _x_veh))>0) then{
 				_delete = false;
+				_timeNew = _time max (time + _timerDelete);
 			};
 		};
 
 		if (_delete) then{
 			_deleteListVehDead set [count _deleteListVehDead, _x_veh];
-		}else{
-			_x_veh setVariable ["time", _time];
 		};
 
+		if (!isNil {_timeNew}) then {
+			if (_time != _timeNew) then {
+				_x_veh setVariable ["gosa_timeDeleteVehicle", _timeNew];
+				diag_log format ["Log: [GC] %1 time %2, new %3", _x_veh, _time, _timeNew];
+			};
+		};
+
+		_timeNew = nil;
 
 	} forEach vehicles;
 
