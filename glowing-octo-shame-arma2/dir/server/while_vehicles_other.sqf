@@ -2,7 +2,10 @@
  * TODO: много лишнего кода
  */
 
-private ["_countMHQ","_deleteList","_count_transportammo","_count_transportrepair","_count_transportfuel"];
+private ["_countMHQ","_count_transportammo","_count_transportrepair","_count_transportfuel","_timeNew","_timerDelete"];
+
+_timerDelete = 60 * 2.5;
+
 while{true}do{
 _countMHQ = 0;
 _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
@@ -12,14 +15,11 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 	_veh=_x;
 	_type = typeOf _veh;
 
-	_time = (_veh getVariable "time");
+	_time = (_veh getVariable "gosa_timeDeleteVehicle");
 	if ( isNil "_time" ) then {
-		_time = ( time + ( 180 ) );
-		_veh setVariable ["time", _time];
-	}else{
-		if ( _time < time )then {
-			_delete = true;
-		};
+		_time = ( time + _timerDelete );
+		_veh setVariable ["gosa_timeDeleteVehicle", _time];
+		diag_log format ["Log: [vehicles_other] %1 setTime %2", _veh, _time];
 	};
 
 	if(alive _veh)then{
@@ -32,6 +32,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 				_count_transportammo = _count_transportammo + 1;
 				if (_count_transportammo <= 3) then {
 					_delete = false;
+					_timeNew = _time max (time + _timerDelete);
 				};
 			};
 		};
@@ -41,6 +42,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 				_count_transportammo = _count_transportammo + 1;
 				if (_count_transportammo <= 3) then {
 					_delete = false;
+					_timeNew = _time max (time + _timerDelete);
 				};
 			};
 		};
@@ -50,6 +52,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 				_count_transportrepair = _count_transportrepair + 1;
 				if (_count_transportrepair <= 3) then {
 					_delete = false;
+					_timeNew = _time max (time + _timerDelete);
 				};
 			};
 		};
@@ -60,6 +63,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 				_count_transportfuel = _count_transportfuel + 1;
 				if (_count_transportfuel <= 3) then {
 					_delete = false;
+					_timeNew = _time max (time + _timerDelete);
 				};
 			};
 		};
@@ -68,6 +72,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 					_countMHQ = _countMHQ + 1;
 					if (_countMHQ <= 3) then {
 						_delete = false;
+						_timeNew = _time max (time + _timerDelete);
 					};
 				};
 			};
@@ -78,10 +83,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 				_veh engineOn false;
 			};
 			_delete = false;
-			if ( _time < ( time + 180 ) )then {
-				_time = time + 180;
-				_veh setVariable ["time", _time];
-			};
+			_timeNew = _time max (time + _timerDelete);
 		};
 
 		_veh call gosa_fnc_SalvageTruck;
@@ -90,12 +92,14 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 
 		// _veh call gosa_fnc_uav;
 
-	}else{
-		if !(_delete) then{
-			if ( _time > ( time + 180 ) )then {
-				_veh setVariable ["time",  time + 180 ];
+		if (!isNil {_timeNew}) then {
+			if (_time != _timeNew) then {
+				_veh setVariable ["gosa_timeDeleteVehicle", _timeNew];
+				diag_log format ["Log: [vehicles_other] %1 time %2, new %3", _veh, _time, _timeNew];
 			};
 		};
+
+		_timeNew = nil;
 	};
 } forEach vehicles;
 
