@@ -51,6 +51,7 @@ if (!IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_failoverGroup",
 	"fnc_groupsRarity",
 	"fnc_getGroupType",
 	"fnc_dynSkill",
