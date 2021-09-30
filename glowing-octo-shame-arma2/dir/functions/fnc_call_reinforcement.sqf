@@ -167,7 +167,10 @@ if(_run)then{
 		// _x disableAI "FSM";
 	} foreach _units + _vehicles;
 
-	[_units + _vehicles] call gosa_fnc_reweapon; // перевооружить
+	if (missionNamespace getVariable "gosa_rearmament" == 1) then {
+		[_units + _vehicles] call gosa_fnc_reweapon;
+	};
+
 	// _units call gosa_fnc_RankToSkill; //выставить skill в зависимости от ранга
 	if (count _vehicles > 0) then {
 		[_vehicles, _cargo] call gosa_fnc_MoveInCargo; // посадить в багажное отделение
