@@ -26,26 +26,3 @@ _path = "dir\server\";
 [] execVM (_path + "server_update_groups_wp.sqf");
 [] execVM (_path + "modules.sqf");
 [] execVM "dir\testing\laser.sqf";
-
-private ["_time2","_delay","_time2_select"];
-_time2 = [time,time,time,time,time,time,time,time,time,time,time,time,time,time];
-
-while {false} do {
-	sleep 5;
-
-	_delay = (time - (_time2 select 0));
-	_time2 set [0,time];
-	_time2_select = 1;
-
-	// allDead call gosa_fnc_cleanup;
-
-	// BIS_GC_trashItFunc
-	if( (_time2 select _time2_select) < time )then{
-		_time2 set [_time2_select,time+30+random 5]; _time2_select = _time2_select + 1;
-		// #include "server_update_gc.sqf";
-	};
-
-	// if(true)then{
-		// #include "server_update_groups.sqf";
-	// };
-};
