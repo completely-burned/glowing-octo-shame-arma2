@@ -93,14 +93,20 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 					};
 				};
 
+				/*
 				// без стрелка
 				if(_allow)then{
 					if(_veh isKindOf "LandVehicle")then{
-						if!([_veh, false] call gosa_fnc_CheckTurretAlive)then{
-							_allow=false;
+						if(count _role > 0)then{
+							if(_role select 0 == "Driver")then{
+								if!([_veh, false] call gosa_fnc_CheckTurretAlive)then{
+									_allow=false;
+								};
+							};
 						};
 					}
 				};
+				*/
 
 				// авиация
 				if!(_allow)then{
