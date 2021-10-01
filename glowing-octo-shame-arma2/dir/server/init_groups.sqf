@@ -1,6 +1,6 @@
 #define __A2OA__
 ///--- бардак, комментировать нечего
-private ["_arr13453","_n"];
+private ["_z","_n"];
 waitUntil{!isNil "bis_fnc_init"};
 waitUntil{!isNil "gosa_fnc_init"};
 
@@ -115,7 +115,7 @@ AllGroupsGuer = AllGroupsGuer call _fnc5;
 //AllGroupsEastOld 		= AllGroupsEast;
 //AllGroupsGuerrilaOld	= AllGroupsGuerrila;
 
-_arr13453=[
+_z=[
 	[["Man"], 					missionNamespace getVariable "Man"],
 	[["Air"], 					missionNamespace getVariable "Air"],
 	[["Tank"], 					missionNamespace getVariable "Tank"],
@@ -137,9 +137,9 @@ _arr13453=[
 // AllGroupsEastOld 		= ([AllGroupsEastOld, [[["Air"],0.5]]] call _fnc4);
 // AllGroupsGuerrilaOld 	= ([AllGroupsGuerrilaOld, [[["Air"],0.5]]] call _fnc4);
 
-[AllGroupsWest, _arr13453] call gosa_fnc_groupsRarity;
-[AllGroupsEast, _arr13453] call gosa_fnc_groupsRarity;
-[AllGroupsGuer, _arr13453] call gosa_fnc_groupsRarity;
+[AllGroupsWest, _z] call gosa_fnc_groupsRarity;
+[AllGroupsEast, _z] call gosa_fnc_groupsRarity;
+[AllGroupsGuer, _z] call gosa_fnc_groupsRarity;
 
 if(!(west in gosa_friendlyside or east in gosa_friendlyside) or (missionNamespace getVariable "local_conflict" == 1))then{
 	[AllGroupsWest, [
