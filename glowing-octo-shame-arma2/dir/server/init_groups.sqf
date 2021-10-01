@@ -119,8 +119,9 @@ _arr13453=[
 	[["Man"], 					missionNamespace getVariable "Man"],
 	[["Air"], 					missionNamespace getVariable "Air"],
 	[["Tank"], 					missionNamespace getVariable "Tank"],
-	[["Car","Motorcycle","Ship"], missionNamespace getVariable "Car"],
-	[["StaticWeapon"], 0]
+	[["Car","Motorcycle"],		missionNamespace getVariable "Car"],
+	[["StaticWeapon"], 			missionNamespace getVariable "StaticWeapon"],
+	[["Ship"], 					missionNamespace getVariable "Ship"]
 ];
 
 // _arr13453=[
