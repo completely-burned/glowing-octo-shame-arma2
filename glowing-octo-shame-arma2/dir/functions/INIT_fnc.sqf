@@ -8,6 +8,7 @@ _path = "dir\Functions\";
 _prefix="gosa_";
 
 BIS_fnc_listPlayers = compile (preprocessFileLineNumbers (_path + "fnc_listPlayers.sqf"));
+BIS_fnc_selectRandomWeighted = compile (preprocessFileLineNumbers (_path + "fnc_selectRandomWeighted.sqf"));
 
 //--- сервер
 if (isServer) then {
