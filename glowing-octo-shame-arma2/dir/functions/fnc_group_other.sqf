@@ -172,6 +172,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	}forEach _units;
 
 	//--- устанавливает ограничение скорости транспорта
+		// TODO: тс застревает из-за маленькой скорости
 	_n = if (behaviour _leader == "COMBAT") then {1}else{5};
 	{
 		_driver = driver _x;
