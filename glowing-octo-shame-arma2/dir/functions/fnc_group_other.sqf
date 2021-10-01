@@ -471,7 +471,10 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_CombatMode = "WHITE";
 		};
 
-		if (_countStealth == 0 && count _units < 2 && !("Air" in _grp_type) && !("StaticWeapon" in _grp_type)) then {
+		//--- малые отряды объединяются
+		/* недоработано
+		if (count _units < 2 && {_countStealth == 0 && 
+			!("Air" in _grp_type) && !("StaticWeapon" in _grp_type) && !("SUPPORT" in _grp_type)}) then {
 			diag_log format ["Log: [gosa_fnc_group_other] count units %1 < min", _grp];
 			_z = ((_leaderPos nearEntities ["CAManBase", 150]) - _units);
 			{
@@ -483,6 +486,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 				};
 			} forEach _z;
 		};
+		*/
 
 		if("UAV" in _grp_type)then{
 			_SpeedMode = "LIMITED";
