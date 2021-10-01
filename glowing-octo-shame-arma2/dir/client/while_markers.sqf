@@ -80,6 +80,9 @@ createMarkerLocal ["MainMarker", [0,0]];
 "MainMarker" setMarkerShapeLocal "ELLIPSE";
 "MainMarker" setMarkerColorLocal "ColorBlack";
 
+sizeLocation = 0; // Undefined variable
+civilianBasePos = [0,0]; // Undefined variable
+
 if(true)then{
 
 	private ["_markers","_units"];
