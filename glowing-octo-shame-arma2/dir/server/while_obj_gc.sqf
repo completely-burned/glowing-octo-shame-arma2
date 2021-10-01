@@ -94,7 +94,7 @@ while {true} do {
 
 			// пилоты и танкисты без техники
 			_type = typeOf _x_veh;
-			if(toLower _type in listCrewLower+listPilotLower)then{
+			if(_type in gosa_crewL+gosa_pilotL)then{
 				_assignedVehicle = assignedVehicle _x_veh;
 				if(isNull _assignedVehicle && (vehicle _x_veh == _x_veh))then{
 					if (currentCommand _x_veh in ["MOVE"]) then {
