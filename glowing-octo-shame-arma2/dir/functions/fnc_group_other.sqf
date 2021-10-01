@@ -255,7 +255,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 				}else{
 					// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
-					if(toLower typeOf _x in (listCrewLower+listPilotLower) &&
+					if(typeOf _x in (gosa_crewL+gosa_pilotL) &&
 						isNull _assignedVehicle
 					 )then{
 						if (isNil {_grp getVariable "gosa_grpCrewOld"}) then {
@@ -462,7 +462,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		private ["_countStealth"];
 		_countStealth = 0;
 		{
-			if (toLower _x in listStealthTypesLower) then {
+			if (_x in gosa_StealthL) then {
 				_countStealth = _countStealth +1;
 			};
 		} forEach _types;

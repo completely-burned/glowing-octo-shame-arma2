@@ -1,5 +1,7 @@
 ﻿EnableTeamSwitch false;
 
+private["_z"];
+
 BIS_WFdPath = "\CA\Warfare2\";
 
 LIB_cfgVeh = configFile >> "CfgVehicles";
@@ -40,7 +42,7 @@ listMHQ = [
 	"MHQ"
 ];
 
-listCrew = [
+_z = [
 	"USMC_Soldier_Crew",
 	"CDF_Soldier_Crew",
 	"RU_Soldier_Crew",
@@ -56,8 +58,13 @@ listCrew = [
 	"CZ_Soldier_Crew_Wdl_ACR",
 	"Crew"
 ];
+gosa_crewL = [];
+{
+	gosa_crewL set [count gosa_crewL, configName (LIB_cfgVeh >> _x)];
+} forEach _z;
+diag_log format ["Log: [init_common]: gosa_crewL %1", gosa_crewL];
 
-listPilot = [
+_z = [
 	"USMC_Soldier_Pilot",
 	"CDF_Soldier_Pilot",
 	"RU_Soldier_Pilot",
@@ -71,8 +78,13 @@ listPilot = [
 	"CZ_Soldier_Pilot_EP1",
 	"Pilot"
 ];
+gosa_pilotL = [];
+{
+	gosa_pilotL set [count gosa_pilotL, configName (LIB_cfgVeh >> _x)];
+} forEach _z;
+diag_log format ["Log: [init_common]: gosa_pilotL %1", gosa_pilotL];
 
-listStealthTypes = [
+_z = [
 	"GUE_Soldier_Sniper","GUE_Soldier_Scout",
 	"INS_Soldier_Sniper","Ins_Soldier_Sab",
 	"CDF_Soldier_Sniper","CDF_Soldier_Spotter",
@@ -85,6 +97,11 @@ listStealthTypes = [
 	"TK_Soldier_SniperH_EP1","TK_Soldier_Spotter_EP1",
 	"TK_GUE_Soldier_Sniper_EP1"
 ];
+gosa_StealthL = [];
+{
+	gosa_StealthL set [count gosa_StealthL, configName (LIB_cfgVeh >> _x)];
+} forEach _z;
+diag_log format ["Log: [init_common]: gosa_StealthL %1", gosa_StealthL];
 
 HQ = ["WarfareBDepot","WarfareBCamp"];
 Warfare_HQ = ["Warfare_HQ_base_unfolded"];
@@ -120,18 +137,3 @@ safeSpawnDistance = [1000,1500,3500,1500,1500,3500];
 // [] execVM "dir\ais\gosa_is.sqf";
 [] execVM ("dir\common\while_vehicles_lock.sqf");
 [] execVM ("dir\common\while_fps.sqf");
-
-listCrewLower = [];
-{
-	listCrewLower set [count listCrewLower, toLower _x];
-} forEach listCrew;
-
-listPilotLower = [];
-{
-	listPilotLower set [count listPilotLower, toLower _x];
-} forEach listPilot;
-
-listStealthTypesLower = [];
-{
-	listStealthTypesLower set [count listStealthTypesLower, toLower _x];
-} forEach listStealthTypes;
