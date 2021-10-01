@@ -32,7 +32,7 @@
 
 
 						// магазин подходит оружию
-						if ({toLower _mag == toLower _x } count getArray (configFile >> "cfgWeapons" >> _weapon >> "magazines") > 0) then {
+						if ({_mag == _x } count getArray (configFile >> "cfgWeapons" >> _weapon >> "magazines") > 0) then {
 
 							// добавить в список подходящих магазинов
 							_mags set [count _mags, [_turret, _weapon, _mag]];
