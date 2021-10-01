@@ -76,12 +76,11 @@ _dynamicMarkers = [];
 
 gosa_respawnMarkers = _respawnMarkers;
 
-createMarkerLocal ["MainMarker", [0,0]];
+waitUntil {!isNil {civilianBasePos}};
+createMarkerLocal ["MainMarker", civilianBasePos];
 "MainMarker" setMarkerShapeLocal "ELLIPSE";
 "MainMarker" setMarkerColorLocal "ColorBlack";
-
-sizeLocation = 0; // Undefined variable
-civilianBasePos = [0,0]; // Undefined variable
+waitUntil {!isNil {sizeLocation}};
 
 if(true)then{
 
