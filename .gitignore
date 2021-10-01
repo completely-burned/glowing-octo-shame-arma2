@@ -1,6 +1,2 @@
-.tmp.drivedownload
 .build.tmp
 .build.out
-.vs
-*.sublime-workspace
-*копия*
