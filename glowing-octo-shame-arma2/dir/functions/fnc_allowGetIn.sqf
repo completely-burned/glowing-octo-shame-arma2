@@ -164,7 +164,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 			}else{
 				// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
 				if(typeOf _x in (gosa_crewL+gosa_pilotL) &&
-					isNull _veh
+					count assignedVehicleRole _x == 0
 				 )then{
 					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then {
 						private["_newGrp"];
