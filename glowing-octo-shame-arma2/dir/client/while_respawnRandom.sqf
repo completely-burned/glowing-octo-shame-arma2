@@ -69,6 +69,8 @@ _fnc_isFit={
 		!isNil{group _this getVariable "grp_created"} &&
 		!(WaypointType [group _this, currentwaypoint group _this] in ["UNLOAD","GETOUT"]) && // TODO: нужно реализовать десант с игроками тоже
 		!(vehicle _this isKindOf "StaticWeapon") &&
+		!(vehicle _this isKindOf "Air") && // отключенно из-за десанта, и не умения летать некоторых игроков
+		!(vehicle _this isKindOf "Ship") && // отключенно из-за десанта
 		isNil {group _this getVariable "patrol"}
 	) then {
 		true;
