@@ -1,11 +1,16 @@
 #define __A2OA__
 
 #ifdef __A2OA__
-private["_coin_actions","_Objects","_coins","_action","_player","_action","_obj","_delete","_action_obj"];
+private["_coin_actions","_Objects","_coins","_action","_player","_action","_obj","_delete","_action_obj","_run"];
+
+_run = false;
+if (missionNamespace getVariable "gosa_coin" == 1) then {
+	_run = true;
+};
 
 _coin_actions = [];
 
-while{true}do{
+while{_run}do{
 	_coins = [];
 	for "_i" from 0 to ((count _coin_actions) - 1) do {
 		_action = _coin_actions select _i select 0;

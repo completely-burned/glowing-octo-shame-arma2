@@ -181,6 +181,12 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=1;
 	};
+	class gosa_coin {
+		title="coin (not working)";
+		values[] = {0,1};
+		texts[] = {$STRWFNO,$STRWFYES};
+		default=0;
+	};
 };
 
 class Weapons {
