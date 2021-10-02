@@ -97,6 +97,79 @@ if({alive _x} count _units > 0)then{
 
 	// десант вертолетный
 	if ("Helicopter" in _grp_type) then {
+
+		//--- десант
+			// TODO: нужна функция
+
+			//--- десант, все юниты отряда в грузовом отсеке вертолета
+			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then {
+				diag_log format ["Log: [fnc_group_wp] #landing %1 все юниты группы в грузовом отсеке вертолета %2", _grp, _units];
+
+				_z = group vehicle _leader;
+				diag_log format ["Log: [fnc_group_wp] #landing %1 группа вертолета", _z];
+
+				_z = [_z, currentWaypoint _z];
+				diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут группы вертолета", [_z, waypointType _z, waypointPosition _z]];
+
+
+				if (waypointPosition _z select 0 != 0 && waypointType _z != "TR UNLOAD") then {
+					diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType 'TR UNLOAD'", _z, _z];
+					_z setWaypointType "TR UNLOAD";
+				};
+
+				if (count waypoints _grp == 0) then {
+					diag_log format ["Log: [fnc_group_wp] #landing %1 нет маршрута", _grp];
+				}else{
+
+					if (waypointPosition _wp select 0 != 0 && _typeWP != "GETOUT") then {
+						_wp setWaypointType "GETOUT";
+						diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType 'GETOUT'", _grp];
+					};
+
+					//--- синхронизируем маршруты
+						// TODO: нужны проверка на grpNull и count waypoints и позицию [0,0] и прочее
+
+
+						if (waypointPosition _z select 0 != 0 && waypointPosition _wp select 0 != 0) then {
+
+							if (isNull waypointAttachedVehicle _wp && [waypointPosition _z, waypointPosition _wp] call BIS_fnc_distance2D > 100) then {
+								_wp setWaypointPosition [waypointPosition _z, -1];
+								_wp synchronizeWaypoint [_z]; // FIXME: не понимаю нужное направление
+								_z synchronizeWaypoint [_wp];
+								diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут изменен и синхронизирован %2", _grp, _z];
+							}else{
+
+								//--- выгрузка
+									if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
+
+
+										diag_log format ["Log: [fnc_group_wp] #landing %1 выгрузка, дист. %2", _grp, _leaderPos distance waypointPosition _wp];
+
+										//--- маршрут прикрепляю к тс для выгрузки немедленно
+											private["_veh"];
+											_veh = vehicle _leader;
+											if(waypointAttachedVehicle _z != _veh)then{
+												_z waypointAttachVehicle _veh;
+												diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут прикреплен к %2", _z, _veh];
+											};
+											_z = vehicle _leader;
+											if(waypointAttachedVehicle _wp != _veh)then{
+												_wp waypointAttachVehicle _veh;
+												diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут прикреплен к %2", _wp, _veh];
+											};
+									};
+							};
+						}else{
+							diag_log format ["Log: [fnc_group_wp] #landing маршруты на позиции %1", [_wp, waypointPosition _wp, _z, waypointPosition _z]];
+						};
+
+				};
+
+
+			};
+
+
+		/*
 		if (_typeWP in ["UNLOAD"]) then {
 				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _Helicopter UNLOAD", _grp ];
 
@@ -188,6 +261,7 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 		};
+		*/
 	};
 
 	// десант самолета
@@ -551,6 +625,40 @@ if({alive _x} count _units > 0)then{
 					sleep 0.1;
 				};
 			};
+
+			//--- пост выгрузка, транспорт
+				if (_typeWP in ["TR UNLOAD"]) then {
+					private["_landing"];
+					_landing = false;
+					{
+						private["_veh"];
+						_veh = _x;
+						if({_z = group _x; _z != _grp && !isNull _z}count crew _veh > 0)then{
+							_landing = true;
+						};
+					} forEach _vehicles;
+
+					if (_landing) then {
+						_DeleteWP = false;
+						_NoCreateWP = true;
+						_createWP = false;
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #landing пересоздание маршрута отменено", _wp, _typeWP];
+					}else{
+						_DeleteWP = true;
+						_NoCreateWP = true;
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #landing пост выгрузка, транспорт, удаление маршрутов", _wp, _typeWP];
+					};
+				};
+
+			//--- пост выгрузка, пехота
+				if (_typeWP == "GETOUT") then {
+					if ({vehicle _x == _x} count _units == count _units) then {
+						_DeleteWP = true;
+						_NoCreateWP = true;
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #landing пост выгрузка, пехота, удаление маршрутов", _wp, _typeWP];
+					};
+				};
+
 
 			// удалить маршруты
 			if( _NoCreateWP && _DeleteWP)then{
