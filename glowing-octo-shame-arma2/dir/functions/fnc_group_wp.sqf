@@ -36,6 +36,8 @@ if({alive _x} count _units > 0)then{
 	_wp = [_grp,_currentWP];
 	_typeWP = waypointType _wp;
 
+	// слишком часто diag_log format ["Log: [fnc_group_wp] %1", [_leader, _wp, _typeWP]];
+
 	_vehicles = [];
 	_types = [];
 	_cargo = [];
