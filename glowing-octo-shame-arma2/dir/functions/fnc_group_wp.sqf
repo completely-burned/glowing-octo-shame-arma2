@@ -288,7 +288,7 @@ if({alive _x} count _units > 0)then{
 						private["_veh"];
 						_veh = _x;
 						{
-							// _x leaveVehicle _veh;
+							_x leaveVehicle _veh;
 							unassignVehicle _x;
 						}forEach assignedCargo _veh;
 					}forEach _vehicles;
@@ -333,7 +333,7 @@ if({alive _x} count _units > 0)then{
 						private["_veh"];
 						_veh = _x;
 						{
-							// _x leaveVehicle _veh;
+							_x leaveVehicle _veh;
 							unassignVehicle _x;
 						}forEach crew _veh;
 					}forEach _vehicles;
