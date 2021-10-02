@@ -17,9 +17,13 @@ if({alive _x} count _units > 0)then{
 
 	// удалить [0,0], маршрутная точка на неправильной позиции
 	for "_i" from count waypoints _grp - 1 to 0 step -1 do {
-		if([waypointPosition [_grp, _i], [0,0]] call BIS_fnc_distance2D < 1 )then{
-				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1  позиция wp [0,0] удаление", _grp ];
-			deleteWaypoint [_grp, _i];
+		_z = waypointAttachedVehicle [_grp, _i];
+		if (isNull _z) then {
+			_z = waypointPosition [_grp, _i];
+			if( _z select 0 == 0 && _z select 1 == 0 )then{
+				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 позиция wp [0,0] удаление", [_grp, _i]];
+				deleteWaypoint [_grp, _i];
+			};
 		};
 	};
 
