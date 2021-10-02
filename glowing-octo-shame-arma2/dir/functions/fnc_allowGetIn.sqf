@@ -168,6 +168,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				};
 
 			}else{
+				/* нестабильно
 				// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
 				if(typeOf _x in (gosa_crewL+gosa_pilotL) &&
 					count assignedVehicleRole _x == 0
@@ -184,6 +185,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						[_x] joinSilent _newGrp;
 					};
 				};
+				*/
 
 			}; // isNull _veh
 
