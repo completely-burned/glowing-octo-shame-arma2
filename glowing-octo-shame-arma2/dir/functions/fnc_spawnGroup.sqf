@@ -126,6 +126,6 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 		};
 	};
 
-}forEach (_this select 2);
+}forEach [(_this select 2) select 0]; // десант временно отключен
 
 _groups;
