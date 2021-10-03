@@ -5,7 +5,7 @@ private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient
 	"_shoreMode","_blacklist","_side","_posX","_posY","_radius","_attempts","_nearRoads",
 	"_allowPos","_testPos","_preferRoads","_tmp_dir","_tmp_radius","_run_timer",
 	"_max_square","_square","_max_attempt","_branchesRoads","_roads","_branchRoad",
-	"_roadSize","_square_step","_r","_start_radius","_start_square"];
+	"_roadSize","_square_step","_r","_start_radius","_start_square","_dir_s"];
 
 
 _run_timer = time;
@@ -36,6 +36,10 @@ if (_max_radius == -1) then {
 _preferRoads = (_this select 9 select 0);
 if ((count _this) > 10) then {
 	_side = _this select 10;
+};
+
+if ((count _this) > 11 && {count (_this select 11) > 0}) then {
+	_dir_s = _this select 11;
 };
 
 _posX = _pos select 0;
@@ -112,7 +116,11 @@ while {!_allowPos} do {
 
 	//--- позиция
 	if(count _roads < _roadSize)then{
+		if (isNil {_dir_s}) then {
 		_tmp_dir = random 360;
+		}else{
+			_tmp_dir = (_dir_s select 0) - ((_dir_s select 1)/2) + (random (_dir_s select 1));
+		};
 		_tmp_radius = random _radius;
 		_testPos = [_posX + _tmp_radius*sin _tmp_dir, _posY + _tmp_radius*cos _tmp_dir];
 		_roads = [];
