@@ -117,7 +117,7 @@ while {!_allowPos} do {
 	//--- позиция
 	if(count _roads < _roadSize)then{
 		if (isNil {_dir_s}) then {
-		_tmp_dir = random 360;
+			_tmp_dir = random 360;
 		}else{
 			_tmp_dir = (_dir_s select 0) - ((_dir_s select 1)/2) + (random (_dir_s select 1));
 		};
