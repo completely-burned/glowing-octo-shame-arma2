@@ -143,7 +143,7 @@ while{_run}do{
 		//--- группы
 			_z = {_x select 1 == 0} count _conveyer;
 			if (_enemyGroups +_z < (_limits select 0) && count _conveyer < _conveyer_limit) then {
-				_conveyer set [count _conveyer, [[_enemySide call BIS_fnc_selectRandom] spawn gosa_fnc_call_reinforcement, 0]];
+				_conveyer set [count _conveyer, [[_enemySide call BIS_fnc_selectRandom, objNull] spawn gosa_fnc_call_reinforcement, 0]];
 			};
 			_z = {_x select 1 == 1} count _conveyer;
 			if (_enemyPatrols +_z < (_limits select 1) && count _conveyer < _conveyer_limit) then {
@@ -151,7 +151,7 @@ while{_run}do{
 			};
 			_z = {_x select 1 == 2} count _conveyer;
 			if (_friendlyGroups +_z < (_limits select 2) && count _conveyer < _conveyer_limit) then {
-				_conveyer set [count _conveyer, [[_friendlySide call BIS_fnc_selectRandom] spawn gosa_fnc_call_reinforcement, 2]];
+				_conveyer set [count _conveyer, [[_friendlySide call BIS_fnc_selectRandom, objNull] spawn gosa_fnc_call_reinforcement, 2]];
 			};
 			_z = {_x select 1 == 3} count _conveyer;
 			if (_friendlyPatrols +_z < (_limits select 3) && count _conveyer < _conveyer_limit) then {
