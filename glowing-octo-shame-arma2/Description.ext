@@ -187,6 +187,12 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+	class gosa_frontLine_enemy {
+		title="Frontline - enemy";
+		values[] = {0,1};
+		texts[] = {"random 360","enemy center"};
+		default=0;
+	};
 };
 
 class Weapons {
