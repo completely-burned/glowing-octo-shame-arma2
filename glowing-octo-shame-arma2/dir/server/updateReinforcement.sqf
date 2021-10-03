@@ -13,6 +13,13 @@ diag_log format ["Log: [UpdateReinforcement.sqf] post waitUntil %1", time];
 private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
 	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy"];
 
+if(gosa_loglevel>0)then{ // diag_log
+	private["_diag_log_m_center_e_dir"];
+	_diag_log_m_center_e_dir = createMarker ["gosa_enemy_center", [0,0]];
+	_diag_log_m_center_e_dir setMarkerTextLocal _diag_log_m_center_e_dir;
+	_diag_log_m_center_e_dir setMarkerType "Dot";
+}; // diag_log
+
 _conveyer = [];
 _conveyer_limit = 8;
 
@@ -69,6 +76,9 @@ while{true}do{
 
 		_center_e_dir = [  [civilianBasePos, _z] call BIS_fnc_dirTo,  180  ];
 
+		if(gosa_loglevel>0)then{ // diag_log
+			_diag_log_m_center_e_dir setMarkerPos _z;
+		}; // diag_log
 		diag_log format ["Log: [UpdateReinforcement.sqf] _center_e_dir %1", [_z, _center_e_dir]];
 
 	}else{
