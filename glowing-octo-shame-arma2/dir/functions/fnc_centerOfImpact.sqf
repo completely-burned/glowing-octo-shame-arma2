@@ -1,7 +1,7 @@
 
 /*---------------------------------------------------------------------------
 находим центр кучки 2D
-_this список объектов или позиций
+_this список объектов, групп или позиций
 ---------------------------------------------------------------------------*/
 
 private["_centr","_item","_pX","_pY","_n"];
@@ -10,6 +10,9 @@ _centr = _this select 0;
 
 if (typeName _centr == typeName objNull) then {
 	_centr = getPos _centr;
+};
+if (typeName _centr == typeName grpNull) then {
+	_centr = getPos leader _centr;
 };
 
 /*	private["_m"];
@@ -22,6 +25,9 @@ for "_i" from 1 to count _this -1 do {
 
 	if (typeName _item == typeName objNull) then {
 		_item = getPos _item;
+	};
+	if (typeName _item == typeName grpNull) then {
+		_item = getPos leader _item;
 	};
 
 	_n = _i+1;
