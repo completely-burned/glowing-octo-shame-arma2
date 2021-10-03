@@ -1,6 +1,6 @@
 ﻿diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
-private["_side","_z","_run","_uav","_grp1","_types","_SafePosParams","_pos_resp","_pos","_typeList","_patrol"];
+private["_side","_z","_run","_uav","_grp1","_types","_SafePosParams","_pos_resp","_pos","_typeList","_patrol","_dir"];
 if(count _this > 0)then{
 		_side = _this select 0;
 }else{
@@ -8,7 +8,7 @@ if(count _this > 0)then{
 		_side = [[east,west,resistance],[0.5,0.5,0.5]] call BIS_fnc_selectRandomWeighted;
 };
 
-if(count _this > 1)then{
+if(count _this > 1 && {!isNull(_this select 1)})then{
 	private ["_players"];
 	if (typeName (_this select 1) == typeName objNull) then {
 		_pos = getPos (_this select 1);
@@ -80,6 +80,12 @@ if(_patrol)then{
 	};
 };
 
+if(count _this > 2 && {count (_this select 2) > 0})then{
+	_dir = _this select 2;
+}else{
+	_dir = [];
+};
+
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] count _typeList %1", count _typeList];
 
 if (isNil "_typeList") exitWith {
@@ -118,7 +124,7 @@ if(_run)then{
 		_SafePosParams set [1,((_SafePosParams select 1) * 2)];
 	};
 
-	_pos_resp = ([_pos]+_SafePosParams+[_side] call gosa_fnc_findSafePos);
+	_pos_resp = ([_pos]+_SafePosParams+[_side]+[_dir] call gosa_fnc_findSafePos);
 	if(count _pos_resp == 0)exitWith{
 		diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _pos_resp isNil ", nil];
 		grpNull
