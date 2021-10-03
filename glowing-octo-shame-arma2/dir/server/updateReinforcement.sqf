@@ -11,7 +11,7 @@ waitUntil {!isNil "gosa_framesAVG"};
 diag_log format ["Log: [UpdateReinforcement.sqf] post waitUntil %1", time];
 
 private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
-	"_z","_dfi","_conveyer","_conveyer_limit","_limits"];
+	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy"];
 
 _conveyer = [];
 _conveyer_limit = 8;
@@ -34,6 +34,7 @@ _friendlySide = gosa_friendlyside - [civilian];
 while{true}do{
 	// diag_log format ["UpdateReinforcement.sqf 17, %1", time];
 	_g_friendly = 0; _g_patrol_f = 0; _g_enemy = 0; _g_patrol_e = 0;
+	_l_enemy = [];
 	{
 		private ["_grp"];
 		_grp=_x;
@@ -54,12 +55,25 @@ while{true}do{
 							_g_friendly = _g_friendly + 1;
 						}else{
 							_g_enemy = _g_enemy + 1;
+							_l_enemy set [count _l_enemy, _x];
 						};
 					};
 				};
 			};
 		};
 	}forEach allGroups;
+
+	if (count _l_enemy > 1) then {
+		diag_log format ["Log: [UpdateReinforcement.sqf] _center_l_enemy %1", count _l_enemy];
+		_z = _l_enemy call gosa_fnc_centerOfImpact;
+
+		_center_e_dir = [  [civilianBasePos, _z] call BIS_fnc_dirTo,  180  ];
+
+		diag_log format ["Log: [UpdateReinforcement.sqf] _center_e_dir %1", [_z, _center_e_dir]];
+
+	}else{
+		_center_e_dir = [];
+	};
 
 	_all_groups=(_g_patrol_f+_g_patrol_e+_g_friendly+_g_enemy);
 
@@ -156,11 +170,11 @@ while{true}do{
 			// diag_log format ["UpdateReinforcement.sqf 106, %1", time];
 			_z = {_x select 1 == 0} count _conveyer;
 			if (_g_friendly + _g_patrol_f +_z < (_limits select 0) && count _conveyer < _conveyer_limit) then {
-				_conveyer set [count _conveyer, [[_friendlySide call BIS_fnc_selectRandom] spawn gosa_fnc_call_reinforcement, 0]];
+				_conveyer set [count _conveyer, [[_friendlySide call BIS_fnc_selectRandom, objNull, _center_e_dir] spawn gosa_fnc_call_reinforcement, 0]];
 			};
 			_z = {_x select 1 == 1} count _conveyer;
 			if (_g_enemy + _g_patrol_e +_z < (_limits select 1) && count _conveyer < _conveyer_limit) then {
-				_conveyer set [count _conveyer, [[_enemySide call BIS_fnc_selectRandom] spawn gosa_fnc_call_reinforcement, 1]];
+				_conveyer set [count _conveyer, [[_enemySide call BIS_fnc_selectRandom, objNull, _center_e_dir] spawn gosa_fnc_call_reinforcement, 1]];
 			};
 			/*
 			if ((_g_patrol_e + _g_patrol_f) < ((_g_enemy + _g_friendly) / 4)) then {
