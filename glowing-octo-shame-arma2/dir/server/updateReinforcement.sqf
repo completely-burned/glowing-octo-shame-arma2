@@ -11,7 +11,7 @@ waitUntil {!isNil "gosa_framesAVG"};
 diag_log format ["Log: [UpdateReinforcement.sqf] post waitUntil %1", time];
 
 private["_minGroups","_enemyCoefficient","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
-	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy"];
+	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fl_e"];
 
 if(gosa_loglevel>0)then{ // diag_log
 	private["_diag_log_m_center_e_dir"];
@@ -23,6 +23,7 @@ if(gosa_loglevel>0)then{ // diag_log
 _conveyer = [];
 _conveyer_limit = 8;
 
+_fl_e = missionNamespace getVariable "gosa_frontLine_enemy";
 _dfi = gosa_server_diag_fps_interval;
 _minGroups = missionNamespace getVariable "minGroups";
 _dyn_limit = _minGroups;
@@ -70,7 +71,7 @@ while{true}do{
 		};
 	}forEach allGroups;
 
-	if (count _l_enemy > 1) then {
+	if (count _l_enemy > 1 && _fl_e == 1) then {
 		diag_log format ["Log: [UpdateReinforcement.sqf] _center_l_enemy %1", count _l_enemy];
 		_z = _l_enemy call gosa_fnc_centerOfImpact;
 
