@@ -12,6 +12,11 @@ _t = [];
 		_t set [count _t, _z];
 	};
 
+	_z = "Air";
+	if (!(_z in _t) && {_x isKindOf _z}) then {
+		_t set [count _t, _z];
+	};
+
 	_z = "Ship";
 	if (!(_z in _t) && {_x isKindOf _z}) then {
 		_t set [count _t, _z];
