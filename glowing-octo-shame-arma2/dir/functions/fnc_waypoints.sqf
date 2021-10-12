@@ -247,7 +247,7 @@ if(!isNil "_leader")then{
 		_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically";
 		_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"];
 
-		diag_log format ["fnc_waypoints.sqf added %1", [_wp, _WaypointType], _grp_type];
+		diag_log format ["fnc_waypoints.sqf %1 added %2", _grp, [_wp, _WaypointType, waypointPosition _wp], _grp_type];
 	};
 };
 
