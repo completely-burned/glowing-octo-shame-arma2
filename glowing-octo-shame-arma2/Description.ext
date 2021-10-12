@@ -193,6 +193,12 @@ class Params {
 		texts[] = {"random 360","enemy center"};
 		default=0;
 	};
+	class gosa_reveal {
+		title="reveal";
+		values[] = {0,1};
+		texts[] = {$STRWFNO,"ai reveal player"};
+		default=0;
+	};
 };
 
 class Weapons {
