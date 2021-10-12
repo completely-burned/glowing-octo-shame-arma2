@@ -273,8 +273,67 @@ if({alive _x} count _units > 0)then{
 		*/
 	};
 
-	// десант самолета
 	if ("Plane" in _grp_type) then {
+
+		//--- десант самолета
+			// TODO: нужна функция, десантруются над водой
+
+			//--- десант, все юниты отряда в грузовом отсеке самолета
+			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then {
+				diag_log format ["Log: [fnc_group_wp] #landing %1 все юниты группы в грузовом отсеке самолета %2", _grp, _units];
+
+				_z = group vehicle _leader;
+				diag_log format ["Log: [fnc_group_wp] #landing %1 группа самолета", _z];
+
+				if (count waypoints _z > 0) then {
+					_z = [_z, currentWaypoint _z];
+					diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут группы самолета", [_z, waypointType _z, waypointPosition _z]];
+
+					if (waypointPosition _z select 0 != 0 && waypointType _z != "TR UNLOAD") then {
+						diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType 'TR UNLOAD'", _z, _z];
+						_z setWaypointType "TR UNLOAD";
+					};
+				};
+
+				if (count waypoints _grp == 0) then {
+					diag_log format ["Log: [fnc_group_wp] #landing %1 нет маршрута", _grp];
+				}else{
+
+					if (waypointPosition _wp select 0 != 0 && _typeWP != "UNLOAD") then {
+						_wp setWaypointType "UNLOAD";
+						diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType 'UNLOAD'", _grp];
+					};
+
+					//--- синхронизируем маршруты
+						if (waypointPosition _z select 0 != 0 && waypointPosition _wp select 0 != 0) then {
+
+							if (isNull waypointAttachedVehicle _wp && [waypointPosition _z, waypointPosition _wp] call BIS_fnc_distance2D > 100) then {
+								_wp setWaypointPosition [waypointPosition _z, -1];
+								_wp synchronizeWaypoint [_z]; // FIXME: не понимаю нужное направление
+								_z synchronizeWaypoint [_wp];
+								diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут изменен и синхронизирован %2", _grp, _z];
+							}else{
+
+								//--- выгрузка
+									if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
+
+										diag_log format ["Log: [fnc_group_wp] #landing %1 выгрузка самолета, дист. %2", _grp, _leaderPos distance waypointPosition _wp];
+
+										_units spawn gosa_fnc_paraJump; // TODO: десантирование нескольких отрядов одновременно возможно конфликтует
+
+									};
+							};
+						}else{
+							diag_log format ["Log: [fnc_group_wp] #landing маршруты на позиции %1", [_wp, waypointPosition _wp, _z, waypointPosition _z]];
+						};
+
+				};
+
+
+			};
+
+
+		/*
 		if (_typeWP in ["UNLOAD","GETOUT"]) then {
 			if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
 				if (isNil {_grp getVariable "UNLOAD"}) then {
@@ -349,6 +408,7 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 		};
+		*/
 	};
 
 	// лодки
