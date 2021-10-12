@@ -730,6 +730,8 @@ if({alive _x} count _units > 0)then{
 					_z setWaypointStatements ["true", _wpStatements];
 				};
 			};
+
+			diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _createWP %2, _DeleteWP %3, _NoCreateWP %4, _StopWP %5", _grp, _createWP, _DeleteWP, _NoCreateWP, _StopWP];
 		};
 	};
 
