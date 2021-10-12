@@ -33,6 +33,15 @@ if({alive _x} count _units > 0)then{
 	_leaderPos = getPos vehicle _leader;
 
 	_currentWP = currentWaypoint _grp;
+
+	// FIXME: не правильный текущий номер маршрута
+	_z = count waypoints _grp;
+	if (_z > 0 && _z <= _currentWP) then {
+		diag_log format ["Log: [fnc_group_wp] %1 currentWaypoint fix", _grp];
+		_grp setCurrentWaypoint [_grp, _z -1];
+		_currentWP = currentWaypoint _grp;
+	};
+
 	_wp = [_grp,_currentWP];
 	_typeWP = waypointType _wp;
 
