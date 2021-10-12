@@ -34,9 +34,7 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 
 		TMPDIRNAME="${NAME,,}-${VERSION,,}-${SIDE,,}.${MAP,,}"
 
-		if [ -d ".build.tmp/${TMPDIRNAME}/" ]; then
-			rm -rf ".build.tmp/${TMPDIRNAME}/*"
-		else
+		if [ ! -d ".build.tmp/${TMPDIRNAME}/" ]; then
 			mkdir ".build.tmp/${TMPDIRNAME}/"
 		fi
 
@@ -45,8 +43,8 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 		#find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -snf ../../{} ".build.tmp/${TMPDIRNAME}/" \;
 
 		# делаем rsync чтобы изменять копии файлов не затронув git директорию перед сборкой .pbo
-		rsync --recursive glowing-octo-shame-arma2/* .build.tmp/${TMPDIRNAME}/
-		rsync --recursive ${DIR}/* .build.tmp/${TMPDIRNAME}/
+		rsync --recursive --delete glowing-octo-shame-arma2/* .build.tmp/${TMPDIRNAME}/
+		rsync --recursive --delete ${DIR}/* .build.tmp/${TMPDIRNAME}/
 
 		# строки начинающиеся с diag_log нужны для отладки
 		# они возможно снижают производительность
