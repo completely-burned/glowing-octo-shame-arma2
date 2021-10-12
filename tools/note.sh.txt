@@ -1,1 +1,5 @@
-rm .build.out/* ; ./tools/build_pbo_linux.sh -d ; rm ~/a2-server/mpmissions/* ; mv .build.out/*compat*armake.* ~/a2-server/mpmissions/
+cd /media/rsync_or_usb_dir
+
+rm .build.out/* ; ./tools/build_pbo_linux.sh ; rm ~/a2-server/mpmissions/* ; mv .build.out/*compat*armake.* ~/a2-server/mpmissions/
+
+rm .build.out/* ; ./tools/build_pbo_linux.sh -d ; rm ~/a2oa-server-private/mpmissions/* ; mv .build.out/* ~/a2oa-server-private/mpmissions/
