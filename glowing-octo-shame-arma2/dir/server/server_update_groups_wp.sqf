@@ -3,6 +3,9 @@ waitUntil {!isNil "sizeLocation"};
 waitUntil {!isNil "group_system_units"};
 waitUntil {!isNil "group_off_units"};
 private["_gosa_initGroup"];
+
+diag_log format ["Log: [server_update_groups_wp.sqf] start %1", time];
+
 while{true}do{
 	{
 		if (_x != group_system_units) then {
@@ -11,3 +14,8 @@ while{true}do{
 	}forEach allGroups;
 	sleep 0.1;
 };
+
+diag_log format ["Log: [server_update_groups_wp.sqf] scriptDone %1, ошибка, этот скрипт не должен завершаться", time];
+
+// failover
+[] execVM "dir\server\server_update_groups_wp.sqf";
