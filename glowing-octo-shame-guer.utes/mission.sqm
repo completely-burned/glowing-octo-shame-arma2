@@ -3,12 +3,10 @@ class Mission
 {
 	addOns[]=
 	{
-		"cacharacters_e",
 		"cacharacters2",
 		"CAWheeled2_BTR90",
 		"warfarebuildings",
 		"CAWheeled_E_Old_bike",
-		"CAWheeled",
 		"camisc3",
 		"caweapons_ammoboxes",
 		"utes",
@@ -648,6 +646,16 @@ class Mission
 			vehicle="MASH";
 			skill=0.60000002;
 			init="this allowDamage false;";
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={5077.4209,-99,5085.0957};
+			name="gosa_worldSize";
+			type="Empty";
 		};
 	};
 };

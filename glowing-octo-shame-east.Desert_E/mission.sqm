@@ -148,8 +148,14 @@ class Mission
 	};
 	class Markers
 	{
-		items=1;
+		items=2;
 		class Item0
+		{
+			position[]={2029.416,47.847702,2039.1405};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+		class Item1
 		{
 			position[]={1374.3322,40.830677,1461.9384};
 			name="playerStartPos";

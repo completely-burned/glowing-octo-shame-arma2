@@ -352,6 +352,16 @@ class Mission
 			skill=0.2;
 		};
 	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={2025.6038,47.923115,2024.0676};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+	};
 };
 class Intro
 {

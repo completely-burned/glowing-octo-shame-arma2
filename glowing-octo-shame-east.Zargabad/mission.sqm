@@ -6,9 +6,6 @@ class Mission
 		"zargabad",
 		"cacharacters_e",
 		"CATracked_E",
-		"CAWheeled_E_Old_bike",
-		"CAWheeled_E",
-		"caweapons_e_ammoboxes",
 		"camisc_e_wf",
 		"corepatch_zargabad_intro_fix",
 		"warfarebuildings",
@@ -630,8 +627,14 @@ class Mission
 	};
 	class Markers
 	{
-		items=1;
+		items=2;
 		class Item0
+		{
+			position[]={8150.7363,133.99139,8160.9116};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+		class Item1
 		{
 			position[]={3460.9658,11.404488,3275.2549};
 			name="playerStartPos";

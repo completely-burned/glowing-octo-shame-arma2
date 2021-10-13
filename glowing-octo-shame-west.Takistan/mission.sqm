@@ -1120,6 +1120,16 @@ class Mission
 			init="this allowDamage false;";
 		};
 	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={12649.928,152.33382,12754.688};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+	};
 };
 class Intro
 {

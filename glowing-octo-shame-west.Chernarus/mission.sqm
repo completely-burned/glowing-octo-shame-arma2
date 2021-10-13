@@ -1433,6 +1433,16 @@ class Mission
 			init="this setVariable [""respawnVehicle"",true];";
 		};
 	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={14751.344,163.12265,15214.326};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+	};
 };
 class Intro
 {
