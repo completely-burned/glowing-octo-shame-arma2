@@ -89,33 +89,13 @@ locationNext={
 
 	private["_grps_rarity"];
 	_grps_rarity = CivilianLocation getVariable "_grps_rarity";
-	if (isNil {_grps_rarity}) then {
 		LocationAllGroupsWest =+ AllGroupsWest;
 		LocationAllGroupsEast =+ AllGroupsEast;
 		LocationAllGroupsGuer =+ AllGroupsGuer;
-	}else{
-		private["_fnc4"];
-		_fnc4={
-			private["_grp","_types"];
-			_grp = +(_this select 0);
-			for "_i" from 0 to ((count (_grp select 0)) - 1) do {
-				_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
-				{
-					if ([_types, _x select 0] call gosa_fnc_CheckIsKindOfArray) then {
-						private["_rarity"];
-						_rarity = ([_grp, [1, _i]] call BIS_fnc_returnNestedElement);
-						_rarity = (_rarity * (_x select 1));
-						[_grp, [1, _i],  _rarity] call BIS_fnc_setNestedElement;
-					};
-
-				}forEach (_this select 1);
-			};
-			_grp
-		};
-
-		LocationAllGroupsWest =+ ([AllGroupsWest, _grps_rarity] call _fnc4);
-		LocationAllGroupsEast =+ ([AllGroupsEast, _grps_rarity] call _fnc4);
-		LocationAllGroupsGuer =+ ([AllGroupsGuer, _grps_rarity] call _fnc4);
+	if (!isNil {_grps_rarity}) then {
+		[LocationAllGroupsWest, _grps_rarity] call gosa_fnc_groupsRarity;
+		[LocationAllGroupsEast, _grps_rarity] call gosa_fnc_groupsRarity;
+		[LocationAllGroupsGuer, _grps_rarity] call gosa_fnc_groupsRarity;
 	};
 
 	sizeLocation=_sizeLocation;
