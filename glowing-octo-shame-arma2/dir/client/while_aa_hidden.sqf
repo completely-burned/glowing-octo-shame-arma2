@@ -31,6 +31,7 @@ if (_fps_conf == 0) then {
 	_fps_conf = _fps_conf min 30;
 };
 
+
 waitUntil{!isNil {group_system_units}};
 
 _aa = objNull;
@@ -41,89 +42,89 @@ while {true} do {
 		// не включать при низком fps
 		if(diag_fps > _fps_conf)then{
 
-		_veh = vehicle player;
+			_veh = vehicle player;
 
-		if (_veh isKindOf "Air" && {effectiveCommander _veh == player}) then {
+			if (_veh isKindOf "Air" && {effectiveCommander _veh == player}) then {
 
-			_posPlayerASL = getPosASL _veh;
+				_posPlayerASL = getPosASL _veh;
 
-			_height = (getPos _veh) select 2;
+				_height = (getPos _veh) select 2;
 
-			if (_veh isKindOf "Plane") then {
-				if ({_x == "CMFlareLauncher"} count getArray (configFile >> "CfgVehicles" >> typeOf _veh >> "weapons") > 0) then {
-					_heightMax = 40 + random 900;
-				}else{
-					_heightMax = 80 + random 900;
-				};
-			};
-
-			if (_veh isKindOf "Helicopter") then {
-				if ({_x == "CMFlareLauncher"} count getArray (configFile >> "CfgVehicles" >> typeOf _veh >> "weapons") > 0) then {
-					_heightMax = 25 + random 900;
-				}else{
-					_heightMax = 50 + random 900;
-				};
-			};
-
-			if (_height > _heightMax) then {
-
-				_dir = random 360;
-				_testPos = [(_posPlayerASL select 0) + 999*sin _dir, (_posPlayerASL select 1) + 999*cos _dir, _posPlayerASL select 2];
-
-				if(!(surfaceIsWater _testPos) or (random 100 < 10))then{
-
-					_hills = false;
-
-					if(_height < 250)then{ // проверки холмов
-						_testPos = [(_posPlayerASL select 0) + 999*sin _dir, (_posPlayerASL select 1) + 999*cos _dir, _posPlayerASL select 2]; // тестовая позиция для проверки холмов 1000 метров
-						_hills = lineIntersects [_posPlayerASL, _testPos, _veh, objNull]; // проверка холмов, нагрузка на cpu, 1000 метров
+				if (_veh isKindOf "Plane") then {
+					if ({_x == "CMFlareLauncher"} count getArray (configFile >> "CfgVehicles" >> typeOf _veh >> "weapons") > 0) then {
+						_heightMax = 40 + random 900;
+					}else{
+						_heightMax = 80 + random 900;
 					};
+				};
 
-					if(!_hills)then{
+				if (_veh isKindOf "Helicopter") then {
+					if ({_x == "CMFlareLauncher"} count getArray (configFile >> "CfgVehicles" >> typeOf _veh >> "weapons") > 0) then {
+						_heightMax = 25 + random 900;
+					}else{
+						_heightMax = 50 + random 900;
+					};
+				};
 
-							_dist = 3000 + random 2000;
-							_testPos = [(_posPlayerASL select 0) + _dist*sin _dir, (_posPlayerASL select 1) + _dist*cos _dir, _posPlayerASL select 2];
-							if([_testPos, 3000] call gosa_fnc_CheckPlayersDistance)exitWith{};
+				if (_height > _heightMax) then {
 
-							if(!canFire _aa or !alive _unit or isNull _unit or isNull _aa)then{
+					_dir = random 360;
+					_testPos = [(_posPlayerASL select 0) + 999*sin _dir, (_posPlayerASL select 1) + 999*cos _dir, _posPlayerASL select 2];
+
+					if(!(surfaceIsWater _testPos) or (random 100 < 10))then{
+
+						_hills = false;
+
+						if(_height < 250)then{ // проверки холмов
+							_testPos = [(_posPlayerASL select 0) + 999*sin _dir, (_posPlayerASL select 1) + 999*cos _dir, _posPlayerASL select 2]; // тестовая позиция для проверки холмов 1000 метров
+							_hills = lineIntersects [_posPlayerASL, _testPos, _veh, objNull]; // проверка холмов, нагрузка на cpu, 1000 метров
+						};
+
+						if(!_hills)then{
+
+								_dist = 3000 + random 2000;
+								_testPos = [(_posPlayerASL select 0) + _dist*sin _dir, (_posPlayerASL select 1) + _dist*cos _dir, _posPlayerASL select 2];
+								if([_testPos, 3000] call gosa_fnc_CheckPlayersDistance)exitWith{};
+
+								if(!canFire _aa or !alive _unit or isNull _unit or isNull _aa)then{
+
+									{
+										_x setDamage 1;
+										deleteVehicle _x;
+									} forEach [_unit, _aa];
+
+									_aa = _aaType createVehicleLocal [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)) , (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))];
+
+									_unit = (group_system_units createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)) , (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"]);
+
+									hideObject _aa;
+									hideObject _unit;
+
+									_unit setCaptive true;
+									_unit moveInGunner _aa;
+
+								};
+
+								_aa setPosASL _testPos;
+								_aa setDir (_dir - 180);
+
+								_aa doWatch _veh;
+
+								sleep 1;
+
+								_aa fireAtTarget [_veh];
 
 								{
 									_x setDamage 1;
 									deleteVehicle _x;
 								} forEach [_unit, _aa];
 
-								_aa = _aaType createVehicleLocal [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)) , (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))];
-
-								_unit = (group_system_units createUnit [getText (configFile >> "CfgVehicles" >> _aaType >> "crew"), [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)) , (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"]);
-
-								hideObject _aa;
-								hideObject _unit;
-
-								_unit setCaptive true;
-								_unit moveInGunner _aa;
-
-							};
-
-							_aa setPosASL _testPos;
-							_aa setDir (_dir - 180);
-
-							_aa doWatch _veh;
-
-							sleep 1;
-
-							_aa fireAtTarget [_veh];
-
-							{
-								_x setDamage 1;
-								deleteVehicle _x;
-							} forEach [_unit, _aa];
+						};
 
 					};
-
 				};
-			};
 
-		};
+			};
 		};
 
 	sleep 4 + random 8;
