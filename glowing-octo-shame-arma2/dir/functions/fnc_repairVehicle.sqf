@@ -8,7 +8,7 @@ private["_item","_l","_e","_v","_n"];
 
 _v = _this select 0;
 
-if ({alive _x}count crew _v > 0) exitWith {
+if ({alive _x && group _x != group player}count crew _v > 0) exitWith {
 	hint "[crew > 0] exit";
 };
 
