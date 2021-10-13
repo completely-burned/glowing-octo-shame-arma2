@@ -50,6 +50,7 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 		# они возможно снижают производительность
 		# поэтому удаляем их
 		if $DIAG_LOG; then
+			sed -i "s/glowing-octo-shame/DEBUG glowing-octo-shame/" .build.tmp/${TMPDIRNAME}/mission.sqm
 			DEBUGPOSTFIX=($(tar -cf - .build.tmp/${TMPDIRNAME}/ | sha1sum))
 			DEBUGPOSTFIX="-debug-$DEBUGPOSTFIX"
 		else
