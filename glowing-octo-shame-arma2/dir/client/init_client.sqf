@@ -34,7 +34,6 @@ SetGroupIconsVisible [true,false];
 [] spawn gosa_fnc_handleLocationTask;
 [] execVM "dir\client\clientMenu.sqf";
 [] execVM "dir\client\while_localGroup.sqf";
-[] execVM "dir\client\while_act_JoinGroup.sqf";
 [] execVM "dir\client\while_act_BuyMenu.sqf";
 [] execVM "dir\client\while_act_coin.sqf";
 [] execVM ("dir\client\while_aa_hidden.sqf");
