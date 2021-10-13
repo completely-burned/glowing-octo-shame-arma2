@@ -167,9 +167,11 @@ while {!_allowPos} do {
 	};
 
 	//--- проверка позиции на отсутствия лишних объектов и наклона
+	if(_allowPos)then{
 	if(count _roads == 0)then{
 		_testPos = (_testPos isFlatEmpty [_objDist, -1, _maxGradient, _objDist, _waterMode, _shoreMode, objNull]);
 		if(count _testPos == 0)then {_allowPos=false};
+	};
 	};
 
 	if(_allowPos)then{
