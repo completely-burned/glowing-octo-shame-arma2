@@ -45,7 +45,7 @@ class Mission
 					position[]={4258.3237,322.45056,5072.7568};
 					id=0;
 					side="WEST";
-					vehicle="RU_Soldier_SL";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="LIEUTENANT";
@@ -56,7 +56,7 @@ class Mission
 					position[]={4261.3237,321.58145,5067.7568};
 					id=1;
 					side="WEST";
-					vehicle="RU_Soldier_MG";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.46666664;
@@ -66,7 +66,7 @@ class Mission
 					position[]={4263.3237,321.48004,5067.7568};
 					id=2;
 					side="WEST";
-					vehicle="RU_Soldier_AT";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					rank="SERGEANT";
 					skill=0.46666664;
@@ -76,7 +76,7 @@ class Mission
 					position[]={4265.3237,321.36273,5067.7568};
 					id=3;
 					side="WEST";
-					vehicle="RU_Soldier_LAT";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					rank="CORPORAL";
 					skill=0.33333331;
@@ -86,7 +86,7 @@ class Mission
 					position[]={4267.3237,321.24539,5067.7568};
 					id=4;
 					side="WEST";
-					vehicle="RU_Soldier_GL";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					rank="CORPORAL";
 					skill=0.33333331;
@@ -96,7 +96,7 @@ class Mission
 					position[]={4269.3237,321.09644,5067.7568};
 					id=5;
 					side="WEST";
-					vehicle="RU_Soldier_Marksman";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					rank="CORPORAL";
 					skill=0.33333331;
@@ -106,7 +106,7 @@ class Mission
 					position[]={4271.3237,320.91489,5067.7568};
 					id=6;
 					side="WEST";
-					vehicle="RU_Soldier_MG";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					rank="CORPORAL";
 					skill=0.33333331;
@@ -116,7 +116,7 @@ class Mission
 					position[]={4273.3237,320.72556,5067.7568};
 					id=7;
 					side="WEST";
-					vehicle="RU_Soldier_AT";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					rank="CORPORAL";
 					skill=0.33333331;
@@ -126,7 +126,7 @@ class Mission
 					position[]={4275.3237,320.53146,5067.7568};
 					id=8;
 					side="WEST";
-					vehicle="RU_Soldier_AR";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					skill=0.2;
 				};
@@ -135,7 +135,7 @@ class Mission
 					position[]={4277.3237,320.31119,5067.7568};
 					id=9;
 					side="WEST";
-					vehicle="RU_Soldier_LAT";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					skill=0.2;
 				};
@@ -144,7 +144,7 @@ class Mission
 					position[]={4279.3237,320.05252,5067.7568};
 					id=10;
 					side="WEST";
-					vehicle="RU_Soldier_GL";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					skill=0.2;
 				};
@@ -153,7 +153,7 @@ class Mission
 					position[]={4281.3237,319.79388,5067.7568};
 					id=11;
 					side="WEST";
-					vehicle="RU_Soldier";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
 					player="PLAY CDG";
 					skill=0.2;
 				};
