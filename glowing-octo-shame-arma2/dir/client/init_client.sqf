@@ -25,7 +25,7 @@ SetGroupIconsVisible [true,false];
 };
 */
 
-
+[] execVM "dir\client\while_debug_notice.sqf";
 [] execVM "dir\client\while_markers.sqf";
 [] execVM "dir\client\while_sp_rating.sqf";
 [] spawn gosa_fnc_handleLocationTask;
