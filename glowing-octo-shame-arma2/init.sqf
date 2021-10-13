@@ -1,4 +1,7 @@
 #define __A2OA__
+/*---------------------------------------------------------------------------
+это отладочная версия сценария // diag_log
+---------------------------------------------------------------------------*/
 
 diag_log format ["Log: [init.sqf] *** mission starting %1 ***", worldname];
 
@@ -26,17 +29,17 @@ if !(requiredVersion "1.60") then {
 
 	debug=false;
 
-	gosa_loglevel = missionNamespace getVariable "debugLevel";
+	gosa_loglevel = missionNamespace getVariable "gosa_debugLevel"; // diag_log
 
-	if(isNil "gosa_loglevel")then{
+	if(isNil "gosa_loglevel")then{ // diag_log
 		gosa_loglevel=0;
-	};
+	}; // diag_log
 
-	if(gosa_loglevel>0)then{
-		debug=true;
-	}else{
-		debug=false;
-	};
+	if(gosa_loglevel>0)then{ // diag_log
+		debug=true; // diag_log
+	}else{ // diag_log
+		debug=false; // diag_log
+	}; // diag_log
 	gosa_loglevel_perf = gosa_loglevel;
 	publicVariable "gosa_loglevel";
 

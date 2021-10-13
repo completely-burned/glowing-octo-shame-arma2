@@ -560,3 +560,4 @@ STR_gosa_heli_transport,"air transportation","воздушный транспо�
 STR_gosa_heli_transport_move,"%1 in transit","%1 в пути"
 STR_friendly_vehicles_only,"friendly vehicles only","только дружественные транспортные средства"
 STR_gosa_cheat_detected,"cheat detected","чит обнаружен"
+STR_gosa_debug_notice,"debug script version","отладочная версия сценария"
