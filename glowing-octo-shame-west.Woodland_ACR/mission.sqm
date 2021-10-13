@@ -4,15 +4,15 @@ class Mission
 	addOns[]=
 	{
 		"woodland_acr",
-		"cacharacters2",
 		"warfarebuildings",
 		"CABuildings",
 		"camisc3",
-		"ca_modules_functions"
+		"ca_modules_functions",
+		"cacharacters_acr"
 	};
 	addOnsAuto[]=
 	{
-		"cacharacters2",
+		"cacharacters_acr",
 		"ca_modules_functions",
 		"warfarebuildings",
 		"CABuildings",
