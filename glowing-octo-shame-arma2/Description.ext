@@ -197,7 +197,7 @@ class Params {
 		title="reveal";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,"ai reveal player"};
-		default=0;
+		default=1;
 	};
 };
 
