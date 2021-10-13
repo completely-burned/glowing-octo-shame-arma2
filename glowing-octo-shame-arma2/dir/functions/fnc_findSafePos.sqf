@@ -5,7 +5,7 @@ private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient
 	"_shoreMode","_blacklist","_side","_posX","_posY","_radius","_attempts","_nearRoads",
 	"_allowPos","_testPos","_preferRoads","_tmp_dir","_tmp_radius","_run_timer",
 	"_max_square","_square","_max_attempt","_branchesRoads","_roads","_branchRoad",
-	"_roadSize","_square_step","_r","_start_radius","_start_square","_dir_s"];
+	"_roadSize","_square_step","_r","_start_radius","_start_square","_dir_s","_withinMap"];
 
 
 _run_timer = time;
@@ -40,6 +40,12 @@ if ((count _this) > 10) then {
 
 if ((count _this) > 11 && {count (_this select 11) > 0}) then {
 	_dir_s = _this select 11;
+};
+
+if ((count _this) > 12 && {!isNil {_this select 12}}) then {
+	_withinMap = _this select 12;
+}else{
+	_withinMap = false;
 };
 
 _posX = _pos select 0;
@@ -123,6 +129,11 @@ while {!_allowPos} do {
 		};
 		_tmp_radius = random _radius;
 		_testPos = [_posX + _tmp_radius*sin _tmp_dir, _posY + _tmp_radius*cos _tmp_dir];
+		if (_withinMap) then {
+			if !(_testPos call gosa_fnc_withinMap) then {
+				_allowPos = false;
+			};
+		};
 		_roads = [];
 	}else{
 		_testPos = getPos (_roads select 0);
