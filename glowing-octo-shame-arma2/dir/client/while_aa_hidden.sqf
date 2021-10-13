@@ -1,7 +1,7 @@
 #define __A2OA__
 
 #ifdef __A2OA__
-private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills","_dist","_aaType","_grp","_aaSide"];
+private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills","_dist","_aaType","_grp","_aaSide","_fps_conf"];
 
 if(isNil {_aaType})then{
 	if(playerSide getFriend EAST < 0.6)then{
@@ -24,12 +24,22 @@ if(isNil {_aaType})then{
 
 if(isNil {_aaType})exitWith{};
 
+_fps_conf = (missionNamespace getVariable "gosa_ai_client_create_fps");
+if (_fps_conf == 0) then {
+	_fps_conf = 30;
+}else{
+	_fps_conf = _fps_conf min 30;
+};
+
 waitUntil{!isNil {group_system_units}};
 
 _aa = objNull;
 _unit = objNull;
 
 while {true} do {
+
+		// не включать при низком fps
+		if(diag_fps > _fps_conf)then{
 
 		_veh = vehicle player;
 
@@ -113,6 +123,7 @@ while {true} do {
 				};
 			};
 
+		};
 		};
 
 	sleep 4 + random 8;
