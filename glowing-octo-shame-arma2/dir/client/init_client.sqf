@@ -28,9 +28,6 @@ SetGroupIconsVisible [true,false];
 
 [] execVM "dir\client\while_markers.sqf";
 [] execVM "dir\client\while_sp_rating.sqf";
-[] spawn gosa_fnc_ACT_WinchManager;
-// [] spawn gosa_fnc_handleFirstAid;
-// [] spawn gosa_fnc_handleTeleport;
 [] spawn gosa_fnc_handleLocationTask;
 [] execVM "dir\client\clientMenu.sqf";
 [] execVM "dir\client\while_localGroup.sqf";
