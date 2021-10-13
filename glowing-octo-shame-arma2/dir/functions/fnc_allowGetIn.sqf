@@ -6,6 +6,17 @@ _out=[];
 if !((_this select 1) call gosa_fnc_isPlayer) then {
 	{ // _units
 		_veh = assignedVehicle _x;
+
+		// failover
+		if (isNull _veh) then {
+			_veh = vehicle _x;
+			if (_veh == _x) then {
+				_veh = objNull;
+			}else{ // diag_log
+				diag_log format ["Log: [fnc_allowGetIn] isNull assignedVehicle unit:%1 veh:%2", [_x, typeOf _x], [_veh, typeOf _veh]];
+			};
+		};
+
 		_allow=true;
 		if(!isNull _x)then{
 			if(!isNull _veh)then{
