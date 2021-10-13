@@ -111,7 +111,7 @@ if({alive _x} count _units > 0)then{
 			// TODO: нужна функция
 
 			//--- десант, все юниты отряда в грузовом отсеке вертолета
-			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then {
+			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then { // TODO: не работает если часть юнитов отвязались от транспорта
 				diag_log format ["Log: [fnc_group_wp] #landing %1 все юниты группы в грузовом отсеке вертолета %2", _grp, _units];
 
 				_z = group vehicle _leader;
@@ -279,7 +279,7 @@ if({alive _x} count _units > 0)then{
 			// TODO: нужна функция, десантруются над водой
 
 			//--- десант, все юниты отряда в грузовом отсеке самолета
-			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then {
+			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then { // TODO: не работает если часть юнитов отвязались от транспорта
 				diag_log format ["Log: [fnc_group_wp] #landing %1 все юниты группы в грузовом отсеке самолета %2", _grp, _units];
 
 				_z = group vehicle _leader;
