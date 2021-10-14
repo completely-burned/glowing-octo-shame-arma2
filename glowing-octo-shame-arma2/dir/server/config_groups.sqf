@@ -568,8 +568,9 @@ if(true)then{
 			[[[["BAF_Apache_AH1_D","BAF_Apache_AH1_D"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
 			[[[["BAF_Merlin_HC3_D"],[],["CAPTAIN"]],[["BAF_Soldier_SL_DDPM","BAF_Soldier_TL_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_Marksman_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_AAR_DDPM"]]],0.3],
 
-			[[[["BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D"],[[0,5,0],[3,0,0],[-5,0,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.3],
-			[[[["BAF_Soldier_SL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D","BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D"],[[0,5,0],[3,0,0],[-5,0,0],[5,0,0],[7,0,0],[-5,-10,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+			[[[["BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D"],[[0,5,0],[3,0,0],[-5,0,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.3],
+			[[[["BAF_Soldier_SL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D",	"BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D"],[[0,5,0],[3,0,0],[-5,0,0],[5,0,0],[7,0,0],[-5,-10,0]],[
+					"SERGEANT","PRIVATE","PRIVATE",							"SERGEANT","PRIVATE","PRIVATE"]]],0.1],
 			[[[["BAF_Soldier_SL_MTP","BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_Marksman_MTP","BAF_Offroad_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[-5,0,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 
 			[[[["BAF_Soldier_SL_MTP","BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_Marksman_MTP","BAF_FV510_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","LIEUTENANT"]]],0.3],
@@ -601,8 +602,9 @@ if(true)then{
 		[[[["BAF_Soldier_SniperN_W","BAF_Soldier_SniperN_W","BAF_Soldier_spotterN_W"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE"]]],0.05],
 
 		[[[["BAF_Soldier_SL_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_AR_W","BAF_Soldier_Marksman_W","BAF_Offroad_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[-5,0,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-		[[[["BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Jackal2_L2A1_W"],[[0,5,0],[3,0,0],[-5,0,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.3],
-		[[[["BAF_Soldier_SL_W","BAF_Soldier_GL_W","BAF_Jackal2_L2A1_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Jackal2_L2A1_W"],[[0,5,0],[3,0,0],[-5,0,0],[5,0,0],[7,0,0],[-5,-10,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+		[[[["BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Jackal2_L2A1_W"],[[0,5,0],[3,0,0],[-5,0,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.3],
+		[[[["BAF_Soldier_SL_W","BAF_Soldier_GL_W","BAF_Jackal2_L2A1_W",	"BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Jackal2_L2A1_W"],[[0,5,0],[3,0,0],[-5,0,0],[5,0,0],[7,0,0],[-5,-10,0]],[
+				"SERGEANT","PRIVATE","PRIVATE",							"SERGEANT","PRIVATE","PRIVATE"]]],0.1],
 		[[[["BAF_Soldier_SL_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_Marksman_W","BAF_FV510_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","LIEUTENANT"]]],0.3],
 		[[[["BAF_Soldier_AT_W","BAF_Soldier_AT_W","BAF_Soldier_HAT_W","BAF_Soldier_AAT_W","BAF_Soldier_AAT_W","BAF_Soldier_AHAT_W","BAF_FV510_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],["LIEUTENANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","LIEUTENANT"]]],0.3],
 
