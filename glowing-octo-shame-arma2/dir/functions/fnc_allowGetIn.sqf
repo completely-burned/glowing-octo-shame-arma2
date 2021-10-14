@@ -1,7 +1,8 @@
-private["_out","_allow","_veh"];
+private["_out","_allow","_veh","_ng","_ng_l"];
 // _units = _this select 0;
 // _leader = _this select 1;
 _out=[];
+_ng_l = [];
 
 if !((_this select 1) call gosa_fnc_isPlayer) then {
 	{ // _units
@@ -184,16 +185,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				if(typeOf _x in (gosa_crewL+gosa_pilotL) &&
 					count assignedVehicleRole _x == 0
 				 )then{
-					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then {
-						private["_newGrp"];
-						_newGrp = _grp getVariable "gosa_grpCrewNew";
-						if(isNil {_newGrp})then{
-							_newGrp = createGroup side _grp;
-							diag_log format ["Log: [gosa_fnc_group_other.sqf]: %1 экипаж подбитой техники переходит в другую группу", [_x,_newGrp]];
-							_grp setVariable ["gosa_grpCrewNew", _newGrp];
-							_newGrp setVariable ["gosa_grpCrewOld", _grp];
-						};
-						[_x] joinSilent _newGrp;
+					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then { // TODO: лишние Variable занимают память и группу невозможно использовать повторно
+						_ng_l set [count _ng_l, _x];
 					};
 				};
 				};
@@ -211,5 +204,19 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 	_out allowGetin false;
 
 	(_this select 0) - _out allowGetin true;
+
+
+	if (count _ng_l > 0) then {
+
+		_ng = _grp getVariable "gosa_grpCrewNew";
+		if(isNil "_ng")then{
+			_ng = createGroup side _grp;
+			_grp setVariable ["gosa_grpCrewNew", _ng];
+			_ng setVariable ["gosa_grpCrewOld", _grp];
+		};
+
+		diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники переходит в группу %2", _ng_l, _ng];
+		_ng_l joinSilent _ng;
+	};
 
 };
