@@ -33,7 +33,7 @@ _fnc_swich={
 
 	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
 	_new setVariable ["gosa_player_owner", _o, true];
-	selectPlayer _new;
+	selectPlayer _new; // TODO: нужна пероверка удачного переключения
 
 	_new call gosa_fnc_initBriefing;
 
