@@ -155,7 +155,7 @@ while{true}do{
 						}else{
 							if (_d < civilianBasePos distance vehicle _l) then {
 								_rm = [_grp]+_rm;
-								_rm resize round ((_all_groups-_z) min count _rm);
+								_rm resize (0 max round ((_all_groups-_z) min count _rm));
 							};
 						};					
 						diag_log format ["Log: [UpdateReinforcement.sqf] rm %1", _rm];
