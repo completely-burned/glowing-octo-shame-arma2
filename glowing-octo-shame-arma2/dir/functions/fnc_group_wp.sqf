@@ -293,8 +293,6 @@ if({alive _x} count _units > 0)then{
 						diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType 'TR UNLOAD'", _z, _z];
 						_z setWaypointType "TR UNLOAD";
 					};
-				}else{
-					_z = [_z, currentWaypoint _z];
 				};
 
 				if (count waypoints _grp == 0) then {
