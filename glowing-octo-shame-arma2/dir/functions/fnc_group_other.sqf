@@ -175,6 +175,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		// TODO: тс застревает из-за маленькой скорости
 	_n = if (behaviour _leader == "COMBAT") then {1}else{5};
 	{
+		if (_x isKindOf "Land") then {
 		_driver = driver _x;
 		// _driver = _x;
 		_z = _driver getVariable "gosa_forceSpeed";
@@ -197,6 +198,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 				_driver setVariable ["gosa_forceSpeed",nil];
 				_driver forceSpeed -1;
 			};
+		};
 		};
 	}forEach _vehicles;
 
