@@ -45,7 +45,7 @@ _pos = civilianBasePos;
 
 _SafePosParams = ([_types] call gosa_fnc_SafePosParams);
 
-_pos_resp = ([_pos]+_SafePosParams+[_side] call gosa_fnc_findSafePos);
+_pos_resp = ([_pos]+_SafePosParams+[_side]+[[],true] call gosa_fnc_findSafePos);
 if(count _pos_resp == 0)exitWith{
 	diag_log format ["Log: [fnc_failoverGroup] isNil _pos_resp", nil];
 	grpNull;

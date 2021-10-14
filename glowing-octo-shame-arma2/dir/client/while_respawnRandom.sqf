@@ -61,6 +61,7 @@ _fnc_isFit={
 #ifndef __A2OA__
 		local _this && // v1.11 если юнит не локальный не передает управление игроку
 #endif
+		(_this call gosa_fnc_withinMap) &&
 		isNil{_this getVariable "selectPlayerDisable"} &&
 		alive _this &&
 		!(_this call gosa_fnc_isPlayer) &&
