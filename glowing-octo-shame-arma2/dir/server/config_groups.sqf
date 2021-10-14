@@ -606,7 +606,7 @@ if(true)then{
 		[[[["BAF_Soldier_SL_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_Marksman_W","BAF_FV510_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","LIEUTENANT"]]],0.3],
 		[[[["BAF_Soldier_AT_W","BAF_Soldier_AT_W","BAF_Soldier_HAT_W","BAF_Soldier_AAT_W","BAF_Soldier_AAT_W","BAF_Soldier_AHAT_W","BAF_FV510_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],["LIEUTENANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","LIEUTENANT"]]],0.3],
 
-		[[[["CH_47F_BAF"],[],["CAPTAIN"],[["BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W"]]],[["BAF_Soldier_SL_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_Marksman_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_AAR_W"]]],0.3],
+		[[[["CH_47F_BAF"],[],["CAPTAIN"],[["BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W"]]],[["BAF_Soldier_SL_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_Marksman_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_AAR_W"]]],0.3],
 		[[[["AW159_Lynx_BAF"],[],["CAPTAIN"],[["BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W"]]],[["BAF_Soldier_SL_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_Marksman_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_AAR_W"]]],0.3],
 		[[[["BAF_Merlin_HC3_D"],[],["CAPTAIN"],[["BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W"]]],[["BAF_Soldier_SL_W","BAF_Soldier_TL_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_Marksman_W","BAF_Soldier_GL_W","BAF_Soldier_AR_W","BAF_Soldier_AAR_W"]]],0.3],
 
