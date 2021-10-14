@@ -15,7 +15,5 @@ while{true}do{
 	sleep 0.1;
 };
 
+// FIXME: проблемный код завершается не доходит до этой строки
 diag_log format ["Log: [server_update_groups_wp.sqf] scriptDone %1, ошибка, этот скрипт не должен завершаться", time];
-
-// failover
-[] execVM "dir\server\server_update_groups_wp.sqf";
