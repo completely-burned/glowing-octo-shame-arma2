@@ -3,7 +3,8 @@ true если позиция в пределах карты
 ---------------------------------------------------------------------------*/
 
 // в пустыне или на воде не видно границы карты
-if (worldName in ["Shapur_BAF","utes","Desert_E"]) exitWith {
+if (toLower worldName in ["shapur_baf","utes","desert_e"]) exitWith {
+	diag_log format ["Log: [fnc_withinMap] %1 true", worldName];
 	true;
 };
 
