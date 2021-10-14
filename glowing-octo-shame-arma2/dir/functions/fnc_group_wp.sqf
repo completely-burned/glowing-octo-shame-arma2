@@ -1,6 +1,6 @@
 // эта функция отвечает за создание маршрутных точек для ии
 
-private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_grp_wp_completed"];
+private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_grp_wp_completed","_g2","_z"];
 
 _grp=_this;
 
@@ -282,20 +282,19 @@ if({alive _x} count _units > 0)then{
 			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then { // TODO: не работает если часть юнитов отвязались от транспорта
 				diag_log format ["Log: [fnc_group_wp] #landing %1 все юниты группы в грузовом отсеке самолета %2", _grp, _units];
 
-				_z = group vehicle _leader;
+				_g2 = group vehicle _leader;
 				diag_log format ["Log: [fnc_group_wp] #landing %1 группа самолета", _z];
 
-				if (count waypoints _z > 0) then {
-					_z = [_z, currentWaypoint _z];
+				_z = [_g2, currentWaypoint _g2];
+				if (count waypoints _g2 > 0) then {
 					diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут группы самолета", [_z, waypointType _z, waypointPosition _z]];
 
-					if (waypointPosition _z select 0 != 0 && waypointType _z != "TR UNLOAD") then {
-						diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType 'TR UNLOAD'", _z, _z];
-						_z setWaypointType "TR UNLOAD";
+					if (waypointPosition _z select 0 != 0 && waypointType _z != "MOVE") then {
+						diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType 'MOVE'", _z, _z];
+						_z setWaypointType "MOVE"; // тип маршрута "TR UNLOAD" сажает самолет
 					};
 				};
 
-				_z = [_z, currentWaypoint _z];
 
 				if (count waypoints _grp == 0) then {
 					diag_log format ["Log: [fnc_group_wp] #landing %1 нет маршрута", _grp];
