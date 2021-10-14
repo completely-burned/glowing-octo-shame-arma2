@@ -160,9 +160,6 @@ if(isMultiplayer)then{
 
 // обновление техники и ботов, удаление
 [] execVM "dir\server\updateServer.sqf";
-//--- патрули, боты создание
-// [] spawn compile preprocessFileLineNumbers "dir\server\updateFPS.sqf";
-[] execVM "dir\server\updateReinforcement.sqf";
 
 // с авторестартом
 [] execVM "dir\server\while_failover.sqf";
