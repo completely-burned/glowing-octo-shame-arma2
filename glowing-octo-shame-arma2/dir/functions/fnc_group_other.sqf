@@ -173,34 +173,34 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 	//--- устанавливает ограничение скорости транспорта
 		// TODO: тс застревает из-за маленькой скорости
-	_n = if (behaviour _leader == "COMBAT") then {1}else{5};
-	{
-		if (_x isKindOf "Land") then {
-		_driver = driver _x;
-		// _driver = _x;
-		_z = _driver getVariable "gosa_forceSpeed";
-		if(		!isNull _slu // есть юнит отряда вне транспорта
-			or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} // техника атакует
-			or	{count (_x nearEntities ["Man", 150]) > 0} // рядом с техникой прочая пехота
-		)then{
-			if(isNil {_z} or {_z != _n})then{
-				if (gosa_loglevel > 0) then { // diag_log
-					diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 forceSpeed %2 %3", _driver, _n, typeOf _driver ];
-				}; // diag_log
-				_driver setVariable ["gosa_forceSpeed",_n];
-				_driver forceSpeed _n;
+		_n = if (behaviour _leader == "COMBAT") then {1}else{5};
+		{
+			if (_x isKindOf "Land") then {
+				_driver = driver _x;
+				// _driver = _x;
+				_z = _driver getVariable "gosa_forceSpeed";
+				if(		!isNull _slu // есть юнит отряда вне транспорта
+					or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} // техника атакует
+					or	{count (_x nearEntities ["Man", 150]) > 0} // рядом с техникой прочая пехота
+				)then{
+					if(isNil {_z} or {_z != _n})then{
+						if (gosa_loglevel > 0) then { // diag_log
+							diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 forceSpeed %2 %3", _driver, _n, typeOf _driver ];
+						}; // diag_log
+						_driver setVariable ["gosa_forceSpeed",_n];
+						_driver forceSpeed _n;
+					};
+				}else{ //--- снятие ограничения
+					if(!isNil {_z})then{
+						if (gosa_loglevel > 0) then { // diag_log
+							diag_log format ["Log: [gosa_fnc_group_other.sqf] forceSpeed -1 %1 %2", _driver, typeOf _driver ];
+						}; // diag_log
+						_driver setVariable ["gosa_forceSpeed",nil];
+						_driver forceSpeed -1;
+					};
+				};
 			};
-		}else{ //--- снятие ограничения
-			if(!isNil {_z})then{
-				if (gosa_loglevel > 0) then { // diag_log
-					diag_log format ["Log: [gosa_fnc_group_other.sqf] forceSpeed -1 %1 %2", _driver, typeOf _driver ];
-				}; // diag_log
-				_driver setVariable ["gosa_forceSpeed",nil];
-				_driver forceSpeed -1;
-			};
-		};
-		};
-	}forEach _vehicles;
+		}forEach _vehicles;
 
 	// _slu = objNull;
 #endif
