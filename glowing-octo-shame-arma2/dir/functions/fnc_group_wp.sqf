@@ -721,7 +721,7 @@ if({alive _x} count _units > 0)then{
 				};
 
 			//--- пост выгрузка, пехота
-				if (_typeWP == "GETOUT") then {
+				if (_typeWP in ["UNLOAD","GETOUT"]) then {
 					if ({vehicle _x == _x} count _units == count _units) then {
 						_DeleteWP = true;
 						_NoCreateWP = true;
