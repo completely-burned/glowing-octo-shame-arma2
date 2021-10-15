@@ -751,6 +751,13 @@ if({alive _x} count _units > 0)then{
 						deleteWaypoint [_grp, _i];
 					};
 				};
+
+				// самолет должен продолжить полет, отключить автопилот приземления, он включается из-за маршрута определенного типа
+				{
+					_x land "NONE";
+					_x action ["cancelLand", _x];
+					diag_log format ["Log: [gosa_fnc_group_wp.sqf] удаление waypoints, %1 action 'cancelLand'", _x];
+				} forEach _vehicles;
 			};
 
 			// UAV не создавать маршрут
