@@ -66,6 +66,10 @@ if(!isNil "_leader")then{
 		};
 	} forEach _vehicles;
 
+	if (_landing) then { // diag_log
+		diag_log format ["gosa_fnc_waypoints.sqf %1 landing %2", _grp, _vehicles];
+	}; // diag_log
+
 	if(true)then{
 
 		for "_i" from count waypoints _grp - 1 to 0 step -1 do {
