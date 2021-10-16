@@ -792,7 +792,6 @@ if(true)then{
 		[[[["TK_Soldier_AA_EP1","TK_Soldier_AA_EP1","TK_Soldier_AA_EP1"],[[0,5,0],[3,0,0],[5,0,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.2],
 		[[[["TK_Soldier_MG_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AMG_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
 		[[[["TK_Soldier_SniperH_EP1","TK_Soldier_Spotter_EP1"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
-		[[[["TK_Special_Forces_TL_EP1","TK_Special_Forces_MG_EP1","TK_Special_Forces_EP1","TK_Special_Forces_EP1","TK_Special_Forces_MG_EP1","TK_Special_Forces_EP1","TK_Special_Forces_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5],
 
 		[[[["TK_Soldier_SL_EP1","V3S_Open_TK_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AMG_EP1"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
 		[[[["TK_Soldier_SL_EP1","UAZ_MG_TK_EP1","UAZ_AGS30_TK_EP1","TK_Soldier_AT_EP1"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.3],
@@ -823,6 +822,11 @@ if(true)then{
 		[[[["SearchLight_TK_EP1"], [],["PRIVATE"]]],0.01]
 
 	];
+	if(!_woodland)then{
+		_east=_east+[
+			[[[["TK_Special_Forces_TL_EP1","TK_Special_Forces_MG_EP1","TK_Special_Forces_EP1","TK_Special_Forces_EP1","TK_Special_Forces_MG_EP1","TK_Special_Forces_EP1","TK_Special_Forces_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5]
+		];
+	};
 	if(acex_ru_Avail)then{
 		_east=_east+[
 			[[[["TK_Soldier_SL_EP1","ACE_BTR70_TK","TK_Soldier_MG_EP1","TK_Soldier_GL_EP1","TK_Soldier_AT_EP1","TK_Soldier_MG_EP1","TK_Soldier_GL_EP1","TK_Soldier_LAT_EP1","TK_Soldier_EP1"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL"]]],0.9],
