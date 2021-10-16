@@ -129,11 +129,19 @@ if(!isNil "_leader")then{
 		};
 
 		// десант
-		if(_landing && "Air" in _grp_type)then{
+		if(_landing && "Plane" in _grp_type)then{
 			_pos = civilianBasePos;
 			_maxDist = sizeLocation*2;
 			_WaypointCompletionRadius = _maxDist;
 			// _SpeedMode = "NORMAL";
+		};
+		if(_landing && "Helicopter" in _grp_type)then{
+			_pos = [civilianBasePos, 1500, 500, side _grp] call gosa_fnc_find_heliUnload_pos;
+			_maxDist = 0;
+			if (count _pos == 0) then { // TODO: в случае не найденной позиции высадки нужно сделать выгрузку с парашютом
+				_pos = civilianBasePos;
+				_maxDist = sizeLocation*2;
+			};
 		};
 
 		// лодки та точке
