@@ -247,8 +247,6 @@ if(!isNil "_leader")then{
 			};
 		};
 
-			diag_log format ["fnc_waypoints.sqf addWaypoint %1", _this];
-
 		// создать маршрут
 		_wp = _grp addWaypoint [_pos, _maxDist];
 		_wp setWaypointType _WaypointType;
@@ -259,6 +257,7 @@ if(!isNil "_leader")then{
 		_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically";
 		_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"];
 
+		diag_log format ["fnc_waypoints.sqf %1 %2", _wp, [_pos, _maxDist, _pos distance civilianBasePos]];
 		diag_log format ["fnc_waypoints.sqf %1 added %2", _grp, [_wp, _WaypointType, waypointPosition _wp], _grp_type];
 	};
 };
