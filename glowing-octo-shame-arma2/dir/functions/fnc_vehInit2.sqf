@@ -19,7 +19,7 @@ if (isNil "_gosa_init") then {
 		};
 		if (isServer) then {
 			_this addEventHandler ["GetIn", {
-				[_this select 2] allowGetin true;
+				_this spawn {[_this select 2] allowGetin true};
 			}];
 			_this addEventHandler ["GetOut", {
 				_this spawn gosa_fnc_eh_getout;
