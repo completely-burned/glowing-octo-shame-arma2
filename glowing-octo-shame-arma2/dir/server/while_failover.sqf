@@ -15,6 +15,10 @@ for "_i" from 0 to count _l -1 do {
 
 _p = nil; _z = nil;
 
+waitUntil {!isNil "bis_fnc_init" && !isNil "gosa_fnc_init"};
+waitUntil {!isNil "gosa_crewL" && !isNil "listMHQ"};
+waitUntil {!isNil "silvieManagerBlacklist" && !isNil "silvieManagerVehicles"};
+
 while {true} do {
 
 	for "_i" from 0 to count _l -1 do {
