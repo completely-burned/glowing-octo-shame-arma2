@@ -606,6 +606,21 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 
+			// перемещение ботов нагружает цп, некоторые отряды можно остановить
+				if !("Air" in _grp_type) then {
+					_z = (missionNamespace getVariable "gosa_ai_create_fps");
+					if (_z == 0) then {
+						_z = 25;
+					};
+					if (diag_fps < _z*0.95) then {
+						if ((vehicle _leader distance civilianBasePos) < sizeLocation) then {
+							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 на точке, fps %2, маршрут не будет создан", _grp, diag_fps];
+							_NoCreateWP = true;
+							_createWP = false;
+						};
+					};
+				};
+
 			// создать новый маршрут, если не запрещено создание и удалены маршруты
 			if( !_NoCreateWP && _DeleteWP)then{
 				if(_createWP or !isNil{_grp_wp_completed})then{
