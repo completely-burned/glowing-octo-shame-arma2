@@ -140,6 +140,7 @@ if(LIB_a2Avail)then{
 				[[[["CDF_Soldier_GL","CDF_Soldier_Engineer","CDF_Soldier_RPG"], [],["SERGEANT","CORPORAL","PRIVATE"]]],0.01],
 				[[[["CDF_Soldier_GL","UAZ_MG_CDF"], [[0,0],[5,0]],["PRIVATE","PRIVATE"]]],0.01],
 				[[[["Su25_CDF"], [],["CAPTAIN"]]],0.01],
+				[[[["Pchela1T_CDF"], [],["CAPTAIN"]]],0.01],
 
 				[[[["UralReammo_CDF"], [],["PRIVATE"]]],0.01],
 				[[[["UralRefuel_CDF"], [],["PRIVATE"]]],0.01],
@@ -183,6 +184,7 @@ if(LIB_a2Avail)then{
 				[[[["T72_GUE","T72_GUE"],[[0,10,0],[5,0,0]],["LIEUTENANT","LIEUTENANT"]]],0.01],
 				[[[["Ural_ZU23_Gue","GUE_Soldier_AA","GUE_Soldier_AA","GUE_Soldier_AA"], [[10,0],[0,0],[0,0],[0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.01],
 				[[[["T34"], [[0,0],[5,0]],["LIEUTENANT","LIEUTENANT"]]],0.01],
+				[[[["ZSU_Gue_CP"], [[0,0],[5,0]],["LIEUTENANT","LIEUTENANT"]]],0.01],
 
 				[[[["WarfareReammoTruck_Gue"], [],["PRIVATE"]]],0.01],
 				[[[["WarfareRepairTruck_Gue"], [],["PRIVATE"]]],0.01],
@@ -392,7 +394,8 @@ if(LIB_a2Avail)then{
 				[[[["Ka52"],[],["CAPTAIN"]]],0.1],
 				[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
 				[[[["Mi17_Rockets_RU"],[],["CAPTAIN"]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier"]]],0.3],
-				[[[["Su34","Su34"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.2],
+				[[[["Su34","Su34"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.15],
+				[[[["Su34_CP","Su34_CP"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.05],
 				[[[["Pchela1T"],[],["CAPTAIN"]]],0.2],
 
 				[[[["2S6M_Tunguska"], [[0,0]], ["LIEUTENANT"]]],0.7],
@@ -400,6 +403,7 @@ if(LIB_a2Avail)then{
 				[[[["RU_Soldier_GL","RU_Soldier_Engineer","RU_Soldier2"], [],["SERGEANT","CORPORAL","PRIVATE"]]],0.01],
 				[[[["RU_Soldier_GL","RU_Soldier_AR","RU_Soldier_AT","RU_Soldier_Medic"], [],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.01],
 				[[[["Su39"], [],["CAPTAIN"]]],0.01],
+				[[[["Su39_CP"], [],["CAPTAIN"]]],0.01],
 				[[[["RU_Soldier_GL","UAZ_AGS30_RU","RU_Soldier_AT","UAZ_AGS30_RU"], [],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.01],
 				// [[[["RU_Soldier_GL","UAZ_RU","RU_Soldier_AR","RU_Soldier_AT"], [],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.01],
 
