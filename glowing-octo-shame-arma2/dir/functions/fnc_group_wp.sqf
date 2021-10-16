@@ -242,8 +242,6 @@ if({alive _x} count _units > 0)then{
 									diag_log format ["Log: [fnc_group_wp] #landing маршруты на позиции %1, отмена", [_wp, waypointPosition _wp, _z, waypointPosition _z]];
 								};
 
-							/*}else{
-								diag_log format ["Log: [fnc_group_wp] #landing %1 %2 != 'UNLOAD'", _wp, _typeWP];*/
 						};
 					};
 
