@@ -34,7 +34,7 @@ if(LIB_a2Avail)then{
 					"INS_Soldier_1","INS_Soldier_2",
 					"INS_Soldier_2","INS_Soldier_1",
 					"INS_Soldier_AR","INS_Soldier_MG",
-					"INS_Soldier_AT","INS_Soldier_AA",
+					"INS_Soldier_AT","INS_Soldier_AT",
 					"INS_Soldier_MG","Ins_Soldier_Medic"
 				],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0],[-5,0,0]],
 				[		"SERGEANT",
@@ -50,7 +50,7 @@ if(LIB_a2Avail)then{
 					"INS_Soldier_1","INS_Soldier_2",
 					"INS_Soldier_2","INS_Soldier_1",
 					"INS_Soldier_AR","INS_Soldier_MG",
-					"INS_Soldier_AT","INS_Soldier_AA",
+					"INS_Soldier_AT","INS_Soldier_AT",
 					"INS_Soldier_MG","Ins_Soldier_Medic"
 				],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0],[-5,0,0]],
 				[		"SERGEANT",
@@ -93,7 +93,7 @@ if(LIB_a2Avail)then{
 					"CDF_Soldier_GL","CDF_Soldier",
 					"CDF_Soldier","CDF_Soldier_GL",
 					"CDF_Soldier_AR","CDF_Soldier_MG",
-					"CDF_Soldier_RPG","CDF_Soldier_Strela",
+					"CDF_Soldier_RPG","CDF_Soldier_RPG",
 					"CDF_Soldier_MG","CDF_Soldier_Medic"
 				],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0],[-5,0,0]],
 				[		"SERGEANT",
@@ -109,7 +109,7 @@ if(LIB_a2Avail)then{
 					"CDF_Soldier_GL","CDF_Soldier",
 					"CDF_Soldier","CDF_Soldier_GL",
 					"CDF_Soldier_AR","CDF_Soldier_MG",
-					"CDF_Soldier_RPG","CDF_Soldier_Strela",
+					"CDF_Soldier_RPG","CDF_Soldier_RPG",
 					"CDF_Soldier_MG","CDF_Soldier_Medic"
 				],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0],[-5,0,0]],
 				[		"SERGEANT",
