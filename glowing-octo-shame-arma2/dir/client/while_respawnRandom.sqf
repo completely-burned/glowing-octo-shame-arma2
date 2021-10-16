@@ -40,7 +40,7 @@ _fnc_swich={
 	if (gosa_loglevel > 0) then {					// diag_log TODO: нужна функция
 		_z = [];									// diag_log
 		{											// diag_log
-			_z set [count _z, [_x,1]];				// diag_log
+			_z = _z + [_x,1];						// diag_log
 		} foreach ([] call BIS_fnc_getFactions);	// diag_log
 		_new setVariable ["MARTA_showRules", _z];	// diag_log
 	};												// diag_log
