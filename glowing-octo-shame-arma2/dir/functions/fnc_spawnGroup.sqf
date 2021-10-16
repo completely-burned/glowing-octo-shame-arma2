@@ -56,6 +56,12 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 				private ["_unit", "_type"];
 				_type = _types select _i;
 
+				if (call gosa_fnc_isNight) then {
+					if (_type == "Ka52") then {
+						_type = "Ka52Black";
+					};
+				};
+
 				private ["_itemPos"];
 				if ((count _positions) > 0) then {
 					private ["_relPos"];

@@ -522,7 +522,7 @@ if(LIB_a2Avail)then{
 					[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]],0.3],
 					[[[["ACE_Ka50","ACE_Ka50"], [[0,0],[10,0]],["CAPTAIN","LIEUTENANT"],[["ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D"]]]],0.01],
 					[[[["ACE_Mi24_V_UPK23_RU","ACE_Mi24_V_UPK23_RU"], [[0,0],[10,0]],["CAPTAIN","LIEUTENANT"],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]],0.01],
-					[[[["Ka52Black"],[],["CAPTAIN"],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]],0.1],
+					[[[["Ka52"],[],["CAPTAIN"],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]],0.1],
 					[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]],0.3],
 					[[[["ACE_Su34_Des","ACE_Su34_Des"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.2],
 					[[[["Pchela1T"],[],["CAPTAIN"]]],0.2],
