@@ -132,5 +132,12 @@ if (!IsDedicated) then {
 	"fnc_isPlayer"
 ];
 
+if (!isMultiplayer) then {
+	{
+		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2SP.sqf')", _prefix, _x, _path];
+	} forEach [
+		"fnc_isPlayer"
+	];
+};
 
 gosa_fnc_init = true;
