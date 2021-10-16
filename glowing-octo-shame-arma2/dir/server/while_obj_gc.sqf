@@ -46,6 +46,7 @@ _mining = if(_mining_factor > 0)then{
 };
 diag_log format ["Log: [while_gc2.sqf] #mining %1", _mining];
 
+waitUntil {!isNil "civilianbasepos"};
 
 while {true} do {
 
