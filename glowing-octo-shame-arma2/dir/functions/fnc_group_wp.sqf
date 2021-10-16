@@ -114,16 +114,18 @@ if({alive _x} count _units > 0)then{
 			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then { // TODO: не работает если часть юнитов отвязались от транспорта
 				diag_log format ["Log: [fnc_group_wp] #landing %1 все юниты группы в грузовом отсеке вертолета %2", _grp, _units];
 
-				_z = group vehicle _leader;
-				diag_log format ["Log: [fnc_group_wp] #landing %1 группа вертолета", _z];
+				_g2 = group vehicle _leader;
+				diag_log format ["Log: [fnc_group_wp] #landing %1 группа вертолета", _g2];
 
-				_z = [_z, currentWaypoint _z];
-				diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут группы вертолета", [_z, waypointType _z, waypointPosition _z]];
+				_z = [_g2, currentWaypoint _g2];
+				diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут группы вертолета", [_g2, waypointType _z, waypointPosition _z]];
 
 
 				if (waypointPosition _z select 0 != 0 && waypointType _z != "TR UNLOAD") then {
-					diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType 'TR UNLOAD'", _z, _z];
-					_z setWaypointType "TR UNLOAD";
+					for "_i" from count waypoints _g2 - 1 to 0 step -1 do {
+						deleteWaypoint [_g2, _i];
+					};
+					diag_log format ["Log: [fnc_group_wp] #landing %1 deleteWaypoint !='TR UNLOAD'", _z, _z];
 				};
 
 				if (count waypoints _grp == 0) then {
@@ -149,7 +151,7 @@ if({alive _x} count _units > 0)then{
 							}else{
 
 								//--- выгрузка
-									if ((_leaderPos distance waypointPosition _wp < 1000) or !isNil{_grp_wp_completed}) then {
+									if ((_leaderPos distance waypointPosition _z < 10) or !isNil{_grp_wp_completed}) then {
 
 
 										diag_log format ["Log: [fnc_group_wp] #landing %1 выгрузка, дист. %2", _grp, _leaderPos distance waypointPosition _wp];
