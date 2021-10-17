@@ -2,7 +2,13 @@
  * TODO: много лишнего кода
  */
 
-private ["_countMHQ","_count_transportammo","_count_transportrepair","_count_transportfuel","_timeNew","_timerDelete"];
+private ["_countMHQ","_count_transportammo","_count_transportrepair","_count_transportfuel","_timeNew","_timerDelete","_shop"];
+
+if (missionNamespace getVariable "gosa_shop" == 1) then {
+	_shop = true;
+}else{
+	_shop = false;
+};
 
 _timerDelete = 60 * 2.5;
 
@@ -24,6 +30,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 
 	if(alive _veh)then{
 
+		if (_shop) then {
 		private["_side"];
 		_side = getNumber(LIB_cfgVeh >> _type >> "side") call gosa_fnc_getSide;
 		if (_side in gosa_friendlyside) then{
@@ -76,6 +83,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 					};
 				};
 			};
+		};
 		};
 
 		if (({alive _x} count (crew _veh + [assignedDriver _veh, assignedGunner _veh, assignedCommander _veh] + assignedCargo _veh))>0) then{
