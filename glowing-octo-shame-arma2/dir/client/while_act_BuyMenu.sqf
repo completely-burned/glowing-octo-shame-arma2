@@ -82,42 +82,42 @@ while {true} do {
 								_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
 							};
 						};
-					if (!_Buy_Man) then {
-						if ([[_type],["Base_WarfareBBarracks"]] call gosa_fnc_CheckIsKindOfArray) then {
-							_Buy_Man = true;
+						if (!_Buy_Man) then {
+							if ([[_type],["Base_WarfareBBarracks"]] call gosa_fnc_CheckIsKindOfArray) then {
+								_Buy_Man = true;
+							};
 						};
-					};
 
-					if !(_Buy_Car) then {
-						if ([[_type],["Base_WarfareBLightFactory"]] call gosa_fnc_CheckIsKindOfArray) then {
-							_Buy_Car = true;
+						if !(_Buy_Car) then {
+							if ([[_type],["Base_WarfareBLightFactory"]] call gosa_fnc_CheckIsKindOfArray) then {
+								_Buy_Car = true;
+							};
 						};
-					};
 
-					if !(_Buy_Tank) then {
-						if ([[_type],["Base_WarfareBHeavyFactory"]] call gosa_fnc_CheckIsKindOfArray) then {
-							_Buy_Tank = true;
+						if !(_Buy_Tank) then {
+							if ([[_type],["Base_WarfareBHeavyFactory"]] call gosa_fnc_CheckIsKindOfArray) then {
+								_Buy_Tank = true;
+							};
 						};
-					};
 
-					if !(_Buy_Helicopter) then {
-						if ([[_type],["Base_WarfareBAircraftFactory"]] call gosa_fnc_CheckIsKindOfArray) then {
-							_Buy_Helicopter = true;
-						}else{
+						if !(_Buy_Helicopter) then {
+							if ([[_type],["Base_WarfareBAircraftFactory"]] call gosa_fnc_CheckIsKindOfArray) then {
+								_Buy_Helicopter = true;
+							}else{
+							};
 						};
-					};
 
-					if (!_Buy_Plane or !_Buy_Helicopter) then {
-						if ([[_type],Airport] call gosa_fnc_CheckIsKindOfArray) then {
-							_Buy_Plane = true; _Airport = true; _Buy_Helicopter = true;
+						if (!_Buy_Plane or !_Buy_Helicopter) then {
+							if ([[_type],Airport] call gosa_fnc_CheckIsKindOfArray) then {
+								_Buy_Plane = true; _Airport = true; _Buy_Helicopter = true;
+							};
 						};
-					};
 
-					if !(_Buy_Ship) then {
-						if ([[_type],pier] call gosa_fnc_CheckIsKindOfArray) then {
-							_Buy_Ship = true;
+						if !(_Buy_Ship) then {
+							if ([[_type],pier] call gosa_fnc_CheckIsKindOfArray) then {
+								_Buy_Ship = true;
+							};
 						};
-					};
 					};
 
 					if !(_teleport) then {
@@ -253,116 +253,116 @@ while {true} do {
 		};
 
 		if (_shop) then {
-		if (_Buy_Man) then {
-			// (BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + 0)) CtrlSetText ("\CA\Warfare2\Images\icon_barracks.paa");
+			if (_Buy_Man) then {
+				// (BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + 0)) CtrlSetText ("\CA\Warfare2\Images\icon_barracks.paa");
 
-			private["_0","_1","_2"];
-			if (leader player == player) then {
-				_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_barracks_ca.paa")];
+				private["_0","_1","_2"];
+				if (leader player == player) then {
+					_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_barracks_ca.paa")];
+					_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+					_0 set [count _0, "#USER:Man_0"];
+					_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
+					_2 set [count _2, 1];
+					_BuyMenu = [_0,_1,_2];
+				};
+
 				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-				_0 set [count _0, "#USER:Man_0"];
-				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
+				_0 set [count _0, "#USER:Ammo_0"];
+				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
+				_2 set [count _2, 1];
+				_BuyMenu = [_0,_1,_2];
+
+				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+				_0 set [count _0, "#USER:StaticWeapon_0"];
+				_1 set [count _1, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
+				_2 set [count _2, 1];
+				_BuyMenu = [_0,_1,_2];
+			};
+			if (_Buy_Car or _Buy_Ship) then {
+				_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_lvs_ca.paa")];
+			};
+			if (_Buy_Car) then {
+				private["_0","_1","_2"];
+				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+				_0 set [count _0, "#USER:Car_0"];
+				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName")];
+				_2 set [count _2, 1];
+				_BuyMenu = [_0,_1,_2];
+				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+				_0 set [count _0, "#USER:Motorcycle_0"];
+				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName")];
+				_2 set [count _2, 1];
+				_BuyMenu = [_0,_1,_2];
+			};
+			if (_Buy_Tank) then {
+				_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hvs_ca.paa")];
+				private["_0","_1","_2"];
+				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+				_0 set [count _0, "#USER:Tank_0"];
+				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName")];
+				_2 set [count _2, 1];
+				_BuyMenu = [_0,_1,_2];
+			};
+			if (_Buy_Helicopter) then {
+				_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_air_ca.paa")];
+				private["_0","_1","_2"];
+				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+				_0 set [count _0, "#USER:Helicopter_0"];
+				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName")];
+				_2 set [count _2, 1];
+				_BuyMenu = [_0,_1,_2];
+			};
+			if (_Buy_Plane) then {
+				_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hangar_ca.paa")];
+				private["_0","_1","_2"];
+				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+				_0 set [count _0, "#USER:Plane_0"];
+				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName")];
+				_2 set [count _2, 1];
+				_BuyMenu = [_0,_1,_2];
+				if (_Airport) then {
+					_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+					_0 set [count _0, "#USER:Support_0"];
+					_1 set [count _1, localize "str_support"];
+					_2 set [count _2, 1];
+					_BuyMenu = [_0,_1,_2];
+					_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+					_0 set [count _0, "#USER:Pilot_0"];
+					_1 set [count _1, localize "str_getin_pos_pilot"];
+					_2 set [count _2, 1];
+					_BuyMenu = [_0,_1,_2];
+				};
+			};
+			if (_Buy_Ship) then {
+				private["_0","_1","_2"];
+				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
+				_0 set [count _0, "#USER:Ship_0"];
+				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
 				_2 set [count _2, 1];
 				_BuyMenu = [_0,_1,_2];
 			};
 
-			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-			_0 set [count _0, "#USER:Ammo_0"];
-			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
-			_2 set [count _2, 1];
-			_BuyMenu = [_0,_1,_2];
-
-			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-			_0 set [count _0, "#USER:StaticWeapon_0"];
-			_1 set [count _1, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
-			_2 set [count _2, 1];
-			_BuyMenu = [_0,_1,_2];
-		};
-		if (_Buy_Car or _Buy_Ship) then {
-			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_lvs_ca.paa")];
-		};
-		if (_Buy_Car) then {
-			private["_0","_1","_2"];
-			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-			_0 set [count _0, "#USER:Car_0"];
-			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName")];
-			_2 set [count _2, 1];
-			_BuyMenu = [_0,_1,_2];
-			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-			_0 set [count _0, "#USER:Motorcycle_0"];
-			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName")];
-			_2 set [count _2, 1];
-			_BuyMenu = [_0,_1,_2];
-		};
-		if (_Buy_Tank) then {
-			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hvs_ca.paa")];
-			private["_0","_1","_2"];
-			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-			_0 set [count _0, "#USER:Tank_0"];
-			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName")];
-			_2 set [count _2, 1];
-			_BuyMenu = [_0,_1,_2];
-		};
-		if (_Buy_Helicopter) then {
-			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_air_ca.paa")];
-			private["_0","_1","_2"];
-			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-			_0 set [count _0, "#USER:Helicopter_0"];
-			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName")];
-			_2 set [count _2, 1];
-			_BuyMenu = [_0,_1,_2];
-		};
-		if (_Buy_Plane) then {
-			_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hangar_ca.paa")];
-			private["_0","_1","_2"];
-			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-			_0 set [count _0, "#USER:Plane_0"];
-			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName")];
-			_2 set [count _2, 1];
-			_BuyMenu = [_0,_1,_2];
-			if (_Airport) then {
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-				_0 set [count _0, "#USER:Support_0"];
-				_1 set [count _1, localize "str_support"];
-				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-				_0 set [count _0, "#USER:Pilot_0"];
-				_1 set [count _1, localize "str_getin_pos_pilot"];
-				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
-			};
-		};
-		if (_Buy_Ship) then {
-			private["_0","_1","_2"];
-			_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
-			_0 set [count _0, "#USER:Ship_0"];
-			_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
-			_2 set [count _2, 1];
-			_BuyMenu = [_0,_1,_2];
-		};
-
-		if ((_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) && !_resetActions) then {
-			_actionObj = player;
-			if (!isnil "_action_buy")then{
-				if (_action_buy select 0 != _actionObj)then{
+			if ((_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) && !_resetActions) then {
+				_actionObj = player;
+				if (!isnil "_action_buy")then{
+					if (_action_buy select 0 != _actionObj)then{
+						_action_buy select 0 removeAction (_action_buy select 1);
+						_action_buy = nil;
+					};
+				};
+				if (isnil "_action_buy" && !isnull player) then {
+					private ["_action"];
+					_action = _actionObj addaction [localize "STR_gosa_purchase", "dir\actions\act_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
+					_action_buy = [_actionObj, _action];
+				};
+			}else{
+				if (!isnil "_action_buy")then{
 					_action_buy select 0 removeAction (_action_buy select 1);
 					_action_buy = nil;
 				};
 			};
-			if (isnil "_action_buy" && !isnull player) then {
-				private ["_action"];
-				_action = _actionObj addaction [localize "STR_gosa_purchase", "dir\actions\act_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
-				_action_buy = [_actionObj, _action];
-			};
-		}else{
-			if (!isnil "_action_buy")then{
-				_action_buy select 0 removeAction (_action_buy select 1);
-				_action_buy = nil;
-			};
-		};
 
-		["BuyMenu", "BuyMenu", _BuyMenu, "%1", ""] call BIS_FNC_createmenu;
+			["BuyMenu", "BuyMenu", _BuyMenu, "%1", ""] call BIS_FNC_createmenu;
 		};
 
 		for "_i" from 0 to (count _OptionsAvailable - 1) do {
