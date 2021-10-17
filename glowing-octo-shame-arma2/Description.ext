@@ -131,6 +131,12 @@ class Params {
 		texts[] = {"Base","Random unit"};
 		default=1;
 	};
+	class gosa_shop {
+		title="shop";
+		values[] = {0,1};
+		texts[] = {$STRWFNO,$STRWFYES};
+		default=0;
+	};
 	class ai_client_count {
 		title="Number of ai groups at the start on the client cpu [cl,ai,fps]";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
