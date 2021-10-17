@@ -127,9 +127,11 @@ while {true} do {
 					};
 
 					if ([[_type],["LandVehicle","Air"]] call gosa_fnc_CheckIsKindOfArray) then {
-						_Object setAmmoCargo 1;
-						_Object setRepairCargo 1;
-						_Object setFuelCargo 1;
+						if (_shop) then {
+							_Object setAmmoCargo 1;
+							_Object setRepairCargo 1;
+							_Object setFuelCargo 1;
+						};
 						if (isNil {_Object getVariable "hintCrewAction"}) then {
 							private["_action"];
 							_action = _Object addAction [format ["%1 %2",localize "STR_ACT_Crew",getText (configFile >> "CfgVehicles" >> _type >> "displayName")],'dir\client\ACT\ACT_HintCrew.sqf',[],0, false];
