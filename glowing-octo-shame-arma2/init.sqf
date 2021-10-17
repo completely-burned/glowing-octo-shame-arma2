@@ -51,6 +51,8 @@ if !(requiredVersion "1.60") then {
 		[] Call Compile preprocessFileLineNumbers "dir\client\init_client.sqf";
 	};
 
+	gosa_pvp = false;
+
 #ifdef __A2OA__
 	if (!hasInterface && !isServer) then {
 		execVM "init_HC.sqf";
