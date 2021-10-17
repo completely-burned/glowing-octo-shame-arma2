@@ -12,19 +12,38 @@ while getopts "d" opt
 done
 
 
-cd ${DIR}
+TMPDIR=$(mktemp -td glowing-octo-shame-arma2.XXXXX)
+echo $TMPDIR
 
-if [ ! -d .build.tmp ]; then
-	mkdir .build.tmp
+rsync --recursive --delete $DIR/glowing-octo-shame* $TMPDIR/
+echo $(ls $TMPDIR)
+
+OUT=$DIR/.build.out
+
+if [ ! -d $OUT ]; then
+	mkdir -p $OUT
 fi
 
-if [ ! -d .build.out ]; then
-	mkdir .build.out
+if $DIAG_LOG; then
+	DEBUGPOSTFIX=($(tar -cf - $TMPDIR/glowing-octo-shame-arma2/ | sha1sum))
+	DEBUGPOSTFIX="-debug-$DEBUGPOSTFIX"
+	echo $DEBUGPOSTFIX
+else
+	DEBUGPOSTFIX=""
+	# строки начинающиеся с diag_log нужны для отладки
+	# они возможно снижают производительность
+	# поэтому удаляем их
+	echo "remove diag_log"
+	find $TMPDIR -type f -exec sed -i "/^.*diag_log.*/d" {} \;
+fi
+
+if [ ! -d $TMPDIR/.build.out ]; then
+	mkdir $TMPDIR/.build.out
 fi
 
 
 
-for DIR in $(find ./ -maxdepth 1 -type d); do
+for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 	if [ -f "${DIR}/mission.sqm" ]; then
 
 		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* .* v\(.*\)".*/\1/' -e 's/\./\-/gi')
@@ -34,44 +53,31 @@ for DIR in $(find ./ -maxdepth 1 -type d); do
 
 		TMPDIRNAME="${NAME,,}-${VERSION,,}-${SIDE,,}.${MAP,,}"
 
-		if [ ! -d ".build.tmp/${TMPDIRNAME}/" ]; then
-			mkdir ".build.tmp/${TMPDIRNAME}/"
-		fi
 
-		# символьные ссылки чтобы не копировать шурша диском
-		#find glowing-octo-shame-arma2/ -mindepth 1 -maxdepth 1 -exec ln -snf ../../{} ".build.tmp/${TMPDIRNAME}/" \;
-		#find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -snf ../../{} ".build.tmp/${TMPDIRNAME}/" \;
+		MISSION=$TMPDIR/.build.tmp/$TMPDIRNAME
 
-		# делаем rsync чтобы изменять копии файлов не затронув git директорию перед сборкой .pbo
-		rsync --recursive --delete glowing-octo-shame-arma2/* .build.tmp/${TMPDIRNAME}/
-		rsync --recursive --delete ${DIR}/* .build.tmp/${TMPDIRNAME}/
+		mkdir -p $MISSION
 
-		# строки начинающиеся с diag_log нужны для отладки
-		# они возможно снижают производительность
-		# поэтому удаляем их
-		if $DIAG_LOG; then
-			sed -i "s/glowing-octo-shame/DEBUG glowing-octo-shame/" .build.tmp/${TMPDIRNAME}/mission.sqm
-			DEBUGPOSTFIX=($(tar -cf - .build.tmp/${TMPDIRNAME}/ | sha1sum))
-			DEBUGPOSTFIX="-debug-$DEBUGPOSTFIX"
-		else
-			find .build.tmp/${TMPDIRNAME}/ -type f -exec sed -i "/^.*diag_log.*/d" {} \;
-			DEBUGPOSTFIX=""
-		fi
 
 		# cpmpat для a2 v1.11
 		if [[ $NAME == *"compat"* ]]; then
-			find .build.tmp/${TMPDIRNAME}/ -type f -exec sed -i "/^.*#define.*__A2OA__.*/d" {} \;
+			rsync --recursive --delete $TMPDIR/glowing-octo-shame-arma2/* $MISSION
+			rsync --recursive --delete ${DIR}/* $MISSION
+			find $MISSION -type f -exec sed -i "/^.*#define.*__A2OA__.*/d" {} \;
+		else
+			find $TMPDIR/glowing-octo-shame-arma2/ -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
+			find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
 		fi
 
 		# если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив
 		if [ -x "$(command -v parallel)" ]; then
-			var_parallel+=("makepbo -M .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
-			var_parallel+=("armake build --packonly --force .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo")
-			var_parallel+=("armake2 pack -v .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo")
+			var_parallel+=("makepbo -M 												$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
+			var_parallel+=("armake build --packonly --force 	$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo")
+			var_parallel+=("armake2 pack -v 									$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo")
 		else
-			makepbo -M .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo
-			armake build --packonly --force .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo
-			armake2 pack -v .build.tmp/${TMPDIRNAME}/ .build.out/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
+											makepbo -M 												$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo
+											armake build --packonly --force 	$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo
+											armake2 pack -v 									$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
 		fi
 
 	fi
@@ -81,3 +87,9 @@ done
 if [ ! -z "$var_parallel" ]; then
   parallel ::: "${var_parallel[@]}"
 fi
+
+rm -rf $TMPDIR
+
+# find $OUT -size 0 -delete
+
+echo $OUT
