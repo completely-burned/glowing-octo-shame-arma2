@@ -29,11 +29,13 @@ _nearestObjects = [
 
 private["_Objects"];
 private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu"];
-private["_uav_action","_uav_terminals"];
+private["_uav_action","_uav_terminals","_actionObj","_action_uav","_action_teleport","_action_menu","_action_buy","_resetActions","_shop"];
 
-private["_actionObj","_action_uav","_action_teleport","_action_menu","_action_buy"];
-
-private["_resetActions"];
+if (missionNamespace getVariable "gosa_shop" == 1) then {
+	_shop = true;
+}else{
+	_shop = false;
+};
 
 while {true} do {
 
@@ -63,15 +65,6 @@ while {true} do {
 						// [_Object,_type] call _fnc_reamoBox;
 					// };
 
-					if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
-#ifdef __A2OA__
-						if ([[_type],HQ] call gosa_fnc_CheckIsKindOfArray or (missionNamespace getVariable "gosa_coin" != 1 && ([[_type],(MHQ_list select 0)] call gosa_fnc_CheckIsKindOfArray))) then {
-#else
-						if ([[_type],(MHQ_list select 0) + HQ] call gosa_fnc_CheckIsKindOfArray) then {
-#endif
-							_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
-						};
-					};
 
 					if (_type isKindOf "Base_WarfareBVehicleServicePoint") then {
 						_Object setammocargo 1;
@@ -79,6 +72,16 @@ while {true} do {
 						_Object setrepaircargo 1;
 					};
 
+					if (_shop) then {
+						if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
+							#ifdef __A2OA__
+							if ([[_type],HQ] call gosa_fnc_CheckIsKindOfArray or (missionNamespace getVariable "gosa_coin" != 1 && ([[_type],(MHQ_list select 0)] call gosa_fnc_CheckIsKindOfArray))) then {
+							#else
+							if ([[_type],(MHQ_list select 0) + HQ] call gosa_fnc_CheckIsKindOfArray) then {
+							#endif
+								_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
+							};
+						};
 					if (!_Buy_Man) then {
 						if ([[_type],["Base_WarfareBBarracks"]] call gosa_fnc_CheckIsKindOfArray) then {
 							_Buy_Man = true;
@@ -114,6 +117,7 @@ while {true} do {
 						if ([[_type],pier] call gosa_fnc_CheckIsKindOfArray) then {
 							_Buy_Ship = true;
 						};
+					};
 					};
 
 					if !(_teleport) then {
@@ -248,6 +252,7 @@ while {true} do {
 			};
 		};
 
+		if (_shop) then {
 		if (_Buy_Man) then {
 			// (BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + 0)) CtrlSetText ("\CA\Warfare2\Images\icon_barracks.paa");
 
@@ -358,6 +363,7 @@ while {true} do {
 		};
 
 		["BuyMenu", "BuyMenu", _BuyMenu, "%1", ""] call BIS_FNC_createmenu;
+		};
 
 		for "_i" from 0 to (count _OptionsAvailable - 1) do {
 			(BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + _i)) CtrlSetText (_OptionsAvailable select _i);
