@@ -52,6 +52,7 @@ if (!IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_dynSleep",
 	"fnc_find_heliUnload_pos",
 	"fnc_getPosBehind",
 	"fnc_paraJump",
