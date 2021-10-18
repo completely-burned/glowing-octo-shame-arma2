@@ -44,7 +44,7 @@ _mining = if(_mining_factor > 0)then{
 	_mining_factor = nil;
 	false;
 };
-diag_log format ["Log: [while_gc2.sqf] #mining %1", _mining];
+diag_log format ["Log: [GC2] #mining %1", _mining];
 
 waitUntil {!isNil "civilianbasepos"};
 
@@ -167,7 +167,7 @@ while {true} do {
 		if ( isNil "_time" ) then {
 			_time = time + _timerDelete;
 			_x_veh setVariable ["gosa_timeDeleteVehicle", _time];
-			diag_log format ["Log: [GC] %1 setTime %2", _x_veh, _time];
+			diag_log format ["Log: [GC2] %1 setTime %2", _x_veh, _time];
 		}else{
 			if ( _time < time )then {
 				_delete = true;
@@ -188,7 +188,7 @@ while {true} do {
 		if (!isNil {_timeNew}) then {
 			if (_time != _timeNew) then {
 				_x_veh setVariable ["gosa_timeDeleteVehicle", _timeNew];
-				diag_log format ["Log: [GC] %1 time %2, new %3", _x_veh, _time, _timeNew];
+				diag_log format ["Log: [GC2] %1 time %2, new %3", _x_veh, _time, _timeNew];
 			};
 		};
 
@@ -196,7 +196,7 @@ while {true} do {
 
 	} forEach vehicles;
 
-		diag_log format ["while_gc2.sqf: count allDead %1, count ManDead %2, count VehDead %3, %4", count allDead, count _deleteListManDead, count _deleteListVehDead, time];
+		diag_log format ["Log: [GC2] count allDead %1, count ManDead %2, count VehDead %3, %4", count allDead, count _deleteListManDead, count _deleteListVehDead, time];
 
 	// vehicles - allDead;
 
@@ -217,7 +217,7 @@ while {true} do {
 		_x_veh = _x;
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 
-				diag_log format ["while_gc2.sqf deleteA %1", _x_veh];
+				diag_log format ["Log: [GC2] deleteA %1", _x_veh];
 
 			if !(_x_veh call gosa_fnc_isPlayer) then {
 				_x_veh setDamage 1;
@@ -229,7 +229,7 @@ while {true} do {
 	} forEach _deleteListManAlive;
 
 
-		diag_log format ["while_gc2.sqf perf 2 %1", time];
+		diag_log format ["Log: [GC2] perf 2 %1", time];
 
 	while { count _deleteListManDead > _min_vehicles_count } do {
 
@@ -244,7 +244,7 @@ while {true} do {
 		_deleteListManDead = _deleteListManDead - [-1];
 
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
-				diag_log format ["while_gc2.sqf delete %1", _x_veh];
+				diag_log format ["Log: [GC2] delete %1", _x_veh];
 
 			if !(_x_veh call gosa_fnc_isPlayer) then {
 				_x_veh setDamage 1;
@@ -270,7 +270,7 @@ while {true} do {
 
 
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
-				diag_log format ["while_gc2.sqf deleteVeh %1", _x_veh];
+				diag_log format ["Log: [GC2] deleteVeh %1", _x_veh];
 			// _x_veh setDamage 1;
 			deleteVehicle _x_veh;
 		}else{
@@ -287,7 +287,7 @@ while {true} do {
 
 		for "_i" from 0 to (count _mining_list -1) do {
 			if (!alive (_mining_list select _i)) then {
-				diag_log format ["Log: [while_gc2.sqf] #mining %1 not alive", _mining_list select _i];
+				diag_log format ["Log: [GC2] #mining %1 not alive", _mining_list select _i];
 				_mining_list set [_i,-1];
 			};
 		};
@@ -308,7 +308,7 @@ while {true} do {
 				if !([_x_veh, _min_dist2/2] call gosa_fnc_CheckPlayersDistance) then {
 					_mining_list set [count _mining_list, _x_veh];
 					[_x_veh, 1] call gosa_fnc_mining;
-					diag_log format ["Log: [while_gc2.sqf] #mining %1 mined", _x_veh];
+					diag_log format ["Log: [GC2] #mining %1 mined", _x_veh];
 				};
 			};
 		};
