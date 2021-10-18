@@ -1,14 +1,14 @@
-/* починка техники
- * TODO: еще не реализована починка башни и турели
- * TODO: нужна анимация
- */
-
+/*---------------------------------------------------------------------------
+ремонт техники
+TODO: нужна анимация
+TODO: нужно закрытие меню от багоюзеров
+---------------------------------------------------------------------------*/
 
 private["_item","_l","_e","_v","_n"];
 
 _v = _this select 0;
 
-if ({alive _x && group _x != group player}count crew _v > 0) exitWith {
+if ({alive _x && group _x != group player}count crew _v > 0 or _v == vehicle player) exitWith {
 	hint "[crew > 0] exit";
 };
 
@@ -45,12 +45,10 @@ gosa_repair_vehicle = _v;
 
 _c = "
 	gosa_repair_vehicle setHit [gosa_repair_array select %2, 1-0.1];
-	if (gosa_repair_vehicle isKindOf 'LandVehicle') then {
-		gosa_repair_vehicle setVectorUp [0,0,1];
-	};
 	hint 'Ok';
+	gosa_repair_array = nil; gosa_repair_vehicle = nil;
 ";
 
-["repair", "gosa_repair_menu", _l, "", _c] call BIS_FNC_createmenu;
+["repair", "gosa_z", _l, "", _c] call BIS_FNC_createmenu;
 
-showCommandingMenu "#USER:gosa_repair_menu_0";
+showCommandingMenu "#USER:gosa_z_0";
