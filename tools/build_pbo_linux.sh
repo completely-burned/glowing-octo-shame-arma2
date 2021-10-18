@@ -18,7 +18,7 @@ echo $TMPDIR
 rsync --recursive --delete $DIR/glowing-octo-shame* $TMPDIR/
 echo $(ls $TMPDIR)
 
-OUT=$DIR/.build.out
+OUT="${OUT:-$DIR/.build.out}"
 
 if [ ! -d $OUT ]; then
 	mkdir -p $OUT
