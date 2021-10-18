@@ -54,5 +54,5 @@ if(isMultiplayer)then{
 
 gosa_cachePlayers = _cache-[objNull];
 
-	diag_log format ["gosa_fnc_CheckPlayersDistance.sqf %1 %2", _Pos, _visible];
+	diag_log format ["Log: [checkPlayersDistance] %1 %2", _Pos, _visible];
 _visible;
