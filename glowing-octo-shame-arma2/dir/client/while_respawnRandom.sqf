@@ -88,6 +88,8 @@ _fnc_isFit={
 	};
 };
 
+waitUntil{!isNil "civilianBasePos"};
+
 while {true} do {
 
 	scopeName "root";
