@@ -1,16 +1,12 @@
 #define __A2OA__
 
-waitUntil{!isNil {MHQ_list}};
-waitUntil{!isNil {bis_fnc_init}};
-waitUntil{!isNil {safeSpawnDistance}};
-waitUntil{!isNil {gosa_friendlyside}};
 if (missionNamespace getVariable "respawn" != 0) exitWith {
 	diag_log format ["Log: [while_mhq] respawn type %1 exitWith", missionNamespace getVariable "respawn"];
 };
 
+private ["_useDefaultStarts", "_names","_StartingLocationsPos","_MHQ","_true"];
 
 // -- стартовые позиции
-private ["_useDefaultStarts", "_names","_StartingLocationsPos"];
 _useDefaultStarts = true;
 _names = configfile >> "cfgWorlds" >> WorldName >> "Names";
 _StartingLocationsPos = [];
@@ -48,9 +44,10 @@ if (count _StartingLocationsPos == 0) then {
 	_StartingLocationsPos = [getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor")];
 };
 
-private ["_MHQ"];
-
-private ["_true"];
+waitUntil{!isNil {MHQ_list}};
+waitUntil{!isNil {bis_fnc_init}};
+waitUntil{!isNil {safeSpawnDistance}};
+waitUntil{!isNil {gosa_friendlyside}};
 
 while{true}do{
 
