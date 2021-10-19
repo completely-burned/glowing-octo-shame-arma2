@@ -1,12 +1,12 @@
 #define __A2OA__
 
-/*Скрипт обновляет маркеры у игрока локально
- * Создает при старте статичные маркеры.
- * Обновляет динамичные маркеры
- * на открытой карте игрока.
- * 
- */
-private ["_side_str","_markerColor"];
+/*---------------------------------------------------------------------------
+Скрипт обновляет маркеры у игрока локально
+Создает при старте статичные маркеры.
+Обновляет динамичные маркеры
+на открытой карте игрока.
+---------------------------------------------------------------------------*/
+
 switch (playerSide) do {
 	case (resistance):
 	{
@@ -174,7 +174,7 @@ if(true)then{
 						};
 					};
 				};
-			} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital";
+			} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital"; // FIXME: может можно объединить все нужные типы в один зпрос allMissionObjects, нагрузка на цп
 #endif
 
 			// -- игроки
@@ -199,10 +199,10 @@ if(true)then{
 				private ["_unit","_marker"];
 				_unit = (_units select _i);
 				_marker = (_markers select _i);
-				if (!isNull _unit && alive _unit) then {
+				if (!isNull _unit && alive _unit) then { // TODO: нужна проверка на отключеных игроков
 					if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call gosa_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6))then{
 						if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
-							_marker setMarkerPosLocal (position _unit);
+							_marker setMarkerPosLocal (position _unit); // TODO: setMarker* код не оптимизирован
 							_marker setMarkerTypeLocal "vehicle";
 							_marker setMarkerDirLocal getDir _unit;
 							_marker setMarkerSizeLocal [3,3];
