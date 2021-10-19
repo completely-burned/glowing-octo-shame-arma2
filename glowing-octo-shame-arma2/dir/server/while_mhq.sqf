@@ -4,6 +4,9 @@ waitUntil{!isNil {MHQ_list}};
 waitUntil{!isNil {bis_fnc_init}};
 waitUntil{!isNil {safeSpawnDistance}};
 waitUntil{!isNil {gosa_friendlyside}};
+if (missionNamespace getVariable "respawn" != 0) exitWith {
+	diag_log format ["Log: [while_mhq] respawn type %1 exitWith", missionNamespace getVariable "respawn"];
+};
 
 
 // -- стартовые позиции
