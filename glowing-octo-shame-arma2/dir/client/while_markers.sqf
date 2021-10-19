@@ -7,6 +7,8 @@
 на открытой карте игрока.
 ---------------------------------------------------------------------------*/
 
+private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers","_markerMHQ","_markerMHQtype","_dynamicMarkers"];
+
 switch (playerSide) do {
 	case (resistance):
 	{
@@ -34,7 +36,6 @@ switch (playerSide) do {
 	};
 };
 
-private ["_objects"];
 _objects = [];
 #ifdef __A2OA__
 {
@@ -42,7 +43,6 @@ _objects = [];
 } forEach HQ;
 #endif
 
-private ["_respawnMarkers"];
 _respawnMarkers = [];
 
 // -- статичные точки возрождения
@@ -65,13 +65,11 @@ for "_i" from 0 to (count _objects - 1) do {
 	_respawnMarkers set [count _respawnMarkers, _marker];
 };
 
-private ["_markerMHQ","_markerMHQtype"];
 _markerMHQ = format["respawn_%1_MHQ",_side_str];
 _markerMHQtype = "Headquarters";
 
 waitUntil {!isNil {MHQ_list}};
 
-private ["_dynamicMarkers"];
 _dynamicMarkers = [];
 
 gosa_respawnMarkers = _respawnMarkers;
