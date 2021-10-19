@@ -5,8 +5,8 @@
  */
 
 private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime","_cam","_t","_o","_z"];
-waitUntil{!isNil{respawn}};
-if(respawn != 1)exitWith{
+
+if(missionNamespace getVariable "respawn" != 1)exitWith{
 	respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };
