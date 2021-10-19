@@ -69,6 +69,10 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 			find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
 		fi
 
+		if $DIAG_LOG; then
+			sed -i "s/glowing-octo-shame/DEBUG glowing-octo-shame/" $MISSION/mission.sqm
+		fi
+
 		# если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив
 		if [ -x "$(command -v parallel)" ]; then
 			var_parallel+=("makepbo -M 												$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
