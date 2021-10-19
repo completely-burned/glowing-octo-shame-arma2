@@ -1,5 +1,7 @@
 #define __A2OA__
 ///--- бардак, комментировать нечего
+
+scopeName "a";
 waitUntil {!isNil "bis_fnc_init"};
 locationTypes=["CityCenter"];
 // if(worldName == "Shapur_BAF")then{
@@ -105,14 +107,20 @@ locationNext={
 waitUntil{!isNil{MHQ_list}};
 while{isNil{civilianBasePos}}do{
 	{
-		if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
+		if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)exitWith{
 			civilianBasePos = getPos _x;
+			breakTo "a";
 		};
 #ifdef __A2OA__
 	} forEach vehicles + allMissionObjects "Warfare_HQ_base_unfolded";
 #else
 	} forEach vehicles;
 #endif
+
+	if (time > 5) then {
+		civilianBasePos = getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+		diag_log format ["Log: [Init_Towns] %1 civilianBasePos set worldName centerPosition", time];
+	};
 };
 sizeLocation = 250;
 
