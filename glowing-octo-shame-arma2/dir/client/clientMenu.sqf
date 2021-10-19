@@ -33,6 +33,20 @@ _list_BIS_FNC_createmenu=([
 	["SetGroupIconsVisible [true,true]","SetGroupIconsVisible [true,true];"],
 	[localize "STR_gosa_setTerrainGrid","","#USER:setTerrainGrid_0"],
 	[localize "STR_gosa_setViewDistance","","#USER:setViewDistance_0"],
+	["selectLeader (%SELECTED_UNIT_ID)","
+		private['_z','_g','_p'];
+		_p = player;
+		_g = group _p;
+		_z = GroupSelectedUnits _p;
+
+		if (count _z == 0) then {
+				if !(leader _g call gosa_fnc_isPlayer) then {
+					_g selectLeader _p;
+				};
+		} else {
+				_g selectLeader (_z select 0);
+		};
+	"],
 	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","{[_x] join grpNull; moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"],
 	[Localize "STR_gosa_join_the_squad","[] execVM 'dir\functions\fnc_joinMenu.sqf'"],
 	["setOwner (%SELECTED_UNIT_ID) player","{_x setOwner gosa_owner} foreach GroupSelectedUnits player;"]
@@ -52,7 +66,7 @@ BIS_MENU_GroupCommunication = [
 	["User menu",true],
 	[localize "str_more_menu", [2], "#USER:c_0", -5, [["expression", ""]], "1", "1"],
 	[localize "str_usract_lock_target", [3], "#WATCH", -5, [["expression", ""]], "1", "1"],
-	[localize "STR_gosa_heli_transport"+ " (testing) CursorOnGround", [4], "", -5, [["expression", 
+	[localize "STR_gosa_heli_transport"+ " (testing) CursorOnGround", [4], "", -5, [["expression",
 		"
 			if (vehicle player == player) then {
 				player setVariable ['gosa_transportPos', _pos, true];
