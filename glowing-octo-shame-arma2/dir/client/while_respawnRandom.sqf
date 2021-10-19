@@ -80,7 +80,7 @@ _fnc_isFit={
 		!(vehicle _this isKindOf "StaticWeapon") &&
 		!(vehicle _this isKindOf "Air") && // отключенно из-за десанта, и не умения летать некоторых игроков
 		!(vehicle _this isKindOf "Ship") && // отключенно из-за десанта
-		isNil {group _this getVariable "patrol"}
+		(isNil {group _this getVariable "patrol"} or vehicle _this distance civilianBasePos < (safeSpawnDistance select 1))
 	) then {
 		true;
 	}else{
