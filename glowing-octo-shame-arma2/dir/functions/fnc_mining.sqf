@@ -24,24 +24,7 @@ switch (_m) do {
 			// FIXME: _this select 1 не работает должным образом, возможно из-за разницы пинга, возвращает иногда противоположное значение
 			// TODO: для этого блока нужна отдельнай функция
 			diag_log format ["Log: [fnc_mining] EventHandler engine %1", _this];
-			_this spawn {
-				//waitUntil{isEngineOn _this select 0 or _t > time};
-				//if (_this select 1) then {
-					//--- взрыв
-					"HelicopterExploSmall" createVehicle getpos (_this select 0);
-
-					//--- чистка
-					[_this select 0, 2] call gosa_fnc_mining;
-
-					//--- прочие повреждения
-					_this select 0 engineOn false;
-
-					//--- уничтожение экипажа
-					{
-						_x setDamage 1;
-					} forEach crew (_this select 0);
-				//};
-			};
+			_this spawn gosa_fnc_explosionCar;
 		}];
 
 		//--- статус
