@@ -138,19 +138,7 @@ if(true)then{
 					};
 				};
 			} forEach allMissionObjects "Warfare_HQ_base_unfolded";
-#endif
-
-			// -- удаление лишних динамичных маркеров
-			for "_i" from 0 to (count _dynamicMarkers - 1) do {
-				if(!alive (_dynamicMarkers select _i select 1) or ((_dynamicMarkers select _i select 1) isKindOf "Man" && !((_dynamicMarkers select _i select 1) call gosa_fnc_isPlayer)))then{
-					deleteMarkerLocal (_dynamicMarkers select _i select 0);
-					_dynamicMarkers set [_i, -1];
-				};
-			};
-			_dynamicMarkers = _dynamicMarkers - [-1];
-
 			// -- создать динамичные маркеры казарм
-#ifdef __A2OA__
 			{
 				private ["_obj"];
 				_obj = _x;
@@ -173,7 +161,22 @@ if(true)then{
 					};
 				};
 			} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital"; // FIXME: может можно объединить все нужные типы в один зпрос allMissionObjects, нагрузка на цп
+			// -- объекты базы
+			{
+					_units set [count _units, _x];
+					_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
+			}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 #endif
+
+			// -- удаление лишних динамичных маркеров
+			for "_i" from 0 to (count _dynamicMarkers - 1) do {
+				if(!alive (_dynamicMarkers select _i select 1) or ((_dynamicMarkers select _i select 1) isKindOf "Man" && !((_dynamicMarkers select _i select 1) call gosa_fnc_isPlayer)))then{
+					deleteMarkerLocal (_dynamicMarkers select _i select 0);
+					_dynamicMarkers set [_i, -1];
+				};
+			};
+			_dynamicMarkers = _dynamicMarkers - [-1];
+
 
 			// -- игроки
 			{
@@ -182,14 +185,6 @@ if(true)then{
 					_markers set [count _markers, createMarkerLocal [str _x,position _x]];
 				};
 			}forEach allUnits;
-
-#ifdef __A2OA__
-			// -- объекты базы
-			{
-					_units set [count _units, _x];
-					_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
-			}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
-#endif
 
 
 			// -- маркеры
