@@ -65,8 +65,17 @@ for "_i" from 0 to (count _objects - 1) do {
 	_respawnMarkers set [count _respawnMarkers, _marker];
 };
 
+// тип возрождения
+if (missionNamespace getVariable "respawn" == 0) then {
+	_rBase = true;
+} else {
+	_rBase = false;
+};
+
+if (_rBase) then {
 _markerMHQ = format["respawn_%1_MHQ",_side_str];
 _markerMHQtype = "Headquarters";
+};
 
 waitUntil {!isNil {MHQ_list}};
 
@@ -88,6 +97,7 @@ if(true)then{
 
 	while {true} do {
 
+		if (_rBase) then {
 		// -- мобильная база (мобилизованная), один маркер
 		{
 			if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
@@ -103,6 +113,7 @@ if(true)then{
 				};
 			};
 		} forEach vehicles;
+		};
 
 		if (visibleMap) then {
 
@@ -118,6 +129,7 @@ if(true)then{
 			// -- мобильная база (развернутая), один маркер
 			// TODO: если игрок не открывал карту маркер находиться на последней позиции мобильная база (мобилизованная)
 #ifdef __A2OA__
+			if (_rBase) then {
 			{
 				if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
 					private ["_pos"];
@@ -167,6 +179,7 @@ if(true)then{
 					_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
 			}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 #endif
+			};
 
 			// -- удаление лишних динамичных маркеров
 			for "_i" from 0 to (count _dynamicMarkers - 1) do {
