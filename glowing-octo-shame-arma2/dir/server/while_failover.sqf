@@ -4,7 +4,8 @@ _p = "dir\server\";
 
 _l = [
 	"while_obj_gc.sqf", // очистка уничтоженных юнитов
-	"while_reinforcement.sqf", // генерация отрядов ии
+	// генерация отрядов ии
+	"while_reinforcement_v2.sqf",
 	"server_update_groups_wp.sqf" // маршруты
 ];
 
