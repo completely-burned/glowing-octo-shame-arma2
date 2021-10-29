@@ -52,3 +52,24 @@ _c = "
 ["repair", "gosa_z", _l, "", _c] call BIS_FNC_createmenu;
 
 showCommandingMenu "#USER:gosa_z_0";
+
+// форс-мажор закрытие меню
+[_v] spawn {
+	private ["_v"];
+	_v = _this select 0;
+
+	waitUntil {
+		sleep 0.1;
+		{alive _x && group _x != group player}count crew _v > 0 or
+		_v == vehicle player or
+		commandingMenu == "" or
+		!alive player or
+		vehicle player distance _v > 15
+	};
+
+	if (commandingMenu != "") then {
+		showCommandingMenu "";
+	};
+
+	gosa_repair_array = nil; gosa_repair_vehicle = nil;
+};
