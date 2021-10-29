@@ -17,9 +17,8 @@ if !(requiredVersion "1.60") then {
 		[] execVM "dir\client\playerStartPos.sqf";
 		[] execVM "dir\client\briefing.sqf";
 	};
-	if (isServer) then {
-		[] Call Compile preprocessFileLineNumbers "dir\server\params.sqf";
-	};
+
+	[] Call Compile preprocessFileLineNumbers "dir\common\params.sqf";
 
 	[] execVM "dir\common\setOvercast.sqf";
 
