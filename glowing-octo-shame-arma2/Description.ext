@@ -72,7 +72,7 @@ class Params {
 		default=3;
 	};
 	class playerCoefficient {
-		title="(AI) 1 player = groups bots";
+		title="(AI) 1 player = groups bots (not working)";
 		values[] = {0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8};
 		texts[] = {0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8};
 		default=1;
@@ -187,8 +187,26 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+	class gosa_frontLine_east {
+		title="Frontline - east";
+		values[] = {0,1,2};
+		texts[] = {"random 360","near friendly east","opposite to the enemies"};
+		default=0;
+	};
+	class gosa_frontLine_west {
+		title="Frontline - west";
+		values[] = {0,1,2};
+		texts[] = {"random 360","near friendly west","opposite to the enemies"};
+		default=0;
+	};
+	class gosa_frontLine_guer {
+		title="Frontline - guer";
+		values[] = {0,1,2};
+		texts[] = {"random 360","near friendly guer","opposite to the enemies"};
+		default=0;
+	};
 	class gosa_frontLine_enemy {
-		title="Frontline - enemy";
+		title="Frontline - enemy (deprecated)";
 		values[] = {0,1};
 		texts[] = {"random 360","enemy center"};
 		default=0;
