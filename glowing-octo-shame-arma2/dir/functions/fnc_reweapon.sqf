@@ -261,6 +261,7 @@ private["_flyInHeight","_pos"];
 			};
 		};
 		///--- Mi24_P
+		/*
 		if (_type isKindOf "Mi24_P") then{
 			if(!_Bombs)then
 			{
@@ -275,6 +276,7 @@ private["_flyInHeight","_pos"];
 			_veh removeMagazine "4Rnd_AT9_Mi24P"; // внешний вид
 			_veh addMagazine "4Rnd_AT9_Mi24P";
 		};
+		*/
 		///--- AV8B
 		if (_type isKindOf "AV8B") then{
 			_veh removeWeapon "BombLauncher";
