@@ -178,8 +178,8 @@ if(true)then{
 						_units set [count _units, _x];
 						_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
 				}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
-#endif
 			};
+#endif
 
 			// -- удаление лишних динамичных маркеров
 			for "_i" from 0 to (count _dynamicMarkers - 1) do {
