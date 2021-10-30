@@ -118,6 +118,8 @@ _fnc_create_buy_menu = {
 	[_current, _current, [_items, _itemsName], "%1",""] call BIS_FNC_createmenu;
 };
 
+if (missionNamespace getVariable "gosa_shop" == 1) then {
+
 waitUntil{!isNil "gosa_fnc_libEnabled"};
 waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
 waitUntil{!isNil "gosa_fnc_setNestedElement"};
@@ -377,5 +379,7 @@ _list = [[],[],[]];
 					};
 }forEach availableVehicles;;
 [_list,"Support"] call _fnc_create_buy_menu;
+
+};
 
 buyMenuLoaded=true;
