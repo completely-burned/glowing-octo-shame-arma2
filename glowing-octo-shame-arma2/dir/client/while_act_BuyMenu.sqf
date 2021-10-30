@@ -20,21 +20,25 @@ private ["_nearestObjects"];
 _nearestObjects = [
 	"LandVehicle",
 	"Air",
-	"Base_WarfareBVehicleServicePoint",
-	"Base_WarfareBBarracks","Base_WarfareBLightFactory",
-	"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"] + (MHQ_list select 0) + HQ + Airport + pier;
+	"Base_WarfareBVehicleServicePoint"] + (MHQ_list select 0) + HQ + Airport + pier;
+
 	if(!isServer)then{
 		_nearestObjects set [count _nearestObjects,"ReammoBox"];
 	};
 
-private["_Objects"];
-private["_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu"];
-private["_uav_action","_uav_terminals","_actionObj","_action_uav","_action_teleport","_action_menu","_action_buy","_resetActions","_shop"];
+private["_Objects","_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu","_BuyDist",
+	"_uav_action","_uav_terminals","_actionObj","_action_uav","_action_teleport","_action_menu","_action_buy","_resetActions","_shop"];
 
 if (missionNamespace getVariable "gosa_shop" == 1) then {
+	_nearestObjects = _nearestObjects + [
+		"Base_WarfareBBarracks","Base_WarfareBLightFactory",
+		"Base_WarfareBHeavyFactory","Base_WarfareBAircraftFactory"
+	];
 	_shop = true;
+	_BuyDist = gosa_BuyDistance;
 }else{
 	_shop = false;
+	_BuyDist = 50;
 };
 
 while {true} do {
@@ -53,7 +57,7 @@ while {true} do {
 
 		_BuyMenu = [[],[],[]];
 
-		_Objects = (nearestObjects [vehicle player, _nearestObjects, gosa_BuyDistance]);
+		_Objects = (nearestObjects [vehicle player, _nearestObjects, _BuyDist]);
 		if ((count _Objects > 0)) then {
 			{
 				private["_type","_Object"];
