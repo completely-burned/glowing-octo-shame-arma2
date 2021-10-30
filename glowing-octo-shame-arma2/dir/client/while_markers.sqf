@@ -130,54 +130,54 @@ if(true)then{
 			// TODO: если игрок не открывал карту маркер находиться на последней позиции мобильная база (мобилизованная)
 #ifdef __A2OA__
 			if (_rBase) then {
-			{
-				if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
-					private ["_pos"];
-					_pos = getPos _x;
-					if(_x isKindOf "Warfare_HQ_base_unfolded")then{
-						private ["_dir","_dist2"];
-						_dir = getDir _x - 90 - 10 + random 20;
-						_dist2 = 3 + random 2;
-						_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
+				{
+					if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
+						private ["_pos"];
+						_pos = getPos _x;
+						if(_x isKindOf "Warfare_HQ_base_unfolded")then{
+							private ["_dir","_dist2"];
+							_dir = getDir _x - 90 - 10 + random 20;
+							_dist2 = 3 + random 2;
+							_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
+						};
+						if(getMarkerType _markerMHQ != _markerMHQtype)then{
+							_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
+							_markerMHQ setMarkerTypeLocal _markerMHQtype;
+							_markerMHQ setMarkerColorLocal _markerColor;
+							gosa_respawnMarkers = [_markerMHQ]+_respawnMarkers;
+						}else{
+							_markerMHQ setMarkerPos _pos;
+						};
 					};
-					if(getMarkerType _markerMHQ != _markerMHQtype)then{
-						_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
-						_markerMHQ setMarkerTypeLocal _markerMHQtype;
-						_markerMHQ setMarkerColorLocal _markerColor;
-						gosa_respawnMarkers = [_markerMHQ]+_respawnMarkers;
-					}else{
-						_markerMHQ setMarkerPos _pos;
-					};
-				};
-			} forEach allMissionObjects "Warfare_HQ_base_unfolded";
-			// -- создать динамичные маркеры казарм
-			{
-				private ["_obj"];
-				_obj = _x;
-				if(true)then{ // нужно сделать проверку фракции
-					private ["_pos"];
-					_pos = getPos _obj;
-					private ["_dir","_dist"];
-					_dir = random 360;
-					_dist = random 10;
-					_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
-					if({_obj == (_x select 1)} count _dynamicMarkers == 0) then {
-						_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
-						_dynamicMarkers set [count _dynamicMarkers, [_marker, _obj]];
-					}else{
-						for "_i" from 0 to (count _dynamicMarkers - 1) do {
-							if (_obj == (_dynamicMarkers select _i select 1)) then {
-								(_dynamicMarkers select _i select 0) setMarkerPos _pos;
+				} forEach allMissionObjects "Warfare_HQ_base_unfolded";
+				// -- создать динамичные маркеры казарм
+				{
+					private ["_obj"];
+					_obj = _x;
+					if(true)then{ // нужно сделать проверку фракции
+						private ["_pos"];
+						_pos = getPos _obj;
+						private ["_dir","_dist"];
+						_dir = random 360;
+						_dist = random 10;
+						_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
+						if({_obj == (_x select 1)} count _dynamicMarkers == 0) then {
+							_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
+							_dynamicMarkers set [count _dynamicMarkers, [_marker, _obj]];
+						}else{
+							for "_i" from 0 to (count _dynamicMarkers - 1) do {
+								if (_obj == (_dynamicMarkers select _i select 1)) then {
+									(_dynamicMarkers select _i select 0) setMarkerPos _pos;
+								};
 							};
 						};
 					};
-				};
-			} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital"; // FIXME: может можно объединить все нужные типы в один зпрос allMissionObjects, нагрузка на цп
-			// -- объекты базы
-			{
-					_units set [count _units, _x];
-					_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
-			}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
+				} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital"; // FIXME: может можно объединить все нужные типы в один зпрос allMissionObjects, нагрузка на цп
+				// -- объекты базы
+				{
+						_units set [count _units, _x];
+						_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
+				}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 #endif
 			};
 
