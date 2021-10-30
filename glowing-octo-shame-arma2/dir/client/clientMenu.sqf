@@ -120,76 +120,27 @@ _fnc_create_buy_menu = {
 
 if (missionNamespace getVariable "gosa_shop" == 1) then {
 
-waitUntil{!isNil "gosa_fnc_libEnabled"};
-waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
-waitUntil{!isNil "gosa_fnc_setNestedElement"};
-waitUntil{!isNil "availableVehicles"};
-waitUntil{!isNil "availableWeapons"};
-waitUntil{!isNil "availableMagazines"};
+	waitUntil{!isNil "gosa_fnc_libEnabled"};
+	waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
+	waitUntil{!isNil "gosa_fnc_setNestedElement"};
+	waitUntil{!isNil "availableVehicles"};
+	waitUntil{!isNil "availableWeapons"};
+	waitUntil{!isNil "availableMagazines"};
 
-/// Ammo
-private ["_list"];
-_list = [[],[],[]];
-{
-	private ["_entry"]; private["_type"];
-	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
-	private["_faction"]; private["_vehicleclass"];
-	if(_type == "gosa_megaAmmoBox")then{
-		_faction = "Default"; _vehicleclass = "Ammo";
-	}else{
-		_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
-	};
-					if (_vehicleclass in ["Ammo","ACE_Ammunition","Backpacks"]) then
-					{
-						private["_factionclasses"];
-						_factionclasses = _list select 0;
-						private["_find_faction"];
-						if (_faction in _factionclasses)then{
-							_find_faction = _factionclasses find _faction;
-						}else{
-							private["_count"];
-							_count = count _factionclasses;
-							[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
-							[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
-							[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
-							_find_faction = _factionclasses find _faction;
-						};
-						private["_vehicleclasses"];
-						_vehicleclasses = ((_list select 1) select _find_faction);
-						private["_find_vehicleclass"];
-						if (_vehicleclass in _vehicleclasses)then{
-							_find_vehicleclass = _vehicleclasses find _vehicleclass;
-						}else{
-							private["_count"];
-							_count = count _vehicleclasses;
-							[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
-							[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
-							_find_vehicleclass = _vehicleclasses find _vehicleclass;
-						};
-						private["_types"];
-						_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
-						if (_type in _types)then{
-						}else{
-							_count = count _types;
-							[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
-						};
-					};
-}forEach availableVehicles+["gosa_megaAmmoBox"];
-[_list,"Ammo"] call _fnc_create_buy_menu;
-
-// _dataListAmmoBox = _dataListAmmoBox + [["all","[] execvm 'm\functions\gosa_fnc_MegaAmmoBox.sqf'"]];
-// _dataListAmmoBox = _dataListAmmoBox call _list_BIS_FNC_createmenu2;
-
-/// Units
-private ["_list"];
-_list = [[],[],[]];
-{
-	private ["_entry"]; private["_type"];
-	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
-					if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side"))) or !isMultiplayer) then {
-						if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
-							private["_faction"]; private["_vehicleclass"];
-							_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
+	/// Ammo
+	private ["_list"];
+	_list = [[],[],[]];
+	{
+		private ["_entry"]; private["_type"];
+		_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
+		private["_faction"]; private["_vehicleclass"];
+		if(_type == "gosa_megaAmmoBox")then{
+			_faction = "Default"; _vehicleclass = "Ammo";
+		}else{
+			_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
+		};
+						if (_vehicleclass in ["Ammo","ACE_Ammunition","Backpacks"]) then
+						{
 							private["_factionclasses"];
 							_factionclasses = _list select 0;
 							private["_find_faction"];
@@ -223,21 +174,123 @@ _list = [[],[],[]];
 								[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
 							};
 						};
-					};
-}forEach availableVehicles;
-[_list,"Man"] call _fnc_create_buy_menu;
+	}forEach availableVehicles+["gosa_megaAmmoBox"];
+	[_list,"Ammo"] call _fnc_create_buy_menu;
 
-/// vehicles
-private ["_fnc_vehicles"];
-_fnc_vehicles = {
+	// _dataListAmmoBox = _dataListAmmoBox + [["all","[] execvm 'm\functions\gosa_fnc_MegaAmmoBox.sqf'"]];
+	// _dataListAmmoBox = _dataListAmmoBox call _list_BIS_FNC_createmenu2;
+
+	/// Units
 	private ["_list"];
 	_list = [[],[],[]];
 	{
 		private ["_entry"]; private["_type"];
 		_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
-						if !(getText(_entry >> "simulation") in ["invisible", "house", "thing", "flagcarrier", "fire", "breakablehouseproxy", "breakablehouse", "parachute"]) then {
-							if!(configname _entry isKindOf "Chukar")then{
-								if ([[(configname _entry)],[_this]] call gosa_fnc_CheckIsKindOfArray) then {
+						if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side"))) or !isMultiplayer) then {
+							if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
+								private["_faction"]; private["_vehicleclass"];
+								_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
+								private["_factionclasses"];
+								_factionclasses = _list select 0;
+								private["_find_faction"];
+								if (_faction in _factionclasses)then{
+									_find_faction = _factionclasses find _faction;
+								}else{
+									private["_count"];
+									_count = count _factionclasses;
+									[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
+									[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
+									[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
+									_find_faction = _factionclasses find _faction;
+								};
+								private["_vehicleclasses"];
+								_vehicleclasses = ((_list select 1) select _find_faction);
+								private["_find_vehicleclass"];
+								if (_vehicleclass in _vehicleclasses)then{
+									_find_vehicleclass = _vehicleclasses find _vehicleclass;
+								}else{
+									private["_count"];
+									_count = count _vehicleclasses;
+									[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
+									[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+									_find_vehicleclass = _vehicleclasses find _vehicleclass;
+								};
+								private["_types"];
+								_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
+								if (_type in _types)then{
+								}else{
+									_count = count _types;
+									[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+								};
+							};
+						};
+	}forEach availableVehicles;
+	[_list,"Man"] call _fnc_create_buy_menu;
+
+	/// vehicles
+	private ["_fnc_vehicles"];
+	_fnc_vehicles = {
+		private ["_list"];
+		_list = [[],[],[]];
+		{
+			private ["_entry"]; private["_type"];
+			_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
+							if !(getText(_entry >> "simulation") in ["invisible", "house", "thing", "flagcarrier", "fire", "breakablehouseproxy", "breakablehouse", "parachute"]) then {
+								if!(configname _entry isKindOf "Chukar")then{
+									if ([[(configname _entry)],[_this]] call gosa_fnc_CheckIsKindOfArray) then {
+										private["_faction"]; private["_vehicleclass"];
+										_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
+										private["_factionclasses"];
+										_factionclasses = _list select 0;
+										private["_find_faction"];
+										if (_faction in _factionclasses)then{
+											_find_faction = _factionclasses find _faction;
+										}else{
+											private["_count"];
+											_count = count _factionclasses;
+											[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
+											[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
+											[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
+											_find_faction = _factionclasses find _faction;
+										};
+										private["_vehicleclasses"];
+										_vehicleclasses = ((_list select 1) select _find_faction);
+										private["_find_vehicleclass"];
+										if (_vehicleclass in _vehicleclasses)then{
+											_find_vehicleclass = _vehicleclasses find _vehicleclass;
+										}else{
+											private["_count"];
+											_count = count _vehicleclasses;
+											[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
+											[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+											_find_vehicleclass = _vehicleclasses find _vehicleclass;
+										};
+										private["_types"];
+										_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
+										if (_type in _types)then{
+										}else{
+											_count = count _types;
+											[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+										};
+									};
+								};
+							};
+		}forEach availableVehicles;
+		[_list,_this] call _fnc_create_buy_menu;
+	};
+	{
+		_x call _fnc_vehicles
+	} forEach ["Car","Tank","Helicopter","Plane","Motorcycle","Ship","StaticWeapon"];
+
+	/// Pilot
+	private ["_list"];
+	_list = [[],[],[]];
+	{
+		private ["_entry"]; private["_type"];
+		_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
+						if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side")))) then {
+							if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
+								if ([[(configname _entry)],["USMC_Soldier_Pilot", "CDF_Soldier_Pilot", "RU_Soldier_Pilot", "Ins_Soldier_Pilot", "GUE_Soldier_Pilot", "US_Soldier_Pilot_EP1", "TK_Soldier_Pilot_EP1", "UN_CDF_Soldier_Pilot_EP1", "Soldier_Pilot_PMC", "BAF_Pilot_MTP", "Pilot", "TK_CIV_Takistani01_EP1"]] call gosa_fnc_CheckIsKindOfArray) then {
 									private["_faction"]; private["_vehicleclass"];
 									_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 									private["_factionclasses"];
@@ -275,110 +328,57 @@ _fnc_vehicles = {
 								};
 							};
 						};
-	}forEach availableVehicles;
-	[_list,_this] call _fnc_create_buy_menu;
-};
-{
-	_x call _fnc_vehicles
-} forEach ["Car","Tank","Helicopter","Plane","Motorcycle","Ship","StaticWeapon"];
+	}forEach availableVehicles;;
+	[_list,"Pilot"] call _fnc_create_buy_menu;
 
-/// Pilot
-private ["_list"];
-_list = [[],[],[]];
-{
-	private ["_entry"]; private["_type"];
-	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
-					if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side")))) then {
-						if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
-							if ([[(configname _entry)],["USMC_Soldier_Pilot", "CDF_Soldier_Pilot", "RU_Soldier_Pilot", "Ins_Soldier_Pilot", "GUE_Soldier_Pilot", "US_Soldier_Pilot_EP1", "TK_Soldier_Pilot_EP1", "UN_CDF_Soldier_Pilot_EP1", "Soldier_Pilot_PMC", "BAF_Pilot_MTP", "Pilot", "TK_CIV_Takistani01_EP1"]] call gosa_fnc_CheckIsKindOfArray) then {
-								private["_faction"]; private["_vehicleclass"];
-								_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
-								private["_factionclasses"];
-								_factionclasses = _list select 0;
-								private["_find_faction"];
-								if (_faction in _factionclasses)then{
-									_find_faction = _factionclasses find _faction;
-								}else{
-									private["_count"];
-									_count = count _factionclasses;
-									[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
-									[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
-									[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
-									_find_faction = _factionclasses find _faction;
-								};
-								private["_vehicleclasses"];
-								_vehicleclasses = ((_list select 1) select _find_faction);
-								private["_find_vehicleclass"];
-								if (_vehicleclass in _vehicleclasses)then{
-									_find_vehicleclass = _vehicleclasses find _vehicleclass;
-								}else{
-									private["_count"];
-									_count = count _vehicleclasses;
-									[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
-									[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
-									_find_vehicleclass = _vehicleclasses find _vehicleclass;
-								};
-								private["_types"];
-								_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
-								if (_type in _types)then{
-								}else{
-									_count = count _types;
-									[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+	/// Support
+	private ["_list"];
+	_list = [[],[],[]];
+	{
+		private ["_entry"]; private["_type"];
+		_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
+						if !(getText(_entry >> "simulation") in ["invisible", "house", "thing", "flagcarrier", "fire", "breakablehouseproxy", "breakablehouse", "parachute"]) then {
+							if!(configname _entry isKindOf "Chukar")then{
+								if ((getNumber(_entry >> "transportammo")> 0) or (getNumber(_entry >> "transportrepair")> 0) or (getNumber(_entry >> "transportfuel")> 0) or ([[configname _entry], listSalvageTruck] call gosa_fnc_CheckIsKindOfArray)) then {
+									private["_faction"]; private["_vehicleclass"];
+									_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
+									private["_factionclasses"];
+									_factionclasses = _list select 0;
+									private["_find_faction"];
+									if (_faction in _factionclasses)then{
+										_find_faction = _factionclasses find _faction;
+									}else{
+										private["_count"];
+										_count = count _factionclasses;
+										[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
+										[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
+										[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
+										_find_faction = _factionclasses find _faction;
+									};
+									private["_vehicleclasses"];
+									_vehicleclasses = ((_list select 1) select _find_faction);
+									private["_find_vehicleclass"];
+									if (_vehicleclass in _vehicleclasses)then{
+										_find_vehicleclass = _vehicleclasses find _vehicleclass;
+									}else{
+										private["_count"];
+										_count = count _vehicleclasses;
+										[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
+										[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+										_find_vehicleclass = _vehicleclasses find _vehicleclass;
+									};
+									private["_types"];
+									_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
+									if (_type in _types)then{
+									}else{
+										_count = count _types;
+										[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+									};
 								};
 							};
 						};
-					};
-}forEach availableVehicles;;
-[_list,"Pilot"] call _fnc_create_buy_menu;
-
-/// Support
-private ["_list"];
-_list = [[],[],[]];
-{
-	private ["_entry"]; private["_type"];
-	_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
-					if !(getText(_entry >> "simulation") in ["invisible", "house", "thing", "flagcarrier", "fire", "breakablehouseproxy", "breakablehouse", "parachute"]) then {
-						if!(configname _entry isKindOf "Chukar")then{
-							if ((getNumber(_entry >> "transportammo")> 0) or (getNumber(_entry >> "transportrepair")> 0) or (getNumber(_entry >> "transportfuel")> 0) or ([[configname _entry], listSalvageTruck] call gosa_fnc_CheckIsKindOfArray)) then {
-								private["_faction"]; private["_vehicleclass"];
-								_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
-								private["_factionclasses"];
-								_factionclasses = _list select 0;
-								private["_find_faction"];
-								if (_faction in _factionclasses)then{
-									_find_faction = _factionclasses find _faction;
-								}else{
-									private["_count"];
-									_count = count _factionclasses;
-									[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
-									[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
-									[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
-									_find_faction = _factionclasses find _faction;
-								};
-								private["_vehicleclasses"];
-								_vehicleclasses = ((_list select 1) select _find_faction);
-								private["_find_vehicleclass"];
-								if (_vehicleclass in _vehicleclasses)then{
-									_find_vehicleclass = _vehicleclasses find _vehicleclass;
-								}else{
-									private["_count"];
-									_count = count _vehicleclasses;
-									[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
-									[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
-									_find_vehicleclass = _vehicleclasses find _vehicleclass;
-								};
-								private["_types"];
-								_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
-								if (_type in _types)then{
-								}else{
-									_count = count _types;
-									[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
-								};
-							};
-						};
-					};
-}forEach availableVehicles;;
-[_list,"Support"] call _fnc_create_buy_menu;
+	}forEach availableVehicles;;
+	[_list,"Support"] call _fnc_create_buy_menu;
 
 };
 
