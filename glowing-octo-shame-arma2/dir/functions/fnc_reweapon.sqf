@@ -54,8 +54,8 @@ private["_flyInHeight","_pos"];
 		// _weapons = (getArray(configFile >> "CfgVehicles" >> _type >> "weapons"));
 		// _weapon = (currentWeapon _veh);
 		_weapons = weapons _veh;
-		_weapon = (_weapons select 0);
 		diag_log format ["Log: [fnc_reweapon] %1 %2", _veh, _weapons];
+		_weapon = toLower (_weapons select 0);
 
 		// бинокль командиру
 		if ( _veh == leader _veh ) then {
@@ -66,22 +66,22 @@ private["_flyInHeight","_pos"];
 
 		if ( ACE_Avail ) then {
 			if (random 10 > 9) then {
-				if ( _weapon in ["ACE_AK74M_PSO"] ) then {
+				if ( _weapon in ["ace_ak74m_pso"] ) then {
 					_veh removeWeapon _weapon;
-					_weapon = "ACE_AK74M_TWS_FL";
+					_weapon = "ace_ak74m_tws_fl";
 					_veh addWeapon _weapon;
 				};
 			};
 			if !(daytime > 3 && daytime < 20) then {
 				if ("NVGoggles" in _weapons) then {
-					if ( _weapon in ["ACE_AK74M_PSO"] ) then {
+					if ( _weapon in ["ace_ak74m_pso"] ) then {
 						_veh removeWeapon _weapon;
-						_weapon = "ACE_AK74M_PSO_FL";
+						_weapon = "ace_ak74m_pso_fl";
 						_veh addWeapon _weapon;
 					};
-					if ( _weapon in ["ACE_AK74M_Kobra"] ) then {
+					if ( _weapon in ["ace_ak74m_kobra"] ) then {
 						_veh removeWeapon _weapon;
-						_weapon = "ACE_AK74M_Kobra_FL";
+						_weapon = "ace_ak74m_kobra_fl";
 						_veh addWeapon _weapon;
 					};
 					// if ( _weapon in ["ACE_AK74M_GL_Kobra"] ) then {
@@ -108,9 +108,9 @@ private["_flyInHeight","_pos"];
 					// };
 				// };
 				if (random 100 > 95) then {
-					if ( _weapon in ["AKS_74_kobra","AKS_74_pso"] ) then {
+					if ( _weapon in ["aks_74_kobra","aks_74_pso"] ) then {
 						_veh removeWeapon _weapon;
-						_weapon = "AKS_74_GOSHAWK";
+						_weapon = "aks_74_goshawk";
 						_veh addWeapon _weapon;
 					};
 					if ( _weapon in ["m107"] ) then {
@@ -120,15 +120,15 @@ private["_flyInHeight","_pos"];
 					};
 				};
 				if (random 10 > 6.5) then {
-					if ( _weapon in ["M240"] ) then {
+					if ( _weapon in ["m240"] ) then {
 						_veh removeWeapon _weapon;
 						_weapon = "m240_scoped_EP1";
 						_veh addWeapon _weapon;
 						_veh selectWeapon _weapon;
 					};
-					if ( _weapon in ["M249"] ) then {
+					if ( _weapon in ["m249"] ) then {
 						_veh removeWeapon _weapon;
-						_weapon = "M249_m145_EP1"; // [["M249_m145_EP1", "M249_TWS_EP1"],[0.5,0.1]] call BIS_fnc_selectRandomWeighted;
+						_weapon = "m249_m145_ep1"; // [["M249_m145_EP1", "M249_TWS_EP1"],[0.5,0.1]] call BIS_fnc_selectRandomWeighted;
 						_veh addWeapon _weapon;
 					};
 				};
@@ -139,19 +139,19 @@ private["_flyInHeight","_pos"];
 								_veh addWeapon "NVGoggles";
 						};
 
-						if ( _weapon in ["AKS_74_kobra","AKS_74_pso"] ) then {
+						if ( _weapon in ["aks_74_kobra","aks_74_pso"] ) then {
 							_veh removeWeapon _weapon;
-							_weapon = "AKS_74_NSPU";
+							_weapon = "aks_74_nspu";
 							_veh addWeapon _weapon;
 						};
-						if ( _weapon in ["SVD","SVD_des_EP1","SVD_CAMO"] ) then {
+						if ( _weapon in ["svd","svd_des_ep1","svd_camo"] ) then {
 							_veh removeWeapon _weapon;
-							_weapon = "SVD_NSPU_EP1";
+							_weapon = "svd_nspu_ep1";
 							_veh addWeapon _weapon;
 						};
-						if ( _weapon in ["FN_FAL"] ) then {
+						if ( _weapon in ["fn_fal"] ) then {
 							_veh removeWeapon _weapon;
-							_weapon = "FN_FAL_ANPVS4";
+							_weapon = "fn_fal_anpvs4";
 							_veh addWeapon _weapon;
 						};
 					};
@@ -170,14 +170,14 @@ private["_flyInHeight","_pos"];
 			///--- Aziz
 			if (_type isKindOf "TK_Aziz_EP1") then {
 				for "_i" from 1 to 3 do { _veh addMagazine "30Rnd_545x39_AK"};
-				_weapon = "AKS_74_GOSHAWK";
+				_weapon = "aks_74_goshawk";
 				_veh addWeapon _weapon;
 			};
 		};
 		///--- Bardak
 		if (_type isKindOf "Ins_Bardak") then{
 			for "_i" from 1 to 3 do { _veh addMagazine "30Rnd_762x39_AK47"};
-			_weapon = "AKS_GOLD";
+			_weapon = "aks_gold";
 			_veh addWeapon _weapon;
 		};
 		if (_type isKindOf "RUS_Soldier_TL") then{
