@@ -17,8 +17,9 @@ _cam = objNull;
 
 _o = gosa_owner;
 
+private["_fnc_swich","_findBody"];
+
 // переключение на новое тело
-private["_fnc_swich"];
 _fnc_swich={
 	private["_old","_new","_b"];
 	_old = (_this select 0);
@@ -48,6 +49,18 @@ _fnc_swich={
 	_new;
 };
 
+_findBody={
+	{
+		if (_x call _fnc_isFit) then {
+			if (isNil {_bestCandidate}) then {
+				_bestCandidate = _x;
+			};
+			if ((rankId _x) > (rankId _bestCandidate)) then {
+				_bestCandidate = _x;
+			};
+		};
+	} forEach _this;
+};
 // первое тело данное при старте миссии при возрождении ведет себя иначе и не подходит
 player setVariable ["selectPlayerDisable", true, true];
 
@@ -142,17 +155,7 @@ while {true} do {
 		// ищем новое тело из юнитов группы игрока т.к. они находятся рядом
 		if (isNil{_bestCandidate}) then {
 			diag_log format ["Log: [respawnRandom] поиск среди юнитов группы игрока %1", _grp];
-		_units = units _grp;
-			{
-				if (_x call _fnc_isFit) then {
-					if (isNil {_bestCandidate}) then {
-						_bestCandidate = _x;
-					};
-					if ((rankId _x) > (rankId _bestCandidate)) then {
-						_bestCandidate = _x;
-					};
-				};
-			} forEach _units;
+			units _grp call _findBody;
 		};
 
 		_listPlayers = call BIS_fnc_listPlayers;
@@ -166,16 +169,7 @@ while {true} do {
 				// в группе с большим количеством игроков не интересно (корень количества игроков)
 				if (sqrt count _listPlayers > {_x call gosa_fnc_isPlayer} count _units) then {
 					diag_log format ["Log: [respawnRandom] ищем среди групп с игроками %1", _grp];
-					{
-						if (_x call _fnc_isFit) then {
-							if (isNil {_bestCandidate}) then {
-								_bestCandidate = _x;
-							};
-							if ((rankId _x) > (rankId _bestCandidate)) then {
-								_bestCandidate = _x;
-							};
-						};
-					} forEach _units;
+					_units call _findBody;
 				};
 			};
 		} forEach _listPlayers;
