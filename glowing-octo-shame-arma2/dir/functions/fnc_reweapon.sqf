@@ -35,6 +35,7 @@ private["_flyInHeight","_pos"];
 	private["_type","_veh"];
 	_veh = _x;
 	_type = TypeOf _veh;
+	diag_log format ["Log: [fnc_reweapon] %1 %2", _veh, _type];
 
 	_pos = getPos _veh;
 
@@ -54,6 +55,7 @@ private["_flyInHeight","_pos"];
 		// _weapon = (currentWeapon _veh);
 		_weapons = weapons _veh;
 		_weapon = (_weapons select 0);
+		diag_log format ["Log: [fnc_reweapon] %1 %2", _veh, _weapons];
 
 		// бинокль командиру
 		if ( _veh == leader _veh ) then {
