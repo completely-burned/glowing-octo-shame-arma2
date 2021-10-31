@@ -58,7 +58,7 @@ private["_flyInHeight","_pos"];
 		_weapon = toLower (_weapons select 0);
 
 		// бинокль командиру
-		if ( _veh == leader _veh ) then {
+		if ( _veh == leader _veh && random 10 > 8) then {
 			if !([LIB_cfgWea,_weapons,"simulation","Binocular"] call gosa_fnc_check_config_use) then {
 					_veh addWeapon "Binocular";
 			};
