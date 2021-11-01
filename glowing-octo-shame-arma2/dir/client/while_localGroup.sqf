@@ -5,7 +5,7 @@
  */
 
 private["_p","_g2","_gov","_g","_o","_v",
-	"_z" // временное 
+	"_z","_l"
 ];
 
 [player] joinSilent grpNull;
@@ -17,6 +17,7 @@ while {true} do {
 	_p = player;
 	_g = group _p;
 	_v = vehicle _p;
+	_l = leader _g;
 
 	/*локальную переменную видит только игрок, нужна для проверки локальности группы
 	устанавливается при создании группы, нужна т.к. не знаю других способов проверки*/
@@ -25,7 +26,7 @@ while {true} do {
 	/*зависший приказ на командире мешает игроку командиру
 	не позволяет легко отдавать приказы*/
 	_z = currentCommand _p;
-	if (leader _p == _p && _z != "" && vehicle _p == _p) then {
+	if (_l == _p && _z != "" && vehicle _p == _p) then {
 		diag_log format ["Log: [localGroup] cc %2, %1 doFollow %1", _p, _z];
 		_p doFollow _p;
 	};
@@ -60,9 +61,8 @@ while {true} do {
 	*/
 
 	// группа игрока локальная игроку и поэтому игрок устанавливается лидером
-	if (!isNil {_gov} && leader _p != _p) then {
-		// игрок не лидер
-		if (leader _p != _p) then {
+	if (_l != _p) then {
+		if ((!isNil {_gov} or local _l) && !(_l call gosa_fnc_isPlayer)) then {
 			// игрока сделать лидером локальной группе
 			diag_log format ["Log: [localGroup] %1 selectLeader %2", _g, _p];
 			_g selectLeader _p;
