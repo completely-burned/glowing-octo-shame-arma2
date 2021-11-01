@@ -285,10 +285,12 @@ while{true}do{
 						diag_log format ["Log: [reinforcements] frontLine east %1", [_z,_fl]];
 					};
 
-				// _z [нападающие, патрули]
+				// _z [нападающие, патрули,  нападающие.уд.пк,  патрули.уд.пк]
 				_z = {isNil {_x getVariable "patrol"}} count (_grp select 0);
 					_z = [_z, count (_grp select 0) - _z];
 					diag_log format ["Log: [reinforcements] east сейчас %1", _z + [count (_grp select 0)]];
+					_z set [2, {isNil {_x getVariable "patrol"}} count (_grp select 4)];
+					_z set [3, count (_grp select 4) - (_z select 2)];
 
 				if (_z select 0 + ({_x select 1 == 0} count _conveyer) < (_limits select 0)) then {
 					_conveyer set [count _conveyer, [[east, objNull, _fl] spawn gosa_fnc_call_reinforcement, 0]];
@@ -349,6 +351,8 @@ while{true}do{
 				_z = {isNil {_x getVariable "patrol"}} count (_grp select 1);
 					_z = [_z, count (_grp select 1) - _z];
 					diag_log format ["Log: [reinforcements] west сейчас %1", _z + [count (_grp select 1)]];
+					_z set [2, {isNil {_x getVariable "patrol"}} count (_grp select 5)];
+					_z set [3, count (_grp select 5) - (_z select 2)];
 
 				if (_z select 0 + ({_x select 1 == 1} count _conveyer) < (_limits select 1)) then {
 					_conveyer set [count _conveyer, [[west, objNull, _fl] spawn gosa_fnc_call_reinforcement, 1]];
@@ -409,6 +413,8 @@ while{true}do{
 				_z = {isNil {_x getVariable "patrol"}} count (_grp select 2);
 					_z = [_z, count (_grp select 2) - _z];
 					diag_log format ["Log: [reinforcements] guer сейчас %1", _z + [count (_grp select 2)]];
+					_z set [2, {isNil {_x getVariable "patrol"}} count (_grp select 6)];
+					_z set [3, count (_grp select 6) - (_z select 2)];
 
 				if (_z select 0 + ({_x select 1 == 2} count _conveyer) < (_limits select 2)) then {
 					_conveyer set [count _conveyer, [[resistance, objNull, _fl] spawn gosa_fnc_call_reinforcement, 2]];
