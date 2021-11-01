@@ -8,7 +8,7 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 	private ["_entry"];
 	_entry = ((configFile >> "CfgVehicles") select _i);
 	if (isClass _entry) then {
-		if ((getNumber(_entry >> "scope")) == 2) then {
+		if ((getNumber(_entry >> "scope")) in [1,2]) then {
 			if (!(((getNumber(_entry >> "side")) call gosa_fnc_getSide) in [west,east,resistance]) or (_friendly_vehicles_only == 0) or !isMultiplayer or ((getNumber(_entry >> "side")) call gosa_fnc_getSide) in gosa_friendlyside) then {
 				_libEnabled = [_entry] call gosa_fnc_libEnabled;
 				if (_libEnabled) then {
