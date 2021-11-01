@@ -9,7 +9,7 @@ waitUntil {!isNil "bis_fnc_init"};
 diag_log format ["Log: [reinforcements] post waitUntil %1", time];
 
 private["_minGroups","_e_cfi","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
-	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fnc_fl","_grp","_e_multipler","_fl","_cfg_cfi"];
+	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fnc_fl","_grp","_e_multipler","_fl","_cfg_cfi","_patrol_percent"];
 
 private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 	if(gosa_loglevel>0)then{ // diag_log
@@ -27,6 +27,7 @@ private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 _conveyer = [];
 _conveyer_limit = 8;
 
+_patrol_percent = ((missionNamespace getVariable "gosa_patrolCoefficient") / 100);
 _dfi = gosa_server_diag_fps_interval;
 _minGroups = missionNamespace getVariable "minGroups";
 _dyn_limit = _minGroups;
@@ -178,12 +179,12 @@ while{true}do{
 
 				_limits = [];
 					{
-						_limits set [_x, 	round (((_dyn_limit / (1+_e_cfi)) * _e_cfi) / 2 / count _enemySide)];
-						_limits set [_x+4, round (((_dyn_limit / (1+_e_cfi)) * _e_cfi)	/ 2 / count _enemySide)];
+						_limits set [_x, 	round (((_dyn_limit / (1+_e_cfi)) * _e_cfi) * (1 - _patrol_percent) / count _enemySide)];
+						_limits set [_x+4, round (((_dyn_limit / (1+_e_cfi)) * _e_cfi) * _patrol_percent / count _enemySide)];
 					} forEach _enemySide;
 					{
-						_limits set [_x, 	round (( _dyn_limit / (1+_e_cfi)) / 2 / count _friendlySide)];
-						_limits set [_x+4, round (( _dyn_limit / (1+_e_cfi)) / 2 / count _friendlySide)];
+						_limits set [_x, 	round (( _dyn_limit / (1+_e_cfi)) * (1 - _patrol_percent) / count _friendlySide)];
+						_limits set [_x+4, round (( _dyn_limit / (1+_e_cfi)) * _patrol_percent / count _friendlySide)];
 					} forEach _friendlySide;
 					_limits set [8, _dyn_limit];
 		};
