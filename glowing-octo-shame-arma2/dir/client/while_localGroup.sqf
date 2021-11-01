@@ -80,7 +80,7 @@ while {true} do {
 
 		{
 			// юнитам игрока ограничение скорости не нужно
-			if(!isNil{_x getVariable "gosa_forceSpeed"})then{
+			if(!isNil{_x getVariable "gosa_forceSpeed"})then{ // TODO: локальная переменная
 				_x forceSpeed -1;
 				_x setVariable ["gosa_forceSpeed",nil];
 				diag_log format ["Log: [localGroup] %1 forceSpeed -1 %2", _x, typeOf _x ];
