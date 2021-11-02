@@ -99,7 +99,7 @@ while{true}do{
 		diag_log format ["Log: [reinforcements] count conveyer %1", count _conveyer];
 
 
-	_p = [] call BIS_fnc_listPlayers;
+	_p = [player];
 
 	//--- динамические ограничения
 
