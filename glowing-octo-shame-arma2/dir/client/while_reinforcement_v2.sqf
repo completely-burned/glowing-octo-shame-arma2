@@ -1,5 +1,7 @@
 #define __A2OA__
 
+diag_log format ["Log: [reinforcements] started %1", time ];
+
 waitUntil {!isNil "bis_fnc_init"};
 	waitUntil {!isNil "gosa_fnc_init"};
 	waitUntil {!isNil "locationStarted"};
