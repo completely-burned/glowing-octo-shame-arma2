@@ -41,6 +41,17 @@ _limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
 _frames_required = _limit_fps * _dfi;
 _time = time;
 
+_respawn_mode = missionNamespace getVariable "respawn";
+
+if (_respawn_mode == 1 or
+	_ai_client_count > 0 or
+	_limit_fps > 0
+ )then{
+	_run = true;
+ }else{
+	_run = false;
+};
+
 private["_lg","_enemySide","_friendlySide"];
 
 _friendlySide = gosa_friendlyside - [civilian];
@@ -82,7 +93,7 @@ _fnc_fl = {
 	_r;
 };
 
-while{true}do{
+while{_run}do{
 
 	_grp = call gosa_fnc_getGroups;
 
