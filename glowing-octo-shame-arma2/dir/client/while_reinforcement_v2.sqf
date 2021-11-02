@@ -35,7 +35,7 @@ _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
 _playerCoefficient = missionNamespace getVariable "playerCoefficient"; // TODO: количество игроков не учитывается
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
-_limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
+_limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
 _frames_required = _limit_fps * _dfi;
 _time = time;
 
