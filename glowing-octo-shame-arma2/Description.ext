@@ -175,6 +175,12 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+	class gosa_landing {
+		title="landing (not completed)"; // https://github.com/completely-burned/glowing-octo-shame-arma2/issues/41
+		values[] = {0,1};
+		texts[] = {$STRWFNO,$STRWFYES};
+		default=0;
+	};
 	class gosa_laserDesignator {
 		title="laserDesignator";
 		values[] = {0,1};

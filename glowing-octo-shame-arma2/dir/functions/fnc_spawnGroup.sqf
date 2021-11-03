@@ -2,11 +2,10 @@
 
 diag_log format ["Log: [gosa_fnc_spawnGroup.sqf] %1", _this];
 // diag_log str _this;
-private ["_pos", "_side", "_groups"];
+private ["_pos","_side","_groups","_vehicles","_roads","_z"];
 _side = _this select 1;
 _groups = [];
 
-private ["_vehicles","_roads"];
 _vehicles = [];
 _roads = _this select 0 select 1;
 _pos = _this select 0 select 0;
@@ -18,28 +17,31 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 
 	diag_log format ["spawn_group.sqf create pos %1 grp %2", _this select 0, _this select 2];
 
+if (missionNamespace getVariable "gosa_landing" == 1) then {
+	_z = _this select 2;
+}else{
+	[(_this select 2) select 0];
+};
+
 {
 	private ["_grp"];
 	_grp = createGroup _side;
 	_groups set [count _groups, _grp];
 
 	if(!isNull _grp)then{
-		private ["_types"];
+		private ["_types","_positions","_ranks","_crewType","_azimuth"];
 		_types = _x;
 
-		private ["_positions"];
 		if ((count _types) > 1) then {
 			_positions = _types select 1;
 		} else {
 			_positions = [];
 		};
-		private ["_ranks"];
 		if ((count _types) > 2) then {
 			_ranks = _types select 2;
 		}else{
 			_ranks = [];
 		};
-		private ["_crewType"];
 		if ((count _types) > 3) then {
 			_crewType = _types select 3;
 		} else {
@@ -48,7 +50,6 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 
 		_types = _types select 0;
 
-		private ["_azimuth"];
 		_azimuth = random 360;
 
 		for "_i" from 0 to ((count _types) - 1) do {
@@ -132,6 +133,6 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 		};
 	};
 
-}forEach [(_this select 2) select 0]; // десант временно отключен
+} forEach _z;
 
 _groups;
