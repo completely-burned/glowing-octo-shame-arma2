@@ -3,19 +3,18 @@
 ---------------------------------------------------------------------------*/
 
 private["_r","_hills","_h","_pos","_try_n","_limit","_ok","_radius","_center","_behind_h_dist",
-	"_t_dir","_t_pos","_t_pos","_l_enemy","_z"];
+	"_t_dir","_t_pos","_t_pos","_l_enemy","_z","_target_pos"];
 
 _center = _this select 0;
 _radius = _this select 1;
 _behind_h_dist = _this select 2;
 
+_target_pos = civilianBasePos;
+
 diag_log format ["Log: [fnc_find_heliUnload_pos] start %1", _this];
 
+// FIXME: в случае не найденных гор можно понатыкать рандомных позиций, отсеять самые высокие, если за ними есть позиции ниже, но я устал
 _hills = nearestLocations [_center, ["Hill"], _radius];
-
-if (count _hills == 0) exitWith {
-	[];
-};
 
 //--- вражеский центр
 	if (count _this > 3) then {
@@ -41,8 +40,12 @@ while {!_ok} do {
 		_r = [];
 	};
 
+	if (count _hills > 0) then {
 	_h = _hills call BIS_fnc_selectRandom;
 	_pos = [_center, locationPosition _h, _behind_h_dist] call gosa_fnc_getPosBehind;
+	}else{
+		_pos = [_center, _target_pos, _radius + _behind_h_dist] call gosa_fnc_getPosBehind; // TODO: временное решение
+	};
 
 	_ok=true;
 
