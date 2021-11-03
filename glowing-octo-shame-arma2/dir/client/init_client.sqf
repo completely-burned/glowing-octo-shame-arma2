@@ -36,7 +36,7 @@ SetGroupIconsVisible [true,false];
 [] execVM ("dir\client\while_aa_hidden.sqf");
 [] execVM ("dir\client\while_keyEH_smoke.sqf");
 [] execVM ("dir\client\while_respawnRandom.sqf");
-[] execVM ("dir\client\while_patrols.sqf");
+[] execVM ("dir\client\while_reinforcement_v2.sqf");
 [] execVM ("dir\client\while_assignedVehicle.sqf");
 [] execVM ("dir\ban\while_ban.sqf");
 [] execVM "dir\testing\while_act_laserBomb.sqf";
