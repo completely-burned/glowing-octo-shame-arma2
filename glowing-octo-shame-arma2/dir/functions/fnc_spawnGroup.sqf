@@ -20,7 +20,7 @@ if(count _pos == 0 && count _roads == 0)exitWith{
 if (missionNamespace getVariable "gosa_landing" == 1) then {
 	_z = _this select 2;
 }else{
-	[(_this select 2) select 0];
+	_z = [(_this select 2) select 0];
 };
 
 {
