@@ -1,6 +1,6 @@
 // эта функция отвечает за создание маршрутных точек для ии
 
-private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_grp_wp_completed","_g2","_z"];
+private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_grp_wp_completed","_g2","_z","_v"];
 
 _grp=_this;
 
@@ -502,28 +502,33 @@ if({alive _x} count _units > 0)then{
 
 			};
 
-			_z = "SUPPORT";
 			// грузовики поддержки
-			if(waypointType [_grp, currentwaypoint _grp] == _z)then{
-				if({count assignedVehicleRole _x > 0} count _units > 0)then{
-					_DeleteWP = false;
-					if(waypointAttachedVehicle [_grp, currentWaypoint _grp] != vehicle _leader)then{
-						[_grp, currentWaypoint _grp] waypointAttachVehicle vehicle _leader;
+			if (count waypoints _grp > 0) then {
+				_z = "SUPPORT";
+				_wp = [_grp, currentWaypoint _grp];
+				if(waypointType _wp == _z)then{
+					if({count assignedVehicleRole _x > 0} count _units > 0)then{
+						_DeleteWP = false;
+						_v = vehicle _leader;
+						if( _v != _leader && waypointAttachedVehicle _wp != _v )then{
+							_wp waypointAttachVehicle _v; // FIXME: при перемещении маршрута ии инициализируется под маршрут "SUPPORT" заново
+							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 waypointAttachVehicle %2 %3", _wp, _v, typeOf _v];
+						};
 					};
 				};
-			};
-			if(_z in _grp_type)then{
-				if(waypointType [_grp, currentwaypoint _grp] != _z)then{
-					_DeleteWP = true;
-					_NoCreateWP = false;
-					_createWP = true;
+				if(_z in _grp_type)then{
+					if(waypointType _wp != _z)then{
+						_DeleteWP = true;
+						_NoCreateWP = false;
+						_createWP = true;
+					};
 				};
-			};
-			if!(_z in _grp_type)then{
-				if(waypointType [_grp, currentwaypoint _grp] == _z)then{
-					_DeleteWP = true;
-					_NoCreateWP = false;
-					_createWP = true;
+				if!(_z in _grp_type)then{
+					if(waypointType _wp == _z)then{
+						_DeleteWP = true;
+						_NoCreateWP = false;
+						_createWP = true;
+					};
 				};
 			};
 
