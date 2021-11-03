@@ -65,19 +65,19 @@ _t = [];
 
 	_z = "SUPPORT";
 	if !(_z in _t) then {
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "attendant") == 1 && _x isKindOf "LandVehicle")then{
+		if(getNumber(LIB_cfgVeh >> typeOf _x >> "attendant") > 0 && _x isKindOf "LandVehicle")then{
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportfuel") == 1)then{
+		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportfuel") > 0)then{
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportammo") == 1)then{
+		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportammo") > 0)then{
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportrepair") == 1)then{
+		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportrepair") > 0)then{
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
