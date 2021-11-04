@@ -347,7 +347,7 @@ if({alive _x} count _units > 0)then{
 	};
 
 	if (true) then {
-		private["_grp","_leader""_currentWP","_waypoints","_createWP","_leaderPos"];
+		private["_grp","_leader""_currentWP","_waypoints","_createWP","_leaderPos","_NoCreateWP","_DeleteWP","_StopWP"];
 		_grp = _this;
 		_leader = leader _grp;
 
@@ -376,6 +376,10 @@ if({alive _x} count _units > 0)then{
 			};
 		}else{
 
+			_NoCreateWP = false; // не создавать
+			_DeleteWP = false; // удалить
+			_StopWP = false; // остановиться
+
 			// выполнять только если группа готова
 			if(!isNil {_grp getVariable "grp_created"})then{ // FIXME: эта проверка должна быть в другом месте выше в скрипте?
 					// слишком часто diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1  группа готова", _grp ];
@@ -392,6 +396,7 @@ if({alive _x} count _units > 0)then{
 						if ( time > (_timeNoWP + 5) ) then {
 								diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 добавлена в очередь на создание маршрута", _grp, currentCommand _leader ];
 							_createWP = true;
+							_DeleteWP = true; // используется в некоторых проверках
 							_grp setVariable ["_timeNoWP", nil];
 						};
 					};
@@ -400,11 +405,6 @@ if({alive _x} count _units > 0)then{
 					_grp setVariable ["_timeNoWP", nil];
 				};
 			};
-
-			private["_NoCreateWP","_DeleteWP","_StopWP"];
-			_NoCreateWP = false; // не создавать
-			_DeleteWP = true; // удалить
-			_StopWP = false; // остановиться
 
 			// остановить группу, удалить и не создавать маршрут если боты атакуют рядом с точкой или игроками
 			if (!("Air" in _grp_type) && !("Ship" in _grp_type)) then {
@@ -415,6 +415,20 @@ if({alive _x} count _units > 0)then{
 						_NoCreateWP = true;
 						_StopWP = true;
 						_DeleteWP = true;
+					};
+				};
+
+				// TODO: временное решение, для возобновления маршрута остановленных групп вне боя
+				if(count waypoints _grp > 0)then{
+					if (!_StopWP or _NoCreateWP or !_CreateWP or !_DeleteWP) then {
+						if (isNil {_grp getVariable "patrol"}) then {
+							if (waypointPosition [_grp, currentWaypoint _grp] distance civilianBasePos > sizeLocation) then {
+								diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 маршрут не на точке", _grp];
+								_NoCreateWP = false;
+								_CreateWP = true;
+								_DeleteWP = true;
+							};
+						};
 					};
 				};
 			};
