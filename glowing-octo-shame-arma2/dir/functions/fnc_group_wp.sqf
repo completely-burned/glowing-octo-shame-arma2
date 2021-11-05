@@ -420,13 +420,15 @@ if({alive _x} count _units > 0)then{
 
 				// TODO: временное решение, для возобновления маршрута остановленных групп вне боя
 				if(count waypoints _grp > 0)then{
-					if (!_StopWP or _NoCreateWP or !_CreateWP or !_DeleteWP) then {
-						if (isNil {_grp getVariable "patrol"}) then {
-							if (waypointPosition [_grp, currentWaypoint _grp] distance civilianBasePos > sizeLocation) then {
-								diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 маршрут не на точке", _grp];
-								_NoCreateWP = false;
-								_CreateWP = true;
-								_DeleteWP = true;
+					if (!_StopWP) then {
+						if (_NoCreateWP or !_CreateWP or !_DeleteWP) then {
+							if (isNil {_grp getVariable "patrol"}) then {
+								if (waypointPosition [_grp, currentWaypoint _grp] distance civilianBasePos > sizeLocation) then {
+									diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 маршрут не на точке", _grp];
+									_NoCreateWP = false;
+									_CreateWP = true;
+									_DeleteWP = true;
+								};
 							};
 						};
 					};
