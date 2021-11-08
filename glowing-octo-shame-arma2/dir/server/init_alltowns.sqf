@@ -108,10 +108,12 @@ for [{_count = 0},{_count < _total},{_count = _count + 1}] do
 		_town SetVariable["name",_townName];
 		_town SetVariable["speech",_speech,true]; //speech - string that matches word/sentence definition in voice protocol; also can be usually converted to localized string (str_location_<speech>)
 
-		_composition = gosa_depotCompositions Call BIS_fnc_selectRandom;
-		_constructed = [_depotPosition,_depotDirection,_composition] Call _constructFunction;
-		gosa_constructedList set [count gosa_constructedList, _constructed];
-		//[_depot] Call BIS_WF_InitDefenseLayout; // мед палатка
+		if (missionNamespace getVariable "gosa_camps" == 1) exitWith {
+			_composition = gosa_depotCompositions Call BIS_fnc_selectRandom;
+			_constructed = [_depotPosition,_depotDirection,_composition] Call _constructFunction;
+			gosa_constructedList set [count gosa_constructedList, _constructed];
+			//[_depot] Call BIS_WF_InitDefenseLayout; // мед палатка
+		};
 
 		[[_town]] Call BIS_fnc_locations;
 
@@ -170,9 +172,11 @@ for [{_count = 0},{_count < _total},{_count = _count + 1}] do
 					_camp SetDir (_x Select 1);
 					_camps = _camps + [_camp];
 
-					_composition = gosa_campCompositions Call BIS_fnc_selectRandom;
-					_constructed = [_destination,_x Select 1,_composition] Call _constructFunction;
-					gosa_constructedList set [count gosa_constructedList, _constructed];
+					if (missionNamespace getVariable "gosa_camps" == 1) exitWith {
+						_composition = gosa_campCompositions Call BIS_fnc_selectRandom;
+						_constructed = [_destination,_x Select 1,_composition] Call _constructFunction;
+						gosa_constructedList set [count gosa_constructedList, _constructed];
+					};
 				}
 				else
 				{
