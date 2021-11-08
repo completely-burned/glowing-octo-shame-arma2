@@ -194,7 +194,7 @@ class Params {
 		default=1;
 	};
 	class gosa_coin {
-		title="coin (not working)";
+		title="coin (not completed)";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
