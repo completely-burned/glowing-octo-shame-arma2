@@ -74,6 +74,8 @@ if({alive _x} count _units > 0)then{
 		};
 	}forEach _units;
 
+	diag_log format ["Log: [gosa_fnc_group_wp.sqf] _types %1", _types];
+
 	// транспортный вертолет вызываемый игроками, отличается поведением и генерирует маршруты в другом скрипте, пропускаем его
 	if( ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))then{
 		breakTo "main";
