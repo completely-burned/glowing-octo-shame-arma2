@@ -199,6 +199,12 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+	class gosa_camps {
+		title="camps";
+		values[] = {0,1};
+		texts[] = {$STRWFNO,$STRWFYES};
+		default=1;
+	};
 	class gosa_frontLine_east {
 		title="Frontline - east";
 		values[] = {0,1,2};
