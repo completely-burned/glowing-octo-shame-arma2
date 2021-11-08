@@ -1,6 +1,10 @@
 ﻿waitUntil{!isNil "gosa_fnc_init"};
 waitUntil {!isNil "BIS_fnc_init"};
 
+if (missionNamespace getVariable "respawn" != 0) exitWith {
+	diag_log format ["Log: [server_update_respawnVehicles] respawn type %1 exitWith", missionNamespace getVariable "respawn"];
+};
+
 respawnVehicleList=[];
 {
 	private ["_respawnVehicle"];
