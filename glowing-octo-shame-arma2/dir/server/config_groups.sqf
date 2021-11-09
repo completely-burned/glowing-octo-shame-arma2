@@ -777,6 +777,7 @@ if(true)then{
 		[[[["T55_TK_EP1","T55_TK_EP1","T55_TK_EP1"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT"]]],0.05],
 		[[[["T34_TK_EP1","T34_TK_EP1","T34_TK_EP1"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT"]]],0.05],
 
+		[[[["L39_TK_EP1"],[],["LIEUTENANT"]]],0.01],
 		[[[["An2_TK_EP1"],[],["CAPTAIN"]],[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AAT_EP1","TK_Soldier_AMG_EP1"]]],0.3],
 		[[[["Mi24_D_TK_EP1"],[[0,0,0]],["CAPTAIN"]],[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AAT_EP1"]]],0.3],
 		[[[["Mi17_TK_EP1","Mi17_TK_EP1"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
@@ -991,7 +992,8 @@ if(configName(configFile >> "CfgMods" >> "ACR") != "")then{
 		];
 	};
 	_west=_west+[
-		[[[["L159_ACR"], [],["LIEUTENANT"]]],0.01]
+		[[[["L159_ACR","L159_ACR"], [[0,0],[15,0]],["CAPTAIN","LIEUTENANT"]]],0.01],
+		[[[["L39_2_ACR"], [],["LIEUTENANT"]]],0.01]
 	];
 	_east=_east+[
 		[[[["TK_Soldier_SL_EP1","BVP1_TK_ACR","TK_Soldier_MG_EP1","TK_Soldier_GL_EP1","TK_Soldier_AT_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_AAT_EP1"], [[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],["LIEUTENANT","LIEUTENANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.01]
