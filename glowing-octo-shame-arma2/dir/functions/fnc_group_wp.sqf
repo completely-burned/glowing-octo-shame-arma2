@@ -567,7 +567,7 @@ if({alive _x} count _units > 0)then{
 					{
 						private["_veh"];
 						_veh = _x;
-						if({_z = group _x; _z != _grp && !isNull _z}count crew _veh > 0)then{
+						if({_z = group _x; _z != _grp && !isNull _z && alive _x}count crew _veh > 0)then{
 							_landing = true;
 						};
 					} forEach _vehicles;
