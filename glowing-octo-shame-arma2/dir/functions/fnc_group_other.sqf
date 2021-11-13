@@ -1,11 +1,12 @@
 #define __A2OA__
 
-/*функция изменяет поведение ии, 
- *например: вычисляет такое
- *когда нужен вход или выход для ботов с транспортом, 
- *переключает тип боеприпасов, 
- *изменяет скорость, режим боя
- */
+/*
+	функция изменяет поведение ии,
+	например: вычисляет такое
+	когда нужен вход или выход для ботов с транспортом,
+	переключает тип боеприпасов,
+	изменяет скорость, режим боя
+*/
 
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP",
 "_units","_vehicles","_types","_cargo","_assignedVehicles",
@@ -284,7 +285,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 		//--- малые отряды объединяются
 		/* недоработано
-		if (count _units < 2 && {_countStealth == 0 && 
+		if (count _units < 2 && {_countStealth == 0 &&
 			!("Air" in _grp_type) && !("StaticWeapon" in _grp_type) && !("SUPPORT" in _grp_type)}) then {
 			diag_log format ["Log: [gosa_fnc_group_other] count units %1 < min", _grp];
 			_z = ((_leaderPos nearEntities ["CAManBase", 150]) - _units);
