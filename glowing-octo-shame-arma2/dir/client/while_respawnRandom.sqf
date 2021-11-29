@@ -112,6 +112,10 @@ while {true} do {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] not alive %1", _player];
 	};
+	if (!local _player) then {
+		_t = true;
+		diag_log format ["Log: [respawnRandom] not local %1", _player];
+	};
 	if (isNull player) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] isNull %1", player];
