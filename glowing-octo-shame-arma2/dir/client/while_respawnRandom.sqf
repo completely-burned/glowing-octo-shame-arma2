@@ -6,14 +6,14 @@ TODO: нужна проверка AFK на игроков и лидеров гр
 FIXME: у меня нет возможности проверить этот режим должным образом, поэтому тут гадание, и вероятно не все проверки необходимы
 */
 
-private ["_bestCandidate","_player","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime","_cam","_t","_o","_z"];
+private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime","_cam","_t","_o","_z"];
 
 if(missionNamespace getVariable "respawn" != 1)exitWith{
 	respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };
 
-_player = player;
+_p = player;
 
 _cam = objNull;
 
@@ -68,7 +68,7 @@ player setVariable ["selectPlayerDisable", true, true];
 
 // после переключения на новое тело уничтожаем первое тело данное при старте т.к. оно расположено на неподходящей позиции и нужно только для старта миссии
 // нужно для respawnDone = trueж
-[_player] spawn {
+[_p] spawn {
 	waitUntil{
 		isNil{player getVariable "selectPlayerDisable"};
 	};
@@ -110,27 +110,27 @@ while {true} do {
 	scopeName "root";
 
 	_t = false;
-	if (!alive _player) then {
+	if (!alive _p) then {
 		_t = true;
-		diag_log format ["Log: [respawnRandom] not alive %1", _player];
+		diag_log format ["Log: [respawnRandom] not alive %1", _p];
 	};
-	if (!local _player) then {
+	if (!local _p) then {
 		_t = true;
-		diag_log format ["Log: [respawnRandom] not local %1", _player];
+		diag_log format ["Log: [respawnRandom] not local %1", _p];
 	};
 	if (isNull player) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] isNull %1", player];
 	};
-	if (!isNil{_player getVariable "selectPlayerDisable"}) then {
+	if (!isNil{_p getVariable "selectPlayerDisable"}) then {
 		_t = true;
-		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _player];
+		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _p];
 	};
 	if !(lifeState player in ["ALIVE", "UNCONSCIOUS"]) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] blacklisted lifeState %1", player];
 	};
-	_z = owner _player;
+	_z = owner _p;
 	if (_z != _o) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] owner %1", [_z, _o]];
@@ -154,9 +154,9 @@ while {true} do {
 			};
 		};
 
-		_grp = group _player;
+		_grp = group _p;
 
-		_pos = getPos _player;
+		_pos = getPos _p;
 
 		// ищем новое тело из юнитов группы игрока т.к. они находятся рядом
 		if (isNil{_bestCandidate}) then {
@@ -248,8 +248,8 @@ while {true} do {
 	};
 
 	// защита от непланируемого поведения, после первой смерти еще одно тело появляется на точке возрождения и переключает игрока в это тело, здесь мы переключаем его обратно в нужное тело, а созданное на точке возрождения отключаем
-	if (player != _player) then {
-		diag_log format ["Log: [respawnRandom] защита от непланируемого поведения %1", [player, _player]];
+	if (player != _p) then {
+		diag_log format ["Log: [respawnRandom] защита от непланируемого поведения %1", [player, _p]];
 		[player] joinSilent grpNull;
 		[player] spawn {
 			waitUntil{
@@ -259,13 +259,13 @@ while {true} do {
 			_this select 0 setDamage 1;
 		};
 		player setVariable ["selectPlayerDisable", true, true];
-		selectPlayer _player;
+		selectPlayer _p;
 		diag_log format ["Log: [respawnRandom] защита от непланируемого поведения player %1", player];
 	};
 
 	// выбрано новое тело, переключаем
 	if (!isNil{_bestCandidate}) then {
-		_player = ([_player, _bestCandidate] call _fnc_swich);
+		_p = ([_p, _bestCandidate] call _fnc_swich);
 		_bestCandidate = nil;
 	};
 
