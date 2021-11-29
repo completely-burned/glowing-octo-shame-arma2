@@ -166,8 +166,11 @@ while {true} do {
 			_grp = group _x;
 			if (side _grp in gosa_friendlyside) then {
 				_units = units _grp;
+				_z = count _listPlayers;
+				// рандомизация
+				_z = _z / 2 + random _z;
 				// в группе с большим количеством игроков не интересно (корень количества игроков)
-				if (sqrt count _listPlayers > {_x call gosa_fnc_isPlayer} count _units) then {
+				if (sqrt _z > {_x call gosa_fnc_isPlayer} count _units) then { // TODO: ножно предоставить выбор игрокам
 					diag_log format ["Log: [respawnRandom] ищем среди групп с игроками %1", _grp];
 					_units call _findBody;
 				};
