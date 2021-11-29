@@ -135,7 +135,7 @@ while {true} do {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] owner %1", [_z, _o]];
 	};
-	_z = _player getVariable "gosa_player_owner";
+	_z = _p getVariable "gosa_player_owner";
 	if (!isNil {_z}) then {
 		if (_z != _o) then {
 			_t = true;
