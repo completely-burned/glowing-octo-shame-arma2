@@ -220,7 +220,7 @@ while {true} do {
 
 		// переключение на птицу
 		if (isNil{_bestCandidate} && isNull _cam && isNull player) then {
-			_cam = "seagull" camCreate (player modelToWorld [0,0,100]);
+			_cam = "seagull" camCreate (player modelToWorld [0,0,100]); // TODO: позиция будет [0,0] если тела игрока уже нет
 			_cam cameraEffect ["FIXED", "LEFT TOP"];
 			_cam camCommand "MANUAL ON";
 			diag_log format ["Log: [respawnRandom] переключение на камеру %1", _cam];
