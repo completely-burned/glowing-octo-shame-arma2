@@ -104,7 +104,7 @@ _fnc_isFit={
 };
 
 if (isNil "gosa_SquadRole") then {
-	gosa_SquadRole = "reset";
+	gosa_SquadRole = -2;
 };
 
 waitUntil{!isNil "civilianBasePos"};
@@ -175,7 +175,7 @@ while {true} do {
 
 		//--- подключение к конкретному игроку
 		if (isNil{_bestCandidate}) then {
-			if (typeName gosa_SquadRole == typeName 0) then {
+			if (typeName gosa_SquadRole == typeName "") then {
 				{
 					if (_x call gosa_fnc_isPlayer && getPlayerUID _x == gosa_SquadRole) then {
 						diag_log format ["Log: [respawnRandom] ищем среди юнитов игрока %1", _x];
@@ -189,8 +189,14 @@ while {true} do {
 
 
 		// ищем группу с игроками и подключаем игрока к группе для кооперации
-		if (gosa_SquadRole != "loner") then { // && gosa_SquadRole in ["reset","all"]) then {
 		if (isNil{_bestCandidate}) then {
+			_z = true;
+			if (typeName gosa_SquadRole == typeName 0) then {
+				if (gosa_SquadRole == -1) then {
+					_z = false;
+				};
+			};
+		if (_z) then {
 		{
 			_grp = group _x;
 			if (side _grp in gosa_friendlyside) then {

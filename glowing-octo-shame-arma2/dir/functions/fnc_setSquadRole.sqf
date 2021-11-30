@@ -7,8 +7,8 @@ TODO: командир / подчиненный
 private["_p","_z","_item","_n","_name","_id"];
 
 
-// loner одиночка, all группа
-_p = ["loner","all","reset"];
+// -1 одиночка, -2 группа
+_p = [-1,-2,-2];
 
 
 //--- _n названия gui
@@ -41,12 +41,8 @@ _z = "
 
 	diag_log format ['Log: [fnc_setSquadRole] select %1', _z];
 
-	if (typeName _z == typeName '') then {
-		if (_z == 'reset') then {
-			gosa_SquadRole = 'reset';
-		}else{
+	if (typeName _z == typeName 0) then {
 			gosa_SquadRole = _z;
-		};
 	}else{
 		gosa_SquadRole = _z select 1;
 	};
