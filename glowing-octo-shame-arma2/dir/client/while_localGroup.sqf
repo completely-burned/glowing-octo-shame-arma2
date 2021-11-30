@@ -43,8 +43,10 @@ while {true} do {
 		_z = units _g;
 		{
 			if (owner _x != _o) then {
-				diag_log format ["Log: [localGroup] %1 setOwner %2", _x, _o];
-				_x setOwner _o; // FIXME: возможно есть проблемы
+				if (vehicle _x == _x) then { // FIXME: возможно отряд разделяется только из-за находящихся в транспорте юнитов, нужна проверка
+					diag_log format ["Log: [localGroup] %1 setOwner %2", _x, _o];
+					_x setOwner _o; // FIXME: возможно есть проблемы, отряд разделяется
+				};
 			};
 		} forEach _z;
 	};
