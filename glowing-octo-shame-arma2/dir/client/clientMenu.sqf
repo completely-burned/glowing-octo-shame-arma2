@@ -41,7 +41,7 @@ _list_BIS_FNC_createmenu=([
 
 		if (count _z == 0) then {
 				if !(leader _g call gosa_fnc_isPlayer) then {
-					_g selectLeader _p;
+					_g selectLeader _p; // TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
 				};
 		} else {
 				_g selectLeader (_z select 0);
