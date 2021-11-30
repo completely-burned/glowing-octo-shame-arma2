@@ -1,8 +1,13 @@
 #define __A2OA__
-/* командир, группа, юниты, игрок
- * TODO: иногда может зависнуть приказ [не стрелять] на игроке
- * в итоге не стреляет вся группа или экипаж если игрок командир :TODO
- */
+/*
+в этом файле обрабатываются:
+командир группы, группа игрока, юниты игрока, игрок
+
+
+TODO: иногда может зависнуть приказ [не стрелять] на игроке
+TODO: в итоге не стреляет вся группа или экипаж если игрок командир
+TODO: группа иногда разделяется или становится неуправляемой
+*/
 
 private["_p","_g2","_gov","_g","_o","_v",
 	"_z","_l"
@@ -28,7 +33,7 @@ while {true} do {
 	_z = currentCommand _p;
 	if (_l == _p && _z != "" && vehicle _p == _p) then {
 		diag_log format ["Log: [localGroup] cc %2, %1 doFollow %1", _p, _z];
-		_p doFollow _p;
+		_p doFollow _p; // FIXME: не работает должным образом
 	};
 
 	// если группа локальная игроку отдать юнитов группы игрока компьютеру игрока
@@ -39,13 +44,13 @@ while {true} do {
 		{
 			if (owner _x != _o) then {
 				diag_log format ["Log: [localGroup] %1 setOwner %2", _x, _o];
-				_x setOwner _o;
+				_x setOwner _o; // FIXME: возможно есть проблемы
 			};
 		} forEach _z;
 	};
 #endif*/
 
-	/* не доработано, отряд разделяется в итоге
+	/* не доработано
 	// подконтрольные игроку юниты группы должны быть в локальной лидеру группе для лучшей связи
 	if (leader _p == _p && isNil {_gov}) then {
 		_g2 = createGroup playerSide;
@@ -61,20 +66,20 @@ while {true} do {
 	*/
 
 	// группа игрока локальная игроку и поэтому игрок устанавливается лидером
-	/* не доработано, юниты отряда внутри тс становятся неуправляемыми
+	/* не доработано
 	if (_l != _p) then {
 		if ((!isNil {_gov} or local _l) && !(_l call gosa_fnc_isPlayer)) then {
 			// игрока сделать лидером локальной группе
 			diag_log format ["Log: [localGroup] %1 selectLeader %2", _g, _p];
-			_g selectLeader _p;
+			_g selectLeader _p; // FIXME: из-за selectLeader юниты отряда внутри тс становятся неуправляемыми
 		};
 	};
 	*/
 
 
 #ifdef __A2OA__
-	// не покидать поврежденное тс
 	if (leader _p == _p) then {
+		//--- не покидать поврежденное тс
 		if (_v != _p) then {
 			if (isNil {_v getVariable "gosa_allowCrewInImmobile"} && {_v isKindOf "LandVehicle"}) then {
 				_v allowCrewInImmobile true;
@@ -91,6 +96,7 @@ while {true} do {
 				diag_log format ["Log: [localGroup] %1 forceSpeed -1 %2", _x, typeOf _x ];
 			};
 
+			//--- не покидать поврежденное тс, остальные юниты
 			_v = assignedVehicle _x;
 			if (!isNull _v && {isNil {_v getVariable "gosa_allowCrewInImmobile"}} && {_v isKindOf "LandVehicle"}) then {
 				_v allowCrewInImmobile true;
