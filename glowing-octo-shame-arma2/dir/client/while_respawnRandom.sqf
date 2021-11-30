@@ -118,10 +118,11 @@ while {true} do {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] not alive %1", _p];
 	};
+	/* при переключении другое тело не сразу становиться локальным
 	if (!local _p) then { // FIXME: не исправляет ситуацию слипнувшихся игроков
 		_t = true;
 		diag_log format ["Log: [respawnRandom] not local %1", _p];
-	};
+	};*/
 	if (isNull player) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] isNull %1", player];
