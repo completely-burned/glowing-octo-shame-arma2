@@ -12,7 +12,7 @@ _p = ["loner","all","reset"];
 
 
 //--- _n названия gui
-_n = ["loner","all","reset"];
+_n = ["loner (not completed)","all","reset eq. all"];
 
 
 //--- игроки
@@ -43,7 +43,7 @@ _z = "
 
 	if (typeName _z == typeName '') then {
 		if (_z == 'reset') then {
-			gosa_SquadRole = nil;
+			gosa_SquadRole = 'reset';
 		}else{
 			gosa_SquadRole = _z;
 		};

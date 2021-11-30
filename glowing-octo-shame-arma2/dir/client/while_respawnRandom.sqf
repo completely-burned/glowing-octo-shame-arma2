@@ -103,6 +103,10 @@ _fnc_isFit={
 	};
 };
 
+if (isNil "gosa_SquadRole") then {
+	gosa_SquadRole = "reset";
+};
+
 waitUntil{!isNil "civilianBasePos"};
 
 while {true} do {
@@ -166,7 +170,25 @@ while {true} do {
 
 		_listPlayers = call BIS_fnc_listPlayers;
 
+
+
+		//--- подключение к конкретному игроку
+		if (isNil{_bestCandidate}) then {
+			if (typeName gosa_SquadRole == typeName 0) then {
+				{
+					if (_x call gosa_fnc_isPlayer && getPlayerUID _x == gosa_SquadRole) then {
+						diag_log format ["Log: [respawnRandom] ищем среди юнитов игрока %1", _x];
+						units _x call _findBody;
+					};
+				} forEach _listPlayers;
+			};
+		};
+
+
+
+
 		// ищем группу с игроками и подключаем игрока к группе для кооперации
+		if (gosa_SquadRole != "loner") then { // && gosa_SquadRole in ["reset","all"]) then {
 		if (isNil{_bestCandidate}) then {
 		{
 			_grp = group _x;
@@ -182,6 +204,7 @@ while {true} do {
 				};
 			};
 		} forEach _listPlayers;
+		};
 		};
 
 		// ищем новое тело среди групп локальных игроку для лучшего командования подчиненными
