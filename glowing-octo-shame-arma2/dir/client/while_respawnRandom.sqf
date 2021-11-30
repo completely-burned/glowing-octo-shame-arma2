@@ -114,7 +114,7 @@ while {true} do {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] not alive %1", _p];
 	};
-	if (!local _p) then {
+	if (!local _p) then { // FIXME: не исправляет ситуацию слипнувшихся игроков
 		_t = true;
 		diag_log format ["Log: [respawnRandom] not local %1", _p];
 	};
