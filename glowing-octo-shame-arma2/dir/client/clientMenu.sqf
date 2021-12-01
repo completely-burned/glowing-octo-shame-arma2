@@ -33,6 +33,8 @@ _list_BIS_FNC_createmenu=([
 	["SetGroupIconsVisible [true,true]","SetGroupIconsVisible [true,true];"],
 	[localize "STR_gosa_setTerrainGrid","","#USER:setTerrainGrid_0"],
 	[localize "STR_gosa_setViewDistance","","#USER:setViewDistance_0"],
+
+	// 					_g selectLeader _p; // TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
 	["selectLeader (%SELECTED_UNIT_ID)","
 		private['_z','_g','_p'];
 		_p = player;
@@ -41,7 +43,7 @@ _list_BIS_FNC_createmenu=([
 
 		if (count _z == 0) then {
 				if !(leader _g call gosa_fnc_isPlayer) then {
-					_g selectLeader _p; // TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
+					_g selectLeader _p;
 				};
 		} else {
 				_g selectLeader (_z select 0);
