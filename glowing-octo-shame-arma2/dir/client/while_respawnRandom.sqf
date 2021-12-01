@@ -148,9 +148,9 @@ while {true} do {
 		Помогает лишь одному игроку.
 		Не всегда срабатывает даже когда ники разные.
 		*/
-		if (name player != _p_name) then { // TODO: но после переключения остается сломанным предыдущий юнит из-за переменной, другой игрок
+		if (name player != _p_name or name _p != _p_name) then { // TODO: но после переключения остается сломанным предыдущий юнит из-за переменной, другой игрок
 			_t = true;
-			diag_log format ["Log: [respawnRandom] name player %1", name player];
+			diag_log format ["Log: [respawnRandom] name player %1, name _p %2, _p_name %3", name player, name _p, _p_name];
 		};
 	};
 	if (!isNil{_p getVariable "selectPlayerDisable"}) then {
