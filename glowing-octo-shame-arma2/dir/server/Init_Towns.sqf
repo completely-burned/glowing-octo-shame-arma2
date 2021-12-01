@@ -1,5 +1,15 @@
 #define __A2OA__
-///--- бардак, комментировать нечего
+
+/*---------------------------------------------------------------------------
+TODO: в этом файле ничего не понятно
+---------------------------------------------------------------------------*/
+
+private ["_l_types","_z"];
+
+//--- параметры
+	_l_types = missionNamespace getVariable "gosa_locationType";
+	diag_log format ["Log: [Init_Towns] locationTypes %1", _l_types];
+
 
 scopeName "a";
 waitUntil {!isNil "bis_fnc_init"};
@@ -9,6 +19,7 @@ locationTypes=["CityCenter"];
 // };
 // private["_fnc_Locations_1"];
 gosa_fnc_Locations_weights={
+	// TODO: эта функция вероятно 99% работает не правильно, ее нужно проверить
 	private["_weights","_timeMax"];
 	_weights=[]; _timeMax=0;
 	{
@@ -51,9 +62,9 @@ locationNext={
 		CivilianLocation setVariable ["time",time];
 	};
 
-	private["_sizeLocation"];
+	private["_sizeLocation","_NextLocations","_grps_rarity"];
 	_sizeLocation = + 500;
-	private["_NextLocations"];
+	if (_l_types in [1,2]) then {
 	_NextLocations = (nearestLocations [civilianBasePos, locationTypes, 5000]);
 	if(!isNil {CivilianLocation})then{
 		_NextLocations = (_NextLocations - [CivilianLocation]);
@@ -94,8 +105,16 @@ locationNext={
 	// }else{
 		// CivilianLocation = locationNull;
 	};
+	} else {
+		_sizeLocation = 250;
+		CivilianLocationStartTime = time;
+		CivilianLocation = objNull;
+		CivilianBasePos = [random (worldSize select 0), random (worldSize select 1)]; // TODO: нужен отступ от края карты
+		publicVariable "CivilianBasePos";
+		publicVariable "CivilianLocation";
+	};
 
-	private["_grps_rarity"];
+
 	_grps_rarity = CivilianLocation getVariable "_grps_rarity";
 		LocationAllGroupsWest =+ AllGroupsWest;
 		LocationAllGroupsEast =+ AllGroupsEast;
