@@ -69,13 +69,19 @@ locationNext={
 		{
 			private["_grp"];
 			_grp = _x;
+
 			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
-				{
-					_x setVariable ["time", time];
-					if!(side _x in gosa_friendlyside)then{
-						_x allowFleeing 1;
-					};
-				}forEach units _grp;
+
+				/* если отряд далеко от новой локации дабавить его в очередь на удаление.
+				союзные отряды тоже лишние.
+				*/
+				if ( leader _grp distance civilianBasePos > ((safeSpawnDistance select 1) max 2000) or
+				 side _grp in gosa_friendlyside ) then {
+					{
+						_x setVariable ["gosa_timeDeleteVehicle", 0];
+					}forEach units _grp;
+				};
+
 			};
 		}forEach allGroups;
 		{
