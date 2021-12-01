@@ -3,7 +3,7 @@ private ["_l","_lstr","_c"];
 _l = []; _lstr = [];
 
 {
-	if (playerSide getFriend side _x >= 0.6 && leader _x == _x && _x != player) then {
+	if (playerSide getFriend side _x >= 0.6 && leader effectiveCommander _x == effectiveCommander _x && _x != player) then {
 		_l set [count _l, _x];
 		_lstr set [count _lstr, str _x];
 	};
