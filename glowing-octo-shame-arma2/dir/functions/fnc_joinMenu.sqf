@@ -9,6 +9,14 @@ _l = []; _lstr = [];
 	};
 } forEach (vehicle player nearEntities 100);
 
+{
+	if (playerSide getFriend side _x >= 0.6 && _x != player) then {
+		_l set [count _l, _x];
+		_lstr set [count _lstr, str _x];
+	};
+} forEach call BIS_fnc_listPlayers;
+
+
 if (count _l == 0) exitWith {
 	hint "no matching groups within 100 meters";
 };
