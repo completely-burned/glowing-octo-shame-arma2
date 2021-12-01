@@ -145,6 +145,9 @@ while {true} do {
 	// name синхронизируется не сразу
 	if (gosa_lastSwitchBodyTime + 2.5 > time) then {
 		// это не дает игрокам слипнуться
+		/* Помогает лишь одному игроку.
+		Не всегда срабатывает даже когда ники разные.
+		*/
 		if (name player != _p_name) then { // TODO: но после переключения остается сломанным предыдущий юнит из-за переменной, другой игрок
 			_t = true;
 			diag_log format ["Log: [respawnRandom] name player %1", name player];
