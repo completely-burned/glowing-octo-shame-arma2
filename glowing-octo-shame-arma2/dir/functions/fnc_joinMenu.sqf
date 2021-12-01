@@ -16,6 +16,9 @@ _l = []; _lstr = [];
 	};
 } forEach call BIS_fnc_listPlayers;
 
+_l set [count _l, grpNull];
+_lstr set [count _lstr, localize "STR_gosa_leave_the_squad"];
+
 
 if (count _l == 0) exitWith {
 	hint "no matching groups within 100 meters";
