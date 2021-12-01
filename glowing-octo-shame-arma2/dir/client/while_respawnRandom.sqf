@@ -4,9 +4,11 @@
 скрипт возрождния в случайного юнита.
 TODO: нужна проверка AFK на игроков и лидеров группы
 FIXME: у меня нет возможности проверить этот режим должным образом, поэтому тут гадание, и вероятно не все проверки необходимы
+FIXME: при проверки name возможно переменная selectPlayerDisable становится лишней
 */
 
-private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first","_listPlayers","_deathTime","_cam","_t","_o","_z"];
+private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
+	"_listPlayers","_deathTime","_cam","_t","_o","_z","_p_name"];
 
 if(missionNamespace getVariable "respawn" != 1)exitWith{
 	respawnDone = true;
@@ -14,10 +16,16 @@ if(missionNamespace getVariable "respawn" != 1)exitWith{
 };
 
 _p = player;
+_p_name = name player;
 
 _cam = objNull;
 
 _o = gosa_owner;
+
+gosa_lastSwitchBodyTime = -99999;
+
+diag_log format ["Log: [respawnRandom] init info %1", [_p, _p_name, _o]];
+
 
 private["_fnc_swich","_findBody"];
 
@@ -25,7 +33,11 @@ private["_fnc_swich","_findBody"];
 _fnc_swich={
 	private["_old","_new","_b"];
 	_old = (_this select 0);
-	_old setVariable ["selectPlayerDisable", true, true];
+
+	if (name _old == _p_name) then { // FIXME: разные подозрения, name синхронизируется не сразу
+		_old setVariable ["selectPlayerDisable", true, true];
+	};
+
 	_new = (_this select 1);
 	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
 
@@ -37,6 +49,8 @@ _fnc_swich={
 	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
 	_new setVariable ["gosa_player_owner", _o, true];
 	selectPlayer _new; // TODO: нужна пероверка удачного переключения
+
+	gosa_lastSwitchBodyTime = time;
 
 	_new call gosa_fnc_initBriefing;
 
@@ -126,6 +140,15 @@ while {true} do {
 	if (isNull player) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] isNull %1", player];
+	};
+
+	// name синхронизируется не сразу
+	if (gosa_lastSwitchBodyTime + 2.5 > time) then {
+		// это не дает игрокам слипнуться
+		if (name player != _p_name) then { // TODO: но после переключения остается сломанным предыдущий юнит из-за переменной, другой игрок
+			_t = true;
+			diag_log format ["Log: [respawnRandom] name player %1", name player];
+		};
 	};
 	if (!isNil{_p getVariable "selectPlayerDisable"}) then {
 		_t = true;
