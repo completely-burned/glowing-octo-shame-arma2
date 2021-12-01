@@ -222,61 +222,61 @@ while {true} do {
 					_z = false;
 				};
 			};
-		if (_z) then {
-		{
-			_grp = group _x;
-			if (side _grp in gosa_friendlyside) then {
-				_units = units _grp;
-				_z = count _listPlayers;
-				// рандомизация
-				_z = _z / 2 + random _z;
-				// в группе с большим количеством игроков не интересно (корень количества игроков)
-				if (sqrt _z > {_x call gosa_fnc_isPlayer} count _units) then { // TODO: ножно предоставить выбор игрокам
-					diag_log format ["Log: [respawnRandom] ищем среди групп с игроками %1", _grp];
-					_units call _findBody;
-				};
+			if (_z) then {
+				{
+					_grp = group _x;
+					if (side _grp in gosa_friendlyside) then {
+						_units = units _grp;
+						_z = count _listPlayers;
+						// рандомизация
+						_z = _z / 2 + random _z;
+						// в группе с большим количеством игроков не интересно (корень количества игроков)
+						if (sqrt _z > {_x call gosa_fnc_isPlayer} count _units) then { // TODO: ножно предоставить выбор игрокам
+							diag_log format ["Log: [respawnRandom] ищем среди групп с игроками %1", _grp];
+							_units call _findBody;
+						};
+					};
+				} forEach _listPlayers;
 			};
-		} forEach _listPlayers;
-		};
 		};
 
 		// ищем новое тело среди групп локальных игроку для лучшего командования подчиненными
 		if (isNil{_bestCandidate}) then {
-		{
-			if (side _x in gosa_friendlyside) then {
-				_leader = leader _x;
-				if (local _leader) then {
-					diag_log format ["Log: [respawnRandom] ищем среди локальных групп %1", _x];
-				if (_leader call _fnc_isFit) then {
-					if (isNil {_bestCandidate}) then {
-						_bestCandidate = _leader;
-					};
-					if ((_pos distance _leader) < (_pos distance _bestCandidate)) then {
-						_bestCandidate = _leader;
+			{
+				if (side _x in gosa_friendlyside) then {
+					_leader = leader _x;
+					if (local _leader) then {
+						diag_log format ["Log: [respawnRandom] ищем среди локальных групп %1", _x];
+						if (_leader call _fnc_isFit) then {
+							if (isNil {_bestCandidate}) then {
+								_bestCandidate = _leader;
+							};
+							if ((_pos distance _leader) < (_pos distance _bestCandidate)) then {
+								_bestCandidate = _leader;
+							};
+						};
 					};
 				};
-				};
-			};
-		} forEach allGroups;
+			} forEach allGroups;
 		};
 
 		// ищем новое тело среди лидеров групп т.к. игроки лучше командуют отрядом
 		if (isNil{_bestCandidate}) then {
-		{
-			if (side _x in gosa_friendlyside) then {
-				diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _x];
-				_leader = leader _x;
-				if (_leader call _fnc_isFit) then {
-					if (isNil {_bestCandidate}) then {
-						_bestCandidate = _leader;
-					};
-					if ((_pos distance _leader) < (_pos distance _bestCandidate)) then {
-						_bestCandidate = _leader;
+			{
+				if (side _x in gosa_friendlyside) then {
+					diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _x];
+					_leader = leader _x;
+					if (_leader call _fnc_isFit) then {
+						if (isNil {_bestCandidate}) then {
+							_bestCandidate = _leader;
+						};
+						if ((_pos distance _leader) < (_pos distance _bestCandidate)) then {
+							_bestCandidate = _leader;
+						};
 					};
 				};
-			};
 
-		} forEach allGroups;
+			} forEach allGroups;
 		};
 
 		if (isNil{_bestCandidate}) then {
