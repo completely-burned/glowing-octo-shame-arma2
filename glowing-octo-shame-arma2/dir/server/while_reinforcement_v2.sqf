@@ -381,7 +381,7 @@ while{true}do{
 
 		};
 
-	sleep 30 call gosa_fnc_dynSleep;
+	sleep (30 call gosa_fnc_dynSleep);
 
 	_z = 2*((time-_time) / _dfi);
 	if(gosa_framesAVG > _frames_required)then{
