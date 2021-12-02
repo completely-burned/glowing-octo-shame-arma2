@@ -437,6 +437,17 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 
+			if(count waypoints _grp == 0)then{
+				// авиация не должна зависать на месте
+				if ("Air" in _grp_type) then {
+					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 авиация не должна зависать на месте", _grp];
+					_NoCreateWP = false;
+					_CreateWP = true;
+					_StopWP = false;
+					_DeleteWP = true;
+				};
+			};
+
 			// ПВО
 			if ("AA" in _grp_type) then {
 
