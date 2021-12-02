@@ -47,7 +47,7 @@ if (true) then {
 				_pos = position vehicle player;
 				_pos = [_pos, 1.5, getDir vehicle player] call BIS_fnc_relPos;
 				Private["_veh"];
-				_veh = (_type createVehicleLocal _pos);
+				_veh = (_type createVehicle _pos);
 				_veh setPos _pos;
 				player reveal _veh;
 				hint format["%1: %2", localize "str_support_done", _type];
