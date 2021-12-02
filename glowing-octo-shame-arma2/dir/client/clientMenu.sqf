@@ -43,11 +43,10 @@ _list_BIS_FNC_createmenu=([
 
 		if (count _z == 0) then {
 				if !(leader _g call gosa_fnc_isPlayer) then {
-					// _g selectLeader _p; // не работает иногда, лидер переключается с игрока обратно на ии почти сразу
-					[nil, _g, rselectLeader, _z select 0] call RE; // FIXME: нужна проверка
+					[nil, _g, rselectLeader, _z select 0] call RE;
 				};
 		} else {
-				[nil, _g, rselectLeader, _z select 0] call RE; // FIXME: нужна проверка
+				[nil, _g, rselectLeader, _z select 0] call RE;
 		};
 	"],
 	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","{[_x] join grpNull; moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"],
