@@ -15,6 +15,9 @@
 
 Private ["_deleteList"];
 while{true}do{
+
+	diag_log format ["Log: [server_update_other] performance start %1", time];
+
 	_deleteList=[];
 
 	{
@@ -37,6 +40,8 @@ while{true}do{
 		};
 	}
 	forEach (allMissionObjects 'MASH');
+
+	diag_log format ["Log: [server_update_other] performance MASH %1", time];
 
 	{
 		private["_box"];
@@ -70,6 +75,8 @@ while{true}do{
 	}
 	forEach (allMissionObjects 'ReammoBox');
 
+	diag_log format ["Log: [server_update_other] performance ReammoBox %1", time];
+
 	{
 		_x setAmmoCargo 1;
 		_x setRepairCargo 1;
@@ -82,6 +89,8 @@ while{true}do{
 			deleteVehicle _x;
 		};
 	} forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "Warfare_HQ_base_unfolded")+(allMissionObjects "BASE_WarfareBFieldhHospital");
+
+	diag_log format ["Log: [server_update_other] performance WarfareBBaseStructure %1", time];
 
 	{
 		private ["_obj"];
@@ -99,7 +108,12 @@ while{true}do{
 		};
 	} forEach vehicles+(allMissionObjects 'ReammoBox');
 
+	diag_log format ["Log: [server_update_other] performance respawnSafe %1", time];
+
 	(_deleteList) call gosa_fnc_cleanup;
+
+	diag_log format ["Log: [server_update_other] performance end %1", time];
+
 	sleep 15 + random 5;
 };
 
