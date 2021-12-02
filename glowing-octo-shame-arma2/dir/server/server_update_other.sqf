@@ -100,7 +100,7 @@ forEach (allMissionObjects "Base_WarfareBVehicleServicePoint");
 } forEach vehicles+(allMissionObjects 'ReammoBox');
 
 (_deleteList) call gosa_fnc_cleanup;
-	sleep 1;
+	sleep 15 + random 5;
 };
 
 #endif
