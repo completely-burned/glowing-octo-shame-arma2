@@ -53,6 +53,10 @@ if(count _pos_resp == 0)exitWith{
 
 _groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
 
+for "_i" from 0 to (count _groups - 1) do {
+	_groups select _i setVariable ["grp_created", true, true];
+};
+
 diag_log format ["Log: [fnc_failoverGroup] %1 created", _groups];
 
 gosa_player_needs_revival = nil;
