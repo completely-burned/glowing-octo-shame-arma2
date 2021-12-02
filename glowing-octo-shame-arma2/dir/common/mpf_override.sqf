@@ -131,7 +131,7 @@ rspawncode = {
 };
 
 rselectLeader = 'selectLeader';
-rselectLeader = {
+rselectLeadercode = {
 	_this select 1 selectLeader (_this select 2);
 };
 
