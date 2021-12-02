@@ -98,7 +98,9 @@ _fnc_isFit={
 #ifndef __A2OA__
 		local _this && // v1.11 если юнит не локальный не передает управление игроку
 #endif
-		(_this call gosa_fnc_withinMap) &&
+		( (_this call gosa_fnc_withinMap) or
+			(!isNil "gosa_player_needs_revival" && {gosa_player_needs_revival + 25 < time})
+		)	&&
 		isNil{_this getVariable "selectPlayerDisable"} &&
 		alive _this &&
 		!(_this call gosa_fnc_isPlayer) &&
@@ -280,7 +282,7 @@ while {true} do {
 		};
 
 		if (isNil{_bestCandidate}) then {
-			gosa_player_needs_revival = true;
+			gosa_player_needs_revival = time;
 		};
 
 		// переключение на птицу
