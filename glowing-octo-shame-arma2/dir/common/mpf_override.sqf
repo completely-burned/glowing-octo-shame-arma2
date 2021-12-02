@@ -130,4 +130,9 @@ rspawncode = {
 #endif
 };
 
+rselectLeader = 'selectLeader';
+rselectLeader = {
+	_this select 1 selectLeader (_this select 2);
+};
+
 diag_log format ['Log: [mpf_override.sqf] done %1', time];
