@@ -2,6 +2,20 @@
 
 #ifdef __A2OA__
 
+/*
+TODO: слишком много allMissionObjects нагружает цп
+*/
+
+private ["_deleteList","_r_base"];
+
+_r_base = missionNamespace getVariable "respawn";
+	if (_r_base == 0) then {
+		_r_base = true;
+	} else {
+		_r_base = false;
+	};
+
+
 {
 	_x allowDamage false;
 	_x setVariable ["_noDelete",true];
@@ -13,7 +27,6 @@
 	_x setVariable ["_noDelete",true];
 }forEach (allMissionObjects "Warfare_HQ_base_unfolded");
 
-Private ["_deleteList"];
 while{true}do{
 
 	diag_log format ["Log: [server_update_other] performance start %1", time];
@@ -92,6 +105,7 @@ while{true}do{
 
 	diag_log format ["Log: [server_update_other] performance WarfareBBaseStructure %1", time];
 
+	if !(_r_base) then {
 	//--- очистка места возрождения
 	{
 		private ["_obj"];
@@ -108,6 +122,7 @@ while{true}do{
 			};
 		};
 	} forEach vehicles+(allMissionObjects 'ReammoBox'); // TODO: нужно оптимизировать код
+	};
 
 	diag_log format ["Log: [server_update_other] performance respawnSafe %1", time];
 
