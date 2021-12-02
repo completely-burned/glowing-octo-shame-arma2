@@ -106,22 +106,22 @@ while{true}do{
 	diag_log format ["Log: [server_update_other] performance WarfareBBaseStructure %1", time];
 
 	if !(_r_base) then {
-	//--- очистка места возрождения
-	{
-		private ["_obj"];
-		_obj = _x;
-		if ({alive _x} count nearestObjects [getPos _obj, HQ, respawnSafeDistance] > 0) then { // TODO: нужно оптимизировать код
-			if( isNil {_obj getVariable "_noDelete"} )then{
-				if(!alive _obj)then{
-					deleteVehicle _obj;
-				}else{
-					if (({alive _x} count crew _obj)==0) then{
+		//--- очистка места возрождения
+		{
+			private ["_obj"];
+			_obj = _x;
+			if ({alive _x} count nearestObjects [getPos _obj, HQ, respawnSafeDistance] > 0) then { // TODO: нужно оптимизировать код
+				if( isNil {_obj getVariable "_noDelete"} )then{
+					if(!alive _obj)then{
 						deleteVehicle _obj;
+					}else{
+						if (({alive _x} count crew _obj)==0) then{
+							deleteVehicle _obj;
+						};
 					};
 				};
 			};
-		};
-	} forEach vehicles+(allMissionObjects 'ReammoBox'); // TODO: нужно оптимизировать код
+		} forEach vehicles+(allMissionObjects 'ReammoBox'); // TODO: нужно оптимизировать код
 	};
 
 	diag_log format ["Log: [server_update_other] performance respawnSafe %1", time];
