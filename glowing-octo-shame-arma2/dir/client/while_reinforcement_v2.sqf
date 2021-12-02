@@ -175,21 +175,21 @@ while{_run}do{
 
 					//if (_z == 0) then {
 						if (east getFriend playerSide >= 0.6) then {
-							_z = {isNil {_x getVariable "patrol"}} count ((_grp select 0)+(_grp select 3));
+							_z = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 east grp %2", _z];
 						};
 					//};
 
 					if (_z == 0) then {
 						if (west getFriend playerSide >= 0.6) then {
-							_z = {isNil {_x getVariable "patrol"}} count ((_grp select 1)+(_grp select 4));
+							_z = {isNil {_x getVariable "patrol"}} count (((_grp select 1)+(_grp select 4))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 west grp %2", _z];
 						};
 					};
 
 					if (_z == 0) then {
 						if (resistance getFriend playerSide >= 0.6) then {
-							_z = {isNil {_x getVariable "patrol"}} count ((_grp select 2)+(_grp select 5));
+							_z = {isNil {_x getVariable "patrol"}} count (((_grp select 2)+(_grp select 5))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 guer grp %2", _z];
 						};
 					};
