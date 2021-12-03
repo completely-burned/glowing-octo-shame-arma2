@@ -237,9 +237,9 @@ class Params {
 	};
 	class gosa_locationType {
 		title="Location Types";
-		values[] = {0,1,2};
-		texts[] = {"[arbitrary position] (not completed)","[City, Hill]","[City] (not completed)"};
-		default=1;
+		values[] = {-1,0,1,2};
+		texts[] = {$STRWFMISSIONDEFAULT, "[arbitrary position] (not completed)", "[City, Hill]", "[City] (not completed)"};
+		default=-1;
 	};
 	class gosa_debugLevel { // diag_log
 		title="debug"; // diag_log
