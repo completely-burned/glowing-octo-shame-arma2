@@ -135,4 +135,9 @@ rselectLeadercode = {
 	_this select 1 selectLeader (_this select 2);
 };
 
+rsetOwner = 'setOwner';
+rsetOwnercode = {
+	_this select 1 setOwner (_this select 2);
+};
+
 diag_log format ['Log: [mpf_override.sqf] done %1', time];

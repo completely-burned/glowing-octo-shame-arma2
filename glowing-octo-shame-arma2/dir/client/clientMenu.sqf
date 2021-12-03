@@ -52,7 +52,11 @@ _list_BIS_FNC_createmenu=([
 	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","{[_x] join grpNull; moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"],
 	[Localize "STR_gosa_join_the_squad","[] execVM 'dir\functions\fnc_joinMenu.sqf'"],
 	["setSquad&Role prio.","[] execVM 'dir\functions\fnc_setSquadRole.sqf'"],
-	["setOwner (%SELECTED_UNIT_ID) player","{_x setOwner gosa_owner} foreach GroupSelectedUnits player;"]
+	["setOwner (%SELECTED_UNIT_ID) player","
+		{
+			[nil, _x, rsetOwner, gosa_owner] call RE;
+		} foreach GroupSelectedUnits player;
+	"]
 	// ["deleteVehicle vehicle player", "if(({alive _x} count crew vehicle player)<=1)then {deleteVehicle vehicle player};"],
 	// ["leader move player","leader player move getpos player"],
 	// ["setAccTime 0.5","setAccTime 0.5"],
