@@ -66,7 +66,7 @@ for "_i" from 0 to (count _objects - 1) do {
 };
 
 // тип возрождения
-if (missionNamespace getVariable "respawn" == 0) then {
+if (missionNamespace getVariable "respawn" == 0 or missionNamespace getVariable "gosa_MHQ" == 1) then {
 	_rBase = true;
 } else {
 	_rBase = false;
