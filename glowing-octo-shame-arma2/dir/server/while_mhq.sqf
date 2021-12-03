@@ -1,6 +1,6 @@
 #define __A2OA__
 
-if (missionNamespace getVariable "respawn" != 0) exitWith {
+if (missionNamespace getVariable "gosa_MHQ" != 1) exitWith {
 	diag_log format ["Log: [while_mhq] respawn type %1 exitWith", missionNamespace getVariable "respawn"];
 };
 

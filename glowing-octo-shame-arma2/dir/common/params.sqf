@@ -12,6 +12,15 @@ if(isMultiplayer)then{
 	};
 };
 
+_z = missionNamespace getVariable "gosa_MHQ";
+	if (_z == -1) then {
+		if (missionNamespace getVariable "respawn" == 0) then {
+			missionNamespace setVariable ["gosa_MHQ", 1];
+		} else {
+			missionNamespace setVariable ["gosa_MHQ", 0];
+		};
+	};
+
 _z = missionNamespace getVariable "gosa_locationType";
 	if (_z == -1) then {
 		if (toLower worldName in ["Bootcamp_ACR","ProvingGrounds_PMC"]) then {
