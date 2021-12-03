@@ -4,11 +4,8 @@
 TODO: в этом файле ничего не понятно
 ---------------------------------------------------------------------------*/
 
-private ["_l_types","_z"];
-
 //--- параметры
-	_l_types = missionNamespace getVariable "gosa_locationType";
-	diag_log format ["Log: [Init_Towns] locationTypes %1", _l_types];
+	diag_log format ["Log: [Init_Towns] locationTypes %1", missionNamespace getVariable "gosa_locationType"];
 
 
 scopeName "a";
@@ -64,7 +61,7 @@ locationNext={
 
 	private["_sizeLocation","_NextLocations","_grps_rarity"];
 	_sizeLocation = + 500;
-	if (_l_types in [1,2]) then {
+	if (missionNamespace getVariable "gosa_locationType" in [1,2]) then {
 	_NextLocations = (nearestLocations [civilianBasePos, locationTypes, 5000]);
 	if(!isNil {CivilianLocation})then{
 		_NextLocations = (_NextLocations - [CivilianLocation]);
@@ -111,7 +108,7 @@ locationNext={
 		CivilianLocationStartTime = time;
 		CivilianLocation = objNull;
 
-		private ["_x", "_y"];
+		private ["_x", "_y", "_z"];
 		_z = 1000 min ((worldSize select 0)/4); // _z = отступ
 			_x = worldSize select 0;
 			_x = _x - (_z*2);
