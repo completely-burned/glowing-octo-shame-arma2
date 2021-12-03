@@ -105,7 +105,7 @@ while{true}do{
 
 	diag_log format ["Log: [server_update_other] performance WarfareBBaseStructure %1", time];
 
-	if !(_r_base) then {
+	if (_r_base) then {
 		//--- очистка места возрождения
 		{
 			private ["_obj"];
