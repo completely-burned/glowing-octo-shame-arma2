@@ -95,7 +95,7 @@ _fnc_fl = {
 
 while{_run}do{
 
-	_grp = call gosa_fnc_getGroups;
+	_grp = call gosa_fnc_getGroups;  // FIXME: fnc_getGroups выдает неправильное соотношение локальных групп к удаленным, из-за чего некоторые группы не правильно учитываются и лимит не работает должным образом
 
 	_lg=((count (_grp select 0))+(count (_grp select 1))+(count (_grp select 2)));
 
