@@ -126,10 +126,10 @@ class Params {
 		default=0;
 	};
 	class mining {
-		title="mining";
+		title="mining (not completed)"; // дистанция безопасного минирования не верно определяется когда все игроки мертвы
 		values[] = {0,		2,5,10,20,30,50,75}; // в процентах
 		texts[] = {$STRWFNO,2,5,10,20,30,50,75};
-		default=20;
+		default=0;
 	};
 	class respawn {
 		title="respawn";
