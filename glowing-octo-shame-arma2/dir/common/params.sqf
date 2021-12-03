@@ -23,7 +23,7 @@ _z = missionNamespace getVariable "gosa_MHQ";
 
 _z = missionNamespace getVariable "gosa_locationType";
 	if (_z == -1) then {
-		if (toLower worldName in ["Bootcamp_ACR","ProvingGrounds_PMC"]) then {
+		if (toLower worldName in ["bootcamp_acr","provinggrounds_pmc"]) then {
 			missionNamespace setVariable ["gosa_locationType", 0];
 		} else {
 			missionNamespace setVariable ["gosa_locationType", 1];
