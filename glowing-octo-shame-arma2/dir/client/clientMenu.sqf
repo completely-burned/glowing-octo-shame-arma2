@@ -144,11 +144,18 @@ _fnc_create_buy_menu = {
 				_items3 set [count _items3, (((_list select 2) select _i) select _ii) select _iii];
 				private["_name"];
 				_name = (((_list select 2) select _i) select _ii) select _iii;
-				if(configName(configFile >> "CfgVehicles" >> _name >> "displayName") != "")then{
-					_itemsName3 set [count _itemsName3, getText (configFile >> "CfgVehicles" >> _name >> "displayName")];
-				}else{
-					_itemsName3 set [count _itemsName3, str _name];
-				};
+				_z = configName(configFile >> "CfgVehicles" >> _name >> "displayName");
+					if (_z != "") then {
+						_z = getText (configFile >> "CfgVehicles" >> _name >> "displayName");
+					};
+					if (_z == "") then {
+						_z = str _name;
+					}else{
+						if (_z in _itemsName3) then {
+							_z = _name + " " + _z;
+						};
+					};
+					_itemsName3 set [count _itemsName3, _z];
 				_itemEnable set [count _itemEnable, 1];
 			};
 			[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "","['%1'] spawn gosa_fnc_Client_BuyUnit"] call BIS_FNC_createmenu;
