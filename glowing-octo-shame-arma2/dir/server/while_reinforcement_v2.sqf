@@ -247,10 +247,10 @@ while{true}do{
 					_z set [3, count (_grp select 4) - (_z select 2)];
 					diag_log format ["Log: [reinforcements] east сейчас %1 %2", _z, [count (_grp select 0), count (_grp select 4)]];
 
-				if (_z select 0 + ((_z select 2) * 0.5) + ({_x select 1 == 0} count _conveyer) < (_limits select 0)) then {
+				if ((_z select 0) + ((_z select 2) * 0.5) + ({_x select 1 == 0} count _conveyer) < (_limits select 0)) then {
 					_conveyer set [count _conveyer, [[east, objNull, _fl] spawn gosa_fnc_call_reinforcement, 0]];
 				};
-				if (_z select 1 + ((_z select 3) * 0.5) + ({_x select 1 == 4} count _conveyer) < (_limits select 4)) then {
+				if ((_z select 1) + ((_z select 3) * 0.5) + ({_x select 1 == 4} count _conveyer) < (_limits select 4)) then {
 					_conveyer set [count _conveyer, [[east, _p call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 4]];
 				};
 
@@ -309,10 +309,10 @@ while{true}do{
 					_z set [3, count (_grp select 5) - (_z select 2)];
 					diag_log format ["Log: [reinforcements] west сейчас %1 %2", _z, [count (_grp select 1), count (_grp select 5)]];
 
-				if (_z select 0 + ((_z select 2) * 0.5) + ({_x select 1 == 1} count _conveyer) < (_limits select 1)) then {
+				if ((_z select 0) + ((_z select 2) * 0.5) + ({_x select 1 == 1} count _conveyer) < (_limits select 1)) then {
 					_conveyer set [count _conveyer, [[west, objNull, _fl] spawn gosa_fnc_call_reinforcement, 1]];
 				};
-				if (_z select 1 + ((_z select 3) * 0.5) + ({_x select 1 == 5} count _conveyer) < (_limits select 5)) then {
+				if ((_z select 1) + ((_z select 3) * 0.5) + ({_x select 1 == 5} count _conveyer) < (_limits select 5)) then {
 					_conveyer set [count _conveyer, [[west, _p call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 5]];
 				};
 
@@ -371,10 +371,10 @@ while{true}do{
 					_z set [3, count (_grp select 6) - (_z select 2)];
 					diag_log format ["Log: [reinforcements] guer сейчас %1 %2", _z, [count (_grp select 2), count (_grp select 6)]];
 
-				if (_z select 0 + ((_z select 2) * 0.5) + ({_x select 1 == 2} count _conveyer) < (_limits select 2)) then {
+				if ((_z select 0) + ((_z select 2) * 0.5) + ({_x select 1 == 2} count _conveyer) < (_limits select 2)) then {
 					_conveyer set [count _conveyer, [[resistance, objNull, _fl] spawn gosa_fnc_call_reinforcement, 2]];
 				};
-				if (_z select 1 + ((_z select 3) * 0.5) + ({_x select 1 == 6} count _conveyer) < (_limits select 6)) then {
+				if ((_z select 1) + ((_z select 3) * 0.5) + ({_x select 1 == 6} count _conveyer) < (_limits select 6)) then {
 					_conveyer set [count _conveyer, [[resistance, _p call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 6]];
 				};
 			};
