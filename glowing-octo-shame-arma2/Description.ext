@@ -145,8 +145,8 @@ class Params {
 	};
 	class gosa_shop {
 		title="shop";
-		values[] = {0,1};
-		texts[] = {$STRWFNO,$STRWFYES};
+		values[] = {0,1,2};
+		texts[] = {$STRWFNO,$STRWFYES,"home delivery"};
 		default=0;
 	};
 	class ai_client_count {

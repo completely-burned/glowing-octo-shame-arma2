@@ -1,5 +1,5 @@
 
-private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled"];
+private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
@@ -25,7 +25,7 @@ _list_BIS_FNC_createmenu2=
 	[_arr1,_arr2,_arr3,_arr4];
 };
 waitUntil{!isNil "gosa_fnc_RespawnWeaponsAdd"};
-_list_BIS_FNC_createmenu=([
+_z=[
 	[localize "STR_gosa_maintain_equipment","'save' call gosa_fnc_RespawnWeaponsAdd"],
 	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
 	[localize "STR_gosa_car_flip", "nearestObjects [vehicle player, ['AllVehicles'], 10] call gosa_fnc_turnVehicle;"],
@@ -60,7 +60,40 @@ _list_BIS_FNC_createmenu=([
 	// ["deleteVehicle vehicle player", "if(({alive _x} count crew vehicle player)<=1)then {deleteVehicle vehicle player};"],
 	// ["leader move player","leader player move getpos player"],
 	// ["setAccTime 0.5","setAccTime 0.5"],
-] call _list_BIS_FNC_createmenu2);
+];
+
+if (missionNamespace getVariable "gosa_shop" == 2) then {
+	["BuyMenu", "BuyMenu", [
+		[
+			"#USER:Man_0","#USER:Ammo_0","#USER:StaticWeapon_0",
+			"#USER:Car_0","#USER:Motorcycle_0","#USER:Tank_0",
+			"#USER:Helicopter_0","#USER:Plane_0"
+			//, "#USER:Ship_0"
+		],
+		[
+			gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName"),
+			gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName"),
+			gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName"),
+			gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName"),
+			gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName"),
+			gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName"),
+			gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName"),
+			gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName")
+			//, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")
+		],
+		[
+			1,1,1,
+			1,1,1,
+			1,1
+			//,1
+		]
+	], "%1", ""] call BIS_FNC_createmenu;
+	_z = _z + [
+		[localize "STR_gosa_purchase","","#USER:BuyMenu_0"]
+	];
+};
+
+_list_BIS_FNC_createmenu = _z call _list_BIS_FNC_createmenu2;
 
 ["#USER:c_0", "c", [_list_BIS_FNC_createmenu select 1, _list_BIS_FNC_createmenu select 0, _list_BIS_FNC_createmenu select 2, _list_BIS_FNC_createmenu select 3], "","%1"] call gosa_fnc_createmenu;
 ["setTerrainGrid", "setTerrainGrid", [[50,25,12.5,6.25,3.125],["50","25","12.5","6.25","3.125"]], "","setTerrainGrid %1"] call BIS_FNC_createmenu;
@@ -125,7 +158,7 @@ _fnc_create_buy_menu = {
 	[_current, _current, [_items, _itemsName], "%1",""] call BIS_FNC_createmenu;
 };
 
-if (missionNamespace getVariable "gosa_shop" == 1) then {
+if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 
 	waitUntil{!isNil "gosa_fnc_libEnabled"};
 	waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
