@@ -137,7 +137,10 @@ rselectLeadercode = {
 
 rsetOwner = 'setOwner';
 rsetOwnercode = {
-	_this select 1 setOwner (_this select 2);
+	private ["_z"];
+	_z = owner (_this select 2);
+	diag_log format ["Log: [mpf] %1 setOwner %2", _this select 1, [_z, _this select 2] ];
+	_this select 1 setOwner _z;
 };
 
 rselectPlayer = 'selectPlayer';
