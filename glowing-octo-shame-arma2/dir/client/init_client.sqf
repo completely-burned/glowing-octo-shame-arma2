@@ -1,6 +1,9 @@
 #define __A2OA__
 
-gosa_owner = owner player;
+gosa_owner = getPlayerUID player;
+while {gosa_owner == ""} do {
+	gosa_owner = getPlayerUID player;
+};
 
 gosa_squadOn = [];
 gosa_squadOff = [];

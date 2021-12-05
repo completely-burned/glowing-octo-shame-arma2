@@ -31,14 +31,26 @@ private["_fnc_swich","_findBody"];
 
 // переключение на новое тело
 _fnc_swich={
-	private["_old","_new","_b"];
+	private["_old","_new","_b","_time","_var"];
 	_old = (_this select 0);
+	_new = (_this select 1);
 
-	if (name _old == _p_name) then { // FIXME: разные подозрения, name синхронизируется не сразу
-		_old setVariable ["selectPlayerDisable", true, true];
+	[nil, _new, rselectPlayer, _o] call RE; // временное решение
+
+	_time = time+5;
+	while {isNil "_var" && time < _time} do { // FIXME: это плохой способ
+		_var = _new getVariable "gosa_player_owner";
+		sleep 0.05;
 	};
 
-	_new = (_this select 1);
+	diag_log format ["Log: [respawnRandom] _fnc_swich _var %1, _o %2", _var, _o];
+
+	if (!isNil "_var" && {_var == _o}) then {
+
+	if (name _old == _p_name) then { // FIXME: разные подозрения, name синхронизируется не сразу
+		_old setVariable ["selectPlayerDisable", true]; // FIXME: не понимаю зачем нужно это
+	};
+
 	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
 
 	_b = behaviour _new;
@@ -47,7 +59,6 @@ _fnc_swich={
 	};
 
 	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
-	_new setVariable ["gosa_player_owner", _o, true];
 	selectPlayer _new; // TODO: нужна пероверка удачного переключения
 
 	gosa_lastSwitchBodyTime = time;
@@ -63,6 +74,11 @@ _fnc_swich={
 	};												// diag_log
 
 	_new;
+
+	}else{
+		_old;
+	};
+
 };
 
 _findBody={
@@ -145,16 +161,17 @@ while {true} do {
 	};
 
 	// name синхронизируется не сразу
+	/* не работает
 	if (gosa_lastSwitchBodyTime + 2.5 > time) then {
 		/* Проверка name не дает игрокам слипнуться.
 		Помогает лишь одному игроку.
 		Не всегда срабатывает даже когда ники разные.
-		*/
 		if (name player != _p_name or name _p != _p_name) then { // TODO: но после переключения остается сломанным предыдущий юнит из-за переменной, другой игрок
 			_t = true;
 			diag_log format ["Log: [respawnRandom] name player %1, name _p %2, _p_name %3", name player, name _p, _p_name];
 		};
 	};
+	*/
 	if (!isNil{_p getVariable "selectPlayerDisable"}) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _p];
@@ -163,11 +180,12 @@ while {true} do {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] blacklisted lifeState %1", player];
 	};
+	/* для local owner == 0 у всех игроков
 	_z = owner _p;
-	if (_z != _o) then {
+	if (_z != 0) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] owner %1", [_z, _o]];
-	};
+	};*/
 	_z = _p getVariable "gosa_player_owner";
 	if (!isNil {_z}) then {
 		if (_z != _o) then {

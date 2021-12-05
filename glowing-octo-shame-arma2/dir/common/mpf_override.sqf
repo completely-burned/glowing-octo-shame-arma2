@@ -140,4 +140,19 @@ rsetOwnercode = {
 	_this select 1 setOwner (_this select 2);
 };
 
+rselectPlayer = 'selectPlayer';
+rselectPlayercode = {
+	diag_log format ["Log: [respawnRandom] mpf %1", _this];
+	if (isServer) then {
+		private ["_z"];
+		_z = _this select 1 getVariable "gosa_player_owner";
+		if (isNil "_z") then {
+			diag_log format ["Log: [respawnRandom] mpf setVariable %1", _this select 2];
+			_this select 1 setVariable ["gosa_player_owner", _this select 2, true]; // FIXME: переменная остается
+		}else {
+			diag_log format ["Log: [respawnRandom] mpf variable == %1", _z];
+		};
+	};
+};
+
 diag_log format ['Log: [mpf_override.sqf] done %1', time];
