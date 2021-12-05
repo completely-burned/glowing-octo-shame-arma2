@@ -56,6 +56,11 @@ _z=[
 		{
 			[nil, _x, rsetOwner, player] call RE;
 		} foreach GroupSelectedUnits player;
+		private ['_z'];
+		_z = leader player;
+		if (_z != player) then {
+			[nil, _z, rsetOwner, player] call RE;
+		};
 	"]
 	// ["deleteVehicle vehicle player", "if(({alive _x} count crew vehicle player)<=1)then {deleteVehicle vehicle player};"],
 	// ["leader move player","leader player move getpos player"],
