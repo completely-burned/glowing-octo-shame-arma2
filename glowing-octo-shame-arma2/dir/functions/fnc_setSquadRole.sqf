@@ -24,6 +24,14 @@ for "_i" from 0 to (count _z -1) do {
 	_id = getPlayerUID _item;
 
 	_p set [3+_i, [_name, _id]];
+
+	if (_id in gosa_squadOn) then {
+		_name = "[+] " + _name;
+	};
+	if (_id in gosa_squadOff) then {
+		_name = "[-] " + _name + " (not completed)";
+	};
+
 	_n set [3+_i, _name + " " + str _id];
 };
 
@@ -43,13 +51,12 @@ _z = "
 
 	if (typeName _z == typeName 0) then {
 			gosa_SquadRole = _z;
+			diag_log format ['Log: [fnc_setSquadRole] global variable is set to %1', gosa_SquadRole];
+			gosa_SquadRole_array = nil;
 	}else{
-		gosa_SquadRole = _z select 1;
+		gosa_SquadRole_array = _z;
+		[gosa_SquadRole_array] execVM 'dir\functions\fnc_setSquad.sqf';
 	};
-
-	gosa_SquadRole_array = nil;
-
-	diag_log format ['Log: [fnc_setSquadRole] global variable is set to %1', gosa_SquadRole];
 
 ";
 

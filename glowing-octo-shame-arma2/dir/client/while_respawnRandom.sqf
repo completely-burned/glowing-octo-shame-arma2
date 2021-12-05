@@ -203,9 +203,9 @@ while {true} do {
 
 		//--- подключение к конкретному игроку
 		if (isNil{_bestCandidate}) then {
-			if (typeName gosa_SquadRole == typeName "") then {
+			if (count gosa_squadOn > 0) then {
 				{
-					if (_x call gosa_fnc_isPlayer && getPlayerUID _x == gosa_SquadRole) then {
+					if (_x call gosa_fnc_isPlayer && getPlayerUID _x in gosa_squadOn) then {
 						diag_log format ["Log: [respawnRandom] ищем среди юнитов игрока %1", _x];
 						units _x call _findBody;
 					};
