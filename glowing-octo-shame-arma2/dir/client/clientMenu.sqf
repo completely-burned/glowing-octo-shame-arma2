@@ -54,7 +54,7 @@ _z=[
 	["setSquad&Role prio.","[] execVM 'dir\functions\fnc_setSquadRole.sqf'"],
 	["setOwner (%SELECTED_UNIT_ID) player","
 		{
-			[nil, _x, rsetOwner, gosa_owner] call RE;
+			[nil, _x, rsetOwner, player] call RE;
 		} foreach GroupSelectedUnits player;
 	"]
 	// ["deleteVehicle vehicle player", "if(({alive _x} count crew vehicle player)<=1)then {deleteVehicle vehicle player};"],

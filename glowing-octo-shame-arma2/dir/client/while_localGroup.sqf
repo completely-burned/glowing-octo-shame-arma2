@@ -9,14 +9,11 @@ TODO: в итоге не стреляет вся группа или экипа�
 TODO: группа иногда разделяется или становится неуправляемой
 */
 
-private["_p","_g2","_gov","_g","_o","_v",
+private["_p","_g2","_gov","_g","_v",
 	"_z","_l"
 ];
 
 [player] joinSilent grpNull;
-
-// не изменяемое
-_o = owner player;
 
 while {true} do {
 	_p = player;
@@ -42,10 +39,10 @@ while {true} do {
 	if (_l == _p) then {
 		_z = units _g;
 		{
-			if (owner _x != _o) then {
+			if (owner _x != 0) then {
 				if (vehicle _x == _x) then { // FIXME: возможно отряд разделяется только из-за находящихся в транспорте юнитов, нужна проверка
-					diag_log format ["Log: [localGroup] %1 setOwner %2", _x, _o];
-					[nil, _x, rsetOwner, _o] call RE; // FIXME: возможно есть проблемы, отряд разделяется
+					diag_log format ["Log: [localGroup] %1 setOwner %2", _x, player];
+					[nil, _x, rsetOwner, player] call RE; // FIXME: возможно есть проблемы, отряд разделяется
 				};
 			};
 		} forEach _z;
@@ -56,9 +53,9 @@ while {true} do {
 	if (effectiveCommander _v == _p) then {
 		_z = crew _v;
 		{
-			if (owner _x != _o) then {
-				diag_log format ["Log: [localGroup] %3 crew %1 setOwner %2", _x, _o, _v];
-				[nil, _x, rsetOwner, _o] call RE;
+			if (owner _x != 0) then {
+				diag_log format ["Log: [localGroup] %3 crew %1 setOwner %2", _x, player, _v];
+				[nil, _x, rsetOwner, player] call RE;
 			};
 		} forEach _z;
 	};
