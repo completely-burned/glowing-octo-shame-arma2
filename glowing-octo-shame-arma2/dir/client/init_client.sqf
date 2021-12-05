@@ -2,6 +2,9 @@
 
 gosa_owner = owner player;
 
+gosa_squadOn = [];
+gosa_squadOff = [];
+
 [] call compile preprocessFileLineNumbers "dir\client\config_client.sqf";
 
 waitUntil{!isNil "bis_fnc_init"};
