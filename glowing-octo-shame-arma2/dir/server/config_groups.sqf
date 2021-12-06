@@ -88,6 +88,7 @@ if(LIB_a2Avail)then{
 
 			];
 			_west=_west+[
+				// CDF_MotInfSquad !=
 				[[[[	"CDF_Soldier_TL",
 					"Ural_CDF","CDF_Soldier_GL",
 					"CDF_Soldier_GL","CDF_Soldier",
@@ -120,21 +121,36 @@ if(LIB_a2Avail)then{
 					"PRIVATE","PRIVATE",
 					"CORPORAL","PRIVATE"
 				]]],0.4],
+				// CDF_MotInfSection
 				[[[["CDF_Soldier_GL","UAZ_CDF","CDF_Soldier_RPG"],[[0,5,0],[-5,0,0],[3,0,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.15],
+				// CDF_MotInfSection_Weapons
 				[[[["CDF_Soldier_TL","UAZ_AGS30_CDF","UAZ_AGS30_CDF","CDF_Soldier_MG"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.2],
+				// CDF_MechInfSquad !=
 				[[[["CDF_Soldier_TL","BMP2_CDF","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_Marksman","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.9],
+				// CDF_MechReconSection
 				[[[["CDF_Soldier_TL","BRDM2_CDF","CDF_Soldier_MG","CDF_Soldier_RPG"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["SERGEANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
+				// CDF_MechATSection !=
 				[[[["BRDM2_ATGM_CDF"],[],["SERGEANT"]]],0.5],
+				// CDF_TankPlatoon !=
 				[[[["T72_CDF","T72_CDF","T72_CDF"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT"]]],0.25],
+				// CDF_Mi24DSquadron !=
 				[[[["Mi24_D","Mi24_D"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]]],0.1],
+				// CDF_Mi8Squadron
 				[[[["Mi17_CDF","Mi17_CDF"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
 				[[[["Mi17_CDF"],[],["CAPTAIN"]],[["CDF_Soldier_TL","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier","CDF_Soldier_MG","CDF_Soldier_GL","CDF_Soldier_RPG","CDF_Soldier","CDF_Soldier_Medic"]]],0.3],
+				// CDF_InfSquad
 				[[[["CDF_Soldier_TL","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier","CDF_Soldier_MG","CDF_Soldier_GL","CDF_Soldier_RPG","CDF_Soldier","CDF_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+				// CDF_InfSquad_Weapons
 				[[[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
+				// CDF_InfSection_AT
 				[[[["CDF_Soldier_TL","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_AR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.2],
+				// CDF_InfSection_AA
 				[[[["CDF_Soldier_TL","CDF_Soldier_Strela","CDF_Soldier_Strela","CDF_Soldier_MG"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.1],
+				// CDF_InfSection_MG
 				[[[["CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_AR","CDF_Soldier_RPG"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.1],
+				// CDF_InfSection_Patrol
 				[[[["CDF_Soldier_Militia","CDF_Soldier_Militia","CDF_Soldier_Militia","CDF_Soldier_Militia"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
+				// CDF_SniperTeam
 				[[[["CDF_Soldier_Sniper","CDF_Soldier_Spotter"],[],["SERGEANT","CORPORAL"]]],0.05],
 				[[[["Ural_ZU23_CDF","CDF_Soldier_Strela","CDF_Soldier_Strela","CDF_Soldier_Strela"], [[10,10],[10,0],[0,10],[0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.01],
 				[[[["CDF_Soldier_GL","CDF_Soldier_Engineer","CDF_Soldier_RPG"], [],["SERGEANT","CORPORAL","PRIVATE"]]],0.01],
@@ -241,34 +257,53 @@ if(LIB_a2Avail)then{
 	if(true)then{
 		if(!_deserted or !acex_usnavy_Avail)then{
 			_west=_west+[
+				// USMC_InfSquad
 				[[[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"],
 					[],
 					["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]
 				]],0.5],
+				// USMC_FireTeam
 				[[[["USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.05],
+				// USMC_FireTeam_MG
 				[[[["USMC_Soldier_TL","USMC_Soldier_MG","USMC_Soldier_AR","USMC_Soldier_LAT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.1],
+				// USMC_FireTeam_AT
 				[[[["USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_AT","USMC_Soldier_LAT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.1],
+				// USMC_FireTeam_Support
 				[[[["USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.05],
+				// USMC_HeavyATTeam
 				[[[["USMC_Soldier_HAT","USMC_Soldier_AT","USMC_Soldier_LAT"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.15],
+				// USMC_SniperTeam
 				[[[["USMC_SoldierS_Sniper","USMC_SoldierS_Spotter"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
 
+				// USMC_FRTeam
 				[[[["FR_TL","FR_AR","FR_GL","FR_Marksman","FR_R","FR_Corpsman"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0.01],
 
+				// USMC_MotInfSection !=
 				[[[["USMC_Soldier_TL","HMMWV_M2","HMMWV_Mk19","USMC_Soldier_AR","USMC_Soldier_AT","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","CORPORAL","CORPORAL"]]],0.2],
+				// USMC_MotInfSection_AT
 				[[[["USMC_Soldier_TL","HMMWV_TOW","HMMWV_TOW","USMC_Soldier_AR"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"]]],0.15],
 
+				// USMC_MechInfSquad !=
 				[[[["USMC_Soldier_SL","AAV","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"],
 					[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[12,0,0],[14,0,0],[16,0,0],[18,0,0],[3,-5,0],[5,-5,0],[7,-5,0],[9,-5,0]],
 					["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]
 				]],0.9],
+				// USMC_MechReconSection !=
 				[[[["USMC_Soldier_TL","LAV25","USMC_Soldier_MG","USMC_Soldier_AR","USMC_Soldier_AT","USMC_Soldier_LAT","USMC_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
 
+				// USMC_AH1ZSquadron !=
 				[[[["AH1Z","AH1Z"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.4],
+				// USMC_UH1YSquadron !=
 				[[[["UH1Y","UH1Y"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_Medic"]]],0.4],
+				// USMC_MV22Squadron !=
 				[[[["MV22"],[],["CAPTAIN"]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.5],
+				// USMC_MQ9Squadron
 				[[[["MQ9PredatorB"],[[0,0,0]],["CAPTAIN"]]],0.3],
+				// USMC_F35Squadron
 				[[[["F35B","F35B"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.6],
+				// USMC_AV8BFighterSquadron
 				[[[["AV8B2","AV8B2"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
+				// USMC_AV8BBomberSquadron
 				[[[["AV8B","AV8B"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.5],
 				// [[[["MH60S"],[],["CAPTAIN"]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
 				[[[["C130J"],[],["CAPTAIN"]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
@@ -363,6 +398,7 @@ if(LIB_a2Avail)then{
 			};
 		}else{
 				_west=_west+[
+					// USMC_TankPlatoon !=
 					[[[["M1A2_TUSK_MG","M1A2_TUSK_MG","M1A2_TUSK_MG","M1A2_TUSK_MG"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5]
 				];
 		};
