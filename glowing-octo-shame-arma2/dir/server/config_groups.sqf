@@ -57,8 +57,9 @@ if(LIB_a2Avail)then{
 				// INS_InfSection_AA
 				[[[["INS_Soldier_AA","INS_Soldier_AA","INS_Soldier_AA"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.1],
 				// INS_SniperTeam !=
-				// INS_Soldier_1 заменен на Ins_Soldier_Sab FIXME: зачем?
-				[[[["INS_Soldier_Sniper","INS_Soldier_Sniper","Ins_Soldier_Sab"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE"]]],0.2],
+				// rarityGroup = 0.2; изменен из-за отряда с Ins_Soldier_Sab
+				[[[["INS_Soldier_Sniper","INS_Soldier_Sniper","INS_Soldier_1"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE"]]],0.1],
+				[[[["INS_Soldier_Sniper","INS_Soldier_Sniper","Ins_Soldier_Sab"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE"]]],0.1],
 				[[[["INS_Worker2","INS_Woodlander3","INS_Villager3","INS_Woodlander2","INS_Woodlander1","INS_Villager4"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 
 				[[[[	"INS_Soldier_CO",
