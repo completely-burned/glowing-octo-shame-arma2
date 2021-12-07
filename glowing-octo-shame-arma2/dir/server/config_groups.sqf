@@ -28,10 +28,36 @@ if(LIB_a2Avail)then{
 
 				[[[["Mi17_Ins"],[],["CAPTAIN"]],[["INS_Soldier_CO","INS_Soldier_AR","INS_Soldier_GL","INS_Soldier_AT","INS_Soldier_2","INS_Soldier_AR","INS_Soldier_1","INS_Soldier_2"]],[["INS_Soldier_CO","INS_Soldier_MG","INS_Soldier_MG","INS_Soldier_AT","INS_Soldier_AT","INS_Soldier_AR","INS_Soldier_AR","INS_Soldier_2"]]],0.05],
 
-				[[[["INS_Soldier_CO","INS_Soldier_AR","INS_Soldier_GL","INS_Soldier_AT","INS_Soldier_2","INS_Soldier_AR","INS_Soldier_1","INS_Soldier_2","Ins_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.85],
-				[[[["INS_Soldier_CO","INS_Soldier_MG","INS_Soldier_MG","INS_Soldier_AT","INS_Soldier_AT","INS_Soldier_AR","INS_Soldier_AR","INS_Soldier_2","Ins_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+				// INS_InfSquad !=
+				// временно добавлен медик
+				[[[["INS_Soldier_CO",
+					"INS_Soldier_AR","INS_Soldier_GL",
+					"INS_Soldier_AT","INS_Soldier_2",
+					"INS_Soldier_AR","INS_Soldier_1",
+					"INS_Soldier_2","Ins_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					["SERGEANT",
+					"CORPORAL","CORPORAL",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE"]]],0.85],
+				// INS_InfSquad_Weapons !=
+				// временно добавлен медик
+				[[[["INS_Soldier_CO",
+					"INS_Soldier_MG","INS_Soldier_MG",
+					"INS_Soldier_AT","INS_Soldier_AT",
+					"INS_Soldier_AR","INS_Soldier_AR",
+					"INS_Soldier_2","Ins_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					["SERGEANT",
+					"CORPORAL","CORPORAL",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE"]]],0.6],
+				// INS_InfSection_AT
 				[[[["INS_Soldier_AT","INS_Soldier_AT","INS_Soldier_1"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.25],
+				// INS_InfSection_AA
 				[[[["INS_Soldier_AA","INS_Soldier_AA","INS_Soldier_AA"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+				// INS_SniperTeam !=
+				// INS_Soldier_1 заменен на Ins_Soldier_Sab FIXME: зачем?
 				[[[["INS_Soldier_Sniper","INS_Soldier_Sniper","Ins_Soldier_Sab"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE"]]],0.2],
 				[[[["INS_Worker2","INS_Woodlander3","INS_Villager3","INS_Woodlander2","INS_Woodlander1","INS_Villager4"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 
