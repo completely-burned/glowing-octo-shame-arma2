@@ -71,6 +71,7 @@ if(LIB_a2Avail)then{
 					"PRIVATE"]]],0.5],
 
 				// INS_MotInfSquad
+				// rarityGroup = 0.25; изменен из-за отряда с Ural_INS
 				[[[[	"INS_Soldier_CO",
 						"UralOpen_INS","INS_Soldier_MG",
 						"INS_Soldier_AT","INS_Soldier_AR",
@@ -86,23 +87,23 @@ if(LIB_a2Avail)then{
 						"PRIVATE","PRIVATE",
 						"PRIVATE","PRIVATE",
 						"PRIVATE","PRIVATE"
-					]]],0.25],
+					]]],0.20],
 				[[[[	"INS_Soldier_CO",
-					"Ural_INS","INS_Soldier_GL",
-					"INS_Soldier_1","INS_Soldier_2",
-					"INS_Soldier_2","INS_Soldier_1",
-					"INS_Soldier_AR","INS_Soldier_MG",
-					"INS_Soldier_AT","INS_Soldier_AT",
-					"INS_Soldier_MG","Ins_Soldier_Medic"
-				],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0],[-5,0,0]],
-				[		"SERGEANT",
-					"PRIVATE","CORPORAL",
-					"PRIVATE","PRIVATE",
-					"PRIVATE","PRIVATE",
-					"CORPORAL",	"CORPORAL",
-					"PRIVATE","PRIVATE",
-					"CORPORAL","PRIVATE"
-				]]],0.25],
+						"Ural_INS","INS_Soldier_MG",
+						"INS_Soldier_AT","INS_Soldier_AR",
+						"INS_Soldier_2","INS_Soldier_GL",
+						"INS_Soldier_1","INS_Soldier_MG",
+						"INS_Soldier_AT","INS_Soldier_1",
+						"INS_Soldier_1","INS_Soldier_2"
+					],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
+					[		"SERGEANT",
+						"SERGEANT","CORPORAL",
+						"CORPORAL","CORPORAL",
+						"CORPORAL","PRIVATE",
+						"PRIVATE","PRIVATE",
+						"PRIVATE","PRIVATE",
+						"PRIVATE","PRIVATE"
+					]]],0.05],
 				[[[["INS_Soldier_GL","Offroad_DSHKM_INS","UAZ_SPG9_INS","Pickup_PK_INS","INS_Soldier_1","INS_Soldier_MG","INS_Soldier_GL"],[[0,5,0],[-5,0,0],[-5,-7,0],[-5,-14,0],[3,0,0],[5,0,0],[7,0,0]],["CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
 
 				[[[["INS_Soldier_CO","BMP2_INS","INS_Soldier_MG","INS_Soldier_AT","INS_Soldier_2","INS_Soldier_GL","INS_Soldier_1","INS_Soldier_AR"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","LIEUTENANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.25],
