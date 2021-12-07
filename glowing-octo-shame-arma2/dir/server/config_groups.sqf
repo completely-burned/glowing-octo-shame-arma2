@@ -449,6 +449,7 @@ if(LIB_a2Avail)then{
 				// RU_SniperTeam
 				[[[["RU_Soldier_Sniper","RU_Soldier_Spotter"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
 
+				// RU_MotInfSquad
 				[[[["RU_Soldier_SL",
 					"Kamaz","RU_Soldier_MG",
 					"RU_Soldier_AT","RU_Soldier_LAT",
@@ -463,6 +464,7 @@ if(LIB_a2Avail)then{
 					"CORPORAL","CORPORAL",
 					"PRIVATE","PRIVATE",
 					"PRIVATE","PRIVATE"]]],0.3],
+				// RU_MotInfSection_Recon
 				[[[["RU_Soldier_TL",
 					"GAZ_Vodnik","GAZ_Vodnik_HMG",
 					"RU_Soldier_MG","RU_Soldier_AT",
@@ -477,8 +479,10 @@ if(LIB_a2Avail)then{
 					"CORPORAL","CORPORAL",
 					"PRIVATE","PRIVATE",
 					"PRIVATE","PRIVATE"]]],0.3],
+				// RU_MotInfSection_Patrol !=
 				[[[["RU_Soldier_TL","GAZ_Vodnik_HMG","RU_Soldier_AT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
 
+				// RU_MechInfSquad_1 !=
 				[[[["RU_Soldier_SL",
 					"BMP3","RU_Soldier_MG",
 					"RU_Soldier_AT","RU_Soldier_LAT",
@@ -487,6 +491,7 @@ if(LIB_a2Avail)then{
 					"LIEUTENANT","SERGEANT",
 					"CORPORAL","CORPORAL",
 					"PRIVATE"],[[],["RU_Soldier_Crew", "RU_Soldier_Crew", "RU_Soldier_Crew", "RU_Soldier_AT", "RU_Soldier_MG"]]]],0.75],
+				// RU_MechInfSquad_2 !=
 				[[[["RU_Soldier_SL",
 					"BTR90","RU_Soldier_MG",
 					"RU_Soldier_MG","RU_Soldier_AT",
@@ -498,14 +503,20 @@ if(LIB_a2Avail)then{
 
 				// [[[["T90","T90","T90"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.6],
 
+				// RU_Mi24VSquadron !=
 				[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier","RU_Soldier2","RU_Soldier_Medic"]]],0.2],
 				[[[["Mi24_V2","Mi24_V2"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier","RU_Soldier2","RU_Soldier_Medic"]]],0.2],
+				// RU_Mi24PSquadron !=
 				[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier","RU_Soldier2","RU_Soldier_Medic"]]],0.2],
+				// RU_Ka52Squadron
 				[[[["Ka52"],[],["CAPTAIN"]]],0.1],
+				// RU_Mi8Squadron !=
 				[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
 				[[[["Mi17_Rockets_RU"],[],["CAPTAIN"]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier"]]],0.3],
+				// RU_Su34FighterSquadron !=
 				[[[["Su34","Su34"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.15],
 				[[[["Su34_CP","Su34_CP"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.05],
+				// RU_Pchela1TSquadron
 				[[[["Pchela1T"],[],["CAPTAIN"]]],0.2],
 
 				[[[["2S6M_Tunguska"], [[0,0]], ["LIEUTENANT"]]],0.7],
@@ -671,6 +682,7 @@ if(LIB_a2Avail)then{
 				];
 			};
 			_east=_east+[
+				// RU_TankPlatoon !=
 				[[[["T90","T90","T90"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT"]]],0.6],
 				[[[["T72_RU","T72_RU"], [[0,0],[10,0]],["CAPTAIN","LIEUTENANT"]]],0.01]
 			];
