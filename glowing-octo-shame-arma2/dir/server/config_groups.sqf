@@ -1,5 +1,11 @@
 ﻿#define __A2OA__
 
+/*
+Не рукомендуется забивать грузовики до отказа
+иначе боты дольше тупят.
+*/
+
+
 private ["_west","_east","_guer","_woodland","_deserted"];
 private ["_westPatrol","_eastPatrol","_guerPatrol"];
 private ["_westAttack","_eastAttack","_guerAttack"];
@@ -88,7 +94,8 @@ if(LIB_a2Avail)then{
 
 			];
 			_west=_west+[
-				// CDF_MotInfSquad
+				// CDF_MotInfSquad !=
+				// rarityGroup = 0.4; изменен из-за отряда с UralOpen_CDF
 				[[[[	"CDF_Soldier_TL",
 					"Ural_CDF","CDF_Soldier_MG",
 					"CDF_Soldier_RPG","CDF_Soldier_GL",
@@ -102,23 +109,21 @@ if(LIB_a2Avail)then{
 					"CORPORAL","CORPORAL",
 					"PRIVATE","PRIVATE",
 					"PRIVATE","PRIVATE"
-				]]],0.4],
+				]]],0.3],
 				[[[[	"CDF_Soldier_TL",
-					"UralOpen_CDF","CDF_Soldier_GL",
-					"CDF_Soldier_GL","CDF_Soldier",
-					"CDF_Soldier","CDF_Soldier_GL",
-					"CDF_Soldier_AR","CDF_Soldier_MG",
-					"CDF_Soldier_RPG","CDF_Soldier_RPG",
-					"CDF_Soldier_MG","CDF_Soldier_Medic"
-				],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0],[-5,0,0]],
-				[		"SERGEANT",
-					"PRIVATE","CORPORAL",
+					"UralOpen_CDF","CDF_Soldier_MG",
+					"CDF_Soldier_RPG","CDF_Soldier_GL",
+					"CDF_Soldier","CDF_Soldier_MG",
+					"CDF_Soldier_GL","CDF_Soldier_RPG",
+					"CDF_Soldier","CDF_Soldier_Medic"
+				],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
+				[		"LIEUTENANT",
+					"SERGEANT","SERGEANT",
 					"CORPORAL",	"CORPORAL",
+					"CORPORAL","CORPORAL",
 					"PRIVATE","PRIVATE",
-					"PRIVATE","PRIVATE",
-					"PRIVATE","PRIVATE",
-					"CORPORAL","PRIVATE"
-				]]],0.4],
+					"PRIVATE","PRIVATE"
+				]]],0.1],
 				// CDF_MotInfSection
 				[[[["CDF_Soldier_GL","UAZ_CDF","CDF_Soldier_RPG"],[[0,5,0],[-5,0,0],[3,0,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.15],
 				// CDF_MotInfSection_Weapons
