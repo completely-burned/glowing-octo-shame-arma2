@@ -133,6 +133,7 @@ if(LIB_a2Avail)then{
 				// CDF_MechReconSection
 				[[[["CDF_Soldier_TL","BRDM2_CDF","CDF_Soldier_MG","CDF_Soldier_RPG"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["SERGEANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
 				// CDF_MechATSection !=
+				// убранна пехота из-за долгого перемещения
 				[[[["BRDM2_ATGM_CDF"],[],["SERGEANT"]]],0.5],
 				// CDF_TankPlatoon !=
 				[[[["T72_CDF","T72_CDF","T72_CDF"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT"]]],0.25],
