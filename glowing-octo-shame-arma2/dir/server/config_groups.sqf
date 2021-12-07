@@ -137,9 +137,13 @@ if(LIB_a2Avail)then{
 					"CORPORAL","CORPORAL",
 					"CORPORAL","CORPORAL",
 					"PRIVATE","PRIVATE"]]],0.25],
-				// INS_MechInfSection_AT !=
-				// удалена пехота
-				[[[["BRDM2_ATGM_INS","BRDM2_ATGM_INS"],[[-5,0,0],[-5,-7,0]],["SERGEANT","CORPORAL"]]],0.2],
+				// INS_MechInfSection_AT
+				[[[["INS_Soldier_GL",
+					"BRDM2_ATGM_INS","BRDM2_ATGM_INS",
+					"INS_Soldier_AT"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
+					["SERGEANT",
+					"CORPORAL","CORPORAL",
+					"PRIVATE"]]],0.2],
 
 				[[[["Ins_Soldier_AA","Ins_Soldier_AA","Ins_Soldier_AA","Ural_ZU23_INS"], [[10,10],[10,0],[0,10],[0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.01],
 				[[[["Su25_Ins"], [],["CAPTAIN"]]],0.01],
