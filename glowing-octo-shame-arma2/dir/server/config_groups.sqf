@@ -88,22 +88,20 @@ if(LIB_a2Avail)then{
 
 			];
 			_west=_west+[
-				// CDF_MotInfSquad !=
+				// CDF_MotInfSquad
 				[[[[	"CDF_Soldier_TL",
-					"Ural_CDF","CDF_Soldier_GL",
-					"CDF_Soldier_GL","CDF_Soldier",
-					"CDF_Soldier","CDF_Soldier_GL",
-					"CDF_Soldier_AR","CDF_Soldier_MG",
-					"CDF_Soldier_RPG","CDF_Soldier_RPG",
-					"CDF_Soldier_MG","CDF_Soldier_Medic"
-				],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0],[-5,0,0]],
-				[		"SERGEANT",
-					"PRIVATE","CORPORAL",
+					"Ural_CDF","CDF_Soldier_MG",
+					"CDF_Soldier_RPG","CDF_Soldier_GL",
+					"CDF_Soldier","CDF_Soldier_MG",
+					"CDF_Soldier_GL","CDF_Soldier_RPG",
+					"CDF_Soldier","CDF_Soldier_Medic"
+				],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
+				[		"LIEUTENANT",
+					"SERGEANT","SERGEANT",
 					"CORPORAL",	"CORPORAL",
+					"CORPORAL","CORPORAL",
 					"PRIVATE","PRIVATE",
-					"PRIVATE","PRIVATE",
-					"PRIVATE","PRIVATE",
-					"CORPORAL","PRIVATE"
+					"PRIVATE","PRIVATE"
 				]]],0.4],
 				[[[[	"CDF_Soldier_TL",
 					"UralOpen_CDF","CDF_Soldier_GL",
