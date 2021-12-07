@@ -24,8 +24,12 @@ if(LIB_a2Avail)then{
 	if(true)then{
 		if(!_deserted)then{
 			_east=_east+[
+
+				// INS_TankSection !=
+				// звания изменены
 				[[[["T72_INS","T72_INS"],[[0,10,0],[5,0,0]],["LIEUTENANT","LIEUTENANT"]]],0.07],
 
+				// INS_Mi8Squadron !=
 				[[[["Mi17_Ins"],[],["CAPTAIN"]],[["INS_Soldier_CO","INS_Soldier_AR","INS_Soldier_GL","INS_Soldier_AT","INS_Soldier_2","INS_Soldier_AR","INS_Soldier_1","INS_Soldier_2"]],[["INS_Soldier_CO","INS_Soldier_MG","INS_Soldier_MG","INS_Soldier_AT","INS_Soldier_AT","INS_Soldier_AR","INS_Soldier_AR","INS_Soldier_2"]]],0.05],
 
 				// INS_InfSquad !=
