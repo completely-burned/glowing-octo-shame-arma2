@@ -408,6 +408,7 @@ if(LIB_a2Avail)then{
 	if(true)then{
 		if(	(!_deserted) or !acex_ru_Avail)then{
 			_east=_east+[
+				// RU_InfSquad
 				[[[["RU_Soldier_SL",
 					"RU_Soldier_MG","RU_Soldier_AT",
 					"RU_Soldier_LAT","RU_Soldier_GL",
@@ -422,25 +423,30 @@ if(LIB_a2Avail)then{
 					"CORPORAL","PRIVATE",
 					"PRIVATE","PRIVATE",
 					"PRIVATE"]]],0.7],
+				// RU_InfSection
 				[[[["RU_Soldier_TL",
 					"RU_Soldier_AR","RU_Soldier_AT",
 					"RU_Soldier_GL","RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
 					["SERGEANT",
 					"CORPORAL","CORPORAL",
 					"PRIVATE","PRIVATE"]]],0.2],
+				// RU_InfSection_AT
 				[[[["RU_Soldier_HAT",
 					"RU_Soldier_HAT","RU_Soldier_AT",
 					"RU_Soldier_AT","RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
 					["SERGEANT",
 					"CORPORAL","CORPORAL",
 					"PRIVATE","PRIVATE"]]],0.2],
+				// RU_InfSection_AA
 				[[[["RU_Soldier_AA","RU_Soldier_AA","RU_Soldier_AA"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
+				// RU_InfSection_MG
 				[[[["RU_Soldier_TL",
 					"RU_Soldier_MG","RU_Soldier_MG",
 					"RU_Soldier_GL","RU_Soldier_AT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
 					["SERGEANT",
 					"CORPORAL","CORPORAL",
 					"PRIVATE","PRIVATE"]]],0.2],
+				// RU_SniperTeam
 				[[[["RU_Soldier_Sniper","RU_Soldier_Spotter"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
 
 				[[[["RU_Soldier_SL",
@@ -529,7 +535,17 @@ if(LIB_a2Avail)then{
 		};
 		if(!_deserted)then{
 			_east=_east+[
-				[[[["MVD_Soldier_TL","MVD_Soldier_MG","MVD_Soldier_AT","MVD_Soldier_GL","MVD_Soldier_Sniper","MVD_Soldier_Marksman","MVD_Soldier_GL","MVD_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.02]
+				// MVD_AssaultTeam !=
+				[[[["MVD_Soldier_TL",
+					"MVD_Soldier_MG","MVD_Soldier_AT",
+					"MVD_Soldier_GL","MVD_Soldier_Sniper",
+					"MVD_Soldier_Marksman","MVD_Soldier_GL",
+					"MVD_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
+					["LIEUTENANT",
+					"SERGEANT","SERGEANT",
+					"SERGEANT","CORPORAL",
+					"CORPORAL","CORPORAL",
+					"CORPORAL"]]],0.02]
 			];
 		};
 		if(acex_ru_Avail)then{
@@ -643,7 +659,15 @@ if(LIB_a2Avail)then{
 		}else{
 			if(!_deserted)then{
 				_east=_east+[
-					[[[["RUS_Soldier_TL","RUS_Soldier_GL","RUS_Soldier_Marksman","RUS_Soldier3","RUS_Soldier1","RUS_Soldier2","RUS_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.07]
+					// RUS_ReconTeam !=
+					[[[["RUS_Soldier_TL",
+						"RUS_Soldier_GL","RUS_Soldier_Marksman",
+						"RUS_Soldier3","RUS_Soldier1",
+						"RUS_Soldier2","RUS_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+						["LIEUTENANT",
+						"SERGEANT","SERGEANT",
+						"SERGEANT","CORPORAL",
+						"CORPORAL","CORPORAL"]]],0.07]
 				];
 			};
 			_east=_east+[
