@@ -94,7 +94,6 @@ private["_flyInHeight","_pos"];
 			};
 		};
 		if (LIB_ahAvail) then {
-			if ((getNumber(configFile >> "CfgWeapons" >> _weapon >> "type")) == 1) then {
 				// if (random 10 > 8) then {
 					// if (_type isKindOf "TK_Soldier_SL_EP1" || _type isKindOf "TK_Special_Forces_EP1") then {
 						// if ( _weapon in ["FN_FAL","FN_FAL_ANPVS4"] ) then {
@@ -166,7 +165,6 @@ private["_flyInHeight","_pos"];
 					_veh removeMagazines "8Rnd_B_Saiga12_74Slug";
 					for "_i" from 1 to 8 do { _veh addMagazine "8Rnd_B_Saiga12_Pellets"};
 				};
-			};
 			///--- Aziz
 			if (_type isKindOf "TK_Aziz_EP1") then {
 				for "_i" from 1 to 3 do { _veh addMagazine "30Rnd_545x39_AK"};
