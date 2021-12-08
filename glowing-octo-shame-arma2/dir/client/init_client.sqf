@@ -7,6 +7,8 @@ while {gosa_owner == ""} do {
 
 gosa_squadOn = [];
 gosa_squadOff = [];
+gosa_squadOnW = [];
+gosa_squadOffW = [];
 
 [] call compile preprocessFileLineNumbers "dir\client\config_client.sqf";
 
