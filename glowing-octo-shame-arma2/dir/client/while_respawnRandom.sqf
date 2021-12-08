@@ -82,8 +82,46 @@ _fnc_swich={
 };
 
 _findBody={
+
+	private ["_uOn","_u","_uOff","_z"];
+	_uOn = [];
+	_u = [];
+	_uOff = [];
+
+	{
+		_z = [_x] call gosa_fnc_getUnitClass;
+		if (_z in gosa_squadOffW) then {
+			_uOff set [count _uOff, _x];
+		} else {
+			if (_z in gosa_squadOnW) then {
+		    _uOn set [count _uOn, _x];
+			} else {
+				_u set [count _u, _x];
+			};
+	  };
+	} forEach _this;
+
+	diag_log format ["Log: [respawnRandom] _uOn %1", _uOn];
+	diag_log format ["Log: [respawnRandom] _u %1", _u];
+	diag_log format ["Log: [respawnRandom] _uOff %1", _uOff];
+
+	/* не завершено
+	if ({_x != player && {_x call gosa_fnc_isPlayer}} count _this > 0) then {
+		_z = true;
+	} else {
+		_z = false;
+	};
+	diag_log format ["Log: [respawnRandom] other players in squad %1", _z];
+	*/
+
+	scopename "fb1";
 	{
 		if (_x call _fnc_isFit) then {
+
+			if (count gosa_squadOnW > 0) exitWith { // TODO: конфликт с рангом и лидером
+				_bestCandidate = _x;
+				breakTo "fb1";
+			};
 			if (isNil {_bestCandidate}) then {
 				_bestCandidate = _x;
 			};
@@ -91,7 +129,7 @@ _findBody={
 				_bestCandidate = _x;
 			};
 		};
-	} forEach _this;
+	} forEach _uOn+_u+_uOff;
 };
 // первое тело данное при старте миссии при возрождении ведет себя иначе и не подходит
 player setVariable ["selectPlayerDisable", true, true];
