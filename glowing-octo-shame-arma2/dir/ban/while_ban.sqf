@@ -9,7 +9,7 @@ while {!isDedicated} do {
 			}];
 			player setVariable [
 				"gosa_ban_handleDamage",
-				player addEventHandler ["handleDamage",	{_this spawn gosa_fnc_teamDamaging}]
+				player addEventHandler ["handleDamage",	{_this spawn gosa_fnc_teamDamaging; _this select 2}]
 			];
 		};
 
