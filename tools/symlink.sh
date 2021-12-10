@@ -4,7 +4,7 @@
 # Но сервер не работает должным образом,
 #  возможно он не распознает что файлы изменились.
 # Пригодится если нет рабочего установленного pbo архиватора.
-# OUT=/opt/steamcmd/a2oa-server/mpmissions ./tools/symlink.sh
+# OUT=/opt/steamcmd/a2oa-server-debug/mpmissions ./tools/symlink.sh
 
 DIR=$(dirname "${BASH_SOURCE[0]}")/..
 
