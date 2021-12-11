@@ -7,7 +7,7 @@ _l = []; _lstr = [];
 		_l set [count _l, _x];
 		_lstr set [count _lstr, str _x];
 	};
-} forEach (vehicle player nearEntities 100);
+} forEach (vehicle player nearEntities 200);
 
 {
 	if (playerSide getFriend side _x >= 0.6 && _x != player) then {
