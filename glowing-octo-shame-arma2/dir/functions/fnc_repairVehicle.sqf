@@ -19,7 +19,7 @@ _e  = [];
 {
 	_e set [count _e, configFile >> "CfgVehicles" >> _x >> "HitPoints"];
 	_e set [count _e, configFile >> "CfgVehicles" >> _x >> "Turrets" >> "MainTurret" >>"HitPoints"];
-} forEach ["Wheeled_APC","Tracked_APC","Tank","Car","Helicopter","Plane"];
+} forEach ["Wheeled_APC","Tracked_APC","Tank","Car","Helicopter","Plane","BTR90","2S6M_Tunguska"];
 
 
 {
