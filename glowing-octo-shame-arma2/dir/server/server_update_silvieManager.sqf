@@ -1,7 +1,21 @@
 ﻿/* припаркованный гражданский транспорт в городах
  */
 
-private ["_twns"];
+private ["_twns","_mash","_mashType"];
+
+if (missionNamespace getVariable "gosa_MASH" == 1) then {
+	_mashType = "MASH_EP1";
+	if (configName(configFile >> "CfgVehicles" >> _mashType) == "") then {
+		_mashType = "MASH";
+		if (configName(configFile >> "CfgVehicles" >> _mashType) == "") then {
+		  _mashType == "";
+		};
+	};
+	_mash = [];
+}else{
+	_mashType = "";
+};
+
 while{true}do{
 		_twns=[];
 		{
@@ -38,6 +52,53 @@ while{true}do{
 						if (_bbox < 2 || typeof _x in silvieManagerBlacklist) then {_houselist = _houselist - [_x]};
 					} foreach _houselist;
 					_twn setVariable ["_houselist",_houselist];
+				};
+
+				if (_mashType != "") then {
+
+					//if ({alive _x} count _mash == 0) then {
+						_mash = _twnpos nearObjects [_mashType, 750]; // TODO: нужно оптимизировать код
+					//};
+
+					// мого разрушенных палаток не красиво выглядит
+					if (count _mash < 3) then {
+
+						if ({alive _x} count _mash == 0) then {
+
+							ScopeName "PlaceSafe";
+
+							private ["_attempts","_posX","_posY","_dir","_dist2","_testPos"];
+							_attempts = 0;
+							while {_attempts < 500} do {
+
+								// _testPos = _twnpos findEmptyPosition [5,500,_mashType]; // эта комаднда находит позицию ближе к центру и поэтому не подходит
+
+								_posX = _twnpos select 0;
+								_posY = _twnpos select 1;
+
+								_dir = random 360;
+								_dist2 = random 500;
+								_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
+								if !(SurfaceIsWater _testPos) then {
+									if (count (_testPos nearRoads 10) == 0) then {
+										if (count nearestObjects [_testPos, ["Static","LandVehicle","Air"], 5] == 0) then {
+											_mash = [
+												createVehicle [_mashType, _testPos, [], random 360, "NONE"]
+											];
+											diag_log format ["Log: [silvieManager] %1 _mash создано у %2", _mash, _testPos];
+											BreakTo "PlaceSafe";
+										};
+									};
+								};
+								_attempts = _attempts + 1;
+								sleep 0.005;
+							};
+
+						};
+
+
+					};
+
 				};
 
 				_maxVehicles = ((count _houselist / 8) max 2);

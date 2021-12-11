@@ -35,7 +35,9 @@ while{true}do{
 
 	{
 		if ( isNil {_x getVariable "_noDelete"} ) then {
+			if (!alive _x) then {
 			_deleteList set [count _deleteList,_x];
+			};
 		}else{
 			if (!alive _x) then {
 				Private ["_type","_pos","_dir","_veh"];
