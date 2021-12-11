@@ -231,6 +231,21 @@ while {true} do {
 
 		diag_log format ["Log: [GC2] perf 2 %1", time];
 
+
+	for "_i" from 0 to (count gosa_GC_array -1) do {
+		_x_veh = gosa_GC_array select _i;
+		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
+			diag_log format ["Log: [GC2] delete %1", _x_veh];
+			deleteVehicle _x_veh;
+			gosa_GC_array set [_i, objNull];
+		}else{
+			_noDeleteCountTmp = _noDeleteCountTmp +1;
+		};
+	};
+
+	gosa_GC_array = gosa_GC_array - [objNull];
+
+
 	while { count _deleteListManDead > _min_vehicles_count } do {
 
 

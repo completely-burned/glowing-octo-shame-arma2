@@ -48,7 +48,7 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 		civilian SetFriend [_sideCreated,1];
 	}else{
 		// стреляют по машинам и бочкам при <0.6
-		_sideCreated SetFriend [civilian,1]; 
+		_sideCreated SetFriend [civilian,1];
 		civilian SetFriend [_sideCreated,1];
 	};
 	// _x SetFriend [sideUnknown ,0];
@@ -81,6 +81,7 @@ BIS_silvie_mainscope = objNull;
 #ifndef __A2OA__
 	allDead = [];
 #endif
+gosa_gc_array = [];
 BIS_GC_trashItFunc = {
 #ifndef __A2OA__
 	allDead set [count allDead, _this select 0];

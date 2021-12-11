@@ -1,3 +1,13 @@
+
+for "_i" from 0 to (count _this -1) do {
+	if !(_this select _i in gosa_GC_array) then {
+	  gosa_GC_array set [count gosa_GC_array, _this select _i];
+	};
+};
+
+
+
+/*
 private["_min_dist","_min_vehicles_count"];
 _min_dist = 2500;
 _min_vehicles_count = 250;
@@ -26,3 +36,4 @@ while { count _deleteList > _min_vehicles_count } do {
 	};
 
 };
+*/
