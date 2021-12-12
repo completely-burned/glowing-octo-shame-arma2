@@ -11,7 +11,7 @@
 	// if (configName(configFile >> "CfgVehicles" >> "TK_Soldier_Officer_EP1") != "") then {LIB_ahAvail = true};
 // };
 
-private["_isPlayer"];
+private["_isPlayer","_z"];
 if(count _this > 1)then{
 	_isPlayer = _this select 1;
 }else{
@@ -160,13 +160,23 @@ private["_flyInHeight","_pos"];
 				};
 				///--- USMC
 				if (_type isKindOf "USMC_Soldier2") then {
-					_veh removeMagazines "8Rnd_B_Beneli_74Slug";
-					for "_i" from 1 to 8 do { _veh addMagazine "8Rnd_B_Beneli_Pellets"};
+					_z = "8rnd_b_beneli_74slug";
+					{
+						if (toLower _x == _z) then {
+							_veh removeMagazine _z;
+							_veh addMagazine "8Rnd_B_Beneli_Pellets"
+						};
+					} forEach magazines _veh; // TODO: нужно заменять только часть магазинов
 				};
 				///--- Saiga12
 				if (_type isKindOf "RU_Soldier2") then {
-					_veh removeMagazines "8Rnd_B_Saiga12_74Slug";
-					for "_i" from 1 to 8 do { _veh addMagazine "8Rnd_B_Saiga12_Pellets"};
+					_z = "8rnd_b_saiga12_74slug";
+					{
+						if (toLower _x == _z) then {
+							_veh removeMagazine _z;
+							_veh addMagazine "8Rnd_B_Saiga12_Pellets"
+						};
+					} forEach magazines _veh;
 				};
 			///--- Aziz
 			if (_type isKindOf "TK_Aziz_EP1") then {
