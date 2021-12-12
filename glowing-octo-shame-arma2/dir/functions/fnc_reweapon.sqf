@@ -32,6 +32,9 @@ if(_isPlayer)then{
 private["_flyInHeight","_pos"];
 
 {
+
+	if (typeName _x == typeName objNull) then {
+
 	private["_type","_veh"];
 	_veh = _x;
 	_type = TypeOf _veh;
@@ -118,7 +121,7 @@ private["_flyInHeight","_pos"];
 						_veh addWeapon _weapon;
 					};
 				};
-				if (random 10 > 6.5) then {
+				if (random 10 > 8) then {
 					if ( _weapon in ["m240"] ) then {
 						_veh removeWeapon _weapon;
 						_weapon = "m240_scoped_EP1";
@@ -321,6 +324,8 @@ private["_flyInHeight","_pos"];
 	};
 	if (_type isKindOf "LandVehicle") then {
 		_veh setSkill ["commanding", 1];
+	};
+
 	};
 
 }forEach (_this select 0);
