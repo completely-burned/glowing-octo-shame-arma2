@@ -49,7 +49,7 @@ while{true}do{
 					{
 						private ["_bbox"];
 						_bbox = abs((boundingbox _x select 1) select 0) min abs((boundingbox _x select 1) select 1);
-						if (_bbox < 2 || typeof _x in silvieManagerBlacklist) then {_houselist = _houselist - [_x]};
+						if (_bbox < 3 || typeof _x in silvieManagerBlacklist) then {_houselist = _houselist - [_x]};
 					} foreach _houselist;
 					_twn setVariable ["_houselist",_houselist];
 				};
