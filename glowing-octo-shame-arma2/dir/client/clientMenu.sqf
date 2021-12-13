@@ -43,7 +43,7 @@ _z=[
 
 		if (count _z == 0) then {
 				if !(leader _g call gosa_fnc_isPlayer) then {
-					[nil, _g, rselectLeader, _z select 0] call RE;
+					[nil, _g, rselectLeader, _p] call RE;
 				};
 		} else {
 				[nil, _g, rselectLeader, _z select 0] call RE;
