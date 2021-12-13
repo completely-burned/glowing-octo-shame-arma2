@@ -157,6 +157,7 @@ _fnc_isFit={
 		)	&&
 		isNil{_this getVariable "selectPlayerDisable"} &&
 		alive _this &&
+		(damage _this < 0.9) &&
 		!(_this call gosa_fnc_isPlayer) &&
 		!isNull _this &&
 		!(_this call gosa_fnc_isUAV) &&
