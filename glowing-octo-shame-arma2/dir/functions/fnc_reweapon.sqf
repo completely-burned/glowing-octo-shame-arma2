@@ -6,12 +6,14 @@
 
 */
 
+diag_log format ["Log: [fnc_reweapon] in %1", _this];
+
 // if(isNil "LIB_ahAvail")then{
 	// LIB_ahAvail = false;
 	// if (configName(configFile >> "CfgVehicles" >> "TK_Soldier_Officer_EP1") != "") then {LIB_ahAvail = true};
 // };
 
-private["_isPlayer","_z"];
+private["_isPlayer","_z","_return","_night"];
 if(count _this > 1)then{
 	_isPlayer = _this select 1;
 }else{
@@ -25,6 +27,9 @@ if(_isPlayer)then{
 	_Bombs=false;
 };
 
+_night = call gosa_fnc_isNight;
+_return = [];
+
 // if (LIB_ahAvail) then { _Bombs=true;};
 // private["_LaserBombs"];
 // _LaserBombs=false;
@@ -33,9 +38,10 @@ private["_flyInHeight","_pos"];
 
 {
 
+	private["_type","_veh"];
+
 	if (typeName _x == typeName objNull) then {
 
-	private["_type","_veh"];
 	_veh = _x;
 	_type = TypeOf _veh;
 	diag_log format ["Log: [fnc_reweapon] %1 %2", _veh, _type];
@@ -336,6 +342,29 @@ private["_flyInHeight","_pos"];
 		_veh setSkill ["commanding", 1];
 	};
 
+	} else {
+
+		_type = _x;
+
+		private["_typeL","_typeR"];
+		_typeL = toLower _type;
+
+		if (_night) then {
+			if (_typeL == "ka52") then {
+				_typeR = "ka52black";
+			};
+		};
+
+		if (isNil "_typeR") then {
+			_return set [count _return, _type];
+		}else{
+			_return set [count _return, _typeR];
+		};
+
 	};
 
 }forEach (_this select 0);
+
+diag_log format ["Log: [fnc_reweapon] out %1", _return];
+
+_return;
