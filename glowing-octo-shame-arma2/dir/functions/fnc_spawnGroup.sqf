@@ -57,12 +57,6 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 				private ["_unit", "_type"];
 				_type = _types select _i;
 
-				if (call gosa_fnc_isNight) then {
-					if (_type == "Ka52") then {
-						_type = "Ka52Black";
-					};
-				};
-
 				private ["_itemPos"];
 				if ((count _positions) > 0) then {
 					private ["_relPos"];

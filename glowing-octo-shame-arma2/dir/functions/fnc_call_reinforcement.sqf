@@ -118,6 +118,11 @@ if (_pos distance [0,0] < 1) then {
 };
 
 if(_run)then{
+
+	if (missionNamespace getVariable "gosa_rearmament" == 1) then {
+		_types = [_types] call gosa_fnc_reweapon;
+	};
+
 	_SafePosParams = ([_types] call gosa_fnc_SafePosParams);
 
 	if (_patrol)then{
