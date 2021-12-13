@@ -44,7 +44,7 @@ gosa_repair_array = _l;
 gosa_repair_vehicle = _v;
 
 _c = "
-	gosa_repair_vehicle setHit [gosa_repair_array select %2, 1-0.1];
+	gosa_repair_vehicle setHit [gosa_repair_array select %2, 1-0.15];
 	hint 'Ok';
 	gosa_repair_array = nil; gosa_repair_vehicle = nil;
 ";
