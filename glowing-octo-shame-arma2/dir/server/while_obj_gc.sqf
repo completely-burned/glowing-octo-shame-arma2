@@ -237,7 +237,7 @@ while {true} do {
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 			diag_log format ["Log: [GC2] delete %1", _x_veh];
 			deleteVehicle _x_veh;
-			gosa_GC_array set [_i, objNull];
+			gosa_GC_array set [_i, objNull]; // FIXME: это лишнее тк объект после удаления станет objNull
 		}else{
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};
