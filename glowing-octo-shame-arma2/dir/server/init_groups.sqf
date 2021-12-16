@@ -158,6 +158,14 @@ if(!(west in gosa_friendlyside or east in gosa_friendlyside) or (missionNamespac
 	], 0.25] call _fnc6;
 };
 
+//--- лес
+if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{
+	//--- PMC
+	[AllGroupsGuer, [
+		"PMC_BAF"
+	], 0.25] call _fnc6;
+};
+
 if(toLower worldName == "utes")then{
 	[AllGroupsWest, [[["Ship"], 15]]] call gosa_fnc_groupsRarity;
 	[AllGroupsEast, [[["Ship"], 15]]] call gosa_fnc_groupsRarity;
