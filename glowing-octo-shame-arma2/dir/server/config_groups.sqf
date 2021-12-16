@@ -1232,6 +1232,18 @@ if(true)then{
 	// PMC_BAF
 if(true)then{
 	_guer=_guer+[
+		[[[["Soldier_TL_PMC",
+			"M113_PMC","Soldier_Sniper_KSVK_PMC",
+			"Soldier_AT_PMC","Soldier_MG_PMC",
+			"Soldier_MG_PKM_PMC","Soldier_GL_PMC",
+			"Soldier_GL_M16A2_PMC","Soldier_PMC",
+			"Soldier_PMC"], [[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+			["LIEUTENANT",
+			"LIEUTENANT","SERGEANT",
+			"CORPORAL","CORPORAL",
+			"CORPORAL","CORPORAL",
+			"PRIVATE","PRIVATE",
+			"PRIVATE"]]],0.01],
 		// [[[["Soldier_TL_PMC","Soldier_Bodyguard_AA12_PMC","Soldier_Bodyguard_M4_PMC"],[[0,5,0],[3,0,0],[5,0,0]],["LIEUTENANT","CORPORAL","CORPORAL"]]],0.5],
 		[[[["Soldier_GL_PMC","Soldier_GL_M16A2_PMC","Soldier_M4A3_PMC","Soldier_M4A3_PMC"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 		[[[["Soldier_TL_PMC","Soldier_Sniper_PMC","Soldier_AT_PMC","Soldier_MG_PMC","Soldier_GL_PMC","Soldier_M4A3_PMC"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.5],
