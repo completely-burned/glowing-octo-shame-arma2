@@ -437,6 +437,17 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 
+			// группе ии с подчиненным игроком нужен маршрут к основной локации
+			if (!isNil{_grp getVariable "patrol"}) then {
+				if({_x call gosa_fnc_isPlayer} count _units > 0)then{
+					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 установлен маршрут патрулирования, сброс группы на атакующий тип", _grp];
+					_grp setVariable ["patrol", nil];
+					_NoCreateWP = false;
+					_CreateWP = true;
+					_DeleteWP = true;
+				};
+			};
+
 			if(count waypoints _grp == 0)then{
 				// авиация не должна зависать на месте
 				if ("Air" in _grp_type) then {
