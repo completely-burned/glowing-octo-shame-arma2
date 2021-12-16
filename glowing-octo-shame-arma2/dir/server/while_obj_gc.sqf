@@ -209,9 +209,12 @@ while {true} do {
 
 	if (_min_vehicles_count > 0) then {
 		_min_dist2 = _min_dist-(_noDeleteCount*(_min_dist/_min_vehicles_count))+_min_vehicles_count;
+		// чтобы объект не удалялся под носом
+		_min_dist2 = _min_dist2 max 10;
 	}else{
-		_min_dist2 = 0;
+		_min_dist2 = 10;
 	};
+
 
 	{
 		_x_veh = _x;
@@ -320,6 +323,8 @@ while {true} do {
 			_deleteListVehDead = _deleteListVehDead - [-1];
 
 			if ([_x_veh, 3] call gosa_fnc_mining) then {
+				// TODO: это не работает, тк если все игроки мертвы возвращает !(false) == true
+				// TODO: в итоге происходит минирование под носом у игроков их техники
 				if !([_x_veh, _min_dist2/2] call gosa_fnc_CheckPlayersDistance) then {
 					_mining_list set [count _mining_list, _x_veh];
 					[_x_veh, 1] call gosa_fnc_mining;
