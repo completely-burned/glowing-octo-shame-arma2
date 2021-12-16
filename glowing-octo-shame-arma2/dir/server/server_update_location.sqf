@@ -61,7 +61,7 @@ while{true}do{
 			};
 		}forEach _objects;
 
-		_westPlayers = _westPlayers * 10;
+		_westPlayers = _westPlayers * 10; // FIXME: это слишком много кмк
 		_eastPlayers = _eastPlayers * 10;
 		_resistancePlayers = _resistancePlayers * 10;
 
