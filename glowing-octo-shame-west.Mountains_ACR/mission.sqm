@@ -27,7 +27,7 @@ class Mission
 	randomSeed=12950556;
 	class Intel
 	{
-		briefingName="glowing-octo-shame Mountains_ACR west v0.0.3.798";
+		briefingName="glowing-octo-shame Mountains_ACR west v0.0.3.799";
 		startWeather=0.39999998;
 		forecastWeather=0.39999998;
 		year=2009;
