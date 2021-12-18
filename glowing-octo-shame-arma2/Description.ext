@@ -19,7 +19,7 @@ class Params {
 		title="MASH (not completed)";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
-		default=0;
+		default=1;
 	};
 	class gosa_MHQ {
 		title="MHQ";
