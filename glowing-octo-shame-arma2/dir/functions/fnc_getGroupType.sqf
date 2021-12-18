@@ -83,6 +83,7 @@ _t = [];
 		};
 	};
 
+	// TODO: нужно проверять по типу боеприпаса
 	_z = "AA";
 	if !(_z in _t) then {
 		if(_x isKindOf "ZSU_Base") then {
