@@ -84,6 +84,8 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 											armake2 pack -v 									$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
 		fi
 
+		rsync -rLK $MISSION/* $OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-rsync.${MAP,,}
+
 	fi
 done
 
