@@ -122,6 +122,14 @@ if(!isNil "_leader")then{
 			_maxDist = ((_maxDist * 10) max 1500);
 		};
 
+		if("Air" in _grp_type)then{
+			// FIXME: _g addWaypoint [_p, не работает должным образом];
+			private["_dir","_dist2"];
+			_dir = random 360;
+			_dist2 = random _maxDist;
+			_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
+		};
+
 		// артиллерия
 		if("Artillery" in _grp_type)then{
 			_pos = _leaderPos;
