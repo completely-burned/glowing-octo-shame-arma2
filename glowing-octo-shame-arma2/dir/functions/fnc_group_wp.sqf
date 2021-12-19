@@ -1,4 +1,7 @@
-// эта функция отвечает за создание маршрутных точек для ии
+/*
+эта функция отвечает за создание маршрутных точек для ии
+TODO: коду нужна ревизия
+*/
 
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_grp_wp_completed","_g2","_z","_v"];
 
@@ -360,6 +363,7 @@ if({alive _x} count _units > 0)then{
 
 		// если отряд у цели установить переменную _grp_wp_completed если она не установлена
 		if (isNil{_grp_wp_completed}) then {
+			// TODO: для авиации не подходит такая проверка
 			if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < 5 )then{
 				_grp_wp_completed = time;
 					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _grp_wp_completed = time", _grp ];
@@ -448,9 +452,9 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 
-			if(count waypoints _grp == 0)then{
-				// авиация не должна зависать на месте
-				if ("Air" in _grp_type) then {
+			// авиация не должна зависать на месте
+			if ("Air" in _grp_type) then {
+				if(count waypoints _grp == 0 or !isNil "_grp_wp_completed" )then{
 					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 авиация не должна зависать на месте", _grp];
 					_NoCreateWP = false;
 					_CreateWP = true;
