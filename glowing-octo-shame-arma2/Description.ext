@@ -96,6 +96,7 @@ class Params {
 		default=1;
 	};
 	class timeFriendlyReinforcements {
+		// насколько быстро сравняется количество союзников и противников
 		title="(AI) time friendly reinforcements";
 		values[] = {30,45,60,90,120,180,240,300};
 		texts[] = {"30 minutes","45 minutes","60 minutes","90 minutes","120 minutes","180 minutes","240 minutes","300 minutes"};
