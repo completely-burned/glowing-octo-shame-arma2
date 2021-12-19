@@ -99,7 +99,7 @@ class Params {
 		title="(AI) time friendly reinforcements";
 		values[] = {30,45,60,90,120,180,240,300};
 		texts[] = {"30 minutes","45 minutes","60 minutes","90 minutes","120 minutes","180 minutes","240 minutes","300 minutes"};
-		default=120;
+		default=180;
 	};
 	class m_skill {
 		title="(AI) skill";
