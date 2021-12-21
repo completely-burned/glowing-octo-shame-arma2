@@ -52,7 +52,7 @@ while{true}do{
 			_grp = group effectiveCommander _veh;
 		};
 
-		//--- поиск уже закрепленного транспорта, 
+		//--- поиск уже закрепленного транспорта,
 		// транспорт должен быть найден  так-же для отпуска после завершения
 		if(isNull _veh)then{
 
@@ -212,7 +212,7 @@ while{true}do{
 						_veh land "NONE";
 						diag_log format ["Log: [heliTransport] %1 новый маршрут загрузки создан, gosa_transportwaypoint_created_GET_IN_pos, %2, GREEN, LOAD, (vehicle this land 'GET IN')", _veh, _var_player_pos];
 					}else{
-						if(_var_player_pos distance _pos2_destination > 10)then{
+						if(!isNil {_pos2_destination} && {_var_player_pos distance _pos2_destination > 10})then{
 							_grp setVariable ["gosa_transportwaypoint_created_GET_IN_pos", nil];
 							_veh setVariable ["gosa_transportwaypoint_created_GET_OUT_pos", nil];
 							diag_log format ["Log: [heliTransport] %1 переназначение маршрута загрузки, gosa_transportwaypoint_created_GET_IN_pos nil, gosa_transportwaypoint_created_GET_OUT_pos nil", _veh];
