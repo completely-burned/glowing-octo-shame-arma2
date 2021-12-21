@@ -123,6 +123,20 @@ rsetRankcode = {
 	};
 };
 
+rhintresurrected = 'hintResurrected';
+rhintresurrectedcode = {
+	private ["_z"];
+	_z = _this select 1;
+	if (group _z == group player) then {
+		_z groupChat 		"+++ resurrected +++ " + (_this select 2) + " +++";
+	};
+	_z = vehicle _z;
+	if (_z == vehicle player) then {
+		// сообщение выводится от локального игрока, а не от возродившегося, но это особенности мотора
+		_z vehicleChat 	"+++ shell-shocked +++ " + (_this select 2) + " +++";
+	};
+};
+
 rspawn = 'spawn';
 rspawncode = {
 #ifdef __A2OA__
