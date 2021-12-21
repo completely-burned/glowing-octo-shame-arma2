@@ -22,7 +22,7 @@ while{isNil {_currentPosition}}do{
 	if (TypeName _position != "ARRAY") then {
 		private["_pos"];
 		if (_position call gosa_fnc_isPlayer) then {
-			_pos = Position vehicle player;
+			_pos = Position vehicle player; // FIXME: это для чего?
 		}else{
 			_pos = Position _position;
 		};
@@ -38,7 +38,7 @@ while{isNil {_currentPosition}}do{
 	_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
 	if ((!SurfaceIsWater _testPos && !_Water) or (SurfaceIsWater _testPos && _Water)) then
 	{
-		if (count nearestObjects [_testPos, ["Static","LandVehicle","Air"], _safeRadius] == 0) then
+		if (count nearestObjects [_testPos, ["Static","LandVehicle","Air","Man"], _safeRadius] == 0) then
 		{
 			_currentPosition = _testPos;
 			BreakTo "PlaceSafe";
@@ -56,7 +56,7 @@ while{isNil {_currentPosition}}do{
 		_attempts = 0;
 	};
 	_attempts = _attempts + 1;
-	sleep 0.005;
+	sleep 0.005; // TODO: Suspending not allowed in this context
 };
 
 _currentPosition;
