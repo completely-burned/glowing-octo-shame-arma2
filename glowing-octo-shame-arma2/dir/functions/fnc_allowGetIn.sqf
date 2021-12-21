@@ -183,7 +183,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				if (gosa_loglevel > 0) then { // TODO: нестабильно
 				// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
 				if(typeOf _x in (gosa_crewL+gosa_pilotL) &&
-					count assignedVehicleRole _x == 0
+					count assignedVehicleRole _x == 0 && // команда работает лишь на сервере или локальных юнитах клиента
+					vehicle _x == _x
 				 )then{
 					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then { // TODO: лишние Variable занимают память и группу невозможно использовать повторно
 						_ng_l set [count _ng_l, _x];
