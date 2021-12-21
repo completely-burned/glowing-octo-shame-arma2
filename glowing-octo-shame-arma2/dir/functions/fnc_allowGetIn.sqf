@@ -18,7 +18,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 			};
 		};
 
-		_allow=true;
+		_allow=true; // TODO: название переменной
 		if(!isNull _x)then{
 			if(!isNull _veh)then{
 				private ["_role"];
