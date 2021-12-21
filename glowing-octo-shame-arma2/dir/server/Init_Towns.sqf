@@ -59,7 +59,7 @@ locationNext={
 		CivilianLocation setVariable ["time",time];
 	};
 
-	private["_sizeLocation","_NextLocations","_grps_rarity"];
+	private["_sizeLocation","_NextLocations","_grps_rarity","_z"];
 	_sizeLocation = + 500;
 	if (missionNamespace getVariable "gosa_locationType" in [1,2]) then {
 	_NextLocations = (nearestLocations [civilianBasePos, locationTypes, 5000]);
@@ -85,8 +85,13 @@ locationNext={
 				*/
 				if ( leader _grp distance civilianBasePos > ((safeSpawnDistance select 1) max 2000) or
 				 side _grp in gosa_friendlyside ) then {
+					// чтобы отряды ушли от точки можно их сделать патрулями
+					_grp setVariable ["patrol", true, true];
+					// мусоросборщик вычисляет дистанцию удаления из длины очереди
+					_z = 60*2 + random (60*5);
 					{
-						_x setVariable ["gosa_timeDeleteVehicle", 0];
+						_x setVariable ["gosa_timeDeleteVehicle", _z];
+						vehicle _x setVariable ["gosa_timeDeleteVehicle", _z];
 					}forEach units _grp;
 				};
 
