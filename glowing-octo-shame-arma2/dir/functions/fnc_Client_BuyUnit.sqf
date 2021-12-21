@@ -1,5 +1,5 @@
 ﻿#define __A2OA__
-private ["_type","_HQ","_fnc_1","_isUAV"];
+private ["_type","_HQ","_fnc_1","_isUAV","_z"];
 _type = _this Select 0;
 
 _HQ = listMHQ + HQ;
@@ -96,11 +96,9 @@ if (true) then {
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBLightFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
 		if ( (count _Objects > 0)  or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
 			Private["_veh"];
-			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+			_z = ([player, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
-			Private["_pos"];
-			_pos = player;
-			_veh setPos ([_pos,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -110,11 +108,9 @@ if (true) then {
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBLightFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
 		if ( (count _Objects > 0) or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
 			Private["_veh"];
-			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
-			Private["_pos"];
-			_pos = player;
-			_veh setPos ([_pos,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -124,11 +120,9 @@ if (true) then {
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBHeavyFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
 		if ( (count _Objects > 0) or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
 			Private["_veh"];
-			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
-			Private["_pos"];
-			_pos = player;
-			_veh setPos ([_pos,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -147,11 +141,9 @@ if (true) then {
 				hint format["%1: %2", localize "str_support_done", _type];
 			}else{
 				Private["_veh"];
-				_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+				_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+				_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 				_veh setDir getDir vehicle player;
-				Private["_pos"];
-				_pos = player;
-				_veh setPos ([_pos,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 				_veh call _fnc_1;
 				hint format["%1: %2", localize "str_support_done", _type];
 			};
@@ -190,11 +182,9 @@ if (true) then {
 				[_veh, createGroup playerSide] call gosa_fnc_spawnCrew;
 			}else{
 				Private["_veh"];
-				_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+				_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+				_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 				_veh setDir getDir vehicle player;
-				Private["_pos"];
-				_pos = player;
-				_veh setPos ([_pos,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 				_veh call _fnc_1;
 			};
 			hint format["%1: %2", localize "str_support_done", _type];
@@ -203,11 +193,9 @@ if (true) then {
 				_Objects = (nearestObjects [vehicle player, ["Base_WarfareBAircraftFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
 				if ( (count _Objects > 0) or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
 					Private["_veh"];
-					_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+					_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+					_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 					_veh setDir getDir vehicle player;
-					Private["_pos"];
-					_pos = player;
-					_veh setPos ([_pos,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 					_veh call _fnc_1;
 					hint format["%1: %2", localize "str_support_done", _type];
 				};
@@ -240,11 +228,9 @@ if (true) then {
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBBarracks"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
 		if ( (count _Objects > 0) or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
 			Private["_veh"];
-			_veh = (createVehicle [_type, [0,0], [], 20, "FORM"]);
+			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 			_veh setDir getDir vehicle player;
-			Private["_pos"];
-			_pos = player;
-			_veh setPos ([_pos,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
