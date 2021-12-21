@@ -87,20 +87,21 @@ _fnc_swich={
 
 _findBody={
 
-	private ["_uOn","_u","_uOff","_z"];
+	private ["_uOn","_u","_uOff","_z","_unit"];
 	_uOn = [];
 	_u = [];
 	_uOff = [];
 
 	{
+		_unit = _x;
 		_z = [_x] call gosa_fnc_getUnitClass;
-		if (_z in gosa_squadOffW) then {
-			_uOff set [count _uOff, _x];
+		if ({_x in _z} count gosa_squadOffW > 0) then {
+			_uOff set [count _uOff, _unit];
 		} else {
-			if (_z in gosa_squadOnW) then {
-		    _uOn set [count _uOn, _x];
+			if ({_x in _z} count gosa_squadOnW > 0) then {
+				_uOn set [count _uOn, _unit];
 			} else {
-				_u set [count _u, _x];
+				_u set [count _u, _unit];
 			};
 	  };
 	} forEach _this;
