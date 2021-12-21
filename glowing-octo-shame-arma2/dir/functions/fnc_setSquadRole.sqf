@@ -15,16 +15,22 @@ _n = [];
 
 //--- тип оружия
 _z = [
-	"Rifles (not completed)",
+	"Rifles",
 	7, // Rifles
-	"Sidearms (not completed)",
+	"Sidearms",
 	6, // Sidearms
-	"Machineguns (not completed)",
+	"Machineguns",
 	8, // Machineguns
-	"Sniper rifle (not completed)",
+	"Sniper rifle",
 	9, // Probably a heavy sniper rifle
-	"Launchers (not completed)",
+	"Launchers",
 	10, // Launchers
+	"Medic",
+	103, // Medic
+	"Engineer",
+	104, // Engineer
+	"Vehicles (not completed)",
+	500, // all vehicles
 	"weapons reset (not completed)",
 	9999 // w reset
 ];
