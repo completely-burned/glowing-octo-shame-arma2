@@ -155,6 +155,7 @@ _fnc_isFit={
 		( (_this call gosa_fnc_withinMap) or
 			(!isNil "gosa_player_needs_revival" && {gosa_player_needs_revival + 25 < time})
 		)	&&
+		side _this in gosa_friendlyside &&
 		isNil{_this getVariable "selectPlayerDisable"} &&
 		alive _this &&
 		(damage _this < 0.9) &&
@@ -337,6 +338,11 @@ while {true} do {
 				};
 
 			} forEach allGroups;
+		};
+
+		// ищем тело среди всех юнитов
+		if (isNil{_bestCandidate}) then {
+			allUnits call _findBody;
 		};
 
 		if (isNil{_bestCandidate}) then {
