@@ -9,6 +9,8 @@ diag_log format ["Log: [fnc_find_AA_pos] #AA %1", _this];
 private["_side","_pos","_list","_cost","_radius"];
 _side = _this select 0;
 _pos = _this select 1;
+if (count _pos < 2) exitWith {0};
+_pos resize 2; // сфера
 _radius = _this select 2;
 
 //--- ищем союзные наземные юниты находящиеся рядом с предполагаемой позицией
