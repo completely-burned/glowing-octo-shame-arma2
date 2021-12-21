@@ -290,7 +290,8 @@ while {true} do {
 						// рандомизация
 						_z = _z / 2 + random _z;
 						// в группе с большим количеством игроков не интересно (корень количества игроков)
-						if (sqrt _z > {_x call gosa_fnc_isPlayer} count _units) then { // TODO: ножно предоставить выбор игрокам
+						// корень всех зол
+						if (sqrt _z > {_x call gosa_fnc_isPlayer} count _units) then { // TODO: нужно предоставить выбор игрокам
 							diag_log format ["Log: [respawnRandom] ищем среди групп с игроками %1", _grp];
 							_units call _findBody;
 						};
