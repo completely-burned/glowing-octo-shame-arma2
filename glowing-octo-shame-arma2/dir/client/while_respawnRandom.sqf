@@ -65,6 +65,9 @@ _fnc_swich={
 
 	_new call gosa_fnc_initBriefing;
 
+	// информирование других игроков о возрождении в отряде
+	[nil, _new, rhintresurrected, _p_name] call RE;
+
 	if (gosa_loglevel > 0) then {					// diag_log TODO: нужна функция
 		_z = [];									// diag_log
 		{											// diag_log
