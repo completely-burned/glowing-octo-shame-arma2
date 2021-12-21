@@ -169,8 +169,14 @@ _fnc_isFit={
 		!isNil{group _this getVariable "grp_created"} &&
 		!(WaypointType [group _this, currentwaypoint group _this] in ["UNLOAD","GETOUT"]) && // TODO: нужно реализовать десант с игроками тоже
 		!(vehicle _this isKindOf "StaticWeapon") &&
-		!(vehicle _this isKindOf "Air") && // отключенно из-за десанта, и не умения летать некоторых игроков
-		!(vehicle _this isKindOf "Ship") && // отключенно из-за десанта
+		(
+			!(vehicle _this isKindOf "Air") or // отключенно из-за десанта, и не умения летать некоторых игроков
+			group _this == group player
+		) &&
+		(
+			!(vehicle _this isKindOf "Ship") or // отключенно из-за десанта
+			group _this == group player
+		) &&
 		(isNil {group _this getVariable "patrol"} or vehicle _this distance civilianBasePos < (safeSpawnDistance select 1))
 	) then {
 		true;
