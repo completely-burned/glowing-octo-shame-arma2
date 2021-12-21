@@ -22,36 +22,38 @@ if (true) then {
 			// _weapons = (getArray(configFile >> "CfgVehicles" >> _type >> "weapons"));
 			// _weapon = (currentWeapon _veh);
 			_weapons = weapons _veh;
-			_weapon = (_weapons select 0);
+			if (count _weapons > 0) then {
+				_weapon = (_weapons select 0);
 
-			if (ACE_Avail) then {
-				_type_weapon=getNumber (LIB_cfgWea >> _weapon >> "ace_sys_weapons_TYPE");
-			}else{
-				_type_weapon=getNumber (LIB_cfgWea >> _weapon >> "type");
-			};
-			if (_type_weapon == 5) then {
-				if (getNumber (LIB_cfgWea >> _weapon >> "autoFire") != 1) then {
-					_aimAcc = 1;
-					_diag_log = _diag_log + [format ["Log: [fnc_dynSkill] %1 %2 снайпер %3 %4", _veh, _type, _weapon, _aimAcc]];
-					breakOut "scope1";
+				if (ACE_Avail) then {
+					_type_weapon=getNumber (LIB_cfgWea >> _weapon >> "ace_sys_weapons_TYPE");
 				}else{
-					if (([[_weapon],["M1014","Saiga12K","AA12_PMC"]] call gosa_fnc_CheckIsKindOfArray)) then {
-						_aimAcc = 0.09;
-						_diag_log = _diag_log + [format ["Log: [fnc_dynSkill] %1 %2 дробь %3 %4", _veh, _type, _weapon, _aimAcc]];
+					_type_weapon=getNumber (LIB_cfgWea >> _weapon >> "type");
+				};
+				if (_type_weapon == 5) then {
+					if (getNumber (LIB_cfgWea >> _weapon >> "autoFire") != 1) then {
+						_aimAcc = 1;
+						_diag_log = _diag_log + [format ["Log: [fnc_dynSkill] %1 %2 снайпер %3 %4", _veh, _type, _weapon, _aimAcc]];
 						breakOut "scope1";
-					//}else{
-						//_aimAcc = 0.75;
-					};
-
-					// восстанавливает экипажу вне 
-					_z = _veh getVariable "gosa_def_aimAcc";
-					if (!isNil{_z}) then {
-						//_z = _veh skill "aimingAccuracy";
-						//if (_z != _def_aimAcc) then {
-							_aimAcc = +_z;
-							_diag_log = _diag_log + [format ["Log: [fnc_dynSkill] %1 %2 вне машины, восстановление %3", _veh, _type, _aimAcc]];
+					}else{
+						if (([[_weapon],["M1014","Saiga12K","AA12_PMC"]] call gosa_fnc_CheckIsKindOfArray)) then {
+							_aimAcc = 0.09;
+							_diag_log = _diag_log + [format ["Log: [fnc_dynSkill] %1 %2 дробь %3 %4", _veh, _type, _weapon, _aimAcc]];
 							breakOut "scope1";
-						//};
+						//}else{
+							//_aimAcc = 0.75;
+						};
+
+						// восстанавливает экипажу вне
+						_z = _veh getVariable "gosa_def_aimAcc";
+						if (!isNil{_z}) then {
+							//_z = _veh skill "aimingAccuracy";
+							//if (_z != _def_aimAcc) then {
+								_aimAcc = +_z;
+								_diag_log = _diag_log + [format ["Log: [fnc_dynSkill] %1 %2 вне машины, восстановление %3", _veh, _type, _aimAcc]];
+								breakOut "scope1";
+							//};
+						};
 					};
 				};
 			};
@@ -70,7 +72,7 @@ if (true) then {
 		//if (vehicle _veh != _veh) then {
 			if (_type isKindOf "Air") then{
 
-				//--- низкая точность если рядом с целью нет союзников 
+				//--- низкая точность если рядом с целью нет союзников
 				_z = assignedTarget _veh;
 				if (isNull _z or {_veh countFriendly (_z nearEntities 75) == 0}) then {
 					_aimAcc = 0.1;
@@ -91,7 +93,7 @@ if (true) then {
 				if (_type isKindOf "Helicopter") then{
 
 					/*
-					/--- низкая точность если рядом с целью нет союзников 
+					/--- низкая точность если рядом с целью нет союзников
 					//_z = assignedTarget _veh;
 					if (isNull _z or {_veh countFriendly (_z nearEntities 75) == 0}) then {
 						_aimAcc = 0.1;
@@ -151,7 +153,7 @@ if (true) then {
 				};
 
 				/*
-				//--- низкая точность если рядом с целью нет союзников 
+				//--- низкая точность если рядом с целью нет союзников
 				_z = assignedTarget _veh;
 				if (isNull _z or {_veh countFriendly (_z nearEntities 75) == 0}) then {
 					_aimAcc = 0.1;
@@ -236,7 +238,7 @@ if (!isNil {_aimAcc}) then {
 
 	_efc = effectiveCommander _veh;
 
-	_z = _efc skill "aimingAccuracy";
+	_z = _efc skill "aimingAccuracy"; // TODO: нужно учитывать CfgAISkill
 	if (isNil{_efc getVariable "gosa_def_aimAcc"}) then {
 		_efc setVariable ["gosa_def_aimAcc", _z];
 		diag_log format ["Log: [fnc_dynSkill] %1 %2 default aimingAccuracy %3", _efc, _type, _z];
