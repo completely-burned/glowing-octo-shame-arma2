@@ -1,4 +1,4 @@
-private ["_unit","_type","_tWeap","_r","_z"];
+private ["_unit","_type","_tWeap","_r","_z","_veh","_t_veh"];
 
 _unit = _this select 0;
 
@@ -8,7 +8,11 @@ _type = typeOf _unit;
 
 _r = [];
 
-if ((configName(configFile >> "CfgVehicles" >> _type >> "vehicleClass")) != "") then {
+_veh = vehicle _unit;
+
+if (_veh != _unit) then {
+
+	_t_veh = typeOf _veh;
 
 	// TODO: для техники нужен другой метод
 
