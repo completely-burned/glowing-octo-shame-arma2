@@ -23,6 +23,18 @@ _z = missionNamespace getVariable "gosa_MHQ";
 		};
 	};
 
+_z = missionNamespace getVariable "gosa_shop";
+	if (_z == -1) then {
+		if (
+			missionNamespace getVariable "respawn" == 0 or
+			missionNamespace getVariable "gosa_MHQ" == 1
+		 ) then {
+			missionNamespace setVariable ["gosa_shop", 1];
+		} else {
+			missionNamespace setVariable ["gosa_shop", 0];
+		};
+	};
+
 _z = missionNamespace getVariable "gosa_locationType";
 	if (_z == -1) then {
 		if (toLower worldName in ["bootcamp_acr","provinggrounds_pmc"]) then {
