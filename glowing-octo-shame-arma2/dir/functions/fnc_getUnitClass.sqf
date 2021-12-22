@@ -10,149 +10,149 @@ _r = [];
 
 if ((configName(configFile >> "CfgVehicles" >> _type >> "vehicleClass")) != "") then {
 
-  // TODO: для техники нужен другой метод
+	// TODO: для техники нужен другой метод
 
-  _z = 500;
-  if !(_z in _r) then {
-    _r set [count _r, _z];
-  };
+	_z = 500;
+	if !(_z in _r) then {
+		_r set [count _r, _z];
+	};
 
-  //--- поддержка, медик, инженер, автозаправщик
+	//--- поддержка, медик, инженер, автозаправщик
 
-  //--- свмолет
+	//--- свмолет
 
-  //--- вертолет
+	//--- вертолет
 
-  //--- дрон
+	//--- дрон
 
-  //--- пво
+	//--- пво
 
-  //--- механизированые
+	//--- механизированые
 
-  //--- моторизированые
+	//--- моторизированые
 
-  //--- танки
+	//--- танки
 };
 
-  //Launchers.
-  /*
-  _tWeap = secondaryWeapon _unit;
+	//Launchers.
+	/*
+	_tWeap = secondaryWeapon _unit;
 
-  if (_tWeap == "") then {
-    _tWeap = primaryWeapon _unit;
-  };
-  */
-  _z = 0;
+	if (_tWeap == "") then {
+		_tWeap = primaryWeapon _unit;
+	};
+	*/
+	_z = 0;
 
-    {
-
-
-    //if (_tWeap != "") then {
+		{
 
 
-      //_type = getNumber (configFile >> "CfgWeapons" >> _x >> "type");
+		//if (_tWeap != "") then {
 
-      switch (getNumber (configFile >> "CfgWeapons" >> _x >> "type")) do
-      {
-        //Rifles.
-        case 1:
-        {
-          if (getNumber(configFile >> "CfgWeapons" >> _x >> "opticsFlare") == 1) then
-          {
-            diag_log format ['Log: [fnc_getUnitClass] %1 opticsFlare == 1', [_unit,_x,_z]];
-            _z = 9;
-            if !(_z in _r) then {
-              _r set [count _r, _z];
-            };
-          }
-          else
-          {
-            _z = 7;
-            if !(_z in _r) then {
-              _r set [count _r, _z];
-            };
-          }
-        };
 
-        //Sidearms.
-        case 2:
-        {
-          _z = 6;
-          if !(_z in _r) then {
-            _r set [count _r, _z];
-          };
-        };
+			//_type = getNumber (configFile >> "CfgWeapons" >> _x >> "type");
 
-        //Launchers.
-        case 4:
-        {
-          _z = 10;
-          if !(_z in _r) then {
-            _r set [count _r, _z];
-          };
-        };
+			switch (getNumber (configFile >> "CfgWeapons" >> _x >> "type")) do
+			{
+				//Rifles.
+				case 1:
+				{
+					if (getNumber(configFile >> "CfgWeapons" >> _x >> "opticsFlare") == 1) then
+					{
+						diag_log format ['Log: [fnc_getUnitClass] %1 opticsFlare == 1', [_unit,_x,_z]];
+						_z = 9;
+						if !(_z in _r) then {
+							_r set [count _r, _z];
+						};
+					}
+					else
+					{
+						_z = 7;
+						if !(_z in _r) then {
+							_r set [count _r, _z];
+						};
+					}
+				};
 
-        //Machineguns.
-        case 5:
-        {
-          //Check autofire to see this is a machinegun.
-          if (getNumber(configFile >> "CfgWeapons" >> _x >> "autoFire") == 1) then
-          {
-            _z = 8;
-            if !(_z in _r) then {
-              _r set [count _r, _z];
-            };
-          }
-          else
-          {
-            //Probably a heavy sniper rifle.
-            _z = 9;
-            if !(_z in _r) then {
-              _r set [count _r, _z];
-            };
-          };
-        };
+				//Sidearms.
+				case 2:
+				{
+					_z = 6;
+					if !(_z in _r) then {
+						_r set [count _r, _z];
+					};
+				};
 
-        default
-        {
-          //Explosives?
-          if ((getNumber (configFile >> "CfgWeapons" >> _x >> "type") % 256) == 0) then
-          {
-            _z = 1;
-            if !(_z in _r) then {
-              _r set [count _r, _z];
-            };
-          };
-        };
-      };
+				//Launchers.
+				case 4:
+				{
+					_z = 10;
+					if !(_z in _r) then {
+						_r set [count _r, _z];
+					};
+				};
 
-    //};
-    } forEach weapons _unit;
+				//Machineguns.
+				case 5:
+				{
+					//Check autofire to see this is a machinegun.
+					if (getNumber(configFile >> "CfgWeapons" >> _x >> "autoFire") == 1) then
+					{
+						_z = 8;
+						if !(_z in _r) then {
+							_r set [count _r, _z];
+						};
+					}
+					else
+					{
+						//Probably a heavy sniper rifle.
+						_z = 9;
+						if !(_z in _r) then {
+							_r set [count _r, _z];
+						};
+					};
+				};
 
-  if(getNumber(configFile >> "CfgVehicles" >> _type >> "attendant")> 0) then{
-    _z = 103;
-    if !(_z in _r) then {
-      _r set [count _r, _z];
-    };
-  };
-  if(getNumber(configFile >> "CfgVehicles" >> _type >> "Engineer")> 0) then{
-    _z = 104;
-    if !(_z in _r) then {
-      _r set [count _r, _z];
-    };
-  };
+				default
+				{
+					//Explosives?
+					if ((getNumber (configFile >> "CfgWeapons" >> _x >> "type") % 256) == 0) then
+					{
+						_z = 1;
+						if !(_z in _r) then {
+							_r set [count _r, _z];
+						};
+					};
+				};
+			};
 
-  //--- винтовки
+		//};
+		} forEach weapons _unit;
 
-  //--- винтовки с оптикой
+	if(getNumber(configFile >> "CfgVehicles" >> _type >> "attendant")> 0) then{
+		_z = 103;
+		if !(_z in _r) then {
+			_r set [count _r, _z];
+		};
+	};
+	if(getNumber(configFile >> "CfgVehicles" >> _type >> "Engineer")> 0) then{
+		_z = 104;
+		if !(_z in _r) then {
+			_r set [count _r, _z];
+		};
+	};
 
-  //--- снайперские винтовки
+	//--- винтовки
 
-  //--- пулеметы
+	//--- винтовки с оптикой
 
-  //--- гранатометы, пзрк
+	//--- снайперские винтовки
 
-  //--- экзотическое оружие
+	//--- пулеметы
+
+	//--- гранатометы, пзрк
+
+	//--- экзотическое оружие
 
 diag_log format ['Log: [fnc_getUnitClass] %1', [_unit,_type,_r]];
 
