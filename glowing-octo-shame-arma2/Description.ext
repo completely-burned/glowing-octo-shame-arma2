@@ -152,9 +152,9 @@ class Params {
 	};
 	class gosa_shop {
 		title="shop";
-		values[] = {0,1,2};
-		texts[] = {$STRWFNO,$STRWFYES,"home delivery"};
-		default=0;
+		values[] = {-1,0,1,2};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFNO,$STRWFYES,"home delivery"};
+		default=-1;
 	};
 	class ai_client_count {
 		title="Number of ai groups at the start on the client cpu [cl,ai,fps] (not completed)";
