@@ -13,7 +13,7 @@ diag_log format ["Log: [fnc_reweapon] in %1", _this];
 	// if (configName(configFile >> "CfgVehicles" >> "TK_Soldier_Officer_EP1") != "") then {LIB_ahAvail = true};
 // };
 
-private["_isPlayer","_z","_return","_night"];
+private["_isPlayer","_z","_return","_night","_c"];
 if(count _this > 1)then{
 	_isPlayer = _this select 1;
 }else{
@@ -342,6 +342,36 @@ private["_flyInHeight","_pos"];
 		if (_type isKindOf "LandVehicle") then {
 			_veh setSkill ["commanding", 1];
 		};
+
+		//--- осветительные ракеты
+		if (_night) then {
+			if (side _veh == resistance) then {
+				_c = 6; // 6 примерно из восми, а из 4 будет 3 ракеты
+			 }else{
+				_c = 4;
+			};
+
+			_z = "1rnd_he_gp25"; // TODO: нужно учитывать так-же пустые слоты и другие типы ракет у юнитов
+				{
+					if (toLower _x == _z) then {
+						if (random 8 < _c) then {
+							_veh removeMagazine _x;
+							_veh addMagazine "FlareWhite_GP25"
+						};
+					};
+				} forEach magazines _veh;
+
+			_z = "1rnd_he_m203";
+				{
+					if (toLower _x == _z) then {
+						if (random 8 < _c) then {
+							_veh removeMagazine _x;
+							_veh addMagazine "FlareWhite_M203"
+						};
+					};
+				} forEach magazines _veh;
+		};
+
 
 	} else {
 
