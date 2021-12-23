@@ -31,6 +31,8 @@ _z = [
 	104, // Engineer
 	"Vehicles (not completed)",
 	500, // all vehicles
+	"crew multiplayer (not completed)", // TODO: нужно запретить присоединение с другой стороны
+	-500, // присоединяться к экипажу с другими игроками
 	"weapons reset (not completed)",
 	9999 // w reset
 ];
