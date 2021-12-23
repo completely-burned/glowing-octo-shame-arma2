@@ -141,7 +141,7 @@ private["_flyInHeight","_pos"];
 					};
 				};
 				if (random 10 > 7) then {
-					if !(daytime > 3 && daytime < 20) then {
+					if (_night) then {
 
 						if !([LIB_cfgWea,_weapons,"simulation","NVGoggles"] call gosa_fnc_check_config_use) then {
 								_veh addWeapon "NVGoggles";
