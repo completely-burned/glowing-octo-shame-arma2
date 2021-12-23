@@ -32,6 +32,21 @@ if (_veh != _unit) then {
 	};
 
 
+	if (_t_veh isKindOf "Air") then {
+
+		_z = 600;
+		if !(_z in _r) then {
+			_r set [count _r, _z];
+		};
+
+		//--- пилот
+		_z = 605;
+		if !(_z in _r) then {
+			if (_unit == driver _veh) then {
+				_r set [count _r, _z];
+			};
+		};
+	};
 
 	//--- поддержка, медик, инженер, автозаправщик
 
