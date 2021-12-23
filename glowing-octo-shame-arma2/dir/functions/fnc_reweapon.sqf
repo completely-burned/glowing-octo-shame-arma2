@@ -128,6 +128,7 @@ private["_flyInHeight","_pos"];
 					};
 				};
 				if (random 10 > 8) then {
+					// TODO: ночью нужно оружие без прицелов наоборот
 					if ( _weapon in ["m240"] ) then {
 						_veh removeWeapon _weapon;
 						_weapon = "m240_scoped_EP1";
