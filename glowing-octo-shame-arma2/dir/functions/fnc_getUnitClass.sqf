@@ -21,6 +21,18 @@ if (_veh != _unit) then {
 		_r set [count _r, _z];
 	};
 
+	//--- экипаж тс игрок
+	_z = -500;
+	if !(_z in _r) then {
+		if (driver _veh call gosa_fnc_isPlayer or
+				{gunner _veh call gosa_fnc_isPlayer or commander _veh call gosa_fnc_isPlayer}
+		 ) then {
+			_r set [count _r, _z];
+		};
+	};
+
+
+
 	//--- поддержка, медик, инженер, автозаправщик
 
 	//--- свмолет
