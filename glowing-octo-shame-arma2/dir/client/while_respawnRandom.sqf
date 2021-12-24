@@ -8,6 +8,7 @@ FIXME: при проверки name возможно переменная select
 */
 
 private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
+	"_fnc_prio_units",
 	"_listPlayers","_deathTime","_cam","_t","_o","_z","_p_name"];
 
 if(missionNamespace getVariable "respawn" != 1)exitWith{
@@ -136,6 +137,33 @@ _findBody={
 		};
 	} forEach _uOn+_u+_uOff;
 };
+
+_fnc_prio_units={
+	// функция возвращает приоритет группы и юнитов в приоритете
+	private ["_uH","_uM","_uL","_z","_u"];
+	_uH = [];
+	_uM = [];
+	_uL = [];
+
+	{
+		_u = _x;
+		_z = [_x] call gosa_fnc_getUnitClass;
+		if ({_x in _z} count gosa_squadOffW > 0) then {
+			_uL set [count _uL, _u];
+		} else {
+			if ({_x in _z} count gosa_squadOnW > 0) then {
+				_uH set [count _uH, _u];
+			} else {
+				_uM set [count _uM, _u];
+			};
+	  };
+	} forEach (_this select 0);
+
+	[_this select 1,
+		count _uH - count _uL,
+		_uH,_uM,_uL];
+};
+
 // первое тело данное при старте миссии при возрождении ведет себя иначе и не подходит
 player setVariable ["selectPlayerDisable", true, true];
 
@@ -312,32 +340,69 @@ while {true} do {
 			};
 		};
 
+		//--- сортировка групп по приоритетам игрока
+			// подготовка
+			private ["_pre","_sorted","_s"];
+			_pre = [];
+			{
+				if (side _x in gosa_friendlyside) then {
+					_pre set [
+						count _pre,
+						[units _x, _x] call _fnc_prio_units
+					];
+				};
+			} forEach allGroups;
+
+			// сортировка
+			for "_i" from 0 to count _pre - 1 do {
+				if (isNil "_sorted") then {
+					_sorted = [_pre select _i];
+				}else{
+					scopeName "sn_gs";
+					for "_s" from (count _sorted - 1) to 0 step -1 do {
+						if (_pre select _i select 1 > (_sorted select _s select 1)) then {
+							_sorted set [_s+1, _sorted select _s];
+							_sorted set [_s, _pre select _i];
+						};
+						if (_pre select _i select 1 <= (_sorted select _s select 1) && count _sorted - 1 == _s) then {
+							_sorted set [_s+1, _pre select _i];
+							breakTo "sn_gs";
+						};
+					};
+				};
+			};
+			_pre = nil;
+
+		/* FIXME: локальная группа не имеет смысла т.к. ии автоматически становятся локальны игроку командиру в итоге
 		// ищем новое тело среди групп локальных игроку для лучшего командования подчиненными
 		if (isNil{_bestCandidate}) then {
 			{
-				if (side _x in gosa_friendlyside) then {
-					_leader = leader _x;
+				_z = _x select 0;
+				if (side _z in gosa_friendlyside) then {
+					_leader = leader _z;
 					if (local _leader) then {
-						diag_log format ["Log: [respawnRandom] ищем среди локальных групп %1", _x];
+						diag_log format ["Log: [respawnRandom] ищем среди локальных групп %1", _z];
 						if (_leader call _fnc_isFit) then {
 							if (isNil {_bestCandidate}) then {
 								_bestCandidate = _leader;
 							};
-							if ((_pos distance _leader) < (_pos distance _bestCandidate)) then {
+							if ((_pos distance _leader) < (_pos distance _bestCandidate)) then { // TODO: нужно решить конфликт с приоритетами
 								_bestCandidate = _leader;
 							};
 						};
 					};
 				};
-			} forEach allGroups;
+			} forEach _sorted; // TODO: нужно устранить дублирование
 		};
+		*/
 
 		// ищем новое тело среди лидеров групп т.к. игроки лучше командуют отрядом
 		if (isNil{_bestCandidate}) then {
 			{
-				if (side _x in gosa_friendlyside) then {
-					diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _x];
-					_leader = leader _x;
+				_z = _x select 0;
+				if (side _z in gosa_friendlyside) then {
+					diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _z];
+					_leader = leader _z;
 					if (_leader call _fnc_isFit) then {
 						if (isNil {_bestCandidate}) then {
 							_bestCandidate = _leader;
@@ -348,12 +413,22 @@ while {true} do {
 					};
 				};
 
-			} forEach allGroups;
+			} forEach _sorted;
 		};
 
 		// ищем тело среди всех юнитов
 		if (isNil{_bestCandidate}) then {
-			allUnits call _findBody;
+			{
+				if (isNil{_bestCandidate}) then {
+					(_x select 2) call _findBody;
+				};
+				if (isNil{_bestCandidate}) then {
+					(_x select 3) call _findBody;
+				};
+				if (isNil{_bestCandidate}) then {
+					(_x select 4) call _findBody;
+				};
+			} forEach _sorted;
 		};
 
 		if (isNil{_bestCandidate}) then {
