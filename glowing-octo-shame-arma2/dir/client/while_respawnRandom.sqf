@@ -407,7 +407,7 @@ while {true} do {
 						if (isNil {_bestCandidate}) then {
 							_bestCandidate = _leader;
 						};
-						if ((_pos distance _leader) < (_pos distance _bestCandidate)) then {
+						if ((_pos distance _leader)+2000 < (_pos distance _bestCandidate)) then { // TODO: нужно устранить конфликт с приоритетами
 							_bestCandidate = _leader;
 						};
 					};
