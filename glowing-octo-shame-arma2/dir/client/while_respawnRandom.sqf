@@ -124,16 +124,23 @@ _findBody={
 	{
 		if (_x call _fnc_isFit) then {
 
-			if (count gosa_squadOnW > 0) exitWith { // TODO: конфликт с рангом и лидером
-				_bestCandidate = _x;
-				breakTo "fb1";
-			};
 			if (isNil {_bestCandidate}) then {
 				_bestCandidate = _x;
 			};
+
+			_z = leader _x;
+			// FIXME: если лидер отряда другой игрок, то приоритет оружия можно поставить выше ранга
+			// TODO: нужно учитывать ситуацию когда у другого игрока тоже приоритет оружия над рангом
+			if (_z call gosa_fnc_isPlayer && _z != player) then {
+				_bestCandidate = _x;
+				breakTo "fb1";
+			}else{
 			if ((rankId _x) > (rankId _bestCandidate)) then {
 				_bestCandidate = _x;
 			};
+				// TODO: при равных рангах можно учитывать еще и score
+			};
+
 		};
 	} forEach _uOn+_u+_uOff;
 };
