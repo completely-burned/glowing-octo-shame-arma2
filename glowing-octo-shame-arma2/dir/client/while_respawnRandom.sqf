@@ -135,9 +135,9 @@ _findBody={
 				_bestCandidate = _x;
 				breakTo "fb1";
 			}else{
-			if ((rankId _x) > (rankId _bestCandidate)) then {
-				_bestCandidate = _x;
-			};
+				if ((rankId _x) > (rankId _bestCandidate)) then {
+					_bestCandidate = _x;
+				};
 				// TODO: при равных рангах можно учитывать еще и score
 			};
 
