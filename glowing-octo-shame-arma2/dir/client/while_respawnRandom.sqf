@@ -77,10 +77,17 @@ _fnc_swich={
 		_new setVariable ["MARTA_showRules", _z];	// diag_log
 	};												// diag_log
 
-	_new;
+
+		// в случае неудачи необходимо временно добавить объект в черный список, иначе он будет повторно выбран
+		if (player != _new) then { // FIXME: не уверен в отсутствии ложных включений
+			_new setVariable ["gosa_respawn_blt", time];
+			_old;
+		}else{
+			_new;
+		};
 
 	}else{
-		// TODO: при неудаче нужно временно добавить юнит в черный список
+		_new setVariable ["gosa_respawn_blt", time];
 		_old;
 	};
 
@@ -188,6 +195,21 @@ player setVariable ["selectPlayerDisable", true, true];
 // функция отсеивает неподходящие тела для перерождения
 private["_fnc_isFit"];
 _fnc_isFit={
+	private ["_blt"];
+
+	// черный список временный
+	_blt = _this getVariable "gosa_respawn_blt";
+	if (isNil "_blt") then {
+	 _blt = true;
+ 	} else {
+		if (_blt+10 < time) then {
+			_this setVariable ["gosa_respawn_blt", nil];
+			_blt = true;
+		} else {
+			_blt = false;
+		};
+	};
+
 	if (
 #ifndef __A2OA__
 		local _this && // v1.11 если юнит не локальный не передает управление игроку
@@ -195,6 +217,7 @@ _fnc_isFit={
 		( (_this call gosa_fnc_withinMap) or
 			(!isNil "gosa_player_needs_revival" && {gosa_player_needs_revival + 25 < time})
 		)	&&
+		_blt &&
 		side _this in gosa_friendlyside &&
 		isNil{_this getVariable "selectPlayerDisable"} &&
 		alive _this &&
