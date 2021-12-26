@@ -29,9 +29,21 @@ _z = [
 	103, // Medic
 	"Engineer",
 	104, // Engineer
-	"Vehicles (not completed)",
+	"vVehicles",
 	500, // all vehicles
-	"crew multiplayer (not completed)", // TODO: нужно запретить присоединение с другой стороны
+	"vAir pilot (not completed)",
+	605, // Air
+	"vAir (not completed)",
+	600, // Air
+	"vCar (not completed)",
+	510,
+	"vWheeled_APC",
+	515,
+	"vTank (not completed)",
+	520,
+	"vTracked_APC",
+	525,
+	"vCrew multiplayer (not completed)", // TODO: нужно запретить присоединение с другой стороны
 	505, // присоединяться к экипажу с другими игроками
 	"weapons reset (not completed)",
 	9999 // w reset
