@@ -31,6 +31,33 @@ if (_veh != _unit) then {
 		};
 	};
 
+	// TODO: отряд исключително пехоты
+
+	// TODO: нужно исключить пво
+
+	//--- машины
+	if (_t_veh isKindOf "Car") then {
+		_z = 510;
+		//--- бтр
+		if (_t_veh isKindOf "Wheeled_APC") then {
+			_z = 515;
+		};
+		if !(_z in _r) then {
+			_r set [count _r, _z];
+		};
+	};
+
+	//--- танки
+	if (_t_veh isKindOf "Tank") then {
+		_z = 520;
+		//--- бмп
+		if (_t_veh isKindOf "Tracked_APC") then {
+			_z = 525;
+		};
+		if !(_z in _r) then {
+			_r set [count _r, _z];
+		};
+	};
 
 	if (_t_veh isKindOf "Air") then {
 
