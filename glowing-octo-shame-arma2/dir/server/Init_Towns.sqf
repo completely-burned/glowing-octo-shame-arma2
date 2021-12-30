@@ -157,8 +157,12 @@ while{isNil{civilianBasePos}}do{
 #endif
 
 	if (time > 5) then {
-		civilianBasePos = getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
-		diag_log format ["Log: [Init_Towns] %1 civilianBasePos set worldName centerPosition", time];
+		diag_log format ["Log: [Init_Towns] %1 fnc_getRandomWorldPos", time];
+		civilianBasePos = [false] call gosa_fnc_getRandomWorldPos;
+		if (count civilianBasePos == 0) then {
+			civilianBasePos = getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+			diag_log format ["Log: [Init_Towns] %1 civilianBasePos set worldName centerPosition", time];
+		};
 	};
 };
 sizeLocation = 250;
