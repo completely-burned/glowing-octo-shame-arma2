@@ -33,7 +33,7 @@ class Params {
 		// texts[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
 		values[] = {0,5,7,10,15,20,25,30,40,50,60,70,80,90,100,120};
 		texts[] = {0,5,"7 (Intel Xeon Cascadelake)","10 (Intel Xeon Icelake)","15 (Intel i5-6500)",20,25,30,40,50,60,70,80,90,100,120};
-		default=15;
+		default=5;
 	};
 	class gosa_ai_create_fps {
 		title="if higher fps, create ai [sv,ai,fps]";
@@ -157,13 +157,13 @@ class Params {
 		default=-1;
 	};
 	class ai_client_count {
-		title="Number of ai groups at the start on the client cpu [cl,ai,fps] (not completed)";
+		title="Number of ai groups at the start on the client cpu [cl,ai,fps]";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 		texts[]  = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 		default=0;
 	};
 	class gosa_ai_client_create_fps {
-		title="If higher fps, create ai on the client cpu [cl,ai,fps] (not completed)";
+		title="If higher fps, create ai on the client cpu [cl,ai,fps]";
 		values[] = {0,		5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120};
 		texts[] = {"manual",5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120};
 		default=65;
