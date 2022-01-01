@@ -32,6 +32,23 @@ pier = ["Land_nav_pier_m_2","Land_nav_pier_m_F"];
 
 safeDistance = 15;
 
+// этими классами не должны управлять игроки
+_z = [
+	"InvisibleManE_EP1",
+	"InvisibleManW_EP1",
+	"InvisibleManG_EP1",
+	"InvisibleManR_EP1",
+	"InvisibleManC_EP1",
+	""
+];
+gosa_blacklisted_player_classes_L = [];
+{
+	gosa_blacklisted_player_classes_L set [count gosa_blacklisted_player_classes_L, toLower configName (LIB_cfgVeh >> _x)];
+} forEach _z;
+diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", gosa_blacklisted_player_classes_L];
+
+
+
 /// listCrew + listMHQ ///
 listMHQ = [
 	"BRDM2_HQ_Base",
