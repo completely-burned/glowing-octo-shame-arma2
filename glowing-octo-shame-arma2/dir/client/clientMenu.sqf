@@ -240,7 +240,12 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 		private ["_entry"]; private["_type"];
 		_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
 						if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side"))) or !isMultiplayer) then {
-							if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
+							if (
+								((toLower getText(_entry >> "simulation")) == "soldier") &&
+								(getNumber(_entry >> "isMan") == 1) &&
+								!(toLower _type in gosa_blacklisted_player_classes_L) &&
+								!(toLower getText(_entry >> "model") in ["\ca\characters_e\invisibleman"])
+							) then {
 								private["_faction"]; private["_vehicleclass"];
 								_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 								private["_factionclasses"];
