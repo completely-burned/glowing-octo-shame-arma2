@@ -52,6 +52,7 @@ if (!IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_SSM_findReadyVehicle",
 	"fnc_SSM_spawnAir",
 	"fnc_SSM_AmmoDropWaypointReached",
 	"fnc_getRandomWorldPos",
