@@ -20,9 +20,22 @@ _side = side _caller;
 
 // create the vehicle and the pilot
 //_pilot = ObjNull;
+
+// можно использовать уже созданный транспорт
+_vehicle = [_caller, _side] call gosa_fnc_SSM_findReadyVehicle;
+if (count _vehicle > 0) then {
+  _vehicle = _vehicle call BIS_fnc_selectRandom;
+  _grp = group _vehicle;
+
+  // TODO: нужно временно разделить отряд если в нем множество тс
+
+  _grp setVariable ["gosa_SSM_SupportCaller",_caller]; // FIXME: на тс может надо?
+
+
+} else {
 _grp = createGroup _side;
 
-_grp setVariable ["gosa_SSM_SupportCaller",_caller];
+_grp setVariable ["gosa_SSM_SupportCaller",_caller]; // FIXME: на тс может надо?
 
 switch (_side) do { // TODO: нужна функция
   case west: {_class = airTransportsWest call BIS_fnc_selectRandom};
@@ -32,6 +45,12 @@ switch (_side) do { // TODO: нужна функция
 };
 _spawnPos = ([_requestPos]+[3500,7000, -1, -1, (100 * (pi / 180)), 0, [], _requestPos, [false, 0]]+[_side] call gosa_fnc_findSafePos) select 0;
 _vehicle = ([_spawnPos, random 360, _class, _grp] call gosa_fnc_spawnVehicle) select 0;
+};
+
+
+  for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+    deleteWaypoint [_grp, _i];
+  };
 
   // Units or Ammo Drop
   // Set Primary waypoint
