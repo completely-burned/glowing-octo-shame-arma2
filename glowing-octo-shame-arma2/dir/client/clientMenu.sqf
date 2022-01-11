@@ -122,7 +122,8 @@ BIS_MENU_GroupCommunication = [
 				vehicle player setVariable ['gosa_transportPosVeh', _pos, true];
 			}
 		"
-	]], "1", "CursorOnGround", "\ca\ui\data\cursor_support_ca.paa"]
+	]], "1", "CursorOnGround", "\ca\ui\data\cursor_support_ca.paa"],
+	[localize "STR_EP1_MENU_TITLE", [5], "#USER:gosa_supportMenu_0", -5, [["expression", ""]], "1", "1"]
 ];
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
