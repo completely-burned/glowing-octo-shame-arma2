@@ -32,7 +32,7 @@ _library = [
 //"vehicleChat",
 "kbAddTopic",
 "kbRemoveTopic",
-"kbtell",
+//"kbtell",
 "kbreact",
 "deleteWP",
 "setWPdesc",
