@@ -24,7 +24,7 @@ if (local this) then {
       if (true) then {
 
 
-        if (_veh == _pilot or isNull _veh or isNull _grp) exitWith { // TODO: эти проверки должны быть перед функцией
+        if (_veh == _pilot or isNull _veh or isNull _grp or _veh isKindOf "ParachuteBase") exitWith { // TODO: эти проверки должны быть перед функцией
           diag_log format ["Log: [gosa_SSM_CreateAmmoDrop] %1 %2 %3", _veh, typeOf _veh, _grp];
         };
 
