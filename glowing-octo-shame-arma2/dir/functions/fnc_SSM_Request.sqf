@@ -22,10 +22,7 @@
     _val = missionnamespace getVariable ("BIS_SSM_"+_rt+"_CONDITION");
     call compile ("_b= "+_val );*/
 
-/*
-    _hq = missionnamespace getVariable ("BIS_SSM_HQ"+BIS_SSM_str_side_player);
-    [_b,_rp,_rt,_hq,player] spawn BIS_SSM_fnc_RequestRadio;
-*/
+    [_b,_rp,_rt,objNull,_p] spawn gosa_fnc_SSM_RequestRadio;
 
     if (_b) then {
       // Call Mission Designers Code
