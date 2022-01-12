@@ -110,6 +110,7 @@ if (local this) then {
 
 
       //--- чиска
+      // TODO: тс взятые с карты нужно исключить
       _z = 60;
       {
         _x setVariable ["gosa_timeDeleteVehicle", _z];
