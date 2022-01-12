@@ -41,10 +41,12 @@ if (local this) then {
         //--- посадка
         diag_log format ["Log: [gosa_SSM_CreateAmmoDrop] %1 LAND", _veh];
 
-        //_grp setCombatMode "BLUE";
-        //_grp setBehaviour "CARELESS";
+        // возможно это придаст надежности
+        _grp setCombatMode "BLUE";
+        _grp setBehaviour "CARELESS";
 
         // land "GET OUT" поднимает вверх тс при стонкновении или атаке
+        // FIXME: land "LAND" поднимает вверх тс при стонкновении или атаке
         _veh land "LAND";
 
 
