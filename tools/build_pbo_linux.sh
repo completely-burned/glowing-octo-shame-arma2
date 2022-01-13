@@ -75,13 +75,13 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 
 		# если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив
 		if [ -x "$(command -v parallel)" ]; then
-			var_parallel+=("makepbo -M 												$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
-			var_parallel+=("armake build --packonly --force 	$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo")
-			var_parallel+=("armake2 pack -v 									$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo")
+			var_parallel+=("makepbo -M $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
+			var_parallel+=("armake build --packonly --force $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo")
+			var_parallel+=("armake2 pack -v $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo")
 		else
-											makepbo -M 												$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo
-											armake build --packonly --force 	$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo
-											armake2 pack -v 									$MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
+			makepbo -M $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo
+			armake build --packonly --force $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo
+			armake2 pack -v $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
 		fi
 
 		rsync -rLK $MISSION/* $OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-rsync.${MAP,,}
