@@ -14,7 +14,7 @@ gosa_SSM_fnc_InitVariable = {
 
 //BIS_FNC_GUIget = {};
 //40 CutRsc["OptionsAvailable","PLAIN",0];
-_icons = gosa_SSM_UIICONS;
+_icons = BIS_SSM_UIICONS;
 
 gosa_SSM_CUSTOMICON = "\ca\ui\data\cursor_support_ca";
 
