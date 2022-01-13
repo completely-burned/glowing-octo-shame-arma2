@@ -1,4 +1,4 @@
-private["_out","_allow","_veh","_ng","_ng_l"];
+private["_out","_allow","_veh","_ng","_ng_l","_u"];
 // _units = _this select 0;
 // _leader = _this select 1;
 _out=[];
@@ -6,27 +6,28 @@ _ng_l = [];
 
 if !((_this select 1) call gosa_fnc_isPlayer) then {
 	{ // _units
-		_veh = assignedVehicle _x;
+		_u = _x;
+		_veh = assignedVehicle _u;
 
 		// failover
 		if (isNull _veh) then {
-			_veh = vehicle _x;
-			if (_veh == _x) then {
+			_veh = vehicle _u;
+			if (_veh == _u) then {
 				_veh = objNull;
 			}else{ // diag_log
-				diag_log format ["Log: [fnc_allowGetIn] isNull assignedVehicle unit:%1 veh:%2", [_x, typeOf _x], [_veh, typeOf _veh]];
+				diag_log format ["Log: [fnc_allowGetIn] isNull assignedVehicle unit:%1 veh:%2", [_u, typeOf _u], [_veh, typeOf _veh]];
 			};
 		};
 
 		_allow=true; // TODO: название переменной
-		if(!isNull _x)then{
+		if(!isNull _u)then{
 			if(!isNull _veh)then{
 				private ["_role"];
-				_role = assignedVehicleRole _x;
+				_role = assignedVehicleRole _u;
 
 				// в бою
 				if(_allow)then{
-					if((behaviour _x == "COMBAT" ) or ( currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]))then{
+					if((behaviour _u == "COMBAT" ) or ( currentCommand _u in ["ATTACK","FIRE","ATTACKFIRE"]))then{
 						if(count _role > 0)then{
 							if(_role select 0 == "Cargo")then{
 								_allow=false;
@@ -53,7 +54,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						_out_dist = safeSpawnDistance select 1;
 					};
 
-					if( ((civilianBasePos distance vehicle _x)<(_out_dist max sizeLocation)) or ((civilianBasePos distance _veh)<(_out_dist max sizeLocation)) )then{
+					if( ((civilianBasePos distance vehicle _u)<(_out_dist max sizeLocation)) or ((civilianBasePos distance _veh)<(_out_dist max sizeLocation)) )then{
 						private ["_attack"];
 						_attack = true;
 
@@ -98,8 +99,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 
 				// расстояние до транспорта
 				if(_allow)then{
-					if(_veh != vehicle _x)then{
-						if((_veh distance vehicle _x)>1000)then{
+					if(_veh != vehicle _u)then{
+						if((_veh distance vehicle _u)>1000)then{
 							_allow=false;
 						};
 					};
@@ -128,8 +129,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				};
 				if(_allow)then{
 					if(_veh isKindOf "Helicopter")then{
-						if(_x == vehicle _x)then{
-							if((_veh distance vehicle _x)>50)then{
+						if(_u == vehicle _u)then{
+							if((_veh distance vehicle _u)>50)then{
 								_allow=false;
 							};
 						};
@@ -138,11 +139,11 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				// самолеты
 				if(toLower getText(configFile >> "CfgVehicles" >> typeOf _veh >> "simulation") == "airplane")then{
 					// юнит вне самолета
-					if(_x == vehicle _x)then{
+					if(_u == vehicle _u)then{
 						_allow=false;
 					};
 					// юнит в самолете
-					if(_veh == vehicle _x)then{
+					if(_veh == vehicle _u)then{
 						_allow=true;
 					};
 				};
@@ -171,8 +172,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				};
 
 				// игрок
-				if (_x call gosa_fnc_isPlayer) then {
-					if (vehicle _x == _x) then {
+				if (_u call gosa_fnc_isPlayer) then {
+					if (vehicle _u == _u) then {
 						// _allow=false;
 					}else{
 						_allow=true;
@@ -182,12 +183,12 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 			}else{
 				if (gosa_loglevel > 0) then { // TODO: нестабильно
 				// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
-				if(typeOf _x in (gosa_crewL+gosa_pilotL) &&
-					count assignedVehicleRole _x == 0 && // команда работает лишь на сервере или локальных юнитах клиента
-					vehicle _x == _x
+				if(typeOf _u in (gosa_crewL+gosa_pilotL) &&
+					count assignedVehicleRole _u == 0 && // команда работает лишь на сервере или локальных юнитах клиента
+					vehicle _u == _u
 				 )then{
 					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then { // TODO: лишние Variable занимают память и группу невозможно использовать повторно
-						_ng_l set [count _ng_l, _x];
+						_ng_l set [count _ng_l, _u];
 					};
 				};
 				};
@@ -195,10 +196,10 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 			}; // isNull _veh
 
 			if!(_allow)then{
-				_out set [count _out, _x];
+				_out set [count _out, _u];
 			};
 
-		}; // isNull _x
+		}; // isNull _u
 
 	} forEach (_this select 0);
 
