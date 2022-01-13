@@ -18,6 +18,9 @@ echo $TMPDIR
 rsync --recursive --delete $DIR/glowing-octo-shame* $TMPDIR/
 echo $(ls $TMPDIR)
 
+PRE=$TMPDIR/out
+mkdir -p $PRE
+
 OUT="${OUT:-$DIR/.build.out}"
 
 if [ ! -d $OUT ]; then
@@ -75,16 +78,16 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 
 		# если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив
 		if [ -x "$(command -v parallel)" ]; then
-			var_parallel+=("makepbo -M $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
-			var_parallel+=("armake build --packonly --force $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo")
-			var_parallel+=("armake2 pack -v $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo")
+			var_parallel+=("makepbo -M $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
+			var_parallel+=("armake build --packonly --force $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo")
+			var_parallel+=("armake2 pack -v $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo")
 		else
-			makepbo -M $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo
-			armake build --packonly --force $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo
-			armake2 pack -v $MISSION 	$OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
+			makepbo -M $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo
+			armake build --packonly --force $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo
+			armake2 pack -v $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
 		fi
 
-		rsync -rLK $MISSION/* $OUT/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-rsync.${MAP,,}
+		rsync -rLK $MISSION/* $PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-rsync.${MAP,,}
 
 	fi
 done
@@ -93,6 +96,10 @@ done
 if [ ! -z "$var_parallel" ]; then
   parallel ::: "${var_parallel[@]}"
 fi
+
+find $PRE -type f -empty -print -delete
+
+nice -n 19 ionice -c 3 mv $PRE/* $OUT
 
 rm -rf $TMPDIR
 
