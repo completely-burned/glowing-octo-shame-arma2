@@ -67,6 +67,7 @@ while {!_ok} do {
 		if(_ok)then{
 			if(count (_t_pos isFlatEmpty [50, -1, 0.3, 15]) == 0)then {
 				_ok=false;
+				if (isNil "_h") then {_h = locationNull}; //diag_log
 				diag_log format ["Log: [fnc_find_heliUnload_pos] попытка %1 из %2, %3, false isFlatEmpty", _try_n, _limit, [_h,_t_pos]];
 			};
 		};
