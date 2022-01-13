@@ -26,6 +26,7 @@ if (local this) then {
 
         if (_veh == _pilot or isNull _veh or isNull _grp or _veh isKindOf "ParachuteBase") exitWith { // TODO: эти проверки должны быть перед функцией
           diag_log format ["Log: [gosa_SSM_CreateAmmoDrop] %1 %2 %3", _veh, typeOf _veh, _grp];
+          _pilot setVariable ["gosa_SSM_WaypointReached", nil];
         };
 
         _n = _this select 1;
@@ -100,14 +101,14 @@ if (local this) then {
       //--- отпуск
       diag_log format ["Log: [gosa_SSM_CreateAmmoDrop] %1 end", _veh];
 
-      _grp setVariable ["gosa_SSM_SupportCaller", nil];
-
       for "_i" from count waypoints _grp - 1 to 0 step -1 do {
         deleteWaypoint [_grp, _i];
       };
 
       _veh land "NONE";
 
+      _grp setVariable ["gosa_SSM_SupportCaller", nil];
+      _pilot setVariable ["gosa_SSM_WaypointReached", nil];
 
       //--- чиска
       // TODO: тс взятые с карты нужно исключить
