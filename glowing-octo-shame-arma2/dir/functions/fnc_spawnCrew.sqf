@@ -33,7 +33,7 @@ _crew = [];
 			};
 		};
 	};
-	diag_log format ["Log: [fnc_spawnCrew.sqf] _typicalCargo = %1", _typicalCargo];
+	diag_log format ["Log: [fnc_spawnCrew.sqf] %1 %2", _crewType, _typicalCargo];
 
 //--- creating driver unit for air
 	_hasDriver = getNumber (_entry >> "hasDriver");
