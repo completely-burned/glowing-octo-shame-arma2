@@ -26,11 +26,11 @@ _crew = [];
 			_crewType = [_grp, _type, side _grp] call gosa_fnc_crewUAV;
 		};
 		if (isNil "_crewType") then {
-		if (((getNumber (_entry >> "side")) call gosa_fnc_getSide) == side _grp) then {
-			_crewType = getText (_entry >> "crew");
-		}else{
-			_crewType = ([_grp, _type, side _grp] call gosa_fnc_defaultCrew);
-		};
+			if (((getNumber (_entry >> "side")) call gosa_fnc_getSide) == side _grp) then {
+				_crewType = getText (_entry >> "crew");
+			}else{
+				_crewType = ([_grp, _type, side _grp] call gosa_fnc_defaultCrew);
+			};
 		};
 	};
 	diag_log format ["Log: [fnc_spawnCrew.sqf] _typicalCargo = %1", _typicalCargo];
