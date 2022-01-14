@@ -5,7 +5,8 @@ private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient
 	"_shoreMode","_blacklist","_side","_posX","_posY","_radius","_attempts","_nearRoads",
 	"_allowPos","_testPos","_preferRoads","_tmp_dir","_tmp_radius","_run_timer",
 	"_max_square","_square","_max_attempt","_branchesRoads","_roads","_branchRoad",
-	"_roadSize","_square_step","_r","_start_radius","_start_square","_dir_s","_withinMap"];
+	"_roadSize","_square_step","_r","_start_radius","_start_square","_dir_s",
+	"_withinMap","_z"];
 
 
 _run_timer = time;
@@ -125,7 +126,35 @@ while {!_allowPos} do {
 		if (isNil {_dir_s}) then {
 			_tmp_dir = random 360;
 		}else{
-			_tmp_dir = (_dir_s select 0) - ((_dir_s select 1)/2) + (random (_dir_s select 1));
+			/*
+				Я плохой математик, но на пример.
+				Возмем квадратный корень 180
+				180^0.5 = 13,416407865
+				13,416407865^2 = 180
+				если взять его половину 6,708203932 в степени ^2
+				6,708203932^2 = 45
+				т.е. будет меньше 180/2 = 90
+				в итоге
+				рандомное число из 13,416407865 можно возводить в степень ^2
+				получая значения ближе к нулю чаще чем к 180
+			*/
+
+			_z = 180^(1/(_dir_s select 1)); // FIXME: sqrt
+			diag_log format ["Log: [gosa_fnc_findSafePos] dir %1", _z];
+
+			//_z = ((random (_z*2)) - _z);
+			_z = random _z;
+			diag_log format ["Log: [gosa_fnc_findSafePos] dir %1", _z];
+
+			_z = _z ^ (_dir_s select 1);
+			diag_log format ["Log: [gosa_fnc_findSafePos] dir %1", _z];
+
+			if (random 10 < 5) then {
+				_tmp_dir = (_dir_s select 0) + _z;
+			} else {
+				_tmp_dir = (_dir_s select 0) - _z;
+			};
+			diag_log format ["Log: [gosa_fnc_findSafePos] dir %1", [_dir_s select 0, _tmp_dir]];
 		};
 		_tmp_radius = random _radius;
 		_testPos = [_posX + _tmp_radius*sin _tmp_dir, _posY + _tmp_radius*cos _tmp_dir];
