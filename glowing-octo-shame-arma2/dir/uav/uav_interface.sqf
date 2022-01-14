@@ -30,6 +30,15 @@ if (isnull _terminal) exitwith {
 	hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
 };
 
+//--- Switch view
+_gunner removeweapon "nvgoggles";
+_uav switchcamera "internal";
+_defaultPlayer remoteControl _gunner;
+_uav selectweapon (weapons _uav select 0);
+titletext ["","black in"];
+BIS_UAV_TIME = 0;
+BIS_UAV_PLANE = _uav;
+
 //--- Terminal is away
 _isTerminalAway = [_terminal,_dis] spawn {
 	_terminal = _this select 0;
@@ -47,15 +56,6 @@ _isTerminalAway = [_terminal,_dis] spawn {
 		hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
 	};
 };
-
-//--- Switch view
-_gunner removeweapon "nvgoggles";
-_uav switchcamera "internal";
-_defaultPlayer remoteControl _gunner;
-_uav selectweapon (weapons _uav select 0);
-titletext ["","black in"];
-BIS_UAV_TIME = 0;
-BIS_UAV_PLANE = _uav;
 
 //--- Action!
 _action_leave = _uav addaction [
