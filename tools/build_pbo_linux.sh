@@ -15,7 +15,7 @@ done
 TMPDIR=$(mktemp -td glowing-octo-shame-arma2.XXXXX)
 echo $TMPDIR
 
-rsync --recursive --delete $DIR/glowing-octo-shame* $TMPDIR/
+rsync --recursive --delete --no-perms $DIR/glowing-octo-shame* $TMPDIR/
 echo $(ls $TMPDIR)
 
 PRE=$TMPDIR/out
