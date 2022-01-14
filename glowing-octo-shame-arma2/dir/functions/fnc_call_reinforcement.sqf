@@ -80,7 +80,7 @@ if(_patrol)then{
 	};
 };
 
-if(count _this > 2 && {count (_this select 2) > 0})then{
+if(!_patrol && count _this > 2 && {count (_this select 2) > 0})then{
 	_dir = _this select 2;
 }else{
 	_dir = [];
