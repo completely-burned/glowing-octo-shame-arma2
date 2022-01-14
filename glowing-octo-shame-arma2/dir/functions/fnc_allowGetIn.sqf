@@ -1,4 +1,46 @@
-private["_out","_allow","_veh","_ng","_ng_l","_u"];
+private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_fnc_CrewLeave"];
+
+_fnc_CrewLeave={
+	private ["_u","_t","_b","_g"];
+	_u = _this select 0;
+	_t = _this select 1;
+	_g = _this select 2;
+	_b = true;
+
+	diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники, fnc", _this];
+
+	// failover, нужно исключить ложные срабатывания
+	while {time < _t} do {
+		if (count assignedVehicleRole _u > 0 or vehicle _u != _u) exitWith {
+			diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники, отмена перехода, assignedVehicle", _u];
+			_b = false;
+		};
+		sleep 1;
+	};
+
+	if (_b) then {
+
+		// игрок может оказатся в группе по истечении таймера
+		if ({_x call gosa_fnc_isPlayer} count units _g > 0) exitWith {
+			diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники, отмена перехода, игроки в группе %2", _u, units _g];
+		};
+
+		private ["_n"];
+		_n = _g getVariable "gosa_grpCrewNew";
+		if(isNil "_n" or {isNull _n})then{
+			_n = createGroup side _g;
+			_g setVariable ["gosa_grpCrewNew", _n];
+			_n setVariable ["gosa_grpCrewOld", _g];
+		};
+
+		diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники переходит в группу %2", _u, _n];
+		[_u] joinSilent _n;
+	}else{ //diag_log
+		diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники, отмена перехода %2 %3 %4", _u, typeof _u, typeof vehicle _u, assignedVehicleRole _u];
+	};
+};
+
+
 // _units = _this select 0;
 // _leader = _this select 1;
 _out=[];
@@ -181,16 +223,19 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				};
 
 			}else{
-				if (gosa_loglevel > 0) then { // TODO: нестабильно
+				// isNull _veh
 				// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
 				if(typeOf _u in (gosa_crewL+gosa_pilotL) &&
 					count assignedVehicleRole _u == 0 && // команда работает лишь на сервере или локальных юнитах клиента
 					vehicle _u == _u
+					//&& !(behaviour _u in ["COMBAT","STEALTH"])
+					//&& !(currentCommand _u in ["ATTACK","FIRE","ATTACKFIRE"])
+					// не нужно разделять отряд при отсутствии тс в отряде
+					&& {_x != vehicle _x or (count assignedVehicleRole _x > 0)} count units _u == 0
 				 )then{
 					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then { // TODO: лишние Variable занимают память и группу невозможно использовать повторно
 						_ng_l set [count _ng_l, _u];
 					};
-				};
 				};
 
 			}; // isNull _veh
@@ -208,6 +253,15 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 	(_this select 0) - _out allowGetin true;
 
 
+	//--- переход экипажа подбитой техники в новую группу
+	{
+		_z = _x getVariable "gosa_grpCrewLeave";
+		if (isNil "_z" or {scriptDone _z}) then { // TODO: код нужно оптимизировать
+			_x setVariable ["gosa_grpCrewLeave", [_x, time+ 30, _grp] spawn _fnc_CrewLeave];
+		};
+	} forEach _ng_l;
+
+	/* TODO: нестабильно
 	if (count _ng_l > 0) then {
 
 		_ng = _grp getVariable "gosa_grpCrewNew";
@@ -219,6 +273,6 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 
 		diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники переходит в группу %2", _ng_l, _ng];
 		_ng_l joinSilent _ng;
-	};
+	};*/
 
 };
