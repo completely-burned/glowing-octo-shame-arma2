@@ -139,7 +139,7 @@ while {!_allowPos} do {
 				получая значения ближе к нулю чаще чем к 180
 			*/
 
-			_z = 180^(1/(_dir_s select 1)); // FIXME: sqrt
+			_z = 180000000^(1/(_dir_s select 1)); // FIXME: sqrt
 			diag_log format ["Log: [gosa_fnc_findSafePos] dir %1", _z];
 
 			//_z = ((random (_z*2)) - _z);
@@ -148,6 +148,8 @@ while {!_allowPos} do {
 
 			_z = _z ^ (_dir_s select 1);
 			diag_log format ["Log: [gosa_fnc_findSafePos] dir %1", _z];
+
+			_z = _z/1000000;
 
 			if (random 10 < 5) then {
 				_tmp_dir = (_dir_s select 0) + _z;
