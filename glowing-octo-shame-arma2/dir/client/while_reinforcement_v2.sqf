@@ -258,9 +258,9 @@ while{_run}do{
 							// азимут
 							_z = [civilianBasePos, _z] call BIS_fnc_dirTo;
 								if (_fl == 2) then {
-									_fl = [_z+180, 180];
+									_fl = [_z+180, 3];
 								}else{
-									_fl = [_z, 180];
+									_fl = [_z, 3];
 								};
 						};
 
@@ -321,9 +321,9 @@ while{_run}do{
 							// азимут
 							_z = [civilianBasePos, _z] call BIS_fnc_dirTo;
 								if (_fl == 2) then {
-									_fl = [_z+180, 180];
+									_fl = [_z+180, 3];
 								}else{
-									_fl = [_z, 180];
+									_fl = [_z, 3];
 								};
 						};
 
@@ -383,9 +383,9 @@ while{_run}do{
 							// азимут
 							_z = [civilianBasePos, _z] call BIS_fnc_dirTo;
 								if (_fl == 2) then {
-									_fl = [_z+180, 180];
+									_fl = [_z+180, 3];
 								}else{
-									_fl = [_z, 180];
+									_fl = [_z, 3];
 								};
 						};
 
