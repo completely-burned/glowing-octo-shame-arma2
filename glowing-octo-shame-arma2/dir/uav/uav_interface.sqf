@@ -102,45 +102,45 @@ _ppColor ppEffectCommit 0;
 
 //--- Detect pressed keys (temporary solution)
 if (isNil {BIS_UAV_HELI_keydown}) then {
-BIS_UAV_HELI_keydown = {
-	_key = _this select 1;
-	_uav = BIS_UAV_PLANE;
+	BIS_UAV_HELI_keydown = {
+		_key = _this select 1;
+		_uav = BIS_UAV_PLANE;
 
-	//--- END
-	//if (_key in (actionkeys 'menuback') && isnil 'BIS_UAV_noExit') then {bis_uav_terminate = true};
+		//--- END
+		//if (_key in (actionkeys 'menuback') && isnil 'BIS_UAV_noExit') then {bis_uav_terminate = true};
 
-	//--- MARKER
-	if (_key in (actionkeys 'binocular') && !visiblemap) then {
-		_id = 1;
-		while {markertype format ['_user_defined_UAV_MARKER_%1',_id] != ''} do {
-			_id = _id + 1;
+		//--- MARKER
+		if (_key in (actionkeys 'binocular') && !visiblemap) then {
+			_id = 1;
+			while {markertype format ['_user_defined_UAV_MARKER_%1',_id] != ''} do {
+				_id = _id + 1;
+			};
+			_worldpos = screentoworld [0.5,0.5];
+			_marker = createmarker [format ['_user_defined_UAV_MARKER_%1',_id],_worldpos];
+			_marker setmarkertype 'mil_destroy';
+			_marker setmarkercolor 'colorred';
+			_marker setmarkersize [0.5,0.5];
+			_markertime = [daytime] call bis_fnc_timetostring;
+			_marker setmarkertext format ['UAV %1: %2',_id,_markertime];
 		};
-		_worldpos = screentoworld [0.5,0.5];
-		_marker = createmarker [format ['_user_defined_UAV_MARKER_%1',_id],_worldpos];
-		_marker setmarkertype 'mil_destroy';
-		_marker setmarkercolor 'colorred';
-		_marker setmarkersize [0.5,0.5];
-		_markertime = [daytime] call bis_fnc_timetostring;
-		_marker setmarkertext format ['UAV %1: %2',_id,_markertime];
-	};
 
-	//--- UP
-	if (_key in (actionkeys 'HeliUp')) then {
-		_newHeight = (position _uav select 2) + 50;
-		if (_newHeight > 2500) then {_newHeight = 2500};
-		if (speed _uav < 1) then {_uav domove position _uav;};
-		_uav land 'none';
-		_uav flyinheight _newHeight;
-	};
+		//--- UP
+		if (_key in (actionkeys 'HeliUp')) then {
+			_newHeight = (position _uav select 2) + 50;
+			if (_newHeight > 2500) then {_newHeight = 2500};
+			if (speed _uav < 1) then {_uav domove position _uav;};
+			_uav land 'none';
+			_uav flyinheight _newHeight;
+		};
 
-	//--- DOWN
-	if (_key in (actionkeys 'HeliDown')) then {
-		_newHeight = (position _uav select 2) - 50;
-		if (_newHeight < 100) then {_newHeight = 100};
-		_uav land 'none';
-		_uav flyinheight _newHeight;
+		//--- DOWN
+		if (_key in (actionkeys 'HeliDown')) then {
+			_newHeight = (position _uav select 2) - 50;
+			if (_newHeight < 100) then {_newHeight = 100};
+			_uav land 'none';
+			_uav flyinheight _newHeight;
+		};
 	};
-};
 };
 _displayEH_keydown = (finddisplay 46) displayaddeventhandler ["keydown","nil = _this spawn BIS_UAV_HELI_keydown"];
 
