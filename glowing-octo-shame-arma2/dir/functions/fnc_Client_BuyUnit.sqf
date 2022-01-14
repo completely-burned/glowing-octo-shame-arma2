@@ -153,8 +153,8 @@ if (true) then {
 		Private["_Objects"];
 		_Objects = (nearestObjects [vehicle player, _HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
 		if ( (count _Objects > 0) or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
+			Private["_veh"];
 			if(_type isKindOf "UAV")then{
-				Private["_veh"];
 				if (count _Objects > 0) then {
 					Private["_pos"];
 					_pos = position (_Objects select 0);
@@ -162,7 +162,6 @@ if (true) then {
 					_side = playerSide;
 					_grp = createGroup _side;
 					_pos = ([_pos]+([[_type]] call gosa_fnc_SafePosParams)+[_side] call gosa_fnc_findSafePos) select 0;
-					Private["_veh"];
 					_veh = [_pos, random 360, _type, _grp] call gosa_fnc_spawnVehicle;
 					_veh = _veh select 0;
 					_veh call _fnc_1;
@@ -179,9 +178,7 @@ if (true) then {
 					_veh setDir _dir;
 				};
 				_veh call _fnc_1;
-				[_veh, createGroup playerSide] call gosa_fnc_spawnCrew;
 			}else{
-				Private["_veh"];
 				_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 				_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 				_veh setDir getDir vehicle player;
