@@ -49,12 +49,7 @@ _isTerminalAway = [_terminal,_dis] spawn {
 		|| !alive player
 		|| !alive _terminal
 	};
-
 	bis_uav_terminate = true;
-
-	if (cameraon == BIS_UAV_PLANE) then {
-		hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
-	};
 };
 
 //--- Action!
@@ -205,9 +200,14 @@ _mapEH_mousebuttondown = ((findDisplay 12) displayCtrl 51) ctrladdeventhandler [
 
 //--- TERMINATE
 waituntil {!isnil "bis_uav_terminate" || !alive _uav};
-if (!alive _uav) then {
+if (alive _uav) then {
+	if (cameraon == BIS_UAV_PLANE) then {
+		hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
+	};
+}else{
 	hint format [localize "strwfbasestructuredestroyed",localize "str_uav_action"];
 };
+
 terminate _isTerminalAway;
 titletext ["","black in"];
 bis_uav_terminate = nil;
