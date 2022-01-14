@@ -15,12 +15,14 @@ _defaultPlayer = player;
 if (isnull _uav) exitwith {
 	// endLoadingScreen;
 	hintc format [localize "strwfbasestructuredestroyed",localize "str_uav_action"];
+	diag_log format ["Log: [uav_interface] isnull _uav %1", _uav];
 };
 
 _gunner = gunner _uav;
 if (isnull _gunner) exitwith {
 	// endLoadingScreen;
 	hintc format [localize "strwfbasestructuredestroyed",localize "str_uav_action"];
+	diag_log format ["Log: [uav_interface] isnull _gunner %1", _gunner];
 };
 
 //--- Select terminal
@@ -28,6 +30,7 @@ _dis = 10;
 if (isnull _terminal) exitwith {
 	// endLoadingScreen;
 	hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
+	diag_log format ["Log: [uav_interface] isnull _terminal %1", _terminal];
 };
 
 //--- Switch view
@@ -43,12 +46,34 @@ BIS_UAV_PLANE = _uav;
 _isTerminalAway = [_terminal,_dis] spawn {
 	_terminal = _this select 0;
 	_dis = _this select 1;
-	waituntil {
+
+	while {true} do {
 		sleep 1;
-		((player distance _terminal >= _dis || abs speed _terminal >= 1 || !alive _terminal) && !(unitbackpack player == _terminal)) || cameraon != BIS_UAV_PLANE || isnil "BIS_UAV_PLANE"
-		|| !alive player
-		|| !alive _terminal
+
+		if (isnil "BIS_UAV_PLANE") exitWith {
+			diag_log format ["Log: [uav_interface] uav terminate, isnil camera %1", nil];
+		};
+
+		if (cameraon != BIS_UAV_PLANE) exitWith {
+			diag_log format ["Log: [uav_interface] uav terminate, cameraon %1", [cameraon, BIS_UAV_PLANE]];
+		};
+
+		if !(alive player) exitWith {
+			diag_log format ["Log: [uav_interface] uav terminate, player is dead", nil];
+		};
+
+		if !(alive _terminal) exitWith {
+			diag_log format ["Log: [uav_interface] uav terminate, not alive %1 _terminal", _terminal];
+		};
+
+		if ((player distance _terminal >= _dis || abs speed _terminal >= 1 || !alive _terminal)
+			&& !(unitbackpack player == _terminal)
+		) exitWith {
+			diag_log format ["Log: [uav_interface] uav terminate, %1", _terminal];
+		};
+
 	};
+
 	bis_uav_terminate = true;
 };
 
@@ -163,6 +188,8 @@ if (isNil {BIS_UAV_HELI_mapEH_mousebuttondown}) then {
 					_pos = [_worldpos, _radius, _dir+_add] call bis_fnc_relPos;
 					_wp = (group _uav) addwaypoint [_pos,0];
 					_wp setWaypointType 'MOVE';
+					_wp setWaypointBehaviour 'CARELESS';
+					_wp setWaypointCombatMode 'BLUE';
 					_wp setwaypointdescription 'uav wp created by user';
 					_wp setwaypointcompletionradius (_radius/_wpcount);
 				};
@@ -187,7 +214,7 @@ if (isNil {BIS_UAV_HELI_mapEH_mousebuttondown}) then {
 					};
 				} forEach waypoints (group _uav);
 				(group _uav) setcurrentwaypoint _wp;
-				(group _uav) setSpeedMode "LIMITED";
+				//(group _uav) setSpeedMode "LIMITED";
 			};
 	};
 };
