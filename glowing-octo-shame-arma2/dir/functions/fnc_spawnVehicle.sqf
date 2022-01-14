@@ -5,6 +5,8 @@ _azi = _this select 1;
 _type = _this select 2;
 _param4 = _this select 3;
 
+diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
+
 if ((typeName _param4) == (typeName sideEnemy)) then {
 	_side = _param4;
 	_grp = createGroup _side;
@@ -35,6 +37,9 @@ if (_sim in ["airplane", "helicopter"]) then {
 	_veh = createVehicle [_type, _pos, [], 0, "FORM"];
 	_veh setVelocity [0,0,-1];
 };
+
+diag_log format ["Log: [fnc_spawnVehicle] %1", _veh];
+
 
 _veh setDir _azi;
 
