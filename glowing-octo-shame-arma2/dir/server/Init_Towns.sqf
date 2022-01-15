@@ -128,6 +128,7 @@ locationNext={
 		publicVariable "CivilianLocation";
 	};
 
+	// TODO: исправить Error Неопределенная переменная в выражении: civilianlocation
 
 	_grps_rarity = CivilianLocation getVariable "_grps_rarity";
 		LocationAllGroupsWest =+ AllGroupsWest;
