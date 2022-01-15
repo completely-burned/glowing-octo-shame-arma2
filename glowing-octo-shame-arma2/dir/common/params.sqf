@@ -3,24 +3,24 @@ private ["_z"];
 
 if(isMultiplayer)then{
 	waitUntil {!isNil "paramsArray"};
-	for "_i" from (0) to ((count (missionConfigFile/"Params")) - 1) do {
-		missionNamespace setVariable [configName ((missionConfigFile/"Params") select _i),paramsArray select _i];
-	};
-}else{
-	for "_i" from (0) to ((count (missionConfigFile/"Params")) - 1) do {
-		#ifdef __ARMA3__
-			// TODO: нужно без костылей
-			_z = configName ((missionConfigFile/"Params") select _i);
-			_z = [_z, _z call BIS_fnc_getParamValue];
-			diag_log format ["Log: [params] %1", _z];
-			// missionNamespace setVariable работает по другому
-			_z = format ["%1 = %2", _z select 0, _z select 1];
-			diag_log format ["Log: [params] %1", _z];
-			call compile _z;
-		#else
-		missionNamespace setVariable [configName ((missionConfigFile/"Params") select _i),getNumber (((missionConfigFile/"Params") select _i)/"default")];
-		#endif
-	};
+};
+
+for "_i" from (0) to ((count (missionConfigFile/"Params")) - 1) do {
+	_z = configName ((missionConfigFile/"Params") select _i);
+	#ifdef __ARMA3__
+		// TODO: нужно без костылей
+		_z = [_z, _z call BIS_fnc_getParamValue];
+		diag_log format ["Log: [params] %1", _z];
+		_z = format ["%1 = %2", _z select 0, _z select 1];
+		diag_log format ["Log: [params] %1", _z];
+		call compile _z;
+	#else
+		if(isMultiplayer)then{
+			missionNamespace setVariable [_z, paramsArray select _i];
+		}else{
+			missionNamespace setVariable [_z, getNumber (((missionConfigFile/"Params") select _i)/"default")];
+		};
+	#endif
 };
 
 missionNamespace setVariable ["enemyCoefficient", (missionNamespace getVariable "enemyCoefficient") / 100];
