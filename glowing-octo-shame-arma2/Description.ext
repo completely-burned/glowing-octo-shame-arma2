@@ -147,8 +147,13 @@ class Params {
 	class respawn {
 		title="respawn";
 		values[] = {0,1};
-		texts[] = {"Base","Random unit"};
-		default=1;
+		#ifdef __ARMA3__
+			texts[] = {"Base","Random unit (not working)"};
+			default=0;
+		#else
+			texts[] = {"Base","Random unit"};
+			default=1;
+		#endif
 	};
 	class gosa_shop {
 		title="shop";
