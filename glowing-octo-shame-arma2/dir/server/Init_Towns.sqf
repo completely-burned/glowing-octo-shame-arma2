@@ -114,12 +114,12 @@ locationNext={
 		CivilianLocation = objNull;
 
 		private ["_x", "_y", "_z"];
-		_z = 1000 min ((worldSize select 0)/4); // _z = отступ
-			_x = worldSize select 0;
+		_z = 1000 min ((gosa_worldSize select 0)/4); // _z = отступ
+			_x = gosa_worldSize select 0;
 			_x = _x - (_z*2);
 			_x = _z + random _x;
-		_z = 1000 min ((worldSize select 1)/4);
-			_y = worldSize select 1;
+		_z = 1000 min ((gosa_worldSize select 1)/4);
+			_y = gosa_worldSize select 1;
 			_y = _y - (_z*2);
 			_y = _z + random _y;
 		CivilianBasePos = [_x, _y]; // TODO: нужно исключить позицию на воде
