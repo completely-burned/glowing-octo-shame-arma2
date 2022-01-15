@@ -1,5 +1,5 @@
 if (isServer) then {
-	var_server_Overcast = missionNamespace getVariable "Overcast";
+	var_server_Overcast = missionNamespace getVariable "gosa_Overcast";
 	publicVariable "var_server_Overcast";
 }else{
 	waitUntil {!isNil {var_server_Overcast}};
