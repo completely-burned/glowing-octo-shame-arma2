@@ -321,4 +321,9 @@ class CfgCommunicationMenu
 		expression = "if (vehicle player == player) then {player setVariable ['transportPos',_pos,true]}else{vehicle player setVariable ['transportPos', _pos,true]}";
 		enable = "CursorOnGround";
 	};
+	class supportMenu
+	{
+		text = "supportMenu";
+		submenu = "#USER:gosa_supportMenu_0";
+	};
 };
