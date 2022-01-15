@@ -23,9 +23,15 @@ class Params {
 	};
 	class gosa_MHQ {
 		title="MHQ";
+		#ifdef __ARMA3__
+			values[] = {0};
+			texts[] = {$STRWFNO};
+			default=0;
+		#else
 		values[] = {-1,0,1};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFNO,$STRWFYES};
 		default=-1;
+		#endif
 	};
 	class minGroups {
 		title="Guaranteed number of ai groups [sv,ai,fps]";
