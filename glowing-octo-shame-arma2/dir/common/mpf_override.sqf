@@ -1,3 +1,11 @@
+
+#ifdef __ARMA3__
+	if (true) exitWith {
+		diag_log format ["Log: [mpf_override] exitWith %1", time];
+	};
+#endif
+
+
 #define __A2OA__
 
 waitUntil{!isNil{BIS_MPF_InitDone}};
