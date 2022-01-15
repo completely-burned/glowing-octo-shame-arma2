@@ -1,10 +1,20 @@
 gosa_friendlyside = [];
 
-private ["_i","_ii"];
-for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "Groups")}, {_i = _i + 1}] do {
+private ["_i","_ii","_E"];
+
+#ifdef __ARMA3__
+	_E = "Entities";
+#else
+	_E = "Groups";
+#endif
+
+for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> _E)}, {_i = _i + 1}] do {
 	private["_grpCFG"];
-    _grpCFG = (missionConfigFile >> "MissionSQM" >> "Mission" >> "Groups") select _i;
+		_grpCFG = (missionConfigFile >> "MissionSQM" >> "Mission" >> _E) select _i;
 		if (isClass _grpCFG) then {
+			#ifdef __ARMA3__
+			if (getText (_grpCFG >> "dataType") == "Group") then {
+			#endif
 			private["_sideCFG","_unitsCFG"];
 			_sideCFG = getText (_grpCFG >> "side");
 			_unitsCFG = _grpCFG >> "Vehicles";
@@ -17,18 +27,32 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "G
 					if (getText (_unitCFG >> "player") in ["PLAY CDG","PLAYER COMMANDER"]) then {
 						_isPlayable = true;
 					};
+
+					//--- arma 3
+					if (getNumber (_unitCFG >> "Attributes" >> "isPlayer") == 1) then {
+						_isPlayable = true;
+					};
+					if (getNumber (_unitCFG >> "Attributes" >> "isPlayable") == 1) then {
+						_isPlayable = true;
+					};
+
 					if (_isPlayable) then {
-						switch (_sideCFG) do {
+						switch (toUpper _sideCFG) do {
 							case "EAST": {if !(east in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [east]}};
 							case "WEST": {if !(west in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [west]}};
+							case "INDEPENDENT";
 							case "GUER": {if !(resistance in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [resistance]}};
+							case "CIVILIAN";
 							case "CIV": {if !(civilian in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [civilian]}};
 							default {};
 						};
 					};
 				};
+			#ifdef __ARMA3__
 			};
+			#endif
 		};
+	};
 };
 
 publicVariable "gosa_friendlyside";
