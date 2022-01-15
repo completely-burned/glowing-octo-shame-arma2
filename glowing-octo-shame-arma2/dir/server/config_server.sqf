@@ -18,7 +18,13 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> _E
 			#endif
 			private["_sideCFG","_unitsCFG"];
 			_sideCFG = getText (_grpCFG >> "side");
+
+			#ifdef __ARMA3__
+			_unitsCFG = _grpCFG >> _E;
+			#else
 			_unitsCFG = _grpCFG >> "Vehicles";
+			#endif
+
 			for [{_ii = 0}, {_ii < count _unitsCFG}, {_ii = _ii + 1}] do {
 				private ["_unitCFG"];
 				_unitCFG = _unitsCFG select _ii;
