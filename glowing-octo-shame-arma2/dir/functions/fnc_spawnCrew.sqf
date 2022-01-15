@@ -135,7 +135,10 @@ _crew = [];
 						_rank = "LIEUTENANT";
 					};
 					//--- set rank
+					_unit setRank _rank;
+					#ifndef __ARMA3__
 					[nil, _unit, rsetRank, _rank] call RE;
+					#endif
 
 				_unit moveInTurret [_vehicle, _sorted select _i select 1];
 			};
