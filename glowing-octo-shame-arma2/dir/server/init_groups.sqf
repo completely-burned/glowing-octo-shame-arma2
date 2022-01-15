@@ -101,7 +101,12 @@ _fnc6={
 // if (configName(configFile >> "CfgGroups" >> "PLAgrps") != "") then {
 	// AllGroupsGuerrila=(AllGroupsGuerrila+([["PLAgrps"],[],[]] call gosa_fnc_returnGroups));
 // };
+
+#ifdef __ARMA3__
+	[] call compile preprocessFileLineNumbers "dir\arma3\config_groups.sqf";
+#else
 [] call compile preprocessFileLineNumbers "dir\server\config_groups.sqf";
+#endif
 
 AllGroupsWest = AllGroupsWest call _fnc1;
 AllGroupsEast = AllGroupsEast call _fnc1;
