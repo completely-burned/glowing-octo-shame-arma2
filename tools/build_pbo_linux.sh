@@ -23,8 +23,8 @@ mkdir -p $PRE
 
 OUT="${OUT:-$DIR/.build.out}"
 
-if [ ! -d $OUT ]; then
-	mkdir -p $OUT
+if [[ ! -d ${OUT} ]]; then
+	mkdir -p ${OUT}
 fi
 
 if $DIAG_LOG; then
@@ -49,12 +49,14 @@ fi
 for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 	if [ -f "${DIR}/mission.sqm" ]; then
 
-		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* .* v\(.*\)".*/\1/' -e 's/\./\-/gi')
+		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* .* v\(.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
 		SIDE=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* \(.*\) v.*".*/\1/')
 		NAME=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*"\(.*\) .* .* v.*".*/\1/')
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
+		DLC=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* .* v.*[[:digit:]]\(.*\)".*/\1/' -e 's/\ /\-/gi')
 
-		TMPDIRNAME="${NAME,,}-${VERSION,,}-${SIDE,,}.${MAP,,}"
+
+		TMPDIRNAME="${NAME,,}-${VERSION,,}-${SIDE,,}${DLC,,}.${MAP,,}"
 
 
 		MISSION=$TMPDIR/.build.tmp/$TMPDIRNAME
@@ -78,16 +80,16 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 
 		# если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив
 		if [ -x "$(command -v parallel)" ]; then
-			var_parallel+=("makepbo -M $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo")
-			var_parallel+=("armake build --packonly --force $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo")
-			var_parallel+=("armake2 pack -v $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo")
+			var_parallel+=("makepbo -M $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-makepbo.${MAP,,}.pbo")
+			var_parallel+=("armake build --packonly --force $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-armake.${MAP,,}.pbo")
+			var_parallel+=("armake2 pack -v $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-armake2.${MAP,,}.pbo")
 		else
-			makepbo -M $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-makepbo.${MAP,,}.pbo
-			armake build --packonly --force $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake.${MAP,,}.pbo
-			armake2 pack -v $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-armake2.${MAP,,}.pbo
+			makepbo -M $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-makepbo.${MAP,,}.pbo
+			armake build --packonly --force $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-armake.${MAP,,}.pbo
+			armake2 pack -v $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-armake2.${MAP,,}.pbo
 		fi
 
-		rsync -rLK $MISSION/* $PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}-rsync.${MAP,,}
+		rsync -rLK $MISSION/* $PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-rsync.${MAP,,}
 
 	fi
 done
