@@ -12,6 +12,7 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> _E
 	private["_grpCFG"];
 		_grpCFG = (missionConfigFile >> "MissionSQM" >> "Mission" >> _E) select _i;
 		if (isClass _grpCFG) then {
+			diag_log format ["Log: [config_server] _grpCFG %1", _grpCFG];
 			#ifdef __ARMA3__
 			if (getText (_grpCFG >> "dataType") == "Group") then {
 			#endif
@@ -22,6 +23,7 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> _E
 				private ["_unitCFG"];
 				_unitCFG = _unitsCFG select _ii;
 				if (isClass _unitCFG) then {
+					diag_log format ["Log: [config_server] _unitsCFG %1", _unitsCFG];
 					private ["_isPlayable"];
 					_isPlayable = false;
 					if (getText (_unitCFG >> "player") in ["PLAY CDG","PLAYER COMMANDER"]) then {
@@ -37,6 +39,7 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> _E
 					};
 
 					if (_isPlayable) then {
+						diag_log format ["Log: [config_server] _isPlayable %1", _isPlayable];
 						switch (toUpper _sideCFG) do {
 							case "EAST": {if !(east in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [east]}};
 							case "WEST": {if !(west in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [west]}};
@@ -55,8 +58,10 @@ for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> _E
 	};
 };
 
+diag_log format ["Log: [config_server] _friendlyside %1", gosa_friendlyside];
 publicVariable "gosa_friendlyside";
 m_sideEnemy = [east,west,resistance]-gosa_friendlyside;
+diag_log format ["Log: [config_server] _sideEnemy %1", m_sideEnemy];
 publicVariable "m_sideEnemy";
 
 
