@@ -1,11 +1,15 @@
-
-#ifndef __ARMA3__
-
 /*---------------------------------------------------------------------------
 возвращает размер карты, не точно
 ---------------------------------------------------------------------------*/
 
-if (isNil "worldSize") then {
+if (isNil "gosa_worldSize") then {
+
+	#ifdef __ARMA3__
+
+	gosa_worldSize = [worldSize, worldSize]; // TODO: worldSize работает не так как ожидалось
+
+	#else
+
 	private["_s","_centerPosition"];
 
 	_centerPosition = getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
@@ -44,9 +48,11 @@ if (isNil "worldSize") then {
 	_diag_log setMarkerTypeLocal "Dot";
 	_diag_log setMarkerPosLocal _s;
 
-	worldSize = _s;
-	diag_log format ["Log: [worldSize] = %1", worldSize];
-};
-#endif
+	gosa_worldSize = _s;
+	diag_log format ["Log: [worldSize] = %1", gosa_worldSize];
 
-worldSize;
+	#endif
+
+};
+
+gosa_worldSize;
