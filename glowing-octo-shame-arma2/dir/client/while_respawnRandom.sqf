@@ -387,6 +387,8 @@ while {true} do {
 				};
 			} forEach allGroups;
 
+			diag_log format ["Log: [respawnRandom] _pre_sorted %1", _pre];
+
 			// сортировка
 			for "_i" from 0 to count _pre - 1 do {
 				if (isNil "_sorted") then {
@@ -406,6 +408,9 @@ while {true} do {
 				};
 			};
 			_pre = nil;
+
+		if !(isNil "_sorted") then {
+			diag_log format ["Log: [respawnRandom] _sorted %1", _sorted];
 
 		/* FIXME: локальная группа не имеет смысла т.к. ии автоматически становятся локальны игроку командиру в итоге
 		// ищем новое тело среди групп локальных игроку для лучшего командования подчиненными
@@ -463,6 +468,8 @@ while {true} do {
 					(_x select 4) call _findBody;
 				};
 			} forEach _sorted;
+		};
+
 		};
 
 		if (isNil{_bestCandidate}) then {
