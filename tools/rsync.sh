@@ -25,5 +25,8 @@ for DIR in $(find $DIR -maxdepth 1 -type d); do
 			rsync --recursive --delete ${DIR}/../glowing-octo-shame-arma2/ $MISSION
 			rsync --recursive --delete ${DIR}/* $MISSION
 		fi
+
+		# find $MISSION -type f -exec sed -i '1s/^/#define __ARMA3__\n/' {} \;
+
 	fi
 done
