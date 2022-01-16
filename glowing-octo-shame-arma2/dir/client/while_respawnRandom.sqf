@@ -36,15 +36,19 @@ _fnc_swich={
 	_old = (_this select 0);
 	_new = (_this select 1);
 
-	[nil, _new, rselectPlayer, _o] call RE; // временное решение
+	if (isMultiplayer) then {
+		[nil, _new, rselectPlayer, _o] call RE; // временное решение
 
-	_time = time+5;
-	while {isNil "_var" && time < _time} do { // FIXME: это плохой способ
-		_var = _new getVariable "gosa_player_owner";
-		sleep 0.05;
+		_time = time+5;
+		while {isNil "_var" && time < _time} do { // FIXME: это плохой способ
+			_var = _new getVariable "gosa_player_owner";
+			sleep 0.05;
+		};
+
+		diag_log format ["Log: [respawnRandom] _fnc_swich _var %1, _o %2", _var, _o];
+	}else{
+		_var = _o;
 	};
-
-	diag_log format ["Log: [respawnRandom] _fnc_swich _var %1, _o %2", _var, _o];
 
 	if (!isNil "_var" && {_var == _o}) then {
 
