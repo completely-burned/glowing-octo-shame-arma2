@@ -108,6 +108,7 @@ _list_BIS_FNC_createmenu = _z call _list_BIS_FNC_createmenu2;
 	["-1","2000","2500","3000","3500","4000","4500","5000","5500","6000","6500","7000","7500","8000","8500","9000","9500","10000"]
 ], "","setViewDistance %1"] call BIS_FNC_createmenu;
 
+#ifndef __ARMA3__
 BIS_MENU_GroupCommunication = [
 	["User menu",true],
 	[localize "str_more_menu", [2], "#USER:c_0", -5, [["expression", ""]], "1", "1"],
@@ -125,6 +126,7 @@ BIS_MENU_GroupCommunication = [
 	]], "1", "CursorOnGround", "\ca\ui\data\cursor_support_ca.paa"],
 	[localize "STR_EP1_MENU_TITLE", [5], "#USER:gosa_supportMenu_0", -5, [["expression", ""]], "1", "1"]
 ];
+#endif
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
 private["_fnc_create_buy_menu"];

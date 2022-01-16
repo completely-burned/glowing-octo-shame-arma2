@@ -96,7 +96,9 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 
 				if (((count _ranks) > 0)) then {
 					_unit setRank (_ranks select _i);
+					#ifndef __ARMA3__
 					[nil, _unit, rsetRank, _ranks select _i] call RE;
+					#endif
 				}else{
 							Private["_cost","_rank"];
 							_cost = getNumber (configFile >> "CfgVehicles" >> _type >> "cost");
