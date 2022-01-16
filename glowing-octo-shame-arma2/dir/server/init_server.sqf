@@ -118,9 +118,11 @@ waitUntil {!isNil "BIS_fnc_init"};
 // животные
 // (group_logic) createUnit ["BIS_animals_Logic",[1000,10,0],[],0,"none"];
 
-if ( ACE_Avail ) then {
+if ( configName(LIB_cfgVeh >> "ACE_Logic") != "" ) then {
 	// отключение усталость
+	#ifndef __ARMA3__
 	(group_logic) createUnit ["ACE_NoStamina",[1000,10,0],[],0,"none"];
+	#endif
 }else{
 	// первая помощь, не работает
 	// _logic = (group_logic) createUnit ["FirstAidSystem",[1000,10,0],[],0,"none"];
