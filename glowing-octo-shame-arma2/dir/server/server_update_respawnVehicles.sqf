@@ -1,4 +1,11 @@
-﻿waitUntil{!isNil "gosa_fnc_init"};
+
+#ifdef __ARMA3__
+	if (true) exitWith {
+		diag_log format ["Log: [server_update_respawnVehicles] exitWith %1", time];
+	};
+#endif
+
+waitUntil{!isNil "gosa_fnc_init"};
 waitUntil {!isNil "BIS_fnc_init"};
 
 if (missionNamespace getVariable "respawn" != 0) exitWith {
