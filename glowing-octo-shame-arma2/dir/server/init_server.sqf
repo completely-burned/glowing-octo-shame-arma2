@@ -157,7 +157,10 @@ if(isMultiplayer)then{
 [] call compile preprocessFileLineNumbers "dir\server\init_groups.sqf";
 // локации, города
 [] execVM "dir\server\init_towns.sqf";
+
+#ifndef __ARMA3__
 [] execVM "dir\server\init_alltowns.sqf";
+#endif
 
 // обновление техники и ботов, удаление
 [] execVM "dir\server\updateServer.sqf";

@@ -1,38 +1,73 @@
 gosa_friendlyside = [];
 
-private ["_i","_ii"];
-for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> "Groups")}, {_i = _i + 1}] do {
+private ["_i","_ii","_E"];
+
+#ifdef __ARMA3__
+	_E = "Entities";
+#else
+	_E = "Groups";
+#endif
+
+for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> _E)}, {_i = _i + 1}] do {
 	private["_grpCFG"];
-    _grpCFG = (missionConfigFile >> "MissionSQM" >> "Mission" >> "Groups") select _i;
+		_grpCFG = (missionConfigFile >> "MissionSQM" >> "Mission" >> _E) select _i;
 		if (isClass _grpCFG) then {
+			diag_log format ["Log: [config_server] _grpCFG %1", _grpCFG];
+			#ifdef __ARMA3__
+			if (getText (_grpCFG >> "dataType") == "Group") then {
+			#endif
 			private["_sideCFG","_unitsCFG"];
 			_sideCFG = getText (_grpCFG >> "side");
+
+			#ifdef __ARMA3__
+			_unitsCFG = _grpCFG >> _E;
+			#else
 			_unitsCFG = _grpCFG >> "Vehicles";
+			#endif
+
 			for [{_ii = 0}, {_ii < count _unitsCFG}, {_ii = _ii + 1}] do {
 				private ["_unitCFG"];
 				_unitCFG = _unitsCFG select _ii;
 				if (isClass _unitCFG) then {
+					diag_log format ["Log: [config_server] _unitsCFG %1", _unitsCFG];
 					private ["_isPlayable"];
 					_isPlayable = false;
 					if (getText (_unitCFG >> "player") in ["PLAY CDG","PLAYER COMMANDER"]) then {
 						_isPlayable = true;
 					};
+
+					//--- arma 3
+					if (getNumber (_unitCFG >> "Attributes" >> "isPlayer") == 1) then {
+						_isPlayable = true;
+					};
+					if (getNumber (_unitCFG >> "Attributes" >> "isPlayable") == 1) then {
+						_isPlayable = true;
+					};
+
 					if (_isPlayable) then {
-						switch (_sideCFG) do {
+						diag_log format ["Log: [config_server] _isPlayable %1", _isPlayable];
+						switch (toUpper _sideCFG) do {
 							case "EAST": {if !(east in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [east]}};
 							case "WEST": {if !(west in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [west]}};
+							case "INDEPENDENT";
 							case "GUER": {if !(resistance in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [resistance]}};
+							case "CIVILIAN";
 							case "CIV": {if !(civilian in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [civilian]}};
 							default {};
 						};
 					};
 				};
+			#ifdef __ARMA3__
 			};
+			#endif
 		};
+	};
 };
 
+diag_log format ["Log: [config_server] _friendlyside %1", gosa_friendlyside];
 publicVariable "gosa_friendlyside";
 m_sideEnemy = [east,west,resistance]-gosa_friendlyside;
+diag_log format ["Log: [config_server] _sideEnemy %1", m_sideEnemy];
 publicVariable "m_sideEnemy";
 
 
