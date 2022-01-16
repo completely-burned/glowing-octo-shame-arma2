@@ -44,7 +44,7 @@ if !(requiredVersion "1.60") then {
 
 	[] Call Compile preprocessFileLineNumbers "dir\init_common.sqf";
 	if (isServer) then {
-		[] spawn Compile preprocessFileLineNumbers "dir\server\init_server.sqf";
+		[] execVM "dir\server\init_server.sqf";
 	};
 	if (!IsDedicated) then {
 		[] Call Compile preprocessFileLineNumbers "dir\client\init_client.sqf";
