@@ -11,6 +11,10 @@ if !(requiredVersion "1.60") then {
 }else{
 #endif
 
+#ifdef __ARMA3__
+	BIS_fnc_init = true;
+#endif
+
 	[] execVM "dir\common\mpf_override.sqf";
 
 	if (!IsDedicated) then {
