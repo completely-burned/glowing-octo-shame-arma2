@@ -69,6 +69,7 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 		TMPDIRNAME="${NAME,,}-${VERSION,,}-${SIDE,,}${DLC,,}.${MAP,,}"
 		MISSION=$TMPDIR/.build.tmp/$TMPDIRNAME
 		mkdir -p $MISSION
+		echo $MISSION
 
 
 		# cpmpat для a2 v1.11
@@ -78,8 +79,19 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 			find $MISSION -type f -exec sed -i "/^.*#define.*__A2OA__.*/d" {} \;
 		else
 			# символьные ссылки быстрее копирования, хотя при tmpfs это не значительно
-			find $TMPDIR/glowing-octo-shame-arma2/ -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
-			find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
+			#find $TMPDIR/glowing-octo-shame-arma2/ -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
+			#find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
+			# копирование
+			rsync --recursive --delete $TMPDIR/glowing-octo-shame-arma2/* $MISSION
+			rsync --recursive --delete ${DIR}/* $MISSION
+		fi
+
+		# не всегда все файлы нужны
+		# version=11; <= Arma 2: Operation Arrowhead
+		Z=$(grep version $MISSION/mission.sqm | head -n1)
+		if [[ $Z == *"11"* ]]; then
+			Z=$MISSION/dir/arma3/config_groups.sqf
+			rm $Z
 		fi
 
 		if $DIAG_LOG; then
