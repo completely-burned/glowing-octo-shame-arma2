@@ -1,5 +1,7 @@
-﻿// переменные нужные для некоторых функций
-deadGroup = grpNull; // для fnc_deleteGroup
+﻿//--- переменные нужные для некоторых функций
+
+// для fnc_deleteGroup
+deadGroup = grpNull;
 
 private["_path","_prefix"];
 _path = "dir\Functions\";
