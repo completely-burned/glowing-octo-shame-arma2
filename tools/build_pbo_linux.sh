@@ -1,7 +1,11 @@
 #!/bin/bash
 
+# нужен путь к корню проекта
+# TODO: улучшить
 DIR=$(dirname "${BASH_SOURCE[0]}")/..
 
+# флаги запуска
+# ./tools/build_pbo_linux.sh -d собрать debug версию
 DIAG_LOG=false
 while getopts "d" opt
 	do
@@ -12,15 +16,18 @@ while getopts "d" opt
 done
 
 
+# в tmpfs сборка быстрее
 TMPDIR=$(mktemp -td glowing-octo-shame-arma2.XXXXX)
 echo $TMPDIR
 
 rsync --recursive --delete --no-perms $DIR/glowing-octo-shame* $TMPDIR/
 echo $(ls $TMPDIR)
 
+
 PRE=$TMPDIR/out
 mkdir -p $PRE
 
+# OUT=/куда/поместить/собранные/pbo/ ./tools/build_pbo_linux.sh
 OUT="${OUT:-$DIR/.build.out}"
 
 if [[ ! -d ${OUT} ]]; then
@@ -28,6 +35,7 @@ if [[ ! -d ${OUT} ]]; then
 fi
 
 if $DIAG_LOG; then
+	# debug версии уникальны, это добавит им hash в названии
 	DEBUGPOSTFIX=($(tar -cf - $TMPDIR/glowing-octo-shame-arma2/ | sha1sum))
 	DEBUGPOSTFIX="-debug-$DEBUGPOSTFIX"
 	echo $DEBUGPOSTFIX
@@ -49,6 +57,7 @@ fi
 for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 	if [ -f "${DIR}/mission.sqm" ]; then
 
+		# TODO: плохо понимаю этот sed
 		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* .* v\(.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
 		SIDE=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* \(.*\) v.*".*/\1/')
 		NAME=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*"\(.*\) .* .* v.*".*/\1/')
@@ -56,11 +65,9 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 		DLC=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* .* v.*[[:digit:]]\(.*\)".*/\1/' -e 's/\ /\-/gi')
 
 
+		# место подготовки файлов перед архивацией
 		TMPDIRNAME="${NAME,,}-${VERSION,,}-${SIDE,,}${DLC,,}.${MAP,,}"
-
-
 		MISSION=$TMPDIR/.build.tmp/$TMPDIRNAME
-
 		mkdir -p $MISSION
 
 
@@ -70,11 +77,13 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 			rsync --recursive --delete ${DIR}/* $MISSION
 			find $MISSION -type f -exec sed -i "/^.*#define.*__A2OA__.*/d" {} \;
 		else
+			# символьные ссылки быстрее копирования, хотя при tmpfs это не значительно
 			find $TMPDIR/glowing-octo-shame-arma2/ -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
 			find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
 		fi
 
 		if $DIAG_LOG; then
+			# приставка DEBUG во внутриигровом меню
 			sed -i "s/glowing-octo-shame/DEBUG glowing-octo-shame/" $MISSION/mission.sqm
 		fi
 
@@ -89,6 +98,7 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 			armake2 pack -v $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-armake2.${MAP,,}.pbo
 		fi
 
+		# создаем без архивную версию на случай если архивация не удалась
 		rsync -rLK $MISSION/* $PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-rsync.${MAP,,}
 
 	fi
@@ -96,15 +106,21 @@ done
 
 #gnu parallel
 if [ ! -z "$var_parallel" ]; then
-  parallel ::: "${var_parallel[@]}"
+	parallel ::: "${var_parallel[@]}"
 fi
 
+# чиска архивов с нулевым размером, .. и такое бывает
 find $PRE -type f -empty -print -delete
 
+# перемещение
+# TODO: приоритеты нужны лишь для публичного не debug сервера
 nice -n 19 ionice -c 3 mv $PRE/* $OUT
 
+# чистка tmpfs
 rm -rf $TMPDIR
 
 # find $OUT -size 0 -delete
 
+# вывод местонахождения архивов
+# FIXME: лучше выводить пути к каждому архиву
 echo $OUT
