@@ -3,6 +3,16 @@
 /*
 Не рукомендуется забивать грузовики до отказа
 иначе боты дольше тупят.
+
+	rankId
+		0 - Private
+		1 - Corporal
+		2 - Sergeant
+		3 - Lieutenant
+		4 - Captain
+		5 - Major
+		6 - Colonel
+
 */
 
 
