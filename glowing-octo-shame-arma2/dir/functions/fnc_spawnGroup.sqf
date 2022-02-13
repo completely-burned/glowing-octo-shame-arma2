@@ -94,13 +94,18 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					};
 				};
 
+				private ["_rank"];
 				if (((count _ranks) > 0)) then {
-					_unit setRank (_ranks select _i);
+					_rank = _ranks select _i;
+					if (typeName _rank == typeName 0) then {
+						_rank = _rank call gosa_fnc_rankConv;
+					};
+					_unit setRank _rank;
 					#ifndef __ARMA3__
-					[nil, _unit, rsetRank, _ranks select _i] call RE;
+						[nil, _unit, rsetRank, _rank] call RE;
 					#endif
 				}else{
-							Private["_cost","_rank"];
+							Private["_cost"];
 							_cost = getNumber (configFile >> "CfgVehicles" >> _type >> "cost");
 							_rank="PRIVATE";
 							if(_cost>=50000)then{_rank="CORPORAL"};
