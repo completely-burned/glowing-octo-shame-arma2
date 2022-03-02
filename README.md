@@ -34,10 +34,10 @@ pve бой с ботами в сконцентрированный в одной
 
       # собрать
       ./tools/build_pbo_linux.sh
-      # или 
-      OUT="/tmp/куда/поместитьPBOs/" ./tools/build_pbo_linux.sh
-      
       exit 0 # это выход
+      # или 
+      OUT="/куда/поместитьPBOs/" ./tools/build_pbo_linux.sh
+      
       # файлы будут в ./.build.out/ по умолчанию
       # примерно такие
       glowing-octo-shame-0-0-3-820-east-armake.takistan.pbo
