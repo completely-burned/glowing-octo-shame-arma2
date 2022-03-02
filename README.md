@@ -12,15 +12,11 @@ pve бой с ботами в сконцентрированный в одной
 ## Build
  - ### linux
       ```bash
-      # скачать код
-      git clone --depth=1 https://github.com/completely-burned/glowing-octo-shame-arma2.git
-      
-      # перейти в корень с кодами
-      cd ./glowing-octo-shame-arma2/
-
       # установить 
       # rsync
-      # и дополнительно, не обязательно
+      # git
+      #
+      # и установить дополнительно, не обязательно
       # makepbo
       # armake
       # armake2
@@ -29,12 +25,18 @@ pve бой с ботами в сконцентрированный в одной
       # должна будет появится после сборки папка rsync
       # в которой будут готовые для игры файлы
 
+      # скачать код
+      git clone --depth=1 https://github.com/completely-burned/glowing-octo-shame-arma2.git
+      
+      # перейти в корень с кодами
+      cd ./glowing-octo-shame-arma2/
+
       # нужны права на запуск скрипта сборки
       chmod +x ./tools/build_pbo_linux.sh
 
       # собрать
       ./tools/build_pbo_linux.sh
-      exit 0 # это выход
+      exit 0 # готово, это выход
       # или 
       OUT="/куда/поместитьPBOs/" ./tools/build_pbo_linux.sh
       
