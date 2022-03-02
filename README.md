@@ -35,7 +35,7 @@ pve бой с ботами в сконцентрированный в одной
       # собрать
       ./tools/build_pbo_linux.sh
       # или 
-      OUT="/куда/поместитьPBOs/" ./tools/build_pbo_linux.sh
+      OUT="/tmp/куда/поместитьPBOs/" ./tools/build_pbo_linux.sh
       
       exit 0 # это выход
       # файлы будут в ./.build.out/ по умолчанию
