@@ -9,7 +9,8 @@ _total = 0;
 for "_i" from 0 to ((count _weights) - 1) do {
 
 	// кусок должен быть целым числом
-	_weight = (_weights select _i) * 10000; // TODO: множитель нужно сделать динимическим, не работает с _weight меньше 0.0001
+	// TODO: множитель нужно сделать динимическим, не работает с _weight меньше 0.0001
+	_weight = (_weights select _i) * 10000; 
 
 	_total = _total + _weight;
 	_chunks set [count _chunks, _weight];
