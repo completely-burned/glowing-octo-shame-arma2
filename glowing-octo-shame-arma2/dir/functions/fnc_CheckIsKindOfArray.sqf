@@ -10,10 +10,12 @@ ScopeName "exit";
 	{
 		Private["_m1a1"];
 		_m1a1=_x;
-		if (_m1a1 isKindOf _tank) then { // в первом списке
+		// в первом списке
+		if (_m1a1 isKindOf _tank) then { 
 			if (count _this > 2) then {
 				{
-					if (_m1a1 isKindOf _x) then { // во втором списке
+					// во втором списке
+					if (_m1a1 isKindOf _x) then { 
 						_return = false;
 						BreakTo "exit";
 					};
