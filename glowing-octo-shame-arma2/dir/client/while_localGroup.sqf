@@ -30,7 +30,8 @@ while {true} do {
 	_z = currentCommand _p;
 	if (_l == _p && _z != "" && vehicle _p == _p) then {
 		diag_log format ["Log: [localGroup] cc %2, %1 doFollow %1", _p, _z];
-		_p doFollow _p; // FIXME: не работает должным образом
+		// FIXME: не работает должным образом
+		_p doFollow _p; 
 	};
 
 	/* если группа локальна игроку нужно отдать юнитов группы игрока компьютеру игрока для лучшего управления
@@ -41,9 +42,11 @@ while {true} do {
 		_z = units _g;
 		{
 			if (owner _x != 0) then {
-				if (vehicle _x == _x) then { // FIXME: возможно отряд разделяется только из-за находящихся в транспорте юнитов, нужна проверка
+				// FIXME: возможно отряд разделяется только из-за находящихся в транспорте юнитов, нужна проверка
+				if (vehicle _x == _x) then { 
 					diag_log format ["Log: [localGroup] %1 setOwner %2", _x, player];
-					[nil, _x, rsetOwner, player] call RE; // FIXME: возможно есть проблемы, отряд разделяется
+					// FIXME: возможно есть проблемы, отряд разделяется
+					[nil, _x, rsetOwner, player] call RE; 
 				};
 			};
 		} forEach _z;
@@ -74,7 +77,8 @@ while {true} do {
 		_z joinSilent _g2;
 		_g = _g2;
 		_g2 setVariable ["grp_created",true,true];
-		_g selectLeader _p; // FIXME: с этой строкой все-равно баг иногда, когда далее в скрипте проверка на командира выдает true, но игрок не командир
+		// FIXME: с этой строкой все-равно баг иногда, когда далее в скрипте проверка на командира выдает true, но игрок не командир
+		_g selectLeader _p; 
 	};
 	*/
 
@@ -84,7 +88,8 @@ while {true} do {
 		if ((!isNil {_gov} or local _l) && !(_l call gosa_fnc_isPlayer)) then {
 			// игрока сделать лидером локальной группе
 			diag_log format ["Log: [localGroup] %1 selectLeader %2", _g, _p];
-			_g selectLeader _p; // FIXME: из-за selectLeader юниты отряда внутри тс становятся неуправляемыми
+			// FIXME: из-за selectLeader юниты отряда внутри тс становятся неуправляемыми
+			_g selectLeader _p; 
 		};
 	};
 	*/
@@ -103,7 +108,8 @@ while {true} do {
 
 		{
 			// юнитам игрока ограничение скорости не нужно
-			if(!isNil{_x getVariable "gosa_forceSpeed"})then{ // TODO: локальная переменная
+			// TODO: локальная переменная
+			if(!isNil{_x getVariable "gosa_forceSpeed"})then{ 
 				_x forceSpeed -1;
 				_x setVariable ["gosa_forceSpeed",nil];
 				diag_log format ["Log: [localGroup] %1 forceSpeed -1 %2", _x, typeOf _x ];
