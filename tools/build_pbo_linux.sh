@@ -125,8 +125,7 @@ fi
 find $PRE -type f -empty -print -delete
 
 # перемещение
-# TODO: приоритеты нужны лишь для публичного не debug сервера
-nice -n 19 ionice -c 3 mv $PRE/* $OUT
+mv $PRE/* $OUT
 
 # чистка tmpfs
 rm -rf $TMPDIR
