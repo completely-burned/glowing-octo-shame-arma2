@@ -44,7 +44,8 @@ while {_r} do {
 				if (side _x getFriend playerSide < 0.6) then {
 					_l_enemy set [count _l_enemy, _x];
 				};
-			} forEach (_p nearEntities 1000); // lineIntersects 1000m ограничен
+			// lineIntersects 1000m ограничен
+			} forEach (_p nearEntities 1000); 
 
 			if (count _l_enemy > 0) then {
 
