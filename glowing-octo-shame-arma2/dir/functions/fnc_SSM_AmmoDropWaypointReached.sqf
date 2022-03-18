@@ -24,14 +24,16 @@ if (local this) then {
       if (true) then {
 
 
-        if (_veh == _pilot or isNull _veh or isNull _grp or _veh isKindOf "ParachuteBase") exitWith { // TODO: эти проверки должны быть перед функцией
+        // TODO: эти проверки должны быть перед функцией
+        if (_veh == _pilot or isNull _veh or isNull _grp or _veh isKindOf "ParachuteBase") exitWith { 
           diag_log format ["Log: [gosa_SSM_CreateAmmoDrop] %1 %2 %3", _veh, typeOf _veh, _grp];
           _pilot setVariable ["gosa_SSM_WaypointReached", nil];
         };
 
         _n = _this select 1;
 
-        _class = ["UNBasicWeapons_EP1","GuerillaCacheBox"]; // TODO: нужна функция
+        // TODO: нужна функция
+        _class = ["UNBasicWeapons_EP1","GuerillaCacheBox"]; 
 
         /*
         if (configName(configFile >> "CfgVehicles" >> _class) == "") exitWith {
@@ -53,7 +55,8 @@ if (local this) then {
 
         //--- ожидание посадки
         //while {(getPosATL _veh select 2 > 5 or speed _veh > 0.01) && alive _veh} do {
-        while {isEngineOn _veh && alive _veh} do { // land "LAND" выключает двигатель
+        // land "LAND" выключает двигатель
+        while {isEngineOn _veh && alive _veh} do { 
           sleep 1;
         };
 
