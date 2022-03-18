@@ -3,10 +3,12 @@ private["_p","_l","_z"];
 _p = "dir\server\";
 
 _l = [
-	"while_obj_gc.sqf", // очистка уничтоженных юнитов
+	// очистка уничтоженных юнитов
+	"while_obj_gc.sqf", 
 	// генерация отрядов ии
 	"while_reinforcement_v2.sqf",
-	"server_update_groups_wp.sqf" // маршруты
+	// маршруты
+	"server_update_groups_wp.sqf" 
 ];
 
 for "_i" from 0 to count _l -1 do {
