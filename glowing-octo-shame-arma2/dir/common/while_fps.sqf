@@ -13,7 +13,8 @@ sleep 15;
 _lt = gosa_server_diag_fps_interval;
 // промежуток времени между сборами статистики
 _s = 1;
-_c = _lt/_s; // TODO: нужна проверка на целое число
+// TODO: нужна проверка на целое число
+_c = _lt/_s; 
 
 _f = 0;
 _a = [];
@@ -23,7 +24,8 @@ _l = diag_frameno;
 _t1 = time;
 
 for "_i" from 1 to _c do {
-	sleep _s; // FIXME: может лучше учитывать time? оба варианта неточны на самом деле
+	// FIXME: может лучше учитывать time? оба варианта неточны на самом деле
+	sleep _s; 
 	_n = diag_frameno;
 	_d = _s/(time-_t1)*(_n - _l);
 	_t1 = time;
