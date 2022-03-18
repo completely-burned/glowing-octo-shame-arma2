@@ -44,7 +44,8 @@ while {!_ok} do {
 	_h = _hills call BIS_fnc_selectRandom;
 	_pos = [_center, locationPosition _h, _behind_h_dist] call gosa_fnc_getPosBehind;
 	}else{
-		_pos = [_center, _target_pos, _radius + _behind_h_dist] call gosa_fnc_getPosBehind; // TODO: временное решение
+		// TODO: временное решение
+		_pos = [_center, _target_pos, _radius + _behind_h_dist] call gosa_fnc_getPosBehind; 
 	};
 
 	_ok=true;
