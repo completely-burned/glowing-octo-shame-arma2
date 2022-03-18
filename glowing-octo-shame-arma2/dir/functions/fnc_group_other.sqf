@@ -154,7 +154,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	};
 
 
-	///--- ограничение скорости транспорта
+	//--- ограничение скорости транспорта
 	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/76
 #ifdef __A2OA__
 	//--- снимает ограничение юнитам вне транспорта
@@ -181,11 +181,11 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 				// _driver = _x;
 				_z = _driver getVariable "gosa_forceSpeed";
 				// есть юнит отряда вне транспорта
-				if(		!isNull _slu 
+				if(		!isNull _slu
 					// техника атакует
-					or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} 
+					or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]}
 					// рядом с техникой прочая пехота
-					or	{count (_x nearEntities ["Man", 150]) > 0} 
+					or	{count (_x nearEntities ["Man", 150]) > 0}
 				)then{
 					if(isNil {_z} or {_z != _n})then{
 						if (gosa_loglevel > 0) then { // diag_log
@@ -195,7 +195,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 						_driver forceSpeed _n;
 					};
 				//--- снятие ограничения
-				}else{ 
+				}else{
 					if(!isNil {_z})then{
 						if (gosa_loglevel > 0) then { // diag_log
 							diag_log format ["Log: [gosa_fnc_group_other.sqf] forceSpeed -1 %1 %2", _driver, typeOf _driver ];
@@ -295,7 +295,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_z = ((_leaderPos nearEntities ["CAManBase", 150]) - _units);
 			{
 				// TODO: нужны доп. проверки чтобы не присоединяться к танкам или авиации
-				if (_units select 0 call gosa_fnc_getFaction == _x call gosa_fnc_getFaction && !(vehicle _x isKindOf "StaticWeapon")) then { 
+				if (_units select 0 call gosa_fnc_getFaction == _x call gosa_fnc_getFaction && !(vehicle _x isKindOf "StaticWeapon")) then {
 					diag_log format ["Log: [gosa_fnc_group_other] %1 join %2", _units, _x];
 					_units join _x;
 					[_leader, leader _x] call gosa_fnc_autoLeader;
