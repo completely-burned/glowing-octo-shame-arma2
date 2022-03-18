@@ -75,9 +75,12 @@ while {true} do {
 
 						_hills = false;
 
-						if(_height < 250)then{ // проверки холмов
-							_testPos = [(_posPlayerASL select 0) + 999*sin _dir, (_posPlayerASL select 1) + 999*cos _dir, _posPlayerASL select 2]; // тестовая позиция для проверки холмов 1000 метров
-							_hills = lineIntersects [_posPlayerASL, _testPos, _veh, objNull]; // проверка холмов, нагрузка на cpu, 1000 метров
+						// проверки холмов
+						if(_height < 250)then{ 
+							// тестовая позиция для проверки холмов 1000 метров
+							_testPos = [(_posPlayerASL select 0) + 999*sin _dir, (_posPlayerASL select 1) + 999*cos _dir, _posPlayerASL select 2]; 
+							// проверка холмов, нагрузка на cpu, 1000 метров
+							_hills = lineIntersects [_posPlayerASL, _testPos, _veh, objNull]; 
 						};
 
 						if(!_hills)then{
