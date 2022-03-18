@@ -34,7 +34,8 @@ _dfi = gosa_server_diag_fps_interval;
 _ai_client_count = missionNamespace getVariable "ai_client_count";
 _dyn_limit = _ai_client_count;
 _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
-_playerCoefficient = missionNamespace getVariable "playerCoefficient"; // TODO: количество игроков не учитывается
+// TODO: количество игроков не учитывается
+_playerCoefficient = missionNamespace getVariable "playerCoefficient"; 
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
 _limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
@@ -95,7 +96,8 @@ _fnc_fl = {
 
 while{_run}do{
 
-	_grp = call gosa_fnc_getGroups;  // FIXME: fnc_getGroups выдает неправильное соотношение локальных групп к удаленным, из-за чего некоторые группы не правильно учитываются и лимит не работает должным образом
+	// FIXME: fnc_getGroups выдает неправильное соотношение локальных групп к удаленным, из-за чего некоторые группы не правильно учитываются и лимит не работает должным образом
+	_grp = call gosa_fnc_getGroups;  
 
 	_lg=((count (_grp select 0))+(count (_grp select 1))+(count (_grp select 2)));
 
