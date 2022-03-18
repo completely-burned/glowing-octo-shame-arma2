@@ -16,7 +16,8 @@ while{true}do{
 	};
 
 	if (!isNull _veh) then {
-		// player setVariable ["assignedVehicle", nil]; // FIXME: нет смысла, только лишняя перезапись
+		// FIXME: нет смысла, только лишняя перезапись
+		// player setVariable ["assignedVehicle", nil]; 
 	// } else {
 		_vehVar = player getVariable "assignedVehicle";
 		if (isNil {_vehVar}) then {
