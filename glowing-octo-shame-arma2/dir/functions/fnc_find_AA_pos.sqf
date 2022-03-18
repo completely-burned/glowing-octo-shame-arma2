@@ -22,7 +22,8 @@ if (_pos select 0 == 0 && _pos select 1 == 0) exitWith {
 	diag_log format ["Log: [fnc_find_AA_pos] #AA _pos %1", _pos];
 	0;
 };
-_pos resize 2; // сфера
+// сфера
+_pos resize 2; 
 _radius = _this select 2;
 
 //--- ищем союзные наземные юниты находящиеся рядом с предполагаемой позицией
@@ -41,7 +42,8 @@ for "_i" from 0 to (count _list - 1) do {
 			};
 		};
 	}else{
-		_list set [_i, -1]; //--- не являются союзниками
+		//--- не являются союзниками
+		_list set [_i, -1]; 
 	};
 };
 
