@@ -37,10 +37,12 @@ _fnc_swich={
 	_new = (_this select 1);
 
 	if (isMultiplayer) then {
-		[nil, _new, rselectPlayer, _o] call RE; // временное решение
+		// временное решение
+		[nil, _new, rselectPlayer, _o] call RE;
 
 		_time = time+5;
-		while {isNil "_var" && time < _time} do { // FIXME: это плохой способ
+		// FIXME: это плохой способ
+		while {isNil "_var" && time < _time} do {
 			_var = _new getVariable "gosa_player_owner";
 			sleep 0.05;
 		};
@@ -52,8 +54,10 @@ _fnc_swich={
 
 	if (!isNil "_var" && {_var == _o}) then {
 
-	if (name _old == _p_name) then { // FIXME: разные подозрения, name синхронизируется не сразу
-		_old setVariable ["selectPlayerDisable", true]; // FIXME: не понимаю зачем нужно это
+	// FIXME: разные подозрения, name синхронизируется не сразу
+	if (name _old == _p_name) then {
+		// FIXME: не понимаю зачем нужно это
+		_old setVariable ["selectPlayerDisable", true];
 	};
 
 	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
@@ -64,7 +68,8 @@ _fnc_swich={
 	};
 
 	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
-	selectPlayer _new; // TODO: нужна пероверка удачного переключения
+	// TODO: нужна пероверка удачного переключения
+	selectPlayer _new;
 
 	gosa_lastSwitchBodyTime = time;
 
@@ -73,7 +78,8 @@ _fnc_swich={
 	// информирование других игроков о возрождении в отряде
 	[nil, _new, rhintresurrected, _p_name] call RE;
 
-	if (gosa_loglevel > 0) then {					// diag_log TODO: нужна функция
+	// diag_log TODO: нужна функция
+	if (gosa_loglevel > 0) then {					// diag_log
 		_z = [];									// diag_log
 		{											// diag_log
 			_z = _z + [_x,1];						// diag_log
@@ -83,7 +89,8 @@ _fnc_swich={
 
 
 		// в случае неудачи необходимо временно добавить объект в черный список, иначе он будет повторно выбран
-		if (player != _new) then { // FIXME: не уверен в отсутствии ложных включений
+		// FIXME: не уверен в отсутствии ложных включений
+		if (player != _new) then {
 			_new setVariable ["gosa_respawn_blt", time];
 			_old;
 		}else{
@@ -216,7 +223,8 @@ _fnc_isFit={
 
 	if (
 #ifndef __A2OA__
-		local _this && // v1.11 если юнит не локальный не передает управление игроку
+		// v1.11 если юнит не локальный не передает управление игроку
+		local _this &&
 #endif
 		( (_this call gosa_fnc_withinMap) or
 			(!isNil "gosa_player_needs_revival" && {gosa_player_needs_revival + 25 < time})
@@ -230,14 +238,17 @@ _fnc_isFit={
 		!isNull _this &&
 		!(_this call gosa_fnc_isUAV) &&
 		!isNil{group _this getVariable "grp_created"} &&
-		!(WaypointType [group _this, currentwaypoint group _this] in ["UNLOAD","GETOUT"]) && // TODO: нужно реализовать десант с игроками тоже
+		// TODO: нужно реализовать десант с игроками тоже
+		!(WaypointType [group _this, currentwaypoint group _this] in ["UNLOAD","GETOUT"]) &&
 		!(vehicle _this isKindOf "StaticWeapon") &&
 		(
-			!(vehicle _this isKindOf "Air") or // отключенно из-за десанта, и не умения летать некоторых игроков
+			// отключенно из-за десанта, и не умения летать некоторых игроков
+			!(vehicle _this isKindOf "Air") or
 			group _this == group player
 		) &&
 		(
-			!(vehicle _this isKindOf "Ship") or // отключенно из-за десанта
+			// отключенно из-за десанта
+			!(vehicle _this isKindOf "Ship") or
 			group _this == group player
 		) &&
 		(isNil {group _this getVariable "patrol"} or vehicle _this distance civilianBasePos < (safeSpawnDistance select 1))
@@ -264,7 +275,8 @@ while {true} do {
 		diag_log format ["Log: [respawnRandom] not alive %1", _p];
 	};
 	/* при переключении другое тело не сразу становиться локальным
-	if (!local _p) then { // FIXME: не исправляет ситуацию слипнувшихся игроков
+	// FIXME: не исправляет ситуацию слипнувшихся игроков
+	if (!local _p) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] not local %1", _p];
 	};*/
@@ -279,7 +291,8 @@ while {true} do {
 		/* Проверка name не дает игрокам слипнуться.
 		Помогает лишь одному игроку.
 		Не всегда срабатывает даже когда ники разные.
-		if (name player != _p_name or name _p != _p_name) then { // TODO: но после переключения остается сломанным предыдущий юнит из-за переменной, другой игрок
+		// TODO: но после переключения остается сломанным предыдущий юнит из-за переменной, другой игрок
+		if (name player != _p_name or name _p != _p_name) then {
 			_t = true;
 			diag_log format ["Log: [respawnRandom] name player %1, name _p %2, _p_name %3", name player, name _p, _p_name];
 		};
@@ -365,7 +378,8 @@ while {true} do {
 						_z = _z / 2 + random _z;
 						// в группе с большим количеством игроков не интересно (корень количества игроков)
 						// корень всех зол
-						if (sqrt _z > {_x call gosa_fnc_isPlayer} count _units) then { // TODO: нужно предоставить выбор игрокам
+						// TODO: нужно предоставить выбор игрокам
+						if (sqrt _z > {_x call gosa_fnc_isPlayer} count _units) then {
 							diag_log format ["Log: [respawnRandom] ищем среди групп с игроками %1", _grp];
 							_units call _findBody;
 						};
@@ -425,13 +439,15 @@ while {true} do {
 							if (isNil {_bestCandidate}) then {
 								_bestCandidate = _leader;
 							};
-							if ((_pos distance _leader) < (_pos distance _bestCandidate)) then { // TODO: нужно решить конфликт с приоритетами
+							// TODO: нужно решить конфликт с приоритетами
+							if ((_pos distance _leader) < (_pos distance _bestCandidate)) then {
 								_bestCandidate = _leader;
 							};
 						};
 					};
 				};
-			} forEach _sorted; // TODO: нужно устранить дублирование
+			// TODO: нужно устранить дублирование
+			} forEach _sorted;
 		};
 		*/
 
@@ -446,7 +462,8 @@ while {true} do {
 						if (isNil {_bestCandidate}) then {
 							_bestCandidate = _leader;
 						};
-						if ((_pos distance _leader)+2000 < (_pos distance _bestCandidate)) then { // TODO: нужно устранить конфликт с приоритетами
+						// TODO: нужно устранить конфликт с приоритетами
+						if ((_pos distance _leader)+2000 < (_pos distance _bestCandidate)) then {
 							_bestCandidate = _leader;
 						};
 					};
@@ -478,7 +495,8 @@ while {true} do {
 
 		// переключение на птицу
 		if (isNil{_bestCandidate} && isNull _cam && isNull player) then {
-			_cam = "seagull" camCreate (player modelToWorld [0,0,100]); // TODO: позиция будет [0,0] если тела игрока уже нет
+			// TODO: позиция будет [0,0] если тела игрока уже нет
+			_cam = "seagull" camCreate (player modelToWorld [0,0,100]);
 			_cam cameraEffect ["FIXED", "LEFT TOP"];
 			_cam camCommand "MANUAL ON";
 			diag_log format ["Log: [respawnRandom] переключение на камеру %1", _cam];
@@ -519,6 +537,7 @@ while {true} do {
 	};
 
 	// нужно быстро переключить игрока лишь после первой смерти, поэтому такая частая проверка
-	sleep 0.1; // TODO: нужно после удачного переключения увеличить sleep для меньшей нагрузги цп
+	// TODO: нужно после удачного переключения увеличить sleep для меньшей нагрузги цп
+	sleep 0.1;
 
 };
