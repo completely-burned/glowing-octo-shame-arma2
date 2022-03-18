@@ -112,7 +112,8 @@ for [{_count = 0},{_count < _total},{_count = _count + 1}] do
 			_composition = gosa_depotCompositions Call BIS_fnc_selectRandom;
 			_constructed = [_depotPosition,_depotDirection,_composition] Call _constructFunction;
 			gosa_constructedList set [count gosa_constructedList, _constructed];
-			//[_depot] Call BIS_WF_InitDefenseLayout; // мед палатка
+			// мед палатка
+			//[_depot] Call BIS_WF_InitDefenseLayout; 
 		};
 
 		[[_town]] Call BIS_fnc_locations;
