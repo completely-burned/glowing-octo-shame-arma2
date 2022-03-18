@@ -61,7 +61,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 			};
 		};
 
-		_allow=true; // TODO: название переменной
+		// TODO: название переменной
+		_allow=true; 
 		if(!isNull _u)then{
 			if(!isNull _veh)then{
 				private ["_role"];
@@ -92,7 +93,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 					// дистанция возрождения пехоты подходит для безопасной высадки
 					_out_dist = safeSpawnDistance select 0;
 					// если пехота покинула транспорт или он застрял, нет необходимости забираться обратно если он на приемлемой дистанции до цели, дистанция возрождения техники может подойти
-					if((_this select 1) == vehicle (_this select 1) or speed vehicle (_this select 1) < 5)then{ // TODO: транспорт создается остановленным
+					// TODO: транспорт создается остановленным
+					if((_this select 1) == vehicle (_this select 1) or speed vehicle (_this select 1) < 5)then{ 
 						_out_dist = safeSpawnDistance select 1;
 					};
 
@@ -226,14 +228,16 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				// isNull _veh
 				// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
 				if(typeOf _u in (gosa_crewL+gosa_pilotL) &&
-					count assignedVehicleRole _u == 0 && // команда работает лишь на сервере или локальных юнитах клиента
+					// команда работает лишь на сервере или локальных юнитах клиента
+					count assignedVehicleRole _u == 0 && 
 					vehicle _u == _u
 					//&& !(behaviour _u in ["COMBAT","STEALTH"])
 					//&& !(currentCommand _u in ["ATTACK","FIRE","ATTACKFIRE"])
 					// не нужно разделять отряд при отсутствии тс в отряде
 					&& {_x != vehicle _x or (count assignedVehicleRole _x > 0)} count units _u == 0
 				 )then{
-					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then { // TODO: лишние Variable занимают память и группу невозможно использовать повторно
+					// TODO: лишние Variable занимают память и группу невозможно использовать повторно
+					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then { 
 						_ng_l set [count _ng_l, _u];
 					};
 				};
@@ -256,7 +260,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 	//--- переход экипажа подбитой техники в новую группу
 	{
 		_z = _x getVariable "gosa_grpCrewLeave";
-		if (isNil "_z" or {scriptDone _z}) then { // TODO: код нужно оптимизировать
+		// TODO: код нужно оптимизировать
+		if (isNil "_z" or {scriptDone _z}) then { 
 			_x setVariable ["gosa_grpCrewLeave", [_x, time+ 30, _grp] spawn _fnc_CrewLeave];
 		};
 	} forEach _ng_l;
