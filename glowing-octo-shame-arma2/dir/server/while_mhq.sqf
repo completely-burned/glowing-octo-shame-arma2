@@ -90,18 +90,21 @@ while{true}do{
 
 			_true = true;
 
-			if(!isNil {civilianBasePos})then{ // проверка дистанции точки
+			// проверка дистанции точки
+			if(!isNil {civilianBasePos})then{ 
 				if(_pos distance civilianBasePos < _dist)then{
 					_true = false;
 				};
 			};
 
-			if({(side _x in m_sideEnemy)} count (_pos nearEntities _dist) > 0)then{ // проверка дистанции врагов
+			// проверка дистанции врагов
+			if({(side _x in m_sideEnemy)} count (_pos nearEntities _dist) > 0)then{ 
 				_true = false;
 			};
 
 			if(_true)then{
-				_MHQ = createVehicle [(MHQ_list select 0) call BIS_fnc_selectRandom, _StartingLocationsPos call BIS_fnc_selectRandom, [], 0, "NONE"]; // создание
+				// создание
+				_MHQ = createVehicle [(MHQ_list select 0) call BIS_fnc_selectRandom, _StartingLocationsPos call BIS_fnc_selectRandom, [], 0, "NONE"]; 
 				breakTo "scope1";
 			}else{
 				_list = _list - [_pos];
