@@ -1,5 +1,11 @@
 #define __A2OA__
 
+private["_ai_client_count","_e_cfi","_playerCoefficient","_center_e_dir",
+	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
+	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
+	"_conveyer_limit","_limits","_l_enemy","_fnc_fl","_grp","_e_multipler",
+	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run"];
+
 diag_log format ["Log: [reinforcements] started %1", time ];
 
 waitUntil {!isNil "bis_fnc_init"};
@@ -8,10 +14,6 @@ waitUntil {!isNil "bis_fnc_init"};
 	waitUntil {!isNil "gosa_framesAVG"};
 
 diag_log format ["Log: [reinforcements] post waitUntil %1", time];
-
-private["_ai_client_count","_e_cfi","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
-	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fnc_fl","_grp","_e_multipler","_fl","_cfg_cfi","_patrol_percent",
-	"_respawn_mode","_run"];
 
 private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 	if(gosa_loglevel>0)then{ // diag_log
@@ -35,7 +37,7 @@ _ai_client_count = missionNamespace getVariable "ai_client_count";
 _dyn_limit = _ai_client_count;
 _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
 // TODO: количество игроков не учитывается
-_playerCoefficient = missionNamespace getVariable "playerCoefficient"; 
+_playerCoefficient = missionNamespace getVariable "playerCoefficient";
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
 _limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
@@ -97,7 +99,7 @@ _fnc_fl = {
 while{_run}do{
 
 	// FIXME: fnc_getGroups выдает неправильное соотношение локальных групп к удаленным, из-за чего некоторые группы не правильно учитываются и лимит не работает должным образом
-	_grp = call gosa_fnc_getGroups;  
+	_grp = call gosa_fnc_getGroups;
 
 	_lg=((count (_grp select 0))+(count (_grp select 1))+(count (_grp select 2)));
 
