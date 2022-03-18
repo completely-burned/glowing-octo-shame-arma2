@@ -43,8 +43,10 @@ _z = [
 	520,
 	"vTracked_APC",
 	525,
-	"vCrew multiplayer (not completed)", // TODO: нужно запретить присоединение с другой стороны
-	505, // присоединяться к экипажу с другими игроками
+	// TODO: нужно запретить присоединение с другой стороны
+	"vCrew multiplayer (not completed)", 
+	// присоединяться к экипажу с другими игроками
+	505, 
 	"weapons reset (not completed)",
 	9999 // w reset
 ];
