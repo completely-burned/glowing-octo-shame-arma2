@@ -2,14 +2,14 @@
 private["_leader"];
 _leader = (_this select 0);
 if(!isNil "_leader")then{
-	_grp = group _leader;
-
 	private["_grp","_leaderPos",
 		"_units","_vehicles","_landing","_types","_assignedVehicles",
 		"_veh","_assignedVehicle","_wp","_patrol","_pos",
 		"_maxDist","_WaypointCompletionRadius","_SpeedMode",
 		"_WaypointType","_z","_grp_type"
 	];
+
+	_grp = group _leader;
 
 	_landing = false;
 
