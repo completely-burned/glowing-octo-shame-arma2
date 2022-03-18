@@ -173,7 +173,8 @@ private["_flyInHeight","_pos"];
 								_veh removeMagazine _z;
 								_veh addMagazine "8Rnd_B_Beneli_Pellets"
 							};
-						} forEach magazines _veh; // TODO: нужно заменять только часть магазинов
+						// TODO: нужно заменять только часть магазинов
+						} forEach magazines _veh; 
 					};
 					///--- Saiga12
 					if (_type isKindOf "RU_Soldier2") then {
@@ -275,7 +276,8 @@ private["_flyInHeight","_pos"];
 						_veh removeMagazine "4Rnd_FAB_250";
 						_veh addMagazine "4Rnd_Ch29";
 						_veh addWeapon "Ch29Launcher";
-						_veh removeMagazine "2Rnd_R73"; // внешний вид
+						// внешний вид
+						_veh removeMagazine "2Rnd_R73"; 
 						_veh addMagazine "2Rnd_R73";
 					};
 				};
@@ -293,7 +295,8 @@ private["_flyInHeight","_pos"];
 					_veh addMagazine "2Rnd_R73";
 					_veh addWeapon "R73Launcher_2";
 				};
-				_veh removeMagazine "4Rnd_AT9_Mi24P"; // внешний вид
+				// внешний вид
+				_veh removeMagazine "4Rnd_AT9_Mi24P"; 
 				_veh addMagazine "4Rnd_AT9_Mi24P";
 			};
 			*/
@@ -333,7 +336,8 @@ private["_flyInHeight","_pos"];
 			if (LIB_ahAvail) then {
 				if (_type isKindOf "Su34") then{
 					if!(_isPlayer)then{
-						// _veh removeMagazine "180Rnd_30mm_GSh301"; // целится не правильно
+						// целится не правильно
+						// _veh removeMagazine "180Rnd_30mm_GSh301"; 
 					};
 					//_veh addMagazine ["180Rnd_30mm_GSh301",0];
 				};
@@ -346,12 +350,14 @@ private["_flyInHeight","_pos"];
 		//--- осветительные ракеты
 		if (_night) then {
 			if (side _veh == resistance) then {
-				_c = 6; // 6 примерно из восми, а из 4 будет 3 ракеты
+				// 6 примерно из восми, а из 4 будет 3 ракеты
+				_c = 6; 
 			 }else{
 				_c = 4;
 			};
 
-			_z = "1rnd_he_gp25"; // TODO: нужно учитывать так-же пустые слоты и другие типы ракет у юнитов
+			// TODO: нужно учитывать так-же пустые слоты и другие типы ракет у юнитов
+			_z = "1rnd_he_gp25"; 
 				{
 					if (toLower _x == _z) then {
 						if (random 8 < _c) then {
