@@ -127,11 +127,13 @@ _crew = [];
 					} forEach (_sorted select _i select 1);
 					_commanding = getNumber (_cfg_turret >> "commanding");
 					//--- gunner
-					if ( _commanding == 1 ) then { // TODO: 1 не всегда означает gunner
+					// TODO: 1 не всегда означает gunner
+					if ( _commanding == 1 ) then { 
 						_rank = "SERGEANT";
 					};
 					//--- commander
-					if ( _commanding == 2 ) then { // TODO: 2 не всегда означает commander
+					// TODO: 2 не всегда означает commander
+					if ( _commanding == 2 ) then { 
 						_rank = "LIEUTENANT";
 					};
 					//--- set rank
