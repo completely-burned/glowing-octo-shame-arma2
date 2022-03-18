@@ -29,7 +29,8 @@ for "_i" from 0 to (count _units -1) do {
 				_u fire [_x, _x, "FlareWhite_GP25"];
 				breakTo "scope1";
 			};
-		} forEach ["GP25Muzzle"]; // TODO: проверять нужно по внутренним параметрам игры
+		// TODO: проверять нужно по внутренним параметрам игры
+		} forEach ["GP25Muzzle"]; 
 
 		{
 			if (_x in getArray(configFile >> "cfgWeapons" >> _w >> "muzzles")) then {
@@ -38,7 +39,8 @@ for "_i" from 0 to (count _units -1) do {
 				_u fire [_x, _x, "FlareWhite_M203"];
 				breakTo "scope1";
 			};
-		} forEach ["M203Muzzle", "XM320Muzzle"]; // TODO: проверять нужно по внутренним параметрам игры
+		// TODO: проверять нужно по внутренним параметрам игры
+		} forEach ["M203Muzzle", "XM320Muzzle"]; 
 
 	}else{
 		diag_log format["Log: [fnc_unitFlareFire] %1 in vehicle or isPlayer", vehicle _u];
