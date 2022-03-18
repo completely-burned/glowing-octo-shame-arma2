@@ -1,5 +1,5 @@
 #define __A2OA__
-///--- бардак, комментировать нечего
+//--- бардак, комментировать нечего
 private ["_z","_n"];
 waitUntil{!isNil "bis_fnc_init"};
 waitUntil{!isNil "gosa_fnc_init"};
