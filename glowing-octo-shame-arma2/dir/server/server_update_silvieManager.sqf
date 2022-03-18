@@ -57,7 +57,8 @@ while{true}do{
 				if (_mashType != "") then {
 
 					//if ({alive _x} count _mash == 0) then {
-						_mash = _twnpos nearObjects [_mashType, 750]; // TODO: нужно оптимизировать код
+						// TODO: нужно оптимизировать код
+						_mash = _twnpos nearObjects [_mashType, 750]; 
 					//};
 
 					// мого разрушенных палаток не красиво выглядит
@@ -71,7 +72,8 @@ while{true}do{
 							_attempts = 0;
 							while {_attempts < 500} do {
 
-								// _testPos = _twnpos findEmptyPosition [5,500,_mashType]; // эта комаднда находит позицию ближе к центру и поэтому не подходит
+								// эта комаднда находит позицию ближе к центру и поэтому не подходит
+								// _testPos = _twnpos findEmptyPosition [5,500,_mashType]; 
 
 								_posX = _twnpos select 0;
 								_posY = _twnpos select 1;
