@@ -180,9 +180,12 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 				_driver = driver _x;
 				// _driver = _x;
 				_z = _driver getVariable "gosa_forceSpeed";
-				if(		!isNull _slu // есть юнит отряда вне транспорта
-					or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} // техника атакует
-					or	{count (_x nearEntities ["Man", 150]) > 0} // рядом с техникой прочая пехота
+				// есть юнит отряда вне транспорта
+				if(		!isNull _slu 
+					// техника атакует
+					or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} 
+					// рядом с техникой прочая пехота
+					or	{count (_x nearEntities ["Man", 150]) > 0} 
 				)then{
 					if(isNil {_z} or {_z != _n})then{
 						if (gosa_loglevel > 0) then { // diag_log
@@ -191,7 +194,8 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 						_driver setVariable ["gosa_forceSpeed",_n];
 						_driver forceSpeed _n;
 					};
-				}else{ //--- снятие ограничения
+				//--- снятие ограничения
+				}else{ 
 					if(!isNil {_z})then{
 						if (gosa_loglevel > 0) then { // diag_log
 							diag_log format ["Log: [gosa_fnc_group_other.sqf] forceSpeed -1 %1 %2", _driver, typeOf _driver ];
@@ -290,7 +294,8 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			diag_log format ["Log: [gosa_fnc_group_other] count units %1 < min", _grp];
 			_z = ((_leaderPos nearEntities ["CAManBase", 150]) - _units);
 			{
-				if (_units select 0 call gosa_fnc_getFaction == _x call gosa_fnc_getFaction && !(vehicle _x isKindOf "StaticWeapon")) then { // TODO: нужны доп. проверки чтобы не присоединяться к танкам или авиации
+				// TODO: нужны доп. проверки чтобы не присоединяться к танкам или авиации
+				if (_units select 0 call gosa_fnc_getFaction == _x call gosa_fnc_getFaction && !(vehicle _x isKindOf "StaticWeapon")) then { 
 					diag_log format ["Log: [gosa_fnc_group_other] %1 join %2", _units, _x];
 					_units join _x;
 					[_leader, leader _x] call gosa_fnc_autoLeader;
