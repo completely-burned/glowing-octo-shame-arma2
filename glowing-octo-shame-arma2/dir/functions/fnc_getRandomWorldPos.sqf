@@ -12,7 +12,8 @@ if (count _this > 0) then {
 // TODO: нужно ограничение
 while {isNil "_p"} do {
 
-  _z = 1000 min ((gosa_worldSize select 0)/4); // _z = отступ от края карты
+  // _z = отступ от края карты
+  _z = 1000 min ((gosa_worldSize select 0)/4); 
     _x = gosa_worldSize select 0;
     _x = _x - (_z*2);
     _x = _z + random _x;
