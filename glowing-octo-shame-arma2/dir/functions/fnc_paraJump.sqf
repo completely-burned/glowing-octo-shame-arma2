@@ -17,7 +17,8 @@ for "_i" from count _this -1 to 0 step -1 do {
 
 		_u action ["Eject", _v];
 
-		sleep 0.5; // TODO: нужно учитывать скорость
+		// TODO: нужно учитывать скорость
+		sleep 0.5; 
 
 		// отвязка от самолета, чтобы не лезть в него обратно
 		unassignVehicle _u;
