@@ -112,11 +112,13 @@ if ([[_this], ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then {
 									// закрепленный ии убит
 									{
 										_x spawn {
-											moveOut _this; // bugfix выходит без анимации
+											// bugfix выходит без анимации
+											moveOut _this; 
 											private["_time"]; // bugfix
 											_time = time + 60; // bugfix
 											waitUntil {vehicle _this == _this or _time > time}; // bugfix
-											deleteVehicle _this; // удаляется
+											// удаляется
+											deleteVehicle _this; 
 										};
 									} forEach _crew;
 									_this setVariable ["_crew", nil];
