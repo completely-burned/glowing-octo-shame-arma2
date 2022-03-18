@@ -63,7 +63,8 @@ while{true}do{
 
 		if (missionNamespace getVariable "respawn" == 0) then {
 			// FIXME: не понимаю, зачем это вообще нужно, возможно в режиме возрождения база слишком медленный захват
-			_westPlayers = _westPlayers * 10; // FIXME: это слишком много кмк
+			// FIXME: это слишком много кмк
+			_westPlayers = _westPlayers * 10; 
 			_eastPlayers = _eastPlayers * 10;
 			_resistancePlayers = _resistancePlayers * 10;
 		};
