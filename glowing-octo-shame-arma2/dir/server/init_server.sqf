@@ -1,14 +1,15 @@
 #define __A2OA__
 [] execVM ("dir\server\" + "server_update_respawnVehicles.sqf");
 
-///--- настройки миссии
+//--- настройки миссии
 
 // OnPlayerConnected "[_id, _uid, _name] ExecVM (corePath + ""Server\Server_PlayerConnected.sqf"")";
 	// OnPlayerDisconnected "[_id, _uid, _name] ExecVM (corePath + ""Server\Server_PlayerDisconnected.sqf"")";
 
 m_skill = (missionNamespace getVariable "m_skill") / 100;
 
-enableSaving [false,false]; // отключение возможность сохраняться
+// отключение возможность сохраняться
+enableSaving [false,false];
 // enableRadio false;
 // 0 fadeRadio 0;
 // enableSentences false;
@@ -23,7 +24,7 @@ if(debug)then{
 
 [] call compile preprocessFileLineNumbers "dir\server\config_server.sqf";
 
-///--- создание сторон
+//--- создание сторон
 if (( sideLogic CountSide AllUnits ) < 1) then { CreateCenter sideLogic };
 if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 {
@@ -68,7 +69,7 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 // civilian setFriend [resistance, 0];
 // civilian setFriend [civilian, 0];
 
-///--- модули
+//--- модули
 if (isNil "group_logic") then {
 	group_logic = createGroup sideLogic;
 };
@@ -135,7 +136,7 @@ if ( configName(LIB_cfgVeh >> "ACE_Logic") != "" ) then {
 waitUntil{!isNil "gosa_fnc_init"};
 
 
-///--- создание и удаление объектов, базы
+//--- создание и удаление объектов, базы
 if(worldName == "Chernarus")then{
 	// [] call compile preprocessFileLineNumbers "\ca\missions\campaign\missions\C3_Manhattan.Chernarus\manhattansetup.sqf";
 	{
