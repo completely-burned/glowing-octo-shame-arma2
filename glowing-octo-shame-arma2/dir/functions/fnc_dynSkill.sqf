@@ -238,7 +238,8 @@ if (!isNil {_aimAcc}) then {
 
 	_efc = effectiveCommander _veh;
 
-	_z = _efc skill "aimingAccuracy"; // TODO: нужно учитывать CfgAISkill
+	// TODO: нужно учитывать CfgAISkill
+	_z = _efc skill "aimingAccuracy"; 
 	if (isNil{_efc getVariable "gosa_def_aimAcc"}) then {
 		_efc setVariable ["gosa_def_aimAcc", _z];
 		diag_log format ["Log: [fnc_dynSkill] %1 %2 default aimingAccuracy %3", _efc, _type, _z];
