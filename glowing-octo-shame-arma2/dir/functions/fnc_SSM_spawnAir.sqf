@@ -34,15 +34,18 @@ if (count _vehicle > 0) then {
 
   // TODO: нужно временно разделить отряд если в нем множество тс
 
-  _grp setVariable ["gosa_SSM_SupportCaller",_caller]; // FIXME: на тс может надо?
+  // FIXME: на тс может надо?
+  _grp setVariable ["gosa_SSM_SupportCaller",_caller]; 
 
 
 } else {
 _grp = createGroup _side;
 
-_grp setVariable ["gosa_SSM_SupportCaller",_caller]; // FIXME: на тс может надо?
+// FIXME: на тс может надо?
+_grp setVariable ["gosa_SSM_SupportCaller",_caller]; 
 
-switch (_side) do { // TODO: нужна функция
+// TODO: нужна функция
+switch (_side) do { 
   case west: {_class = airTransportsWest call BIS_fnc_selectRandom};
   case east: {_class = airTransportsEast call BIS_fnc_selectRandom};
   case resistance: {_class = airTransportsGuer call BIS_fnc_selectRandom};
@@ -78,7 +81,8 @@ _vehicle = ([_spawnPos, random 360, _class, _grp] call gosa_fnc_spawnVehicle) se
 
 
   // set 'fly out' final waypoint
-  //_wp = _grp addWaypoint [[0,0], 0]; // TODO: позицию для авиации можно за пределами карты
+  // TODO: позицию для авиации можно за пределами карты
+  //_wp = _grp addWaypoint [[0,0], 0]; 
   //_wp setWaypointStatements ["true", "call gosa_fnc_SSM_FinalWaypointReached"];
 
 _grp;
