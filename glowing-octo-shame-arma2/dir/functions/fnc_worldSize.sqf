@@ -6,7 +6,8 @@ if (isNil "gosa_worldSize") then {
 
 	#ifdef __ARMA3__
 
-	gosa_worldSize = [worldSize, worldSize]; // TODO: worldSize работает не так как ожидалось
+	// TODO: worldSize работает не так как ожидалось
+	gosa_worldSize = [worldSize, worldSize]; 
 
 	#else
 
