@@ -97,7 +97,8 @@ _unit = _this select 4;
 _unit kbAddtopic[_rt, BIS_SSM_BIKB];
 
 if (isNull _hq) then {
-  _hq_g = createGroup playerSide; // TODO: нужна функция
+  // TODO: нужна функция
+  _hq_g = createGroup playerSide; 
   _hq = _hq_g createUnit ["Logic", [10,10,1000], [], 0, "NONE"];
   _hq setGroupId ["HQ", "SIX"];
   //_hq setIdentity "SSMHQ_EN";
