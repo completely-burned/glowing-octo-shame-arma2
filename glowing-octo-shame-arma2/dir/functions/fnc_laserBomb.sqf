@@ -36,7 +36,8 @@
 	// начальная позиция бомбы, нуждается в доработке
 	_dirB = random 360;
 	_posB = [_laserMarker, random 300, _dirB] call BIS_fnc_relPos;
-	_posB set [2,2000]; // высота
+	// высота
+	_posB set [2,2000]; 
 
 	// получилось только с A10, мишень лучше имхо
 	// не работает если переместить подземлю, сразу уничтожается
@@ -54,9 +55,11 @@
 	// стрелок
 	_unit = group_system_units createUnit [
 		getText (configFile >> "CfgVehicles" >> "A10" >> "crew"), [
-			(getPos player select 0) + 100, // TODO: может зацепить игроков
+			// TODO: может зацепить игроков
+			(getPos player select 0) + 100, 
 			getPos player select 1,
-			100 // при столкновении ничего страшного, но нужно незаметно
+			// при столкновении ничего страшного, но нужно незаметно
+			100 
 		], [], 0, "CAN_COLLIDE"
 	];
 
@@ -69,7 +72,8 @@
 	// gunner?
 	_unit moveInDriver _vehicle;
 
-	_vehicle setVectorDirAndUp [[0,0,-1], [0,1,0]]; // часто вверх ногами
+	// часто вверх ногами
+	_vehicle setVectorDirAndUp [[0,0,-1], [0,1,0]]; 
 
 	// reveal за 1000m возможно не имеет смысла
 	//_vehicle reveal _laserMarker;
@@ -78,7 +82,8 @@
 
 	_ammo = "Bo_GBU12_LGB";
 
-	sleep 2; // на всякий случай, а вдруг лучше
+	// на всякий случай, а вдруг лучше
+	sleep 2; 
 	_vehicle fireAtTarget [_laserMarker, "BombLauncherA10"];
 
 	// addEventHandler "fired" не действует ??
@@ -108,7 +113,8 @@
 	_designatorUnit setVariable ["gosa_laserBoShell", _shell];
 
 	{
-		_x setDamage 1; // нужно отключить эффект смерти
+		// нужно отключить эффект смерти
+		_x setDamage 1; 
 		deleteVehicle _x;
 	} forEach [_unit, _vehicle];
 
