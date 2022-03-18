@@ -182,9 +182,11 @@ if(_run)then{
 		[_units + _vehicles] call gosa_fnc_reweapon;
 	};
 
-	// _units call gosa_fnc_RankToSkill; //выставить skill в зависимости от ранга
+	//выставить skill в зависимости от ранга
+	// _units call gosa_fnc_RankToSkill; 
 	if (count _vehicles > 0) then {
-		[_vehicles, _cargo] call gosa_fnc_MoveInCargo; // посадить в багажное отделение
+		// посадить в багажное отделение
+		[_vehicles, _cargo] call gosa_fnc_MoveInCargo; 
 	};
 
 	{_x setVariable ["grp_created",true,true]}forEach _groups;
