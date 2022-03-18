@@ -34,7 +34,8 @@ _z=[
 	[localize "STR_gosa_setTerrainGrid","","#USER:setTerrainGrid_0"],
 	[localize "STR_gosa_setViewDistance","","#USER:setViewDistance_0"],
 
-	// 					_g selectLeader _p; // TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
+	// TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
+	// 					_g selectLeader _p; 
 	["selectLeader (%SELECTED_UNIT_ID)","
 		private['_z','_g','_p'];
 		_p = player;
