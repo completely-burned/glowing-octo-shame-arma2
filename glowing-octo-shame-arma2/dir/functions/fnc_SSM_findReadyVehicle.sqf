@@ -29,7 +29,8 @@ _list = [];
   //  _side = side _caller;
   //}; //\
 
-  if(side _veh getFriend _side >= 0.6)then{ // TODO: проверку лучше по cfg делать, тк игроки угоняют тс и выходят с сервера
+  // TODO: проверку лучше по cfg делать, тк игроки угоняют тс и выходят с сервера
+  if(side _veh getFriend _side >= 0.6)then{ 
 
   if(_veh isKindOf "Helicopter" or _veh isKindOf "MV22")then{
 
@@ -42,8 +43,10 @@ _list = [];
   if(isNil {_grp getVariable "gosa_SSM_SupportCaller"})then{
 
   if(
-    { group _x != _grp && // искл. посторонние группы
-      group _x != group _caller // но вкл. юниты игрока
+    // искл. посторонние группы
+    { group _x != _grp && 
+      // но вкл. юниты игрока
+      group _x != group _caller 
     }count crew _veh == 0
   )then{
 
