@@ -734,7 +734,8 @@ BIS_CONTROL_CAM cameraeffect ["terminate","back"];
 camdestroy BIS_CONTROL_CAM;
 BIS_CONTROL_CAM = nil;
 BIS_CONTROL_CAM_Handler = nil;
-1122 cuttext ["","plain"]; // круг
+// круг
+1122 cuttext ["","plain"]; 
 _player = bis_coin_player;
 _player setvariable ["bis_coin_logic",nil];
 bis_coin_player = objnull;
