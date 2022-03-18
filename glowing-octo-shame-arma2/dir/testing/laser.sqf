@@ -12,11 +12,14 @@ while{true}do{
 
 	{
 		_lt = laserTarget _x;
-		if(!isNull _lt && !(_x call gosa_fnc_isPlayer))then{ // для игроков нужно делать запуск бомбы через меню действия
+		// для игроков нужно делать запуск бомбы через меню действия
+		if(!isNull _lt && !(_x call gosa_fnc_isPlayer))then{ 
 			[_lt, _x] call gosa_fnc_laserBomb;
 		};
-		sleep 0.05; // производительность
-	} forEach allUnits; // проверяем юнитов т.к. laserTarget узнать можно от них
+		// производительность
+		sleep 0.05; 
+	// проверяем юнитов т.к. laserTarget узнать можно от них
+	} forEach allUnits; 
 
 	sleep 15;
 };
