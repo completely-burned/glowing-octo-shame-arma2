@@ -22,7 +22,7 @@ if (configName(configFile >> "CfgMods" >> "acex_ru") != "") then {acex_ru_Avail 
 acex_usnavy_Avail = false;
 if (configName(configFile >> "CfgMods" >> "acex_usnavy") != "") then {acex_usnavy_Avail = true};
 
-///--- функции
+//--- функции
 [] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
 
 listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","WarfareSalvageTruck_CDF","WarfareSalvageTruck_Gue","WarfareSalvageTruck_INS",
