@@ -74,7 +74,8 @@ while{_run}do{
 					#else
 					if (alive _x) then {_ok = true};
 					#endif
-					//--- при обнаружении игрока нет смысла проверять остальных юнитов // exitWith выходит только из forEach ??
+					// exitWith выходит только из forEach ??
+					//--- при обнаружении игрока нет смысла проверять остальных юнитов
 					if (_x call gosa_fnc_isPlayer) exitWith { _ok = false };
 			} forEach units _grp;
 
@@ -98,7 +99,7 @@ while{_run}do{
 		};
 	} forEach allGroups;
 
-	diag_log format ["Log: [while_patrols.sqf] _enemyGroups %1, _enemyPatrols %2, _friendlyGroups %3, _friendlyPatrols %4", 
+	diag_log format ["Log: [while_patrols.sqf] _enemyGroups %1, _enemyPatrols %2, _friendlyGroups %3, _friendlyPatrols %4",
 												_enemyGroups, _enemyPatrols, _friendlyGroups, _friendlyPatrols]; // diag_log
 
 
@@ -112,8 +113,8 @@ while{_run}do{
 
 		// где /2 это поровну патрули и подкрепления, у меня плохо с математекой (
 		_limits = [
-			((_avgGroups / (1+_enemyCoefficient)) * _enemyCoefficient)	/ 2,	// enemy 
-			((_avgGroups / (1+_enemyCoefficient)) * _enemyCoefficient)	/ 2,	// enemy 
+			((_avgGroups / (1+_enemyCoefficient)) * _enemyCoefficient)	/ 2,	// enemy
+			((_avgGroups / (1+_enemyCoefficient)) * _enemyCoefficient)	/ 2,	// enemy
 			( _avgGroups / (1+_enemyCoefficient)) 						/ 2,	// friendly
 			( _avgGroups / (1+_enemyCoefficient)) 						/ 2,	// friendly
 			_avgGroups
@@ -162,13 +163,17 @@ while{_run}do{
 	// динамическое ограничение
 	if(_limit_fps > 0)then{
 		if(gosa_framesAVG > _frames_required)then{
-			_avgGroups = 0 max ( // не понижать ниже нуля
+			// не понижать ниже нуля
+			// TODO: при большом отклонении колл-ва групп нужно другое поведение
+			_avgGroups = 0 max (
 				_avgGroups + 2*(_time / gosa_server_diag_fps_interval)
-			); // TODO: при большом отклонении колл-ва групп нужно другое поведение
+			);
 		}else{
-			_avgGroups = 0 max ( // не понижать ниже нуля
+			// не понижать ниже нуля
+			// TODO: при большом отклонении колл-ва групп нужно другое поведение
+			_avgGroups = 0 max (
 				_avgGroups - 2*(_time / gosa_server_diag_fps_interval)
-			); // TODO: при большом отклонении колл-ва групп нужно другое поведение
+			);
 		};
 		diag_log format ["Log: [while_patrols.sqf] %1, лимит %2", time, _avgGroups];
 		_time = time;
