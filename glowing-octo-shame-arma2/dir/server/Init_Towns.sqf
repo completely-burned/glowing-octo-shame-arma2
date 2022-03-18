@@ -114,7 +114,8 @@ locationNext={
 		CivilianLocation = objNull;
 
 		private ["_x", "_y", "_z"];
-		_z = 1000 min ((gosa_worldSize select 0)/4); // _z = отступ
+		// _z = отступ
+		_z = 1000 min ((gosa_worldSize select 0)/4); 
 			_x = gosa_worldSize select 0;
 			_x = _x - (_z*2);
 			_x = _z + random _x;
@@ -122,7 +123,8 @@ locationNext={
 			_y = gosa_worldSize select 1;
 			_y = _y - (_z*2);
 			_y = _z + random _y;
-		CivilianBasePos = [_x, _y]; // TODO: нужно исключить позицию на воде
+		// TODO: нужно исключить позицию на воде
+		CivilianBasePos = [_x, _y]; 
 
 		publicVariable "CivilianBasePos";
 		publicVariable "CivilianLocation";
