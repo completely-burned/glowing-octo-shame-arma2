@@ -12,9 +12,12 @@ private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient
 _run_timer = time;
 
 
-_pos = _this select 0; // центр поиска
-_safe_dist = _this select 1; // дистанция до игроков
-_max_radius = _this select 2; // максимальный радиус поиска
+// центр поиска
+_pos = _this select 0; 
+// дистанция до игроков
+_safe_dist = _this select 1; 
+// максимальный радиус поиска
+_max_radius = _this select 2; 
 _objDist = _this select 3;
 _waterMode = _this select 4;
 _maxGradient = _this select 5;
@@ -57,15 +60,19 @@ _allowPos = false;
 //--- максимальное количество попыток
 // катера не находят места на суше для такого нужно ограничение попыток
 // в случае неудачи обычно функция вызывается с другим типом группы
-_max_attempt = 1000; // TODO: лучше передавать максимальное количество попыток при вызове функции
+// TODO: лучше передавать максимальное количество попыток при вызове функции
+_max_attempt = 1000; 
 
 // искать нужно сразу по достаточной площади
 _start_radius = 1250;
 
 //--- площадь круга
-_max_square = pi * (_max_radius^2); // максимальная площадь
-//_base = 2*pi*_max_radius; // основание круга
-//_max_square = 0.5*_base*_max_radius; // площадь круга
+// максимальная площадь
+_max_square = pi * (_max_radius^2); 
+// основание круга
+//_base = 2*pi*_max_radius; 
+// площадь круга
+//_max_square = 0.5*_base*_max_radius; 
 
 _start_square = pi * (_start_radius^2);
 
@@ -110,7 +117,8 @@ while {!_allowPos} do {
 	//--- выбираем участки дорог
 	_roads = [];
 	if(count _branchesRoads > 0)then{
-		_branchRoad = _branchesRoads call BIS_fnc_selectRandom; // TODO: части дорог и количество попыток не верно взаимосвязаны
+		// TODO: части дорог и количество попыток не верно взаимосвязаны
+		_branchRoad = _branchesRoads call BIS_fnc_selectRandom; 
 
 		if(count _branchRoad >= _roadSize)then {
 			private ["_start"];
