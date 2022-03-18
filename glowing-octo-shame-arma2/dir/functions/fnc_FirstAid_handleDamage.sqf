@@ -8,13 +8,16 @@ _projectile = _this select 4;
 _m_true = true;
 
 if(_unit == _source)then{
-	if(_projectile == "")then{ // повреждения от падения или столкновения
+	// повреждения от падения или столкновения
+	if(_projectile == "")then{ 
 		_m_true = false;
 		_damage min (0.8 - 0.01)
 	};
 }else{
-	if(isPlayer _source && isPlayer _unit && _source != _unit && vehicle _source != vehicle _unit)then{// повреждения от другого игрока
-		if!(_projectile in ["HelicopterExploSmall","HelicopterExploBig",""])then{ // не взрыв вертолета
+	// повреждения от другого игрока
+	if(isPlayer _source && isPlayer _unit && _source != _unit && vehicle _source != vehicle _unit)then{
+		// не взрыв вертолета
+		if!(_projectile in ["HelicopterExploSmall","HelicopterExploBig",""])then{ 
 			_m_true = false;
 			diag_log format ["m_FirstAid_handleDamage, %1", _this];
 			_damage min (0.8 - 0.01)
@@ -23,7 +26,8 @@ if(_unit == _source)then{
 };
 
 if(_m_true)then{
-	if(_selection == "" && _damage >= 0.8 && alive _unit)then{ // если повреждения >= 0.8
+	// если повреждения >= 0.8
+	if(_selection == "" && _damage >= 0.8 && alive _unit)then{ 
 		if(_unit call gosa_fnc_isPlayer)then{
 		_unit setvariable ["BIS_lifeState","UNCONSCIOUS",true];
 		_unit setvariable ["BIS_IS_inAgony",true,true];
