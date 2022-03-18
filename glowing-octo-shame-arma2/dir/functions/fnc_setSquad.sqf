@@ -24,8 +24,10 @@ if (count _this < 2) exitWith {
 //--- установка значений
 private ["_id","_z"];
 
-_id = _this select 0 select 1; // id другого игрока или тип юнита
-_z = _this select 1; // режим
+// id другого игрока или тип юнита
+_id = _this select 0 select 1; 
+// режим
+_z = _this select 1; 
 
 //--- on
 if ( _z ==  0 ) then {
