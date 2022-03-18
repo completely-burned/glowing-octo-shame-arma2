@@ -56,7 +56,8 @@ for "_i" from 0 to (count _objects - 1) do {
 		private ["_dir","_dist2"];
 		_dir = getDir _obj;
 		_dist2 = 3;
-		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
+		// в центре нет выхода
+		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; 
 	};
 
 	_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i+1], _pos];
@@ -138,7 +139,8 @@ if(true)then{
 							private ["_dir","_dist2"];
 							_dir = getDir _x - 90 - 10 + random 20;
 							_dist2 = 3 + random 2;
-							_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; // в центре нет выхода
+							// в центре нет выхода
+							_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; 
 						};
 						if(getMarkerType _markerMHQ != _markerMHQtype)then{
 							_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
@@ -154,7 +156,8 @@ if(true)then{
 				{
 					private ["_obj"];
 					_obj = _x;
-					if(true)then{ // нужно сделать проверку фракции
+					// нужно сделать проверку фракции
+					if(true)then{ 
 						private ["_pos"];
 						_pos = getPos _obj;
 						private ["_dir","_dist"];
@@ -172,7 +175,8 @@ if(true)then{
 							};
 						};
 					};
-				} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital"; // FIXME: может можно объединить все нужные типы в один зпрос allMissionObjects, нагрузка на цп
+				// FIXME: может можно объединить все нужные типы в один зпрос allMissionObjects, нагрузка на цп
+				} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital"; 
 				// -- объекты базы
 				{
 						_units set [count _units, _x];
@@ -205,10 +209,12 @@ if(true)then{
 				private ["_unit","_marker"];
 				_unit = (_units select _i);
 				_marker = (_markers select _i);
-				if (!isNull _unit && alive _unit) then { // TODO: нужна проверка на отключеных игроков
+				// TODO: нужна проверка на отключеных игроков
+				if (!isNull _unit && alive _unit) then { 
 					if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call gosa_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6))then{
 						if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
-							_marker setMarkerPosLocal (position _unit); // TODO: setMarker* код не оптимизирован
+							// TODO: setMarker* код не оптимизирован
+							_marker setMarkerPosLocal (position _unit); 
 							_marker setMarkerTypeLocal "vehicle";
 							_marker setMarkerDirLocal getDir _unit;
 							_marker setMarkerSizeLocal [3,3];
