@@ -61,7 +61,8 @@ if(!isNil "_leader")then{
 
 	{
 		_veh = _x;
-		if({_z = group _x; _z != _grp && !isNull _z}count crew _veh > 0)then{ // FIXME: возможно из-за grpNull был true
+		// FIXME: возможно из-за grpNull был true
+		if({_z = group _x; _z != _grp && !isNull _z}count crew _veh > 0)then{ 
 			_landing = true;
 		};
 	} forEach _vehicles;
@@ -146,7 +147,8 @@ if(!isNil "_leader")then{
 		if(_landing && "Helicopter" in _grp_type)then{
 			_pos = [civilianBasePos, 1500, 500, side _grp] call gosa_fnc_find_heliUnload_pos;
 			_maxDist = 0;
-			if (count _pos == 0) then { // TODO: в случае не найденной позиции высадки нужно сделать выгрузку с парашютом
+			// TODO: в случае не найденной позиции высадки нужно сделать выгрузку с парашютом
+			if (count _pos == 0) then { 
 				_pos = civilianBasePos;
 				_maxDist = sizeLocation*2;
 			};
