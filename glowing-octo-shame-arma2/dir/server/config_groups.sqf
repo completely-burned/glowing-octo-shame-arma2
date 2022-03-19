@@ -182,11 +182,13 @@ if(LIB_a2Avail)then{
 					1,1,
 					0]]],0.2],
 
+				// TODO: нужно сбалансировать
 				[[[["Ins_Soldier_AA","Ins_Soldier_AA","Ins_Soldier_AA","Ural_ZU23_INS"], [[10,10],[10,0],[0,10],[0,0]],[2,1,1,1]]],0.01],
-				[[[["Su25_Ins"], [],[4]]],0.01],
 				[[[["INS_Soldier_GL","UAZ_INS","INS_Soldier_1","INS_Soldier_MG","INS_Soldier_1"], [[0,0],[5,0],[0,0],[0,0],[0,0]],[1,1,0,0,0]]],0.01],
 				[[[["INS_Soldier_GL","UAZ_MG_INS"], [[0,0],[5,0]],[1,0]]],0.01],
 				[[[["INS_Soldier_GL","Ins_Soldier_Sapper","INS_Soldier_AT"], [],[2,1,0]]],0.01],
+
+				[[[["Su25_Ins"], [],[4]]],0.01],
 
 				[[[["UralReammo_INS"], [],[0]]],0.01],
 				[[[["UralRefuel_INS"], [],[0]]],0.01],
@@ -335,9 +337,11 @@ if(LIB_a2Avail)then{
 				// CDF_SniperTeam
 				[[[["CDF_Soldier_Sniper","CDF_Soldier_Spotter"],[],[2,1]]],0.05],
 
+				// TODO: нужно сбалансировать
 				[[[["Ural_ZU23_CDF","CDF_Soldier_Strela","CDF_Soldier_Strela","CDF_Soldier_Strela"], [[10,10],[10,0],[0,10],[0,0]],[2,1,1,1]]],0.01],
 				[[[["CDF_Soldier_GL","CDF_Soldier_Engineer","CDF_Soldier_RPG"], [],[2,1,0]]],0.01],
 				[[[["CDF_Soldier_GL","UAZ_MG_CDF"], [[0,0],[5,0]],[0,0]]],0.01],
+
 				[[[["Su25_CDF"], [],[4]]],0.01],
 				[[[["Pchela1T_CDF"], [],[4]]],0.01],
 
@@ -500,6 +504,7 @@ if(LIB_a2Avail)then{
 				[[[["T72_GUE","T72_GUE"],[[0,10,0],[5,0,0]],
 					[3,3]]],0.01],
 
+					// TODO: нужно сбалансировать
 				[[[["Ural_ZU23_Gue","GUE_Soldier_AA","GUE_Soldier_AA","GUE_Soldier_AA"], [[10,0],[0,0],[0,0],[0,0]],[2,1,1,1]]],0.01],
 				[[[["T34"], [[0,0],[5,0]],[3,3]]],0.01],
 				[[[["ZSU_Gue_CP"], [[0,0],[5,0]],[3,3]]],0.01],
