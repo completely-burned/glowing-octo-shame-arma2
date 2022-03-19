@@ -1,5 +1,7 @@
 /*---------------------------------------------------------------------------
-принудительное обнаружение игрока
+Принудительное обнаружение игрока.
+FIXME: От этотого скрипта нет пользы.
+FIXME: Лучше повышать knowsAbout игрока до >=1.5
 ---------------------------------------------------------------------------*/
 
 private["_l_enemy","_p","_z","_knowledge","_r","_frames_required","_enemySide","_fps_conf"];
@@ -45,7 +47,7 @@ while {_r} do {
 					_l_enemy set [count _l_enemy, _x];
 				};
 			// lineIntersects 1000m ограничен
-			} forEach (_p nearEntities 1000); 
+			} forEach (_p nearEntities 1000);
 
 			if (count _l_enemy > 0) then {
 
