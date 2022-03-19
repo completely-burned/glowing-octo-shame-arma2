@@ -46,21 +46,27 @@ if !(requiredVersion "1.60") then {
 	gosa_loglevel_perf = gosa_loglevel;
 	publicVariable "gosa_loglevel";
 
+	gosa_pvp = false;
+
 	[] Call Compile preprocessFileLineNumbers "dir\init_common.sqf";
 	if (isServer) then {
 		[] execVM "dir\server\init_server.sqf";
 	};
-	if (!IsDedicated) then {
-		[] Call Compile preprocessFileLineNumbers "dir\client\init_client.sqf";
+
+
+	if (hasInterface) then {
+		if (!IsDedicated) then {
+			[] execVM "dir\client\init_client.sqf";
+		};
+	}else{
+		#ifdef __A2OA__
+			if !(isServer) then {
+				execVM "init_HC.sqf";
+			};
+		#endif
 	};
 
-	gosa_pvp = false;
 
-#ifdef __A2OA__
-	if (!hasInterface && !isServer) then {
-		execVM "init_HC.sqf";
-	};
-#endif
 #ifdef __A2OA__
 };
 #endif
