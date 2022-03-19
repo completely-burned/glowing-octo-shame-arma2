@@ -767,6 +767,7 @@ if(LIB_a2Avail)then{
 						"FR_Assault_GL","FR_Assault_R",
 						"FR_Assault_R"], [],
 						[3,3,3,2,2,2]]],0.01],
+					// HMMWV_Armored и гранатометчики в одном отряде плохо сочитаются
 					[[[["USMC_Soldier_TL",
 						"HMMWV_Armored","USMC_Soldier_AT",
 						"USMC_Soldier_LAT"], [[0,0],[5,0],[0,0],[0,0]],
@@ -874,7 +875,13 @@ if(LIB_a2Avail)then{
 		}else{
 				_west=_west+[
 					// USMC_TankPlatoon !=
-					[[[["M1A2_TUSK_MG","M1A2_TUSK_MG","M1A2_TUSK_MG","M1A2_TUSK_MG"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],[4,3,3,3]]],0.5]
+					// звания изменены
+					[[[["M1A2_TUSK_MG",
+						"M1A2_TUSK_MG","M1A2_TUSK_MG",
+						"M1A2_TUSK_MG"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],
+						[4,
+						3,3
+						,3]]],0.5]
 				];
 		};
 	};
