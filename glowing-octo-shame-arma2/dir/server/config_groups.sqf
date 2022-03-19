@@ -43,7 +43,17 @@ if(LIB_a2Avail)then{
 				[[[["Mi17_Ins"],[],[4]],[["INS_Soldier_CO","INS_Soldier_AR","INS_Soldier_GL","INS_Soldier_AT","INS_Soldier_2","INS_Soldier_AR","INS_Soldier_1","INS_Soldier_2"]],[["INS_Soldier_CO","INS_Soldier_MG","INS_Soldier_MG","INS_Soldier_AT","INS_Soldier_AT","INS_Soldier_AR","INS_Soldier_AR","INS_Soldier_2"]]],0.05],
 
 				// INS_InfSquad !=
-				// временно добавлен медик
+				// rarityGroup = 0.85; изменен из-за отряда с Ins_Soldier_Medic
+				[[[["INS_Soldier_CO",
+					"INS_Soldier_AR","INS_Soldier_GL",
+					"INS_Soldier_AT","INS_Soldier_2",
+					"INS_Soldier_AR","INS_Soldier_1",
+					"INS_Soldier_2","INS_Soldier_2"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					[2,
+					1,1,
+					0,0,
+					0,0,
+					0,0]]],0.55],
 				[[[["INS_Soldier_CO",
 					"INS_Soldier_AR","INS_Soldier_GL",
 					"INS_Soldier_AT","INS_Soldier_2",
@@ -53,9 +63,9 @@ if(LIB_a2Avail)then{
 					1,1,
 					0,0,
 					0,0,
-					0,0]]],0.85],
+					0,0]]],0.30],
 				// INS_InfSquad_Weapons !=
-				// временно добавлен медик
+				// rarityGroup = 0.6; изменен из-за отряда с Ins_Soldier_Medic
 				[[[["INS_Soldier_CO",
 					"INS_Soldier_MG","INS_Soldier_MG",
 					"INS_Soldier_AT","INS_Soldier_AT",
@@ -65,7 +75,17 @@ if(LIB_a2Avail)then{
 					1,1,
 					0,0,
 					0,0,
-					0,0]]],0.6],
+					0,0]]],0.4],
+				[[[["INS_Soldier_CO",
+					"INS_Soldier_MG","INS_Soldier_MG",
+					"INS_Soldier_AT","INS_Soldier_AT",
+					"INS_Soldier_AR","INS_Soldier_AR",
+					"INS_Soldier_2","INS_Soldier_2"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					[2,
+					1,1,
+					0,0,
+					0,0,
+					0,0]]],0.2],
 				// INS_InfSection_AT
 				[[[["INS_Soldier_AT","INS_Soldier_AT","INS_Soldier_1"],[[0,5,0],[3,0,0],[5,0,0]],[1,0,0]]],0.25],
 				// INS_InfSection_AA
