@@ -1,11 +1,6 @@
 ﻿LANGUAGE,"English","Russian"
 STR_ACT_Crew,"Crew","Экипаж"
 STR_RADIO_Friendlyfire,"%1 has engaged friendly!","%1 открыл огонь по своим!"
-STR_WF_Gameplay_MissleCamera,"Gameplay: Missle Camera","Режим: Видеокамера на управл. ракетах"
-STR_DLG_Loading,"Loading...","Загрузка..."
-str_ep1_location_nagara1oilfield,"nagara oilfield","Месторождение Нагара"
-str_location_abc,"Chertov castle","Чертов Замок"
-STR_AI_NAME,"ai","бот"
 
 STR_gosa_purchase,"purchase","покупка"
 STR_gosa_teleportation,"teleportation","телепортация"
