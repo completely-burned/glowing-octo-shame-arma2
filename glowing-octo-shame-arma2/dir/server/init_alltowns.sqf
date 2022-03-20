@@ -1,4 +1,5 @@
-/* скрипт создает бункеры у городов.
+/*
+скрипт создает бункеры у городов.
 */
 
 // gosa_constructedList = [];
@@ -113,7 +114,7 @@ for [{_count = 0},{_count < _total},{_count = _count + 1}] do
 			_constructed = [_depotPosition,_depotDirection,_composition] Call _constructFunction;
 			gosa_constructedList set [count gosa_constructedList, _constructed];
 			// мед палатка
-			//[_depot] Call BIS_WF_InitDefenseLayout; 
+			//[_depot] Call BIS_WF_InitDefenseLayout;
 		};
 
 		[[_town]] Call BIS_fnc_locations;
@@ -201,160 +202,3 @@ for [{_count = 0},{_count < _total},{_count = _count + 1}] do
 		_town SetVariable["camps",_camps,true];
 	};
 };
-
-/*
-Private["_closestLocation","_found","_index","_location","_locationLinks","_name","_neighbors","_nearNames"];
-
-//Add any custom locations.
-{
-Textlog Format["WF Debug: Custom town %1 initialized.",_x GetVariable "name"];
-
-	_depot = _x GetVariable "depot";
-	if (IsNil "_depot") then
-	{
-		_depot = group_logic CreateUnit ["LocationLogicDepot",Position _x,[],0,"NONE"];
-		_x SetVariable ["depot",_depot,true];
-Textlog Format["WF Debug: %1 depot created: %1",_x GetVariable "name"];
-	};
-
-	_composition = [BIS_WF_Constants GetVariable "depotCompositions"] Call BIS_fnc_selectRandom;
-	_constructed = [Position _depot,Direction _depot,_composition] Call _constructFunction;
-	gosa_constructedList set [count gosa_constructedList, _constructed];
-	[_depot] Call BIS_WF_InitDefenseLayout;
-
-	//Link depot to logic.
-	_depot SetVariable["location",_x,true];
-
-	//Use any LocationLogicCityLinks to attach this location to others.
-	_location = _x;
-	_neighbors = [];
-	_locationLinks = _x GetVariable "neighborLinks";
-	if (IsNil "_locationLinks") then {_x SetVariable["neighborLinks",[]]};
-
-	{
-		_objects = _x NearEntities["LocationLogicCity",350];
-
-		if (Count _objects > 0) then
-		{
-			//Get closest location to link.
-			_closestLocation = [_x,_objects] Call BIS_WF_GetClosest;
-
-			_closestNeighbors = _closestLocation GetVariable "neighbors";
-			if (_closestLocation In BIS_WF_CustomLocations) then {_closestNeighbors = _closestLocation GetVariable "neighborLinks"};
-
-			//If this location has not already been linked then do so.
-			if (!(_location In _closestNeighbors)) then
-			{
-				//Link this location to nearby location.
-				_closestNeighbors = _closestNeighbors + [_location];
-
-				if (_closestLocation In BIS_WF_CustomLocations) then
-				{
-					_closestLocation SetVariable["neighborLinks",_closestNeighbors];
-				}
-				else
-				{
-					_closestLocation SetVariable["neighbors",_closestNeighbors];
-				};
-Textlog Format["WF Debug: Custom town %1 linked to %2.",_location GetVariable "name",_closestLocation GetVariable "name"];
-			};
-
-			//Link nearby location to this location.
-			if (!(_closestLocation In _neighbors)) then
-			{
-				_neighbors = _neighbors + [_closestLocation];
-			};
-		};
-	} ForEach _locationLinks;
-
-    [[_x]] Call BIS_fnc_locations;
-
-	//Now that link locations have been resolved replace links list with list of locations.
-	_location SetVariable["neighborLinks",_neighbors];
-
-	//If value was not defined in editor then do so now.
-	if (IsNil {_x GetVariable "range"}) then {_x SetVariable["range",350]};
-	if (IsNil {_x GetVariable "minSV"}) then {_x SetVariable["minSV",10]};
-	if (IsNil {_x GetVariable "SV"}) then {_x SetVariable["SV",_x GetVariable "minSV"]};
-
-	if (IsNil {_x GetVariable "maxSV"}) then {_x SetVariable["maxSV",60]};
-	if (BIS_WF_LimitedWarfare) then {_x SetVariable["maxSV",_x GetVariable "minSV"]};
-
-	if (IsNil {_x GetVariable "centerPosition"}) then {_x SetVariable["centerPosition",Position _x,true]};
-
-	//Create town's camps.
-	{
-		_camp = _x;
-
-		_composition = [BIS_WF_Constants GetVariable "campCompositions"] Call BIS_fnc_selectRandom;
-		_constructed = [Position _camp,Direction _camp,_composition] Call _constructFunction;
-		gosa_constructedList set [count gosa_constructedList, _constructed];
-		_camp SetVariable ["town",_location,true];
-
-		{
-			switch (TypeOf _x) do
-			{
-				//If camp is linked to an owner, then set it.
-				case "LocationLogicOwnerCivilian": {_camp SetVariable["side",Civilian,true]};
-				case "LocationLogicOwnerEast": {_camp SetVariable["side",East,true]};
-				case "LocationLogicOwnerWest": {_camp SetVariable["side",West,true]};
-				case "LocationLogicOwnerResistance": {_camp SetVariable["side",Resistance,true]};
-			};
-		} ForEach SynchronizedObjects _x;
-	} ForEach (_x GetVariable "camps");
-
-Textlog Format["WF Debug: Custom town %1 camps created: %2.",_location GetVariable "name",Count (_location GetVariable "camps")];
-} ForEach BIS_WF_CustomLocations;
-
-{
-	_x SetVariable["neighbors",_x GetVariable "neighborLinks"];
-	_x SetVariable["neighborLinks",nil];
-} ForEach BIS_WF_CustomLocations;
-
-(_towns + BIS_WF_CustomLocations) Spawn
-{
-	WaitUntil {!IsNil "BIS_fnc_locations"};
-
-//	[_this] Call BIS_fnc_locations;
-
-	//For compatibility - Remove if BIS_fnc_locations does this.
-	_locations = bis_functions_mainscope GetVariable "locations";
-	_locations = _locations + _this;
-	bis_functions_mainscope SetVariable["locations",_locations,true];
-};
-
-//Add any custom camps.
-{
-	//Find town(s) within range of custom camp.
-	_objects = _x NearEntities["LocationLogicCity",750];
-
-	//ToDo: Use:
-	//_objects = _x NearEntities["LocationLogicCityCenter",750];
-
-	if (Count _objects > 0) then
-	{
-		//Get closest town.
-		_closestLocation = [_x,_objects] Call BIS_WF_GetClosest;
-Textlog Format["WF Debug: Custom camp near location %1",_closestLocation GetVariable "name"];
-
-		//If there is not already a camp near by.
-		_conflictingCamps = _x NearEntities["LocationLogicCamp",40];
-		_conflictingCamps = _conflictingCamps - [_x];
-
-		if (Count _conflictingCamps < 1) then
-		{
-			//Link this camp to town.
-			_x SetVariable["town",_closestLocation,true];
-			_camps = _closestLocation GetVariable "camps";
-			_camps = _camps + [_x];
-			_closestLocation SetVariable["camps",_camps,true];
-
-			//Create the camp's objects.
-			_composition = [BIS_WF_Constants GetVariable "campCompositions"] Call BIS_fnc_selectRandom;
-			_constructed = [GetPos _x,GetDir _x,_composition] Call _constructFunction;
-			gosa_constructedList set [count gosa_constructedList, _constructed];
-		}
-	};
-
-} ForEach _customCamps;
-*/
