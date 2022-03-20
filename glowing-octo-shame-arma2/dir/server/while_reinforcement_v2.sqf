@@ -1,3 +1,7 @@
+/*
+скрипт отвечает за вызов подкреплений на клиентском компьетере
+*/
+
 #define __A2OA__
 
 waitUntil {!isNil "bis_fnc_init"};
@@ -33,7 +37,7 @@ _minGroups = missionNamespace getVariable "minGroups";
 _dyn_limit = _minGroups;
 _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
 // TODO: количество игроков не учитывается
-_playerCoefficient = missionNamespace getVariable "playerCoefficient"; 
+_playerCoefficient = missionNamespace getVariable "playerCoefficient";
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
 _limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
