@@ -1,3 +1,6 @@
+/*
+возрождение транспорта
+*/
 
 #ifdef __ARMA3__
 	if (true) exitWith {
