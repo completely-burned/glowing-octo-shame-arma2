@@ -7,7 +7,7 @@ if(isServer && isMultiplayer)then{
 	_unit = _this select 2;
 	
 	if(!local _unit)then{
-		_unit setVariable ["assignedVehicle",[_this select 0],true];
+		_unit setVariable ["gosa_assignedVehicle",[_this select 0],true];
 	};
 
 	Private["_time","_time2"];

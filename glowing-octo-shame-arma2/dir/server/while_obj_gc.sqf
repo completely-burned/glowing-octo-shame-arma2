@@ -80,7 +80,7 @@ while {true} do {
 			_assignedVehicle = assignedVehicle _x_veh;
 
 			if (isNull _assignedVehicle) then {
-				_assignedVehicle = _x_veh getVariable "assignedVehicle";
+				_assignedVehicle = _x_veh getVariable "gosa_assignedVehicle";
 				if (isNil {_assignedVehicle}) then {_assignedVehicle = objNull};
 			};
 
