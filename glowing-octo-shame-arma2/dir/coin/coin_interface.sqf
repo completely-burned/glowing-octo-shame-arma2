@@ -524,16 +524,25 @@ while {
 			_buildings = _logic getvariable "BIS_COIN_buildings";
 			if (true) then {
 
-				//--- Selection
+				//--- Selection, под курсором
 				_worldpos = screentoworld [0.5,0.5];
 				_selected = objnull;
 
 				{
 					_size = (sizeof typeof _x) / 3;
 					if (_size < 2) then {_size = 2};
-					if (_x distance _worldpos < _size && !(_x isKindOf "WarfareBDepot") && !(_x isKindOf "WarfareBAirport")) exitwith {_selected = _x;_logic setvariable ["BIS_COIN_selected",_selected]};
+					if (
+						_x distance _worldpos < _size
+						&& !(_x isKindOf "WarfareBDepot")
+						&& !(_x isKindOf "WarfareBAirport")
+					) exitwith {
+						_selected = _x;
+						_logic setvariable ["BIS_COIN_selected",_selected];
+					};
 					_logic setvariable ["BIS_COIN_selected",objnull];
-				} foreach nearestObjects [_worldpos, ["WarfareBBaseStructure", "BASE_WarfareBFieldhHospital","StaticWeapon"], 20];
+				} foreach nearestObjects [_worldpos, [
+						"WarfareBBaseStructure", "BASE_WarfareBFieldhHospital","StaticWeapon"
+					], 20];
 
 				//--- Selected building
 				if !(isnull _selected) then {
@@ -568,10 +577,13 @@ while {
 
 			//_display = uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY";
 			//_center = (uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY") displayctrl 112201;
-			((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY") displayctrl 112201) ctrlsettextcolor _colorGUI;
-			((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY") displayctrl 112201) ctrlcommit 0;
+			((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY")
+				displayctrl 112201) ctrlsettextcolor _colorGUI;
+			((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY")
+				displayctrl 112201) ctrlcommit 0;
 		};
 
+		//--- FIXME: GUI?
 		_oldTooltip = _logic getvariable "BIS_COIN_tooltip";
 		//_display = uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY";
 		if ((_tooltipType + _tooltip) != _oldTooltip || commandingmenu != _oldMenu) then {
@@ -714,7 +726,9 @@ while {
 				_categoriesMenu = _categoriesMenu + [_i];
 			};
 
-			[["Categories",true],"BIS_Coin_categories",[_categoriesMenu,_categories],"#USER:BIS_Coin_%1_items_0","",""] call BIS_fnc_createmenu;
+			[["Categories",true],"BIS_Coin_categories",
+				[_categoriesMenu,_categories],
+				"#USER:BIS_Coin_%1_items_0","",""] call BIS_fnc_createmenu;
 
 			//--- Items menu
 			_items = _logic getvariable "BIS_COIN_items";
@@ -755,19 +769,21 @@ while {
 				} foreach _items;
 
 
-				[[_category,true],format ["BIS_Coin_%1_items",_i],[_arrayNames,_arrayNamesLong,_arrayEnable],"","
-					BIS_CONTROL_CAM_LMB = false;
-					scopename 'main';
-					_item = '%1';
-					_id = %2;
-					_array = (call compile '%3') select _id;
+				[[_category,true],
+					format ["BIS_Coin_%1_items",_i],
+					[_arrayNames,_arrayNamesLong,_arrayEnable],"","
+						BIS_CONTROL_CAM_LMB = false;
+						scopename 'main';
+						_item = '%1';
+						_id = %2;
+						_array = (call compile '%3') select _id;
 
-					_params = _array select 1;
-					gosa_HQ_logic setvariable ['BIS_COIN_params',_params];
-					gosa_HQ_logic setvariable ['BIS_COIN_menu',commandingmenu];
-					showcommandingmenu '';
+						_params = _array select 1;
+						gosa_HQ_logic setvariable ['BIS_COIN_params',_params];
+						gosa_HQ_logic setvariable ['BIS_COIN_menu',commandingmenu];
+						showcommandingmenu '';
 
-				",_arrayParams] call BIS_fnc_createmenu;
+					",_arrayParams] call BIS_fnc_createmenu;
 				/*
 
 				[_category,format ["BIS_Coin_%1_items",_category],[_arrayNames,_arrayNamesLong,_arrayEnable],"","
