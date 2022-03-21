@@ -45,7 +45,7 @@ if (true) then {
 						};
 
 						// восстанавливает экипажу вне
-						_z = _veh getVariable "gosa_def_aimAcc";
+						_z = _veh getVariable "gosa_skill_aimAcc_def";
 						if (!isNil{_z}) then {
 							//_z = _veh skill "aimingAccuracy";
 							//if (_z != _def_aimAcc) then {
@@ -63,7 +63,7 @@ if (true) then {
 	// --- в машине
 
 		//--- перманентное значение
-		_z = _veh getVariable "gosa_aimAcc_static";
+		_z = _veh getVariable "gosa_skill_aimAcc_static";
 		if (!isNil {_z}) exitWith {
 			_aimAcc = +_z;
 			breakOut "scope1";
@@ -128,25 +128,25 @@ if (true) then {
 					//--- низкая точность, пулеметы, вооружение неизменно
 						if (_type isKindOf "Ka137_Base_PMC") then{
 							_aimAcc = 0.1;
-							_veh setVariable ["gosa_aimAcc_static", _aimAcc];
+							_veh setVariable ["gosa_skill_aimAcc_static", _aimAcc];
 							breakOut "scope1";
 						};
 
 						if (_type isKindOf "UH60_Base") then{
 							_aimAcc = 0.1;
-							_veh setVariable ["gosa_aimAcc_static", _aimAcc];
+							_veh setVariable ["gosa_skill_aimAcc_static", _aimAcc];
 							breakOut "scope1";
 						};
 
 						if (_type isKindOf "CH47_base_EP1") then{
 							_aimAcc = 0.1;
-							_veh setVariable ["gosa_aimAcc_static", _aimAcc];
+							_veh setVariable ["gosa_skill_aimAcc_static", _aimAcc];
 							breakOut "scope1";
 						};
 
 						if (_type isKindOf "UH1H_base") then{
 							_aimAcc = 0.1;
-							_veh setVariable ["gosa_aimAcc_static", _aimAcc];
+							_veh setVariable ["gosa_skill_aimAcc_static", _aimAcc];
 							breakOut "scope1";
 						};
 
@@ -239,16 +239,16 @@ if (!isNil {_aimAcc}) then {
 	_efc = effectiveCommander _veh;
 
 	// TODO: нужно учитывать CfgAISkill
-	_z = _efc skill "aimingAccuracy"; 
-	if (isNil{_efc getVariable "gosa_def_aimAcc"}) then {
-		_efc setVariable ["gosa_def_aimAcc", _z];
+	_z = _efc skill "aimingAccuracy";
+	if (isNil{_efc getVariable "gosa_skill_aimAcc_def"}) then {
+		_efc setVariable ["gosa_skill_aimAcc_def", _z];
 		diag_log format ["Log: [fnc_dynSkill] %1 %2 default aimingAccuracy %3", _efc, _type, _z];
 	};
 
-	// _z = _efc getVariable "gosa_aimAcc";
+	// _z = _efc getVariable "gosa_skill_aimAcc";
 	if (_z != _aimAcc) then {
 		_efc setSkill ["aimingAccuracy", _aimAcc];
-		// _efc setVariable ["gosa_aimAcc", _aimAcc];
+		// _efc setVariable ["gosa_skill_aimAcc", _aimAcc];
 		{diag_log _x} forEach _diag_log;
 		diag_log format ["Log: [fnc_dynSkill] %1 %2 set_aimAcc %3", _efc, _type, _aimAcc];
 	};
