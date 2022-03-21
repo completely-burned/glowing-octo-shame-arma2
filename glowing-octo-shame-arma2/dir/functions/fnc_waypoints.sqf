@@ -35,7 +35,7 @@ if(!isNil "_leader")then{
 		_assignedVehicle = assignedVehicle _x;
 
 		if (isNull _assignedVehicle) then {
-			_assignedVehicle = _x getVariable "assignedVehicle";
+			_assignedVehicle = _x getVariable "gosa_assignedVehicle";
 		};
 		if (isNil {_assignedVehicle}) then {_assignedVehicle = objNull};
 

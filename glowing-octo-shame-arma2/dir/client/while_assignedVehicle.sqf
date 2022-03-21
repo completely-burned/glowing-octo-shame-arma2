@@ -17,14 +17,14 @@ while{true}do{
 
 	if (!isNull _veh) then {
 		// FIXME: нет смысла, только лишняя перезапись
-		// player setVariable ["assignedVehicle", nil]; 
+		// player setVariable ["gosa_assignedVehicle", nil]; 
 	// } else {
-		_vehVar = player getVariable "assignedVehicle";
+		_vehVar = player getVariable "gosa_assignedVehicle";
 		if (isNil {_vehVar}) then {
-			player setVariable ["assignedVehicle", _veh, true];
+			player setVariable ["gosa_assignedVehicle", _veh, true];
 		} else {
 			if (_veh != _vehVar) then {
-				player setVariable ["assignedVehicle", _veh, true];
+				player setVariable ["gosa_assignedVehicle", _veh, true];
 			};
 		};
 	};
