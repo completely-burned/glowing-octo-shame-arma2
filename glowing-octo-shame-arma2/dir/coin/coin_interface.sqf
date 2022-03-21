@@ -1,4 +1,6 @@
 
+diag_log format ["Log: [coin_interface] %1", _this];
+
 // объект радом с  котором строится
 _logic = _this select 3 select 0;
 
@@ -735,7 +737,7 @@ camdestroy BIS_CONTROL_CAM;
 BIS_CONTROL_CAM = nil;
 BIS_CONTROL_CAM_Handler = nil;
 // круг
-1122 cuttext ["","plain"]; 
+1122 cuttext ["","plain"];
 _player = bis_coin_player;
 _player setvariable ["bis_coin_logic",nil];
 bis_coin_player = objnull;
