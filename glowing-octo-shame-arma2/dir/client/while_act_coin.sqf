@@ -28,12 +28,13 @@ while{_run}do{
 		};
 		if (
 			getNumber(configFile >> "CfgVehicles" >> typeOf _action_obj >> "isMan") == 1
-			&& 
+			&&
 			_action_obj != player
 		) then{
 			_delete = true;
 		};
 		if (_delete) then {
+			diag_log format ["Log: [while_act_coin] %1 removeAction %2", _action_obj, _action];
 			_action_obj removeAction _action;
 			_coin_actions set [_i, -1];
 		}else{
@@ -41,7 +42,7 @@ while{_run}do{
 		};
 	};
 	_coin_actions = _coin_actions - [-1];
-	
+
 	_player = player;
 	if(alive _player)then{
 
@@ -58,6 +59,7 @@ while{_run}do{
 						false
 					];
 					_coin_actions set [count _coin_actions, [_action, _x, _player]];
+					diag_log format ["Log: [while_act_coin] %1 addaction coin_interface.sqf", _coin_actions];
 				};
 			} forEach _Objects;
 		};
@@ -74,6 +76,7 @@ while{_run}do{
 						false
 					];
 					_coin_actions set [count _coin_actions, [_action, _x, _player]];
+					diag_log format ["Log: [while_act_coin] %1 addaction coin_interface.sqf", _coin_actions];
 				};
 			} forEach _Objects;
 		};
@@ -89,6 +92,7 @@ while{_run}do{
 					false
 				];
 				_coin_actions set [count _coin_actions, [_action, _x, _x]];
+				diag_log format ["Log: [while_act_coin] %1 addaction coin_interface_MHQ.sqf", _coin_actions];
 			};
 		} forEach _Objects;
 	};

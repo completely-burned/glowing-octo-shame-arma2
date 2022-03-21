@@ -48,4 +48,6 @@ if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "moun
 
 MHQ_list = [_mhq, _hq];
 
+diag_log format ["Log: [cfg_mhq] %1", MHQ_list];
+
 publicVariable "MHQ_list";
