@@ -1,6 +1,10 @@
 private["_gosa_init"];
 _gosa_init = (_this getVariable "_gosa_init");
 if (isNil "_gosa_init") then {
+	diag_log format ["Log: [fnc_vehInit2] %1", _this];
+
+	_this addEventHandler ["killed", {_this spawn gosa_fnc_eh_killed}];
+
 	if (getNumber(configFile >> "CfgVehicles" >> typeOf _this >> "isMan") == 1) then {
 
 		if (isNil {_this getVariable "BIS_BC_carrier"}) then {_this setVariable ["BIS_BC_carrier",false];};
