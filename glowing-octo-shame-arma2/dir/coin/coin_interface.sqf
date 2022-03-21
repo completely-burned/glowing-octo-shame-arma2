@@ -1,19 +1,31 @@
 
+/*
+интерфей строительства
+TODO: Нужна очередь и визуальное строительство.
+TODO: Устранить конфликт возрождающихся тс на месте строительства.
+TODO: Устранить возможность строительства нескольких объектов на одной позиции
+			при повторном нажатии.
+*/
 diag_log format ["Log: [coin_interface] %1", _this];
 
 // объект радом с  котором строится
 _logic = _this select 3 select 0;
 
+// FIXME: для чего это?
 gosa_HQ_logic = _logic;
 
+//-- параметры на обекте
 [_logic, nil, nil, _this select 3] call gosa_fnc_coin_variable;
 
+// FIXME: что это?
 uinamespace setvariable ["COIN_displayMain",finddisplay 46];
 
 BIS_COIN_QUIT = nil;
 
 //--- Terminate of system is already running
+// FIXME: для чего это?
 player setvariable ["bis_coin_logic",_logic];
+// FIXME: для чего это?
 bis_coin_player = player;
 
 //////////////////////////////////////////////////
@@ -21,22 +33,19 @@ bis_coin_player = player;
 //////////////////////////////////////////////////
 
 private["_camera"];
-
-//--- Execute designer defined code - onStart
-//_code = _logic getvariable "BIS_COIN_onStart";
-//[_logic] call _code;
-
 if (isnil "BIS_CONTROL_CAM") then {
-	_camera = "camconstruct" camcreate [position player select 0,position player select 1,15];
-	//_camera = "camconstruct" camcreate [position _logic select 0,position _logic select 1,15];
+	_camera = "camconstruct" camcreate
+	[position player select 0,position player select 1,15];
 	_camera cameraeffect ["internal","back"];
-	_camera camPrepareFOV 0.900;
-	_camera campreparefocus [-1,-1];
-	_camera camCommitPrepared 0;
-	cameraEffectEnableHUD true;
-	_camera setdir direction player;
-	[_camera,-30,0] call BIS_fnc_setPitchBank;
-	_camera camConstuctionSetParams ([position _logic] + (_logic getvariable "BIS_COIN_areasize"));
+		// FIXME: что это?
+		_camera camPrepareFOV 0.900;
+		_camera campreparefocus [-1,-1];
+		_camera camCommitPrepared 0;
+		cameraEffectEnableHUD true;
+		_camera setdir direction player;
+		[_camera,-30,0] call BIS_fnc_setPitchBank;
+	_camera camConstuctionSetParams
+	([position _logic] + (_logic getvariable "BIS_COIN_areasize"));
 };
 
 BIS_CONTROL_CAM = _camera;
@@ -44,13 +53,41 @@ BIS_CONTROL_CAM_LMB = false;
 BIS_CONTROL_CAM_RMB = false;
 showcinemaborder false;
 
+// FIXME: что это?
 1122 cutrsc ["constructioninterface","plain"];
 
 //_display = finddisplay 46;
-COIN_EH_keydown =		(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["KeyDown",		"if !(isnil 'BIS_CONTROL_CAM_Handler') then {BIS_temp = ['keydown',_this,commandingmenu] spawn BIS_CONTROL_CAM_Handler; BIS_temp = nil;}"];
-COIN_EH_keyup =			(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["KeyUp",		"if !(isnil 'BIS_CONTROL_CAM_Handler') then {BIS_temp = ['keyup',_this] spawn BIS_CONTROL_CAM_Handler; BIS_temp = nil;}"];
-COIN_EH_mousebuttondown =	(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["MouseButtonDown",	"if !(isnil 'BIS_CONTROL_CAM_Handler') then {BIS_temp = ['mousedown',_this,commandingmenu] spawn BIS_CONTROL_CAM_Handler; BIS_temp = nil; BIS_CONTROL_CAM_onMouseButtonDown = _this; if (_this select 1 == 1) then {BIS_CONTROL_CAM_RMB = true}; if (_this select 1 == 0) then {BIS_CONTROL_CAM_LMB = true};}"];
-COIN_EH_mousebuttonup =		(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["MouseButtonUp",	"if !(isnil 'BIS_CONTROL_CAM_Handler') then {BIS_CONTROL_CAM_RMB = false; BIS_CONTROL_CAM_LMB = false;}"];
+COIN_EH_keydown=
+	(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["KeyDown",
+	"if !(isnil 'BIS_CONTROL_CAM_Handler') then {
+		BIS_temp = ['keydown',_this,commandingmenu] spawn BIS_CONTROL_CAM_Handler;
+		BIS_temp = nil;
+	}"];
+COIN_EH_keyup=
+	(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["KeyUp",
+	"if !(isnil 'BIS_CONTROL_CAM_Handler') then {
+		BIS_temp = ['keyup',_this] spawn BIS_CONTROL_CAM_Handler;
+		BIS_temp = nil;
+	}"];
+COIN_EH_mousebuttondown=
+	(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["MouseButtonDown",
+	"if !(isnil 'BIS_CONTROL_CAM_Handler') then {
+		BIS_temp = ['mousedown',_this,commandingmenu] spawn BIS_CONTROL_CAM_Handler;
+		BIS_temp = nil;
+		BIS_CONTROL_CAM_onMouseButtonDown = _this;
+		if (_this select 1 == 1) then {
+			BIS_CONTROL_CAM_RMB = true
+		};
+		if (_this select 1 == 0) then {
+			BIS_CONTROL_CAM_LMB = true
+		};
+	}"];
+COIN_EH_mousebuttonup=
+	(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["MouseButtonUp",
+	"if !(isnil 'BIS_CONTROL_CAM_Handler') then {
+		BIS_CONTROL_CAM_RMB = false;
+		BIS_CONTROL_CAM_LMB = false;
+	}"];
 //(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["MouseMoving",		"if !(isnil 'BIS_CONTROL_CAM_Handler') then {BIS_temp = ['mousemoving',_this] spawn BIS_CONTROL_CAM_Handler; BIS_temp = nil;}"];
 //(uinamespace getvariable "COIN_displayMain") displayaddeventhandler ["MouseHolding",	"if !(isnil 'BIS_CONTROL_CAM_Handler') then {BIS_temp = ['mouseholding',_this] spawn BIS_CONTROL_CAM_Handler; BIS_temp = nil;}"];
 
@@ -62,20 +99,23 @@ _logic setvariable ["BIS_COIN_params",[]];
 _logic setvariable ["BIS_COIN_tooltip",""];
 _logic setvariable ["BIS_COIN_menu","#USER:BIS_Coin_categories_0"];
 _logic setvariable ["BIS_COIN_restart",false];
-_nvgstate = if (daytime > 18.5 || daytime < 5.5) then {true} else {false};
+_nvgstate = call gosa_fnc_isNight;
 camusenvg _nvgstate;
 _logic setvariable ["BIS_COIN_nvg",_nvgstate];
 
 
 //--- Open menu
 _logic spawn {
+	// FIXME: ничего не понимаю
 	_logic = _this;
-	waituntil {!isnil {_this getvariable "BIS_COIN_fundsOld"}};
+	waituntil {!isnil {_this getvariable "BIS_COIN_fundsOld"}
+		|| isnil "BIS_CONTROL_CAM"};
 	while {!isnil "BIS_CONTROL_CAM"} do {
 		waituntil {
 			_params = _logic getvariable "BIS_COIN_params";
 			if (isnil "_params") then {_params = []};
-			(commandingmenu == "" && count _params == 0 && !BIS_CONTROL_CAM_RMB) || isnil "BIS_CONTROL_CAM"
+			(commandingmenu == "" && count _params == 0 && !BIS_CONTROL_CAM_RMB)
+			|| isnil "BIS_CONTROL_CAM"
 		};
 		if (isnil "BIS_CONTROL_CAM") exitwith {};
 		showcommandingmenu "#USER:BIS_Coin_categories_0";
