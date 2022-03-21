@@ -95,10 +95,12 @@ BIS_CONTROL_CAM_keys = [];
 
 
 _logic setvariable ["BIS_COIN_selected",objnull];
-_logic setvariable ["BIS_COIN_params",[]];
-_logic setvariable ["BIS_COIN_tooltip",""];
-_logic setvariable ["BIS_COIN_menu","#USER:BIS_Coin_categories_0"];
-_logic setvariable ["BIS_COIN_restart",false];
+	_logic setvariable ["BIS_COIN_params",[]];
+	_logic setvariable ["BIS_COIN_tooltip",""];
+	_logic setvariable ["BIS_COIN_menu","#USER:BIS_Coin_categories_0"];
+	_logic setvariable ["BIS_COIN_restart",false];
+
+// TODO: поддержка тепловизора
 _nvgstate = call gosa_fnc_isNight;
 camusenvg _nvgstate;
 _logic setvariable ["BIS_COIN_nvg",_nvgstate];
@@ -230,7 +232,7 @@ BIS_CONTROL_CAM_Handler = {
 			//--- Close
 			if (isnil "BIS_Coin_noExit") then {
 				if (_menu == "#USER:BIS_Coin_categories_0") then {
-					if (!(isNil "BIS_CONTROL_CAM")) then {
+					if !(isNil "BIS_CONTROL_CAM") then {
 						BIS_COIN_QUIT = true;
 					};
 				} else {
@@ -264,7 +266,12 @@ _limitVOld = -1;
 _loaded = false;
 _localtime = time;
 
-while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_QUIT"} do {
+while {
+	!isnil "BIS_CONTROL_CAM"
+	&& player == bis_coin_player
+	&& isnil "BIS_COIN_QUIT"
+} do {
+	// FIXME: что это?
 	if (isnull (uinamespace getvariable 'BIS_CONTROL_CAM_DISPLAY') && !_loaded) then {
 		cameraEffectEnableHUD true;
 		1122 cutrsc ["constructioninterface","plain"];
@@ -282,11 +289,6 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 	_areasize = _logic getvariable "BIS_COIN_areasize";
 	_limitH = _areasize select 0;
 	_limitV = _areasize select 1;
-
-	if (_limitH != _limitHOld || _limitV != _limitVOld) then {
-		_logic spawn _createBorder;
-		BIS_CONTROL_CAM camConstuctionSetParams ([position _logic] + (_logic getvariable "BIS_COIN_areasize"));
-	};
 	_limitHOld = _limitH;
 	_limitVOld = _limitV;
 
@@ -306,7 +308,6 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 
 		//--- Check pressed keys
 		_keys = BIS_CONTROL_CAM_keys;
-		//debuglog ("Log: " + str _keys);
 		_ctrl = (29 in _keys) || (157 in _keys);
 		_shift = (42 in _keys) || (54 in _keys);
 		_alt = (56 in _keys);
@@ -334,9 +335,16 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 			//if (typename _itemcategory == typename 0) then {_itemCategory = select _itemcategory};
 			_itemcost = _params select 2;
 			_itemcash = 0;
-			if (typename _itemcost == "ARRAY") then {_itemcash = _itemcost select 0; _itemcost = _itemcost select 1};
+			if (typename _itemcost == "ARRAY") then {
+				_itemcash = _itemcost select 0;
+				_itemcost = _itemcost select 1
+			};
 			_itemFunds = (_logic getvariable "BIS_COIN_funds") select _itemcash;
-			_itemname = if (count _params > 3) then {_params select 3} else {gettext (configfile >> "CfgVehicles" >> _itemclass >> "displayName")};
+			_itemname = if (count _params > 3) then {
+				_params select 3;
+			} else {
+				gettext (configfile >> "CfgVehicles" >> _itemclass >> "displayName");
+			};
 			//_itemclass_preview = _itemclass + "preview";
 			_itemclass_preview = gettext (configfile >> "CfgVehicles" >> _itemclass >> "ghostpreview");
 			if (_itemclass_preview == "") then {_itemclass_preview = _itemclass};
@@ -348,8 +356,11 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 			if (typeof _preview != _itemclass_preview) then {
 				//--- No preview
 				deletevehicle _preview;
-				if !(isnil {_logic getvariable "BIS_COIN_preview"}) then {deletevehicle (_logic getvariable "BIS_COIN_preview")}; //--- Serialization hack
+				if !(isnil {_logic getvariable "BIS_COIN_preview"}) then {
+					deletevehicle (_logic getvariable "BIS_COIN_preview");
+				}; //--- Serialization hack
 				_preview = _itemclass_preview createvehicle (screentoworld [0.5,0.5]);
+				diag_log format ["Log: [coin_interface] _preview = %1", _preview];
 				BIS_CONTROL_CAM camsettarget _preview;
 				BIS_CONTROL_CAM camcommit 0;
 				_logic setvariable ["BIS_COIN_preview",_preview];
@@ -367,7 +378,7 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					deletevehicle _preview;
 					_logic setvariable ["BIS_COIN_preview",nil];
 					_logic setvariable ["BIS_COIN_params",[]];
-					textLogFormat ["Log: [COIN] ERROR: Failed to create '%1' (preview of '%2')",_itemclass_preview,_itemclass];
+					diag_log format ["Log: [coin_interface] ERROR: Failed to create '%1' (preview of '%2')",_itemclass_preview,_itemclass];
 				};
 
 			} else {
@@ -421,14 +432,24 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 
 				//_display = uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY";
 				//_center = (uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY") displayctrl 112201;
-				((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY") displayctrl 112201) ctrlsettextcolor _colorGUI;
-				((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY") displayctrl 112201) ctrlcommit 0;
+				((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY")
+					displayctrl 112201) ctrlsettextcolor _colorGUI;
+				((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY")
+					displayctrl 112201) ctrlcommit 0;
 
 
 			};
 
 			//--- Place
-			if (!isnull _preview && ((BIS_CONTROL_CAM_LMB && 65536 in (actionKeys "DefaultAction")) || {_x in (actionKeys "DefaultAction")} count BIS_CONTROL_CAM_keys > 0) && _color == _colorGreen) then {
+			if (
+					!isnull _preview &&
+					((BIS_CONTROL_CAM_LMB
+						&& 65536 in (actionKeys "DefaultAction"))
+						|| {_x in (actionKeys "DefaultAction")}
+							count BIS_CONTROL_CAM_keys > 0
+					)
+					&& _color == _colorGreen
+			) then {
 				_pos = position _preview;
 				_dir = direction _preview;
 				deletevehicle _preview;
@@ -440,7 +461,7 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 				publicvariable _itemFunds;
 
 				//--- Execute designer defined code
-				[_logic,_itemclass,_pos,_dir,_shift,_itemcost] spawn {
+				[_logic,_itemclass,_pos,_dir,_shift,_itemcost] call {
 					_logic = _this select 0;
 					_itemclass = _this select 1;
 					_pos = _this select 2;
@@ -452,7 +473,10 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					//[_logic,objNull,_itemclass,_pos,_dir] call _code;
 
 					//--- Build
-					_building = _itemclass createvehicle [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)) , (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))];//[10,10,10000];
+					_building = _itemclass createvehicle [
+						(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)),
+						(gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))
+					];//[10,10,10000];
 					_building setdir _dir;
 					_building setVectorUp surfaceNormal _pos;
 					_building setpos _pos;
@@ -469,6 +493,7 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 					//--- Execute designer defined code On Construct
 					//_code = _logic getvariable "BIS_COIN_onConstruct";
 					_code = {
+						//-- удаляем мобильный штаб и выходим
 						if ((_this select 0) isKindOf "LandVehicle") then {
 							BIS_COIN_QUIT = true;
 							[_this select 1] call gosa_fnc_coin_variable;
@@ -476,14 +501,20 @@ while {!isnil "BIS_CONTROL_CAM" && player == bis_coin_player && isnil "BIS_COIN_
 						};
 					};
 					[_logic, _building,_itemclass,_pos,_dir] spawn _code;
+
+					// Строителство на месте созданного объекта не сразу занимается ..
+					// и некоторое время еще доступно для новых построек.
+					sleep 3;
 				};
 
 				//--- Temporary solution
 				_colorGUI = [1,1,1,0.1];
 				//_display = uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY";
 				//_center = (uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY") displayctrl 112201;
-				((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY") displayctrl 112201) ctrlsettextcolor _colorGUI;
-				((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY") displayctrl 112201) ctrlcommit 0;
+				((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY")
+					displayctrl 112201) ctrlsettextcolor _colorGUI;
+				((uiNamespace getvariable "BIS_CONTROL_CAM_DISPLAY")
+					displayctrl 112201) ctrlcommit 0;
 			};
 
 			//--- Deselect
