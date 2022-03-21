@@ -14,16 +14,16 @@ _driver = driver _vehicle;
 _grp = group _unit;
 
 // временная остановка транспорта чтобы не задавить
-if(isNil {_driver getVariable "disableAIMove"} && _position != "driver" && _type isKindOf "LandVehicle")then{
+if(isNil {_driver getVariable "gosa_disableAIMove"} && _position != "driver" && _type isKindOf "LandVehicle")then{
 	_driver spawn {
 
 		diag_log format ["Log: [fnc_eh_getout.sqf]: %1 disableAIMove, временная остановка транспорта", _this];
 
-		_this setVariable ["disableAIMove", true];
+		_this setVariable ["gosa_disableAIMove", true];
 		_this disableAI "Move";
 		sleep 10;
 		_this enableAI "Move";
-		_this setVariable ["disableAIMove", nil];
+		_this setVariable ["gosa_disableAIMove", nil];
 
 		diag_log format ["Log: [fnc_eh_getout.sqf]: %1 enableAIMove", _this];
 	};
