@@ -185,9 +185,10 @@ if(true)then{
 				} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital";
 				// -- объекты базы
 				{
+					if(!(_x in _units) && alive _x)then{
 						_units set [count _units, _x];
-						// FIXME: множество маркеров создается на одном объекте рекурсивно??
 						_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
+					};
 				}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 			};
 #endif
