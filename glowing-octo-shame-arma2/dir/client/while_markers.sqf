@@ -5,6 +5,7 @@
 Создает при старте статичные маркеры.
 Обновляет динамичные маркеры
 на открытой карте игрока.
+TODO: сделть совместимость с pvp.
 ---------------------------------------------------------------------------*/
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers","_markerMHQ","_markerMHQtype","_dynamicMarkers"];
@@ -57,7 +58,7 @@ for "_i" from 0 to (count _objects - 1) do {
 		_dir = getDir _obj;
 		_dist2 = 3;
 		// в центре нет выхода
-		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; 
+		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
 	};
 
 	_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i+1], _pos];
@@ -101,6 +102,7 @@ if(true)then{
 		if (_rBase) then {
 		// -- мобильная база (мобилизованная), один маркер
 		{
+			// TODO: устранить конфликт множества штабов
 			if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
 				private ["_pos"];
 				_pos = getPos _x;
@@ -132,6 +134,7 @@ if(true)then{
 #ifdef __A2OA__
 			if (_rBase) then {
 				{
+					// TODO: устранить конфликт множества штабов
 					if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
 						private ["_pos"];
 						_pos = getPos _x;
@@ -140,7 +143,7 @@ if(true)then{
 							_dir = getDir _x - 90 - 10 + random 20;
 							_dist2 = 3 + random 2;
 							// в центре нет выхода
-							_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]; 
+							_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
 						};
 						if(getMarkerType _markerMHQ != _markerMHQtype)then{
 							_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
@@ -148,6 +151,7 @@ if(true)then{
 							_markerMHQ setMarkerColorLocal _markerColor;
 							gosa_respawnMarkers = [_markerMHQ]+_respawnMarkers;
 						}else{
+							// TODO: нужна проверка дистанции перед сменой позиции.
 							_markerMHQ setMarkerPos _pos;
 						};
 					};
@@ -156,13 +160,15 @@ if(true)then{
 				{
 					private ["_obj"];
 					_obj = _x;
-					// нужно сделать проверку фракции
-					if(true)then{ 
+					// TODO: нужно сделать проверку фракции. FIXME: приоритет фракции?
+					if(true)then{
 						private ["_pos"];
 						_pos = getPos _obj;
 						private ["_dir","_dist"];
 						_dir = random 360;
 						_dist = random 10;
+						// позиция не должна быть всегда в центре
+						// TODO: не нужно менять позицию каждый раз
 						_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
 						if({_obj == (_x select 1)} count _dynamicMarkers == 0) then {
 							_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
@@ -176,10 +182,11 @@ if(true)then{
 						};
 					};
 				// FIXME: может можно объединить все нужные типы в один зпрос allMissionObjects, нагрузка на цп
-				} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital"; 
+				} forEach allMissionObjects "Base_WarfareBBarracks" + allMissionObjects "BASE_WarfareBFieldhHospital";
 				// -- объекты базы
 				{
 						_units set [count _units, _x];
+						// FIXME: множество маркеров создается на одном объекте рекурсивно??
 						_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
 				}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 			};
@@ -210,11 +217,11 @@ if(true)then{
 				_unit = (_units select _i);
 				_marker = (_markers select _i);
 				// TODO: нужна проверка на отключеных игроков
-				if (!isNull _unit && alive _unit) then { 
+				if (!isNull _unit && alive _unit) then {
 					if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call gosa_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6))then{
 						if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
-							// TODO: setMarker* код не оптимизирован
-							_marker setMarkerPosLocal (position _unit); 
+							// TODO: setMarker* код оптимизировать
+							_marker setMarkerPosLocal (position _unit);
 							_marker setMarkerTypeLocal "vehicle";
 							_marker setMarkerDirLocal getDir _unit;
 							_marker setMarkerSizeLocal [3,3];
