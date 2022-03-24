@@ -723,9 +723,11 @@ if(LIB_a2Avail)then{
 					0,0]]],0.6],
 
 				// USMC_AH1ZSquadron !=
+				// rarityGroup = 0.3; изменен вероятно из-за звена UH1Y
 				[[[["AH1Z","AH1Z"],[[0,15,0],[15,0,0]],
 					[4,3]]],0.4],
 				// USMC_UH1YSquadron !=
+				// rarityGroup = 0.5; изменен вероятно из-за звена AH1Z
 				[[[["UH1Y","UH1Y"],[[0,15,0],[15,0,0]],
 					[4,3]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_Medic"]]],0.4],
 				// USMC_MV22Squadron !=
