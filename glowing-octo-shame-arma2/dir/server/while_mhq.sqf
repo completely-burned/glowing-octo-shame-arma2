@@ -2,6 +2,7 @@
 
 /*
 Скрипт возрождения мобильного штаба.
+TODO: устранить конфликт с маркерами
 */
 
 if (missionNamespace getVariable "gosa_MHQ" != 1) exitWith {
