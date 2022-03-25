@@ -128,12 +128,12 @@ _crew = [];
 					_commanding = getNumber (_cfg_turret >> "commanding");
 					//--- gunner
 					// TODO: 1 не всегда означает gunner
-					if ( _commanding == 1 ) then { 
+					if ( _commanding == 1 ) then {
 						_rank = "SERGEANT";
 					};
 					//--- commander
 					// TODO: 2 не всегда означает commander
-					if ( _commanding == 2 ) then { 
+					if ( _commanding == 2 ) then {
 						_rank = "LIEUTENANT";
 					};
 					//--- set rank
@@ -157,5 +157,8 @@ _crew = [];
 			_unit moveInDriver _vehicle;
 	};
 
+{
+	[nil, _x, rvehInit] call RE;
+} forEach _crew;
 
 _crew
