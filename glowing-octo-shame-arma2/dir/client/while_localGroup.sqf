@@ -27,12 +27,14 @@ while {true} do {
 
 	/*зависший приказ на командире мешает игроку командиру
 	не позволяет легко отдавать приказы*/
+	/*
 	_z = currentCommand _p;
 	if (_l == _p && _z != "" && vehicle _p == _p) then {
 		diag_log format ["Log: [localGroup] cc %2, %1 doFollow %1", _p, _z];
 		// FIXME: не работает должным образом
-		_p doFollow _p; 
+		_p doFollow _p;
 	};
+	*/
 
 	/* если группа локальна игроку нужно отдать юнитов группы игрока компьютеру игрока для лучшего управления
 	*/
@@ -43,10 +45,10 @@ while {true} do {
 		{
 			if (owner _x != 0) then {
 				// FIXME: возможно отряд разделяется только из-за находящихся в транспорте юнитов, нужна проверка
-				if (vehicle _x == _x) then { 
+				if (vehicle _x == _x) then {
 					diag_log format ["Log: [localGroup] %1 setOwner %2", _x, player];
 					// FIXME: возможно есть проблемы, отряд разделяется
-					[nil, _x, rsetOwner, player] call RE; 
+					[nil, _x, rsetOwner, player] call RE;
 				};
 			};
 		} forEach _z;
@@ -78,7 +80,7 @@ while {true} do {
 		_g = _g2;
 		_g2 setVariable ["grp_created",true,true];
 		// FIXME: с этой строкой все-равно баг иногда, когда далее в скрипте проверка на командира выдает true, но игрок не командир
-		_g selectLeader _p; 
+		_g selectLeader _p;
 	};
 	*/
 
@@ -89,7 +91,7 @@ while {true} do {
 			// игрока сделать лидером локальной группе
 			diag_log format ["Log: [localGroup] %1 selectLeader %2", _g, _p];
 			// FIXME: из-за selectLeader юниты отряда внутри тс становятся неуправляемыми
-			_g selectLeader _p; 
+			_g selectLeader _p;
 		};
 	};
 	*/
@@ -101,6 +103,7 @@ while {true} do {
 		if (_v != _p) then {
 			if (isNil {_v getVariable "gosa_allowCrewInImmobile"} && {_v isKindOf "LandVehicle"}) then {
 				_v allowCrewInImmobile true;
+				// FIXME: почему глобальная переменная?
 				_v setVariable ["gosa_allowCrewInImmobile", true, true];
 				diag_log format ["Log: [localGroup] %1 allowCrewInImmobile true", _v];
 			};
@@ -108,8 +111,8 @@ while {true} do {
 
 		{
 			// юнитам игрока ограничение скорости не нужно
-			// TODO: локальная переменная
-			if(!isNil{_x getVariable "gosa_forceSpeed"})then{ 
+			// FIXME: локальная переменная?
+			if(!isNil{_x getVariable "gosa_forceSpeed"})then{
 				_x forceSpeed -1;
 				_x setVariable ["gosa_forceSpeed",nil];
 				diag_log format ["Log: [localGroup] %1 forceSpeed -1 %2", _x, typeOf _x ];
@@ -119,6 +122,7 @@ while {true} do {
 			_v = assignedVehicle _x;
 			if (!isNull _v && {isNil {_v getVariable "gosa_allowCrewInImmobile"}} && {_v isKindOf "LandVehicle"}) then {
 				_v allowCrewInImmobile true;
+				// FIXME: почему глобальная переменная?
 				_v setVariable ["gosa_allowCrewInImmobile", true, true];
 				diag_log format ["Log: [localGroup] %1 allowCrewInImmobile true", [_x,_v]];
 			};
