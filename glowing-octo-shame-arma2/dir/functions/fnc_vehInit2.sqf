@@ -1,35 +1,40 @@
-private["_gosa_init"];
-_gosa_init = (_this getVariable "_gosa_init");
+/*
+TODO: устранить быдлокод
+*/
+
+private["_gosa_init","_o"];
+_o = _this select 0;
+_gosa_init = (_o getVariable "_gosa_init");
 if (isNil "_gosa_init") then {
 	diag_log format ["Log: [fnc_vehInit2] %1", _this];
 
-	_this addEventHandler ["killed", {_this spawn gosa_fnc_eh_killed}];
+	_o addEventHandler ["killed", {_this spawn gosa_fnc_eh_killed}];
 
-	if (getNumber(configFile >> "CfgVehicles" >> typeOf _this >> "isMan") == 1) then {
+	if (getNumber(configFile >> "CfgVehicles" >> typeOf _o >> "isMan") == 1) then {
 
-		if (isNil {_this getVariable "BIS_BC_carrier"}) then {_this setVariable ["BIS_BC_carrier",false];};
-		if (isNil {_this getVariable "BIS_BC_dragger"}) then {_this setVariable ["BIS_BC_dragger",false];};
-		if (isNil {_this getVariable "BIS_IS_inAgony"}) then {_this setVariable ["BIS_IS_inAgony",false];};
+		if (isNil {_o getVariable "BIS_BC_carrier"}) then {_o setVariable ["BIS_BC_carrier",false];};
+		if (isNil {_o getVariable "BIS_BC_dragger"}) then {_o setVariable ["BIS_BC_dragger",false];};
+		if (isNil {_o getVariable "BIS_IS_inAgony"}) then {_o setVariable ["BIS_IS_inAgony",false];};
 
-		//if(isPlayer _this or _this in playableUnits)then{
-			//if (local _this) then {
-				//_this addEventHandler ["handledamage", {_this call m_FirstAid_handleDamage}];
-				//_this addEventHandler ["handleheal", {_this spawn m_FirstAid_handleHeal}];
+		//if(isPlayer _o or _o in playableUnits)then{
+			//if (local _o) then {
+				//_o addEventHandler ["handledamage", {_this call m_FirstAid_handleDamage}];
+				//_o addEventHandler ["handleheal", {_this spawn m_FirstAid_handleHeal}];
 			//};
 		//};
 	}else{
-		if (local _this) then {
-			//_this addEventHandler ["HandleDamage", {_this call gosa_fnc_vehicleHandleDamage}];
+		if (local _o) then {
+			//_o addEventHandler ["HandleDamage", {_this call gosa_fnc_vehicleHandleDamage}];
 		};
 		if (isServer) then {
-			_this addEventHandler ["GetIn", {
+			_o addEventHandler ["GetIn", {
 				_this spawn {[_this select 2] allowGetin true};
 			}];
-			_this addEventHandler ["GetOut", {
+			_o addEventHandler ["GetOut", {
 				_this spawn gosa_fnc_eh_getout;
 			}];
 		};
 	};
-	_this setVehicleLock "UNLOCKED";
-	_this setVariable ["_gosa_init",true,false];
+	_o setVehicleLock "UNLOCKED";
+	_o setVariable ["_gosa_init",true,false];
 };
