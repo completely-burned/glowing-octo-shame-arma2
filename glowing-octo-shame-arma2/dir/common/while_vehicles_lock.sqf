@@ -23,6 +23,7 @@ _friendly_vehicles_only = missionNamespace getVariable "friendly_vehicles_only";
 waitUntil{!isNil "gosa_friendlyside"};
 
 while{true}do{
+	// TODO: нужно оптимизировать, слишком сильная нагрузка
 
 	// перечислить транспорт который нужно закрыть
 	_vehicles_lock = [];
