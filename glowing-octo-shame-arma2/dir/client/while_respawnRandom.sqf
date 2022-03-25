@@ -53,13 +53,6 @@ _fnc_swich={
 	};
 
 	if (!isNil "_var" && {_var == _o}) then {
-
-	// FIXME: разные подозрения, name синхронизируется не сразу
-	if (name _old == _p_name) then {
-		// FIXME: не понимаю зачем нужно это
-		_old setVariable ["selectPlayerDisable", true];
-	};
-
 	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
 
 	_b = behaviour _new;
