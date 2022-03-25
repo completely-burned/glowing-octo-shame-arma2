@@ -5,6 +5,8 @@
 TODO: нужна проверка AFK на игроков и лидеров группы
 FIXME: у меня нет возможности проверить этот режим должным образом, поэтому тут гадание, и вероятно не все проверки необходимы
 FIXME: при проверки name возможно переменная selectPlayerDisable становится лишней
+	заметки:
+		name синхоризируется не сразу.
 */
 
 private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
@@ -37,11 +39,11 @@ _fnc_swich={
 	_new = (_this select 1);
 
 	if (isMultiplayer) then {
-		// временное решение
+		// Чтобы игроки не слипались в одно тело.
 		[nil, _new, rselectPlayer, _o] call RE;
 
 		_time = time+5;
-		// FIXME: это плохой способ
+		// FIXME: это плохой способ, .. почему?
 		while {isNil "_var" && time < _time} do {
 			_var = _new getVariable "gosa_player_owner";
 			sleep 0.05;
@@ -57,11 +59,11 @@ _fnc_swich={
 
 	_b = behaviour _new;
 	if (_b == "COMBAT") then { //&& (_new countEnemy (_new nearEntities ["Land", 500]) > 3)
+		//-- осветительная ракета
 		_new call gosa_fnc_aiFlareSupport;
 	};
 
 	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
-	// TODO: нужна пероверка удачного переключения
 	selectPlayer _new;
 
 	gosa_lastSwitchBodyTime = time;
@@ -84,6 +86,7 @@ _fnc_swich={
 		// FIXME: не уверен в отсутствии ложных включений
 		if (player != _new) then {
 			_new setVariable ["gosa_respawn_blt", time];
+			diag_log format ["Log: [respawnRandom] _fnc_swich переключение не удалось %1", _new];
 			_old;
 		}else{
 			_new;
@@ -185,7 +188,7 @@ _fnc_prio_units={
 player setVariable ["selectPlayerDisable", true, true];
 
 // после переключения на новое тело уничтожаем первое тело данное при старте т.к. оно расположено на неподходящей позиции и нужно только для старта миссии
-// нужно для respawnDone = trueж
+// нужно для respawnDone = true
 [_p] spawn {
 	waitUntil{
 		isNil{player getVariable "selectPlayerDisable"};
@@ -276,20 +279,6 @@ while {true} do {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] isNull %1", player];
 	};
-
-	// name синхронизируется не сразу
-	/* не работает
-	if (gosa_lastSwitchBodyTime + 2.5 > time) then {
-		/* Проверка name не дает игрокам слипнуться.
-		Помогает лишь одному игроку.
-		Не всегда срабатывает даже когда ники разные.
-		// TODO: но после переключения остается сломанным предыдущий юнит из-за переменной, другой игрок
-		if (name player != _p_name or name _p != _p_name) then {
-			_t = true;
-			diag_log format ["Log: [respawnRandom] name player %1, name _p %2, _p_name %3", name player, name _p, _p_name];
-		};
-	};
-	*/
 	if (!isNil{_p getVariable "selectPlayerDisable"}) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _p];
@@ -298,12 +287,6 @@ while {true} do {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] blacklisted lifeState %1", player];
 	};
-	/* для local owner == 0 у всех игроков
-	_z = owner _p;
-	if (_z != 0) then {
-		_t = true;
-		diag_log format ["Log: [respawnRandom] owner %1", [_z, _o]];
-	};*/
 	_z = _p getVariable "gosa_player_owner";
 	if (!isNil {_z}) then {
 		if (_z != _o) then {
@@ -314,6 +297,7 @@ while {true} do {
 	if (_t) then {
 
 		//--- таймер смерти
+		// FIXME: что это?
 		if (isNil "_deathTime") then {
 			_deathTime = time+1;
 			breakTo "root";
