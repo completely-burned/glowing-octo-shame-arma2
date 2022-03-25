@@ -15,6 +15,7 @@ if (isNil "gosa_fnc_get_MHQ_type") then {
   deleteVehicle (_this select 3);
   // FIXME: gosa_posDefaultHiden возможно создает проблемы
   _veh = _type call gosa_fnc_get_MHQ_type createvehicle [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)), (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))];
+  [nil, _veh, rvehInit] call RE;
   _veh setDir _dir;
   _veh setPos _pos;
   diag_log format ["Log: [coin_interface_MHQ] created %1, removed %2", _veh, _this select 3];

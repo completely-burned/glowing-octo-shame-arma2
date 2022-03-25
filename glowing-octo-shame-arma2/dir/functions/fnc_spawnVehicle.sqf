@@ -40,6 +40,7 @@ if (_sim in ["airplane", "helicopter"]) then {
 
 diag_log format ["Log: [fnc_spawnVehicle] %1", _veh];
 
+[nil, _veh, rvehInit] call RE;
 
 _veh setDir _azi;
 

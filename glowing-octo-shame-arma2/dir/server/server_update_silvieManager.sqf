@@ -58,7 +58,7 @@ while{true}do{
 
 					//if ({alive _x} count _mash == 0) then {
 						// TODO: нужно оптимизировать код
-						_mash = _twnpos nearObjects [_mashType, 750]; 
+						_mash = _twnpos nearObjects [_mashType, 750];
 					//};
 
 					// мого разрушенных палаток не красиво выглядит
@@ -73,7 +73,7 @@ while{true}do{
 							while {_attempts < 500} do {
 
 								// эта комаднда находит позицию ближе к центру и поэтому не подходит
-								// _testPos = _twnpos findEmptyPosition [5,500,_mashType]; 
+								// _testPos = _twnpos findEmptyPosition [5,500,_mashType];
 
 								_posX = _twnpos select 0;
 								_posY = _twnpos select 1;
@@ -148,6 +148,7 @@ while{true}do{
 							};
 							private ["_veh1"];
 							_veh1 = createVehicle [ (silvieManagerVehicles call BIS_fnc_selectRandom), _pos, [], 0, "NONE"];
+							[nil, _veh1, rvehInit] call RE;
 							_veh1 setDir (_dir - 10 + random 20);
 							// _veh1 setPosATL _pos;
 							//--- Inside Building Check

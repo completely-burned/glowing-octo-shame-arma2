@@ -119,6 +119,7 @@ while{true}do{
 
 			if(_true)then{
 				_MHQ = createVehicle [(MHQ_list select 0) call BIS_fnc_selectRandom, _StartingLocationsPos call BIS_fnc_selectRandom, [], 0, "NONE"];
+				[nil, _MHQ, rvehInit] call RE;
 				diag_log format ["Log: [while_mhq] %1 created", _MHQ];
 				breakTo "scope1";
 
