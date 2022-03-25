@@ -75,7 +75,7 @@ _library = [
 "setDir", //caution: works weird (often overwritten by server, tied to setpos)
 "setObjectTexture",
 // используется
-// "execfsm", 
+// "execfsm",
 // замена не запускается
 // "execVM",
 "spawn",
@@ -133,6 +133,11 @@ rsetRankcode = {
 	};
 };
 
+rvehInit = 'vehInit';
+rvehInitcode = {
+	[_this select 1] call gosa_fnc_vehInit2;
+};
+
 rhintresurrected = 'hintResurrected';
 rhintresurrectedcode = {
 	private ["_z"];
@@ -177,7 +182,7 @@ rselectPlayercode = {
 		if (isNil "_z") then {
 			diag_log format ["Log: [respawnRandom] mpf setVariable %1", _this select 2];
 			// FIXME: переменная остается
-			_this select 1 setVariable ["gosa_player_owner", _this select 2, true]; 
+			_this select 1 setVariable ["gosa_player_owner", _this select 2, true];
 		}else {
 			diag_log format ["Log: [respawnRandom] mpf variable == %1", _z];
 		};
