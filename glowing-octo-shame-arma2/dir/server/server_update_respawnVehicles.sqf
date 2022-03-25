@@ -1,5 +1,6 @@
 /*
 возрождение транспорта
+TODO: устранить быдлокод
 */
 
 #ifdef __ARMA3__
@@ -42,6 +43,7 @@ for "_i" from 0 to (count respawnVehicleList - 1) do {
 	if((_veh distance _pos) > sizeOf _type)then{
 		_veh setVariable ["time", time];
 		_veh1 = createVehicle [_type, [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)), (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"];
+		[nil, _veh1, rvehInit] call RE;
 		_veh1 setVariable ["gosa_respawnveht", time];
 		_veh1 setDir _dir;
 		_veh1 setPos _pos;
@@ -56,6 +58,7 @@ for "_i" from 0 to (count respawnVehicleList - 1) do {
 					// if(!alive _x)then{deleteVehicle _x};
 				// }forEach (_pos nearObjects ["AllVehicles",sizeOf _type]);
 				_veh1 = createVehicle [_type, [(gosa_posDefaultHiden select 0) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2)), (gosa_posDefaultHiden select 1) + ((random gosa_posDefaultHidenRandom) - (gosa_posDefaultHidenRandom/2))], [], 0, "CAN_COLLIDE"];
+				[nil, _veh1, rvehInit] call RE;
 				_veh1 setVariable ["gosa_respawnveht", time];
 				_veh1 setDir _dir;
 				_veh1 setPos _pos;

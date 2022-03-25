@@ -14,6 +14,7 @@ if(_type isKindOf "UAV")then{
 };
 
 _fnc_1={
+	[nil, _this, rvehInit] call RE;
 	_this setVectorUp [0,0,1];
 	group player addVehicle _this;
 	player reveal _this;
