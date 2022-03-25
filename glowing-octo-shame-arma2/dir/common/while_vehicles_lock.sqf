@@ -9,15 +9,10 @@
 
 #ifdef __A2OA__
 
-private["_vehicles_lock"];
+private["_vehicles_lock","_grp","_units","_leaderPlayer","_isPlayer","_side",
+	"_vehicle","_grpPlayer","_lock","_transportPlayer",
+	"_friendly_vehicles_only"];
 
-private["_grp","_units","_leaderPlayer","_isPlayer","_vehicle","_grpPlayer","_side"];
-
-private["_lock"];
-
-private["_transportPlayer"];
-
-private["_friendly_vehicles_only"];
 _friendly_vehicles_only = missionNamespace getVariable "friendly_vehicles_only";
 
 waitUntil{!isNil "gosa_friendlyside"};
@@ -43,16 +38,7 @@ while{true}do{
 				//	diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия %1", _grp];
 				// находим транспорт
 				{
-					_vehicle = assignedVehicle _x;
-
-					if (isNull _vehicle) then {
-						_vehicle = _x getVariable "gosa_assignedVehicle";
-						if (isNil {_vehicle}) then {_vehicle = objNull};
-					};
-
-					if(isNull _vehicle)then{
-						_vehicle = vehicle _x;
-					};
+					_vehicle = _x call gosa_fnc_assignedVeh;
 
 					if(!isNull _vehicle && _vehicle != _x && !(_vehicle in _vehicles_lock))then{
 						_vehicles_lock set [count _vehicles_lock, _vehicle];

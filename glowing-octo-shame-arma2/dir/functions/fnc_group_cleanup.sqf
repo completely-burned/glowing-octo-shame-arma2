@@ -32,13 +32,7 @@ if ( isNil "_time" ) then {
 		_types set [count _types, typeOf _x];
 		private ["_veh","_assignedVehicle"];
 		_veh = vehicle _x;
-		_assignedVehicle = assignedVehicle _x;
-
-		if (isNull _assignedVehicle) then {
-			_assignedVehicle = _x getVariable "gosa_assignedVehicle";
-		};
-		if (isNil {_assignedVehicle}) then {_assignedVehicle = objNull};
-
+		_assignedVehicle = _x call gosa_fnc_assignedVeh;
 		if (!isNull _assignedVehicle) then {
 			_assignedVehicles set [count _assignedVehicles, _veh];
 		};
@@ -88,10 +82,10 @@ if ( isNil "_time" ) then {
 					if(isNil "_cleanup")then{
 						if(_Helicopter)then{
 							// инит
-							_cleanup = [getPos vehicle _leader,time+10,time+120,waypointPosition [_grp,_currentWP]]; 
+							_cleanup = [getPos vehicle _leader,time+10,time+120,waypointPosition [_grp,_currentWP]];
 						}else{
 							// инит
-							_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]]; 
+							_cleanup = [getPos vehicle _leader,time+30,time+120,waypointPosition [_grp,_currentWP]];
 						};
 						_grp setVariable ["_cleanup",_cleanup];
 							diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1 _cleanup init %2", _grp, _cleanup ];
@@ -104,10 +98,10 @@ if ( isNil "_time" ) then {
 						_oldTime2 = _cleanup select 2;
 						_oldPosWP = _cleanup select 3;
 						// если маршрут не менялся
-						if([waypointPosition [_grp,_currentWP], _oldPosWP] call BIS_fnc_distance2D < 5 )then{ 
+						if([waypointPosition [_grp,_currentWP], _oldPosWP] call BIS_fnc_distance2D < 5 )then{
 								diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся", _grp ];
 							// поддержка
-							if(waypointType [_grp, _currentWP] in ["SUPPORT"])then{ 
+							if(waypointType [_grp, _currentWP] in ["SUPPORT"])then{
 								_oldTime = _oldTime max time+30;
 								_oldTime2 = _oldTime2 max time+120;
 								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
@@ -115,7 +109,7 @@ if ( isNil "_time" ) then {
 									diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся, поддержка, местоположение перезаписано, таймер +30 +120", _grp ];
 							};
 							// артиллерия
-							if(currentCommand _leader == "FIRE AT POSITION")then{ 
+							if(currentCommand _leader == "FIRE AT POSITION")then{
 								_oldTime = _oldTime max time+30;
 								_oldTime2 = _oldTime2 max time+120;
 								_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
@@ -138,13 +132,13 @@ if ( isNil "_time" ) then {
 							};
 
 							// 1 таймер
-							if(_oldTime < time)then{ 
+							if(_oldTime < time)then{
 									diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся, 1 таймер сработал", _grp ];
 								// сдвинулись
-								if(_oldPos distance _leaderPos >= 5)then{ 
+								if(_oldPos distance _leaderPos >= 5)then{
 										diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся, группа сдвинулась когда 1 таймер работал", _grp ];
 									// на точке
-									if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{ 
+									if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{
 										_oldTime = _oldTime max time+120;
 										_oldTime2 = _oldTime2 max time+240;
 										// 1 и 2 таймер обновление
@@ -167,22 +161,22 @@ if ( isNil "_time" ) then {
 									if(_Helicopter)then{
 										_oldTime = _oldTime max time+10;
 										// 1 таймер обновление
-										_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; 
+										_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 										_grp setVariable ["_cleanup",_cleanup];
 											diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся, _Helicopter, группа не сдвинулась когда 1 таймер работал, местоположение перезаписано, таймер +10 --", _grp ];
 									}else{
 										// на точке
-										if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{ 
+										if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{
 											_oldTime = _oldTime max time+120;
 											_oldTime2 = _oldTime2 max time+240;
 											// 1 таймер обновление
-											_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; 
+											_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 											_grp setVariable ["_cleanup",_cleanup];
 												diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся, группа на точке, группа не сдвинулась когда 1 таймер работал, местоположение перезаписано, таймер +120 +240", _grp ];
 										}else{
 											_oldTime = _oldTime max time+30;
 											// 1 таймер обновление
-											_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; 
+											_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 											_grp setVariable ["_cleanup",_cleanup];
 												diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся, группа не на точке, группа не сдвинулась когда 1 таймер работал, местоположение перезаписано, таймер +30 --", _grp ];
 										};
@@ -191,15 +185,15 @@ if ( isNil "_time" ) then {
 							};
 
 							// 2 таймер
-							if(_oldTime2 < time)then{ 
+							if(_oldTime2 < time)then{
 								// на удаление
-								{_x setVariable ["gosa_timeDeleteVehicle", 0]}forEach units _grp; 
+								{_x setVariable ["gosa_timeDeleteVehicle", 0]}forEach units _grp;
 									diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся, 2 таймер сработал, в очередь на удаление", _grp ];
 							};
 						// если маршрут изменился
-						}else{ 
+						}else{
 							// обновление позиции
-							_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]]; 
+							_cleanup = [getPos vehicle _leader,_oldTime,_oldTime2,waypointPosition [_grp,_currentWP]];
 							_grp setVariable ["_cleanup",_cleanup];
 								diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут изменился, местоположение перезаписано", _grp ];
 						};

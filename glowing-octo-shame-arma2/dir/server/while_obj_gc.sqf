@@ -77,12 +77,7 @@ while {true} do {
 
 		if !(_x_veh call gosa_fnc_isPlayer) then {
 
-			_assignedVehicle = assignedVehicle _x_veh;
-
-			if (isNull _assignedVehicle) then {
-				_assignedVehicle = _x_veh getVariable "gosa_assignedVehicle";
-				if (isNil {_assignedVehicle}) then {_assignedVehicle = objNull};
-			};
+			_assignedVehicle = _x_veh call gosa_fnc_assignedVeh;
 
 			// не патрульный бот, далеко от точки и без транспорта
 			if (isNull _assignedVehicle) then {
@@ -96,7 +91,6 @@ while {true} do {
 			// пилоты и танкисты без техники
 			_type = typeOf _x_veh;
 			if(_type in gosa_crewL+gosa_pilotL)then{
-				_assignedVehicle = assignedVehicle _x_veh;
 				if(isNull _assignedVehicle && (vehicle _x_veh == _x_veh))then{
 					if (currentCommand _x_veh in ["MOVE"]) then {
 						_timeNew = _time min (time + _timerDelete);
@@ -241,7 +235,7 @@ while {true} do {
 			diag_log format ["Log: [GC2] delete %1", _x_veh];
 			deleteVehicle _x_veh;
 			// FIXME: это лишнее тк объект после удаления станет objNull
-			gosa_GC_array set [_i, objNull]; 
+			gosa_GC_array set [_i, objNull];
 		}else{
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};

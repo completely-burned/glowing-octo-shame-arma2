@@ -58,13 +58,7 @@ if({alive _x} count _units > 0)then{
 		_types set [count _types, typeOf _x];
 		private ["_veh","_assignedVehicle"];
 		_veh = vehicle _x;
-		_assignedVehicle = assignedVehicle _x;
-
-		if (isNull _assignedVehicle) then {
-			_assignedVehicle = _x getVariable "gosa_assignedVehicle";
-		};
-		if (isNil {_assignedVehicle}) then {_assignedVehicle = objNull};
-
+		_assignedVehicle = _x call gosa_fnc_assignedVeh;
 		if (!isNull _assignedVehicle) then {
 			_assignedVehicles set [count _assignedVehicles, _veh];
 		};
@@ -120,7 +114,7 @@ if({alive _x} count _units > 0)then{
 
 			//--- десант, все юниты отряда в грузовом отсеке вертолета
 			// TODO: не работает если часть юнитов отвязались от транспорта
-			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then { 
+			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then {
 				diag_log format ["Log: [fnc_group_wp] #landing %1 все юниты группы в грузовом отсеке вертолета %2", _grp, _units];
 
 				_g2 = group vehicle _leader;
@@ -155,7 +149,7 @@ if({alive _x} count _units > 0)then{
 							if (isNull waypointAttachedVehicle _wp && [waypointPosition _z, waypointPosition _wp] call BIS_fnc_distance2D > 100) then {
 								_wp setWaypointPosition [waypointPosition _z, -1];
 								// FIXME: не понимаю нужное направление
-								_wp synchronizeWaypoint [_z]; 
+								_wp synchronizeWaypoint [_z];
 								_z synchronizeWaypoint [_wp];
 								diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут изменен и синхронизирован %2", _grp, _z];
 							}else{
@@ -198,7 +192,7 @@ if({alive _x} count _units > 0)then{
 
 			//--- десант, все юниты отряда в грузовом отсеке самолета
 			// TODO: не работает если часть юнитов отвязались от транспорта
-			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then { 
+			if ({_z = assignedVehicleRole _x; if(count _z == 0)then{false}else{_z select 0 == "cargo"}} count _units == count _units) then {
 				diag_log format ["Log: [fnc_group_wp] #landing %1 все юниты группы в грузовом отсеке самолета %2 %3", _grp, [vehicle _leader, typeOf vehicle _leader], _units];
 
 				//--- группа пилота самолета
@@ -219,7 +213,7 @@ if({alive _x} count _units > 0)then{
 						diag_log format ["Log: [fnc_group_wp] #landing самолет %1 %2 != 'TR UNLOAD', удаление маршрутов группы самолета и отмена", waypoints _g2, waypointType _z];
 						// перед типом, нужно установить маршрут на позицию чтобы небыло ложных срабатываний
 						// тип маршрута "TR UNLOAD" или "GETOUT" сажает самолет
-						// _z setWaypointType "TR UNLOAD"; 
+						// _z setWaypointType "TR UNLOAD";
 					 }else{
 
 						if (count waypoints _grp == 0) then {
@@ -229,7 +223,7 @@ if({alive _x} count _units > 0)then{
 							if (waypointPosition _wp select 0 != 0 && _typeWP != "UNLOAD") then {
 								diag_log format ["Log: [fnc_group_wp] #landing %1 тип %2 маршрута десанта исправлен на UNLOAD", _wp, waypointType _wp];
 								// тип маршрута "UNLOAD" или "GETOUT" сажает! самолет
-								_wp setWaypointType "UNLOAD"; 
+								_wp setWaypointType "UNLOAD";
 							};
 
 							//--- синхронизируем маршруты
@@ -237,9 +231,9 @@ if({alive _x} count _units > 0)then{
 
 									if (isNull waypointAttachedVehicle _wp && [waypointPosition _z, waypointPosition _wp] call BIS_fnc_distance2D > 100) then {
 										// TODO: устанавливается не на той-же позиции
-										_wp setWaypointPosition [waypointPosition _z, -1]; 
+										_wp setWaypointPosition [waypointPosition _z, -1];
 										// FIXME: не понимаю нужное направление
-										_wp synchronizeWaypoint [_z]; 
+										_wp synchronizeWaypoint [_z];
 										_z synchronizeWaypoint [_wp];
 										diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут десанта синхронизирован с маршрутом транспорта %2", _grp, _z];
 									}else{
@@ -250,7 +244,7 @@ if({alive _x} count _units > 0)then{
 												diag_log format ["Log: [fnc_group_wp] #landing %1 выгрузка самолета, дист. до мрш. %2, дист. до центра %3", _grp, [_leaderPos distance waypointPosition _wp, _leaderPos distance waypointPosition _z], _leaderPos distance civilianBasePos];
 
 												// TODO: десантирование нескольких отрядов одновременно возможно конфликтует
-												_units spawn gosa_fnc_paraJump; 
+												_units spawn gosa_fnc_paraJump;
 
 											};
 									};
@@ -394,15 +388,15 @@ if({alive _x} count _units > 0)then{
 		}else{
 
 			// не создавать
-			_NoCreateWP = false; 
+			_NoCreateWP = false;
 			// удалить
-			_DeleteWP = false; 
+			_DeleteWP = false;
 			// остановиться
-			_StopWP = false; 
+			_StopWP = false;
 
 			// выполнять только если группа готова
 			// FIXME: эта проверка должна быть в другом месте выше в скрипте?
-			if(!isNil {_grp getVariable "grp_created"})then{ 
+			if(!isNil {_grp getVariable "grp_created"})then{
 					// слишком часто diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1  группа готова", _grp ];
 
 				if(count waypoints _grp == 0)then{
@@ -418,7 +412,7 @@ if({alive _x} count _units > 0)then{
 								diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 добавлена в очередь на создание маршрута", _grp, currentCommand _leader ];
 							_createWP = true;
 							// используется в некоторых проверках
-							_DeleteWP = true; 
+							_DeleteWP = true;
 							_grp setVariable ["_timeNoWP", nil];
 						};
 					};
@@ -535,12 +529,12 @@ if({alive _x} count _units > 0)then{
 						if(!isNil {_wp_AA})then{
 							// установка маршрута на позицию
 							// если маршрут отсутствует невозможно установить ему позицию
-							if (count waypoints _grp == 0) then { 
+							if (count waypoints _grp == 0) then {
 								_wp =  _grp addWaypoint [_wp_AA, 50];
 								// TODO: для этого нужна функция
-								_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically"; 
+								_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically";
 								// TODO: не работает должным образом
-								_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"]; 
+								_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"];
 							}else{
 								_wp setWaypointPosition [_wp_AA, 50];
 							};
@@ -575,7 +569,7 @@ if({alive _x} count _units > 0)then{
 						_v = vehicle _leader;
 						if( _v != _leader && waypointAttachedVehicle _wp != _v )then{
 							// FIXME: при перемещении маршрута ии инициализируется под маршрут "SUPPORT" заново
-							_wp waypointAttachVehicle _v; 
+							_wp waypointAttachVehicle _v;
 							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 waypointAttachVehicle %2 %3", _wp, _v, typeOf _v];
 						};
 					};
@@ -661,7 +655,7 @@ if({alive _x} count _units > 0)then{
 			_z = _grp getVariable "_gosa_UAV_WaypointPosCenter";
 			if(!isNil{_z})then{
 				// не создавать
-				_NoCreateWP = true; 
+				_NoCreateWP = true;
 			};
 
 			// остановить ботов на точке 2 минут
@@ -670,11 +664,11 @@ if({alive _x} count _units > 0)then{
 					if ((vehicle _leader distance civilianBasePos) < sizeLocation) then {
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] остановить ии %1 на точке, time %2", _grp, [_grp_wp_completed, time]];
 						// удалить
-						_DeleteWP = true; 
+						_DeleteWP = true;
 						// не создавать
-						_NoCreateWP = true; 
+						_NoCreateWP = true;
 						// не создавать
-						_createWP = false; 
+						_createWP = false;
 					};
 				};
 			};
