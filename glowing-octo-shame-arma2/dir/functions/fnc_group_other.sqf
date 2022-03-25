@@ -9,10 +9,15 @@
 	изменяет скорость, режим боя
 */
 
-private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP",
-"_units","_vehicles","_types","_cargo","_assignedVehicles",
-"_grp_wp_completed","_driver","_slu","_z","_n","_grp_type"
-];
+private["_leader"];
+_leader = leader _this;
+
+// запускается у всех
+if (local _leader)then{
+	private["_grp","_leaderPos","_currentWP","_wp","_typeWP",
+		"_units","_vehicles","_types","_cargo","_assignedVehicles",
+		"_grp_wp_completed","_driver","_slu","_z","_n","_grp_type"
+		];
 
 // private ["_Stealth"];
 
@@ -32,22 +37,6 @@ if (gosa_loglevel > 0) then { // diag_log
 _slu = objNull;
 
 if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)then{
-
-	_leader = leader _grp;
-
-	// нужно проверять локальных
-	if(
-		// если не локальные
-		!local _leader or
-		(isServer && (owner _leader > 2)) or
-		(!isServer && (owner _leader == 2))
-	)then{
-		// то пропуск
-		if (gosa_loglevel > 0) then { // diag_log
-			diag_log format ["Log: [gosa_fnc_group_other.sqf] breakTo main, owner: %1  %2,  isServer = %3, isLocal = %4", _leader, owner _leader, isServer, local _leader];
-		}; // diag_log
-		breakTo "main";
-	};
 
 	_leaderPos = getPos vehicle _leader;
 
@@ -157,7 +146,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 	//--- ограничение скорости транспорта
 	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/76
-#ifdef __A2OA__
+	#ifdef __A2OA__
 	//--- снимает ограничение юнитам вне транспорта
 	{
 		if(_x == vehicle _x)then{
@@ -209,7 +198,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		}forEach _vehicles;
 
 	// _slu = objNull;
-#endif
+	#endif
 
 	//--- точность ии
 	{
@@ -359,3 +348,9 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 if (gosa_loglevel > 0) then { // diag_log
 	diag_log format ["Log: [gosa_fnc_group_other] end %1", time];
 }; // diag_log
+
+}else{ // diag_log
+	if (gosa_loglevel > 0) then { // diag_log
+		diag_log format ["Log: [gosa_fnc_group_other.sqf] breakTo main, owner: %1  %2,  isServer = %3, isLocal = %4", _leader, owner _leader, isServer, local _leader];
+	}; // diag_log
+};
