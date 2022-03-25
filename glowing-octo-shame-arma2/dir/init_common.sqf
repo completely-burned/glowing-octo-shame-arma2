@@ -152,7 +152,7 @@ safeSpawnDistance = [1000,1500,3500,1500,1500,3500];
 
 [] call gosa_fnc_worldSize;
 
-[] execVM ("dir\gosa_update_vehicle_init.sqf");
+[] execVM ("dir\common\while_init.sqf");
 // [] execVM "dir\ais\gosa_is.sqf";
 [] execVM ("dir\common\while_vehicles_lock.sqf");
 [] execVM ("dir\common\while_fps.sqf");
