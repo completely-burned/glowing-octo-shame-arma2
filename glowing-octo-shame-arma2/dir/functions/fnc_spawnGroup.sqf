@@ -68,6 +68,7 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 
 				if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
 					_unit = _grp createUnit [_type, _itemPos, [], 0, "FORM"];
+					[nil, _unit, rvehInit] call RE;
 #ifndef __A2OA__
 					_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
 #endif

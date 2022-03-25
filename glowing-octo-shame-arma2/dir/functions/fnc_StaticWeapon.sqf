@@ -113,12 +113,12 @@ if ([[_this], ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then {
 									{
 										_x spawn {
 											// bugfix выходит без анимации
-											moveOut _this; 
+											moveOut _this;
 											private["_time"]; // bugfix
 											_time = time + 60; // bugfix
 											waitUntil {vehicle _this == _this or _time > time}; // bugfix
 											// удаляется
-											deleteVehicle _this; 
+											deleteVehicle _this;
 										};
 									} forEach _crew;
 									_this setVariable ["_crew", nil];
@@ -149,6 +149,7 @@ if ([[_this], ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then {
 							_crewType = getText (configFile >> "CfgVehicles" >> typeOf _this >> "crew");
 							_crew = (_grp createUnit [_crewType, [nearestObjects [_this, gosa_objectsTeleport, gosa_distanceReammo] call BIS_fnc_selectRandom] call gosa_fnc_respawnPos, [], 10, "NONE"]);
 							_this setVariable ["_crew", [_crew]];
+							[nil, _crew, rvehInit] call RE;
 				    	};
 					};
 				};
