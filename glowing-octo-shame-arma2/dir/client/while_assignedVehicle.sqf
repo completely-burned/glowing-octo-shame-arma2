@@ -17,7 +17,7 @@ while{true}do{
 
 	if (!isNull _veh) then {
 		// FIXME: нет смысла, только лишняя перезапись
-		// player setVariable ["gosa_assignedVehicle", nil]; 
+		// player setVariable ["gosa_assignedVehicle", nil];
 	// } else {
 		_vehVar = player getVariable "gosa_assignedVehicle";
 		if (isNil {_vehVar}) then {

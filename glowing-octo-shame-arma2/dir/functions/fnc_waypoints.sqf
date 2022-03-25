@@ -32,13 +32,7 @@ if(!isNil "_leader")then{
 	{
 		_types set [count _types, typeOf _x];
 		_veh = vehicle _x;
-		_assignedVehicle = assignedVehicle _x;
-
-		if (isNull _assignedVehicle) then {
-			_assignedVehicle = _x getVariable "gosa_assignedVehicle";
-		};
-		if (isNil {_assignedVehicle}) then {_assignedVehicle = objNull};
-
+		_assignedVehicle = _x call gosa_fnc_assignedVeh;
 		if (!isNull _assignedVehicle) then {
 			_assignedVehicles set [count _assignedVehicles, _veh];
 		};
@@ -62,7 +56,7 @@ if(!isNil "_leader")then{
 	{
 		_veh = _x;
 		// FIXME: возможно из-за grpNull был true
-		if({_z = group _x; _z != _grp && !isNull _z}count crew _veh > 0)then{ 
+		if({_z = group _x; _z != _grp && !isNull _z}count crew _veh > 0)then{
 			_landing = true;
 		};
 	} forEach _vehicles;
@@ -148,7 +142,7 @@ if(!isNil "_leader")then{
 			_pos = [civilianBasePos, 1500, 500, side _grp] call gosa_fnc_find_heliUnload_pos;
 			_maxDist = 0;
 			// TODO: в случае не найденной позиции высадки нужно сделать выгрузку с парашютом
-			if (count _pos == 0) then { 
+			if (count _pos == 0) then {
 				_pos = civilianBasePos;
 				_maxDist = sizeLocation*2;
 			};
