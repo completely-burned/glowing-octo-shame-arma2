@@ -4043,7 +4043,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=0.2;
-					text="hc0";
+					text="HC";
 				};
 				class Item1
 				{
@@ -4054,7 +4054,7 @@ class Mission
 					vehicle="Worker2";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc1";
+					text="HC (1)";
 				};
 				class Item2
 				{
@@ -4065,7 +4065,7 @@ class Mission
 					vehicle="Functionary1";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc2";
+					text="HC (2)";
 				};
 				class Item3
 				{
@@ -4076,7 +4076,7 @@ class Mission
 					vehicle="Woodlander4";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc3";
+					text="HC (3)";
 				};
 				class Item4
 				{
@@ -4087,7 +4087,7 @@ class Mission
 					vehicle="Rocker1";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc4";
+					text="HC (4)";
 				};
 				class Item5
 				{
@@ -4098,7 +4098,7 @@ class Mission
 					vehicle="Worker3";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc5";
+					text="HC (5)";
 				};
 				class Item6
 				{
@@ -4109,7 +4109,7 @@ class Mission
 					vehicle="Profiteer3";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc6";
+					text="HC (6)";
 				};
 				class Item7
 				{
@@ -4120,7 +4120,7 @@ class Mission
 					vehicle="Profiteer2";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc7";
+					text="HC (7)";
 				};
 				class Item8
 				{
@@ -4131,7 +4131,7 @@ class Mission
 					vehicle="Worker4";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc8";
+					text="HC (8)";
 				};
 				class Item9
 				{
@@ -4142,7 +4142,7 @@ class Mission
 					vehicle="Profiteer1";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc9";
+					text="HC (9)";
 				};
 			};
 		};
@@ -4162,7 +4162,7 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					skill=0.2;
-					text="hc10";
+					text="HC (10)";
 				};
 				class Item1
 				{
@@ -4173,7 +4173,7 @@ class Mission
 					vehicle="Worker2";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc11";
+					text="HC (11)";
 				};
 				class Item2
 				{
@@ -4184,7 +4184,7 @@ class Mission
 					vehicle="Functionary1";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc12";
+					text="HC (12)";
 				};
 				class Item3
 				{
@@ -4195,7 +4195,7 @@ class Mission
 					vehicle="Woodlander4";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc13";
+					text="HC (13)";
 				};
 				class Item4
 				{
@@ -4206,7 +4206,7 @@ class Mission
 					vehicle="Rocker1";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc14";
+					text="HC (14)";
 				};
 				class Item5
 				{
@@ -4217,7 +4217,7 @@ class Mission
 					vehicle="Worker3";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc15";
+					text="HC (15)";
 				};
 				class Item6
 				{
@@ -4228,7 +4228,7 @@ class Mission
 					vehicle="Profiteer3";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc16";
+					text="HC (16)";
 				};
 				class Item7
 				{
@@ -4239,7 +4239,7 @@ class Mission
 					vehicle="Profiteer2";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc17";
+					text="HC (17)";
 				};
 				class Item8
 				{
@@ -4250,7 +4250,7 @@ class Mission
 					vehicle="Worker4";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc18";
+					text="HC (18)";
 				};
 				class Item9
 				{
@@ -4261,7 +4261,7 @@ class Mission
 					vehicle="Profiteer1";
 					player="PLAY CDG";
 					skill=0.2;
-					text="hc19";
+					text="HC (19)";
 				};
 			};
 		};
