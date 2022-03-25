@@ -54,6 +54,7 @@ if (!IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_assignedVeh",
 	"fnc_eh_killed",
 	"fnc_clean_vars",
 	"fnc_rankConv",
