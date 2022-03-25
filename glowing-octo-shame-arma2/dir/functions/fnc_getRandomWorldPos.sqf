@@ -13,11 +13,11 @@ if (count _this > 0) then {
 while {isNil "_p"} do {
 
   // _z = отступ от края карты
-  _z = 1000 min ((gosa_worldSize select 0)/4); 
+  _z = 1000 min ((gosa_worldSize select 0)/10);
     _x = gosa_worldSize select 0;
     _x = _x - (_z*2);
     _x = _z + random _x;
-  _z = 1000 min ((gosa_worldSize select 1)/4);
+  _z = 1000 min ((gosa_worldSize select 1)/10);
     _y = gosa_worldSize select 1;
     _y = _y - (_z*2);
     _y = _z + random _y;
