@@ -1,4 +1,4 @@
-	diag_log format ["fnc_waypoints.sqf start %1", _this];
+	diag_log format ["Log: [fnc_waypoints] start %1", _this];
 private["_leader"];
 _leader = (_this select 0);
 if(!isNil "_leader")then{
@@ -62,13 +62,13 @@ if(!isNil "_leader")then{
 	} forEach _vehicles;
 
 	if (_landing) then { // diag_log
-		diag_log format ["gosa_fnc_waypoints.sqf %1 landing %2", _grp, _vehicles];
+		diag_log format ["Log: [fnc_waypoints] %1 landing %2", _grp, _vehicles];
 	}; // diag_log
 
 	if(true)then{
 
 		for "_i" from count waypoints _grp - 1 to 0 step -1 do {
-				diag_log format ["gosa_fnc_waypoints.sqf %1 удаление wp #%2", _grp, _i ];
+				diag_log format ["Log: [fnc_waypoints] %1 удаление wp #%2", _grp, _i ];
 			deleteWaypoint [_grp, _i];
 		};
 
@@ -110,7 +110,7 @@ if(!isNil "_leader")then{
 			_pos = getPos ([] call BIS_fnc_listPlayers call BIS_fnc_selectRandom);
 
 			if([_pos, [0,0]] call BIS_fnc_distance2D < 1 )then{
-					diag_log format ["gosa_fnc_waypoints.sqf %1  позиция wp [0,0] удаление, _pos = _leaderPos", _grp ];
+					diag_log format ["Log: [fnc_waypoints] %1  позиция wp [0,0] удаление, _pos = _leaderPos", _grp ];
 				_pos = _leaderPos;
 			};
 
@@ -167,7 +167,7 @@ if(!isNil "_leader")then{
 		// лодки позиция маршрута
 		if("Ship" in _grp_type)then{
 
-				diag_log format ["fnc_waypoints.sqf Ship %1", _this];
+				diag_log format ["Log: [fnc_waypoints] Ship %1", _this];
 
 			if!(_patrol)then{
 				if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _vehicles > 0)then{
@@ -233,7 +233,7 @@ if(!isNil "_leader")then{
 
 		// пехота
 		if(count _vehicles == 0)then{
-				diag_log format ["fnc_waypoints.sqf Inf %1", _this];
+				diag_log format ["Log: [fnc_waypoints] Inf %1", _this];
 
 			private["_true","_dir","_dist2","_testPos","_limit"];
 			_true = true;
@@ -254,9 +254,9 @@ if(!isNil "_leader")then{
 		// создать маршрут
 		_wp = [_grp,_pos,_maxDist,_WaypointType] call gosa_fnc_addWaypoint;
 
-		diag_log format ["fnc_waypoints.sqf %1 %2", _wp, [_pos, _maxDist, _pos distance civilianBasePos]];
-		diag_log format ["fnc_waypoints.sqf %1 added %2", _grp, [_wp, _WaypointType, waypointPosition _wp], _grp_type];
+		diag_log format ["Log: [fnc_waypoints] %1 %2", _wp, [_pos, _maxDist, _pos distance civilianBasePos]];
+		diag_log format ["Log: [fnc_waypoints] %1 added %2", _grp, [_wp, _WaypointType, waypointPosition _wp], _grp_type];
 	};
 };
 
-	diag_log format ["fnc_waypoints.sqf end %1", _this];
+	diag_log format ["Log: [fnc_waypoints] end %1", _this];
