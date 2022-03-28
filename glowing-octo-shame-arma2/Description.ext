@@ -146,9 +146,9 @@ class Params {
 	};
 	class mining {
 		// дистанция безопасного минирования не верно определяется когда все игроки мертвы
-		title="mining (not completed)"; 
+		title="mining (not completed)";
 		// в процентах
-		values[] = {0,		2,5,10,20,30,50,75}; 
+		values[] = {0,		2,5,10,20,30,50,75};
 		texts[] = {$STRWFNO,2,5,10,20,30,50,75};
 		default=0;
 	};
@@ -269,7 +269,7 @@ class Params {
 		title="reveal";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,"ai reveal player"};
-		default=1;
+		default=0;
 	};
 	class gosa_locationType {
 		title="Location Types";
