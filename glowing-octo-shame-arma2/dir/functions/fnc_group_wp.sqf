@@ -1,6 +1,7 @@
 /*
 эта функция отвечает за создание маршрутных точек для ии
 TODO: коду нужна ревизия
+TODO: Нужна карта файла.
 */
 
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_grp_wp_completed","_g2","_z","_v"];
