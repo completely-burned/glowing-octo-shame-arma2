@@ -252,14 +252,7 @@ if(!isNil "_leader")then{
 		};
 
 		// создать маршрут
-		_wp = _grp addWaypoint [_pos, _maxDist];
-		_wp setWaypointType _WaypointType;
-		//_wp setWaypointSpeed _SpeedMode;
-		// _wp setWaypointCombatMode _WaypointCombatMode;
-		// _wp setWaypointBehaviour _WaypointBehaviour;
-		// _wp setWaypointCompletionRadius _WaypointCompletionRadius;
-		_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically";
-		_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"];
+		_wp = [_grp,_pos,_maxDist,_WaypointType] call gosa_fnc_addWaypoint;
 
 		diag_log format ["fnc_waypoints.sqf %1 %2", _wp, [_pos, _maxDist, _pos distance civilianBasePos]];
 		diag_log format ["fnc_waypoints.sqf %1 added %2", _grp, [_wp, _WaypointType, waypointPosition _wp], _grp_type];
