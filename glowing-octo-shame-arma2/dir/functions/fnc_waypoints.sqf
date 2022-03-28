@@ -11,10 +11,10 @@ if(!isNil "_leader")then{
 
 	_grp = group _leader;
 
-	_landing = false;
 
 	_leaderPos = getPos vehicle _leader;
 
+	_landing = false;
 	if (count _this > 2) then {
 		_units = _this select 1;
 		_grp_type = _this select 2 select 0;
