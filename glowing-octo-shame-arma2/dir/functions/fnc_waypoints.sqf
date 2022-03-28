@@ -25,33 +25,33 @@ if(!isNil "_leader")then{
 		_grp = _this select 2 select 5;
 	}else{
 
-	_units = units _grp;
-	_vehicles = [];
-	_types = [];
-	_assignedVehicles = [];
-	{
-		_types set [count _types, typeOf _x];
-		_veh = vehicle _x;
-		_assignedVehicle = _x call gosa_fnc_assignedVeh;
-		if (!isNull _assignedVehicle) then {
-			_assignedVehicles set [count _assignedVehicles, _veh];
-		};
-		if(_veh != _x)then{
-			if!(_veh in _vehicles)then{
-				if (group effectiveCommander _veh == _grp) then {
-					_vehicles set [count _vehicles, _veh];
-					_types set [count _types, typeOf _veh];
+		_units = units _grp;
+		_vehicles = [];
+		_types = [];
+		_assignedVehicles = [];
+		{
+			_types set [count _types, typeOf _x];
+			_veh = vehicle _x;
+			_assignedVehicle = _x call gosa_fnc_assignedVeh;
+			if (!isNull _assignedVehicle) then {
+				_assignedVehicles set [count _assignedVehicles, _veh];
+			};
+			if(_veh != _x)then{
+				if!(_veh in _vehicles)then{
+					if (group effectiveCommander _veh == _grp) then {
+						_vehicles set [count _vehicles, _veh];
+						_types set [count _types, typeOf _veh];
+					};
+				};
+			};
+		}forEach _units;
+
+			if(waypointType [_grp, currentWaypoint _grp] == "SUPPORT")then{
+				if({count assignedVehicleRole _x > 0} count _units > 0)then{
+					_grp_type set [count _grp_type, _z];
 				};
 			};
 		};
-	}forEach _units;
-
-		if(waypointType [_grp, currentWaypoint _grp] == "SUPPORT")then{
-			if({count assignedVehicleRole _x > 0} count _units > 0)then{
-				_grp_type set [count _grp_type, _z];
-			};
-		};
-	};
 
 	{
 		_veh = _x;
