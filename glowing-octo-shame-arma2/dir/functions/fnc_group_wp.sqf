@@ -185,6 +185,7 @@ if({alive _x} count _units > 0)then{
 
 	};
 
+	// десант самолетный
 	if ("Plane" in _grp_type) then {
 
 		//--- десант самолета
