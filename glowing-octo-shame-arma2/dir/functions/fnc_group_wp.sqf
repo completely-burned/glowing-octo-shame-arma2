@@ -84,15 +84,14 @@ if({alive _x} count _units > 0)then{
 
 	// узнаем тип отряда для типа маршрута
 	_grp_type = _units+_vehicles+_assignedVehicles call gosa_fnc_getGroupType;
-
-	_z = "SUPPORT";
-	if !(_z in _grp_type) then {
-	if(waypointType [_grp, currentwaypoint _grp] == _z)then{
-		if({count assignedVehicleRole _x > 0} count _units > 0)then{
-			_grp_type set [count _grp_type, _z];
+		_z = "SUPPORT";
+		if !(_z in _grp_type) then {
+			if(waypointType [_grp, currentwaypoint _grp] == _z)then{
+				if({count assignedVehicleRole _x > 0} count _units > 0)then{
+					_grp_type set [count _grp_type, _z];
+				};
+			};
 		};
-	};
-	};
 
 	// удалить неподвижным ии маршруты, чтобы не убегали
 	if ("StaticWeapon" in _grp_type) then {
