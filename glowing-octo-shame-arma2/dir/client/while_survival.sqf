@@ -79,5 +79,5 @@ while {true} do {
 	};
 
 	// FIXME: Не понимаю где именно нужен sleep.
-	sleep 30;
+	sleep (120 call gosa_fnc_dynSleep);
 };
