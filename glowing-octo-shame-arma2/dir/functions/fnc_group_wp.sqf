@@ -4,8 +4,9 @@ TODO: коду нужна ревизия
 TODO: Нужна карта файла.
 */
 
-private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units","_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_grp_wp_completed","_g2","_z","_v"];
-
+private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
+	"_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_survival",
+	"_grp_wp_completed","_g2","_z","_v"];
 _grp=_this;
 
 scopeName "main";
@@ -48,6 +49,22 @@ if({alive _x} count _units > 0)then{
 
 	_wp = [_grp,_currentWP];
 	_typeWP = waypointType _wp;
+
+	//--- специальные маршрутны
+		_survival = _grp getVariable "gosa_grp_attack_player";
+			if !(isNil "_survival") then {
+				_z = (units (_survival select 1)) call gosa_fnc_centerOfImpact;
+				if (count _z > 0) then {
+					if ([_z, waypointPosition _wp] call BIS_fnc_distance2D > 100) then {
+							for "_i" from count waypoints _grp - 1 to 0 step -1 do {
+								deleteWaypoint [_grp, _i];
+							};
+							[_grp,_z,50,"MOVE"] call gosa_fnc_addWaypoint;
+					};
+					diag_log format ["Log: [fnc_group_wp] %1 survival %2, %3, exit", _grp, _survival, _z];
+					breakTo "main";
+				};
+			};
 
 	// слишком часто diag_log format ["Log: [fnc_group_wp] %1", [_leader, _wp, _typeWP]];
 
