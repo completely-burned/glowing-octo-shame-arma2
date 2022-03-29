@@ -50,11 +50,12 @@ SetGroupIconsVisible [true,false];
 [] execVM "dir\testing\while_act_laserBomb.sqf";
 [] execVM "dir\client\while_reveal.sqf";
 [] execVM "dir\functions\fnc_SSM_updateMenu.sqf";
+[] execVM "dir\client\while_survival.sqf";
 
 
 if(!isServer)then{
 	// сервер не может считать assignedVehicle для не серверных ии
-	[] execVM ("dir\server\server_update_groups_other.sqf"); 
+	[] execVM ("dir\server\server_update_groups_other.sqf");
 };
 
 

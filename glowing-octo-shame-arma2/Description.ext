@@ -114,6 +114,12 @@ class Params {
 		texts[] = {$STRWFMISSIONDEFAULT,0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95,1};
 		default = -1;
 	};
+	class gosa_survival {
+		title="(AI) survival (not completed)";
+		values[] = {1,0};
+		texts[] = {$STRWFYES,$STRWFNO};
+		default=1;
+	};
 	class StartTime {
 		title = $STRWFSTARTTIME;
 		values[] = {-1,100,5,7,11,12,14,18,22,2};
