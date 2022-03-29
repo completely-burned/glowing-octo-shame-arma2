@@ -17,9 +17,9 @@ pve бой с ботами в сконцентрированный в одной
       # git
       #
       # и установить дополнительно, не обязательно
-      # makepbo
+      # makepbo (не работает)
       # armake
-      # armake2
+      # armake2 (не работает)
       # 
       # в любом случае 
       # должна будет появится после сборки папка rsync
@@ -60,10 +60,14 @@ pve бой с ботами в сконцентрированный в одной
    
    - Скопируйте  
      недостающие файлы из папки `glowing-octo-shame-arma2/` в папки с назанием карты,  
-     и соберите, опять я не знаю чем
+     и соберите, опять [не знаю чем](https://community.bistudio.com/wiki/Community_Tools).
+
+   - Можете просто запустить linux скрипт в Windows Subsystem for Linux или Cygwin, 
+     только в них не доступны makepbo, armake, armake2
 
 ## Other
-
-https://github.com/completely-burned/glowing-octo-shame-arma2/issues/129
-
-https://discord.gg/cc3ewg3
+  - Связь со мной  
+    https://matrix.to/#/#mild-game:matrix.org  
+    https://github.com/completely-burned/glowing-octo-shame-arma2/discussions  
+    https://discord.gg/cc3ewg3  
+    https://steamcommunity.com/groups/armaprivate  
