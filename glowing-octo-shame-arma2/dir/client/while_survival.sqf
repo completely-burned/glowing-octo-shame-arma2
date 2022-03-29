@@ -15,6 +15,10 @@
 	- остальные справятся
 	атакующая группа не может добраться
 	- отвязать группу от группы игрока
+	игрок может за короткое время значительно отдалится
+	- ***************************
+	атакующая группа может потерять юнитов способных атаковать
+	- сброс
 
 */
 
@@ -22,7 +26,13 @@ if (missionNamespace getVariable "gosa_survival" != 1) exitWith {
 	diag_log format ["Log: [while_survival] gosa_survival != 1 exitWith", nil];
 };
 
-private ["_grp_attack","_grp_victim","_z","_g","_p"];
+private ["_grp_attack","_grp_victim","_z","_g","_p","_reset"];
+_reset={
+	diag_log format ["Log: [while_survival] %1 сброс", _this];
+	if !(isNil{_this getVariable "gosa_grp_attack_player"}) then {
+		_this setVariable ["gosa_grp_attack_player", nil, true];
+	};
+};
 _grp_attack = grpNull;
 _grp_victim = group player;
 
@@ -54,14 +64,17 @@ while {true} do {
 		// TODO: нужен случайный порядок
 		} forEach allGroups;
 	}else{
-		// Tсли группа игрока поменялась, нужен сброс группе атаки.
-		if (_g != _grp_victim) then {
-			diag_log format ["Log: [while_survival] группа игрока поменялась, сброс %1", _grp_attack];
+		// Если группа игрока поменялась, нужен сброс группе атаки.
+		if (_g != _grp_victim) exitWith {
+			diag_log format ["Log: [while_survival] %1 группа игрока поменялась", _grp_victim];
 			// FIXME: Эта группа может быть опять выбранна.
-			if !(isNil{_grp_attack getVariable "gosa_grp_attack_player"}) then {
-				_grp_attack setVariable ["gosa_grp_attack_player", nil, true];
-				_grp_attack = grpNull;
-			};
+			_grp_attack call _reset;
+			_grp_attack = grpNull;
+		};
+		if !([units _grp_attack, units _g] call gosa_fnc_canAttackGroup) exitWith {
+			diag_log format ["Log: [while_survival] %1 атакующая потеряла юнитов способных атаковать", _grp_attack];
+			_grp_attack call _reset;
+			_grp_attack = grpNull;
 		};
 	};
 
