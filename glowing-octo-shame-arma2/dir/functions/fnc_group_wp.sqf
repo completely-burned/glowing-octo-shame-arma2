@@ -55,11 +55,11 @@ if({alive _x} count _units > 0)then{
 			if !(isNil "_survival") then {
 				_z = (units (_survival select 1)) call gosa_fnc_centerOfImpact;
 				if (count _z > 0) then {
-					if ([_z, waypointPosition _wp] call BIS_fnc_distance2D > 100) then {
+					if ([_z, waypointPosition _wp] call BIS_fnc_distance2D > 50) then {
 							for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 								deleteWaypoint [_grp, _i];
 							};
-							[_grp,_z,50,"MOVE"] call gosa_fnc_addWaypoint;
+							[_grp,_z,25,"MOVE"] call gosa_fnc_addWaypoint;
 					};
 					diag_log format ["Log: [fnc_group_wp] %1 survival %2, %3, exit", _grp, _survival, _z];
 					breakTo "main";
