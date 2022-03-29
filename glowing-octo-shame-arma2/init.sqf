@@ -5,6 +5,19 @@
 
 diag_log format ["Log: [init.sqf] *** mission starting %1 ***", worldname];
 
+gosa_loglevel = missionNamespace getVariable "gosa_debugLevel"; // diag_log
+	debug=false;
+	if(isNil "gosa_loglevel")then{ // diag_log
+		gosa_loglevel=0;
+	}; // diag_log
+	if(gosa_loglevel>0)then{ // diag_log
+		debug=true; // diag_log
+	}else{ // diag_log
+		debug=false; // diag_log
+	}; // diag_log
+	gosa_loglevel_perf = gosa_loglevel;
+	publicVariable "gosa_loglevel";
+
 #ifdef __A2OA__
 if !(requiredVersion "1.60") then {
 	failMission "LOSER";
@@ -29,22 +42,6 @@ if !(requiredVersion "1.60") then {
 	if (isServer) then {
 		[] execVM "dir\server\StartTime.sqf"
 	};
-
-	debug=false;
-
-	gosa_loglevel = missionNamespace getVariable "gosa_debugLevel"; // diag_log
-
-	if(isNil "gosa_loglevel")then{ // diag_log
-		gosa_loglevel=0;
-	}; // diag_log
-
-	if(gosa_loglevel>0)then{ // diag_log
-		debug=true; // diag_log
-	}else{ // diag_log
-		debug=false; // diag_log
-	}; // diag_log
-	gosa_loglevel_perf = gosa_loglevel;
-	publicVariable "gosa_loglevel";
 
 	gosa_pvp = false;
 
