@@ -54,3 +54,8 @@ _z = missionNamespace getVariable "gosa_locationType";
 			missionNamespace setVariable ["gosa_locationType", 1];
 		};
 	};
+
+_z = missionNamespace getVariable "gosa_MartaManager";
+	if (_z == -1 && gosa_loglevel > 0) then {
+			missionNamespace setVariable ["gosa_MartaManager", 1];
+	};
