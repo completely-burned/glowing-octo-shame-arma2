@@ -6,4 +6,11 @@ _this максимальный sleep при fps 0
 при fps 40 и _this 50 будет 10
 возвращает число для sleep
 ---------------------------------------------------------------------------*/
-_this - (diag_fps * (_this / if(hasInterface)then{180}else{50} ))
+private ["_fps"];
+if(isDedicated)then{
+	_fps = 50;
+}else{
+	_fps = 180;
+};
+
+_this - (diag_fps * (_this / _fps ))
