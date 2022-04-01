@@ -71,3 +71,4 @@ pve бой с ботами в сконцентрированный в одной
     https://github.com/completely-burned/glowing-octo-shame-arma2/discussions  
     https://discord.gg/cc3ewg3  
     https://steamcommunity.com/groups/armaprivate  
+    https://vk.me/join/AJQ1d0uBlSCmZplNrgWvvSBt
