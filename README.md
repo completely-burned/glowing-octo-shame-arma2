@@ -69,6 +69,6 @@ pve бой с ботами в сконцентрированный в одной
   - Связь со мной  
     https://matrix.to/#/#mild-game:matrix.org  
     https://github.com/completely-burned/glowing-octo-shame-arma2/discussions  
-    https://discord.gg/cc3ewg3  
+    https://discord.gg/vXsftQeAnj  
     https://steamcommunity.com/groups/armaprivate  
     https://vk.me/join/AJQ1d0uBlSCmZplNrgWvvSBt
