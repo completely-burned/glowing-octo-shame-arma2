@@ -97,38 +97,38 @@ while {true} do {
 	*/
 
 
-#ifdef __A2OA__
-	if (leader _p == _p) then {
-		//--- не покидать поврежденное тс
-		if (_v != _p) then {
-			if (isNil {_v getVariable "gosa_allowCrewInImmobile"} && {_v isKindOf "LandVehicle"}) then {
-				_v allowCrewInImmobile true;
-				// FIXME: почему глобальная переменная?
-				_v setVariable ["gosa_allowCrewInImmobile", true, true];
-				diag_log format ["Log: [localGroup] %1 allowCrewInImmobile true", _v];
+	#ifdef __A2OA__
+		if (leader _p == _p) then {
+			//--- не покидать поврежденное тс
+			if (_v != _p) then {
+				if (isNil {_v getVariable "gosa_allowCrewInImmobile"} && {_v isKindOf "LandVehicle"}) then {
+					_v allowCrewInImmobile true;
+					// FIXME: почему глобальная переменная?
+					_v setVariable ["gosa_allowCrewInImmobile", true, true];
+					diag_log format ["Log: [localGroup] %1 allowCrewInImmobile true", _v];
+				};
 			};
+
+			{
+				// юнитам игрока ограничение скорости не нужно
+				// FIXME: локальная переменная?
+				if(!isNil{_x getVariable "gosa_forceSpeed"})then{
+					_x forceSpeed -1;
+					_x setVariable ["gosa_forceSpeed",nil];
+					diag_log format ["Log: [localGroup] %1 forceSpeed -1 %2", _x, typeOf _x ];
+				};
+
+				//--- не покидать поврежденное тс, остальные юниты
+				_v = assignedVehicle _x;
+				if (!isNull _v && {isNil {_v getVariable "gosa_allowCrewInImmobile"}} && {_v isKindOf "LandVehicle"}) then {
+					_v allowCrewInImmobile true;
+					// FIXME: почему глобальная переменная?
+					_v setVariable ["gosa_allowCrewInImmobile", true, true];
+					diag_log format ["Log: [localGroup] %1 allowCrewInImmobile true", [_x,_v]];
+				};
+			} forEach units _g;
 		};
-
-		{
-			// юнитам игрока ограничение скорости не нужно
-			// FIXME: локальная переменная?
-			if(!isNil{_x getVariable "gosa_forceSpeed"})then{
-				_x forceSpeed -1;
-				_x setVariable ["gosa_forceSpeed",nil];
-				diag_log format ["Log: [localGroup] %1 forceSpeed -1 %2", _x, typeOf _x ];
-			};
-
-			//--- не покидать поврежденное тс, остальные юниты
-			_v = assignedVehicle _x;
-			if (!isNull _v && {isNil {_v getVariable "gosa_allowCrewInImmobile"}} && {_v isKindOf "LandVehicle"}) then {
-				_v allowCrewInImmobile true;
-				// FIXME: почему глобальная переменная?
-				_v setVariable ["gosa_allowCrewInImmobile", true, true];
-				diag_log format ["Log: [localGroup] %1 allowCrewInImmobile true", [_x,_v]];
-			};
-		} forEach units _g;
-	};
-#endif
+	#endif
 
 	sleep 0.1;
 };
