@@ -1,3 +1,4 @@
+private ["_z"];
 waitUntil {!isNil "BIS_fnc_init"};
 waitUntil {!isNil "group_logic"};
 
@@ -7,7 +8,8 @@ waitUntil {!isNil "group_logic"};
 waitUntil {time > 15};
 // военные обозначения
 if (missionNamespace getVariable "gosa_MartaManager" == 1 or (missionNamespace getVariable "gosa_MartaManager" == -1 && cadetMode)) then {
-	private ["_BIS_marta_mainscope"];
-	_BIS_marta_mainscope = (group_logic) createUnit ["MartaManager",[1000,10,0],[],0,"none"];
-	_BIS_marta_mainscope setVariable ["duration", 60, true];
+	_z = (group_logic) createUnit ["MartaManager",[1000,10,0],[],0,"none"];
+	_z setVariable ["duration", 60, true];
+	//--- 3 цвета
+	_z setVariable ["disableEnemyColors", true, true];
 };
