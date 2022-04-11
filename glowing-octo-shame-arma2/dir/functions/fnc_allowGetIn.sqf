@@ -62,7 +62,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 		};
 
 		// TODO: название переменной
-		_allow=true; 
+		_allow=true;
 		if(!isNull _u)then{
 			if(!isNull _veh)then{
 				private ["_role"];
@@ -94,11 +94,11 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 					_out_dist = safeSpawnDistance select 0;
 					// если пехота покинула транспорт или он застрял, нет необходимости забираться обратно если он на приемлемой дистанции до цели, дистанция возрождения техники может подойти
 					// TODO: транспорт создается остановленным
-					if((_this select 1) == vehicle (_this select 1) or speed vehicle (_this select 1) < 5)then{ 
+					if((_this select 1) == vehicle (_this select 1) or speed vehicle (_this select 1) < 5)then{
 						_out_dist = safeSpawnDistance select 1;
 					};
 
-					if( ((civilianBasePos distance vehicle _u)<(_out_dist max sizeLocation)) or ((civilianBasePos distance _veh)<(_out_dist max sizeLocation)) )then{
+					if( ((civilianBasePos distance vehicle _u)<(_out_dist max gosa_locationSize)) or ((civilianBasePos distance _veh)<(_out_dist max gosa_locationSize)) )then{
 						private ["_attack"];
 						_attack = true;
 
@@ -229,7 +229,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
 				if(typeOf _u in (gosa_crewL+gosa_pilotL) &&
 					// команда работает лишь на сервере или локальных юнитах клиента
-					count assignedVehicleRole _u == 0 && 
+					count assignedVehicleRole _u == 0 &&
 					vehicle _u == _u
 					//&& !(behaviour _u in ["COMBAT","STEALTH"])
 					//&& !(currentCommand _u in ["ATTACK","FIRE","ATTACKFIRE"])
@@ -237,7 +237,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 					&& {_x != vehicle _x or (count assignedVehicleRole _x > 0)} count units _u == 0
 				 )then{
 					// TODO: лишние Variable занимают память и группу невозможно использовать повторно
-					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then { 
+					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then {
 						_ng_l set [count _ng_l, _u];
 					};
 				};
@@ -261,7 +261,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 	{
 		_z = _x getVariable "gosa_grpCrewLeave";
 		// TODO: код нужно оптимизировать
-		if (isNil "_z" or {scriptDone _z}) then { 
+		if (isNil "_z" or {scriptDone _z}) then {
 			_x setVariable ["gosa_grpCrewLeave", [_x, time+ 30, _grp] spawn _fnc_CrewLeave];
 		};
 	} forEach _ng_l;

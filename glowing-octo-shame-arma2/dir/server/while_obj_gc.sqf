@@ -82,7 +82,7 @@ while {true} do {
 			// не патрульный бот, далеко от точки и без транспорта
 			if (isNull _assignedVehicle) then {
 				if (isNil {group _x_veh getVariable "patrol"}) then {
-					if (vehicle _x_veh distance civilianBasePos > 2500 max sizeLocation) then {
+					if (vehicle _x_veh distance civilianBasePos > 2500 max gosa_locationSize) then {
 						_timeNew = _time min (time + _timerDelete);
 					};
 				};
@@ -107,7 +107,7 @@ while {true} do {
 
 
 			// на точке !не удалять!
-			if ((vehicle _x_veh distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation)) then {
+			if ((vehicle _x_veh distance civilianBasePos) <= (gosa_locationSize / 2 + gosa_locationSize)) then {
 				_timeNew = _time max (time + _timerLocation);
 			};
 

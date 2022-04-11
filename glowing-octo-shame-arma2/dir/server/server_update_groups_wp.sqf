@@ -1,5 +1,5 @@
 waitUntil {!isNil "civilianBasePos"};
-waitUntil {!isNil "sizeLocation"};
+waitUntil {!isNil "gosa_locationSize"};
 waitUntil {!isNil "group_system_units"};
 waitUntil {!isNil "group_off_units"};
 private["_gosa_initGroup"];

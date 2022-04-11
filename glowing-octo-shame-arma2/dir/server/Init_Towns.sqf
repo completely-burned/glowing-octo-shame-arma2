@@ -115,7 +115,7 @@ locationNext={
 
 		private ["_x", "_y", "_z"];
 		// _z = отступ
-		_z = 1000 min ((gosa_worldSize select 0)/4); 
+		_z = 1000 min ((gosa_worldSize select 0)/4);
 			_x = gosa_worldSize select 0;
 			_x = _x - (_z*2);
 			_x = _z + random _x;
@@ -124,7 +124,7 @@ locationNext={
 			_y = _y - (_z*2);
 			_y = _z + random _y;
 		// TODO: нужно исключить позицию на воде
-		CivilianBasePos = [_x, _y]; 
+		CivilianBasePos = [_x, _y];
 
 		publicVariable "CivilianBasePos";
 		publicVariable "CivilianLocation";
@@ -142,8 +142,8 @@ locationNext={
 		[LocationAllGroupsGuer, _grps_rarity] call gosa_fnc_groupsRarity;
 	};
 
-	sizeLocation=_sizeLocation;
-	publicVariable "sizeLocation";
+	gosa_locationSize=_sizeLocation;
+	publicVariable "gosa_locationSize";
 };
 
 waitUntil{!isNil{MHQ_list}};
@@ -168,7 +168,7 @@ while{isNil{civilianBasePos}}do{
 		};
 	};
 };
-sizeLocation = 250;
+gosa_locationSize = 250;
 
 [] call locationNext;
 locationStarted = true;
