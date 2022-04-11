@@ -20,13 +20,13 @@ while{true}do{
 	if !(isNil "CivilianLocation") then {
 		private["_sizeLocation"];
 		_sizeLocation = sqrt((_s_1g * ({{alive _x && !(_x call gosa_fnc_isPlayer)} count units _x > 0} count allGroups))/pi) max 100;
-		if(sizeLocation != _sizeLocation)then{
-			sizeLocation = +_sizeLocation;
-			publicVariable "sizeLocation";
+		if(gosa_locationSize != _sizeLocation)then{
+			gosa_locationSize = +_sizeLocation;
+			publicVariable "gosa_locationSize";
 		};
 
 		Private["_objects"];
-		_objects = (civilianBasePos nearEntities [["AllVehicles"], sizeLocation]);
+		_objects = (civilianBasePos nearEntities [["AllVehicles"], gosa_locationSize]);
 
 		Private["_west","_east","_resistance"];
 		Private["_westPlayers","_eastPlayers","_resistancePlayers"];
@@ -64,7 +64,7 @@ while{true}do{
 		if (missionNamespace getVariable "respawn" == 0) then {
 			// FIXME: не понимаю, зачем это вообще нужно, возможно в режиме возрождения база слишком медленный захват
 			// FIXME: это слишком много кмк
-			_westPlayers = _westPlayers * 10; 
+			_westPlayers = _westPlayers * 10;
 			_eastPlayers = _eastPlayers * 10;
 			_resistancePlayers = _resistancePlayers * 10;
 		};

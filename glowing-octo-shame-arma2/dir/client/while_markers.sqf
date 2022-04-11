@@ -89,7 +89,7 @@ waitUntil {!isNil {civilianBasePos}};
 createMarkerLocal ["MainMarker", civilianBasePos];
 "MainMarker" setMarkerShapeLocal "ELLIPSE";
 "MainMarker" setMarkerColorLocal "ColorBlack";
-waitUntil {!isNil {sizeLocation}};
+waitUntil {!isNil {gosa_locationSize}};
 
 if(true)then{
 
@@ -122,8 +122,8 @@ if(true)then{
 
 
 			//--- главный маркер поля боя
-				if(markerSize "MainMarker" select 0 != sizeLocation)then{
-					"MainMarker" setMarkerSizeLocal [sizeLocation, sizeLocation];
+				if(markerSize "MainMarker" select 0 != gosa_locationSize)then{
+					"MainMarker" setMarkerSizeLocal [gosa_locationSize, gosa_locationSize];
 				};
 				if(civilianBasePos distance getMarkerPos "MainMarker" > 1)then{
 					"MainMarker" setMarkerPosLocal civilianBasePos;

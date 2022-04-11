@@ -442,7 +442,7 @@ if({alive _x} count _units > 0)then{
 
 			// остановить группу, удалить и не создавать маршрут если боты атакуют рядом с точкой или игроками
 			if (!("Air" in _grp_type) && !("Ship" in _grp_type)) then {
-				if ((vehicle _leader distance civilianBasePos) <= sizeLocation*1.20 or [_leader, 400] call gosa_fnc_CheckPlayersDistance) then {
+				if ((vehicle _leader distance civilianBasePos) <= gosa_locationSize*1.20 or [_leader, 400] call gosa_fnc_CheckPlayersDistance) then {
 					if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] группа %1 атакует рядом с точкой или игроками %2", _grp, _leaderPos];
 						// боты остаются на месте
@@ -457,7 +457,7 @@ if({alive _x} count _units > 0)then{
 					if (!_StopWP) then {
 						if (_NoCreateWP or !_CreateWP or !_DeleteWP) then {
 							if (isNil {_grp getVariable "patrol"}) then {
-								if (waypointPosition [_grp, currentWaypoint _grp] distance civilianBasePos > sizeLocation) then {
+								if (waypointPosition [_grp, currentWaypoint _grp] distance civilianBasePos > gosa_locationSize) then {
 									diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 маршрут не на точке", _grp];
 									_NoCreateWP = false;
 									_CreateWP = true;
@@ -679,7 +679,7 @@ if({alive _x} count _units > 0)then{
 			// остановить ботов на точке 2 минут
 			if(!isNil{_grp_wp_completed})then{
 				if(!("Air" in _grp_type) && (_grp_wp_completed + 120 < time))then{
-					if ((vehicle _leader distance civilianBasePos) < sizeLocation) then {
+					if ((vehicle _leader distance civilianBasePos) < gosa_locationSize) then {
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] остановить ии %1 на точке, time %2", _grp, [_grp_wp_completed, time]];
 						// удалить
 						_DeleteWP = true;
@@ -698,7 +698,7 @@ if({alive _x} count _units > 0)then{
 						_z = 25;
 					};
 					if (diag_fps < _z*0.95) then {
-						if ((vehicle _leader distance civilianBasePos) < sizeLocation) then {
+						if ((vehicle _leader distance civilianBasePos) < gosa_locationSize) then {
 							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 на точке, fps %2, маршрут не будет создан", _grp, diag_fps];
 							_NoCreateWP = true;
 							_createWP = false;

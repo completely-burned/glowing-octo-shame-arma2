@@ -69,7 +69,7 @@ if ([_types, ["Ship"]] call gosa_fnc_CheckIsKindOfArray) then{
 
 if ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then{
 	_playerDist = safeSpawnDistance select 4;
-	_maxDist = sizeLocation;
+	_maxDist = gosa_locationSize;
 	_waterMode = 0;
 	_objDist = 30;
 	_preferRoads = false;

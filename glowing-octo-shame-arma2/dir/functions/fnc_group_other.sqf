@@ -242,7 +242,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		_currentWaypoint = [_grp, currentWaypoint _grp];
 		_currentWaypointType = waypointType _currentWaypoint;
 
-		if ((vehicle _leader distance civilianBasePos) > sizeLocation + sizeLocation/2) then {
+		if ((vehicle _leader distance civilianBasePos) > gosa_locationSize + gosa_locationSize/2) then {
 			_SpeedMode = "FULL";
 		};
 
@@ -251,7 +251,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_Behaviour = "SAFE";
 		};
 
-		if ((vehicle _leader distance civilianBasePos) <= sizeLocation) then {
+		if ((vehicle _leader distance civilianBasePos) <= gosa_locationSize) then {
 			_Behaviour = "COMBAT";
 		};
 

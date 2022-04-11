@@ -138,7 +138,7 @@ if ( isNil "_time" ) then {
 								if(_oldPos distance _leaderPos >= 5)then{
 										diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся, группа сдвинулась когда 1 таймер работал", _grp ];
 									// на точке
-									if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{
+									if((vehicle _leader distance civilianBasePos) <= (gosa_locationSize / 2 + gosa_locationSize))then{
 										_oldTime = _oldTime max time+120;
 										_oldTime2 = _oldTime2 max time+240;
 										// 1 и 2 таймер обновление
@@ -166,7 +166,7 @@ if ( isNil "_time" ) then {
 											diag_log format ["Log: [gosa_fnc_group_cleanup.sqf] %1  маршрут не менялся, _Helicopter, группа не сдвинулась когда 1 таймер работал, местоположение перезаписано, таймер +10 --", _grp ];
 									}else{
 										// на точке
-										if((vehicle _leader distance civilianBasePos) <= (sizeLocation / 2 + sizeLocation))then{
+										if((vehicle _leader distance civilianBasePos) <= (gosa_locationSize / 2 + gosa_locationSize))then{
 											_oldTime = _oldTime max time+120;
 											_oldTime2 = _oldTime2 max time+240;
 											// 1 таймер обновление

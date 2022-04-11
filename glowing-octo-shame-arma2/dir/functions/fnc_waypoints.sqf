@@ -93,7 +93,7 @@ if(!isNil "_leader")then{
 			// _SpeedMode = "FULL";
 			// _WaypointCombatMode = "RED";
 		}else{
-			_maxDist = sizeLocation ;
+			_maxDist = gosa_locationSize ;
 			_WaypointCompletionRadius = 50;
 			// _SpeedMode = "NORMAL";
 		};
@@ -134,7 +134,7 @@ if(!isNil "_leader")then{
 		// десант
 		if(_landing && "Plane" in _grp_type)then{
 			_pos = civilianBasePos;
-			_maxDist = sizeLocation*2;
+			_maxDist = gosa_locationSize*2;
 			_WaypointCompletionRadius = _maxDist;
 			// _SpeedMode = "NORMAL";
 		};
@@ -144,14 +144,14 @@ if(!isNil "_leader")then{
 			// TODO: в случае не найденной позиции высадки нужно сделать выгрузку с парашютом
 			if (count _pos == 0) then {
 				_pos = civilianBasePos;
-				_maxDist = sizeLocation*2;
+				_maxDist = gosa_locationSize*2;
 			};
 		};
 
 		// лодки та точке
 		if(_landing && "Ship" in _grp_type)then{
 			_pos = civilianBasePos;
-			_maxDist = sizeLocation*2;
+			_maxDist = gosa_locationSize*2;
 			_WaypointCompletionRadius = 400;
 			// _SpeedMode = "NORMAL";
 		};
