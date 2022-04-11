@@ -1,4 +1,5 @@
-/* возвращает фракцию
+/*
+  возвращает фракцию
  */
 
 getText (configFile >> "CfgVehicles" >> (

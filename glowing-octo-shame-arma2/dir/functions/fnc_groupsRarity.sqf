@@ -1,7 +1,8 @@
-/* меняет приоритеты
+/*
+ * меняет приоритеты
  * функция ничего не возвращает
  * нужно { _changes = +_orig; _changes call fnc; } будет изменен _changes
- * итоговые rarity могут превысить 1, 
+ * итоговые rarity могут превысить 1,
  * что не будет работать с оригинальными функциями
  */
 
@@ -17,15 +18,15 @@ for "_i" from 0 to ((count (_g select 0)) - 1) do {
 	_t = [_g, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
 
 	//--- новые множители
-	{ 
+	{
 
 		//--- множитель 1, и такое бывает
 		if (_x select 1 != 1) then {
 
 			//--- условия для изменений
-			if( ([_t, _x select 0] call gosa_fnc_CheckIsKindOfArray) && 
+			if( ([_t, _x select 0] call gosa_fnc_CheckIsKindOfArray) &&
 				// FIXME: это что?
-				!([_t, ["AllVehicles"], _x select 0] call gosa_fnc_CheckIsKindOfArray) 
+				!([_t, ["AllVehicles"], _x select 0] call gosa_fnc_CheckIsKindOfArray)
 			 )then{
 
 				diag_log format ["Log: [fnc_groupsRarity] type %1", _t];

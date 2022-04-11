@@ -1,4 +1,5 @@
-/* функция удаляет группу должным образом
+/*
+ * функция удаляет группу должным образом
  * колличество групп ограниченно движком для каждой стороны
  * например уничноженные не локальные ии занимают группу
  * максимальное количество юнитов в группе мне не изместно
@@ -17,7 +18,7 @@ private["_u"];
 _u = units _this;
 
 // специальные группы удалять не нужно
-if (_this != deadGroup && {_x call gosa_fnc_isPlayer} count _u == 0) then { 
+if (_this != deadGroup && {_x call gosa_fnc_isPlayer} count _u == 0) then {
 
 	diag_log format ["Log: [fnc_deleteGroup.sqf] deleteGroup %1, units %2", _this, _u];
 

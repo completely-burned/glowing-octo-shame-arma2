@@ -1,4 +1,5 @@
-/* юнит стреляет осветительной ракетой
+/*
+ * Юнит стреляет осветительной ракетой.
  * TODO: есть проблемы с напревлением выстрела
  * FIXME: работает только на локальных ии
  */
@@ -30,7 +31,7 @@ for "_i" from 0 to (count _units -1) do {
 				breakTo "scope1";
 			};
 		// TODO: проверять нужно по внутренним параметрам игры
-		} forEach ["GP25Muzzle"]; 
+		} forEach ["GP25Muzzle"];
 
 		{
 			if (_x in getArray(configFile >> "cfgWeapons" >> _w >> "muzzles")) then {
@@ -40,7 +41,7 @@ for "_i" from 0 to (count _units -1) do {
 				breakTo "scope1";
 			};
 		// TODO: проверять нужно по внутренним параметрам игры
-		} forEach ["M203Muzzle", "XM320Muzzle"]; 
+		} forEach ["M203Muzzle", "XM320Muzzle"];
 
 	}else{
 		diag_log format["Log: [fnc_unitFlareFire] %1 in vehicle or isPlayer", vehicle _u];
