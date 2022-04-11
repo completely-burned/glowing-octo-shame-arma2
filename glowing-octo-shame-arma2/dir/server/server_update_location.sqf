@@ -3,8 +3,10 @@
 private["_east1","_west1","_resistance1","_listPlayers","_s_1g"];
 _east1 = 0;_west1 = 0;_resistance1 = 0;
 
-// пространство на отряд
-_s_1g = 130^2;
+//-- Пространство на отряд.
+// TODO: Нужно учитывать не только колличество отрядов,
+//     : но и то что боты от этого меняют поведение.
+_s_1g = missionNamespace getVariable "gosa_locationSizeMultipler";
 
 /* количество отрядов
 _s_all = _s_1g * ({{alive _x && !(_x call gosa_fnc_isPlayer)} count units _x > 0} count allGroups);
