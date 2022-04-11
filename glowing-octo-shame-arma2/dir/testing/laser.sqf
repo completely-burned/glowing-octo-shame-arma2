@@ -1,5 +1,6 @@
 #define __A2OA__
-/*laser скрипт при обнаружении лазерной метки создает бомбу и сбрасывает ее
+/*
+	laser скрипт при обнаружении лазерной метки создает бомбу и сбрасывает ее
 */
 
 #ifdef __A2OA__
@@ -13,13 +14,13 @@ while{true}do{
 	{
 		_lt = laserTarget _x;
 		// для игроков нужно делать запуск бомбы через меню действия
-		if(!isNull _lt && !(_x call gosa_fnc_isPlayer))then{ 
+		if(!isNull _lt && !(_x call gosa_fnc_isPlayer))then{
 			[_lt, _x] call gosa_fnc_laserBomb;
 		};
 		// производительность
-		sleep 0.05; 
+		sleep 0.05;
 	// проверяем юнитов т.к. laserTarget узнать можно от них
-	} forEach allUnits; 
+	} forEach allUnits;
 
 	sleep 15;
 };

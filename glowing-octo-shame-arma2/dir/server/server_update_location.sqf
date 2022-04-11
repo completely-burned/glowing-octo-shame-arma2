@@ -1,4 +1,9 @@
-﻿waitUntil {sleep 5; !isNil "locationStarted"};
+/*
+	Скрипт отвечает за смену локаций и ее размер.
+*/
+
+
+waitUntil {sleep 5; !isNil "locationStarted"};
 
 private["_east1","_west1","_resistance1","_listPlayers","_s_1g"];
 _east1 = 0;_west1 = 0;_resistance1 = 0;

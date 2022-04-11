@@ -10,7 +10,7 @@ for "_i" from 0 to ((count _weights) - 1) do {
 
 	// кусок должен быть целым числом
 	// TODO: множитель нужно сделать динимическим, не работает с _weight меньше 0.0001
-	_weight = (_weights select _i) * 10000; 
+	_weight = (_weights select _i) * 10000;
 
 	_total = _total + _weight;
 	_chunks set [count _chunks, _weight];
@@ -20,7 +20,8 @@ for "_i" from 0 to ((count _weights) - 1) do {
 _index = floor random _total;
 diag_log format ["Log: [fnc_selectRandomWeighted] total %1, index %2, count chunks %3", _total, _index, count _chunks];
 
-/* допустим есть 4 элемента [0, 0.5, 0.5, 0]
+/*
+ * допустим есть 4 элемента [0, 0.5, 0.5, 0]
  * в итоге должно быть 50% 2 или 3, но не 1 или 4
  * при _total 100 будет _index 0-99, floor целые цисла
  * _chunks будет [0,50,50,0]
