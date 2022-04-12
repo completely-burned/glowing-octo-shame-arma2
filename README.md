@@ -15,11 +15,12 @@ pve бой с ботами в сконцентрированный в одной
       # установить 
       # rsync
       # git
+      # sed
       #
       # и установить дополнительно, не обязательно
       # makepbo (не работает)
       # armake
-      # armake2 (не работает)
+      # armake2
       # 
       # в любом случае 
       # должна будет появится после сборки папка rsync
@@ -69,5 +70,6 @@ pve бой с ботами в сконцентрированный в одной
   - Связь со мной  
     https://matrix.to/#/#mild-game:matrix.org  
     https://github.com/completely-burned/glowing-octo-shame-arma2/discussions  
-    https://discord.gg/cc3ewg3  
+    https://discord.gg/vXsftQeAnj  
     https://steamcommunity.com/groups/armaprivate  
+    https://vk.me/join/AJQ1d0uBlSCmZplNrgWvvSBt
