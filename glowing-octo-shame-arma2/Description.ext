@@ -285,9 +285,9 @@ class Params {
 	};
 	class gosa_locationSizeMultipler {
 		title="locationSizeMultipler";
-		values[] = {2500,5625,8100,10000,16900};
-		texts[] = {2500,5625,8100,10000,16900};
-		default=8100;
+		values[] = {2500,5625,8100,10000,12100,14400,16900};
+		texts[] = {2500,5625,8100,10000,12100,14400,16900};
+		default=12100;
 	};
 	class gosa_debugLevel { // diag_log
 		title="debug"; // diag_log
