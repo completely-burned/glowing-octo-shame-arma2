@@ -1,4 +1,8 @@
 #define __A2OA__
+/*
+	Скрипт создает ракету и отправляет в игрока, если он высоко летает.
+	TODO: Ракету нужно сделать видимой для других игроков.
+*/
 
 #ifdef __A2OA__
 private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills","_dist","_aaType","_grp","_aaSide","_fps_conf"];
@@ -76,11 +80,11 @@ while {true} do {
 						_hills = false;
 
 						// проверки холмов
-						if(_height < 250)then{ 
+						if(_height < 250)then{
 							// тестовая позиция для проверки холмов 1000 метров
-							_testPos = [(_posPlayerASL select 0) + 999*sin _dir, (_posPlayerASL select 1) + 999*cos _dir, _posPlayerASL select 2]; 
+							_testPos = [(_posPlayerASL select 0) + 999*sin _dir, (_posPlayerASL select 1) + 999*cos _dir, _posPlayerASL select 2];
 							// проверка холмов, нагрузка на cpu, 1000 метров
-							_hills = lineIntersects [_posPlayerASL, _testPos, _veh, objNull]; 
+							_hills = lineIntersects [_posPlayerASL, _testPos, _veh, objNull];
 						};
 
 						if(!_hills)then{
