@@ -120,6 +120,13 @@ class Params {
 		texts[] = {$STRWFYES,$STRWFNO};
 		default=1;
 	};
+	// скипт пво ракеты
+	class gosa_airDefense {
+		title="(AI) air defense [cl,fps,gp]";
+		values[] = {0,1};
+		texts[] = {$STRWFNO,$STRWFYES};
+		default=1;
+	};
 	class StartTime {
 		title = $STRWFSTARTTIME;
 		values[] = {-1,100,5,7,11,12,14,18,22,2};

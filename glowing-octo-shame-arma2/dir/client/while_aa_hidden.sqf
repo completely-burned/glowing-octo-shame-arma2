@@ -4,6 +4,10 @@
 	TODO: Ракету нужно сделать видимой для других игроков.
 */
 
+if(missionNamespace getVariable "gosa_airDefense" != 1)exitWith{
+	diag_log format ["Log: [while_aa_hidden] exitWith %1", time];
+};
+
 #ifdef __A2OA__
 private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills","_dist","_aaType","_grp","_aaSide","_fps_conf"];
 
