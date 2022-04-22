@@ -16,13 +16,13 @@ author="http://github.com/completely-burned/glowing-octo-shame-arma2";
 
 class Params {
 	class gosa_MASH {
-		title="MASH (not completed)";
+		title="MASH (not completed) [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=1;
 	};
 	class gosa_MHQ {
-		title="MHQ";
+		title="MHQ [gp]";
 		#ifdef __ARMA3__
 			values[] = {0};
 			texts[] = {$STRWFNO};
@@ -33,64 +33,72 @@ class Params {
 		default=-1;
 		#endif
 	};
+	/*
+		Количество отрядов ии не будет ниже этого значения.
+		TODO: Нужно проверить со значением 0.
+	*/
 	class minGroups {
-		title="Guaranteed number of ai groups [sv,ai,fps]";
+		title="Guaranteed number of ai groups [sv,ai,fps,gp]";
 		// values[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
 		// texts[] = {0,5,10,15,20,30,40,50,60,70,80,90,100,150,200,250,300};
 		values[] = {0,5,7,10,15,20,25,30,40,50,60,70,80,90,100,120};
-		texts[] = {0,5,"7 (Intel Xeon Cascadelake)","10 (Intel Xeon Icelake)","15 (Intel i5-6500)",20,25,30,40,50,60,70,80,90,100,120};
+		texts[] = {"0 (not tested)",5,"7 (Intel Xeon Cascadelake)","10 (Intel Xeon Icelake)","15 (Intel i5-6500)",20,25,30,40,50,60,70,80,90,100,120};
 		default=5;
 	};
+	/*
+		ИИ будут создаваться пока среднее значение фпс не упадет ниже этого значеня.
+		Установите 0, чтобы колличество бралось из class minGroups.
+	*/
 	class gosa_ai_create_fps {
-		title="if higher fps, create ai [sv,ai,fps]";
+		title="if higher fps, create ai (over Guaranteed number) [sv,ai,fps,gp]";
 		values[] = {0,		5,10,15,20,25,30,35,40,45,46,47,48,49,50};
 		texts[] = {"manual",5,10,15,20,25,30,35,40,45,46,47,48,49,50};
 		default=45;
 	};
 	class Air {
-		title="multiplier Air";
+		title="(AI) multiplier Air [gp]";
 		default=1;
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 	};
 	class Tank {
-		title="multiplier Tank";
+		title="(AI) multiplier Tank (Infanty APC not completed) [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
 	class Car {
-		title="multiplier Car";
+		title="(AI) multiplier Car (Infanty not completed) [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
 	class Man {
-		title="multiplier Man";
+		title="(AI) multiplier Man [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
 	class Ship {
-		title="multiplier Ship";
+		title="(AI) multiplier Ship [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
 	class StaticWeapon {
-		title="multiplier StaticWeapon";
+		title="(AI) multiplier StaticWeapon [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
 	class enemyCoefficient {
-		title="enemy coefficient, maximum ratio [ai]";
+		title="(AI) enemy coefficient, maximum ratio [ai,gp]";
 		values[] = {50,75,100,125,150,175,200,225,250,275,300,325,350,375,400,425,450,475,500,525,550,575,600};
 		texts[] = {0.5,0.75,1,1.25,1.50,1.75,2,2.25,2.50,2.75,3,3.25,3.50,3.75,4,4.25,4.50,4.75,5,5.25,5.50,5.75,6};
 		default=250;
 	};
 	class gosa_patrolCoefficient {
-		title="patrol coefficient [ai]";
+		title="(AI) patrol coefficient [ai,gp]";
 		values[] = {5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
 		texts[] = {0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95,1};
 		default=40;
@@ -103,19 +111,19 @@ class Params {
 	};
 	class timeFriendlyReinforcements {
 		// насколько быстро сравняется количество союзников и противников
-		title="(AI) time friendly reinforcements";
+		title="(AI) time friendly reinforcements [gp]";
 		values[] = {30,45,60,90,120,180,240,300};
 		texts[] = {"30 minutes","45 minutes","60 minutes","90 minutes","120 minutes","180 minutes","240 minutes","300 minutes"};
 		default=180;
 	};
 	class m_skill {
-		title="(AI) skill";
+		title="(AI) skill [gp]";
 		values[] = {-1,0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
 		texts[] = {$STRWFMISSIONDEFAULT,0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95,1};
 		default = -1;
 	};
 	class gosa_survival {
-		title="(AI) survival (not completed)";
+		title="(AI) survival (not completed) [cl,fps,gp]";
 		values[] = {1,0};
 		texts[] = {$STRWFYES,$STRWFNO};
 		default=1;
@@ -127,6 +135,24 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=1;
 	};
+	class gosa_frontLine_east {
+		title="(AI) Frontline - east [gp]";
+		values[] = {0,1,2};
+		texts[] = {"random 360","near friendly east","opposite to the enemies"};
+		default=0;
+	};
+	class gosa_frontLine_west {
+		title="(AI) Frontline - west [gp]";
+		values[] = {0,1,2};
+		texts[] = {"random 360","near friendly west","opposite to the enemies"};
+		default=0;
+	};
+	class gosa_frontLine_guer {
+		title="(AI) Frontline - guer [gp]";
+		values[] = {0,1,2};
+		texts[] = {"random 360","near friendly guer","opposite to the enemies"};
+		default=0;
+	};
 	class StartTime {
 		title = $STRWFSTARTTIME;
 		values[] = {-1,100,5,7,11,12,14,18,22,2};
@@ -134,7 +160,7 @@ class Params {
 		default = -1;
 	};
 	class gosa_Overcast {
-		title = "Overcast";
+		title = "Overcast [gp]";
 		values[] = {-1,0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95,1};
 		texts[] = {$STRWFMISSIONDEFAULT,0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95,1};
 		default = -1;
@@ -152,21 +178,21 @@ class Params {
 		default=0;
 	};
 	class local_conflict {
-		title="local conflict";
+		title="local conflict [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
 	class mining {
 		// дистанция безопасного минирования не верно определяется когда все игроки мертвы
-		title="mining (not completed)";
+		title="mining (not completed) [gp]";
 		// в процентах
 		values[] = {0,		2,5,10,20,30,50,75};
 		texts[] = {$STRWFNO,2,5,10,20,30,50,75};
 		default=0;
 	};
 	class respawn {
-		title="respawn";
+		title="respawn [gp]";
 		values[] = {0,1};
 		#ifdef __ARMA3__
 			texts[] = {"Base","Random unit (not working)"};
@@ -177,7 +203,7 @@ class Params {
 		#endif
 	};
 	class gosa_shop {
-		title="shop";
+		title="shop [gp,cl,fps]";
 		values[] = {-1,0,1,2};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFNO,$STRWFYES,"home delivery"};
 		default=-1;
@@ -196,44 +222,45 @@ class Params {
 	};
 	class gc_dist {
 		// FIXME: zero division
-		title="Garbage Collector distance multiplier";
+		title="Garbage Collector distance multiplier [fps]";
 		values[] = {0,100,500,1000,1500,2000,2500,3000,4000,5000,6000,7000};
 		texts[]  = {0,100,500,1000,1500,2000,2500,3000,4000,5000,6000,7000};
 		default=7000;
 	};
 	class gc_count {
 		// FIXME: zero division
-		title="Garbage Collector count queue size";
+		title="Garbage Collector count queue size [fps]";
 		values[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
 		texts[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
 		default=50;
 	};
 	class gosa_AmmoDrop {
-		title="AmmoDrop (not completed)";
+		title="AmmoDrop (not completed) [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
 	class gosa_heliTransport {
-		title="heliTransport (not completed)";
+		title="heliTransport (not completed) [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/41
 	class gosa_landing {
-		title="landing (not completed)"; // https://github.com/completely-burned/glowing-octo-shame-arma2/issues/41
+		title="landing (not completed) [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
 	class gosa_laserDesignator {
-		title="laserDesignator";
+		title="laserDesignator [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
 	class gosa_rearmament {
-		title="rearmament";
+		title="rearmament [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=1;
@@ -254,24 +281,6 @@ class Params {
 		default=1;
 		#endif
 	};
-	class gosa_frontLine_east {
-		title="Frontline - east";
-		values[] = {0,1,2};
-		texts[] = {"random 360","near friendly east","opposite to the enemies"};
-		default=0;
-	};
-	class gosa_frontLine_west {
-		title="Frontline - west";
-		values[] = {0,1,2};
-		texts[] = {"random 360","near friendly west","opposite to the enemies"};
-		default=0;
-	};
-	class gosa_frontLine_guer {
-		title="Frontline - guer";
-		values[] = {0,1,2};
-		texts[] = {"random 360","near friendly guer","opposite to the enemies"};
-		default=0;
-	};
 	class gosa_frontLine_enemy {
 		title="Frontline - enemy (deprecated)";
 		values[] = {0,1};
@@ -279,19 +288,19 @@ class Params {
 		default=0;
 	};
 	class gosa_reveal {
-		title="reveal";
+		title="reveal [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,"ai reveal player"};
 		default=0;
 	};
 	class gosa_locationType {
-		title="Location Types";
+		title="Location Types [gp]";
 		values[] = {-1,0,1,2};
 		texts[] = {$STRWFMISSIONDEFAULT, "[arbitrary position] (not completed)", "[City, Hill]", "[City] (not completed)"};
 		default=-1;
 	};
 	class gosa_locationSizeMultipler {
-		title="locationSizeMultipler";
+		title="locationSizeMultipler [gp]";
 		values[] = {2500,5625,8100,10000,12100,14400,16900};
 		texts[] = {2500,5625,8100,10000,12100,14400,16900};
 		default=12100;
