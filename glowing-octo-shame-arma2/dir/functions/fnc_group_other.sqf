@@ -12,6 +12,13 @@
 private["_leader"];
 _leader = leader _this;
 
+// reveal player
+if !(isDedicated) then {
+	if (gosa_reveal == 1) then {
+		[_this, player, _leader] call gosa_fnc_reveal;
+	};
+};
+
 // запускается у всех
 if (local _leader)then{
 	private["_grp","_leaderPos","_currentWP","_wp","_typeWP",
