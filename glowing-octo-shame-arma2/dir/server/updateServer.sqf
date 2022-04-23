@@ -21,7 +21,7 @@ _path = "dir\server\";
 [] execVM (_path + "while_groups_gc.sqf");
 [] execVM (_path + "while_groups_cleanup.sqf");
 
-[] execVM (_path + "server_update_groups_other.sqf");
 [] execVM (_path + "modules.sqf");
 [] execVM "dir\testing\laser.sqf";
 [] execVM "dir\ssm\ssm_sv.sqf";
+[] execVM "dir\server\while_groups_other.sqf";

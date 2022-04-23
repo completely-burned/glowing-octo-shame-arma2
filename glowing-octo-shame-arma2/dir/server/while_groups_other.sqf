@@ -1,13 +1,18 @@
+/*
+	TODO: Оптимизация.
+*/
 waitUntil {!isNil "civilianBasePos"};
 waitUntil {!isNil "gosa_locationSize"};
 waitUntil {!isNil "group_system_units"};
 waitUntil {!isNil "group_off_units"};
-private["_gosa_initGroup"];
+private["_g"];
 while{true}do{
+	_g = allGroups;
+	// FIXME: Speculative execution?
+	sleep 1;
 	{
 		if (_x != group_system_units) then {
-			_gosa_initGroup = _x call gosa_fnc_group_other;
+			_x call gosa_fnc_group_other;
 		};
-	}forEach allGroups;
-	sleep 1;
+	}forEach _g;
 };
