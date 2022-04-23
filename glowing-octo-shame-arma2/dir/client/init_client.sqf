@@ -48,7 +48,6 @@ SetGroupIconsVisible [true,false];
 [] execVM ("dir\client\while_assignedVehicle.sqf");
 [] execVM ("dir\ban\while_ban.sqf");
 [] execVM "dir\testing\while_act_laserBomb.sqf";
-[] execVM "dir\client\while_reveal.sqf";
 [] execVM "dir\functions\fnc_SSM_updateMenu.sqf";
 [] execVM "dir\client\while_survival.sqf";
 
