@@ -54,7 +54,7 @@ SetGroupIconsVisible [true,false];
 
 if(!isServer)then{
 	// сервер не может считать assignedVehicle для не серверных ии
-	[] execVM ("dir\server\server_update_groups_other.sqf");
+	[] execVM ("dir\client\while_groups_other.sqf");
 };
 
 
