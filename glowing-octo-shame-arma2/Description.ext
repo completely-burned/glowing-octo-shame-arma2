@@ -171,10 +171,10 @@ class Params {
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFNO,$STRWFYES};
 		default=-1;
 	};
-	class friendly_vehicles_only {
-		title="$STR_friendly_vehicles_only";
-		values[] = {0,1};
-		texts[] = {$STRWFNO,$STRWFYES};
+	class gosa_vehicles_lock {
+		title="vehicles lock [fps]";
+		values[] = {2,1,0};
+		texts[] = {$STRWFNO,$STR_friendly_vehicles_only,$STRWFYES};
 		default=0;
 	};
 	class local_conflict {

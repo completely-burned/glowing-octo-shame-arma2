@@ -7,6 +7,10 @@
 	setVehicleLock "LOCKEDPLAYER" = same as "lock 3"
 */
 
+if(missionNamespace getVariable "gosa_vehicles_lock" == 2)exitWith{
+	diag_log format ["Log: [while_vehicles_lock] exitWith %1", time];
+};
+
 #ifdef __ARMA3__
  if (true) exitWith {
 	 diag_log format ["Log: [while_vehicles_lock] exitWith %1", time];
@@ -19,7 +23,7 @@ private["_vehicles_lock","_grp","_units","_leaderPlayer","_isPlayer","_side",
 	"_vehicle","_grpPlayer","_lock","_transportPlayer",
 	"_friendly_vehicles_only"];
 
-_friendly_vehicles_only = missionNamespace getVariable "friendly_vehicles_only";
+_friendly_vehicles_only = missionNamespace getVariable "gosa_vehicles_lock";
 
 waitUntil{!isNil "gosa_friendlyside"};
 
