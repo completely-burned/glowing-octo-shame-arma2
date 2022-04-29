@@ -22,7 +22,9 @@ _fnc_1={
 	_this setVectorUp [0,0,1];
 	group player addVehicle _this;
 	player reveal _this;
+	#ifndef __ARMA3__
 	[[_this], true] call gosa_fnc_reweapon;
+	#endif
 };
 
 private ["_respawn_pos"];

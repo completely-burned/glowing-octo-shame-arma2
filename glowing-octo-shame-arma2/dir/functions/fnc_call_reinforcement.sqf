@@ -119,9 +119,11 @@ if (_pos distance [0,0] < 1) then {
 
 if(_run)then{
 
+	#ifndef __ARMA3__
 	if (missionNamespace getVariable "gosa_rearmament" == 1) then {
 		_types = [_types] call gosa_fnc_reweapon;
 	};
+	#endif
 
 	_SafePosParams = ([_types] call gosa_fnc_SafePosParams);
 
@@ -178,15 +180,17 @@ if(_run)then{
 		// _x disableAI "FSM";
 	} foreach _units + _vehicles;
 
+	#ifndef __ARMA3__
 	if (missionNamespace getVariable "gosa_rearmament" == 1) then {
 		[_units + _vehicles] call gosa_fnc_reweapon;
 	};
+	#endif
 
 	//выставить skill в зависимости от ранга
-	// _units call gosa_fnc_RankToSkill; 
+	// _units call gosa_fnc_RankToSkill;
 	if (count _vehicles > 0) then {
 		// посадить в багажное отделение
-		[_vehicles, _cargo] call gosa_fnc_MoveInCargo; 
+		[_vehicles, _cargo] call gosa_fnc_MoveInCargo;
 	};
 
 	{_x setVariable ["grp_created",true,true]}forEach _groups;
