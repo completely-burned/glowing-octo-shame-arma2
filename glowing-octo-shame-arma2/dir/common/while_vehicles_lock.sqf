@@ -7,6 +7,12 @@
 	setVehicleLock "LOCKEDPLAYER" = same as "lock 3"
 */
 
+#ifdef __ARMA3__
+ if (true) exitWith {
+	 diag_log format ["Log: [while_vehicles_lock] exitWith %1", time];
+ };
+#endif
+
 #ifdef __A2OA__
 
 private["_vehicles_lock","_grp","_units","_leaderPlayer","_isPlayer","_side",
