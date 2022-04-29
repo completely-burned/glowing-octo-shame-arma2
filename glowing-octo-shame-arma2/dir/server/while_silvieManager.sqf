@@ -1,6 +1,12 @@
 ﻿/* припаркованный гражданский транспорт в городах
  */
 
+ #ifdef __ARMA3__
+ 	if (true) exitWith {
+ 		diag_log format ["Log: [server_update_silvieManager] exitWith %1", time];
+ 	};
+ #endif
+
 private ["_twns","_mash","_mashType"];
 
 if (missionNamespace getVariable "gosa_MASH" == 1) then {
