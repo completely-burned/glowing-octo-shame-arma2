@@ -3,7 +3,7 @@
 
  #ifdef __ARMA3__
  	if (true) exitWith {
- 		diag_log format ["Log: [server_update_silvieManager] exitWith %1", time];
+ 		diag_log format ["Log: [while_silvieManager] exitWith %1", time];
  	};
  #endif
 
