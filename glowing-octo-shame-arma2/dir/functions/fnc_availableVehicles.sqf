@@ -1,5 +1,5 @@
 private["_friendly_vehicles_only"];
-_friendly_vehicles_only = missionNamespace getVariable "friendly_vehicles_only";
+_friendly_vehicles_only = missionNamespace getVariable "gosa_vehicles_lock";
 
 private ["_list","_true"];
 _list = [];
@@ -9,7 +9,15 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 	_entry = ((configFile >> "CfgVehicles") select _i);
 	if (isClass _entry) then {
 		if ((getNumber(_entry >> "scope")) in [1,2]) then {
-			if (!(((getNumber(_entry >> "side")) call gosa_fnc_getSide) in [west,east,resistance]) or (_friendly_vehicles_only == 0) or !isMultiplayer or ((getNumber(_entry >> "side")) call gosa_fnc_getSide) in gosa_friendlyside) then {
+			if (
+					!(((getNumber(_entry >> "side")) call gosa_fnc_getSide) in [west,east,resistance])
+				or
+					(_friendly_vehicles_only != 1)
+				//or
+					//!isMultiplayer
+				or
+					((getNumber(_entry >> "side")) call gosa_fnc_getSide) in gosa_friendlyside
+			) then {
 				_libEnabled = [_entry] call gosa_fnc_libEnabled;
 				if (_libEnabled) then {
 					if (getText(_entry >> "vehicleclass") in ["Ammo","ACE_Ammunition"]) then {
