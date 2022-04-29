@@ -158,7 +158,11 @@ _crew = [];
 	};
 
 {
+	#ifdef __ARMA3__
+		[_x] call gosa_fnc_vehInit2;
+	#else
 	[nil, _x, rvehInit] call RE;
+	#endif
 } forEach _crew;
 
 _crew

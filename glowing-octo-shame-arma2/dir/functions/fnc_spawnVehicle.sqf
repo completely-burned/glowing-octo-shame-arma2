@@ -40,7 +40,11 @@ if (_sim in ["airplane", "helicopter"]) then {
 
 diag_log format ["Log: [fnc_spawnVehicle] %1", _veh];
 
+#ifdef __ARMA3__
+	[_veh] call gosa_fnc_vehInit2;
+#else
 [nil, _veh, rvehInit] call RE;
+#endif
 
 _veh setDir _azi;
 

@@ -14,7 +14,11 @@ if(_type isKindOf "UAV")then{
 };
 
 _fnc_1={
+	#ifdef __ARMA3__
+		[_this] call gosa_fnc_vehInit2;
+	#else
 	[nil, _this, rvehInit] call RE;
+	#endif
 	_this setVectorUp [0,0,1];
 	group player addVehicle _this;
 	player reveal _this;
