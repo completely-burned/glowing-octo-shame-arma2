@@ -434,6 +434,56 @@ if(LIB_a2Avail)then{
 				[[[["SPG9_CDF"],[],[_r0]]],0.01],
 				[[[["SearchLight_CDF"],[],[_r0]]],0.01]
 			];
+			if(acex_ru_Avail)then{
+				_west=_west+[
+					[[[["CDF_Soldier_TL",
+						"ACE_BTR70_CDF","CDF_Soldier_MG",
+						"CDF_Soldier_MG","CDF_Soldier_Marksman",
+						"CDF_Soldier_RPG","CDF_Soldier_GL",
+						"CDF_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+						[_r3,
+						_r3,_r2,
+						_r1,_r1,
+						_r0,_r0,
+						_r0]]],0.9],
+
+					[[[["ACE_T72B_CDF",
+						"ACE_T72B_CDF","ACE_T72B_CDF"],[[0,10,0],[7,0,0],[-7,0,0]],
+						[_r4,
+						_r3,_r3]]],0.25],
+
+					[[[["ACE_Mi24_V_CDF"], [],[_r4]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]]],0.01],
+					[[[["ACE_Mi24_V_UPK23_CDF"], [],[_r4]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]]],0.01],
+
+					[[[["CDF_Soldier_TL",
+						"CDF_Soldier_MG","CDF_Soldier_Marksman",
+						"CDF_Soldier_RPG","CDF_Soldier_GL",
+						"ACE_BMD_1_CDF"],[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[10,10]],
+						[_r2,
+						_r2,_r1,
+						_r1,_r0,
+						_r0,_r2]]],0.01],
+
+					[[[["CDF_Soldier_TL",
+						"CDF_Soldier_MG","CDF_Soldier_MG",
+						"CDF_Soldier_Marksman","CDF_Soldier_RPG",
+						"CDF_Soldier_GL","CDF_Soldier",
+						"ACE_BMD_2_CDF"],[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[10,10]],
+						[_r2,
+						_r2,_r1,
+						_r1,_r0,
+						_r0,_r0,
+						_r2]]],0.01],
+
+					[[[["ZSU_CDF","ACE_BRDM2_SA9_CDF"], [[0,0],[10,0]],
+						[_r4,_r3]]],0.01]
+				];
+			}else{
+				_west=_west+[
+					[[[["ZSU_CDF"], [],[_r3,_r3]]],0.5]
+				];
+			};
+
 			_guer=_guer+[
 				// GUE_InfSquad !=
 				// временно добавлен медик
@@ -601,49 +651,6 @@ if(LIB_a2Avail)then{
 
 			];
 			if(acex_ru_Avail)then{
-				_west=_west+[
-					[[[["CDF_Soldier_TL",
-						"ACE_BTR70_CDF","CDF_Soldier_MG",
-						"CDF_Soldier_MG","CDF_Soldier_Marksman",
-						"CDF_Soldier_RPG","CDF_Soldier_GL",
-						"CDF_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-						[_r3,
-						_r3,_r2,
-						_r1,_r1,
-						_r0,_r0,
-						_r0]]],0.9],
-
-					[[[["ACE_T72B_CDF",
-						"ACE_T72B_CDF","ACE_T72B_CDF"],[[0,10,0],[7,0,0],[-7,0,0]],
-						[_r4,
-						_r3,_r3]]],0.25],
-
-					[[[["ACE_Mi24_V_CDF"], [],[_r4]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]]],0.01],
-					[[[["ACE_Mi24_V_UPK23_CDF"], [],[_r4]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]]],0.01],
-
-					[[[["CDF_Soldier_TL",
-						"CDF_Soldier_MG","CDF_Soldier_Marksman",
-						"CDF_Soldier_RPG","CDF_Soldier_GL",
-						"ACE_BMD_1_CDF"],[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[10,10]],
-						[_r2,
-						_r2,_r1,
-						_r1,_r0,
-						_r0,_r2]]],0.01],
-
-					[[[["CDF_Soldier_TL",
-						"CDF_Soldier_MG","CDF_Soldier_MG",
-						"CDF_Soldier_Marksman","CDF_Soldier_RPG",
-						"CDF_Soldier_GL","CDF_Soldier",
-						"ACE_BMD_2_CDF"],[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[10,10]],
-						[_r2,
-						_r2,_r1,
-						_r1,_r0,
-						_r0,_r0,
-						_r2]]],0.01],
-
-					[[[["ZSU_CDF","ACE_BRDM2_SA9_CDF"], [[0,0],[10,0]],
-						[_r4,_r3]]],0.01]
-				];
 				_guer=_guer+[
 					[[[["GUE_Soldier_CO",
 						"ACE_BTR70_GUE","GUE_Soldier_MG",
@@ -657,9 +664,6 @@ if(LIB_a2Avail)then{
 						_r0]]],0.05]
 				];
 			}else{
-				_west=_west+[
-					[[[["ZSU_CDF"], [],[_r3,_r3]]],0.5]
-				];
 				_guer=_guer+[
 				];
 			};
