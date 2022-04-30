@@ -577,7 +577,10 @@ if(LIB_a2Avail)then{
 						_r1,_r1,
 						_r1,_r0,
 						_r0]]],0.25],
+					/*
+					// TODO: Исправить GUE_
 					[[[["ACE_Mi24_D_INS"], [],[4]],[["GUE_Soldier_CO","GUE_Soldier_GL","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_AR","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_2"]]],0.01],
+					*/
 					[[[["INS_Soldier_CO",
 						"ACE_BMD_2_INS","INS_Soldier_MG",
 						"INS_Soldier_AT","INS_Soldier_2",
