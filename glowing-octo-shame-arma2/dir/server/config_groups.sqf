@@ -274,15 +274,21 @@ if(LIB_a2Avail)then{
 				];
 			};
 
+			_mg2 = "CDF_Soldier_AR";
+			_mg = "CDF_Soldier_MG";
+			_gl = "CDF_Soldier_GL";
+			_at = "CDF_Soldier_RPG";
+			_s2 = "CDF_Soldier_Marksman";
+			_s1 = "CDF_Soldier";
 			_west=_west+[
 				// CDF_MotInfSquad !=
 				// rarityGroup = 0.4; изменен из-за отряда с UralOpen_CDF
 				[[[[	"CDF_Soldier_TL",
-						"Ural_CDF","CDF_Soldier_MG",
-						"CDF_Soldier_RPG","CDF_Soldier_GL",
-						"CDF_Soldier","CDF_Soldier_MG",
-						"CDF_Soldier_GL","CDF_Soldier_RPG",
-						"CDF_Soldier","CDF_Soldier_Medic"
+						"Ural_CDF",_mg,
+						_at,_gl,
+						_s1,_mg,
+						_gl,_at,
+						_s1,"CDF_Soldier_Medic"
 					],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
 					[		_r3,
 						_r2,_r2,
@@ -292,11 +298,11 @@ if(LIB_a2Avail)then{
 						_r0,_r0
 				]]],0.3],
 				[[[[	"CDF_Soldier_TL",
-						"UralOpen_CDF","CDF_Soldier_MG",
-						"CDF_Soldier_RPG","CDF_Soldier_GL",
-						"CDF_Soldier","CDF_Soldier_MG",
-						"CDF_Soldier_GL","CDF_Soldier_RPG",
-						"CDF_Soldier","CDF_Soldier_Medic"
+						"UralOpen_CDF",_mg,
+						_at,_gl,
+						_s1,_mg,
+						_gl,_at,
+						_s1,"CDF_Soldier_Medic"
 					],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
 					[		_r3,
 						_r2,_r2,
@@ -306,23 +312,23 @@ if(LIB_a2Avail)then{
 						_r0,_r0
 				]]],0.1],
 				// CDF_MotInfSection
-				[[[["CDF_Soldier_GL",
-					"UAZ_CDF","CDF_Soldier_RPG"],[[0,5,0],[-5,0,0],[3,0,0]],
+				[[[[_gl,
+					"UAZ_CDF",_at],[[0,5,0],[-5,0,0],[3,0,0]],
 					[_r2,
 					_r1,_r0]]],0.15],
 				// CDF_MotInfSection_Weapons
 				[[[["CDF_Soldier_TL",
 					"UAZ_AGS30_CDF","UAZ_AGS30_CDF",
-					"CDF_Soldier_MG"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
+					_mg],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0]]],0.2],
 				// CDF_MechInfSquad !=
 				[[[["CDF_Soldier_TL",
-					"BMP2_CDF","CDF_Soldier_MG",
-					"CDF_Soldier_MG","CDF_Soldier_Marksman",
-					"CDF_Soldier_RPG","CDF_Soldier_GL",
-					"CDF_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+					"BMP2_CDF",_mg,
+					_mg,_s2,
+					_at,_gl,
+					_s1],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
 					[_r3,
 					_r3,_r2,
 					_r1,_r1,
@@ -330,15 +336,15 @@ if(LIB_a2Avail)then{
 					_r0]]],0.9],
 				// CDF_MechReconSection
 				[[[["CDF_Soldier_TL",
-					"BRDM2_CDF","CDF_Soldier_MG",
-					"CDF_Soldier_RPG"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
+					"BRDM2_CDF",_mg,
+					_at],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
 					[_r2,
 					_r2,_r2,
 					_r1]]],0.5],
 				// CDF_MechATSection
 				[[[["CDF_Soldier_TL",
-					"BRDM2_ATGM_CDF","CDF_Soldier_MG",
-					"CDF_Soldier_RPG"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
+					"BRDM2_ATGM_CDF",_mg,
+					_at],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
 					[_r2,
 					_r2,_r2,
 					_r1]]],0.5],
@@ -349,18 +355,18 @@ if(LIB_a2Avail)then{
 					_r3,_r3]]],0.25],
 				// CDF_Mi24DSquadron !=
 				[[[["Mi24_D","Mi24_D"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]]],0.1],
+					[_r4,_r3]],[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]],[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]]],0.1],
 				// CDF_Mi8Squadron
 				[[[["Mi17_CDF","Mi17_CDF"],[[0,15,0],[15,0,0]],
 					[_r4,_r3]]],0.3],
 				[[[["Mi17_CDF"],[],
-					[_r4]],[["CDF_Soldier_TL","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier","CDF_Soldier_MG","CDF_Soldier_GL","CDF_Soldier_RPG","CDF_Soldier","CDF_Soldier_Medic"]]],0.3],
+					[_r4]],[["CDF_Soldier_TL",_mg,_at,_gl,_s1,_mg,_gl,_at,_s1,"CDF_Soldier_Medic"]]],0.3],
 				// CDF_InfSquad
 				[[[["CDF_Soldier_TL",
-					"CDF_Soldier_MG","CDF_Soldier_RPG",
-					"CDF_Soldier_GL","CDF_Soldier",
-					"CDF_Soldier_MG","CDF_Soldier_GL",
-					"CDF_Soldier_RPG","CDF_Soldier",
+					_mg,_at,
+					_gl,_s1,
+					_mg,_gl,
+					_at,_s1,
 					"CDF_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
 					[_r3,
 					_r2,_r1,
@@ -370,10 +376,10 @@ if(LIB_a2Avail)then{
 					_r0]]],0.6],
 				// CDF_InfSquad_Weapons
 				[[[["CDF_Soldier_TL",
-					"CDF_Soldier_AR","CDF_Soldier_MG",
-					"CDF_Soldier_MG","CDF_Soldier_RPG",
-					"CDF_Soldier_RPG","CDF_Soldier_GL",
-					"CDF_Soldier_Marksman"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
+					_mg2,_mg,
+					_mg,_at,
+					_at,_gl,
+					_s2],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
 					[_r3,
 					_r2,_r1,
 					_r1,_r1,
@@ -381,22 +387,22 @@ if(LIB_a2Avail)then{
 					_r0]]],0.6],
 				// CDF_InfSection_AT
 				[[[["CDF_Soldier_TL",
-					"CDF_Soldier_RPG","CDF_Soldier_RPG",
-					"CDF_Soldier_AR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					_at,_at,
+					_mg2],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0]]],0.2],
 				// CDF_InfSection_AA
 				[[[["CDF_Soldier_TL",
 					"CDF_Soldier_Strela","CDF_Soldier_Strela",
-					"CDF_Soldier_MG"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					_mg],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0]]],0.1],
 				// CDF_InfSection_MG
-				[[[["CDF_Soldier_MG",
-					"CDF_Soldier_MG","CDF_Soldier_AR",
-					"CDF_Soldier_RPG"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+				[[[[_mg,
+					_mg,_mg2,
+					_at],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0]]],0.1],
@@ -413,9 +419,9 @@ if(LIB_a2Avail)then{
 				// TODO: нужно сбалансировать
 				[[[["Ural_ZU23_CDF","CDF_Soldier_Strela","CDF_Soldier_Strela","CDF_Soldier_Strela"], [[10,10],[10,0],[0,10],[0,0]],
 					[_r2,_r1,_r1,_r1]]],0.01],
-				[[[["CDF_Soldier_GL","CDF_Soldier_Engineer","CDF_Soldier_RPG"], [],
+				[[[[_gl,"CDF_Soldier_Engineer",_at], [],
 					[_r2,_r1,_r0]]],0.01],
-				[[[["CDF_Soldier_GL","UAZ_MG_CDF"], [[0,0],[5,0]],
+				[[[[_gl,"UAZ_MG_CDF"], [[0,0],[5,0]],
 					[_r0,_r0]]],0.01],
 
 				[[[["Su25_CDF"], [],[_r4]]],0.01],
@@ -437,10 +443,10 @@ if(LIB_a2Avail)then{
 			if(acex_ru_Avail)then{
 				_west=_west+[
 					[[[["CDF_Soldier_TL",
-						"ACE_BTR70_CDF","CDF_Soldier_MG",
-						"CDF_Soldier_MG","CDF_Soldier_Marksman",
-						"CDF_Soldier_RPG","CDF_Soldier_GL",
-						"CDF_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+						"ACE_BTR70_CDF",_mg,
+						_mg,_s2,
+						_at,_gl,
+						_s1],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
 						[_r3,
 						_r3,_r2,
 						_r1,_r1,
@@ -452,12 +458,12 @@ if(LIB_a2Avail)then{
 						[_r4,
 						_r3,_r3]]],0.25],
 
-					[[[["ACE_Mi24_V_CDF"], [],[_r4]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]]],0.01],
-					[[[["ACE_Mi24_V_UPK23_CDF"], [],[_r4]],[["CDF_Soldier_TL","CDF_Soldier_AR","CDF_Soldier_MG","CDF_Soldier_MG","CDF_Soldier_RPG","CDF_Soldier_RPG","CDF_Soldier_GL","CDF_Soldier_Marksman"]]],0.01],
+					[[[["ACE_Mi24_V_CDF"], [],[_r4]],[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]]],0.01],
+					[[[["ACE_Mi24_V_UPK23_CDF"], [],[_r4]],[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]]],0.01],
 
 					[[[["CDF_Soldier_TL",
-						"CDF_Soldier_MG","CDF_Soldier_Marksman",
-						"CDF_Soldier_RPG","CDF_Soldier_GL",
+						_mg,_s2,
+						_at,_gl,
 						"ACE_BMD_1_CDF"],[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[10,10]],
 						[_r2,
 						_r2,_r1,
@@ -465,9 +471,9 @@ if(LIB_a2Avail)then{
 						_r0,_r2]]],0.01],
 
 					[[[["CDF_Soldier_TL",
-						"CDF_Soldier_MG","CDF_Soldier_MG",
-						"CDF_Soldier_Marksman","CDF_Soldier_RPG",
-						"CDF_Soldier_GL","CDF_Soldier",
+						_mg,_mg,
+						_s2,_at,
+						_gl,_s1,
 						"ACE_BMD_2_CDF"],[[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[10,10]],
 						[_r2,
 						_r2,_r1,
