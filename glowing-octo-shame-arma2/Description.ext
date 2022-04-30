@@ -209,16 +209,16 @@ class Params {
 		default=-1;
 	};
 	class ai_client_count {
-		title="Number of ai groups at the start on the client cpu [cl,ai,fps]";
+		title="(AI) Number of ai groups at the start on the client cpu [cl,ai,fps]";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 		texts[]  = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 		default=0;
 	};
 	class gosa_ai_client_create_fps {
-		title="If higher fps, create ai on the client cpu [cl,ai,fps]";
-		values[] = {0,		5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120};
-		texts[] = {"manual",5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120};
-		default=65;
+		title="(AI) If higher fps, create ai on the client cpu [cl,ai,fps]";
+		values[] = {0,		5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120,130,140,150,160,170,180,190,200,210,220,230,240,250};
+		texts[] = {"manual",5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120,130,140,150,160,170,180,190,200,210,220,230,240,250};
+		default=140;
 	};
 	class gc_dist {
 		// FIXME: zero division
