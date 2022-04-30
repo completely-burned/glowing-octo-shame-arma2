@@ -253,7 +253,7 @@ if(LIB_a2Avail)then{
 						_r0]]],0.25],
 					/*
 					// TODO: Исправить GUE_
-					[[[["ACE_Mi24_D_INS"], [],[4]],[["GUE_Soldier_CO","GUE_Soldier_GL","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_AR","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_2"]]],0.01],
+					[[[["ACE_Mi24_D_INS"], [],[4]],[["GUE_Soldier_CO",_gl,_mg,_at,_mg2,_mg,_at,_s2]]],0.01],
 					*/
 					[[[["INS_Soldier_CO",
 						"ACE_BMD_2_INS",_mg,
@@ -490,13 +490,19 @@ if(LIB_a2Avail)then{
 				];
 			};
 
+			_mg2 = "GUE_Soldier_AR";
+			_mg = "GUE_Soldier_MG";
+			_gl = "GUE_Soldier_GL";
+			_at = "GUE_Soldier_AT";
+			_s2 = "GUE_Soldier_2";
+			_s1 = "GUE_Soldier_1";
 			_guer=_guer+[
 				// GUE_InfSquad !=
 				// временно добавлен медик
 				[[[["GUE_Soldier_CO",
-					"GUE_Soldier_GL","GUE_Soldier_AR",
-					"GUE_Soldier_1","GUE_Soldier_3",
-					"GUE_Soldier_GL","GUE_Soldier_2",
+					_gl,_mg2,
+					_s1,"GUE_Soldier_3",
+					_gl,_s2,
 					"GUE_Soldier_Medic"],[],
 					[_r2,
 					_r1,_r1,
@@ -506,10 +512,10 @@ if(LIB_a2Avail)then{
 				// GUE_InfSquad_Assault
 				// временно добавлен медик
 				[[[["GUE_Soldier_CO",
-					"GUE_Soldier_GL","GUE_Soldier_MG",
-					"GUE_Soldier_AT","GUE_Soldier_AR",
-					"GUE_Soldier_MG","GUE_Soldier_AT",
-					"GUE_Soldier_2","GUE_Soldier_1",
+					_gl,_mg,
+					_at,_mg2,
+					_mg,_at,
+					_s2,_s1,
 					"GUE_Soldier_Medic"],[],
 					[_r2,
 					_r1,_r1,
@@ -518,39 +524,39 @@ if(LIB_a2Avail)then{
 					_r0,_r0,
 					_r0]]],0.6],
 				// GUE_InfSquad_Weapons
-				[[[["GUE_Soldier_2",
-					"GUE_Soldier_MG","GUE_Soldier_AT",
-					"GUE_Soldier_MG","GUE_Soldier_GL",
-					"GUE_Soldier_AT"],[],
+				[[[[_s2,
+					_mg,_at,
+					_mg,_gl,
+					_at],[],
 					[_r2,
 					_r1,_r1,
 					_r0,_r0,
 					_r0]]],0.9],
 				// GUE_InfTeam_1 !=
 				// rarityGroup = 1.0; изменен по неизвестной причине
-				[[[["GUE_Soldier_2",
-					"GUE_Soldier_MG","GUE_Soldier_AT",
-					"GUE_Soldier_GL"],[],
+				[[[[_s2,
+					_mg,_at,
+					_gl],[],
 					[_r1,
 					_r1,_r0,
 					_r0]]],0.9],
 				// GUE_InfTeam_2
 				// rarityGroup = 1.0; изменен по неизвестной причине
-				[[[["GUE_Soldier_1",
-					"GUE_Soldier_AR","GUE_Soldier_GL",
-					"GUE_Soldier_2"],[],
+				[[[[_s1,
+					_mg2,_gl,
+					_s2],[],
 					[_r1,
 					_r1,_r0,
 					_r0]]],0.9],
 				// GUE_InfTeam_AT
-				[[[["GUE_Soldier_AT",
-					"GUE_Soldier_AT","GUE_Soldier_AR"],[],
+				[[[[_at,
+					_at,_mg2],[],
 					[_r1,
 					_r1,_r0]]],0.8],
 				// GUE_GrpInf_TeamAA
 				[[[["GUE_Soldier_CO",
 					"GUE_Soldier_AA","GUE_Soldier_AA",
-					"GUE_Soldier_AR"],[],
+					_mg2],[],
 					[_r1,
 					_r1,_r0,
 					_r0]]],0.2],
@@ -569,9 +575,9 @@ if(LIB_a2Avail)then{
 				// GUE_MotInfSection
 				[[[["GUE_Soldier_CO",
 					"Offroad_DSHKM_Gue","Offroad_SPG9_Gue",
-					"Pickup_PK_GUE","GUE_Soldier_MG",
+					"Pickup_PK_GUE",_mg,
 					"GUE_Soldier_3","GUE_Soldier_Sniper",
-					"GUE_Soldier_AR","GUE_Soldier_2"],[[0,5,0],[-5,0,0],[-5,-7,0],[-5,-14,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
+					_mg2,_s2],[[0,5,0],[-5,0,0],[-5,-7,0],[-5,-14,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r1,_r1,
@@ -579,11 +585,11 @@ if(LIB_a2Avail)then{
 					_r0,_r0]]],0.25],
 				// GUE_MotInfSquad
 				[[[["GUE_Soldier_CO",
-					"V3S_GUE","GUE_Soldier_GL",
-					"GUE_Soldier_AT","GUE_Soldier_1",
-					"GUE_Soldier_AR","GUE_Soldier_MG",
-					"GUE_Soldier_MG","GUE_Soldier_2",
-					"GUE_Soldier_AT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					"V3S_GUE",_gl,
+					_at,_s1,
+					_mg2,_mg,
+					_mg,_s2,
+					_at],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r1,_r1,
@@ -591,19 +597,19 @@ if(LIB_a2Avail)then{
 					_r0,_r0,
 					_r0]]],0.2],
 				// GUE_MechInfSection
-				[[[["GUE_Soldier_AR",
-					"BRDM2_GUE","GUE_Soldier_GL",
-					"GUE_Soldier_1"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
+				[[[[_mg2,
+					"BRDM2_GUE",_gl,
+					_s1],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
 					[_r1,
 					_r1,_r0,
 					_r0]]],0.1],
 
 				// FIXME: Что с рангами?
 				[[[["GUE_Soldier_CO",
-					"BTR60_Gue_CP","GUE_Soldier_MG",
-					"GUE_Soldier_GL","GUE_Soldier_3",
-					"GUE_Soldier_AT","GUE_Soldier_AT",
-					"GUE_Soldier_AR","GUE_Soldier_Sniper"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					"BTR60_Gue_CP",_mg,
+					_gl,"GUE_Soldier_3",
+					_at,_at,
+					_mg2,"GUE_Soldier_Sniper"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 					[_r3,
 					_r3,_r2,
 					_r1,_r1,
@@ -612,10 +618,10 @@ if(LIB_a2Avail)then{
 				// GUE_MechInfSquad !=
 				// звания изменены
 				[[[["GUE_Soldier_CO",
-					"BMP2_GUE","GUE_Soldier_MG",
-					"GUE_Soldier_GL","GUE_Soldier_3",
-					"GUE_Soldier_AR","GUE_Soldier_Sniper",
-					"GUE_Soldier_AT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+					"BMP2_GUE",_mg,
+					_gl,"GUE_Soldier_3",
+					_mg2,"GUE_Soldier_Sniper",
+					_at],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
 					[_r3,
 					_r3,_r1,
 					_r1,_r1,
@@ -623,10 +629,10 @@ if(LIB_a2Avail)then{
 					_r0]]],0.05],
 
 				[[[["GUE_Soldier_CO",
-					"BMP1_INS_CP","GUE_Soldier_MG",
-					"GUE_Soldier_GL","GUE_Soldier_3",
-					"GUE_Soldier_AR","GUE_Soldier_Sniper",
-					"GUE_Soldier_AT"
+					"BMP1_INS_CP",_mg,
+					_gl,"GUE_Soldier_3",
+					_mg2,"GUE_Soldier_Sniper",
+					_at
 					],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
 					[_r3,
 					_r3,_r1,
@@ -659,10 +665,10 @@ if(LIB_a2Avail)then{
 			if(acex_ru_Avail)then{
 				_guer=_guer+[
 					[[[["GUE_Soldier_CO",
-						"ACE_BTR70_GUE","GUE_Soldier_MG",
-						"GUE_Soldier_GL","GUE_Soldier_3",
-						"GUE_Soldier_AR","GUE_Soldier_Sniper",
-						"GUE_Soldier_AT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+						"ACE_BTR70_GUE",_mg,
+						_gl,"GUE_Soldier_3",
+						_mg2,"GUE_Soldier_Sniper",
+						_at],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
 						[_r3,
 						_r3,_r1,
 						_r1,_r1,
