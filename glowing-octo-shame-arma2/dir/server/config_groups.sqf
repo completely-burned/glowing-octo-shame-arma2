@@ -18,7 +18,7 @@
 
 private ["_west","_east","_guer","_woodland","_deserted",
 	"_r0","_r1","_r2","_r3","_r4","_r5","_r6",
-	"_s","_mg","_gl","_at",
+	"_s1","_s2","_mg","_mg2","_gl","_at",
 	"_westPatrol","_eastPatrol","_guerPatrol",
 	"_westAttack","_eastAttack","_guerAttack"];
 _westPatrol=[];_eastPatrol=[];_guerPatrol=[];
@@ -42,6 +42,12 @@ if(LIB_a2Avail)then{
 	// INS // CDF // GUE
 	if(true)then{
 		if(!_deserted)then{
+			_mg2 = "INS_Soldier_AR";
+			_mg = "INS_Soldier_MG";
+			_gl = "INS_Soldier_GL";
+			_at = "INS_Soldier_AT";
+			_s2 = "INS_Soldier_2";
+			_s1 = "INS_Soldier_1";
 			_east=_east+[
 
 				// INS_TankSection !=
@@ -50,25 +56,35 @@ if(LIB_a2Avail)then{
 
 				// INS_Mi8Squadron !=
 				[[[["Mi17_Ins"],[],[_r4]],
-					[["INS_Soldier_CO","INS_Soldier_AR","INS_Soldier_GL","INS_Soldier_AT","INS_Soldier_2","INS_Soldier_AR","INS_Soldier_1","INS_Soldier_2"]],[["INS_Soldier_CO","INS_Soldier_MG","INS_Soldier_MG","INS_Soldier_AT","INS_Soldier_AT","INS_Soldier_AR","INS_Soldier_AR","INS_Soldier_2"]]],0.05],
+					[["INS_Soldier_CO",
+					_mg2,_gl,
+					_at,_s2,
+					_mg2,_s1,
+					_s2]],
+					[["INS_Soldier_CO",
+					_mg,_mg,
+					_at,_at,
+					_mg2,_mg2,
+					_s2]]
+					],0.05],
 
 				// INS_InfSquad !=
 				// rarityGroup = 0.85; изменен из-за отряда с Ins_Soldier_Medic
 				[[[["INS_Soldier_CO",
-					"INS_Soldier_AR","INS_Soldier_GL",
-					"INS_Soldier_AT","INS_Soldier_2",
-					"INS_Soldier_AR","INS_Soldier_1",
-					"INS_Soldier_2"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					_mg2,_gl,
+					_at,_s2,
+					_mg2,_s1,
+					_s2],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0,_r0,
 					_r0,_r0,
 					_r0]]],0.55],
 				[[[["INS_Soldier_CO",
-					"INS_Soldier_AR","INS_Soldier_GL",
-					"INS_Soldier_AT","INS_Soldier_2",
-					"INS_Soldier_AR","INS_Soldier_1",
-					"INS_Soldier_2","Ins_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					_mg2,_gl,
+					_at,_s2,
+					_mg2,_s1,
+					_s2,"Ins_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0,_r0,
@@ -77,27 +93,27 @@ if(LIB_a2Avail)then{
 				// INS_InfSquad_Weapons !=
 				// rarityGroup = 0.6; изменен из-за отряда с Ins_Soldier_Medic
 				[[[["INS_Soldier_CO",
-					"INS_Soldier_MG","INS_Soldier_MG",
-					"INS_Soldier_AT","INS_Soldier_AT",
-					"INS_Soldier_AR","INS_Soldier_AR",
-					"INS_Soldier_2"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					_mg,_mg,
+					_at,_at,
+					_mg2,_mg2,
+					_s2],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0,_r0,
 					_r0,_r0,
 					_r0]]],0.4],
 				[[[["INS_Soldier_CO",
-					"INS_Soldier_MG","INS_Soldier_MG",
-					"INS_Soldier_AT","INS_Soldier_AT",
-					"INS_Soldier_AR","INS_Soldier_AR",
-					"INS_Soldier_2","Ins_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+					_mg,_mg,
+					_at,_at,
+					_mg2,_mg2,
+					_s2,"Ins_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0,_r0,
 					_r0,_r0,
 					_r0,_r0]]],0.2],
 				// INS_InfSection_AT
-				[[[["INS_Soldier_AT","INS_Soldier_AT","INS_Soldier_1"],[[0,5,0],[3,0,0],[5,0,0]],
+				[[[[_at,_at,_s1],[[0,5,0],[3,0,0],[5,0,0]],
 					[_r1,
 					_r0,_r0]]],0.25],
 				// INS_InfSection_AA
@@ -105,7 +121,7 @@ if(LIB_a2Avail)then{
 					[_r1,_r0,_r0]]],0.1],
 				// INS_SniperTeam !=
 				// rarityGroup = 0.2; изменен из-за отряда с Ins_Soldier_Sab
-				[[[["INS_Soldier_Sniper","INS_Soldier_Sniper","INS_Soldier_1"],[[0,5,0],[3,0,0],[5,0,0]],
+				[[[["INS_Soldier_Sniper","INS_Soldier_Sniper",_s1],[[0,5,0],[3,0,0],[5,0,0]],
 					[_r1,_r1,_r0]]],0.1],
 				[[[["INS_Soldier_Sniper","INS_Soldier_Sniper","Ins_Soldier_Sab"],[[0,5,0],[3,0,0],[5,0,0]],
 					[_r1,_r1,_r0]]],0.1],
@@ -122,12 +138,12 @@ if(LIB_a2Avail)then{
 				// INS_MotInfSquad
 				// rarityGroup = 0.25; изменен из-за отряда с Ural_INS
 				[[[[	"INS_Soldier_CO",
-						"UralOpen_INS","INS_Soldier_MG",
-						"INS_Soldier_AT","INS_Soldier_AR",
-						"INS_Soldier_2","INS_Soldier_GL",
-						"INS_Soldier_1","INS_Soldier_MG",
-						"INS_Soldier_AT","INS_Soldier_1",
-						"INS_Soldier_1","INS_Soldier_2"
+						"UralOpen_INS",_mg,
+						_at,_mg2,
+						_s2,_gl,
+						_s1,_mg,
+						_at,_s1,
+						_s1,_s2
 					],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
 					[		_r2,
 						_r2,_r1,
@@ -138,12 +154,12 @@ if(LIB_a2Avail)then{
 						_r0,_r0
 					]]],0.20],
 				[[[[	"INS_Soldier_CO",
-						"Ural_INS","INS_Soldier_MG",
-						"INS_Soldier_AT","INS_Soldier_AR",
-						"INS_Soldier_2","INS_Soldier_GL",
-						"INS_Soldier_1","INS_Soldier_MG",
-						"INS_Soldier_AT","INS_Soldier_1",
-						"INS_Soldier_1","INS_Soldier_2"
+						"Ural_INS",_mg,
+						_at,_mg2,
+						_s2,_gl,
+						_s1,_mg,
+						_at,_s1,
+						_s1,_s2
 					],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
 					[		_r2,
 						_r2,_r1,
@@ -155,10 +171,10 @@ if(LIB_a2Avail)then{
 					]]],0.05],
 
 				// INS_MotInfSection
-				[[[["INS_Soldier_GL",
+				[[[[_gl,
 					"Offroad_DSHKM_INS","UAZ_SPG9_INS",
-					"Pickup_PK_INS","INS_Soldier_1",
-					"INS_Soldier_MG","INS_Soldier_GL"],[[0,5,0],[-5,0,0],[-5,-7,0],[-5,-14,0],[3,0,0],[5,0,0],[7,0,0]],
+					"Pickup_PK_INS",_s1,
+					_mg,_gl],[[0,5,0],[-5,0,0],[-5,-7,0],[-5,-14,0],[3,0,0],[5,0,0],[7,0,0]],
 					[_r1,
 					_r1,_r1,
 					_r1,_r0,
@@ -167,10 +183,10 @@ if(LIB_a2Avail)then{
 				// INS_MechInfSquad !=
 				// звания изменены
 				[[[["INS_Soldier_CO",
-					"BMP2_INS","INS_Soldier_MG",
-					"INS_Soldier_AT","INS_Soldier_2",
-					"INS_Soldier_GL","INS_Soldier_1",
-					"INS_Soldier_AR"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+					"BMP2_INS",_mg,
+					_at,_s2,
+					_gl,_s1,
+					_mg2],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
 					[_r3,
 					_r3,_r1,
 					_r1,_r1,
@@ -180,9 +196,9 @@ if(LIB_a2Avail)then{
 				// INS_MechInfSection
 				[[[["INS_Soldier_CO",
 					"BRDM2_INS","BRDM2_INS",
-					"INS_Soldier_MG","INS_Soldier_AR",
-					"INS_Soldier_GL","INS_Soldier_1",
-					"INS_Soldier_AT","INS_Soldier_2"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+					_mg,_mg2,
+					_gl,_s1,
+					_at,_s2],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
 					[_r2,
 					_r2,_r2,
 					_r1,_r1,
@@ -190,9 +206,9 @@ if(LIB_a2Avail)then{
 					_r0,_r0]]],0.25],
 
 				// INS_MechInfSection_AT
-				[[[["INS_Soldier_GL",
+				[[[[_gl,
 					"BRDM2_ATGM_INS","BRDM2_ATGM_INS",
-					"INS_Soldier_AT"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
+					_at],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0]]],0.2],
@@ -200,11 +216,11 @@ if(LIB_a2Avail)then{
 				// TODO: нужно сбалансировать
 				[[[["Ins_Soldier_AA","Ins_Soldier_AA","Ins_Soldier_AA","Ural_ZU23_INS"], [[10,10],[10,0],[0,10],[0,0]],
 					[_r2,_r1,_r1,_r1]]],0.01],
-				[[[["INS_Soldier_GL","UAZ_INS","INS_Soldier_1","INS_Soldier_MG","INS_Soldier_1"], [[0,0],[5,0],[0,0],[0,0],[0,0]],
+				[[[[_gl,"UAZ_INS",_s1,_mg,_s1], [[0,0],[5,0],[0,0],[0,0],[0,0]],
 					[_r1,_r1,_r0,_r0,_r0]]],0.01],
-				[[[["INS_Soldier_GL","UAZ_MG_INS"], [[0,0],[5,0]],
+				[[[[_gl,"UAZ_MG_INS"], [[0,0],[5,0]],
 					[_r1,_r0]]],0.01],
-				[[[["INS_Soldier_GL","Ins_Soldier_Sapper","INS_Soldier_AT"], [],
+				[[[[_gl,"Ins_Soldier_Sapper",_at], [],
 					[_r2,_r1,_r0]]],0.01],
 
 				[[[["Su25_Ins"], [],[_r4]]],0.01],
