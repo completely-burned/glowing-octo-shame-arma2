@@ -239,6 +239,41 @@ if(LIB_a2Avail)then{
 				[[[["SPG9_Ins"], [],[_r0]]],0.01]
 
 			];
+			if(acex_ru_Avail)then{
+				_east=_east+[
+					[[[["INS_Soldier_CO",
+						"ACE_BTR70_INS","INS_Soldier_MG",
+						"INS_Soldier_AT","INS_Soldier_2",
+						"INS_Soldier_GL","INS_Soldier_1",
+						"INS_Soldier_AR"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+						[_r2,
+						_r2,_r1,
+						_r1,_r1,
+						_r1,_r0,
+						_r0]]],0.25],
+					/*
+					// TODO: Исправить GUE_
+					[[[["ACE_Mi24_D_INS"], [],[4]],[["GUE_Soldier_CO","GUE_Soldier_GL","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_AR","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_2"]]],0.01],
+					*/
+					[[[["INS_Soldier_CO",
+						"ACE_BMD_2_INS","INS_Soldier_MG",
+						"INS_Soldier_AT","INS_Soldier_2",
+						"INS_Soldier_GL","INS_Soldier_1",
+						"INS_Soldier_AR"],[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+						[_r3,
+						_r3,_r1,
+						_r1,_r1,
+						_r1,_r0,
+						_r0]
+					]],0.01],
+					[[[["ZSU_INS","ACE_BRDM2_SA9_INS"], [[0,0],[10,0]],[4,3]]],0.01]
+				];
+			}else{
+				_east=_east+[
+					[[[["ZSU_INS"], [[0,0],[0,10]],[_r3,_r3]]],0.5]
+				];
+			};
+
 			_west=_west+[
 				// CDF_MotInfSquad !=
 				// rarityGroup = 0.4; изменен из-за отряда с UralOpen_CDF
@@ -566,34 +601,6 @@ if(LIB_a2Avail)then{
 
 			];
 			if(acex_ru_Avail)then{
-				_east=_east+[
-					[[[["INS_Soldier_CO",
-						"ACE_BTR70_INS","INS_Soldier_MG",
-						"INS_Soldier_AT","INS_Soldier_2",
-						"INS_Soldier_GL","INS_Soldier_1",
-						"INS_Soldier_AR"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-						[_r2,
-						_r2,_r1,
-						_r1,_r1,
-						_r1,_r0,
-						_r0]]],0.25],
-					/*
-					// TODO: Исправить GUE_
-					[[[["ACE_Mi24_D_INS"], [],[4]],[["GUE_Soldier_CO","GUE_Soldier_GL","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_AR","GUE_Soldier_MG","GUE_Soldier_AT","GUE_Soldier_2"]]],0.01],
-					*/
-					[[[["INS_Soldier_CO",
-						"ACE_BMD_2_INS","INS_Soldier_MG",
-						"INS_Soldier_AT","INS_Soldier_2",
-						"INS_Soldier_GL","INS_Soldier_1",
-						"INS_Soldier_AR"],[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
-						[_r3,
-						_r3,_r1,
-						_r1,_r1,
-						_r1,_r0,
-						_r0]
-					]],0.01],
-					[[[["ZSU_INS","ACE_BRDM2_SA9_INS"], [[0,0],[10,0]],[4,3]]],0.01]
-				];
 				_west=_west+[
 					[[[["CDF_Soldier_TL",
 						"ACE_BTR70_CDF","CDF_Soldier_MG",
@@ -650,9 +657,6 @@ if(LIB_a2Avail)then{
 						_r0]]],0.05]
 				];
 			}else{
-				_east=_east+[
-					[[[["ZSU_INS"], [[0,0],[0,10]],[_r3,_r3]]],0.5]
-				];
 				_west=_west+[
 					[[[["ZSU_CDF"], [],[_r3,_r3]]],0.5]
 				];
