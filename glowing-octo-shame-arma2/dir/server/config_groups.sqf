@@ -1384,33 +1384,39 @@ if(LIB_ahAvail)then{
 	// BIS_BAF
 if(true)then{
 	if((!_woodland) && (_deserted))then{
+		_mg2 = "BAF_Soldier_AR_DDPM";
+		_mg = "BAF_Soldier_AAR_DDPM";
+		_gl = "BAF_Soldier_GL_DDPM";
+		_at = "BAF_Soldier_AT_DDPM";
+		_s2 = "BAF_Soldier_TL_DDPM";
+		_s1 = "BAF_Soldier_Marksman_DDPM";
 		_west=_west+[
-			[[[["BAF_Soldier_SL_DDPM","BAF_Soldier_TL_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_Marksman_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_AAR_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
+			[[[["BAF_Soldier_SL_DDPM",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
 				[_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],0.5],
-			[[[["BAF_Soldier_TL_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_Marksman_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+			[[[[_s2,_gl,_mg2,_s1],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 				[_r1,_r0,_r0,_r0]]],0.8],
-			[[[["BAF_Soldier_TL_DDPM","BAF_Soldier_FAC_DDPM","BAF_Soldier_Medic_DDPM","BAF_Soldier_EN_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+			[[[[_s2,"BAF_Soldier_FAC_DDPM","BAF_Soldier_Medic_DDPM","BAF_Soldier_EN_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 				[_r1,_r0,_r0,_r0]]],0.2],
-			[[[["BAF_Soldier_TL_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_MG_DDPM","BAF_Soldier_AMG_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+			[[[[_s2,_gl,"BAF_Soldier_MG_DDPM","BAF_Soldier_AMG_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 				[_r1,_r0,_r0,_r0]]],0.2],
-			[[[["BAF_Soldier_TL_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AT_DDPM","BAF_Soldier_AAT_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+			[[[[_s2,_gl,_at,"BAF_Soldier_AAT_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 				[_r1,_r0,_r0,_r0]]],0.1],
-			[[[["BAF_Soldier_AT_DDPM","BAF_Soldier_HAT_DDPM","BAF_Soldier_AHAT_DDPM","BAF_Soldier_AAT_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+			[[[[_at,"BAF_Soldier_HAT_DDPM","BAF_Soldier_AHAT_DDPM","BAF_Soldier_AAT_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 				[_r1,_r1,_r0,_r0]]],0.05],
 
 			[[[["BAF_FV510_D","BAF_FV510_D","BAF_FV510_D","BAF_FV510_D"],[[0,8,0],[8,0,0],[-8,0,0],[0,-8,0]],
 				[_r4,_r3,_r3,_r3]]],0.05],
 
 			[[[["CH_47F_BAF"],[[0,0,0]],
-				[_r4]],[["BAF_Soldier_SL_DDPM","BAF_Soldier_TL_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_Marksman_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_AAR_DDPM"]]
+				[_r4]],[["BAF_Soldier_SL_DDPM",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg]]
 				],0.3],
 			[[[["AW159_Lynx_BAF"],[],
-				[_r4]],[["BAF_Soldier_SL_DDPM","BAF_Soldier_TL_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_Marksman_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_AAR_DDPM"]]
+				[_r4]],[["BAF_Soldier_SL_DDPM",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg]]
 				],0.3],
 			[[[["BAF_Apache_AH1_D","BAF_Apache_AH1_D"],[[0,20,0],[20,0,0]],
 				[_r4,_r3]]],0.3],
 			[[[["BAF_Merlin_HC3_D"],[],
-				[_r4]],[["BAF_Soldier_SL_DDPM","BAF_Soldier_TL_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_Marksman_DDPM","BAF_Soldier_GL_DDPM","BAF_Soldier_AR_DDPM","BAF_Soldier_AAR_DDPM"]]
+				[_r4]],[["BAF_Soldier_SL_DDPM",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg]]
 				],0.3],
 
 			[[[["BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D"],[[0,5,0],[3,0,0],[-5,0,0]],
