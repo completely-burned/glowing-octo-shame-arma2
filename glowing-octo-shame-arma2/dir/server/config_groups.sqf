@@ -684,16 +684,22 @@ if(LIB_a2Avail)then{
 
 		// USMC
 	if(true)then{
+		_mg2 = "USMC_Soldier_AR";
+		_mg = "USMC_Soldier_MG";
+		_gl = "USMC_Soldier_LAT";
+		_at = "USMC_Soldier_AT";
+		_s2 = "USMC_Soldier_TL";
+		_s1 = "USMC_Soldier";
 		if(!_deserted or !acex_usnavy_Avail)then{
 			_west=_west+[
 				// USMC_InfSquad
 				[[[["USMC_Soldier_SL",
-					"USMC_Soldier_TL","USMC_Soldier_AR",
-					"USMC_Soldier_LAT","USMC_Soldier",
-					"USMC_Soldier_TL","USMC_Soldier_AR",
-					"USMC_Soldier_LAT","USMC_Soldier",
-					"USMC_Soldier_TL","USMC_Soldier_AR",
-					"USMC_Soldier_LAT","USMC_Soldier"],[],
+					_s2,_mg2,
+					_gl,_s1,
+					_s2,_mg2,
+					_gl,_s1,
+					_s2,_mg2,
+					_gl,_s1],[],
 					[_r3,
 					_r2,_r1,
 					_r1,_r0,
@@ -702,35 +708,35 @@ if(LIB_a2Avail)then{
 					_r2,_r1,
 					_r1,_r0]]],0.5],
 				// USMC_FireTeam
-				[[[["USMC_Soldier_TL",
-					"USMC_Soldier_AR","USMC_Soldier_LAT",
-					"USMC_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+				[[[[_s2,
+					_mg2,_gl,
+					_s1],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0]]],0.05],
 				// USMC_FireTeam_MG
-				[[[["USMC_Soldier_TL",
-					"USMC_Soldier_MG","USMC_Soldier_AR",
-					"USMC_Soldier_LAT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+				[[[[_s2,
+					_mg,_mg2,
+					_gl],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0]]],0.1],
 				// USMC_FireTeam_AT
-				[[[["USMC_Soldier_TL",
-					"USMC_Soldier_AR","USMC_Soldier_AT",
-					"USMC_Soldier_LAT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+				[[[[_s2,
+					_mg2,_at,
+					_gl],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0]]],0.1],
 				// USMC_FireTeam_Support
-				[[[["USMC_Soldier_TL",
-					"USMC_Soldier_AR","USMC_Soldier_LAT",
+				[[[[_s2,
+					_mg2,_gl,
 					"USMC_Soldier_Medic"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r1]]],0.05],
 				// USMC_HeavyATTeam
-				[[[["USMC_Soldier_HAT","USMC_Soldier_AT","USMC_Soldier_LAT"],[[0,5,0],[3,0,0],[5,0,0]],
+				[[[["USMC_Soldier_HAT",_at,_gl],[[0,5,0],[3,0,0],[5,0,0]],
 					[_r2,_r1,_r1]]],0.15],
 				// USMC_SniperTeam
 				[[[["USMC_SoldierS_Sniper","USMC_SoldierS_Spotter"],[[0,5,0],[3,0,0]],
@@ -747,33 +753,33 @@ if(LIB_a2Avail)then{
 					_r2]]],0.01],
 
 				// USMC_MotInfSection !=
-				[[[["USMC_Soldier_TL",
+				[[[[_s2,
 					"HMMWV_M2","HMMWV_Mk19",
-					"USMC_Soldier_AR","USMC_Soldier_AT",
-					"USMC_Soldier_AR","USMC_Soldier_LAT",
-					"USMC_Soldier"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
+					_mg2,_at,
+					_mg2,_gl,
+					_s1],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r1,_r0,
 					_r0,_r1,
 					_r1]]],0.2],
 				// USMC_MotInfSection_AT
-				[[[["USMC_Soldier_TL",
+				[[[[_s2,
 					"HMMWV_TOW","HMMWV_TOW",
-					"USMC_Soldier_AR"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
+					_mg2],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
 					[_r2,
 					_r2,_r1,
 					_r0]]],0.15],
 
 				// USMC_MechInfSquad !=
 				[[[["USMC_Soldier_SL",
-					"AAV","USMC_Soldier_TL",
-					"USMC_Soldier_AR","USMC_Soldier_LAT",
-					"USMC_Soldier","USMC_Soldier_TL",
-					"USMC_Soldier_AR","USMC_Soldier_LAT",
-					"USMC_Soldier","USMC_Soldier_TL",
-					"USMC_Soldier_AR","USMC_Soldier_LAT",
-					"USMC_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[12,0,0],[14,0,0],[16,0,0],[18,0,0],[3,-5,0],[5,-5,0],[7,-5,0],[9,-5,0]],
+					"AAV",_s2,
+					_mg2,_gl,
+					_s1,_s2,
+					_mg2,_gl,
+					_s1,_s2,
+					_mg2,_gl,
+					_s1],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[12,0,0],[14,0,0],[16,0,0],[18,0,0],[3,-5,0],[5,-5,0],[7,-5,0],[9,-5,0]],
 					[_r3,
 					_r3,_r2,
 					_r1,_r1,
@@ -783,10 +789,10 @@ if(LIB_a2Avail)then{
 					_r1,_r1,
 					_r0]]],0.9],
 				// USMC_MechReconSection !=
-				[[[["USMC_Soldier_TL",
-					"LAV25","USMC_Soldier_MG",
-					"USMC_Soldier_AR","USMC_Soldier_AT",
-					"USMC_Soldier_LAT","USMC_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
+				[[[[_s2,
+					"LAV25",_mg,
+					_mg2,_at,
+					_gl,_s1],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
 					[_r3,
 					_r3,_r2,
 					_r1,_r1,
@@ -799,9 +805,9 @@ if(LIB_a2Avail)then{
 				// USMC_UH1YSquadron !=
 				// rarityGroup = 0.5; изменен вероятно из-за звена AH1Z
 				[[[["UH1Y","UH1Y"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_Medic"]]],0.4],
+					[_r4,_r3]],[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,"USMC_Soldier_Medic"]]],0.4],
 				// USMC_MV22Squadron !=
-				[[[["MV22"],[],[_r4]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.5],
+				[[[["MV22"],[],[_r4]],[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1]]],0.5],
 				// USMC_MQ9Squadron
 				[[[["MQ9PredatorB"],[[0,0,0]],[_r4]]],0.3],
 				// USMC_F35Squadron
@@ -813,13 +819,13 @@ if(LIB_a2Avail)then{
 				// USMC_AV8BBomberSquadron
 				[[[["AV8B","AV8B"],[[0,20,0],[20,0,0]],
 					[_r4,_r3]]],0.5],
-				// [[[["MH60S"],[],[4]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
-				[[[["C130J"],[],[_r4]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
+				// [[[["MH60S"],[],[4]],[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1]]],0.1],
+				[[[["C130J"],[],[_r4]],[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1]]],0.1],
 
 				// TODO: нужно сбалансировать
 					[[[["HMMWV_Avenger"], [[0,5],[-5,0],[-5,-7],[3,0]],
 						[_r2,_r2,_r1,_r0]]],0.8],
-					[[[["USMC_Soldier_TL","USMC_Soldier_AA","USMC_Soldier_AA"], [],
+					[[[[_s2,"USMC_Soldier_AA","USMC_Soldier_AA"], [],
 						[_r2,_r1,_r1]]],0.01],
 
 					// LaserDesignator
@@ -845,21 +851,21 @@ if(LIB_a2Avail)then{
 						"FR_Assault_R"], [],
 						[_r3,_r3,_r3,_r2,_r2,_r2]]],0.01],
 					// HMMWV_Armored и гранатометчики в одном отряде плохо сочитаются
-					[[[["USMC_Soldier_TL",
-						"HMMWV_Armored","USMC_Soldier_AT",
-						"USMC_Soldier_LAT"], [[0,0],[5,0],[0,0],[0,0]],
+					[[[[_s2,
+						"HMMWV_Armored",_at,
+						_gl], [[0,0],[5,0],[0,0],[0,0]],
 						[_r2,
 						_r0,_r1,
 						_r1]]],0.01],
 
 					// MTVR
 					[[[["USMC_Soldier_SL",
-						"MTVR","USMC_Soldier_TL",
-						"USMC_Soldier_AR","USMC_Soldier_LAT",
-						"USMC_Soldier","USMC_Soldier_TL",
-						"USMC_Soldier_AR","USMC_Soldier_LAT",
-						"USMC_Soldier_GL","USMC_Soldier_TL",
-						"USMC_Soldier_AR","USMC_Soldier_LAT"], [[0,0],[5,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+						"MTVR",_s2,
+						_mg2,_gl,
+						_s1,_s2,
+						_mg2,_gl,
+						"USMC_Soldier_GL",_s2,
+						_mg2,_gl], [[0,0],[5,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,
 						_r0,_r2,
 						_r1,_r1,
@@ -876,12 +882,12 @@ if(LIB_a2Avail)then{
 					[_r4,_r3]]],0.01],
 
 				// TODO: нужно сбалансировать
-				[[[["Zodiac","USMC_Soldier_GL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"],[[0,0],[5,0,0],[0,5,0],[-5,0,0],[0,-5,0]],
+				[[[["Zodiac","USMC_Soldier_GL",_mg2,_gl,_s1],[[0,0],[5,0,0],[0,5,0],[-5,0,0],[0,-5,0]],
 					[_r0,_r2,_r0,_r0,_r0]]],0.1],
 				[[[["RHIB"],[[0,0]],
-					[_r2]],[["USMC_Soldier_SL","USMC_Soldier_TL","USMC_Soldier_TL","USMC_Soldier_MG","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
+					[_r2]],[["USMC_Soldier_SL",_s2,_s2,_mg,_mg2,_gl,_s1,_mg2,_gl,_s1]]],0.1],
 				[[[["RHIB2Turret"],[[0,0]],
-					[_r2]],[["USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier","USMC_Soldier_AR","USMC_Soldier_LAT","USMC_Soldier"]]],0.1],
+					[_r2]],[[_s2,_mg2,_gl,_s1,_mg2,_gl,_s1]]],0.1],
 
 				[[[["MtvrReammo"], [],[_r0]]],0.01],
 				[[[["MtvrRefuel"], [],[_r0]]],0.01],
@@ -900,9 +906,9 @@ if(LIB_a2Avail)then{
 		if(acex_usnavy_Avail)then{
 			if(!_deserted)then{
 					_west=_west+[
-						[[[["USMC_Soldier_TL","ACE_Stryker_ICV_M2_SLAT","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_AT","USMC_Soldier_GL","USMC_Soldier_TL","USMC_Soldier_AR","USMC_Soldier_GL","USMC_SoldierM_Marksman"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+						[[[[_s2,"ACE_Stryker_ICV_M2_SLAT",_s2,_mg2,_at,"USMC_Soldier_GL",_s2,_mg2,"USMC_Soldier_GL","USMC_SoldierM_Marksman"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 							[_r3,_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0],[[],["USMC_Soldier_Crew","USMC_Soldier_Crew"]]]],0.9],
-						[[[["USMC_Soldier_TL","ACE_Stryker_ICV_MK19_SLAT","USMC_Soldier_TL","USMC_Soldier_GL","USMC_Soldier_AR","USMC_Soldier_AT","USMC_Soldier_TL","USMC_Soldier_GL","USMC_Soldier_AR","USMC_SoldierM_Marksman"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
+						[[[[_s2,"ACE_Stryker_ICV_MK19_SLAT",_s2,"USMC_Soldier_GL",_mg2,_at,_s2,"USMC_Soldier_GL",_mg2,"USMC_SoldierM_Marksman"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
 							[_r3,_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0],[[],["USMC_Soldier_Crew","USMC_Soldier_Crew"]]]],0.9],
 						[[[["ACE_Stryker_MGS","ACE_Stryker_MGS","ACE_Stryker_MGS"],[[0,10,0],[5,0,0],[10,0,0]],
 							[_r4,_r3,_r3],[["USMC_Soldier_Crew","USMC_Soldier_Crew","USMC_Soldier_Crew"],["USMC_Soldier_Crew","USMC_Soldier_Crew","USMC_Soldier_Crew"],["USMC_Soldier_Crew","USMC_Soldier_Crew","USMC_Soldier_Crew"]]]],0.05],
