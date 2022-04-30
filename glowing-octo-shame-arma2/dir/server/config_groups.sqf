@@ -1021,16 +1021,22 @@ if(LIB_a2Avail)then{
 
 		// RU
 	if(true)then{
+		_mg2 = "RU_Soldier_AR";
+		_mg = "RU_Soldier_MG";
+		_gl = "RU_Soldier_GL";
+		_at = "RU_Soldier_AT";
+		_s2 = "RU_Soldier_LAT";
+		_s1 = "RU_Soldier";
 		if(	(!_deserted) or !acex_ru_Avail)then{
 			_east=_east+[
 				// RU_InfSquad
 				[[[["RU_Soldier_SL",
-					"RU_Soldier_MG","RU_Soldier_AT",
-					"RU_Soldier_LAT","RU_Soldier_GL",
-					"RU_Soldier_Marksman","RU_Soldier_MG",
-					"RU_Soldier_AT","RU_Soldier_AR",
-					"RU_Soldier_LAT","RU_Soldier_GL",
-					"RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
+					_mg,_at,
+					_s2,_gl,
+					"RU_Soldier_Marksman",_mg,
+					_at,_mg2,
+					_s2,_gl,
+					_s1],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
 					[_r3,
 					_r2,_r2,
 					_r1,_r1,
@@ -1040,15 +1046,15 @@ if(LIB_a2Avail)then{
 					_r0]]],0.7],
 				// RU_InfSection
 				[[[["RU_Soldier_TL",
-					"RU_Soldier_AR","RU_Soldier_AT",
-					"RU_Soldier_GL","RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
+					_mg2,_at,
+					_gl,_s1],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0,_r0]]],0.2],
 				// RU_InfSection_AT
 				[[[["RU_Soldier_HAT",
-					"RU_Soldier_HAT","RU_Soldier_AT",
-					"RU_Soldier_AT","RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
+					"RU_Soldier_HAT",_at,
+					_at,_s1],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0,_r0]]],0.2],
@@ -1057,8 +1063,8 @@ if(LIB_a2Avail)then{
 					[_r2,_r1,_r1]]],0.1],
 				// RU_InfSection_MG
 				[[[["RU_Soldier_TL",
-					"RU_Soldier_MG","RU_Soldier_MG",
-					"RU_Soldier_GL","RU_Soldier_AT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
+					_mg,_mg,
+					_gl,_at],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
 					[_r2,
 					_r1,_r1,
 					_r0,_r0]]],0.2],
@@ -1068,12 +1074,12 @@ if(LIB_a2Avail)then{
 
 				// RU_MotInfSquad
 				[[[["RU_Soldier_SL",
-					"Kamaz","RU_Soldier_MG",
-					"RU_Soldier_AT","RU_Soldier_LAT",
-					"RU_Soldier_GL","RU_Soldier_Marksman",
-					"RU_Soldier_MG","RU_Soldier_LAT",
-					"RU_Soldier_AR","RU_Soldier_AT",
-					"RU_Soldier_GL","RU_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
+					"Kamaz",_mg,
+					_at,_s2,
+					_gl,"RU_Soldier_Marksman",
+					_mg,_s2,
+					_mg2,_at,
+					_gl,_s1],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
 					[_r3,
 					_r2,_r2,
 					_r2,_r1,
@@ -1084,11 +1090,11 @@ if(LIB_a2Avail)then{
 				// RU_MotInfSection_Recon
 				[[[["RU_Soldier_TL",
 					"GAZ_Vodnik","GAZ_Vodnik_HMG",
-					"RU_Soldier_MG","RU_Soldier_AT",
-					"RU_Soldier_GL","RU_Soldier_Marksman",
-					"RU_Soldier_MG","RU_Soldier_AR",
-					"RU_Soldier_LAT","RU_Soldier",
-					"RU_Soldier","RU_Soldier"],[[0,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
+					_mg,_at,
+					_gl,"RU_Soldier_Marksman",
+					_mg,_mg2,
+					_s2,_s1,
+					_s1,_s1],[[0,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
 					[_r2,
 					_r1,_r1,
 					_r1,_r1,
@@ -1097,23 +1103,23 @@ if(LIB_a2Avail)then{
 					_r0,_r0,
 					_r0,_r0]]],0.3],
 				// RU_MotInfSection_Patrol !=
-				[[[["RU_Soldier_TL","GAZ_Vodnik_HMG","RU_Soldier_AT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
+				[[[["RU_Soldier_TL","GAZ_Vodnik_HMG",_at],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
 					[_r2,_r1,_r0,_r0]]],0.4],
 
 				// RU_MechInfSquad_1 !=
 				[[[["RU_Soldier_SL",
-					"BMP3","RU_Soldier_MG",
-					"RU_Soldier_AT","RU_Soldier_LAT",
-					"RU_Soldier_GL"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
+					"BMP3",_mg,
+					_at,_s2,
+					_gl],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
 					[_r3,
 					_r3,_r2,
 					_r1,_r1,
-					_r0],[[],["RU_Soldier_Crew", "RU_Soldier_Crew", "RU_Soldier_Crew", "RU_Soldier_AT", "RU_Soldier_MG"]]]],0.75],
+					_r0],[[],["RU_Soldier_Crew", "RU_Soldier_Crew", "RU_Soldier_Crew", _at, _mg]]]],0.75],
 				// RU_MechInfSquad_2 !=
 				[[[["RU_Soldier_SL",
-					"BTR90","RU_Soldier_MG",
-					"RU_Soldier_MG","RU_Soldier_AT",
-					"RU_Soldier_LAT","RU_Soldier_GL"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
+					"BTR90",_mg,
+					_mg,_at,
+					_s2,_gl],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
 					[_r3,
 					_r3,_r2,
 					_r1,_r1,
@@ -1123,21 +1129,21 @@ if(LIB_a2Avail)then{
 
 				// RU_Mi24VSquadron !=
 				[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier","RU_Soldier2","RU_Soldier_Medic"]]
+					[_r4,_r3]],[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1,"RU_Soldier2","RU_Soldier_Medic"]]
 					],0.2],
 				[[[["Mi24_V2","Mi24_V2"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier","RU_Soldier2","RU_Soldier_Medic"]]
+					[_r4,_r3]],[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1,"RU_Soldier2","RU_Soldier_Medic"]]
 					],0.2],
 				// RU_Mi24PSquadron !=
 				[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier","RU_Soldier2","RU_Soldier_Medic"]]
+					[_r4,_r3]],[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1,"RU_Soldier2","RU_Soldier_Medic"]]
 					],0.2],
 				// RU_Ka52Squadron
 				[[[["Ka52"],[],[_r4]]],0.1],
 				// RU_Mi8Squadron !=
 				[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],
 					[_r4,_r3]]],0.3],
-				[[[["Mi17_Rockets_RU"],[],[_r4]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier"]]
+				[[[["Mi17_Rockets_RU"],[],[_r4]],[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1]]
 					],0.3],
 				// RU_Su34FighterSquadron !=
 				[[[["Su34","Su34"],[[0,20,0],[20,0,0]],[_r4,_r3]]],0.15],
@@ -1148,17 +1154,17 @@ if(LIB_a2Avail)then{
 				[[[["2S6M_Tunguska"], [[0,0]], [_r3]]],0.7],
 				[[[["RU_Soldier_Sniper","RU_Soldier_SniperH","RU_Soldier_Spotter"], [],
 					[_r2,_r2,_r1]]],0.01],
-				[[[["RU_Soldier_GL","RU_Soldier_Engineer","RU_Soldier2"], [],
+				[[[[_gl,"RU_Soldier_Engineer","RU_Soldier2"], [],
 					[_r2,_r1,_r0]]],0.01],
-				[[[["RU_Soldier_GL","RU_Soldier_AR","RU_Soldier_AT","RU_Soldier_Medic"], [],
+				[[[[_gl,_mg2,_at,"RU_Soldier_Medic"], [],
 					[_r2,_r1,_r1,_r0]]],0.01],
 				[[[["Su39"], [],[_r4]]],0.01],
 				[[[["Su39_CP"], [],[_r4]]],0.01],
-				[[[["RU_Soldier_GL","UAZ_AGS30_RU","RU_Soldier_AT","UAZ_AGS30_RU"], [],
+				[[[[_gl,"UAZ_AGS30_RU",_at,"UAZ_AGS30_RU"], [],
 					[_r2,_r1,_r1,_r1]]],0.01],
-				// [[[["RU_Soldier_GL","UAZ_RU","RU_Soldier_AR","RU_Soldier_AT"], [],[2,1,0,0]]],0.01],
+				// [[[[_gl,"UAZ_RU",_mg2,_at], [],[2,1,0,0]]],0.01],
 
-				[[[["PBX","RU_Soldier_GL","RU_Soldier_LAT","RU_Soldier"],[[0,0],[5,0,0],[0,5,0],[-5,0,0]],
+				[[[["PBX",_gl,_s2,_s1],[[0,0],[5,0,0],[0,5,0],[-5,0,0]],
 					[_r0,_r2,_r0,_r0]]],0.1],
 
 				[[[["KamazReammo"], [],[_r0]]],0.01],
@@ -1202,12 +1208,12 @@ if(LIB_a2Avail)then{
 						[_r4,_r3,_r3]]],0.25],
 					[[[["ACE_T72B_Base","ACE_T72B_Base"],[[0,10,0],[7,0,0],[-7,0,0]],
 						[_r4,_r3,_r3]]],0.25],
-					[[[["RU_Soldier_SL","ACE_BTR70_RU","RU_Soldier_MG","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[11,0,0],[11,0,0]],
+					[[[["RU_Soldier_SL","ACE_BTR70_RU",_mg,_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_s1],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[11,0,0],[11,0,0]],
 						[_r3,_r3,_r2,_r1,_r1,_r0,_r0,_r0,_r0]]],0.9],
 					[[[["ACE_Ka50","ACE_Ka50"], [[0,0],[10,0]],
 						[_r4,_r3]]],0.01],
 					[[[["ACE_Mi24_V_UPK23_RU","ACE_Mi24_V_UPK23_RU"], [[0,0],[10,0]],
-						[_r4,_r3]],[["RU_Soldier_SL","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_AR","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier"]]],0.01],
+						[_r4,_r3]],[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1]]],0.01],
 					[[[["ACE_Su27_CASP"], [[0,0],[10,0]],
 						[_r4,_r3]]],0.01],
 					[[[["ACE_Su30"], [[0,0],[10,0]],
@@ -1215,23 +1221,23 @@ if(LIB_a2Avail)then{
 					[[[["ACE_Su34_MR"], [[0,0],[10,0]],
 						[_r4,_r3]]],0.01],
 					// [[[["ACE_RU_Soldier_RPOM","ACE_RU_Soldier_RPOM"], [[0,0],[10,0]],[4,3]]],0.01],
-					[[[["RU_Soldier_SL","ACE_BMP2_RU","RU_Soldier_MG","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman"],
+					[[[["RU_Soldier_SL","ACE_BMP2_RU",_mg,_mg,_at,_s2,_gl,"RU_Soldier_Marksman"],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r2,_r2,_r1,_r1,_r0,_r0]
 					]],0.01],
-					[[[["RU_Soldier_SL","ACE_BMP2D_RU","RU_Soldier_MG","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman"],
+					[[[["RU_Soldier_SL","ACE_BMP2D_RU",_mg,_mg,_at,_s2,_gl,"RU_Soldier_Marksman"],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r2,_r2,_r1,_r1,_r0,_r0]
 					]],0.01],
-					[[[["RU_Soldier_SL","ACE_BMD_2_RU","RU_Soldier_MG","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL","RU_Soldier_Marksman"],
+					[[[["RU_Soldier_SL","ACE_BMD_2_RU",_mg,_mg,_at,_s2,_gl,"RU_Soldier_Marksman"],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r2,_r2,_r1,_r1,_r0,_r0]
 					]],0.01],
-					[[[["RU_Soldier_SL","ACE_BMD_1P_RU","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL"],
+					[[[["RU_Soldier_SL","ACE_BMD_1P_RU",_mg,_at,_s2,_gl],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r1,_r1,_r0,_r0]
 					]],0.01],
-					[[[["RU_Soldier_SL","ACE_BMD_1_RU","RU_Soldier_MG","RU_Soldier_AT","RU_Soldier_LAT","RU_Soldier_GL"],
+					[[[["RU_Soldier_SL","ACE_BMD_1_RU",_mg,_at,_s2,_gl],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r1,_r1,_r0,_r0]
 					]],0.01],
