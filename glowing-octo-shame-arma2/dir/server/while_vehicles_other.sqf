@@ -1,6 +1,7 @@
-﻿/*скрипт обновляет различные значения транспорту, например уровень топлива
- * TODO: много лишнего кода
- */
+﻿/*
+	Скрипт обновляет различные значения транспорту, например уровень топлива.
+	TODO: много лишнего кода
+*/
 
 private ["_countMHQ","_count_transportammo","_count_transportrepair","_count_transportfuel","_timeNew","_timerDelete","_shop"];
 
