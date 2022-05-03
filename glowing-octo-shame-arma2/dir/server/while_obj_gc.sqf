@@ -8,7 +8,7 @@
 
 
 //--- gc
-private["_min_dist","_min_vehicles_count","_min_dist2"];
+private["_min_dist","_min_vehicles_count","_min_dist2","_tmp"];
 _min_dist			= missionNamespace getVariable "gc_dist";
 _min_vehicles_count = missionNamespace getVariable "gc_count";
 
@@ -111,6 +111,15 @@ while {true} do {
 			// на точке !не удалять!
 			if ((vehicle _x_veh distance civilianBasePos) <= (gosa_locationSize / 2 + gosa_locationSize)) then {
 				_timeNew = _time max (time + _timerLocation);
+			};
+
+			// Гражданские на точке. Не удалять!
+			_tmp = _x_veh getVariable "ALICE_twn";
+			if !(isNil "_tmp") then {
+				if (_tmp == CivilianLocation) then {
+					_timeNew = _time max (time + _timerDelete);
+					diag_log format ["Log: [GC2] %1 + юнит закреплен за локацией %2", _x_veh, CivilianLocation];
+				};
 			};
 
 			// атакует !не удалять!
