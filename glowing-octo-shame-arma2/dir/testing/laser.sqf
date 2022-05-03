@@ -3,6 +3,12 @@
 	laser скрипт при обнаружении лазерной метки создает бомбу и сбрасывает ее
 */
 
+#ifdef __ARMA3__
+ if (true) exitWith {
+	 diag_log format ["Log: [laser] exitWith %1", time];
+ };
+#endif
+
 #ifdef __A2OA__
 private ["_lt"];
 
