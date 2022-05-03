@@ -134,13 +134,11 @@ locationNext={
 
 	//--- Гражданские.
 	#ifndef __ARMA3__
-		#ifdef __A2OA__
 			if(gosa_loglevel>0)then{ // diag_log
 				if !(isNull CivilianLocation) then { // diag_log
 					[CivilianLocation] execVM "dir\alice\alice.sqf"; // diag_log
 				}; // diag_log
 			}; // diag_log
-		#endif
 	#endif
 
 	_grps_rarity = CivilianLocation getVariable "_grps_rarity";
