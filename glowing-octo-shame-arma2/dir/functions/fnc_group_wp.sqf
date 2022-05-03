@@ -594,6 +594,7 @@ if({alive _x} count _units > 0)then{
 				};
 				if(_z in _grp_type)then{
 					if(waypointType _wp != _z)then{
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 support, !supportWP", _wp];
 						_DeleteWP = true;
 						_NoCreateWP = false;
 						_createWP = true;
@@ -601,6 +602,7 @@ if({alive _x} count _units > 0)then{
 				};
 				if!(_z in _grp_type)then{
 					if(waypointType _wp == _z)then{
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 !support, supportWP", _wp];
 						_DeleteWP = true;
 						_NoCreateWP = false;
 						_createWP = true;
