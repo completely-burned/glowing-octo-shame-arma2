@@ -81,7 +81,11 @@ if (true) then {
 						if(_cost>=350000)then{_rank="CAPTAIN"};
 						if(_cost>=500000)then{_rank="MAJOR"};
 						if(_cost>=750000)then{_rank="COLONEL"};
+						#ifdef __ARMA3__
+							[_this] call gosa_fnc_vehInit2;
+						#else
 						[nil, _veh, rsetRank, _rank] call RE;
+						#endif
 					};
 #ifndef __A2OA__
 					if (isServer) then {
