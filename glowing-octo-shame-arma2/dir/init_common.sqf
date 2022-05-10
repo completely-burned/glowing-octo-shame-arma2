@@ -59,6 +59,17 @@ listMHQ = [
 	"MHQ"
 ];
 
+#ifdef __ARMA3__
+listMHQ=listMHQ+[
+	"B_Truck_01_medical_F",
+	"O_Truck_03_medical_F",
+	"O_Truck_02_medical_F",
+	"I_Truck_02_medical_F",
+	"B_T_Truck_01_medical_F",
+	"O_T_Truck_03_medical_ghex_F"
+];
+#endif
+
 _z = [
 	"USMC_Soldier_Crew",
 	"CDF_Soldier_Crew",
@@ -75,6 +86,15 @@ _z = [
 	"CZ_Soldier_Crew_Wdl_ACR",
 	"Crew"
 ];
+#ifdef __ARMA3__
+	_z=_z+[
+		"B_crew_F",
+		"B_T_Crew_F",
+		"O_crew_F",
+		"O_T_Crew_F",
+		"I_crew_F"
+	];
+#endif
 gosa_crewL = [];
 {
 	gosa_crewL set [count gosa_crewL, configName (LIB_cfgVeh >> _x)];
@@ -95,6 +115,25 @@ _z = [
 	"CZ_Soldier_Pilot_EP1",
 	"Pilot"
 ];
+#ifdef __ARMA3__
+	_z=_z+[
+		"B_helicrew_F",
+		"B_Pilot_F",
+		"B_Helipilot_F",
+		"B_T_Helicrew_F",
+		"B_T_Pilot_F",
+		"B_T_Helipilot_F",
+		"O_helicrew_F",
+		"O_Pilot_F",
+		"O_helipilot_F",
+		"O_T_Helicrew_F",
+		"O_T_Pilot_F",
+		"O_T_Helipilot_F",
+		"I_helicrew_F",
+		"I_pilot_F",
+		"I_helipilot_F"
+	];
+#endif
 gosa_pilotL = [];
 {
 	gosa_pilotL set [count gosa_pilotL, configName (LIB_cfgVeh >> _x)];
@@ -121,6 +160,9 @@ gosa_StealthL = [];
 diag_log format ["Log: [init_common]: gosa_StealthL %1", gosa_StealthL];
 
 HQ = ["WarfareBDepot","WarfareBCamp"];
+#ifdef __ARMA3__
+HQ = HQ+["Land_BagBunker_Large_F","Cargo_HQ_base_F","Cargo_Tower_base_F"];
+#endif
 Warfare_HQ = ["Warfare_HQ_base_unfolded"];
 
 UAVterminal = listMHQ + HQ + ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
