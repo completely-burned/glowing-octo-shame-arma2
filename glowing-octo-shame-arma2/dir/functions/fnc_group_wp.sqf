@@ -389,7 +389,7 @@ if({alive _x} count _units > 0)then{
 			// TODO: для авиации не подходит такая проверка
 			if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < 5 )then{
 				_grp_wp_completed = time;
-					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _grp_wp_completed = time", _grp ];
+					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _grp_wp_completed = %2", _grp, _grp_wp_completed];
 			};
 		};
 
