@@ -13,7 +13,7 @@ private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
 	"_fnc_prio_units",
 	"_listPlayers","_deathTime","_cam","_t","_o","_z","_p_name"];
 
-if(missionNamespace getVariable "respawn" != 1)exitWith{
+if(missionNamespace getVariable "respawn" != 1 or !isMultiplayer)exitWith{
 	respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };

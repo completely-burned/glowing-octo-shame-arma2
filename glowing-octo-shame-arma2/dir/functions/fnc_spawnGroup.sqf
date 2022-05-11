@@ -77,6 +77,9 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
 #endif
 					_unit setDir _azimuth;
+					if !(isMultiplayer) then {
+						addSwitchableUnit _unit;
+					};
 				} else {
 					private ["_fnc_spawnVehicle"];
 					if (((count _crewType) > 0)) then {
@@ -96,6 +99,11 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 						_roads = _roads - [-1];
 					}else{
 							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this];
+					};
+					if !(isMultiplayer) then {
+						{
+							addSwitchableUnit _x;
+						} forEach (_fnc_spawnVehicle select 1);
 					};
 				};
 
