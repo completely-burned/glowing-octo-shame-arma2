@@ -161,4 +161,8 @@ if (!isMultiplayer) then {
 	];
 };
 
+#ifdef __ARMA3__
+	BIS_fnc_distance2D = {_this select 0 distance2D (_this select 1)};
+#endif
+
 gosa_fnc_init = true;
