@@ -2,22 +2,22 @@
 switch (playerSide) do {
 	case (resistance):
 	{
-		_pos = getMarkerPos "respawn_guerrila";
+		_pos = getMarkerPos "respawn_guerrila_0";
 	};
 	case (west):
 	{
-		_pos = getMarkerPos "respawn_west";
+		_pos = getMarkerPos "respawn_west_0";
 	};
 	case (east):
 	{
-		_pos = getMarkerPos "respawn_east";
+		_pos = getMarkerPos "respawn_east_0";
 	};
 	case (civilian):
 	{
-		_pos = getMarkerPos "respawn_civilian";
+		_pos = getMarkerPos "respawn_civilian_0";
 	};
 	default {
-		_pos = getMarkerPos toLower format["respawn_%1", playerSide];
+		_pos = getMarkerPos toLower format["respawn_%1_0", playerSide];
 	};
 };
 _grp = group player;
@@ -43,11 +43,10 @@ _grp selectLeader _player;
 
 if(debug)then{
 	// военные обозначения, показ всех, чтобы видеть как и где создаются боты
-	waitUntil{!isNil "bis_fnc_init"};	
+	waitUntil{!isNil "bis_fnc_init"};
 	private ["_martaFactions"];
 	_martaFactions=[];
 	{ _martaFactions = (_martaFactions + [_x,1]) } foreach ([] call BIS_fnc_getFactions);
 	_player setVariable ["MARTA_showRules",_martaFactions];
 	SetGroupIconsVisible [true,true];
 };
-

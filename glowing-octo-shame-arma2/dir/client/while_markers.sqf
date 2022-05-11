@@ -61,8 +61,13 @@ for "_i" from 0 to (count _objects - 1) do {
 		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
 	};
 
-	_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i+1], _pos];
+	_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i], _pos];
+	diag_log format ["Log: [while_markers] marker %1 created %2", _marker, _pos];
+	#ifdef __ARMA3__
+		_marker setMarkerTypeLocal "respawn_inf";
+	#else
 	_marker setMarkerTypeLocal "Depot";
+	#endif
 	_marker setMarkerColorLocal _markerColor;
 	_respawnMarkers set [count _respawnMarkers, _marker];
 };
@@ -223,7 +228,11 @@ if(true)then{
 						if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
 							// TODO: setMarker* код оптимизировать
 							_marker setMarkerPosLocal (position _unit);
+							#ifdef __ARMA3__
+								_marker setMarkerTypeLocal "hd_dot";
+							#else
 							_marker setMarkerTypeLocal "vehicle";
+							#endif
 							_marker setMarkerDirLocal getDir _unit;
 							_marker setMarkerSizeLocal [3,3];
 							_marker setMarkerColorLocal _markerColor;
@@ -235,7 +244,11 @@ if(true)then{
 						_veh = vehicle _unit;
 						if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6)) then {
 							_marker setMarkerPosLocal (position _veh);
+							#ifdef __ARMA3__
+								_marker setMarkerTypeLocal "hd_dot";
+							#else
 							_marker setMarkerTypeLocal "vehicle";
+							#endif
 							_marker setMarkerDirLocal getDir _veh;
 							_marker setMarkerSizeLocal [3,3];
 							_marker setMarkerColorLocal "ColorBlack";
