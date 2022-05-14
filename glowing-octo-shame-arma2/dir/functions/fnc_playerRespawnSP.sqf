@@ -2,22 +2,22 @@
 switch (playerSide) do {
 	case (resistance):
 	{
-		_pos = getMarkerPos "respawn_guerrila_0";
+		_pos = getMarkerPos "respawn_guerrila";
 	};
 	case (west):
 	{
-		_pos = getMarkerPos "respawn_west_0";
+		_pos = getMarkerPos "respawn_west";
 	};
 	case (east):
 	{
-		_pos = getMarkerPos "respawn_east_0";
+		_pos = getMarkerPos "respawn_east";
 	};
 	case (civilian):
 	{
-		_pos = getMarkerPos "respawn_civilian_0";
+		_pos = getMarkerPos "respawn_civilian";
 	};
 	default {
-		_pos = getMarkerPos toLower format["respawn_%1_0", playerSide];
+		_pos = getMarkerPos toLower format["respawn_%1", playerSide];
 	};
 };
 _grp = group player;
