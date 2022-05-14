@@ -61,7 +61,11 @@ for "_i" from 0 to (count _objects - 1) do {
 		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
 	};
 
-	_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i], _pos];
+	if(_i == 0)then{
+		_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
+	}else{
+		_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i], _pos];
+	};
 	diag_log format ["Log: [while_markers] marker %1 created %2", _marker, _pos];
 	#ifdef __ARMA3__
 		_marker setMarkerTypeLocal "respawn_inf";
