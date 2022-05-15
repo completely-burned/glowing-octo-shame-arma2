@@ -52,21 +52,19 @@ if [ ! -d $TMPDIR/.build.out ]; then
 	mkdir $TMPDIR/.build.out
 fi
 
-
+# FDF CTF@ 24 Flag Rambos v1 beta
+# https://forums.bohemia.net/forums/topic/217676-mission-name-standard/
+NAME="glowing-octo-shame"
 
 for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 	if [ -f "${DIR}/mission.sqm" ]; then
-
-		# TODO: плохо понимаю этот sed
-		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* .* v\(.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
-		SIDE=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* \(.*\) v.*".*/\1/')
-		NAME=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*"\(.*\) .* .* v.*".*/\1/')
+		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".*glowing-octo-shame.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
+		SIDE=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".*glowing-octo-shame.* .* \(.*\) v.*".*/\1/')
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
-		DLC=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".* .* .* v.*[[:digit:]]\(.*\)".*/\1/' -e 's/\ /\-/gi')
-
+		DLC=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*"\(.*\)CO.*".*/\1/' -e 's/\ /_/gi')
 
 		# место подготовки файлов перед архивацией
-		TMPDIRNAME="${NAME,,}-${VERSION,,}-${SIDE,,}${DLC,,}.${MAP,,}"
+		TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
 		MISSION=$TMPDIR/.build.tmp/$TMPDIRNAME
 		mkdir -p $MISSION
 		echo $MISSION
@@ -94,24 +92,25 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 			rm $Z
 		fi
 
-		if $DIAG_LOG; then
+		if [[ $DIAG_LOG == false ]]
+		then
 			# приставка DEBUG во внутриигровом меню
-			sed -i "s/glowing-octo-shame/DEBUG glowing-octo-shame/" $MISSION/mission.sqm
+			sed -i "s/\(.*briefingName.*\) DEBUG\(.*\)/\1\2/" $MISSION/mission.sqm
 		fi
 
 		# если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив
 		if [ -x "$(command -v parallel)" ]; then
-			var_parallel+=("makepbo -M $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-makepbo.${MAP,,}.pbo")
-			var_parallel+=("armake build --packonly --force $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-armake.${MAP,,}.pbo")
-			var_parallel+=("armake2 pack -v $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-armake2.${MAP,,}.pbo")
+			var_parallel+=("makepbo -M $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo")
+			var_parallel+=("armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
+			var_parallel+=("armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
 		else
-			makepbo -M $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-makepbo.${MAP,,}.pbo
-			armake build --packonly --force $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-armake.${MAP,,}.pbo
-			armake2 pack -v $MISSION 	$PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-armake2.${MAP,,}.pbo
+			makepbo -M $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo
+			armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
+			armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
 		fi
 
 		# создаем без архивную версию на случай если архивация не удалась
-		rsync -rLK $MISSION/* $PRE/${NAME,,}$DEBUGPOSTFIX-${VERSION,,}-${SIDE,,}${DLC,,}-rsync.${MAP,,}
+		rsync -rLK $MISSION/* $PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}
 
 	fi
 done
