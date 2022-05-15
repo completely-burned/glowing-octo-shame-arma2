@@ -3,5 +3,6 @@
 *.sqf text eol=crlf
 *.sqm text eol=crlf
 *.ext text eol=crlf
+*.csv text eol=crlf
 
 *.sh  text eol=lf
