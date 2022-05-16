@@ -1,4 +1,4 @@
-private["_caller","_side","_veh","_Commander","_grp","_tr","_list","_z"];
+private["_caller","_side","_veh","_Commander","_grp","_tr","_tr2","_list","_z"];
 
 _caller = _this select 0;
 
@@ -11,9 +11,12 @@ if (count _this > 1 ) then {
 if (count _this > 2
   //&& !isNil {_this select 2}
 ) then {
-  _tr = _this select 2;
+  //--- [мест свободно, мест всего]
+  _tr = _this select 2 select 0;
+  _tr2 = _this select 2 select 1;
 }else{
   _tr = count units _caller;
+  _tr2 = _tr;
 };
 
 diag_log format ["Log: [fnc_SSM_findReadyVehicle] %1 %2", _this, [_caller, _side, _tr]];
@@ -30,7 +33,7 @@ _list = [];
   //}; //\
 
   // TODO: проверку лучше по cfg делать, тк игроки угоняют тс и выходят с сервера
-  if(side _veh getFriend _side >= 0.6)then{ 
+  if(side _veh getFriend _side >= 0.6)then{
 
   if(_veh isKindOf "Helicopter" or _veh isKindOf "MV22")then{
 
@@ -44,9 +47,9 @@ _list = [];
 
   if(
     // искл. посторонние группы
-    { group _x != _grp && 
+    { group _x != _grp &&
       // но вкл. юниты игрока
-      group _x != group _caller 
+      group _x != group _caller
     }count crew _veh == 0
   )then{
 
@@ -54,9 +57,13 @@ _list = [];
 
   if({_x call gosa_fnc_isPlayer}count (crew _veh - units _caller) == 0)then{
 
-  //if(_tr == 0 or _veh emptyPositions "cargo" >= _tr)then{
-  //};
-        _list set [count _list, _veh];  };};};};};};};};};};
+  if(_tr == 0 or _veh emptyPositions "cargo" >= _tr)then{
+
+  if(_tr2 == 0
+    or getNumber(LIB_cfgVeh >> typeOf _veh >> "transportSoldier") >= _tr2
+  )then{
+
+        _list set [count _list, _veh];  };};};};};};};};};};};};
 } forEach vehicles;
 
 
