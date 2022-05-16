@@ -189,4 +189,19 @@ rselectPlayercode = {
 	};
 };
 
+rremoteControl = 'remoteControl';
+rremoteControlcode = {
+	diag_log format ["Log: [remoteControl] mpf %1", _this];
+	if (isServer) then {
+		private ["_z"];
+		_z = _this select 1 getVariable "gosa_remoteControl_owner";
+		if (isNil "_z") then {
+			diag_log format ["Log: [remoteControl] mpf setVariable %1", _this select 2];
+			_this select 1 setVariable ["gosa_remoteControl_owner", _this select 2, true];
+		}else {
+			diag_log format ["Log: [remoteControl] mpf variable == %1", _z];
+		};
+	};
+};
+
 diag_log format ['Log: [mpf_override.sqf] done %1', time];
