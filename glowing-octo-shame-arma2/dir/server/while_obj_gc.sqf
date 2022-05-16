@@ -68,6 +68,7 @@ while {true} do {
 		if ( isNil "_time" ) then {
 			_time = ( time + ( 60 * 30 ) );
 			_x_veh setVariable ["gosa_timeDeleteVehicle", _time];
+			diag_log format ["Log: [GC2] %1 isNil time = %2", _x_veh, _time];
 		};
 
 		//--- allUnits отображает убитых юнитов на других комьютерах, но не отображает убитых созданных на сервере
@@ -80,12 +81,14 @@ while {true} do {
 		if !(_x_veh call gosa_fnc_isPlayer) then {
 
 			_assignedVehicle = _x_veh call gosa_fnc_assignedVeh;
+			diag_log format ["Log: [GC2] %1 assignedVehicle = %2", _x_veh, _assignedVehicle];
 
 			// не патрульный бот, далеко от точки и без транспорта
 			if (isNull _assignedVehicle) then {
 				if (isNil {group _x_veh getVariable "patrol"}) then {
 					if (vehicle _x_veh distance civilianBasePos > 2500 max gosa_locationSize) then {
 						_timeNew = _time min (time + _timerDelete);
+						diag_log format ["Log: [GC2] %1 %2- далеко от точки и без транспорта", _x_veh, _time];
 					};
 				};
 			};
@@ -96,6 +99,7 @@ while {true} do {
 				if(isNull _assignedVehicle && (vehicle _x_veh == _x_veh))then{
 					if (currentCommand _x_veh in ["MOVE"]) then {
 						_timeNew = _time min (time + _timerDelete);
+						diag_log format ["Log: [GC2] %1 %2- crew", _x_veh, _time];
 					};
 				};
 			};
@@ -104,6 +108,7 @@ while {true} do {
 			if(waypointType [group _x_veh, currentwaypoint group _x_veh] == "SUPPORT")then{
 				if(!alive _assignedVehicle or !canMove _assignedVehicle)then{
 					_timeNew = _time min (time + _timerDelete);
+					diag_log format ["Log: [GC2] %1 %2- support", _x_veh, _time];
 				};
 			};
 
@@ -111,6 +116,7 @@ while {true} do {
 			// на точке !не удалять!
 			if ((vehicle _x_veh distance civilianBasePos) <= (gosa_locationSize / 2 + gosa_locationSize)) then {
 				_timeNew = _time max (time + _timerLocation);
+				diag_log format ["Log: [GC2] %1 %2+ inLocation", _x_veh, _time];
 			};
 
 			// Гражданские на точке. Не удалять!
@@ -123,19 +129,27 @@ while {true} do {
 			};
 
 			// атакует !не удалять!
-			if({currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]} count units _x_veh > 0 )then{
+			// FIXME: Проверять всех каждый раз?
+			_tmp = units _x_veh;
+			for "_i" from 0 to (count _tmp -1) do {
+				_tmp set [_i, currentCommand (_tmp select _i)];
+			};
+			if({_x in ["ATTACK","FIRE","ATTACKFIRE"]} count _tmp > 0 )then{
 				_timeNew = _time max (time + _timerAttack);
+				diag_log format ["Log: [GC2] %1 %2+ Attack, %3", _x_veh, _timeNew, _tmp];
 			};
 
 			// отряд игрока !не удалять!
 			if ({_x call gosa_fnc_isPlayer} count units _x_veh > 0) then {
 				_timeNew = _time max (time + _timerPlayer);
+				diag_log format ["Log: [GC2] %1 %2+ isPlayer grp", _x_veh, _timeNew];
 			};
 
 
 			// обновить время удаления
 			if (!isNil {_timeNew}) then {
 				if (_time != _timeNew) then {
+					diag_log format ["Log: [GC2] %1, time %2, new %3", _x_veh, _time, _timeNew];
 					_time = _timeNew;
 					_x_veh setVariable ["gosa_timeDeleteVehicle", _timeNew];
 				};
@@ -147,6 +161,7 @@ while {true} do {
 
 		// добавить в список на удаление
 		if (_time < time) then {
+			diag_log format ["Log: [GC2] %1 delete+ ManAlive", _x_veh];
 			_deleteListManAlive set [count _deleteListManAlive, _x_veh];
 		};
 
@@ -159,7 +174,10 @@ while {true} do {
 #endif
 	{
 		if (getNumber(configFile >> "CfgVehicles" >> typeOf _x >> "isMan") == 1) then {
+			diag_log format ["Log: [GC2] %1 delete+ ManDead", _x];
 			_deleteListManDead set [count _deleteListManDead, _x];
+		}else{ //diag_log
+			diag_log format ["Log: [GC2] %1 delete- not Man %2", _x, typeOf _x];
 		};
 	} forEach allDead;
 
@@ -172,9 +190,10 @@ while {true} do {
 		if ( isNil "_time" ) then {
 			_time = time + _timerDelete;
 			_x_veh setVariable ["gosa_timeDeleteVehicle", _time];
-			diag_log format ["Log: [GC2] %1 setTime %2", _x_veh, _time];
+			diag_log format ["Log: [GC2] %1 isNil time = %2", _x_veh, _time];
 		}else{
 			if ( _time < time )then {
+				diag_log format ["Log: [GC2] %1, %2 < time", _x_veh, _time];
 				_delete = true;
 			};
 		};
@@ -183,17 +202,21 @@ while {true} do {
 			if (({alive _x} count (crew _x_veh + [assignedDriver _x_veh, assignedGunner _x_veh, assignedCommander _x_veh] + assignedCargo _x_veh))>0) then{
 				_delete = false;
 				_timeNew = _time max (time + _timerDelete);
+				diag_log format ["Log: [GC2] %1 %2+ alive crew", _x_veh, _timeNew];
 			};
 		};
 
 		if(_x_veh == (gosa_cache_HQ select 0))then{
 			_delete = false;
 			_timeNew = _time max (time + _timerDelete);
-			diag_log format ["Log: [GC2] %1 time %2, new %3, MHQ", _x_veh, _time, _timeNew];
+			diag_log format ["Log: [GC2] %1 %2+ MHQ", _x_veh,  _timeNew];
 		};
 
 		if (_delete) then{
 			_deleteListVehDead set [count _deleteListVehDead, _x_veh];
+			diag_log format ["Log: [GC2] %1 delete+ VehDead", _x_veh];
+		}else{ //diag_log
+			diag_log format ["Log: [GC2] %1 delete- %2, %3", _x_veh, typeOf _x_veh, _time];
 		};
 
 		if (!isNil {_timeNew}) then {
@@ -211,6 +234,7 @@ while {true} do {
 
 	// vehicles - allDead;
 
+	// TODO: это писано в нездоровом состоянии?
 	if ( !isMultiplayer ) then {
 		private["_playerSP"];
 		waitUntil {_playerSP = player; !alive _playerSP};
@@ -220,6 +244,7 @@ while {true} do {
 
 	if (_min_vehicles_count > 0) then {
 		_min_dist2 = _min_dist-(_noDeleteCount*(_min_dist/_min_vehicles_count))+_min_vehicles_count;
+		diag_log format ["Log: [GC2] min_dist %1", _min_dist2];
 		// чтобы объект не удалялся под носом
 		_min_dist2 = _min_dist2 max 10;
 	}else{
@@ -231,13 +256,14 @@ while {true} do {
 		_x_veh = _x;
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 
-				diag_log format ["Log: [GC2] deleteA %1", _x_veh];
+				diag_log format ["Log: [GC2] %1 ManAlive, delete", _x_veh];
 
 			if !(_x_veh call gosa_fnc_isPlayer) then {
 				_x_veh setDamage 1;
 				deleteVehicle _x_veh;
 			};
 		}else{
+			diag_log format ["Log: [GC2] %1 ManAlive, not deleted, player distance", _x_veh];
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};
 	} forEach _deleteListManAlive;
@@ -249,11 +275,13 @@ while {true} do {
 	for "_i" from 0 to (count gosa_GC_array -1) do {
 		_x_veh = gosa_GC_array select _i;
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
-			diag_log format ["Log: [GC2] delete %1", _x_veh];
+			diag_log format ["Log: [GC2] %1 GC_array, delete", _x_veh];
 			deleteVehicle _x_veh;
 			// FIXME: это лишнее тк объект после удаления станет objNull
+			diag_log format ["Log: [GC2] %1 GC_array, post deleted, isNull = %2", _x_veh, isNull _x_veh];
 			gosa_GC_array set [_i, objNull];
 		}else{
+			diag_log format ["Log: [GC2] %1 GC_array, not deleted, player distance", _x_veh];
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};
 	};
@@ -274,7 +302,7 @@ while {true} do {
 		_deleteListManDead = _deleteListManDead - [-1];
 
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
-				diag_log format ["Log: [GC2] delete %1", _x_veh];
+				diag_log format ["Log: [GC2] %1 ManDead, delete", _x_veh];
 
 			if !(_x_veh call gosa_fnc_isPlayer) then {
 				_x_veh setDamage 1;
@@ -282,6 +310,7 @@ while {true} do {
 				deleteVehicle _x_veh;
 			};
 		}else{
+			diag_log format ["Log: [GC2] %1 ManDead, not deleted, player distance", _x_veh];
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};
 
@@ -300,10 +329,11 @@ while {true} do {
 
 
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
-				diag_log format ["Log: [GC2] deleteVeh %1", _x_veh];
+				diag_log format ["Log: [GC2] %1 VehDead delete", _x_veh];
 			// _x_veh setDamage 1;
 			deleteVehicle _x_veh;
 		}else{
+			diag_log format ["Log: [GC2] %1 VehDead, not deleted, player distance", _x_veh];
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};
 
@@ -335,8 +365,9 @@ while {true} do {
 			_deleteListVehDead = _deleteListVehDead - [-1];
 
 			if ([_x_veh, 3] call gosa_fnc_mining) then {
-				// TODO: это не работает, тк если все игроки мертвы возвращает !(false) == true
-				// TODO: в итоге происходит минирование под носом у игроков их техники
+				// TODO: Это не работает,
+				//     : если все игроки мертвы возвращает !(false) == true
+				//     : в итоге происходит минирование под носом у игроков их техники.
 				if !([_x_veh, _min_dist2/2] call gosa_fnc_CheckPlayersDistance) then {
 					_mining_list set [count _mining_list, _x_veh];
 					[_x_veh, 1] call gosa_fnc_mining;
