@@ -10,6 +10,13 @@ TODO: сделть совместимость с pvp.
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers","_markerMHQ","_markerMHQtype","_dynamicMarkers"];
 
+// тип возрождения
+if (missionNamespace getVariable "respawn" == 0 or missionNamespace getVariable "gosa_MHQ" == 1) then {
+	_rBase = true;
+} else {
+	_rBase = false;
+};
+
 switch (playerSide) do {
 	case (resistance):
 	{
@@ -35,6 +42,11 @@ switch (playerSide) do {
 		_side_str = str playerSide;
 		_markerColor = "Default";
 	};
+};
+
+if (_rBase) then {
+	_markerMHQ = format["respawn_%1_MHQ",_side_str];
+	_markerMHQtype = "Headquarters";
 };
 
 _objects = [];
@@ -69,26 +81,14 @@ for "_i" from 0 to (count _objects - 1) do {
 	diag_log format ["Log: [while_markers] marker %1 created %2", _marker, _pos];
 	// FOB, без базы, подсвеченный, и не игровой, сбивает игроков с толку.
 	if(missionNamespace getVariable "respawn" == 0)then{
-	#ifdef __ARMA3__
-		_marker setMarkerTypeLocal "respawn_inf";
-	#else
-	_marker setMarkerTypeLocal "Depot";
-	#endif
-	_marker setMarkerColorLocal _markerColor;
+		#ifdef __ARMA3__
+			_marker setMarkerTypeLocal "respawn_inf";
+		#else
+			_marker setMarkerTypeLocal "Depot";
+		#endif
+		_marker setMarkerColorLocal _markerColor;
 	};
 	_respawnMarkers set [count _respawnMarkers, _marker];
-};
-
-// тип возрождения
-if (missionNamespace getVariable "respawn" == 0 or missionNamespace getVariable "gosa_MHQ" == 1) then {
-	_rBase = true;
-} else {
-	_rBase = false;
-};
-
-if (_rBase) then {
-_markerMHQ = format["respawn_%1_MHQ",_side_str];
-_markerMHQtype = "Headquarters";
 };
 
 waitUntil {!isNil {MHQ_list}};
@@ -238,7 +238,7 @@ if(true)then{
 							#ifdef __ARMA3__
 								_marker setMarkerTypeLocal "hd_dot";
 							#else
-							_marker setMarkerTypeLocal "vehicle";
+								_marker setMarkerTypeLocal "vehicle";
 							#endif
 							_marker setMarkerDirLocal getDir _unit;
 							_marker setMarkerSizeLocal [3,3];
@@ -254,7 +254,7 @@ if(true)then{
 							#ifdef __ARMA3__
 								_marker setMarkerTypeLocal "hd_dot";
 							#else
-							_marker setMarkerTypeLocal "vehicle";
+								_marker setMarkerTypeLocal "vehicle";
 							#endif
 							_marker setMarkerDirLocal getDir _veh;
 							_marker setMarkerSizeLocal [3,3];
