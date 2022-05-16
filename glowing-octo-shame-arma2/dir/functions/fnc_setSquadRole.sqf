@@ -35,18 +35,18 @@ _z = [
 	605, // Air
 	"vAir (not completed)",
 	600, // Air
-	"vCar (not completed)",
-	510,
+	"v" + getText(LIB_cfgVeh >> "Car" >> "displayName"),
+	516,
 	"vWheeled_APC",
 	515,
-	"vTank (not completed)",
-	520,
+	"v" + getText(LIB_cfgVeh >> "Tank" >> "displayName"),
+	526,
 	"vTracked_APC",
 	525,
 	// TODO: нужно запретить присоединение с другой стороны
-	"vCrew multiplayer (not completed)", 
+	"vCrew multiplayer (not completed)",
 	// присоединяться к экипажу с другими игроками
-	505, 
+	505,
 	"weapons reset (not completed)",
 	9999 // w reset
 ];

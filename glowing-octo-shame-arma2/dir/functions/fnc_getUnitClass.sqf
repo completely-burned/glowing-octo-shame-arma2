@@ -41,6 +41,8 @@ if (_veh != _unit) then {
 		//--- бтр
 		if (_t_veh isKindOf "Wheeled_APC") then {
 			_z = 515;
+		}else{
+			_z = 516;
 		};
 		if !(_z in _r) then {
 			_r set [count _r, _z];
@@ -53,6 +55,8 @@ if (_veh != _unit) then {
 		//--- бмп
 		if (_t_veh isKindOf "Tracked_APC") then {
 			_z = 525;
+		}else{
+			_z = 526;
 		};
 		if !(_z in _r) then {
 			_r set [count _r, _z];
