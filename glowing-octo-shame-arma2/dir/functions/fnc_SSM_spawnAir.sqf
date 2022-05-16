@@ -3,7 +3,7 @@
 
 private ["_var","_val","_caller","_act","_requestPos","_spawnPos","_pilot",
   "_class","_vehicle","_disp","_rvx","_rvy","_wp","_target","_grp","_side",
-  "_z"];
+  "_z","_crew"];
 
 diag_log format ["Log: [fnc_SSM_spawnAir] %1", _this];
 
@@ -31,31 +31,41 @@ _vehicle = [_caller, _side] call gosa_fnc_SSM_findReadyVehicle;
 if (count _vehicle > 0) then {
   _vehicle = _vehicle call BIS_fnc_selectRandom;
   _grp = group _vehicle;
+  _crew = crew _vehicle;
 
   // TODO: нужно временно разделить отряд если в нем множество тс
 
   // FIXME: на тс может надо?
-  _grp setVariable ["gosa_SSM_SupportCaller",_caller]; 
+  _grp setVariable ["gosa_SSM_SupportCaller",_caller];
 
 
 } else {
 _grp = createGroup _side;
 
 // FIXME: на тс может надо?
-_grp setVariable ["gosa_SSM_SupportCaller",_caller]; 
+_grp setVariable ["gosa_SSM_SupportCaller",_caller];
 
 // TODO: нужна функция
-switch (_side) do { 
+switch (_side) do {
   case west: {_class = airTransportsWest call BIS_fnc_selectRandom};
   case east: {_class = airTransportsEast call BIS_fnc_selectRandom};
   case resistance: {_class = airTransportsGuer call BIS_fnc_selectRandom};
   default {_class = ""};
 };
 _spawnPos = ([_requestPos]+[3500,7000, -1, -1, (100 * (pi / 180)), 0, [], _requestPos, [false, 0]]+[_side] call gosa_fnc_findSafePos) select 0;
-_vehicle = ([_spawnPos, random 360, _class, _grp] call gosa_fnc_spawnVehicle) select 0;
+_z = ([_spawnPos, random 360, _class, _grp] call gosa_fnc_spawnVehicle);
+_crew = _z select 1;
+_vehicle = _z select 0;
 };
+diag_log format ["Log: [fnc_SSM_spawnAir] %1, %2", _vehicle, _crew];
 
   if (!isNil "_vehicle" && {alive _vehicle}) then {
+    {
+      if (_grp == group _x) then {
+        //_x disableAI "FSM";
+      };
+    } forEach _crew;
+    _vehicle FlyInHeight 150; // BIS_SSM_FLYINHEIGHT
 
     _z = leader _grp;
 
@@ -82,7 +92,7 @@ _vehicle = ([_spawnPos, random 360, _class, _grp] call gosa_fnc_spawnVehicle) se
 
   // set 'fly out' final waypoint
   // TODO: позицию для авиации можно за пределами карты
-  //_wp = _grp addWaypoint [[0,0], 0]; 
+  //_wp = _grp addWaypoint [[0,0], 0];
   //_wp setWaypointStatements ["true", "call gosa_fnc_SSM_FinalWaypointReached"];
 
 _grp;
