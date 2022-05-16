@@ -24,7 +24,7 @@ _usable = [];
 _b= true;
 _side = str playerSide;
 
-["gosa_SSM_AmmoDrop_ENABLED_"+_side,   if (missionNamespace getVariable "gosa_AmmoDrop" == 1) then {true} else {false}  ] call gosa_SSM_fnc_InitVariable;
+["gosa_SSM_AmmoDrop_ENABLED_"+_side,   if (missionNamespace getVariable "gosa_AmmoDrop" > 0) then {true} else {false}  ] call gosa_SSM_fnc_InitVariable;
 ["gosa_SSM_UnitsDrop_ENABLED_"+_side, false] call gosa_SSM_fnc_InitVariable;
 ["gosa_SSM_Airstrike_ENABLED_"+_side, false] call gosa_SSM_fnc_InitVariable;
 ["gosa_SSM_Mortar_ENABLED_"+_side,   false] call gosa_SSM_fnc_InitVariable;
@@ -32,7 +32,7 @@ _side = str playerSide;
 ["gosa_SSM_CeaseFire_ENABLED_"+_side, false] call gosa_SSM_fnc_InitVariable;
 
 
-["gosa_SSM_AmmoDrop_AVAILABLE_"+_side,   if (missionNamespace getVariable "gosa_AmmoDrop" == 1) then {true} else {false}  ] call gosa_SSM_fnc_InitVariable;
+["gosa_SSM_AmmoDrop_AVAILABLE_"+_side,   if (missionNamespace getVariable "gosa_AmmoDrop" > 0) then {true} else {false}  ] call gosa_SSM_fnc_InitVariable;
 ["gosa_SSM_UnitsDrop_AVAILABLE_"+_side, false] call gosa_SSM_fnc_InitVariable;
 ["gosa_SSM_Airstrike_AVAILABLE_"+_side, false] call gosa_SSM_fnc_InitVariable;
 ["gosa_SSM_Mortar_AVAILABLE_"+_side,   false] call gosa_SSM_fnc_InitVariable;
