@@ -40,7 +40,11 @@
 
       // multiplayer call
       _ch = "gosa_SSM_ch_Request"+ _rt;
-      missionnamespace setvariable [_ch, _p];
-      publicvariable _ch;
+      if (isServer) then {
+        [_ch, _p, "AmmoDrop"] call gosa_fnc_SSM_spawnAir
+      }else{
+        missionnamespace setvariable [_ch, _p];
+        publicvariable _ch;
+      };
     };
   };
