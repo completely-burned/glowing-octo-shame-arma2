@@ -1,3 +1,6 @@
+/*
+  TODO: Нужен порядок.
+*/
 
 #define BIS_SSM_BIKB "\ca\modules_e\SSM\data\bikb\ssmradio.bikb"
 
@@ -21,11 +24,22 @@ _requestPos = _caller getVariable "gosa_SSM_RequestPos";
 
 _side = side _caller;
 
-// TODO: траспорт можно взять готовый
+
+// Устранить повторные вызовы.
+{
+  _z = _x getVariable "gosa_SSM_SupportCaller";
+  if (!isNil "_z") exitWith {
+    _grp = _x;
+    _vehicle = vehicle leader _grp;
+    _crew = crew _vehicle;
+  };
+} forEach allGroups;
+
 
 // create the vehicle and the pilot
 //_pilot = ObjNull;
 
+if (isNil "_vehicle" or {!canMove _vehicle}) then {
 // можно использовать уже созданный транспорт
 _vehicle = [_caller, _side] call gosa_fnc_SSM_findReadyVehicle;
 if (count _vehicle > 0) then {
@@ -57,9 +71,11 @@ _z = ([_spawnPos, random 360, _class, _grp] call gosa_fnc_spawnVehicle);
 _crew = _z select 1;
 _vehicle = _z select 0;
 };
+};
+
 diag_log format ["Log: [fnc_SSM_spawnAir] %1, %2", _vehicle, _crew];
 
-  if (!isNil "_vehicle" && {alive _vehicle}) then {
+  if (!isNil "_vehicle" && {canMove _vehicle}) then {
     {
       if (_grp == group _x) then {
         //_x disableAI "FSM";
