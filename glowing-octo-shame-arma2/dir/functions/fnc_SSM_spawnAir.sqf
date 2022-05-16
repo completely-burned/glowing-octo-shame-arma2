@@ -109,8 +109,7 @@ if (!isNil "_vehicle" && {canMove _vehicle}) then {
 
 } else {
   _caller kbAddtopic[_act, BIS_SSM_BIKB];
-  _caller kbTell [_caller,_act,_act+"Denied"];
-  //[nil, _z, rKBTELL, _caller, _act, _act+"Denied"] call RE;
+  [nil, _caller, rKBTELL, _caller, _act, _act+"Denied"] call RE;
 };
 
 
