@@ -236,9 +236,9 @@ class Params {
 	};
 	class gosa_AmmoDrop {
 		title="AmmoDrop (not completed) [gp]";
-		values[] = {0,1};
-		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
+		values[] = {0,1,2};
+		texts[] = {$STRWFNO,$STRWFYES,"limited"};
 	};
 	class gosa_heliTransport {
 		title="heliTransport (not completed) [gp]";

@@ -54,6 +54,7 @@ if (isNil "_vehicle" or {!canMove _vehicle}) then {
 
 
   } else {
+    if (missionNamespace getVariable "gosa_AmmoDrop" == 1) then {
     _grp = createGroup _side;
 
     // FIXME: на тс может надо?
@@ -70,6 +71,10 @@ if (isNil "_vehicle" or {!canMove _vehicle}) then {
     _z = ([_spawnPos, random 360, _class, _grp] call gosa_fnc_spawnVehicle);
     _crew = _z select 1;
     _vehicle = _z select 0;
+    }else{
+      _vehicle = nil;
+      _crew = [];
+    };
   };
 };
 
@@ -101,8 +106,10 @@ if (!isNil "_vehicle" && {canMove _vehicle}) then {
     _z kbAddtopic[_act, BIS_SSM_BIKB];
     [nil, _z, rKBTELL, _caller, _act, _act+"Accepted"] call RE;
 
-  //} else {
-    //[nil, leader _grp, rKBTELL, _caller, _act, _act+"Denied"] call RE;
+} else {
+  _caller kbAddtopic[_act, BIS_SSM_BIKB];
+  _caller kbTell [_caller,_act,_act+"Denied"];
+  //[nil, _z, rKBTELL, _caller, _act, _act+"Denied"] call RE;
 };
 
 
