@@ -1,4 +1,9 @@
 #define __A2OA__
+/*
+	Скрипт добавляет и обновляет различные взаимодействия,
+	например меню покупки при нахождении в определенных места.
+	TODO: Нужно оптимизировать.
+*/
 
 #define BIS_SSM_CURRENTDISPLAY UInamespace getVariable "currentCutDisplay"
 waitUntil {!isNil "buyMenuLoaded"};
@@ -191,7 +196,7 @@ while {true} do {
 			};
 		};
 #endif
-		if (_uav_action && false && !_resetActions) then {
+		if (_uav_action && !isMultiplayer && !_resetActions) then {
 			_actionObj = player;
 			if (!isnil "_action_uav")then{
 				if (_action_uav select 0 != _actionObj)then{

@@ -1,3 +1,14 @@
+/*
+	Интерфест беспилотника.
+
+	Скрипт приводит к ошибкам в многопользовательской игре.
+	например:
+		Type Script, expected ..
+
+	TODO: Возможно неисправен и нуждается в проверке.
+*/
+
+
 skipAddAction = true;
 
 _arguments = _this select 3;
@@ -6,6 +17,7 @@ _uav = _this select 1;
 _logic = _terminal;
 
 _defaultPlayer = player;
+_o = gosa_owner;
 
 //////////////////////////////////////////////////
 // startLoadingScreen ["UAV","RscDisplayLoadMission"];
@@ -34,6 +46,21 @@ if (isnull _terminal) exitwith {
 };
 
 //--- Switch view
+if (isMultiplayer) then {
+	[nil, _gunner, rremoteControl, _o] call RE;
+	private ["_time","_var"];
+	_time = time+10;
+	while {isNil "_var" && time < _time} do {
+		_var = _gunner getVariable "gosa_remoteControl_owner";
+		sleep 0.05;
+	};
+	if (isNil "_var" or {_var != _o}) exitWith {
+		// endLoadingScreen;
+		hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
+		diag_log format ["Log: [uav_interface] rremoteControl %1 exitWith", _o];
+	};
+};
+
 _gunner removeweapon "nvgoggles";
 _uav switchcamera "internal";
 _defaultPlayer remoteControl _gunner;
@@ -241,6 +268,7 @@ bis_uav_terminate = nil;
 BIS_UAV_TIME = nil;
 BIS_UAV_PLANE = nil;
 objnull remoteControl _gunner;
+_gunner setVariable ["gosa_remoteControl_owner", nil, true];
 vehicle player switchcamera "internal";
 
 _uav removeaction _action_leave;
