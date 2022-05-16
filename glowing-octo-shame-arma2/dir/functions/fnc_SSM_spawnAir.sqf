@@ -41,7 +41,8 @@ _side = side _caller;
 
 if (isNil "_vehicle" or {!canMove _vehicle}) then {
   // можно использовать уже созданный транспорт
-  _vehicle = [_caller, _side] call gosa_fnc_SSM_findReadyVehicle;
+  // TODO: >=3 места под 3 ящика
+  _vehicle = [_caller, _side, [0,3]] call gosa_fnc_SSM_findReadyVehicle;
   if (count _vehicle > 0) then {
     _vehicle = _vehicle call BIS_fnc_selectRandom;
     _grp = group _vehicle;
