@@ -1,6 +1,6 @@
-﻿EnableTeamSwitch false;
+EnableTeamSwitch false;
 
-private["_z"];
+private["_list","_tmp"];
 
 BIS_WFdPath = "\CA\Warfare2\";
 
@@ -33,7 +33,7 @@ pier = ["Land_nav_pier_m_2","Land_nav_pier_m_F"];
 safeDistance = 15;
 
 // этими классами не должны управлять игроки
-_z = [
+_list = [
 	"InvisibleManE_EP1",
 	"InvisibleManW_EP1",
 	"InvisibleManG_EP1",
@@ -43,8 +43,12 @@ _z = [
 ];
 gosa_blacklisted_player_classes_L = [];
 {
-	gosa_blacklisted_player_classes_L set [count gosa_blacklisted_player_classes_L, toLower configName (LIB_cfgVeh >> _x)];
-} forEach _z;
+	_tmp = configName (LIB_cfgVeh >> _x);
+	if (_tmp != "") then {
+		gosa_blacklisted_player_classes_L set [
+			count gosa_blacklisted_player_classes_L, _tmp];
+	};
+} forEach _list;
 diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", gosa_blacklisted_player_classes_L];
 
 
@@ -70,7 +74,7 @@ listMHQ=listMHQ+[
 ];
 #endif
 
-_z = [
+_list = [
 	"USMC_Soldier_Crew",
 	"CDF_Soldier_Crew",
 	"RU_Soldier_Crew",
@@ -87,7 +91,7 @@ _z = [
 	"Crew"
 ];
 #ifdef __ARMA3__
-	_z=_z+[
+	_list=_list+[
 		"B_crew_F",
 		"B_T_Crew_F",
 		"O_crew_F",
@@ -97,11 +101,14 @@ _z = [
 #endif
 gosa_crewL = [];
 {
-	gosa_crewL set [count gosa_crewL, configName (LIB_cfgVeh >> _x)];
-} forEach _z;
+	_tmp = configName (LIB_cfgVeh >> _x);
+	if (_tmp != "") then {
+		gosa_crewL set [count gosa_crewL, _tmp];
+	};
+} forEach _list;
 diag_log format ["Log: [init_common]: gosa_crewL %1", gosa_crewL];
 
-_z = [
+_list = [
 	"USMC_Soldier_Pilot",
 	"CDF_Soldier_Pilot",
 	"RU_Soldier_Pilot",
@@ -116,7 +123,7 @@ _z = [
 	"Pilot"
 ];
 #ifdef __ARMA3__
-	_z=_z+[
+	_list=_list+[
 		"B_helicrew_F",
 		"B_Pilot_F",
 		"B_Helipilot_F",
@@ -136,11 +143,14 @@ _z = [
 #endif
 gosa_pilotL = [];
 {
-	gosa_pilotL set [count gosa_pilotL, configName (LIB_cfgVeh >> _x)];
-} forEach _z;
+	_tmp = configName (LIB_cfgVeh >> _x);
+	if (_tmp != "") then {
+		gosa_pilotL set [count gosa_pilotL, _tmp];
+	};
+} forEach _list;
 diag_log format ["Log: [init_common]: gosa_pilotL %1", gosa_pilotL];
 
-_z = [
+_list = [
 	"GUE_Soldier_Sniper","GUE_Soldier_Scout",
 	"INS_Soldier_Sniper","Ins_Soldier_Sab",
 	"CDF_Soldier_Sniper","CDF_Soldier_Spotter",
@@ -155,8 +165,11 @@ _z = [
 ];
 gosa_StealthL = [];
 {
-	gosa_StealthL set [count gosa_StealthL, configName (LIB_cfgVeh >> _x)];
-} forEach _z;
+	_tmp = configName (LIB_cfgVeh >> _x);
+	if (_tmp != "") then {
+		gosa_StealthL set [count gosa_StealthL, _tmp];
+	};
+} forEach _list;
 diag_log format ["Log: [init_common]: gosa_StealthL %1", gosa_StealthL];
 
 HQ = ["WarfareBDepot","WarfareBCamp"];
