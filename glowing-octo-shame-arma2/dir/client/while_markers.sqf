@@ -241,6 +241,7 @@ if(true)then{
 							_marker setMarkerSizeLocal [3,3];
 							_marker setMarkerColorLocal _markerColor;
 						}else{
+							diag_log format ["Log: [while_markers] hideMarker %1 !isPlayer", _marker];
 							_marker setMarkerPosLocal [35000,35000];
 						};
 					}else{
@@ -265,10 +266,12 @@ if(true)then{
 							};
 							_marker setMarkerTextLocal _text;
 						}else{
+							diag_log format ["Log: [while_markers] hideMarker %1 crew", _marker];
 							_marker setMarkerPosLocal [35000,35000];
 						};
 					};
 				}else{
+					diag_log format ["Log: [while_markers] deleteMarker %1", _marker];
 					deleteMarkerLocal _marker;
 					_units set [_i,-1];
 					_markers set [_i,-1];
