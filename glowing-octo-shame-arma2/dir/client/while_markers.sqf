@@ -67,12 +67,15 @@ for "_i" from 0 to (count _objects - 1) do {
 		_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i], _pos];
 	};
 	diag_log format ["Log: [while_markers] marker %1 created %2", _marker, _pos];
+	// FOB, без базы, подсвеченный, и не игровой, сбивает игроков с толку.
+	if(missionNamespace getVariable "respawn" == 0)then{
 	#ifdef __ARMA3__
 		_marker setMarkerTypeLocal "respawn_inf";
 	#else
 	_marker setMarkerTypeLocal "Depot";
 	#endif
 	_marker setMarkerColorLocal _markerColor;
+	};
 	_respawnMarkers set [count _respawnMarkers, _marker];
 };
 
