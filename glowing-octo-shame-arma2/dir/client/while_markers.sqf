@@ -8,7 +8,8 @@
 TODO: сделть совместимость с pvp.
 ---------------------------------------------------------------------------*/
 
-private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers","_markerMHQ","_markerMHQtype","_dynamicMarkers"];
+private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
+	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq"];
 
 // тип возрождения
 if (missionNamespace getVariable "respawn" == 0 or missionNamespace getVariable "gosa_MHQ" == 1) then {
@@ -113,11 +114,9 @@ if(true)then{
 
 		if (_rBase) then {
 			// -- мобильная база (мобилизованная), один маркер
-			{
-				// TODO: устранить конфликт множества штабов
-				if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
+			_hq = call gosa_fnc_getHQ select 0;
 					private ["_pos"];
-					_pos = getPos _x;
+		      _pos = getPos _hq;
 					if(getMarkerType _markerMHQ != _markerMHQtype)then{
 						_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
 						_markerMHQ setMarkerTypeLocal _markerMHQtype;
@@ -126,8 +125,6 @@ if(true)then{
 					}else{
 						_markerMHQ setMarkerPos _pos;
 					};
-				};
-			} forEach vehicles;
 		};
 
 		if (visibleMap) then {
