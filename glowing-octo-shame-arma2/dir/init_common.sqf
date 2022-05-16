@@ -54,6 +54,7 @@ diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", gos
 
 
 /// listCrew + listMHQ ///
+// TODO: Совместимость с pvp.
 listMHQ = [
 	"BRDM2_HQ_Base",
 	"BMP2_HQ_Base",
@@ -172,6 +173,7 @@ gosa_StealthL = [];
 } forEach _list;
 diag_log format ["Log: [init_common]: gosa_StealthL %1", gosa_StealthL];
 
+// TODO: Совместимость с pvp.
 HQ = ["WarfareBDepot","WarfareBCamp"];
 #ifdef __ARMA3__
 HQ = HQ+["Land_BagBunker_Large_F","Cargo_HQ_base_F","Cargo_Tower_base_F"];
