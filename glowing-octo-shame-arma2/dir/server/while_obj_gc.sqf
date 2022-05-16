@@ -186,6 +186,12 @@ while {true} do {
 			};
 		};
 
+		if(_x_veh == (gosa_cache_HQ select 0))then{
+			_delete = false;
+			_timeNew = _time max (time + _timerDelete);
+			diag_log format ["Log: [GC2] %1 time %2, new %3, MHQ", _x_veh, _time, _timeNew];
+		};
+
 		if (_delete) then{
 			_deleteListVehDead set [count _deleteListVehDead, _x_veh];
 		};
