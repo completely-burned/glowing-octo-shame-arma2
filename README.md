@@ -67,10 +67,3 @@ pve бой с ботами в сконцентрированный в одной
      только в них не доступны makepbo, armake, armake2.  
      Скрипт сборки конфликтует с `MakePbo.exe`.
 
-## Other
-  - Связь со мной  
-    https://matrix.to/#/#mild-game:matrix.org  
-    https://github.com/completely-burned/glowing-octo-shame-arma2/discussions  
-    https://discord.gg/vXsftQeAnj  
-    https://steamcommunity.com/groups/armaprivate  
-    https://vk.me/join/AJQ1d0uBlSCmZplNrgWvvSBt
