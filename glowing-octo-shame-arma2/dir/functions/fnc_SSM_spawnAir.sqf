@@ -57,6 +57,7 @@ if (isNil "_vehicle" or {!canMove _vehicle}) then {
   } else {
     if (missionNamespace getVariable "gosa_AmmoDrop" == 1) then {
     _grp = createGroup _side;
+    _grp setVariable ["gosa_tmpObj","AmmoDrop"];
 
     // FIXME: на тс может надо?
     _grp setVariable ["gosa_SSM_SupportCaller",_caller];
@@ -72,6 +73,10 @@ if (isNil "_vehicle" or {!canMove _vehicle}) then {
     _z = ([_spawnPos, random 360, _class, _grp] call gosa_fnc_spawnVehicle);
     _crew = _z select 1;
     _vehicle = _z select 0;
+      _vehicle setVariable ["gosa_tmpObj","AmmoDrop"];
+      {
+        _x setVariable ["gosa_tmpObj","AmmoDrop"];
+      } forEach _crew;
     }else{
       _vehicle = nil;
       _crew = [];

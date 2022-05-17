@@ -39,10 +39,13 @@ if (local this) then {
         _pilot setVariable ["gosa_SSM_WaypointReached", nil];
 
         //--- чиска
-        // TODO: тс взятые с карты нужно исключить
-        _z = 60;
+        _time = time+60;
         {
-          _x setVariable ["gosa_timeDeleteVehicle", _z];
+          _z = _x getVariable "gosa_tmpObj";
+          if (!isNil "_z" && {_z == "AmmoDrop"}) then {
+            _x setVariable ["gosa_timeDeleteVehicle", _time];
+            diag_log format ["Log: [gosa_SSM_CreateAmmoDrop] %1 GC set_timeDeleteVehicle %2", _x, _time];
+          };
         } forEach [_veh]+crew _veh;
       };
 
