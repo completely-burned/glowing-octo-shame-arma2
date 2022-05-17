@@ -145,6 +145,7 @@ while {true} do {
 				diag_log format ["Log: [GC2] %1 %2+ isPlayer grp", _x_veh, _timeNew];
 			};
 
+			// TODO: Пилот должн быть в неисправном тс. Не удалять!
 
 			// обновить время удаления
 			if (!isNil {_timeNew}) then {
@@ -276,6 +277,7 @@ while {true} do {
 		_x_veh = gosa_GC_array select _i;
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 			diag_log format ["Log: [GC2] %1 GC_array, delete", _x_veh];
+			// FIXME: Вероятно deleteVehicle не срабатывает на объектах определенного типа.
 			deleteVehicle _x_veh;
 			// FIXME: это лишнее тк объект после удаления станет objNull
 			diag_log format ["Log: [GC2] %1 GC_array, post deleted, isNull = %2", _x_veh, isNull _x_veh];
