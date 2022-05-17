@@ -81,22 +81,28 @@ if (local this) then {
       //if (_b) then {[_pilot,_n] spawn gosa_SSM_CreateAmmoDrop;};
       [_pilot,_n] spawn gosa_SSM_CreateAmmoDrop;
 
-      // failover
+      // failover, чтобы так или иначе ящик упал.
       _time = time+60;
       // If the Drop hits the ground, recreate it over ground
-      WaitUntil{(getPosATL _drop select 2) < 0.01 or time > _time};
+      // С getPosATL парашют застревает на крышах.
+      // С getPosATL или getpos ящик может застрять в воздухе.
+      // TODO: Ящик нужно резко опустить и уничтожить если парашют оборвался.
+      WaitUntil{(getpos _drop select 2) < 0.01 or time > _time};
       _pos = position _drop;
       _dir = direction _para;
       detach _drop;
       deletevehicle _drop;
       _para setVariable ["gosa_timeDeleteVehicle", time+10];
       //_drop = _class createVehicle _pos;
+      // CAN_COLLIDE создаст объект внутри здания
+      // TODO: Ящик не должен провалится внутрь здания
       _drop = createVehicle [_class, [_pos select 0, _pos select 1,0], [], 0, "CAN_COLLIDE"];
       _drop setdir _dir;
       //_drop setPos [_pos select 0, _pos select 1,0];
     };
 
     gosa_SSM_CreateAmmoDrop2 = {
+      // TODO: Код не используется, его нужно объединить.
       private ["_pilot","_pos","_class","_para","_drop","_dir","_b","_z","_veh","_grp"];
 
       diag_log format ["Log: [gosa_SSM_CreateAmmoDrop] %1", _this];
