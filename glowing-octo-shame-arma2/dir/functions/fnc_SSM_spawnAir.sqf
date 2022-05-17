@@ -102,9 +102,13 @@ if (!isNil "_vehicle" && {canMove _vehicle}) then {
 
   // Units or Ammo Drop
   // Set Primary waypoint
+  // center: Array format PositionAGL (PositionASL if radius is negative!)
+  _requestPos set[2,150]; // BIS_SSM_FLYINHEIGHT
   _wp = _grp addWaypoint [_requestPos, 0];
   _wp setWaypointbehaviour "STEALTH";
   _wp setWaypointCombatMode "GREEN";
+
+  // TODO: Нужен 'fly out' final waypoint, чтобы транспорт не зависал.
 
   // setWaypointStatement expression call cant have any arguments. We pass it with setVariable on the pilot object.
   _wp setWaypointStatements ["true", "call gosa_fnc_SSM_"+_act+"WaypointReached"];
