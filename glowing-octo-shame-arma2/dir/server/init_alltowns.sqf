@@ -112,6 +112,9 @@ for [{_count = 0},{_count < _total},{_count = _count + 1}] do
 		if (missionNamespace getVariable "gosa_camps" == 1) then {
 			_composition = gosa_depotCompositions Call BIS_fnc_selectRandom;
 			_constructed = [_depotPosition,_depotDirection,_composition] Call _constructFunction;
+			for "_i" from 0 to (count _constructed -1) do {
+				_constructed select _i setVariable ["gosa_timeDeleteVehicle",0];
+			};
 			gosa_constructedList set [count gosa_constructedList, _constructed];
 			// мед палатка
 			//[_depot] Call BIS_WF_InitDefenseLayout;
@@ -177,6 +180,9 @@ for [{_count = 0},{_count < _total},{_count = _count + 1}] do
 					if (missionNamespace getVariable "gosa_camps" == 1) then {
 						_composition = gosa_campCompositions Call BIS_fnc_selectRandom;
 						_constructed = [_destination,_x Select 1,_composition] Call _constructFunction;
+						for "_i" from 0 to (count _constructed -1) do {
+							_constructed select _i setVariable ["gosa_timeDeleteVehicle",0];
+						};
 						gosa_constructedList set [count gosa_constructedList, _constructed];
 					};
 				}
