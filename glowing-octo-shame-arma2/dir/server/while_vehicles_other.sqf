@@ -87,7 +87,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 			};
 		};
 
-		if (({alive _x} count (crew _veh + [assignedDriver _veh, assignedGunner _veh, assignedCommander _veh] + assignedCargo _veh))>0) then{
+		if (_veh call gosa_fnc_isCrewAlive) then{
 			if(isEngineOn _veh && speed _veh == 0 && alive driver _veh)then{
 				_veh engineOn false;
 			};
