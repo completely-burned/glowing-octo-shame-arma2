@@ -200,7 +200,7 @@ while {true} do {
 		};
 
 		if(alive _x_veh)then{
-			if (({alive _x} count (crew _x_veh + [assignedDriver _x_veh, assignedGunner _x_veh, assignedCommander _x_veh] + assignedCargo _x_veh))>0) then{
+			if (_x_veh call gosa_fnc_isCrewAlive) then{
 				_delete = false;
 				_timeNew = _time max (time + _timerDelete);
 				diag_log format ["Log: [GC2] %1 %2+ alive crew", _x_veh, _timeNew];
