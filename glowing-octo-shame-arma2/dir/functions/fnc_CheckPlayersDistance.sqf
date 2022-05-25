@@ -26,6 +26,7 @@ if(isMultiplayer)then{
 	for "_i" from 0 to ((count _cache) - 1) do {
 		if (_cache select _i call gosa_fnc_isPlayer) then {
 			_player = vehicle (_cache select _i);
+			diag_log format ["Log: [checkPlayersDistance] %1 _cache %2", _Pos, _player];
 			if (_pos distance _player < _distance)then{
 				_visible = true;
 				BreakTo "CheckPlayer";
@@ -39,6 +40,7 @@ if(isMultiplayer)then{
 		if (_x call gosa_fnc_isPlayer) then {
 			_cache set [count _cache, _x];
 			_player = vehicle _x;
+			diag_log format ["Log: [checkPlayersDistance] %1 allUnits_x %2", _Pos, _player];
 			if (_pos distance _player < _distance)then{
 				_visible = true;
 				BreakTo "CheckPlayer";
