@@ -66,7 +66,7 @@ while {true} do {
 	if (_c > 0) then {
 	_s = (_sleep/_c);
 	for "_i" from 0 to (_c -1) do {
-		sleep (_s call gosa_fnc_dynSleep);
+		sleep _s;
 		_x_veh = _arr select _i;
 
 		// узнать время удаления
@@ -186,7 +186,7 @@ while {true} do {
 	if (_c > 0) then {
 	_s = (_sleep/_c);
 	for "_i" from 0 to (_c -1) do {
-		sleep (_s call gosa_fnc_dynSleep);
+		sleep _s;
 		_x_veh = _arr select _i;
 		if (getNumber(configFile >> "CfgVehicles" >> typeOf _x_veh >> "isMan") == 1) then {
 			diag_log format ["Log: [GC2] %1 delete+ ManDead", _x_veh];
@@ -202,7 +202,7 @@ while {true} do {
 	if (_c > 0) then {
 	_s = (_sleep/_c);
 	for "_i" from 0 to (_c -1) do {
-		sleep (_s call gosa_fnc_dynSleep);
+		sleep _s;
 		_x_veh = _arr select _i;
 
 		_delete = false;
@@ -279,7 +279,7 @@ while {true} do {
 	if (_c > 0) then {
 	_s = (_sleep/_c);
 	for "_i" from 0 to (_c -1) do {
-		sleep (_s call gosa_fnc_dynSleep);
+		sleep _s;
 		_x_veh = _arr select _i;
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 
@@ -305,7 +305,7 @@ while {true} do {
 	if (_c > 0) then {
 	_s = (_sleep/_c);
 	for "_i" from 0 to (_c -1) do {
-		sleep (_s call gosa_fnc_dynSleep);
+		sleep _s;
 		_x_veh = _arr select _i;
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 			diag_log format ["Log: [GC2] %1 GC_array, delete", _x_veh];
