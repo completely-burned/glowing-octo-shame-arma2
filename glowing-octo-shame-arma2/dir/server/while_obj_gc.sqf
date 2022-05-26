@@ -8,7 +8,8 @@
 
 
 //--- gc
-private["_min_dist","_min_vehicles_count","_min_dist2","_tmp"];
+private["_min_dist","_min_vehicles_count","_min_dist2","_tmp","_sleep","_arr",
+	"_s"];
 _min_dist			= missionNamespace getVariable "gc_dist";
 _min_vehicles_count = missionNamespace getVariable "gc_count";
 
@@ -27,6 +28,7 @@ _timerDelete	= ( 60 * 2.5 );
 _timerLocation	= ( 60 * 5 );
 _timerPlayer	= ( 60 * 5 );
 _timerAttack	= ( 60 * 2.5 );
+_sleep = 30/5;
 
 private["_time","_timeNew"];
 
@@ -59,9 +61,13 @@ while {true} do {
 
 	_noDeleteCountTmp = 0;
 
-	{ // forEach allUnits;
-
-		_x_veh = _x;
+	_arr = allUnits;
+	_c = count _arr;
+	if (_c > 0) then {
+	_s = (_sleep/_c);
+	for "_i" from 0 to (_c -1) do {
+		sleep (_s call gosa_fnc_dynSleep);
+		_x_veh = _arr select _i;
 
 		// узнать время удаления
 		_time = (_x_veh getVariable "gosa_timeDeleteVehicle");
@@ -72,11 +78,11 @@ while {true} do {
 		};
 
 		//--- allUnits отображает убитых юнитов на других комьютерах, но не отображает убитых созданных на сервере
-#ifndef __A2OA__
+		#ifndef __A2OA__
 		if (!alive _x_veh) then {
 			_deleteListManDead set [count _deleteListManDead, _x_veh];
 		};
-#endif
+		#endif
 
 		if !(_x_veh call gosa_fnc_isPlayer) then {
 
@@ -168,22 +174,36 @@ while {true} do {
 
 		_timeNew = nil;
 
-	} forEach allUnits;
+	};
+	};
 
 #ifndef __A2OA__
 	allDead = allDead - [objNull];
 #endif
-	{
-		if (getNumber(configFile >> "CfgVehicles" >> typeOf _x >> "isMan") == 1) then {
-			diag_log format ["Log: [GC2] %1 delete+ ManDead", _x];
-			_deleteListManDead set [count _deleteListManDead, _x];
-		}else{ //diag_log
-			diag_log format ["Log: [GC2] %1 delete- not Man %2", _x, typeOf _x];
-		};
-	} forEach allDead;
 
-	{
-		_x_veh = _x;
+	_arr = allDead;
+	_c = count _arr;
+	if (_c > 0) then {
+	_s = (_sleep/_c);
+	for "_i" from 0 to (_c -1) do {
+		sleep (_s call gosa_fnc_dynSleep);
+		_x_veh = _arr select _i;
+		if (getNumber(configFile >> "CfgVehicles" >> typeOf _x_veh >> "isMan") == 1) then {
+			diag_log format ["Log: [GC2] %1 delete+ ManDead", _x_veh];
+			_deleteListManDead set [count _deleteListManDead, _x_veh];
+		}else{ //diag_log
+			diag_log format ["Log: [GC2] %1 delete- not Man %2", _x_veh, typeOf _x_veh];
+		};
+	};
+	};
+
+	_arr = vehicles;
+	_c = count _arr;
+	if (_c > 0) then {
+	_s = (_sleep/_c);
+	for "_i" from 0 to (_c -1) do {
+		sleep (_s call gosa_fnc_dynSleep);
+		_x_veh = _arr select _i;
 
 		_delete = false;
 
@@ -229,7 +249,8 @@ while {true} do {
 
 		_timeNew = nil;
 
-	} forEach vehicles;
+	};
+	};
 
 		diag_log format ["Log: [GC2] count allDead %1, count ManDead %2, count VehDead %3, %4", count allDead, count _deleteListManDead, count _deleteListVehDead, time];
 
@@ -253,8 +274,13 @@ while {true} do {
 	};
 
 
-	{
-		_x_veh = _x;
+	_arr = _deleteListManAlive;
+	_c = count _arr;
+	if (_c > 0) then {
+	_s = (_sleep/_c);
+	for "_i" from 0 to (_c -1) do {
+		sleep (_s call gosa_fnc_dynSleep);
+		_x_veh = _arr select _i;
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 
 				diag_log format ["Log: [GC2] %1 ManAlive, delete", _x_veh];
@@ -267,14 +293,20 @@ while {true} do {
 			diag_log format ["Log: [GC2] %1 ManAlive, not deleted, player distance", _x_veh];
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};
-	} forEach _deleteListManAlive;
+	};
+	};
 
 
 		diag_log format ["Log: [GC2] perf 2 %1", time];
 
 
-	for "_i" from 0 to (count gosa_GC_array -1) do {
-		_x_veh = gosa_GC_array select _i;
+	_arr = gosa_GC_array;
+	_c = count _arr;
+	if (_c > 0) then {
+	_s = (_sleep/_c);
+	for "_i" from 0 to (_c -1) do {
+		sleep (_s call gosa_fnc_dynSleep);
+		_x_veh = _arr select _i;
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 			diag_log format ["Log: [GC2] %1 GC_array, delete", _x_veh];
 			// FIXME: Вероятно deleteVehicle не срабатывает на объектах определенного типа.
@@ -286,6 +318,7 @@ while {true} do {
 			diag_log format ["Log: [GC2] %1 GC_array, not deleted, player distance", _x_veh];
 			_noDeleteCountTmp = _noDeleteCountTmp +1;
 		};
+	};
 	};
 
 	gosa_GC_array = gosa_GC_array - [objNull];
