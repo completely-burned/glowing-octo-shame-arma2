@@ -12,6 +12,19 @@ _visible = false;
 _player = objNull;
 ScopeName "CheckPlayer";
 
+#ifndef __ARMA3__
+	_cache = (gosa_MapPlayers select 1);
+	diag_log format ["Log: [checkPlayersDistance] _cache %1", _cache];
+		for "_i" from 0 to (count _cache -1) do {
+			_player = ((_cache select _i) select 0);
+			if !(isNull _player) then {
+				if (_pos distance _player < _distance)then{
+					_visible = true;
+					BreakTo "CheckPlayer";
+				};
+			};
+		};
+#else
 // gosa_cachePlayers кеширует список игроков чтобы не проверять всегда всех юнитов
 if (isNil "gosa_cachePlayers") then {
 	_cache = [];
@@ -53,6 +66,7 @@ if(isMultiplayer)then{
 };
 
 gosa_cachePlayers = _cache-[objNull];
+#endif
 
 	diag_log format ["Log: [checkPlayersDistance] %1 %2", _Pos, _visible];
 _visible;

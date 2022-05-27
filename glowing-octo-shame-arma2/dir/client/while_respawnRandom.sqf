@@ -57,6 +57,8 @@ _fnc_swich={
 	if (!isNil "_var" && {_var == _o}) then {
 	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
 
+	[nil, _new, rgosa_setMapPlayers, _o] call RE;
+
 	_b = behaviour _new;
 	if (_b == "COMBAT") then { //&& (_new countEnemy (_new nearEntities ["Land", 500]) > 3)
 		//-- осветительная ракета

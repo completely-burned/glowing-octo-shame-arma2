@@ -1,10 +1,10 @@
 #define __A2OA__
+
+OnPlayerDisconnected "[_id, _uid, _name] ExecVM (""dir\server\eh_PlayerDisconnected.sqf"")";
+
 [] execVM ("dir\server\" + "server_update_respawnVehicles.sqf");
 
 //--- настройки миссии
-
-// OnPlayerConnected "[_id, _uid, _name] ExecVM (corePath + ""Server\Server_PlayerConnected.sqf"")";
-	// OnPlayerDisconnected "[_id, _uid, _name] ExecVM (corePath + ""Server\Server_PlayerDisconnected.sqf"")";
 
 m_skill = (missionNamespace getVariable "m_skill") / 100;
 
