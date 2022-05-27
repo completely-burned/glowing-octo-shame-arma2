@@ -1,12 +1,4 @@
 private["_visible","_Pos","_distance","_player","_cache"];
-
-// gosa_cachePlayers кеширует список игроков чтобы не проверять всегда всех юнитов
-if (isNil "gosa_cachePlayers") then {
-	_cache = [];
-}else{
-	_cache = gosa_cachePlayers;
-};
-
 _Pos = _this select 0;
 if (typeName _Pos == typeName objNull) then {
 	_Pos = vehicle _Pos;
@@ -18,8 +10,14 @@ if (count _this > 1) then {
 };
 _visible = false;
 _player = objNull;
-
 ScopeName "CheckPlayer";
+
+// gosa_cachePlayers кеширует список игроков чтобы не проверять всегда всех юнитов
+if (isNil "gosa_cachePlayers") then {
+	_cache = [];
+}else{
+	_cache = gosa_cachePlayers;
+};
 
 if(isMultiplayer)then{
 
