@@ -28,7 +28,7 @@ _timerDelete	= ( 60 * 2.5 );
 _timerLocation	= ( 60 * 5 );
 _timerPlayer	= ( 60 * 5 );
 _timerAttack	= ( 60 * 2.5 );
-_sleep = 30/5;
+_sleep = 30/7;
 
 private["_time","_timeNew"];
 
@@ -324,7 +324,12 @@ while {true} do {
 	gosa_GC_array = gosa_GC_array - [objNull];
 
 
+	_c = count _deleteListManDead;
+	if (_c > 0) then {
+	_s = (_sleep/_c);
 	while { count _deleteListManDead > _min_vehicles_count } do {
+		// TODO: Нужно оптимизировать.
+		sleep _s;
 
 
 
@@ -351,8 +356,14 @@ while {true} do {
 
 
 	};
+	};
 
+	_c = count _deleteListVehDead;
+	if (_c > 0) then {
+	_s = (_sleep/_c);
 	while { count _deleteListVehDead > _min_vehicles_count } do {
+		// TODO: Нужно оптимизировать.
+		sleep _s;
 
 		_i = random (count _deleteListVehDead -1);
 
@@ -373,6 +384,7 @@ while {true} do {
 		};
 
 
+	};
 	};
 
 	_noDeleteCount = _noDeleteCountTmp;
