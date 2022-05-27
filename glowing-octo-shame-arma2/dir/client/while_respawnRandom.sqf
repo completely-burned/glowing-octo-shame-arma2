@@ -84,6 +84,8 @@ _fnc_swich={
 
 		// в случае неудачи необходимо временно добавить объект в черный список, иначе он будет повторно выбран
 		// FIXME: не уверен в отсутствии ложных включений
+		// FIXME: Возможно требуется время для синхронизации.
+		sleep 1;
 		if (player != _new) then {
 			_new setVariable ["gosa_respawn_blt", time];
 			diag_log format ["Log: [respawnRandom] _fnc_swich переключение не удалось %1", _new];
