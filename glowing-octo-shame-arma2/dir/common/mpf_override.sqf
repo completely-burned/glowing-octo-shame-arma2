@@ -204,4 +204,23 @@ rremoteControlcode = {
 	};
 };
 
+rgosa_setMapPlayers = 'gosa_setMapPlayers';
+rgosa_setMapPlayerscode = {
+	diag_log format ["Log: [MPF] rgosa_setMapPlayers %1", _this];
+	private["_map","_n"];
+	_map = gosa_MapPlayers;
+	diag_log format ["Log: [MapPlayers] %1", _map];
+	_n = (_map select 0) find (_this select 2);
+	diag_log format ["Log: [MPF] rgosa_setMapPlayers %1 _n %2", _this select 2, _n];
+	if (_n < 0) then {
+		_n = 0;
+		//-- id
+		_map select 0 set [_n, _this select 2];
+	};
+	//-- data
+	_map select 1 set [_n, [_this select 1, _this select 3]];
+	diag_log format ["Log: [MapPlayers] %1", _map];
+};
+
+
 diag_log format ['Log: [mpf_override.sqf] done %1', time];
