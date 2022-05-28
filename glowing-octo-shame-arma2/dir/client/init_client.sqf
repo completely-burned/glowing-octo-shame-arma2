@@ -95,6 +95,10 @@ player addEventHandler ["killed", {
 }];
 
 if ( isMultiplayer ) then {
+	waitUntil{!isNil "gosa_MPF_InitDone"};
+	if(missionNamespace getVariable "respawn" != 1)then{
+		[nil, player, rgosa_setMapPlayers, gosa_owner] call RE;
+	};
 	waitUntil{!isNil "gosa_fnc_init"};
 	// player addEventHandler ["killed", {_this spawn gosa_fnc_killcam}];
 	// player addEventHandler ["respawn", {player spawn gosa_fnc_RespawnWeaponsAdd}];

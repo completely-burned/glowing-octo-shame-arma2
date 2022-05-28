@@ -223,4 +223,5 @@ rgosa_setMapPlayerscode = {
 };
 
 
+gosa_MPF_InitDone = true;
 diag_log format ['Log: [mpf_override.sqf] done %1', time];
