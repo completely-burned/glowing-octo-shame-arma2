@@ -262,6 +262,7 @@ if (isNil "gosa_SquadRole") then {
 	gosa_SquadRole = -2;
 };
 
+waitUntil{!isNil "gosa_MPF_InitDone"};
 waitUntil{!isNil "civilianBasePos"};
 
 while {true} do {
