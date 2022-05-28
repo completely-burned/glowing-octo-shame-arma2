@@ -45,6 +45,7 @@ if (!IsDedicated) then {
 	{
 		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 	} forEach [
+		"fnc_eh_playerRespawn",
 		"fnc_reveal",
 		"fnc_initBriefing",
 		"fnc_Client_BuyUnit",

@@ -100,6 +100,7 @@ if ( isMultiplayer ) then {
 		[nil, player, rgosa_setMapPlayers, gosa_owner] call RE;
 	};
 	waitUntil{!isNil "gosa_fnc_init"};
+	player addEventHandler ["Respawn", {call gosa_fnc_eh_playerRespawn}];
 	// player addEventHandler ["killed", {_this spawn gosa_fnc_killcam}];
 	// player addEventHandler ["respawn", {player spawn gosa_fnc_RespawnWeaponsAdd}];
 	player addEventHandler ["killed", {"respawn" spawn gosa_fnc_RespawnWeaponsAdd}];
