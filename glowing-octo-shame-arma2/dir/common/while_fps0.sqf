@@ -85,10 +85,10 @@ gosa_FPS_getAVG = {
 			// TODO: Улучшить точность.
 			if (_c > 1) then {
 				_c = (_c/2);
-				if (_time_first < (_chunk select 0)) then {
-					_n = _n-_c;
-				}else{
+				if (_time_first > (_chunk select 0)) then {
 					_n = _n+_c;
+				}else{
+					_n = _n-_c;
 				};
 			}else{
 				_r = [(_chunk_last select 0) - (_chunk select 0),
