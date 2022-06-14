@@ -54,7 +54,12 @@ _fnc_swich={
 		_var = _o;
 	};
 
-	if (!isNil "_var" && {_var == _o}) then {
+	#ifdef __A2OA__
+	if (!isNil "_var" && {_var == _o}) then
+	#else
+	if (!isNil "_var" && (_var == _o)) then
+	#endif
+	{
 	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
 
 	[nil, _new, rgosa_setMapPlayers, _o] call RE;
@@ -226,7 +231,11 @@ _fnc_isFit={
 		local _this &&
 #endif
 		( (_this call gosa_fnc_withinMap) or
+			#ifdef __A2OA__
 			(!isNil "gosa_player_needs_revival" && {gosa_player_needs_revival + 25 < time})
+			#else
+			(!isNil "gosa_player_needs_revival" && (gosa_player_needs_revival + 25 < time))
+			#endif
 		)	&&
 		_blt &&
 		side _this in gosa_friendlyside &&

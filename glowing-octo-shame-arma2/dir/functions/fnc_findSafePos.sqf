@@ -1,3 +1,5 @@
+#define __A2OA__
+
 diag_log format ["Log: [gosa_fnc_findSafePos] %1", _this];
 // diag_log format ["gosa_fnc_findSafePos.sqf 1, %1", time];
 
@@ -42,11 +44,21 @@ if ((count _this) > 10) then {
 	_side = _this select 10;
 };
 
-if ((count _this) > 11 && {count (_this select 11) > 0}) then {
+#ifdef __A2OA__
+if ((count _this) > 11 && {count (_this select 11) > 0}) then
+#else
+if ((count _this) > 11 && (count (_this select 11) > 0)) then
+#endif
+{
 	_dir_s = _this select 11;
 };
 
-if ((count _this) > 12 && {!isNil {_this select 12}}) then {
+#ifdef __A2OA__
+if ((count _this) > 12 && {!isNil {_this select 12}}) then
+#else
+if ((count _this) > 12 && (!isNil {_this select 12})) then
+#endif
+{
 	_withinMap = _this select 12;
 }else{
 	_withinMap = false;
