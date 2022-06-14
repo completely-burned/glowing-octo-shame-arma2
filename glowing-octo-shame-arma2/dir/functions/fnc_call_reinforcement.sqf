@@ -1,3 +1,5 @@
+#define __A2OA__
+
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_z","_run","_uav","_grp1","_types","_SafePosParams","_pos_resp","_pos","_typeList","_patrol","_dir"];
@@ -8,7 +10,12 @@ if(count _this > 0)then{
 		_side = [[east,west,resistance],[0.5,0.5,0.5]] call BIS_fnc_selectRandomWeighted;
 };
 
-if(count _this > 1 && {!isNull(_this select 1)})then{
+#ifdef __A2OA__
+if(count _this > 1 && {!isNull(_this select 1)})then
+#else
+if(count _this > 1 && (!isNull(_this select 1)))then
+#endif
+{
 	private ["_players"];
 	if (typeName (_this select 1) == typeName objNull) then {
 		_pos = getPos (_this select 1);
@@ -80,7 +87,12 @@ if(_patrol)then{
 	};
 };
 
-if(!_patrol && count _this > 2 && {count (_this select 2) > 0})then{
+#ifdef __A2OA__
+if(!_patrol && count _this > 2 && {count (_this select 2) > 0})then
+#else
+if(!_patrol && count _this > 2 && (count (_this select 2) > 0))then
+#endif
+{
 	_dir = _this select 2;
 }else{
 	_dir = [];
