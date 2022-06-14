@@ -50,17 +50,19 @@ if !(requiredVersion "1.60") then {
 		[] execVM "dir\server\init_server.sqf";
 	};
 
+	#ifndef __A2OA__
+	hasInterface = false;
+	if !(IsDedicated) then {
+		hasInterface = true;
+	};
+	#endif
 
-	if (hasInterface) then {
-		if (!IsDedicated) then {
+	if (!IsDedicated) then {
+		if (hasInterface) then {
 			[] execVM "dir\client\init_client.sqf";
+		}else{
+			execVM "init_HC.sqf";
 		};
-	}else{
-		#ifdef __A2OA__
-			if !(isServer) then {
-				execVM "init_HC.sqf";
-			};
-		#endif
 	};
 
 
