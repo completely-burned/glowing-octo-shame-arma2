@@ -64,7 +64,11 @@ if (getNumber(configFile >> "CfgVehicles" >> _victim_t >> "isMan") == 1) then {
 			(
 				{
 					getText(_z >> _x >> "effectsMissile") in ["missile2","missile4"] or
+					#ifdef __A2OA__
 					{getNumber(_z >> _x >> "irLock") == 1}
+					#else
+					(getNumber(_z >> _x >> "irLock") == 1)
+					#endif
 				} count _attack_ammo > 0
 			)&&
 			{
