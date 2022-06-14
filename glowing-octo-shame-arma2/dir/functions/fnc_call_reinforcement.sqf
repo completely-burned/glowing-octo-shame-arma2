@@ -1,4 +1,4 @@
-﻿diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
+diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_z","_run","_uav","_grp1","_types","_SafePosParams","_pos_resp","_pos","_typeList","_patrol","_dir"];
 if(count _this > 0)then{

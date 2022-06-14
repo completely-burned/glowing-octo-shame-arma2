@@ -1,4 +1,4 @@
-﻿diag_log format ["Log: [gosa_fnc_findSafePos] %1", _this];
+diag_log format ["Log: [gosa_fnc_findSafePos] %1", _this];
 // diag_log format ["gosa_fnc_findSafePos.sqf 1, %1", time];
 
 private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient",
@@ -13,11 +13,11 @@ _run_timer = time;
 
 
 // центр поиска
-_pos = _this select 0; 
+_pos = _this select 0;
 // дистанция до игроков
-_safe_dist = _this select 1; 
+_safe_dist = _this select 1;
 // максимальный радиус поиска
-_max_radius = _this select 2; 
+_max_radius = _this select 2;
 _objDist = _this select 3;
 _waterMode = _this select 4;
 _maxGradient = _this select 5;
@@ -61,18 +61,18 @@ _allowPos = false;
 // катера не находят места на суше для такого нужно ограничение попыток
 // в случае неудачи обычно функция вызывается с другим типом группы
 // TODO: лучше передавать максимальное количество попыток при вызове функции
-_max_attempt = 1000; 
+_max_attempt = 1000;
 
 // искать нужно сразу по достаточной площади
 _start_radius = 1250;
 
 //--- площадь круга
 // максимальная площадь
-_max_square = pi * (_max_radius^2); 
+_max_square = pi * (_max_radius^2);
 // основание круга
-//_base = 2*pi*_max_radius; 
+//_base = 2*pi*_max_radius;
 // площадь круга
-//_max_square = 0.5*_base*_max_radius; 
+//_max_square = 0.5*_base*_max_radius;
 
 _start_square = pi * (_start_radius^2);
 
@@ -118,7 +118,7 @@ while {!_allowPos} do {
 	_roads = [];
 	if(count _branchesRoads > 0)then{
 		// TODO: части дорог и количество попыток не верно взаимосвязаны
-		_branchRoad = _branchesRoads call BIS_fnc_selectRandom; 
+		_branchRoad = _branchesRoads call BIS_fnc_selectRandom;
 
 		if(count _branchRoad >= _roadSize)then {
 			private ["_start"];
