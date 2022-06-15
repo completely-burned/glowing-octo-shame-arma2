@@ -1,3 +1,11 @@
+#define __A2OA__
+
+#ifdef __A2OA__
+	#define ADD if (!(_z in _t) && {_x isKindOf _z}) then {_t set [count _t, _z]};
+#else
+	#define ADD if (!(_z in _t) && (_x isKindOf _z)) then {_t set [count _t, _z]};
+#endif
+
 private["_t","_z"];
 
 _t = [];
@@ -8,49 +16,31 @@ _t = [];
 
 
 	_z = "Plane";
-	if (!(_z in _t) && {_x isKindOf _z}) then {
-		_t set [count _t, _z];
-	};
+	ADD
 
 	_z = "Air";
-	if (!(_z in _t) && {_x isKindOf _z}) then {
-		_t set [count _t, _z];
-	};
+	ADD
 
 	_z = "Ship";
-	if (!(_z in _t) && {_x isKindOf _z}) then {
-		_t set [count _t, _z];
-	};
+	ADD
 
 	_z = "StaticWeapon";
-	if (!(_z in _t) && {_x isKindOf _z}) then {
-		_t set [count _t, _z];
-	};
+	ADD
 
 	_z = "Tank";
-	if (!(_z in _t) && {_x isKindOf _z}) then {
-		_t set [count _t, _z];
-	};
+	ADD
 
 	_z = "Tracked_APC";
-	if (!(_z in _t) && {_x isKindOf _z}) then {
-		_t set [count _t, _z];
-	};
+	ADD
 
 	_z = "Wheeled_APC";
-	if (!(_z in _t) && {_x isKindOf _z}) then {
-		_t set [count _t, _z];
-	};
+	ADD
 
 	_z = "Car";
-	if (!(_z in _t) && {_x isKindOf _z}) then {
-		_t set [count _t, _z];
-	};
+	ADD
 
 	_z = "Helicopter";
-	if (!(_z in _t) && {_x isKindOf _z}) then {
-		_t set [count _t, _z];
-	};
+	ADD
 
 	_z = "UAV";
 	if !(_z in _t) then {

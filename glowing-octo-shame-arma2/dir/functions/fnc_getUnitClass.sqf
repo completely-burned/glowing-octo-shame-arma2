@@ -1,3 +1,5 @@
+#define __A2OA__
+
 private ["_unit","_type","_tWeap","_r","_z","_veh","_t_veh"];
 
 _unit = _this select 0;
@@ -25,7 +27,11 @@ if (_veh != _unit) then {
 	_z = 505;
 	if !(_z in _r) then {
 		if (driver _veh call gosa_fnc_isPlayer or
+				#ifdef __A2OA__
 				{gunner _veh call gosa_fnc_isPlayer or commander _veh call gosa_fnc_isPlayer}
+				#else
+				(gunner _veh call gosa_fnc_isPlayer or commander _veh call gosa_fnc_isPlayer)
+				#endif
 		 ) then {
 			_r set [count _r, _z];
 		};

@@ -97,14 +97,21 @@ _p = nil; _item = nil; _name = nil; _id =nil;
 
 
 //--- код
-_z = "
-	private ['_z'];
+gosa_TMP = {
+	diag_log format ['Log: [gosa_TMP] %1', _this];
+	private ['_z','_b'];
 
-	_z = gosa_SquadRole_array select %2;
+	_z = (gosa_SquadRole_array select _this);
 
 	diag_log format ['Log: [fnc_setSquadRole] select %1', _z];
 
-	if (typeName _z == typeName 0 && {_z < 0} ) then {
+	_b = call {typeName _z == typeName 0};
+	if (_b) then {
+		if (_z >= 0) then {
+			_b = false;
+		};
+	};
+	if (_b) then {
 			gosa_SquadRole = _z;
 			diag_log format ['Log: [fnc_setSquadRole] global variable is set to %1', gosa_SquadRole];
 			gosa_SquadRole_array = nil;
@@ -113,8 +120,8 @@ _z = "
 		[gosa_SquadRole_array] execVM 'dir\functions\fnc_setSquad.sqf';
 	};
 
-";
+};
 
-["setSquadRole", "gosa_z", _n, "", _z] call BIS_FNC_createmenu;
+["setSquadRole", "gosa_z", _n, "", "%2 call gosa_TMP"] call BIS_FNC_createmenu;
 
 showCommandingMenu "#USER:gosa_z_0";
