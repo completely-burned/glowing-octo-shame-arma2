@@ -1,3 +1,5 @@
+#define __A2OA__
+
 /*
 Может _this select 0 успешно атаковать _this select 1?
 TODO: Бои нужно сделать на выбор эпичными, сложными, простыми
@@ -64,7 +66,11 @@ if (getNumber(configFile >> "CfgVehicles" >> _victim_t >> "isMan") == 1) then {
 			(
 				{
 					getText(_z >> _x >> "effectsMissile") in ["missile2","missile4"] or
+					#ifdef __A2OA__
 					{getNumber(_z >> _x >> "irLock") == 1}
+					#else
+					(getNumber(_z >> _x >> "irLock") == 1)
+					#endif
 				} count _attack_ammo > 0
 			)&&
 			{

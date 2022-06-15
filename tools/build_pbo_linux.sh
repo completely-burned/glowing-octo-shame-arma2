@@ -71,7 +71,7 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 
 
 		# cpmpat для a2 v1.11
-		if [[ $NAME == *"compat"* ]]; then
+		if [[ $DLC == *"compat"* ]]; then
 			rsync --recursive --delete $TMPDIR/glowing-octo-shame-arma2/* $MISSION
 			rsync --recursive --delete ${DIR}/* $MISSION
 			find $MISSION -type f -exec sed -i "/^.*#define.*__A2OA__.*/d" {} \;

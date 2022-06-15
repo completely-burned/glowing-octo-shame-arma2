@@ -1,3 +1,5 @@
+#define __A2OA__
+
 private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_fnc_CrewLeave"];
 
 _fnc_CrewLeave={
@@ -261,7 +263,12 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 	{
 		_z = _x getVariable "gosa_grpCrewLeave";
 		// TODO: код нужно оптимизировать
-		if (isNil "_z" or {scriptDone _z}) then {
+		#ifdef __A2OA__
+		if (isNil "_z" or {scriptDone _z}) then
+		#else
+		if (isNil "_z" or (scriptDone _z)) then
+		#endif
+		{
 			_x setVariable ["gosa_grpCrewLeave", [_x, time+ 30, _grp] spawn _fnc_CrewLeave];
 		};
 	} forEach _ng_l;

@@ -1,3 +1,4 @@
+#define __A2OA__
 /*---------------------------------------------------------------------------
 возвращает группы ии по полочкам
 ---------------------------------------------------------------------------*/
@@ -12,7 +13,12 @@ _le = []; _lw = []; _lr = []; _lc = []; // Local
 	//_l = leader _g;
 
 	_u = units _g;
-	if (alive (_u select 0) or {{alive _x} count _u > 0}) then {
+	#ifdef __A2OA__
+	if (alive (_u select 0) or {{alive _x} count _u > 0}) then
+	#else
+	if (alive (_u select 0) or ({alive _x} count _u > 0)) then
+	#endif
+	{
 			/* не работает должным образом
 			if({_x call gosa_fnc_isPlayer} count _u == 0)then{*/
 		_s = side _g;
