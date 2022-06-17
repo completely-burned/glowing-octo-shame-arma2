@@ -44,7 +44,7 @@ pve бой с ботами в сконцентрированный в одной
       # файлы будут в ./.build.out/ по умолчанию
       # примерно такие
       co_00_glowing-octo-shame-east-v0-0-4-852-armake.chernarus.pbo
-      co_00_glowing-octo-shame-east-v0-0-4-852-rsync.chernarus
+      co_00_glowing-octo-shame-east-v0-0-4-852-rsync.chernarus/
       co_00_glowing-octo-shame-guer-v0-0-4-852-armake.chernarus.pbo
       co_00_glowing-octo-shame-guer-v0-0-4-852-rsync.chernarus/
       co_00_glowing-octo-shame-west-v0-0-4-852-armake.chernarus.pbo
