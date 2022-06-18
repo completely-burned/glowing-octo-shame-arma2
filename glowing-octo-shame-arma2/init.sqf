@@ -61,7 +61,7 @@ if !(requiredVersion "1.60") then {
 		if (hasInterface) then {
 			[] execVM "dir\client\init_client.sqf";
 		}else{
-			execVM "init_HC.sqf";
+			execVM "dir\init_HC.sqf";
 		};
 	};
 
