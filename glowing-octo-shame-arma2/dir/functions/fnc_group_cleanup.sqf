@@ -1,20 +1,17 @@
 /*
- * скрипт удаляет застрявшие и бездействующие отряды
- * TODO: говнокод нуждается в ревизии
- */
+Скрипт удаляет застрявшие и бездействующие отряды.
+TODO: Быдлокод нуждается в ревизии.
+TODO: Защита от удаления неподвижных отрядов, например действующих ПВО.
+*/
 
-private["_grp"];
-private["_leader"];
-private["_leaderPos"];
-private["_currentWP","_wp","_typeWP","_waypoints"];
-private ["_units","_vehicles","_types","_cargo","_assignedVehicles"];
-private ["_Helicopter"];
+private ["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_time",
+	"_waypoints","_units","_vehicles","_types","_cargo","_assignedVehicles",
+	"_Helicopter"];
 
 _grp=_this;
 
 
 // время создания группы
-private["_time"];
 _time = (_grp getVariable "grp_created_time");
 if ( isNil "_time" ) then {
 	_time = time;
