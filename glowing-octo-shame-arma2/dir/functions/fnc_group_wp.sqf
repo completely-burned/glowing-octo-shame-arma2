@@ -506,6 +506,16 @@ if({alive _x} count _units > 0)then{
 					_StopWP = true;
 					_NoCreateWP = true;
 					_DeleteWP = true;
+					private ["_cleanup"];
+					// Защита от удаления остановленных отрядов ПВО.
+					_cleanup = _grp getVariable "_cleanup";
+					if !(isNil "_cleanup") then {
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 gosa_fnc_group_cleanup AA %2 old", _grp, _cleanup];
+						_cleanup set [1, (_cleanup select 1) max (time+120)];
+						_cleanup set [2, (_cleanup select 2) max (time+240)];
+						_grp setVariable ["_cleanup",_cleanup];
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 gosa_fnc_group_cleanup AA %2 new", _grp, _cleanup];
+					};
 				}else{
 
 					private["_wp"];
