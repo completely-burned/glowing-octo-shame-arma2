@@ -2,6 +2,7 @@ class MissionSQM {
 	#include "mission.sqm"
 };
 
+// Потеря снаряжения при длительном нахождении в воде отключена из-за застревающих ии и мусора.
 enableItemsDropping = 0;
 respawnDialog = 0;
 respawnVehicleDialog = 0;
@@ -15,12 +16,16 @@ debriefing = 0;
 author="http://github.com/completely-burned/glowing-octo-shame-arma2";
 
 class Params {
+
+	// Полевой госпиталь.
 	class gosa_MASH {
 		title="MASH (not completed) [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=1;
 	};
+
+	// Мобильный штаб.
 	class gosa_MHQ {
 		title="MHQ [gp]";
 		#ifdef __ARMA3__
@@ -33,8 +38,12 @@ class Params {
 		default=-1;
 		#endif
 	};
+
+	// Количество отрядов ии гарантировано.
 	/*
-		Количество отрядов ии не будет ниже этого значения.
+		Они будут продолжать генерироваться
+		если их количество ниже этого значения,
+		даже если fps очень низкий.
 		TODO: Нужно проверить со значением 0.
 	*/
 	class minGroups {
@@ -45,9 +54,10 @@ class Params {
 		texts[] = {"0 (not tested)",5,"7 (Intel Xeon Cascadelake)","10 (Intel Xeon Icelake)","15 (Intel i5-6500)",20,25,30,40,50,60,70,80,90,100,120};
 		default=5;
 	};
+
 	/*
-		ИИ будут создаваться пока среднее значение фпс не упадет ниже этого значеня.
-		Установите 0, чтобы колличество бралось из class minGroups.
+		ИИ будут создаваться пока среднее значение фпс не упадет ниже этого значения.
+		Установите 0, чтобы параметр игнорировался, а количество бралось из class minGroups.
 	*/
 	class gosa_ai_create_fps {
 		title="(AI) if higher fps, create ai (over Guaranteed number) [sv,ai,fps,gp]";
@@ -55,98 +65,136 @@ class Params {
 		texts[] = {"manual",5,10,15,20,25,30,35,40,45,46,47,48,49,50};
 		default=45;
 	};
+
+	// Количество отрядов ии на цп игрока, сразу после подключения игрока.
+	// TODO: Разные мощности игроков.
 	class ai_client_count {
 		title="(AI) Number of ai groups at the start on the client cpu [cl,ai,fps]";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 		texts[]  = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20};
 		default=0;
 	};
+
+	// Аналогично настройке сервера gosa_ai_create_fps, но для цп игрока.
 	class gosa_ai_client_create_fps {
 		title="(AI) If higher fps, create ai on the client cpu [cl,ai,fps]";
 		values[] = {0,		5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120,130,140,150,160,170,180,190,200,210,220,230,240,250};
 		texts[] = {"manual",5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120,130,140,150,160,170,180,190,200,210,220,230,240,250};
 		default=140;
 	};
+
+	// Множитель отрядов авиации.
 	class Air {
 		title="(AI) multiplier Air [gp]";
 		default=1;
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 	};
+
+	// Множитель отрядов гусеничных тс, в том числи шилок и тунгусок.
+	// TODO: Отсеять шилок и тунгусок.
 	class Tank {
 		title="(AI) multiplier Tank (Infanty APC not completed) [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
+
+	// Множитель отрядов тс на колесном ходу, в том числе и бтр.
 	class Car {
 		title="(AI) multiplier Car (Infanty not completed) [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
+
+	// Множитель отрядов пехоты, в том числе в отряде с тс.
+	// TODO: Отсеять тс.
 	class Man {
 		title="(AI) multiplier Man [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
+
+	// Множитель отрядов надводных.
 	class Ship {
 		title="(AI) multiplier Ship [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
+
+	// Множитель статичных установок.
 	class StaticWeapon {
 		title="(AI) multiplier StaticWeapon [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
 	};
+
+	// Начальная разница в соотношении сил противника к союзникам.
+	// TODO: pvp.
 	class enemyCoefficient {
 		title="(AI) enemy coefficient, maximum ratio [ai,gp]";
 		values[] = {50,75,100,125,150,175,200,225,250,275,300,325,350,375,400,425,450,475,500,525,550,575,600};
 		texts[] = {0.5,0.75,1,1.25,1.50,1.75,2,2.25,2.50,2.75,3,3.25,3.50,3.75,4,4.25,4.50,4.75,5,5.25,5.50,5.75,6};
 		default=250;
 	};
+
+	// Соотношение патрулей и атакующих групп.
 	class gosa_patrolCoefficient {
 		title="(AI) patrol coefficient [ai,gp]";
 		values[] = {5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
 		texts[] = {0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95,1};
 		default=40;
 	};
+
+	// Соотношение игрока к количеству групп.
+	// TODO: сделать.
 	class playerCoefficient {
 		title="(AI) 1 player = groups bots (not working)";
 		values[] = {0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8};
 		texts[] = {0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8};
 		default=1;
 	};
+
+	// Соотношение enemyCoefficient будет стремиться к 1:1.
+	// Насколько быстро сравняется количество союзников и противников.
 	class timeFriendlyReinforcements {
-		// насколько быстро сравняется количество союзников и противников
 		title="(AI) time friendly reinforcements [gp]";
 		values[] = {30,45,60,90,120,180,240,300};
 		texts[] = {"30 minutes","45 minutes","60 minutes","90 minutes","120 minutes","180 minutes","240 minutes","300 minutes"};
 		default=180;
 	};
+
+	// Навыки ии.
+	// FIXME: Если не указанно берется из значения в настройках уровня сложности.
 	class m_skill {
 		title="(AI) skill [gp]";
 		values[] = {-1,0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
 		texts[] = {$STRWFMISSIONDEFAULT,0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95,1};
 		default = -1;
 	};
+
+	// Один отряд ии будет охотиться и атаковать игрока.
 	class gosa_survival {
 		title="(AI) survival (not completed) [cl,fps,gp]";
 		values[] = {1,0};
 		texts[] = {$STRWFYES,$STRWFNO};
 		default=1;
 	};
-	// скипт пво ракеты
+
+	// Скрипт пво ракеты. Та самая невидимая ракета из ниоткуда.
 	class gosa_airDefense {
 		title="(AI) air defense [cl,fps,gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=1;
 	};
+
+	// Линя фронта, ии просто кучкуются, 
+	// рядом с союзникам, или противоположно противникам, относительно центра.
 	class gosa_frontLine_east {
 		title="(AI) Frontline - east [gp]";
 		values[] = {0,1,2};
@@ -165,44 +213,62 @@ class Params {
 		texts[] = {"random 360","near friendly guer","opposite to the enemies"};
 		default=0;
 	};
+
+	// Время старта.
 	class StartTime {
 		title = $STRWFSTARTTIME;
 		values[] = {-1,100,5,7,11,12,14,18,22,2};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFRANDOM,$STRWFEARLYMORNING,$STRWFMORNING,$STRWFEARLYAFTERNOON,$STRWFAFTERNOON,$STRWFLATEAFTERNOON,$STRWFEVENING,$STRWFNIGHT,$STRWFLATENIGHT};
 		default = -1;
 	};
+
+	// Погода.
 	class gosa_Overcast {
 		title = "Overcast [gp]";
 		values[] = {-1,0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95,1};
 		texts[] = {$STRWFMISSIONDEFAULT,0,0.05,0.10,0.15,0.20,0.25,0.30,0.35,0.40,0.45,0.50,0.55,0.60,0.65,0.70,0.75,0.80,0.85,0.90,0.95,1};
 		default = -1;
 	};
+
+	// Военные обозначения.
 	class gosa_MartaManager {
 		title="MartaManager module";
 		values[] = {-1,0,1};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFNO,$STRWFYES};
 		default=-1;
 	};
+
+	// Закрытие тс.
 	class gosa_vehicles_lock {
 		title="vehicles lock [fps]";
 		values[] = {2,1,0};
 		texts[] = {$STRWFNO,$STR_friendly_vehicles_only,$STRWFYES};
 		default=0;
 	};
+
+	// Уменьшить количество сверхдержав.
+	// TODO: Это было временным решением
+	// еще с ванильной армы для игры за партизан,
+	// нужно сделать настройку для каждой фракции отдельно.
 	class local_conflict {
 		title="local conflict [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+
+	// Минирование.
+	// TODO: Минировать пехоту. Визуализация закладки.
+	// FIXME: Дистанция безопасного минирования не верно определяется когда все игроки мертвы.
 	class mining {
-		// дистанция безопасного минирования не верно определяется когда все игроки мертвы
 		title="mining (not completed) [gp]";
 		// в процентах
 		values[] = {0,		2,5,10,20,30,50,75};
 		texts[] = {$STRWFNO,2,5,10,20,30,50,75};
 		default=0;
 	};
+
+	// Тип возрождения.
 	class respawn {
 		title="respawn [gp]";
 		values[] = {0,1};
@@ -214,12 +280,16 @@ class Params {
 			default=1;
 		#endif
 	};
+
+	// Долбаный и ненавистный мне магазин.
 	class gosa_shop {
 		title="shop [gp,cl,fps]";
 		values[] = {-1,0,1,2};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFNO,$STRWFYES,"home delivery"};
 		default=-1;
 	};
+
+	// Мусоросборник. Множитель дистанции до игроков.
 	class gc_dist {
 		// FIXME: zero division
 		title="Garbage Collector distance multiplier [fps]";
@@ -227,6 +297,8 @@ class Params {
 		texts[]  = {0,100,500,1000,1500,2000,2500,3000,4000,5000,6000,7000};
 		default=7000;
 	};
+
+	// Мусоросборник. Количество объектов всегда присутствующих на карте.
 	class gc_count {
 		// FIXME: zero division
 		title="Garbage Collector count queue size [fps]";
@@ -234,18 +306,23 @@ class Params {
 		texts[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100};
 		default=50;
 	};
+
+	// Поддержка. Сброс боеприпасов.
 	class gosa_AmmoDrop {
 		title="AmmoDrop (not completed) [gp]";
 		default=0;
 		values[] = {0,1,2};
 		texts[] = {$STRWFNO,$STRWFYES,"limited"};
 	};
+	// Поддержка. Воздушный транспорт.
 	class gosa_heliTransport {
 		title="heliTransport (not completed) [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+
+	// Десант. Воздушный, морской.
 	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/41
 	class gosa_landing {
 		title="landing (not completed) [gp]";
@@ -253,24 +330,32 @@ class Params {
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+
+	// Лазерный целеуказатель.
 	class gosa_laserDesignator {
 		title="laserDesignator [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+
+	// Замена вооружения.
 	class gosa_rearmament {
 		title="rearmament [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=1;
 	};
+
+	// Стройка.
 	class gosa_coin {
 		title="coin (not completed)";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,$STRWFYES};
 		default=0;
 	};
+
+	// Лагеря, для атмосферы.
 	class gosa_camps {
 		title="camps";
 		values[] = {0,1};
@@ -281,30 +366,44 @@ class Params {
 		default=1;
 		#endif
 	};
+
+	// TODO: Устарело.
 	class gosa_frontLine_enemy {
 		title="Frontline - enemy (deprecated)";
 		values[] = {0,1};
 		texts[] = {"random 360","enemy center"};
 		default=0;
 	};
+
+	// Принудительное обнаружение игрока.
+	// FIXME: Возможно бесполезно.
 	class gosa_reveal {
 		title="reveal [gp]";
 		values[] = {0,1};
 		texts[] = {$STRWFNO,"ai reveal player"};
 		default=0;
 	};
+
+	// Типы локаций.
+	// [arbitrary] Любая позиция в пределах карты в том числе и на воде.
+	// Город или холм.
+	// Город.
 	class gosa_locationType {
 		title="Location Types [gp]";
 		values[] = {-1,0,1,2};
 		texts[] = {$STRWFMISSIONDEFAULT, "[arbitrary position] (not completed)", "[City, Hill]", "[City] (not completed)"};
 		default=-1;
 	};
+
+	// Множитель размера круга.
 	class gosa_locationSizeMultipler {
 		title="locationSizeMultipler [gp]";
 		values[] = {2500,5625,8100,10000,12100,14400,16900};
 		texts[] = {2500,5625,8100,10000,12100,14400,16900};
 		default=12100;
 	};
+
+	// Отладка.
 	class gosa_debugLevel { // diag_log
 		title="debug"; // diag_log
 		values[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100}; // diag_log
