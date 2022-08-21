@@ -4,7 +4,8 @@ private["_ai_client_count","_e_cfi","_playerCoefficient","_center_e_dir",
 	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
 	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
 	"_conveyer_limit","_limits","_l_enemy","_fnc_fl","_grp","_e_multipler",
-	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run"];
+	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run",
+	"_lg","_enemySide","_friendlySide"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
 
@@ -54,8 +55,6 @@ if (_respawn_mode == 1 or
  }else{
 	_run = false;
 };
-
-private["_lg","_enemySide","_friendlySide"];
 
 _friendlySide = gosa_friendlyside - [civilian];
 	_enemySide = [west,east,resistance] - gosa_friendlyside;
