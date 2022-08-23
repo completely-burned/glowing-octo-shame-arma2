@@ -35,13 +35,13 @@ _conveyer_limit = 8;
 _patrol_percent = ((missionNamespace getVariable "gosa_patrolCoefficient") / 100);
 _dfi = gosa_server_diag_fps_interval;
 _minGroups = missionNamespace getVariable "ai_client_count";
+_limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
 _dyn_limit = _minGroups;
 _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
 // TODO: количество игроков не учитывается
 _playerCoefficient = missionNamespace getVariable "playerCoefficient";
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
-_limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
 _frames_required = _limit_fps * _dfi;
 _time = time;
 _sleep = 120;
