@@ -4,6 +4,15 @@
 
 #define __A2OA__
 
+private["_minGroups","_e_cfi","_playerCoefficient",
+	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
+	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
+	"_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fnc_fl","_grp","_e_multipler",
+	"_fl","_cfg_cfi","_patrol_percent","_run",
+	"_lg","_enemySide","_friendlySide","_sleep"];
+
+diag_log format ["Log: [reinforcements] started %1", time ];
+
 waitUntil {!isNil "bis_fnc_init"};
 	waitUntil {!isNil "gosa_fnc_init"};
 	waitUntil {!isNil "locationStarted"};
@@ -11,10 +20,6 @@ waitUntil {!isNil "bis_fnc_init"};
 	waitUntil {!isNil "gosa_framesAVG"};
 
 diag_log format ["Log: [reinforcements] post waitUntil %1", time];
-
-private["_minGroups","_e_cfi","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
-	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fnc_fl","_grp","_e_multipler","_fl","_cfg_cfi","_patrol_percent",
-	"_lg","_enemySide","_friendlySide","_sleep"];
 
 private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 	if(gosa_loglevel>0)then{ // diag_log
