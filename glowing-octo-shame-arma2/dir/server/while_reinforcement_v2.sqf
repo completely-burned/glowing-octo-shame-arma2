@@ -14,7 +14,7 @@ diag_log format ["Log: [reinforcements] post waitUntil %1", time];
 
 private["_minGroups","_e_cfi","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
 	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fnc_fl","_grp","_e_multipler","_fl","_cfg_cfi","_patrol_percent",
-	"_lg","_enemySide","_friendlySide"];
+	"_lg","_enemySide","_friendlySide","_sleep"];
 
 private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 	if(gosa_loglevel>0)then{ // diag_log
@@ -44,6 +44,7 @@ _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
 _limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
 _frames_required = _limit_fps * _dfi;
 _time = time;
+_sleep = 30;
 
 	_run = true;
 
@@ -387,7 +388,7 @@ while{_run}do{
 
 		};
 
-	sleep (30 call gosa_fnc_dynSleep);
+	sleep (_sleep call gosa_fnc_dynSleep);
 
 	_z = 2*((time-_time) / _dfi);
 	if(gosa_framesAVG > _frames_required)then{

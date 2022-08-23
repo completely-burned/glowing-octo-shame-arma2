@@ -5,7 +5,7 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir",
 	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
 	"_conveyer_limit","_limits","_l_enemy","_fnc_fl","_grp","_e_multipler",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run",
-	"_lg","_enemySide","_friendlySide"];
+	"_lg","_enemySide","_friendlySide","_sleep"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
 
@@ -44,6 +44,7 @@ _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
 _limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
 _frames_required = _limit_fps * _dfi;
 _time = time;
+_sleep = 120;
 
 _respawn_mode = missionNamespace getVariable "respawn";
 
@@ -411,7 +412,7 @@ while{_run}do{
 
 		};
 
-	sleep (120 call gosa_fnc_dynSleep);
+	sleep (_sleep call gosa_fnc_dynSleep);
 
 	_z = 2*((time-_time) / _dfi);
 	if(gosa_framesAVG > _frames_required)then{
