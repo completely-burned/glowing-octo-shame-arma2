@@ -13,7 +13,8 @@ waitUntil {!isNil "bis_fnc_init"};
 diag_log format ["Log: [reinforcements] post waitUntil %1", time];
 
 private["_minGroups","_e_cfi","_playerCoefficient","_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_frames_required","_time","_dyn_limit",
-	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fnc_fl","_grp","_e_multipler","_fl","_cfg_cfi","_patrol_percent"];
+	"_z","_dfi","_conveyer","_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fnc_fl","_grp","_e_multipler","_fl","_cfg_cfi","_patrol_percent",
+	"_lg","_enemySide","_friendlySide"];
 
 private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 	if(gosa_loglevel>0)then{ // diag_log
@@ -44,7 +45,7 @@ _limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
 _frames_required = _limit_fps * _dfi;
 _time = time;
 
-private["_lg","_enemySide","_friendlySide"];
+	_run = true;
 
 _friendlySide = gosa_friendlyside - [civilian];
 	_enemySide = [west,east,resistance] - gosa_friendlyside;
@@ -85,7 +86,7 @@ _fnc_fl = {
 	_r;
 };
 
-while{true}do{
+while{_run}do{
 
 	_grp = call gosa_fnc_getGroups;
 
