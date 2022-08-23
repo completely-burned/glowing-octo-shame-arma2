@@ -4,10 +4,10 @@
 
 #define __A2OA__
 
-private["_minGroups","_e_cfi","_playerCoefficient",
+private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir",
 	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
 	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
-	"_conveyer_limit","_limits","_center_e_dir","_l_enemy","_fnc_fl","_grp","_e_multipler",
+	"_conveyer_limit","_limits","_l_enemy","_fnc_fl","_grp","_e_multipler",
 	"_fl","_cfg_cfi","_patrol_percent","_run",
 	"_lg","_enemySide","_friendlySide","_sleep"];
 
