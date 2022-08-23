@@ -1,6 +1,6 @@
 #define __A2OA__
 
-private["_ai_client_count","_e_cfi","_playerCoefficient","_center_e_dir",
+private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir",
 	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
 	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
 	"_conveyer_limit","_limits","_l_enemy","_fnc_fl","_grp","_e_multipler",
@@ -34,8 +34,8 @@ _conveyer_limit = 8;
 
 _patrol_percent = ((missionNamespace getVariable "gosa_patrolCoefficient") / 100);
 _dfi = gosa_server_diag_fps_interval;
-_ai_client_count = missionNamespace getVariable "ai_client_count";
-_dyn_limit = _ai_client_count;
+_minGroups = missionNamespace getVariable "ai_client_count";
+_dyn_limit = _minGroups;
 _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
 // TODO: количество игроков не учитывается
 _playerCoefficient = missionNamespace getVariable "playerCoefficient";
@@ -48,7 +48,7 @@ _time = time;
 _respawn_mode = missionNamespace getVariable "respawn";
 
 if (_respawn_mode == 1 or
-	_ai_client_count > 0 or
+	_minGroups > 0 or
 	_limit_fps > 0
  )then{
 	_run = true;
