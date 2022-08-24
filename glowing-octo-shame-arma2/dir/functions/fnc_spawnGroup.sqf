@@ -78,7 +78,10 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 #endif
 					_unit setDir _azimuth;
 					if !(isMultiplayer) then {
+						// Баланс.
+						if (_side getFriend playerSide >= 0.6) then {
 						addSwitchableUnit _unit;
+						};
 					};
 				} else {
 					private ["_fnc_spawnVehicle"];
@@ -101,9 +104,12 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this];
 					};
 					if !(isMultiplayer) then {
+						// Баланс.
+						if (_side getFriend playerSide >= 0.6) then {
 						{
 							addSwitchableUnit _x;
 						} forEach (_fnc_spawnVehicle select 1);
+						};
 					};
 				};
 
