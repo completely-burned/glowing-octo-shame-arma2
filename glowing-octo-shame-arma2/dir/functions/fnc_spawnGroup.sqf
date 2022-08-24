@@ -80,7 +80,7 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					if !(isMultiplayer) then {
 						// Баланс.
 						if (_side getFriend playerSide >= 0.6) then {
-						addSwitchableUnit _unit;
+							addSwitchableUnit _unit;
 						};
 					};
 				} else {
@@ -106,9 +106,9 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					if !(isMultiplayer) then {
 						// Баланс.
 						if (_side getFriend playerSide >= 0.6) then {
-						{
-							addSwitchableUnit _x;
-						} forEach (_fnc_spawnVehicle select 1);
+							{
+								addSwitchableUnit _x;
+							} forEach (_fnc_spawnVehicle select 1);
 						};
 					};
 				};
