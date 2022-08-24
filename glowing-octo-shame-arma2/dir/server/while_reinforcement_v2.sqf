@@ -198,6 +198,58 @@ while{_run}do{
 			};
 		}else{
 
+	//--- Аварийная группа возрождения.
+		// FIXME: Не проверенно в одиночной игре.
+		// Чтобы не закончились юниты для перерождения.
+		// Переменная на стороне клиента.
+		_z = isNil "gosa_player_needs_revival";
+			if (_z) then {
+				_z = {local _x} count units player;
+				diag_log format ["Log: [reinforcements] %1 local units %2", _z, units player];
+				if (_z < 3 ) then {
+
+					_z = 0;
+
+					//if (_z == 0) then {
+						if (east getFriend playerSide >= 0.6) then {
+							_z = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
+							diag_log format ["Log: [reinforcements] %1 east grp %2", _z];
+						};
+					//};
+
+					if (_z == 0) then {
+						if (west getFriend playerSide >= 0.6) then {
+							_z = {isNil {_x getVariable "patrol"}} count (((_grp select 1)+(_grp select 4))-[group player]);
+							diag_log format ["Log: [reinforcements] %1 west grp %2", _z];
+						};
+					};
+
+					if (_z == 0) then {
+						if (resistance getFriend playerSide >= 0.6) then {
+							_z = {isNil {_x getVariable "patrol"}} count (((_grp select 2)+(_grp select 5))-[group player]);
+							diag_log format ["Log: [reinforcements] %1 guer grp %2", _z];
+						};
+					};
+
+					if (_z == 0) then {
+						_z = true;
+					}else{
+						_z = false;
+					};
+				}else{
+					_z = false;
+				};
+			}else{
+				_z = !_z;
+				diag_log format ["Log: [reinforcements] _player_needs_revival %1 %2", _z, gosa_player_needs_revival];
+			};
+
+			if (_z) then {
+				if ({_x select 1 == 8} count _conveyer < 1) then {
+					_conveyer set [count _conveyer, [[gosa_friendlyside - [civilian]] spawn gosa_fnc_failoverGroup, 8]];
+					//_conveyer set [count _conveyer, [[west, objNull, _fl] spawn gosa_fnc_failoverGroup, 8]];
+				};
+			};
 
 	//--- создание отрядов
 		if (count _conveyer < _conveyer_limit) then {
