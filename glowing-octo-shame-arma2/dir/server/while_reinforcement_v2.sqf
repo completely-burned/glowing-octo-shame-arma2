@@ -41,6 +41,7 @@ _patrol_percent = ((missionNamespace getVariable "gosa_patrolCoefficient") / 100
 _dfi = gosa_server_diag_fps_interval;
 _minGroups = missionNamespace getVariable "minGroups";
 _limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
+// FIXME: =+? При записи в _dyn_limit возможно перезаписывается _minGroups.
 _dyn_limit = _minGroups;
 _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
 // TODO: количество игроков не учитывается
