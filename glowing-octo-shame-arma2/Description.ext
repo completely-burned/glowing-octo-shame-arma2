@@ -246,6 +246,15 @@ class Params {
 		default=0;
 	};
 
+	// Изменения в поведении ии.
+	// TODO: Совместимость с модификациями игры.
+	class gosa_ai_scripts {
+		title="(AI) Behavior Changes [fps,gp,sv,cl]";
+		values[] = {1,0};
+		texts[] = {$STRWFYES,$STRWFNO};
+		default=1;
+	};
+
 	// Уменьшить количество сверхдержав.
 	// TODO: Это было временным решением
 	// еще с ванильной армы для игры за партизан,

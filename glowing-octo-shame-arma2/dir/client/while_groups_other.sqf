@@ -1,6 +1,11 @@
 /*
 	TODO: Оптимизация.
 */
+
+if (missionNamespace getVariable "gosa_ai_scripts" == 0) exitWith {
+	diag_log format ["Log: [while_groups_other] gosa_ai_scripts == %1, exitWith", missionNamespace getVariable "gosa_ai_scripts"];
+};
+
 private["_g","_s"];
 waitUntil {!isNil "civilianBasePos"};
 waitUntil {!isNil "gosa_locationSize"};
