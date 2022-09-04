@@ -127,6 +127,7 @@ while{_run}do{
 		diag_log format ["Log: [reinforcements] count conveyer %1", count _conveyer];
 
 
+	// TODO: Приватная переменная.
 	if (gosa_deviceType != 2) then {
 		_p = [] call BIS_fnc_listPlayers;
 	} else {
