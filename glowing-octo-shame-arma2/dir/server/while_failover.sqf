@@ -1,22 +1,20 @@
-private["_p","_l","_z"];
-
-_p = "dir\server\";
+private["_l","_z"];
 
 _l = [
 	// очистка уничтоженных юнитов
-	"while_obj_gc.sqf", 
+	"dir\server\while_obj_gc.sqf",
 	// генерация отрядов ии
-	"while_reinforcement_v2.sqf",
+	"dir\common\while_reinforcement_v2.sqf",
 	// маршруты
-	"server_update_groups_wp.sqf" 
+	"dir\server\server_update_groups_wp.sqf"
 ];
 
 for "_i" from 0 to count _l -1 do {
-	_z = _p + (_l select _i);
+	_z = (_l select _i);
 	_l set [_i, [_z, [] execVM _z]];
 };
 
-_p = nil; _z = nil;
+_z = nil;
 
 waitUntil {!isNil "bis_fnc_init" && !isNil "gosa_fnc_init"};
 waitUntil {!isNil "gosa_crewL" && !isNil "listMHQ"};

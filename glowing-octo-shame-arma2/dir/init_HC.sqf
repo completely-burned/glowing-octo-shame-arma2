@@ -1,1 +1,1 @@
-[] execVM ("dir\client\while_reinforcement_v2.sqf");
+[] execVM ("dir\common\while_reinforcement_v2.sqf");
