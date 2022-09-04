@@ -182,6 +182,7 @@ while{_run}do{
 	//--- чистка при значительном превышении лимита
 		_z = (_dyn_limit*1.4+1) max (_dyn_limit+5);
 		if (_lg + count _conveyer > _z) then {
+			if (gosa_deviceType != 2) then {
 			private["_side","_l","_grp","_rm","_d"];
 			diag_log format ["Log: [reinforcements] групп слишком много %1+%2 > %3", _lg, count _conveyer, _z];
 			{
@@ -216,6 +217,7 @@ while{_run}do{
 						}forEach units (_rm select _i);
 					};
 				};
+			};
 			};
 		}else{
 
