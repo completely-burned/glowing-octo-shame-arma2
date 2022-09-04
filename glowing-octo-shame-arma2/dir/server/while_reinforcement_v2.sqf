@@ -131,6 +131,7 @@ while{_run}do{
 
 	//--- динамические ограничения
 
+		// TODO: Приватная переменная.
 		if (gosa_pvp) then {
 			_limits = [
 				_dyn_limit	/ 6,
