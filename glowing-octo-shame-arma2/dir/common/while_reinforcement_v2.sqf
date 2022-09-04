@@ -15,7 +15,6 @@ diag_log format ["Log: [reinforcements] started %1", time ];
 
 waitUntil {!isNil "bis_fnc_init"};
 	waitUntil {!isNil "gosa_fnc_init"};
-	waitUntil {!isNil "locationStarted"};
 	waitUntil {!isNil "GroupsStarted"};
 	waitUntil {!isNil "gosa_framesAVG"};
 
@@ -57,6 +56,9 @@ if (gosa_deviceType == 2) then {
 	_limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
 	_sleep = 30;
 	_run = true;
+	diag_log format ["Log: [reinforcements] waitUntil locationStarted %1", time];
+	waitUntil {!isNil "locationStarted"};
+	diag_log format ["Log: [reinforcements] post waitUntil locationStarted %1", time];
 };
 // FIXME: =+? При записи в _dyn_limit возможно перезаписывается _minGroups.
 _dyn_limit = _minGroups;
