@@ -43,10 +43,20 @@ if (gosa_deviceType == 2) then {
 	_minGroups = missionNamespace getVariable "ai_client_count";
 	_limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
 	_sleep = 120;
+	_respawn_mode = missionNamespace getVariable "respawn";
+	if (_respawn_mode == 1 or
+		_minGroups > 0 or
+		_limit_fps > 0
+	 )then{
+		_run = true;
+	 }else{
+		_run = false;
+	};
 }else{
 	_minGroups = missionNamespace getVariable "minGroups";
 	_limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
 	_sleep = 30;
+	_run = true;
 };
 // FIXME: =+? При записи в _dyn_limit возможно перезаписывается _minGroups.
 _dyn_limit = _minGroups;
@@ -58,7 +68,6 @@ _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
 _frames_required = _limit_fps * _dfi;
 _time = time;
 
-	_run = true;
 
 _friendlySide = gosa_friendlyside - [civilian];
 	_enemySide = [west,east,resistance] - gosa_friendlyside;
