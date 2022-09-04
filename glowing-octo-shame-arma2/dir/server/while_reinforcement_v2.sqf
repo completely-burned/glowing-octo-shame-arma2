@@ -129,7 +129,7 @@ while{_run}do{
 
 	// TODO: Приватная переменная.
 	if (gosa_deviceType != 2) then {
-		_p = [] call BIS_fnc_listPlayers;
+		_p = ([] call BIS_fnc_listPlayers);
 	} else {
 		_p = [player];
 	};
@@ -478,9 +478,9 @@ while{_run}do{
 	}else{
 		diag_log format ["Log: [reinforcements] - 2* %1 / %2 = %3", _z, _dfi, _z];
 		if (gosa_deviceType != 2) then {
-			_dyn_limit = _minGroups max (_dyn_limit - _z);
+			_dyn_limit = (_minGroups max (_dyn_limit - _z));
 		}else{
-			_dyn_limit = 0 max (_dyn_limit - _z);
+			_dyn_limit = (0 max (_dyn_limit - _z));
 		};
 	};
 	diag_log format ["Log: [reinforcements] _frames_current %2, _frames_required %3, _limit %4", time, gosa_framesAVG, _frames_required, _dyn_limit];
