@@ -39,8 +39,15 @@ _conveyer_limit = 8;
 
 _patrol_percent = ((missionNamespace getVariable "gosa_patrolCoefficient") / 100);
 _dfi = gosa_server_diag_fps_interval;
-_minGroups = missionNamespace getVariable "minGroups";
-_limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
+if (gosa_deviceType == 2) then {
+	_minGroups = missionNamespace getVariable "ai_client_count";
+	_limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
+	_sleep = 120;
+}else{
+	_minGroups = missionNamespace getVariable "minGroups";
+	_limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
+	_sleep = 30;
+};
 // FIXME: =+? При записи в _dyn_limit возможно перезаписывается _minGroups.
 _dyn_limit = _minGroups;
 _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
@@ -50,7 +57,6 @@ _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinfor
 _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
 _frames_required = _limit_fps * _dfi;
 _time = time;
-_sleep = 30;
 
 	_run = true;
 
