@@ -47,7 +47,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=20;
+		items=21;
 		class Item0
 		{
 			side="LOGIC";
@@ -3701,6 +3701,125 @@ class Mission
 					vehicle="TK_Soldier_EP1";
 					player="PLAY CDG";
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item20
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={2997.8638,269.69528,1799.5334};
+					id=347;
+					forceHeadlessClient=1;
+					text="HC";
+					side="CIV";
+					vehicle="Profiteer4";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.2;
+				};
+				class Item1
+				{
+					position[]={3000.8638,270.54666,1794.5334};
+					id=348;
+					forceHeadlessClient=1;
+					text="HC (1)";
+					side="CIV";
+					vehicle="Worker2";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item2
+				{
+					position[]={3002.8638,270.74399,1794.5334};
+					id=349;
+					forceHeadlessClient=1;
+					text="HC (2)";
+					side="CIV";
+					vehicle="Functionary1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item3
+				{
+					position[]={3004.8638,270.94135,1794.5334};
+					id=350;
+					forceHeadlessClient=1;
+					text="HC (3)";
+					side="CIV";
+					vehicle="Woodlander4";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item4
+				{
+					position[]={3006.8638,271.12747,1794.5334};
+					id=351;
+					forceHeadlessClient=1;
+					text="HC (4)";
+					side="CIV";
+					vehicle="Rocker1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item5
+				{
+					position[]={3008.8638,271.30698,1794.5334};
+					id=352;
+					forceHeadlessClient=1;
+					text="HC (5)";
+					side="CIV";
+					vehicle="Worker3";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item6
+				{
+					position[]={3010.8638,271.48566,1794.5334};
+					id=353;
+					forceHeadlessClient=1;
+					text="HC (6)";
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item7
+				{
+					position[]={3010.5525,271.15878,1796.9196};
+					id=354;
+					forceHeadlessClient=1;
+					text="HC (7)";
+					side="CIV";
+					vehicle="Profiteer2";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item8
+				{
+					position[]={3012.8638,271.33685,1797.0685};
+					id=355;
+					forceHeadlessClient=1;
+					text="HC (8)";
+					side="CIV";
+					vehicle="Worker4";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item9
+				{
+					position[]={3013.0127,271.70563,1794.3098};
+					id=356;
+					forceHeadlessClient=1;
+					text="HC (9)";
+					side="CIV";
+					vehicle="Profiteer1";
+					player="PLAY CDG";
+					skill=0.2;
 				};
 			};
 		};
