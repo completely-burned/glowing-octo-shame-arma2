@@ -1,3 +1,5 @@
+// TODO: Singleplayer
+
 if !(isNil "gosa_deviceType") exitWith {gosa_deviceType};
 
 // sv true, cl false, sv
