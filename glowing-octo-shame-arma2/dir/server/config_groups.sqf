@@ -1539,9 +1539,8 @@ if(true)then{
 if(true)then{
 	if(!_woodland)then{
 		_west=_west+[
-			// FIXME: Почему 0?
 			[[[["GER_Soldier_TL_EP1","GER_Soldier_MG_EP1","GER_Soldier_EP1","GER_Soldier_Scout_EP1","GER_Soldier_EP1","GER_Soldier_Medic_EP1"],[],
-			[_r2,_r1,_r1,_r1,_r0,_r0]]],0]
+			[_r2,_r1,_r1,_r1,_r0,_r0]]],0.01]
 		];
 	};
 };
