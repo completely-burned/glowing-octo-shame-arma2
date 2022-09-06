@@ -1,6 +1,6 @@
 #define __A2OA__
 //--- бардак, комментировать нечего
-private ["_z","_n"];
+private ["_z","_n","_item","_player_gue","_param_ratio"];
 waitUntil{!isNil "bis_fnc_init"};
 waitUntil{!isNil "gosa_fnc_init"};
 
@@ -148,29 +148,72 @@ _z=[
 [AllGroupsEast, _z] call gosa_fnc_groupsRarity;
 [AllGroupsGuer, _z] call gosa_fnc_groupsRarity;
 
-if(!(west in gosa_friendlyside or east in gosa_friendlyside) or (missionNamespace getVariable "local_conflict" == 1))then{
-	[AllGroupsWest, [
-		"USMC",
-		"BIS_US",
-		"BIS_CZ",
-		"BIS_GER",
-		"BIS_BAF"
-	], 0.25] call _fnc6;
-	[AllGroupsEast, [
-		"RU",
-		"BIS_TK"
-	], 0.25] call _fnc6;
-	[AllGroupsGuer, [
-		"PMC_BAF"
-	], 0.25] call _fnc6;
+// Множители фракций.
+_z=["RU","BIS_TK","BIS_TK_INS","INS"];
+for "_i" from 0 to count _z -1 do {
+	_item = _z select _i;
+	_param_ratio = missionNamespace getVariable ("gosa_faction_multiplier_"+_item);
+	if (_param_ratio < 1 && _param_ratio >= 0) then {
+		[AllGroupsEast, [_item], _param_ratio] call _fnc6;
+	};
+};
+_z=["USMC","BIS_US","BIS_CZ","BIS_GER","BIS_BAF","CDF"];
+for "_i" from 0 to count _z -1 do {
+	_item = _z select _i;
+	_param_ratio = missionNamespace getVariable ("gosa_faction_multiplier_"+_item);
+	if (_param_ratio < 1 && _param_ratio >= 0) then {
+		[AllGroupsWest, [_item], _param_ratio] call _fnc6;
+	};
+};
+_z=["PMC_BAF","GUE","BIS_TK_GUE","BIS_UN"];
+for "_i" from 0 to count _z -1 do {
+	_item = _z select _i;
+	_param_ratio = missionNamespace getVariable ("gosa_faction_multiplier_"+_item);
+	if (_param_ratio < 1 && _param_ratio >= 0) then {
+		[AllGroupsGuer, [_item], _param_ratio] call _fnc6;
+	};
+};
+
+
+// Ограничить сверхдержав если игроки играют за независимых.
+// FIXME: Некоторые игроки любят сложнее.
+_player_gue = !(west in gosa_friendlyside or east in gosa_friendlyside);
+if (_player_gue) then {
+	_z=["RU","BIS_TK"];
+	for "_i" from 0 to count _z -1 do {
+		_item = _z select _i;
+		_param_ratio = missionNamespace getVariable ("gosa_faction_multiplier_"+_item);
+		if (_param_ratio == -1) then {
+			[AllGroupsEast, [_item], 0.25] call _fnc6;
+		};
+	};
+	_z=["USMC","BIS_US","BIS_CZ","BIS_GER","BIS_BAF"];
+	for "_i" from 0 to count _z -1 do {
+		_item = _z select _i;
+		_param_ratio = missionNamespace getVariable ("gosa_faction_multiplier_"+_item);
+		if (_param_ratio == -1) then {
+			[AllGroupsWest, [_item], 0.25] call _fnc6;
+		};
+	};
+	_z=["PMC_BAF"];
+	for "_i" from 0 to count _z -1 do {
+		_item = _z select _i;
+		_param_ratio = missionNamespace getVariable ("gosa_faction_multiplier_"+_item);
+		if (_param_ratio == -1) then {
+			[AllGroupsGuer, [_item], 0.25] call _fnc6;
+		};
+	};
 };
 
 //--- лес
 if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{
-	//--- PMC
-	[AllGroupsGuer, [
-		"PMC_BAF"
-	], 0.25] call _fnc6;
+	_z=["PMC_BAF"];
+	for "_i" from 0 to count _z -1 do {
+		_item = _z select _i;
+		if (missionNamespace getVariable ("gosa_faction_multiplier_"+_item) == -1) then {
+			[AllGroupsGuer, [_item], 0.25] call _fnc6;
+		};
+	};
 };
 
 if(toLower worldName == "utes")then{

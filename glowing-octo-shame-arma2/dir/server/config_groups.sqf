@@ -16,7 +16,8 @@
 */
 
 
-private ["_west","_east","_guer","_woodland","_deserted",
+private ["_west","_east","_guer","_woodland","_deserted","_tmp","_mod_acr",
+	"_f_multi_bis_cz","_f_multi_bis_tk","_f_multi_bis_tk_gue",
 	"_r0","_r1","_r2","_r3","_r4","_r5","_r6",
 	"_s1","_s2","_mg","_mg2","_gl","_at",
 	"_westPatrol","_eastPatrol","_guerPatrol",
@@ -41,7 +42,8 @@ if(LIB_a2Avail)then{
 
 	// INS
 	if(true)then{
-		if(!_deserted)then{
+		_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"INS");
+		if((!_deserted && _tmp == -1) or _tmp > 0)then{
 			_mg2 = "INS_Soldier_AR";
 			_mg = "INS_Soldier_MG";
 			_gl = "INS_Soldier_GL";
@@ -273,8 +275,13 @@ if(LIB_a2Avail)then{
 					[[[["ZSU_INS"], [[0,0],[0,10]],[_r3,_r3]]],0.5]
 				];
 			};
+		};
+	};
 
 	// CDF
+	if(true)then{
+		_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CDF");
+		if((!_deserted && _tmp == -1) or _tmp > 0)then{
 			_mg2 = "CDF_Soldier_AR";
 			_mg = "CDF_Soldier_MG";
 			_gl = "CDF_Soldier_GL";
@@ -490,8 +497,13 @@ if(LIB_a2Avail)then{
 					[[[["ZSU_CDF"], [],[_r3,_r3]]],0.5]
 				];
 			};
+		};
+	};
 
 	// GUE
+	if(true)then{
+		_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"GUE");
+		if((!_deserted && _tmp == -1) or _tmp > 0)then{
 			_mg2 = "GUE_Soldier_AR";
 			_mg = "GUE_Soldier_MG";
 			_gl = "GUE_Soldier_GL";
@@ -685,8 +697,9 @@ if(LIB_a2Avail)then{
 	};
 
 		// USMC
-	if(true)then{
 	// TODO: FRTeam другой камуфляж.
+	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"USMC");
+	if(_tmp > 0 or _tmp == -1)then{
 		_mg2 = "USMC_Soldier_AR";
 		_mg = "USMC_Soldier_MG";
 		_gl = "USMC_Soldier_LAT";
@@ -1027,7 +1040,8 @@ if(LIB_a2Avail)then{
 	};
 
 		// RU
-	if(true)then{
+	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"RU");
+	if(_tmp > 0 or _tmp == -1)then{
 		_mg2 = "RU_Soldier_AR";
 		_mg = "RU_Soldier_MG";
 		_gl = "RU_Soldier_GL";
@@ -1395,8 +1409,9 @@ if(LIB_a2Avail)then{
 if(LIB_ahAvail)then{
 
 	// BIS_BAF
-if(true)then{
 // TODO: Устранить ленивый код, чтобы при (_tmp > 0) были нормальные отряды даже на неучтенных картах.
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_BAF");
+if(_tmp > 0 or _tmp == -1)then{
 	if((!_woodland) && (_deserted))then{
 		_mg2 = "BAF_Soldier_AR_DDPM";
 		_mg = "BAF_Soldier_AAR_DDPM";
@@ -1536,8 +1551,9 @@ if(true)then{
 };
 
 	// BIS_GER
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_GER");
 if(true)then{
-	if(!_woodland)then{
+	if((!_woodland && _tmp == -1) or _tmp > 0)then{
 		_west=_west+[
 			[[[["GER_Soldier_TL_EP1","GER_Soldier_MG_EP1","GER_Soldier_EP1","GER_Soldier_Scout_EP1","GER_Soldier_EP1","GER_Soldier_Medic_EP1"],[],
 			[_r2,_r1,_r1,_r1,_r0,_r0]]],0.01]
@@ -1546,8 +1562,9 @@ if(true)then{
 };
 
 	// BIS_US
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_US");
 if(true)then{
-	if(!_woodland)then{
+	if((!_woodland && _tmp == -1) or _tmp > 0)then{
 		_west=_west+[
 			[[[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 				[_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],0.5],
@@ -1692,8 +1709,9 @@ if(true)then{
 };
 
 	// BIS_TK_INS
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK_INS");
 if(true)then{
-	if(!_woodland)then{
+	if((!_woodland && _tmp == -1) or _tmp > 0)then{
 		_east=_east+[
 			[[[["TK_INS_Soldier_TL_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_2_EP1","TK_INS_Soldier_AT_EP1","TK_INS_Soldier_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_AR_EP1","TK_INS_Soldier_Sniper_EP1","TK_INS_Soldier_3_EP1","TK_INS_Soldier_4_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
 				[_r2,_r1,_r1,_r1,_r1,_r1,_r1,_r1,_r0,_r0]]],0.7],
@@ -1723,7 +1741,8 @@ if(true)then{
 };
 
 	// BIS_TK
-if(true)then{
+_f_multi_bis_tk = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK");
+if(_f_multi_bis_tk > 0 or _f_multi_bis_tk == -1)then{
 	_east=_east+[
 		[[[["T72_TK_EP1","T72_TK_EP1","T72_TK_EP1"],[[0,10,0],[5,0,0],[10,0,0]],
 			[_r4,_r3,_r3]]],0.05],
@@ -1826,8 +1845,9 @@ if(true)then{
 };
 
 	// BIS_UN
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_UN");
 if(true)then{
-	if(!_woodland)then{
+	if((!_woodland && _tmp == -1) or _tmp > 0)then{
 		_guer=_guer+[
 			[[[["UN_CDF_Soldier_Guard_EP1","UN_CDF_Soldier_EP1","UN_CDF_Soldier_AT_EP1","UN_CDF_Soldier_MG_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 				[_r2,_r1,_r1,_r1]]],0.5],
@@ -1857,8 +1877,9 @@ if(true)then{
 };
 
 	// BIS_TK_GUE
+_f_multi_bis_tk_gue = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK_GUE");
 if(true)then{
-	if(!_woodland)then{
+	if((!_woodland && _f_multi_bis_tk_gue == -1) or _f_multi_bis_tk_gue > 0)then{
 		_guer=_guer+[
 			[[[["TK_GUE_Soldier_TL_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_4_EP1","TK_GUE_Soldier_Sniper_EP1","TK_GUE_Soldier_5_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_4_EP1","TK_GUE_Soldier_2_EP1","TK_GUE_Soldier_5_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
 				[_r2,_r1,_r1,_r1,_r1,_r1,_r0,_r0,_r0,_r0]]],0.7],
@@ -1908,7 +1929,8 @@ if(true)then{
 };
 
 	// PMC_BAF
-if(true)then{
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"PMC_BAF");
+if(_tmp > 0 or _tmp == -1)then{
 	_guer=_guer+[
 		[[[["Soldier_TL_PMC",
 			"M113_PMC","Soldier_Sniper_KSVK_PMC",
@@ -1947,8 +1969,11 @@ if(true)then{
 };
 
 	// ACR
+_mod_acr = (configName(configFile >> "CfgMods" >> "ACR") != "");
+_f_multi_bis_cz = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_CZ");
 if(true)then{
-	if(!_woodland)then{
+	if(_f_multi_bis_cz > 0 or _f_multi_bis_cz == -1)then{
+	if(!_woodland or !_mod_acr)then{
 		_west=_west+[
 			[[[["CZ_Special_Forces_TL_DES_EP1","CZ_Special_Forces_MG_DES_EP1","CZ_Special_Forces_GL_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_Scout_DES_EP1"],[],
 				[_r3,_r2,_r2,_r1,_r1,_r1]]],0.1],
@@ -1976,13 +2001,15 @@ if(true)then{
 			[[[["AGS_CZ_EP1"], [],[_r0]]],0.01],
 			[[[["DSHKM_CZ_EP1"], [],[_r0]]],0.01]
 		];
+		};
 	};
 };
 
 };
 
 // ACR
-if(configName(configFile >> "CfgMods" >> "ACR") != "")then{
+if(_mod_acr)then{
+	if(_f_multi_bis_cz > 0 or _f_multi_bis_cz == -1)then{
 	if(_deserted)then{
 		_west=_west+[
 			[[[["Mi24_D_CZ_ACR"], [],
@@ -2012,10 +2039,12 @@ if(configName(configFile >> "CfgMods" >> "ACR") != "")then{
 			[[[["Rbs70_ACR"], [],[_r0]]],0.01]
 
 		];
+			if(_f_multi_bis_tk_gue > 0 or _f_multi_bis_tk_gue == -1)then{
 		_guer=_guer+[
 			[[[["TK_GUE_Soldier_TL_EP1","BVP1_TK_GUE_ACR","TK_GUE_Soldier_AR_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_EP1","TK_GUE_Soldier_3_EP1","TK_GUE_Soldier_2_EP1"], [[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 				[_r3,_r3,_r1,_r1,_r1,_r1,_r0,_r0]]],0.01]
 		];
+			};
 	}else{
 		_west=_west+[
 			[[[["Mi24_D_CZ_ACR"], [],
@@ -2079,10 +2108,13 @@ if(configName(configFile >> "CfgMods" >> "ACR") != "")then{
 		[[[["L159_ACR","L159_ACR"], [[0,0],[15,0]],[_r4,_r3]]],0.01],
 		[[[["L39_2_ACR"], [],[_r3]]],0.01]
 	];
+		if(_f_multi_bis_tk > 0 or _f_multi_bis_tk == -1)then{
 	_east=_east+[
 		[[[["TK_Soldier_SL_EP1","BVP1_TK_ACR","TK_Soldier_MG_EP1","TK_Soldier_GL_EP1","TK_Soldier_AT_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_AAT_EP1"], [[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 			[_r3,_r3,_r1,_r1,_r1,_r1,_r0,_r0]]],0.01]
 	];
+		};
+	};
 };
 
 // BWMod
