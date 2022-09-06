@@ -1973,34 +1973,34 @@ _mod_acr = (configName(configFile >> "CfgMods" >> "ACR") != "");
 _f_multi_bis_cz = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_CZ");
 if(true)then{
 	if(_f_multi_bis_cz > 0 or _f_multi_bis_cz == -1)then{
-	if(!_woodland or !_mod_acr)then{
-		_west=_west+[
-			[[[["CZ_Special_Forces_TL_DES_EP1","CZ_Special_Forces_MG_DES_EP1","CZ_Special_Forces_GL_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_Scout_DES_EP1"],[],
-				[_r3,_r2,_r2,_r1,_r1,_r1]]],0.1],
-			[[[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"],[],
-				[_r3,_r2,_r1,_r1]]],0.5],
+		if(!_woodland or !_mod_acr)then{
+			_west=_west+[
+				[[[["CZ_Special_Forces_TL_DES_EP1","CZ_Special_Forces_MG_DES_EP1","CZ_Special_Forces_GL_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_Scout_DES_EP1"],[],
+					[_r3,_r2,_r2,_r1,_r1,_r1]]],0.1],
+				[[[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"],[],
+					[_r3,_r2,_r1,_r1]]],0.5],
 
-			[[[["CZ_Soldier_SL_DES_EP1","LandRover_CZ_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_DES_EP1"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0]],
-				[_r2,_r2,_r1,_r1]]],0.6],
-			// FIXME: 0?
-			[[[["CZ_Special_Forces_TL_DES_EP1","LandRover_Special_CZ_EP1","CZ_Special_Forces_GL_DES_EP1"],[[3,5,0],[-5,0,0],[5,0,0]],
-				[_r2,_r2,_r1]]],0],
-			[[[["CZ_Special_Forces_TL_DES_EP1","ATV_CZ_EP1","ATV_CZ_EP1","CZ_Special_Forces_Scout_DES_EP1"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],
-				[_r2,_r1,_r1,_r1]]],0],
+				[[[["CZ_Soldier_SL_DES_EP1","LandRover_CZ_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_DES_EP1"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0]],
+					[_r2,_r2,_r1,_r1]]],0.6],
+				// FIXME: 0?
+				[[[["CZ_Special_Forces_TL_DES_EP1","LandRover_Special_CZ_EP1","CZ_Special_Forces_GL_DES_EP1"],[[3,5,0],[-5,0,0],[5,0,0]],
+					[_r2,_r2,_r1]]],0],
+				[[[["CZ_Special_Forces_TL_DES_EP1","ATV_CZ_EP1","ATV_CZ_EP1","CZ_Special_Forces_Scout_DES_EP1"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],
+					[_r2,_r1,_r1,_r1]]],0],
 
-			[[[["Mi171Sh_CZ_EP1","Mi171Sh_CZ_EP1"],[[0,15,0],[15,0,0]],
-				[_r4,_r3]]],0.3],
-			[[[["Mi171Sh_CZ_EP1"],[],
-				[_r4,_r3]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]
-				],0.3],
-			[[[["Mi171Sh_rockets_CZ_EP1"],[],
-				[_r4]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]
-				],0.3],
+				[[[["Mi171Sh_CZ_EP1","Mi171Sh_CZ_EP1"],[[0,15,0],[15,0,0]],
+					[_r4,_r3]]],0.3],
+				[[[["Mi171Sh_CZ_EP1"],[],
+					[_r4,_r3]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]
+					],0.3],
+				[[[["Mi171Sh_rockets_CZ_EP1"],[],
+					[_r4]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]
+					],0.3],
 
-			//StaticWeapon
-			[[[["AGS_CZ_EP1"], [],[_r0]]],0.01],
-			[[[["DSHKM_CZ_EP1"], [],[_r0]]],0.01]
-		];
+				//StaticWeapon
+				[[[["AGS_CZ_EP1"], [],[_r0]]],0.01],
+				[[[["DSHKM_CZ_EP1"], [],[_r0]]],0.01]
+			];
 		};
 	};
 };
@@ -2010,109 +2010,109 @@ if(true)then{
 // ACR
 if(_mod_acr)then{
 	if(_f_multi_bis_cz > 0 or _f_multi_bis_cz == -1)then{
-	if(_deserted)then{
-		_west=_west+[
-			[[[["Mi24_D_CZ_ACR"], [],
-				[_r4]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_805g_Dst_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"]]
-				],0.01],
-			[[[["Mi171Sh_CZ_EP1"], [],
-				[_r4]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_805g_Dst_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"]]
-				],0.01],
-			[[[["Mi171Sh_rockets_CZ_EP1"], [],
-				[_r4]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_805g_Dst_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"]]
-				],0.01],
+		if(_deserted)then{
+			_west=_west+[
+				[[[["Mi24_D_CZ_ACR"], [],
+					[_r4]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_805g_Dst_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"]]
+					],0.01],
+				[[[["Mi171Sh_CZ_EP1"], [],
+					[_r4]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_805g_Dst_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"]]
+					],0.01],
+				[[[["Mi171Sh_rockets_CZ_EP1"], [],
+					[_r4]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_805g_Dst_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"]]
+					],0.01],
 
-			[[[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_805g_Dst_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"],[],
-				[_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0]]],0.5],
+				[[[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_805g_Dst_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"],[],
+					[_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0]]],0.5],
 
-			[[[["CZ_Soldier_SL_DES_EP1","BMP2_Des_ACR","CZ_Soldier_MG_DES_EP1","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-				[_r3,_r3,_r2,_r1,_r1,_r0,_r0]]],0.6],
-			[[[["CZ_Soldier_805g_Dst_ACR","Dingo_DST_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Soldier_RPG_Dst_ACR"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-				[_r3,_r2,_r2,_r1,_r1,_r0]]],0.4],
+				[[[["CZ_Soldier_SL_DES_EP1","BMP2_Des_ACR","CZ_Soldier_MG_DES_EP1","CZ_Sharpshooter_DES_ACR","CZ_Soldier_RPG_Dst_ACR","CZ_Soldier_RPG_Ass_Dst_ACR","CZ_Soldier_medik_DES_EP1"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
+					[_r3,_r3,_r2,_r1,_r1,_r0,_r0]]],0.6],
+				[[[["CZ_Soldier_805g_Dst_ACR","Dingo_DST_ACR","CZ_Soldier_MG2_Dst_ACR","CZ_Soldier805_DES_ACR","CZ_Soldier_RPG_Dst_ACR"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
+					[_r3,_r2,_r2,_r1,_r1,_r0]]],0.4],
 
-			[[[["T810Reammo_Des_ACR"], [],[_r0]]],0.01],
-			[[[["T810Refuel_Des_ACR"], [],[_r0]]],0.01],
-			[[[["T810Repair_Des_ACR"], [],[_r0],[["CZ_Soldier_Engineer_Dst_ACR"]]]],0.01],
-			[[[["HMMWV_Ambulance_CZ_DES_EP1"], [],[_r0],[["CZ_Soldier_medik_DES_EP1"]]]],0.01],
-			[[[["LandRover_Ambulance_Des_ACR"], [],[_r0],[["CZ_Soldier_medik_DES_EP1"]]]],0.01],
-			//StaticWeapon
-			[[[["Rbs70_ACR"], [],[_r0]]],0.01]
+				[[[["T810Reammo_Des_ACR"], [],[_r0]]],0.01],
+				[[[["T810Refuel_Des_ACR"], [],[_r0]]],0.01],
+				[[[["T810Repair_Des_ACR"], [],[_r0],[["CZ_Soldier_Engineer_Dst_ACR"]]]],0.01],
+				[[[["HMMWV_Ambulance_CZ_DES_EP1"], [],[_r0],[["CZ_Soldier_medik_DES_EP1"]]]],0.01],
+				[[[["LandRover_Ambulance_Des_ACR"], [],[_r0],[["CZ_Soldier_medik_DES_EP1"]]]],0.01],
+				//StaticWeapon
+				[[[["Rbs70_ACR"], [],[_r0]]],0.01]
 
-		];
+			];
 			if(_f_multi_bis_tk_gue > 0 or _f_multi_bis_tk_gue == -1)then{
-		_guer=_guer+[
-			[[[["TK_GUE_Soldier_TL_EP1","BVP1_TK_GUE_ACR","TK_GUE_Soldier_AR_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_EP1","TK_GUE_Soldier_3_EP1","TK_GUE_Soldier_2_EP1"], [[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
-				[_r3,_r3,_r1,_r1,_r1,_r1,_r0,_r0]]],0.01]
-		];
+				_guer=_guer+[
+					[[[["TK_GUE_Soldier_TL_EP1","BVP1_TK_GUE_ACR","TK_GUE_Soldier_AR_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_EP1","TK_GUE_Soldier_3_EP1","TK_GUE_Soldier_2_EP1"], [[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+						[_r3,_r3,_r1,_r1,_r1,_r1,_r0,_r0]]],0.01]
+				];
 			};
-	}else{
+		}else{
+			_west=_west+[
+				[[[["Mi24_D_CZ_ACR"], [],
+					[_r4]],[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_805g_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"]]
+					],0.01],
+				[[[["Mi171Sh_CZ_EP1"], [],
+					[_r4]],[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_805g_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"]]
+					],0.01],
+				[[[["Mi171Sh_rockets_CZ_EP1"], [],
+					[_r4]],[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_805g_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"]]
+					],0.01],
+
+				[[[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_805g_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[],
+					[_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0]]],0.5],
+				[[[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Soldier_Engineer_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[],
+					[_r3,_r2,_r1,_r1,_r0,_r0]]],0.5],
+
+				[[[["CZ_Soldier_Leader_Wdl_ACR",
+					"BMP2_ACR","CZ_Soldier_MG_Wdl_ACR",
+					"CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR",
+					"CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
+					[_r3,
+					_r3,_r2,
+					_r1,_r1,
+					_r0,_r0]]],0.01],
+				[[[["CZ_Soldier_Leader_Wdl_ACR","Pandur2_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
+					[_r3,_r3,_r2,_r1,_r1,_r1,_r0,_r0]]],0.9],
+				[[[["CZ_Soldier_805g_Wdl_ACR","Dingo_WDL_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
+					[_r3,_r2,_r2,_r1,_r1,_r0]]],0.6],
+
+				[[[["T72_ACR","T72_ACR"], [[0,0],[10,0]],[_r4,_r3]]],0.01],
+
+				[[[["CZ_Soldier_Leader_Wdl_ACR",
+					"T810A_MG_ACR","CZ_Soldier_805g_Wdl_ACR",
+					"CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR",
+					"CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR",
+					"CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[],
+					[_r3,
+					_r0,_r2,
+					_r2,_r1,
+					_r1,_r1,
+					_r0,_r0]]],0.01],
+				[[[["CZ_Soldier_Leader_Wdl_ACR",
+					"T810_ACR","CZ_Soldier_805g_Wdl_ACR",
+					"CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR",
+					"CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR",
+					"CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[],
+					[_r3,
+					_r0,_r2,
+					_r2,_r1,
+					_r1,_r1,
+					_r0,_r0]]],0.01],
+
+				[[[["T810Reammo_ACR"], [],[_r0]]],0.01],
+				[[[["T810Refuel_ACR"], [],[_r0]]],0.01],
+				[[[["T810Repair_ACR"], [],[_r0],[["CZ_Soldier_Engineer_Wdl_ACR"]]]],0.01],
+				[[[["LandRover_Ambulance_ACR"], [],[_r0],[["CZ_Soldier_Medic_Wdl_ACR"]]]],0.01]
+			];
+		};
 		_west=_west+[
-			[[[["Mi24_D_CZ_ACR"], [],
-				[_r4]],[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_805g_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"]]
-				],0.01],
-			[[[["Mi171Sh_CZ_EP1"], [],
-				[_r4]],[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_805g_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"]]
-				],0.01],
-			[[[["Mi171Sh_rockets_CZ_EP1"], [],
-				[_r4]],[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_805g_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"]]
-				],0.01],
-
-			[[[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_805g_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[],
-				[_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0]]],0.5],
-			[[[["CZ_Soldier_Leader_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Soldier_Engineer_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[],
-				[_r3,_r2,_r1,_r1,_r0,_r0]]],0.5],
-
-			[[[["CZ_Soldier_Leader_Wdl_ACR",
-				"BMP2_ACR","CZ_Soldier_MG_Wdl_ACR",
-				"CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR",
-				"CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-				[_r3,
-				_r3,_r2,
-				_r1,_r1,
-				_r0,_r0]]],0.01],
-			[[[["CZ_Soldier_Leader_Wdl_ACR","Pandur2_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-				[_r3,_r3,_r2,_r1,_r1,_r1,_r0,_r0]]],0.9],
-			[[[["CZ_Soldier_805g_Wdl_ACR","Dingo_WDL_ACR","CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-				[_r3,_r2,_r2,_r1,_r1,_r0]]],0.6],
-
-			[[[["T72_ACR","T72_ACR"], [[0,0],[10,0]],[_r4,_r3]]],0.01],
-
-			[[[["CZ_Soldier_Leader_Wdl_ACR",
-				"T810A_MG_ACR","CZ_Soldier_805g_Wdl_ACR",
-				"CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR",
-				"CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR",
-				"CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[],
-				[_r3,
-				_r0,_r2,
-				_r2,_r1,
-				_r1,_r1,
-				_r0,_r0]]],0.01],
-			[[[["CZ_Soldier_Leader_Wdl_ACR",
-				"T810_ACR","CZ_Soldier_805g_Wdl_ACR",
-				"CZ_Soldier_MG2_Wdl_ACR","CZ_Soldier_805_Wdl_ACR",
-				"CZ_Sharpshooter_Wdl_ACR","CZ_Soldier_RPG_Wdl_ACR",
-				"CZ_Soldier_RPG_Ass_Wdl_ACR","CZ_Soldier_Medic_Wdl_ACR"],[],
-				[_r3,
-				_r0,_r2,
-				_r2,_r1,
-				_r1,_r1,
-				_r0,_r0]]],0.01],
-
-			[[[["T810Reammo_ACR"], [],[_r0]]],0.01],
-			[[[["T810Refuel_ACR"], [],[_r0]]],0.01],
-			[[[["T810Repair_ACR"], [],[_r0],[["CZ_Soldier_Engineer_Wdl_ACR"]]]],0.01],
-			[[[["LandRover_Ambulance_ACR"], [],[_r0],[["CZ_Soldier_Medic_Wdl_ACR"]]]],0.01]
+			[[[["L159_ACR","L159_ACR"], [[0,0],[15,0]],[_r4,_r3]]],0.01],
+			[[[["L39_2_ACR"], [],[_r3]]],0.01]
 		];
-	};
-	_west=_west+[
-		[[[["L159_ACR","L159_ACR"], [[0,0],[15,0]],[_r4,_r3]]],0.01],
-		[[[["L39_2_ACR"], [],[_r3]]],0.01]
-	];
 		if(_f_multi_bis_tk > 0 or _f_multi_bis_tk == -1)then{
-	_east=_east+[
-		[[[["TK_Soldier_SL_EP1","BVP1_TK_ACR","TK_Soldier_MG_EP1","TK_Soldier_GL_EP1","TK_Soldier_AT_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_AAT_EP1"], [[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
-			[_r3,_r3,_r1,_r1,_r1,_r1,_r0,_r0]]],0.01]
-	];
+			_east=_east+[
+				[[[["TK_Soldier_SL_EP1","BVP1_TK_ACR","TK_Soldier_MG_EP1","TK_Soldier_GL_EP1","TK_Soldier_AT_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_AAT_EP1"], [[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
+					[_r3,_r3,_r1,_r1,_r1,_r1,_r0,_r0]]],0.01]
+			];
 		};
 	};
 };
