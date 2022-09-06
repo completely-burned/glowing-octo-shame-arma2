@@ -1,4 +1,12 @@
-﻿private ["_cfgGroups","_Blacklist"];
+/*
+Конвертирует CfgGroups в формат этого сценария.
+Примеры:
+copyToClipboard str ([["East"],["INS","RU"],[]] call gosa_fnc_returnGroups);
+copyToClipboard str ([["I44_A"],[],[]] call gosa_fnc_returnGroups);
+*/
+
+
+private ["_cfgGroups","_Blacklist"];
 _cfgGroups = configFile >> "CfgGroups";
 _Blacklist=[
 _cfgGroups >> "West" >> "USMC" >> "Infantry" >> "USMC_FRTeam_Razor",
@@ -20,7 +28,7 @@ else{
 			for "_i" from 0 to ((count _side_x) - 1) do {
 					private ["_item"];
 					_item = (_side_x select _i);
-					
+
 					if (isClass _item) then {
 						_cfgFaction = (_cfgFaction  + [configName _item]);
 					};
@@ -30,7 +38,7 @@ else{
 };
 if ((count(_this select 2)) > 0) then {
 	_type = _this select 2;
-} 
+}
 else {
 	_type = [];
 		for "_z" from 0 to ((count _side) - 1) do {
@@ -66,22 +74,22 @@ _groups = [];
 					_grp = ((_cfgGroups >> _side_x >> _cfgFaction_x >> _x) select _i);
 					private ["_weight"];
 					if(isNumber(_grp >> "rarityGroup"))then{_weight = getNumber(_grp >> "rarityGroup")}else{_weight=0};
-					
+
 					private ["_types","_positions","_ranks"];
 					_types = []; _positions = []; _ranks = [];
-					for "_i" from 0 to ((count _grp) - 1) do 
+					for "_i" from 0 to ((count _grp) - 1) do
 					{
 						private ["_item"];
 						_item = _grp select _i;
-						
-						if (isClass _item) then 
+
+						if (isClass _item) then
 						{
 							_types = _types + [getText(_item >> "vehicle")];
 							_ranks = _ranks + [getText(_item >> "rank")];
 							_positions = _positions + [getArray(_item >> "position")];
 						};
 					};
-					
+
 					_groups = (_groups + [[[_types,_positions,_ranks],_weight]]);
 				};
 			};
