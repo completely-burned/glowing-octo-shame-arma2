@@ -13,6 +13,7 @@ for [{_n = 0},{_n < 100},{_n = _n + 1}] do {
 };
 
 private["_fnc4","_fnc1","_fnc5"];
+// Функция отсеивает отряды с юнитами неустановленных расширений.
 _fnc5={
 	private["_grp","_types","_true"];
 	_grp = _this; // [[[[[_types,_positions,_ranks],[_types,_positions,_ranks]]],[[_types,_positions,_ranks],[_types,_positions,_ranks]]],[0.5,0.5]]
@@ -70,6 +71,7 @@ _fnc1={
 	[_groups,_weights];
 };
 
+// Функция меняет баланс для фракции.
 private ["_fnc6"];
 _fnc6={
 	private["_grp","_factions","_raritySet","_types","_rarity"];

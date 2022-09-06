@@ -39,7 +39,7 @@ if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","na
 // A2
 if(LIB_a2Avail)then{
 
-	// INS // CDF // GUE
+	// INS
 	if(true)then{
 		if(!_deserted)then{
 			_mg2 = "INS_Soldier_AR";
@@ -274,6 +274,7 @@ if(LIB_a2Avail)then{
 				];
 			};
 
+	// CDF
 			_mg2 = "CDF_Soldier_AR";
 			_mg = "CDF_Soldier_MG";
 			_gl = "CDF_Soldier_GL";
@@ -490,6 +491,7 @@ if(LIB_a2Avail)then{
 				];
 			};
 
+	// GUE
 			_mg2 = "GUE_Soldier_AR";
 			_mg = "GUE_Soldier_MG";
 			_gl = "GUE_Soldier_GL";
@@ -684,12 +686,14 @@ if(LIB_a2Avail)then{
 
 		// USMC
 	if(true)then{
+	// TODO: FRTeam другой камуфляж.
 		_mg2 = "USMC_Soldier_AR";
 		_mg = "USMC_Soldier_MG";
 		_gl = "USMC_Soldier_LAT";
 		_at = "USMC_Soldier_AT";
 		_s2 = "USMC_Soldier_TL";
 		_s1 = "USMC_Soldier";
+		//-- Юниты обычные.
 		if(!_deserted or !acex_usnavy_Avail)then{
 			_west=_west+[
 				// USMC_InfSquad
@@ -904,6 +908,7 @@ if(LIB_a2Avail)then{
 			];
 		};
 		if(acex_usnavy_Avail)then{
+			//-- Юниты ACE лес, в дополнение к обычным.
 			if(!_deserted)then{
 					_west=_west+[
 						[[[[_s2,"ACE_Stryker_ICV_M2_SLAT",_s2,_mg2,_at,"USMC_Soldier_GL",_s2,_mg2,"USMC_Soldier_GL","USMC_SoldierM_Marksman"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
@@ -932,6 +937,7 @@ if(LIB_a2Avail)then{
 							[_r4,_r3]]],0.01]
 					];
 			};
+			//-- Юниты ACE пустыня.
 			if(!_woodland)then{
 				_west=_west+[
 					[[[["ACE_USMC_Soldier_SL_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[12,0,0],[14,0,0],[16,0,0],[18,0,0],[3,-5,0],[5,-5,0],[7,-5,0],[9,-5,0]],
@@ -995,6 +1001,7 @@ if(LIB_a2Avail)then{
 				];
 			};
 		}else{
+				//-- Юниты обычные, у которых нет замены в ACE.
 				_west=_west+[
 					// USMC_TankPlatoon !=
 					// звания изменены
@@ -1027,6 +1034,7 @@ if(LIB_a2Avail)then{
 		_at = "RU_Soldier_AT";
 		_s2 = "RU_Soldier_LAT";
 		_s1 = "RU_Soldier";
+		//-- Юниты обычные.
 		if(	(!_deserted) or !acex_ru_Avail)then{
 			_east=_east+[
 				// RU_InfSquad
@@ -1181,6 +1189,7 @@ if(LIB_a2Avail)then{
 				[[[["SearchLight_RUS"],[],[_r0]]],0.01]
 			];
 		};
+		//-- Юниты обычные, другой камуфляж.
 		if(!_deserted)then{
 			_east=_east+[
 				// MVD_AssaultTeam !=
@@ -1197,6 +1206,7 @@ if(LIB_a2Avail)then{
 			];
 		};
 		if(acex_ru_Avail)then{
+			//-- Юниты ACE лес, в дополнение к обычным.
 			if(!_deserted)then{
 				_east=_east+[
 					// [[[["ACE_SoldierE_HMG","ACE_SoldierE_HMGAG","ACE_SoldierE_HMGAB"],[[0,"+6",0],[-2,"+4",0],["+2","+4",0]],[2,1,0]]],0],
@@ -1246,6 +1256,7 @@ if(LIB_a2Avail)then{
 						[_r3,_r2,_r2,_r2,_r1,_r1,_r1]]],0.07]
 				];
 			};
+			//-- Юниты ACE пустыня.
 			if(!_woodland)then{
 				_east=_east+[
 					[[[["ACE_RU_Soldier_SL_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D","ACE_RU_Soldier_Marksman_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_AR_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D","ACE_RU_Soldier_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
@@ -1353,6 +1364,7 @@ if(LIB_a2Avail)then{
 				];
 			};
 		}else{
+			//-- Юниты обычные, другой камуфляж.
 			if(!_deserted)then{
 				_east=_east+[
 					// RUS_ReconTeam !=
@@ -1366,6 +1378,7 @@ if(LIB_a2Avail)then{
 						_r1,_r1]]],0.07]
 				];
 			};
+			//-- Юниты обычные, у которых нет замены в ACE.
 			_east=_east+[
 				// RU_TankPlatoon !=
 				[[[["T90","T90","T90"],[[0,10,0],[5,0,0],[10,0,0]],
@@ -1383,6 +1396,7 @@ if(LIB_ahAvail)then{
 
 	// BIS_BAF
 if(true)then{
+// TODO: Устранить ленивый код, чтобы при (_tmp > 0) были нормальные отряды даже на неучтенных картах.
 	if((!_woodland) && (_deserted))then{
 		_mg2 = "BAF_Soldier_AR_DDPM";
 		_mg = "BAF_Soldier_AAR_DDPM";
