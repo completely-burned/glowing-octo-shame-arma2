@@ -1973,7 +1973,10 @@ if(LIB_ahAvail)then{
 	_f_multi_bis_cz = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_CZ");
 	if(true)then{
 		if(_f_multi_bis_cz > 0 or _f_multi_bis_cz == -1)then{
-			if(!_woodland or !_mod_acr)then{
+			//-- Юниты обычные (пустыня).
+				// Если стандартные настройки и карта пустыня.
+				// Если включено и нет ACR лес.
+			if(!_woodland or (_f_multi_bis_cz > 0 && !_mod_acr))then{
 				_west=_west+[
 					[[[["CZ_Special_Forces_TL_DES_EP1","CZ_Special_Forces_MG_DES_EP1","CZ_Special_Forces_GL_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_Scout_DES_EP1"],[],
 						[_r3,_r2,_r2,_r1,_r1,_r1]]],0.1],
