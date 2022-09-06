@@ -90,7 +90,8 @@ _groups = [];
 						};
 					};
 
-					_groups = (_groups + [[[_types,_positions,_ranks],_weight]]);
+					_groups = (_groups + ["// configName " + configName _item]);
+					_groups = (_groups + [[[[_types,_positions,_ranks]],_weight]]);
 				};
 			};
 		} forEach _type;
