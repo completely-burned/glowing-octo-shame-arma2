@@ -41,7 +41,7 @@ class Params {
 
 	// Множитель отрядов авиации.
 	class Air {
-		title="AI: multiplier Air [gp]";
+		title="UNITS: Multiplier Air [gp]";
 		default=1;
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
@@ -50,7 +50,7 @@ class Params {
 	// Множитель отрядов гусеничных тс, в том числи шилок и тунгусок.
 	// TODO: Отсеять шилок и тунгусок.
 	class Tank {
-		title="AI: multiplier Tank (Infanty APC not completed) [gp]";
+		title="UNITS: Multiplier Tank (Infanty APC not completed) [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
@@ -58,7 +58,7 @@ class Params {
 
 	// Множитель отрядов тс на колесном ходу, в том числе и бтр.
 	class Car {
-		title="AI: multiplier Car (Infanty not completed) [gp]";
+		title="UNITS: Multiplier Car (Infanty not completed) [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
@@ -67,7 +67,7 @@ class Params {
 	// Множитель отрядов пехоты, в том числе в отряде с тс.
 	// TODO: Отсеять тс.
 	class Man {
-		title="AI: multiplier Man [gp]";
+		title="UNITS: Multiplier Man [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
@@ -75,7 +75,7 @@ class Params {
 
 	// Множитель отрядов надводных.
 	class Ship {
-		title="AI: multiplier Ship [gp]";
+		title="UNITS: Multiplier Ship [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
@@ -83,7 +83,7 @@ class Params {
 
 	// Множитель статичных установок.
 	class StaticWeapon {
-		title="AI: multiplier StaticWeapon [gp]";
+		title="UNITS: Multiplier StaticWeapon [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		default=1;
