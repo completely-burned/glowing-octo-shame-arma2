@@ -25,7 +25,7 @@ if (configName(configFile >> "CfgMods" >> "acex_usnavy") != "") then {acex_usnav
 //--- функции
 [] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
 
-gosa_deviceType = call gosa_fnc_getDeviceType;
+gosa_deviceType = ([] call gosa_fnc_getDeviceType);
 gosa_IslandType = ([] call gosa_fnc_getIslandType);
 
 listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","WarfareSalvageTruck_CDF","WarfareSalvageTruck_Gue","WarfareSalvageTruck_INS",
