@@ -2583,6 +2583,20 @@ if !(isNil "gosa_mod_I44") then {
 		// I44_G_SS_Veh_Tank_Winter
 		[[[["I44_Tank_G_PzKpfwVI_B_SS_Winter","I44_Tank_G_PzKpfwVI_E_Late_AAMG_SS_Winter","I44_Tank_G_PzKpfwVI_E_Late_SS_Winter","I44_Tank_G_JaPz38_T_SS_Winter"],[[0,2,0],[0,0,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private","Private"]]],0]
 	]
+
+	// [I44] Resistance
+	_guer=_guer+[
+		// I44_R_Leaders
+		[[[["I44_Man_R_F_CO_P08","I44_Man_R_F_P38","I44_Man_R_F_P08"],[[0,2,0],[2,0,0],[-2,0,0]],["Lieutenant","Sergeant","Private"]]],0],
+		// I44_R_Fighters
+		[[[["I44_Man_R_F_P38","I44_Man_R_F_StenMk2","I44_Man_R_F_MP40","I44_Man_R_F_M37Ithaca","I44_Man_R_F_K98k","I44_Man_R_F_K98k","I44_Man_R_F_LeeEnfieldNo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private"]]],0],
+		// I44_R_Ambush
+		[[[["I44_Man_R_F_P38","I44_Man_R_F_LeeEnfieldNo4Mk1","I44_Man_R_F_StenMk2","I44_Man_R_F_BrenMk1","I44_Man_R_F_LeeEnfieldNo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0]],["Sergeant","Private","Private","Private","Private"]]],0],
+		// I44_R_Sniper
+		[[[["I44_Man_R_F_Sniper_LeeEnfieldNo4Mk1_T","I44_Man_R_F_P08"],[[0,2,0],[2,0,0]],["Corporal","Private"]]],0],
+		// I44_R_Demo
+		[[[["I44_Man_R_F_P08","I44_Man_R_F_Engr_TNT","I44_Man_R_F_Engr_TNT"],[[0,2,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private"]]],0]
+	];
 };
 
 /* для тестирования групп
