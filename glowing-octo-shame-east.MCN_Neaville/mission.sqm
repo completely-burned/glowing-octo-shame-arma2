@@ -739,6 +739,16 @@ class Mission
 			};
 		};
 	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={4908.4829,30.499357,5065.2661};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+	};
 };
 class Intro
 {
