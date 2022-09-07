@@ -17,6 +17,7 @@ _names = configfile >> "cfgWorlds" >> WorldName >> "Names";
 _StartingLocationsPos = [];
 
 // TODO: нужна функция получения позиций
+// TODO: Мобильный штаб должен появиться, даже если позиций нет.
 for "_i" from 0 to (count _names - 1) do
 {
 	private ["_name"];
