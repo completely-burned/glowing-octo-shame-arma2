@@ -92,31 +92,31 @@ class Params {
 
 	// Множители фракций.
 	class gosa_faction_multiplier_INS {
-		title="FACTION: INS";
+		title="FACTION: BIS_INS";
 		values[] = {-1,1,0};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
 		default=-1;
 	};
 	class gosa_faction_multiplier_RU {
-		title="FACTION: RU";
+		title="FACTION: BIS_RU";
 		values[] = {-1,1,0};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
 		default=-1;
 	};
 	class gosa_faction_multiplier_USMC {
-		title="FACTION: USMC";
+		title="FACTION: BIS_USMC";
 		values[] = {-1,1,0};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
 		default=-1;
 	};
 	class gosa_faction_multiplier_CDF {
-		title="FACTION: CDF";
+		title="FACTION: BIS_CDF";
 		values[] = {-1,1,0};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
 		default=-1;
 	};
 	class gosa_faction_multiplier_GUE {
-		title="FACTION: GUE";
+		title="FACTION: BIS_GUE";
 		values[] = {-1,1,0};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
 		default=-1;
@@ -170,7 +170,7 @@ class Params {
 		default=-1;
 	};
 	class gosa_faction_multiplier_PMC_BAF {
-		title="FACTION: PMC_BAF";
+		title="FACTION: BIS_PMC";
 		values[] = {-1,1,0};
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
 		default=-1;
