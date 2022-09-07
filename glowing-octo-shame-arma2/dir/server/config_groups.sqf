@@ -2303,6 +2303,7 @@ if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
 
 // @I44
 if !(isNil "gosa_mod_I44") then {
+	// I44_A
 	_west=_west+[
 		// I44_A_PltnHQ
 		[[[["I44_Man_A_Army_CO_M1Carbine","I44_Man_A_Army_NCO_M1A1Thompson","I44_Man_A_Army_M1918A2","I44_Man_A_Army_M1Garand","I44_Man_A_Army_RTO_M1Carbine"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0]],["Lieutenant","Sergeant","Corporal","Private","Private"]]],0],
@@ -2397,6 +2398,92 @@ if !(isNil "gosa_mod_I44") then {
 		// I44_A_USAAF_Veh_P51
 		[[[["I44_Plane_A_P51D_AAF","I44_Plane_A_P51D_250lb_AAF","I44_Plane_A_P51D_250lb_AAF","I44_Plane_A_P51D_HVAR_AAF"],[[0,10,0],[10,0,0],[-10,0,0],[20,0,0]],["SERGEANT","Sergeant","Corporal","Private"]]],0]
 	];
+	// I44_B
+	_west=_west+[
+		// I44_B_PltnHQ
+		[[[["I44_Man_B_Army_CO_StenMk5","I44_Man_B_Army_NCO_StenMk5","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_StenMk2"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0]],["Lieutenant","Sergeant","Corporal","Private"]]],0],
+		// I44_B_BrenSection
+		[[[["I44_Man_B_Army_NCO_StenMk5","I44_Man_B_Army_BrenMk1","I44_Man_B_Army_StenMk5","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_BrenMk1","I44_Man_B_Army_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_RecceSection
+		[[[["I44_Man_B_Army_NCO_StenMk5","I44_Man_B_Army_BrenMk1","I44_Man_B_Army_StenMk2","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_PIAT","I44_Man_B_Army_Engr_GrenadeNo75","I44_Man_B_Army_StenMk2"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Rifle
+		[[[["I44_Man_B_Army_NCO_StenMk5","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_StenMk2","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_Engr_GrenadeNo75","I44_Man_B_Army_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Recon
+		[[[["I44_Man_B_Army_StenMk5","I44_Man_B_Army_StenMk5","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_StenMk2"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0]],["Sergeant","Private","Private","Private"]]],0],
+		// I44_B_Bren
+		[[[["I44_Man_B_Army_StenMk5","I44_Man_B_Army_BrenMk1","I44_Man_B_Army_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0]],["Corporal","Private","Private"]]],0],
+		// I44_B_PIAT
+		[[[["I44_Man_B_Army_StenMk2","I44_Man_B_Army_PIAT","I44_Man_B_Army_Engr_GrenadeNo75"],[[0,2,0],[2,0,0],[-2,0,0]],["Corporal","Private","Private"]]],0],
+		// I44_B_Engr
+		[[[["I44_Man_B_Army_NCO_StenMk5","I44_Man_B_Army_Engr_GrenadeNo75","I44_Man_B_Army_Sapper_M37"],[[0,2,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private"]]],0],
+		// I44_B_AB_PltnHQ
+		[[[["I44_Man_B_Army_AB_CO_StenMk5","I44_Man_B_Army_AB_NCO_StenMk5","I44_Man_B_Army_AB_RTO","I44_Man_B_Army_AB_StenMk2"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0]],["Lieutenant","Sergeant","Corporal","Private"]]],0],
+		// I44_B_AB_BrenSection
+		[[[["I44_Man_B_Army_AB_NCO_StenMk5","I44_Man_B_Army_AB_BrenMk1","I44_Man_B_Army_AB_StenMk5","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_BrenMk1","I44_Man_B_Army_AB_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_AB_RecceSection
+		[[[["I44_Man_B_Army_AB_NCO_StenMk5","I44_Man_B_Army_AB_BrenMk1","I44_Man_B_Army_AB_StenMk2","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_PIAT","I44_Man_B_Army_AB_Engr_GrenadeNo75","I44_Man_B_Army_AB_StenMk2"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_AB_Rifle
+		[[[["I44_Man_B_Army_AB_NCO_StenMk5","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_StenMk2","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_Engr_GrenadeNo75","I44_Man_B_Army_AB_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_AB_Recon
+		[[[["I44_Man_B_Army_AB_NCO_SMLENo4Mk1","I44_Man_B_Army_AB_StenMk5","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_StenMk2"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0]],["Sergeant","Private","Private","Private"]]],0],
+		// I44_B_AB_Bren
+		[[[["I44_Man_B_Army_AB_StenMk5","I44_Man_B_Army_AB_BrenMk1","I44_Man_B_Army_AB_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0]],["Corporal","Private","Private"]]],0],
+		// I44_B_AB_PIAT
+		[[[["I44_Man_B_Army_AB_StenMk2","I44_Man_B_Army_AB_PIAT","I44_Man_B_Army_AB_ATCrew_SMLEdNo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0]],["Corporal","Private","Private"]]],0],
+		// I44_B_AB_Engr
+		[[[["I44_Man_B_Army_AB_NCO_StenMk5","I44_Man_B_Army_AB_Engr_GrenadeNo75","I44_Man_B_Army_AB_Sapper_M37"],[[0,2,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private"]]],0],
+		// I44_B_Comm_PltnHQ
+		[[[["I44_Man_B_Army_Commando_CO_StenMk2S","I44_Man_B_Army_Commando_NCO_StenMk2S","I44_Man_B_Army_Commando_RTO","I44_Man_B_Army_Commando_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0]],["Lieutenant","Sergeant","Corporal","Private"]]],0],
+		// I44_B_Comm_BrenSection
+		[[[["I44_Man_B_Army_Commando_NCO_StenMk2S","I44_Man_B_Army_Commando_BrenMk1","I44_Man_B_Army_Commando_StenMk5","I44_Man_B_Army_Commando_SMLENo4Mk1","I44_Man_B_Army_Commando_BrenMk1","I44_Man_B_Army_Commando_SMLENo4Mk1","I44_Man_B_Army_Commando_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Comm_RecceSection
+		[[[["I44_Man_B_Army_Commando_BrenMk1","I44_Man_B_Army_Commando_StenMk5","I44_Man_B_Army_Commando_SMLENo4Mk1","I44_Man_B_Army_Commando_Engr_GrenadeNo75","I44_Man_B_Army_PIAT","I44_Man_B_Army_Commando_PIAT","I44_Man_B_Army_Commando_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Comm_Rifle
+		[[[["I44_Man_B_Army_Commando_NCO_StenMk2S","I44_Man_B_Army_Commando_SMLENo4Mk1","I44_Man_B_Army_Commando_StenMk2","I44_Man_B_Army_Commando_SMLENo4Mk1","I44_Man_B_Army_Commando_Engr_GrenadeNo75","I44_Man_B_Army_Commando_SMLENo4Mk1","I44_Man_B_Army_Commando_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Comm_Recon
+		[[[["I44_Man_B_Army_Commando_NCO_StenMk2S","I44_Man_B_Army_Commando_DeLisle","I44_Man_B_Army_Commando_DeLisle","I44_Man_B_Army_Commando_StenMk2S"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0]],["Sergeant","Private","Private","Private"]]],0],
+		// I44_B_Comm_Bren
+		[[[["I44_Man_B_Army_Commando_StenMk5","I44_Man_B_Army_Commando_BrenMk1","I44_Man_B_Army_Commando_SMLENo4Mk1"],[[0,2,0],[2,0,0],[-2,0,0]],["Corporal","Private","Private"]]],0],
+		// I44_B_Comm_PIAT
+		[[[["I44_Man_B_Army_Commando_StenMk2","I44_Man_B_Army_Commando_PIAT","I44_Man_B_Army_Commando_Engr_GrenadeNo75"],[[0,2,0],[2,0,0],[-2,0,0]],["Corporal","Private","Private"]]],0],
+		// I44_B_Comm_Engr
+		[[[["I44_Man_B_Army_Commando_NCO_StenMk2S","I44_Man_B_Army_Commando_Engr_GrenadeNo75","I44_Man_B_Army_Commando_Sapper_M37"],[[0,2,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private"]]],0],
+		// I44_B_Comm_PltnHQ_Winter
+		[[[["I44_Man_B_Army_Commando_CO_StenMk2S_winter","I44_Man_B_Army_Commando_NCO_StenMk2S_winter","I44_Man_B_Army_Commando_RTO_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0]],["Lieutenant","Sergeant","Corporal","Private"]]],0],
+		// I44_B_Comm_BrenSection_Winter
+		[[[["I44_Man_B_Army_Commando_NCO_StenMk2S_winter","I44_Man_B_Army_Commando_BrenMk1_winter","I44_Man_B_Army_Commando_StenMk5_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter","I44_Man_B_Army_Commando_BrenMk1_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Comm_RecceSection_Winter
+		[[[["I44_Man_B_Army_Commando_BrenMk1_winter","I44_Man_B_Army_Commando_StenMk5_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter","I44_Man_B_Army_Commando_Engr_GrenadeNo75_winter","I44_Man_B_Army_Commando_PIAT_winter","I44_Man_B_Army_Commando_PIAT_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Comm_Rifle_Winter
+		[[[["I44_Man_B_Army_Commando_NCO_StenMk2S_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter","I44_Man_B_Army_Commando_StenMk2_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter","I44_Man_B_Army_Commando_Engr_GrenadeNo75_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[-6,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Comm_Recon_Winter
+		[[[["I44_Man_B_Army_Commando_NCO_StenMk2S_winter","I44_Man_B_Army_Commando_DeLisle_winter","I44_Man_B_Army_Commando_DeLisle_winter","I44_Man_B_Army_Commando_StenMk2S_winter"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0]],["Sergeant","Private","Private","Private"]]],0],
+		// I44_B_Comm_Bren_Winter
+		[[[["I44_Man_B_Army_Commando_StenMk5_winter","I44_Man_B_Army_Commando_BrenMk1_winter","I44_Man_B_Army_Commando_SMLENo4Mk1_winter"],[[0,2,0],[2,0,0],[-2,0,0]],["Corporal","Private","Private"]]],0],
+		// I44_B_Comm_PIAT_Winter
+		[[[["I44_Man_B_Army_Commando_StenMk2_winter","I44_Man_B_Army_Commando_PIAT_winter","I44_Man_B_Army_Commando_Engr_GrenadeNo75_winter"],[[0,2,0],[2,0,0],[-2,0,0]],["Corporal","Private","Private"]]],0],
+		// I44_B_Comm_Engr_Winter
+		[[[["I44_Man_B_Army_Commando_NCO_StenMk2S_winter","I44_Man_B_Army_Commando_Engr_GrenadeNo75_winter","I44_Man_B_Army_Commando_Sapper_M37_winter"],[[0,2,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private"]]],0],
+		// I44_B_Army_Veh_Motorized
+		[[[["I44_Man_B_Army_AB_NCO_StenMk5","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_StenMk2","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_Engr_GrenadeNo75","I44_Car_B_WillysAB_VGO_Army","I44_Car_B_WillysAB_Army"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[10,0,0],[-10,0,0]],["SERGEANT","Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Army_Veh_Motorized_AT
+		[[[["I44_Man_B_Army_AB_NCO_StenMk5","I44_Man_B_Army_AB_BrenMk1","I44_Man_B_Army_AB_StenMk2","I44_Man_B_Army_AB_SMLENo4Mk1","I44_Man_B_Army_AB_PIAT","I44_Man_B_Army_AB_Engr_GrenadeNo75","I44_Car_B_WillysAB_VGO_Army","I44_Car_B_WillysAB_Army"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[10,0,0],[-10,0,0]],["SERGEANT","Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Army_Veh_Mechanized
+		[[[["I44_Man_B_Army_NCO_StenMk5","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_StenMk2","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_Engr_GrenadeNo75","I44_Man_B_Army_SMLENo4Mk1","I44_Tank_B_Army_UC"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[10,0,0],[-10,0,0]],["SERGEANT","Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
+		// I44_B_Army_Veh_Recon
+		[[[["I44_Man_B_Army_StenMk5","I44_Man_B_Army_StenMk5","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_StenMk2","I44_Tank_B_Army_UC"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0]],["Sergeant","Corporal","Private","Private","Private"]]],0],
+		// I44_B_Army_Veh_Tank
+		[[[["I44_Tank_B_ShermanVC_Army","I44_Tank_B_ShermanIV_Army","I44_Tank_B_ShermanIV_Army","I44_Tank_B_ShermanIV_Army"],[[0,2,0],[0,0,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private","Private"]]],0],
+		// I44_B_Army_Veh_Tank_Recon
+		[[[["I44_Veh_B_Army_MKIV_Churchill","I44_Veh_B_Army_MKIV_Churchill","I44_Tank_B_Cromwell_Army","I44_Tank_B_Cromwell_Army"],[[0,2,0],[2,0,0],[-2,0,0],[-2,0,0]],["Corporal","Private","Private","Private"]]],0],
+		// I44_B_RAF_Veh_HH
+		[[[["I44_Plane_B_HHmkIIa_RAF","I44_Plane_B_HHmkIIa_M57_RAF","I44_Plane_B_HHmkIIa_M57_RAF","I44_Plane_B_HHmkIIa_HVAR_RAF"],[[0,10,0],[10,0,0],[-10,0,0],[20,0,0]],["SERGEANT","Sergeant","Corporal","Private"]]],0],
+		// I44_B_RAF_Veh_HT
+		[[[["I44_Plane_B_TyphoonMk1A_RAF","I44_Plane_B_TyphoonMk1A_RAF","I44_Plane_B_TyphoonMk1A_RP3_RAF","I44_Plane_B_TyphoonMk1A_RP3_RAF"],[[0,10,0],[10,0,0],[-10,0,0],[20,0,0]],["SERGEANT","Sergeant","Corporal","Private"]]],0],
+		// I44_B_RAF_Veh_SS
+		[[[["I44_Plane_B_SpitfireMk1a_RAF","I44_Plane_B_SpitfireMk1a_RAF","I44_Plane_B_SpitfireMk1a_RAF","I44_Plane_B_SpitfireMk1a_RAF"],[[0,10,0],[10,0,0],[-10,0,0],[20,0,0]],["Sergeant","Corporal","Private","Private"]]],0]
+	]
+
 };
 
 /* для тестирования групп
