@@ -2351,7 +2351,7 @@ if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
 
 // @I44
 if !(isNil "gosa_mod_I44") then {
-	if (gosa_IslandType >= 150) then {
+	if (gosa_IslandType select 0 >= 150) then {
 		// [I44] US
 		_west=_west+[
 			// I44_A_PltnHQ
@@ -2453,7 +2453,7 @@ if !(isNil "gosa_mod_I44") then {
 		];
 	};
 
-	if (gosa_IslandType >= 150) then {
+	if (gosa_IslandType select 0 >= 150) then {
 		// [I44] British
 		_west=_west+[
 			// I44_B_PltnHQ
@@ -2545,7 +2545,7 @@ if !(isNil "gosa_mod_I44") then {
 		];
 	};
 
-	if (gosa_IslandType >= 150) then {
+	if (gosa_IslandType select 0 >= 150) then {
 		// [I44] German
 		_east=_east+[
 			// I44_G_Zugfuehrergruppe
