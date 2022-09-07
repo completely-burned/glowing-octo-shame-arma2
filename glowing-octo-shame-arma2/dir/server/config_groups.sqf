@@ -2350,7 +2350,9 @@ if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
 };
 
 // @I44
-if !(isNil "gosa_mod_I44") then {
+// [I44] US
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"I44_A");
+if ((gosa_IslandType select 1 < 1950 && _tmp == -1) or _tmp > 0) then {
 	if (gosa_IslandType select 0 >= 150) then {
 		// [I44] US
 		_west=_west+[
@@ -2452,7 +2454,11 @@ if !(isNil "gosa_mod_I44") then {
 			[[[["I44_Tank_A_M4A3E8_76_HVSS_Sherman_Army_w","I44_Veh_A_Army_M4A3_76_Sherman_Army_w","I44_Veh_A_Army_M4A3_76_Sherman_Army_w","I44_Veh_A_Army_M4A3_76_Sherman_Army_w"],[[0,2,0],[0,0,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private","Private"]]],0]
 		];
 	};
+};
 
+// [I44] British
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"I44_B");
+if ((gosa_IslandType select 1 < 1950 && _tmp == -1) or _tmp > 0) then {
 	if (gosa_IslandType select 0 >= 150) then {
 		// [I44] British
 		_west=_west+[
@@ -2544,7 +2550,11 @@ if !(isNil "gosa_mod_I44") then {
 			[[[["I44_Man_B_Army_Commando_NCO_StenMk2S_winter","I44_Man_B_Army_Commando_Engr_GrenadeNo75_winter","I44_Man_B_Army_Commando_Sapper_M37_winter"],[[0,2,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private"]]],0]
 		];
 	};
+};
 
+// [I44] German
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"I44_G");
+if ((gosa_IslandType select 1 < 1950 && _tmp == -1) or _tmp > 0) then {
 	if (gosa_IslandType select 0 >= 150) then {
 		// [I44] German
 		_east=_east+[
@@ -2649,7 +2659,11 @@ if !(isNil "gosa_mod_I44") then {
 			[[[["I44_Tank_G_PzKpfwVI_B_SS_Winter","I44_Tank_G_PzKpfwVI_E_Late_AAMG_SS_Winter","I44_Tank_G_PzKpfwVI_E_Late_SS_Winter","I44_Tank_G_JaPz38_T_SS_Winter"],[[0,2,0],[0,0,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private","Private"]]],0]
 		];
 	};
+};
 
+// [I44] Resistance
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"I44_R");
+if ((gosa_IslandType select 1 < 1950 && _tmp == -1) or _tmp > 0) then {
 		// [I44] Resistance
 		_guer=_guer+[
 			// I44_R_Leaders

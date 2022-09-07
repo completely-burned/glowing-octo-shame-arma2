@@ -175,6 +175,30 @@ class Params {
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
 		default=-1;
 	};
+	class gosa_faction_multiplier_I44_A {
+		title="FACTION: I44_A";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_I44_B {
+		title="FACTION: I44_B";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_I44_G {
+		title="FACTION: I44_G";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_I44_R {
+		title="FACTION: I44_R";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
 
 
 	// Количество отрядов ии гарантировано.
