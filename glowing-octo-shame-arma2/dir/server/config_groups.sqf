@@ -2482,7 +2482,7 @@ if !(isNil "gosa_mod_I44") then {
 		[[[["I44_Plane_B_TyphoonMk1A_RAF","I44_Plane_B_TyphoonMk1A_RAF","I44_Plane_B_TyphoonMk1A_RP3_RAF","I44_Plane_B_TyphoonMk1A_RP3_RAF"],[[0,10,0],[10,0,0],[-10,0,0],[20,0,0]],["SERGEANT","Sergeant","Corporal","Private"]]],0],
 		// I44_B_RAF_Veh_SS
 		[[[["I44_Plane_B_SpitfireMk1a_RAF","I44_Plane_B_SpitfireMk1a_RAF","I44_Plane_B_SpitfireMk1a_RAF","I44_Plane_B_SpitfireMk1a_RAF"],[[0,10,0],[10,0,0],[-10,0,0],[20,0,0]],["Sergeant","Corporal","Private","Private"]]],0]
-	]
+	];
 
 	// [I44] German
 	_east=_east+[
@@ -2582,7 +2582,7 @@ if !(isNil "gosa_mod_I44") then {
 		[[[["I44_Man_G_SS_NCO_MP40_Winter","I44_Man_G_SS_K98k_Winter","I44_Man_G_SS_MP40_Winter","I44_Man_G_SS_K98k_Winter","I44_Man_G_SS_K98k_Winter","I44_Man_G_SS_K98k_PzF60_Winter","I44_Man_G_SS_K98k_Winter","I44_HT_G_SdKfz251_1D_SS_W"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0],[6,0,0],[10,0,0],[-10,0,0]],["SERGEANT","Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0],
 		// I44_G_SS_Veh_Tank_Winter
 		[[[["I44_Tank_G_PzKpfwVI_B_SS_Winter","I44_Tank_G_PzKpfwVI_E_Late_AAMG_SS_Winter","I44_Tank_G_PzKpfwVI_E_Late_SS_Winter","I44_Tank_G_JaPz38_T_SS_Winter"],[[0,2,0],[0,0,0],[2,0,0],[-2,0,0]],["Sergeant","Private","Private","Private"]]],0]
-	]
+	];
 
 	// [I44] Resistance
 	_guer=_guer+[
