@@ -43,7 +43,7 @@ if(LIB_a2Avail)then{
 	// INS
 	if(true)then{
 		_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"INS");
-		if((!_deserted && _tmp == -1) or _tmp > 0)then{
+		if((!_deserted && gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0)then{
 			_mg2 = "INS_Soldier_AR";
 			_mg = "INS_Soldier_MG";
 			_gl = "INS_Soldier_GL";
@@ -281,7 +281,7 @@ if(LIB_a2Avail)then{
 	// CDF
 	if(true)then{
 		_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CDF");
-		if((!_deserted && _tmp == -1) or _tmp > 0)then{
+		if((!_deserted && gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0)then{
 			_mg2 = "CDF_Soldier_AR";
 			_mg = "CDF_Soldier_MG";
 			_gl = "CDF_Soldier_GL";
@@ -503,7 +503,7 @@ if(LIB_a2Avail)then{
 	// GUE
 	if(true)then{
 		_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"GUE");
-		if((!_deserted && _tmp == -1) or _tmp > 0)then{
+		if((!_deserted && gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0)then{
 			_mg2 = "GUE_Soldier_AR";
 			_mg = "GUE_Soldier_MG";
 			_gl = "GUE_Soldier_GL";
@@ -699,7 +699,7 @@ if(LIB_a2Avail)then{
 	// USMC
 	// TODO: FRTeam другой камуфляж.
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"USMC");
-	if(_tmp > 0 or _tmp == -1)then{
+	if(_tmp > 0 or (gosa_IslandType select 1 >= 1990 && _tmp == -1))then{
 		_mg2 = "USMC_Soldier_AR";
 		_mg = "USMC_Soldier_MG";
 		_gl = "USMC_Soldier_LAT";
@@ -1041,7 +1041,7 @@ if(LIB_a2Avail)then{
 
 	// RU
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"RU");
-	if(_tmp > 0 or _tmp == -1)then{
+	if(_tmp > 0 or (gosa_IslandType select 1 >= 1990 && _tmp == -1))then{
 		_mg2 = "RU_Soldier_AR";
 		_mg = "RU_Soldier_MG";
 		_gl = "RU_Soldier_GL";
@@ -1411,7 +1411,7 @@ if(LIB_ahAvail)then{
 	// BIS_BAF
 	// TODO: Устранить ленивый код, чтобы при (_tmp > 0) были нормальные отряды даже на неучтенных картах.
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_BAF");
-	if(_tmp > 0 or _tmp == -1)then{
+	if(_tmp > 0 or (gosa_IslandType select 1 >= 1990 && _tmp == -1))then{
 		if((!_woodland) && (_deserted))then{
 			_mg2 = "BAF_Soldier_AR_DDPM";
 			_mg = "BAF_Soldier_AAR_DDPM";
@@ -1553,7 +1553,7 @@ if(LIB_ahAvail)then{
 	// BIS_GER
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_GER");
 	if(true)then{
-		if((!_woodland && _tmp == -1) or _tmp > 0)then{
+		if((!_woodland && gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0)then{
 			_west=_west+[
 				[[[["GER_Soldier_TL_EP1","GER_Soldier_MG_EP1","GER_Soldier_EP1","GER_Soldier_Scout_EP1","GER_Soldier_EP1","GER_Soldier_Medic_EP1"],[],
 				[_r2,_r1,_r1,_r1,_r0,_r0]]],0.01]
@@ -1564,7 +1564,7 @@ if(LIB_ahAvail)then{
 	// BIS_US
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_US");
 	if(true)then{
-		if((!_woodland && _tmp == -1) or _tmp > 0)then{
+		if((!_woodland && gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0)then{
 			_west=_west+[
 				[[[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 					[_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],0.5],
@@ -1711,7 +1711,7 @@ if(LIB_ahAvail)then{
 	// BIS_TK_INS
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK_INS");
 	if(true)then{
-		if((!_woodland && _tmp == -1) or _tmp > 0)then{
+		if((!_woodland && gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0)then{
 			_east=_east+[
 				[[[["TK_INS_Soldier_TL_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_2_EP1","TK_INS_Soldier_AT_EP1","TK_INS_Soldier_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_AR_EP1","TK_INS_Soldier_Sniper_EP1","TK_INS_Soldier_3_EP1","TK_INS_Soldier_4_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
 					[_r2,_r1,_r1,_r1,_r1,_r1,_r1,_r1,_r0,_r0]]],0.7],
@@ -1742,7 +1742,7 @@ if(LIB_ahAvail)then{
 
 	// BIS_TK
 	_f_multi_bis_tk = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK");
-	if(_f_multi_bis_tk > 0 or _f_multi_bis_tk == -1)then{
+	if(_f_multi_bis_tk > 0 or (gosa_IslandType select 1 >= 1990 && _f_multi_bis_tk == -1))then{
 		_east=_east+[
 			[[[["T72_TK_EP1","T72_TK_EP1","T72_TK_EP1"],[[0,10,0],[5,0,0],[10,0,0]],
 				[_r4,_r3,_r3]]],0.05],
@@ -1847,7 +1847,7 @@ if(LIB_ahAvail)then{
 	// BIS_UN
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_UN");
 	if(true)then{
-		if((!_woodland && _tmp == -1) or _tmp > 0)then{
+		if((!_woodland && gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0)then{
 			_guer=_guer+[
 				[[[["UN_CDF_Soldier_Guard_EP1","UN_CDF_Soldier_EP1","UN_CDF_Soldier_AT_EP1","UN_CDF_Soldier_MG_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
 					[_r2,_r1,_r1,_r1]]],0.5],
@@ -1879,7 +1879,7 @@ if(LIB_ahAvail)then{
 	// BIS_TK_GUE
 	_f_multi_bis_tk_gue = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK_GUE");
 	if(true)then{
-		if((!_woodland && _f_multi_bis_tk_gue == -1) or _f_multi_bis_tk_gue > 0)then{
+		if((!_woodland && gosa_IslandType select 1 >= 1980 && _f_multi_bis_tk_gue == -1) or _f_multi_bis_tk_gue > 0)then{
 			_guer=_guer+[
 				[[[["TK_GUE_Soldier_TL_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_4_EP1","TK_GUE_Soldier_Sniper_EP1","TK_GUE_Soldier_5_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_4_EP1","TK_GUE_Soldier_2_EP1","TK_GUE_Soldier_5_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
 					[_r2,_r1,_r1,_r1,_r1,_r1,_r0,_r0,_r0,_r0]]],0.7],
@@ -1930,7 +1930,7 @@ if(LIB_ahAvail)then{
 
 	// PMC_BAF
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"PMC_BAF");
-	if(_tmp > 0 or _tmp == -1)then{
+	if(_tmp > 0 or (gosa_IslandType select 1 >= 1990 && _tmp == -1))then{
 		_guer=_guer+[
 			[[[["Soldier_TL_PMC",
 				"M113_PMC","Soldier_Sniper_KSVK_PMC",
@@ -1972,7 +1972,7 @@ if(LIB_ahAvail)then{
 	_mod_acr = (configName(configFile >> "CfgMods" >> "ACR") != "");
 	_f_multi_bis_cz = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_CZ");
 	if(true)then{
-		if(_f_multi_bis_cz > 0 or _f_multi_bis_cz == -1)then{
+		if(_f_multi_bis_cz > 0 or (gosa_IslandType select 1 >= 1990 && _f_multi_bis_cz == -1))then{
 			//-- Юниты обычные (пустыня).
 				// Если стандартные настройки и карта пустыня.
 				// Если включено и нет ACR лес.
@@ -2012,7 +2012,7 @@ if(LIB_ahAvail)then{
 
 // ACR
 if(_mod_acr)then{
-	if(_f_multi_bis_cz > 0 or _f_multi_bis_cz == -1)then{
+	if(_f_multi_bis_cz > 0 or (gosa_IslandType select 1 >= 1990 && _f_multi_bis_cz == -1))then{
 		if(_deserted)then{
 			_west=_west+[
 				[[[["Mi24_D_CZ_ACR"], [],
@@ -2121,7 +2121,7 @@ if(_mod_acr)then{
 };
 
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"unfinished");
-if(_tmp > 0 or _tmp == -1)then{
+if(_tmp > 0 or (gosa_IslandType select 1 >= 1990 && _tmp == -1))then{
 // BWMod
 if((configName(LIB_cfgVeh >> "BWMod_SquadLeaderG") != "") && true)then{
 	if(_deserted)then{
