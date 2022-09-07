@@ -2303,7 +2303,7 @@ if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
 
 // @I44
 if !(isNil "gosa_mod_I44") then {
-	// I44_A
+	// [I44] US
 	_west=_west+[
 		// I44_A_PltnHQ
 		[[[["I44_Man_A_Army_CO_M1Carbine","I44_Man_A_Army_NCO_M1A1Thompson","I44_Man_A_Army_M1918A2","I44_Man_A_Army_M1Garand","I44_Man_A_Army_RTO_M1Carbine"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0],[-4,0,0]],["Lieutenant","Sergeant","Corporal","Private","Private"]]],0],
@@ -2398,7 +2398,7 @@ if !(isNil "gosa_mod_I44") then {
 		// I44_A_USAAF_Veh_P51
 		[[[["I44_Plane_A_P51D_AAF","I44_Plane_A_P51D_250lb_AAF","I44_Plane_A_P51D_250lb_AAF","I44_Plane_A_P51D_HVAR_AAF"],[[0,10,0],[10,0,0],[-10,0,0],[20,0,0]],["SERGEANT","Sergeant","Corporal","Private"]]],0]
 	];
-	// I44_B
+	// [I44] British
 	_west=_west+[
 		// I44_B_PltnHQ
 		[[[["I44_Man_B_Army_CO_StenMk5","I44_Man_B_Army_NCO_StenMk5","I44_Man_B_Army_SMLENo4Mk1","I44_Man_B_Army_StenMk2"],[[0,2,0],[2,0,0],[-2,0,0],[4,0,0]],["Lieutenant","Sergeant","Corporal","Private"]]],0],
