@@ -175,6 +175,12 @@ class Params {
 		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
 		default=-1;
 	};
+	class gosa_faction_multiplier_unfinished {
+		title="FACTION: OTHER (unfinished units)";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
 	class gosa_faction_multiplier_I44_A {
 		title="FACTION: I44_A";
 		values[] = {-1,1,0};

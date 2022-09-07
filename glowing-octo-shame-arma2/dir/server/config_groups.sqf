@@ -2120,6 +2120,8 @@ if(_mod_acr)then{
 	};
 };
 
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"unfinished");
+if(_tmp > 0 or _tmp == -1)then{
 // BWMod
 if((configName(LIB_cfgVeh >> "BWMod_SquadLeaderG") != "") && true)then{
 	if(_deserted)then{
@@ -2347,6 +2349,7 @@ if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
 			[_r3]],[["FDF_M05_FRDF_NCO","FDF_M05_FRDF_MG","FDF_M05_FRDF_MG_Asst","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier","FDF_M05_FRDF_Asst_Squad_Leader"]]
 			],0.1]
 	];
+};
 };
 
 // @I44
