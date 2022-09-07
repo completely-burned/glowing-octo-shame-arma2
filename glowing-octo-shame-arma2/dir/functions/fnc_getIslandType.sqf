@@ -18,7 +18,7 @@ if !(isNil "gosa_IslandType") exitWith {gosa_IslandType};
 
 private ["_w","_r"];
 _w = toLower worldName;
-_r = [-1,2012]
+_r = [-1,2012];
 
 // Тип.
 if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter"]) then {_r set [0,100]};
