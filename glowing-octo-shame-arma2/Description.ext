@@ -39,6 +39,144 @@ class Params {
 		#endif
 	};
 
+	// Множитель отрядов авиации.
+	class Air {
+		title="UNITS: Multiplier Air [gp]";
+		default=1;
+		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+	};
+
+	// Множитель отрядов гусеничных тс, в том числи шилок и тунгусок.
+	// TODO: Отсеять шилок и тунгусок.
+	class Tank {
+		title="UNITS: Multiplier Tank (Infanty APC not completed) [gp]";
+		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		default=1;
+	};
+
+	// Множитель отрядов тс на колесном ходу, в том числе и бтр.
+	class Car {
+		title="UNITS: Multiplier Car (Infanty not completed) [gp]";
+		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		default=1;
+	};
+
+	// Множитель отрядов пехоты, в том числе в отряде с тс.
+	// TODO: Отсеять тс.
+	class Man {
+		title="UNITS: Multiplier Man [gp]";
+		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		default=1;
+	};
+
+	// Множитель отрядов надводных.
+	class Ship {
+		title="UNITS: Multiplier Ship [gp]";
+		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		default=1;
+	};
+
+	// Множитель статичных установок.
+	class StaticWeapon {
+		title="UNITS: Multiplier StaticWeapon [gp]";
+		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		default=1;
+	};
+
+
+	// Множители фракций.
+	class gosa_faction_multiplier_INS {
+		title="FACTION: INS";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_RU {
+		title="FACTION: RU";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_USMC {
+		title="FACTION: USMC";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_CDF {
+		title="FACTION: CDF";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_GUE {
+		title="FACTION: GUE";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_BIS_TK {
+		title="FACTION: BIS_TK";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_BIS_TK_INS {
+		title="FACTION: BIS_TK_INS";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_BIS_US {
+		title="FACTION: BIS_US";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_BIS_BAF {
+		title="FACTION: BIS_BAF";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_BIS_CZ {
+		title="FACTION: BIS_CZ";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_BIS_GER {
+		title="FACTION: BIS_GER";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_BIS_TK_GUE {
+		title="FACTION: BIS_TK_GUE";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_BIS_UN {
+		title="FACTION: BIS_UN";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+	class gosa_faction_multiplier_PMC_BAF {
+		title="FACTION: PMC_BAF";
+		values[] = {-1,1,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,$STRWFNO};
+		default=-1;
+	};
+
+
 	// Количество отрядов ии гарантировано.
 	/*
 		Они будут продолжать генерироваться
@@ -81,56 +219,6 @@ class Params {
 		values[] = {0,		5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120,130,140,150,160,170,180,190,200,210,220,230,240,250};
 		texts[] = {"manual",5,10,15,20,25,30,40,45,50,55,60,65,70,80,90,100,120,130,140,150,160,170,180,190,200,210,220,230,240,250};
 		default=140;
-	};
-
-	// Множитель отрядов авиации.
-	class Air {
-		title="AI: multiplier Air [gp]";
-		default=1;
-		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-	};
-
-	// Множитель отрядов гусеничных тс, в том числи шилок и тунгусок.
-	// TODO: Отсеять шилок и тунгусок.
-	class Tank {
-		title="AI: multiplier Tank (Infanty APC not completed) [gp]";
-		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		default=1;
-	};
-
-	// Множитель отрядов тс на колесном ходу, в том числе и бтр.
-	class Car {
-		title="AI: multiplier Car (Infanty not completed) [gp]";
-		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		default=1;
-	};
-
-	// Множитель отрядов пехоты, в том числе в отряде с тс.
-	// TODO: Отсеять тс.
-	class Man {
-		title="AI: multiplier Man [gp]";
-		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		default=1;
-	};
-
-	// Множитель отрядов надводных.
-	class Ship {
-		title="AI: multiplier Ship [gp]";
-		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		default=1;
-	};
-
-	// Множитель статичных установок.
-	class StaticWeapon {
-		title="AI: multiplier StaticWeapon [gp]";
-		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		texts[] = {$STRWFNO,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		default=1;
 	};
 
 	// Начальная разница в соотношении сил противника к союзникам.
