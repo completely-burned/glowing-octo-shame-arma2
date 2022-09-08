@@ -12,7 +12,7 @@ TODO: Подсветка авиационного ангара в pvp.
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_fnc_MarkerInitUnit","_markerPosHiden","_tmp_arr","_tmp_str","_text",
-	"_tmp_obj","_rMHQ",
+	"_tmp_obj","_rMHQ","_tmp_num",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
 
 _fnc_MarkerInitUnit = {
@@ -121,7 +121,6 @@ for "_i" from 0 to (count _objects - 1) do {
 
 //-- Инициализация маркера мобильной базы.
 if (_rMHQ) then {
-	private "_tmp_num";
 	// FIXME: waitUntil{_t < time} Некорректно работает при низком fps.
 	_tmp_num = time+15;
 	waitUntil {
@@ -179,9 +178,14 @@ if(true)then{
 				_pos = getPos _hq;
 				_pos resize 2;
 				_tmp_arr = getMarkerPos _markerMHQ;
+
+				// Безопасная позиция сбоку.
+				// FIXME: Позиция всеравно случайная, но теперь снаружи тс.
+				_tmp_num = (getDir _hq -65);
+				_pos = [(_pos select 0) + 15*sin _tmp_num, (_pos select 1) + 15*cos _tmp_num];
+
 				if (_tmp_arr distance _pos > 1) then {
-					diag_log format ["Log: [while_markers] %1 Новая позиция %2", _markerMHQ, _pos];
-					// TODO: Безопасная позиция сбоку.
+					diag_log format ["Log: [while_markers] %1 Новая позиция %2, %3", _markerMHQ, _pos, _hq];
 					_markerMHQ setMarkerPosLocal _pos;
 				};
 			};
