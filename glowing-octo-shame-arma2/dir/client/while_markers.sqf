@@ -132,7 +132,7 @@ if (_rMHQ) then {
 	if (alive _hq) then {
 		_pos = getPos _hq;
 		createMarkerLocal [_markerMHQ, _pos];
-		diag_log format ["Log: [while_markers] %1 Marker init %2", _markerMHQ, _this];
+		diag_log format ["Log: [while_markers] %1 Marker init %2", _markerMHQ, _pos];
 		_markerMHQ setMarkerTypeLocal _markerMHQtype;
 		_markerMHQ setMarkerColorLocal _markerColor;
 		_respawnMarkers set [count _respawnMarkers, _markerMHQ];
