@@ -284,7 +284,7 @@ if(true)then{
 						_tmp_obj = vehicle _unit;
 						// TODO: Если эф.командир ии, то отобразить первого игрока из экипажа.
 						if (((_tmp_obj == _unit) || (_unit == effectiveCommander _tmp_obj)) &&
-							(playerSide getFriend _unit >= 0.6)) then
+							(playerSide getFriend side _unit >= 0.6)) then
 						{
 							_pos = position _tmp_obj;
 
