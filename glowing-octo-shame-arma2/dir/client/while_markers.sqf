@@ -6,6 +6,7 @@
 Обновляет динамичные маркеры
 на открытой карте игрока.
 TODO: сделть совместимость с pvp.
+TODO: Устранить быдлокод.
 ---------------------------------------------------------------------------*/
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
@@ -18,6 +19,7 @@ if (missionNamespace getVariable "respawn" == 0 or missionNamespace getVariable 
 	_rBase = false;
 };
 
+// Имена маркеров, маркеры локальные и не должны конфликтовать в pvp.
 switch (playerSide) do {
 	case (resistance):
 	{
@@ -50,6 +52,8 @@ if (_rBase) then {
 	_markerMHQtype = "Headquarters";
 };
 
+
+// Объекты используются для поиска статичных позиций возрождения.
 _objects = [];
 #ifdef __A2OA__
 {
@@ -98,6 +102,8 @@ _dynamicMarkers = [];
 
 gosa_respawnMarkers = _respawnMarkers;
 
+//-- Маркер основной локации.
+// TODO: Совместимость с несколькими локациями.
 waitUntil {!isNil {civilianBasePos}};
 createMarkerLocal ["MainMarker", civilianBasePos];
 "MainMarker" setMarkerShapeLocal "ELLIPSE";
