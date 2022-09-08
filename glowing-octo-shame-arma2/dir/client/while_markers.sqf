@@ -11,6 +11,7 @@ TODO: Устранить быдлокод.
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_fnc_MarkerInitUnit","_markerPosHiden","_tmp_arr","_tmp_str","_text",
+	"_tmp_obj",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
 
 _fnc_MarkerInitUnit = {
@@ -280,13 +281,15 @@ if(true)then{
 							_marker setMarkerPosLocal _pos;
 						};
 					}else{
-						private ["_veh"];
-						_veh = vehicle _unit;
-						if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6)) then {
-							_pos = position _veh;
+						_tmp_obj = vehicle _unit;
+						// TODO: Если эф.командир ии, то отобразить первого игрока из экипажа.
+						if (((_tmp_obj == _unit) || (_unit == effectiveCommander _tmp_obj)) &&
+							(playerSide getFriend _unit >= 0.6)) then
+						{
+							_pos = position _tmp_obj;
 
 							_text = "";
-							// _text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _veh) >> 'displayName'));
+							// _text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _tmp_obj) >> 'displayName'));
 							_text = (_text + " " + name _unit);
 							if (lifeState _unit == "UNCONSCIOUS") then {
 								_text = _text + (" " + Localize "str_reply_injured");
