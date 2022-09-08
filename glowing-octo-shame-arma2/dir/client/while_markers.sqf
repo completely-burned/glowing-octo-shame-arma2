@@ -12,7 +12,7 @@ TODO: Подсветка авиационного ангара в pvp.
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_fnc_MarkerInitUnit","_markerPosHiden","_tmp_arr","_tmp_str","_text",
-	"_tmp_obj","_rMHQ","_tmp_num",
+	"_tmp_obj","_rMHQ","_tmp_num","_item",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
 
 _fnc_MarkerInitUnit = {
@@ -282,15 +282,24 @@ if(true)then{
 
 
 			// -- игроки
-			{
-				if(!(_x in _units) && (side _x == playerSide) && alive _x && (_x call gosa_fnc_isPlayer))then{
-					_units set [count _units, _x];
-					_tmp_str = str _x;
-					[_tmp_str, position _x, "ColorBlack"] call _fnc_MarkerInitUnit;
+			_tmp_arr = allUnits;
+			for "_i" from 0 to (count _tmp_arr - 1) do {
+				_item = _tmp_arr select _i;
+
+				if( !(_item in _units) &&
+					(side _item == playerSide) &&
+					#ifdef __A2OA__
+						{alive _item} && {_item call gosa_fnc_isPlayer} )then
+					#else
+						alive _item && (_item call gosa_fnc_isPlayer) )then
+					#endif
+				{
+					_units set [count _units, _item];
+					_tmp_str = str _item;
+					[_tmp_str, position _item, "ColorBlack"] call _fnc_MarkerInitUnit;
 					_markers set [count _markers, _tmp_str];
 				};
-			}forEach allUnits;
-
+			};
 
 			// -- маркеры
 			for "_i" from 0 to (count _units - 1) do {
