@@ -10,7 +10,20 @@ TODO: Устранить быдлокод.
 ---------------------------------------------------------------------------*/
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
+	"_fnc_MarkerInitUnit","_markerPosHiden","_tmp_arr","_tmp_str","_text",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
+
+_fnc_MarkerInitUnit = {
+	diag_log format ["Log: [while_markers] %1 Marker init %2", _this select 0, _this];
+	createMarkerLocal [_this select 0, _this select 1];
+	#ifdef __ARMA3__
+		_this select 0 setMarkerTypeLocal "hd_dot";
+	#else
+		_this select 0 setMarkerTypeLocal "vehicle";
+	#endif
+	_this select 0 setMarkerSizeLocal [3,3];
+	_this select 0 setMarkerColorLocal (_this select 2);
+};
 
 // тип возрождения
 if (missionNamespace getVariable "respawn" == 0 or missionNamespace getVariable "gosa_MHQ" == 1) then {
@@ -62,6 +75,8 @@ _objects = [];
 #endif
 
 _respawnMarkers = [];
+// FIXME: Вылет с "OutOfMemory" может быть если объекты далеко.
+_markerPosHiden = [-1600,0];
 
 // -- статичные точки возрождения
 for "_i" from 0 to (count _objects - 1) do {
@@ -215,7 +230,10 @@ if(true)then{
 					{
 						if(!(_x in _units) && alive _x)then{
 							_units set [count _units, _x];
-							_markers set [count _markers, createMarkerLocal [str _x + "_veh",position _x]];
+							_tmp_str = str _x + "_veh";
+							[_tmp_str, position _x, _markerColor] call _fnc_MarkerInitUnit;
+							_markers set [count _markers, _tmp_str];
+
 						};
 					}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 				};
@@ -235,7 +253,9 @@ if(true)then{
 			{
 				if(!(_x in _units) && (side _x == playerSide) && alive _x && (_x call gosa_fnc_isPlayer))then{
 					_units set [count _units, _x];
-					_markers set [count _markers, createMarkerLocal [str _x,position _x]];
+					_tmp_str = str _x;
+					[_tmp_str, position _x, "ColorBlack"] call _fnc_MarkerInitUnit;
+					_markers set [count _markers, _tmp_str];
 				};
 			}forEach allUnits;
 
@@ -249,44 +269,38 @@ if(true)then{
 				if (alive _unit) then {
 					if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call gosa_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6))then{
 						if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
-							// TODO: setMarker* код оптимизировать
-							_marker setMarkerPosLocal (position _unit);
-							#ifdef __ARMA3__
-								_marker setMarkerTypeLocal "hd_dot";
-							#else
-								_marker setMarkerTypeLocal "vehicle";
-							#endif
-							_marker setMarkerDirLocal getDir _unit;
-							_marker setMarkerSizeLocal [3,3];
-							_marker setMarkerColorLocal _markerColor;
+							_pos = position _unit;
 						}else{
-							diag_log format ["Log: [while_markers] hideMarker %1 !isPlayer", _marker];
-							_marker setMarkerPosLocal [35000,35000];
+							_pos = _markerPosHiden;
+						};
+						// Проверка дистанции теоритически меньше нагружает цп.
+						_tmp_arr = getMarkerPos _marker;
+						if (_tmp_arr distance _pos > 10) then {
+							diag_log format ["Log: [while_markers] %1 Новая позиция %2", _marker, _pos];
+							_marker setMarkerPosLocal _pos;
 						};
 					}else{
 						private ["_veh"];
 						_veh = vehicle _unit;
 						if (((_veh == _unit) || (_unit == (effectiveCommander _veh))) && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6)) then {
-							_marker setMarkerPosLocal (position _veh);
-							#ifdef __ARMA3__
-								_marker setMarkerTypeLocal "hd_dot";
-							#else
-								_marker setMarkerTypeLocal "vehicle";
-							#endif
-							_marker setMarkerDirLocal getDir _veh;
-							_marker setMarkerSizeLocal [3,3];
-							_marker setMarkerColorLocal "ColorBlack";
-							private ["_text"];
+							_pos = position _veh;
+
 							_text = "";
 							// _text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _veh) >> 'displayName'));
 							_text = (_text + " " + name _unit);
 							if (lifeState _unit == "UNCONSCIOUS") then {
 								_text = _text + (" " + Localize "str_reply_injured");
 							};
-							_marker setMarkerTextLocal _text;
 						}else{
-							diag_log format ["Log: [while_markers] hideMarker %1 crew", _marker];
-							_marker setMarkerPosLocal [35000,35000];
+							_pos = _markerPosHiden;
+						};
+						_tmp_arr = getMarkerPos _marker;
+						if (_tmp_arr distance _pos > 10) then {
+							diag_log format ["Log: [while_markers] %1 Новая позиция %2", _marker, _pos];
+							_marker setMarkerPosLocal _pos;
+						};
+						if (markerText _marker != _text) then {
+							_marker setMarkerTextLocal _text;
 						};
 					};
 				}else{
