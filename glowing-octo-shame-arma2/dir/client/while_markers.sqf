@@ -246,7 +246,7 @@ if(true)then{
 				_unit = (_units select _i);
 				_marker = (_markers select _i);
 				// TODO: нужна проверка на отключеных игроков
-				if (!isNull _unit && alive _unit) then {
+				if (alive _unit) then {
 					if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call gosa_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6))then{
 						if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
 							// TODO: setMarker* код оптимизировать
