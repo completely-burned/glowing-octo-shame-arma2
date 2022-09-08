@@ -243,7 +243,8 @@ if(true)then{
 
 			// -- удаление лишних динамичных маркеров
 			for "_i" from 0 to (count _dynamicMarkers - 1) do {
-				if(!alive (_dynamicMarkers select _i select 1) or ((_dynamicMarkers select _i select 1) isKindOf "Man" && !((_dynamicMarkers select _i select 1) call gosa_fnc_isPlayer)))then{
+				if( !alive (_dynamicMarkers select _i select 1) )then
+				{
 					deleteMarkerLocal (_dynamicMarkers select _i select 0);
 					_dynamicMarkers set [_i, -1];
 				};
