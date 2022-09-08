@@ -268,7 +268,11 @@ if(true)then{
 				_marker = (_markers select _i);
 				// TODO: нужна проверка на отключеных игроков
 				if (alive _unit) then {
-					if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]] call gosa_fnc_CheckIsKindOfArray && !(getNumber(configFile >> "CfgVehicles">> typeOf _unit >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6))then{
+					// FIXME: Может разделить на два массива, юниты и объекты, вместо проверок.
+					if([[_unit],Warfare_HQ+(MHQ_list select 0)+["WarfareBBaseStructure","BASE_WarfareBFieldhHospital"]
+						]call gosa_fnc_CheckIsKindOfArray &&
+						(playerSide getFriend (typeOf _unit call gosa_fnc_getTypeOfSide) >= 0.6))then
+					{
 						if ({_x call gosa_fnc_isPlayer} count crew _unit == 0) then {
 							_pos = position _unit;
 						}else{
