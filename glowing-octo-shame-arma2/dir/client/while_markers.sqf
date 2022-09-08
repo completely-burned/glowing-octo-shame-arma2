@@ -10,7 +10,7 @@ TODO: Устранить быдлокод.
 ---------------------------------------------------------------------------*/
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
-	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq"];
+	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
 
 // тип возрождения
 if (missionNamespace getVariable "respawn" == 0 or missionNamespace getVariable "gosa_MHQ" == 1) then {
@@ -96,6 +96,16 @@ for "_i" from 0 to (count _objects - 1) do {
 	_respawnMarkers set [count _respawnMarkers, _marker];
 };
 
+//-- Отказоустойчивый маркер возрождения если нет базы.
+// TODO: Сделать должным образом, для совместимости с pvp.
+if (count _respawnMarkers < 1) then {
+	diag_log format ["Log: [while_markers] no base", nil];
+	_pos = getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
+	_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
+	_respawnMarkers = [_marker];
+};
+diag_log format ["Log: [while_markers] Markers static %1", _respawnMarkers];
+
 waitUntil {!isNil {MHQ_list}};
 
 _dynamicMarkers = [];
@@ -121,8 +131,10 @@ if(true)then{
 		if (_rBase) then {
 			// -- мобильная база (мобилизованная), один маркер
 			_hq = call gosa_fnc_getHQ select 0;
-					private ["_pos"];
-		      _pos = getPos _hq;
+			if !(isNull _hq) then {
+				private ["_pos"];
+				_pos = getPos _hq;
+				_pos resize 2;
 					if(getMarkerType _markerMHQ != _markerMHQtype)then{
 						_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
 						_markerMHQ setMarkerTypeLocal _markerMHQtype;
@@ -131,6 +143,7 @@ if(true)then{
 					}else{
 						_markerMHQ setMarkerPos _pos;
 					};
+			};
 		};
 
 		if (visibleMap) then {
