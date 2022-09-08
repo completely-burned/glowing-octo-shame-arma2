@@ -11,47 +11,8 @@ if (missionNamespace getVariable "gosa_MHQ" != 1) exitWith {
 	diag_log format ["Log: [while_mhq] respawn type %1 exitWith", missionNamespace getVariable "respawn"];
 };
 
-private ["_useDefaultStarts", "_names","_StartingLocationsPos","_MHQ","_true"];
-
-// -- стартовые позиции
-_useDefaultStarts = true;
-_names = configfile >> "cfgWorlds" >> WorldName >> "Names";
-_StartingLocationsPos = [];
-
-// TODO: нужна функция получения позиций
-// TODO: Мобильный штаб должен появиться, даже если позиций нет.
-for "_i" from 0 to (count _names - 1) do
-{
-	private ["_name"];
-	_name = _names Select _i;
-
-	if (IsClass _name) then
-	{
-		private ["_type","_position"];
-		_type = GetText (_name >> "type");
-
-		if (_useDefaultStarts && _type == "FlatArea") then
-		{
-			_position = GetArray (_name >> "position");
-			// _direction = GetNumber (_name >> "angle");
-
-			_StartingLocationsPos set [count _StartingLocationsPos, _position];
-		};
-	};
-};
-
-#ifdef __A2OA__
-{
-	_StartingLocationsPos set [count _StartingLocationsPos, getPos _x];
-} forEach allMissionObjects "LocationLogicStart";
-{
-	_StartingLocationsPos set [count _StartingLocationsPos, getPos _x];
-} forEach allMissionObjects "LocationLogicFlat";
-#endif
-
-if (count _StartingLocationsPos == 0) then {
-	_StartingLocationsPos = [getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor")];
-};
+private ["_StartingLocationsPos","_MHQ","_true"];
+_StartingLocationsPos = ([] call gosa_fnc_getStartingPosMHQ);
 
 waitUntil{!isNil {MHQ_list}};
 waitUntil{!isNil {bis_fnc_init}};
