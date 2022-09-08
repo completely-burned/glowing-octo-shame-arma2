@@ -12,7 +12,7 @@ TODO: Подсветка авиационного ангара в pvp.
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_fnc_MarkerInitUnit","_markerPosHiden","_tmp_arr","_tmp_str","_text",
-	"_tmp_obj",
+	"_tmp_obj","_rMHQ",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
 
 _fnc_MarkerInitUnit = {
@@ -27,8 +27,14 @@ _fnc_MarkerInitUnit = {
 	_this select 0 setMarkerColorLocal (_this select 2);
 };
 
+//-- MHQ
+if (missionNamespace getVariable "gosa_MHQ" == 1) then {
+	_rMHQ = true;
+} else {
+	_rMHQ = false;
+};
 // тип возрождения
-if (missionNamespace getVariable "respawn" == 0 or missionNamespace getVariable "gosa_MHQ" == 1) then {
+if (missionNamespace getVariable "respawn" == 0 or _rMHQ) then {
 	_rBase = true;
 } else {
 	_rBase = false;
@@ -113,6 +119,27 @@ for "_i" from 0 to (count _objects - 1) do {
 	_respawnMarkers set [count _respawnMarkers, _marker];
 };
 
+//-- Инициализация маркера мобильной базы.
+if (_rMHQ) then {
+	private "_tmp_num";
+	// FIXME: waitUntil{_t < time} Некорректно работает при низком fps.
+	_tmp_num = time+15;
+	waitUntil {
+		_hq = call gosa_fnc_getHQ select 0;
+		if (isNil "_hq") then {_hq = objNull};
+		_tmp_num < time or alive _hq;
+	};
+	if (alive _hq) then {
+		_pos = getPos _hq;
+		createMarkerLocal [_markerMHQ, _pos];
+		diag_log format ["Log: [while_markers] %1 Marker init %2", _markerMHQ, _this];
+		_markerMHQ setMarkerTypeLocal _markerMHQtype;
+		_markerMHQ setMarkerColorLocal _markerColor;
+		_respawnMarkers set [count _respawnMarkers, _markerMHQ];
+	};
+	diag_log format ["Log: [while_markers] %1 Init %2", _markerMHQ, _hq];
+};
+
 //-- Отказоустойчивый маркер возрождения если нет базы.
 // TODO: Сделать должным образом, для совместимости с pvp.
 if (count _respawnMarkers < 1) then {
@@ -145,21 +172,18 @@ if(true)then{
 
 	while {true} do {
 
-		if (_rBase) then {
+		if (_rMHQ) then {
 			// -- мобильная база (мобилизованная), один маркер
 			_hq = call gosa_fnc_getHQ select 0;
 			if !(isNull _hq) then {
-				private ["_pos"];
 				_pos = getPos _hq;
 				_pos resize 2;
-					if(getMarkerType _markerMHQ != _markerMHQtype)then{
-						_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
-						_markerMHQ setMarkerTypeLocal _markerMHQtype;
-						_markerMHQ setMarkerColorLocal _markerColor;
-						gosa_respawnMarkers = [_markerMHQ]+_respawnMarkers;
-					}else{
-						_markerMHQ setMarkerPos _pos;
-					};
+				_tmp_arr = getMarkerPos _markerMHQ;
+				if (_tmp_arr distance _pos > 1) then {
+					diag_log format ["Log: [while_markers] %1 Новая позиция %2", _markerMHQ, _pos];
+					// TODO: Безопасная позиция сбоку.
+					_markerMHQ setMarkerPosLocal _pos;
+				};
 			};
 		};
 
