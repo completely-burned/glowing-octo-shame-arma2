@@ -204,6 +204,7 @@ rremoteControlcode = {
 	};
 };
 
+// FIXME: Конфликт у новых подключений.
 rgosa_setMapPlayers = 'gosa_setMapPlayers';
 rgosa_setMapPlayerscode = {
 	diag_log format ["Log: [MPF] rgosa_setMapPlayers %1", _this];
