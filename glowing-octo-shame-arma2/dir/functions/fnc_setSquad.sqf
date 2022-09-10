@@ -25,9 +25,9 @@ if (count _this < 2) exitWith {
 private ["_id","_z"];
 
 // id другого игрока или тип юнита
-_id = _this select 0 select 1; 
+_id = _this select 0 select 1;
 // режим
-_z = _this select 1; 
+_z = _this select 1;
 
 //--- on
 if ( _z ==  0 ) then {
@@ -68,6 +68,14 @@ if ( _z ==  2 ) then {
 		gosa_squadOnW = gosa_squadOnW - [_id];
 		gosa_squadOffW = gosa_squadOffW - [_id];
 	};
+};
+
+//--- Глобальные параметры, связанные с другими игроками.
+//-- vCrew: let others join.
+if (_id in [506]) then {
+	gosa_MapPlayer set [0,
+		[gosa_squadOn,gosa_squadOff,gosa_squadOnW,gosa_squadOffW]];
+	[nil, gosa_MapPlayer, rgosa_setMapPlayersPublic, gosa_owner] call RE;
 };
 
 diag_log format ['Log: [fnc_setSquad] On %1', gosa_squadOn];

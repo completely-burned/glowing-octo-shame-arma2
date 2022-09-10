@@ -1,6 +1,9 @@
 #define __A2OA__
 
-private ["_unit","_type","_tWeap","_r","_z","_veh","_t_veh"];
+private ["_unit","_type","_tWeap","_r","_z","_veh","_t_veh","_tmp_arr",
+	"_item","_crew","_crew_p"];
+
+diag_log format ['Log: [fnc_getUnitClass] _this %1', _this];
 
 _unit = _this select 0;
 
@@ -23,17 +26,51 @@ if (_veh != _unit) then {
 		_r set [count _r, _z];
 	};
 
+	//--- Экипаж.
+	// Пассажиров не нужно учитывать.
+	_crew = [driver _veh, gunner _veh, commander _veh];
+		diag_log format ['Log: [fnc_getUnitClass] _crew %1', _crew];
+		// Игрока не нужно учитывать.
+		_crew = _crew - [objNull, player];
+		_crew_p = [];
+		{
+			if (_x call gosa_fnc_isPlayer) then {
+				_crew_p set [count _crew_p, _x];
+			};
+		} forEach _crew;
+
 	//--- экипаж тс игрок
 	_z = 505;
 	if !(_z in _r) then {
-		if (driver _veh call gosa_fnc_isPlayer or
-				#ifdef __A2OA__
-				{gunner _veh call gosa_fnc_isPlayer or commander _veh call gosa_fnc_isPlayer}
-				#else
-				(gunner _veh call gosa_fnc_isPlayer or commander _veh call gosa_fnc_isPlayer)
-				#endif
-		 ) then {
+		if (count _crew_p > 0) then {
 			_r set [count _r, _z];
+		};
+	};
+
+	// TODO: Игрок, который разрешил подключение.
+	//--- Экипаж тс игрок, который запретил подключение.
+	_z = 506;
+	if !(_z in _r) then {
+		if (count _crew_p > 0) then {
+			// [["43524234353254332"],[[[[],[],[],[505,600,605,506]]]]]
+			_tmp_arr = gosa_mapPlayersPublic;
+			if !(isNil "_tmp_arr") then {
+				diag_log format ['Log: [fnc_getUnitClass] gosa_mapPlayersPublic %1', _tmp_arr];
+				for "_i" from 0 to (count (_tmp_arr select 0) -1) do {
+					// [gosa_squadOn, gosa_squadOff, gosa_squadOnW, gosa_squadOffW]
+					_item = (_tmp_arr select 1 select _i select 0);
+					diag_log format ['Log: [fnc_getUnitClass] _item %1', _item];
+					if (_z in (_item select 3)) then {
+						private ["_uid"];
+						_uid = (_tmp_arr select 0 select _i);
+						{
+							if (getPlayerUID _x == _uid) exitWith {
+								_r set [count _r, _z];
+							};
+						} forEach _crew_p;
+					};
+				};
+			};
 		};
 	};
 
