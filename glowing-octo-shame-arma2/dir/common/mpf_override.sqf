@@ -223,6 +223,30 @@ rgosa_setMapPlayerscode = {
 	diag_log format ["Log: [MapPlayers] %1", _map];
 };
 
+//-- Параметры игроков, распространяемые на все устройства.
+// FIXME: Имя переменной вводит в заблуждение.
+rgosa_setMapPlayersPublic = 'gosa_setMapPlayersPublic';
+rgosa_setMapPlayersPubliccode = {
+	diag_log format ["Log: [MPF] rgosa_setMapPlayersPublic %1", _this];
+	if (isServer) then {
+		private["_map","_n"];
+		_map = gosa_MapPlayersPublic;
+		diag_log format ["Log: [MapPlayersPublic] %1", _map];
+		_n = (_map select 0) find (_this select 2);
+		diag_log format ["Log: [MPF] rgosa_setMapPlayersPublic %1 _n %2", _this select 2, _n];
+		if (_n < 0) then {
+			_n = 0;
+			//-- id
+			_map select 0 set [_n, _this select 2];
+		};
+		//-- data
+		_map select 1 set [_n, _this select 1];
+		// Должно распространяться на игроков подключившихся после.
+		publicVariable "gosa_mapPlayersPublic";
+		diag_log format ["Log: [MapPlayersPublic] %1", gosa_MapPlayersPublic];
+	};
+};
+
 
 gosa_MPF_InitDone = true;
 diag_log format ['Log: [mpf_override.sqf] done %1', time];
