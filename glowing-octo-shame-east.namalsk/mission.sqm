@@ -1,0 +1,245 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"cacharacters2",
+		"namalsk"
+	};
+	addOnsAuto[]=
+	{
+		"cacharacters2",
+		"namalsk"
+	};
+	randomSeed=9259447;
+	class Intel
+	{
+		briefingName="CO 00 glowing-octo-shame namalsk east v0.0.4.862 DEBUG";
+		startWeather=0;
+		forecastWeather=0;
+		year=2011;
+		month=7;
+		hour=15;
+		minute=25;
+	};
+	class Groups
+	{
+		items=2;
+		class Item0
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5877.2949,0.8590101,3944.8584};
+					id=0;
+					side="EAST";
+					vehicle="RU_Soldier_Officer";
+					player="PLAYER COMMANDER";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item1
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=12;
+				class Item0
+				{
+					position[]={5867.9038,0.73869199,3942.2971};
+					id=1;
+					side="EAST";
+					vehicle="RU_Soldier_SL";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item1
+				{
+					position[]={5870.9038,0.71383905,3937.2971};
+					id=2;
+					side="EAST";
+					vehicle="RU_Soldier_MG";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item2
+				{
+					position[]={5872.9038,0.80332971,3937.2971};
+					id=3;
+					side="EAST";
+					vehicle="RU_Soldier_AT";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item3
+				{
+					position[]={5874.9038,0.8581022,3937.2971};
+					id=4;
+					side="EAST";
+					vehicle="RU_Soldier_LAT";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item4
+				{
+					position[]={5876.9038,0.87311113,3937.2971};
+					id=5;
+					side="EAST";
+					vehicle="RU_Soldier_GL";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item5
+				{
+					position[]={5878.9038,0.84814751,3937.2971};
+					id=6;
+					side="EAST";
+					vehicle="RU_Soldier_Marksman";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item6
+				{
+					position[]={5880.9038,0.7880429,3937.2971};
+					id=7;
+					side="EAST";
+					vehicle="RU_Soldier_MG";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item7
+				{
+					position[]={5882.9038,0.70223337,3937.2971};
+					id=8;
+					side="EAST";
+					vehicle="RU_Soldier_AT";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item8
+				{
+					position[]={5884.9038,0.60335708,3937.2971};
+					id=9;
+					side="EAST";
+					vehicle="RU_Soldier_AR";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item9
+				{
+					position[]={5886.9038,0.50549537,3937.2971};
+					id=10;
+					side="EAST";
+					vehicle="RU_Soldier_LAT";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item10
+				{
+					position[]={5888.9038,0.42207998,3937.2971};
+					id=11;
+					side="EAST";
+					vehicle="RU_Soldier_GL";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item11
+				{
+					position[]={5890.9038,0.36354163,3937.2971};
+					id=12;
+					side="EAST";
+					vehicle="RU_Soldier";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+			};
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={12776.378,-50.00206,12776.118};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"namalsk"
+	};
+	addOnsAuto[]=
+	{
+		"namalsk"
+	};
+	randomSeed=11895413;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0;
+		year=2011;
+		month=7;
+		hour=15;
+		minute=25;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"namalsk"
+	};
+	addOnsAuto[]=
+	{
+		"namalsk"
+	};
+	randomSeed=7082171;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0;
+		year=2011;
+		month=7;
+		hour=15;
+		minute=25;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"namalsk"
+	};
+	addOnsAuto[]=
+	{
+		"namalsk"
+	};
+	randomSeed=729151;
+	class Intel
+	{
+		startWeather=0;
+		forecastWeather=0;
+		year=2011;
+		month=7;
+		hour=15;
+		minute=25;
+	};
+};
