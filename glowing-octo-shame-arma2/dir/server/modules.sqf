@@ -7,9 +7,13 @@ waitUntil {!isNil "group_logic"};
 // пока сделаю просто задержку инициализации, нет необходимости срочном запуске модуля
 waitUntil {time > 15};
 // военные обозначения
-if (missionNamespace getVariable "gosa_MartaManager" == 1 or (missionNamespace getVariable "gosa_MartaManager" == -1 && cadetMode)) then {
+if (missionNamespace getVariable "gosa_MartaManager" > 0
+	or (missionNamespace getVariable "gosa_MartaManager" == -1 && cadetMode)) then
+{
 	_z = (group_logic) createUnit ["MartaManager",[1000,10,0],[],0,"none"];
 	_z setVariable ["duration", 60, true];
 	//--- 3 цвета
-	_z setVariable ["disableEnemyColors", true, true];
+	if (missionNamespace getVariable "gosa_MartaManager" == 3) then {
+		_z setVariable ["disableEnemyColors", true, true];
+	};
 };

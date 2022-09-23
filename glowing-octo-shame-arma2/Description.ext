@@ -369,8 +369,8 @@ class Params {
 	// Военные обозначения.
 	class gosa_MartaManager {
 		title="MartaManager module";
-		values[] = {-1,0,1};
-		texts[] = {$STRWFMISSIONDEFAULT,$STRWFNO,$STRWFYES};
+		values[] = {-1,1,3,0};
+		texts[] = {$STRWFMISSIONDEFAULT,$STRWFYES,"yes, 3 color",$STRWFNO};
 		default=-1;
 	};
 
