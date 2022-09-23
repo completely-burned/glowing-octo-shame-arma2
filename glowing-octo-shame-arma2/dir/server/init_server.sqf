@@ -1,4 +1,6 @@
 #define __A2OA__
+// [["4352423435325"],[[[[],[],[],[505,600,605,506]]]]];
+gosa_MapPlayersPublic = [[],[]];
 
 OnPlayerDisconnected "[_id, _uid, _name] ExecVM (""dir\server\eh_PlayerDisconnected.sqf"")";
 
