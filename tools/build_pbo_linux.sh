@@ -20,6 +20,24 @@ done
 # TODO: Улучшить.
 DIR=$(dirname "${BASH_SOURCE[0]}")/..
 
+# Совместимость.
+WINDOWS=0
+case "$(uname -s)" in
+	Darwin)
+		echo 'Mac OS X'
+		;;
+	Linux)
+		echo 'Linux'
+		;;
+	CYGWIN*|MINGW32*|MSYS*|MINGW*)
+		echo 'MS Windows'
+		WINDOWS=1
+		;;
+	*)
+		echo 'Other OS'
+		;;
+esac
+
 # В tmpfs сборка быстрее.
 TMPDIR=$(mktemp -td glowing-octo-shame-arma2.XXXXX)
 echo $TMPDIR
@@ -122,20 +140,23 @@ do
 			sed -i "s/\(.*briefingName.*\) DEBUG\(.*\)/\1\2/" $MISSION/mission.sqm
 		fi
 
-		# Если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив.
-		if [[ -x "$(command -v parallel)" ]]
+		if [[ $WINDOWS -le 0 ]]
 		then
-			var_parallel+=("makepbo -M $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo")
-			var_parallel+=("armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
-			var_parallel+=("armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
-		else
-			makepbo -M $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo
-			armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
-			armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
+			# Если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив.
+			if [[ -x "$(command -v parallel)" ]]
+			then
+				var_parallel+=("makepbo -M $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo")
+				var_parallel+=("armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
+				var_parallel+=("armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
+			else
+				makepbo -M $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo
+				armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
+				armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
+			fi
 		fi
 
 		# Создаем безархивную версию на случай если архивация не удалась.
-		rsync -rLK $MISSION/* $PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}
+		rsync -rLK --delete --no-perms $MISSION/* $PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}
 
 	fi
 done

@@ -12,7 +12,7 @@ pve бой с ботами в сконцентрированный в одной
 ## Build
  - ### linux
       ```bash
-      # Установить 
+      # Установить
       # rsync
       # git
       # sed
@@ -21,14 +21,14 @@ pve бой с ботами в сконцентрированный в одной
       # makepbo (не работает)
       # armake
       # armake2
-      # 
-      # В любом случае 
+      #
+      # В любом случае
       # должна будет появится после сборки папка rsync
       # в которой будут готовые для игры файлы.
 
       # Скачать код
       git clone --depth=1 https://github.com/completely-burned/glowing-octo-shame-arma2.git
-      
+
       # Перейти в корень с кодами
       cd ./glowing-octo-shame-arma2/
 
@@ -38,9 +38,9 @@ pve бой с ботами в сконцентрированный в одной
       # Собрать
       ./tools/build_pbo_linux.sh
       exit 0 # готово, это выход
-      # или 
+      # или
       OUT="/куда/поместитьPBOs/" ./tools/build_pbo_linux.sh
-      
+
       # Файлы будут в ./.build.out/ по умолчанию
       # примерно такие
       co_00_glowing-octo-shame-east-v0-0-4-852-armake.chernarus.pbo
@@ -55,12 +55,10 @@ pve бой с ботами в сконцентрированный в одной
      иначе они будут активно записывать в лог файл, и тормозить.  
      Не знаю как это сделать wondows,  
      но если вы знаеете, можете мне сообщить.  
-   
+
    - Скопируйте  
      недостающие файлы из папки `glowing-octo-shame-arma2/` в папки с назанием карты,  
      и соберите, опять [не знаю чем](https://community.bistudio.com/wiki/Community_Tools).
 
    - Можете просто запустить linux скрипт в Windows Subsystem for Linux или Cygwin,  
      только в них не доступны makepbo, armake, armake2.  
-     Скрипт сборки конфликтует с `MakePbo.exe`.
-
