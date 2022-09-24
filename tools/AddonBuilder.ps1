@@ -46,7 +46,7 @@ Write-Host "AddonBuilderExe: $AddonBuilderExe"
 $list=(Get-ChildItem -Path "..\" -Filter "glowing-octo-shame-east*")
 $list=$list+(Get-ChildItem -Path "..\" -Filter "glowing-octo-shame-west*")
 $list=$list+(Get-ChildItem -Path "..\" -Filter "glowing-octo-shame-guer*")
-$list=@("glowing-octo-shame-east-compat.Chernarus","glowing-octo-shame-east.Takistan")
+$list=@("glowing-octo-shame-east.Chernarus","glowing-octo-shame-east.Takistan")
 Write-Host "list: $list"
 Foreach ($i in $list)
 {
