@@ -7,10 +7,12 @@ DIR=$(dirname "${BASH_SOURCE[0]}")/..
 # флаги запуска
 # ./tools/build_pbo_linux.sh -d собрать debug версию
 DIAG_LOG=false
-while getopts "d" opt
+LICENSE=false
+while getopts "dl" opt
 	do
 	case $opt in
 	d) DIAG_LOG=true;;
+	l) LICENSE=true;;
 	*);;
 	esac
 done
@@ -20,6 +22,11 @@ done
 TMPDIR=$(mktemp -td glowing-octo-shame-arma2.XXXXX)
 echo $TMPDIR
 
+# Файл лицензии.
+if $LICENSE; then
+	cp $DIR/*LICENSE* $TMPDIR/
+fi
+# Основные файлы.
 rsync --recursive --delete --no-perms $DIR/glowing-octo-shame* $TMPDIR/
 echo $(ls $TMPDIR)
 
@@ -83,6 +90,8 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d); do
 			rsync --recursive --delete $TMPDIR/glowing-octo-shame-arma2/* $MISSION
 			rsync --recursive --delete ${DIR}/* $MISSION
 		fi
+
+		cp $TMPDIR/*LICENSE* $MISSION
 
 		# не всегда все файлы нужны
 		# version=11; <= Arma 2: Operation Arrowhead
