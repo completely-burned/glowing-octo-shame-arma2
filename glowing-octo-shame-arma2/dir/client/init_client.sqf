@@ -1,5 +1,7 @@
 #define __A2OA__
 
+private ["_tmp_num"];
+
 gosa_owner = getPlayerUID player;
 while {gosa_owner == ""} do {
 	gosa_owner = getPlayerUID player;
@@ -94,6 +96,10 @@ player addEventHandler ["killed", {
 		skipAddAction = nil;
 	};
 }];
+
+#ifdef __ARMA3__
+	_tmp_num = [player,"menu"] call BIS_fnc_addCommMenuItem;
+#endif
 
 if ( isMultiplayer ) then {
 	waitUntil{!isNil "gosa_MPF_InitDone"};
