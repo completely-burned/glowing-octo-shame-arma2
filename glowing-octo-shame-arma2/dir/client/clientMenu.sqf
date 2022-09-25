@@ -188,8 +188,7 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 		diag_log format ["Log: [Menu] shop, post waitUntil %1", time];
 
 	//-- Ammo
-		private ["_list"];
-		_list = [[],[],[]];
+		_tmp_arr = [[],[],[]];
 		{
 			private ["_entry"]; private["_type"];
 			_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
@@ -202,47 +201,46 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 							if (_vehicleclass in ["Ammo","ACE_Ammunition","Backpacks"]) then
 							{
 								private["_factionclasses"];
-								_factionclasses = _list select 0;
+								_factionclasses = _tmp_arr select 0;
 								private["_find_faction"];
 								if (_faction in _factionclasses)then{
 									_find_faction = _factionclasses find _faction;
 								}else{
 									private["_count"];
 									_count = count _factionclasses;
-									[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
-									[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
-									[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
+									[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
+									[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
+									[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
 									_find_faction = _factionclasses find _faction;
 								};
 								private["_vehicleclasses"];
-								_vehicleclasses = ((_list select 1) select _find_faction);
+								_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
 								private["_find_vehicleclass"];
 								if (_vehicleclass in _vehicleclasses)then{
 									_find_vehicleclass = _vehicleclasses find _vehicleclass;
 								}else{
 									private["_count"];
 									_count = count _vehicleclasses;
-									[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
-									[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+									[_tmp_arr,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
+									[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
 									_find_vehicleclass = _vehicleclasses find _vehicleclass;
 								};
 								private["_types"];
-								_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
+								_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
 								if (_type in _types)then{
 								}else{
 									_count = count _types;
-									[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+									[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
 								};
 							};
 		}forEach availableVehicles+["gosa_megaAmmoBox"];
-		[_list,"Ammo"] call _fnc_create_buy_menu;
+		[_tmp_arr,"Ammo"] call _fnc_create_buy_menu;
 
 	// _dataListAmmoBox = _dataListAmmoBox + [["all","[] execvm 'm\functions\gosa_fnc_MegaAmmoBox.sqf'"]];
 		// _dataListAmmoBox = _dataListAmmoBox call _list_BIS_FNC_createmenu2;
 
 	//-- Units
-		private ["_list"];
-		_list = [[],[],[]];
+		_tmp_arr = [[],[],[]];
 		{
 			private ["_entry"]; private["_type"];
 			_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
@@ -256,49 +254,48 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 									private["_faction"]; private["_vehicleclass"];
 									_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 									private["_factionclasses"];
-									_factionclasses = _list select 0;
+									_factionclasses = _tmp_arr select 0;
 									private["_find_faction"];
 									if (_faction in _factionclasses)then{
 										_find_faction = _factionclasses find _faction;
 									}else{
 										private["_count"];
 										_count = count _factionclasses;
-										[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
-										[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
-										[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
+										[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
+										[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
+										[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
 										_find_faction = _factionclasses find _faction;
 									};
 									private["_vehicleclasses"];
-									_vehicleclasses = ((_list select 1) select _find_faction);
+									_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
 									private["_find_vehicleclass"];
 									if (_vehicleclass in _vehicleclasses)then{
 										_find_vehicleclass = _vehicleclasses find _vehicleclass;
 									}else{
 										private["_count"];
 										_count = count _vehicleclasses;
-										[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
-										[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+										[_tmp_arr,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
+										[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
 										_find_vehicleclass = _vehicleclasses find _vehicleclass;
 									};
 									private["_types"];
-									_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
+									_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
 									if (_type in _types)then{
 									}else{
 										_count = count _types;
-										[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+										[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
 									};
 								};
 							};
 		}forEach availableVehicles;
-		[_list,"Man"] call _fnc_create_buy_menu;
+		[_tmp_arr,"Man"] call _fnc_create_buy_menu;
 
 	//-- vehicles
 		private ["_fnc_vehicles"];
 		_fnc_vehicles = {
 			diag_log format ["Log: [Menu] _fnc_vehicles, %1", _this];
 
-			private ["_list"];
-			_list = [[],[],[]];
+			_tmp_arr = [[],[],[]];
 			{
 				private ["_entry"]; private["_type"];
 				_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
@@ -308,50 +305,49 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 											private["_faction"]; private["_vehicleclass"];
 											_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 											private["_factionclasses"];
-											_factionclasses = _list select 0;
+											_factionclasses = _tmp_arr select 0;
 											private["_find_faction"];
 											if (_faction in _factionclasses)then{
 												_find_faction = _factionclasses find _faction;
 											}else{
 												private["_count"];
 												_count = count _factionclasses;
-												[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
-												[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
-												[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
+												[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
+												[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
+												[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
 												_find_faction = _factionclasses find _faction;
 											};
 											private["_vehicleclasses"];
-											_vehicleclasses = ((_list select 1) select _find_faction);
+											_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
 											private["_find_vehicleclass"];
 											if (_vehicleclass in _vehicleclasses)then{
 												_find_vehicleclass = _vehicleclasses find _vehicleclass;
 											}else{
 												private["_count"];
 												_count = count _vehicleclasses;
-												[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
-												[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+												[_tmp_arr,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
+												[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
 												_find_vehicleclass = _vehicleclasses find _vehicleclass;
 											};
 											private["_types"];
-											_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
+											_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
 											if (_type in _types)then{
 											}else{
 												_count = count _types;
-												[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+												[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
 											};
 										};
 									};
 								};
 			}forEach availableVehicles;
-			[_list,_this] call _fnc_create_buy_menu;
+			[_tmp_arr,_this] call _fnc_create_buy_menu;
 		};
 		{
 			_x call _fnc_vehicles
 		} forEach ["Car","Tank","Helicopter","Plane","Motorcycle","Ship","StaticWeapon"];
 
 	//-- Pilot
-		private ["_list"];
-		_list = [[],[],[]];
+		_tmp_arr = [[],[],[]];
 		{
 			private ["_entry"]; private["_type"];
 			_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
@@ -361,46 +357,45 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 										private["_faction"]; private["_vehicleclass"];
 										_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 										private["_factionclasses"];
-										_factionclasses = _list select 0;
+										_factionclasses = _tmp_arr select 0;
 										private["_find_faction"];
 										if (_faction in _factionclasses)then{
 											_find_faction = _factionclasses find _faction;
 										}else{
 											private["_count"];
 											_count = count _factionclasses;
-											[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
-											[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
-											[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
 											_find_faction = _factionclasses find _faction;
 										};
 										private["_vehicleclasses"];
-										_vehicleclasses = ((_list select 1) select _find_faction);
+										_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
 										private["_find_vehicleclass"];
 										if (_vehicleclass in _vehicleclasses)then{
 											_find_vehicleclass = _vehicleclasses find _vehicleclass;
 										}else{
 											private["_count"];
 											_count = count _vehicleclasses;
-											[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
-											[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
 											_find_vehicleclass = _vehicleclasses find _vehicleclass;
 										};
 										private["_types"];
-										_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
+										_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
 										if (_type in _types)then{
 										}else{
 											_count = count _types;
-											[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
 										};
 									};
 								};
 							};
 		}forEach availableVehicles;;
-		[_list,"Pilot"] call _fnc_create_buy_menu;
+		[_tmp_arr,"Pilot"] call _fnc_create_buy_menu;
 
 	//-- Support
-		private ["_list"];
-		_list = [[],[],[]];
+		_tmp_arr = [[],[],[]];
 		{
 			private ["_entry"]; private["_type"];
 			_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
@@ -410,42 +405,42 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 										private["_faction"]; private["_vehicleclass"];
 										_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
 										private["_factionclasses"];
-										_factionclasses = _list select 0;
+										_factionclasses = _tmp_arr select 0;
 										private["_find_faction"];
 										if (_faction in _factionclasses)then{
 											_find_faction = _factionclasses find _faction;
 										}else{
 											private["_count"];
 											_count = count _factionclasses;
-											[_list,[0,_count],_faction] call gosa_fnc_setNestedElement;
-											[_list,[1,_count],[]] call gosa_fnc_setNestedElement;
-											[_list,[2,_count],[]] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
 											_find_faction = _factionclasses find _faction;
 										};
 										private["_vehicleclasses"];
-										_vehicleclasses = ((_list select 1) select _find_faction);
+										_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
 										private["_find_vehicleclass"];
 										if (_vehicleclass in _vehicleclasses)then{
 											_find_vehicleclass = _vehicleclasses find _vehicleclass;
 										}else{
 											private["_count"];
 											_count = count _vehicleclasses;
-											[_list,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
-											[_list,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
 											_find_vehicleclass = _vehicleclasses find _vehicleclass;
 										};
 										private["_types"];
-										_types = (((_list select 2) select _find_faction) select _find_vehicleclass);
+										_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
 										if (_type in _types)then{
 										}else{
 											_count = count _types;
-											[_list,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+											[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
 										};
 									};
 								};
 							};
 		}forEach availableVehicles;;
-		[_list,"Support"] call _fnc_create_buy_menu;
+		[_tmp_arr,"Support"] call _fnc_create_buy_menu;
 
 };
 
