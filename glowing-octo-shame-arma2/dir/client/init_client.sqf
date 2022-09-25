@@ -20,6 +20,7 @@ waitUntil{!isNil "gosa_fnc_init"};
 
 availableVehiclesBuyMenu = [[],[],[]];
 
+//--- Окружение-погружение.
 // setTerrainGrid 12.5;
 // enableRadio false;
 if(worldName == "namalsk")then{
