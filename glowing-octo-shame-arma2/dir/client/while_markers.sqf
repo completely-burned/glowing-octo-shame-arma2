@@ -22,8 +22,8 @@ _fnc_MarkerInitUnit = {
 		_this select 0 setMarkerTypeLocal "hd_dot";
 	#else
 		_this select 0 setMarkerTypeLocal "vehicle";
+		_this select 0 setMarkerSizeLocal [3,3];
 	#endif
-	_this select 0 setMarkerSizeLocal [3,3];
 	_this select 0 setMarkerColorLocal (_this select 2);
 };
 
