@@ -190,9 +190,10 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 	//-- Ammo
 		_tmp_arr = [[],[],[]];
 		{
-			private ["_entry"]; private["_type"];
+			private ["_entry","_type","_faction","_vehicleclass","_factionclasses",
+				"_find_faction","_vehicleclasses","_find_vehicleclass",
+				"_count","_types"];
 			_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
-			private["_faction"]; private["_vehicleclass"];
 			if(_type == "gosa_megaAmmoBox")then{
 				_faction = "Default"; _vehicleclass = "Ammo";
 			}else{
@@ -200,32 +201,25 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 			};
 							if (_vehicleclass in ["Ammo","ACE_Ammunition","Backpacks"]) then
 							{
-								private["_factionclasses"];
 								_factionclasses = _tmp_arr select 0;
-								private["_find_faction"];
 								if (_faction in _factionclasses)then{
 									_find_faction = _factionclasses find _faction;
 								}else{
-									private["_count"];
 									_count = count _factionclasses;
 									[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
 									[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
 									[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
 									_find_faction = _factionclasses find _faction;
 								};
-								private["_vehicleclasses"];
 								_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
-								private["_find_vehicleclass"];
 								if (_vehicleclass in _vehicleclasses)then{
 									_find_vehicleclass = _vehicleclasses find _vehicleclass;
 								}else{
-									private["_count"];
 									_count = count _vehicleclasses;
 									[_tmp_arr,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
 									[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
 									_find_vehicleclass = _vehicleclasses find _vehicleclass;
 								};
-								private["_types"];
 								_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
 								if (_type in _types)then{
 								}else{
