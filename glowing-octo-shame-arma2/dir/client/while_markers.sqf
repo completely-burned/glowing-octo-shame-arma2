@@ -283,24 +283,24 @@ if(true)then{
 
 			// -- игроки
 			if (isMultiplayer) then {
-			_tmp_arr = allUnits;
-			for "_i" from 0 to (count _tmp_arr - 1) do {
-				_item = _tmp_arr select _i;
+				_tmp_arr = allUnits;
+				for "_i" from 0 to (count _tmp_arr - 1) do {
+					_item = _tmp_arr select _i;
 
-				if( !(_item in _units) &&
-					(side _item == playerSide) &&
-					#ifdef __A2OA__
-						{alive _item} && {_item call gosa_fnc_isPlayer} )then
-					#else
-						alive _item && (_item call gosa_fnc_isPlayer) )then
-					#endif
-				{
-					_units set [count _units, _item];
-					_tmp_str = str _item;
-					[_tmp_str, position _item, "ColorBlack"] call _fnc_MarkerInitUnit;
-					_markers set [count _markers, _tmp_str];
+					if( !(_item in _units) &&
+						(side _item == playerSide) &&
+						#ifdef __A2OA__
+							{alive _item} && {_item call gosa_fnc_isPlayer} )then
+						#else
+							alive _item && (_item call gosa_fnc_isPlayer) )then
+						#endif
+					{
+						_units set [count _units, _item];
+						_tmp_str = str _item;
+						[_tmp_str, position _item, "ColorBlack"] call _fnc_MarkerInitUnit;
+						_markers set [count _markers, _tmp_str];
+					};
 				};
-			};
 			};
 
 			// -- маркеры
