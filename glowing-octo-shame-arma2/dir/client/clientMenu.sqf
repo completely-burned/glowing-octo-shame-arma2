@@ -190,16 +190,18 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 	//-- Ammo
 		_tmp_arr = [[],[],[]];
 		{
-			private ["_entry","_type","_faction","_vehicleclass","_factionclasses",
+			private ["_entry","_type","_faction","_class","_factionclasses",
 				"_find_faction","_vehicleclasses","_find_vehicleclass",
 				"_count","_types"];
 			_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
 			if(_type == "gosa_megaAmmoBox")then{
-				_faction = "Default"; _vehicleclass = "Ammo";
+				_faction = "Default";
+				_class = "Ammo";
 			}else{
-				_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
+				_faction = getText(_entry >> "faction");
+				_class = getText(_entry >> "vehicleclass");
 			};
-							if (_vehicleclass in ["Ammo","ACE_Ammunition","Backpacks"]) then
+							if (_class in ["Ammo","ACE_Ammunition","Backpacks"]) then
 							{
 								_factionclasses = _tmp_arr select 0;
 								if (_faction in _factionclasses)then{
@@ -212,13 +214,13 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 									_find_faction = _factionclasses find _faction;
 								};
 								_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
-								if (_vehicleclass in _vehicleclasses)then{
-									_find_vehicleclass = _vehicleclasses find _vehicleclass;
+								if (_class in _vehicleclasses)then{
+									_find_vehicleclass = _vehicleclasses find _class;
 								}else{
 									_count = count _vehicleclasses;
-									[_tmp_arr,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
+									[_tmp_arr,[1,_find_faction,_count],_class] call gosa_fnc_setNestedElement;
 									[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
-									_find_vehicleclass = _vehicleclasses find _vehicleclass;
+									_find_vehicleclass = _vehicleclasses find _class;
 								};
 								_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
 								if (_type in _types)then{
