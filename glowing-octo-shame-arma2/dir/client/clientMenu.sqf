@@ -35,20 +35,7 @@ _z=[
 
 	// TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
 	// 					_g selectLeader _p;
-	["selectLeader (%SELECTED_UNIT_ID)","
-		private['_z','_g','_p'];
-		_p = player;
-		_g = group _p;
-		_z = GroupSelectedUnits _p;
-
-		if (count _z == 0) then {
-				if !(leader _g call gosa_fnc_isPlayer) then {
-					[nil, _g, rselectLeader, _p] call RE;
-				};
-		} else {
-				[nil, _g, rselectLeader, _z select 0] call RE;
-		};
-	"],
+	["selectLeader (%SELECTED_UNIT_ID)","[] call gosa_fnc_menu_selectLeader"],
 	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","{[_x] join grpNull; moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"],
 	[Localize "STR_gosa_join_the_squad","[] execVM 'dir\functions\fnc_joinMenu.sqf'"],
 	["setSquad&Role prio.","[] execVM 'dir\functions\fnc_setSquadRole.sqf'"]
