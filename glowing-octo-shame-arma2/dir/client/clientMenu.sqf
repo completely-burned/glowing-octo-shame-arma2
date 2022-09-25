@@ -193,7 +193,11 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 			private ["_entry","_type","_faction","_class","_factionclasses",
 				"_find_faction","_vehicleclasses","_find_vehicleclass",
 				"_count","_types"];
-			_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
+
+			_type = _x;
+			_entry = ((configFile >> "CfgVehicles") >> _type);
+
+			// Спец. ящик.
 			if(_type == "gosa_megaAmmoBox")then{
 				_faction = "Default";
 				_class = "Ammo";
@@ -201,18 +205,22 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 				_faction = getText(_entry >> "faction");
 				_class = getText(_entry >> "vehicleclass");
 			};
-							if (_class in ["Ammo","ACE_Ammunition","Backpacks"]) then
-							{
+
+						if (toLower _class in ["ammo","ace_ammunition","backpacks"]) then {
+							//- Фракция.
 								_factionclasses = _tmp_arr select 0;
 								if (_faction in _factionclasses)then{
 									_find_faction = _factionclasses find _faction;
 								}else{
+									//- Фракции нет в списке.
 									_count = count _factionclasses;
 									[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
 									[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
 									[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
 									_find_faction = _factionclasses find _faction;
 								};
+
+							//- Тип объекта.
 								_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
 								if (_class in _vehicleclasses)then{
 									_find_vehicleclass = _vehicleclasses find _class;
@@ -222,13 +230,14 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 									[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
 									_find_vehicleclass = _vehicleclasses find _class;
 								};
+
+							//- Добавление объекта в меню.
 								_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
-								if (_type in _types)then{
-								}else{
+								if !(_type in _types)then{
 									_count = count _types;
 									[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
 								};
-							};
+						};
 		}forEach availableVehicles+["gosa_megaAmmoBox"];
 		[_tmp_arr,"Ammo"] call _fnc_create_buy_menu;
 
