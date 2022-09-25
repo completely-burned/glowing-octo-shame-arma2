@@ -124,7 +124,7 @@ if(_z)then{
 
 _run = true;
 
-if (_pos distance [0,0] < 1) then {
+if (_pos call gosa_fnc_isZeroPos) then {
 		diag_log format ["gosa_fnc_call_reinforcement.sqf _pos = [0,0] _players = %1 ", _players];
 	_run = false;
 };

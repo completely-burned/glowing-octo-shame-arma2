@@ -82,7 +82,7 @@ if({alive _x} count _units > 0)then{
 		_z = waypointAttachedVehicle [_grp, _i];
 		if (isNull _z) then {
 			_z = waypointPosition [_grp, _i];
-			if( _z select 0 == 0 && _z select 1 == 0 )then{
+			if(_z call gosa_fnc_isZeroPos)then{
 				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 позиция wp [0,0] удаление", [_grp, _i]];
 				deleteWaypoint [_grp, _i];
 			};
