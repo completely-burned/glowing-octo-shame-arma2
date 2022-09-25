@@ -67,6 +67,7 @@ if (!IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_isZeroPos",
 	"fnc_menu_selectLeader",
 	"fnc_getTypeOfSide",
 	"fnc_getStartingPosMHQ",
