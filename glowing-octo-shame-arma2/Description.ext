@@ -554,7 +554,7 @@ class CfgCommunicationMenu
 {
 	class menu
 	{
-		text = menu;
+		text = "menu";
 		submenu = "#USER:c_0";
 	};
 	class watch
