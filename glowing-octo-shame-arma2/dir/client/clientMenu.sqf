@@ -132,6 +132,7 @@ BIS_MENU_GroupCommunication = [
 waitUntil{!isNil "BIS_FNC_createmenu"};
 private["_fnc_create_buy_menu"];
 	_fnc_create_buy_menu = {
+		diag_log format ["Log: [Menu] _fnc_create_buy_menu, %1", _this];
 		private["_current","_list","_items","_itemsName","_usermenu"];
 		_list = _this select 0;
 		_current = _this select 1;
@@ -176,6 +177,7 @@ private["_fnc_create_buy_menu"];
 	};
 
 if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
+	diag_log format ["Log: [Menu] shop %1", missionNamespace getVariable "gosa_shop"];
 
 	waitUntil{!isNil "gosa_fnc_libEnabled"};
 		waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
@@ -183,6 +185,7 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 		waitUntil{!isNil "availableVehicles"};
 		waitUntil{!isNil "availableWeapons"};
 		waitUntil{!isNil "availableMagazines"};
+		diag_log format ["Log: [Menu] shop, post waitUntil %1", time];
 
 	//-- Ammo
 		private ["_list"];
@@ -292,6 +295,8 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 	//-- vehicles
 		private ["_fnc_vehicles"];
 		_fnc_vehicles = {
+			diag_log format ["Log: [Menu] _fnc_vehicles, %1", _this];
+
 			private ["_list"];
 			_list = [[],[],[]];
 			{
@@ -445,3 +450,4 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 };
 
 buyMenuLoaded=true;
+diag_log format ["Log: [Menu] buyMenuLoaded %1", buyMenuLoaded];
