@@ -282,6 +282,7 @@ if(true)then{
 
 
 			// -- игроки
+			if (isMultiplayer) then {
 			_tmp_arr = allUnits;
 			for "_i" from 0 to (count _tmp_arr - 1) do {
 				_item = _tmp_arr select _i;
@@ -299,6 +300,7 @@ if(true)then{
 					[_tmp_str, position _item, "ColorBlack"] call _fnc_MarkerInitUnit;
 					_markers set [count _markers, _tmp_str];
 				};
+			};
 			};
 
 			// -- маркеры
