@@ -2,8 +2,10 @@
 
 diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 
+#ifndef __ARMA3__
 #define true 1
 #define false 0
+#endif
 
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle","_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t","_commanding",
 	"_LandVehicle","_sorted","_typicalCargo2"];
@@ -48,7 +50,11 @@ _crew = [];
 	};
 
 //--- turrets list
-	_turrets = ([_entry >> "turrets",[]] call gosa_fnc_returnVehicleTurrets);
+	#ifdef __ARMA3__
+		_turrets = allTurrets [_vehicle, false];
+	#else
+		_turrets = ([_entry >> "turrets",[]] call gosa_fnc_returnVehicleTurrets);
+	#endif
 
 	if(_type == "FDF_leopard2a4")then{
 		_turrets = [[0],[0,0]];
