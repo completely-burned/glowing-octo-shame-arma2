@@ -188,11 +188,12 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 		diag_log format ["Log: [Menu] shop, post waitUntil %1", time];
 
 	//-- Ammo
+	private ["_entry","_type","_faction","_class","_factionclasses",
+		"_find_faction","_vehicleclasses","_find_vehicleclass",
+		"_count","_types"];
+
 		_tmp_arr = [[],[],[]];
 		{
-			private ["_entry","_type","_faction","_class","_factionclasses",
-				"_find_faction","_vehicleclasses","_find_vehicleclass",
-				"_count","_types"];
 
 			_type = _x;
 			_entry = ((configFile >> "CfgVehicles") >> _type);
