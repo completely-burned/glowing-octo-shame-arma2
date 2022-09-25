@@ -1,5 +1,6 @@
 
-private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
+private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
+	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
@@ -24,8 +25,7 @@ _list_BIS_FNC_createmenu2={
 	[_arr1,_arr2,_arr3,_arr4];
 };
 waitUntil{!isNil "gosa_fnc_RespawnWeaponsAdd"};
-_z=[
-	[localize "STR_gosa_maintain_equipment","'save' call gosa_fnc_RespawnWeaponsAdd"],
+_tmp_arr=[
 	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
 	[localize "STR_gosa_car_flip", "nearestObjects [vehicle player, ['AllVehicles'], 10] call gosa_fnc_turnVehicle;"],
 	["camera.sqf","[] execvm 'camera.sqf'"],
@@ -37,8 +37,8 @@ _z=[
 	// 					_g selectLeader _p;
 	["selectLeader (%SELECTED_UNIT_ID)","[] call gosa_fnc_menu_selectLeader"],
 	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","{[_x] join grpNull; moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"],
-	[Localize "STR_gosa_join_the_squad","[] execVM 'dir\functions\fnc_joinMenu.sqf'"],
-	["setSquad&Role prio.","[] execVM 'dir\functions\fnc_setSquadRole.sqf'"]
+	[Localize "STR_gosa_join_the_squad",
+		"[] execVM 'dir\functions\fnc_joinMenu.sqf'"]
 	/*setOwner не возвращает контроль над юнитами, но ломает управление игрокам
 	["setOwner (%SELECTED_UNIT_ID) player","
 		{
@@ -54,6 +54,20 @@ _z=[
 	// ["leader move player","leader player move getpos player"],
 	// ["setAccTime 0.5","setAccTime 0.5"],
 ];
+// Если можно просто переключиться в одиночной игре,
+// то меню выбора роли не нужно.
+if (isMultiplayer) then {
+	_tmp_arr=_tmp_arr+[
+		["setSquad&Role prio.","[] execVM 'dir\functions\fnc_setSquadRole.sqf'"]
+	];
+};
+// Сохранение снаряжения работает только при возрождении на базе.
+if (missionNamespace getVariable "respawn" == 0) then {
+	_tmp_arr=_tmp_arr+[
+		[localize "STR_gosa_maintain_equipment",
+			"'save' call gosa_fnc_RespawnWeaponsAdd"]
+	];
+};
 
 if (missionNamespace getVariable "gosa_shop" == 2) then {
 	["BuyMenu", "BuyMenu", [
@@ -81,12 +95,12 @@ if (missionNamespace getVariable "gosa_shop" == 2) then {
 			//,1
 		]
 	], "%1", ""] call BIS_FNC_createmenu;
-	_z = _z + [
+	_tmp_arr=_tmp_arr+[
 		[localize "STR_gosa_purchase","","#USER:BuyMenu_0"]
 	];
 };
 
-_list_BIS_FNC_createmenu = _z call _list_BIS_FNC_createmenu2;
+_list_BIS_FNC_createmenu = _tmp_arr call _list_BIS_FNC_createmenu2;
 
 ["#USER:c_0", "c", [_list_BIS_FNC_createmenu select 1, _list_BIS_FNC_createmenu select 0, _list_BIS_FNC_createmenu select 2, _list_BIS_FNC_createmenu select 3], "","%1"] call gosa_fnc_createmenu;
 ["setTerrainGrid", "setTerrainGrid", [[50,25,12.5,6.25,3.125],["50","25","12.5","6.25","3.125"]], "","setTerrainGrid %1"] call BIS_FNC_createmenu;
