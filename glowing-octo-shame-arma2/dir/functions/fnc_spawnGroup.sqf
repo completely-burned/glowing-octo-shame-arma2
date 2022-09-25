@@ -2,7 +2,7 @@
 
 diag_log format ["Log: [gosa_fnc_spawnGroup.sqf] %1", _this];
 // diag_log str _this;
-private ["_pos","_side","_groups","_vehicles","_roads","_z"];
+private ["_pos","_side","_groups","_vehicles","_roads","_z","_tmp_num"];
 _side = _this select 1;
 _groups = [];
 
@@ -81,6 +81,9 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 						// Баланс.
 						if (_side getFriend playerSide >= 0.6) then {
 							addSwitchableUnit _unit;
+							#ifdef __ARMA3__
+								_tmp_num = [_unit,"menu"] call BIS_fnc_addCommMenuItem;
+							#endif
 						};
 					};
 				} else {
@@ -108,6 +111,9 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 						if (_side getFriend playerSide >= 0.6) then {
 							{
 								addSwitchableUnit _x;
+								#ifdef __ARMA3__
+									_tmp_num = [_x,"menu"] call BIS_fnc_addCommMenuItem;
+								#endif
 							} forEach (_fnc_spawnVehicle select 1);
 						};
 					};
