@@ -6,7 +6,7 @@ if(!isNil "_leader")then{
 		"_units","_vehicles","_landing","_types","_assignedVehicles",
 		"_veh","_assignedVehicle","_wp","_patrol","_pos",
 		"_maxDist","_WaypointCompletionRadius","_SpeedMode",
-		"_WaypointType","_z","_grp_type"
+		"_WaypointType","_z","_grp_type","_tmp_arr"
 	];
 
 	_grp = group _leader;
@@ -111,13 +111,19 @@ if(!isNil "_leader")then{
 
 		// патруль
 		if(_patrol)then{
+			_pos = _leaderPos;
 
-			_pos = getPos ([] call BIS_fnc_listPlayers call BIS_fnc_selectRandom);
-
-			if([_pos, [0,0]] call BIS_fnc_distance2D < 1 )then{
+			//- Позиция случайного игрока.
+			_tmp_arr = (([] call BIS_fnc_listPlayers)-[objNull]);
+			if (count _tmp_arr > 0) then {
+				_tmp_arr = getPos (_tmp_arr call BIS_fnc_selectRandom);
+				if (_tmp_arr call gosa_fnc_isZeroPos) then {
 					diag_log format ["Log: [fnc_waypoints] %1  позиция wp [0,0] удаление, _pos = _leaderPos", _grp ];
-				_pos = _leaderPos;
+				}else{
+					_pos = _tmp_arr;
+				};
 			};
+
 
 			_maxDist = ((_maxDist * 10) max 1500);
 		};
