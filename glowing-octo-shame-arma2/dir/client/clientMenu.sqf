@@ -26,7 +26,6 @@ _list_BIS_FNC_createmenu2={
 };
 waitUntil{!isNil "gosa_fnc_RespawnWeaponsAdd"};
 _tmp_arr=[
-	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
 	[localize "STR_gosa_car_flip", "nearestObjects [vehicle player, ['AllVehicles'], 10] call gosa_fnc_turnVehicle;"],
 	["camera.sqf","[] execvm 'camera.sqf'"],
 	["SetGroupIconsVisible [true,true]","SetGroupIconsVisible [true,true];"],
@@ -37,6 +36,7 @@ _tmp_arr=[
 	// 					_g selectLeader _p;
 	["selectLeader (%SELECTED_UNIT_ID)","[] call gosa_fnc_menu_selectLeader"],
 	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","{[_x] join grpNull; moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"],
+	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
 	[Localize "STR_gosa_join_the_squad",
 		"[] execVM 'dir\functions\fnc_joinMenu.sqf'"]
 	/*setOwner не возвращает контроль над юнитами, но ломает управление игрокам
