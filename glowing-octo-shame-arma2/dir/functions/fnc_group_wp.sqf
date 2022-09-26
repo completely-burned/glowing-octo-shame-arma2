@@ -99,7 +99,7 @@ if({alive _x} count _units > 0)then{
 	// FIXME: не правильный текущий номер маршрута
 	_z = count waypoints _grp;
 	if (_z > 0 && _z <= _currentWP) then {
-		diag_log format ["Log: [fnc_group_wp] %1 currentWaypoint fix", _grp];
+		diag_log format ["Log: [fnc_group_wp] %1, %2, %3, currentWaypoint fix", _grp, waypoints _grp, _currentWP];
 		_grp setCurrentWaypoint [_grp, _z -1];
 		_currentWP = currentWaypoint _grp;
 	};
