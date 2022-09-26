@@ -1,5 +1,6 @@
-﻿
-private ["_pos", "_azi", "_type", "_param4", "_grp", "_side", "_newGrp"];
+private ["_pos", "_azi", "_type", "_param4", "_grp", "_side", "_newGrp",
+	"_sim", "_veh", "_crew"];
+
 _pos = _this select 0;
 _azi = _this select 1;
 _type = _this select 2;
@@ -18,27 +19,37 @@ if ((typeName _param4) == (typeName sideEnemy)) then {
 };
 
 
-private ["_sim", "_veh", "_crew"];
 _sim = toLower getText(configFile >> "CfgVehicles" >> _type >> "simulation");
 
-if (_sim in ["airplane", "helicopter"]) then {
-	if ((count _pos) == 2) then {
-		_pos = _pos + [200];
-	};
+if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"]) then
+{
+	_pos set [2,200];
 
 	_veh = createVehicle [_type, _pos, [], 0, "FLY"];
 
-	if (_sim == "airplane") then {
+	if (_sim in ["airplane","airplanex"]) then
+	{
 		_veh setVelocity [50 * (sin _azi), 50 * (cos _azi), 60];
+		#ifdef __ARMA3__
+	}else{
+		// FIXME: a3 тс не инициализируются без этого.
+		_veh setVelocity [0,0,1];
+		#endif
 	};
 
 }else{
 	_pos resize 2;
 	_veh = createVehicle [_type, _pos, [], 0, "FORM"];
+	#ifdef __ARMA3__
+		// FIXME: a3 тс не инициализируются без этого.
+		_veh setVelocity [0,0,1];
+	#else
+	// FIXME: Почему здесь -1? В a3 тс взрываются с этим значением.
 	_veh setVelocity [0,0,-1];
+	#endif
 };
 
-diag_log format ["Log: [fnc_spawnVehicle] %1", _veh];
+diag_log format ["Log: [fnc_spawnVehicle] %1, created %2 %3 %4", _this, _sim, getPos _veh, _veh];
 
 #ifdef __ARMA3__
 	[_veh] call gosa_fnc_vehInit2;
