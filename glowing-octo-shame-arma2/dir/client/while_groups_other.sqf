@@ -18,7 +18,7 @@ while{true}do{
 	if (_c > 0) then {
 		_s = 20/_c;
 		for "_i" from 0 to (_c -1) do {
-			sleep (_s call gosa_fnc_dynSleep max 1);
+			sleep ((_s call gosa_fnc_dynSleep) max 1);
 			_g select _i call gosa_fnc_group_other;
 		};
 	};
