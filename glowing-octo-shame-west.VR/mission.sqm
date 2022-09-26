@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=129;
 	class ItemIDProvider
 	{
-		nextID=5;
+		nextID=13;
 	};
 	class MarkerIDProvider
 	{
@@ -27,13 +27,14 @@ sourceName="gosa";
 addons[]=
 {
 	"A3_Modules_F",
-	"A3_Ui_F"
+	"A3_Ui_F",
+	"A3_Characters_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -48,9 +49,20 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item2
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=148431;
+class ScenarioData
+{
+	author="draga";
+};
 class Mission
 {
 	class Intel
@@ -73,7 +85,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			dataType="Logic";
@@ -92,6 +104,141 @@ class Mission
 			name="gosa_worldSize";
 			type="Empty";
 			id=4;
+		};
+		class Item2
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3768.571,5.0014391,3611.8611};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayer=1;
+					};
+					id=6;
+					type="B_Soldier_VR_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male01ENGVR";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3766.6814,5.0014391,3615.6409};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=7;
+					type="B_Soldier_VR_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3771.2195,5.0014391,3616.5232};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=8;
+					type="B_Soldier_VR_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3766.6814,5.0014391,3619.4211};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=9;
+					type="B_Soldier_VR_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3768.5708,5.0014391,3617.531};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=11;
+					type="B_Soldier_VR_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3765.9053,5.0014391,3617.7854};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=12;
+					type="B_Soldier_VR_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=5;
 		};
 	};
 };
