@@ -345,10 +345,15 @@ class Params {
 	// Изменения в поведении ии.
 	// TODO: Совместимость с модификациями игры.
 	class gosa_ai_scripts {
+		#ifdef __ARMA3__
+			title="AI: Behavior Changes (not completed) [fps,gp,sv,cl]";
+			default=0;
+		#else
 		title="AI: Behavior Changes [fps,gp,sv,cl]";
+			default=1;
+		#endif
 		values[] = {1,0};
 		texts[] = {STR_ENABLED,STR_DISABLED};
-		default=1;
 	};
 
 	// Принудительное обнаружение игрока.
