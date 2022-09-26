@@ -19,7 +19,7 @@ if ((typeName _param4) == (typeName sideEnemy)) then {
 
 
 private ["_sim", "_veh", "_crew"];
-_sim = getText(configFile >> "CfgVehicles" >> _type >> "simulation");
+_sim = toLower getText(configFile >> "CfgVehicles" >> _type >> "simulation");
 
 if (_sim in ["airplane", "helicopter"]) then {
 	if ((count _pos) == 2) then {
