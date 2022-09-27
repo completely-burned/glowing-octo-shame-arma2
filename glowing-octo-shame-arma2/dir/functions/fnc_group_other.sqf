@@ -9,6 +9,13 @@
 	изменяет скорость, режим боя
 */
 
+#ifdef __A2OA__
+	#define speedLimit
+#endif
+#ifdef __ARMA3__
+	#undef speedLimit
+#endif
+
 private["_leader"];
 _leader = leader _this;
 
@@ -153,7 +160,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 	//--- ограничение скорости транспорта
 	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/76
-	#ifdef __A2OA__
+	#ifdef speedLimit
 	//--- снимает ограничение юнитам вне транспорта
 	{
 		if(_x == vehicle _x)then{
