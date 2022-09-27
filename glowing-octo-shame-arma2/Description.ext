@@ -346,8 +346,8 @@ class Params {
 	// TODO: Совместимость с модификациями игры.
 	class gosa_ai_scripts {
 		#ifdef __ARMA3__
-			title="AI: Behavior Changes (not completed) [fps,gp,sv,cl]";
-			default=0;
+			title="AI: Behavior Changes (not tested) [fps,gp,sv,cl]";
+			default=1;
 		#else
 		title="AI: Behavior Changes [fps,gp,sv,cl]";
 			default=1;
