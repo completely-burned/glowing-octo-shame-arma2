@@ -12,7 +12,10 @@
 		6 - Colonel
 
 */
-﻿
+
+// define ранга.
+#include "..\include\ranks.hpp"
+
 private ["_west","_east","_guer","_woodland","_deserted"];
 _west=[];_east=[];_guer=[];
 
