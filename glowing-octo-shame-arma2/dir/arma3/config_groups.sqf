@@ -168,15 +168,6 @@ if(true)then{
 	// OPF_F orig
 	/*
 	_east=_east+[
-		// O_MotInf_ReconViperTeam
-		[[[["O_LSV_02_unarmed_viper_F",
-			"O_V_Soldier_TL_hex_F","O_V_Soldier_JTAC_hex_F",
-			"O_V_Soldier_M_hex_F","O_V_Soldier_Exp_hex_F",
-			"O_V_Soldier_LAT_hex_F","O_V_Soldier_Medic_hex_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],
-			["SERGEANT",
-			"SERGEANT","CORPORAL",
-			"PRIVATE","PRIVATE",
-			"PRIVATE","PRIVATE"]]],0],
 		// O_MotInf_AssaultViperTeam
 		[[[["O_LSV_02_armed_viper_F",
 			"O_V_Soldier_TL_hex_F","O_V_Soldier_JTAC_hex_F",
@@ -567,6 +558,18 @@ if(!_woodland && _deserted)then{
 				"PRIVATE","PRIVATE",
 				"SERGEANT","CORPORAL",
 				"PRIVATE","PRIVATE"]]],0.5],
+			/*
+			Не проверенно.
+			// O_MotInf_ReconViperTeam
+			[[[["O_LSV_02_unarmed_viper_F",
+				"O_V_Soldier_TL_hex_F","O_V_Soldier_JTAC_hex_F",
+				"O_V_Soldier_M_hex_F","O_V_Soldier_Exp_hex_F",
+				"O_V_Soldier_LAT_hex_F","O_V_Soldier_Medic_hex_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],
+				["SERGEANT",
+				"SERGEANT","CORPORAL",
+				"PRIVATE","PRIVATE",
+				"PRIVATE","PRIVATE"]]],0.5],
+			*/
 		[[[["O_soldier_TL_F","O_soldier_AR_F","O_soldier_AT_F","O_MRAP_02_hmg_F"],[[-5,-5,0],[-5,-5,0],[5,5,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		/*
 		[[[["O_soldier_SL_F","O_soldier_TL_F","O_soldier_TL_F","O_soldier_F","O_soldier_LAT_F","O_soldier_M_F","O_soldier_AR_F","O_soldier_A_F","O_medic_F","O_soldier_AR_F","O_soldier_GL_F","O_soldier_LAT_F","O_soldier_F","O_Truck_03_covered_F"],[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[-5,-8,0],[-5,-10,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[0,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
