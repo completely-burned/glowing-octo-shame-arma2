@@ -1,4 +1,8 @@
 #define __A2OA__
+/*
+TODO: Рефакторинг.
+TODO: Комментарии.
+*/
 
 private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_fnc_CrewLeave"];
 
