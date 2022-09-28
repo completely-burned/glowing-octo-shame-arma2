@@ -20,6 +20,11 @@ _tmpPosSafe = getPos _vehicle;
 // TODO: Возможность создавать на дороге нужно учесть.
 _tmpPosSafe set [0, (_tmpPosSafe select 0) + 10];
 _tmpPosSafe set [1, (_tmpPosSafe select 1) + 10];
+// FIXME: Еще идеи? Надеюсь юнит пререместится в тс раньше чем упадет или будет сбит.
+_tmpPosSafe set [2, (_tmpPosSafe select 2) + 2000];
+// Под землей они умирают в a2.
+//_tmpPosSafe set [2, (_tmpPosSafe select 2) - 200];
+
 
 _entry = configFile >> "CfgVehicles" >> _type;
 _crew = [];
