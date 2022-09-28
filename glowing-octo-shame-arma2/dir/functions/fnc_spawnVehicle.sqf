@@ -39,7 +39,13 @@ if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"])
 	};
 
 }else{
-	_pos resize 2;
+	#ifdef __ARMA3__
+		// a3 тс на некоторых позициях взрываются,
+		// вероятно из-за наклона поверхности.
+		_pos set [2,3];
+	#else
+		_pos resize 2;
+	#endif
 	_veh = createVehicle [_type, _pos, [], 0, "FORM"];
 	_veh setDir _azi;
 	#ifdef __ARMA3__
