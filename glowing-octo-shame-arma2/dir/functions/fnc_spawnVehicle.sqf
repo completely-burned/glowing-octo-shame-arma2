@@ -27,6 +27,7 @@ if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"])
 
 	_veh = createVehicle [_type, _pos, [], 0, "FLY"];
 
+	_veh setDir _azi;
 	if (_sim in ["airplane","airplanex"]) then
 	{
 		_veh setVelocity [50 * (sin _azi), 50 * (cos _azi), 60];
@@ -40,6 +41,7 @@ if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"])
 }else{
 	_pos resize 2;
 	_veh = createVehicle [_type, _pos, [], 0, "FORM"];
+	_veh setDir _azi;
 	#ifdef __ARMA3__
 		// FIXME: a3 тс не инициализируются без этого.
 		_veh setVelocity [0,0,1];
@@ -56,8 +58,6 @@ diag_log format ["Log: [fnc_spawnVehicle] %1, created %2 %3 %4", _this, _sim, ge
 #else
 [nil, _veh, rvehInit] call RE;
 #endif
-
-_veh setDir _azi;
 
 if ((count _this) > 4) then {
 	_crew = [_veh, _grp, _this select 4] call gosa_fnc_spawnCrew;
