@@ -725,7 +725,17 @@ if(true)then{
 				"PRIVATE","PRIVATE"],[],1]],0.5],
 		[[[["I_soldier_SL_F","I_soldier_SL_F","I_soldier_TL_F","I_soldier_TL_F","I_soldier_F","I_soldier_LAT_F","I_soldier_M_F","I_soldier_AR_F","I_soldier_A_F","I_medic_F","I_soldier_F","I_soldier_LAT_F","I_soldier_M_F","I_soldier_AR_F","I_soldier_A_F","I_medic_F","I_Truck_02_covered_F"],[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0],[0,0,0]],["CAPTAIN","CAPTAIN","LIEUTENANT","LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		// бтр
-		[[[["I_soldier_SL_F","I_soldier_TL_F","I_soldier_F","I_soldier_LAT_F","I_soldier_M_F","I_soldier_AR_F","I_soldier_A_F","I_medic_F","I_APC_Wheeled_03_cannon_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[0,0,0]],["CAPTAIN","LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+			// HAF_MechInfSquad
+			[[[["I_APC_Wheeled_03_cannon_F",
+				"I_soldier_SL_F","I_soldier_F",
+				"I_soldier_LAT_F","I_soldier_M_F",
+				"I_soldier_TL_F","I_soldier_AR_F",
+				"I_soldier_A_F","I_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+				["LIEUTENANT",
+				"SERGEANT","PRIVATE",
+				"CORPORAL","PRIVATE",
+				"SERGEANT","CORPORAL",
+				"PRIVATE","PRIVATE"],[],1]],0.5],
 		[[[["I_soldier_SL_F","I_soldier_TL_F","I_soldier_repair_F","I_engineer_F","I_medic_F","I_soldier_AR_F","I_soldier_exp_F","I_soldier_A_F","I_APC_Wheeled_03_cannon_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[0,0,0]],["CAPTAIN","LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		// гусеничный
 		[[[["I_soldier_SL_F","I_soldier_AT_F","I_soldier_AT_F","I_soldier_AT_F","I_soldier_AAT_F","I_soldier_AAT_F","I_soldier_AAT_F","I_APC_tracked_03_cannon_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[0,0,0]],["CAPTAIN","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
