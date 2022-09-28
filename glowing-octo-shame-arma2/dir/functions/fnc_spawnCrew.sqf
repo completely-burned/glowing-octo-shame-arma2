@@ -17,6 +17,7 @@ _type = typeOf _vehicle;
 
 _tmpPosSafe = getPos _vehicle;
 // У Ванильных отрядов на этой позиции нет техники.
+// TODO: Возможность создавать на дороге нужно учесть.
 _tmpPosSafe set [0, (_tmpPosSafe select 0) + 10];
 _tmpPosSafe set [1, (_tmpPosSafe select 1) + 10];
 
