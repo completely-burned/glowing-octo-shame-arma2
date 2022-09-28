@@ -1,4 +1,8 @@
 ﻿#define __A2OA__
+/*
+TODO: a3 Экипажу после успешного размещения
+все равно отдается приказ покинуть тс.
+*/
 
 diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 
