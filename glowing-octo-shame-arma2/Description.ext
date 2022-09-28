@@ -101,6 +101,8 @@ class Params {
 
 
 	// Множители фракций.
+	#ifdef __ARMA3__
+	#else
 	class gosa_faction_multiplier_INS {
 		title="FACTION: BIS_INS";
 		values[] = {-1,1,0};
@@ -215,6 +217,7 @@ class Params {
 		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 		default=-1;
 	};
+	#endif
 
 
 	// Количество отрядов ии гарантировано.
