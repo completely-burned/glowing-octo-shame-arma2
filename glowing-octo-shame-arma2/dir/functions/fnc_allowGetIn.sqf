@@ -4,7 +4,8 @@ TODO: Рефакторинг.
 TODO: Комментарии.
 */
 
-private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_fnc_CrewLeave"];
+private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_fnc_CrewLeave",
+	"_vehicles","_tmpNum","_item","_tmpObj"];
 
 _fnc_CrewLeave={
 	private ["_u","_t","_b","_g"];
@@ -259,6 +260,23 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 	} forEach (_this select 0);
 
 	_out allowGetin false;
+
+	#ifdef __ARMA3__
+		// a3 тс не останавливается само если у других есть приказ выйти.
+		// Находим тс и останавливаем их.
+		_tmpNum = count _out;
+		if (_tmpNum > 0) then {
+			_vehicles = [];
+			for "_i" from 0 to (_tmpNum -1) do {
+				_item = _out select _i;
+				_tmpObj = vehicle _item;
+				if (_tmpObj != _item && !(_tmpObj in _vehicles)) then {
+					_vehicles set [count _vehicles, _tmpObj];
+				};
+			};
+			_vehicles doFollow (_this select 1);
+		};
+	#endif
 
 	(_this select 0) - _out allowGetin true;
 
