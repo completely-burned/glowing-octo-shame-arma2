@@ -448,21 +448,21 @@ if(!_woodland && _deserted)then{
 				"O_support_AMG_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],
 				["SERGEANT",
 				"SERGEANT","CORPORAL",
-				"PRIVATE"]]],0.5],
+				"PRIVATE"],[],1]],0.5],
 			// OIA_MotInf_GMGTeam
 			[[[["O_MRAP_02_F",
 				"O_soldier_TL_F","O_support_GMG_F",
 				"O_support_AMG_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],
 				["SERGEANT",
 				"SERGEANT","CORPORAL",
-				"PRIVATE"]]],0.5],
+				"PRIVATE"],[],1]],0.5],
 			// OIA_MotInf_MortTeam
 			[[[["O_MRAP_02_F",
 				"O_soldier_TL_F","O_support_Mort_F",
 				"O_support_AMort_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],
 				["SERGEANT",
 				"SERGEANT","CORPORAL",
-				"PRIVATE"]]],0.5],
+				"PRIVATE"],[],1]],0.5],
 			// OIA_MotInf_Reinforce
 			[[[["O_Truck_03_transport_F",
 				"O_soldier_SL_F","O_soldier_F",
@@ -477,7 +477,7 @@ if(!_woodland && _deserted)then{
 				"SERGEANT","CORPORAL",
 				"PRIVATE","PRIVATE",
 				"SERGEANT","CORPORAL",
-				"PRIVATE","PRIVATE"]]],0.5],
+				"PRIVATE","PRIVATE"],[],1]],0.5],
 			/*
 			Не проверенно.
 			// O_MotInf_ReconViperTeam
@@ -520,7 +520,7 @@ if(!_woodland && _deserted)then{
 				"SERGEANT","PRIVATE",
 				"CORPORAL","PRIVATE",
 				"SERGEANT","CORPORAL",
-				"PRIVATE","PRIVATE"]]],0.5],
+				"PRIVATE","PRIVATE"],[],1]],0.5],
 			// OIA_MechInf_Support
 			[[[["O_APC_Wheeled_02_rcws_v2_F",
 				"O_soldier_SL_F","O_soldier_TL_F",
@@ -531,7 +531,7 @@ if(!_woodland && _deserted)then{
 				"SERGEANT","SERGEANT",
 				"CORPORAL","PRIVATE",
 				"PRIVATE","CORPORAL",
-				"PRIVATE","PRIVATE"]]],0.5],
+				"PRIVATE","PRIVATE"],[],1]],0.5],
 		// гусеничный
 			// OIA_MechInf_AT
 			[[[["O_APC_Tracked_02_cannon_F",
@@ -543,7 +543,7 @@ if(!_woodland && _deserted)then{
 				"SERGEANT","CORPORAL",
 				"PRIVATE","PRIVATE",
 				"SERGEANT","CORPORAL",
-				"PRIVATE","PRIVATE"]]],0.5],
+				"PRIVATE","PRIVATE"],[],1]],0.5],
 			// OIA_MechInf_AA
 			[[[["O_APC_Tracked_02_cannon_F",
 				"O_soldier_SL_F","O_soldier_AR_F",
@@ -554,7 +554,7 @@ if(!_woodland && _deserted)then{
 				"SERGEANT","CORPORAL",
 				"PRIVATE","PRIVATE",
 				"SERGEANT","CORPORAL",
-				"PRIVATE","PRIVATE"]]],0.5],
+				"PRIVATE","PRIVATE"],[],1]],0.5],
 		// танки
 			// OIA_TankPlatoon
 			[[[["O_MBT_02_cannon_F",

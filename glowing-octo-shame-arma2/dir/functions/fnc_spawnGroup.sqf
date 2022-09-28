@@ -1,4 +1,7 @@
 ﻿#define __A2OA__
+/*
+TODO: Рефакторинг.
+*/
 
 diag_log format ["Log: [gosa_fnc_spawnGroup.sqf] %1", _this];
 // diag_log str _this;
@@ -30,6 +33,7 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 
 	if(!isNull _grp)then{
 		private ["_types","_positions","_ranks","_crewType","_azimuth"];
+		private ["_bestCandidate"];
 		_types = _x;
 
 		if ((count _types) > 1) then {
@@ -46,6 +50,9 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 			_crewType = _types select 3;
 		} else {
 			_crewType = [];
+		};
+		if ((count _types) > 4) then {
+			_bestCandidate = _types select 4;
 		};
 
 		_types = _types select 0;
@@ -73,9 +80,9 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					#else
 					[nil, _unit, rvehInit] call RE;
 					#endif
-#ifndef __A2OA__
+					#ifndef __A2OA__
 					_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
-#endif
+					#endif
 					_unit setDir _azimuth;
 					if !(isMultiplayer) then {
 						// Баланс.
@@ -146,20 +153,31 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 							[nil, _unit, rsetRank, _rank] call RE;
 				};
 
+				// Командир указан в параметрах.
+				if !(isNil "_bestCandidate") then {
+					if (_i == _bestCandidate) then {
+						_grp selectLeader _unit;
+					};
+				};
+
+
 		};
 
-		private ["_bestCandidate","_units"];
-		_units = units _grp;
-		if ((count _units) > 0) then {
-			_bestCandidate = _units select 0;
-			if ((count _ranks) > 0) then {
-				{
-					if ((rankId _x) > (rankId _bestCandidate)) then {
-						_bestCandidate = _x;
-					};
-				}forEach _units;
+		// Командир не указан в параметрах, автовыбор.
+		if (isNil "_bestCandidate") then {
+			private ["_units"];
+			_units = units _grp;
+			if ((count _units) > 0) then {
+				_bestCandidate = _units select 0;
+				if ((count _ranks) > 0) then {
+					{
+						if ((rankId _x) > (rankId _bestCandidate)) then {
+							_bestCandidate = _x;
+						};
+					}forEach _units;
+				};
+				_grp selectLeader _bestCandidate;
 			};
-			_grp selectLeader _bestCandidate;
 		};
 	};
 
