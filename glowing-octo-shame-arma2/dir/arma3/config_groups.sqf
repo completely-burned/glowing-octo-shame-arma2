@@ -168,11 +168,6 @@ if(true)then{
 	// OPF_F orig
 	/*
 	_east=_east+[
-		// OI_support_GMG
-		[[[["O_soldier_TL_F",
-			"O_support_GMG_F","O_support_AMG_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],
-			["SERGEANT",
-			"CORPORAL","PRIVATE"]]],0],
 		// OI_support_Mort
 		[[[["O_soldier_TL_F",
 			"O_support_Mort_F","O_support_AMort_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],
@@ -537,6 +532,11 @@ if(!_woodland && _deserted)then{
 			// OI_support_MG
 			[[[["O_soldier_TL_F",
 				"O_support_MG_F","O_support_AMG_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],
+				["SERGEANT",
+				"CORPORAL","PRIVATE"]]],0.5],
+			// OI_support_GMG
+			[[[["O_soldier_TL_F",
+				"O_support_GMG_F","O_support_AMG_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],
 				["SERGEANT",
 				"CORPORAL","PRIVATE"]]],0.5],
 			//
