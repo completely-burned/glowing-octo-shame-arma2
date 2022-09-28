@@ -149,6 +149,8 @@ _z=[
 [AllGroupsGuer, _z] call gosa_fnc_groupsRarity;
 
 // Множители фракций.
+#ifdef __ARMA3__
+#else
 _z=["RU","BIS_TK","BIS_TK_INS","INS"];
 for "_i" from 0 to count _z -1 do {
 	_item = _z select _i;
@@ -173,6 +175,7 @@ for "_i" from 0 to count _z -1 do {
 		[AllGroupsGuer, [_item], _param_ratio] call _fnc6;
 	};
 };
+#endif
 
 
 // Ограничить сверхдержав если игроки играют за независимых.
