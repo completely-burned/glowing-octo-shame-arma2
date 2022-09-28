@@ -753,6 +753,7 @@ if(true)then{
 				"CORPORAL","PRIVATE",
 				"SERGEANT","CORPORAL",
 				"PRIVATE","PRIVATE"],[],1]],0.3],
+			// TODO: Можно менять динамически, в завиимости от погоды.
 			[[[["I_Truck_02_covered_F",
 				"I_soldier_SL_F","I_soldier_F",
 				"I_soldier_LAT_F","I_soldier_M_F",
