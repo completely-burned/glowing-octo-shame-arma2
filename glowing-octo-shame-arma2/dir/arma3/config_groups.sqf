@@ -529,11 +529,11 @@ if(!_woodland && _deserted)then{
 				"PRIVATE"]]],0.5],
 			// OI_support_ENG
 			[[[["O_soldier_TL_F",
-			"O_engineer_F","O_engineer_F",
-			"O_soldier_repair_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],
-			["SERGEANT",
-			"CORPORAL","PRIVATE",
-			"PRIVATE"]]],0.5],
+				"O_engineer_F","O_engineer_F",
+				"O_soldier_repair_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],
+				["SERGEANT",
+				"CORPORAL","PRIVATE",
+				"PRIVATE"]]],0.5],
 			// OI_support_MG
 			[[[["O_soldier_TL_F",
 				"O_support_MG_F","O_support_AMG_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],
