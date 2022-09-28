@@ -116,7 +116,17 @@ if(!_woodland && _deserted)then{
 				"PRIVATE","PRIVATE",
 				"SERGEANT","CORPORAL",
 				"PRIVATE","PRIVATE"],[],1]],0.5],
-		[[[["B_soldier_SL_F","B_soldier_AR_F","B_soldier_AA_F","B_soldier_AA_F","B_soldier_AA_F","B_soldier_AAA_F","B_soldier_AAA_F","B_soldier_AAA_F","B_APC_Tracked_01_aa_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[0,0,0]],["CAPTAIN","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+			// BUS_MechInf_AA
+			[[[["B_APC_Tracked_01_aa_F",
+				"B_soldier_SL_F","B_soldier_AR_F",
+				"B_soldier_AA_F","B_soldier_AA_F",
+				"B_soldier_AA_F","B_soldier_AAA_F",
+				"B_soldier_AAA_F","B_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+				["LIEUTENANT",
+				"SERGEANT","CORPORAL",
+				"PRIVATE","PRIVATE",
+				"SERGEANT","CORPORAL",
+				"PRIVATE","PRIVATE"],[],1]],0.5],
 		// Экипаж покидает тс.
 		//[[[["B_APC_Tracked_01_CRV_F"],[[0,0,0]],["SERGEANT"]]],0.5],
 		// танки
