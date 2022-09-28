@@ -47,6 +47,7 @@ _crew = [];
 			_crew set [count _crew, _unit];
 
 			_unit moveInDriver _vehicle;
+			_unit assignAsDriver _vehicle;
 	};
 
 //--- turrets list
@@ -149,6 +150,9 @@ _crew = [];
 					#endif
 
 				_unit moveInTurret [_vehicle, _sorted select _i select 1];
+				#ifdef __ARMA3__
+					_unit assignAsTurret [_vehicle, _sorted select _i select 1];
+				#endif
 			};
 		};
 	};
@@ -161,6 +165,7 @@ _crew = [];
 			_crew set [count _crew, _unit];
 
 			_unit moveInDriver _vehicle;
+			_unit assignAsDriver _vehicle;
 	};
 
 {
