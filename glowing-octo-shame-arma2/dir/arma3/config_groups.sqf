@@ -168,17 +168,6 @@ if(true)then{
 	// OPF_F orig
 	/*
 	_east=_east+[
-		// OIA_GuardSquad
-		[[[["O_soldierU_SL_F",
-			"O_soldierU_F","O_soldierU_LAT_F",
-			"O_soldierU_M_F","O_soldierU_TL_F",
-			"O_soldierU_AR_F","O_soldierU_A_F",
-			"O_soldierU_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
-			["SERGEANT",
-			"PRIVATE","CORPORAL",
-			"PRIVATE","SERGEANT",
-			"CORPORAL","PRIVATE",
-			"PRIVATE"]]],0],
 		// OIA_GuardTeam
 		[[[["O_soldierU_TL_F",
 			"O_soldierU_AR_F","O_soldierU_GL_F",
@@ -546,7 +535,17 @@ if(true)then{
 if(!_woodland && _deserted)then{
 	_east=_east+[
 		// пехота
-		[[[["O_soldierU_SL_F","O_soldierU_TL_F","O_soldierU_F","O_soldierU_LAT_F","O_soldierU_M_F","O_soldierU_AR_F","O_soldierU_A_F","O_soldierU_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+			// OIA_GuardSquad
+			[[[["O_soldierU_SL_F",
+				"O_soldierU_F","O_soldierU_LAT_F",
+				"O_soldierU_M_F","O_soldierU_TL_F",
+				"O_soldierU_AR_F","O_soldierU_A_F",
+				"O_soldierU_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
+				["SERGEANT",
+				"PRIVATE","CORPORAL",
+				"PRIVATE","SERGEANT",
+				"CORPORAL","PRIVATE",
+				"PRIVATE"]]],0.5],
 		[[[["O_soldierU_TL_F","O_soldierU_AR_F","O_soldierU_GL_F","O_soldierU_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		[[[["O_soldierU_GL_F","O_soldierU_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
 		[[[["O_soldier_SL_F","O_soldier_TL_F","O_soldier_F","O_soldier_LAT_F","O_soldier_M_F","O_soldier_AR_F","O_soldier_A_F","O_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
