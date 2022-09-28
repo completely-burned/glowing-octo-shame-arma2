@@ -264,6 +264,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 	#ifdef __ARMA3__
 		// a3 тс не останавливается само если у других есть приказ выйти.
 		// Находим тс и останавливаем их.
+		// TODO: Некоторые тс не восстанавливают движение.
 		_tmpNum = count _out;
 		if (_tmpNum > 0) then {
 			_vehicles = [];
