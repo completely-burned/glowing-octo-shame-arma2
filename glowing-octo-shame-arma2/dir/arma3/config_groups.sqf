@@ -168,17 +168,6 @@ if(true)then{
 	// OPF_F orig
 	/*
 	_east=_east+[
-		// OIA_MechInf_AA
-		[[[["O_APC_Tracked_02_cannon_F",
-			"O_soldier_SL_F","O_soldier_AR_F",
-			"O_soldier_AA_F","O_soldier_AA_F",
-			"O_soldier_AA_F","O_soldier_AAA_F",
-			"O_soldier_AAA_F","O_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
-			["LIEUTENANT",
-			"SERGEANT","CORPORAL",
-			"PRIVATE","PRIVATE",
-			"SERGEANT","CORPORAL",
-			"PRIVATE","PRIVATE"]]],0],
 		// OIA_MechInf_Support
 		[[[["O_APC_Wheeled_02_rcws_v2_F",
 			"O_soldier_SL_F","O_soldier_TL_F",
@@ -583,7 +572,17 @@ if(!_woodland && _deserted)then{
 				"PRIVATE","PRIVATE",
 				"SERGEANT","CORPORAL",
 				"PRIVATE","PRIVATE"]]],0.5],
-		[[[["O_soldier_SL_F","O_soldier_AR_F","O_soldier_AA_F","O_soldier_AA_F","O_soldier_AA_F","O_soldier_AAA_F","O_soldier_AAA_F","O_soldier_AAA_F","O_APC_Tracked_02_cannon_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[0,0,0]],["CAPTAIN","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+			// OIA_MechInf_AA
+			[[[["O_APC_Tracked_02_cannon_F",
+				"O_soldier_SL_F","O_soldier_AR_F",
+				"O_soldier_AA_F","O_soldier_AA_F",
+				"O_soldier_AA_F","O_soldier_AAA_F",
+				"O_soldier_AAA_F","O_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+				["LIEUTENANT",
+				"SERGEANT","CORPORAL",
+				"PRIVATE","PRIVATE",
+				"SERGEANT","CORPORAL",
+				"PRIVATE","PRIVATE"]]],0.5],
 		// танки
 		[[[["O_MBT_02_cannon_F","O_MBT_02_cannon_F","O_MBT_02_cannon_F","O_MBT_02_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
 		[[[["O_MBT_02_cannon_F","O_APC_Tracked_02_AA_F","O_MBT_02_cannon_F","O_APC_Tracked_02_AA_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
