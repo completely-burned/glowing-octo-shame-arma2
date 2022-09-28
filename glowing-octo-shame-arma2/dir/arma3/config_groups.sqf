@@ -105,7 +105,17 @@ if(!_woodland && _deserted)then{
 		[[[["B_AFV_Wheeled_01_up_cannon_F","B_AFV_Wheeled_01_up_cannon_F","B_AFV_Wheeled_01_up_cannon_F","B_AFV_Wheeled_01_up_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
 		[[[["B_AFV_Wheeled_01_up_cannon_F","B_AFV_Wheeled_01_up_cannon_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
 		// гусеничный
-		[[[["B_soldier_SL_F","B_soldier_AR_F","B_soldier_AT_F","B_soldier_AT_F","B_soldier_AT_F","B_soldier_AAT_F","B_soldier_AAT_F","B_soldier_AAT_F","B_APC_Tracked_01_rcws_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[0,0,0]],["CAPTAIN","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+			// BUS_MechInf_AT
+			[[[["B_APC_Tracked_01_rcws_F",
+				"B_soldier_SL_F","B_soldier_AR_F",
+				"B_soldier_AT_F","B_soldier_AT_F",
+				"B_soldier_AT_F","B_soldier_AAT_F",
+				"B_soldier_AAT_F","B_soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+				["LIEUTENANT",
+				"SERGEANT","CORPORAL",
+				"PRIVATE","PRIVATE",
+				"SERGEANT","CORPORAL",
+				"PRIVATE","PRIVATE"],[],1]],0.5],
 		[[[["B_soldier_SL_F","B_soldier_AR_F","B_soldier_AA_F","B_soldier_AA_F","B_soldier_AA_F","B_soldier_AAA_F","B_soldier_AAA_F","B_soldier_AAA_F","B_APC_Tracked_01_aa_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[0,0,0]],["CAPTAIN","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		// Экипаж покидает тс.
 		//[[[["B_APC_Tracked_01_CRV_F"],[[0,0,0]],["SERGEANT"]]],0.5],
