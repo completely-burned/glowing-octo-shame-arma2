@@ -168,15 +168,6 @@ if(true)then{
 	// OPF_F orig
 	/*
 	_east=_east+[
-		// O_MotInf_AssaultViperTeam
-		[[[["O_LSV_02_armed_viper_F",
-			"O_V_Soldier_TL_hex_F","O_V_Soldier_JTAC_hex_F",
-			"O_V_Soldier_M_hex_F","O_V_Soldier_Exp_hex_F",
-			"O_V_Soldier_LAT_hex_F","O_V_Soldier_Medic_hex_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],
-			["SERGEANT",
-			"SERGEANT","CORPORAL",
-			"PRIVATE","PRIVATE",
-			"PRIVATE","PRIVATE"]]],0],
 		// OIA_MechInfSquad
 		[[[["O_APC_Wheeled_02_rcws_v2_F",
 			"O_soldier_SL_F","O_soldier_F",
@@ -562,6 +553,15 @@ if(!_woodland && _deserted)then{
 			Не проверенно.
 			// O_MotInf_ReconViperTeam
 			[[[["O_LSV_02_unarmed_viper_F",
+				"O_V_Soldier_TL_hex_F","O_V_Soldier_JTAC_hex_F",
+				"O_V_Soldier_M_hex_F","O_V_Soldier_Exp_hex_F",
+				"O_V_Soldier_LAT_hex_F","O_V_Soldier_Medic_hex_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],
+				["SERGEANT",
+				"SERGEANT","CORPORAL",
+				"PRIVATE","PRIVATE",
+				"PRIVATE","PRIVATE"]]],0.5],
+			// O_MotInf_AssaultViperTeam
+			[[[["O_LSV_02_armed_viper_F",
 				"O_V_Soldier_TL_hex_F","O_V_Soldier_JTAC_hex_F",
 				"O_V_Soldier_M_hex_F","O_V_Soldier_Exp_hex_F",
 				"O_V_Soldier_LAT_hex_F","O_V_Soldier_Medic_hex_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],
