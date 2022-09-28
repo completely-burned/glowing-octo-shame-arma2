@@ -168,13 +168,6 @@ if(true)then{
 	// OPF_F orig
 	/*
 	_east=_east+[
-		// OIA_TankPlatoon
-		[[[["O_MBT_02_cannon_F",
-			"O_MBT_02_cannon_F","O_MBT_02_cannon_F",
-			"O_MBT_02_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],
-			["LIEUTENANT",
-			"SERGEANT","SERGEANT",
-			"CORPORAL"]]],0],
 		// OIA_TankPlatoon_AA
 		[[[["O_MBT_02_cannon_F",
 			"O_APC_Tracked_02_AA_F","O_MBT_02_cannon_F",
@@ -583,7 +576,13 @@ if(!_woodland && _deserted)then{
 				"SERGEANT","CORPORAL",
 				"PRIVATE","PRIVATE"]]],0.5],
 		// танки
-		[[[["O_MBT_02_cannon_F","O_MBT_02_cannon_F","O_MBT_02_cannon_F","O_MBT_02_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
+			// OIA_TankPlatoon
+			[[[["O_MBT_02_cannon_F",
+				"O_MBT_02_cannon_F","O_MBT_02_cannon_F",
+				"O_MBT_02_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],
+				["LIEUTENANT",
+				"SERGEANT","SERGEANT",
+				"CORPORAL"]]],0.5],
 		[[[["O_MBT_02_cannon_F","O_APC_Tracked_02_AA_F","O_MBT_02_cannon_F","O_APC_Tracked_02_AA_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
 		[[[["O_MBT_02_cannon_F","O_MBT_02_cannon_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
 		[[[["O_MBT_04_command_F","O_MBT_04_cannon_F","O_MBT_04_cannon_F","O_MBT_04_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
