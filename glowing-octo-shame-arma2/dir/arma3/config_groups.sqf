@@ -168,13 +168,6 @@ if(true)then{
 	// OPF_F orig
 	/*
 	_east=_east+[
-		// OIA_MotInf_MortTeam
-		[[[["O_MRAP_02_F",
-			"O_soldier_TL_F","O_support_Mort_F",
-			"O_support_AMort_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],
-			["SERGEANT",
-			"SERGEANT","CORPORAL",
-			"PRIVATE"]]],0],
 		// OIA_MotInf_Reinforce
 		[[[["O_Truck_03_transport_F",
 			"O_soldier_SL_F","O_soldier_F",
@@ -564,6 +557,13 @@ if(!_woodland && _deserted)then{
 			[[[["O_MRAP_02_F",
 				"O_soldier_TL_F","O_support_GMG_F",
 				"O_support_AMG_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],
+				["SERGEANT",
+				"SERGEANT","CORPORAL",
+				"PRIVATE"]]],0.5],
+			// OIA_MotInf_MortTeam
+			[[[["O_MRAP_02_F",
+				"O_soldier_TL_F","O_support_Mort_F",
+				"O_support_AMort_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],
 				["SERGEANT",
 				"SERGEANT","CORPORAL",
 				"PRIVATE"]]],0.5],
