@@ -96,11 +96,15 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					_unit = _fnc_spawnVehicle select 0;
 
 					if(count _roads > 0)then{
-						_unit setPos getPos (_roads select 0);
 						if(count _roads > 1)then{
 							_azimuth = 180 + ([_roads select 0, _roads select 1] call BIS_fnc_dirTo);
 						};
-						_unit setDir _azimuth;
+						_itemPos = getPos (_roads select 0);
+						// a3 тс на некоторых позициях взрываются,
+						// вероятно из-за наклона поверхности.
+						//_itemPos resize 2;
+						_itemPos set [2,3];
+						_unit setPos _itemPos; _unit setDir _azimuth;
 						_roads set [0,-1];
 						_roads = _roads - [-1];
 					}else{
