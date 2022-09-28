@@ -178,9 +178,6 @@ if(true)then{
 		// OIA_SPGSection_Scorcher
 		[[[["O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0]],
 			["LIEUTENANT","SERGEANT"]]],0],
-		// O_TankSection_Heavy
-		[[[["O_MBT_04_cannon_F","O_MBT_04_cannon_F"],[[0,0,0],[10,-10,0]],
-			["LIEUTENANT","SERGEANT"]]],0],
 		// O_TankPlatoon_Heavy
 		[[[["O_MBT_04_command_F",
 			"O_MBT_04_cannon_F","O_MBT_04_cannon_F",
@@ -584,7 +581,9 @@ if(!_woodland && _deserted)then{
 			[[[["O_MBT_02_cannon_F","O_MBT_02_cannon_F"],[[0,0,0],[10,-10,0]],
 				["LIEUTENANT","SERGEANT"]]],0.5],
 		[[[["O_MBT_04_command_F","O_MBT_04_cannon_F","O_MBT_04_cannon_F","O_MBT_04_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
-		[[[["O_MBT_04_command_F","O_MBT_04_cannon_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
+			// O_TankSection_Heavy
+			[[[["O_MBT_04_cannon_F","O_MBT_04_cannon_F"],[[0,0,0],[10,-10,0]],
+				["LIEUTENANT","SERGEANT"]]],0.5],
 		// артиллерия
 		/*
 		[[[["O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
