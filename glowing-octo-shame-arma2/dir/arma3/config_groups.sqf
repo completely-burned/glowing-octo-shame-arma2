@@ -168,11 +168,6 @@ if(true)then{
 	// OPF_F orig
 	/*
 	_east=_east+[
-		// OIA_MotInf_Team
-		[[[["O_MRAP_02_GMG_F",
-			"O_soldier_AR_F","O_soldier_AT_F"],[[0,0,0],[-5,-5,0],[-5,-5,0]],
-			["SERGEANT",
-			"CORPORAL","PRIVATE"]]],0],
 		// OIA_MotInf_AT
 		[[[["O_MRAP_02_F",
 			"O_soldier_AT_F","O_soldier_AT_F",
@@ -567,7 +562,11 @@ if(!_woodland && _deserted)then{
 		//[[[["O_Boat_Transport_01_F","O_soldier_AR_F","O_soldier_GL_F","O_soldier_LAT_F","O_soldier_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[["O_soldier_TL_F"]]]],0.5],
 		//[[[["O_diver_TL_F","O_diver_exp_F","O_diver_F","O_diver_F","O_SDV_01_F","O_SDV_01_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		// колесный
-		[[[["O_soldier_TL_F","O_soldier_AR_F","O_soldier_AT_F","O_MRAP_02_GMG_F"],[[-5,-5,0],[-5,-5,0],[5,5,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+			// OIA_MotInf_Team
+			[[[["O_MRAP_02_GMG_F",
+				"O_soldier_AR_F","O_soldier_AT_F"],[[0,0,0],[-5,-5,0],[-5,-5,0]],
+				["SERGEANT",
+				"CORPORAL","PRIVATE"]]],0.5],
 		[[[["O_soldier_TL_F","O_soldier_AR_F","O_soldier_AT_F","O_MRAP_02_hmg_F"],[[-5,-5,0],[-5,-5,0],[5,5,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		[[[["O_soldier_TL_F","O_soldier_AT_F","O_soldier_AT_F","O_soldier_AAT_F","O_MRAP_02_F"],[[5,-5,0],[-5,-5,0],[0,-10,0],[5,5,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		[[[["O_soldier_TL_F","O_soldier_AA_F","O_soldier_AA_F","O_soldier_AAA_F","O_MRAP_02_F"],[[5,-5,0],[-5,-5,0],[0,-10,0],[5,5,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
