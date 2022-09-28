@@ -168,9 +168,6 @@ if(true)then{
 	// OPF_F orig
 	/*
 	_east=_east+[
-		// OIA_GuardSentry
-		[[[["O_soldierU_GL_F","O_soldierU_F"],[[0,0,0],[5,-5,0]],
-			["CORPORAL","PRIVATE"]]],0],
 		// OI_support_CLS
 		[[[["O_soldier_TL_F",
 			"O_soldier_AR_F","O_medic_F",
@@ -546,7 +543,9 @@ if(!_woodland && _deserted)then{
 				["SERGEANT",
 				"CORPORAL","PRIVATE",
 				"PRIVATE"]]],0.5],
-		[[[["O_soldierU_GL_F","O_soldierU_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
+			// OIA_GuardSentry
+			[[[["O_soldierU_GL_F","O_soldierU_F"],[[0,0,0],[5,-5,0]],
+				["CORPORAL","PRIVATE"]]],0.5],
 		[[[["O_soldier_SL_F","O_soldier_TL_F","O_soldier_F","O_soldier_LAT_F","O_soldier_M_F","O_soldier_AR_F","O_soldier_A_F","O_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		[[[["O_soldier_SL_F","O_soldier_AR_F","O_soldier_GL_F","O_soldier_M_F","O_soldier_AT_F","O_soldier_AAT_F","O_soldier_A_F","O_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		[[[["O_soldier_TL_F","O_soldier_AR_F","O_soldier_GL_F","O_soldier_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
