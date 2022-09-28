@@ -8,12 +8,17 @@ diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 #endif
 
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle","_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t","_commanding",
-	"_LandVehicle","_sorted","_typicalCargo2"];
+	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe"];
 
 _vehicle = _this select 0;
 _grp = _this select 1;
 
 _type = typeOf _vehicle;
+
+_tmpPosSafe = getPos _vehicle;
+// У Ванильных отрядов на этой позиции нет техники.
+_tmpPosSafe set [0, (_tmpPosSafe select 0) + 10];
+_tmpPosSafe set [1, (_tmpPosSafe select 1) + 10];
 
 _entry = configFile >> "CfgVehicles" >> _type;
 _crew = [];
@@ -43,7 +48,7 @@ _crew = [];
 
 	if ((_hasDriver == 1) && (isNull (driver _vehicle)) && !_LandVehicle) then
 	{
-			_unit = _grp createUnit [_crewType, getPos _vehicle, [], 0, "FORM"];
+			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
 			_crew set [count _crew, _unit];
 
 			_unit moveInDriver _vehicle;
@@ -116,9 +121,9 @@ _crew = [];
 		for "_i" from count _sorted - 1 to 0 step -1 do {
 			if (isNull (_vehicle turretUnit (_sorted select _i select 1))) then {
 				if(!isNil {_typicalCargo2})then{
-					_unit = _grp createUnit [(_typicalCargo2 select _i), getPos _vehicle, [], 0, "FORM"];
+					_unit = _grp createUnit [(_typicalCargo2 select _i), _tmpPosSafe, [], 0, "FORM"];
 				}else{
-					_unit = _grp createUnit [_crewType, getPos _vehicle, [], 0, "FORM"];
+					_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
 				};
 	#ifndef __A2OA__
 				_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
@@ -161,7 +166,7 @@ _crew = [];
 //--- creating driver unit for land
 	if ((_hasDriver == 1) && (isNull (driver _vehicle)) && _LandVehicle) then
 	{
-			_unit = _grp createUnit [_crewType, getPos _vehicle, [], 0, "FORM"];
+			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
 			_crew set [count _crew, _unit];
 
 			_unit moveInDriver _vehicle;
