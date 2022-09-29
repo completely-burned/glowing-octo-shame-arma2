@@ -96,10 +96,12 @@ _list = [
 ];
 #ifdef __ARMA3__
 	_list=_list+[
+		"B_W_Crew_F",
 		"B_crew_F",
 		"B_T_Crew_F",
 		"O_crew_F",
 		"O_T_Crew_F",
+		"I_E_Crew_F",
 		"I_crew_F"
 	];
 #endif
@@ -128,18 +130,27 @@ _list = [
 ];
 #ifdef __ARMA3__
 	_list=_list+[
+		"B_Fighter_Pilot_F",
+		"B_W_Helipilot_F",
+		"B_W_Helicrew_F",
 		"B_helicrew_F",
 		"B_Pilot_F",
 		"B_Helipilot_F",
 		"B_T_Helicrew_F",
 		"B_T_Pilot_F",
 		"B_T_Helipilot_F",
+		"O_Fighter_Pilot_F",
 		"O_helicrew_F",
 		"O_Pilot_F",
 		"O_helipilot_F",
 		"O_T_Helicrew_F",
 		"O_T_Pilot_F",
 		"O_T_Helipilot_F",
+		"I_Fighter_Pilot_F",
+		"I_C_Pilot_F",
+		"I_C_Helipilot_F",
+		"I_E_Helipilot_F",
+		"I_E_Helicrew_F",
 		"I_helicrew_F",
 		"I_pilot_F",
 		"I_helipilot_F"
