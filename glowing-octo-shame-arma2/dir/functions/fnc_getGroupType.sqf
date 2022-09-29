@@ -1,5 +1,7 @@
 #define __A2OA__
 
+diag_log format ["Log: [fnc_getGroupType] %1", _this];
+
 #ifdef __A2OA__
 	#define ADD if (!(_z in _t) && {_x isKindOf _z}) then {_t set [count _t, _z]};
 #else
@@ -109,4 +111,5 @@ _t = [];
 
 } forEach _this;
 
+diag_log format ["Log: [fnc_getGroupType] r %1", _t];
 _t;
