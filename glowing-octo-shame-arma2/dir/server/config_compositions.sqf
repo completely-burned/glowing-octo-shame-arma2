@@ -16,6 +16,10 @@ _l = _l		+ [corePath + "Server\Compositions\Camp2.sqf"];
 Above example would have a 67% chance of creating Camp2 and 33% chance of creating Camp1.
 */
 //*****************************************************************************************
+#ifdef __ARMA3__
+	// Временная заглушка. Чтобы не выдавало ошибку на отсутствующие файлы.
+	gosa_campCompositions = [];
+#else
 Private["_l"];
 
 _l = [];
@@ -134,3 +138,4 @@ gosa_campCompositions = _l;
 //*****************************************************************************************
 //10/14/8 MM - Created file.
 */
+#endif
