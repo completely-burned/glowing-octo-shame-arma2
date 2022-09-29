@@ -22,6 +22,9 @@ _t = [];
 	scopeName "scope1";
 
 
+	_z = "Man";
+	ADD
+
 	_z = "Plane";
 	ADD
 
