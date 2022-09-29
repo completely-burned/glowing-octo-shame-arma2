@@ -6,11 +6,16 @@
 	#define ADD if (!(_z in _t) && (_x isKindOf _z)) then {_t set [count _t, _z]};
 #endif
 
-private["_t","_z"];
+private["_t","_z","_str"];
 
 _t = [];
 
 {
+	if (typeName _x == typeName objNull) then {
+		_str = typeOf _x;
+	}else{
+		_str = _x;
+	};
 
 	scopeName "scope1";
 
@@ -47,7 +52,7 @@ _t = [];
 		if(_x isKindOf _z) then {
 			_t set [count _t, _z];
 		}else{
-			if(getNumber (LIB_cfgVeh >> typeOf _x >> "isUav") == 1)then{
+			if(getNumber (LIB_cfgVeh >> _str >> "isUav") == 1)then{
 				_t set [count _t, _z];
 			};
 		};
@@ -55,19 +60,19 @@ _t = [];
 
 	_z = "SUPPORT";
 	if !(_z in _t) then {
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "attendant") > 0 && _x isKindOf "LandVehicle")then{
+		if(getNumber(LIB_cfgVeh >> _str >> "attendant") > 0 && _x isKindOf "LandVehicle")then{
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportfuel") > 0)then{
+		if(getNumber(LIB_cfgVeh >> _str >> "transportfuel") > 0)then{
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportammo") > 0)then{
+		if(getNumber(LIB_cfgVeh >> _str >> "transportammo") > 0)then{
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "transportrepair") > 0)then{
+		if(getNumber(LIB_cfgVeh >> _str >> "transportrepair") > 0)then{
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
@@ -96,7 +101,7 @@ _t = [];
 
 	_z = "Artillery";
 	if !(_z in _t) then {
-		if(getNumber(LIB_cfgVeh >> typeOf _x >> "artilleryScanner") == 1)then{
+		if(getNumber(LIB_cfgVeh >> _str >> "artilleryScanner") == 1)then{
 			_t set [count _t, _z];
 		};
 	};
