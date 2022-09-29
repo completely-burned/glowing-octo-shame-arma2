@@ -7,12 +7,13 @@ TODO: a3 Экипажу после успешного размещения
 diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 
 #ifndef __ARMA3__
+// Некоторые моды выдают bool вместо цифры.
 #define true 1
 #define false 0
 #endif
 
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle","_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t","_commanding",
-	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe"];
+	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe","_item"];
 
 _vehicle = _this select 0;
 _grp = _this select 1;
@@ -52,18 +53,17 @@ _crew = [];
 	};
 	diag_log format ["Log: [fnc_spawnCrew.sqf] %1 %2", _crewType, _typicalCargo];
 
-//--- creating driver unit for air
-	_hasDriver = getNumber (_entry >> "hasDriver");
-	_LandVehicle = _type isKindOf "LandVehicle";
-
-	if ((_hasDriver == 1) && (isNull (driver _vehicle)) && !_LandVehicle) then
-	{
+_hasDriver = getNumber (_entry >> "hasDriver");
+_LandVehicle = _type isKindOf "LandVehicle";
+//--- Пилот командир, поэтому первый.
+if !(_LandVehicle) then {
+	if ((_hasDriver == 1) && (isNull (driver _vehicle))) then {
 			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
 			_crew set [count _crew, _unit];
-
 			_unit moveInDriver _vehicle;
 			_unit assignAsDriver _vehicle;
 	};
+};
 
 //--- turrets list
 	#ifdef __ARMA3__
@@ -75,16 +75,17 @@ _crew = [];
 	if(_type == "FDF_leopard2a4")then{
 		_turrets = [[0],[0,0]];
 	};
+	// Пулемет не нравится просто.
 	#ifndef __A2OA__
-	if(_type == "M1A2_TUSK_MG")then{
-		_turrets = [[0],[0,0]];
-	};
+		if(_type == "M1A2_TUSK_MG")then{
+			_turrets = [[0],[0,0]];
+		};
 	#endif
 	diag_log format ["Log: [fnc_spawnCrew.sqf] _turrets = %1", _turrets];
 
 
 //--- sorting turrets and crew types
-	for "_n" from 0 to count _turrets - 1 do {
+	for "_n" from 0 to (count _turrets - 1) do {
 		_cfg_turret = _entry;
 		{
 			_cfg_turret = ((_cfg_turret  >> "turrets") select _x);
@@ -118,26 +119,26 @@ _crew = [];
 		};
 	};
 
-	if (!isNil {_sorted}) then { // diag_log
+	if !(isNil "_sorted") then { // diag_log
 		diag_log format ["Log: [fnc_spawnCrew.sqf] _sorted = %1", _sorted];
 	}; // diag_log
-	if (!isNil {_typicalCargo2}) then { // diag_log
+	if !(isNil "_typicalCargo2") then { // diag_log
 		diag_log format ["Log: [fnc_spawnCrew.sqf] _typicalCargo2 = %1", _typicalCargo2];
 	}; // diag_log
 
 
 //--- creating turret units
-	if (!isNil {_sorted}) then {
-		for "_i" from count _sorted - 1 to 0 step -1 do {
+	if !(isNil "_sorted") then {
+		for "_i" from (count _sorted - 1) to 0 step -1 do {
 			if (isNull (_vehicle turretUnit (_sorted select _i select 1))) then {
 				if(!isNil {_typicalCargo2})then{
 					_unit = _grp createUnit [(_typicalCargo2 select _i), _tmpPosSafe, [], 0, "FORM"];
 				}else{
 					_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
 				};
-	#ifndef __A2OA__
-				_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
-	#endif
+				#ifndef __A2OA__
+					_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
+				#endif
 				_crew set [count _crew, _unit];
 
 				//--- установка ранга юнитам, TODO: ранг не правильно вычисляется
@@ -161,7 +162,7 @@ _crew = [];
 					//--- set rank
 					_unit setRank _rank;
 					#ifndef __ARMA3__
-					[nil, _unit, rsetRank, _rank] call RE;
+						[nil, _unit, rsetRank, _rank] call RE;
 					#endif
 
 				_unit moveInTurret [_vehicle, _sorted select _i select 1];
@@ -174,21 +175,23 @@ _crew = [];
 
 
 //--- creating driver unit for land
-	if ((_hasDriver == 1) && (isNull (driver _vehicle)) && _LandVehicle) then
-	{
+if (_LandVehicle) then {
+	if ((_hasDriver == 1) && (isNull (driver _vehicle))) then {
 			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
 			_crew set [count _crew, _unit];
-
 			_unit moveInDriver _vehicle;
 			_unit assignAsDriver _vehicle;
 	};
+};
 
-{
+// FIXME: Может этот кусок вынести из файла.
+for "_i" from 0 to (count _crew - 1) do {
+	_item = _crew select _i;
 	#ifdef __ARMA3__
-		[_x] call gosa_fnc_vehInit2;
+		[_item] call gosa_fnc_vehInit2;
 	#else
-	[nil, _x, rvehInit] call RE;
+		[nil, _item, rvehInit] call RE;
 	#endif
-} forEach _crew;
+};
 
 _crew

@@ -1,3 +1,5 @@
+diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
+
 private ["_pos", "_azi", "_type", "_param4", "_grp", "_side", "_newGrp",
 	"_sim", "_veh", "_crew"];
 
@@ -5,8 +7,6 @@ _pos = _this select 0;
 _azi = _this select 1;
 _type = _this select 2;
 _param4 = _this select 3;
-
-diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
 
 if ((typeName _param4) == (typeName sideEnemy)) then {
 	_side = _param4;
@@ -17,7 +17,6 @@ if ((typeName _param4) == (typeName sideEnemy)) then {
 	_side = side _grp;
 	_newGrp = false;
 };
-
 
 _sim = toLower getText(configFile >> "CfgVehicles" >> _type >> "simulation");
 
@@ -62,7 +61,7 @@ diag_log format ["Log: [fnc_spawnVehicle] %1, created %2 %3 %4", _this, _sim, ge
 #ifdef __ARMA3__
 	[_veh] call gosa_fnc_vehInit2;
 #else
-[nil, _veh, rvehInit] call RE;
+	[nil, _veh, rvehInit] call RE;
 #endif
 
 if ((count _this) > 4) then {

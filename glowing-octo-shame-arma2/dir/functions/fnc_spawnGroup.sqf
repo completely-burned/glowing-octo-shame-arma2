@@ -5,66 +5,65 @@ TODO: Рефакторинг.
 
 diag_log format ["Log: [gosa_fnc_spawnGroup.sqf] %1", _this];
 // diag_log str _this;
-private ["_pos","_side","_groups","_vehicles","_roads","_z","_tmp_num"];
+private ["_pos","_side","_groups","_vehicles","_roads","_z","_tmp_num","_for",
+	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
+	"_unit", "_type","_itemPos","_rank"];
+
 _side = _this select 1;
+_roads = (_this select 0 select 1);
+_pos = (_this select 0 select 0);
+
 _groups = [];
-
 _vehicles = [];
-_roads = _this select 0 select 1;
-_pos = _this select 0 select 0;
-
 if(count _pos == 0 && count _roads == 0)exitWith{
 		diag_log format ["spawn_group.sqf %1", "count _pos == 0 && count _roads == 0"];
+	// Для совместимости с устаревшим кодом.
 	[grpNull];
 };
 
 	diag_log format ["spawn_group.sqf create pos %1 grp %2", _this select 0, _this select 2];
 
+// Выбирается одна группа если десант отключен.
+// FIXME: Можел лучше вынести участок кода за файл.
 if (missionNamespace getVariable "gosa_landing" == 1) then {
-	_z = _this select 2;
+	_for = _this select 2;
 }else{
-	_z = [(_this select 2) select 0];
+	_for = [(_this select 2) select 0];
 };
 
 {
-	private ["_grp"];
 	_grp = createGroup _side;
 	_groups set [count _groups, _grp];
 
-	if(!isNull _grp)then{
-		private ["_types","_positions","_ranks","_crewType","_azimuth"];
+	// Когда достигнуто максимум отрядов в движке, то группа будет grpNull.
+	if !(isNull _grp) then {
+		// Эта переменная проверяется.
 		private ["_bestCandidate"];
-		_types = _x;
 
-		if ((count _types) > 1) then {
-			_positions = _types select 1;
+		if ((count _x) > 1) then {
+			_positions = _x select 1;
 		} else {
 			_positions = [];
 		};
-		if ((count _types) > 2) then {
-			_ranks = _types select 2;
+		if ((count _x) > 2) then {
+			_ranks = _x select 2;
 		}else{
 			_ranks = [];
 		};
-		if ((count _types) > 3) then {
-			_crewType = _types select 3;
+		if ((count _x) > 3) then {
+			_crewType = _x select 3;
 		} else {
 			_crewType = [];
 		};
-		if ((count _types) > 4) then {
-			_bestCandidate = _types select 4;
+		if ((count _x) > 4) then {
+			_bestCandidate = _x select 4;
 		};
-
-		_types = _types select 0;
-
+		_types = _x select 0;
 		_azimuth = random 360;
 
 		for "_i" from 0 to ((count _types) - 1) do {
-
-				private ["_unit", "_type"];
 				_type = _types select _i;
 
-				private ["_itemPos"];
 				if ((count _positions) > 0) then {
 					private ["_relPos"];
 					_relPos = _positions select _i;
@@ -73,19 +72,22 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					_itemPos = _pos;
 				};
 
+				// Для пехоты.
 				if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
 					_unit = _grp createUnit [_type, _itemPos, [], 0, "FORM"];
 					#ifdef __ARMA3__
 						[_unit] call gosa_fnc_vehInit2;
 					#else
-					[nil, _unit, rvehInit] call RE;
+						[nil, _unit, rvehInit] call RE;
 					#endif
 					#ifndef __A2OA__
-					_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
+						_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
 					#endif
-					_unit setDir _azimuth;
+					//_unit setDir _azimuth;
+
+					//-- Одиночная игра.
 					if !(isMultiplayer) then {
-						// Баланс.
+						//-- Баланс.
 						if (_side getFriend playerSide >= 0.6) then {
 							addSwitchableUnit _unit;
 							#ifdef __ARMA3__
@@ -93,6 +95,8 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 							#endif
 						};
 					};
+
+				// Для транспорта.
 				} else {
 					private ["_fnc_spawnVehicle"];
 					if (((count _crewType) > 0)) then {
@@ -102,6 +106,7 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					};
 					_unit = _fnc_spawnVehicle select 0;
 
+					//-- ТС на дороге размещается.
 					if(count _roads > 0)then{
 						if(count _roads > 1)then{
 							_azimuth = 180 + ([_roads select 0, _roads select 1] call BIS_fnc_dirTo);
@@ -114,11 +119,13 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 						_unit setPos _itemPos; _unit setDir _azimuth;
 						_roads set [0,-1];
 						_roads = _roads - [-1];
-					}else{
+					}else{//diag_log
 							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this];
 					};
+
+					//-- Одиночная игра.
 					if !(isMultiplayer) then {
-						// Баланс.
+						//-- Баланс.
 						if (_side getFriend playerSide >= 0.6) then {
 							{
 								addSwitchableUnit _x;
@@ -130,7 +137,7 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					};
 				};
 
-				private ["_rank"];
+				//-- Звания.
 				if (((count _ranks) > 0)) then {
 					_rank = _ranks select _i;
 					if (typeName _rank == typeName 0) then {
@@ -141,15 +148,15 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 						[nil, _unit, rsetRank, _rank] call RE;
 					#endif
 				}else{
-							Private["_cost"];
-							_cost = getNumber (configFile >> "CfgVehicles" >> _type >> "cost");
+					// TODO: Нужна функция.
+							_tmp_num = getNumber (configFile >> "CfgVehicles" >> _type >> "cost");
 							_rank="PRIVATE";
-							if(_cost>=50000)then{_rank="CORPORAL"};
-							if(_cost>=150000)then{_rank="SERGEANT"};
-							if(_cost>=250000)then{_rank="LIEUTENANT"};
-							if(_cost>=350000)then{_rank="CAPTAIN"};
-							if(_cost>=500000)then{_rank="MAJOR"};
-							if(_cost>=750000)then{_rank="COLONEL"};
+							if(_tmp_num>=50000)then{_rank="CORPORAL"};
+							if(_tmp_num>=150000)then{_rank="SERGEANT"};
+							if(_tmp_num>=250000)then{_rank="LIEUTENANT"};
+							if(_tmp_num>=350000)then{_rank="CAPTAIN"};
+							if(_tmp_num>=500000)then{_rank="MAJOR"};
+							if(_tmp_num>=750000)then{_rank="COLONEL"};
 							[nil, _unit, rsetRank, _rank] call RE;
 				};
 
@@ -159,28 +166,26 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 						_grp selectLeader _unit;
 					};
 				};
-
-
 		};
 
 		// Командир не указан в параметрах, автовыбор.
+		// TODO: Нужна функция и учёт score (хотя здесь он не нужен).
 		if (isNil "_bestCandidate") then {
-			private ["_units"];
-			_units = units _grp;
-			if ((count _units) > 0) then {
-				_bestCandidate = _units select 0;
+			_tmpArr = units _grp;
+			if ((count _tmpArr) > 0) then {
+				_bestCandidate = _tmpArr select 0;
 				if ((count _ranks) > 0) then {
 					{
 						if ((rankId _x) > (rankId _bestCandidate)) then {
 							_bestCandidate = _x;
 						};
-					}forEach _units;
+					}forEach _tmpArr;
 				};
 				_grp selectLeader _bestCandidate;
 			};
 		};
 	};
 
-} forEach _z;
+} forEach _for;
 
 _groups;
