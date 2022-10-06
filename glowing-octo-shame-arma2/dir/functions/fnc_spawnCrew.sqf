@@ -184,6 +184,11 @@ if (_LandVehicle) then {
 	};
 };
 
+// Приказ, если ии выйдут из транспорта. Для a3 не повредит, но и не поможет.
+#ifdef __ARMA3__
+	_crew orderGetIn true;
+#endif
+
 // FIXME: Может этот кусок вынести из файла.
 for "_i" from 0 to (count _crew - 1) do {
 	_item = _crew select _i;
