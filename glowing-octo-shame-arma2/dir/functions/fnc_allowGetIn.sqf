@@ -3,6 +3,7 @@
 TODO: Рефакторинг.
 TODO: Комментарии.
 */
+diag_log format ["Log: [fnc_allowGetIn] %1", _this];
 
 private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_fnc_CrewLeave",
 	"_vehicles","_tmpNum","_item","_tmpObj"];
@@ -74,6 +75,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 			if(!isNull _veh)then{
 				private ["_role"];
 				_role = assignedVehicleRole _u;
+				diag_log format ["Log: [fnc_allowGetIn] %1", [_u,_veh,_role], _allow];
 
 				// в бою
 				if(_allow)then{
@@ -81,11 +83,13 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						if(count _role > 0)then{
 							if(_role select 0 == "Cargo")then{
 								_allow=false;
+								diag_log format ["Log: [fnc_allowGetIn] %1, COMBAT, %2", [_u,_veh,_role], _allow];
 							};
 							if(_role select 0 == "Turret")then{
 								if(_veh isKindOf "BMP3")then{
 									if(([_role, [1, 0]] call BIS_fnc_returnNestedElement) in [1,2])then{
 										_allow=false;
+										diag_log format ["Log: [fnc_allowGetIn] %1, COMBAT, %2, BMP3", [_u,_veh,_role], _allow];
 									};
 								};
 							};
@@ -113,6 +117,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						if(_attack)then{
 							if(getNumber(LIB_cfgWea >> currentWeapon _veh >> "enableAttack")==0)then{
 								_attack = false;
+								diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==0, %2", [_u,_veh,_role], _allow];
 							};
 						};
 
@@ -120,6 +125,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						if!(_attack)then{
 							if([[_veh], ["M1128_MGS_EP1", "Pandur2_ACR"]] call gosa_fnc_CheckIsKindOfArray)then{
 								_attack = true;
+								diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==0, %2, fixed", [_u,_veh,_role], _allow];
 							};
 						};
 
@@ -127,6 +133,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						if!(_attack)then{
 							if!(_veh isKindOf "Air")then{
 								_allow=false;
+								diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==0, %2, not Air", [_u,_veh,_role], _allow];
 							};
 						};
 
@@ -135,11 +142,13 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 							if(count _role > 0)then{
 								if(_role select 0 == "Cargo")then{
 									_allow=false;
+									diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==1, %2", [_u,_veh,_role], _allow];
 								};
 								if(_role select 0 == "Turret")then{
 									if(_veh isKindOf "BMP3")then{
 										if(([_role, [1, 0]] call BIS_fnc_returnNestedElement) in [1,2])then{
 											_allow=false;
+											diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==1, %2, BMP3", [_u,_veh,_role], _allow];
 										};
 									};
 								};
@@ -153,6 +162,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 					if(_veh != vehicle _u)then{
 						if((_veh distance vehicle _u)>1000)then{
 							_allow=false;
+							diag_log format ["Log: [fnc_allowGetIn] %1, distance, %2", [_u,_veh,_role], _allow];
 						};
 					};
 				};
@@ -176,6 +186,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				if!(_allow)then{
 					if(_veh isKindOf "Air")then{
 						_allow=true;
+						diag_log format ["Log: [fnc_allowGetIn] %1, Air, %2", [_u,_veh,_role], _allow];
 					};
 				};
 				if(_allow)then{
@@ -183,6 +194,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						if(_u == vehicle _u)then{
 							if((_veh distance vehicle _u)>50)then{
 								_allow=false;
+								diag_log format ["Log: [fnc_allowGetIn] %1, Helicopter, %2", [_u,_veh,_role], _allow];
 							};
 						};
 					};
@@ -192,10 +204,12 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 					// юнит вне самолета
 					if(_u == vehicle _u)then{
 						_allow=false;
+						diag_log format ["Log: [fnc_allowGetIn] %1, out airplane, %2", [_u,_veh,_role], _allow];
 					};
 					// юнит в самолете
 					if(_veh == vehicle _u)then{
 						_allow=true;
+						diag_log format ["Log: [fnc_allowGetIn] %1, in  airplane, %2", [_u,_veh,_role], _allow];
 					};
 				};
 
@@ -203,6 +217,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				if!(_allow)then{
 					if(_veh isKindOf "Ship")then{
 						_allow=true;
+						diag_log format ["Log: [fnc_allowGetIn] %1, Ship, %2", [_u,_veh,_role], _allow];
 					};
 				};
 
@@ -213,12 +228,14 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						}else{
 							_allow=true;
 						};
+						diag_log format ["Log: [fnc_allowGetIn] %1, SUPPORT, %2, %3", [_u,_veh,_role], _allow, currentCommand (_this select 1)];
 					};
 
 				// неподвижное
 				if!(_allow)then{
 					if(_veh isKindOf "StaticWeapon")then{
 						_allow=true;
+						diag_log format ["Log: [fnc_allowGetIn] %1, StaticWeapon, %2", [_u,_veh,_role], _allow];
 					};
 				};
 
@@ -228,6 +245,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						// _allow=false;
 					}else{
 						_allow=true;
+						diag_log format ["Log: [fnc_allowGetIn] %1, isPlayer, %2", [_u,_veh,_role], _allow];
 					};
 				};
 
@@ -283,6 +301,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 
 
 	//--- переход экипажа подбитой техники в новую группу
+	if (count _ng_l > 0) then {
+		diag_log format ["Log: [fnc_allowGetIn] %1, %2 экипаж подбитой техники", [_u,_veh,_role], _ng_l];
 	{
 		_z = _x getVariable "gosa_grpCrewLeave";
 		// TODO: код нужно оптимизировать
@@ -295,6 +315,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 			_x setVariable ["gosa_grpCrewLeave", [_x, time+ 30, _grp] spawn _fnc_CrewLeave];
 		};
 	} forEach _ng_l;
+	};
 
 	/* TODO: нестабильно
 	if (count _ng_l > 0) then {
