@@ -709,6 +709,7 @@ if(LIB_a2Avail)then{
 		_s1 = "USMC_Soldier";
 
 		// Можно добавить за сторону игроков отряды которые плохо используются ии.
+		// Маршруты не готовы поэтому false.
 		if (false && west in gosa_friendlyside && _shop == 0) then {
 			_west=_west+[
 				[[[["MLRS","MLRS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
