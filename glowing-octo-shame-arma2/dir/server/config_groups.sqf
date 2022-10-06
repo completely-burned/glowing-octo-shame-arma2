@@ -17,7 +17,7 @@
 
 
 private ["_west","_east","_guer","_woodland","_deserted","_tmp","_mod_acr",
-	"_f_multi_bis_cz","_f_multi_bis_tk","_f_multi_bis_tk_gue",
+	"_f_multi_bis_cz","_f_multi_bis_tk","_f_multi_bis_tk_gue","_shop",
 	"_r0","_r1","_r2","_r3","_r4","_r5","_r6",
 	"_s1","_s2","_mg","_mg2","_gl","_at",
 	"_westPatrol","_eastPatrol","_guerPatrol",
@@ -36,6 +36,7 @@ _r6 = 6;
 _woodland=false; _deserted=false;
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
 if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{_woodland=true};
+_shop = missionNamespace getVariable "gosa_shop";
 
 // A2
 if(LIB_a2Avail)then{
@@ -706,6 +707,14 @@ if(LIB_a2Avail)then{
 		_at = "USMC_Soldier_AT";
 		_s2 = "USMC_Soldier_TL";
 		_s1 = "USMC_Soldier";
+
+		// Можно добавить за сторону игроков отряды которые плохо используются ии.
+		if (false && west in gosa_friendlyside && _shop == 0) then {
+			_west=_west+[
+				[[[["MLRS","MLRS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
+			];
+		};
+
 		//-- Юниты обычные.
 		if(!_deserted or !acex_usnavy_Avail)then{
 			_west=_west+[
@@ -1048,6 +1057,13 @@ if(LIB_a2Avail)then{
 		_at = "RU_Soldier_AT";
 		_s2 = "RU_Soldier_LAT";
 		_s1 = "RU_Soldier";
+
+		if (false && east in gosa_friendlyside && _shop == 0) then {
+			_east=_east+[
+				[[[["GRAD_RU","GRAD_RU"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
+			];
+		};
+
 		//-- Юниты обычные.
 		if(	(!_deserted) or !acex_ru_Avail)then{
 			_east=_east+[
@@ -1565,6 +1581,13 @@ if(LIB_ahAvail)then{
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_US");
 	if(true)then{
 		if((!_woodland && gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0)then{
+			if (false && west in gosa_friendlyside && _shop == 0) then {
+				_west=_west+[
+					[[[["M1129_MC_EP1","M1129_MC_EP1"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01],
+					[[[["MLRS_DES_EP1","MLRS_DES_EP1"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
+				];
+			};
+
 			_west=_west+[
 				[[[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
 					[_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],0.5],
@@ -1743,6 +1766,12 @@ if(LIB_ahAvail)then{
 	// BIS_TK
 	_f_multi_bis_tk = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK");
 	if(_f_multi_bis_tk > 0 or (gosa_IslandType select 1 >= 1990 && _f_multi_bis_tk == -1))then{
+		if (false && east in gosa_friendlyside && _shop == 0) then {
+			_west=_west+[
+				[[[["GRAD_TK_EP1","GRAD_TK_EP1"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
+			];
+		};
+
 		_east=_east+[
 			[[[["T72_TK_EP1","T72_TK_EP1","T72_TK_EP1"],[[0,10,0],[5,0,0],[10,0,0]],
 				[_r4,_r3,_r3]]],0.05],
