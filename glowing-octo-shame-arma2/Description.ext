@@ -404,7 +404,7 @@ class Params {
 	// еще с ванильной армы для игры за партизан,
 	// нужно сделать настройку для каждой фракции отдельно.
 	class local_conflict {
-		title="local conflict [gp]";
+		title="local conflict (deprecated) [gp]";
 		values[] = {1,0};
 		texts[] = {STR_ENABLED,STR_DISABLED};
 		default=0;
