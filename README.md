@@ -60,5 +60,4 @@ pve бой с ботами в сконцентрированный в одной
      недостающие файлы из папки `glowing-octo-shame-arma2/` в папки с назанием карты,  
      и соберите, опять [не знаю чем](https://community.bistudio.com/wiki/Community_Tools).
 
-   - Можете просто запустить linux скрипт в Windows Subsystem for Linux или Cygwin,  
-     только в них не доступны makepbo, armake, armake2.  
+   - Можете просто запустить linux скрипт в Windows Subsystem for Linux или ~~Cygwin~~ (настолько дико тормозит что не работает) остальные вообще могут сломать windows. В них не доступны makepbo, armake, armake2.  
