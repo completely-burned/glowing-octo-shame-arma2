@@ -134,7 +134,7 @@ do
 			rm $Z
 		fi
 
-		if [[ $DIAG_LOG -gt 0 ]]
+		if [[ $DIAG_LOG -le 0 ]]
 		then
 			# Приставка DEBUG во внутриигровом меню.
 			sed -i "s/\(.*briefingName.*\) DEBUG\(.*\)/\1\2/" $MISSION/mission.sqm
