@@ -199,10 +199,10 @@ then
 	ctorrent -t -u "udp://localhost:6969" -s "${PRE}/${FINITENAME}.torrent" ${TORRENT_TMPDIR}/
 fi
 
-# Используя rsync, чтобы не перезаписывать файлы
+# Используя rsync --checksum, чтобы не перезаписывать файлы
 # если они частично присутствуют например на флешке.
 echo "Move files to destination"
-rsync --recursive --delete --no-perms $PRE/ $OUT/
+rsync --recursive --delete --no-perms --checksum $PRE/ $OUT/
 
 echo "Deleting temp directories"
 rm -rf ${TORRENT_TMPDIR}
