@@ -55,10 +55,10 @@ echo "Copying files to a temporary directory"
 # Файл лицензии.
 if [[ $LICENSE -gt 0 ]]
 then
-	rsync --recursive --delete --no-perms $DIR/*LICENSE* $TMPDIR/
+	rsync --recursive --no-perms $DIR/*LICENSE* $TMPDIR/
 fi
 # Основные файлы.
-rsync --recursive --delete --no-perms $DIR/glowing-octo-shame* $TMPDIR/
+rsync --recursive --no-perms $DIR/glowing-octo-shame* $TMPDIR/
 echo $(ls $TMPDIR)
 
 
@@ -121,22 +121,22 @@ do
 		# cpmpat для a2 v1.11
 		if [[ $DLC == *"compat"* ]]
 		then
-			rsync --recursive --delete --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION
-			rsync --recursive --delete --no-perms ${DIR}/* $MISSION
+			rsync --recursive --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION
+			rsync --recursive --no-perms ${DIR}/* $MISSION
 			find $MISSION -type f -exec sed -i "/^.*#define.*__A2OA__.*/d" {} \;
 		else
 			# Символьные ссылки быстрее копирования, хотя при tmpfs это не значительно.
 			#find $TMPDIR/glowing-octo-shame-arma2/ -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
 			#find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
 			# Копирование.
-			rsync --recursive --delete --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION
-			rsync --recursive --delete --no-perms ${DIR}/* $MISSION
+			rsync --recursive --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION
+			rsync --recursive --no-perms ${DIR}/* $MISSION
 		fi
 
 		echo "Copying LICENSE"
 		if [[ $LICENSE -gt 0 ]]
 		then
-			rsync --recursive --delete --no-perms $TMPDIR/*LICENSE* $MISSION
+			rsync --recursive --no-perms $TMPDIR/*LICENSE* $MISSION
 		fi
 
 		# Не всегда все файлы нужны.
