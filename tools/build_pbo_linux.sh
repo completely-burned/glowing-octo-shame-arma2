@@ -5,11 +5,13 @@
 # Флаги запуска.
 # ./tools/build_pbo_linux.sh -d собрать debug версию.
 # -l добавит файл лицензии в архив.
+TORRENTFILE=0
 DIAG_LOG=0
 LICENSE=0
-while getopts "dl" opt
+while getopts "dlt" opt
 	do
 	case $opt in
+	t) TORRENTFILE=1;;
 	d) DIAG_LOG=1;;
 	l) LICENSE=1;;
 	*);;
@@ -170,12 +172,25 @@ fi
 # Чиска архивов с нулевым размером, .. и такое бывает.
 find $PRE -type f -empty -print -delete
 
+# Torrent файл.
+if [[ $TORRENTFILE -gt 0 ]]
+then
+	echo "Torrent file create"
+	TORRENT_TMPDIR=$(mktemp -td ${NAME}-TORRENT_TMPDIR.XXXXX)
+	TORRENT_TMPDIR=${TORRENT_TMPDIR}/arma-${NAME}
+	mkdir ${TORRENT_TMPDIR}
+	echo "Torrent directory ${TORRENT_TMPDIR}"
+	find ${PRE} -maxdepth 1 -type f -iname "*.pbo" -print -exec cp {} ${TORRENT_TMPDIR}/ \;
+	ctorrent -t -u "udp://localhost:6969" -s "${PRE}/arma-${NAME}.torrent" ${TORRENT_TMPDIR}/
+fi
+
 # Перемещение.
 # Используя rsync, чтобы не перезаписывать файлы
 # если они частично присутствуют например на флешке.
 rsync --recursive --delete --no-perms $PRE/ $OUT/
 
 # Чистка tmpfs.
+rm -rf ${TORRENT_TMPDIR}
 rm -rf $TMPDIR
 
 # find $OUT -size 0 -delete
