@@ -202,7 +202,7 @@ fi
 # Используя rsync --checksum, чтобы не перезаписывать файлы
 # если они частично присутствуют например на флешке.
 echo "Move files to destination"
-rsync --recursive --delete --no-perms --checksum $PRE/ $OUT/
+rsync --recursive --no-perms --checksum $PRE/ $OUT/
 
 echo "Deleting temp directories"
 rm -rf ${TORRENT_TMPDIR}
