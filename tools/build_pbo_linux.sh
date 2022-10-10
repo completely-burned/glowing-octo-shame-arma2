@@ -51,6 +51,7 @@ FINITENAME="arma-${NAME}"
 TMPDIR=$(mktemp -td ${FINITENAME}.XXXXX)
 echo $TMPDIR
 
+echo "Copying files to a temporary directory"
 # Файл лицензии.
 if [[ $LICENSE -gt 0 ]]
 then
@@ -76,6 +77,7 @@ if [[ $DIAG_LOG -gt 0 ]]
 then
 	# debug версии уникальны, это добавит им hash в названии
 	# FIXME: Измененные метаданные возможно приводят к сбою сервера.
+	echo "Calculate debug hash"
 	DEBUGPOSTFIX=($(tar -cf - $TMPDIR/glowing-octo-shame-arma2/ | cksum))
 	DEBUGPOSTFIX="-debug-$DEBUGPOSTFIX"
 	echo $DEBUGPOSTFIX
