@@ -94,6 +94,7 @@ for DIR in $(find $TMPDIR -maxdepth 1 -type d)
 do
 	if [[ -f "${DIR}/mission.sqm" ]]
 	then
+		echo "for ${DIR}"
 		# TODO: Оптимизировать.
 		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".*glowing-octo-shame.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
 		SIDE=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".*glowing-octo-shame.* .* \(.*\) v.*".*/\1/')
@@ -102,11 +103,13 @@ do
 
 		# Место подготовки файлов перед архивацией.
 		TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
+		echo "Name ${TMPDIRNAME}"
 		MISSION=$TMPDIR/.build.tmp/$TMPDIRNAME
 		mkdir -p $MISSION
 		echo $MISSION
 
 
+		echo "Copying core files"
 		# cpmpat для a2 v1.11
 		if [[ $DLC == *"compat"* ]]
 		then
@@ -122,6 +125,7 @@ do
 			rsync --recursive --delete --no-perms ${DIR}/* $MISSION
 		fi
 
+		echo "Copying LICENSE"
 		if [[ $LICENSE -gt 0 ]]
 		then
 			rsync --recursive --delete --no-perms $TMPDIR/*LICENSE* $MISSION
@@ -138,6 +142,7 @@ do
 
 		if [[ $DIAG_LOG -le 0 ]]
 		then
+			echo "Removing DEBUG from briefingName ${TMPDIRNAME}"
 			# Приставка DEBUG во внутриигровом меню.
 			sed -i "s/\(.*briefingName.*\) DEBUG\(.*\)/\1\2/" $MISSION/mission.sqm
 		fi
@@ -151,6 +156,7 @@ do
 				var_parallel+=("armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
 				var_parallel+=("armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
 			else
+				echo "Pack ${TMPDIRNAME}"
 				makepbo -M $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo
 				armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
 				armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
@@ -166,11 +172,12 @@ done
 #gnu parallel
 if [[ ! -z "$var_parallel" ]]
 then
+	echo "Pack pbo's"
 	parallel ::: "${var_parallel[@]}"
 fi
 
-# Чиска архивов с нулевым размером, .. и такое бывает.
-find $PRE -type f -empty -print -delete
+echo "Deleting empty pbo's"
+find $PRE -type f -empty -iname "*.pbo" -print -delete
 
 # Torrent файл.
 if [[ $TORRENTFILE -gt 0 ]]
@@ -184,17 +191,17 @@ then
 	ctorrent -t -u "udp://localhost:6969" -s "${PRE}/arma-${NAME}.torrent" ${TORRENT_TMPDIR}/
 fi
 
-# Перемещение.
 # Используя rsync, чтобы не перезаписывать файлы
 # если они частично присутствуют например на флешке.
+echo "Move files to destination"
 rsync --recursive --delete --no-perms $PRE/ $OUT/
 
-# Чистка tmpfs.
+echo "Deleting temp directories"
 rm -rf ${TORRENT_TMPDIR}
 rm -rf $TMPDIR
 
 # find $OUT -size 0 -delete
 
-# Вывод местонахождения архивов.
 # FIXME: Лучше выводить пути к каждому архиву.
+echo "Done. Files to..."
 echo $OUT
