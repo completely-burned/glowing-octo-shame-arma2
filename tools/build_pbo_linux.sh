@@ -103,11 +103,11 @@ do
 	if [[ -f "${DIR}/mission.sqm" ]]
 	then
 		echo "for ${DIR}"
-		# TODO: Оптимизировать.
-		VERSION=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".*glowing-octo-shame.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
-		SIDE=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*".*glowing-octo-shame.* .* \(.*\) v.*".*/\1/')
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
-		DLC=$(grep briefingName ${DIR}/mission.sqm | sed -e 's/.*"\(.*\)CO.*".*/\1/' -e 's/\ /_/gi')
+		TMP=$(grep briefingName ${DIR}/mission.sqm)
+		VERSION=$(echo ${TMP} | sed -e 's/.*".*glowing-octo-shame.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
+		SIDE=$(echo ${TMP} | sed -e 's/.*".*glowing-octo-shame.* .* \(.*\) v.*".*/\1/')
+		DLC=$(echo ${TMP} | sed -e 's/.*"\(.*\)CO.*".*/\1/' -e 's/\ /_/gi')
 
 		# Место подготовки файлов перед архивацией.
 		TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
