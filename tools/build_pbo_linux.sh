@@ -76,7 +76,7 @@ if [[ $DIAG_LOG -gt 0 ]]
 then
 	# debug версии уникальны, это добавит им hash в названии
 	# FIXME: Измененные метаданные возможно приводят к сбою сервера.
-	DEBUGPOSTFIX=($(tar -cf - $TMPDIR/glowing-octo-shame-arma2/ | sha1sum))
+	DEBUGPOSTFIX=($(tar -cf - $TMPDIR/glowing-octo-shame-arma2/ | cksum))
 	DEBUGPOSTFIX="-debug-$DEBUGPOSTFIX"
 	echo $DEBUGPOSTFIX
 else
