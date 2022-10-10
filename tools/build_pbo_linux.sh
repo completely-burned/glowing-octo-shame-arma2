@@ -40,8 +40,15 @@ case "$(uname -s)" in
 		;;
 esac
 
+NAME="glowing-octo-shame"
+# Финишное имя, стабильное,
+# под него подстраиваться придется, т.е. оно не меняется,
+# но имя миссии может поменяться, и это тоже,
+# тем не менее, постараюсь его не менять.
+FINITENAME="arma-${NAME}"
+
 # В tmpfs сборка быстрее.
-TMPDIR=$(mktemp -td glowing-octo-shame-arma2.XXXXX)
+TMPDIR=$(mktemp -td ${FINITENAME}.XXXXX)
 echo $TMPDIR
 
 # Файл лицензии.
@@ -58,7 +65,7 @@ PRE=$TMPDIR/out
 mkdir -p $PRE
 
 # OUT=/куда/поместить/собранные/pbo/ ./tools/build_pbo_linux.sh
-OUT="${OUT:-$DIR/.build.out}"
+OUT="${OUT:-$DIR/${FINITENAME}}"
 
 if [[ ! -d ${OUT} ]]
 then
@@ -88,7 +95,6 @@ fi
 
 # "FDF CTF@ 24 Flag Rambos v1 beta"
 # https://forums.bohemia.net/forums/topic/217676-mission-name-standard/
-NAME="glowing-octo-shame"
 
 for DIR in $(find $TMPDIR -maxdepth 1 -type d)
 do
@@ -184,11 +190,11 @@ if [[ $TORRENTFILE -gt 0 ]]
 then
 	echo "Torrent file create"
 	TORRENT_TMPDIR=$(mktemp -td ${NAME}-TORRENT_TMPDIR.XXXXX)
-	TORRENT_TMPDIR=${TORRENT_TMPDIR}/arma-${NAME}
+	TORRENT_TMPDIR=${TORRENT_TMPDIR}/${FINITENAME}
 	mkdir ${TORRENT_TMPDIR}
 	echo "Torrent directory ${TORRENT_TMPDIR}"
 	find ${PRE} -maxdepth 1 -type f -iname "*.pbo" -print -exec cp {} ${TORRENT_TMPDIR}/ \;
-	ctorrent -t -u "udp://localhost:6969" -s "${PRE}/arma-${NAME}.torrent" ${TORRENT_TMPDIR}/
+	ctorrent -t -u "udp://localhost:6969" -s "${PRE}/${FINITENAME}.torrent" ${TORRENT_TMPDIR}/
 fi
 
 # Используя rsync, чтобы не перезаписывать файлы
