@@ -376,14 +376,6 @@ if(LIB_a2Avail)then{
 					"T72_CDF","T72_CDF"],[[0,10,0],[5,0,0],[10,0,0]],
 					[_r4,
 					_r3,_r3]]],0.25],
-				// CDF_Mi24DSquadron !=
-				[[[["Mi24_D","Mi24_D"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]],[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]]],0.1],
-				// CDF_Mi8Squadron
-				[[[["Mi17_CDF","Mi17_CDF"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]]],0.3],
-				[[[["Mi17_CDF"],[],
-					[_r4]],[["CDF_Soldier_TL",_mg,_at,_gl,_s1,_mg,_gl,_at,_s1,"CDF_Soldier_Medic"]]],0.3],
 				// CDF_InfSquad
 				[[[["CDF_Soldier_TL",
 					_mg,_at,
@@ -463,6 +455,31 @@ if(LIB_a2Avail)then{
 				[[[["SPG9_CDF"],[],[_r0]]],0.01],
 				[[[["SearchLight_CDF"],[],[_r0]]],0.01]
 			];
+
+			if (_landing in [1,3,23,34]) then {
+				_west=_west+[
+					[[[["Mi24_D"],[],[_r4]],
+						[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]]
+						],0.05],
+					[[[["Mi24_D","Mi24_D"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.05],
+					[[[["Mi17_CDF"],[],[_r4]],
+						[["CDF_Soldier_TL",_mg,_at,_gl,_s1,_mg,_gl,_at,_s1,"CDF_Soldier_Medic"]]
+						],0.15],
+					[[[["Mi17_CDF","Mi17_CDF"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.15]
+				];
+			} else {
+				_west=_west+[
+					// CDF_Mi24DSquadron !=
+					// rarityGroup = 0.1;
+					[[[["Mi24_D","Mi24_D"],[[0,15,0],[15,0,0]],[_r4,_r3]]],0.1],
+					// CDF_Mi8Squadron
+					// rarityGroup = 0.3;
+					[[[["Mi17_CDF","Mi17_CDF"],[[0,15,0],[15,0,0]],[_r4,_r3]]],0.3]
+				];
+			};
+
 			if(acex_ru_Avail)then{
 				_west=_west+[
 					[[[["CDF_Soldier_TL",
@@ -480,10 +497,6 @@ if(LIB_a2Avail)then{
 						"ACE_T72B_CDF","ACE_T72B_CDF"],[[0,10,0],[7,0,0],[-7,0,0]],
 						[_r4,
 						_r3,_r3]]],0.25],
-
-					[[[["ACE_Mi24_V_CDF"], [],[_r4]],[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]]],0.01],
-					[[[["ACE_Mi24_V_UPK23_CDF"], [],[_r4]],[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]]],0.01],
-
 					[[[["CDF_Soldier_TL",
 						_mg,_s2,
 						_at,_gl,
@@ -507,6 +520,19 @@ if(LIB_a2Avail)then{
 					[[[["ZSU_CDF","ACE_BRDM2_SA9_CDF"], [[0,0],[10,0]],
 						[_r4,_r3]]],0.01]
 				];
+
+				[[[["ACE_Mi24_V_CDF"], [],[_r4]]],0.01],
+				[[[["ACE_Mi24_V_UPK23_CDF"], [],[_r4]]],0.01],
+				if (_landing in [1,3,23,34]) then {
+					_west=_west+[
+						[[[["ACE_Mi24_V_CDF"], [],[_r4]],
+							[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]]
+							],0.01],
+						[[[["ACE_Mi24_V_UPK23_CDF"], [],[_r4]],
+							[["CDF_Soldier_TL",_mg2,_mg,_mg,_at,_at,_gl,_s2]]
+							],0.01]
+					];
+				};
 			}else{
 				_west=_west+[
 					[[[["ZSU_CDF"], [],[_r3,_r3]]],0.5]
