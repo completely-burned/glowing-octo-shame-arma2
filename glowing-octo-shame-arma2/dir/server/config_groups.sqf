@@ -1731,17 +1731,7 @@ if(LIB_ahAvail)then{
 				[[[["AH6J_EP1","AH6J_EP1"],[[0,15,0],[15,0,0]],
 					[_r4,_r3]]],0.3],
 				[[[["AH6X_EP1"],[[0,0,0]],[_r4]]],0.1],
-				[[[["MH6J_EP1"],[[0,0,0]],[_r4]],[["US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_AAR_EP1"]]
-					],0.1],
-				[[[["C130J_US_EP1"],[[0,0,0]],[_r4]],[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"]]
-					],0.3],
-				[[[["CH_47F_EP1"],[[0,0,0]],[_r4]],[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"]]
-					],0.3],
 				[[[["MQ9PredatorB_US_EP1"],[[0,0,0]],[_r4]]],0.3],
-				[[[["UH60M_EP1","UH60M_EP1"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]]],0.3],
-				[[[["UH60M_EP1"],[],[_r4]],[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"]]
-					],0.3],
 
 				[[[["HMMWV_Avenger_DES_EP1"], [[0,0]],[_r2]]],0.8],
 				[[[["US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_Marksman_EP1","US_Soldier_Engineer_EP1"], [],
@@ -1779,6 +1769,42 @@ if(LIB_ahAvail)then{
 				[[[["TOW_TriPod_US_EP1"],[],[_r0]]],0.01],
 				[[[["SearchLight_US_EP1"],[],[_r0]]],0.01]
 			];
+
+			if (_landing in [1,2,23,24]) then {
+				// US_C130JFlight
+				// rarityGroup = 0.3;
+				[[[["C130J_US_EP1"],[],[_r4]],
+					[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"]]
+					],0.3]
+			};
+			if (_landing in [1,3,23,34]) then {
+				// US_MH6JFlight
+				// rarityGroup = 0.3;
+				[[[["MH6J_EP1"],[],[_r4]],
+					[["US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_AAR_EP1"]]
+					],0.3],
+
+				[[[["CH_47F_EP1"],[],[_r4]]
+					],0.15],
+				[[[["CH_47F_EP1"],[],[_r4]],
+					[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"]]
+					],0.15],
+
+				[[[["UH60M_EP1","UH60M_EP1"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+					],0.15],
+				[[[["UH60M_EP1"],[],[_r4]],
+					[["US_Soldier_SL_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AT_EP1","US_Soldier_TL_EP1","US_Soldier_GL_EP1","US_Soldier_AR_EP1","US_Soldier_AAR_EP1"]]
+					],0.15]
+			}else{
+				// US_CH47FFlight
+				// rarityGroup = 0.3;
+				[[[["CH_47F_EP1"],[],[_r4]]
+					],0.3],
+				// US_UH60MFlight
+				// rarityGroup = 0.3;
+				[[[["UH60M_EP1","UH60M_EP1"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+					],0.3]
+			};
 
 			if(acex_usnavy_Avail)then{
 				_west=_west+[
