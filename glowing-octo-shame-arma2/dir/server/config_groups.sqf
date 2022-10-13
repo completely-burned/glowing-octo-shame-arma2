@@ -2215,19 +2215,35 @@ if(LIB_ahAvail)then{
 					[[[["CZ_Special_Forces_TL_DES_EP1","ATV_CZ_EP1","ATV_CZ_EP1","CZ_Special_Forces_Scout_DES_EP1"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],
 						[_r2,_r1,_r1,_r1]]],0],
 
-					[[[["Mi171Sh_CZ_EP1","Mi171Sh_CZ_EP1"],[[0,15,0],[15,0,0]],
-						[_r4,_r3]]],0.3],
-					[[[["Mi171Sh_CZ_EP1"],[],
-						[_r4,_r3]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]
-						],0.3],
-					[[[["Mi171Sh_rockets_CZ_EP1"],[],
-						[_r4]],[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]
-						],0.3],
-
 					//StaticWeapon
 					[[[["AGS_CZ_EP1"], [],[_r0]]],0.01],
 					[[[["DSHKM_CZ_EP1"], [],[_r0]]],0.01]
 				];
+				if (_landing in [1,3,23,34]) then {
+					_west=_west+[
+						[[[["Mi171Sh_CZ_EP1","Mi171Sh_CZ_EP1"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+							],0.15],
+						[[[["Mi171Sh_CZ_EP1"],[],[_r4,_r3]],
+							[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]
+							],0.15],
+						[[[["Mi171Sh_rockets_CZ_EP1"],[],[_r4]]
+							],0.15],
+						[[[["Mi171Sh_rockets_CZ_EP1"],[],[_r4]],
+							[["CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1","CZ_Soldier_SL_DES_EP1","CZ_Soldier_MG_DES_EP1","CZ_Soldier_AT_DES_EP1","CZ_Soldier_AMG_DES_EP1"]]
+							],0.15]
+					];
+				}else{
+					_west=_west+[
+						// ACR_Mi171ShFlight
+						// rarityGroup = 0.3;
+						[[[["Mi171Sh_CZ_EP1","Mi171Sh_CZ_EP1"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+							],0.3],
+						// ACR_Mi171Sh_RocketsFlight
+						// rarityGroup = 0.3;
+						[[[["Mi171Sh_rockets_CZ_EP1"],[],[_r4]]
+							],0.3]
+					];
+				};
 			};
 		};
 	};
