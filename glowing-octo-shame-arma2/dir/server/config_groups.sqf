@@ -869,12 +869,6 @@ if(LIB_a2Avail)then{
 				// rarityGroup = 0.3; изменен вероятно из-за звена UH1Y
 				[[[["AH1Z","AH1Z"],[[0,15,0],[15,0,0]],
 					[_r4,_r3]]],0.4],
-				// USMC_UH1YSquadron !=
-				// rarityGroup = 0.5; изменен вероятно из-за звена AH1Z
-				[[[["UH1Y","UH1Y"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,"USMC_Soldier_Medic"]]],0.4],
-				// USMC_MV22Squadron !=
-				[[[["MV22"],[],[_r4]],[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1]]],0.5],
 				// USMC_MQ9Squadron
 				[[[["MQ9PredatorB"],[[0,0,0]],[_r4]]],0.3],
 				// USMC_F35Squadron
@@ -886,8 +880,6 @@ if(LIB_a2Avail)then{
 				// USMC_AV8BBomberSquadron
 				[[[["AV8B","AV8B"],[[0,20,0],[20,0,0]],
 					[_r4,_r3]]],0.5],
-				// [[[["MH60S"],[],[4]],[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1]]],0.1],
-				[[[["C130J"],[],[_r4]],[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1]]],0.1],
 
 				// TODO: нужно сбалансировать
 					[[[["HMMWV_Avenger"], [[0,5],[-5,0],[-5,-7],[3,0]],
@@ -944,17 +936,8 @@ if(LIB_a2Avail)then{
 				[[[["AH64D"], [],[_r4]]],0.01],
 				[[[["A10"], [[-10,0],[10,0]],
 					[_r4,_r3]]],0.01],
-				// FIXME: медицинский вертолет вероятно нарушает маршруты ии
-				[[[["MH60S","MH60S"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]]],0.01],
 
 				// TODO: нужно сбалансировать
-				[[[["Zodiac","USMC_Soldier_GL",_mg2,_gl,_s1],[[0,0],[5,0,0],[0,5,0],[-5,0,0],[0,-5,0]],
-					[_r0,_r2,_r0,_r0,_r0]]],0.1],
-				[[[["RHIB"],[[0,0]],
-					[_r2]],[["USMC_Soldier_SL",_s2,_s2,_mg,_mg2,_gl,_s1,_mg2,_gl,_s1]]],0.1],
-				[[[["RHIB2Turret"],[[0,0]],
-					[_r2]],[[_s2,_mg2,_gl,_s1,_mg2,_gl,_s1]]],0.1],
 
 				[[[["MtvrReammo"], [],[_r0]]],0.01],
 				[[[["MtvrRefuel"], [],[_r0]]],0.01],
@@ -969,6 +952,60 @@ if(LIB_a2Avail)then{
 				[[[["TOW_TriPod"],[],[_r0]]],0.01],
 				[[[["SearchLight"],[],[_r0]]],0.01]
 			];
+			if (_landing in [1,4,24,34]) then {
+				_west=_west+[
+					[[[["Zodiac","USMC_Soldier_GL",_mg2,_gl,_s1],[[0,0],[5,0,0],[0,5,0],[-5,0,0],[0,-5,0]],
+						[_r0,_r2,_r0,_r0,_r0]]
+						],0.1],
+					[[[["RHIB"],[],[_r2]],
+						[["USMC_Soldier_SL",_s2,_s2,_mg,_mg2,_gl,_s1,_mg2,_gl,_s1]]
+						],0.1],
+					[[[["RHIB2Turret"],[],[_r2]],
+						[[_s2,_mg2,_gl,_s1,_mg2,_gl,_s1]]
+						],0.1]
+				];
+			} else {
+				_west=_west+[
+					[[[["RHIB"],[],[_r2]]],0.1],
+					[[[["RHIB2Turret"],[],[_r2]]],0.1]
+				];
+			};
+			if (_landing in [1,2,23,24]) then {
+				_west=_west+[
+					// USMC_MV22Squadron !=
+					// rarityGroup = 0.5;
+					[[[["MV22"],[],[_r4]],
+						[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1]]
+						],0.25],
+					[[[["C130J"],[],[_r4]],
+						[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1]]
+						],0.25]
+				];
+			};
+			if (_landing in [1,3,23,34]) then {
+				_west=_west+[
+					#ifdef __A2OA__
+						[[[["MH60S"],[],[_r4]],
+							[["USMC_Soldier_SL",_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1,_s2,_mg2,_gl,_s1]]
+							],0.05],
+					#endif
+					[[[["UH1Y","UH1Y"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.2],
+					[[[["UH1Y"],[],[_r4]],
+						[[_s2,_mg,_mg2,_at,_gl,_s1],[],[_r3,_r2,_r1,_r1,_r0,_r0]]
+						],0.2]
+				];
+			} else {
+				_west=_west+[
+					// FIXME: Медицинский вертолет вероятно нарушает маршруты ии.
+					#ifdef __A2OA__
+						[[[["MH60S","MH60S"],[[0,15,0],[15,0,0]],[_r4,_r3]]],0.05],
+					#endif
+					// USMC_UH1YSquadron !=
+					// rarityGroup = 0.5; изменен вероятно из-за звена AH1Z
+					[[[["UH1Y","UH1Y"],[[0,15,0],[15,0,0]],[_r4,_r3]]],0.4]
+				];
+			};
 		};
 		if(acex_usnavy_Avail)then{
 			//-- Юниты ACE лес, в дополнение к обычным.
