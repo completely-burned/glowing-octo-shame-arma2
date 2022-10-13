@@ -2048,7 +2048,6 @@ if(LIB_ahAvail)then{
 					[_r3,_r3,_r1,_r1,_r1,_r1,_r0,_r0]]],0.5],
 				[[[["UN_CDF_Soldier_SL_EP1","M113_UN_EP1","UN_CDF_Soldier_AT_EP1","UN_CDF_Soldier_MG_EP1","UN_CDF_Soldier_MG_EP1","UN_CDF_Soldier_EP1","UN_CDF_Soldier_EP1"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
 					[_r3,_r3,_r1,_r1,_r1,_r0,_r0]]],0.5],
-				[[[["Mi17_UN_CDF_EP1"],[],[_r4]],[["UN_CDF_Soldier_Guard_EP1","UN_CDF_Soldier_EP1","UN_CDF_Soldier_AT_EP1","UN_CDF_Soldier_MG_EP1"]]],0.1],
 
 				[[[["M113Ambul_UN_EP1"], [],[_r0],[["TK_Soldier_Medic_EP1"]]]],0.01],
 
@@ -2058,6 +2057,18 @@ if(LIB_ahAvail)then{
 				[[[["KORD_UN_EP1"],[],[_r0]]],0.01],
 				[[[["SearchLight_UN_EP1"],[],[_r0]]],0.01]
 			];
+			if (_landing in [1,3,23,34]) then {
+				_guer=_guer+[
+					[[[["Mi17_UN_CDF_EP1"],[],[_r4]],
+						[["UN_CDF_Soldier_Guard_EP1","UN_CDF_Soldier_EP1","UN_CDF_Soldier_AT_EP1","UN_CDF_Soldier_MG_EP1"]]
+						],0.1]
+				];
+			}else{
+				_guer=_guer+[
+					[[[["Mi17_UN_CDF_EP1"],[],[_r4]]
+						],0.1]
+				];
+			};
 			if(acex_ru_Avail)then{
 				_guer=_guer+[
 					[[[["UN_CDF_Soldier_SL_EP1","ACE_BTR70_UN","UN_CDF_Soldier_AT_EP1","UN_CDF_Soldier_MG_EP1","UN_CDF_Soldier_MG_EP1","UN_CDF_Soldier_EP1","UN_CDF_Soldier_EP1","UN_CDF_Soldier_EP1"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
