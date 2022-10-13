@@ -1243,24 +1243,8 @@ if(LIB_a2Avail)then{
 
 				// [[[["T90","T90","T90"],[[0,10,0],[5,0,0],[10,0,0]],[4,3,2]]],0.6],
 
-				// RU_Mi24VSquadron !=
-				[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1,"RU_Soldier2","RU_Soldier_Medic"]]
-					],0.2],
-				[[[["Mi24_V2","Mi24_V2"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1,"RU_Soldier2","RU_Soldier_Medic"]]
-					],0.2],
-				// RU_Mi24PSquadron !=
-				[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]],[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1,"RU_Soldier2","RU_Soldier_Medic"]]
-					],0.2],
 				// RU_Ka52Squadron
 				[[[["Ka52"],[],[_r4]]],0.1],
-				// RU_Mi8Squadron !=
-				[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],
-					[_r4,_r3]]],0.3],
-				[[[["Mi17_Rockets_RU"],[],[_r4]],[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1]]
-					],0.3],
 				// RU_Su34FighterSquadron !=
 				[[[["Su34","Su34"],[[0,20,0],[20,0,0]],[_r4,_r3]]],0.15],
 				[[[["Su34_CP","Su34_CP"],[[0,20,0],[20,0,0]],[_r4,_r3]]],0.05],
@@ -1296,6 +1280,48 @@ if(LIB_a2Avail)then{
 				[[[["Metis"],[],[_r0]]],0.01],
 				[[[["SearchLight_RUS"],[],[_r0]]],0.01]
 			];
+			if (_landing in [1,3,23,34]) then {
+				_east=_east+[
+					[[[["Mi24_V2","Mi24_V2"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.1],
+					[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.1],
+					[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.1],
+					[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.15],
+
+					[[[["Mi24_V2"],[],[_r4]],
+						[["RU_Soldier_SL",_mg,_mg,_at,_s2,_gl],[],[_r3,_r2,_r1,_r1,_r0,_r0]]
+						],0.1],
+					[[[["Mi24_V"],[],[_r4]],
+						[["RU_Soldier_SL",_mg,_mg,_at,_s2,_gl],[],[_r3,_r2,_r1,_r1,_r0,_r0]]
+						],0.1],
+					[[[["Mi24_P"],[],[_r4]],
+						[["RU_Soldier_SL",_mg,_mg,_at,_s2,_gl],[],[_r3,_r2,_r1,_r1,_r0,_r0]]
+						],0.1],
+					[[[["Mi17_Rockets_RU"],[],[_r4]],
+						[["RU_Soldier_SL",_mg,_at,_s2,_gl,"RU_Soldier_Marksman",_mg,_at,_mg2,_s2,_gl,_s1]]
+						],0.15]
+				];
+			}else{
+				_east=_east+[
+					[[[["Mi24_V2","Mi24_V2"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.2],
+					// RU_Mi24VSquadron !=
+					// rarityGroup = 0.3;
+					[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.2],
+					// RU_Mi24PSquadron !=
+					// rarityGroup = 0.3;
+					[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.2],
+					// RU_Mi8Squadron !=
+					// rarityGroup = 0.5;
+					[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+						],0.3]
+				];
+			};
 		};
 		//-- Юниты обычные, другой камуфляж.
 		if(!_deserted)then{
