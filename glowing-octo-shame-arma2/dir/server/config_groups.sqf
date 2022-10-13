@@ -2172,13 +2172,24 @@ if(LIB_ahAvail)then{
 			// [[[["Soldier_TL_PMC","SUV_PMC","SUV_PMC","Soldier_Sniper_PMC","Soldier_AT_PMC","Soldier_Bodyguard_AA12_PMC","Soldier_GL_PMC","Soldier_M4A3_PMC"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],[3,2,2,2,1,1,0,0]]],0.3],
 			[[[["Soldier_TL_PMC","ArmoredSUV_PMC","ArmoredSUV_PMC","Soldier_Sniper_PMC","Soldier_AT_PMC","Soldier_MG_PKM_PMC","Soldier_GL_PMC","Soldier_GL_PMC"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
 				[_r3,_r2,_r2,_r2,_r1,_r1,_r0,_r0]]],0.2],
-			[[[["Ka60_GL_PMC"], [],
-				[_r3]],[["Soldier_TL_PMC","Soldier_Sniper_PMC","Soldier_AT_PMC","Soldier_MG_PMC","Soldier_MG_PKM_PMC","Soldier_GL_PMC","Soldier_GL_M16A2_PMC","Soldier_M4A3_PMC"]]
-				],0.1],
 			[[[["Ka137_MG_PMC"], [],[_r3]]],0.01],
 			[[[["Soldier_AA_PMC","Soldier_AA_PMC"], [],[_r1,_r0]]],0.2]
 			// [[[["TK_Soldier_MG_EP1","TK_Soldier_GL_EP1","TK_Soldier_EP1","TK_Soldier_Engineer_EP1"], [],[2,1,1,0]]],0.01]
 		];
+		if (_landing in [1,3,23,34]) then {
+			_guer=_guer+[
+				[[[["Ka60_GL_PMC"],[],[_r3]]
+					],0.05],
+				[[[["Ka60_GL_PMC"],[],[_r3]],
+					[["Soldier_TL_PMC","Soldier_Sniper_PMC","Soldier_AT_PMC","Soldier_MG_PMC","Soldier_MG_PKM_PMC","Soldier_GL_PMC","Soldier_GL_M16A2_PMC","Soldier_M4A3_PMC"]]
+					],0.05]
+			];
+		}else{
+			_guer=_guer+[
+				[[[["Ka60_GL_PMC"],[],[_r3]]
+					],0.1]
+			];
+		};
 	};
 
 	// ACR
