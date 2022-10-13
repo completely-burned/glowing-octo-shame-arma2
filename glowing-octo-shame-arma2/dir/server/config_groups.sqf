@@ -17,7 +17,7 @@
 
 
 private ["_west","_east","_guer","_woodland","_deserted","_tmp","_mod_acr",
-	"_f_multi_bis_cz","_f_multi_bis_tk","_f_multi_bis_tk_gue","_shop",
+	"_f_multi_bis_cz","_f_multi_bis_tk","_f_multi_bis_tk_gue","_shop","_landing",
 	"_r0","_r1","_r2","_r3","_r4","_r5","_r6",
 	"_s1","_s2","_mg","_mg2","_gl","_at",
 	"_westPatrol","_eastPatrol","_guerPatrol",
@@ -37,6 +37,8 @@ _woodland=false; _deserted=false;
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
 if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{_woodland=true};
 _shop = missionNamespace getVariable "gosa_shop";
+// Десант. 23,24,34
+_landing = missionNamespace getVariable "gosa_landing";
 
 // A2
 if(LIB_a2Avail)then{
@@ -56,20 +58,6 @@ if(LIB_a2Avail)then{
 				// INS_TankSection !=
 				// звания изменены
 				[[[["T72_INS","T72_INS"],[[0,10,0],[5,0,0]],[_r3,_r3]]],0.07],
-
-				// INS_Mi8Squadron !=
-				[[[["Mi17_Ins"],[],[_r4]],
-					[["INS_Soldier_CO",
-					_mg2,_gl,
-					_at,_s2,
-					_mg2,_s1,
-					_s2]],
-					[["INS_Soldier_CO",
-					_mg,_mg,
-					_at,_at,
-					_mg2,_mg2,
-					_s2]]
-					],0.05],
 
 				// INS_InfSquad !=
 				// rarityGroup = 0.85; изменен из-за отряда с Ins_Soldier_Medic
@@ -242,6 +230,32 @@ if(LIB_a2Avail)then{
 				[[[["SPG9_Ins"], [],[_r0]]],0.01]
 
 			];
+
+			if (_landing in [1,3,23,34]) then {
+				_east=_east+[
+					[[[["Mi17_Ins"],[],[_r4]]
+						],0.03],
+					[[[["Mi17_Ins"],[],[_r4]],
+						[["INS_Soldier_CO",
+						_mg2,_gl,
+						_at,_s2,
+						_mg2,_s1,
+						_s2]],
+						[["INS_Soldier_CO",
+						_mg,_mg,
+						_at,_at,
+						_mg2,_mg2,
+						_s2]]
+						],0.02]
+				];
+			}else{
+				_east=_east+[
+					// INS_Mi8Squadron !=
+					// rarityGroup = 0.05;
+					[[[["Mi17_Ins"],[],[_r4]]],0.05]
+				];
+			};
+
 			if(acex_ru_Avail)then{
 				_east=_east+[
 					[[[["INS_Soldier_CO",

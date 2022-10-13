@@ -98,6 +98,16 @@ class Params {
 		default=1;
 	};
 
+	// Десант. Воздушный, морской.
+	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/41
+	class gosa_landing {
+		title="UNITS: Landing (not completed) [gp]";
+		values[] = {1,2,3,4,23,24,34,0};
+		texts[] = {STR_ENABLED,"Plane","Heli","Boat",
+			"Plane+Heli","Plane+Boat","Heli+Boat",STR_DISABLED};
+		default=0;
+	};
+
 
 	// Множители фракций.
 	#ifdef __ARMA3__
@@ -478,15 +488,6 @@ class Params {
 	// Лазерный целеуказатель.
 	class gosa_laserDesignator {
 		title="SUPPORT: laserDesignator (not completed) [gp,fps]";
-		values[] = {1,0};
-		texts[] = {STR_ENABLED,STR_DISABLED};
-		default=0;
-	};
-
-	// Десант. Воздушный, морской.
-	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/41
-	class gosa_landing {
-		title="landing (not completed) [gp]";
 		values[] = {1,0};
 		texts[] = {STR_ENABLED,STR_DISABLED};
 		default=0;
