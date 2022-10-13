@@ -2108,9 +2108,6 @@ if(LIB_ahAvail)then{
 					[_r3,_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0,_r0]]],0.5],
 				[[[["T55_TK_GUE_EP1","T55_TK_GUE_EP1"],[[0,10,0],[5,0,0]],[_r4,_r3]]],0.02],
 				[[[["T34_TK_GUE_EP1","T34_TK_GUE_EP1"],[[0,10,0],[5,0,0]],[_r4,_r3]]],0.01],
-				[[[["UH1H_TK_GUE_EP1"],[],
-					[_r4]],[["TK_GUE_Soldier_TL_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_HAT_EP1","TK_GUE_Soldier_4_EP1"]]
-					],0.3],
 				[[[["TK_GUE_Soldier_TL_EP1","BTR40_TK_GUE_EP1","TK_GUE_Soldier_AR_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_EP1","TK_GUE_Soldier_3_EP1","TK_GUE_Soldier_2_EP1"], [[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 					[_r3,_r2,_r1,_r1,_r1,_r1,_r0,_r0]]],0.01],
 
@@ -2127,6 +2124,20 @@ if(LIB_ahAvail)then{
 				[[[["SPG9_TK_GUE_EP1"],[],[_r0]]],0.01]
 
 			];
+			if (_landing in [1,3,23,34]) then {
+				_guer=_guer+[
+					[[[["UH1H_TK_GUE_EP1"],[],[_r4]]
+						],0.15],
+					[[[["UH1H_TK_GUE_EP1"],[],[_r4]],
+						[["TK_GUE_Soldier_TL_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_HAT_EP1","TK_GUE_Soldier_4_EP1"]]
+						],0.15]
+				];
+			}else{
+				_guer=_guer+[
+					[[[["UH1H_TK_GUE_EP1"],[],[_r4]]
+						],0.3]
+				];
+			};
 		};
 	};
 
