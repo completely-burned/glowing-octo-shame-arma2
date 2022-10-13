@@ -1911,22 +1911,8 @@ if(LIB_ahAvail)then{
 				[_r4,_r3,_r3]]],0.05],
 
 			[[[["L39_TK_EP1"],[],[_r3]]],0.01],
-			[[[["An2_TK_EP1"],[],
-				[_r4]],[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AAT_EP1","TK_Soldier_AMG_EP1"]]
-				],0.3],
-			[[[["Mi24_D_TK_EP1"],[[0,0,0]],
-				[_r4]],[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AAT_EP1"]]
-				],0.3],
-			[[[["Mi17_TK_EP1","Mi17_TK_EP1"],[[0,15,0],[15,0,0]],
-				[_r4,_r3]]],0.3],
-			[[[["Mi17_TK_EP1"],[],
-				[_r4]],[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AAT_EP1","TK_Soldier_AMG_EP1"]]
-				],0.3],
 			[[[["Su25_TK_EP1","Su25_TK_EP1"],[[0,20,0],[20,0,0]],
 				[_r4,_r3]]],0.3],
-			[[[["UH1H_TK_EP1","UH1H_TK_EP1"],[[0,15,0],[15,0,0]],
-				[_r4,_r3]],[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AAT_EP1","TK_Soldier_AMG_EP1","TK_Soldier_EP1"]]
-				],0.3],
 
 			// [[[["ACE_TK_Soldier_2B14_G","ACE_TK_Soldier_2B14_AG","ACE_TK_Soldier_2B14_AB","ACE_TK_Soldier_2B14_AB"],[],[1,1,0,0]]],0.2],
 			// [[[["ACE_TK_Soldier_KonkursG","ACE_TK_Soldier_KonkursAG"],[[0,"+6",0],[-2,"+4",0]],[2,1]]],0],
@@ -1982,6 +1968,52 @@ if(LIB_ahAvail)then{
 			[[[["SearchLight_TK_EP1"], [],[_r0]]],0.01]
 
 		];
+
+		if (_landing in [1,2,23,24]) then {
+			// TK_An2Flight
+			// rarityGroup = 0.3;
+			[[[["An2_TK_EP1"],[],[_r4]],
+				[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AAT_EP1","TK_Soldier_AMG_EP1"]]
+				],0.3]
+		};
+		if (_landing in [1,3,23,34]) then {
+			_east=_east+[
+				[[[["UH1H_TK_EP1","UH1H_TK_EP1"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+					],0.15],
+				[[[["UH1H_TK_EP1"],[],[_r4]],
+					[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_EP1"]]
+					],0.15],
+
+				[[[["Mi24_D_TK_EP1"],[],[_r4]]
+					],0.15],
+				[[[["Mi24_D_TK_EP1"],[],[_r4]],
+					[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AAT_EP1"]]
+					],0.15],
+
+				[[[["Mi17_TK_EP1","Mi17_TK_EP1"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+					],0.15],
+				[[[["Mi17_TK_EP1"],[],[_r4]],
+					[["TK_Soldier_SL_EP1","TK_Soldier_MG_EP1","TK_Soldier_AT_EP1","TK_Soldier_GL_EP1","TK_Soldier_MG_EP1","TK_Soldier_LAT_EP1","TK_Soldier_GL_EP1","TK_Soldier_AAT_EP1","TK_Soldier_AMG_EP1"]]
+					],0.15]
+			];
+		}else{
+			_east=_east+[
+				// TK_UH1HFlight
+				// rarityGroup = 0.3;
+				[[[["UH1H_TK_EP1","UH1H_TK_EP1"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+					],0.3],
+				// TK_Mi24_DFlight
+				// rarityGroup = 0.3;
+				[[[["Mi24_D_TK_EP1"],[],[_r4]]
+					],0.3],
+				// TK_Mi_17Flight
+				// rarityGroup = 0.3;
+				[[[["Mi17_TK_EP1","Mi17_TK_EP1"],[[0,15,0],[15,0,0]],[_r4,_r3]]
+					],0.3]
+			];
+		};
+
+
 		if(!_woodland)then{
 			_east=_east+[
 				[[[["TK_Special_Forces_TL_EP1","TK_Special_Forces_MG_EP1","TK_Special_Forces_EP1","TK_Special_Forces_EP1","TK_Special_Forces_MG_EP1","TK_Special_Forces_EP1","TK_Special_Forces_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
