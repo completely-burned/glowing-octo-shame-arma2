@@ -1079,10 +1079,6 @@ if(LIB_a2Avail)then{
 					[[[["ACE_USMC_Soldier_TL_D","LAV25","ACE_USMC_Soldier_MG_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_AT_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
 						[_r3,_r3,_r2,_r1,_r1,_r0,_r0],[[],["ACE_USMC_Soldier_Crew_D","ACE_USMC_Soldier_Crew_D","ACE_USMC_Soldier_Crew_D"]]]],0.6],
 
-					[[[["MV22"],[],[_r4]],[["ACE_USMC_Soldier_SL_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D"]]],0.5],
-					[[[["C130J"],[],[_r4]],[["ACE_USMC_Soldier_SL_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D"]]],0.1],
-					[[[["UH1Y","UH1Y"],[[0,15,0],[15,0,0]],
-						[_r4,_r3]],[["ACE_USMC_Soldier_SL_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D"]]],0.4],
 					[[[["F35B","F35B"],[[0,20,0],[20,0,0]],
 						[_r4,_r3]]],0.6],
 					[[[["AV8B2","AV8B2"],[[0,20,0],[20,0,0]],
@@ -1099,6 +1095,30 @@ if(LIB_a2Avail)then{
 					[[[["ACE_USMC_Soldier_GL_D","ACE_USMC_SoldierS_Engineer_D","ACE_USMC_Soldier2_D"], [],
 						[_r2,_r1,_r0,_r0]]],0.01]
 				];
+				if (_landing in [1,2,23,24]) then {
+					_west=_west+[
+						[[[["MV22"],[],[_r4]],
+							[["ACE_USMC_Soldier_SL_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D"]]
+							],0.5],
+						[[[["C130J"],[],[_r4]],
+							[["ACE_USMC_Soldier_SL_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D","ACE_USMC_Soldier_TL_D","ACE_USMC_Soldier_AR_D","ACE_USMC_Soldier_LAT_D","ACE_USMC_Soldier_D"]]
+							],0.1]
+					];
+				};
+				if (_landing in [1,3,23,34]) then {
+					_west=_west+[
+						[[[["UH1Y"],[],[_r4]],
+							[["ACE_USMC_Soldier_TL_D",
+								"ACE_USMC_Soldier_MG_D","ACE_USMC_SoldierM_Marksman_D",
+								"ACE_USMC_Soldier_GL_D","ACE_USMC_Soldier_LAT_D",
+								"ACE_USMC_Soldier_D"],[],[_r3,_r2,_r1,_r1,_r0,_r0]]
+							],0.4]
+					];
+				}else{
+					_west=_west+[
+						[[[["UH1Y","UH1Y"],[[0,15,0],[15,0,0]],[_r4,_r3]]],0.4]
+					];
+				};
 			};
 		}else{
 				//-- Юниты обычные, у которых нет замены в ACE.
