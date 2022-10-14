@@ -1486,21 +1486,9 @@ if(LIB_a2Avail)then{
 					[[[["ACE_T72BA_Base","ACE_T72BA_Base","ACE_T72BA_Base"],[[0,10,0],[7,0,0],[-7,0,0]],
 						[_r4,_r3,_r3],[[__CREW,__CREW,__CREW],[__CREW,__CREW,__CREW],[__CREW,__CREW,__CREW]]]],0.25],
 
-					[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],
-						[_r4,_r3],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]
-						],0.4],
-					[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],
-						[_r4,_r3],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]
-						],0.3],
 					[[[["ACE_Ka50","ACE_Ka50"], [[0,0],[10,0]],
 						[_r4,_r3],[[__PILOT],[__PILOT]]]
 						],0.01],
-					[[[["ACE_Mi24_V_UPK23_RU","ACE_Mi24_V_UPK23_RU"], [[0,0],[10,0]],
-						[_r4,_r3],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]
-						],0.01],
-					[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],
-						[_r4,_r3],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]
-						],0.3],
 					[[[["Ka52"],[],[_r4],[[__PILOT,__PILOT]]]],0.1],
 					[[[["ACE_Su34_Des","ACE_Su34_Des"],[[0,20,0],[20,0,0]],
 						[_r4,_r3]]],0.2],
@@ -1518,6 +1506,58 @@ if(LIB_a2Avail)then{
 					[[[["ACE_Su39"], [],[_r4]]],0.01]
 					// [[[["ACE_RU_Soldier_GL_D","UAZ_AGS30_RU","ACE_RU_Soldier_AT_D","UAZ_AGS30_RU"], [],[2,1,1,1]]],0.01]
 				];
+				// TODO: Сбалансировать отряд для пустынной.
+				#define __MI24SQUAD [["ACE_RU_Soldier_SL_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_D"],[],[_r3,_r2,_r1,_r1,_r0,_r0]]
+				if (_landing in [1,3,23,34]) then {
+					_east=_east+[
+						// Mi24 всего 0.6, 0.6/8 = 0.075
+						[[[["ACE_Mi24_V_UPK23_RU","ACE_Mi24_V_UPK23_RU"],[[0,15,0],[15,0,0]],[_r4,_r3],[[__PILOT,__PILOT],[__PILOT,__PILOT]]]
+							],0.075],
+						[[[["Mi24_V2","Mi24_V2"],[[0,15,0],[15,0,0]],[_r4,_r3],[[__PILOT,__PILOT],[__PILOT,__PILOT]]]
+							],0.075],
+						[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],[_r4,_r3],[[__PILOT,__PILOT],[__PILOT,__PILOT]]]
+							],0.075],
+						[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],[_r4,_r3],[[__PILOT,__PILOT],[__PILOT,__PILOT]]]
+							],0.075],
+						[[[["ACE_Mi24_V_UPK23_RU"],[],[_r4],[[__PILOT,__PILOT]]],__MI24SQUAD
+							],0.075],
+						[[[["Mi24_V2"],[],[_r4],[[__PILOT,__PILOT]]],__MI24SQUAD
+							],0.075],
+						[[[["Mi24_V"],[],[_r4],[[__PILOT,__PILOT]]],__MI24SQUAD
+							],0.075],
+						[[[["Mi24_P"],[],[_r4],[[__PILOT,__PILOT]]],__MI24SQUAD
+							],0.075],
+
+						// Mi17_Rockets_RU
+						[[[["Mi17_Rockets_RU"],[],[_r4],[[__PILOT,__PILOT,__PILOT,__PILOT]]],
+							[["ACE_RU_Soldier_SL_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D","ACE_RU_Soldier_Marksman_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_AR_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D","ACE_RU_Soldier_D"],[],
+							[_r3,_r2,_r2,_r1,_r1,_r1,_r1,_r1,_r0,_r0,_r0,_r0]]
+							],0.15],
+						[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],[_r4,_r3],[[__PILOT,__PILOT,__PILOT,__PILOT],[__PILOT,__PILOT,__PILOT,__PILOT]]]
+							],0.15]
+					];
+				}else{
+					_east=_east+[
+						[[[["ACE_Mi24_V_UPK23_RU","ACE_Mi24_V_UPK23_RU"],[[0,15,0],[15,0,0]],[_r4,_r3],[[__PILOT,__PILOT],[__PILOT,__PILOT]]]
+							],0.15],
+						[[[["Mi24_V2","Mi24_V2"],[[0,15,0],[15,0,0]],[_r4,_r3],[[__PILOT,__PILOT],[__PILOT,__PILOT]]]
+							],0.15],
+
+						// RU_Mi24VSquadron !=
+						// rarityGroup = 0.3;
+						[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],[_r4,_r3],[[__PILOT,__PILOT],[__PILOT,__PILOT]]]
+							],0.15],
+						// RU_Mi24PSquadron !=
+						// rarityGroup = 0.3;
+						[[[["Mi24_P","Mi24_P"],[[0,15,0],[15,0,0]],[_r4,_r3],[[__PILOT,__PILOT],[__PILOT,__PILOT]]]
+							],0.15],
+						// RU_Mi8Squadron !=
+						// rarityGroup = 0.5;
+						[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],
+							[_r4,_r3],[[__PILOT,__PILOT,__PILOT,__PILOT],[__PILOT,__PILOT,__PILOT,__PILOT]]]
+							],0.3]
+					];
+				};
 			};
 		}else{
 			//-- Юниты обычные, другой камуфляж.
