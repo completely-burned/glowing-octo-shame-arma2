@@ -44,11 +44,6 @@ STR_gosa_Situation2,"
 Вы можете присоединится к другому отряду или покинуть его с помощью меню 0-8 commandingMenu.<br/><br/>
 Если долго удерживать точку то она сменится.<br/><br/>
 "
-STR_gosa_Сontacts,"Сontacts","Контакты"
-STR_gosa_Сontacts2,"The latest version of the script can be downloaded from the link https://github.com/completely-burned/glowing-octo-shame-arma2<br/>
-You can leave your wishes by reference https://discord.gg/vXsftQeAnj or https://github.com/completely-burned/glowing-octo-shame-arma2/discussions","
-Последнюю версию сценария можно скачать по ссылке https://github.com/completely-burned/glowing-octo-shame-arma2<br/>
-Пожелания можно оставить по ссылке https://discord.gg/vXsftQeAnj или https://github.com/completely-burned/glowing-octo-shame-arma2/discussions"
 STR_gosa_heli_transport,"air transportation","воздушный транспорт"
 STR_gosa_heli_transport_move,"%1 in transit","%1 в пути"
 STR_friendly_vehicles_only,"Allow friendly vehicles only","Разрешить только дружественные транспортные средства"
