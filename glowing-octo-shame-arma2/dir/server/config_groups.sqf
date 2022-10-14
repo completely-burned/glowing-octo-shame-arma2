@@ -1411,6 +1411,8 @@ if(LIB_a2Avail)then{
 				];
 			};
 			//-- Юниты ACE пустыня.
+			#define __PILOT "ACE_RU_Soldier_Pilot_D"
+			#define __CREW "ACE_RU_Soldier_Crew_D"
 			if(!_woodland)then{
 				_east=_east+[
 					[[[["ACE_RU_Soldier_SL_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D","ACE_RU_Soldier_Marksman_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_AR_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D","ACE_RU_Soldier_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
@@ -1448,41 +1450,41 @@ if(LIB_a2Avail)then{
 						],0.4],
 
 					[[[["ACE_RU_Soldier_SL_D","BMP3","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-						[_r3,_r3,_r2,_r1,_r1,_r0],[[],["ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_AT_D", "ACE_RU_Soldier_MG_D"]]]
+						[_r3,_r3,_r2,_r1,_r1,_r0],[[],[__CREW, __CREW, __CREW, "ACE_RU_Soldier_AT_D", "ACE_RU_Soldier_MG_D"]]]
 						],0.75],
 					[[[["ACE_RU_Soldier_SL_D","BTR90","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-						[_r3,_r3,_r2,_r1,_r1,_r0,_r0],[[],["ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D"]]]
+						[_r3,_r3,_r2,_r1,_r1,_r0,_r0],[[],[__CREW, __CREW, __CREW]]]
 						],0.9],
 					[[[["ACE_RU_Soldier_SL_D","ACE_BMP2_RU","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D","ACE_RU_Soldier_Marksman_D"],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r2,_r2,_r1,_r1,_r0,_r0],
-						[[],["ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D"]]
+						[[],[__CREW, __CREW, __CREW]]
 					]],0.01],
 					[[[["ACE_RU_Soldier_SL_D","ACE_BMP2D_RU","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D","ACE_RU_Soldier_Marksman_D"],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r2,_r2,_r1,_r1,_r0,_r0],
-						[[],["ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D"]]
+						[[],[__CREW, __CREW, __CREW]]
 					]],0.01],
 					[[[["ACE_RU_Soldier_SL_D","ACE_BMD_2_RU","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D","ACE_RU_Soldier_Marksman_D"],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r2,_r2,_r1,_r1,_r0,_r0],
-						[[],["ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D"]]
+						[[],[__CREW, __CREW, __CREW]]
 					]],0.01],
 					[[[["ACE_RU_Soldier_SL_D","ACE_BMD_1P_RU","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D"],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r1,_r1,_r0,_r0],
-						[[],["ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_AT_D", "ACE_RU_Soldier_MG_D"]]
+						[[],[__CREW, __CREW, "ACE_RU_Soldier_AT_D", "ACE_RU_Soldier_MG_D"]]
 					]],0.01],
 					[[[["ACE_RU_Soldier_SL_D","ACE_BMD_1_RU","ACE_RU_Soldier_MG_D","ACE_RU_Soldier_AT_D","ACE_RU_Soldier_LAT_D","ACE_RU_Soldier_GL_D"],
 						[[0,0],[10,0],[0,0],[0,0],[0,0],[0,0]],
 						[_r3,_r3,_r1,_r1,_r0,_r0],
-						[[],["ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_AT_D", "ACE_RU_Soldier_MG_D"]]
+						[[],[__CREW, __CREW, "ACE_RU_Soldier_AT_D", "ACE_RU_Soldier_MG_D"]]
 					]],0.01],
 
 					[[[["ACE_T90A","ACE_T90A","ACE_T90A"],[[0,10,0],[5,0,0],[10,0,0]],
-						[_r4,_r3,_r3],[["ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D"],["ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D"],["ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D"]]]],0.6],
+						[_r4,_r3,_r3],[[__CREW,__CREW,__CREW],[__CREW,__CREW,__CREW],[__CREW,__CREW,__CREW]]]],0.6],
 					[[[["ACE_T72BA_Base","ACE_T72BA_Base","ACE_T72BA_Base"],[[0,10,0],[7,0,0],[-7,0,0]],
-						[_r4,_r3,_r3],[["ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D"],["ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D"],["ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D","ACE_RU_Soldier_Crew_D"]]]],0.25],
+						[_r4,_r3,_r3],[[__CREW,__CREW,__CREW],[__CREW,__CREW,__CREW],[__CREW,__CREW,__CREW]]]],0.25],
 
 					[[[["Mi24_V","Mi24_V"],[[0,15,0],[15,0,0]],
 						[_r4,_r3],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]
@@ -1491,22 +1493,22 @@ if(LIB_a2Avail)then{
 						[_r4,_r3],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]
 						],0.3],
 					[[[["ACE_Ka50","ACE_Ka50"], [[0,0],[10,0]],
-						[_r4,_r3],[["ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D"]]]
+						[_r4,_r3],[[__PILOT],[__PILOT]]]
 						],0.01],
 					[[[["ACE_Mi24_V_UPK23_RU","ACE_Mi24_V_UPK23_RU"], [[0,0],[10,0]],
 						[_r4,_r3],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]
 						],0.01],
-					[[[["Ka52"],[],[_r4],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]],0.1],
 					[[[["Mi17_Rockets_RU","Mi17_Rockets_RU"],[[0,15,0],[15,0,0]],
 						[_r4,_r3],[["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"],["ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D","ACE_RU_Soldier_Pilot_D"]]]
 						],0.3],
+					[[[["Ka52"],[],[_r4],[[__PILOT,__PILOT]]]],0.1],
 					[[[["ACE_Su34_Des","ACE_Su34_Des"],[[0,20,0],[20,0,0]],
 						[_r4,_r3]]],0.2],
 					[[[["Pchela1T"],[],[_r4]]],0.2],
 					[[[["ACE_Su34_MR_Des"], [[0,0],[10,0]],
 						[_r4,_r3]]],0.01],
 
-					[[[["2S6M_Tunguska"], [], [_r3],[["ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D", "ACE_RU_Soldier_Crew_D"]]]],0.6],
+					[[[["2S6M_Tunguska"], [], [_r3],[[__CREW, __CREW, __CREW]]]],0.6],
 					[[[["ACE_RU_Soldier_Sniper_D","ACE_RU_Soldier_SniperH_D","ACE_RU_Soldier_Spotter_D"], [],
 						[_r2,_r2,_r1]]],0.01],
 					[[[["ACE_RU_Soldier_GL_D","ACE_RU_Soldier_Engineer_D","ACE_RU_Soldier_LAT_D"], [],
