@@ -13,6 +13,7 @@ private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
 	"_fnc_prio_units",
 	"_listPlayers","_deathTime","_cam","_t","_o","_z","_p_name"];
 
+waitUntil{!isNil "gosa_playerStartingClass"};
 if (gosa_playerStartingClass == 1) exitWith {
 	diag_log format ["Log: [respawnRandom] Player class %1, exitWith", gosa_playerStartingClass];
 };
