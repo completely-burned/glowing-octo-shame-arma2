@@ -37,7 +37,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=10;
+		items=13;
 		class Item0
 		{
 			side="EAST";
@@ -781,6 +781,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
+					text="gosa_airportHangar1";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
@@ -799,6 +800,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
+					text="gosa_airportHangar0";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
@@ -820,6 +822,121 @@ class Mission
 					leader=1;
 					rank="COLONEL";
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item10
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={8207.959,296.04001,2083.9263};
+					azimut=189.41278;
+					id=84;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.73333329;
+				};
+				class Item1
+				{
+					position[]={8205.2422,296.04001,2093.8931};
+					azimut=189.41278;
+					id=85;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item2
+				{
+					position[]={8212.6025,296.04001,2091.2634};
+					azimut=189.41278;
+					id=86;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item3
+				{
+					position[]={8216.8584,296.04001,2084.947};
+					azimut=189.41278;
+					id=87;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item11
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={8128.917,296.04001,2017.0416};
+					azimut=484.66812;
+					id=88;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.73333329;
+				};
+				class Item1
+				{
+					position[]={8118.7432,296.04001,2018.8287};
+					azimut=484.66812;
+					id=89;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item12
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={5722.9624,83.040001,11246.93};
+					azimut=723.53723;
+					id=90;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.73333329;
+				};
+				class Item1
+				{
+					position[]={5728.5093,83.050003,11236.775};
+					azimut=730.08698;
+					id=91;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
 				};
 			};
 		};
