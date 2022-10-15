@@ -48,7 +48,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=35;
+		items=37;
 		class Item0
 		{
 			side="LOGIC";
@@ -63,6 +63,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
+					text="gosa_airportHangar0";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
@@ -81,6 +82,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
+					text="gosa_airportHangar2";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
@@ -99,6 +101,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
+					text="gosa_airportHangar1";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
@@ -1090,23 +1093,25 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={7599.041,307.98257,6820.4502};
+					position[]={4727.7627,8.8263178,2587.0715};
+					azimut=136.66499;
 					id=101;
 					side="WEST";
 					vehicle="USMC_Soldier_Pilot";
 					player="PLAY CDG";
 					leader=1;
-					rank="SERGEANT";
+					rank="CAPTAIN";
 					skill=0.46666664;
 				};
 				class Item1
 				{
-					position[]={7602.041,307.80463,6815.4502};
+					position[]={4722.1504,8.937994,2588.6492};
+					azimut=136.66499;
 					id=102;
 					side="WEST";
 					vehicle="USMC_Soldier_Pilot";
 					player="PLAY CDG";
-					rank="SERGEANT";
+					rank="LIEUTENANT";
 					skill=0.46666664;
 				};
 			};
@@ -1186,6 +1191,90 @@ class Mission
 					player="PLAY CDG";
 					rank="CORPORAL";
 					skill=0.33333331;
+				};
+			};
+		};
+		class Item35
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={11984.199,158.81346,12650.746};
+					azimut=55.807598;
+					id=109;
+					side="WEST";
+					vehicle="USMC_Soldier_Pilot";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.46666664;
+				};
+				class Item1
+				{
+					position[]={11981.75,158.82019,12645.453};
+					azimut=55.807598;
+					id=110;
+					side="WEST";
+					vehicle="USMC_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.46666664;
+				};
+			};
+		};
+		class Item36
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={4536.6885,338.99106,10714.699};
+					azimut=230;
+					id=111;
+					side="WEST";
+					vehicle="USMC_Soldier_Pilot";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.73333329;
+				};
+				class Item1
+				{
+					position[]={4539.1533,338.99396,10742.876};
+					azimut=230;
+					id=112;
+					side="WEST";
+					vehicle="USMC_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item2
+				{
+					position[]={4571.292,338.98999,10718.711};
+					azimut=230;
+					id=114;
+					side="WEST";
+					vehicle="USMC_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item3
+				{
+					position[]={4551.8213,338.9993,10726.219};
+					azimut=230;
+					id=113;
+					side="WEST";
+					vehicle="USMC_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
 				};
 			};
 		};
