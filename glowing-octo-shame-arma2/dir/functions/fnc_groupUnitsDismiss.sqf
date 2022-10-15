@@ -1,4 +1,4 @@
-private ["_units"."_grp"];
+private ["_units","_grp"];
 _units = _this;
 
 if (count _units < 2) then {
