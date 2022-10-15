@@ -12,7 +12,7 @@ TODO: Подсветка авиационного ангара в pvp.
 
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_fnc_MarkerInitUnit","_markerPosHiden","_tmp_arr","_tmp_str","_text",
-	"_tmp_obj","_rMHQ","_tmp_num","_item",
+	"_tmp_obj","_rMHQ","_tmp_num","_item","_startingClass","_airports",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
 
 _fnc_MarkerInitUnit = {
@@ -38,6 +38,12 @@ if (missionNamespace getVariable "respawn" == 0 or _rMHQ) then {
 	_rBase = true;
 } else {
 	_rBase = false;
+};
+
+if (isNil "gosa_playerStartingClass") then {
+	_startingClass = 0;
+}else{
+	_startingClass = gosa_playerStartingClass;
 };
 
 // Имена маркеров, маркеры локальные и не должны конфликтовать в pvp.
@@ -76,9 +82,51 @@ if (_rBase) then {
 // FIXME: Вылет с "OutOfMemory" может быть если объекты далеко.
 _markerPosHiden = [-1600,0];
 
-// Объекты используются для поиска статичных позиций возрождения.
+
+//-- Подготовка маркеров аэропорта.
+/*
+// Не работает.
+_airports = [];
+#ifdef __A2OA__
+	{
+		_airports = _airports + allMissionObjects _x;
+	} forEach Airport;
+#endif
+*/
+// TODO: Исправить Error Undefined variable in expression: gosa_airporthangar*
+_markers_airport = [];
+_airports = [];
+if (_startingClass == 1) then {
+	_airports_tmp = [gosa_airportHangar0,gosa_airportHangar1,gosa_airportHangar2,gosa_airportHangar3];
+	for "_i" from 0 to (count _airports_tmp - 1) do {
+		_tmp_obj = _airports_tmp select _i;
+		if (isNil "_tmp_obj") then {
+			_tmp_obj = objNull;
+		};
+		if (_tmp_obj isKindOf "Logic") then {
+			_tmp_obj = nearestBuilding position _tmp_obj;
+		};
+		_pos = getPos _tmp_obj;
+		if (alive _tmp_obj) then {
+			_marker = format["respawn_%1_%2",_side_str,_tmp_obj];
+			createMarkerLocal [_marker, _pos];
+			_marker setMarkerTypeLocal "Airport";
+			_marker setMarkerColorLocal _markerColor;
+			diag_log format ["Log: [while_markers] %1 airport created %2", _marker, _pos];
+			// [[логика,объект, имя маркера, статус]]
+			_airports set [_i,[objNull,_tmp_obj,_marker,1]];
+			_markers_airport set [count _markers_airport, _marker];
+		};
+	};
+	diag_log format ["Log: [while_markers] Airports %1", _airports];
+};
+
+
 _respawnMarkers = [];
 _objects = [];
+if (_startingClass != 1 or count _markers_airport == 0) then {
+    //code
+// Объекты используются для поиска статичных позиций возрождения.
 #ifdef __A2OA__
 {
 	_objects = _objects + allMissionObjects _x;
@@ -138,10 +186,12 @@ if (_rMHQ) then {
 	};
 	diag_log format ["Log: [while_markers] %1 Init %2", _markerMHQ, _hq];
 };
+};
+
 
 //-- Отказоустойчивый маркер возрождения если нет базы.
 // TODO: Сделать должным образом, для совместимости с pvp.
-if (count _respawnMarkers < 1) then {
+if (count (_respawnMarkers+_markers_airport) < 1) then {
 	diag_log format ["Log: [while_markers] no base", nil];
 	_pos = getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
 	_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
@@ -154,7 +204,12 @@ waitUntil {!isNil {MHQ_list}};
 // FIXME: Имя переменной сбивает с толку.
 _dynamicMarkers = [];
 
-gosa_respawnMarkers = _respawnMarkers;
+if (_startingClass == 1 && count _markers_airport > 0) then {
+	gosa_respawnMarkers = _markers_airport;
+}else{
+	gosa_respawnMarkers = _respawnMarkers;
+};
+diag_log format ["Log: [while_markers] respawnMarkers %1", gosa_respawnMarkers];
 
 //-- Маркер основной локации.
 // TODO: Совместимость с несколькими локациями.
@@ -269,6 +324,30 @@ if(true)then{
 					}forEach (allMissionObjects "WarfareBBaseStructure")+(allMissionObjects "BASE_WarfareBFieldhHospital");
 				};
 			#endif
+
+			// -- Обновление маркеров аэропорта.
+			for "_i" from 0 to (count _airports - 1) do {
+				_item = _airports select _i;
+					_tmp_obj = _item select 1;
+					_marker = _item select 2;
+					_tmp_num = _item select 3;
+				if (_tmp_num < 1) then {
+					_pos = getPos _tmp_obj;
+					if (alive _tmp_obj) then {
+						createMarkerLocal [_marker, _pos];
+						_marker setMarkerTypeLocal "Airport";
+						_marker setMarkerColorLocal _markerColor;
+						gosa_respawnMarkers = gosa_respawnMarkers+[_marker];
+						diag_log format ["Log: [while_markers] %1 airport created %2", _marker, _pos];
+					};
+				};
+				// Один маркер всегда присутствует для устойчивости.
+				if (!alive _tmp_obj && _tmp_num > 0 && count gosa_respawnMarkers > 1) then {
+					diag_log format ["Log: [while_markers] %1 airport delete", _marker];
+					gosa_respawnMarkers = gosa_respawnMarkers-[_marker];
+					deleteMarkerLocal _marker;
+				};
+			};
 
 			// -- удаление лишних динамичных маркеров
 			for "_i" from 0 to (count _dynamicMarkers - 1) do {
