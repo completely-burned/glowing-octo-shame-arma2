@@ -73,18 +73,18 @@ if (_rBase) then {
 	_markerMHQtype = "Headquarters";
 };
 
+// FIXME: Вылет с "OutOfMemory" может быть если объекты далеко.
+_markerPosHiden = [-1600,0];
 
 // Объекты используются для поиска статичных позиций возрождения.
+_respawnMarkers = [];
 _objects = [];
 #ifdef __A2OA__
 {
 	_objects = _objects + allMissionObjects _x;
 } forEach HQ;
 #endif
-
-_respawnMarkers = [];
-// FIXME: Вылет с "OutOfMemory" может быть если объекты далеко.
-_markerPosHiden = [-1600,0];
+diag_log format ["Log: [while_markers] HQ's %1", _objects];
 
 // -- статичные точки возрождения
 for "_i" from 0 to (count _objects - 1) do {
