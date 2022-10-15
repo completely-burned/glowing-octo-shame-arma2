@@ -46,7 +46,12 @@ _frames_required = _limit_fps * _dfi;
 _time = time;
 _sleep = 120;
 
+// Нужно лишь для отказоустойчивой группы.
 _respawn_mode = missionNamespace getVariable "respawn";
+// Пилоты возрождаются в аэропорту.
+if (gosa_playerStartingClass == 1) then {
+	_respawn_mode = 0;
+};
 
 if (_respawn_mode == 1 or
 	_minGroups > 0 or
