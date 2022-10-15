@@ -1,11 +1,22 @@
 #define __A2OA__
 
-private ["_tmp_num"];
+private ["_tmp_num","_tmp_str"];
 
 gosa_owner = getPlayerUID player;
 while {gosa_owner == ""} do {
 	gosa_owner = getPlayerUID player;
 };
+diag_log format ["Log: [init_client] Player UI %1", gosa_owner];
+
+_tmp_str = typeOf player;
+while {_tmp_str == ""} do {
+	_tmp_str = typeOf player;
+};
+diag_log format ["Log: [init_client] Player typeOf %1", _tmp_str];
+if (_tmp_str in gosa_pilotL) then {
+	gosa_playerStartingClass = 1;
+};
+diag_log format ["Log: [init_client] Player Class %1", gosa_playerStartingClass];
 
 gosa_squadOn = [];
 gosa_squadOff = [];
