@@ -35,7 +35,7 @@ _tmp_arr=[
 	// TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
 	// 					_g selectLeader _p;
 	["selectLeader (%SELECTED_UNIT_ID)","[] call gosa_fnc_menu_selectLeader"],
-	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","{[_x] join grpNull; moveOut _x; deleteVehicle _x;} foreach GroupSelectedUnits player;"],
+	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","(GroupSelectedUnits player) call gosa_fnc_groupUnitsDismiss"],
 	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
 	[Localize "STR_gosa_join_the_squad",
 		"[] execVM 'dir\functions\fnc_joinMenu.sqf'"]
