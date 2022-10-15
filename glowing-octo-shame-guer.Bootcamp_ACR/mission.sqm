@@ -60,6 +60,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
+					text="gosa_airportHangar0";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};

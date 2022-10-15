@@ -341,6 +341,7 @@ class Mission
 			side="EMPTY";
 			vehicle="WarfareBAirport";
 			skill=0.60000002;
+			text="gosa_airportHangar0";
 			init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 		};
 		class Item2
