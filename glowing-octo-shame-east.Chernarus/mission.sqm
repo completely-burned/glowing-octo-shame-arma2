@@ -50,7 +50,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=36;
+		items=40;
 		class Item0
 		{
 			side="EAST";
@@ -910,6 +910,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
+					text="gosa_airportHangar0";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
@@ -928,6 +929,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
+					text="gosa_airportHangar1";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
@@ -946,6 +948,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
+					text="gosa_airportHangar2";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
 			};
@@ -4262,6 +4265,182 @@ class Mission
 					forceHeadlessClient=1;
 					skill=0.2;
 					text="HC (19)";
+				};
+			};
+		};
+		class Item36
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={4873.0132,339.08075,10176.012};
+					id=408;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.73333329;
+				};
+				class Item1
+				{
+					position[]={4876.3193,339.08075,10174.594};
+					id=409;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item2
+				{
+					position[]={4869.2388,339.08075,10169.224};
+					id=410;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item3
+				{
+					position[]={4876.0605,339.08075,10168.352};
+					id=411;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item37
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={4855.7388,339.08075,10175.03};
+					id=412;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.59999996;
+				};
+				class Item1
+				{
+					position[]={4854.8677,339.08075,10169.804};
+					id=413;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item38
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={4787.7007,8.7569866,2568.4556};
+					id=414;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.73333329;
+				};
+				class Item1
+				{
+					position[]={4791.0068,8.7569866,2567.0376};
+					id=415;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item2
+				{
+					position[]={4783.9263,8.7569866,2561.6675};
+					id=416;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item3
+				{
+					position[]={4790.748,8.7569866,2560.7954};
+					id=417;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+			};
+		};
+		class Item39
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={12012.307,158.85703,12644.371};
+					id=418;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+					skill=0.73333329;
+				};
+				class Item1
+				{
+					position[]={12015.612,158.85703,12642.953};
+					id=419;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item2
+				{
+					position[]={12008.531,158.85703,12637.584};
+					id=420;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item3
+				{
+					position[]={12015.354,158.85703,12636.711};
+					id=421;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+					skill=0.59999996;
 				};
 			};
 		};
