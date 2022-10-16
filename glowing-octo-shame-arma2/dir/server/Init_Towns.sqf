@@ -181,3 +181,5 @@ gosa_locationSize = 250;
 
 [] call locationNext;
 locationStarted = true;
+// Headless Client ожидает переменную.
+publicVariable "locationStarted";
