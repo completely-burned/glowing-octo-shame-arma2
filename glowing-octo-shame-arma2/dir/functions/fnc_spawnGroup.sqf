@@ -143,10 +143,6 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					if (typeName _rank == typeName 0) then {
 						_rank = _rank call gosa_fnc_rankConv;
 					};
-					_unit setRank _rank;
-					#ifndef __ARMA3__
-						[nil, _unit, rsetRank, _rank] call RE;
-					#endif
 				}else{
 					// TODO: Нужна функция.
 							_tmp_num = getNumber (configFile >> "CfgVehicles" >> _type >> "cost");
@@ -157,7 +153,14 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 							if(_tmp_num>=350000)then{_rank="CAPTAIN"};
 							if(_tmp_num>=500000)then{_rank="MAJOR"};
 							if(_tmp_num>=750000)then{_rank="COLONEL"};
-							[nil, _unit, rsetRank, _rank] call RE;
+				};
+				if (toUpper _rank != "PRIVATE") then {
+					#ifdef __ARMA3__
+						_unit setRank _rank;
+					#else
+						// До A3 движок не синхронизирует ранги самостоятельно.
+						[nil, _unit, rsetRank, _rank] call RE;
+					#endif
 				};
 
 				// Командир указан в параметрах.

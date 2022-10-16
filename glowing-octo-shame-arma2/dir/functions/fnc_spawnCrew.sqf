@@ -161,10 +161,14 @@ if !(_LandVehicle) then {
 						_rank = "LIEUTENANT";
 					};
 					//--- set rank
-					_unit setRank _rank;
-					#ifndef __ARMA3__
-						[nil, _unit, rsetRank, _rank] call RE;
-					#endif
+					if (toUpper _rank != "PRIVATE") then {
+						#ifdef __ARMA3__
+							_unit setRank _rank;
+						#else
+							// До A3 движок не синхронизирует ранги самостоятельно.
+							[nil, _unit, rsetRank, _rank] call RE;
+						#endif
+					};
 
 				_unit moveInTurret [_vehicle, _sorted select _i select 1];
 					if (commander _vehicle == _unit) then {

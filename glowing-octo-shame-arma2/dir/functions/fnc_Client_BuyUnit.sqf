@@ -72,6 +72,7 @@ if (true) then {
 					_veh = (group player createUnit [_type, _pos, [], 0.2, "FORM"]);
 					if(!isMultiplayer)then{
 						addSwitchableUnit _veh;
+
 						Private["_cost","_rank"];
 						_cost = getNumber (configFile >> "CfgVehicles" >> _type >> "cost");
 						_rank="PRIVATE";
@@ -83,18 +84,25 @@ if (true) then {
 						if(_cost>=750000)then{_rank="COLONEL"};
 						#ifdef __ARMA3__
 							[_this] call gosa_fnc_vehInit2;
+							_unit setRank _rank;
 						#else
-						[nil, _veh, rsetRank, _rank] call RE;
+							if (toUpper _rank != "PRIVATE") then {
+								// До A3 движок не синхронизирует ранги самостоятельно.
+								[nil, _veh, rsetRank, _rank] call RE;
+							};
 						#endif
 					};
-#ifndef __A2OA__
+
+					// Для __ARMA3__ нужно тоже отключить.
+					#ifndef __A2OA__
 					if (isServer) then {
 						_veh addEventHandler ["killed",{[_this select 0] call BIS_GC_trashItFunc}];
 						if ((!alive _veh) or (isNil "BIS_GC_trashItFunc")) then {
 							deleteVehicle _veh;
 						};
 					};
-#endif
+					#endif
+
 					_veh call _fnc_1;
 					hint format["%1: %2", localize "str_support_done", _type];
 			}else{
