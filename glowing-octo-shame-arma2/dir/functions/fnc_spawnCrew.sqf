@@ -61,6 +61,7 @@ if !(_LandVehicle) then {
 			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
 			_crew set [count _crew, _unit];
 			_unit moveInDriver _vehicle;
+			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
 			_unit assignAsDriver _vehicle;
 	};
 };
@@ -166,9 +167,21 @@ if !(_LandVehicle) then {
 					#endif
 
 				_unit moveInTurret [_vehicle, _sorted select _i select 1];
-				#ifdef __ARMA3__
-					_unit assignAsTurret [_vehicle, _sorted select _i select 1];
-				#endif
+					if (commander _vehicle == _unit) then {
+						diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsCommander %2", _unit, _vehicle];
+						_unit assignAsCommander _vehicle;
+					}else{
+						if (gunner _vehicle == _unit) then {
+							diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsGunner %2", _unit, _vehicle];
+							_unit assignAsGunner _vehicle;
+							#ifdef __ARMA3__
+						}else{
+								diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsTurret %2", _unit, [_vehicle, _sorted select _i select 1]];
+								_unit assignAsTurret [_vehicle, _sorted select _i select 1];
+							#endif
+						};
+					};
+
 			};
 		};
 	};
@@ -180,6 +193,7 @@ if (_LandVehicle) then {
 			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
 			_crew set [count _crew, _unit];
 			_unit moveInDriver _vehicle;
+			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
 			_unit assignAsDriver _vehicle;
 	};
 };
