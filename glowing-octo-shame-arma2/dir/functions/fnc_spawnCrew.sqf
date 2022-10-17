@@ -12,7 +12,9 @@ diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 #define false 0
 #endif
 
-private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle","_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t","_commanding",
+private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle",
+	"_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t",
+	"_commanding","_uav",
 	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe","_item"];
 
 _vehicle = _this select 0;
@@ -29,7 +31,7 @@ _tmpPosSafe set [1, (_tmpPosSafe select 1) + 10];
 _tmpPosSafe set [2, (_tmpPosSafe select 2) + 2000];
 // Под землей они умирают в a2.
 //_tmpPosSafe set [2, (_tmpPosSafe select 2) - 200];
-
+_uav = _vehicle call gosa_fnc_isUAV;
 
 _entry = configFile >> "CfgVehicles" >> _type;
 _crew = [];
@@ -40,7 +42,7 @@ _crew = [];
 		_crewType = (_typicalCargo select 0);
 	}else{
 		_typicalCargo=[];
-		if (_vehicle call gosa_fnc_isUAV) then {
+		if (_uav) then {
 			_crewType = [_grp, _type, side _grp] call gosa_fnc_crewUAV;
 		};
 		if (isNil "_crewType") then {
@@ -222,6 +224,10 @@ for "_i" from 0 to (count _crew - 1) do {
 	#ifdef __ARMA3__
 		[_item] call gosa_fnc_vehInit2;
 	#else
+		// FIXME: Без этого бпла не управляем.
+		if (_uav) then {
+			_item disableAI "FSM";
+		};
 		[nil, _item, rvehInit] call RE;
 	#endif
 };
