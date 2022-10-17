@@ -10,7 +10,7 @@
 	группа умирает
 	- группа удалится
 	два игрока в группе
-	- 
+	-
 	другой игрок покинул группу
 	- остальные справятся
 	атакующая группа не может добраться
@@ -29,6 +29,10 @@
 if (missionNamespace getVariable "gosa_survival" != 1) exitWith {
 	diag_log format ["Log: [while_survival] gosa_survival != 1 exitWith", nil];
 };
+if (gosa_playerStartingClass in [1]) exitWith {
+	diag_log format ["Log: [while_survival] gosa_playerStartingClass == %1 exitWith", gosa_playerStartingClass];
+};
+
 
 private ["_grp_attack","_grp_victim","_z","_g","_p","_reset"];
 _reset={
