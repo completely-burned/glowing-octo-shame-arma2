@@ -138,16 +138,7 @@ diag_log format ["Log: [while_markers] HQ's %1", _objects];
 for "_i" from 0 to (count _objects - 1) do {
 	private ["_obj","_marker","_pos"];
 	_obj = _objects select _i;
-	_pos = getPos _obj;
-
-	// WarfareBDepot бункеры
-	if(_obj isKindOf "WarfareBDepot")then{
-		private ["_dir","_dist2"];
-		_dir = getDir _obj;
-		_dist2 = 3;
-		// в центре нет выхода
-		_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
-	};
+	_pos = [_obj, getPos _obj, getDir _obj] call gosa_fnc_getSafePosForObject;
 
 	if(_i == 0)then{
 		_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
@@ -231,15 +222,9 @@ if(true)then{
 			// -- мобильная база (мобилизованная), один маркер
 			_hq = call gosa_fnc_getHQ select 0;
 			if !(isNull _hq) then {
-				_pos = getPos _hq;
+				_pos = [_hq, getPos _hq, getDir _hq] call gosa_fnc_getSafePosForObject;
 				_pos resize 2;
 				_tmp_arr = getMarkerPos _markerMHQ;
-
-				// Безопасная позиция сбоку.
-				// FIXME: Позиция всеравно случайная, но теперь снаружи тс.
-				_tmp_num = (getDir _hq -65);
-				_pos = [(_pos select 0) + 15*sin _tmp_num, (_pos select 1) + 15*cos _tmp_num];
-
 				if (_tmp_arr distance _pos > 1) then {
 					diag_log format ["Log: [while_markers] %1 Новая позиция %2, %3", _markerMHQ, _pos, _hq];
 					_markerMHQ setMarkerPosLocal _pos;
@@ -266,14 +251,7 @@ if(true)then{
 						// TODO: устранить конфликт множества штабов
 						if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)then{
 							private ["_pos"];
-							_pos = getPos _x;
-							if(_x isKindOf "Warfare_HQ_base_unfolded")then{
-								private ["_dir","_dist2"];
-								_dir = getDir _x - 90 - 10 + random 20;
-								_dist2 = 3 + random 2;
-								// в центре нет выхода
-								_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
-							};
+							_pos = [_x, getPos _x, getDir _x] call gosa_fnc_getSafePosForObject;
 							if(getMarkerType _markerMHQ != _markerMHQtype)then{
 								_markerMHQ = createMarkerLocal [_markerMHQ, _pos];
 								_markerMHQ setMarkerTypeLocal _markerMHQtype;
@@ -292,13 +270,7 @@ if(true)then{
 						// TODO: нужно сделать проверку фракции. FIXME: приоритет фракции?
 						if(true)then{
 							private ["_pos"];
-							_pos = getPos _obj;
-							private ["_dir","_dist"];
-							_dir = random 360;
-							_dist = random 10;
-							// позиция не должна быть всегда в центре
-							// TODO: не нужно менять позицию каждый раз
-							_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
+							_pos = [_obj, getPos _obj, getDir _obj] call gosa_fnc_getSafePosForObject;
 							if({_obj == (_x select 1)} count _dynamicMarkers == 0) then {
 								_marker = createMarkerLocal ["respawn_"+_side_str+"_Barracks_"+str count _dynamicMarkers, _pos];
 								_dynamicMarkers set [count _dynamicMarkers, [_marker, _obj]];
