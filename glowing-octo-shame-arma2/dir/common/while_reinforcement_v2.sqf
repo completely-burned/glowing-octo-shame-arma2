@@ -1,10 +1,12 @@
 /*
 скрипт отвечает за вызов подкреплений на клиентском компьетере
+TODO: Рефакторинг.
+TODO: Переход на функции.
 */
 
 #define __A2OA__
 
-private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_p",
+private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
 	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
 	"_conveyer_limit","_limits","_l_enemy","_fnc_fl","_grp","_e_multipler",
@@ -131,9 +133,9 @@ while{_run}do{
 
 	// TODO: Приватная переменная.
 	if (gosa_deviceType != 2) then {
-		_p = ([] call BIS_fnc_listPlayers);
+		_players = ([] call BIS_fnc_listPlayers);
 	} else {
-		_p = [player];
+		_players = [player];
 	};
 
 	//--- динамические ограничения
@@ -280,9 +282,8 @@ while{_run}do{
 	//--- создание отрядов
 		if (count _conveyer < _conveyer_limit) then {
 
-			// _p игроки
-				if (count _p == 0) then {
-					_p = [objNull];
+				if (count _players == 0) then {
+					_players = [objNull];
 				};
 
 			// EAST
@@ -341,7 +342,7 @@ while{_run}do{
 					_conveyer set [count _conveyer, [[east, objNull, _fl] spawn gosa_fnc_call_reinforcement, 0]];
 				};
 				if ((_z select 1) + ((_z select 3) * 0.5) + ({_x select 1 == 4} count _conveyer) < (_limits select 4)) then {
-					_conveyer set [count _conveyer, [[east, _p call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 4]];
+					_conveyer set [count _conveyer, [[east, _players call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 4]];
 				};
 
 			// WEST
@@ -403,7 +404,7 @@ while{_run}do{
 					_conveyer set [count _conveyer, [[west, objNull, _fl] spawn gosa_fnc_call_reinforcement, 1]];
 				};
 				if ((_z select 1) + ((_z select 3) * 0.5) + ({_x select 1 == 5} count _conveyer) < (_limits select 5)) then {
-					_conveyer set [count _conveyer, [[west, _p call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 5]];
+					_conveyer set [count _conveyer, [[west, _players call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 5]];
 				};
 
 			// GUE
@@ -465,7 +466,7 @@ while{_run}do{
 					_conveyer set [count _conveyer, [[resistance, objNull, _fl] spawn gosa_fnc_call_reinforcement, 2]];
 				};
 				if ((_z select 1) + ((_z select 3) * 0.5) + ({_x select 1 == 6} count _conveyer) < (_limits select 6)) then {
-					_conveyer set [count _conveyer, [[resistance, _p call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 6]];
+					_conveyer set [count _conveyer, [[resistance, _players call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 6]];
 				};
 			};
 
