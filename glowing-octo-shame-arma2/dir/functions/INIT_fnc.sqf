@@ -3,16 +3,6 @@
 // для fnc_deleteGroup
 deadGroup = grpNull;
 gosa_cache_HQ = [objNull];
-gosa_MapPlayers = [
-	[
-		// "id",
-	],
-	[
-		//[object,
-		// other,
-		// ..]
-	]
-];
 
 private["_path","_prefix"];
 _path = "dir\Functions\";

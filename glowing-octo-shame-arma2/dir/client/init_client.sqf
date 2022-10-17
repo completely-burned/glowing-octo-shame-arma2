@@ -1,4 +1,7 @@
 #define __A2OA__
+/*
+TODO: Рефакторинг.
+*/
 
 private ["_tmp_num","_tmp_str","_startingClass"];
 
@@ -49,6 +52,11 @@ SetGroupIconsVisible [true,false];
 	BIS_Effects_AirDestructionStage2 = compile preprocessFileLineNumbers "dir\Client\AirDestructionStage2.sqf";
 };
 */
+
+// В файле беспорядок, поэтому сюда поместил временно.
+diag_log format ["Log: [init_client] waitUntil gosa_MapPlayers", nil];
+waitUntil{!isNil "gosa_MapPlayers"};
+diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
 
 [] execVM "dir\client\while_debug_notice.sqf";
 [] execVM "dir\client\while_markers.sqf";

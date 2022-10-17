@@ -204,10 +204,14 @@ rremoteControlcode = {
 	};
 };
 
-// FIXME: Конфликт у новых подключений.
+if (isServer) then {
+	gosa_MapPlayers = [[],[]];
+	publicVariable "gosa_MapPlayers";
+};
 rgosa_setMapPlayers = 'gosa_setMapPlayers';
 rgosa_setMapPlayerscode = {
 	diag_log format ["Log: [MPF] rgosa_setMapPlayers %1", _this];
+	if (isServer) then {
 	private["_map","_n"];
 	_map = gosa_MapPlayers;
 	diag_log format ["Log: [MapPlayers] %1", _map];
@@ -221,6 +225,8 @@ rgosa_setMapPlayerscode = {
 	//-- data
 	_map select 1 set [_n, [_this select 1, _this select 3]];
 	diag_log format ["Log: [MapPlayers] %1", _map];
+	publicVariable "gosa_MapPlayers";
+	};
 };
 
 //-- Параметры игроков, распространяемые на все устройства.
