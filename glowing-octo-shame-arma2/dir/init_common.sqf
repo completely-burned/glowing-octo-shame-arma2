@@ -1,6 +1,6 @@
 EnableTeamSwitch false;
 
-private["_list","_tmp"];
+private["_list","_tmp","_str"];
 
 BIS_WFdPath = "\CA\Warfare2\";
 
@@ -35,7 +35,7 @@ pier = ["Land_nav_pier_m_2","Land_nav_pier_m_F"];
 
 safeDistance = 15;
 
-// этими классами не должны управлять игроки
+// Этими классами не должны управлять игроки.
 _list = [
 	"InvisibleManE_EP1",
 	"InvisibleManW_EP1",
@@ -44,14 +44,14 @@ _list = [
 	"InvisibleManC_EP1",
 	""
 ];
-gosa_blacklisted_player_classes_L = [];
-{
-	_tmp = configName (LIB_cfgVeh >> _x);
-	if (_tmp != "") then {
-		gosa_blacklisted_player_classes_L set [
-			count gosa_blacklisted_player_classes_L, _tmp];
+// Исправление регистра. Не нужно удалять классы.
+for "_i" from 0 to (count _list -1) do {
+	_str = configName (LIB_cfgVeh >> (_list select _i));
+	if (_str != "") then {
+		_list set [_i, _str];
 	};
-} forEach _list;
+};
+gosa_blacklisted_player_classes_L = _list;
 diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", gosa_blacklisted_player_classes_L];
 
 
