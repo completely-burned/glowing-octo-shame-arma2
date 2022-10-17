@@ -200,6 +200,15 @@ if (_LandVehicle) then {
 			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
 			_unit assignAsDriver _vehicle;
 	};
+}else{
+	// Высокие деревья. В бою авиация не должна опускаться.
+	if (worldName == "FDF_Isle1_a") then {
+		for "_i" from 0 to (count _crew -1) do {
+			_unit = _crew select _i;
+			_unit disableAI "FSM";
+			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 disableAI 'FSM', FDF_Isle1_a", _unit];
+		};
+	};
 };
 
 // Приказ, если ии выйдут из транспорта. Для a3 не повредит, но и не поможет.
