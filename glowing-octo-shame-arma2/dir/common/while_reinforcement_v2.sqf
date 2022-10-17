@@ -282,6 +282,13 @@ while{_run}do{
 	//--- создание отрядов
 		if (count _conveyer < _conveyer_limit) then {
 
+				// Отсеим пилотов-игроков чтобы за ними не гонялись боты.
+				for "_i" from 0 to (count _players -1) do {
+					if (typeOf (_players select _i) in gosa_pilotL) then {
+						_players set [_i, objNull];
+					};
+				};
+				_players = _players-[objNull];
 				if (count _players == 0) then {
 					_players = [objNull];
 				};
