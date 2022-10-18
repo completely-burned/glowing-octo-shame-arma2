@@ -230,7 +230,11 @@ rgosa_setMapPlayerscode = {
 };
 
 //-- Параметры игроков, распространяемые на все устройства.
-// FIXME: Имя переменной вводит в заблуждение.
+// FIXME: Имя переменной вводит в заблуждение, точнее будет Big объемный.
+if (isServer) then {
+	gosa_MapPlayersPublic = [[],[]];
+	publicVariable "gosa_MapPlayersPublic";
+};
 rgosa_setMapPlayersPublic = 'gosa_setMapPlayersPublic';
 rgosa_setMapPlayersPubliccode = {
 	diag_log format ["Log: [MPF] rgosa_setMapPlayersPublic %1", _this];
