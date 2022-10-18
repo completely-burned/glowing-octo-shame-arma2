@@ -1,6 +1,11 @@
-﻿#define __A2OA__
-private ["_type","_HQ","_fnc_1","_isUAV","_z"];
+#define __A2OA__
+/*
+TODO: Рефакторинг.
+*/
+private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj"];
+
 _type = _this Select 0;
+_player_dir = getDir vehicle player;
 
 _HQ = listMHQ + HQ;
 
@@ -14,16 +19,22 @@ if(_type isKindOf "UAV")then{
 };
 
 _fnc_1={
+	_obj = _this;
+	_obj setDir _player_dir;
 	#ifdef __ARMA3__
-		[_this] call gosa_fnc_vehInit2;
+		[_obj] call gosa_fnc_vehInit2;
 	#else
-	[nil, _this, rvehInit] call RE;
+		[nil, _obj, rvehInit] call RE;
 	#endif
-	_this setVectorUp [0,0,1];
-	group player addVehicle _this;
-	player reveal _this;
+	// Синхронизация.
+	if (isMultiplayer) then {
+		_obj setPos getPos _obj;
+	};
+	_obj setVectorUp [0,0,1];
+	group player addVehicle _obj;
+	player reveal _obj;
 	#ifndef __ARMA3__
-	[[_this], true] call gosa_fnc_reweapon;
+		[[_obj], true] call gosa_fnc_reweapon;
 	#endif
 };
 
@@ -117,7 +128,6 @@ if (true) then {
 			Private["_veh"];
 			_z = ([player, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
-			_veh setDir getDir vehicle player;
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -129,7 +139,6 @@ if (true) then {
 			Private["_veh"];
 			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
-			_veh setDir getDir vehicle player;
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -141,7 +150,6 @@ if (true) then {
 			Private["_veh"];
 			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
-			_veh setDir getDir vehicle player;
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
@@ -162,7 +170,6 @@ if (true) then {
 				Private["_veh"];
 				_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 				_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
-				_veh setDir getDir vehicle player;
 				_veh call _fnc_1;
 				hint format["%1: %2", localize "str_support_done", _type];
 			};
@@ -200,7 +207,6 @@ if (true) then {
 			}else{
 				_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 				_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
-				_veh setDir getDir vehicle player;
 				_veh call _fnc_1;
 			};
 			hint format["%1: %2", localize "str_support_done", _type];
@@ -211,7 +217,6 @@ if (true) then {
 					Private["_veh"];
 					_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 					_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
-					_veh setDir getDir vehicle player;
 					_veh call _fnc_1;
 					hint format["%1: %2", localize "str_support_done", _type];
 				};
@@ -246,7 +251,6 @@ if (true) then {
 			Private["_veh"];
 			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
-			_veh setDir getDir vehicle player;
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
 		};
