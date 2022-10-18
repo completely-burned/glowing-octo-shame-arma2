@@ -141,11 +141,14 @@ while {true} do {
 							_Object setRepairCargo 1;
 							_Object setFuelCargo 1;
 						};
+
+						#ifndef __ARMA3__
 						if (isNil {_Object getVariable "gosa_act_hintCrew"}) then {
 							private["_action"];
 							_action = _Object addAction [format ["%1 %2",localize "STR_ACT_Crew",getText (configFile >> "CfgVehicles" >> _type >> "displayName")],'dir\client\ACT\ACT_HintCrew.sqf',[],0, false];
 							_Object setVariable ["gosa_act_hintCrew",_action];
 						};
+						#endif
 					};
 
 					[_Object, _type] call gosa_fnc_act_repairVehicle;
