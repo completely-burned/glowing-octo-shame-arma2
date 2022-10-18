@@ -5,6 +5,7 @@ copyToClipboard str ([["East"],["INS","RU"],[]] call gosa_fnc_returnGroups);
 copyToClipboard str ([["I44_A"],[],[]] call gosa_fnc_returnGroups);
 copyToClipboard str ([["West"],["BLU_F"],[]] call gosa_fnc_returnGroups);
 copyToClipboard str ([["Indep"],["IND_F"],[]] call gosa_fnc_returnGroups);
+copyToClipboard str ([["Guerrila"],["FDF"],[]] call gosa_fnc_returnGroups);
 */
 
 

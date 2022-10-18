@@ -2622,36 +2622,127 @@ if(configName(LIB_cfgVeh >> "nac_soldier_leader") != "")then{
 			], [],[_r3,_r2,_r2,_r2,_r2,_r1,_r1,_r1,_r1]]],0.3]
 	];
 };
+}; // unfinished
 
 // @fdf_mod
 if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
-	_guer=_guer+[
-		[[[["FDF_M05_FRDF_NCO","FDF_M05_FRDF_MG","FDF_M05_FRDF_MG_Asst","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier","FDF_M05_FRDF_Asst_Squad_Leader"],
-			[],[_r2,_r0,_r0,_r0,_r0,_r0,_r1]]],0.3],
-		[[[["FDF_M05_FRDF_Soldier_HeavyAT","FDF_M05_FRDF_Soldier_HeavyAT","FDF_M05_FRDF_Soldier_HeavyAT"],
-			[],[_r1,_r0,_r0]]],0.2],
-		[[[["FDF_Sniper","FDF_Spotter"],
-			[],[_r1,_r0]]],0.05],
-		[[[["FDF_SJ_M05","FDF_SJ_M05","FDF_SJ_M05","FDF_SJ_M05"],
-			[],[_r2,_r1,_r0,_r0]]],0.02],
-		[[[["FDF_M05_FRDF_NCO","FDF_AMV_M2","FDF_M05_FRDF_MG","FDF_M05_FRDF_MG_Asst","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier","FDF_M05_FRDF_Asst_Squad_Leader"],
-			[[0,0],[5,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
-			[_r2,_r0,_r0,_r0,_r0,_r0,_r0,_r1]]],0.3],
-		[[[["FDF_M05_Jaeger_NCO","FDF_BMP2","FDF_M05_Jaeger_MG","FDF_M05_Jaeger_MG_Asst","FDF_M05_Jaeger_HeavyAT","FDF_M05_Jaeger_HeavyAT","FDF_M05_Jaeger_Marksman","FDF_M05_Jaeger_Asst_Squad_Leader"],
-			[[0,0],[5,0],[0,0],[0,0],[0,0],[0,0],[0,0],[0,0]],
-			[_r3,_r3,_r0,_r0,_r0,_r0,_r0,_r1]]],0.3],
-		[[[["FDF_leopard2a4","FDF_leopard2a4","FDF_leopard2a4","FDF_leopard2a4"],
-			[[0,0],[5,0],[0,5],[5,5]],
-			[_r4,_r3,_r3,_r3]]],0.2],
-		[[[["FDF_T72M1","FDF_T72M1","FDF_T72M1"],
-			[[0,0],[5,0],[0,5]],
-			[_r3,_r3,_r3]]],0.2],
-		[[[["FDF_NH90_MG3"],
-			[],
-			[_r3]],[["FDF_M05_FRDF_NCO","FDF_M05_FRDF_MG","FDF_M05_FRDF_MG_Asst","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier","FDF_M05_FRDF_Asst_Squad_Leader"]]
-			],0.1]
-	];
-};
+	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"FDF");
+	if ((_tmp == -1 && (gosa_IslandType select 0) >= 150 && (gosa_IslandType select 0) < 250)
+		or _tmp > 0) then
+	{
+		if ((gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0) then {
+			#define __FDF_M05_Jaeger_Squad [[[["FDF_M05_Jaeger_NCO","FDF_M05_Jaeger_MG","FDF_M05_Jaeger_MG_Asst","FDF_M05_Jaeger_AT","FDF_M05_Jaeger_AT","FDF_M05_Jaeger","FDF_M05_Jaeger_Asst_Squad_Leader"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],0.7]
+			_guer=_guer+[
+				// FDF_M05_Jaeger_Plt_HQ_Team"
+				[[[["FDF_M05_Jaeger_Officer",
+					"FDF_M05_Jaeger_NCO","FDF_M05_Jaeger_Medic",
+					"FDF_M05_Jaeger"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]
+					],0.7],
+				// FDF_M05_Jaeger_Squad"
+				__FDF_M05_Jaeger_Squad,
+				// FDF_M05_Jaeger_AT_Team"
+				[[[["FDF_M05_Jaeger_HeavyAT","FDF_M05_Jaeger_HeavyAT","FDF_M05_Jaeger_HeavyAT"],[[0,5,0],[3,0,0],[5,0,0]],
+					["CORPORAL","PRIVATE","PRIVATE"]]
+					],0.7],
+
+				// FDF_M05_Sniper_Team"
+				[[[["FDF_Sniper","FDF_Spotter"],[[0,5,0],[3,0,0]],
+					["CORPORAL","PRIVATE"]]
+					],0.7],
+
+				// FDF_M05_RDF_Plt_HQ_Team"
+				[[[["FDF_M05_FRDF_Officer",
+					"FDF_M05_FRDF_NCO","FDF_M05_FRDF_Medic",
+					"FDF_M05_FRDF_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]
+					],0.7],
+				// FDF_M05_RDF_Squad"
+				[[[["FDF_M05_FRDF_NCO",
+					"FDF_M05_FRDF_MG","FDF_M05_FRDF_MG_Asst",
+					"FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier_AT",
+					"FDF_M05_FRDF_Soldier","FDF_M05_FRDF_Asst_Squad_Leader"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+					["SERGEANT",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","CORPORAL"]]
+					],0.7],
+				// FDF_M05_RDF_AT_team"
+				[[[["FDF_M05_FRDF_Soldier_HeavyAT",
+					"FDF_M05_FRDF_Soldier_HeavyAT","FDF_M05_FRDF_Soldier_HeavyAT"],[[0,5,0],[3,0,0],[5,0,0]],
+					["CORPORAL","PRIVATE","PRIVATE"]]
+					],0.7],
+
+				// FDF_SJ_Assault_Team"
+				[[[["FDF_SJ_Assault",
+					"FDF_SJ_Breach","FDF_SJ_Assault",
+					"FDF_SJ_Assault"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
+					],0.7],
+				// FDF_SJ_M05_Team"
+				[[[["FDF_SJ_M05","FDF_SJ_M05","FDF_SJ_M05","FDF_SJ_M05"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
+					],0.7],
+
+				// FDF_AMV_M05_Jaeger_Squad"
+				[[[["FDF_M05_Jaeger_NCO",
+					"FDF_AMV_M2","FDF_M05_Jaeger_MG",
+					"FDF_M05_Jaeger_MG_Asst","FDF_M05_Jaeger_AT",
+					"FDF_M05_Jaeger_AT","FDF_M05_Jaeger",
+					"FDF_M05_Jaeger_Asst_Squad_Leader"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+					["SERGEANT",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE",
+					"CORPORAL"],[],0]
+					],0.7],
+				// FDF_AMV_M05_RDF_Squad"
+				[[[["FDF_M05_FRDF_NCO",
+					"FDF_AMV_M2","FDF_M05_FRDF_MG",
+					"FDF_M05_FRDF_MG_Asst","FDF_M05_FRDF_Soldier_AT",
+					"FDF_M05_FRDF_Soldier_AT","FDF_M05_FRDF_Soldier",
+					"FDF_M05_FRDF_Asst_Squad_Leader"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+					["SERGEANT",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE",
+					"CORPORAL"],[],0]
+					],0.7],
+				// FDF_IFV_M05_Jaeger_Squad"
+				[[[["FDF_M05_Jaeger_NCO",
+					"FDF_BMP2","FDF_M05_Jaeger_MG",
+					"FDF_M05_Jaeger_MG_Asst","FDF_M05_Jaeger_HeavyAT",
+					"FDF_M05_Jaeger_HeavyAT","FDF_M05_Jaeger_Marksman",
+					"FDF_M05_Jaeger_Asst_Squad_Leader"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
+					["SERGEANT",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE",
+					"PRIVATE","PRIVATE",
+					"CORPORAL"],[],0]
+					],0.7],
+
+				// FDF_Leopard2A4_Platoon
+				[[[["FDF_leopard2a4","FDF_leopard2a4","FDF_leopard2a4","FDF_leopard2a4"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],
+					["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]
+					],0.05],
+				// FDF_T72M1_Platoon
+				[[[["FDF_T72M1","FDF_T72M1","FDF_T72M1"],[[0,10,0],[5,0,0],[10,0,0]],
+					["LIEUTENANT","SERGEANT","SERGEANT"]]
+					],0.05],
+
+				[[[["FDF_F18C","FDF_F18C"],[[0,20,0],[20,0,0]],[_r4,_r3]]
+					],0.01],
+				[[[["FDF_NH90_MG3"],[],[_r4]]
+					],0.01]
+			];
+			if (_landing in [1,3,23,34]) then {
+				_guer=_guer+[
+					[[[["FDF_NH90"],[],[_r4]], __FDF_M05_Jaeger_Squad
+						],0.01]
+				];
+			};
+		};
+	};
 };
 
 // @I44
