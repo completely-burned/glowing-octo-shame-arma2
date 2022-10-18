@@ -84,20 +84,40 @@ _markerPosHiden = [-1600,0];
 
 
 //-- Подготовка маркеров аэропорта.
-/*
-// Не работает.
-_airports = [];
-#ifdef __A2OA__
-	{
-		_airports = _airports + allMissionObjects _x;
-	} forEach Airport;
-#endif
-*/
-// TODO: Исправить Error Undefined variable in expression: gosa_airporthangar*
 _markers_airport = [];
 _airports = [];
 if (_startingClass == 1) then {
-	_airports_tmp = [gosa_airportHangar0,gosa_airportHangar1,gosa_airportHangar2,gosa_airportHangar3];
+	_airports_tmp = [];
+
+	//-- Поиск по всем объектам карты.
+	/*
+	// Не работает
+	#ifdef __A2OA__
+		_tmp_arr = allMissionObjects "";
+		for "_i" from 0 to (count _tmp_arr -1) do {
+			_tmp_obj = _tmp_arr select _i;
+			if ([[_tmp_obj], gosa_typesOf_airports] call gosa_fnc_CheckIsKindOfArray) then {
+				_airports_tmp set [count _airports_tmp, _tmp_obj];
+			};
+		};
+		diag_log format ["Log: [while_markers] _airports_tmp %1", _airports_tmp];
+	#endif
+	*/
+
+	//-- Заранее заданные объекты.
+	for "_i" from 0 to 99 do {
+		_tmp_str = format["gosa_airportHangar%1", _i];
+		if !(isNil _tmp_str) then {
+			_tmp_obj = call compile _tmp_str;
+			// Нужно отсеить дубликаты.
+			if !(_tmp_obj in _airports_tmp) then {
+				_airports_tmp set [count _airports_tmp, _tmp_obj];
+			};
+		};
+	};
+	diag_log format ["Log: [while_markers] _airports_tmp %1", _airports_tmp];
+
+
 	for "_i" from 0 to (count _airports_tmp - 1) do {
 		_tmp_obj = _airports_tmp select _i;
 		if (isNil "_tmp_obj") then {
