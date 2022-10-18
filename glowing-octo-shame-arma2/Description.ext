@@ -549,6 +549,7 @@ class Params {
 	}; // diag_log
 };
 
+#ifndef __ARMA3__
 class Weapons {
 	class AK_74 {count = 8;};
 	class RPG7V {count = 2;};
@@ -563,6 +564,7 @@ class Backpacks {
 	class US_Patrol_Pack_EP1 {count = 4;};
 	class US_Assault_Pack_EP1 {count = 4;};
 };
+#endif
 class Header {
 	gameType = COOP;
 };
