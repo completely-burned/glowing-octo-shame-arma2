@@ -123,6 +123,8 @@ _list = [
 	"I44_Man_G_WH_Crew_MP40",
 	"I44_Man_G_WH_Crew_P38",
 	"I44_Man_G_WH_Crew_Eng",
+	"FDF_M05_FRDF_Crew",
+	"FDF_M91_Crew",
 	"Crew"
 ];
 #ifdef __ARMA3__
@@ -165,6 +167,10 @@ _list = [
 	"I44_Man_B_RAF_PCrew_M1911A1",
 	"I44_Man_G_WL_Pilot_P38",
 	"I44_Man_G_WL_LCrew_P38",
+	"FDF_Pilot_Helicopter",
+	"FDF_Pilot_F18",
+	//"FDF_Pilot_NoEquip_Helicopter",
+	//"FDF_Pilot_NoEquip_F18",
 	"Pilot"
 ];
 #ifdef __ARMA3__
