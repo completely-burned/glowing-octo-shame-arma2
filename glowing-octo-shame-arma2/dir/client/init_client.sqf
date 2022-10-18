@@ -56,10 +56,12 @@ SetGroupIconsVisible [true,false];
 // TODO: Маркеры возрождения должы уже присутствовать перед стартом задания.
 [] execVM "dir\client\while_markers.sqf";
 
+#ifndef __ARMA3__
 // В файле беспорядок, поэтому сюда поместил временно.
 diag_log format ["Log: [init_client] waitUntil gosa_MapPlayers", nil];
 waitUntil{!isNil "gosa_MapPlayers"};
 diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
+#endif
 
 [] execVM "dir\client\while_debug_notice.sqf";
 [] execVM "dir\client\while_sp_rating.sqf";
