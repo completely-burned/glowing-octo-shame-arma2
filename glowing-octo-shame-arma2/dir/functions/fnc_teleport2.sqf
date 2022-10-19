@@ -49,14 +49,10 @@ if(_allow)then{
 				if ( !(vehicle _veh in _inList) && !(typeOf vehicle _veh == "StaticWeapon") && (damage _veh != 1))then{
 					_inList set [count _inList, vehicle _veh];
 					vehicle _veh setVelocity [0, 0, 0];
-					if (vehicle _veh == _veh) then {
-						_veh setPos _pos;
-					}else{
 						vehicle _veh setPos ([_pos,0, sizeOf typeOf vehicle _veh] call gosa_fnc_getSafePos);
-					};
 					vehicle _veh setVectorUp [0,0,1];
 				};
 			};
-		} forEach units group player;
+		} forEach (GroupSelectedUnits player);
 	};
 };
