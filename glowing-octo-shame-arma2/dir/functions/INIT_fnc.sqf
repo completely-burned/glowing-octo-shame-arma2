@@ -59,6 +59,7 @@ if (!IsDedicated) then {
 } forEach [
 	"fnc_getSafePosForObject",
 	"fnc_initAirports",
+	"fnc_getPlayerParam",
 	"fnc_groupUnitsDismiss",
 	"fnc_isZeroPos",
 	"fnc_menu_selectLeader",
