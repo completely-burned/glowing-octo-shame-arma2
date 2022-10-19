@@ -1,4 +1,8 @@
-﻿#define __A2OA__
+#define __A2OA__
+/*
+В этом файле формируется меню позиций для телепортации.
+*/
+private ["_item","_obj","_num","_str","_for","_pos"];
 
 waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
 waitUntil{!isNil "civilianBasePos"};
@@ -35,6 +39,28 @@ switch (playerSide) do {
 private ["_gosa_objectsTeleportTmp","_gosa_objectsTeleport"];
 _gosa_objectsTeleportTmp = [];
 _gosa_objectsTeleport = [];
+
+//-- Аэропорты, пока только для пилотов.
+// TODO: Возможность телепортироваться обратно.
+if (gosa_playerStartingClass == 1) then {
+	_for = [] call gosa_fnc_initAirports;
+	for "_i" from 0 to (count _for - 1) do {
+		_item = _for select _i;
+		_obj = _item select 1;
+		_pos = _item select 4;
+
+		_num = count _list;
+		_str = format ["%1, %2", text ((nearestLocations [_pos,
+				["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000])
+					select 0),
+				getText(configfile >> "CfgVehicles" >> typeof _obj >> "displayName")];
+
+		_list set [_num, _num];
+		_teleport_list set [_num, _obj];
+		_list2 set [_num, _str];
+	};
+};
+
 #ifdef __A2OA__
 {
 	_gosa_objectsTeleportTmp = _gosa_objectsTeleportTmp + allMissionObjects _x;
@@ -84,6 +110,9 @@ _teleportLocations = [];
 } foreach _gosa_objectsTeleport
 +_teleportLocations;
 
+diag_log format ["Log: [fnc_teleport] n %1", _list];
+diag_log format ["Log: [fnc_teleport] t %1", _list2];
+diag_log format ["Log: [fnc_teleport] o %1", _teleport_list];
 
 teleport_list = _teleport_list;
 ["teleport", "teleport", [_list,_list2], "","(teleport_list select %1) call gosa_fnc_teleport2"] call BIS_FNC_createmenu;
