@@ -13,6 +13,7 @@ TODO: Подсветка авиационного ангара в pvp.
 private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_fnc_MarkerInitUnit","_markerPosHiden","_tmp_arr","_tmp_str","_text",
 	"_tmp_obj","_rMHQ","_tmp_num","_item","_startingClass","_airports",
+	"_logic","_obj","_num",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
 
 _fnc_MarkerInitUnit = {
@@ -47,32 +48,10 @@ if (isNil "gosa_playerStartingClass") then {
 };
 
 // Имена маркеров, маркеры локальные и не должны конфликтовать в pvp.
-switch (playerSide) do {
-	case (resistance):
-	{
-		_side_str = "guerrila";
-		_markerColor = "ColorGreen";
-	};
-	case (civilian):
-	{
-		_side_str = "civilian";
-		_markerColor = "ColorYellow";
-	};
-	case (west):
-	{
-		_side_str = "west";
-		_markerColor = "ColorBlue";
-	};
-	case (east):
-	{
-		_side_str = "east";
-		_markerColor = "ColorRed";
-	};
-	default {
-		_side_str = str playerSide;
-		_markerColor = "Default";
-	};
-};
+_tmp_arr = [] call gosa_fnc_getPlayerParam;
+_side_str = _tmp_arr select 0;
+_markerColor = _tmp_arr select 1;
+
 
 if (_rBase) then {
 	_markerMHQ = format["respawn_%1_MHQ",_side_str];
@@ -87,59 +66,25 @@ _markerPosHiden = [-1600,0];
 _markers_airport = [];
 _airports = [];
 if (_startingClass == 1) then {
-	_airports_tmp = [];
+	_airports = [] call gosa_fnc_initAirports;
 
-	//-- Поиск по всем объектам карты.
-	/*
-	// Не работает
-	#ifdef __A2OA__
-		_tmp_arr = allMissionObjects "";
-		for "_i" from 0 to (count _tmp_arr -1) do {
-			_tmp_obj = _tmp_arr select _i;
-			if ([[_tmp_obj], gosa_typesOf_airports] call gosa_fnc_CheckIsKindOfArray) then {
-				_airports_tmp set [count _airports_tmp, _tmp_obj];
-			};
-		};
-		diag_log format ["Log: [while_markers] _airports_tmp %1", _airports_tmp];
-	#endif
-	*/
+	for "_i" from 0 to (count _airports - 1) do {
+		_item = _airports select _i;
+		_logic = _item select 0;
+		_obj = _item select 1;
+		_marker = format["respawn_%1_%2", _side_str, _item select 2];
+		// статус
+		_num = _item select 3;
+		_pos = _item select 4;
 
-	//-- Заранее заданные объекты.
-	for "_i" from 0 to 99 do {
-		_tmp_str = format["gosa_airportHangar%1", _i];
-		if !(isNil _tmp_str) then {
-			_tmp_obj = call compile _tmp_str;
-			// Нужно отсеить дубликаты.
-			if !(_tmp_obj in _airports_tmp) then {
-				_airports_tmp set [count _airports_tmp, _tmp_obj];
-			};
-		};
-	};
-	diag_log format ["Log: [while_markers] _airports_tmp %1", _airports_tmp];
-
-
-	for "_i" from 0 to (count _airports_tmp - 1) do {
-		_tmp_obj = _airports_tmp select _i;
-		if (isNil "_tmp_obj") then {
-			_tmp_obj = objNull;
-		};
-		if (_tmp_obj isKindOf "Logic") then {
-			_tmp_obj = nearestBuilding position _tmp_obj;
-		};
-		_pos = getPos _tmp_obj;
-		if (alive _tmp_obj) then {
-			_marker = format["respawn_%1_%2",_side_str,_tmp_obj];
 			createMarkerLocal [_marker, _pos];
 			_marker setMarkerTypeLocal "Airport";
 			_marker setMarkerColorLocal _markerColor;
 			diag_log format ["Log: [while_markers] %1 airport created %2", _marker, _pos];
-			// [[логика,объект, имя маркера, статус]]
-			_airports set [_i,[objNull,_tmp_obj,_marker,1]];
 			_markers_airport set [count _markers_airport, _marker];
-		};
 	};
-	diag_log format ["Log: [while_markers] Airports %1", _airports];
 };
+diag_log format ["Log: [while_markers] _markers_airport %1", _markers_airport];
 
 
 _respawnMarkers = [];
