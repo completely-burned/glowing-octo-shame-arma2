@@ -40,6 +40,7 @@ if(_allow)then{
 		};
 		vehicle player setVectorUp [0,0,1];
 
+		// {} forEach (GroupSelectedUnits player) не работает на прямую в a2oa.
 		_for = (GroupSelectedUnits player);
 		private ["_inList"];
 		_inList = [];
