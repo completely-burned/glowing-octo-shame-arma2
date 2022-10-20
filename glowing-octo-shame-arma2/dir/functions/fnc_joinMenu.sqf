@@ -26,7 +26,9 @@ if (count _l == 0) exitWith {
 
 
 _c = "
-	([player]+(GroupSelectedUnits player)) join (gosa_joinMenu select %2);
+	private ['_arr'];
+	_arr = (GroupSelectedUnits player);
+	([player]+_arr) join (gosa_joinMenu select %2);
 	hint 'Ok';
 	gosa_joinMenu = nil;
 ";
