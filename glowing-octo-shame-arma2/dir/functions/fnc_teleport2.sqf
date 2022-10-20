@@ -1,4 +1,4 @@
-﻿private ["_pos","_allow"];
+private ["_pos","_allow","_for"];
 
 _allow = true;
 switch (typeName _this) do {
@@ -40,6 +40,7 @@ if(_allow)then{
 		};
 		vehicle player setVectorUp [0,0,1];
 
+		_for = (GroupSelectedUnits player);
 		private ["_inList"];
 		_inList = [];
 		{
@@ -55,6 +56,6 @@ if(_allow)then{
 				};
 				};
 			};
-		} forEach (GroupSelectedUnits player);
+		} forEach _for;
 	};
 };
