@@ -93,15 +93,14 @@ if (true) then {
 						if(_cost>=350000)then{_rank="CAPTAIN"};
 						if(_cost>=500000)then{_rank="MAJOR"};
 						if(_cost>=750000)then{_rank="COLONEL"};
-						#ifdef __ARMA3__
-							[_this] call gosa_fnc_vehInit2;
-							_unit setRank _rank;
-						#else
-							if (toUpper _rank != "PRIVATE") then {
+						if (toUpper _rank != "PRIVATE") then {
+							#ifdef __ARMA3__
+								_veh setRank _rank;
+							#else
 								// До A3 движок не синхронизирует ранги самостоятельно.
 								[nil, _veh, rsetRank, _rank] call RE;
-							};
-						#endif
+							#endif
+						};
 					};
 
 					// Для __ARMA3__ нужно тоже отключить.
