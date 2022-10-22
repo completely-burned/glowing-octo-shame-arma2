@@ -602,6 +602,21 @@ class CfgCommunicationMenu
 	};
 };
 
+class CfgFunctions
+{
+	class gosa
+	{
+		class Objects
+		{
+			file = "dir\functions\objects";
+			class vehInit2
+			{
+				file = "dir\functions\fnc_vehInit2.sqf";
+			};
+		};
+	};
+};
+
 class CfgRemoteExec
 {
 	class Functions

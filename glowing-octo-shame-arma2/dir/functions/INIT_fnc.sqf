@@ -147,7 +147,9 @@ if (!IsDedicated) then {
 	"fnc_megaAmmoBox",
 	"fnc_createmenu",
 	"fnc_vehicleHandleDamage",
+	#ifndef __ARMA3__
 	"fnc_vehInit2",
+	#endif
 	"fnc_CheckRespawnDistance",
 	"fnc_CheckTurretAlive",
 	"fnc_uav",
