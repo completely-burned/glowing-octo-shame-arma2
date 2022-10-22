@@ -8,7 +8,7 @@ _this select 1 = Тип запуска, для отладки.
 private["_gosa_init","_o"];
 _o = (_this select 0);
 _gosa_init = (_o getVariable "_gosa_init");
-diag_log format ["Log: [fnc_vehInit2] %1, var %2", _this, _gosa_init];
+diag_log format ["Log: [fnc_vehInit2] %1, var %2", _this, _o getVariable "_gosa_init"];
 if (isNil "_gosa_init") then {
 
 	_o addEventHandler ["killed", {_this spawn gosa_fnc_eh_killed}];
