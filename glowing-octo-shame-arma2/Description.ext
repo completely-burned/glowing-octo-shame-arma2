@@ -601,3 +601,39 @@ class CfgCommunicationMenu
 		submenu = "#USER:gosa_supportMenu_0";
 	};
 };
+
+class CfgRemoteExec
+{
+	class Functions
+	{
+		/*
+		Operation modes:
+			0 - remote execution is blocked
+			1 - only whitelisted functions / commands are allowed
+			2 - remote execution is fully allowed, ignoring the whitelist (default, because of backward compatibility)
+		*/
+		mode = 2;
+
+		/*
+		JIP:
+			0 - JIP flag can not be set
+			1 - JIP flag can be set (default)
+		*/
+		jip = 1;
+
+		class gosa_fnc_vehInit2
+		{
+			/*
+			Allowed targets:
+				0 - can target all machines (default)
+				1 - can only target clients, execution on the server is denied
+				2 - can only target the server, execution on clients is denied
+				Any other value will be treated as 0.
+			*/
+			allowedTargets = 0;
+
+			//Override the global setting (defined in class Functions) for this function:
+			jip = 0;
+		};
+	};
+};
