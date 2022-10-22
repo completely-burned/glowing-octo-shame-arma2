@@ -22,7 +22,7 @@ _fnc_1={
 	_obj = _this;
 	_obj setDir _player_dir;
 	#ifdef __ARMA3__
-		[_obj] call gosa_fnc_vehInit2;
+		[_obj, "fnc_Client_BuyUnit"] remoteExec ["gosa_fnc_vehInit2"];
 	#else
 		[nil, _obj, rvehInit] call RE;
 	#endif

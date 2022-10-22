@@ -76,7 +76,7 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 				if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
 					_unit = _grp createUnit [_type, _itemPos, [], 0, "FORM"];
 					#ifdef __ARMA3__
-						[_unit] call gosa_fnc_vehInit2;
+						[_unit, "fnc_spawnGroup"] remoteExec ["gosa_fnc_vehInit2"];
 					#else
 						[nil, _unit, rvehInit] call RE;
 					#endif

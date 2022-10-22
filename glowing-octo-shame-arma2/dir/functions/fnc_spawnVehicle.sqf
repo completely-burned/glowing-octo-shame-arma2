@@ -59,7 +59,7 @@ if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"])
 diag_log format ["Log: [fnc_spawnVehicle] %1, created %2 %3 %4", _this, _sim, getPos _veh, _veh];
 
 #ifdef __ARMA3__
-	[_veh] call gosa_fnc_vehInit2;
+	[_veh, "fnc_spawnVehicle"] remoteExec ["gosa_fnc_vehInit2"];
 #else
 	[nil, _veh, rvehInit] call RE;
 #endif

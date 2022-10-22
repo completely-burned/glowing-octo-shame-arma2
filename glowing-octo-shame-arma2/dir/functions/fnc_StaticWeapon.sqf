@@ -150,7 +150,7 @@ if ([[_this], ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then {
 							_crew = (_grp createUnit [_crewType, [nearestObjects [_this, gosa_objectsTeleport, gosa_distanceReammo] call BIS_fnc_selectRandom] call gosa_fnc_respawnPos, [], 10, "NONE"]);
 							_this setVariable ["_crew", [_crew]];
 							#ifdef __ARMA3__
-								[_crew] call gosa_fnc_vehInit2;
+								[_crew, "fnc_StaticWeapon"] remoteExec ["gosa_fnc_vehInit2"];
 							#else
 							[nil, _crew, rvehInit] call RE;
 							#endif
