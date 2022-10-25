@@ -32,6 +32,7 @@ gosa_getLocations = {
 	diag_log format ["Log: [while_locations] _town = %1", _a select 2];
 
 	//-- depot
+	// Только один depot, как одна акция к 50%.
 	_depotPosition = _position;
 	_depotDirection = 0;
 	_flatAreas = NearestLocations[_position,["FlatAreaCity"],350];
@@ -59,6 +60,7 @@ gosa_getLocations = {
 	_range = 350;
 
 	//-- camps
+	// TODO: Объекты логики внутриигрового редактора.
 	_camps = [];
 	{
 		//_destination = _x Select 0;
@@ -99,6 +101,10 @@ private ["_depot_size","_side","_fnc_sideColor","_fnc_tik","_tmp","_time",
 	"_delay","_l_logic","_l_depot","_l_camps","_l_camp"];
 
 _fnc_tik = {
+	/*
+	Заготовка заглушка.
+	Возвращает сторону.
+	*/
 	diag_log format ["Log: [while_locations] _fnc_tik = %1", _this];
 	private ["_east","_west","_resistance","_objects","_pos"];
 	_pos = (_this select 0);
@@ -157,10 +163,12 @@ while {true} do {
 
 	_tmp = gosa_locationsMap;
 	for "_i" from 0 to count (_tmp select 0) -1 do {
+		//-- Обновление локации.
 		_l_logic = (_tmp select 0) select _i;
 		diag_log format ["Log: [while_locations] _l_logic = %1", _l_logic];
 		if !(isNull _l_logic) then {
 
+			//-- Обновление depot локации.
 			_l_depot = _tmp select 1 select _i select 0;
 			diag_log format ["Log: [while_locations] _l_depot = %1", _l_depot];
 			_side = ([_l_depot, _depot_size] call _fnc_tik);
@@ -172,6 +180,7 @@ while {true} do {
 				};
 			};
 
+			//-- Обновление camps локации.
 			_l_camps = _tmp select 1 select _i select 1;
 			for "_i0" from 0 to count (_l_camps) -1 do {
 				_l_camp = _l_camps select _i0;
