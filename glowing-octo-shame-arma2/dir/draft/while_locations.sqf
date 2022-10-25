@@ -123,7 +123,7 @@ _fnc_tik = {
 		diag_log format ["Log: [while_locations] _fnc_tik Resistance", nil];
 		Resistance;
 	};
-	sideUnknown;
+	nil;
 };
 
 
