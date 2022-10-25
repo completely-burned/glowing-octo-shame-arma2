@@ -25,7 +25,7 @@ gosa_getLocations = {
 	_location = _this;
 	_position = locationPosition _location;
 	_position resize 2;
-	_town = group_logic CreateUnit ["LocationLogicCity",_position,[],0,"NONE"];
+	_town = group_logic CreateUnit ["LocationLogicCity",_position,[],0,"CAN_COLLIDE"];
 	// location. Для town объект логики в другом массиве записывается.
 	_a set [2,[_location,civilian,_position,nil]];
 	diag_log format ["Log: [while_locations] _town = %1", _a select 2];
@@ -41,7 +41,7 @@ gosa_getLocations = {
 		_depotDirection = Direction (_flatAreas Select 0);
 	};
 
-	_depot = group_logic CreateUnit ["LocationLogicDepot",_depotPosition,[],0,"NONE"];
+	_depot = group_logic CreateUnit ["LocationLogicDepot",_depotPosition,[],0,"CAN_COLLIDE"];
 	_depot SetDir _depotDirection;
 
 	_marker = str [_depot,_depotPosition];
@@ -67,7 +67,7 @@ gosa_getLocations = {
 			_conflictingCamps = _destination NearEntities["LocationLogicCamp",20];
 
 			if (Count _conflictingCamps < 1) then {
-				_camp = group_logic CreateUnit ["LocationLogicCamp",_destination,[],0,"NONE"];
+				_camp = group_logic CreateUnit ["LocationLogicCamp",_destination,[],0,"CAN_COLLIDE"];
 				//_camp SetDir (_x Select 1);
 				_camp SetDir Direction _x;
 				// TODO: _composition
