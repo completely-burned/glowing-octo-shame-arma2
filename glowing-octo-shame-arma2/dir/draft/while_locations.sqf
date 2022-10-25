@@ -24,6 +24,7 @@ gosa_getLocations = {
 	//-- town
 	_location = _this;
 	_position = locationPosition _location;
+	// FIXME: Экономия ресурсов?
 	_position resize 2;
 	_town = group_logic CreateUnit ["LocationLogicCity",_position,[],0,"CAN_COLLIDE"];
 	// location. Для town объект логики в другом массиве записывается.
