@@ -6,11 +6,15 @@ TODO:	Смена локации, очки.
 
 /*
 gosa_locationsMap = [
-	[logic_location], [[[logic_depot,side,pos,"marker"], [[logic_camp,side,pos,"marker"],[logic_camp,side,pos,"marker"]], [locationNull,side,pos,"task"]]]
+	[logic_location],
+	[[[logic_depot,side,pos,"marker",_score],
+		[[logic_camp,side,pos,"marker",_score],[logic_camp,side,pos,"marker",_score]],
+		[locationNull,side,pos,"_l_marker_pve", _score_pve, "task"]]]
 ];
 */
 
 gosa_location_depot_size = 10;
+gosa_location_score_max_pve = 50000;
 
 diag_log format ["Log: [while_locations] locationsMap %1", gosa_locationsMap];
 group_logic = createGroup sideLogic;
@@ -92,43 +96,131 @@ gosa_getLocations = {
 	_a set [1,_camps];
 
 	diag_log format ["Log: [while_locations] _a = %1", _a];
-	[[_location],[_a]];
+	[[_town],[_a]];
 };
 gosa_locationsMap = _this call gosa_getLocations;
 //if (true) exitWith {};
 
 private ["_depot_size","_side","_fnc_sideColor","_fnc_tik","_tmp","_time",
+	"_marker","_l_size","_l_size_old","_l_sizeMultipler","_l_other",
 	"_delay","_l_logic","_l_depot","_l_camps","_l_camp"];
+
+_l_sizeMultipler = missionNamespace getVariable "gosa_locationSizeMultipler";
 
 _fnc_tik = {
 	/*
-	Заготовка заглушка.
-	Возвращает сторону.
+	Обновление score.
+	Возвращает сторону, если значительный перевес.
 	*/
 	diag_log format ["Log: [while_locations] _fnc_tik = %1", _this];
-	private ["_east","_west","_resistance","_objects","_pos"];
-	_pos = (_this select 0);
-	if (typename _pos == typename []) then {
-		_pos = _pos select 2;
-		_pos resize 2;
-	};
-	// TODO: Улучшить режим захвата.
+	private ["_east","_west","_resistance","_objects","_pos",
+		"_east_score","_west_score","_resistance_score","_score_max",
+		"_eastEnemies","_westEnemies","_resistanceEnemies","_obj","_score",
+		"_eastPlayers","_westPlayers","_resistancePlayers"
+		];
+	_pos = (_this select 0 select 2);
+	_pos resize 2;
+
+	_score = _this select 0 select 4;
+
+	_east_score = (_score select 0);
+	_west_score = (_score select 1);
+	_resistance_score = (_score select 2);
+	_score_max = _this select 2;
+
 	_objects = (_pos nearEntities [["AllVehicles"], (_this select 1)]);
 	_east = East CountSide _objects;
 	_west = West CountSide _objects;
 	_resistance = Resistance CountSide _objects;
-	if (_east > 0 && _west < 1 && _resistance < 1) exitWith	{
+	_eastEnemies = 0;
+	_westEnemies = 0;
+	_resistanceEnemies = 0;
+
+	_westPlayers = 0;
+	_eastPlayers = 0;
+	_resistancePlayers = 0;
+	for "_i" from 0 to (count _objects -1) do {
+		_obj = effectiveCommander (_objects select _i);
+		if(_obj call gosa_fnc_isPlayer)then{
+			switch (side _obj) do {
+				case (east):
+				{
+					_eastPlayers = _eastPlayers + 1;
+				};
+				case (west):
+				{
+					_westPlayers = _westPlayers + 1;
+				};
+				case (resistance):
+				{
+					_resistancePlayers = _resistancePlayers + 1;
+				};
+				default {};
+			};
+		};
+	};
+
+	if (east getFriend west < 0.6) then {
+		_east = (_east - _west);
+		_eastEnemies = _eastEnemies + _west;
+	};
+	if (east getFriend resistance < 0.6) then {
+		_east = (_east - _resistance);
+		_eastEnemies = _eastEnemies + _resistance;
+	};
+	if (west getFriend east < 0.6) then {
+		_west = (_west - _east);
+		_westEnemies = _westEnemies + _east;
+	};
+	if (west getFriend resistance < 0.6) then {
+		_west = (_west - _resistance);
+		_westEnemies = _westEnemies + _resistance;
+	};
+	if (resistance getFriend west < 0.6) then {
+		_resistance = (_resistance - _west);
+		_resistanceEnemies = _resistanceEnemies + _west;
+	};
+	if (resistance getFriend east < 0.6) then {
+		_resistance = (_resistance - _east);
+		_resistanceEnemies = _resistanceEnemies + _east;
+	};
+
+	_east_score = (_east_score + (_east *  _delay));
+	_west_score = (_west_score + (_west *  _delay));
+	_resistance_score = (_resistance_score + (_resistance *  _delay));
+
+	_east_score = (_east_score max 0 min _score_max);
+	_west_score = (_west_score max 0 min _score_max);
+	_resistance_score = (_resistance_score max 0 min _score_max);
+
+	// Запись новых данных.
+	_score set [0, _east_score];
+	_score set [1, _west_score];
+	_score set [2, _resistance_score];
+
+	// Смена стороны.
+	if (_east_score >= _score_max &&
+		_eastPlayers > 0 &&
+		_eastEnemies * 3 < _east) exitWith
+	{
 		diag_log format ["Log: [while_locations] _fnc_tik East", nil];
 		East;
 	};
-	if (_west > 0 && _east < 1 && _resistance < 1) exitWith {
+	if (_west_score >= _score_max &&
+		_westPlayers > 0 &&
+		_westEnemies * 3 < _west) exitWith
+	{
 		diag_log format ["Log: [while_locations] _fnc_tik West", nil];
 		West;
 	};
-	if (_resistance > 0 && _east < 1 && _west < 1) exitWith {
+	if (_resistance_score >= _score_max &&
+		_resistancePlayers > 0 &&
+		_resistanceEnemies * 3 < _resistance) exitWith
+	{
 		diag_log format ["Log: [while_locations] _fnc_tik Resistance", nil];
 		Resistance;
 	};
+	diag_log format ["Log: [while_locations] _fnc_tik nil", nil];
 	nil;
 };
 
@@ -171,7 +263,7 @@ while {true} do {
 			//-- Обновление depot локации.
 			_l_depot = _tmp select 1 select _i select 0;
 			diag_log format ["Log: [while_locations] _l_depot = %1", _l_depot];
-			_side = ([_l_depot, _depot_size] call _fnc_tik);
+			_side = ([_l_depot, _depot_size, 1] call _fnc_tik);
 			if !(isNil "_side") then {
 				if (_side != (_l_depot select 1)) then {
 					diag_log format ["Log: [while_locations] _side = %1", _side];
@@ -185,7 +277,7 @@ while {true} do {
 			for "_i0" from 0 to count (_l_camps) -1 do {
 				_l_camp = _l_camps select _i0;
 				diag_log format ["Log: [while_locations] _l_camp = %1", _l_camp];
-				_side = ([_l_camp, _depot_size] call _fnc_tik);
+				_side = ([_l_camp, _depot_size, 1] call _fnc_tik);
 				if !(isNil "_side") then {
 					if (_side != (_l_camp select 1)) then {
 						diag_log format ["Log: [while_locations] _side = %1", _side];
@@ -195,6 +287,31 @@ while {true} do {
 				};
 
 			};
+
+			//-- Обновление других данных локации.
+			_l_other = _tmp select 1 select _i select 2;
+			diag_log format ["Log: [while_locations] _l_other = %1", _l_other];
+				//-- Размер локации PvE.
+				_marker = _l_other select 3;
+				_l_size_old = (getMarkerSize _marker select 0);
+				_l_size = sqrt(((_l_sizeMultipler/count (_tmp select 0)) *
+					({{alive _x && !(_x call gosa_fnc_isPlayer)} count units _x > 0} count allGroups)
+					)/pi) max 100;
+				diag_log format ["Log: [while_locations] _l_size = %1", [_l_size_old,_l_size]];
+				if (_l_size != _l_size_old) then {
+					_marker setMarkerSize [_l_size,_l_size];
+				};
+
+				// Захват PvE.
+				_side = ([_l_other, _l_size, gosa_location_score_max_pve] call _fnc_tik);
+				if !(isNil "_side") then {
+					if (_side != (_l_other select 1)) then {
+						diag_log format ["Log: [while_locations] _side = %1", _side];
+						_l_other set [1,_side];
+						_marker setMarkerColor (_side call _fnc_sideColor);
+					};
+				};
+
 		} else {
 			// TODO: Чистка локации.
 			//_tmp set [_i, -1];
