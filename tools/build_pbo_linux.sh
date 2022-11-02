@@ -137,6 +137,7 @@ do
 		if [[ $LICENSE -gt 0 ]]
 		then
 			rsync --recursive --no-perms $TMPDIR/*LICENSE* $MISSION
+			rsync --recursive --no-perms $TMPDIR/*authors* $MISSION
 		fi
 
 		# Не всегда все файлы нужны.
