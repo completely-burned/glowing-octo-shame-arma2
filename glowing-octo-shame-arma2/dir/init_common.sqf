@@ -38,7 +38,6 @@ pier = ["Land_nav_pier_m_2","Land_nav_pier_m_F"];
 
 safeDistance = 15;
 
-// Этими классами не должны управлять игроки.
 _list = [
 	"InvisibleManE_EP1",
 	"InvisibleManW_EP1",
@@ -54,6 +53,8 @@ for "_i" from 0 to (count _list -1) do {
 		_list set [_i, _str];
 	};
 };
+gosa_types_InvisibleMan = _list;
+// Этими классами не должны управлять игроки.
 gosa_blacklisted_player_classes_L = _list;
 diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", gosa_blacklisted_player_classes_L];
 

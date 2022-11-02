@@ -224,9 +224,11 @@ for "_i" from 0 to (count _crew - 1) do {
 	#ifdef __ARMA3__
 		[_item, "fnc_spawnCrew"] remoteExec ["gosa_fnc_vehInit2"];
 	#else
-		// FIXME: Без этого бпла не управляем.
 		if (_uav) then {
+			// FIXME: Без этого бпла не управляем.
 			_item disableAI "FSM";
+			// InvisibleMan.
+			removeAllWeapons _item;
 		};
 		[nil, _item, rvehInit] call RE;
 	#endif
