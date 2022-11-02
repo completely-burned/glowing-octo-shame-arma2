@@ -133,9 +133,9 @@ do
 			rsync --recursive --no-perms ${DIR}/* $MISSION
 		fi
 
-		echo "Copying LICENSE"
 		if [[ $LICENSE -gt 0 ]]
 		then
+			echo "Copying LICENSE"
 			rsync --recursive --no-perms $TMPDIR/*LICENSE* $MISSION
 			rsync --recursive --no-perms $TMPDIR/*authors* $MISSION
 		fi
