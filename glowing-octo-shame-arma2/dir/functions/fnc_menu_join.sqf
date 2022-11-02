@@ -1,27 +1,47 @@
-private ["_l","_lstr","_c"];
+private ["_l","_lstr","_c","_dist","_n","_arr","_obj"];
+
+_dist = 500;
 
 _l = []; _lstr = [];
+_n = 0;
 
+//--- Ближние отряды.
+_arr = (vehicle player nearEntities _dist);
+for "_i" from 0 to (count _arr -1) do
 {
-	if (playerSide getFriend side _x >= 0.6 && leader effectiveCommander _x == effectiveCommander _x && _x != player) then {
-		_l set [count _l, _x];
-		_lstr set [count _lstr, str _x];
-	};
-} forEach (vehicle player nearEntities 200);
+	_obj = _arr select _i;
 
+	if (playerSide == side _obj
+		// Командир отряда, а не тс.
+		&& leader effectiveCommander _obj == effectiveCommander _obj
+		&& _obj != player) then
+	{
+		_l set [_n, _obj];
+		_lstr set [_n, str _obj];
+		_n = _n + 1;
+	};
+};
+
+//--- Игроки.
+_arr = ([] call BIS_fnc_listPlayers -[player]);
+for "_i" from 0 to (count _arr -1) do
 {
-	if (playerSide getFriend side _x >= 0.6 && _x != player) then {
-		_l set [count _l, _x];
-		_lstr set [count _lstr, str _x];
+	_obj = _arr select _i;
+	if (playerSide == side _obj) then
+	{
+		_l set [_n, _obj];
+		_lstr set [_n, str _obj];
+		_n = _n + 1;
 	};
-} forEach call BIS_fnc_listPlayers;
+};
 
-_l set [count _l, grpNull];
-_lstr set [count _lstr, localize "STR_gosa_leave_the_squad"];
+//--- Покинуть группу.
+_l set [_n, grpNull];
+_lstr set [_n, localize "STR_gosa_leave_the_squad"];
 
 
-if (count _l == 0) exitWith {
-	hint "no matching groups within 100 meters";
+if (count _l < 1) exitWith {
+	hint format["No matching groups within %1 meters", _dist];
 };
 
 
