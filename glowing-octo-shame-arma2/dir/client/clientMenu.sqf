@@ -38,7 +38,7 @@ _tmp_arr=[
 	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","(GroupSelectedUnits player) call gosa_fnc_groupUnitsDismiss"],
 	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
 	[Localize "STR_gosa_join_the_squad",
-		"[] execVM 'dir\functions\fnc_joinMenu.sqf'"]
+		"[] execVM 'dir\functions\fnc_menu_join.sqf'"]
 	/*setOwner не возвращает контроль над юнитами, но ломает управление игрокам
 	["setOwner (%SELECTED_UNIT_ID) player","
 		{
