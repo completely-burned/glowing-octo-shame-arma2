@@ -56,6 +56,7 @@ echo "Copying files to a temporary directory"
 if [[ $LICENSE -gt 0 ]]
 then
 	rsync --recursive --no-perms $DIR/*LICENSE* $TMPDIR/
+	rsync --recursive --no-perms $DIR/*authors* $TMPDIR/
 fi
 # Основные файлы.
 rsync --recursive --no-perms $DIR/glowing-octo-shame* $TMPDIR/
