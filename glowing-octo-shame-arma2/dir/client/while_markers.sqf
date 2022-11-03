@@ -6,7 +6,7 @@
 Обновляет динамичные маркеры
 на открытой карте игрока.
 TODO: сделть совместимость с pvp.
-TODO: Устранить быдлокод.
+TODO: Рефакторинг.
 TODO: Подсветка авиационного ангара в pvp.
 ---------------------------------------------------------------------------*/
 
@@ -343,18 +343,32 @@ if(true)then{
 							_marker setMarkerPosLocal _pos;
 						};
 					}else{
-						_tmp_obj = vehicle _unit;
-						// TODO: Если эф.командир ии, то отобразить первого игрока из экипажа.
-						if (((_tmp_obj == _unit) || (_unit == effectiveCommander _tmp_obj)) &&
-							(playerSide getFriend side _unit >= 0.6)) then
+						if (playerSide getFriend side _unit >= 0.6) then
 						{
-							_pos = position _tmp_obj;
+							_tmp_obj = vehicle _unit;
+
+							// Отобразить первого игрока из экипажа.
+							if (_unit != _tmp_obj) then {
+								_tmp_arr = crew _tmp_obj;
+								for "_i" from 0 to (count _tmp_arr -1) do {
+									_tmp_obj = _tmp_arr select _i;
+									if (_tmp_obj call gosa_fnc_isPlayer) exitWith {
+										diag_log format ["Log: [while_markers] %1 crew %2", _unit, _tmp_obj];
+										_unit = _tmp_obj;
+									};
+								};
+							};
+
+							_pos = position vehicle _unit;
 
 							_text = "";
 							// _text = (_text + " " + getText(configFile >> 'CfgVehicles' >> (typeOf _tmp_obj) >> 'displayName'));
 							_text = (_text + " " + name _unit);
 							if (lifeState _unit == "UNCONSCIOUS") then {
 								_text = _text + (" " + Localize "str_reply_injured");
+							};
+							if (markerText _marker != _text) then {
+								_marker setMarkerTextLocal _text;
 							};
 						}else{
 							_pos = _markerPosHiden;
@@ -363,9 +377,6 @@ if(true)then{
 						if (_tmp_arr distance _pos > 10) then {
 							diag_log format ["Log: [while_markers] %1 Новая позиция %2", _marker, _pos];
 							_marker setMarkerPosLocal _pos;
-						};
-						if (markerText _marker != _text) then {
-							_marker setMarkerTextLocal _text;
 						};
 					};
 				}else{
