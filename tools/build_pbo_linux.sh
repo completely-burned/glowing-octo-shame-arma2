@@ -84,10 +84,13 @@ then
 	echo $DEBUGPOSTFIX
 else
 	DEBUGPOSTFIX=""
+	echo "Delete non ASCII strings"
+	find $TMPDIR -type f -iname "*.sqf" \
+	-exec sed -i '#^.*[^[:ascii:]].*#d' {} \;
 	# строки начинающиеся с diag_log нужны для отладки
 	# они возможно снижают производительность
 	# поэтому удаляем их
-	echo "remove diag_log"
+	echo "Delete diag_log strings"
 	find $TMPDIR -type f -exec sed -i "/^.*diag_log.*/d" {} \;
 fi
 
