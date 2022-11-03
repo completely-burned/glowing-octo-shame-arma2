@@ -36,7 +36,7 @@ class Params {
 
 	// Мобильный штаб.
 	class gosa_MHQ {
-		title="MHQ [gp]";
+		title="MHQ (not completed) [gp]";
 		#ifdef __ARMA3__
 			values[] = {0};
 			texts[] = {STR_DISABLED};
@@ -44,7 +44,7 @@ class Params {
 		#else
 		values[] = {-1,1,0};
 		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
+		default = 0;
 		#endif
 	};
 
