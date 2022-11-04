@@ -302,7 +302,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 
 	//--- переход экипажа подбитой техники в новую группу
 	if (count _ng_l > 0) then {
-		diag_log format ["Log: [fnc_allowGetIn] %1, %2 экипаж подбитой техники", [_u,_veh,_role], _ng_l];
+		diag_log format ["Log: [fnc_allowGetIn] %1, %2 экипаж подбитой техники", [_u,_veh], _ng_l];
 	{
 		_z = _x getVariable "gosa_grpCrewLeave";
 		// TODO: код нужно оптимизировать
