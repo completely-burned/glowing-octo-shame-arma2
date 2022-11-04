@@ -13,11 +13,14 @@ gosa_locationsMap = [
 ];
 */
 
-gosa_location_depot_size = 10;
+gosa_location_depot_size = 50;
+gosa_location_score_max_depot = 150;
+gosa_location_score_max_camp = 50;
 gosa_location_score_max_pve = 50000;
 
 diag_log format ["Log: [while_locations] locationsMap %1", gosa_locationsMap];
 group_logic = createGroup sideLogic;
+gosa_fnc_isPlayer = {isPlayer _this};
 gosa_getLocations = {
 	private ["_location","_position","_town","_a","_depotPosition","_depotDirection",
 	"_flatAreas","_depot","_marker","_range","_camps","_destination","_conflictingCamps",
@@ -32,7 +35,8 @@ gosa_getLocations = {
 	_position resize 2;
 	_town = group_logic CreateUnit ["LocationLogicCity",_position,[],0,"CAN_COLLIDE"];
 	// location. Для town объект логики в другом массиве записывается.
-	_a set [2,[_location,civilian,_position,nil]];
+	_marker = str [_location,_position];
+	_a set [2, [_location, civilian, _position, createMarker [_marker, _position], [0,0,0,0]]];
 	diag_log format ["Log: [while_locations] _town = %1", _a select 2];
 
 	//-- depot
@@ -52,7 +56,7 @@ gosa_getLocations = {
 
 	_marker = str [_depot,_depotPosition];
 	_a set [0,
-		[_depot,civilian,_depotPosition,createMarker [_marker, _depotPosition]]];
+		[_depot,civilian,_depotPosition,createMarker [_marker, _depotPosition],[0,0,0,0]]];
 	_marker setMarkerType "Dot";
 
 	diag_log format ["Log: [while_locations] _depot = %1", _a select 0];
@@ -84,7 +88,7 @@ gosa_getLocations = {
 
 			_marker = str [_camp,_destination];
 			_camps set [count _camps,
-				[_camp,civilian,_destination,createMarker [_marker, _destination]]
+				[_camp,civilian,_destination,createMarker [_marker, _destination],[0,0,0,0]]
 			];
 			_marker setMarkerType "Dot";
 		//};
@@ -99,6 +103,7 @@ gosa_getLocations = {
 	[[_town],[_a]];
 };
 gosa_locationsMap = _this call gosa_getLocations;
+diag_log format ["Log: [while_locations] locationsMap %1", gosa_locationsMap];
 //if (true) exitWith {};
 
 private ["_depot_size","_side","_fnc_sideColor","_fnc_tik","_tmp","_time",
@@ -123,18 +128,19 @@ _fnc_tik = {
 
 	_score = _this select 0 select 4;
 
-	_east_score = (_score select 0);
-	_west_score = (_score select 1);
-	_resistance_score = (_score select 2);
 	_score_max = _this select 2;
 
 	_objects = (_pos nearEntities [["AllVehicles"], (_this select 1)]);
 	_east = East CountSide _objects;
 	_west = West CountSide _objects;
 	_resistance = Resistance CountSide _objects;
+	_east_score = _east;
+	_west_score = _west;
+	_resistance_score = _resistance;
 	_eastEnemies = 0;
 	_westEnemies = 0;
 	_resistanceEnemies = 0;
+	diag_log format ["Log: [while_locations] _fnc_tik o %1", [_east,_west,_resistance, _objects]];
 
 	_westPlayers = 0;
 	_eastPlayers = 0;
@@ -161,37 +167,39 @@ _fnc_tik = {
 	};
 
 	if (east getFriend west < 0.6) then {
-		_east = (_east - _west);
+		_east_score = (_east_score - _west);
 		_eastEnemies = _eastEnemies + _west;
 	};
 	if (east getFriend resistance < 0.6) then {
-		_east = (_east - _resistance);
+		_east_score = (_east_score - _resistance);
 		_eastEnemies = _eastEnemies + _resistance;
 	};
 	if (west getFriend east < 0.6) then {
-		_west = (_west - _east);
+		_west_score = (_west_score - _east);
 		_westEnemies = _westEnemies + _east;
 	};
 	if (west getFriend resistance < 0.6) then {
-		_west = (_west - _resistance);
+		_west_score = (_west_score - _resistance);
 		_westEnemies = _westEnemies + _resistance;
 	};
 	if (resistance getFriend west < 0.6) then {
-		_resistance = (_resistance - _west);
+		_resistance_score = (_resistance_score - _west);
 		_resistanceEnemies = _resistanceEnemies + _west;
 	};
 	if (resistance getFriend east < 0.6) then {
-		_resistance = (_resistance - _east);
+		_resistance_score = (_resistance_score - _east);
 		_resistanceEnemies = _resistanceEnemies + _east;
 	};
+	diag_log format ["Log: [while_locations] _fnc_tik s %1", [_east_score,_west_score,_resistance_score]];
 
-	_east_score = (_east_score + (_east *  _delay));
-	_west_score = (_west_score + (_west *  _delay));
-	_resistance_score = (_resistance_score + (_resistance *  _delay));
+	_east_score = ((_score select 0) + (_east_score *  _delay));
+	_west_score = ((_score select 1) + (_west_score *  _delay));
+	_resistance_score = ((_score select 2) + (_resistance_score *  _delay));
 
 	_east_score = (_east_score max 0 min _score_max);
 	_west_score = (_west_score max 0 min _score_max);
 	_resistance_score = (_resistance_score max 0 min _score_max);
+	diag_log format ["Log: [while_locations] _fnc_tik ss %1", [_east_score,_west_score,_resistance_score]];
 
 	// Запись новых данных.
 	_score set [0, _east_score];
@@ -249,7 +257,6 @@ _time = time;
 //-- Обновление локаций.
 while {true} do {
 	// TODO: Optimize I/O
-	sleep 5;
 	_delay = (time - _time);
 	_time = time;
 
@@ -263,7 +270,7 @@ while {true} do {
 			//-- Обновление depot локации.
 			_l_depot = _tmp select 1 select _i select 0;
 			diag_log format ["Log: [while_locations] _l_depot = %1", _l_depot];
-			_side = ([_l_depot, _depot_size, 1] call _fnc_tik);
+			_side = ([_l_depot, _depot_size, gosa_location_score_max_depot] call _fnc_tik);
 			if !(isNil "_side") then {
 				if (_side != (_l_depot select 1)) then {
 					diag_log format ["Log: [while_locations] _side = %1", _side];
@@ -277,7 +284,7 @@ while {true} do {
 			for "_i0" from 0 to count (_l_camps) -1 do {
 				_l_camp = _l_camps select _i0;
 				diag_log format ["Log: [while_locations] _l_camp = %1", _l_camp];
-				_side = ([_l_camp, _depot_size, 1] call _fnc_tik);
+				_side = ([_l_camp, _depot_size, gosa_location_score_max_camp] call _fnc_tik);
 				if !(isNil "_side") then {
 					if (_side != (_l_camp select 1)) then {
 						diag_log format ["Log: [while_locations] _side = %1", _side];
@@ -294,9 +301,10 @@ while {true} do {
 				//-- Размер локации PvE.
 				_marker = _l_other select 3;
 				_l_size_old = (getMarkerSize _marker select 0);
-				_l_size = sqrt(((_l_sizeMultipler/count (_tmp select 0)) *
+				_l_size = 300;
+				/*sqrt(((_l_sizeMultipler/count (_tmp select 0)) *
 					({{alive _x && !(_x call gosa_fnc_isPlayer)} count units _x > 0} count allGroups)
-					)/pi) max 100;
+					)/pi) max 100;*/
 				diag_log format ["Log: [while_locations] _l_size = %1", [_l_size_old,_l_size]];
 				if (_l_size != _l_size_old) then {
 					_marker setMarkerSize [_l_size,_l_size];
@@ -319,5 +327,6 @@ while {true} do {
 
 	};
 
+	sleep 5;
 };
 //gosa_locationsMap = _tmp-[-1];
