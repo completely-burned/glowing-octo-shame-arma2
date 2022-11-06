@@ -142,7 +142,8 @@ while{true}do{
 			// закрепление транспорта за игроком
 			if(!isNil {_x_veh_best})then{
 				if(isNil {_x_veh_best getVariable "transportPlayer"})then{
-					/* если 2 верта
+					/*
+					если 2 верта
 						private["_grp"];
 						_grp = createGroup side group _Commander;
 						{
