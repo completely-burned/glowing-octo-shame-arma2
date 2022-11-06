@@ -1,4 +1,4 @@
-﻿#define __A2OA__
+#define __A2OA__
 
 private ["_Magazines","_Weapons","_Backpacks"];
 _Magazines = [];

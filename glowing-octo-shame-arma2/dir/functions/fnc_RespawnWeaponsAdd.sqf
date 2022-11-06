@@ -1,14 +1,14 @@
-﻿#define __A2OA__
+#define __A2OA__
 
 switch (_this) do {
 	case ('save'):
 	{
 		private["_weapon","_player","_Backpack","_typeBackpack","_magazinesBackpack"];
-		
+
 		_player=player;
-		
+
 		_weapon = (currentWeapon _player);
-		
+
 #ifdef __A2OA__
 		_Backpack = unitBackpack _player;
 		if(isNull _Backpack)then{
@@ -25,7 +25,7 @@ switch (_this) do {
 #endif
 
 		SAVELOADOUT = [magazines _player, weapons _player, _weapon, _typeBackpack,_magazinesBackpack];
-		
+
 		hint format ["'%1' %2",(gettext (configFile >> "CfgWeapons" >> _weapon >> "displayname")),localize "STR_gosa_saved"];
 	};
 	case ("respawn"):
@@ -34,7 +34,7 @@ switch (_this) do {
 		WaitUntil {alive player};
 		_player=player;
 		if(!isNil "SAVELOADOUT")then{
-			
+
 			removeAllWeapons _player;
 			{_player removeMagazine _x} forEach magazines _player;
 #ifdef __A2OA__
@@ -43,7 +43,7 @@ switch (_this) do {
 
 			{_player addMagazine _x}foreach (SAVELOADOUT select 0);
 			{_player addWeapon _x}foreach (SAVELOADOUT select 1);
-			
+
 			if((SAVELOADOUT select 3) != "")then{
 #ifdef __A2OA__
 				_player addBackpack (SAVELOADOUT select 3);
@@ -60,7 +60,7 @@ switch (_this) do {
 #endif
 			};
 			};
-			
+
 			if((SAVELOADOUT select 2) != "")then{
 				_player selectWeapon (SAVELOADOUT select 2);
 			};
@@ -74,4 +74,3 @@ switch (_this) do {
 	};
 	default {};
 };
-

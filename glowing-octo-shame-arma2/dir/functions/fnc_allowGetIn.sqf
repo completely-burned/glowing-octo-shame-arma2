@@ -317,7 +317,8 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 	} forEach _ng_l;
 	};
 
-	/* TODO: нестабильно
+	/*
+	TODO: нестабильно
 	if (count _ng_l > 0) then {
 
 		_ng = _grp getVariable "gosa_grpCrewNew";
@@ -329,6 +330,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 
 		diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники переходит в группу %2", _ng_l, _ng];
 		_ng_l joinSilent _ng;
-	};*/
+	};
+	*/
 
 };

@@ -1,4 +1,4 @@
-﻿private["_grp","_Vehicles"];
+private["_grp","_Vehicles"];
 _grp = _this select 0;
 _Vehicles=[];
 if((typeName _grp) == "GROUP")then
@@ -13,13 +13,13 @@ if((typeName _grp) == "GROUP")then
 else
 {
 	if((typeName _grp) == "CONFIG")then{
-		for "_i" from 0 to ((count _grp) - 1) do 
+		for "_i" from 0 to ((count _grp) - 1) do
 		{
 		//sleep 0.01;
 			private ["_item"];
 			_item = _grp select _i;
-			
-			if (isClass _item) then 
+
+			if (isClass _item) then
 			{
 				_Vehicles = _Vehicles + [getText(_item >> "vehicle")];
 			};

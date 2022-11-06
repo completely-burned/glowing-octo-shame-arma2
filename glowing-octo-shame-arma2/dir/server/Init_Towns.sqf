@@ -80,7 +80,8 @@ locationNext={
 
 			if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
 
-				/* если отряд далеко от новой локации дабавить его в очередь на удаление.
+				/*
+				если отряд далеко от новой локации дабавить его в очередь на удаление.
 				союзные отряды тоже лишние.
 				*/
 				if ( leader _grp distance civilianBasePos > ((safeSpawnDistance select 1) max 2000) or

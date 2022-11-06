@@ -1,6 +1,6 @@
-﻿/*
+/*
 _true = [["btr90","t90","bmp"],["air","tank"]] call gosa_fnc_CheckIsKindOfArray;
- */
+*/
 Private["_return"];
 _return = false;
 ScopeName "exit";
@@ -11,11 +11,11 @@ ScopeName "exit";
 		Private["_m1a1"];
 		_m1a1=_x;
 		// в первом списке
-		if (_m1a1 isKindOf _tank) then { 
+		if (_m1a1 isKindOf _tank) then {
 			if (count _this > 2) then {
 				{
 					// во втором списке
-					if (_m1a1 isKindOf _x) then { 
+					if (_m1a1 isKindOf _x) then {
 						_return = false;
 						BreakTo "exit";
 					};

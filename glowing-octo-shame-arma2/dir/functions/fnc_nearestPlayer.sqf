@@ -1,4 +1,4 @@
-﻿private ["_pos","_players","_nearestPlayer","_dist"];
+private ["_pos","_players","_nearestPlayer","_dist"];
 _pos = _this select 0;
 
 if(isMultiplayer)then

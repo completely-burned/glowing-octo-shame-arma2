@@ -1,4 +1,6 @@
-﻿private ["_grp","_cars","_apcs","_tanks","_helis","_planes","_boats","_type","_uavs","_Vehicles","_support_reammo","_support_repair","_support_refuel","_support_medic","_support","_canfloat","_canfloat0count","_preferRoads"];
+private ["_grp","_cars","_apcs","_tanks","_helis","_planes","_boats","_type",
+	"_uavs","_Vehicles","_support_reammo","_support_repair","_support_refuel",
+	"_support_medic","_support","_canfloat","_canfloat0count","_preferRoads"];
 
 //_grp = _this;;
 _grp = _this select 0;
@@ -6,13 +8,13 @@ private["_Vehicles"];
 _Vehicles=[];
 //_Vehicles = [_grp] call gosa_fnc_returnGroupVehicleType;
 	if((typeName _grp) == "CONFIG")then{
-		for "_i" from 0 to ((count _grp) - 1) do 
+		for "_i" from 0 to ((count _grp) - 1) do
 		{
 		//sleep 0.01;
 			private ["_item"];
 			_item = (_grp select _i);
-			
-			if (isClass _item) then 
+
+			if (isClass _item) then
 			{
 				_Vehicles = _Vehicles + [getText(_item >> "vehicle")];
 			};
@@ -108,9 +110,9 @@ private ["_canHeal","_canReammo","_canRefuel","_canRepair"];
 		if (_canReammo) then {_support_reammo = _support_reammo + 1};
 		if (_canRefuel) then {_support_refuel = _support_refuel + 1};
 		if (_canRepair) then {_support_repair = _support_repair + 1};
-		
+
 		_preferRoads = getnumber (configfile >> "cfgvehicles" >>  _veh >> "preferRoads") > 0;
-	
+
         //4245t2454ty45t
 		if (getnumber(configfile >> "cfgvehicles" >>  _veh >> "canfloat") == 1) then {
 			_canfloat0count = (_canfloat0count - 1 - _transportSoldier);

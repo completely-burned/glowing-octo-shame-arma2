@@ -1,4 +1,4 @@
-﻿Private["_visible"];
+private ["_visible"];
 _visible = false;
 ScopeName "Check";
 	{

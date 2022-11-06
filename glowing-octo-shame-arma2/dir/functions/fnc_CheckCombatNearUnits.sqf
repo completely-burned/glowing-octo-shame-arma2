@@ -1,4 +1,4 @@
-﻿private["_visible","_Pos","_distance","_side","_grp"];
+﻿private ["_visible","_Pos","_distance","_side","_grp"];
 // _Pos = (position ( _this select 0 ));
 // _Pos resize 2;
 _Pos =  ( _this select 0 );

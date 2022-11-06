@@ -1,4 +1,4 @@
-﻿private ["_pos","_grp","_player"];
+private ["_pos","_grp","_player"];
 switch (playerSide) do {
 	case (resistance):
 	{

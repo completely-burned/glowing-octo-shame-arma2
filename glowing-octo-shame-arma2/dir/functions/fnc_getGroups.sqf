@@ -19,8 +19,10 @@ _le = []; _lw = []; _lr = []; _lc = []; // Local
 	if (alive (_u select 0) or ({alive _x} count _u > 0)) then
 	#endif
 	{
-			/* не работает должным образом
-			if({_x call gosa_fnc_isPlayer} count _u == 0)then{*/
+			/*
+			не работает должным образом
+			if({_x call gosa_fnc_isPlayer} count _u == 0)then{
+			*/
 		_s = side _g;
 		if (local (_u select 0)) then {
 				switch (_s) do {

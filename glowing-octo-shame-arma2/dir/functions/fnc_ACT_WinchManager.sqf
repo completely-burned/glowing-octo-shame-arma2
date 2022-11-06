@@ -1,4 +1,5 @@
-﻿private["_vehPlayer","_enableAction","_vehicle","_action","_actionVehicleCargo"];
+private ["_vehPlayer","_enableAction","_vehicle","_actionVehicleCargo",
+	"_action"];
 
 while {true} do {
 
@@ -16,10 +17,10 @@ while {true} do {
 								if (({alive _x} count (crew _vehicle))==0) then {
 									if (isNil {_vehPlayer getVariable "gosa_fnc_WinchManager_cargo"}) then {
 										_enableAction = true;
-									};			
-								};			
-							};			
-						};	
+									};
+								};
+							};
+						};
 					};
 				};
 			};

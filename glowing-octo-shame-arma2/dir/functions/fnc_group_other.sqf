@@ -220,7 +220,8 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	} forEach _units+_vehicles;
 
 	// ии не нужно следовать маршруту в бою, исключение десант будет следовать маршруту
-	/* дублируется в fnc_group_wp.sqf if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 && !_Air && !_Ship )then{
+	/*
+	дублируется в fnc_group_wp.sqf if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 && !_Air && !_Ship )then{
 		// транспортный вертолет вызываемый игроками, отличается поведением и его маршруты в этом скрипте не нужно трогать, пропускаем его
 		if( ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_IN_pos"}} count [_grp] + _vehicles > 0 ) or ({!isNil {_x getVariable "gosa_transportwaypoint_created_GET_OUT_pos"}} count [_grp] + _vehicles > 0 ))exitWith{
 			if (gosa_loglevel > 0) then { // diag_log
@@ -244,7 +245,8 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 				};
 			};
 		};
-	};*/
+	};
+	*/
 
 	if !(_leader call gosa_fnc_isPlayer) then {
 		private["_SpeedMode","_CombatMode","_Behaviour"];
@@ -292,7 +294,8 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		};
 
 		//--- малые отряды объединяются
-		/* недоработано
+		/*
+		недоработано
 		if (count _units < 2 && {_countStealth == 0 &&
 			!("Air" in _grp_type) && !("StaticWeapon" in _grp_type) && !("SUPPORT" in _grp_type)}) then {
 			diag_log format ["Log: [gosa_fnc_group_other] count units %1 < min", _grp];

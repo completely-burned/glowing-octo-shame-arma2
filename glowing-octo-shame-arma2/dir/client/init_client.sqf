@@ -48,7 +48,7 @@ SetGroupIconsVisible [true,false];
 [] spawn {
 	// BIS_Effects_AirDestructionStage2
 	waitUntil {!isNil "BIS_Effects_Secondaries"};
-	if (ACE_Avail) then {waitUntil {!isNil "WARFX_Effects_Init"}}; // ����� �� ����� ���� ������� ��� ���� ACE
+	if (ACE_Avail) then {waitUntil {!isNil "WARFX_Effects_Init"}};
 	BIS_Effects_AirDestructionStage2 = compile preprocessFileLineNumbers "dir\Client\AirDestructionStage2.sqf";
 };
 */

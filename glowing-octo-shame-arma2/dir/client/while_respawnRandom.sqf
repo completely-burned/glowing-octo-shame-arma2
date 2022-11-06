@@ -138,7 +138,8 @@ _findBody={
 	diag_log format ["Log: [respawnRandom] _u %1", _u];
 	diag_log format ["Log: [respawnRandom] _uOff %1", _uOff];
 
-	/* не завершено
+	/*
+	не завершено
 	if ({_x != player && {_x call gosa_fnc_isPlayer}} count _this > 0) then {
 		_z = true;
 	} else {
@@ -288,12 +289,14 @@ while {true} do {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] not alive %1", _p];
 	};
-	/* при переключении другое тело не сразу становиться локальным
+	/*
+	при переключении другое тело не сразу становиться локальным
 	// FIXME: не исправляет ситуацию слипнувшихся игроков
 	if (!local _p) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] not local %1", _p];
-	};*/
+	};
+	*/
 	if (isNull player) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] isNull %1", player];
@@ -421,7 +424,8 @@ while {true} do {
 		if !(isNil "_sorted") then {
 			diag_log format ["Log: [respawnRandom] _sorted %1", _sorted];
 
-		/* FIXME: локальная группа не имеет смысла т.к. ии автоматически становятся локальны игроку командиру в итоге
+		/*
+		FIXME: локальная группа не имеет смысла т.к. ии автоматически становятся локальны игроку командиру в итоге
 		// ищем новое тело среди групп локальных игроку для лучшего командования подчиненными
 		if (isNil{_bestCandidate}) then {
 			{

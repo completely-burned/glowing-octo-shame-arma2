@@ -1,4 +1,4 @@
-﻿private["_Magazines","_Weapons","_Backpacks"];
+private["_Magazines","_Weapons","_Backpacks"];
 _Magazines = ( _this call gosa_fnc_GetTransportMagazines );
 _Weapons = ( _Magazines select 1 );
 _Backpacks = ( _Magazines select 2 );

@@ -1,4 +1,4 @@
-﻿#define __A2OA__
+#define __A2OA__
 
 private ["_Magazines"];
 if(isnil {_this getVariable "gosa_megaAmmoBox"})then{

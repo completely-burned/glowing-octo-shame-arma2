@@ -1,4 +1,4 @@
-﻿private ["_isUAV"];
+private ["_isUAV"];
 _isUAV=false;
 
 if(_this isKindOf "UAV")then{

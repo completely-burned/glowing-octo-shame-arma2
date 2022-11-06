@@ -1,4 +1,4 @@
-﻿private ["_players"];
+private ["_players"];
 if(isMultiplayer)then{
 	_players = [];
 	{

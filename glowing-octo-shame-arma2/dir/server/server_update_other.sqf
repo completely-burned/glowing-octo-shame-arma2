@@ -1,4 +1,4 @@
-﻿#define __A2OA__
+#define __A2OA__
 
 #ifdef __A2OA__
 
@@ -113,7 +113,7 @@ while{true}do{
 			private ["_obj"];
 			_obj = _x;
 			// TODO: нужно оптимизировать код
-			if ({alive _x} count nearestObjects [getPos _obj, HQ, respawnSafeDistance] > 0) then { 
+			if ({alive _x} count nearestObjects [getPos _obj, HQ, respawnSafeDistance] > 0) then {
 				if( isNil {_obj getVariable "_noDelete"} )then{
 					if(!alive _obj)then{
 						deleteVehicle _obj;
@@ -125,7 +125,7 @@ while{true}do{
 				};
 			};
 		// TODO: нужно оптимизировать код
-		} forEach vehicles+(allMissionObjects 'ReammoBox'); 
+		} forEach vehicles+(allMissionObjects 'ReammoBox');
 	};
 
 	diag_log format ["Log: [server_update_other] performance respawnSafe %1", time];

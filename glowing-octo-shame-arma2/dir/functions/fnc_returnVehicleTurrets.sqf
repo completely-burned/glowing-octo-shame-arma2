@@ -1,4 +1,4 @@
-﻿#define true 1
+#define true 1
 #define false 0
 
 private ["_entry", "_turrets", "_turretIndex", "_subEntry", "_hasGunner", "_path"];
@@ -9,7 +9,7 @@ _turretIndex = 0;
 
 for "_i" from 0 to ((count _entry) - 1) do{
 	_subEntry = _entry select _i;
-	
+
 	if (isClass _subEntry) then {
 		_hasGunner = getNumber (_subEntry >>"hasGunner");
 		if (_hasGunner == 1) then {
@@ -25,7 +25,3 @@ for "_i" from 0 to ((count _entry) - 1) do{
 
 
 _turrets
-
-
-
-

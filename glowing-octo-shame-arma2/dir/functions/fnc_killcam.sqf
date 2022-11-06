@@ -1,4 +1,4 @@
-﻿Private["_camera"];
+private["_camera"];
 
 BIS_WF_DeathLocation = GetPos player;
 

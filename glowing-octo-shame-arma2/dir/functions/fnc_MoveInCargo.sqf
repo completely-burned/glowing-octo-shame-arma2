@@ -1,4 +1,4 @@
-﻿private ["_cargo","_vehicles"];
+private ["_cargo","_vehicles"];
 _vehicles = _this select 0;
 _cargo = _this select 1;
 {

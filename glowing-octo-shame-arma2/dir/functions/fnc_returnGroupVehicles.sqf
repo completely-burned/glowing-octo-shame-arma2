@@ -1,4 +1,4 @@
-﻿private["_Vehicles"];
+private ["_Vehicles"];
 _Vehicles=[];
 {
 	if(alive _x)then{

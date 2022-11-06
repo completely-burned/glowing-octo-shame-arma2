@@ -1,4 +1,4 @@
-﻿BIS_manhattanM1A setVariable ["respawnVehicle",true];
+BIS_manhattanM1A setVariable ["respawnVehicle",true];
 BIS_manhattanAAV setVariable ["respawnVehicle",true];
 
 BIS_manhattanHmmw1 setVariable ["respawnVehicle",true];

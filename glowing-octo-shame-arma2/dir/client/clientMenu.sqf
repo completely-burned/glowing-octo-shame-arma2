@@ -39,7 +39,8 @@ _tmp_arr=[
 	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
 	[Localize "STR_gosa_join_the_squad",
 		"[] execVM 'dir\functions\fnc_menu_join.sqf'"]
-	/*setOwner не возвращает контроль над юнитами, но ломает управление игрокам
+	/*
+	setOwner не возвращает контроль над юнитами, но ломает управление игрокам
 	["setOwner (%SELECTED_UNIT_ID) player","
 		{
 			[nil, _x, rsetOwner, player] call RE;
@@ -49,7 +50,8 @@ _tmp_arr=[
 		if (_z != player) then {
 			[nil, _z, rsetOwner, player] call RE;
 		};
-	"]*/
+	"]
+	*/
 	// ["deleteVehicle vehicle player", "if(({alive _x} count crew vehicle player)<=1)then {deleteVehicle vehicle player};"],
 	// ["leader move player","leader player move getpos player"],
 	// ["setAccTime 0.5","setAccTime 0.5"],
