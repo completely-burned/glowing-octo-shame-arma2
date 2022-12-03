@@ -1,6 +1,20 @@
 #define __A2OA__
+/*
+Перемещает игрока после подключения на стартовую позицию.
+*/
 
+// FIXME: Возможно для A2 то-же нужно, но не проверено.
 #ifdef __A2OA__
+	#define __playerStartPos
+#endif
+
+// A3 перемещает игрока после выбора маркера через gui.
+#ifdef __ARMA3__
+	#undef __playerStartPos
+#endif
+
+
+#ifdef __playerStartPos
 if(!isMultiplayer)exitWith{
 	playerReady = true;
 
