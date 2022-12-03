@@ -15,12 +15,14 @@ if (count _this > 3) then {
 };
 */
 
-//-- Для тс делаем позицию немного сбоку, но в зоне видимости водителя.
+//-- Для тс.
 // Сначала проверяются передвигающиеся объекты.
 if (_obj isKindOf "LandVehicle") exitWith
 {
-	_dir = (_dir -65);
-	_dist = 15;
+	// Справа от машины, чтобы не появиться на встречке.
+	// Сбоку, чтобы не быть раздавленным задней передачей.
+	_dir = (_dir +65);
+	_dist = 7.5;
 	_pos = [(_pos select 0) + _dist*sin _dir, (_pos select 1) + _dist*cos _dir];
 	diag_log format ["Log: [fnc_getSafePosForObject] %1, LandVehicle", _pos];
 	_pos;
