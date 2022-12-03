@@ -1,5 +1,5 @@
 #define __A2OA__
-// [["4352423435325"],[[[[],[],[],[505,600,605,506]]]]];
+private ["_grp"];
 
 OnPlayerDisconnected "[_id, _uid, _name] ExecVM (""dir\server\eh_PlayerDisconnected.sqf"")";
 
@@ -70,11 +70,17 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 // civilian setFriend [resistance, 0];
 // civilian setFriend [civilian, 0];
 
-//--- модули
+// FIXME: Возможно при использовании одной группы на все объекты,
+// то при изменении одного синхронизируются все их параметры по сети.
+_grp = createGroup sideLogic;
+gosa_grpLogic = _grp;
+publicVariable "gosa_grpLogic";
+// Совместимость.
 if (isNil "group_logic") then {
-	group_logic = createGroup sideLogic;
+	group_logic = _grp;
 };
 
+//-- Модули.
 gosa_HC_logic = (group_logic) createUnit ["logic",[1000,10,0],[],0,"none"];;
 publicVariable "gosa_HC_logic";
 
