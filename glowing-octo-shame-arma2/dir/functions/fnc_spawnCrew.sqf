@@ -28,7 +28,7 @@ _tmpPosSafe = getPos _vehicle;
 _tmpPosSafe set [0, (_tmpPosSafe select 0) + 10];
 _tmpPosSafe set [1, (_tmpPosSafe select 1) + 10];
 // FIXME: Еще идеи? Надеюсь юнит пререместится в тс раньше чем упадет или будет сбит.
-_tmpPosSafe set [2, (_tmpPosSafe select 2) + 2000];
+_tmpPosSafe set [2, 2000];
 // Под землей они умирают в a2.
 //_tmpPosSafe set [2, (_tmpPosSafe select 2) - 200];
 _uav = _vehicle call gosa_fnc_isUAV;

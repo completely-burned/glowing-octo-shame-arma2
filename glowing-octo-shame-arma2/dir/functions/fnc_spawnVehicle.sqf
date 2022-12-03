@@ -39,22 +39,30 @@ if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"])
 
 }else{
 	#ifdef __ARMA3__
-		// a3 тс на некоторых позициях взрываются,
-		// вероятно из-за наклона поверхности.
-		_pos set [2,3];
+		// Невозможно сразу указать наклон при создании объекта.
+		_pos set [2,1900];
 	#else
 		_pos resize 2;
 	#endif
 	_veh = createVehicle [_type, _pos, [], 0, "FORM"];
 	_veh setDir _azi;
 	#ifdef __ARMA3__
-		// FIXME: a3 тс не инициализируются без этого.
-		_veh setVelocity [0,0,1];
+		// a3, тс на некоторых позициях взрываются из-за наклона поверхности.
+		_veh setVectorUp surfaceNormal _pos;
+		// a3, ии покидают тс после ранения от столкновения.
+		// Высота не должна быть большой или малой.
+		private _box = boundingBox _veh;
+		diag_log format ["Log: [fnc_spawnVehicle] %1, boundingBox %2", _this, _box];
+		_pos set [2, _box select 1 select 2];
+		_veh setPos _pos;
 	#else
-	// FIXME: Почему здесь -1? В a3 тс взрываются с этим значением.
+	// FIXME: Почему здесь -1?
 	_veh setVelocity [0,0,-1];
 	#endif
 };
+
+// FIXME: Не пониаю в котором порядке нужно выполнять эту команду.
+_grp addVehicle _veh;
 
 diag_log format ["Log: [fnc_spawnVehicle] %1, created %2 %3 %4", _this, _sim, getPos _veh, _veh];
 
@@ -69,7 +77,6 @@ if ((count _this) > 4) then {
 } else {
 	_crew = [_veh, _grp] call gosa_fnc_spawnCrew;
 };
-_grp addVehicle _veh;
 
 if (_newGrp) then {
 	_grp selectLeader (commander _veh);
