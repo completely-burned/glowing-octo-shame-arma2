@@ -259,6 +259,12 @@ rgosa_setMapPlayersPubliccode = {
 	};
 };
 
+rgosa_fnc_createHQ = 'gosa_fnc_createHQ';
+rgosa_fnc_createHQcode = {
+	diag_log format ["Log: [MPF] rgosa_fnc_createHQ %1", _this];
+	_this select 1 call gosa_fnc_createHQ;
+};
+
 
 gosa_MPF_InitDone = true;
 diag_log format ['Log: [mpf_override.sqf] done %1', time];

@@ -18,6 +18,10 @@ if (isServer) then {
 	{
 		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 	} forEach [
+		#ifndef __ARMA3__
+			"fnc_createHQ",
+			"fnc_list_HQ",
+		#endif
 		"fnc_cleanup",
 		"fnc_StaticWeapon",
 		"fnc_playerRespawnSP",
@@ -35,6 +39,10 @@ if (!IsDedicated) then {
 	{
 		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 	} forEach [
+		#ifndef __ARMA3__
+			"fnc_menu_factory",
+			"fnc_menu_factories",
+		#endif
 		"fnc_eh_playerRespawn",
 		"fnc_reveal",
 		"fnc_initBriefing",
@@ -149,7 +157,8 @@ if (!IsDedicated) then {
 	"fnc_createmenu",
 	"fnc_vehicleHandleDamage",
 	#ifndef __ARMA3__
-	"fnc_vehInit2",
+		"fnc_isHQ",
+		"fnc_vehInit2",
 	#endif
 	"fnc_CheckRespawnDistance",
 	"fnc_CheckTurretAlive",
