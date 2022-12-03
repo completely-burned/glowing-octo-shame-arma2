@@ -24,6 +24,8 @@ if (configName(configFile >> "CfgMods" >> "acex_usnavy") != "") then {acex_usnav
 
 //--- функции
 [] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
+//-- Разные переменные необходимые для дальнейшей работы штабов.
+[] call compile preprocessFileLineNumbers "dir\common\init_hq.sqf";
 
 gosa_deviceType = ([] call gosa_fnc_getDeviceType);
 gosa_IslandType = ([] call gosa_fnc_getIslandType);
@@ -60,28 +62,7 @@ diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", gos
 
 
 
-/// listCrew + listMHQ ///
-// TODO: Совместимость с pvp.
-listMHQ = [
-	"BRDM2_HQ_Base",
-	"BMP2_HQ_Base",
-	"M1130_CV_EP1",
-	"BTR90_HQ",
-	"LAV25_HQ",
-	"MHQ"
-];
-
-#ifdef __ARMA3__
-listMHQ=listMHQ+[
-	"B_Truck_01_medical_F",
-	"O_Truck_03_medical_F",
-	"O_Truck_02_medical_F",
-	"I_Truck_02_medical_F",
-	"B_T_Truck_01_medical_F",
-	"O_T_Truck_03_medical_ghex_F"
-];
-#endif
-
+//-- listCrew
 _list = [
 	"USMC_Soldier_Crew",
 	"CDF_Soldier_Crew",
