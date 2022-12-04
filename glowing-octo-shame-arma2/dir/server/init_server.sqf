@@ -142,6 +142,8 @@ if ( configName(LIB_cfgVeh >> "ACE_Logic") != "" ) then {
 };
 waitUntil{!isNil "gosa_fnc_init"};
 
+//-- Стартовый список штабов и построек.
+[] execVM "dir\server\init_hq.sqf";
 
 //--- создание и удаление объектов, базы
 if(worldName == "Chernarus")then{
