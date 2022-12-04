@@ -5,11 +5,22 @@
 	TODO: Нужно оптимизировать.
 */
 
-#define BIS_SSM_CURRENTDISPLAY UInamespace getVariable "currentCutDisplay"
+#ifndef __ARMA3__
+	#define BIS_SSM_CURRENTDISPLAY UInamespace getVariable "currentCutDisplay"
+	40 CutRsc["OptionsAvailable","PLAIN",0];
+#endif
+
 waitUntil {!isNil "buyMenuLoaded"};
 waitUntil {!isNil "MHQ_list"};
 
-private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV"];
+
+private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV","_nearestObjects",
+	"_Objects","_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane",
+	"_Buy_Ship","_Airport","_teleport","_menu","_BuyDist","_uav_action",
+	"_uav_terminals","_actionObj","_action_uav","_types_MHQ","_types_HQ",
+	"_type","_Object","_action","_0","_1","_2",
+	"_action_teleport","_action_menu","_action_buy","_resetActions","_shop"];
+
 _HQ = [];
 {
 	if(configName(configFile >> "CfgVehicles" >> _x) != "")then{
@@ -17,11 +28,8 @@ _HQ = [];
 	};
 } forEach (MHQ_list select 0) + HQ;
 
-40 CutRsc["OptionsAvailable","PLAIN",0];
-
 _OptionsAvailable = [];
 
-private ["_nearestObjects"];
 _nearestObjects = [
 	"LandVehicle",
 	"Air",
@@ -31,8 +39,6 @@ _nearestObjects = [
 		_nearestObjects set [count _nearestObjects,"ReammoBox"];
 	};
 
-private["_Objects","_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane","_Buy_Ship","_Airport","_teleport","_menu","_BuyDist",
-	"_uav_action","_uav_terminals","_actionObj","_action_uav","_action_teleport","_action_menu","_action_buy","_resetActions","_shop"];
 
 if (missionNamespace getVariable "gosa_shop" == 1) then {
 	_nearestObjects = _nearestObjects + [
@@ -65,7 +71,6 @@ while {true} do {
 		_Objects = (nearestObjects [vehicle player, _nearestObjects, _BuyDist]);
 		if ((count _Objects > 0)) then {
 			{
-				private["_type","_Object"];
 				_Object = _x;
 				_type = (typeOf _Object);
 
@@ -144,7 +149,6 @@ while {true} do {
 
 						#ifndef __ARMA3__
 						if (isNil {_Object getVariable "gosa_act_hintCrew"}) then {
-							private["_action"];
 							_action = _Object addAction [format ["%1 %2",localize "STR_ACT_Crew",getText (configFile >> "CfgVehicles" >> _type >> "displayName")],'dir\client\ACT\ACT_HintCrew.sqf',[],0, false];
 							_Object setVariable ["gosa_act_hintCrew",_action];
 						};
@@ -177,7 +181,6 @@ while {true} do {
 		_Objects = (nearestObjects [vehicle player, UAVterminal, 10]);
 		if (count _Objects > 0) then {
 			{
-					private["_type","_Object"];
 					_Object = _x;
 					_type = (typeOf _Object);
 
@@ -192,13 +195,13 @@ while {true} do {
 		};
 
 
-#ifdef __A2OA__
+		#ifdef __A2OA__
 		if !(_uav_action) then {
 			if (typeOf unitBackpack player == "US_UAV_Pack_EP1") then {
 				_uav_action = true; _uav_terminals set [count _uav_terminals, unitBackpack player];
 			};
 		};
-#endif
+		#endif
 		if (_uav_action && !isMultiplayer && !_resetActions) then {
 			_actionObj = player;
 			if (!isnil "_action_uav")then{
@@ -208,7 +211,6 @@ while {true} do {
 				};
 			};
 			if (isnil "_action_uav" && !isnull player) then {
-				private ["_action"];
 				_action = _actionObj addaction [localize "str_uav_action", "dir\actions\act_uav.sqf", [_Object, _uav_terminals], 1, false, false];
 				_action_uav = [_actionObj, _action];
 			};
@@ -234,7 +236,6 @@ while {true} do {
 				};
 			};
 			if (isnil "_action_teleport" && !isnull _veh) then {
-				private ["_action"];
 				_action = _veh addaction [localize "STR_gosa_teleportation", "dir\actions\act_teleport.sqf", '#USER:teleport_0', 0.5, false, false];
 				_action_teleport = [_veh, _action];
 			};
@@ -255,7 +256,6 @@ while {true} do {
 				};
 			};
 			if (isnil "_action_menu" && !isnull _veh) then {
-				private ["_action"];
 				_action = _veh addaction ["Menu", "dir\client\main_menu.sqf", '#User:BIS_Menu_GroupCommunication', 0.5, false, false];
 				_action_menu = [_veh, _action];
 			};
@@ -267,93 +267,68 @@ while {true} do {
 		};
 
 		if (_shop) then {
+			_0 = _BuyMenu select 0;
+			_1 = _BuyMenu select 1;
+			_2 = _BuyMenu select 2;
 			if (_Buy_Man) then {
 				// (BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + 0)) CtrlSetText ("\CA\Warfare2\Images\icon_barracks.paa");
 
-				private["_0","_1","_2"];
 				if (leader player == player) then {
 					_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_barracks_ca.paa")];
-					_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 					_0 set [count _0, "#USER:Man_0"];
 					_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
 					_2 set [count _2, 1];
-					_BuyMenu = [_0,_1,_2];
 				};
 
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 				_0 set [count _0, "#USER:Ammo_0"];
 				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
 				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
 
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 				_0 set [count _0, "#USER:StaticWeapon_0"];
 				_1 set [count _1, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
 				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
 			};
 			if (_Buy_Car or _Buy_Ship) then {
 				_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_lvs_ca.paa")];
 			};
 			if (_Buy_Car) then {
-				private["_0","_1","_2"];
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 				_0 set [count _0, "#USER:Car_0"];
 				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName")];
 				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 				_0 set [count _0, "#USER:Motorcycle_0"];
 				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName")];
 				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
 			};
 			if (_Buy_Tank) then {
 				_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hvs_ca.paa")];
-				private["_0","_1","_2"];
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 				_0 set [count _0, "#USER:Tank_0"];
 				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName")];
 				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
 			};
 			if (_Buy_Helicopter) then {
 				_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_air_ca.paa")];
-				private["_0","_1","_2"];
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 				_0 set [count _0, "#USER:Helicopter_0"];
 				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName")];
 				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
 			};
 			if (_Buy_Plane) then {
 				_OptionsAvailable=_OptionsAvailable+[("\ca\ui\data\icon_wf_building_hangar_ca.paa")];
-				private["_0","_1","_2"];
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 				_0 set [count _0, "#USER:Plane_0"];
 				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName")];
 				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
 				if (_Airport) then {
-					_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 					_0 set [count _0, "#USER:Support_0"];
 					_1 set [count _1, localize "str_support"];
 					_2 set [count _2, 1];
-					_BuyMenu = [_0,_1,_2];
-					_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 					_0 set [count _0, "#USER:Pilot_0"];
 					_1 set [count _1, localize "str_getin_pos_pilot"];
 					_2 set [count _2, 1];
-					_BuyMenu = [_0,_1,_2];
 				};
 			};
 			if (_Buy_Ship) then {
-				private["_0","_1","_2"];
-				_0 = _BuyMenu select 0; _1 = _BuyMenu select 1; _2 = _BuyMenu select 2;
 				_0 set [count _0, "#USER:Ship_0"];
 				_1 set [count _1, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
 				_2 set [count _2, 1];
-				_BuyMenu = [_0,_1,_2];
 			};
 
 			if ((_Buy_Man or _Buy_Car or _Buy_Tank or _Buy_Helicopter or _Buy_Plane or _Buy_Ship) && !_resetActions) then {
@@ -365,7 +340,6 @@ while {true} do {
 					};
 				};
 				if (isnil "_action_buy" && !isnull player) then {
-					private ["_action"];
 					_action = _actionObj addaction [localize "STR_gosa_purchase", "dir\actions\act_buy_menu.sqf", "#USER:BuyMenu_0", 1, false, false];
 					_action_buy = [_actionObj, _action];
 				};
@@ -379,12 +353,15 @@ while {true} do {
 			["BuyMenu", "BuyMenu", _BuyMenu, "%1", ""] call BIS_FNC_createmenu;
 		};
 
+		#ifndef __ARMA3__
 		for "_i" from 0 to (count _OptionsAvailable - 1) do {
 			(BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + _i)) CtrlSetText (_OptionsAvailable select _i);
 		};
 		for "_i" from (count _OptionsAvailable) to (10) do {
 			(BIS_SSM_CURRENTDISPLAY DisplayCtrl (3500 + _i)) CtrlSetText ("");
 		};
+		#endif
+
 		_OptionsAvailable = [];
 
 	};
