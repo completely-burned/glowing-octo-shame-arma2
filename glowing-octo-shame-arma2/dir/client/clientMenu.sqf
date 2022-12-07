@@ -98,7 +98,11 @@ if (missionNamespace getVariable "gosa_shop" == 2) then {
 		]
 	], "%1", ""] call BIS_FNC_createmenu;
 	_tmp_arr=_tmp_arr+[
-		[localize "STR_gosa_purchase","","#USER:BuyMenu_0"]
+		["*" + localize "STR_gosa_purchase","","#USER:BuyMenu_0"]
+	];
+}else{
+	_tmp_arr=_tmp_arr+[
+		["*" + localize "STR_gosa_purchase", "[] spawn gosa_fnc_menu_factories"]
 	];
 };
 
