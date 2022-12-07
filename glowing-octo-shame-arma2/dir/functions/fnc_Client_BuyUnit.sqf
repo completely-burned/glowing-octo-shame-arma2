@@ -2,10 +2,37 @@
 /*
 TODO: Рефакторинг.
 */
-private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj"];
+diag_log format ["Log: [fnc_Client_BuyUnit]: _this %1", _this];
+private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
+	"_factory","_pos","_logic","_typesHQ","_arr","_status"];
 
 _type = _this Select 0;
 _player_dir = getDir vehicle player;
+_pos = vehicle player;
+
+// _factory = [_logic, _class, _status, [_obj,_obj,objNull], _side, _str]
+if !(isNil "gosa_menu") then {
+	_factory = gosa_menu;
+	diag_log format ["Log: [fnc_Client_BuyUnit]: _factory %1", _factory];
+	if (_factory select 1 in [0]) then {
+		_logic = _factory select 0;
+		_pos = getPos _logic;
+		_player_dir = getDir _logic;
+	};
+};
+
+_pos = ([_pos, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+
+_typesHQ = gosa_typesHQ;
+if ([_type, 0] call gosa_fnc_isHQ) exitWith {
+	_status = 2;
+	_arr = [_pos, _type, _status, playerSide, player, _player_dir];
+	#ifdef __ARMA3__
+		_arr remoteExec ["gosa_fnc_createHQ", 2];
+	#else
+		[nil, _arr, rgosa_fnc_createHQ] call RE;
+	#endif
+};
 
 _HQ = listMHQ + HQ;
 
@@ -120,38 +147,12 @@ if (true) then {
 			};
 		};
 	};
-	if (_type isKindOf "Car") then {
-		Private["_Objects"];
-		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBLightFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
-		if ( (count _Objects > 0)  or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
-			Private["_veh"];
-			_z = ([player, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
-			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
+	if ([[_type],["Car","Motorcycle","Tank"]] call gosa_fnc_CheckIsKindOfArray) then
+	{
+			_pos = ([_pos, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+			_veh = (createVehicle [_type, _pos, [], 20, "FORM"]);
 			_veh call _fnc_1;
 			hint format["%1: %2", localize "str_support_done", _type];
-		};
-	};
-	if (_type isKindOf "Motorcycle") then {
-		Private["_Objects"];
-		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBLightFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
-		if ( (count _Objects > 0) or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
-			Private["_veh"];
-			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
-			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
-			_veh call _fnc_1;
-			hint format["%1: %2", localize "str_support_done", _type];
-		};
-	};
-	if (_type isKindOf "Tank") then {
-		Private["_Objects"];
-		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBHeavyFactory"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
-		if ( (count _Objects > 0) or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
-			Private["_veh"];
-			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
-			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
-			_veh call _fnc_1;
-			hint format["%1: %2", localize "str_support_done", _type];
-		};
 	};
 	if (_type isKindOf "Helicopter") then {
 		Private["_Objects"];
@@ -258,3 +259,6 @@ if (true) then {
 }else{
 	hint format ["respawn safe distance %1m",safeDistance];
 };
+
+// FIXME: Возможно игроку предпочтительно вернутся в меню найма.
+gosa_menu = nil;
