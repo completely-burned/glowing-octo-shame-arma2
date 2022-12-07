@@ -1,10 +1,11 @@
 Contacts
 ========
 
-* [Обновления](https://github.com/completely-burned/glowing-octo-shame-arma2)
+* Обновления
 
-	Последнюю версию сценария можно найти здесь.
+	Последнюю версию сценария можно найти здесь  
+	[GitHub](https://github.com/completely-burned/glowing-octo-shame-arma2)  
 
-* [Discord Чат](https://discord.gg/vXsftQeAnj)
+* Сообщества
 
-	Чат.
+	[Discord](https://discord.gg/vXsftQeAnj)  
