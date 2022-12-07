@@ -1,9 +1,9 @@
 glowing-octo-shame-arma2
 ==============================
-миссия для игры Arma 2: Operation Arrowhead
+Универсальная миссия для игры Arma 2: Operation Arrowhead и Arma 3.  
+PVE бой с ботами сконцентрированный в одной точке.  
 
 ## About
-PVE бой с ботами в сконцентрированный в одной точке.  
 Главное меню открыть можно нажав `0-8-` `BIS_MENU_GroupCommunication`.  
 Эта миссия может быть воспроизведен на других картах Chernarus takistan utes и т.д.
 
@@ -55,7 +55,7 @@ PVE бой с ботами в сконцентрированный в одной
      но если вы знаеете, можете мне сообщить.  
 
    - Скопируйте  
-     недостающие файлы `Description.ext dir init.sqf manhattansetupAmbient.sqf stringtable.csv`  
+     недостающие файлы `Description.ext dir/ init.sqf manhattansetupAmbient.sqf stringtable.csv`  
      из папки `glowing-octo-shame-arma2/` в папки с назанием карты,  
      и соберите, опять [не знаю чем](https://community.bistudio.com/wiki/Community_Tools).
 
