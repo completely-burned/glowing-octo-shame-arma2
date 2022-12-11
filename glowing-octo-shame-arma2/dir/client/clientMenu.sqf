@@ -1,5 +1,6 @@
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
+	"_arr","_count","_b","_cfg",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
@@ -314,39 +315,41 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 								if !(getText(_entry >> "simulation") in ["invisible", "house", "thing", "flagcarrier", "fire", "breakablehouseproxy", "breakablehouse", "parachute"]) then {
 									if!(configname _entry isKindOf "Chukar")then{
 										if ([[(configname _entry)],[_this]] call gosa_fnc_CheckIsKindOfArray) then {
-											private["_faction"]; private["_vehicleclass"];
-											_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
-											private["_factionclasses"];
+											private["_faction","_vehicleclass","_factionclasses","_find_faction",
+												"_vehicleclasses","_find_vehicleclass"];
+											_faction = getText(_entry >> "faction");
+											_vehicleclass = getText(_entry >> "vehicleclass");
+
 											_factionclasses = _tmp_arr select 0;
-											private["_find_faction"];
 											if (_faction in _factionclasses)then{
 												_find_faction = _factionclasses find _faction;
 											}else{
-												private["_count"];
 												_count = count _factionclasses;
 												[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
 												[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
 												[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
 												_find_faction = _factionclasses find _faction;
 											};
-											private["_vehicleclasses"];
+
 											_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
-											private["_find_vehicleclass"];
 											if (_vehicleclass in _vehicleclasses)then{
 												_find_vehicleclass = _vehicleclasses find _vehicleclass;
 											}else{
-												private["_count"];
 												_count = count _vehicleclasses;
 												[_tmp_arr,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
 												[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
 												_find_vehicleclass = _vehicleclasses find _vehicleclass;
 											};
-											private["_types"];
+
 											_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
 											if (_type in _types)then{
 											}else{
 												_count = count _types;
-												[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+												[
+													_tmp_arr,
+													[2,_find_faction,_find_vehicleclass,_count], 
+													_type
+												] call gosa_fnc_setNestedElement;
 											};
 										};
 									};
