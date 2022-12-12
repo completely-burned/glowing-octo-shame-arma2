@@ -175,6 +175,32 @@ private["_fnc_create_buy_menu"];
 						};
 						_itemsName3 set [count _itemsName3, _z];
 					_itemEnable set [count _itemEnable, 1];
+
+					//- MHQ
+					switch (toLower _name) do {
+						case "o_truck_03_covered_f": {
+							_name = "o_truck_03_command_f";
+							_b = true;
+						};
+						case "b_truck_01_covered_f": {
+							_name = "b_truck_01_command_f";
+							_b = true;
+						};
+						case "i_truck_02_covered_f": {
+							_name = "i_truck_02_command_f";
+							_b = true;
+						};
+						default {
+							_b = false;
+						};
+					};
+					if (_b) then {
+						if (configName (configFile >> "CfgVehicles" >> _name) == "") then {
+							_items3 set [count _items3, _name];
+							_itemsName3 set [count _itemsName3, "MHQ " + _z];
+							_itemEnable set [count _itemEnable, 1];
+						};
+					};
 				};
 				[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "","['%1'] spawn gosa_fnc_Client_BuyUnit"] call BIS_FNC_createmenu;
 			};
