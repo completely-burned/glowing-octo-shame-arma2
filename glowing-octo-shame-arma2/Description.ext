@@ -626,6 +626,14 @@ class CfgFunctions
 		};
 		class Systems
 		{
+			class fixType
+			{
+				file = "dir\functions\fnc_fixType.sqf";
+			};
+			class isObjHQ
+			{
+				file = "dir\functions\fnc_isObjHQ.sqf";
+			};
 			class list_HQ
 			{
 				file = "dir\functions\fnc_list_HQ.sqf";
