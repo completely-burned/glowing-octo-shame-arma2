@@ -4,11 +4,14 @@ TODO: Рефакторинг.
 */
 diag_log format ["Log: [fnc_Client_BuyUnit]: _this %1", _this];
 private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
+	"_str","_type_Lower",
 	"_factory","_pos","_logic","_typesHQ","_arr","_status"];
 
 _type = _this Select 0;
 _player_dir = getDir vehicle player;
 _pos = vehicle player;
+
+_type_Lower = toLower _type;
 
 // _factory = [_logic, _class, _status, [_obj,_obj,objNull], _side, _str]
 if !(isNil "gosa_menu") then {
@@ -24,9 +27,10 @@ if !(isNil "gosa_menu") then {
 _pos = ([_pos, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 
 _typesHQ = gosa_typesHQ;
-if ([_type, 0] call gosa_fnc_isHQ) exitWith {
+if ([_type_Lower, 0] call gosa_fnc_isHQ) exitWith {
 	_status = 2;
-	_arr = [_pos, _type, _status, playerSide, player, _player_dir];
+	_str = _type_Lower call gosa_fnc_fixType;
+	_arr = [_pos, _type_Lower, _status, playerSide, player, _player_dir, _str];
 	#ifdef __ARMA3__
 		_arr remoteExec ["gosa_fnc_createHQ", 2];
 	#else
