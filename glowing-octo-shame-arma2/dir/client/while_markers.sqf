@@ -99,36 +99,37 @@ _respawnMarkers = [];
 _objects = [];
 if (_startingClass != 1 or count _markers_airport == 0) then {
     //code
-// Объекты используются для поиска статичных позиций возрождения.
-#ifdef __A2OA__
-{
-	_objects = _objects + allMissionObjects _x;
-} forEach HQ;
-#endif
-diag_log format ["Log: [while_markers] HQ's %1", _objects];
+	// Объекты используются для поиска статичных позиций возрождения.
+	#ifdef __A2OA__
+	{
+		_objects = _objects + allMissionObjects _x;
+	} forEach HQ;
+	#endif
+	diag_log format ["Log: [while_markers] HQ's %1", _objects];
 
-// -- статичные точки возрождения
-for "_i" from 0 to (count _objects - 1) do {
-	private ["_obj","_marker","_pos"];
-	_obj = _objects select _i;
-	_pos = [_obj, getPos _obj, getDir _obj] call gosa_fnc_getSafePosForObject;
+	// -- статичные точки возрождения
+	for "_i" from 0 to (count _objects - 1) do {
+		private ["_obj","_marker","_pos"];
+		_obj = _objects select _i;
+		_pos = [_obj, getPos _obj, getDir _obj] call gosa_fnc_getSafePosForObject;
 
-	if(_i == 0)then{
-		_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
-	}else{
-		_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i], _pos];
+		if(_i == 0)then{
+			_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
+		}else{
+			_marker = createMarkerLocal [format["respawn_%1_%2",_side_str,_i], _pos];
+		};
+		diag_log format ["Log: [while_markers] marker %1 created %2", _marker, _pos];
+		// FOB, без базы, подсвеченный, и не игровой, сбивает игроков с толку.
+		if(missionNamespace getVariable "respawn" == 0)then{
+			#ifdef __ARMA3__
+				_marker setMarkerTypeLocal "respawn_inf";
+			#else
+				_marker setMarkerTypeLocal "Depot";
+			#endif
+			_marker setMarkerColorLocal _markerColor;
+		};
+		_respawnMarkers set [count _respawnMarkers, _marker];
 	};
-	diag_log format ["Log: [while_markers] marker %1 created %2", _marker, _pos];
-	// FOB, без базы, подсвеченный, и не игровой, сбивает игроков с толку.
-	if(missionNamespace getVariable "respawn" == 0)then{
-		#ifdef __ARMA3__
-			_marker setMarkerTypeLocal "respawn_inf";
-		#else
-			_marker setMarkerTypeLocal "Depot";
-		#endif
-		_marker setMarkerColorLocal _markerColor;
-	};
-	_respawnMarkers set [count _respawnMarkers, _marker];
 };
 
 
@@ -227,7 +228,6 @@ for "_i" from 0 to (count _objects - 1) do {
 		[] call _fnc_update_HQ;
 		diag_log format ["Log: [while_markers] HQ, Init %1", _markersHQ];
 	};
-};
 
 
 //-- Отказоустойчивый маркер возрождения если нет базы.
