@@ -1,3 +1,7 @@
+/*
+ * TODO: Рефакторинг.
+ */
+
 private ["_pos","_allow","_for"];
 
 _allow = true;
