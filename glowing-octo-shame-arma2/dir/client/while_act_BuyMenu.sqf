@@ -1,9 +1,9 @@
 #define __A2OA__
 /*
-	Скрипт добавляет и обновляет различные взаимодействия,
-	например меню покупки при нахождении в определенных места.
-	TODO: Нужно оптимизировать.
-*/
+ * Скрипт добавляет и обновляет различные взаимодействия,
+ * например меню покупки при нахождении в определенных места.
+ * TODO: Нужно оптимизировать.
+ */
 
 #ifndef __ARMA3__
 	#define BIS_SSM_CURRENTDISPLAY UInamespace getVariable "currentCutDisplay"
@@ -18,7 +18,8 @@ private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV","_nearestObjects",
 	"_Objects","_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane",
 	"_Buy_Ship","_Airport","_teleport","_menu","_BuyDist","_uav_action",
 	"_uav_terminals","_actionObj","_action_uav","_types_MHQ","_types_HQ",
-	"_type","_Object","_action","_0","_1","_2",
+	"_player_veh","_factory_HQ","_factory_all","_logic","_class",
+	"_type","_Object","_action","_0","_1","_2","_listHQ_str","_arr","_listHQ",
 	"_action_teleport","_action_menu","_action_buy","_resetActions","_shop"];
 
 _HQ = [];
@@ -52,6 +53,8 @@ if (missionNamespace getVariable "gosa_shop" == 1) then {
 	_BuyDist = 50;
 };
 
+_listHQ_str = format["gosa_listHQ_%1", playerSide];
+
 while {true} do {
 
 	if (!isNil {player getVariable "resetActions_handleBuyMenu"}) then {
@@ -62,11 +65,61 @@ while {true} do {
 	};
 
 	if (alive player && isNil {skipAddAction}) then {
+		scopeName "scope2";
 
-		_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
-
+		_factory_all = false;
+		_factory_HQ = false;
+		_Buy_Man = false;
+		_Buy_Car = false;
+		_Buy_Tank = false;
+		_Buy_Helicopter = false;
+		_Buy_Plane = false;
+		_Buy_Ship = false;
+		_Airport = false;
+		_teleport = false;
+		_menu = false;
 
 		_BuyMenu = [[],[],[]];
+
+		_player_veh = vehicle player;
+
+		//-- Проходим по списку штабов.
+		_listHQ = ([] call compile _listHQ_str);
+		if !(isNil "_listHQ") then {
+			for "_i" from 0 to (count _listHQ -1) do {
+				_arr = _listHQ select _i;
+				_logic = _arr select 0;
+				if (alive _logic) then {
+					_class = _arr select 1;
+					// Штаб.
+					if (_class < 1) then {
+						if (_logic distance _player_veh < _BuyDist) then {
+							_factory_HQ = true;
+							diag_log format ["Log: [while_act_BuyMenu] _factory_HQ = %1", _factory_HQ];
+							breakTo "scope2";
+						};
+					};
+				};
+			};
+		};
+
+		if (_factory_HQ) then {
+			#ifdef __ARMA3__
+				_factory_all = true;
+				diag_log format ["Log: [while_act_BuyMenu] _factory_all = %1", _factory_all];
+			#endif
+			_teleport = true;
+			_menu = true;
+		};
+
+		if (_factory_all) then {
+			_Buy_Man = true;
+			_Buy_Car = true;
+			_Buy_Tank = true;
+			_Buy_Helicopter = true;
+			_Buy_Plane = true;
+			_Buy_Ship = true;
+		};
 
 		_Objects = (nearestObjects [vehicle player, _nearestObjects, _BuyDist]);
 		if ((count _Objects > 0)) then {
@@ -89,10 +142,11 @@ while {true} do {
 					if (_shop) then {
 						if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
 							#ifdef __A2OA__
-							if ([[_type],HQ] call gosa_fnc_CheckIsKindOfArray or (missionNamespace getVariable "gosa_coin" != 1 && ([[_type],(MHQ_list select 0)] call gosa_fnc_CheckIsKindOfArray))) then {
+							if ([[_type],HQ] call gosa_fnc_CheckIsKindOfArray or (missionNamespace getVariable "gosa_coin" != 1 && ([[_type],(MHQ_list select 0)] call gosa_fnc_CheckIsKindOfArray))) then
 							#else
-							if ([[_type],(MHQ_list select 0) + HQ] call gosa_fnc_CheckIsKindOfArray) then {
+							if ([[_type],(MHQ_list select 0) + HQ] call gosa_fnc_CheckIsKindOfArray) then
 							#endif
+							{
 								_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
 							};
 						};
@@ -155,7 +209,9 @@ while {true} do {
 						#endif
 					};
 
+					#ifndef __ARMA3__
 					[_Object, _type] call gosa_fnc_act_repairVehicle;
+					#endif
 
 					if ([[_type],["ReammoBox"]] call gosa_fnc_CheckIsKindOfArray) then {
 						if (alive _Object) then {
