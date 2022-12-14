@@ -221,6 +221,12 @@ HQ = HQ+["Land_BagBunker_Large_F","Cargo_HQ_base_F","Cargo_Tower_base_F"];
 #endif
 Warfare_HQ = ["Warfare_HQ_base_unfolded"];
 
+//-- Заводы.
+gosa_type_Barracks = ["Base_WarfareBBarracks"];
+gosa_type_LightFactory = ["Base_WarfareBLightFactory"];
+gosa_type_HeavyFactory = ["Base_WarfareBHeavyFactory"];
+gosa_type_AircraftFactory = ["Base_WarfareBAircraftFactory"];
+
 UAVterminal = listMHQ + HQ + ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
 
 gosa_objectsTeleport = listMHQ + HQ + Warfare_HQ + ["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"];
