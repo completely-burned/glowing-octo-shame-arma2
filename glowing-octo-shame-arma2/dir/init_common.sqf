@@ -32,10 +32,13 @@ gosa_IslandType = ([] call gosa_fnc_getIslandType);
 
 listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","WarfareSalvageTruck_CDF","WarfareSalvageTruck_Gue","WarfareSalvageTruck_INS",
 "MtvrSalvage_DES_EP1","UralSalvage_TK_EP1","V3S_Salvage_TK_GUE_EP1"];
+
 _list = ["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F","Land_TentHangar_V1_F"];
-gosa_typesOf_airports = _list;
+gosa_type_Airport = _list;
 // Совместимость.
+gosa_typesOf_airports = _list;
 Airport = _list;
+
 pier = ["Land_nav_pier_m_2","Land_nav_pier_m_F"];
 
 safeDistance = 15;
