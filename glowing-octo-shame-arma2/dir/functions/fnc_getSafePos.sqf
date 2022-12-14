@@ -47,7 +47,7 @@ _shoreMode = false;
 _objectProximity = _safeRadius;
 //.
 
-_attempt_radius_up = 10000;
+_attempt_radius_up = 1000;
 _attempt_radius = 0;
 _radius = 20;
 
