@@ -144,6 +144,7 @@ waitUntil{!isNil "gosa_fnc_init"};
 
 //-- Стартовый список штабов и построек.
 [] execVM "dir\server\init_hq.sqf";
+[] execVM "dir\server\init_LocationBase.sqf";
 
 //--- создание и удаление объектов, базы
 if(worldName == "Chernarus")then{

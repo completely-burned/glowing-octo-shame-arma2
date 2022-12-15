@@ -14,6 +14,9 @@ private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_fnc_MarkerInitUnit","_markerPosHiden","_tmp_arr","_tmp_str","_text",
 	"_tmp_obj","_rMHQ","_tmp_num","_item","_startingClass","_airports",
 	"_logic","_obj","_num","_fnc_update_HQ","_markersHQ","_listHQ_str",
+	"_markers_airport","_respawn_type_Pilot","_respawn_type_All","_markers_alive",
+	"_list","_arr","_b","_marker_type","_marker_type_respawn_unknown",
+	"_marker_type_respawn_plane","_fnc_update_LocationAirport",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
 
 _fnc_MarkerInitUnit = {
@@ -69,35 +72,111 @@ if (_rBase) then {
 // FIXME: Вылет с "OutOfMemory" может быть если объекты далеко.
 _markerPosHiden = [-1600,0];
 
+_marker_type_respawn_unknown = "Start";
+_marker_type_respawn_plane = "Airport";
+#ifdef __ARMA3__
+	_marker_type_respawn_unknown = "respawn_unknown";
+	_marker_type_respawn_plane = "respawn_plane";
+#endif
+
+_respawn_type_Pilot = 1;
+_respawn_type_All = 0;
 
 //-- Подготовка маркеров аэропорта.
 _markers_airport = [];
-_airports = [];
-if (_startingClass == 1) then {
-	_airports = [] call gosa_fnc_initAirports;
+if (true) then {
 
-	for "_i" from 0 to (count _airports - 1) do {
-		_item = _airports select _i;
-		_logic = _item select 0;
-		_obj = _item select 1;
-		_marker = format["respawn_%1_%2", _side_str, _item select 2];
-		// статус
-		_num = _item select 3;
-		_pos = _item select 4;
+	_fnc_update_LocationAirport = {
+		_markers_alive = [];
+		_list = gosa_list_LocationAirport;
+		for "_i" from 0 to (count _list -1) do {
+			_logic = _list select _i;
+			// TODO: Side.
 
-			createMarkerLocal [_marker, _pos];
-			_marker setMarkerTypeLocal "Airport";
-			_marker setMarkerColorLocal _markerColor;
-			diag_log format ["Log: [while_markers] %1 airport created %2", _marker, _pos];
-			_markers_airport set [count _markers_airport, _marker];
+			// объекты аэропорта.
+			_arr = synchronizedObjects _logic;
+			for "_i0" from 0 to (count _arr -1) do {
+				_logic = _arr select _i0;
+
+				// тип возрождения.
+				_num = _logic getVariable ["gosa_respawn_type", -1];
+				switch (_num) do {
+					case _respawn_type_Pilot: {
+						if (_startingClass == 1) then {
+							_b = true;
+							_marker_type = _marker_type_respawn_plane;
+						}else{
+							_b = false;
+						};
+					};
+					case _respawn_type_All: {
+						_b = true;
+						_marker_type = _marker_type_respawn_unknown;
+					};
+					default {
+						_b = false;
+					};
+				};
+
+				if (_b) then {
+					_marker = format["respawn_%1_%2", _side_str, _logic];
+					_markers_alive set [count _markers_alive, _marker];
+					if !(_marker in _markers_airport) then {
+						_obj = _logic getVariable ["gosa_building", _logic];
+						_pos = getPos _obj;
+						_num = getDir _obj;
+
+						if !(isNull _obj) then {
+							_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
+						};
+
+						createMarkerLocal [_marker, _pos];
+						diag_log format ["Log: [while_markers] %1 createMarker %2, %3", _marker, _pos, _obj];
+
+						_marker setMarkerTypeLocal _marker_type;
+
+						// A3 устанавливает цвет самостоятельно.
+						#ifdef __ARMA3__
+						if !(playerSide in [east,west,resistance]) then {
+						#endif
+							_marker setMarkerColorLocal _markerColor;
+						#ifdef __ARMA3__
+						};
+						#endif
+						_markers_airport set [count _markers_airport, _marker];
+					};
+				};
+			};
+		};
+
+		for "_i" from 0 to (count _markers_airport -1) do {
+			_marker = _markers_airport select _i;
+			// Airport: Удаление маркеров.
+			if !(_marker in _markers_alive) then {
+				diag_log format ["Log: [while_markers] %1 deleteMarker", _marker];
+				deleteMarkerLocal _marker;
+				_markers_airport set [_i, -1];
+			};
+		};
+		_markers_airport = _markers_airport -[-1];
+
 	};
+
+
+	_num = time+15;
+	waitUntil {
+		_num < time
+		or !isNil "gosa_list_LocationAirport";
+	};
+	[] call _fnc_update_LocationAirport;
 };
 diag_log format ["Log: [while_markers] _markers_airport %1", _markers_airport];
 
 
+// Для совместимости.
 _respawnMarkers = [];
 _objects = [];
-if (_startingClass != 1 or count _markers_airport == 0) then {
+if (count _markers_airport < 1) then {
     //code
 	// Объекты используются для поиска статичных позиций возрождения.
 	#ifdef __A2OA__
@@ -275,6 +354,10 @@ if(true)then{
 			[] call _fnc_update_HQ;
 		};
 
+		// TODO: Перенести в скрипт обновления локаций.
+		[] call _fnc_update_LocationAirport;
+
+
 		if (visibleMap) then {
 
 
@@ -286,30 +369,6 @@ if(true)then{
 					"MainMarker" setMarkerPosLocal civilianBasePos;
 				};
 
-			// -- Обновление маркеров аэропорта.
-			for "_i" from 0 to (count _airports - 1) do {
-				_item = _airports select _i;
-					_tmp_obj = _item select 1;
-					_marker = _item select 2;
-					_tmp_num = _item select 3;
-				if (_tmp_num < 1) then {
-					_pos = getPos _tmp_obj;
-					if (alive _tmp_obj) then {
-						createMarkerLocal [_marker, _pos];
-						_marker setMarkerTypeLocal "Airport";
-						_marker setMarkerColorLocal _markerColor;
-						gosa_respawnMarkers = gosa_respawnMarkers+[_marker];
-						diag_log format ["Log: [while_markers] %1 airport created %2", _marker, _pos];
-					};
-				};
-
-				// Один маркер всегда присутствует для устойчивости.
-				if (!alive _tmp_obj && _tmp_num > 0 && count gosa_respawnMarkers > 1) then {
-					diag_log format ["Log: [while_markers] %1 airport delete", _marker];
-					gosa_respawnMarkers = gosa_respawnMarkers-[_marker];
-					deleteMarkerLocal _marker;
-				};
-			};
 
 			// -- удаление лишних динамичных маркеров
 			for "_i" from 0 to (count _dynamicMarkers - 1) do {
