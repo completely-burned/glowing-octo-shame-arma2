@@ -1,6 +1,6 @@
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
-	"_arr","_count","_b","_cfg",
+	"_arr","_count","_b","_cfg","_0","_1","_2","_n",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
@@ -482,6 +482,123 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 							};
 		}forEach availableVehicles;;
 		[_tmp_arr,"Support"] call _fnc_create_buy_menu;
+
+
+	//-- Меню по типу завода.
+	// TODO: Сжатие кода.
+	#define __ON 1
+
+	_arr = [[],[],[]];
+	_0 = _arr select 0;
+	_1 = _arr select 1;
+	_2 = _arr select 2;
+
+	//- Heavy Factory
+	_n = 0;
+	_0 set [_n, "#USER:Tank_0"];
+	_1 set [_n, gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName")];
+	_2 set [_n, __ON];
+	["Heavy Factory", "gosa_menu_factory_HeavyFactory", _arr, "%1", ""] call BIS_FNC_createmenu;
+
+
+	//- Plane Factory
+	_0 set [_n, "#USER:Plane_0"];
+	_1 set [_n, gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName")];
+	_2 set [_n, __ON];
+	["Plane Factory", "gosa_menu_factory_PlaneFactory", _arr, "%1", ""] call BIS_FNC_createmenu;
+
+
+	//- Light Factory
+	_0 set [_n, "#USER:Car_0"];
+	_1 set [_n, gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName")];
+	_2 set [_n, __ON];
+	_n = _n+1;
+	_0 set [_n, "#USER:Motorcycle_0"];
+	_1 set [_n, gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName")];
+	_2 set [_n, __ON];
+	["Light Factory", "gosa_menu_factory_LightFactory", _arr, "%1", ""] call BIS_FNC_createmenu;
+
+
+	//- Aircraft Factory
+	_n = 0;
+	_0 set [_n, "#USER:Helicopter_0"];
+	_1 set [_n, gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName")];
+	_2 set [_n, __ON];
+	_n = _n+1;
+	_0 set [_n, "#USER:Plane_0"];
+	_1 set [_n, gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName")];
+	_2 set [_n, __ON];
+	["Aircraft Factory", "gosa_menu_factory_AircraftFactory", _arr, "%1", ""] call BIS_FNC_createmenu;
+
+
+	//- Barracks Factory
+	_n = 0;
+	//if (leader player == player) then {
+		_0 set [_n, "#USER:Man_0"];
+		_1 set [_n, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
+		_2 set [_n, __ON];
+	//};
+	_n = _n+1;
+	_0 set [_n, "#USER:Ammo_0"];
+	_1 set [_n, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
+	_2 set [_n, __ON];
+	_n = _n+1;
+	_0 set [_n, "#USER:StaticWeapon_0"];
+	_1 set [_n, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
+	_2 set [_n, __ON];
+	["Barracks", "gosa_menu_factory_Barracks", _arr, "%1", ""] call BIS_FNC_createmenu;
+
+
+	//- Mega Factory
+	/*
+	_arr = [[],[],[]];
+	_0 = _arr select 0;
+	_1 = _arr select 1;
+	_2 = _arr select 2;
+	*/
+	_0 resize 0;
+	_1 resize 0;
+	_2 resize 0;
+
+	//if (leader player == player) then {
+		_0 set [count _2, "#USER:Man_0"];
+		_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
+		_2 set [count _2, __ON];
+	//};
+
+	_0 set [count _2, "#USER:Ammo_0"];
+	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:StaticWeapon_0"];
+	_1 set [count _2, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:Car_0"];
+	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName")];
+	_2 set [count _2, __ON];
+	_0 set [count _2, "#USER:Motorcycle_0"];
+	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:Tank_0"];
+	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:Helicopter_0"];
+	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:Plane_0"];
+	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:Ship_0"];
+	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	["Factory", "gosa_menu_factory_FactoryAll", _arr, "%1", ""] call BIS_FNC_createmenu;
+
 
 };
 
