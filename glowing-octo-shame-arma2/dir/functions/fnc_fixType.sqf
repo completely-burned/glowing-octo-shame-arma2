@@ -34,6 +34,8 @@ if (configName (_cfg >> _type) == "") then {
 			_r = "";
 		};
 	};
+}else{
+	_r = _type;
 };
 
 _r = configName (_cfg >> _r);
