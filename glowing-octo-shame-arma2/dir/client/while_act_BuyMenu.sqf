@@ -251,6 +251,93 @@ while {true} do {
 			};
 		};
 
+
+		_list = gosa_list_LocationBase;
+		if (true) then {
+			for "_i" from 0 to (count _list -1) do {
+				_logic = _list select _i;
+				_arr = synchronizedObjects _logic;
+				// Для совместимости.
+				if (count _arr < 1) then {
+					_arr = [_logic];
+				};
+				for "_i0" from 0 to (count _arr -1) do {
+					_logic = _arr select _i0;
+					_obj = _logic getVariable ["gosa_building", _logic];
+					_dist = _obj distance _player_veh;
+					_action = _obj getVariable "gosa_act_factory";
+					if !(isNil "_action") then {
+						// action obj
+						_action_object = _action select 0;
+						// action id
+						_num = _action select 1;
+						_action_factory = _action select 2;
+
+						// removeAction
+						_b = false;
+						if (_action_object != _player_veh) then {
+							_b = true;
+						};
+						if (_dist >= _BuyDist) then {
+							_b = true;
+						};
+						if !(alive _obj) then {
+							_b = true;
+						};
+						if (_b) then {
+							diag_log format ["Log: [while_act_BuyMenu] %1 removeAction %2", _action_object, _num];
+							_action_object removeAction _num;
+							_obj setVariable ["gosa_act_factory", nil, false];
+							_action = nil;
+						};
+					};
+
+					// addAction
+					_b = false;
+					if (_dist < _BuyDist && alive _obj) then {
+						_b = true;
+					};
+					if (_b) then {
+						_num = _logic getVariable ["gosa_respawn_type", _respawn_type_All];
+						switch (_num) do {
+							case _respawn_type_Pilot: {
+								if (_startingClass != 1) then {
+									_b = false;
+								}else{
+									_str = "#USER:gosa_menu_factory_AircraftFactory_0";											
+								};
+							};
+							case _respawn_type_All: {
+								_str = "#USER:gosa_menu_factory_FactoryAll_0";
+							};
+							default {
+								_b = false;
+							};
+						};
+					};
+
+					if (_b) then {
+						if (isNil "_action") then {
+							_num = _player_veh addAction [
+								format ["%1 %2", localize "STR_gosa_purchase", _obj],
+								"dir\actions\act_buy_factory.sqf",
+								[_str, [_obj, 0]],
+								1,
+								false,
+								false
+							];
+							_obj setVariable ["gosa_act_factory", [_player_veh, _num, _obj], false];
+							diag_log format ["Log: [while_act_BuyMenu] %1 addAction %2, %3", _player_veh, _num, _obj];
+						};
+
+						_teleport = true;
+						_menu = true;
+					};
+				};
+			};
+		};
+
+
 		// Совместимость.
 		if (_shop) then {
 			_factory_use = _factory_use -[objNull];
