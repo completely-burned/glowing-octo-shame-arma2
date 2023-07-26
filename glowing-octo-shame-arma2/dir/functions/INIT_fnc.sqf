@@ -157,6 +157,8 @@ if (!IsDedicated) then {
 	"fnc_createmenu",
 	"fnc_vehicleHandleDamage",
 	#ifndef __ARMA3__
+		"fnc_fixType",
+		"fnc_isObjHQ",
 		"fnc_isHQ",
 		"fnc_vehInit2",
 	#endif

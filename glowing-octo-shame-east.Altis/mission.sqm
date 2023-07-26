@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=923;
+		nextID=931;
 	};
 	class MarkerIDProvider
 	{
@@ -227,7 +227,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Altis East v0.0.4.887 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Altis East v0.0.5.888 DEBUG";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
@@ -247,7 +247,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=59;
+		items=65;
 		class Item0
 		{
 			dataType="Logic";
@@ -739,6 +739,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
 			};
 			id=815;
 			type="Land_Cargo_HQ_V3_F";
@@ -772,6 +773,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
 			};
 			id=816;
 			type="Land_Cargo_HQ_V3_F";
@@ -805,6 +807,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
 			};
 			id=819;
 			type="Land_Cargo_HQ_V3_F";
@@ -838,7 +841,7 @@ class Mission
 			flags=1;
 			class Attributes
 			{
-				init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+				init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
 				name="gosa_airportHangar3";
 			};
 			id=820;
@@ -874,6 +877,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
 			};
 			id=821;
 			type="Land_Cargo_HQ_V3_F";
@@ -908,7 +912,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+				init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
 				name="gosa_airportHangar4";
 			};
 			id=823;
@@ -944,6 +948,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
 			};
 			id=824;
 			type="Land_Cargo_HQ_V3_F";
@@ -977,7 +982,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+				init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
 				name="gosa_airportHangar5";
 			};
 			id=825;
@@ -995,6 +1000,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
 			};
 			id=826;
 			type="Land_Cargo_HQ_V3_F";
@@ -1985,10 +1991,10 @@ class Mission
 			class PositionInfo
 			{
 				position[]={14401.976,18.759029,16228.751};
-				angles[]={0.0013372133,0,6.2818484};
+				angles[]={0.0013439035,0,6.2818413};
 			};
 			name="gosa_airportHangar0";
-			init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
 			id=882;
 			type="Logic";
 		};
@@ -2000,7 +2006,7 @@ class Mission
 				position[]={11561.919,23.92441,11966.773};
 			};
 			name="gosa_airportHangar1";
-			init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
 			id=883;
 			type="Logic";
 			atlOffset=0.00023078918;
@@ -2013,7 +2019,7 @@ class Mission
 				position[]={26756.752,20.497475,24652.049};
 			};
 			name="gosa_airportHangar2";
-			init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
 			id=884;
 			type="Logic";
 		};
@@ -2245,10 +2251,220 @@ class Mission
 				angles[]={0.0013439035,0,6.2818413};
 			};
 			name="gosa_airportHangar6";
-			init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
 			id=922;
 			type="Logic";
 			atlOffset=0.089000702;
+		};
+		class Item59
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14729.334,17.91,16691.145};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=924;
+			type="LocationBase_F";
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={21019.092,23.371637,7265.9468};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=926;
+			type="LocationBase_F";
+			atlOffset=-1.9073486e-006;
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={23042.014,3.2991943,18885.918};
+				angles[]={0.0093200579,0,6.2671981};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=927;
+			type="LocationBase_F";
+		};
+		class Item62
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={26796.529,22.415194,24615.549};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=928;
+			type="LocationBase_F";
+		};
+		class Item63
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11629.423,23.021326,11952.711};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=929;
+			type="LocationBase_F";
+			atlOffset=-1.9073486e-006;
+		};
+		class Item64
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9173.3438,14.759075,21625.104};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=930;
+			type="LocationBase_F";
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=13;
+		};
+		class Links
+		{
+			items=13;
+			class Item0
+			{
+				linkID=0;
+				item0=882;
+				item1=924;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=924;
+				item1=922;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=826;
+				item1=924;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=926;
+				item1=824;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=926;
+				item1=823;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item5
+			{
+				linkID=5;
+				item0=927;
+				item1=825;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item6
+			{
+				linkID=6;
+				item0=927;
+				item1=821;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item7
+			{
+				linkID=7;
+				item0=928;
+				item1=884;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item8
+			{
+				linkID=8;
+				item0=928;
+				item1=816;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item9
+			{
+				linkID=9;
+				item0=929;
+				item1=883;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item10
+			{
+				linkID=10;
+				item0=929;
+				item1=815;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item11
+			{
+				linkID=11;
+				item0=930;
+				item1=820;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item12
+			{
+				linkID=12;
+				item0=930;
+				item1=819;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
 		};
 	};
 };

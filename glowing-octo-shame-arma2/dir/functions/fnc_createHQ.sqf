@@ -10,12 +10,13 @@ if !(isServer) exitWith {
 diag_log format ["Log: [fnc_createHQ]: _this %1", _this];
 
 private ["_r","_grp","_logic","_pos","_class","_status","_str","_side",
-	"_obj","_arr","_type"];
+	"_obj","_arr","_type","_type_fixed"];
 
 _pos = _this select 0;
 _type = _this select 1;
 _status = _this select 2;
 _side = _this select 3;
+_type_fixed = _this select 6;
 
 // BASE (HQ or MHQ)
 _class = 0;
@@ -27,7 +28,12 @@ _class = 0;
 	_pos resize 2;
 #endif
 
-_obj = (createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"]);
+if (_type == _type_fixed) then {
+	_str = _type;
+}else{
+	_str = _type_fixed;
+};
+_obj = (createVehicle [_str, _pos, [], 0, "CAN_COLLIDE"]);
 
 //-- направление
 if (count _this > 5) then {

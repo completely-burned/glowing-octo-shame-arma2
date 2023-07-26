@@ -1,8 +1,9 @@
 #define __A2OA__
 /*
-TODO: a3 Экипажу после успешного размещения
-все равно отдается приказ покинуть тс.
-*/
+ * TODO: a3 Экипажу после успешного размещения
+ * все равно отдается приказ покинуть тс.
+ * TODO: Исправить беспилотнико A3.
+ */
 
 diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 
@@ -42,9 +43,11 @@ _crew = [];
 		_crewType = (_typicalCargo select 0);
 	}else{
 		_typicalCargo=[];
+		#ifndef __ARMA3__
 		if (_uav) then {
 			_crewType = [_grp, _type, side _grp] call gosa_fnc_crewUAV;
 		};
+		#endif
 		if (isNil "_crewType") then {
 			if (((getNumber (_entry >> "side")) call gosa_fnc_getSide) == side _grp) then {
 				_crewType = getText (_entry >> "crew");

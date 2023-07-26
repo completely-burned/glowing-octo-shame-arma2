@@ -225,12 +225,13 @@ while {true} do {
 				_timeNew = _time max (time + _timerDelete);
 				diag_log format ["Log: [GC2] %1 %2+ alive crew", _x_veh, _timeNew];
 			};
-		};
 
-		if(_x_veh == (gosa_cache_HQ select 0))then{
+			// FIXME: Объект не сразу попадает в список.
+			if ([_x_veh] call gosa_fnc_isObjHQ) then {
 			_delete = false;
 			_timeNew = _time max (time + _timerDelete);
 			diag_log format ["Log: [GC2] %1 %2+ MHQ", _x_veh,  _timeNew];
+			};
 		};
 
 		if (_delete) then{

@@ -37,15 +37,9 @@ class Params {
 	// Мобильный штаб.
 	class gosa_MHQ {
 		title="BASE: MHQ (not completed) [gp]";
-		#ifdef __ARMA3__
-			values[] = {0};
-			texts[] = {STR_DISABLED};
-			default=0;
-		#else
 		values[] = {-1,1,0};
 		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 		default = 0;
-		#endif
 	};
 
 	// Множитель отрядов авиации.
@@ -632,6 +626,14 @@ class CfgFunctions
 		};
 		class Systems
 		{
+			class fixType
+			{
+				file = "dir\functions\fnc_fixType.sqf";
+			};
+			class isObjHQ
+			{
+				file = "dir\functions\fnc_isObjHQ.sqf";
+			};
 			class list_HQ
 			{
 				file = "dir\functions\fnc_list_HQ.sqf";

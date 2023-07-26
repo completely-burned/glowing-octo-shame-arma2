@@ -1,9 +1,10 @@
 #define __A2OA__
 /*
-	Скрипт добавляет и обновляет различные взаимодействия,
-	например меню покупки при нахождении в определенных места.
-	TODO: Нужно оптимизировать.
-*/
+ * Скрипт добавляет и обновляет различные взаимодействия,
+ * например меню покупки при нахождении в определенных места.
+ * TODO: Нужно оптимизировать.
+ * TODO: Учёт Side.
+ */
 
 #ifndef __ARMA3__
 	#define BIS_SSM_CURRENTDISPLAY UInamespace getVariable "currentCutDisplay"
@@ -16,9 +17,12 @@ waitUntil {!isNil "MHQ_list"};
 
 private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV","_nearestObjects",
 	"_Objects","_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane",
-	"_Buy_Ship","_Airport","_teleport","_menu","_BuyDist","_uav_action",
+	"_Buy_Ship","_Airport","_teleport","_menu","_BuyDist","_uav_action","_coin",
 	"_uav_terminals","_actionObj","_action_uav","_types_MHQ","_types_HQ",
-	"_type","_Object","_action","_0","_1","_2",
+	"_player_veh","_factory_HQ","_factory_all","_logic","_class","_num",
+	"_action_factory","_action_num","_action_object","_b","_dist","_str",
+	"_factory_use","_respawn_type_Pilot","_respawn_type_All","_startingClass",
+	"_type","_Object","_action","_0","_1","_2","_listHQ_str","_arr","_listHQ",
 	"_action_teleport","_action_menu","_action_buy","_resetActions","_shop"];
 
 _HQ = [];
@@ -29,6 +33,10 @@ _HQ = [];
 } forEach (MHQ_list select 0) + HQ;
 
 _OptionsAvailable = [];
+_factory_use = [];
+
+_respawn_type_Pilot = 1;
+_respawn_type_All = 0;
 
 _nearestObjects = [
 	"LandVehicle",
@@ -52,6 +60,24 @@ if (missionNamespace getVariable "gosa_shop" == 1) then {
 	_BuyDist = 50;
 };
 
+if (missionNamespace getVariable "gosa_coin" > 0) then
+{
+	_coin = true;
+}else{
+	_coin = false;
+};
+
+if (isNil "gosa_playerStartingClass") then {
+	_startingClass = 0;
+}else{
+	_startingClass = gosa_playerStartingClass;
+};
+
+
+_listHQ_str = format["gosa_listHQ_%1", playerSide];
+
+waitUntil {!isNil "gosa_list_LocationAirport"};
+
 while {true} do {
 
 	if (!isNil {player getVariable "resetActions_handleBuyMenu"}) then {
@@ -62,11 +88,443 @@ while {true} do {
 	};
 
 	if (alive player && isNil {skipAddAction}) then {
+		scopeName "scope2";
 
-		_Buy_Man = false;	_Buy_Car = false;	_Buy_Tank = false;	_Buy_Helicopter = false;	_Buy_Plane = false;	_Buy_Ship = false; _Airport = false; _teleport = false; _menu = false;
-
+		_factory_all = false;
+		_factory_HQ = false;
+		_Buy_Man = false;
+		_Buy_Car = false;
+		_Buy_Tank = false;
+		_Buy_Helicopter = false;
+		_Buy_Plane = false;
+		_Buy_Ship = false;
+		_Airport = false;
+		_teleport = false;
+		_menu = false;
 
 		_BuyMenu = [[],[],[]];
+
+		_player_veh = vehicle player;
+
+		//-- Проходим по списку штабов.
+		_listHQ = ([] call compile _listHQ_str);
+		if !(isNil "_listHQ") then {
+			for "_i" from 0 to (count _listHQ -1) do {
+				_arr = _listHQ select _i;
+				_logic = _arr select 0;
+				_class = _arr select 1;
+				// Штаб.
+				if (_class < 1) then {
+					_dist = _logic distance _player_veh;
+					if (_shop) then {
+						_action = _logic getVariable "gosa_act_factory";
+						if !(isNil "_action") then {
+							// action obj
+							_action_object = _action select 0;
+							// action id
+							_num = _action select 1;
+							_action_factory = _action select 2;
+
+							// removeAction
+							_b = false;
+							if (_action_object != _player_veh) then {
+								_b = true;
+							};
+							if (_dist >= _BuyDist) then {
+								_b = true;
+							};
+							if !(alive _logic) then {
+								_b = true;
+							};
+							if (_b) then {
+								diag_log format ["Log: [while_act_BuyMenu] %1 removeAction %2", _action_object, _num];
+								_action_object removeAction _num;
+								_logic setVariable ["gosa_act_factory", nil, false];
+								_action = nil;
+							};
+						};
+
+						if (isNil "_action") then {
+							// addAction
+							_b = false;
+							if (_dist < _BuyDist && alive _logic) then {
+								_b = true;
+							};
+							if (_b) then {
+								_str = "#USER:BuyMenu_0";
+								_num = _player_veh addAction [
+									format ["%1 %2", localize "STR_gosa_purchase", _logic],
+									"dir\actions\act_buy_factory.sqf",
+									[_str, _arr],
+									1,
+									false,
+									false
+								];
+								_logic setVariable ["gosa_act_factory", [_player_veh, _num, _logic], false];
+								diag_log format ["Log: [while_act_BuyMenu] %1 addAction %2, %3", _player_veh, _num, _logic];
+							};
+						};
+					};
+
+					// Для совместимости.
+					if (_dist < _BuyDist && alive _logic) then {
+						_factory_HQ = true;
+					};
+				};
+			};
+		};
+
+		//-- Проходим по списку локаций.
+		// TODO: Перенести в скрипт обновления локаций.
+		// TODO: Объединить с маркерами.
+		_list = gosa_list_LocationAirport;
+		if (true) then {
+			for "_i" from 0 to (count _list -1) do {
+				_logic = _list select _i;
+				_arr = synchronizedObjects _logic;
+				for "_i0" from 0 to (count _arr -1) do {
+					_logic = _arr select _i0;
+					_obj = _logic getVariable ["gosa_building", _logic];
+					_dist = _obj distance _player_veh;
+					_action = _obj getVariable "gosa_act_factory";
+					if !(isNil "_action") then {
+						// action obj
+						_action_object = _action select 0;
+						// action id
+						_num = _action select 1;
+						_action_factory = _action select 2;
+
+						// removeAction
+						_b = false;
+						if (_action_object != _player_veh) then {
+							_b = true;
+						};
+						if (_dist >= _BuyDist) then {
+							_b = true;
+						};
+						if !(alive _obj) then {
+							_b = true;
+						};
+						if (_b) then {
+							diag_log format ["Log: [while_act_BuyMenu] %1 removeAction %2", _action_object, _num];
+							_action_object removeAction _num;
+							_obj setVariable ["gosa_act_factory", nil, false];
+							_action = nil;
+						};
+					};
+
+					// addAction
+					_b = false;
+					if (_dist < _BuyDist && alive _obj) then {
+						_b = true;
+					};
+					if (_b) then {
+						_num = _logic getVariable ["gosa_respawn_type", -1];
+						switch (_num) do {
+							case _respawn_type_Pilot: {
+								if (_startingClass != 1) then {
+									_b = false;
+								}else{
+									_str = "#USER:gosa_menu_factory_AircraftFactory_0";											
+								};
+							};
+							case _respawn_type_All: {
+								_str = "#USER:gosa_menu_factory_FactoryAll_0";
+							};
+							default {
+								_b = false;
+							};
+						};
+					};
+
+					if (_b) then {
+						if (isNil "_action") then {
+							_num = _player_veh addAction [
+								format ["%1 %2", localize "STR_gosa_purchase", _obj],
+								"dir\actions\act_buy_factory.sqf",
+								[_str, [_obj, 0]],
+								1,
+								false,
+								false
+							];
+							_obj setVariable ["gosa_act_factory", [_player_veh, _num, _obj], false];
+							diag_log format ["Log: [while_act_BuyMenu] %1 addAction %2, %3", _player_veh, _num, _obj];
+						};
+
+						_teleport = true;
+						_menu = true;
+					};
+				};
+			};
+		};
+
+
+		_list = gosa_list_LocationBase;
+		if (true) then {
+			for "_i" from 0 to (count _list -1) do {
+				_logic = _list select _i;
+				_arr = synchronizedObjects _logic;
+				// Для совместимости.
+				if (count _arr < 1) then {
+					_arr = [_logic];
+				};
+				for "_i0" from 0 to (count _arr -1) do {
+					_logic = _arr select _i0;
+					_obj = _logic getVariable ["gosa_building", _logic];
+					_dist = _obj distance _player_veh;
+					_action = _obj getVariable "gosa_act_factory";
+					if !(isNil "_action") then {
+						// action obj
+						_action_object = _action select 0;
+						// action id
+						_num = _action select 1;
+						_action_factory = _action select 2;
+
+						// removeAction
+						_b = false;
+						if (_action_object != _player_veh) then {
+							_b = true;
+						};
+						if (_dist >= _BuyDist) then {
+							_b = true;
+						};
+						if !(alive _obj) then {
+							_b = true;
+						};
+						if (_b) then {
+							diag_log format ["Log: [while_act_BuyMenu] %1 removeAction %2", _action_object, _num];
+							_action_object removeAction _num;
+							_obj setVariable ["gosa_act_factory", nil, false];
+							_action = nil;
+						};
+					};
+
+					// addAction
+					_b = false;
+					if (_dist < _BuyDist && alive _obj) then {
+						_b = true;
+					};
+					if (_b) then {
+						_num = _logic getVariable ["gosa_respawn_type", _respawn_type_All];
+						switch (_num) do {
+							case _respawn_type_Pilot: {
+								if (_startingClass != 1) then {
+									_b = false;
+								}else{
+									_str = "#USER:gosa_menu_factory_AircraftFactory_0";											
+								};
+							};
+							case _respawn_type_All: {
+								_str = "#USER:gosa_menu_factory_FactoryAll_0";
+							};
+							default {
+								_b = false;
+							};
+						};
+					};
+
+					if (_b) then {
+						if (isNil "_action") then {
+							_num = _player_veh addAction [
+								format ["%1 %2", localize "STR_gosa_purchase", _obj],
+								"dir\actions\act_buy_factory.sqf",
+								[_str, [_obj, 0]],
+								1,
+								false,
+								false
+							];
+							_obj setVariable ["gosa_act_factory", [_player_veh, _num, _obj], false];
+							diag_log format ["Log: [while_act_BuyMenu] %1 addAction %2, %3", _player_veh, _num, _obj];
+						};
+
+						_teleport = true;
+						_menu = true;
+					};
+				};
+			};
+		};
+
+
+		// Совместимость.
+		if (_shop) then {
+			_factory_use = _factory_use -[objNull];
+
+			//-- Проходим по списку задействованых заводов и казарм.
+			for "_i" from 0 to (count _factory_use -1) do {
+				_Object = _factory_use select _i;
+				_dist = _Object distance _player_veh;
+				_action = _Object getVariable "gosa_act_factory";
+				if !(isNil "_action") then {
+					// action obj
+					_action_object = _action select 0;
+					// action id
+					_num = _action select 1;
+					_action_factory = _action select 2;
+
+					// removeAction
+					_b = false;
+					if (_action_object != _player_veh) then {
+						_b = true;
+					};
+					if (_dist >= _BuyDist) then {
+						_b = true;
+					};
+					if !(alive _Object) then {
+						_b = true;
+					};
+					if (_b) then {
+						diag_log format ["Log: [while_act_BuyMenu] %1 removeAction %2", _action_object, _num];
+						_action_object removeAction _num;
+						_Object setVariable ["gosa_act_factory", nil, false];
+						//_action = nil;
+					};
+				};
+			};
+		};
+
+			//-- Проходим по списку ближних заводов и казарм.
+			_arr = nearestObjects [_player_veh, gosa_type_Barracks, _BuyDist];
+			if (count _arr > 0) then {
+				_teleport = true;
+				if (_shop) then {
+					for "_i" from 0 to (count _arr -1) do {
+						_Object = _arr select _i;
+						_action = _Object getVariable "gosa_act_factory";
+						if (isNil "_action") then {
+							// addAction
+							_b = false;
+							if (alive _Object) then {
+								_b = true;
+							};
+							if (_b) then {
+								_str = "#USER:gosa_menu_factory_Barracks_0";
+								_num = _player_veh addAction [
+									format ["%1 %2", localize "STR_gosa_purchase", _Object],
+									"dir\actions\act_buy_factory.sqf",
+									[_str, _arr],
+									1,
+									false,
+									false
+								];
+								_Object setVariable ["gosa_act_factory", [_player_veh, _num, _Object], false];
+								_factory_use set [count _factory_use, _Object];
+								diag_log format ["Log: [while_act_BuyMenu] %1 addAction %2, %3", _player_veh, _num, _Object];
+							};
+						};
+					};
+				};
+			};
+
+		if (_shop) then {
+			_arr = nearestObjects [_player_veh, gosa_type_LightFactory, _BuyDist];
+			for "_i" from 0 to (count _arr -1) do {
+				_Object = _arr select _i;
+				_action = _Object getVariable "gosa_act_factory";
+				if (isNil "_action") then {
+					// addAction
+					_b = false;
+					if (alive _Object) then {
+						_b = true;
+					};
+					if (_b) then {
+						// TODO: Объединить Car, Motorcycle.
+						// TODO: Переименовать в gosa_menu_factory_LightFactory_0.
+						_str = "#USER:Car_0";
+						_num = _player_veh addAction [
+							format ["%1 %2", localize "STR_gosa_purchase", _Object],
+							"dir\actions\act_buy_factory.sqf",
+							[_str, _arr],
+							1,
+							false,
+							false
+						];
+						_Object setVariable ["gosa_act_factory", [_player_veh, _num, _Object], false];
+						_factory_use set [count _factory_use, _Object];
+						diag_log format ["Log: [while_act_BuyMenu] %1 addAction %2, %3", _player_veh, _num, _Object];
+					};
+				};
+			};
+
+			_arr = nearestObjects [_player_veh, gosa_type_HeavyFactory, _BuyDist];
+			for "_i" from 0 to (count _arr -1) do {
+				_Object = _arr select _i;
+				_action = _Object getVariable "gosa_act_factory";
+				if (isNil "_action") then {
+					// addAction
+					_b = false;
+					if (alive _Object) then {
+						_b = true;
+					};
+					if (_b) then {
+						// TODO: Переименовать в gosa_menu_factory_HeavyFactory_0.
+						_str = "#USER:Tank_0";
+						_num = _player_veh addAction [
+							format ["%1 %2", localize "STR_gosa_purchase", _Object],
+							"dir\actions\act_buy_factory.sqf",
+							[_str, _arr],
+							1,
+							false,
+							false
+						];
+						_Object setVariable ["gosa_act_factory", [_player_veh, _num, _Object], false];
+						_factory_use set [count _factory_use, _Object];
+						diag_log format ["Log: [while_act_BuyMenu] %1 addAction %2, %3", _player_veh, _num, _Object];
+					};
+				};
+			};
+
+			_arr = nearestObjects [_player_veh, gosa_type_AircraftFactory, _BuyDist];
+			for "_i" from 0 to (count _arr -1) do {
+				_Object = _arr select _i;
+				_action = _Object getVariable "gosa_act_factory";
+				if (isNil "_action") then {
+					// addAction
+					_b = false;
+					if (alive _Object) then {
+						_b = true;
+					};
+					if (_b) then {
+						_str = "#USER:gosa_menu_factory_AircraftFactory_0";
+						_num = _player_veh addAction [
+							format ["%1 %2", localize "STR_gosa_purchase", _Object],
+							"dir\actions\act_buy_factory.sqf",
+							[_str, _arr],
+							1,
+							false,
+							false
+						];
+						_Object setVariable ["gosa_act_factory", [_player_veh, _num, _Object], false];
+						_factory_use set [count _factory_use, _Object];
+						diag_log format ["Log: [while_act_BuyMenu] %1 addAction %2, %3", _player_veh, _num, _Object];
+					};
+				};
+			};
+		};
+
+		if (_factory_HQ) then {
+			#ifdef __ARMA3__
+				_factory_all = true;
+				diag_log format ["Log: [while_act_BuyMenu] _factory_all = %1", _factory_all];
+			#else
+				if !(_coin) then
+				{
+					_factory_all = true;
+					diag_log format ["Log: [while_act_BuyMenu] _factory_all = %1", _factory_all];
+				};
+			#endif
+
+			_teleport = true;
+			_menu = true;
+		};
+
+		if (_factory_all) then {
+			_Buy_Man = true;
+			_Buy_Car = true;
+			_Buy_Tank = true;
+			_Buy_Helicopter = true;
+			_Buy_Plane = true;
+			_Buy_Ship = true;
+		};
 
 		_Objects = (nearestObjects [vehicle player, _nearestObjects, _BuyDist]);
 		if ((count _Objects > 0)) then {
@@ -87,39 +545,6 @@ while {true} do {
 					};
 
 					if (_shop) then {
-						if (!_Buy_Man or !_Buy_Car or !_Buy_Tank or !_Buy_Helicopter or !_Buy_Plane or !_Buy_Ship) then {
-							#ifdef __A2OA__
-							if ([[_type],HQ] call gosa_fnc_CheckIsKindOfArray or (missionNamespace getVariable "gosa_coin" != 1 && ([[_type],(MHQ_list select 0)] call gosa_fnc_CheckIsKindOfArray))) then {
-							#else
-							if ([[_type],(MHQ_list select 0) + HQ] call gosa_fnc_CheckIsKindOfArray) then {
-							#endif
-								_Buy_Man = true;	_Buy_Car = true;	_Buy_Tank = true;	_Buy_Helicopter = true;	_Buy_Plane = true;
-							};
-						};
-						if (!_Buy_Man) then {
-							if ([[_type],["Base_WarfareBBarracks"]] call gosa_fnc_CheckIsKindOfArray) then {
-								_Buy_Man = true;
-							};
-						};
-
-						if !(_Buy_Car) then {
-							if ([[_type],["Base_WarfareBLightFactory"]] call gosa_fnc_CheckIsKindOfArray) then {
-								_Buy_Car = true;
-							};
-						};
-
-						if !(_Buy_Tank) then {
-							if ([[_type],["Base_WarfareBHeavyFactory"]] call gosa_fnc_CheckIsKindOfArray) then {
-								_Buy_Tank = true;
-							};
-						};
-
-						if !(_Buy_Helicopter) then {
-							if ([[_type],["Base_WarfareBAircraftFactory"]] call gosa_fnc_CheckIsKindOfArray) then {
-								_Buy_Helicopter = true;
-							}else{
-							};
-						};
 
 						if (!_Buy_Plane or !_Buy_Helicopter) then {
 							if ([[_type],Airport] call gosa_fnc_CheckIsKindOfArray) then {
@@ -131,12 +556,6 @@ while {true} do {
 							if ([[_type],pier] call gosa_fnc_CheckIsKindOfArray) then {
 								_Buy_Ship = true;
 							};
-						};
-					};
-
-					if !(_teleport) then {
-						if ([[_type],(MHQ_list select 0)+(MHQ_list select 1) + gosa_objectsTeleport] call gosa_fnc_CheckIsKindOfArray) then {
-							_teleport = true;
 						};
 					};
 
@@ -155,7 +574,9 @@ while {true} do {
 						#endif
 					};
 
+					#ifndef __ARMA3__
 					[_Object, _type] call gosa_fnc_act_repairVehicle;
+					#endif
 
 					if ([[_type],["ReammoBox"]] call gosa_fnc_CheckIsKindOfArray) then {
 						if (alive _Object) then {

@@ -1,18 +1,20 @@
 #define __A2OA__
 /*
-В этом файле формируется меню позиций для телепортации.
-*/
-private ["_item","_obj","_num","_str","_for","_pos"];
+ * В этом файле формируется меню позиций для телепортации.
+ * TODO: Рефакторинг.
+ */
+private ["_item","_obj","_num","_str","_for","_pos","_arr",
+	"_list","_list2","_reapawnPlayer","_teleport_list",
+	"_class","_logic",
+	"_gosa_objectsTeleportTmp","_gosa_objectsTeleport"];
 
-waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
-waitUntil{!isNil "civilianBasePos"};
-waitUntil{!isNil "CivilianLocation"};
-waitUntil{!isNil "MHQ_list"};
-
-private ["_list","_list2","_reapawnPlayer","_teleport_list"];
 _list=[];
 _teleport_list=[];
 _list2=[];
+_gosa_objectsTeleportTmp = [];
+_gosa_objectsTeleport = [];
+
+//-- Совместимость.
 switch (playerSide) do {
 	case (west):
 	{
@@ -33,17 +35,51 @@ switch (playerSide) do {
 	default {};
 };
 
-// _teleportLocations = ((nearestLocations [civilianBasePos, ["CityCenter"],5000])-[CivilianLocation]);
-// _teleportLocations resize (5 min count _teleportLocations);
 
-private ["_gosa_objectsTeleportTmp","_gosa_objectsTeleport"];
-_gosa_objectsTeleportTmp = [];
-_gosa_objectsTeleport = [];
+waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
+waitUntil{!isNil "civilianBasePos"};
+waitUntil{!isNil "CivilianLocation"};
+waitUntil{!isNil "MHQ_list"};
+
+
+//-- Штабы.
+//- Список штабов.
+_str = format["gosa_listHQ_%1", playerSide];
+//waitUntil{!isNil _str};
+_for = ([] call compile _str);
+
+for "_i" from 0 to (count _for - 1) do {
+	//- Массив штаба.
+	// [_logic, _class, _status, [_obj,objNull,_obj], _side, _str]
+	_item = _for select _i;
+	_logic = _item select 0;
+
+	// Если логика мертва значит штаб уничтожен.
+	if (alive _logic) then {
+		_class = _item select 1;
+
+		// Доступен только штаб.
+		//if (_class == 0) then {
+			//- Объекты.
+			_arr = _item select 3;
+			_arr = _arr -[objNull];
+			if (count _arr < 1) then {
+				// Объекты могут дать сбой.
+				_arr = [_logic];
+			};
+
+			//- Добавление в предварительный список.
+			_gosa_objectsTeleportTmp = _gosa_objectsTeleportTmp + _arr;
+		//};
+	};
+};
+
 
 //-- Аэропорты, пока только для пилотов.
 // TODO: Возможность телепортироваться обратно.
 if (gosa_playerStartingClass == 1) then {
 	_for = [] call gosa_fnc_initAirports;
+	// FIXME: Код повторяется, нужен лишь для аэропортов.
 	for "_i" from 0 to (count _for - 1) do {
 		_item = _for select _i;
 		_obj = _item select 1;
@@ -61,18 +97,25 @@ if (gosa_playerStartingClass == 1) then {
 	};
 };
 
+
+
+//-- Совместимость с устаревшим кодом.
 #ifdef __A2OA__
 {
 	_gosa_objectsTeleportTmp = _gosa_objectsTeleportTmp + allMissionObjects _x;
 } foreach gosa_objectsTeleport;
 #endif
 
+
+// FIXME: Не актуально, mhq.
 {
 	if(toLower typeOf _x in (MHQ_list select 0))then{
 		_gosa_objectsTeleportTmp set [count _gosa_objectsTeleportTmp, _x];
 	};
 } foreach vehicles;
 
+
+//-- Дедубликация.
 {
 	if!(_x in _gosa_objectsTeleport)then{
 		_gosa_objectsTeleport set [count _gosa_objectsTeleport, _x];
@@ -80,6 +123,7 @@ if (gosa_playerStartingClass == 1) then {
 } foreach _gosa_objectsTeleportTmp;
 
 
+//-- 
 _teleportLocations = [];
 {
 	switch (typeName _x) do {
@@ -110,9 +154,18 @@ _teleportLocations = [];
 } foreach _gosa_objectsTeleport
 +_teleportLocations;
 
+
 diag_log format ["Log: [fnc_teleport] n %1", _list];
 diag_log format ["Log: [fnc_teleport] t %1", _list2];
 diag_log format ["Log: [fnc_teleport] o %1", _teleport_list];
 
-teleport_list = _teleport_list;
-["teleport", "teleport", [_list,_list2], "","(teleport_list select %1) call gosa_fnc_teleport2"] call BIS_FNC_createmenu;
+
+gosa_menu = _teleport_list;
+//- меню
+[
+	"teleport",
+	"teleport",
+	[_list,_list2],
+	"",
+	"(gosa_menu select %1) spawn gosa_fnc_teleport2; gosa_menu = nil;"
+] call BIS_FNC_createmenu;
