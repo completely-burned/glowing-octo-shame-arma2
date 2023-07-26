@@ -17,7 +17,7 @@ waitUntil {!isNil "MHQ_list"};
 
 private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV","_nearestObjects",
 	"_Objects","_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter","_Buy_Plane",
-	"_Buy_Ship","_Airport","_teleport","_menu","_BuyDist","_uav_action",
+	"_Buy_Ship","_Airport","_teleport","_menu","_BuyDist","_uav_action","_coin",
 	"_uav_terminals","_actionObj","_action_uav","_types_MHQ","_types_HQ",
 	"_player_veh","_factory_HQ","_factory_all","_logic","_class","_num",
 	"_action_factory","_action_num","_action_object","_b","_dist","_str",
@@ -58,6 +58,13 @@ if (missionNamespace getVariable "gosa_shop" == 1) then {
 }else{
 	_shop = false;
 	_BuyDist = 50;
+};
+
+if (missionNamespace getVariable "gosa_coin" > 0) then
+{
+	_coin = true;
+}else{
+	_coin = false;
 };
 
 if (isNil "gosa_playerStartingClass") then {
@@ -498,7 +505,14 @@ while {true} do {
 			#ifdef __ARMA3__
 				_factory_all = true;
 				diag_log format ["Log: [while_act_BuyMenu] _factory_all = %1", _factory_all];
+			#else
+				if !(_coin) then
+				{
+					_factory_all = true;
+					diag_log format ["Log: [while_act_BuyMenu] _factory_all = %1", _factory_all];
+				};
 			#endif
+
 			_teleport = true;
 			_menu = true;
 		};
