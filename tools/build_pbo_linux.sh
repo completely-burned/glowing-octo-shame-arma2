@@ -85,9 +85,8 @@ then
 else
 	DEBUGPOSTFIX=""
 
-	#echo "Delete non ASCII strings"
-	#find $TMPDIR -type f -iname "*.sqf" \
-	#-exec sed -i '/^.*[^\x00-\x7F].*$/d' {} \;
+	echo "Delete non ASCII strings"
+	LANG=C find $TMPDIR -type f -iname "*.sqf" -exec sed -i '/^.*[^\x00-\x7F].*$/d' {} \;
 
 	# строки начинающиеся с diag_log нужны для отладки
 	# они возможно снижают производительность
