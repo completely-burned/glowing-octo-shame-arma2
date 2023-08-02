@@ -1,16 +1,16 @@
 #define __A2OA__
 
 /*
-скрипт возрождния в случайного юнита.
-TODO: нужна проверка AFK на игроков и лидеров группы
-FIXME: у меня нет возможности проверить этот режим должным образом, поэтому тут гадание, и вероятно не все проверки необходимы
-FIXME: при проверки name возможно переменная selectPlayerDisable становится лишней
-	заметки:
-		name синхоризируется не сразу.
-*/
+ * Скрипт возрождния в случайного юнита.
+ * TODO: нужна проверка AFK на игроков и лидеров группы
+ * FIXME: у меня нет возможности проверить этот режим должным образом, поэтому тут гадание, и вероятно не все проверки необходимы
+ * FIXME: при проверки name возможно переменная selectPlayerDisable становится лишней
+ * Заметки:
+ * 	name синхоризируется не сразу.
+ */
 
 private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
-	"_fnc_prio_units",
+	"_fnc_prio_units","_fnc_swich","_findBody","_fnc_isFit",
 	"_listPlayers","_deathTime","_cam","_t","_o","_z","_p_name"];
 
 waitUntil{!isNil "gosa_playerStartingClass"};
@@ -35,7 +35,6 @@ gosa_lastSwitchBodyTime = -99999;
 diag_log format ["Log: [respawnRandom] init info %1", [_p, _p_name, _o]];
 
 
-private["_fnc_swich","_findBody"];
 
 // переключение на новое тело
 _fnc_swich={
@@ -65,37 +64,39 @@ _fnc_swich={
 	if (!isNil "_var" && (_var == _o)) then
 	#endif
 	{
-	_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
+		_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
 
-	[nil, _new, rgosa_setMapPlayers, _o] call RE;
+		[nil, _new, rgosa_setMapPlayers, _o] call RE;
 
-	_b = behaviour _new;
-	if (_b == "COMBAT") then { //&& (_new countEnemy (_new nearEntities ["Land", 500]) > 3)
-		//-- осветительная ракета
-		_new call gosa_fnc_aiFlareSupport;
-	};
+		_b = behaviour _new;
+		if (_b == "COMBAT") then { //&& (_new countEnemy (_new nearEntities ["Land", 500]) > 3)
+			//-- осветительная ракета
+			_new call gosa_fnc_aiFlareSupport;
+		};
 
-	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
-	selectPlayer _new;
+		diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
+		selectPlayer _new;
 
-	gosa_lastSwitchBodyTime = time;
+		gosa_lastSwitchBodyTime = time;
 
-	_new call gosa_fnc_initBriefing;
+		_new call gosa_fnc_initBriefing;
 
-	// информирование других игроков о возрождении в отряде
-	[nil, _new, rhintresurrected, _p_name] call RE;
+		// информирование других игроков о возрождении в отряде
+		[nil, _new, rhintresurrected, _p_name] call RE;
 
-	// diag_log TODO: нужна функция
-	if (gosa_loglevel > 0) then {					// diag_log
-		_z = [];									// diag_log
-		{											// diag_log
-			_z = _z + [_x,1];						// diag_log
-		} foreach ([] call BIS_fnc_getFactions);	// diag_log
-		_new setVariable ["MARTA_showRules", _z];	// diag_log
-	};												// diag_log
+		// Отображение всех групп в режиме отладки.		// diag_log
+		// TODO: Нужна функция.							// diag_log
+		if (gosa_loglevel > 0) then {					// diag_log
+			_z = [];									// diag_log
+			{											// diag_log
+				_z = _z + [_x,1];						// diag_log
+			} foreach ([] call BIS_fnc_getFactions);	// diag_log
+			_new setVariable ["MARTA_showRules", _z];	// diag_log
+		};												// diag_log
 
-		// в случае неудачи необходимо временно добавить объект в черный список, иначе он будет повторно выбран
-		// FIXME: не уверен в отсутствии ложных включений
+		// В случае неудачи необходимо временно добавить объект в черный список,
+		// иначе он будет повторно выбран.
+		// FIXME: Не уверен в отсутствии ложных срабатываний.
 		// FIXME: Возможно требуется время для синхронизации.
 		sleep 1;
 		if (player != _new) then {
@@ -138,17 +139,8 @@ _findBody={
 	diag_log format ["Log: [respawnRandom] _u %1", _u];
 	diag_log format ["Log: [respawnRandom] _uOff %1", _uOff];
 
-	/*
-	не завершено
-	if ({_x != player && {_x call gosa_fnc_isPlayer}} count _this > 0) then {
-		_z = true;
-	} else {
-		_z = false;
-	};
-	diag_log format ["Log: [respawnRandom] other players in squad %1", _z];
-	*/
-
 	scopename "fb1";
+	// TODO: Нужна функция.
 	{
 		if (_x call _fnc_isFit) then {
 
@@ -199,10 +191,11 @@ _fnc_prio_units={
 		_uH,_uM,_uL];
 };
 
-// первое тело данное при старте миссии при возрождении ведет себя иначе и не подходит
+// Первое тело данное при старте миссии при возрождении ведет себя иначе и не подходит.
 player setVariable ["selectPlayerDisable", true, true];
 
-// после переключения на новое тело уничтожаем первое тело данное при старте т.к. оно расположено на неподходящей позиции и нужно только для старта миссии
+// После переключения на новое тело уничтожаем первое тело данное при старте
+// т.к. оно расположено на неподходящей позиции и нужно только для старта миссии.
 // нужно для respawnDone = true
 [_p] spawn {
 	waitUntil{
@@ -213,8 +206,7 @@ player setVariable ["selectPlayerDisable", true, true];
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };
 
-// функция отсеивает неподходящие тела для перерождения
-private["_fnc_isFit"];
+// Функция отсеивает неподходящие тела для перерождения.
 _fnc_isFit={
 	private ["_blt"];
 
@@ -232,10 +224,11 @@ _fnc_isFit={
 	};
 
 	if (
-#ifndef __A2OA__
-		// v1.11 если юнит не локальный не передает управление игроку
-		local _this &&
-#endif
+		#ifndef __A2OA__
+			// v1.11 если юнит не локальный не передает управление игроку
+			local _this &&
+		#endif
+
 		( (_this call gosa_fnc_withinMap) or
 			#ifdef __A2OA__
 			(!isNil "gosa_player_needs_revival" && {gosa_player_needs_revival + 25 < time})
@@ -289,14 +282,7 @@ while {true} do {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] not alive %1", _p];
 	};
-	/*
-	при переключении другое тело не сразу становиться локальным
-	// FIXME: не исправляет ситуацию слипнувшихся игроков
-	if (!local _p) then {
-		_t = true;
-		diag_log format ["Log: [respawnRandom] not local %1", _p];
-	};
-	*/
+
 	if (isNull player) then {
 		_t = true;
 		diag_log format ["Log: [respawnRandom] isNull %1", player];
@@ -424,67 +410,41 @@ while {true} do {
 		if !(isNil "_sorted") then {
 			diag_log format ["Log: [respawnRandom] _sorted %1", _sorted];
 
-		/*
-		FIXME: локальная группа не имеет смысла т.к. ии автоматически становятся локальны игроку командиру в итоге
-		// ищем новое тело среди групп локальных игроку для лучшего командования подчиненными
-		if (isNil{_bestCandidate}) then {
-			{
-				_z = _x select 0;
-				if (side _z in gosa_friendlyside) then {
-					_leader = leader _z;
-					if (local _leader) then {
-						diag_log format ["Log: [respawnRandom] ищем среди локальных групп %1", _z];
+			// ищем новое тело среди лидеров групп т.к. игроки лучше командуют отрядом
+			if (isNil{_bestCandidate}) then {
+				{
+					_z = _x select 0;
+					if (side _z in gosa_friendlyside) then {
+						diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _z];
+						_leader = leader _z;
 						if (_leader call _fnc_isFit) then {
 							if (isNil {_bestCandidate}) then {
 								_bestCandidate = _leader;
 							};
-							// TODO: нужно решить конфликт с приоритетами
-							if ((_pos distance _leader) < (_pos distance _bestCandidate)) then {
+							// TODO: нужно устранить конфликт с приоритетами
+							if ((_pos distance _leader)+2000 < (_pos distance _bestCandidate)) then {
 								_bestCandidate = _leader;
 							};
 						};
 					};
-				};
-			// TODO: нужно устранить дублирование
-			} forEach _sorted;
-		};
-		*/
 
-		// ищем новое тело среди лидеров групп т.к. игроки лучше командуют отрядом
-		if (isNil{_bestCandidate}) then {
-			{
-				_z = _x select 0;
-				if (side _z in gosa_friendlyside) then {
-					diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _z];
-					_leader = leader _z;
-					if (_leader call _fnc_isFit) then {
-						if (isNil {_bestCandidate}) then {
-							_bestCandidate = _leader;
-						};
-						// TODO: нужно устранить конфликт с приоритетами
-						if ((_pos distance _leader)+2000 < (_pos distance _bestCandidate)) then {
-							_bestCandidate = _leader;
-						};
+				} forEach _sorted;
+			};
+
+			// ищем тело среди всех юнитов
+			if (isNil{_bestCandidate}) then {
+				{
+					if (isNil{_bestCandidate}) then {
+						(_x select 2) call _findBody;
 					};
-				};
-
-			} forEach _sorted;
-		};
-
-		// ищем тело среди всех юнитов
-		if (isNil{_bestCandidate}) then {
-			{
-				if (isNil{_bestCandidate}) then {
-					(_x select 2) call _findBody;
-				};
-				if (isNil{_bestCandidate}) then {
-					(_x select 3) call _findBody;
-				};
-				if (isNil{_bestCandidate}) then {
-					(_x select 4) call _findBody;
-				};
-			} forEach _sorted;
-		};
+					if (isNil{_bestCandidate}) then {
+						(_x select 3) call _findBody;
+					};
+					if (isNil{_bestCandidate}) then {
+						(_x select 4) call _findBody;
+					};
+				} forEach _sorted;
+			};
 
 		};
 
