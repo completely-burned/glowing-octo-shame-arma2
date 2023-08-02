@@ -43,7 +43,7 @@ if (count _arr < 1) then {
 for "_i" from 0 to (count _arr - 1) do {
 	_logic = _arr select _i;
 
-	_type = _logic getVariable ["gosa_Location_type", 0];
+	_type = _logic getVariable ["gosa_Location_type", -1];
 
 	if (_type in _type_Airport) then {
 		if !(_logic in _list_Airport
