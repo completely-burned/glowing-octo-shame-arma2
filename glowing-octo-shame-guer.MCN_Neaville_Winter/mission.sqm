@@ -25,7 +25,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=20;
+		items=21;
 		class Item0
 		{
 			side="LOGIC";
@@ -641,6 +641,25 @@ class Mission
 					forceHeadlessClient=1;
 					skill=0.2;
 					text="HC (9)";
+				};
+			};
+		};
+		class Item20
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3427.8433,45.116741,3250.2666};
+					id=101;
+					side="LOGIC";
+					vehicle="LocationLogicStart";
+					leader=1;
+					skill=0.60000002;
+					text="gosa_LogicLocationBase_0";
+					init="this setVariable [""gosa_Location_type"", 0];";
 				};
 			};
 		};
