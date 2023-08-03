@@ -257,6 +257,10 @@ Officers = [
 // [inf,veh,air,Ship,StaticWeapon,base,]
 safeSpawnDistance = [1000,1500,3500,1500,1500,3500];
 
+// Error Undefined variable in expression: i44_tankpenetration
+// File x\inv44\addons\i44_scripts_vehicles\s\post_init.sqf, line 3
+i44_tankpenetration = false;
+
 [] call gosa_fnc_worldSize;
 
 [] execVM ("dir\common\while_init.sqf");
