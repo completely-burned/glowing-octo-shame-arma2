@@ -19,8 +19,8 @@ _list_Base = [];
 	_arr = [];
 #endif
 
-for "_i" from 0 to 99 do {
-	if (_i < 1) then {
+for "_i" from -1 to 99 do {
+	if (_i < 0) then {
 		_str = "gosa_LogicLocationBase";
 	}else{
 		_str = format["gosa_LogicLocationBase_%1", _i];
