@@ -43,7 +43,7 @@ class Params {
 		title="BASE: MHQ (not completed) [gp]";
 		values[] = {-1,1,0};
 		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default = 0;
+		default = -1;
 	};
 
 	// Множитель отрядов авиации.
