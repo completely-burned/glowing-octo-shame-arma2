@@ -28,7 +28,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=2;
+		items=9;
 		class Item0
 		{
 			side="LOGIC";
@@ -103,6 +103,132 @@ class Mission
 					vehicle="I44_Man_A_Army_RTO_M1Carbine";
 					player="PLAY CDG";
 					skill=0.2;
+				};
+			};
+		};
+		class Item2
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={798.07709,12.242856,4457.4268};
+					id=6;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [""CityCenter"", getPos this, 100, 100];";
+				};
+			};
+		};
+		class Item3
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={659.36542,42.536236,4047.6565};
+					id=7;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [""CityCenter"", getPos this, 100, 100];";
+				};
+			};
+		};
+		class Item4
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={882.43994,50.085773,3389.1272};
+					id=8;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [""CityCenter"", getPos this, 300, 300];";
+				};
+			};
+		};
+		class Item5
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2117.1475,56.169811,2018.762};
+					id=9;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [""CityCenter"", getPos this, 200, 200];";
+				};
+			};
+		};
+		class Item6
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2416.647,51.151863,2920.8398};
+					id=10;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [""CityCenter"", getPos this, 100, 100];";
+				};
+			};
+		};
+		class Item7
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2898.967,56.27338,2114.0894};
+					id=11;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [""CityCenter"", getPos this, 600, 600];";
+				};
+			};
+		};
+		class Item8
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3450.2378,58.742184,2318.5923};
+					id=12;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [""CityCenter"", getPos this, 200, 200];";
 				};
 			};
 		};
