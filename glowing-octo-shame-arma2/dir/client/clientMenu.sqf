@@ -1,8 +1,11 @@
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
-	"_arr","_count","_b","_cfg","_0","_1","_2","_n",
+	"_arr","_count","_b","_cfg","_0","_1","_2","_n","_allow",
+	"_mod_i44",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
+
+_mod_i44 = if (configName(configFile >> "CfgVehicles" >> "I44_Man") != "") then{true}else{false};
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
 
@@ -225,6 +228,11 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 		"_find_faction","_vehicleclasses","_find_vehicleclass",
 		"_count","_types"];
 
+		if (_mod_i44) then {
+			_allow = ["i44_ammo","backpacks"];
+		}else{
+			_allow = ["ammo","ace_ammunition","backpacks"];
+		};
 		_tmp_arr = [[],[],[]];
 		{
 
@@ -240,7 +248,7 @@ if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
 				_class = getText(_entry >> "vehicleclass");
 			};
 
-						if (toLower _class in ["ammo","ace_ammunition","backpacks"]) then {
+						if (toLower _class in _allow) then {
 							//- Фракция.
 								_factionclasses = _tmp_arr select 0;
 								if (_faction in _factionclasses)then{
