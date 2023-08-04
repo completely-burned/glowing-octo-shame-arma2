@@ -10,7 +10,7 @@
  */
 
 private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
-	"_fnc_prio_units","_findBody","_fnc_isFit",
+	"_fnc_prio_units","_findBody",
 	"_listPlayers","_deathTime","_cam","_t","_o","_z","_p_name"];
 
 waitUntil{!isNil "gosa_playerStartingClass"};
@@ -64,7 +64,7 @@ _findBody={
 	scopename "fb1";
 	// TODO: Нужна функция.
 	{
-		if (_x call _fnc_isFit) then {
+		if (_x call gosa_fnc_selectPlayer_isFit) then {
 
 			if (isNil {_bestCandidate}) then {
 				_bestCandidate = _x;
@@ -126,66 +126,6 @@ player setVariable ["selectPlayerDisable", true, true];
 	_this select 0 setDamage 1;
 	respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
-};
-
-// Функция отсеивает неподходящие тела для перерождения.
-_fnc_isFit={
-	private ["_blt"];
-
-	// черный список временный
-	_blt = _this getVariable "gosa_respawn_blt";
-	if (isNil "_blt") then {
-	 _blt = true;
- 	} else {
-		if (_blt+10 < time) then {
-			_this setVariable ["gosa_respawn_blt", nil];
-			_blt = true;
-		} else {
-			_blt = false;
-		};
-	};
-
-	if (
-		#ifndef __A2OA__
-			// v1.11 если юнит не локальный не передает управление игроку
-			local _this &&
-		#endif
-
-		( (_this call gosa_fnc_withinMap) or
-			#ifdef __A2OA__
-			(!isNil "gosa_player_needs_revival" && {gosa_player_needs_revival + 25 < time})
-			#else
-			(!isNil "gosa_player_needs_revival" && (gosa_player_needs_revival + 25 < time))
-			#endif
-		)	&&
-		_blt &&
-		side _this in gosa_friendlyside &&
-		isNil{_this getVariable "selectPlayerDisable"} &&
-		alive _this &&
-		(damage _this < 0.9) &&
-		!(_this call gosa_fnc_isPlayer) &&
-		!isNull _this &&
-		!(_this call gosa_fnc_isUAV) &&
-		!isNil{group _this getVariable "grp_created"} &&
-		// TODO: нужно реализовать десант с игроками тоже
-		!(WaypointType [group _this, currentwaypoint group _this] in ["UNLOAD","GETOUT"]) &&
-		!(vehicle _this isKindOf "StaticWeapon") &&
-		(
-			// отключенно из-за десанта, и не умения летать некоторых игроков
-			!(vehicle _this isKindOf "Air") or
-			group _this == group player
-		) &&
-		(
-			// отключенно из-за десанта
-			!(vehicle _this isKindOf "Ship") or
-			group _this == group player
-		) &&
-		(isNil {group _this getVariable "patrol"} or vehicle _this distance civilianBasePos < (safeSpawnDistance select 1))
-	) then {
-		true;
-	}else{
-		false;
-	};
 };
 
 if (isNil "gosa_SquadRole") then {
@@ -339,7 +279,7 @@ while {true} do {
 					if (side _z in gosa_friendlyside) then {
 						diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _z];
 						_leader = leader _z;
-						if (_leader call _fnc_isFit) then {
+						if (_leader call gosa_fnc_selectPlayer_isFit) then {
 							if (isNil {_bestCandidate}) then {
 								_bestCandidate = _leader;
 							};
