@@ -1,3 +1,5 @@
+#define __A2OA__
+
 private["_old","_new","_b","_time","_var","_arr","_str","_o"];
 _old = (_this select 0);
 _new = (_this select 1);
