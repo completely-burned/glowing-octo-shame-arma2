@@ -13,8 +13,6 @@ private["_p","_g2","_gov","_g","_v",
 	"_z","_l"
 ];
 
-[player] joinSilent grpNull;
-
 while {true} do {
 	_p = player;
 	_g = group _p;
