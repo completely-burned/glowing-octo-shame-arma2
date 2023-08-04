@@ -10,7 +10,7 @@
  */
 
 private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
-	"_fnc_prio_units","_fnc_swich","_findBody","_fnc_isFit",
+	"_fnc_prio_units","_findBody","_fnc_isFit",
 	"_listPlayers","_deathTime","_cam","_t","_o","_z","_p_name"];
 
 waitUntil{!isNil "gosa_playerStartingClass"};
@@ -35,84 +35,6 @@ gosa_lastSwitchBodyTime = -99999;
 diag_log format ["Log: [respawnRandom] init info %1", [_p, _p_name, _o]];
 
 
-
-// переключение на новое тело
-_fnc_swich={
-	private["_old","_new","_b","_time","_var"];
-	_old = (_this select 0);
-	_new = (_this select 1);
-
-	if (isMultiplayer) then {
-		// Чтобы игроки не слипались в одно тело.
-		[nil, _new, rselectPlayer, _o] call RE;
-
-		_time = time+5;
-		// FIXME: это плохой способ, .. почему?
-		while {isNil "_var" && time < _time} do {
-			_var = _new getVariable "gosa_player_owner";
-			sleep 0.05;
-		};
-
-		diag_log format ["Log: [respawnRandom] _fnc_swich _var %1, _o %2", _var, _o];
-	}else{
-		_var = _o;
-	};
-
-	#ifdef __A2OA__
-	if (!isNil "_var" && {_var == _o}) then
-	#else
-	if (!isNil "_var" && (_var == _o)) then
-	#endif
-	{
-		_new addEventHandler ["killed", {_this select 0 setVariable ["selectPlayerDisable", true, true];}];
-
-		[nil, _new, rgosa_setMapPlayers, _o] call RE;
-
-		_b = behaviour _new;
-		if (_b == "COMBAT") then { //&& (_new countEnemy (_new nearEntities ["Land", 500]) > 3)
-			//-- осветительная ракета
-			_new call gosa_fnc_aiFlareSupport;
-		};
-
-		diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
-		selectPlayer _new;
-
-		gosa_lastSwitchBodyTime = time;
-
-		_new call gosa_fnc_initBriefing;
-
-		// информирование других игроков о возрождении в отряде
-		[nil, _new, rhintresurrected, _p_name] call RE;
-
-		// Отображение всех групп в режиме отладки.		// diag_log
-		// TODO: Нужна функция.							// diag_log
-		if (gosa_loglevel > 0) then {					// diag_log
-			_z = [];									// diag_log
-			{											// diag_log
-				_z = _z + [_x,1];						// diag_log
-			} foreach ([] call BIS_fnc_getFactions);	// diag_log
-			_new setVariable ["MARTA_showRules", _z];	// diag_log
-		};												// diag_log
-
-		// В случае неудачи необходимо временно добавить объект в черный список,
-		// иначе он будет повторно выбран.
-		// FIXME: Не уверен в отсутствии ложных срабатываний.
-		// FIXME: Возможно требуется время для синхронизации.
-		sleep 1;
-		if (player != _new) then {
-			_new setVariable ["gosa_respawn_blt", time];
-			diag_log format ["Log: [respawnRandom] _fnc_swich переключение не удалось %1", _new];
-			_old;
-		}else{
-			_new;
-		};
-
-	}else{
-		_new setVariable ["gosa_respawn_blt", time];
-		_old;
-	};
-
-};
 
 _findBody={
 
@@ -491,7 +413,7 @@ while {true} do {
 
 	// выбрано новое тело, переключаем
 	if (!isNil{_bestCandidate}) then {
-		_p = ([_p, _bestCandidate] call _fnc_swich);
+		_p = ([_p, _bestCandidate, _o, _p_name] call gosa_fnc_selectPlayer);
 		_bestCandidate = nil;
 	};
 

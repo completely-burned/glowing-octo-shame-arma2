@@ -35,7 +35,7 @@ if (isServer) then {
 
 
 //--- клиент
-if (!IsDedicated) then {
+if !(IsDedicated) then {
 	{
 		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 	} forEach [
@@ -43,6 +43,7 @@ if (!IsDedicated) then {
 			"fnc_menu_factory",
 			"fnc_menu_factories",
 		#endif
+		"fnc_selectPlayer",
 		"fnc_eh_playerRespawn",
 		"fnc_reveal",
 		"fnc_initBriefing",
