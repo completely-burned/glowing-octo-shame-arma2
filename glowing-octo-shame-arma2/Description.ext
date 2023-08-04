@@ -14,14 +14,10 @@ class MissionSQM {
 
 // Потеря снаряжения при длительном нахождении в воде отключена из-за застревающих ии и мусора.
 enableItemsDropping = 0;
-#ifdef __ARMA3__
-	respawnDelay = -1;
-#else
 respawnDialog = 0;
 respawnVehicleDialog = 0;
 respawnDelay = 5;
 respawnVehicleDelay = 60;
-#endif
 respawn = "BASE";
 disabledai = 1;
 aiKills = 0;
