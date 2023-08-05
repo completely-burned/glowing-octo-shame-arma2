@@ -1,19 +1,17 @@
 #define __A2OA__
 
 /*
+ * Функция вызывает подкрепление.
  * TODO: Рефакторинг.
  */
 
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams",
+	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
-if(count _this > 0)then{
-		_side = _this select 0;
-}else{
-		//_side = [east,west,resistance] call BIS_fnc_selectRandom;
-		_side = [[east,west,resistance],[0.5,0.5,0.5]] call BIS_fnc_selectRandomWeighted;
-};
+
+_side = _this select 0;
 
 #ifdef __A2OA__
 if(count _this > 1 && {!isNull(_this select 1)})then
@@ -21,7 +19,6 @@ if(count _this > 1 && {!isNull(_this select 1)})then
 if(count _this > 1 && (!isNull(_this select 1)))then
 #endif
 {
-	private ["_players"];
 	if (typeName (_this select 1) == typeName objNull) then {
 		_pos = getPos (_this select 1);
 		_players = [_this select 1];
@@ -49,60 +46,28 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _patrol %1", _patrol];
 _n = daytime-1;
 _b = ([_n] call gosa_fnc_isNight);
 
-if(_patrol)then{
-	switch (_side) do {
-		case (east):
-		{
-			_typeList=AllGroupsEast;
-		};
-		case (west):
-		{
-			_typeList=AllGroupsWest;
-		};
-		case (resistance):
-		{
-			_typeList=AllGroupsGuer;
-		};
-		default {};
-	};
-}else{
-	switch (_side) do {
-		case (east):
-		{
-			if (isNil "LocationAllGroupsEast") then {
-				_typeList=AllGroupsEast;
-				if (_b) then {
-					_typeList=_typeList+AllGroupsEastNIGHT;
-				};
-			} else {
-				_typeList=LocationAllGroupsEast;
-			};
-		};
-		case (west):
-		{
-			if (isNil "LocationAllGroupsWest") then {
-				_typeList=AllGroupsWest;
-				if (_b) then {
-					_typeList=_typeList+AllGroupsWestNIGHT;
-				};
-			} else {
-				_typeList=LocationAllGroupsWest;
-			};
-		};
-		case (resistance):
-		{
-			if (isNil "LocationAllGroupsGuer") then {
-				_typeList=AllGroupsGuer;
-				if (_b) then {
-					_typeList=_typeList+AllGroupsGuerNIGHT;
-				};
-			} else {
-				_typeList=LocationAllGroupsGuer;
-			};
-		};
-		default {};
-	};
+_n = (_side call gosa_fnc_getSideNum);
+if (_n < 0 or _n > 2) exitWith {
+	diag_log format ["Log: [while_patrols.sqf] _n fnc_getSideNum", nil];
 };
+
+//-- Типы отрядов.
+_arr = (gosa_Groups_common select _n);
+_arr0 = [_arr];
+_arr1 = [count (_arr select 0)];
+
+if ([daytime - 1] call gosa_fnc_isNight) then {
+	_arr = (gosa_Groups_Night select _n);
+	_arr0 set [count _arr0, _arr];
+	_arr1 set [count _arr1, count (_arr select 0)];
+};
+
+_typeList = ([_arr0, _arr1] call gosa_fnc_selectRandomWeighted);
+
+if (isNil "_typeList") exitWith {
+	diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
+};
+
 
 #ifdef __A2OA__
 if(!_patrol && count _this > 2 && {count (_this select 2) > 0})then
@@ -117,9 +82,6 @@ if(!_patrol && count _this > 2 && (count (_this select 2) > 0))then
 
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] count _typeList %1", count _typeList];
 
-if (isNil "_typeList") exitWith {
-		diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
-};
 _grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
@@ -138,18 +100,21 @@ if(_b)then{
 	_patrol = false;
 };
 
-
-_run = true;
-
-if (_pos call gosa_fnc_isZeroPos) then {
+if (_pos call gosa_fnc_isZeroPos) exitWith {
 		diag_log format ["gosa_fnc_call_reinforcement.sqf _pos = [0,0] _players = %1 ", _players];
-	_run = false;
 };
 
-if(_run)then{
+
+if (missionNamespace getVariable "gosa_rearmament" > 0) then {
+	_reweapon = true;
+}else{
+	_reweapon = false;
+};
 
 	#ifndef __ARMA3__
-	if (missionNamespace getVariable "gosa_rearmament" == 1) then {
+	if (_reweapon) then {
+		// Замена типа некоторых юнитов.
+		// TODO: Нужна отдельная функция.
 		_types = [_types] call gosa_fnc_reweapon;
 	};
 	#endif
@@ -161,15 +126,12 @@ if(_run)then{
 	};
 
 	_pos_resp = ([_pos]+_SafePosParams+[_side]+[_dir] call gosa_fnc_findSafePos);
-	if(count _pos_resp == 0)exitWith{
+	if (count _pos_resp < 1) exitWith {
 		diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _pos_resp isNil ", nil];
-		grpNull
 	};
 
-	private["_groups"];
 	_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
 
-	private ["_units","_vehicles","_crew","_cargo"];
 	_units = []; _vehicles=[]; _crew = []; _cargo=[];
 	{
 		private ["_grp"];
@@ -191,40 +153,24 @@ if(_run)then{
 			};
 		}forEach units _grp;
 
-		// _grp enableIRLasers true;
-		// _grp enableGunLights true;
-
 	}forEach _groups;
-
-	private["_cargo2"];
-	_cargo2 = _cargo - (units (_groups select 0));
 
 	{
 		if (m_skill >= 0) then {
 			_x setSkill m_skill;
 		};
 		_x call gosa_fnc_vehInit;
-		// _x enableAI "TARGET";
-		// _x enableAI "AUTOTARGET";
-		// _x disableAI "FSM";
 	} foreach _units + _vehicles;
 
 	#ifndef __ARMA3__
-	if (missionNamespace getVariable "gosa_rearmament" == 1) then {
+	if (_reweapon) then {
 		[_units + _vehicles] call gosa_fnc_reweapon;
 	};
 	#endif
 
-	//выставить skill в зависимости от ранга
-	// _units call gosa_fnc_RankToSkill;
 	if (count _vehicles > 0) then {
 		// посадить в багажное отделение
 		[_vehicles, _cargo] call gosa_fnc_MoveInCargo;
 	};
 
 	{_x setVariable ["grp_created",true,true]}forEach _groups;
-
-	_groups;
-}else{
-	grpNull;
-};

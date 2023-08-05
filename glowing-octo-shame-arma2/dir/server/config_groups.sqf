@@ -3244,13 +3244,17 @@ _guer=[
 */
 #endif
 
-AllGroupsWestDAY=_westD;
-AllGroupsEastDAY=_eastD;
-AllGroupsGuerDAY=_guerD;
-AllGroupsWestNIGHT=_westN;
-AllGroupsEastNIGHT=_eastN;
-AllGroupsGuerNIGHT=_guerN;
+gosa_Groups_Night = [];
+gosa_Groups_Night set [0, _westN];
+gosa_Groups_Night set [1, _eastN];
+gosa_Groups_Night set [2, _guerN];
 
+gosa_Groups_common = [];
+gosa_Groups_common set [0, _west];
+gosa_Groups_common set [1, _east];
+gosa_Groups_common set [2, _guer];
+
+// Для совместимости с устаревшим кодом.
 AllGroupsWest=_west;
 AllGroupsEast=_east;
 AllGroupsGuer=_guer;
