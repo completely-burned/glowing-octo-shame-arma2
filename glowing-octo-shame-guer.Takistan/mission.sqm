@@ -40,7 +40,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=18;
+		items=21;
 		class Item0
 		{
 			side="LOGIC";
@@ -2293,6 +2293,105 @@ class Mission
 					vehicle="Soldier_Medic_PMC";
 					player="PLAY CDG";
 					skill=0.2;
+				};
+			};
+		};
+		class Item18
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={8207.959,296.04001,2083.9263};
+					id=184;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={8205.2422,296.04001,2093.8931};
+					id=185;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item2
+				{
+					position[]={8212.6025,296.04001,2091.2634};
+					id=186;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item3
+				{
+					position[]={8216.8584,296.04001,2084.947};
+					id=187;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item19
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={8128.917,296.04001,2017.0416};
+					id=188;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={8118.7432,296.04001,2018.8287};
+					id=189;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item20
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={5722.9624,83.040001,11246.93};
+					id=190;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={5728.5093,83.050003,11236.775};
+					id=191;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
 				};
 			};
 		};

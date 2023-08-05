@@ -31,7 +31,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=5;
+		items=9;
 		class Item0
 		{
 			side="EAST";
@@ -599,6 +599,140 @@ class Mission
 					vehicle="TK_Soldier_Medic_EP1";
 					player="PLAY CDG";
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item5
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={3572.0896,22.365149,4164.5015};
+					id=152;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={3576.2827,22.365149,4160.3208};
+					id=153;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item6
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={3576.8879,22.39452,4127.0713};
+					id=154;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={3581.0811,22.39452,4123.8794};
+					id=155;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item7
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3561.853,22.365149,4167.1675};
+					id=156;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					text="gosa_airportHangar0";
+				};
+			};
+		};
+		class Item8
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={138.25487,116.66995,138.10303};
+					id=157;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					leader=1;
+				};
+				class Item1
+				{
+					position[]={140.98007,117.5636,133.24072};
+					id=158;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+				};
+				class Item2
+				{
+					position[]={142.98007,118.05582,133.24023};
+					id=159;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+				};
+				class Item3
+				{
+					position[]={144.98006,118.55598,133.24121};
+					id=160;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+				};
+				class Item4
+				{
+					position[]={146.98009,119.04711,133.24072};
+					id=161;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+				};
+				class Item5
+				{
+					position[]={149.39224,119.6428,133.10303};
+					id=162;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
 				};
 			};
 		};
