@@ -31,13 +31,13 @@ class Mission
 	};
 	class Groups
 	{
-		items=4;
+		items=7;
 		class Item0
 		{
 			side="GUER";
 			class Vehicles
 			{
-				items=7;
+				items=4;
 				class Item0
 				{
 					position[]={3438.3628,11.456211,3290.8809};
