@@ -1,8 +1,13 @@
 #define __A2OA__
 
+/*
+ * TODO: Рефакторинг.
+ */
+
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
-private["_side","_z","_run","_uav","_grp1","_types","_SafePosParams","_pos_resp","_pos","_typeList","_patrol","_dir"];
+private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams",
+	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 if(count _this > 0)then{
 		_side = _this select 0;
 }else{
@@ -41,6 +46,9 @@ if(count _this > 1 && (!isNull(_this select 1)))then
 
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _patrol %1", _patrol];
 
+_n = daytime-1;
+_b = ([_n] call gosa_fnc_isNight);
+
 if(_patrol)then{
 	switch (_side) do {
 		case (east):
@@ -63,6 +71,9 @@ if(_patrol)then{
 		{
 			if (isNil "LocationAllGroupsEast") then {
 				_typeList=AllGroupsEast;
+				if (_b) then {
+					_typeList=_typeList+AllGroupsEastNIGHT;
+				};
 			} else {
 				_typeList=LocationAllGroupsEast;
 			};
@@ -71,6 +82,9 @@ if(_patrol)then{
 		{
 			if (isNil "LocationAllGroupsWest") then {
 				_typeList=AllGroupsWest;
+				if (_b) then {
+					_typeList=_typeList+AllGroupsWestNIGHT;
+				};
 			} else {
 				_typeList=LocationAllGroupsWest;
 			};
@@ -79,6 +93,9 @@ if(_patrol)then{
 		{
 			if (isNil "LocationAllGroupsGuer") then {
 				_typeList=AllGroupsGuer;
+				if (_b) then {
+					_typeList=_typeList+AllGroupsGuerNIGHT;
+				};
 			} else {
 				_typeList=LocationAllGroupsGuer;
 			};
@@ -115,8 +132,8 @@ if(_uav)then{
 	_patrol = true;
 };
 
-_z = ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray);
-if(_z)then{
+_b = ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray);
+if(_b)then{
 	_pos = civilianBasePos;
 	_patrol = false;
 };

@@ -20,13 +20,17 @@
 
 private ["_west","_east","_guer","_woodland","_deserted","_tmp","_mod_acr",
 	"_f_multi_bis_cz","_f_multi_bis_tk","_f_multi_bis_tk_gue","_shop","_landing",
-	"_r0","_r1","_r2","_r3","_r4","_r5","_r6",
-	"_s1","_s2","_mg","_mg2","_gl","_at",
+	"_r0","_r1","_r2","_r3","_r4","_r5","_r6","_westN","_eastN","_guerN",
+	"_s1","_s2","_mg","_mg2","_gl","_at","_westD","_eastD","_guerD",
 	"_westPatrol","_eastPatrol","_guerPatrol",
 	"_westAttack","_eastAttack","_guerAttack"];
 _westPatrol=[];_eastPatrol=[];_guerPatrol=[];
 _westAttack=[];_eastAttack=[];_guerAttack=[];
 _west=[];_east=[];_guer=[];
+// Ночь.
+_westN=[];_eastN=[];_guerN=[];
+// День.
+_westD=[];_eastD=[];_guerD=[];
 _r0 = 0;
 _r1 = 1;
 _r2 = 2;
@@ -1864,7 +1868,9 @@ if(LIB_ahAvail)then{
 			_west=_west+[
 				[[[["BAF_Soldier_Sniper_MTP",
 					"BAF_Soldier_SniperH_MTP","BAF_Soldier_spotter_MTP"],[[0,5,0],[3,0,0],[5,0,0]],
-					[_r1,_r1,_r0]]],0.05],
+					[_r1,_r1,_r0]]],0.05]
+			];
+			_westN=_westN+[
 				[[[["BAF_Soldier_SniperN_MTP",
 					"BAF_Soldier_SniperN_MTP","BAF_Soldier_spotterN_MTP"],[[0,5,0],[3,0,0],[5,0,0]],
 					[_r1,_r1,_r0]]],0.05]
@@ -1873,7 +1879,9 @@ if(LIB_ahAvail)then{
 			_west=_west+[
 				[[[["BAF_Soldier_Sniper_W",
 					"BAF_Soldier_SniperH_W","BAF_Soldier_spotter_W"],[[0,5,0],[3,0,0],[5,0,0]],
-					[_r1,_r1,_r0]]],0.05],
+					[_r1,_r1,_r0]]],0.05]
+			];
+			_westN=_westN+[
 				[[[["BAF_Soldier_SniperN_W",
 					"BAF_Soldier_SniperN_W","BAF_Soldier_spotterN_W"],[[0,5,0],[3,0,0],[5,0,0]],
 					[_r1,_r1,_r0]]],0.05]
@@ -3236,11 +3244,15 @@ _guer=[
 */
 #endif
 
+AllGroupsWestDAY=_westD;
+AllGroupsEastDAY=_eastD;
+AllGroupsGuerDAY=_guerD;
+AllGroupsWestNIGHT=_westN;
+AllGroupsEastNIGHT=_eastN;
+AllGroupsGuerNIGHT=_guerN;
+
 AllGroupsWest=_west;
 AllGroupsEast=_east;
 AllGroupsGuer=_guer;
 
-diag_log format ["Log: [config_groups.sqf] west %1", count AllGroupsWest];
-diag_log format ["Log: [config_groups.sqf] east %1", count AllGroupsEast];
-diag_log format ["Log: [config_groups.sqf] guer %1", count AllGroupsGuer];
 diag_log format ["Log: [config_groups.sqf] end %1", time];
