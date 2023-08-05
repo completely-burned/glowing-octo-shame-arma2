@@ -37,7 +37,7 @@ class Mission
 			side="GUER";
 			class Vehicles
 			{
-				items=4;
+				items=7;
 				class Item0
 				{
 					position[]={3438.3628,11.456211,3290.8809};
@@ -197,11 +197,10 @@ class Mission
 					position[]={7656.4355,326.96924,7085.1069};
 					id=388;
 					side="CIV";
-					vehicle="Profiteer4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
-					skill=0.2;
 					text="HC";
 				};
 				class Item1
@@ -209,10 +208,9 @@ class Mission
 					position[]={7659.3599,327.71628,7082.6128};
 					id=389;
 					side="CIV";
-					vehicle="Worker2";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (1)";
 				};
 				class Item2
@@ -220,10 +218,9 @@ class Mission
 					position[]={7661.3599,328.12161,7082.6128};
 					id=390;
 					side="CIV";
-					vehicle="Functionary1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (2)";
 				};
 				class Item3
@@ -231,10 +228,9 @@ class Mission
 					position[]={7663.3599,328.51913,7082.6128};
 					id=391;
 					side="CIV";
-					vehicle="Woodlander4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (3)";
 				};
 				class Item4
@@ -242,10 +238,9 @@ class Mission
 					position[]={7665.3599,328.91135,7082.6128};
 					id=392;
 					side="CIV";
-					vehicle="Rocker1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (4)";
 				};
 				class Item5
@@ -253,10 +248,9 @@ class Mission
 					position[]={7667.3599,329.31668,7082.6128};
 					id=393;
 					side="CIV";
-					vehicle="Worker3";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (5)";
 				};
 				class Item6
@@ -264,10 +258,9 @@ class Mission
 					position[]={7669.3599,329.72202,7082.6128};
 					id=394;
 					side="CIV";
-					vehicle="Profiteer3";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (6)";
 				};
 				class Item7
@@ -275,10 +268,9 @@ class Mission
 					position[]={7675.5376,330.90125,7083.2969};
 					id=395;
 					side="CIV";
-					vehicle="Profiteer2";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (7)";
 				};
 				class Item8
@@ -286,10 +278,9 @@ class Mission
 					position[]={7673.1831,330.45557,7082.8394};
 					id=396;
 					side="CIV";
-					vehicle="Worker4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (8)";
 				};
 				class Item9
@@ -297,10 +288,9 @@ class Mission
 					position[]={7671.5879,330.12628,7082.9927};
 					id=397;
 					side="CIV";
-					vehicle="Profiteer1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (9)";
 				};
 			};
@@ -316,11 +306,10 @@ class Mission
 					position[]={7656.5405,327.34473,7079.2671};
 					id=398;
 					side="CIV";
-					vehicle="Profiteer4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
-					skill=0.2;
 					text="HC (10)";
 				};
 				class Item1
@@ -328,10 +317,9 @@ class Mission
 					position[]={7660.0723,328.16293,7077.5337};
 					id=399;
 					side="CIV";
-					vehicle="Worker2";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (11)";
 				};
 				class Item2
@@ -339,10 +327,9 @@ class Mission
 					position[]={7662.0723,328.56824,7077.5337};
 					id=400;
 					side="CIV";
-					vehicle="Functionary1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (12)";
 				};
 				class Item3
@@ -350,10 +337,9 @@ class Mission
 					position[]={7664.0723,328.97357,7077.5337};
 					id=401;
 					side="CIV";
-					vehicle="Woodlander4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (13)";
 				};
 				class Item4
@@ -361,10 +347,9 @@ class Mission
 					position[]={7666.0723,329.38461,7077.5337};
 					id=402;
 					side="CIV";
-					vehicle="Rocker1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (14)";
 				};
 				class Item5
@@ -372,10 +357,9 @@ class Mission
 					position[]={7668.0723,329.79736,7077.5337};
 					id=403;
 					side="CIV";
-					vehicle="Worker3";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (15)";
 				};
 				class Item6
@@ -383,10 +367,9 @@ class Mission
 					position[]={7670.0723,330.2027,7077.5337};
 					id=404;
 					side="CIV";
-					vehicle="Profiteer3";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (16)";
 				};
 				class Item7
@@ -394,10 +377,9 @@ class Mission
 					position[]={7675.7173,331.36523,7077.5332};
 					id=405;
 					side="CIV";
-					vehicle="Profiteer2";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (17)";
 				};
 				class Item8
@@ -405,10 +387,9 @@ class Mission
 					position[]={7674.0474,331.01865,7077.5337};
 					id=406;
 					side="CIV";
-					vehicle="Worker4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (18)";
 				};
 				class Item9
@@ -416,11 +397,81 @@ class Mission
 					position[]={7672.0723,330.60803,7077.5337};
 					id=407;
 					side="CIV";
-					vehicle="Profiteer1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (19)";
+				};
+			};
+		};
+		class Item4
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={3572.0896,22.365149,4164.5015};
+					id=152;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={3576.2827,22.365149,4160.3208};
+					id=153;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item5
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={3576.8879,22.39452,4127.0713};
+					id=154;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={3581.0811,22.39452,4123.8794};
+					id=155;
+					side="GUER";
+					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item6
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3561.853,22.365149,4167.1675};
+					id=156;
+					side="LOGIC";
+					vehicle="Logic";
+					leader=1;
+					text="gosa_airportHangar0";
 				};
 			};
 		};
