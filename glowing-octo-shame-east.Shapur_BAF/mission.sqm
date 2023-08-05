@@ -40,7 +40,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=11;
+		items=13;
 		class Item0
 		{
 			side="LOGIC";
@@ -316,6 +316,102 @@ class Mission
 					vehicle="LocationLogicStart";
 					leader=1;
 					skill=0.60000002;
+				};
+			};
+		};
+		class Item11
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={794.28662,35.380001,348.89172};
+					id=122;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={795.30505,35.380001,347.63879};
+					id=123;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item12
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={1940.2621,46.044403,84.493774};
+					id=124;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					leader=1;
+					text="HC";
+				};
+				class Item1
+				{
+					position[]={1943.2621,46.24931,79.493774};
+					id=125;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (1)";
+				};
+				class Item2
+				{
+					position[]={1945.2621,46.089725,79.493774};
+					id=126;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (2)";
+				};
+				class Item3
+				{
+					position[]={1947.2621,45.894726,79.493774};
+					id=127;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (3)";
+				};
+				class Item4
+				{
+					position[]={1949.2621,45.731262,79.493774};
+					id=128;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (4)";
+				};
+				class Item5
+				{
+					position[]={1951.2621,45.59626,79.493774};
+					id=129;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (5)";
 				};
 			};
 		};
