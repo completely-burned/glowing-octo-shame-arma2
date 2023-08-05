@@ -101,7 +101,7 @@ _logic setvariable ["BIS_COIN_selected",objnull];
 	_logic setvariable ["BIS_COIN_restart",false];
 
 // TODO: поддержка тепловизора
-_nvgstate = call gosa_fnc_isNight;
+_nvgstate = ([daytime] call gosa_fnc_isNight);
 camusenvg _nvgstate;
 _logic setvariable ["BIS_COIN_nvg",_nvgstate];
 
