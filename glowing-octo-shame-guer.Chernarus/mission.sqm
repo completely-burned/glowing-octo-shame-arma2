@@ -46,7 +46,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=36;
+		items=37;
 		class Item0
 		{
 			side="LOGIC";
@@ -2025,6 +2025,115 @@ class Mission
 					vehicle="Soldier_Medic_PMC";
 					player="PLAY CDG";
 					skill=0.2;
+				};
+			};
+		};
+		class Item36
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={7656.4355,326.96924,7085.1069};
+					id=388;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					leader=1;
+					text="HC";
+				};
+				class Item1
+				{
+					position[]={7659.3599,327.71628,7082.6128};
+					id=389;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (1)";
+				};
+				class Item2
+				{
+					position[]={7661.3599,328.12161,7082.6128};
+					id=390;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (2)";
+				};
+				class Item3
+				{
+					position[]={7663.3599,328.51913,7082.6128};
+					id=391;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (3)";
+				};
+				class Item4
+				{
+					position[]={7665.3599,328.91135,7082.6128};
+					id=392;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (4)";
+				};
+				class Item5
+				{
+					position[]={7667.3599,329.31668,7082.6128};
+					id=393;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (5)";
+				};
+				class Item6
+				{
+					position[]={7669.3599,329.72202,7082.6128};
+					id=394;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (6)";
+				};
+				class Item7
+				{
+					position[]={7675.5376,330.90125,7083.2969};
+					id=395;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (7)";
+				};
+				class Item8
+				{
+					position[]={7673.1831,330.45557,7082.8394};
+					id=396;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (8)";
+				};
+				class Item9
+				{
+					position[]={7671.5879,330.12628,7082.9927};
+					id=397;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC (9)";
 				};
 			};
 		};
