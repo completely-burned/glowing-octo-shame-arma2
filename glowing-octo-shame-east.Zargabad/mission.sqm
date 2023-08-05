@@ -688,6 +688,7 @@ class Mission
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
+					text="HC";
 				};
 				class Item1
 				{
@@ -697,6 +698,7 @@ class Mission
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
+					text="HC (1)";
 				};
 				class Item2
 				{
@@ -706,6 +708,7 @@ class Mission
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
+					text="HC (2)";
 				};
 				class Item3
 				{
@@ -715,6 +718,7 @@ class Mission
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
+					text="HC (3)";
 				};
 				class Item4
 				{
@@ -724,6 +728,7 @@ class Mission
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
+					text="HC (4)";
 				};
 				class Item5
 				{
@@ -733,6 +738,7 @@ class Mission
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
+					text="HC (5)";
 				};
 			};
 		};
