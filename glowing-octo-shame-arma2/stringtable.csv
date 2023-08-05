@@ -1,6 +1,6 @@
 LANGUAGE,"English","Russian"
 STR_ACT_Crew,"Crew","Экипаж"
-STR_RADIO_Friendlyfire,"%1 has engaged friendly!","%1 открыл огонь по своим!"
+STR_RADIO_Friendlyfire,"%1 has engaged %2, %3, %4","%1 открыл огонь по %2, %3, %4"
 STR_gosa_purchase,"purchase","покупка"
 STR_gosa_teleportation,"teleportation","телепортация"
 STR_gosa_maintain_equipment,"maintain equipment","сохранить снаряжение"

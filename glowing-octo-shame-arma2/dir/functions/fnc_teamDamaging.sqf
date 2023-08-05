@@ -11,7 +11,7 @@ if (_source != _unit) then {
 	if ( side _source getFriend side _unit >= 0.6 or !(side _source in [civilian,east,west,resistance]) ) then {
 		{
 			#ifdef __A2OA__
-					systemChat format [localize "STR_RADIO_Friendlyfire"+" %2 %3", _x, getPlayerUID _x, _projectile];
+					systemChat format [localize "STR_RADIO_Friendlyfire", _x, _unit, getPlayerUID _x, _projectile];
 			#endif
 			/*
 			FIXME: не рабоает должным образом
