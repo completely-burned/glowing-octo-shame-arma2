@@ -1591,56 +1591,124 @@ if(LIB_a2Avail)then{
 if(LIB_ahAvail)then{
 
 	// BIS_BAF
-	// TODO: Устранить ленивый код, чтобы при (_tmp > 0) были нормальные отряды даже на неучтенных картах.
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_BAF");
-	if(_tmp > 0 or (gosa_IslandType select 1 >= 1990 && _tmp == -1))then{
-		if((!_woodland) && (_deserted))then{
-			_mg2 = "BAF_Soldier_AR_DDPM";
-			_mg = "BAF_Soldier_AAR_DDPM";
-			_gl = "BAF_Soldier_GL_DDPM";
-			_at = "BAF_Soldier_AT_DDPM";
-			_s2 = "BAF_Soldier_TL_DDPM";
-			_s1 = "BAF_Soldier_Marksman_DDPM";
+	if(_tmp > 0 or (gosa_IslandType select 1 >= 1990 && _tmp == -1))then
+	{
+		// MTP используется отдельно пехотой и в качестве пасажиров техники D.
+		// DDPM используется отдельно пехотой без техники.
+		// W используется и пехотой и техникой совместно.
+
+		// Множитель применяется не ко всем отрядам.
+		_multiplier_MTP=0.5;
+		if (gosa_IslandType select 0 > 200) then
+		{
+			_multiplier_DDPM=0.5;
+			_multiplier_W=0;
+		}else{
+			_multiplier_DDPM=0;
+			_multiplier_W=0.5;
+		};
+
+		// MTP используется отдельно пехотой и в качестве пасажиров техники D.
+		#define __AR "BAF_Soldier_AR_MTP"
+		#define __AAR "BAF_Soldier_AAR_MTP"
+		#define __GL "BAF_Soldier_GL_MTP"
+		#define __AT "BAF_Soldier_AT_MTP"
+		#define __TL "BAF_Soldier_TL_MTP"
+		#define __SL "BAF_Soldier_SL_MTP"
+		#define __Marksman "BAF_Soldier_Marksman_MTP"
+		#define _AAT "BAF_Soldier_AAT_MTP"
+
+		_west=_west+[
+			[[[[__SL,
+				__TL,__GL,
+				__AR,__Marksman,
+				__GL,__AR,
+				__AAR],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
+				[_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],
+				0.5 * _multiplier_MTP],
+			[[[[__TL,
+				__GL,__AR,
+				__Marksman],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+				[_r1,_r0,_r0,_r0]]],
+				0.8 * _multiplier_MTP],
+			[[[[__TL,
+				"BAF_Soldier_FAC_MTP","BAF_Soldier_Medic_MTP",
+				"BAF_Soldier_EN_MTP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+				[_r1,_r0,_r0,_r0]]],
+				0.2 * _multiplier_MTP],
+			[[[[__TL,
+				__GL,"BAF_Soldier_MG_MTP",
+				"BAF_Soldier_AMG_MTP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+				[_r1,_r0,_r0,_r0]]],
+				0.2 * _multiplier_MTP],
+			[[[[__TL,
+				__GL,__AT,
+				_AAT],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+				[_r1,_r0,_r0,_r0]]],
+				0.1 * _multiplier_MTP],
+			[[[[__AT,
+				"BAF_Soldier_HAT_MTP","BAF_Soldier_AHAT_MTP",
+				_AAT],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+				[_r1,_r1,_r0,_r0]]],
+				0.05 * _multiplier_MTP]
+		];
+
+		if (gosa_IslandType select 0 > 200) then
+		{
+
 			_west=_west+[
-				[[[["BAF_Soldier_SL_DDPM",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
-					[_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],0.5],
-				[[[[_s2,_gl,_mg2,_s1],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r0,_r0,_r0]]],0.8],
-				[[[[_s2,"BAF_Soldier_FAC_DDPM","BAF_Soldier_Medic_DDPM","BAF_Soldier_EN_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r0,_r0,_r0]]],0.2],
-				[[[[_s2,_gl,"BAF_Soldier_MG_DDPM","BAF_Soldier_AMG_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r0,_r0,_r0]]],0.2],
-				[[[[_s2,_gl,_at,"BAF_Soldier_AAT_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r0,_r0,_r0]]],0.1],
-				[[[[_at,"BAF_Soldier_HAT_DDPM","BAF_Soldier_AHAT_DDPM","BAF_Soldier_AAT_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r1,_r0,_r0]]],0.05],
+				// Авиация.
+					[[[["CH_47F_BAF"],[[0,0,0]],
+						[_r4]],[[__SL,__TL,__GL,__AR,__Marksman,__GL,__AR,__AAR]]
+						],0.3],
+					[[[["AW159_Lynx_BAF"],[],
+						[_r4]],[[__SL,__TL,__GL,__AR,__Marksman,__GL,__AR,__AAR]]
+						],0.3],
+					#define __VEH "BAF_Apache_AH1_D"
+					[[[[__VEH,__VEH],[[0,20,0],[20,0,0]],
+						[_r4,_r3]]],0.3],
+					[[[["BAF_Merlin_HC3_D"],[],
+						[_r4]],[[__SL,__TL,__GL,__AR,__Marksman,__GL,__AR,__AAR]]
+						],0.3],
 
-				[[[["BAF_FV510_D","BAF_FV510_D","BAF_FV510_D","BAF_FV510_D"],[[0,8,0],[8,0,0],[-8,0,0],[0,-8,0]],
-					[_r4,_r3,_r3,_r3]]],0.05],
+				#define __VEH "BAF_Jackal2_L2A1_D"
+				[[[[__TL,
+					__GL,__VEH],[[0,5,0],[3,0,0],[-5,0,0]],
+					[_r2,_r0,_r0]]],
+					0.3],
+				[[[[__SL,
+					__GL,__VEH,
+					__TL,__GL,
+					__VEH],[[0,5,0],[3,0,0],[-5,0,0],[5,0,0],[7,0,0],[-5,-10,0]],
+					[_r2,_r0,_r0,_r2,_r0,_r0]]],
+					0.1],
+				// Offroad
+				[[[[__SL,
+					__TL,__GL,
+					__GL,__AR,
+					__AR,__Marksman,
+					"BAF_Offroad_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[-5,0,0]],
+					[_r2,_r1,_r0,_r0,_r0,_r0,_r0,_r0]]],
+					0.5],
 
-				[[[["CH_47F_BAF"],[[0,0,0]],
-					[_r4]],[["BAF_Soldier_SL_DDPM",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg]]
-					],0.3],
-				[[[["AW159_Lynx_BAF"],[],
-					[_r4]],[["BAF_Soldier_SL_DDPM",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg]]
-					],0.3],
-				[[[["BAF_Apache_AH1_D","BAF_Apache_AH1_D"],[[0,20,0],[20,0,0]],
-					[_r4,_r3]]],0.3],
-				[[[["BAF_Merlin_HC3_D"],[],
-					[_r4]],[["BAF_Soldier_SL_DDPM",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg]]
-					],0.3],
-
-				[[[["BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D"],[[0,5,0],[3,0,0],[-5,0,0]],
-					[_r2,_r0,_r0]]],0.3],
-				[[[["BAF_Soldier_SL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D",	"BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Jackal2_L2A1_D"],[[0,5,0],[3,0,0],[-5,0,0],[5,0,0],[7,0,0],[-5,-10,0]],
-					[_r2,_r0,_r0,_r2,_r0,_r0]]],0.1],
-				[[[["BAF_Soldier_SL_MTP","BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_Marksman_MTP","BAF_Offroad_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[-5,0,0]],
-					[_r2,_r1,_r0,_r0,_r0,_r0,_r0,_r0]]],0.5],
-
-				[[[["BAF_Soldier_SL_MTP","BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_Marksman_MTP","BAF_FV510_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],
-					[_r3,_r1,_r0,_r0,_r0,_r0,_r3]]],0.3],
-				[[[["BAF_Soldier_AT_MTP","BAF_Soldier_AT_MTP","BAF_Soldier_HAT_MTP","BAF_Soldier_AAT_MTP","BAF_Soldier_AAT_MTP","BAF_Soldier_AHAT_MTP","BAF_FV510_D"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],
-					[_r3,_r1,_r1,_r0,_r0,_r0,_r3]]],0.3],
+				// Бронетехника.
+				#define __VEH "BAF_FV510_D"
+				[[[[__VEH,__VEH,__VEH,__VEH],[[0,8,0],[8,0,0],[-8,0,0],[0,-8,0]],
+					[_r4,_r3,_r3,_r3]]],
+					0.05],
+				[[[[__SL,
+					__TL,__GL,
+					__GL,__AR,
+					__Marksman,__VEH],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],
+					[_r3,_r1,_r0,_r0,_r0,_r0,_r3]]],
+					0.3],
+				[[[[__AT,
+					__AT,"BAF_Soldier_HAT_MTP",
+					_AAT,_AAT,
+					"BAF_Soldier_AHAT_MTP",__VEH],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],
+					[_r3,_r1,_r1,_r0,_r0,_r0,_r3]]],
+					0.3],
 
 				//StaticWeapon
 				[[[["BAF_GMG_Tripod_D"], [],[_r0]]],0.01],
@@ -1649,85 +1717,164 @@ if(LIB_ahAvail)then{
 				[[[["BAF_L2A1_Minitripod_D"], [],[_r0]]],0.01]
 			];
 		};
-		if(!_woodland)then{
+
+		// DDPM используется отдельно пехотой без техники.
+		if (gosa_IslandType select 0 > 200) then
+		{
+			#define __AR "BAF_Soldier_AR_DDPM"
+			#define __AAR "BAF_Soldier_AAR_DDPM"
+			#define __GL "BAF_Soldier_GL_DDPM"
+			#define __AT "BAF_Soldier_AT_DDPM"
+			#define __TL "BAF_Soldier_TL_DDPM"
+			#define __SL "BAF_Soldier_SL_DDPM"
+			#define __Marksman "BAF_Soldier_Marksman_DDPM"
+			#define _AAT "BAF_Soldier_AAT_DDPM"
+
 			_west=_west+[
-				[[[["BAF_Soldier_Sniper_MTP","BAF_Soldier_SniperH_MTP","BAF_Soldier_spotter_MTP"],[[0,5,0],[3,0,0],[5,0,0]],
+				// Пехота.
+				[[[[__SL,
+					__TL,__GL,
+					__AR,__Marksman,
+					__GL,__AR,
+					__AAR],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
+					[_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],
+					0.5 * _multiplier_DDPM],
+				[[[[__TL,
+					__GL,__AR,
+					__Marksman],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r0,_r0,_r0]]],
+					0.8 * _multiplier_DDPM],
+				[[[[__TL,
+					"BAF_Soldier_FAC_DDPM","BAF_Soldier_Medic_DDPM",
+					"BAF_Soldier_EN_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r0,_r0,_r0]]],
+					0.2 * _multiplier_DDPM],
+				[[[[__TL,
+					__GL,"BAF_Soldier_MG_DDPM",
+					"BAF_Soldier_AMG_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r0,_r0,_r0]]],
+					0.2 * _multiplier_DDPM],
+				[[[[__TL,
+					__GL,__AT,
+					_AAT],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r0,_r0,_r0]]],
+					0.1 * _multiplier_DDPM],
+				[[[[__AT,
+					"BAF_Soldier_HAT_DDPM","BAF_Soldier_AHAT_DDPM",
+					_AAT],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r1,_r0,_r0]]],
+					0.05 * _multiplier_DDPM]
+			];
+		}else{
+
+			// W используется и пехотой и техникой совместно.
+			#define __AR "BAF_Soldier_AR_W"
+			#define __AAR "BAF_Soldier_AAR_W"
+			#define __GL "BAF_Soldier_GL_W"
+			#define __AT "BAF_Soldier_AT_W"
+			#define __TL "BAF_Soldier_TL_W"
+			#define __SL "BAF_Soldier_SL_W"
+			#define __Marksman "BAF_Soldier_Marksman_W"
+			#define _AAT "BAF_Soldier_AAT_W"
+
+			_west=_west+[
+				[[[[__SL,
+					__TL,__GL,
+					__AR,__Marksman,
+					__GL,__AR,
+					__AAR],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
+					[_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],
+					0.5 * _multiplier_W],
+				[[[[__TL,__GL,__AR,__Marksman],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r0,_r0,_r0]]],
+					0.8 * _multiplier_W],
+				[[[[__TL,"BAF_Soldier_FAC_W","BAF_Soldier_Medic_W","BAF_Soldier_EN_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r0,_r0,_r0]]],
+					0.2 * _multiplier_W],
+				[[[[__TL,__GL,"BAF_Soldier_MG_W","BAF_Soldier_AMG_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r0,_r0,_r0]]],
+					0.2 * _multiplier_W],
+				[[[[__TL,__GL,__AT,_AAT],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r0,_r0,_r0]]],
+					0.1 * _multiplier_W],
+				[[[[__AT,"BAF_Soldier_HAT_W","BAF_Soldier_AHAT_W",_AAT],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
+					[_r1,_r1,_r0,_r0]]],
+					0.05 * _multiplier_W],
+
+				[[[[__SL,
+					__TL,__GL,
+					__GL,__AR,
+					__AR,__Marksman,
+					"BAF_Offroad_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[-5,0,0]],
+					[_r2,_r1,_r0,_r0,_r0,_r0,_r0,_r0]]],
+					0.5],
+
+				#define __VEH "BAF_Jackal2_L2A1_W"
+				[[[[__TL,
+					__GL,__VEH],[[0,5,0],[3,0,0],[-5,0,0]],
+					[_r2,_r0,_r0]]],
+					0.3],
+				[[[[__SL,
+					__GL,__VEH,
+					__TL,__GL,
+					__VEH],[[0,5,0],[3,0,0],[-5,0,0],[5,0,0],[7,0,0],[-5,-10,0]],
+					[_r2,_r0,_r0,_r2,_r0,_r0]]],
+					0.1],
+
+				#define __VEH "BAF_FV510_W"
+				[[[[__SL,
+					__TL,__GL,
+					__GL,__AR,
+					__Marksman,__VEH],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],
+					[_r3,_r1,_r0,_r0,_r0,_r0,_r3]]],
+					0.3],
+				[[[[__AT,
+					__AT,"BAF_Soldier_HAT_W",
+					_AAT,_AAT,
+					"BAF_Soldier_AHAT_W",__VEH],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],
+					[_r3,_r1,_r1,_r0,_r0,_r0,_r3]]],
+					0.3],
+				[[[[__VEH,__VEH,__VEH,__VEH],[[0,8,0],[8,0,0],[-8,0,0],[0,-8,0]],
+					[_r4,_r3,_r3,_r3]]],0.05],
+
+				#define __Pilot "BAF_Pilot_W"
+				[[[["CH_47F_BAF"],[],
+					[_r4],[[__Pilot,__Pilot,__Pilot,__Pilot]]],[[__SL,__TL,__GL,__AR,__Marksman,__GL,__AR,__AAR]]
+					],0.3],
+				[[[["AW159_Lynx_BAF"],[],
+					[_r4],[[__Pilot,__Pilot,__Pilot]]],[[__SL,__TL,__GL,__AR,__Marksman,__GL,__AR,__AAR]]
+					],0.3],
+				[[[["BAF_Merlin_HC3_D"],[],
+					[_r4],[[__Pilot,__Pilot,__Pilot]]],[[__SL,__TL,__GL,__AR,__Marksman,__GL,__AR,__AAR]]
+					],0.3],
+
+				//StaticWeapon
+				[[[["BAF_GMG_Tripod_W"], [],[_r0]]],0.01],
+				[[[["BAF_L2A1_Minitripod_W"], [],[_r0]]],0.01],
+				[[[["BAF_L2A1_Tripod_W"], [],[_r0]]],0.01],
+				[[[["BAF_GPMG_Minitripod_W"], [],[_r0]]],0.01]
+			];
+		};
+
+		// Снайперы.
+		if (gosa_IslandType select 0 > 200) then
+		{
+			_west=_west+[
+				[[[["BAF_Soldier_Sniper_MTP",
+					"BAF_Soldier_SniperH_MTP","BAF_Soldier_spotter_MTP"],[[0,5,0],[3,0,0],[5,0,0]],
 					[_r1,_r1,_r0]]],0.05],
-				[[[["BAF_Soldier_SniperN_MTP","BAF_Soldier_SniperN_MTP","BAF_Soldier_spotterN_MTP"],[[0,5,0],[3,0,0],[5,0,0]],
+				[[[["BAF_Soldier_SniperN_MTP",
+					"BAF_Soldier_SniperN_MTP","BAF_Soldier_spotterN_MTP"],[[0,5,0],[3,0,0],[5,0,0]],
 					[_r1,_r1,_r0]]],0.05]
 			];
-		};
-		if((_woodland) && (!_deserted))then{
-			_mg2 = "BAF_Soldier_AR_W";
-			_mg = "BAF_Soldier_AAR_W";
-			_gl = "BAF_Soldier_GL_W";
-			_at = "BAF_Soldier_AT_W";
-			_s2 = "BAF_Soldier_TL_W";
-			_s1 = "BAF_Soldier_Marksman_W";
+		}else{
 			_west=_west+[
-			[[[["BAF_Soldier_SL_W",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
-				[_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],0.5],
-			[[[[_s2,_gl,_mg2,_s1],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-				[_r1,_r0,_r0,_r0]]],0.8],
-			[[[[_s2,"BAF_Soldier_FAC_W","BAF_Soldier_Medic_W","BAF_Soldier_EN_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-				[_r1,_r0,_r0,_r0]]],0.2],
-			[[[[_s2,_gl,"BAF_Soldier_MG_W","BAF_Soldier_AMG_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-				[_r1,_r0,_r0,_r0]]],0.2],
-			[[[[_s2,_gl,_at,"BAF_Soldier_AAT_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-				[_r1,_r0,_r0,_r0]]],0.1],
-			[[[[_at,"BAF_Soldier_HAT_W","BAF_Soldier_AHAT_W","BAF_Soldier_AAT_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-				[_r1,_r1,_r0,_r0]]],0.05],
-
-			[[[["BAF_Soldier_Sniper_W","BAF_Soldier_SniperH_W","BAF_Soldier_spotter_W"],[[0,5,0],[3,0,0],[5,0,0]],
-				[_r1,_r1,_r0]]],0.05],
-			[[[["BAF_Soldier_SniperN_W","BAF_Soldier_SniperN_W","BAF_Soldier_spotterN_W"],[[0,5,0],[3,0,0],[5,0,0]],
-				[_r1,_r1,_r0]]],0.05],
-
-			[[[["BAF_Soldier_SL_W",_s2,_gl,_gl,_mg2,_mg2,_s1,"BAF_Offroad_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[-5,0,0]],
-				[_r2,_r1,_r0,_r0,_r0,_r0,_r0,_r0]]],0.5],
-			[[[[_s2,_gl,"BAF_Jackal2_L2A1_W"],[[0,5,0],[3,0,0],[-5,0,0]],
-				[_r2,_r0,_r0]]],0.3],
-			[[[["BAF_Soldier_SL_W",_gl,"BAF_Jackal2_L2A1_W",	_s2,_gl,"BAF_Jackal2_L2A1_W"],[[0,5,0],[3,0,0],[-5,0,0],[5,0,0],[7,0,0],[-5,-10,0]],
-				[_r2,_r0,_r0,_r2,_r0,_r0]]],0.1],
-			[[[["BAF_Soldier_SL_W",_s2,_gl,_gl,_mg2,_s1,"BAF_FV510_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],
-				[_r3,_r1,_r0,_r0,_r0,_r0,_r3]]],0.3],
-			[[[[_at,_at,"BAF_Soldier_HAT_W","BAF_Soldier_AAT_W","BAF_Soldier_AAT_W","BAF_Soldier_AHAT_W","BAF_FV510_W"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[-5,0,0]],
-				[_r3,_r1,_r1,_r0,_r0,_r0,_r3]]],0.3],
-
-			[[[["CH_47F_BAF"],[],
-				[_r4],[["BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W"]]],[["BAF_Soldier_SL_W",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg]]
-				],0.3],
-			[[[["AW159_Lynx_BAF"],[],
-				[_r4],[["BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W"]]],[["BAF_Soldier_SL_W",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg]]
-				],0.3],
-			[[[["BAF_Merlin_HC3_D"],[],
-				[_r4],[["BAF_Pilot_W","BAF_Pilot_W","BAF_Pilot_W"]]],[["BAF_Soldier_SL_W",_s2,_gl,_mg2,_s1,_gl,_mg2,_mg]]
-				],0.3],
-
-			[[[["BAF_FV510_W","BAF_FV510_W","BAF_FV510_W","BAF_FV510_W"],[[0,8,0],[8,0,0],[-8,0,0],[0,-8,0]],
-				[_r4,_r3,_r3,_r3]]],0.05],
-
-			//StaticWeapon
-			[[[["BAF_GMG_Tripod_W"], [],[_r0]]],0.01],
-			[[[["BAF_L2A1_Minitripod_W"], [],[_r0]]],0.01],
-			[[[["BAF_L2A1_Tripod_W"], [],[_r0]]],0.01],
-			[[[["BAF_GPMG_Minitripod_W"], [],[_r0]]],0.01]
-			];
-		};
-		if((!_woodland) && (!_deserted))then{
-			_west=_west+[
-				[[[["BAF_Soldier_SL_MTP","BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_Marksman_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_AAR_MTP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],
-					[_r2,_r2,_r1,_r1,_r1,_r0,_r0,_r0]]],0.5],
-				[[[["BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AR_MTP","BAF_Soldier_Marksman_MTP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r0,_r0,_r0]]],0.8],
-				[[[["BAF_Soldier_TL_MTP","BAF_Soldier_FAC_MTP","BAF_Soldier_Medic_MTP","BAF_Soldier_EN_MTP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r0,_r0,_r0]]],0.2],
-				[[[["BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_MG_MTP","BAF_Soldier_AMG_MTP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r0,_r0,_r0]]],0.2],
-				[[[["BAF_Soldier_TL_MTP","BAF_Soldier_GL_MTP","BAF_Soldier_AT_MTP","BAF_Soldier_AAT_MTP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r0,_r0,_r0]]],0.1],
-				[[[["BAF_Soldier_AT_MTP","BAF_Soldier_HAT_MTP","BAF_Soldier_AHAT_MTP","BAF_Soldier_AAT_MTP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],
-					[_r1,_r1,_r0,_r0]]],0.05]
+				[[[["BAF_Soldier_Sniper_W",
+					"BAF_Soldier_SniperH_W","BAF_Soldier_spotter_W"],[[0,5,0],[3,0,0],[5,0,0]],
+					[_r1,_r1,_r0]]],0.05],
+				[[[["BAF_Soldier_SniperN_W",
+					"BAF_Soldier_SniperN_W","BAF_Soldier_spotterN_W"],[[0,5,0],[3,0,0],[5,0,0]],
+					[_r1,_r1,_r0]]],0.05]
 			];
 		};
 	};
