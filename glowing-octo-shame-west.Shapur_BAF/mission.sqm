@@ -42,7 +42,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=13;
+		items=19;
 		class Item0
 		{
 			side="LOGIC";
@@ -207,180 +207,7 @@ class Mission
 		};
 		class Item9
 		{
-			side="GUER";
-			class Vehicles
-			{
-				items=10;
-				class Item0
-				{
-					position[]={659.29022,35.412498,495.45093};
-					id=12;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_TL_EP1";
-					player="PLAYER COMMANDER";
-					leader=1;
-					rank="SERGEANT";
-					skill=0.46666664;
-				};
-				class Item1
-				{
-					position[]={662.29022,35.433708,490.45093};
-					id=13;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_MG_EP1";
-					player="PLAY CDG";
-					rank="CORPORAL";
-					skill=0.33333331;
-				};
-				class Item2
-				{
-					position[]={664.29022,35.442982,490.45093};
-					id=14;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_4_EP1";
-					player="PLAY CDG";
-					rank="CORPORAL";
-					skill=0.33333331;
-				};
-				class Item3
-				{
-					position[]={666.29022,35.449833,490.45093};
-					id=15;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_Sniper_EP1";
-					player="PLAY CDG";
-					rank="CORPORAL";
-					skill=0.33333331;
-				};
-				class Item4
-				{
-					position[]={668.29022,35.454029,490.45093};
-					id=16;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_5_EP1";
-					player="PLAY CDG";
-					rank="CORPORAL";
-					skill=0.33333331;
-				};
-				class Item5
-				{
-					position[]={670.29022,35.431442,490.45093};
-					id=17;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_AT_EP1";
-					player="PLAY CDG";
-					rank="CORPORAL";
-					skill=0.33333331;
-				};
-				class Item6
-				{
-					position[]={672.29022,35.422894,490.45093};
-					id=18;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_MG_EP1";
-					player="PLAY CDG";
-					skill=0.2;
-				};
-				class Item7
-				{
-					position[]={674.29022,35.409924,490.45093};
-					id=19;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_4_EP1";
-					player="PLAY CDG";
-					skill=0.2;
-				};
-				class Item8
-				{
-					position[]={676.29022,35.380001,490.45093};
-					id=20;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_2_EP1";
-					player="PLAY CDG";
-					skill=0.2;
-				};
-				class Item9
-				{
-					position[]={678.29022,35.380001,490.45093};
-					id=21;
-					side="GUER";
-					vehicle="TK_GUE_Soldier_5_EP1";
-					player="PLAY CDG";
-					skill=0.2;
-				};
-			};
-		};
-		class Item10
-		{
-			side="GUER";
-			class Vehicles
-			{
-				items=6;
-				class Item0
-				{
-					position[]={660.48517,35.422863,487.08618};
-					id=22;
-					side="GUER";
-					vehicle="Soldier_TL_PMC";
-					player="PLAY CDG";
-					leader=1;
-					rank="LIEUTENANT";
-					skill=0.59999996;
-				};
-				class Item1
-				{
-					position[]={663.48517,35.385151,482.08618};
-					id=23;
-					side="GUER";
-					vehicle="Soldier_Sniper_PMC";
-					player="PLAY CDG";
-					rank="SERGEANT";
-					skill=0.46666664;
-				};
-				class Item2
-				{
-					position[]={665.48517,35.380001,482.08618};
-					id=24;
-					side="GUER";
-					vehicle="Soldier_AT_PMC";
-					player="PLAY CDG";
-					rank="SERGEANT";
-					skill=0.46666664;
-				};
-				class Item3
-				{
-					position[]={667.48517,35.380001,482.08618};
-					id=25;
-					side="GUER";
-					vehicle="Soldier_MG_PMC";
-					player="PLAY CDG";
-					rank="CORPORAL";
-					skill=0.33333331;
-				};
-				class Item4
-				{
-					position[]={669.48517,35.380001,482.08618};
-					id=26;
-					side="GUER";
-					vehicle="Soldier_GL_PMC";
-					player="PLAY CDG";
-					rank="CORPORAL";
-					skill=0.33333331;
-				};
-				class Item5
-				{
-					position[]={671.48517,35.380001,482.08618};
-					id=27;
-					side="GUER";
-					vehicle="Soldier_M4A3_PMC";
-					player="PLAY CDG";
-					skill=0.2;
-				};
-			};
-		};
-		class Item11
-		{
-			side="GUER";
+			side="WEST";
 			class Vehicles
 			{
 				items=2;
@@ -388,8 +215,8 @@ class Mission
 				{
 					position[]={794.28662,35.380001,348.89172};
 					id=122;
-					side="GUER";
-					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					side="WEST";
+					vehicle="BAF_Pilot_MTP";
 					player="PLAY CDG";
 					leader=1;
 					rank="CAPTAIN";
@@ -398,14 +225,14 @@ class Mission
 				{
 					position[]={795.30505,35.380001,347.63879};
 					id=123;
-					side="GUER";
-					vehicle="UN_CDF_Soldier_Pilot_EP1";
+					side="WEST";
+					vehicle="BAF_Pilot_MTP";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
 				};
 			};
 		};
-		class Item12
+		class Item10
 		{
 			side="CIV";
 			class Vehicles
@@ -471,6 +298,348 @@ class Mission
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (5)";
+				};
+			};
+		};
+		class Item11
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=8;
+				class Item0
+				{
+					position[]={590.46204,35.304478,532.66345};
+					id=20;
+					side="WEST";
+					vehicle="BAF_Soldier_SL_DDPM";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+				};
+				class Item1
+				{
+					position[]={593.46204,35.269711,527.66345};
+					id=21;
+					side="WEST";
+					vehicle="BAF_Soldier_TL_DDPM";
+					player="PLAY CDG";
+					rank="SERGEANT";
+				};
+				class Item2
+				{
+					position[]={595.46204,35.264709,527.66345};
+					id=22;
+					side="WEST";
+					vehicle="BAF_Soldier_GL_DDPM";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item3
+				{
+					position[]={597.46204,35.227104,527.66345};
+					id=23;
+					side="WEST";
+					vehicle="BAF_Soldier_AR_DDPM";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item4
+				{
+					position[]={599.46204,35.182102,527.66345};
+					id=24;
+					side="WEST";
+					vehicle="BAF_Soldier_Marksman_DDPM";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item5
+				{
+					position[]={601.46204,35.09774,527.66345};
+					id=25;
+					side="WEST";
+					vehicle="BAF_Soldier_GL_DDPM";
+					player="PLAY CDG";
+				};
+				class Item6
+				{
+					position[]={603.46204,34.997742,527.66345};
+					id=26;
+					side="WEST";
+					vehicle="BAF_Soldier_AR_DDPM";
+					player="PLAY CDG";
+				};
+				class Item7
+				{
+					position[]={605.46204,34.880016,527.66345};
+					id=27;
+					side="WEST";
+					vehicle="BAF_Soldier_AAR_DDPM";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item12
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={590.17792,35.380001,524.78186};
+					id=28;
+					side="WEST";
+					vehicle="BAF_Soldier_TL_DDPM";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+				};
+				class Item1
+				{
+					position[]={593.17792,35.377602,519.78186};
+					id=29;
+					side="WEST";
+					vehicle="BAF_Soldier_GL_DDPM";
+					player="PLAY CDG";
+				};
+				class Item2
+				{
+					position[]={595.17792,35.372601,519.78186};
+					id=30;
+					side="WEST";
+					vehicle="BAF_Soldier_AR_DDPM";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={597.17792,35.32452,519.78186};
+					id=31;
+					side="WEST";
+					vehicle="BAF_Soldier_Marksman_DDPM";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item13
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={577.43713,35.380001,533.54443};
+					id=32;
+					side="WEST";
+					vehicle="BAF_Soldier_AT_DDPM";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+				};
+				class Item1
+				{
+					position[]={580.43713,35.380001,528.54443};
+					id=33;
+					side="WEST";
+					vehicle="BAF_Soldier_HAT_DDPM";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item2
+				{
+					position[]={582.43713,35.380001,528.54443};
+					id=34;
+					side="WEST";
+					vehicle="BAF_Soldier_AHAT_DDPM";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={584.43713,35.380001,528.54443};
+					id=35;
+					side="WEST";
+					vehicle="BAF_Soldier_AAT_DDPM";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item14
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={582.3302,35.380001,520.03271};
+					id=36;
+					side="WEST";
+					vehicle="BAF_Soldier_Officer_DDPM";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="MAJOR";
+				};
+			};
+		};
+		class Item15
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={566.7453,35.380001,532.57715};
+					id=37;
+					side="WEST";
+					vehicle="BAF_Soldier_TL_DDPM";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+				};
+				class Item1
+				{
+					position[]={569.7453,35.380001,527.57715};
+					id=38;
+					side="WEST";
+					vehicle="BAF_Soldier_GL_DDPM";
+					player="PLAY CDG";
+				};
+				class Item2
+				{
+					position[]={571.7453,35.380001,527.57715};
+					id=39;
+					side="WEST";
+					vehicle="BAF_Soldier_MG_DDPM";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={573.7453,35.380001,527.57715};
+					id=40;
+					side="WEST";
+					vehicle="BAF_Soldier_AMG_DDPM";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item16
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={564.57062,35.380001,524.01709};
+					id=41;
+					side="WEST";
+					vehicle="BAF_Soldier_TL_DDPM";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+				};
+				class Item1
+				{
+					position[]={567.57062,35.380001,519.01709};
+					id=42;
+					side="WEST";
+					vehicle="BAF_Soldier_GL_DDPM";
+					player="PLAY CDG";
+				};
+				class Item2
+				{
+					position[]={569.57062,35.380001,519.01709};
+					id=43;
+					side="WEST";
+					vehicle="BAF_Soldier_AT_DDPM";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={571.57062,35.380001,519.01709};
+					id=44;
+					side="WEST";
+					vehicle="BAF_Soldier_AAT_DDPM";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item17
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={576.09625,35.380001,518.64893};
+					id=45;
+					side="WEST";
+					vehicle="BAF_Soldier_TL_DDPM";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+				};
+				class Item1
+				{
+					position[]={579.09625,35.380001,513.64893};
+					id=46;
+					side="WEST";
+					vehicle="BAF_Soldier_FAC_DDPM";
+					player="PLAY CDG";
+				};
+				class Item2
+				{
+					position[]={581.09625,35.380001,513.64893};
+					id=47;
+					side="WEST";
+					vehicle="BAF_Soldier_Medic_DDPM";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={583.09625,35.380001,513.64893};
+					id=48;
+					side="WEST";
+					vehicle="BAF_Soldier_EN_DDPM";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item18
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=3;
+				class Item0
+				{
+					position[]={589.21655,35.380001,515.09436};
+					id=49;
+					side="WEST";
+					vehicle="BAF_Soldier_Sniper_MTP";
+					player="PLAY CDG";
+					leader=1;
+					rank="CORPORAL";
+				};
+				class Item1
+				{
+					position[]={592.21655,35.380001,510.09436};
+					id=50;
+					side="WEST";
+					vehicle="BAF_Soldier_SniperH_MTP";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item2
+				{
+					position[]={594.21655,35.380001,510.09436};
+					id=51;
+					side="WEST";
+					vehicle="BAF_Soldier_spotter_MTP";
+					player="PLAY CDG";
 				};
 			};
 		};
