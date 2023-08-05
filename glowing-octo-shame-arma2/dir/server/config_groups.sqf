@@ -1,19 +1,21 @@
 #define __A2OA__
 
 /*
-Не рукомендуется забивать грузовики до отказа
-иначе боты дольше тупят.
-
-	rankId
-		0 - Private
-		1 - Corporal
-		2 - Sergeant
-		3 - Lieutenant
-		4 - Captain
-		5 - Major
-		6 - Colonel
-
-*/
+ * TODO: Разделить на классы, например день/ночь.
+ *
+ * Не рукомендуется забивать грузовики до отказа
+ * иначе боты дольше тупят.
+ * 
+ * 	rankId
+ * 		0 - Private
+ * 		1 - Corporal
+ * 		2 - Sergeant
+ * 		3 - Lieutenant
+ * 		4 - Captain
+ * 		5 - Major
+ * 		6 - Colonel
+ * 
+ */
 
 
 private ["_west","_east","_guer","_woodland","_deserted","_tmp","_mod_acr",
