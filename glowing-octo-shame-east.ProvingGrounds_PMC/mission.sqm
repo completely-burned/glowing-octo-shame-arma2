@@ -157,7 +157,8 @@ class Mission
 			id=9;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			skill=0.2;
+			text="gosa_LogicLocationBase";
+			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item1
 		{
