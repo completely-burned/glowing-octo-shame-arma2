@@ -2148,8 +2148,8 @@ class Mission
 			id=0;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			skill=0.2;
-			init="this allowDamage false;";
+			text="gosa_LogicLocationBase";
+			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item1
 		{
@@ -2158,8 +2158,8 @@ class Mission
 			id=1;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			skill=0.60000002;
-			init="this allowDamage false;";
+			text="gosa_LogicLocationBase_1";
+			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item2
 		{
@@ -2168,8 +2168,8 @@ class Mission
 			id=5;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			skill=0.60000002;
-			init="this allowDamage false;";
+			text="gosa_LogicLocationBase_2";
+			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item3
 		{
@@ -2178,8 +2178,8 @@ class Mission
 			id=6;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			skill=0.60000002;
-			init="this allowDamage false;";
+			text="gosa_LogicLocationBase_3";
+			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item4
 		{
