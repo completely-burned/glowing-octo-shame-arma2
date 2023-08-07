@@ -22,6 +22,7 @@ private ["_west","_east","_guer","_woodland","_deserted","_tmp","_mod_acr",
 	"_f_multi_bis_cz","_f_multi_bis_tk","_f_multi_bis_tk_gue","_shop","_landing",
 	"_r0","_r1","_r2","_r3","_r4","_r5","_r6","_westN","_eastN","_guerN",
 	"_s1","_s2","_mg","_mg2","_gl","_at","_westD","_eastD","_guerD",
+	"_multiplier_MTP","_multiplier_DDPM","_multiplier_W",
 	"_westPatrol","_eastPatrol","_guerPatrol",
 	"_westAttack","_eastAttack","_guerAttack"];
 _westPatrol=[];_eastPatrol=[];_guerPatrol=[];
