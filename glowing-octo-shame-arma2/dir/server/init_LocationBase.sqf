@@ -41,6 +41,7 @@ for "_i" from -1 to 99 do {
 		_logic = call compile _str;
 		_arr set [count _arr, _logic];
 		_logic setVariable ["gosa_Location_type", _type_Airport select 0, true];
+		_logic setVariable ["gosa_respawn_type", _type_Airport select 0, true];
 	};
 };
 #ifdef __A2OA__
