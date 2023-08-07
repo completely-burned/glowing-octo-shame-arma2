@@ -96,6 +96,12 @@ if (true) then {
 
 			// объекты аэропорта.
 			_arr = synchronizedObjects _logic;
+
+			// Для совместимости.
+			if (count _arr < 1) then {
+				_arr = [_logic];
+			};
+
 			for "_i0" from 0 to (count _arr -1) do {
 				_logic = _arr select _i0;
 
