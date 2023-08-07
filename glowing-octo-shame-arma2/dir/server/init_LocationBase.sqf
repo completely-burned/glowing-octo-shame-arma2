@@ -31,6 +31,18 @@ for "_i" from -1 to 99 do {
 };
 
 // Для совместимости.
+for "_i" from -1 to 99 do {
+	if (_i < 0) then {
+		_str = "gosa_airportHangar";
+	}else{
+		_str = format["gosa_airportHangar%1", _i];
+	};
+	if !(isNil _str) then {
+		_logic = call compile _str;
+		_arr set [count _arr, _logic];
+		_logic setVariable ["gosa_Location_type", _type_Airport select 0, true];
+	};
+};
 #ifdef __A2OA__
 if (count _arr < 1) then {
 	{
