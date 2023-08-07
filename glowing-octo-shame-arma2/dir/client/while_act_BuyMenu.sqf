@@ -182,6 +182,10 @@ while {true} do {
 			for "_i" from 0 to (count _list -1) do {
 				_logic = _list select _i;
 				_arr = synchronizedObjects _logic;
+				// Для совместимости.
+				if (count _arr < 1) then {
+					_arr = [_logic];
+				};
 				for "_i0" from 0 to (count _arr -1) do {
 					_logic = _arr select _i0;
 					_obj = _logic getVariable ["gosa_building", _logic];
