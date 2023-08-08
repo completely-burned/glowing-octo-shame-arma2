@@ -54,12 +54,12 @@ if (_n < 0 or _n > 2) exitWith {
 //-- Типы отрядов.
 _arr = (gosa_Groups_common select _n);
 _arr0 = [_arr];
-_arr1 = [count (_arr select 0)];
+_arr1 = [count (_arr select 1)];
 
 if ([daytime - 1] call gosa_fnc_isNight) then {
 	_arr = (gosa_Groups_Night select _n);
 	_arr0 set [count _arr0, _arr];
-	_arr1 set [count _arr1, count (_arr select 0)];
+	_arr1 set [count _arr1, count (_arr select 1)];
 };
 
 _typeList = ([_arr0, _arr1] call gosa_fnc_selectRandomWeighted);
