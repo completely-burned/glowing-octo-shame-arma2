@@ -1,11 +1,12 @@
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 	"_arr","_count","_b","_cfg","_0","_1","_2","_n","_allow",
-	"_mod_i44","_startingClass",
+	"_mod_i44","_startingClass","_types_pilot",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
 _startingClass = gosa_playerStartingClass;
+_types_pilot = gosa_pilotL;
 _mod_i44 = if (configName(configFile >> "CfgVehicles" >> "I44_Man") != "") then{true}else{false};
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
@@ -239,9 +240,10 @@ if (_b) then {
 		diag_log format ["Log: [Menu] shop, post waitUntil %1", time];
 
 	//-- Ammo
+	// TODO: Устранить дубликаты.
 	private ["_entry","_type","_faction","_class","_factionclasses",
 		"_find_faction","_vehicleclasses","_find_vehicleclass",
-		"_count","_types"];
+		"_count","_types","_vehicleclass"];
 
 		if (_mod_i44) then {
 			_allow = ["i44_ammo","backpacks"];
@@ -302,55 +304,62 @@ if (_b) then {
 		// _dataListAmmoBox = _dataListAmmoBox call _list_BIS_FNC_createmenu2;
 
 	//-- Units
-		_tmp_arr = [[],[],[]];
+		_arr = [[],[],[]];
 		{
-			private ["_entry"]; private["_type"];
-			_entry = ((configFile >> "CfgVehicles") >> _x); _type = _x;
-							if (((getNumber(_entry >> "side")) == (getNumber(configFile >> "CfgVehicles">> typeof player >> "side"))) or !isMultiplayer) then {
-								if (
-									((toLower getText(_entry >> "simulation")) == "soldier") &&
-									(getNumber(_entry >> "isMan") == 1) &&
-									!(toLower _type in gosa_blacklisted_player_classes_L) &&
-									!(toLower getText(_entry >> "model") in ["\ca\characters_e\invisibleman"])
-								) then {
-									private["_faction"]; private["_vehicleclass"];
-									_faction = getText(_entry >> "faction"); _vehicleclass = getText(_entry >> "vehicleclass");
-									private["_factionclasses"];
-									_factionclasses = _tmp_arr select 0;
-									private["_find_faction"];
-									if (_faction in _factionclasses)then{
-										_find_faction = _factionclasses find _faction;
-									}else{
-										private["_count"];
-										_count = count _factionclasses;
-										[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
-										[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
-										[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
-										_find_faction = _factionclasses find _faction;
-									};
-									private["_vehicleclasses"];
-									_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
-									private["_find_vehicleclass"];
-									if (_vehicleclass in _vehicleclasses)then{
-										_find_vehicleclass = _vehicleclasses find _vehicleclass;
-									}else{
-										private["_count"];
-										_count = count _vehicleclasses;
-										[_tmp_arr,[1,_find_faction,_count],_vehicleclass] call gosa_fnc_setNestedElement;
-										[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
-										_find_vehicleclass = _vehicleclasses find _vehicleclass;
-									};
-									private["_types"];
-									_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
-									if (_type in _types)then{
-									}else{
-										_count = count _types;
-										[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
-									};
-								};
-							};
-		}forEach availableVehicles;
-		[_tmp_arr,"Man"] call _fnc_create_buy_menu;
+			_type = _x;
+			_entry = ((configFile >> "CfgVehicles") >> _x);
+
+			_b = if (_startingClass in [1]) then {
+					if ([[(configname _entry)], _types_pilot] call gosa_fnc_CheckIsKindOfArray) then {
+						_b = true;
+					}else{
+						_b = false;
+					};
+				}else{
+					_b = true;
+				};
+
+			if (_b) then {
+				if (((getNumber(_entry >> "side")) ==
+					(getNumber(configFile >> "CfgVehicles">> typeof player >> "side"))) or
+					!isMultiplayer) then
+				{
+					if (((toLower getText(_entry >> "simulation")) == "soldier") &&
+						(getNumber(_entry >> "isMan") > 0) &&
+						!(toLower _type in gosa_blacklisted_player_classes_L) &&
+						!(toLower getText(_entry >> "model") in ["\ca\characters_e\invisibleman"])) then
+					{
+						_faction = getText(_entry >> "faction");
+						_vehicleclass = getText(_entry >> "vehicleclass");
+						_factionclasses = _arr select 0;
+						if (_faction in _factionclasses) then {
+							_find_faction = _factionclasses find _faction;
+						}else{
+							_n = count _factionclasses;
+							[_arr,[0,_n],_faction] call gosa_fnc_setNestedElement;
+							[_arr,[1,_n],[]] call gosa_fnc_setNestedElement;
+							[_arr,[2,_n],[]] call gosa_fnc_setNestedElement;
+							_find_faction = _factionclasses find _faction;
+						};
+						_vehicleclasses = ((_arr select 1) select _find_faction);
+						if (_vehicleclass in _vehicleclasses) then {
+							_find_vehicleclass = _vehicleclasses find _vehicleclass;
+						}else{
+							_n = count _vehicleclasses;
+							[_arr,[1,_find_faction,_n],_vehicleclass] call gosa_fnc_setNestedElement;
+							[_arr,[2,_find_faction,_n],[]] call gosa_fnc_setNestedElement;
+							_find_vehicleclass = _vehicleclasses find _vehicleclass;
+						};
+						_types = (((_arr select 2) select _find_faction) select _find_vehicleclass);
+						if !(_type in _types) then {
+							_n = count _types;
+							[_arr,[2,_find_faction,_find_vehicleclass,_n],_type] call gosa_fnc_setNestedElement;
+						};
+					};
+				};
+			};
+		} forEach availableVehicles;
+		[_arr,"Man"] call _fnc_create_buy_menu;
 
 	//-- vehicles
 		private ["_fnc_vehicles"];
