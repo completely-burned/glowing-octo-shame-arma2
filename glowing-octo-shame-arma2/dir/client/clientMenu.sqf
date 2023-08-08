@@ -307,16 +307,16 @@ if (_b) then {
 		_arr = [[],[],[]];
 		{
 			_type = _x;
-			_entry = ((configFile >> "CfgVehicles") >> _x);
+			_entry = ((configFile >> "CfgVehicles") >> _type);
 
 			_b = if (_startingClass in [1]) then {
 					if ([[(configname _entry)], _types_pilot] call gosa_fnc_CheckIsKindOfArray) then {
-						_b = true;
+						true;
 					}else{
-						_b = false;
+						false;
 					};
 				}else{
-					_b = true;
+					true;
 				};
 
 			if (_b) then {
