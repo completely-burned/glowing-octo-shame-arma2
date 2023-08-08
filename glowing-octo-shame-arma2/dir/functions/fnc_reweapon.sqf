@@ -151,7 +151,7 @@ _fnc_rep = {
 							if (random 10 < 5) then {
 								if (toLower _x == _str) then {
 									_veh removeMagazine _str;
-									_veh addMagazineGlobal "8Rnd_B_Beneli_Pellets";
+									_veh addMagazine "8Rnd_B_Beneli_Pellets";
 								};
 							};
 						} forEach magazines _veh;
@@ -163,7 +163,7 @@ _fnc_rep = {
 							if (random 10 < 5) then {
 								if (toLower _x == _str) then {
 									_veh removeMagazine _str;
-									_veh addMagazineGlobal "8Rnd_B_Saiga12_Pellets";
+									_veh addMagazine "8Rnd_B_Saiga12_Pellets";
 								};
 							};
 						} forEach magazines _veh;
@@ -171,7 +171,7 @@ _fnc_rep = {
 				if (primaryWeapon _veh == "") then {
 				///--- Aziz
 				if (_type isKindOf "TK_Aziz_EP1") then {
-					for "_i" from 1 to 3 do { _veh addMagazineGlobal "30Rnd_545x39_AK"};
+					for "_i" from 1 to 3 do { _veh addMagazine "30Rnd_545x39_AK"};
 					_weapon = "aks_74_goshawk";
 					_veh addWeapon _weapon;
 				};
@@ -180,7 +180,7 @@ _fnc_rep = {
 			if (primaryWeapon _veh == "") then {
 			///--- Bardak
 			if (_type isKindOf "Ins_Bardak") then{
-				for "_i" from 1 to 3 do { _veh addMagazineGlobal "30Rnd_762x39_AK47"};
+				for "_i" from 1 to 3 do { _veh addMagazine "30Rnd_762x39_AK47"};
 				_weapon = "aks_gold";
 				_veh addWeapon _weapon;
 			};
@@ -317,7 +317,7 @@ _fnc_rep = {
 					if (toLower _x == _str) then {
 						if (random 8 < _n) then {
 							_veh removeMagazine _x;
-							_veh addMagazineGlobal "FlareWhite_GP25";
+							_veh addMagazine "FlareWhite_GP25";
 						};
 					};
 				} forEach magazines _veh;
@@ -327,7 +327,7 @@ _fnc_rep = {
 					if (toLower _x == _str) then {
 						if (random 8 < _n) then {
 							_veh removeMagazine _x;
-							_veh addMagazineGlobal "FlareWhite_M203";
+							_veh addMagazine "FlareWhite_M203";
 						};
 					};
 				} forEach magazines _veh;
