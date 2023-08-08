@@ -1,10 +1,11 @@
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 	"_arr","_count","_b","_cfg","_0","_1","_2","_n","_allow",
-	"_mod_i44",
+	"_mod_i44","_startingClass",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
+_startingClass = gosa_playerStartingClass;
 _mod_i44 = if (configName(configFile >> "CfgVehicles" >> "I44_Man") != "") then{true}else{false};
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
@@ -212,7 +213,21 @@ private["_fnc_create_buy_menu"];
 		[_current, _current, [_items, _itemsName], "%1",""] call BIS_FNC_createmenu;
 	};
 
-if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
+_b = if (missionNamespace getVariable "gosa_shop" in [1,2]) then {
+		diag_log format ["Log: [Menu] shop, enable, params", nil];
+		true;
+	}else{
+		// Пилоты
+		if (_startingClass in [1]) then {
+			diag_log format ["Log: [Menu] shop, enable, pilot", nil];
+			true;
+		}else{
+			diag_log format ["Log: [Menu] shop, disable", nil];
+			false;
+		};
+	};
+
+if (_b) then {
 	diag_log format ["Log: [Menu] shop %1", missionNamespace getVariable "gosa_shop"];
 
 	waitUntil{!isNil "gosa_fnc_libEnabled"};
