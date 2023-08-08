@@ -120,7 +120,7 @@ _fnc_rep = {
 							//_weapon = [_veh, _weapon, "m240_scoped_EP1"] call _fnc_rep;
 						};
 						if ( _weapon in ["m249"] ) then {
-							// [["M249_m145_EP1", "M249_TWS_EP1"],[0.5,0.1]] call BIS_fnc_selectRandomWeighted;
+							// [["M249_m145_EP1", "M249_TWS_EP1"],[0.5,0.1]] call gosa_fnc_selectRandomWeighted;
 							//_weapon = [_veh, _weapon, "m249_m145_ep1"] call _fnc_rep;
 						};
 					};

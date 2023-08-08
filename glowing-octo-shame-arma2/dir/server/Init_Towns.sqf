@@ -68,7 +68,7 @@ locationNext={
 	};
 	if(count _NextLocations >0 )then{
 		CivilianLocationStartTime = time;
-		CivilianLocation = (_NextLocations call gosa_fnc_Locations_weights) call BIS_fnc_selectRandomWeighted;
+		CivilianLocation = (_NextLocations call gosa_fnc_Locations_weights) call gosa_fnc_selectRandomWeighted;
 		civilianBasePos = locationPosition CivilianLocation;
 		civilianBasePos resize 2;
 		publicVariable "civilianBasePos";

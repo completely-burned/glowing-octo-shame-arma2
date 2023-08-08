@@ -36,7 +36,7 @@ if (isNil "_typeList") exitWith {
 
 diag_log format ["Log: [fnc_failoverGroup] count _typeList %1", count _typeList];
 
-_grp1 = (_typeList call BIS_fnc_selectRandomWeighted);
+_grp1 = (_typeList call gosa_fnc_selectRandomWeighted);
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
 diag_log format ["Log: [fnc_failoverGroup] _grp1 %1", _grp1];
