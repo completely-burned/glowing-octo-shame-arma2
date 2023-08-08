@@ -193,10 +193,11 @@ if (!isMultiplayer) then {
 	];
 };
 
-BIS_fnc_selectRandomWeighted = gosa_fnc_selectRandomWeighted;
 
 #ifdef __ARMA3__
 	BIS_fnc_distance2D = {_this select 0 distance2D (_this select 1)};
+#else
+	BIS_fnc_selectRandomWeighted = gosa_fnc_selectRandomWeighted;
 #endif
 
 gosa_fnc_init = true;
