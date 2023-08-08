@@ -3246,18 +3246,18 @@ _guer=[
 #endif
 
 gosa_Groups_Night = [];
-gosa_Groups_Night set [0, _westN];
-gosa_Groups_Night set [1, _eastN];
-gosa_Groups_Night set [2, _guerN];
+gosa_Groups_Night set [0, _westN call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_Night set [1, _eastN call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_Night set [2, _guerN call gosa_fnc_arrSorting_confGroups];
 
 gosa_Groups_common = [];
-gosa_Groups_common set [0, _west];
-gosa_Groups_common set [1, _east];
-gosa_Groups_common set [2, _guer];
+gosa_Groups_common set [0, _west call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_common set [1, _east call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_common set [2, _guer call gosa_fnc_arrSorting_confGroups];
 
 // Для совместимости с устаревшим кодом.
-AllGroupsWest=_west;
-AllGroupsEast=_east;
-AllGroupsGuer=_guer;
+AllGroupsWest = (gosa_Groups_common select 0);
+AllGroupsEast = (gosa_Groups_common select 1);
+AllGroupsGuer = (gosa_Groups_common select 2);
 
 diag_log format ["Log: [config_groups.sqf] end %1", time];

@@ -58,19 +58,6 @@ _fnc4={
 	};
 };
 
-// функция приводит к виду [[[_groups],[_groups]],[0.5,0.5]]
-_fnc1={
-	private["_groups"];
-	_groups=[];
-	private["_weights"];
-	_weights=[];
-	{
-		_groups = _groups+[[_x select 0]];
-		_weights = _weights+[_x select 1];
-	} foreach _this;
-	[_groups,_weights];
-};
-
 // Функция меняет баланс для фракции.
 private ["_fnc6"];
 _fnc6={
@@ -109,10 +96,6 @@ _fnc6={
 #else
 [] call compile preprocessFileLineNumbers "dir\server\config_groups.sqf";
 #endif
-
-AllGroupsWest = AllGroupsWest call _fnc1;
-AllGroupsEast = AllGroupsEast call _fnc1;
-AllGroupsGuer = AllGroupsGuer call _fnc1;
 
 AllGroupsWest = AllGroupsWest call _fnc5;
 AllGroupsEast = AllGroupsEast call _fnc5;
