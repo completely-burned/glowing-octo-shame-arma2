@@ -419,6 +419,7 @@ if (_b) then {
 			_x call _fnc_vehicles
 		} forEach ["Car","Tank","Helicopter","Plane","Motorcycle","Ship","StaticWeapon"];
 
+	// Для совместимости.
 	//-- Pilot
 		_tmp_arr = [[],[],[]];
 		{
