@@ -24,7 +24,7 @@ if(count _this > 1 && (!isNull(_this select 1)))then
 		_players = [_this select 1];
 	} else {
 	if(isMultiplayer)then{
-		_players = ([] call BIS_fnc_listPlayers);
+		_players = ([] call gosa_fnc_listPlayers);
 	}else{
 		_players = [player];
 	};

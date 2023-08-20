@@ -23,7 +23,7 @@ for "_i" from 0 to (count _arr -1) do
 };
 
 //--- Игроки.
-_arr = (([] call BIS_fnc_listPlayers) -[player]);
+_arr = (([] call gosa_fnc_listPlayers) -[player]);
 for "_i" from 0 to (count _arr -1) do
 {
 	_obj = _arr select _i;

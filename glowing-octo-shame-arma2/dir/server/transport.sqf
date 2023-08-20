@@ -15,7 +15,7 @@ while{true}do{
 	sleep 5;
 
 	if(isMultiplayer)then{
-		_players = ([] call BIS_fnc_listPlayers);
+		_players = ([] call gosa_fnc_listPlayers);
 	}else{
 		_players = [player];
 	};

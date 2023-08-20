@@ -137,7 +137,7 @@ while{true}do{
 		_resistance1 = (_resistance1 min 50000) ;
 
 
-		_listPlayers = ([] call BIS_fnc_listPlayers);
+		_listPlayers = ([] call gosa_fnc_listPlayers);
 
 		private["_next"];
 		_next = false;

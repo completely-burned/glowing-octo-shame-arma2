@@ -69,7 +69,7 @@ for "_i" from 0 to (count _z -2) step 2 do {
 
 
 //--- игроки
-_z = call BIS_fnc_listPlayers;
+_z = call gosa_fnc_listPlayers;
 for "_i" from 0 to (count _z -1) do {
 	_item = _z select _i;
 

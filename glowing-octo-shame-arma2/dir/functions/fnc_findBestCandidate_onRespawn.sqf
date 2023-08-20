@@ -39,7 +39,7 @@ if (true) then {
 		};
 	};
 
-	_listPlayers = call BIS_fnc_listPlayers;
+	_listPlayers = call gosa_fnc_listPlayers;
 	_count = count _listPlayers;
 	//--- подключение к конкретному игроку
 	if (count gosa_squadOn > 0) then {

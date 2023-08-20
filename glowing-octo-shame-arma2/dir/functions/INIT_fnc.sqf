@@ -10,8 +10,6 @@ _path = "dir\Functions\";
 // файлы без приставки
 _prefix="gosa_";
 
-BIS_fnc_listPlayers = compile (preprocessFileLineNumbers (_path + "fnc_listPlayers.sqf"));
-
 //--- сервер
 if (isServer) then {
 	{
@@ -72,6 +70,7 @@ if !(IsDedicated) then {
 	"fnc_sortUnits_onRank",
 	"fnc_sortUnits_onWeapon",
 	"fnc_arrSorting_confGroups",
+	"fnc_listPlayers",
 	"fnc_selectRandomWeighted",
 	"fnc_getSideNum",
 	"fnc_selectPlayer_isFit",
@@ -203,6 +202,7 @@ if (!isMultiplayer) then {
 #ifdef __ARMA3__
 	BIS_fnc_distance2D = {_this select 0 distance2D (_this select 1)};
 #else
+	BIS_fnc_listPlayers = gosa_fnc_listPlayers;
 	BIS_fnc_selectRandomWeighted = gosa_fnc_selectRandomWeighted;
 #endif
 

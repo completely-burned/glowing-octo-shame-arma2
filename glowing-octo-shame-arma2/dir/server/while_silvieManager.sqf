@@ -175,7 +175,7 @@ while{true}do{
 					};
 				};
 			};
-		}forEach ([] call BIS_fnc_listPlayers);
+		}forEach ([] call gosa_fnc_listPlayers);
 
 	sleep 10;
 };

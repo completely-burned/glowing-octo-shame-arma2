@@ -114,7 +114,7 @@ if(!isNil "_leader")then{
 			_pos = _leaderPos;
 
 			//- Позиция случайного игрока.
-			_tmp_arr = (([] call BIS_fnc_listPlayers)-[objNull]);
+			_tmp_arr = (([] call gosa_fnc_listPlayers)-[objNull]);
 			if (count _tmp_arr > 0) then {
 				_tmp_arr = getPos (_tmp_arr call BIS_fnc_selectRandom);
 				if (_tmp_arr call gosa_fnc_isZeroPos) then {

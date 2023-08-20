@@ -133,7 +133,7 @@ while{_run}do{
 
 	// TODO: Приватная переменная.
 	if (gosa_deviceType != 2) then {
-		_players = ([] call BIS_fnc_listPlayers);
+		_players = ([] call gosa_fnc_listPlayers);
 	} else {
 		_players = [player];
 	};
