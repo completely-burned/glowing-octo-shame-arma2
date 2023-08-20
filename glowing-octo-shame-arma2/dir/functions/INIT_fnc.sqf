@@ -42,6 +42,7 @@ if !(IsDedicated) then {
 			"fnc_menu_factory",
 			"fnc_menu_factories",
 		#endif
+		"fnc_findBestCandidate_onRespawn",
 		"fnc_selectPlayer",
 		"fnc_eh_playerRespawn",
 		"fnc_reveal",
@@ -65,6 +66,11 @@ if !(IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_sortGroups",
+	"fnc_sortGroupsPre",
+	"fnc_sortObjects_onDist",
+	"fnc_sortUnits_onRank",
+	"fnc_sortUnits_onWeapon",
 	"fnc_arrSorting_confGroups",
 	"fnc_selectRandomWeighted",
 	"fnc_getSideNum",
