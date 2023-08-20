@@ -1,3 +1,10 @@
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_E_F");
+if (_tmp > 0 or (_d >= 2035 && _tmp == -1)) then {
+if (((_n >= 190 or _n < 250) && 
+	_tmp == -1) or
+	_tmp > 0) then
+{
+
 _guer=_guer+[
 // configName I_E_MotInf_Team
 [[[["I_E_Offroad_01_F",
@@ -62,3 +69,6 @@ _guer=_guer+[
 	"CORPORAL","PRIVATE",
 	"PRIVATE"]]],0.5]
 ];
+
+};
+};
