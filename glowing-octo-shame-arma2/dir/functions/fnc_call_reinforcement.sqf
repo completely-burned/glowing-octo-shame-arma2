@@ -47,9 +47,8 @@ _n = daytime-1;
 _b = ([_n] call gosa_fnc_isNight);
 
 _n = (_side call gosa_fnc_getSideNum);
-if (_n < 0 or _n > 2) exitWith {
-	diag_log format ["Log: [while_patrols.sqf] _n fnc_getSideNum", nil];
-};
+diag_log format ["Log: [gosa_fnc_call_reinforcement] %2 fnc_getSideNum = %1", _n, _side];
+if (_n < 0 or _n > 2) exitWith {};
 
 //-- Типы отрядов.
 _arr = (gosa_Groups_common select _n);
