@@ -3256,8 +3256,8 @@ gosa_Groups_common set [1, _west call gosa_fnc_arrSorting_confGroups];
 gosa_Groups_common set [2, _guer call gosa_fnc_arrSorting_confGroups];
 
 // Для совместимости с устаревшим кодом.
-AllGroupsWest = (gosa_Groups_common select 0);
-AllGroupsEast = (gosa_Groups_common select 1);
+AllGroupsEast = (gosa_Groups_common select 0);
+AllGroupsWest = (gosa_Groups_common select 1);
 AllGroupsGuer = (gosa_Groups_common select 2);
 
 diag_log format ["Log: [config_groups.sqf] end %1", time];
