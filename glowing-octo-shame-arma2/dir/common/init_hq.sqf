@@ -36,21 +36,25 @@ _typesHQ = [[],[]];
 			_types0 = ["BTR90_HQ",
 				"BMP2_HQ_INS",
 				"BMP2_HQ_TK_EP1",
+				"i44_truck_g_command_wh",
 				"O_Truck_03_command_F"];
 			_types1 = ["BTR90_HQ_unfolded",
 				"BMP2_HQ_INS_unfolded",
 				// Не путать с "BMP2_HQ_TK_unfolded_Base_EP1".
 				"BMP2_HQ_TK_unfolded_EP1",
+				"",
 				""];
 		};
 		case west: {
 			_types0 = ["M1130_CV_EP1",
 				"LAV25_HQ",
 				"BMP2_HQ_CDF",
+				"i44_truck_a_command_army",
 				"B_Truck_01_command_F"];
 			_types1 = ["M1130_HQ_unfolded_EP1",
 				"LAV25_HQ_unfolded",
 				"BMP2_HQ_CDF_unfolded",
+				"",
 				""];
 		};
 		case resistance: {

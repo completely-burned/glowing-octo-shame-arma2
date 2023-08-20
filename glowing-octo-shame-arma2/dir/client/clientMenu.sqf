@@ -183,6 +183,14 @@ private["_fnc_create_buy_menu"];
 
 					//- MHQ
 					switch (toLower _name) do {
+						case "i44_truck_a_gmc_cckw_army": {
+							_name = "i44_truck_a_command_army";
+							_b = true;
+						};
+						case "i44_truck_g_kfz305_gray_wh": {
+							_name = "i44_truck_g_command_wh";
+							_b = true;
+						};
 						case "o_truck_03_covered_f": {
 							_name = "o_truck_03_command_f";
 							_b = true;
