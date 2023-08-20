@@ -14,7 +14,7 @@ for "_i" from 0 to (count _arr -1) do {
 	if (side _grp in _sides_friendly) then {
 		_pre set [
 			count _pre,
-			[units _grp, _grp] call gosa_fnc_sortGroupsPre;
+			[units _grp, _grp] call gosa_fnc_sortGroupsPre
 		];
 	};
 };
