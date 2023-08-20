@@ -3246,13 +3246,13 @@ _guer=[
 #endif
 
 gosa_Groups_Night = [];
-gosa_Groups_Night set [0, _westN call gosa_fnc_arrSorting_confGroups];
-gosa_Groups_Night set [1, _eastN call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_Night set [0, _eastN call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_Night set [1, _westN call gosa_fnc_arrSorting_confGroups];
 gosa_Groups_Night set [2, _guerN call gosa_fnc_arrSorting_confGroups];
 
 gosa_Groups_common = [];
-gosa_Groups_common set [0, _west call gosa_fnc_arrSorting_confGroups];
-gosa_Groups_common set [1, _east call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_common set [0, _east call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_common set [1, _west call gosa_fnc_arrSorting_confGroups];
 gosa_Groups_common set [2, _guer call gosa_fnc_arrSorting_confGroups];
 
 // Для совместимости с устаревшим кодом.
