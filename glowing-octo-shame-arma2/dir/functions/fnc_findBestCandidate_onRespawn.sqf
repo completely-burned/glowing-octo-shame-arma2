@@ -131,4 +131,8 @@ if (true) then {
 	};
 };
 
-_bestCandidate;
+if (isNil "_bestCandidate") then {
+	nil;
+} else {
+	_bestCandidate;
+};
