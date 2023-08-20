@@ -105,6 +105,18 @@ class Params {
 
 	// Множители фракций.
 	#ifdef __ARMA3__
+		class gosa_faction_multiplier_OPF_F {
+			title="FACTION: BIS_OPF_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BLU_F {
+			title="FACTION: BIS_BLU_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 	#else
 	class gosa_faction_multiplier_INS {
 		title="FACTION: BIS_INS";

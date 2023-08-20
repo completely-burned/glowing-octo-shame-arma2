@@ -36,8 +36,12 @@ _d = (gosa_IslandType select 1);
 // A3
 
 // B_
-
-if(!_woodland && _deserted)then{
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_F");
+if (_tmp > 0 or (_d >= 2035 && _tmp == -1)) then {
+if ((( _n <= 160 or _n >= 250) && 
+	_tmp == -1) or
+	_tmp > 0) then
+{
 	_west=_west+[
 		[[[["B_soldier_SL_F","B_soldier_TL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 		[[[["B_soldier_SL_F","B_soldier_AR_F","B_soldier_GL_F","B_soldier_M_F","B_soldier_AT_F","B_soldier_AAT_F","B_soldier_A_F","B_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
@@ -209,6 +213,7 @@ if(!_woodland && _deserted)then{
 		*/
 	];
 };
+};
 if(true)then{
 	_west=_west+[
 		// беспилотники
@@ -230,7 +235,12 @@ if(true)then{
 };
 
 // O_
-if(!_woodland && _deserted)then{
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_F");
+if (_tmp > 0 or (_d >= 2035 && _tmp == -1)) then {
+if (((_n <= 160 or _n >= 250) && 
+	_tmp == -1) or
+	_tmp > 0) then
+{
 	_east=_east+[
 		// пехота
 			// OIA_GuardSquad
@@ -530,6 +540,7 @@ if(!_woodland && _deserted)then{
 		[[[["O_G_Mortar_01_F"],[],["PRIVATE"]]],0.05]
 		*/
 	];
+};
 };
 if(true)then{
 	_east=_east+[
