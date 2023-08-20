@@ -10,7 +10,9 @@ _pos = _this select 2;
 
 scopename "root";
 if (true) then {
+	_arr = [];
 	scopename "fb1";
+
 	// Ищем новое тело из юнитов группы игрока т.к. они находятся рядом.
 	diag_log format ["Log: [respawnRandom] поиск среди юнитов группы игрока %1", _grp];
 	_obj = leader _grp;
