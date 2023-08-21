@@ -1,9 +1,6 @@
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_E_F");
-if (_tmp > 0 or (_d >= 2035 && _tmp == -1)) then {
-if (((_n >= 190 or _n < 250) && 
-	_tmp == -1) or
-	_tmp > 0) then
-{
+if (_tmp > 0 or (_tmp == -1 && _d >= 2035)) then {
+if (_tmp > 0 or (_tmp == -1 && (_n >= 190 && _n < 250))) then {
 
 _guer=_guer+[
 // configName I_E_MotInf_Team
