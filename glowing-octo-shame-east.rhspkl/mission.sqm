@@ -198,9 +198,9 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3711.5752,47.267799,2679.5503};
-				angles[]={0.12813562,0,5.9934273};
+				position[]={3711.575,47.267902,2679.55};
 			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=0;
 			type="LocationBase_F";
 		};
@@ -588,9 +588,9 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3621.0696,52.209152,2719.9482};
-				angles[]={-0,2.898586,0};
+				position[]={3621.0701,52.209427,2719.948};
 			};
+			init="this setVariable [""gosa_Location_type"", 0];";
 			id=13;
 			type="LocationCamp_F";
 		};
@@ -599,20 +599,20 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3641.5706,49.077099,2665.855};
-				angles[]={-0,0.67038381,0};
+				position[]={3641.571,49.07729,2665.855};
 			};
+			init="this setVariable [""gosa_Location_type"", 0];";
 			id=15;
 			type="LocationCamp_F";
-			atlOffset=0.22600174;
 		};
 		class Item5
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3725.0315,48.124348,2670.1206};
+				position[]={3725.031,48.124317,2670.1211};
 			};
+			init="this setVariable [""gosa_Location_type"", 0];";
 			id=16;
 			type="LocationCamp_F";
 		};
