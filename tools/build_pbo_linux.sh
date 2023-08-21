@@ -96,6 +96,12 @@ else
 	find $TMPDIR -type f -exec sed -i "/^.*diag_log.*/d" {} \;
 fi
 
+# Перевод кириллицы в транслит.
+if [[ -x "$(command -v translit)" && -x "$(command -v iconv)" ]]
+then
+	find $TMPDIR -type f -exec translit -i {} -o {}.translit -t "ISO 9" \; -exec iconv -f UTF8 -t US-ASCII//TRANSLIT -o {} {}.translit \; -exec rm {}.translit \;
+fi
+
 if [[ ! -d $TMPDIR/.build.out ]]
 then
 	mkdir $TMPDIR/.build.out
