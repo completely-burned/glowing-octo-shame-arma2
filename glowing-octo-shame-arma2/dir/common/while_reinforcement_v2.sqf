@@ -9,7 +9,7 @@ TODO: Переход на функции.
 private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
 	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
-	"_conveyer_limit","_limits","_l_enemy","_fnc_fl","_grp","_e_multipler",
+	"_conveyer_limit","_limits","_l_enemy","_locationPos","_grp","_e_multipler",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run",
 	"_lg","_enemySide","_friendlySide","_sleep"];
 
@@ -24,13 +24,13 @@ diag_log format ["Log: [reinforcements] post waitUntil %1", time];
 
 private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 	if(gosa_loglevel>0)then{ // diag_log
-		_diag_log_m_fl_e = createMarker ["gosa_fl_e", [0,0]];
+		_diag_log_m_fl_e = createMarker ["gosa_fl_" + str east, [0,0]];
 		_diag_log_m_fl_e setMarkerTextLocal _diag_log_m_fl_e;
 		_diag_log_m_fl_e setMarkerType "Dot";
-		_diag_log_m_fl_w = createMarker ["gosa_fl_w", [0,0]];
+		_diag_log_m_fl_w = createMarker ["gosa_fl_" + str west, [0,0]];
 		_diag_log_m_fl_w setMarkerTextLocal _diag_log_m_fl_w;
 		_diag_log_m_fl_w setMarkerType "Dot";
-		_diag_log_m_fl_r = createMarker ["gosa_fl_r", [0,0]];
+		_diag_log_m_fl_r = createMarker ["gosa_fl_" + str resistance, [0,0]];
 		_diag_log_m_fl_r setMarkerTextLocal _diag_log_m_fl_r;
 		_diag_log_m_fl_r setMarkerType "Dot";
 	}; // diag_log
@@ -93,24 +93,6 @@ _friendlySide = gosa_friendlyside - [civilian];
 			default {};
 		};
 	};
-
-_fnc_fl = {
-	private["_r"];
-	_r = _this;
-
-	for "_i" from 0 to count _r -1 do {
-		if (!isNil {_r select _i getVariable "patrol"}) then {
-			_r set [_i, grpNull]
-		};
-	};
-	_r = _r -[grpNull];
-
-	if (count _r > 0) then {
-		_r = _r call gosa_fnc_centerOfImpact;
-	};
-
-	_r;
-};
 
 while{_run}do{
 
@@ -182,7 +164,7 @@ while{_run}do{
 		};
 		diag_log format ["Log: [reinforcements] _limits %1", _limits];
 
-
+	_locationPos = civilianBasePos;
 
 	//--- чистка при значительном превышении лимита
 		_z = (_dyn_limit*1.4+1) max (_dyn_limit+5);
@@ -198,10 +180,10 @@ while{_run}do{
 						if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
 
 							if (isNil {_d}) then {
-								_d = civilianBasePos distance vehicle _l;
+								_d = _locationPos distance vehicle _l;
 								_rm = [_grp];
 							}else{
-								if (_d < civilianBasePos distance vehicle _l) then {
+								if (_d < _locationPos distance vehicle _l) then {
 									_rm = [_grp]+_rm;
 									_rm resize (0 max round ((_lg-_z) min count _rm));
 								};
@@ -294,189 +276,38 @@ while{_run}do{
 				};
 
 			// EAST
-				//--- линия фронта
-					_fl = missionNamespace getVariable "gosa_frontLine_east";
-					if (_fl == 0) then {
-						_fl = [];
-					}else{
-						_z = [];
-
-						if (_fl == 1) then {
-							if (east getFriend west >= 0.6) then {
-								_z = (_grp select 1) +_z;
-							};
-							if (east getFriend resistance >= 0.6) then {
-								_z = (_grp select 2) +_z;
-							};
-						};
-						if (_fl == 2) then {
-							if (east getFriend west < 0.6) then {
-								_z = (_grp select 1) +_z;
-							};
-							if (east getFriend resistance < 0.6) then {
-								_z = (_grp select 2) +_z;
-							};
-						};
-
-						// позиция
-						_z = _z call _fnc_fl;
-
-						if (count _z == 0) then {
-							_fl = _z;
-						}else{
-							if(gosa_loglevel>0)then{_diag_log_m_fl_e setMarkerPos _z};
-
-							// азимут
-							_z = [civilianBasePos, _z] call BIS_fnc_dirTo;
-								if (_fl == 2) then {
-									_fl = [_z+180, 3];
-								}else{
-									_fl = [_z, 3];
-								};
-						};
-
-						diag_log format ["Log: [reinforcements] frontLine east %1", [_z,_fl]];
-					};
-
-				// _z [нападающие, патрули,  нападающие.уд.пк,  патрули.уд.пк]
-				_z = {isNil {_x getVariable "patrol"}} count (_grp select 0);
-					_z = [_z, count (_grp select 0) - _z];
-					_z set [2, {isNil {_x getVariable "patrol"}} count (_grp select 4)];
-					_z set [3, count (_grp select 4) - (_z select 2)];
-					diag_log format ["Log: [reinforcements] east сейчас %1 %2", _z, [count (_grp select 0), count (_grp select 4)]];
-
-				if ((_z select 0) + ((_z select 2) * 0.5) + ({_x select 1 == 0} count _conveyer) < (_limits select 0)) then {
-					_conveyer set [count _conveyer, [[east, objNull, _fl] spawn gosa_fnc_call_reinforcement, 0]];
-				};
-				if ((_z select 1) + ((_z select 3) * 0.5) + ({_x select 1 == 4} count _conveyer) < (_limits select 4)) then {
-					_conveyer set [count _conveyer, [[east, _players call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 4]];
-				};
+			[	_conveyer,
+				_frontLine_east,
+				east,west,resistance,
+				_grp select 1,_grp select 2,
+				_grp select 0,_grp select 4,
+				_limits select 0,_limits select 4,
+				0,4,
+				_locationPos,_players
+			] call gosa_fnc_call_reinforcement_pre;
 
 			// WEST
-				//--- линия фронта
-					_fl = missionNamespace getVariable "gosa_frontLine_west";
-					if (_fl == 0) then {
-						_fl = [];
-					}else{
-						_z = [];
-
-						if (_fl == 1) then {
-
-							if (west getFriend east >= 0.6) then {
-								_z = (_grp select 0) +_z;
-							};
-							if (west getFriend resistance >= 0.6) then {
-								_z = (_grp select 2) +_z;
-							};
-
-						};
-						if (_fl == 2) then {
-
-							if (west getFriend east < 0.6) then {
-								_z = (_grp select 0) +_z;
-							};
-							if (west getFriend resistance < 0.6) then {
-								_z = (_grp select 2) +_z;
-							};
-
-						};
-
-						// позиция
-						_z = _z call _fnc_fl;
-
-						if (count _z == 0) then {
-							_fl = _z;
-						}else{
-							if(gosa_loglevel>0)then{_diag_log_m_fl_w setMarkerPos _z};
-
-							// азимут
-							_z = [civilianBasePos, _z] call BIS_fnc_dirTo;
-								if (_fl == 2) then {
-									_fl = [_z+180, 3];
-								}else{
-									_fl = [_z, 3];
-								};
-						};
-
-						diag_log format ["Log: [reinforcements] frontLine west %1", [_z,_fl]];
-					};
-
-				_z = {isNil {_x getVariable "patrol"}} count (_grp select 1);
-					_z = [_z, count (_grp select 1) - _z];
-					_z set [2, {isNil {_x getVariable "patrol"}} count (_grp select 5)];
-					_z set [3, count (_grp select 5) - (_z select 2)];
-					diag_log format ["Log: [reinforcements] west сейчас %1 %2", _z, [count (_grp select 1), count (_grp select 5)]];
-
-				if ((_z select 0) + ((_z select 2) * 0.5) + ({_x select 1 == 1} count _conveyer) < (_limits select 1)) then {
-					_conveyer set [count _conveyer, [[west, objNull, _fl] spawn gosa_fnc_call_reinforcement, 1]];
-				};
-				if ((_z select 1) + ((_z select 3) * 0.5) + ({_x select 1 == 5} count _conveyer) < (_limits select 5)) then {
-					_conveyer set [count _conveyer, [[west, _players call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 5]];
-				};
+			[	_conveyer,
+				_frontLine_west
+				west,east,resistance,
+				_grp select 0,_grp select 2,
+				_grp select 1,_grp select 5,
+				_limits select 1,_limits select 5,
+				1,5,
+				_locationPos,_players
+			] call gosa_fnc_call_reinforcement_pre;
 
 			// GUE
-				//--- линия фронта
-					_fl = missionNamespace getVariable "gosa_frontLine_guer";
-					if (_fl == 0) then {
-						_fl = [];
-					}else{
-						_z = [];
-
-						if (_fl == 1) then {
-
-							if (resistance getFriend east >= 0.6) then {
-								_z = (_grp select 0) +_z;
-							};
-							if (resistance getFriend west >= 0.6) then {
-								_z = (_grp select 1) +_z;
-							};
-
-						};
-						if (_fl == 2) then {
-
-							if (resistance getFriend east < 0.6) then {
-								_z = (_grp select 0) +_z;
-							};
-							if (resistance getFriend west < 0.6) then {
-								_z = (_grp select 1) +_z;
-							};
-
-						};
-
-						// позиция
-						_z = _z call _fnc_fl;
-
-						if (count _z == 0) then {
-							_fl = _z;
-						}else{
-							if(gosa_loglevel>0)then{_diag_log_m_fl_r setMarkerPos _z};
-
-							// азимут
-							_z = [civilianBasePos, _z] call BIS_fnc_dirTo;
-								if (_fl == 2) then {
-									_fl = [_z+180, 3];
-								}else{
-									_fl = [_z, 3];
-								};
-						};
-
-						diag_log format ["Log: [reinforcements] frontLine guer %1", [_z,_fl]];
-					};
-
-				_z = {isNil {_x getVariable "patrol"}} count (_grp select 2);
-					_z = [_z, count (_grp select 2) - _z];
-					_z set [2, {isNil {_x getVariable "patrol"}} count (_grp select 6)];
-					_z set [3, count (_grp select 6) - (_z select 2)];
-					diag_log format ["Log: [reinforcements] guer сейчас %1 %2", _z, [count (_grp select 2), count (_grp select 6)]];
-
-				if ((_z select 0) + ((_z select 2) * 0.5) + ({_x select 1 == 2} count _conveyer) < (_limits select 2)) then {
-					_conveyer set [count _conveyer, [[resistance, objNull, _fl] spawn gosa_fnc_call_reinforcement, 2]];
-				};
-				if ((_z select 1) + ((_z select 3) * 0.5) + ({_x select 1 == 6} count _conveyer) < (_limits select 6)) then {
-					_conveyer set [count _conveyer, [[resistance, _players call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, 6]];
-				};
+			[	_conveyer,
+				_frontLine_guer,
+				resistance,east,west,
+				_grp select 0,_grp select 1,
+				_grp select 2,_grp select 6,
+				_limits select 2,_limits select 6,
+				2,6,
+				_locationPos,_players
+			] call gosa_fnc_call_reinforcement_pre;
 			};
-
 		};
 
 	sleep (_sleep call gosa_fnc_dynSleep);
