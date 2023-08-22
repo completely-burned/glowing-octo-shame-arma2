@@ -288,7 +288,7 @@ while{_run}do{
 
 			// WEST
 			[	_conveyer,
-				_frontLine_west
+				_frontLine_west,
 				west,east,resistance,
 				_grp select 0,_grp select 2,
 				_grp select 1,_grp select 5,
