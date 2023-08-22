@@ -200,7 +200,7 @@ class Mission
 			{
 				position[]={3711.575,47.267902,2679.55};
 			};
-			init="this setVariable [""gosa_respawn_type"", 0];";
+			init="this setVariable [""gosa_Location_type"", 0];";
 			id=0;
 			type="LocationBase_F";
 		};
@@ -590,7 +590,7 @@ class Mission
 			{
 				position[]={3621.0701,52.209427,2719.948};
 			};
-			init="this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=13;
 			type="LocationCamp_F";
 		};
@@ -601,7 +601,7 @@ class Mission
 			{
 				position[]={3641.571,49.07729,2665.855};
 			};
-			init="this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=15;
 			type="LocationCamp_F";
 		};
@@ -612,7 +612,7 @@ class Mission
 			{
 				position[]={3725.031,48.124317,2670.1211};
 			};
-			init="this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=16;
 			type="LocationCamp_F";
 		};
