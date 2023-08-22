@@ -11,6 +11,7 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
 	"_conveyer_limit","_limits","_l_enemy","_locationPos","_grp","_e_multipler",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run",
+	"_frontLine_east","_frontLine_west","_frontLine_guer",
 	"_lg","_enemySide","_friendlySide","_sleep"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
@@ -71,7 +72,9 @@ _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinfor
 _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
 _frames_required = _limit_fps * _dfi;
 _time = time;
-
+_frontLine_east = missionNamespace getVariable "gosa_frontLine_east";
+_frontLine_west = missionNamespace getVariable "gosa_frontLine_west";
+_frontLine_guer = missionNamespace getVariable "gosa_frontLine_guer";
 
 _friendlySide = gosa_friendlyside - [civilian];
 	_enemySide = [west,east,resistance] - gosa_friendlyside;
