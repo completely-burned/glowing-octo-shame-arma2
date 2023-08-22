@@ -63,7 +63,7 @@ _LandVehicle = _type isKindOf "LandVehicle";
 //--- Пилот командир, поэтому первый.
 if !(_LandVehicle) then {
 	if ((_hasDriver == 1) && (isNull (driver _vehicle))) then {
-			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
+			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "NONE"];
 			_crew set [count _crew, _unit];
 			_unit moveInDriver _vehicle;
 			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
@@ -138,9 +138,9 @@ if !(_LandVehicle) then {
 		for "_i" from (count _sorted - 1) to 0 step -1 do {
 			if (isNull (_vehicle turretUnit (_sorted select _i select 1))) then {
 				if(!isNil {_typicalCargo2})then{
-					_unit = _grp createUnit [(_typicalCargo2 select _i), _tmpPosSafe, [], 0, "FORM"];
+					_unit = _grp createUnit [(_typicalCargo2 select _i), _tmpPosSafe, [], 0, "NONE"];
 				}else{
-					_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
+					_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "NONE"];
 				};
 				#ifndef __A2OA__
 					_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
@@ -199,7 +199,7 @@ if !(_LandVehicle) then {
 //--- creating driver unit for land
 if (_LandVehicle) then {
 	if ((_hasDriver == 1) && (isNull (driver _vehicle))) then {
-			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "FORM"];
+			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "NONE"];
 			_crew set [count _crew, _unit];
 			_unit moveInDriver _vehicle;
 			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];

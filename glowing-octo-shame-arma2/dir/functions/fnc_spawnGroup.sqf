@@ -76,7 +76,7 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 
 				// Для пехоты.
 				if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
-					_unit = _grp createUnit [_type, _itemPos, [], 0, "FORM"];
+					_unit = _grp createUnit [_type, _itemPos, [], 0, "NONE"];
 					#ifdef __ARMA3__
 						[_unit, "fnc_spawnGroup"] remoteExec ["gosa_fnc_vehInit2"];
 					#else
