@@ -71,6 +71,8 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 				} else {
 					_itemPos = _pos;
 				};
+				// Чтобы не застряли.
+				_itemPos set [2,2];
 
 				// Для пехоты.
 				if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
