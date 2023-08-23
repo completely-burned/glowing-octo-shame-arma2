@@ -10,8 +10,8 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
 	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
 	"_conveyer_limit","_limits","_l_enemy","_locationPos","_grp","_e_multipler",
-	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run",
-	"_frontLine_east","_frontLine_west","_frontLine_guer",
+	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run","_allGroups",
+	"_frontLine_east","_frontLine_west","_frontLine_guer","_deviceT2",
 	"_lg","_enemySide","_friendlySide","_sleep"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
@@ -39,9 +39,15 @@ private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 _conveyer = [];
 _conveyer_limit = 8;
 
+if (gosa_deviceType == 2) then {
+	_deviceT2 = true;
+}else{
+	_deviceT2 = false;
+};
+
 _patrol_percent = ((missionNamespace getVariable "gosa_patrolCoefficient") / 100);
 _dfi = gosa_server_diag_fps_interval;
-if (gosa_deviceType == 2) then {
+if (_deviceT2) then {
 	_minGroups = missionNamespace getVariable "ai_client_count";
 	_limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
 	_sleep = 120;
@@ -99,7 +105,9 @@ _friendlySide = gosa_friendlyside - [civilian];
 
 while{_run}do{
 
-	_grp = call gosa_fnc_getGroups;
+	_allGroups = allGroups;
+
+	_grp = (_allGroups call gosa_fnc_getGroups);
 
 	_lg=((count (_grp select 0))+(count (_grp select 1))+(count (_grp select 2)));
 
@@ -116,8 +124,7 @@ while{_run}do{
 		diag_log format ["Log: [reinforcements] count conveyer %1", count _conveyer];
 
 
-	// TODO: Приватная переменная.
-	if (gosa_deviceType != 2) then {
+	if (_deviceT2) then {
 		_players = ([] call gosa_fnc_listPlayers);
 	} else {
 		_players = [player];
@@ -172,7 +179,7 @@ while{_run}do{
 	//--- чистка при значительном превышении лимита
 		_z = (_dyn_limit*1.4+1) max (_dyn_limit+5);
 		if (_lg + count _conveyer > _z) then {
-			if (gosa_deviceType != 2) then {
+			if (_deviceT2) then {
 				private["_side","_l","_grp","_rm","_d"];
 				diag_log format ["Log: [reinforcements] групп слишком много %1+%2 > %3", _lg, count _conveyer, _z];
 				{
@@ -194,7 +201,7 @@ while{_run}do{
 							diag_log format ["Log: [reinforcements] rm %1", _rm];
 						};
 					};
-				}forEach allGroups;
+				}forEach _allGroups;
 
 				if (!isNil {_rm}) then {
 					if (count _rm > 0) then {
@@ -321,7 +328,7 @@ while{_run}do{
 		diag_log format ["Log: [reinforcements] + 2* %1 / %2 = %3", _z, _dfi, _z];
 	}else{
 		diag_log format ["Log: [reinforcements] - 2* %1 / %2 = %3", _z, _dfi, _z];
-		if (gosa_deviceType != 2) then {
+		if (_deviceT2) then {
 			_dyn_limit = (_minGroups max (_dyn_limit - _z));
 		}else{
 			_dyn_limit = (0 max (_dyn_limit - _z));

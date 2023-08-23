@@ -3,13 +3,16 @@
 возвращает группы ии по полочкам
 ---------------------------------------------------------------------------*/
 
-private ["_g","_s","_l","_u","_e","_w","_r","_c","_le","_lw","_lr","_lc","_o"];
+private ["_g","_s","_l","_u","_e","_w","_r","_c","_le","_lw","_lr","_lc","_o",
+	"_arr"];
 
 _e = []; _w = []; _r = []; _c = []; _o = []; // Remote
 _le = []; _lw = []; _lr = []; _lc = []; // Local
 
-{
-	_g = _x;
+_arr = _this;
+
+for "_i" from 0 to (count _arr -1) do {
+	_g = _arr select _i;
 	//_l = leader _g;
 
 	_u = units _g;
@@ -44,6 +47,6 @@ _le = []; _lw = []; _lr = []; _lc = []; // Local
 	}else{
 		_o set [count _o, _g];
 	};
-} forEach allGroups;
+};
 
 [_le,_lw,_lr,_lc,_e,_w,_r,_c,_o];
