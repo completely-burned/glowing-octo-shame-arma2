@@ -64,6 +64,7 @@ if !(IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_findStartingPos",
 	"fnc_call_reinforcement_pre",
 	"fnc_sortGroups",
 	"fnc_sortGroupsPre",
