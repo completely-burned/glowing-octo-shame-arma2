@@ -35,4 +35,6 @@ while {true} do {
 	_attempts = _attempts + 1;
 };
 
+// TODO: Отказоустойчивость.
+
 _testPos;
