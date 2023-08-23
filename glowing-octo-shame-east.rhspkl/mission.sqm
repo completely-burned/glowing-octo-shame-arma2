@@ -8,7 +8,11 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=58;
+		nextID=60;
+	};
+	class MarkerIDProvider
+	{
+		nextID=2;
 	};
 	class Camera
 	{
@@ -23,13 +27,14 @@ sourceName="glowing-octo-shame-east";
 addons[]=
 {
 	"A3_Modules_F",
-	"rhssaf_c_troops"
+	"rhssaf_c_troops",
+	"A3_Ui_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -43,6 +48,13 @@ class AddonsMetaData
 			name="RHS: SAF infantry configuration";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
+		};
+		class Item2
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -192,7 +204,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=47;
+		items=48;
 		class Item0
 		{
 			dataType="Logic";
@@ -1072,6 +1084,14 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=57;
 			type="LocationCity_F";
+		};
+		class Item47
+		{
+			dataType="Marker";
+			position[]={8059.2998,204.40213,8130.6587};
+			name="gosa_worldSize";
+			type="Empty";
+			id=59;
 		};
 	};
 	class Connections
