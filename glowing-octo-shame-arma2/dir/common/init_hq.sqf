@@ -72,11 +72,22 @@ _typesHQ = [[],[]];
 	};
 	// TODO: Нужна функция исправляющая списки выше,
 	// при отсутствии расширений или камуфляжа.
-	// Исправление регистра.
+	// Удаляем неисправные.
 	for "_i" from 0 to (count _types0 -1) do {
-		_types0 set [_i, toLower (_types0 select _i)];
-		_types1 set [_i, toLower (_types1 select _i)];
+		if (configName (LIB_cfgVeh >> (_types0 select _i)) == "" &&
+			configName (LIB_cfgVeh >> (_types1 select _i)) == "") then
+		{
+			_types0 set [_i, -1];
+			_types1 set [_i, -1];
+		}else{
+			// Исправление регистра.
+			_types0 set [_i, toLower (_types0 select _i)];
+			_types1 set [_i, toLower (_types1 select _i)];
+		};
 	};
+	_types0 = _types0 -[-1];
+	_types1 = _types1 -[-1];
+
 	//if (_types0 find "" > -1) then {};
 	_types = [_types0,_types1];
 	_types call compile format["gosa_typesHQ_%1 = _this", _x];
