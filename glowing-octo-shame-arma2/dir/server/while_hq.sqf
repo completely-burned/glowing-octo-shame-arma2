@@ -3,6 +3,11 @@
  * Обновление штабов.
  * TODO: Совместимость с PvP.
  */
+
+if (missionNamespace getVariable "gosa_MHQ" < 1) exitWith {
+	diag_log format ["Log: [while_hq]: param, gosa_MHQ == %1, exitWith", missionNamespace getVariable "gosa_MHQ"];
+};
+
 private ["_side","_arr","_type_Lower","_str","_status","_dir",
 	"_testPosCount","_sideUsed","_posUsed","_pos","_b",
 	"_startingPositions","_minDist","_sidePlayable","_worldSize"];
@@ -11,8 +16,11 @@ scopeName "root";
 _minDist = 500;
 _testPosCount = 500;
 //_startingPositions = [];
-_sidePlayable = gosa_friendlyside;
-_sidePlayable = [east, west, resistance];
+if (gosa_pvp) then {
+	_sidePlayable = gosa_sides_pvp;
+} else {
+	_sidePlayable = gosa_friendlyside;
+};
 _worldSize = gosa_worldSize;
 
 while {true} do {
@@ -63,5 +71,3 @@ for "_i" from 0 to (count _sideUsed -1) do {
 };
 
 gosa_init_MHQ_done = true;
-
-systemChat "gosa_init_MHQ_done";
