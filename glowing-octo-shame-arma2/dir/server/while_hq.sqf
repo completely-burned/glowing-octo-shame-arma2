@@ -50,24 +50,18 @@ while {true} do {
 };
 diag_log format ["Log: [while_hq]: %1, %2", _sideUsed, _posUsed];
 
-if (true) exitWith {
-	
+for "_i" from 0 to (count _sideUsed -1) do {
+	_side = _sideUsed select _i;
+	_pos = _posUsed select _i;
+	waitUntil {!isNil format["gosa_typesHQ_%1", _side]};
+	_arr = (call compile format["gosa_typesHQ_%1", _side]);
+	_type_Lower = toLower (_arr select 0 call BIS_fnc_selectRandom);
+	_dir = random 360;
+	_status = 2;
+	_str = _type_Lower call gosa_fnc_fixType;
+	[_pos, _type_Lower, _status, _side, objNull, _dir, _str] call gosa_fnc_createHQ;
 };
 
-_side = playerSide;
-waitUntil {!isNil format["gosa_typesHQ_%1", _side]};
-_arr = (call compile format["gosa_typesHQ_%1", _side]);
-_type_Lower = toLower (_arr select 0 call BIS_fnc_selectRandom);
-_dir = random 360;
-_status = 2;
-_str = _type_Lower call gosa_fnc_fixType;
+gosa_init_MHQ_done = true;
 
-_arr = ([gosa_worldSize, 100] call gosa_fnc_findStartingPos);
-if (count _arr < 1) exitWith {
-	diag_log format ["Log: [while_hq]: _pos == %1, exitWith", _arr];
-};
-
-_arr = [_arr call BIS_fnc_selectRandom, _type_Lower, _status, _side, objNull, _dir, _str];
-diag_log format ["Log: [while_hq]: _arr == %1", _arr];
-
-_arr call gosa_fnc_createHQ;
+systemChat "gosa_init_MHQ_done";
