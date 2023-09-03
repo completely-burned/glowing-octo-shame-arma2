@@ -12,8 +12,8 @@
 
 private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
 	"_fnc_prio_units","_findBody","_arr","_sides_friendly",
-	"_pre","_sorted","_s","_obj",
-	"_listPlayers","_deathTime","_cam","_t","_o","_z","_p_name"];
+	"_pre","_sorted","_str","_obj",
+	"_listPlayers","_deathTime","_cam","_b","_o","_z","_p_name"];
 
 waitUntil{!isNil "gosa_playerStartingClass"};
 if (gosa_playerStartingClass == 1) exitWith {
@@ -62,32 +62,32 @@ while {true} do {
 
 	scopeName "root";
 
-	_t = false;
+	_b = false;
 	if !(alive _p) then {
-		_t = true;
+		_b = true;
 		diag_log format ["Log: [respawnRandom] not alive %1", _p];
 	};
 
 	if (isNull player) then {
-		_t = true;
+		_b = true;
 		diag_log format ["Log: [respawnRandom] isNull %1", player];
 	};
 	if !(isNil{_p getVariable "selectPlayerDisable"}) then {
-		_t = true;
+		_b = true;
 		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _p];
 	};
 	if !(lifeState player in ["ALIVE", "UNCONSCIOUS"]) then {
-		_t = true;
+		_b = true;
 		diag_log format ["Log: [respawnRandom] blacklisted lifeState %1", player];
 	};
-	_z = _p getVariable "gosa_player_owner";
-	if !(isNil "_z") then {
-		if (_z != _o) then {
-			_t = true;
-			diag_log format ["Log: [respawnRandom] owner var %1", [_z, _o]];
+	_str = _p getVariable "gosa_player_owner";
+	if !(isNil "_str") then {
+		if (_str != _o) then {
+			_b = true;
+			diag_log format ["Log: [respawnRandom] owner var %1", [_str, _o]];
 		};
 	};
-	if (_t) then {
+	if (_b) then {
 
 		//--- таймер смерти
 		// FIXME: что это?
