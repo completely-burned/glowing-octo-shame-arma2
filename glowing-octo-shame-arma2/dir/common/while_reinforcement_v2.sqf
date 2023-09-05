@@ -184,7 +184,7 @@ while{_run}do{
 	//--- чистка при значительном превышении лимита
 		_n = (_dyn_limit*1.4+1) max (_dyn_limit+5);
 		if (_lg + count _conveyer > _n) then {
-			if (_deviceT2) then {
+			if !(_deviceT2) then {
 				private["_side","_l","_grp","_rm","_d"];
 				diag_log format ["Log: [reinforcements] групп слишком много %1+%2 > %3", _lg, count _conveyer, _n];
 				for "_i" from 0 to (count _allGroups -1) do {
@@ -347,9 +347,9 @@ while{_run}do{
 	}else{
 		diag_log format ["Log: [reinforcements] - 2* %1 / %2 = %3", _n, _dfi, _n];
 		if (_deviceT2) then {
-			_dyn_limit = (_minGroups max (_dyn_limit - _n));
-		}else{
 			_dyn_limit = (0 max (_dyn_limit - _n));
+		}else{
+			_dyn_limit = (_minGroups max (_dyn_limit - _n));
 		};
 	};
 	diag_log format ["Log: [reinforcements] _frames_current %2, _frames_required %3, _limit %4", time, gosa_framesAVG, _frames_required, _dyn_limit];
