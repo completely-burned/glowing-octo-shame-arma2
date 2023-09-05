@@ -50,6 +50,8 @@ if !(requiredVersion "1.60") then {
 		[] execVM "dir\server\init_server.sqf";
 	};
 
+	// FIXME: Для A2 нужно попробовать 
+	// прописать переменную `hasInterface` в init юнита HC.
 	#ifndef __A2OA__
 	hasInterface = false;
 	if !(IsDedicated) then {
