@@ -224,6 +224,7 @@ if(toLower worldName == "woodland_acr")then{
 publicVariable "AllGroupsWest";
 publicVariable "AllGroupsEast";
 publicVariable "AllGroupsGuer";
+publicVariable "gosa_Groups_common";
 GroupsStarted=true;
 publicVariable "GroupsStarted";
 
