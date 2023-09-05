@@ -22,12 +22,16 @@ if (count _pre > 1) then {
 			_r0 = rankId (_pre select _i);
 			_r1 = rankId (_sorted select _s);
 			diag_log format ["Log: [fnc_sortUnits_onRank] for %1", [_pre select _i, _r0], [_sorted select _s, _r1]];
+			// FIXME: Лишь предположение то, что этот баг отсутствует в Arma 3.
+			#ifndef __ARMA3__
+			// BUG: Error >: Type String, expected Number
 			if (typeName _r0 != "SCALAR") then {
 				_r0 = 0;
 			};
 			if (typeName _r1 != "SCALAR") then {
 				_r1 = 0;
 			};
+			#endif
 			if (_r0 > _r1) then
 			{
 				_sorted set [_s+1, _sorted select _s];
