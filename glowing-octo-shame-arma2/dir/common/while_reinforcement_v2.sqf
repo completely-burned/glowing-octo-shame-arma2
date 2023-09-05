@@ -1,8 +1,9 @@
 /*
-скрипт отвечает за вызов подкреплений на клиентском компьетере
-TODO: Рефакторинг.
-TODO: Переход на функции.
-*/
+ * Скрипт отвечает за вызов подкреплений на клиентском компьетере.
+ * TODO: Рефакторинг.
+ * TODO: Переход на функции.
+ * TODO: Совместимость с PvP.
+ */
 
 #define __A2OA__
 
@@ -12,7 +13,8 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_conveyer_limit","_limits","_l_enemy","_locationPos","_grp","_e_multipler",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run","_allGroups",
 	"_frontLine_east","_frontLine_west","_frontLine_guer","_deviceT2",
-	"_lg","_enemySide","_friendlySide","_sleep"];
+	"_lg","_enemySide","_friendlySide","_sleep","_obj","_side",
+	"_types_pilot"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
 
@@ -39,6 +41,7 @@ private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 _conveyer = [];
 _conveyer_limit = 12;
 
+// TODO: Описание.
 if (gosa_deviceType == 2) then {
 	_deviceT2 = true;
 }else{
@@ -81,6 +84,8 @@ _time = time;
 _frontLine_east = missionNamespace getVariable "gosa_frontLine_east";
 _frontLine_west = missionNamespace getVariable "gosa_frontLine_west";
 _frontLine_guer = missionNamespace getVariable "gosa_frontLine_guer";
+
+_types_pilot = gosa_pilotL;
 
 _friendlySide = gosa_friendlyside - [civilian];
 	_enemySide = [west,east,resistance] - gosa_friendlyside;
@@ -227,6 +232,7 @@ while{_run}do{
 		// FIXME: Не проверенно в одиночной игре.
 		// Чтобы не закончились юниты для перерождения.
 		// Переменная на стороне клиента.
+		// TODO: Устранить конфликт с HC.
 		_b = isNil "gosa_player_needs_revival";
 			if (_b) then {
 				_n = {local _x} count units player;
@@ -268,7 +274,7 @@ while{_run}do{
 
 			if (_b) then {
 				if ({_x select 1 == 8} count _conveyer < 1) then {
-					_conveyer set [count _conveyer, [[gosa_friendlyside - [civilian]] spawn gosa_fnc_failoverGroup, 8]];
+					_conveyer set [count _conveyer, [[_friendlySide] spawn gosa_fnc_failoverGroup, 8]];
 					//_conveyer set [count _conveyer, [[west, objNull, _fl] spawn gosa_fnc_failoverGroup, 8]];
 				};
 			};
@@ -276,16 +282,26 @@ while{_run}do{
 	//--- создание отрядов
 		if (count _conveyer < _conveyer_limit) then {
 
+			// Исключения.
+			for "_i" from 0 to (count _players -1) do {
+				_obj = _players select _i;
 				// Отсеим пилотов-игроков чтобы за ними не гонялись боты.
-				for "_i" from 0 to (count _players -1) do {
-					if (typeOf (_players select _i) in gosa_pilotL) then {
+				if (typeOf _obj in _types_pilot) then {
+					diag_log format ["Log: [reinforcements] %1 исключён из целей патруля, пилот", _obj];
+					_players set [_i, objNull];
+				}else{
+					// Отсеим гражданских.
+					_side = side _obj;
+					if !(_side in _enemySide or _side in _friendlySide) then {
+						diag_log format ["Log: [reinforcements] %1 исключён из целей патруля, гражданский", _obj];
 						_players set [_i, objNull];
 					};
 				};
-				_players = _players-[objNull];
-				if (count _players == 0) then {
-					_players = [objNull];
-				};
+			};
+			_players = _players-[objNull];
+			if (count _players < 1) then {
+				_players = [objNull];
+			};
 
 			// EAST
 			[	_conveyer,
