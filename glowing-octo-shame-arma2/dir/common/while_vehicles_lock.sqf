@@ -1,11 +1,12 @@
 #define __A2OA__
-
 /*
-	setVehicleLock "UNLOCKED" = same as "lock 0"
-	setVehicleLock "DEFAULT" = same as "lock 1"
-	setVehicleLock "LOCKED" = same as "lock 2"
-	setVehicleLock "LOCKEDPLAYER" = same as "lock 3"
-*/
+ * Скрипт блокирует дверь от конокрадов.
+ * TODO: Возможность блокировки ТС игрока по его запросу.
+ * setVehicleLock "UNLOCKED" = same as "lock 0"
+ * setVehicleLock "DEFAULT" = same as "lock 1"
+ * setVehicleLock "LOCKED" = same as "lock 2"
+ * setVehicleLock "LOCKEDPLAYER" = same as "lock 3"
+ */
 
 if(missionNamespace getVariable "gosa_vehicles_lock" == 2 or !isMultiplayer)exitWith{
 	diag_log format ["Log: [while_vehicles_lock] exitWith %1", time];
@@ -20,20 +21,29 @@ if(missionNamespace getVariable "gosa_vehicles_lock" == 2 or !isMultiplayer)exit
 #ifdef __A2OA__
 
 private["_vehicles_lock","_grp","_units","_leaderPlayer","_isPlayer","_side",
-	"_vehicle","_grpPlayer","_lock","_transportPlayer",
-	"_friendly_vehicles_only"];
+	"_vehicle","_grpPlayer","_lock","_transportPlayer","_arr","_obj",
+	"_friendly_vehicles_only","_sleep","_locked","_sides_check",
+	"_sides_friendly"];
 
-_friendly_vehicles_only = missionNamespace getVariable "gosa_vehicles_lock";
+if (missionNamespace getVariable "gosa_vehicles_lock" == 1) then {
+	_friendly_vehicles_only = true;
+}else{
+	_friendly_vehicles_only = false;
+}
+_sleep = 5;
+_sides_check = [west,east,resistance];
+_sides_friendly = gosa_friendlyside;
 
 waitUntil{!isNil "gosa_friendlyside"};
 
-while{true}do{
+while{sleep _sleep; true}do{
 	// TODO: нужно оптимизировать, слишком сильная нагрузка
 
-	// перечислить транспорт который нужно закрыть
 	_vehicles_lock = [];
-	{
-		_grp = _x;
+	_arr = allGroups;
+	// перечислить транспорт который нужно закрыть
+	for "_i" from 0 to (count _arr -1) do {
+		_grp = _arr select _i;
 
 		// можно не выполнять другие вычисления если игрок лидер
 		if(leader _grp call gosa_fnc_isPlayer)then{
@@ -47,74 +57,73 @@ while{true}do{
 				// транспорт чужой группы нужно закрывать
 				//	diag_log format ["Log: [while_vehicles_lock.sqf] поиск транспорта для закрытия %1", _grp];
 				// находим транспорт
-				{
-					_vehicle = _x call gosa_fnc_assignedVeh;
-
-					if(!isNull _vehicle && _vehicle != _x && !(_vehicle in _vehicles_lock))then{
-						_vehicles_lock set [count _vehicles_lock, _vehicle];
+				for "_i0" from 0 to (count _units -1) do {
+					_obj = _units select _i0;
+					_veh = _obj call gosa_fnc_assignedVeh;
+					if (_veh != _obj) then {
+						if !(_veh in _vehicles_lock) then {
+							_vehicles_lock set [count _vehicles_lock, _veh];
+						};
 					};
-
-				} forEach _units;
+				};
 			};
 		};
-	} forEach allGroups;
+	};
+	_vehicles_lock = _vehicles_lock -[objNull];
 
 		diag_log format ["Log: [while_vehicles_lock.sqf] транспорт для закрытия %1", _vehicles_lock];
 
-	{
+	_arr = vehicles;
+	for "_i" from 0 to (count _arr -1) do {
+		_veh = _arr select _i;
 		// lock агрументы должны быть локальными
-		if (Local _x) then {
+		if (Local _veh) then {
 			// проверка только живого тс должно повысить производительность в случае большого числа уничтоженного транспорта
-			if (alive _x) then {
-				_vehicle = _x;
-				if (_vehicle in _vehicles_lock) then {
-					_lock = 2;
-				}else{
-					_lock = 0;
-				};
-
-				if (_vehicle isKindOf "UAV" or _vehicle isKindOf "Ka137_Base_PMC") then {
-					_lock = 2;
-				};
-
-				_transportPlayer = _vehicle getVariable "transportPlayer";
-				if(!isNil {_transportPlayer})then{
-					if(alive _transportPlayer)then{
+			if (alive _veh) then {
+				if (_veh in _vehicles_lock) then {
+					if ({_x call gosa_fnc_isPlayer} count crew _veh > 0) exitWith {
 						_lock = 0;
 					};
-				};
-
-				if (_friendly_vehicles_only == 1) then {
-					_side = getNumber(configFile >> "CfgVehicles" >> typeOf _vehicle >> "side") call gosa_fnc_getSide;
-					if (_side in [west,east,resistance]) then {
-						if !(_side in gosa_friendlyside) then {
+					_obj = _veh getVariable "transportPlayer";
+					if !(isNil "_obj") then {
+						if (alive _obj) then {
+							_lock = 0;
+						}else{
 							_lock = 2;
+						};
+					}else{
+						_lock = 2;
+					};
+				}else{
+					if (_veh isKindOf "UAV" or _veh isKindOf "Ka137_Base_PMC") then {
+						_lock = 2;
+					}else{
+						if (_friendly_vehicles_only) then {
+							_side = getNumber(configFile >> "CfgVehicles" >> typeOf _veh >> "side") call gosa_fnc_getSide;
+							if (_side in _sides_check &&
+								!(_side in _sides_friendly)) then
+							{
+								_lock = 2;
+							}else{
+								_lock = 0;
+							};
+						}else{
+							_lock = 0;
 						};
 					};
 				};
 
-				if({_x call gosa_fnc_isPlayer}count crew _vehicle > 0)then{
-					_lock = 0;
+				if (locked _veh) then {
+					_locked = 2;
+				}else{
+					_locked = 0;
 				};
-
-				_lock_old = locked _vehicle;
-
-
-				if (_lock == 2) then {_lock = true}else{_lock = false};
-
-				if (!_lock_old && _lock) then {
-					diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _vehicle, _lock, _lock_old, local _vehicle, typeOf _vehicle];
-					_vehicle lock _lock;
-				};
-				if (_lock_old && !_lock) then {
-					diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _vehicle, _lock, _lock_old, local _vehicle, typeOf _vehicle];
-					_vehicle lock _lock;
+				if (_locked != _lock) then {
+					diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _veh, _lock, _locked, local _veh, typeOf _veh];
+					_veh lock _lock;
 				};
 			};
 		};
-
-	} forEach vehicles;
-
-	sleep 5;
+	};
 };
 #endif
