@@ -41,7 +41,7 @@ private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 _conveyer = [];
 _conveyer_limit = 12;
 
-// TODO: Описание.
+// Не выделенный клиент.
 if (gosa_deviceType == 2) then {
 	_deviceT2 = true;
 }else{
@@ -128,11 +128,11 @@ while{_run}do{
 		_conveyer = _conveyer -[-1];
 		diag_log format ["Log: [reinforcements] count conveyer %1", count _conveyer];
 
-
+	// Патрули клиента будут ему локальны.
 	if (_deviceT2) then {
-		_players = ([] call gosa_fnc_listPlayers);
-	} else {
 		_players = [player];
+	} else {
+		_players = ([] call gosa_fnc_listPlayers);
 	};
 
 	//--- динамические ограничения
