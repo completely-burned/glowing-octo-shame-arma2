@@ -8,7 +8,7 @@ TODO: Переход на функции.
 
 private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
-	"_frames_required","_time","_dyn_limit","_z","_dfi","_conveyer",
+	"_frames_required","_time","_dyn_limit","_n","_b","_dfi","_conveyer",
 	"_conveyer_limit","_limits","_l_enemy","_locationPos","_grp","_e_multipler",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run","_allGroups",
 	"_frontLine_east","_frontLine_west","_frontLine_guer","_deviceT2",
@@ -149,9 +149,9 @@ while{_run}do{
 
 			//--- enemyCoefficient
 				if(!isNil {CivilianLocationStartTime})then{
-					_z = time - CivilianLocationStartTime;
-					_z = 0 max (_timeFriendlyReinforcements - _z);
-					_e_cfi = _z / _e_multipler;
+					_n = time - CivilianLocationStartTime;
+					_n = 0 max (_timeFriendlyReinforcements - _n);
+					_e_cfi = _n / _e_multipler;
 
 					if (_cfg_cfi >= 1) then {
 						_e_cfi = _e_cfi max 1;
@@ -177,11 +177,11 @@ while{_run}do{
 	_locationPos = civilianBasePos;
 
 	//--- чистка при значительном превышении лимита
-		_z = (_dyn_limit*1.4+1) max (_dyn_limit+5);
-		if (_lg + count _conveyer > _z) then {
+		_n = (_dyn_limit*1.4+1) max (_dyn_limit+5);
+		if (_lg + count _conveyer > _n) then {
 			if (_deviceT2) then {
 				private["_side","_l","_grp","_rm","_d"];
-				diag_log format ["Log: [reinforcements] групп слишком много %1+%2 > %3", _lg, count _conveyer, _z];
+				diag_log format ["Log: [reinforcements] групп слишком много %1+%2 > %3", _lg, count _conveyer, _n];
 				{
 					_grp=_x;
 					//_side = side _grp;
@@ -195,7 +195,7 @@ while{_run}do{
 							}else{
 								if (_d < _locationPos distance vehicle _l) then {
 									_rm = [_grp]+_rm;
-									_rm resize (0 max round ((_lg-_z) min count _rm));
+									_rm resize (0 max round ((_lg-_n) min count _rm));
 								};
 							};
 							diag_log format ["Log: [reinforcements] rm %1", _rm];
@@ -222,49 +222,46 @@ while{_run}do{
 		// FIXME: Не проверенно в одиночной игре.
 		// Чтобы не закончились юниты для перерождения.
 		// Переменная на стороне клиента.
-		_z = isNil "gosa_player_needs_revival";
-			if (_z) then {
-				_z = {local _x} count units player;
-				diag_log format ["Log: [reinforcements] %1 local units %2", _z, units player];
-				if (_z < 3 ) then {
-
-					_z = 0;
-
-					//if (_z == 0) then {
+		_b = isNil "gosa_player_needs_revival";
+			if (_b) then {
+				_n = {local _x} count units player;
+				diag_log format ["Log: [reinforcements] %1 local units %2", _n, units player];
+				if (_n < 3 ) then {
 						if (east getFriend playerSide >= 0.6) then {
-							_z = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
-							diag_log format ["Log: [reinforcements] %1 east grp %2", _z];
+							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
+							diag_log format ["Log: [reinforcements] %1 east grp %2", _n];
+						}else{
+							_n = 0;
 						};
-					//};
 
-					if (_z == 0) then {
+					if (_n < 1) then {
 						if (west getFriend playerSide >= 0.6) then {
-							_z = {isNil {_x getVariable "patrol"}} count (((_grp select 1)+(_grp select 4))-[group player]);
-							diag_log format ["Log: [reinforcements] %1 west grp %2", _z];
+							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 1)+(_grp select 4))-[group player]);
+							diag_log format ["Log: [reinforcements] %1 west grp %2", _n];
 						};
 					};
 
-					if (_z == 0) then {
+					if (_n < 1) then {
 						if (resistance getFriend playerSide >= 0.6) then {
-							_z = {isNil {_x getVariable "patrol"}} count (((_grp select 2)+(_grp select 5))-[group player]);
-							diag_log format ["Log: [reinforcements] %1 guer grp %2", _z];
+							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 2)+(_grp select 5))-[group player]);
+							diag_log format ["Log: [reinforcements] %1 guer grp %2", _n];
 						};
 					};
 
-					if (_z == 0) then {
-						_z = true;
+					if (_n < 1) then {
+						_b = true;
 					}else{
-						_z = false;
+						_b = false;
 					};
 				}else{
-					_z = false;
+					_b = false;
 				};
 			}else{
-				_z = !_z;
-				diag_log format ["Log: [reinforcements] _player_needs_revival %1 %2", _z, gosa_player_needs_revival];
+				_b = !_b;
+				diag_log format ["Log: [reinforcements] _player_needs_revival %1 %2", _b, gosa_player_needs_revival];
 			};
 
-			if (_z) then {
+			if (_b) then {
 				if ({_x select 1 == 8} count _conveyer < 1) then {
 					_conveyer set [count _conveyer, [[gosa_friendlyside - [civilian]] spawn gosa_fnc_failoverGroup, 8]];
 					//_conveyer set [count _conveyer, [[west, objNull, _fl] spawn gosa_fnc_failoverGroup, 8]];
@@ -322,16 +319,16 @@ while{_run}do{
 
 	sleep (_sleep call gosa_fnc_dynSleep);
 
-	_z = 2*((time-_time) / _dfi);
+	_n = 2*((time-_time) / _dfi);
 	if(gosa_framesAVG > _frames_required)then{
-		_dyn_limit = _dyn_limit + _z;
-		diag_log format ["Log: [reinforcements] + 2* %1 / %2 = %3", _z, _dfi, _z];
+		_dyn_limit = _dyn_limit + _n;
+		diag_log format ["Log: [reinforcements] + 2* %1 / %2 = %3", _n, _dfi, _n];
 	}else{
-		diag_log format ["Log: [reinforcements] - 2* %1 / %2 = %3", _z, _dfi, _z];
+		diag_log format ["Log: [reinforcements] - 2* %1 / %2 = %3", _n, _dfi, _n];
 		if (_deviceT2) then {
-			_dyn_limit = (_minGroups max (_dyn_limit - _z));
+			_dyn_limit = (_minGroups max (_dyn_limit - _n));
 		}else{
-			_dyn_limit = (0 max (_dyn_limit - _z));
+			_dyn_limit = (0 max (_dyn_limit - _n));
 		};
 	};
 	diag_log format ["Log: [reinforcements] _frames_current %2, _frames_required %3, _limit %4", time, gosa_framesAVG, _frames_required, _dyn_limit];
