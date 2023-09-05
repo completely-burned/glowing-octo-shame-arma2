@@ -182,14 +182,19 @@ while{_run}do{
 			if (_deviceT2) then {
 				private["_side","_l","_grp","_rm","_d"];
 				diag_log format ["Log: [reinforcements] групп слишком много %1+%2 > %3", _lg, count _conveyer, _n];
-				{
-					_grp=_x;
+				for "_i" from 0 to (count _allGroups -1) do {
+					_grp = _allGroups select _i;
 					//_side = side _grp;
 					_l = leader _grp;
-					if (local _l) then {
-						if({_x call gosa_fnc_isPlayer} count units _grp == 0)then{
+					#ifdef __ARMA3__
+					if (local _grp) then
+					#else
+					if (local _l) then
+					#endif
+					{
+						if({_x call gosa_fnc_isPlayer} count units _grp < 1)then{
 
-							if (isNil {_d}) then {
+							if (isNil "_d") then {
 								_d = _locationPos distance vehicle _l;
 								_rm = [_grp];
 							}else{
@@ -201,11 +206,11 @@ while{_run}do{
 							diag_log format ["Log: [reinforcements] rm %1", _rm];
 						};
 					};
-				}forEach _allGroups;
+				};
 
-				if (!isNil {_rm}) then {
+				if !(isNil "_rm") then {
 					if (count _rm > 0) then {
-						for "_i" from 0 to count _rm -1 do {
+						for "_i" from 0 to (count _rm -1) do {
 							{
 								diag_log format ["Log: [reinforcements] %1 в очередь на удаление", vehicle _x];
 								vehicle _x setVariable ["gosa_timeDeleteVehicle", 0];
