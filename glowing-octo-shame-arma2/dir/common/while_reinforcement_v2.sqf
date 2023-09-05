@@ -37,7 +37,7 @@ private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 	}; // diag_log
 
 _conveyer = [];
-_conveyer_limit = 8;
+_conveyer_limit = 12;
 
 if (gosa_deviceType == 2) then {
 	_deviceT2 = true;
@@ -50,7 +50,7 @@ _dfi = gosa_server_diag_fps_interval;
 if (_deviceT2) then {
 	_minGroups = missionNamespace getVariable "ai_client_count";
 	_limit_fps = (missionNamespace getVariable "gosa_ai_client_create_fps");
-	_sleep = 120;
+	_sleep = 15;
 	_respawn_mode = missionNamespace getVariable "respawn";
 	if (_respawn_mode == 1 or
 		_minGroups > 0 or
@@ -63,7 +63,7 @@ if (_deviceT2) then {
 }else{
 	_minGroups = missionNamespace getVariable "minGroups";
 	_limit_fps = (missionNamespace getVariable "gosa_ai_create_fps");
-	_sleep = 30;
+	_sleep = 5;
 	_run = true;
 	diag_log format ["Log: [reinforcements] waitUntil locationStarted %1", time];
 	waitUntil {!isNil "locationStarted"};
