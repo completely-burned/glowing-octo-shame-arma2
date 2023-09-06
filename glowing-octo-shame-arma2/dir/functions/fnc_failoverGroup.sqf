@@ -1,6 +1,7 @@
 /*
  * Генерирует отказоустойчивую группу для возрождения игрока.
  * TODO: Рефакторинг.
+ * Arg [side, side number, townpos]
  */
 diag_log format ["Log: [fnc_failoverGroup] %1", _this];
 
@@ -8,11 +9,12 @@ private ["_side","_grp1","_types","_SafePosParams","_pos_resp","_pos","_i",
 	"_arr","_arr0","_arr1","_typeList","_groups"];
 
 _side = (_this select 0);
-_pos = (_this select 1);
+_pos = (_this select 2);
 
 // TODO: Необходимо заранее генерировать список отказоустойчивых групп,
 // и прочих групп тоже.
-_i = (_side call gosa_fnc_getSideNum);
+// Side number.
+_i = (_this select 1);
 _arr = (gosa_Groups_common select _i);
 _arr0 = [_arr];
 _arr1 = [count (_arr select 1)];
