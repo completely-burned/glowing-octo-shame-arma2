@@ -182,8 +182,8 @@ while{_run}do{
 	_locationPos = civilianBasePos;
 
 	//--- чистка при значительном превышении лимита
-		_n = (_dyn_limit*1.4+1) max (_dyn_limit+5);
-		if (_lg + count _conveyer > _n) then {
+	_n = (_dyn_limit*1.4+1) max (_dyn_limit+5);
+	if (_lg + count _conveyer > _n) then {
 			if !(_deviceT2) then {
 				private["_side","_l","_grp","_rm","_d"];
 				diag_log format ["Log: [reinforcements] групп слишком много %1+%2 > %3", _lg, count _conveyer, _n];
@@ -226,14 +226,13 @@ while{_run}do{
 					};
 				};
 			};
-		}else{
-
-	//--- Аварийная группа возрождения.
-		// FIXME: Не проверенно в одиночной игре.
-		// Чтобы не закончились юниты для перерождения.
-		// Переменная на стороне клиента.
-		// TODO: Устранить конфликт с HC.
-		_b = isNil "gosa_player_needs_revival";
+	}else{
+			//--- Аварийная группа возрождения.
+			// FIXME: Не проверенно в одиночной игре.
+			// Чтобы не закончились юниты для перерождения.
+			// Переменная на стороне клиента.
+			// TODO: Устранить конфликт с HC.
+			_b = isNil "gosa_player_needs_revival";
 			if (_b) then {
 				_n = {local _x} count units player;
 				diag_log format ["Log: [reinforcements] %1 local units %2", _n, units player];
@@ -271,7 +270,6 @@ while{_run}do{
 				_b = !_b;
 				diag_log format ["Log: [reinforcements] _player_needs_revival %1 %2", _b, gosa_player_needs_revival];
 			};
-
 			if (_b) then {
 				if ({_x select 1 == 8} count _conveyer < 1) then {
 					_conveyer set [count _conveyer, [[_friendlySide] spawn gosa_fnc_failoverGroup, 8]];
