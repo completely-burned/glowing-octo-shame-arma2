@@ -29,7 +29,7 @@ if (missionNamespace getVariable "gosa_vehicles_lock" == 1) then {
 	_friendly_vehicles_only = true;
 }else{
 	_friendly_vehicles_only = false;
-}
+};
 _sleep = 5;
 _sides_check = [west,east,resistance];
 _sides_friendly = gosa_friendlyside;
