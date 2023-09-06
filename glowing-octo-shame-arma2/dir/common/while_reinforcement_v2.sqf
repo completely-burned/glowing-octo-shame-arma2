@@ -274,8 +274,10 @@ while{_run}do{
 			};
 			if (_b) then {
 				if ({_x select 1 == 8} count _conveyer < 1) then {
-					_conveyer set [count _conveyer, [[_friendlySide] spawn gosa_fnc_failoverGroup, 8]];
-					//_conveyer set [count _conveyer, [[west, objNull, _fl] spawn gosa_fnc_failoverGroup, 8]];
+					_conveyer set [count _conveyer,
+						[[_friendlySide call BIS_fnc_selectRandom, _locationPos]
+							spawn gosa_fnc_failoverGroup, 8]
+					];
 				};
 			};
 		};
