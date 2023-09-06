@@ -14,7 +14,7 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run","_allGroups",
 	"_frontLine_east","_frontLine_west","_frontLine_guer","_deviceT2",
 	"_lg","_enemySide","_friendlySide","_sleep","_obj","_side",
-	"_types_pilot"];
+	"_types_pilot","_sides_friendly","_sides_enemy","_mode_pvp"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
 
@@ -84,26 +84,28 @@ _time = time;
 _frontLine_east = missionNamespace getVariable "gosa_frontLine_east";
 _frontLine_west = missionNamespace getVariable "gosa_frontLine_west";
 _frontLine_guer = missionNamespace getVariable "gosa_frontLine_guer";
-
+_mode_pvp = gosa_pvp;
 _types_pilot = gosa_pilotL;
 
-_friendlySide = gosa_friendlyside - [civilian];
-	_enemySide = [west,east,resistance] - gosa_friendlyside;
-	for "_i" from 0 to count _enemySide -1 do {
-		switch (_enemySide select _i) do {
-			case EAST: 		{_enemySide set [_i, 0]};
+_sides_friendly = gosa_friendlyside - [civilian];
+_sides_enemy = [west,east,resistance] - gosa_friendlyside;
+_friendlySide = [];
+_enemySide = [];
+	for "_i" from 0 to (count _sides_enemy -1) do {
+		switch (_sides_enemy select _i) do {
+			case EAST:		{_enemySide set [_i, 0]};
 			case WEST:		{_enemySide set [_i, 1]};
-			case RESISTANCE: {_enemySide set [_i, 2]};
-			case CIVILIAN: 	{_enemySide set [_i, 3]};
+			case RESISTANCE:{_enemySide set [_i, 2]};
+			case CIVILIAN:	{_enemySide set [_i, 3]};
 			default {};
 		};
 	};
-	for "_i" from 0 to count _friendlySide -1 do {
-		switch (_friendlySide select _i) do {
-			case EAST: 		{_friendlySide set [_i, 0]};
+	for "_i" from 0 to (count _sides_friendly -1) do {
+		switch (_sides_friendly select _i) do {
+			case EAST:		{_friendlySide set [_i, 0]};
 			case WEST:		{_friendlySide set [_i, 1]};
-			case RESISTANCE: {_friendlySide set [_i, 2]};
-			case CIVILIAN: 	{_friendlySide set [_i, 3]};
+			case RESISTANCE:{_friendlySide set [_i, 2]};
+			case CIVILIAN:	{_friendlySide set [_i, 3]};
 			default {};
 		};
 	};
@@ -138,7 +140,7 @@ while{_run}do{
 	//--- динамические ограничения
 
 		// TODO: Приватная переменная.
-		if (gosa_pvp) then {
+		if (_mode_pvp) then {
 			_limits = [
 				_dyn_limit	/ 6,
 				_dyn_limit	/ 6,
@@ -274,8 +276,9 @@ while{_run}do{
 			};
 			if (_b) then {
 				if ({_x select 1 == 8} count _conveyer < 1) then {
+					_n = floor random count _sides_friendly;
 					_conveyer set [count _conveyer,
-						[[_friendlySide call BIS_fnc_selectRandom, _locationPos]
+						[[_sides_friendly select _n, _friendlySide select _n, _locationPos]
 							spawn gosa_fnc_failoverGroup, 8]
 					];
 				};
@@ -295,7 +298,7 @@ while{_run}do{
 				}else{
 					// Отсеим гражданских.
 					_side = side _obj;
-					if !(_side in _enemySide or _side in _friendlySide) then {
+					if !(_side in _sides_enemy or _side in _sides_friendly) then {
 						diag_log format ["Log: [reinforcements] %1 исключён из целей патруля, гражданский", _obj];
 						_players set [_i, objNull];
 					};
