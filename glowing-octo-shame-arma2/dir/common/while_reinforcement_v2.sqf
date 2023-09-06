@@ -237,7 +237,7 @@ while{_run}do{
 			if (_b) then {
 				_n = {local _x} count units player;
 				diag_log format ["Log: [reinforcements] %1 local units %2", _n, units player];
-				if (_n < 3 ) then {
+				if (_n < 3) then {
 						if (east getFriend playerSide >= 0.6) then {
 							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 east grp %2", _n];
@@ -259,17 +259,17 @@ while{_run}do{
 						};
 					};
 
-					if (_n < 1) then {
-						_b = true;
-					}else{
+					if (_n > 0) then {
+						// Количество отрядов > 0.
 						_b = false;
 					};
 				}else{
+					// Количество юнитов в группе >= 3.
 					_b = false;
 				};
 			}else{
-				// FIXME: Вероятно лишний блок кода.
-				_b = false;
+				// Необходимо генерировать отряд если переменная установлена.
+				_b = true;
 				diag_log format ["Log: [reinforcements] _player_needs_revival %1 %2", _b, gosa_player_needs_revival];
 			};
 			if (_b) then {
