@@ -227,6 +227,7 @@ while{_run}do{
 				};
 			};
 	}else{
+		if (_deviceT2) then {
 			//--- Аварийная группа возрождения.
 			// FIXME: Не проверенно в одиночной игре.
 			// Чтобы не закончились юниты для перерождения.
@@ -267,7 +268,8 @@ while{_run}do{
 					_b = false;
 				};
 			}else{
-				_b = !_b;
+				// FIXME: Вероятно лишний блок кода.
+				_b = false;
 				diag_log format ["Log: [reinforcements] _player_needs_revival %1 %2", _b, gosa_player_needs_revival];
 			};
 			if (_b) then {
@@ -276,6 +278,7 @@ while{_run}do{
 					//_conveyer set [count _conveyer, [[west, objNull, _fl] spawn gosa_fnc_failoverGroup, 8]];
 				};
 			};
+		};
 
 	//--- создание отрядов
 		if (count _conveyer < _conveyer_limit) then {
