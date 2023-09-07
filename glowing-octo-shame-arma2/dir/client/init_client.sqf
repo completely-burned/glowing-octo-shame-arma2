@@ -100,15 +100,6 @@ if ([[player], Officers] call gosa_fnc_CheckIsKindOfArray) then {
 };
 */
 
-// TODO: Нужна функция.
-player addEventHandler ["killed", {
-	BIS_COIN_QUIT = true;
-	gosa_COIN_QUIT = true;
-    if(!isNil "BIS_CONTROL_CAM_Handler")then{
-        ["",""] call BIS_CONTROL_CAM_Handler;
-    };
-    bis_uav_terminate = true;
-}];
 // [] call compile preprocessFileLineNumbers  "dir\Client\coin.sqf";
 
 /* _player = (createVehicle [typeOf player, position player, [], 0, "FORM"]);
@@ -136,16 +127,17 @@ player addEventHandler ["killed", {
 
 // TODO: Нужна функция для addEventHandler-ов.
 if (isMultiplayer) then {
-	waitUntil{!isNil "gosa_MPF_InitDone"};
-	if(missionNamespace getVariable "respawn" != 1)then{
-		[nil, player, rgosa_setMapPlayers, _arr select 2] call RE;
-	};
 	player addEventHandler ["Respawn", {call gosa_fnc_eh_playerRespawn}];
 	// player addEventHandler ["killed", {_this spawn gosa_fnc_killcam}];
 	// player addEventHandler ["respawn", {player spawn gosa_fnc_RespawnWeaponsAdd}];
 	player addEventHandler ["killed", {"respawn" spawn gosa_fnc_RespawnWeaponsAdd}];
 	player addEventHandler ["killed", {_this spawn gosa_fnc_resetActions}];
 	// player addEventHandler ["killed", {_this select 0 call {_this setVariable ["BIS_lifestate","ALIVE",true]}}];
+	if(missionNamespace getVariable "respawn" != 1)then{
+		player addEventHandler ["killed", {call gosa_fnc_eh_playerKilled};
+		waitUntil{!isNil "gosa_MPF_InitDone"};
+		[nil, player, rgosa_setMapPlayers, _arr select 2] call RE;
+	};
 }else{
 	onTeamSwitch {
 		SetGroupIconsVisible [true,false];
