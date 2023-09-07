@@ -1,48 +1,41 @@
 #define __A2OA__
 /*
-TODO: Рефакторинг.
-*/
+ * TODO: Рефакторинг.
+ */
 
-private ["_tmp_num","_tmp_str","_startingClass"];
+private ["_str","_n","_arr"];
+_arr = [];
 
-gosa_owner = getPlayerUID player;
-while {gosa_owner == ""} do {
-	gosa_owner = getPlayerUID player;
+if (isNil "gosa_playerStartingClass") then {
+	_str = typeOf player;
+	while {sleep 0.01; _str == ""} do {
+		_str = typeOf player;
+	};
+	_arr set [0,_str];
+	_n = 0;
+	if (_str in gosa_pilotL) then {
+		_n = 1;
+	};
+	_arr set [1,_n];
+	gosa_playerStartingClass = _n;
+	diag_log format ["Log: [init_client] player typeOf %2, Class %3", nil, _str, _n];
 };
-diag_log format ["Log: [init_client] Player UI %1", gosa_owner];
-
-_tmp_str = typeOf player;
-while {_tmp_str == ""} do {
-	_tmp_str = typeOf player;
-};
-_startingClass = 0;
-diag_log format ["Log: [init_client] Player typeOf %1", _tmp_str];
-if (_tmp_str in gosa_pilotL) then {
-	_startingClass = 1;
-};
-gosa_playerStartingClass = _startingClass;
-diag_log format ["Log: [init_client] Player Class %1", gosa_playerStartingClass];
 
 gosa_squadOn = [];
 gosa_squadOff = [];
 gosa_squadOnW = [];
 gosa_squadOffW = [506,600,605];
 gosa_MapPlayer = [];
-
-[] call compile preprocessFileLineNumbers "dir\client\config_client.sqf";
-
-waitUntil{!isNil "bis_fnc_init"};
-waitUntil{!isNil "gosa_fnc_init"};
-
 availableVehiclesBuyMenu = [[],[],[]];
 
 //--- Окружение-погружение.
-// setTerrainGrid 12.5;
-// enableRadio false;
 if(worldName == "namalsk")then{
 	enableEnvironment false;
 };
 SetGroupIconsVisible [true,false];
+
+waitUntil{!isNil "bis_fnc_init"};
+waitUntil{!isNil "gosa_fnc_init"};
 
 /*
 [] spawn {
@@ -55,6 +48,15 @@ SetGroupIconsVisible [true,false];
 
 // TODO: Маркеры возрождения должы уже присутствовать перед стартом задания.
 [] execVM "dir\client\while_markers.sqf";
+
+_str = getPlayerUID player;
+while {sleep 0.01; _str == ""} do {
+	_str = getPlayerUID player;
+};
+gosa_playerOwner = _str;
+gosa_owner = _str;
+_arr set [2, _str];
+diag_log format ["Log: [init_client] Player UI %1", _str];
 
 #ifndef __ARMA3__
 // В файле беспорядок, поэтому сюда поместил временно.
@@ -82,13 +84,15 @@ diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
 
 
 if(!isServer)then{
-	// сервер не может считать assignedVehicle для не серверных ии
+	// FIXME: Сервер не может считать obj assignedVehicle для не серверных ИИ?
 	[] execVM ("dir\client\while_groups_other.sqf");
 };
 
 
 waitUntil{(!isNull player)};
 
+/*
+// TODO: Нужна функция.
 if ([[player], Officers] call gosa_fnc_CheckIsKindOfArray) then {
 	waitUntil{!isNil "gosa_HC_logic"};
 	[] call compile preprocessFileLineNumbers "dir\client\gosa_hc.sqf";
@@ -96,7 +100,9 @@ if ([[player], Officers] call gosa_fnc_CheckIsKindOfArray) then {
 	[player] execVM ("\ca\modules\hc\data\scripts\HC_GUI.sqf");
 	[] execVM "dir\client\gosa_hc_gui_wp_attack.sqf";
 };
+*/
 
+// TODO: Нужна функция.
 player addEventHandler ["killed", {
 	BIS_COIN_QUIT = true;
 	gosa_COIN_QUIT = true;
@@ -111,8 +117,10 @@ player addEventHandler ["killed", {
 selectPlayer _player;
  */
 
+// TODO: Нужна функция.
 "respawn" spawn gosa_fnc_RespawnWeaponsAdd;
 
+// TODO: Нужна функция.
 player addEventHandler ["killed", {
 	skipAddAction = true;
 	// _this select 0 setVariable ["BIS_IS_Dead", true, true];
@@ -124,13 +132,15 @@ player addEventHandler ["killed", {
 }];
 
 #ifdef __ARMA3__
-	_tmp_num = [player,"menu"] call BIS_fnc_addCommMenuItem;
+	// TODO: Нужна функция.
+	_n = [player,"menu"] call BIS_fnc_addCommMenuItem;
 #endif
 
+// TODO: Нужна функция для addEventHandler-ов.
 if ( isMultiplayer ) then {
 	waitUntil{!isNil "gosa_MPF_InitDone"};
 	if(missionNamespace getVariable "respawn" != 1)then{
-		[nil, player, rgosa_setMapPlayers, gosa_owner] call RE;
+		[nil, player, rgosa_setMapPlayers, _arr select 2] call RE;
 	};
 	waitUntil{!isNil "gosa_fnc_init"};
 	player addEventHandler ["Respawn", {call gosa_fnc_eh_playerRespawn}];
@@ -145,9 +155,6 @@ if ( isMultiplayer ) then {
 }else{
 	onTeamSwitch {
 		SetGroupIconsVisible [true,false];
-		// if(side _from != side _to)then{
-			// [] call compile preprocessFileLineNumbers "dir\Client\ClientMenu.sqf";
-		// };
 		40 CutRsc["OptionsAvailable","PLAIN",0];
 	};
 	{deleteVehicle _x}forEach SwitchableUnits-(units group player);
@@ -156,22 +163,22 @@ if ( isMultiplayer ) then {
 	waitUntil{!isNil "gosa_fnc_init"};
 	PlayerType = [typeOf leader player, rank leader player];
 	player addEventHandler ["killed", {_this call gosa_fnc_playerRespawnSP}];
-	// [] spawn gosa_fnc_playerRespawn;
-
 };
 
 // радио 0-0, чтоб разные скрипты тестировать
 [] call compile preprocessFileLineNumbers  "dir\Client\radio\init.sqf";
 
-if(debug)then{
-
-	// военные обозначения, показ всех, чтобы видеть как и где создаются боты
-	waitUntil{!isNil "bis_fnc_init"};
-	private ["_martaFactions"];
-	_martaFactions=[];
-	{ _martaFactions = (_martaFactions + [_x,1]) } foreach ([] call BIS_fnc_getFactions);
-	player setVariable ["MARTA_showRules",_martaFactions];
+if(gosa_loglevel > 0)then{
+	// Военные обозначения, показ всех, чтобы видеть как и где создаются боты.
+	_arr = ([] call BIS_fnc_getFactions);
+	// player setVariable ["MARTA_showRules", ["USMC", 1, "CDF", 0]];
+	for "_i" from (count _arr * 2 -1) to 1 step -2 do {
+		_arr set [_i, 1];
+	};
+	for "_i" from (count _arr * 2 -2) to 0 step -2 do {
+		_arr set [_i, _arr select _i];
+	};
+	// TODO: Нужна функция.
+	player setVariable ["MARTA_showRules", _arr];
 	SetGroupIconsVisible [true,true];
 };
-
-// player addAction ["main menu", "dir\client\main_menu.sqf", nil, 1.5, false];

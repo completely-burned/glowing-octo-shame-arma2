@@ -45,12 +45,6 @@ if (missionNamespace getVariable "respawn" == 0 or _rMHQ) then {
 	_rBase = false;
 };
 
-if (isNil "gosa_playerStartingClass") then {
-	_startingClass = 0;
-}else{
-	_startingClass = gosa_playerStartingClass;
-};
-
 // Имена маркеров, маркеры локальные и не должны конфликтовать в pvp.
 _tmp_arr = [] call gosa_fnc_getPlayerParam;
 _side_str = _tmp_arr select 0;
@@ -83,8 +77,11 @@ _marker_type_respawn_plane = "Airport";
 _respawn_type_Pilot = 1;
 _respawn_type_All = 0;
 
-//-- Подготовка маркеров аэропорта.
 _markers_airport = [];
+waitUntil{!isNil "gosa_playerStartingClass"};
+_startingClass = gosa_playerStartingClass;
+
+//-- Подготовка маркеров аэропорта.
 if (true) then {
 
 	_fnc_update_LocationAirport = {
