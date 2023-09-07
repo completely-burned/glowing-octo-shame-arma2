@@ -89,8 +89,6 @@ if(!isServer)then{
 };
 
 
-waitUntil{(!isNull player)};
-
 /*
 // TODO: Нужна функция.
 if ([[player], Officers] call gosa_fnc_CheckIsKindOfArray) then {
