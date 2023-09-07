@@ -21,6 +21,7 @@ if (gosa_playerStartingClass == 1) exitWith {
 };
 
 if(missionNamespace getVariable "respawn" != 1 or !isMultiplayer)exitWith{
+	[player, objNull] call gosa_fnc_eh_playerSelected;
 	respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };

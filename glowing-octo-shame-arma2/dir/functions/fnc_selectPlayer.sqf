@@ -54,22 +54,6 @@ if (!isNil "_var" && (_var == _o)) then
 
 	gosa_lastSwitchBodyTime = time;
 
-	// Заметки приходится добавлять для нового объекта снова.
-	_new call gosa_fnc_initBriefing;
-
-	// Информирование других игроков о возрождении в отряде.
-	[nil, _new, rhintresurrected, _str] call RE;
-
-	// Отображение всех групп в режиме отладки.		// diag_log
-	// TODO: Нужна функция.							// diag_log
-	if (gosa_loglevel > 0) then {					// diag_log
-		_arr = [];									// diag_log
-		{											// diag_log
-			_arr = _arr + [_x,1];					// diag_log
-		} foreach ([] call BIS_fnc_getFactions);	// diag_log
-		_new setVariable ["MARTA_showRules", _arr];	// diag_log
-	};												// diag_log
-
 	// В случае неудачи необходимо временно добавить объект в черный список,
 	// иначе он будет повторно выбран.
 	// FIXME: Не уверен в отсутствии ложных срабатываний.
@@ -87,6 +71,7 @@ if (!isNil "_var" && (_var == _o)) then
 	};
 	// gosa_respawn_blt это blocklist.
 	if (_b) then {
+		[_new, objNull, _str] call gosa_fnc_eh_playerSelected;
 		_new;
 	}else{
 		_new setVariable ["gosa_respawn_blt", time];

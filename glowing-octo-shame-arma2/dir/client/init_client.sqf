@@ -120,11 +120,6 @@ player addEventHandler ["killed", {
 	};
 }];
 
-#ifdef __ARMA3__
-	// TODO: Нужна функция.
-	_n = [player,"menu"] call BIS_fnc_addCommMenuItem;
-#endif
-
 // TODO: Нужна функция для addEventHandler-ов.
 if (isMultiplayer) then {
 	player addEventHandler ["Respawn", {call gosa_fnc_eh_playerRespawn}];
@@ -152,19 +147,17 @@ if (isMultiplayer) then {
 // радио 0-0, чтоб разные скрипты тестировать
 [] call compile preprocessFileLineNumbers  "dir\Client\radio\init.sqf";
 
-if(gosa_loglevel > 0)then{
-	// Военные обозначения, показ всех, чтобы видеть как и где создаются боты.
-	_arr = ([] call BIS_fnc_getFactions);
-	// player setVariable ["MARTA_showRules", ["USMC", 1, "CDF", 0]];
-	for "_i" from (count _arr * 2 -1) to 1 step -2 do {
-		_arr set [_i, 1];
-	};
-	for "_i" from (count _arr * 2 -2) to 0 step -2 do {
-		_arr set [_i, _arr select _i];
-	};
-	// TODO: Нужна функция.
-	player setVariable ["MARTA_showRules", _arr];
-	SetGroupIconsVisible [true,true];
-};
+if (gosa_loglevel > 0) then {	//diag_log
+	// Военные обозначения, показ всех, чтобы видеть как и где создаются боты.	//diag_log
+	_arr = ([] call BIS_fnc_getFactions);	//diag_log
+	// player setVariable ["MARTA_showRules", ["USMC", 1, "CDF", 0]];	//diag_log
+	for "_i" from (count _arr * 2 -1) to 1 step -2 do {	//diag_log
+		_arr set [_i, 1];	//diag_log
+	};	//diag_log
+	for "_i" from (count _arr * 2 -2) to 0 step -2 do {	//diag_log
+		_arr set [_i, _arr select _i];	//diag_log
+	};	//diag_log
+	gosa_MARTA_showRules = _arr;	//diag_log
+};  //diag_log
 
 diag_log format ["Log: [init_client] Done %1", time];
