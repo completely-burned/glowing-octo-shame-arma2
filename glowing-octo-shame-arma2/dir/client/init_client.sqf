@@ -137,12 +137,11 @@ player addEventHandler ["killed", {
 #endif
 
 // TODO: Нужна функция для addEventHandler-ов.
-if ( isMultiplayer ) then {
+if (isMultiplayer) then {
 	waitUntil{!isNil "gosa_MPF_InitDone"};
 	if(missionNamespace getVariable "respawn" != 1)then{
 		[nil, player, rgosa_setMapPlayers, _arr select 2] call RE;
 	};
-	waitUntil{!isNil "gosa_fnc_init"};
 	player addEventHandler ["Respawn", {call gosa_fnc_eh_playerRespawn}];
 	// player addEventHandler ["killed", {_this spawn gosa_fnc_killcam}];
 	// player addEventHandler ["respawn", {player spawn gosa_fnc_RespawnWeaponsAdd}];
@@ -157,7 +156,6 @@ if ( isMultiplayer ) then {
 	{deleteVehicle _x}forEach SwitchableUnits-(units group player);
 	EnableTeamSwitch true;
 
-	waitUntil{!isNil "gosa_fnc_init"};
 	PlayerType = [typeOf leader player, rank leader player];
 	player addEventHandler ["killed", {_this call gosa_fnc_playerRespawnSP}];
 };
