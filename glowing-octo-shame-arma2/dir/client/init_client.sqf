@@ -182,3 +182,5 @@ if(gosa_loglevel > 0)then{
 	player setVariable ["MARTA_showRules", _arr];
 	SetGroupIconsVisible [true,true];
 };
+
+diag_log format ["Log: [init_client] Done %1", time];
