@@ -149,9 +149,6 @@ if ( isMultiplayer ) then {
 	player addEventHandler ["killed", {"respawn" spawn gosa_fnc_RespawnWeaponsAdd}];
 	player addEventHandler ["killed", {_this spawn gosa_fnc_resetActions}];
 	// player addEventHandler ["killed", {_this select 0 call {_this setVariable ["BIS_lifestate","ALIVE",true]}}];
-#ifndef __A2OA__
-	player addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
-#endif
 }else{
 	onTeamSwitch {
 		SetGroupIconsVisible [true,false];
