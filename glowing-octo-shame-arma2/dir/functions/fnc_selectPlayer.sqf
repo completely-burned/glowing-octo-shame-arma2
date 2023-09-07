@@ -74,14 +74,24 @@ if (!isNil "_var" && (_var == _o)) then
 	// иначе он будет повторно выбран.
 	// FIXME: Не уверен в отсутствии ложных срабатываний.
 	// FIXME: Возможно требуется время для синхронизации.
-	sleep 1;
+	_time = time+30;
+	waitUntil {
+		sleep 0.01;
+		if (player == _new) then {
+			_b = true;
+		}else{
+			_b = false;
+		};
+
+		(_b or time > _time)
+	};
 	// gosa_respawn_blt это blocklist.
-	if (player != _new) then {
+	if (_b) then {
+		_new;
+	}else{
 		_new setVariable ["gosa_respawn_blt", time];
 		diag_log format ["Log: [respawnRandom] _fnc_swich переключение не удалось %1", _new];
 		_old;
-	}else{
-		_new;
 	};
 
 }else{
