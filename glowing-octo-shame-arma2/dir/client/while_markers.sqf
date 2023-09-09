@@ -434,8 +434,6 @@ if (_startingClass == 1 && count _markers_airport > 0) then {
 }else{
 	gosa_respawnMarkers = _respawnMarkers;
 };
-diag_log format ["Log: [while_markers] respawnMarkers %1", gosa_respawnMarkers];
-gosa_respawnMarkersInitDone = true;
 
 //-- Маркер основной локации.
 // TODO: Совместимость с несколькими локациями.

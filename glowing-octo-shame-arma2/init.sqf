@@ -66,12 +66,6 @@ if !(requiredVersion "1.60") then {
 			execVM "dir\init_HC.sqf";
 		};
 	};
-
-	// Необходима готовность маркеров возрождения.
-	if (hasInterface) then {
-		waitUntil {!isNil "gosa_respawnMarkersInitDone"};
-	};
-
 #ifdef __A2OA__
 };
 #endif

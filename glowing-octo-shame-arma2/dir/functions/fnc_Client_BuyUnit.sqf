@@ -7,7 +7,7 @@
  */
 diag_log format ["Log: [fnc_Client_BuyUnit]: _this %1", _this];
 private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
-	"_str","_type_Lower","_respawn_pos","_Objects","_veh","_num",
+	"_str","_type_Lower","_Objects","_veh","_num",
 	"_factory_obj","_buy_dist_max","_player_pos","_player_veh",
 	"_factory_dir","_factory_pos",
 	"_side","_listHQ_str","_class","_fnc_factory_HQ","_factory_HQ",
@@ -101,9 +101,6 @@ _fnc_1={
 	#endif
 };
 
-// Для совместимости.
-_respawn_pos = [vehicle player, 101] call gosa_fnc_CheckRespawnDistance;
-
 if (true) then {
 	//-- Мегаящик.
 	if (_type == "gosa_megaAmmoBox") then {
@@ -115,12 +112,6 @@ if (true) then {
 			};
 			if (count _arr > 0) then {
 				_factory_obj = _arr select 0;
-			};
-		};
-		// Для совместимости.
-		if (isNil "_factory_obj") then {
-			if (_respawn_pos) then {
-				_factory_obj = _player_veh;
 			};
 		};
 
@@ -149,12 +140,6 @@ if (true) then {
 				_factory_obj = _arr select 0;
 			};
 		};
-		// Для совместимости.
-		if (isNil "_factory_obj") then {
-			if (_respawn_pos) then {
-				_factory_obj = _player_veh;
-			};
-		};
 
 		if !(isNil "_factory_obj") then {
 				_pos = [_pos, 1.5, getDir _player_veh] call BIS_fnc_relPos;
@@ -175,12 +160,6 @@ if (true) then {
 			if (count _arr > 0) then {
 				_factory_obj = _arr select 0;
 				_pos = getPos _factory_obj;
-			};
-		};
-		// Для совместимости.
-		if (isNil "_factory_obj") then {
-			if (_respawn_pos) then {
-				_factory_obj = _player_veh;
 			};
 		};
 
@@ -249,12 +228,6 @@ if (true) then {
 				_pos = getPos _factory_obj;
 			};
 		};
-		// Для совместимости.
-		if (isNil "_factory_obj") then {
-			if (_respawn_pos) then {
-				_factory_obj = _player_veh;
-			};
-		};
 
 		if !(isNil "_factory_obj") then {
 			_pos = ([_pos, 0, 10 max sizeOf _type] call gosa_fnc_getSafePos);
@@ -277,12 +250,6 @@ if (true) then {
 			if (count _arr > 0) then {
 				_factory_obj = _arr select 0;
 				_pos = getPos _factory_obj;
-			};
-		};
-		// Для совместимости.
-		if (isNil "_factory_obj") then {
-			if (_respawn_pos) then {
-				_factory_obj = _player_veh;
 			};
 		};
 
@@ -353,7 +320,7 @@ if (true) then {
 	//-- Static.
 	if (_type isKindOf "StaticWeapon") then {
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBBarracks"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
-		if ( (count _Objects > 0) or _respawn_pos or (missionNamespace getVariable "gosa_shop" == 2)) then {
+		if ( (count _Objects > 0) or (missionNamespace getVariable "gosa_shop" == 2)) then {
 			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 			_veh call _fnc_1;
