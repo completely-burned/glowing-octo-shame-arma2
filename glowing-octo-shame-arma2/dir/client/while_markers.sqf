@@ -78,8 +78,7 @@ _respawn_type_Pilot = 1;
 _respawn_type_All = 0;
 
 _markers_airport = [];
-waitUntil{!isNil "gosa_playerStartingClass"};
-_startingClass = gosa_playerStartingClass;
+_startingClass = _respawn_type_All;
 
 //-- Подготовка маркеров аэропорта.
 if (true) then {
@@ -434,6 +433,9 @@ if (_startingClass == 1 && count _markers_airport > 0) then {
 }else{
 	gosa_respawnMarkers = _respawnMarkers;
 };
+
+waitUntil{!isNil "gosa_playerStartingClass"};
+_startingClass = gosa_playerStartingClass;
 
 //-- Маркер основной локации.
 // TODO: Совместимость с несколькими локациями.
