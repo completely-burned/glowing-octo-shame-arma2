@@ -45,6 +45,9 @@ if (missionNamespace getVariable "respawn" == 0 or _rMHQ) then {
 	_rBase = false;
 };
 
+waitUntil{!isNil "bis_fnc_init"};
+waitUntil{!isNil "gosa_fnc_init"};
+
 // Имена маркеров, маркеры локальные и не должны конфликтовать в pvp.
 _tmp_arr = [] call gosa_fnc_getPlayerParam;
 _side_str = _tmp_arr select 0;

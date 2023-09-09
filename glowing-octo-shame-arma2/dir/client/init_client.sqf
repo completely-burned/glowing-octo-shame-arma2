@@ -3,6 +3,9 @@
  * TODO: Рефакторинг.
  */
 
+// Маркеры возрождения должны присутствовать до начала миссии.
+[] execVM "dir\client\while_markers.sqf";
+
 private ["_str","_n","_arr"];
 _arr = [];
 
@@ -45,9 +48,6 @@ waitUntil{!isNil "gosa_fnc_init"};
 	BIS_Effects_AirDestructionStage2 = compile preprocessFileLineNumbers "dir\Client\AirDestructionStage2.sqf";
 };
 */
-
-// TODO: Маркеры возрождения должы уже присутствовать перед стартом задания.
-[] execVM "dir\client\while_markers.sqf";
 
 _str = getPlayerUID player;
 while {sleep 0.01; _str == ""} do {
