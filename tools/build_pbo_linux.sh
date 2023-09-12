@@ -209,7 +209,7 @@ then
 	mkdir ${TORRENT_TMPDIR}
 	echo "Torrent directory ${TORRENT_TMPDIR}"
 	find ${PRE} -maxdepth 1 -type f -iname "*.pbo" -print -exec cp {} ${TORRENT_TMPDIR}/ \;
-	ctorrent -t -u "udp://localhost:6969" -s "${PRE}/${FINITENAME}.torrent" ${TORRENT_TMPDIR}/
+	ctorrent -t -u "udp://retracker.local/announce" -s "${PRE}/${FINITENAME}.torrent" ${TORRENT_TMPDIR}/
 fi
 
 # Используя rsync --checksum, чтобы не перезаписывать файлы
