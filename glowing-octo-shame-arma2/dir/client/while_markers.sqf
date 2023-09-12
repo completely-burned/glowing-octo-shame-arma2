@@ -434,7 +434,7 @@ _dynamicMarkers = [];
 if (_startingClass == 1 && count _markers_airport > 0) then {
 	gosa_respawnMarkers = _markers_airport;
 }else{
-	gosa_respawnMarkers = _respawnMarkers;
+	gosa_respawnMarkers = _respawnMarkers + _markers_LocationBase;
 };
 
 waitUntil{!isNil "gosa_playerStartingClass"};
