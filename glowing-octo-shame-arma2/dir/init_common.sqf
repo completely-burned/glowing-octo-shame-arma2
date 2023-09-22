@@ -1,10 +1,11 @@
 EnableTeamSwitch false;
 
-private["_list","_tmp","_str"];
+private["_list","_tmp","_str","_cfgVeh"];
 
 BIS_WFdPath = "\CA\Warfare2\";
 
-LIB_cfgVeh = configFile >> "CfgVehicles";
+_cfgVeh = configFile >> "CfgVehicles";
+LIB_cfgVeh = _cfgVeh;
 LIB_cfgWea = configFile >> "CfgWeapons";
 // LIB_cfgAmm = configFile >> "CfgAmmo";
 LIB_cfgWor = configFile >> "CfgWorlds" >> worldName;
@@ -16,7 +17,7 @@ if (configName(configFile >> "CfgMods" >> "CA") != "") then {LIB_a2Avail = true}
 LIB_ahAvail = false;
 if (configName(configFile >> "CfgMods" >> "Expansion") != "") then {LIB_ahAvail = true};
 ACE_Avail = false;
-if (configName(LIB_cfgVeh >> "ACE_Logic") != "") then {ACE_Avail = true};
+if (configName(_cfgVeh >> "ACE_Logic") != "") then {ACE_Avail = true};
 acex_ru_Avail = false;
 if (configName(configFile >> "CfgMods" >> "acex_ru") != "") then {acex_ru_Avail = true};
 acex_usnavy_Avail = false;
@@ -125,7 +126,7 @@ _list = [
 #endif
 gosa_crewL = [];
 {
-	_tmp = configName (LIB_cfgVeh >> _x);
+	_tmp = configName (_cfgVeh >> _x);
 	if (_tmp != "") then {
 		gosa_crewL set [count gosa_crewL, _tmp];
 	};
@@ -188,7 +189,7 @@ _list = [
 #endif
 gosa_pilotL = [];
 {
-	_tmp = configName (LIB_cfgVeh >> _x);
+	_tmp = configName (_cfgVeh >> _x);
 	if (_tmp != "") then {
 		gosa_pilotL set [count gosa_pilotL, _tmp];
 	};
@@ -210,7 +211,7 @@ _list = [
 ];
 gosa_StealthL = [];
 {
-	_tmp = configName (LIB_cfgVeh >> _x);
+	_tmp = configName (_cfgVeh >> _x);
 	if (_tmp != "") then {
 		gosa_StealthL set [count gosa_StealthL, _tmp];
 	};
