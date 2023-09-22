@@ -209,7 +209,24 @@ then
 	mkdir ${TORRENT_TMPDIR}
 	echo "Torrent directory ${TORRENT_TMPDIR}"
 	find ${PRE} -maxdepth 1 -type f -iname "*.pbo" -print -exec cp {} ${TORRENT_TMPDIR}/ \;
-	ctorrent -t -u "udp://retracker.local/announce" -s "${PRE}/${FINITENAME}.torrent" ${TORRENT_TMPDIR}/
+
+	COMMENT='https://github.com/completely-burned/glowing-octo-shame-arma2'
+	tracker='udp://retracker.local/announce'
+
+	torrent_parallel+=( "transmission-create \
+		-t ${tracker} -c ${COMMENT} \
+		-w 'http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/' \
+		-o '${PRE}/${FINITENAME}-transmission.torrent' \
+		${TORRENT_TMPDIR}/" )
+	torrent_parallel+=( "ctorrent -t \
+		-u ${tracker} -c ${COMMENT} \
+		-s '${PRE}/${FINITENAME}-ctorrent.torrent' \
+		${TORRENT_TMPDIR}/" )
+
+	if [[ ! -z "$torrent_parallel" ]]
+	then
+		parallel ::: "${torrent_parallel[@]}"
+	fi
 fi
 
 # Используя rsync --checksum, чтобы не перезаписывать файлы
