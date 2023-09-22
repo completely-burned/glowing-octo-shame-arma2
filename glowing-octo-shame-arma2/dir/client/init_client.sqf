@@ -138,6 +138,7 @@ if (isMultiplayer) then {
 		SetGroupIconsVisible [true,false];
 		40 CutRsc["OptionsAvailable","PLAIN",0];
 	};
+	{deleteVehicle _x}forEach SwitchableUnits-(units group player);
 	EnableTeamSwitch true;
 
 	PlayerType = [typeOf leader player, rank leader player];
