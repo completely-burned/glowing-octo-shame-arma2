@@ -11,14 +11,10 @@ PVE бой с ботами сконцентрированный в одной т
  - ### linux
       ```bash
       # Установить
-      # rsync
-      # git
-      # sed
+      # rsync git sed translit parallel
       #
       # и установить дополнительно, не обязательно
-      # makepbo (не работает)
-      # armake
-      # armake2
+      # makepbo armake armake2
       #
       # В любом случае
       # должна будет появится после сборки папка rsync
@@ -27,7 +23,8 @@ PVE бой с ботами сконцентрированный в одной т
       # Скачать код
       git clone --depth=1 https://github.com/completely-burned/glowing-octo-shame-arma2.git
 
-      # Перейти в корень с кодами
+      # Перейти в корень с кодами,
+      # Не glowing-octo-shame-arma2/glowing-octo-shame-arma2/
       cd ./glowing-octo-shame-arma2/
 
       # Нужны права на запуск скрипта сборки
@@ -50,8 +47,9 @@ PVE бой с ботами сконцентрированный в одной т
       ```
  - ### windows
    - Строки содержащие `diag_log` нужно удалить,  
-     иначе они будут активно записывать в лог файл, и тормозить.  
-     Не знаю как это сделать wondows,  
+     иначе они будут активно записывать в лог файл,
+     а игра тормозить.  
+     Не знаю как это сделать MS Windows,  
      но если вы знаеете, можете мне сообщить.  
 
    - Скопируйте  
@@ -59,4 +57,4 @@ PVE бой с ботами сконцентрированный в одной т
      из папки `glowing-octo-shame-arma2/` в папки с назанием карты,  
      и соберите, опять [не знаю чем](https://community.bistudio.com/wiki/Community_Tools).
 
-   - Можете просто запустить linux скрипт в Windows Subsystem for Linux или ~~Cygwin~~ (настолько дико тормозит что не работает) остальные вообще могут сломать windows. В них не доступны makepbo, armake, armake2.  
+   - Можете просто запустить linux скрипт в Windows Subsystem for Linux или ~~Cygwin~~ (настолько дико тормозит что не работает) остальные вообще могут сломать Windows. В них не доступны makepbo, armake, armake2.  
