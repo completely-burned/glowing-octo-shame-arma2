@@ -1,21 +1,26 @@
 /*
-припаркованный гражданский транспорт в городах
-*/
+ * Припаркованный гражданский транспорт в городах.
+ * TODO: Оптимизировать код.
+ */
 
- #ifdef __ARMA3__
- 	if (true) exitWith {
- 		diag_log format ["Log: [while_silvieManager] exitWith %1", time];
- 	};
- #endif
+#ifdef __ARMA3__
+	if (true) exitWith {
+		diag_log format ["Log: [while_silvieManager] exitWith %1", time];
+	};
+#endif
 
-private ["_twns","_mash","_mashType"];
+private ["_twns","_mash","_mashType","_players","_twn","_twnpos",
+	"_actual","_scope","_side","_cfgVeh","_houselist","_bbox",
+	"_blacklist","_veh","_sm_vehicles","_dir","_pos","_roads",
+	"_road",
+	"_vehicles","_distance","_count_vehicles","_maxVehicles"];
 
 if (missionNamespace getVariable "gosa_MASH" == 1) then {
 	_mashType = "MASH_EP1";
 	if (configName(configFile >> "CfgVehicles" >> _mashType) == "") then {
 		_mashType = "MASH";
 		if (configName(configFile >> "CfgVehicles" >> _mashType) == "") then {
-		  _mashType == "";
+			_mashType == "";
 		};
 	};
 	_mash = [];
@@ -23,59 +28,62 @@ if (missionNamespace getVariable "gosa_MASH" == 1) then {
 	_mashType = "";
 };
 
+_cfgVeh = LIB_cfgVeh;
+_blacklist = silvieManagerBlacklist;
+_sm_vehicles = silvieManagerVehicles;
+
+_distance = 750;
+
+_twns = [];
 while{true}do{
-		_twns=[];
-		{
-			private ["_twn"];
-			_twn = nearestLocation [getPos _x, "CityCenter"];
-			if!(_twn in _twns)then{
-				private ["_twnpos","_vehicles"];
-				_twns set [count _twns,_twn];
+	_twns resize 0;
+	_players = ([] call gosa_fnc_listPlayers);
+	for "_i" from 0 to (count _players -1) do {
+		_player = _players select _i;
+		_twn = nearestLocation [_player, "CityCenter"];
+		if !(_twn in _twns) then {
+			_twns set [count _twns, _twn];
 				_twnpos = position _twn;
 				_twnpos resize 2;
-				_vehicles = (_twnpos nearEntities [["Car", "Motorcycle"], 750]);
-				private ["_count_vehicles","_maxVehicles"];
-				_count_vehicles=0;//(civilian countSide _vehicles);
-				{
-					private ["_actual"];
-					_actual = (configfile >> "cfgVehicles">> typeOf _x) ;
-					private ["_scope","_side"];
+				_arr = (_twnpos nearEntities [["Car", "Motorcycle"], _distance]);
+				//(civilian countSide _arr);
+				_count_vehicles = 0;
+				for "_i0" from 0 to (count _arr -1) do {
+					_obj = _arr select _i0;
+					_actual = (_cfgVeh >> typeOf _obj);
 					_scope = getnumber (_actual >> "scope");
 					_side = getnumber (_actual >> "side");
-					if (_x iskindof "LandVehicle" && _scope == 2 && _side == 3 && canMove _x) then {
-						_count_vehicles=_count_vehicles+1;
+					// TODO: Тест производительности.
+					if (_obj iskindof "LandVehicle" && _scope == 2 && _side == 3 && canMove _obj) then {
+						_count_vehicles = _count_vehicles + 1;
 					};
-				}forEach _vehicles;
+				};
 
-				private ["_houselist"];
 				_houselist = (_twn getVariable "_houselist");
-				if (isNil "_houselist")then{
-					_houselist = _twnpos nearobjects ["House",750];
+				if (isNil "_houselist") then {
+					// -50 потому что ТС создаётся рядом и может оказаться за пределами.
+					_houselist = _twnpos nearobjects ["House", _distance -50];
 
-
-					{
-						private ["_bbox"];
-						_bbox = abs((boundingbox _x select 1) select 0) min abs((boundingbox _x select 1) select 1);
-						if (_bbox < 3 || typeof _x in silvieManagerBlacklist) then {_houselist = _houselist - [_x]};
-					} foreach _houselist;
-					_twn setVariable ["_houselist",_houselist];
+					for "_i0" from 0 to (count _houselist -1) do {
+						_obj = _houselist select _i0;
+						_bbox = abs((boundingbox _obj select 1) select 0) min abs((boundingbox _obj select 1) select 1);
+						if (_bbox < 3 || typeof _obj in _blacklist) then {_houselist = _houselist - [_obj]};
+					};
+					_twn setVariable ["_houselist", _houselist];
 				};
 
 				if (_mashType != "") then {
 
 					//if ({alive _x} count _mash == 0) then {
 						// TODO: нужно оптимизировать код
-						_mash = _twnpos nearObjects [_mashType, 750];
+						_mash = _twnpos nearObjects [_mashType, _distance -100];
 					//};
 
 					// мого разрушенных палаток не красиво выглядит
 					if (count _mash < 3) then {
-
-						if ({alive _x} count _mash == 0) then {
-
+						if ({alive _x} count _mash < 1) then {
 							ScopeName "PlaceSafe";
-
-							private ["_attempts","_posX","_posY","_dir","_dist2","_testPos"];
+							private ["_attempts","_posX","_posY","_dist2","_testPos"];
 							_attempts = 0;
 							while {_attempts < 500} do {
 
@@ -89,12 +97,12 @@ while{true}do{
 								_dist2 = random 500;
 								_testPos = [_posX + _dist2*sin _dir, _posY + _dist2*cos _dir];
 								if !(SurfaceIsWater _testPos) then {
-									if (count (_testPos nearRoads 10) == 0) then {
+									if (count (_testPos nearRoads 10) < 1) then {
 										if (count nearestObjects [_testPos, ["Static","LandVehicle","Air"], 5] == 0) then {
 											_mash = [
 												createVehicle [_mashType, _testPos, [], random 360, "NONE"]
 											];
-											diag_log format ["Log: [silvieManager] %1 _mash создано у %2", _mash, _testPos];
+											diag_log format ["Log: [silvieManager] %1, %2 _mash создано у %3", _twn, _mash, _testPos];
 											BreakTo "PlaceSafe";
 										};
 									};
@@ -102,20 +110,15 @@ while{true}do{
 								_attempts = _attempts + 1;
 								sleep 0.005;
 							};
-
 						};
-
-
 					};
-
 				};
 
 				_maxVehicles = ((count _houselist / 8) max 2);
 
 				if (_count_vehicles < _maxVehicles)then{
 					if (count _houselist > 0) then {
-						for "_i" from 0 to (_maxVehicles-_count_vehicles) do {
-							private ["_pos","_dir","_obj","_roads","_road"];
+						for "_i0" from 0 to (_maxVehicles-_count_vehicles) do {
 							_obj = _houselist call BIS_fnc_selectRandom;
 							_pos = getpos _obj;// modeltoworld [0,0,0];
 							_dir = direction _obj + (floor random 4)*90;
@@ -153,29 +156,27 @@ while{true}do{
 							}else{ // diag_log Undefined variable
 								_road = objNull; // diag_log Undefined variable
 							};
-							private ["_veh1"];
-							_veh1 = createVehicle [ (silvieManagerVehicles call BIS_fnc_selectRandom), _pos, [], 0, "NONE"];
-							[nil, _veh1, rvehInit] call RE;
-							_veh1 setDir (_dir - 10 + random 20);
-							// _veh1 setPosATL _pos;
+							_veh = createVehicle [_sm_vehicles call BIS_fnc_selectRandom, _pos, [], 0, "NONE"];
+							[nil, _veh, rvehInit] call RE;
+							_veh setDir (_dir - 10 + random 20);
+							// _veh setPosATL _pos;
 							//--- Inside Building Check
-							if (count(nearestObjects [_veh1, [], if (_veh1 isKindOf "Truck") then {5}else{3}] - [_veh1]) > 0) exitWith {
-								diag_log format ["Log: [silvieManager] Inside Building %1", _veh1];
-								deleteVehicle _veh1;
+							if (count(nearestObjects [_veh, [], if (_veh isKindOf "Truck") then {5}else{3}] - [_veh]) > 0) exitWith {
+								diag_log format ["Log: [silvieManager] %1, Inside Building %2", _twn, _veh];
+								deleteVehicle _veh;
 							};
 
-							_veh1 setVectorUp [0,0,1];
-							_veh1 setVelocity [0, 0, -1];
-							// _veh1 addEventHandler ["GetIn",{_this call gosa_fnc_EH_GetIn}];
+							// TODO: setVectorUp вызывает синхронизацию по сети, нужно его заменить.
+							_veh setVectorUp [0,0,1];
 
-							_veh1 setFuel 0.5 + ((random 1)^3 - (random 1)^3)/2;
+							_veh setFuel 0.5 + ((random 1)^3 - (random 1)^3)/2;
 
-							diag_log format ["Log: [silvieManager] %1 создано у %2", _veh1, [_obj, _road]];
+							diag_log format ["Log: [silvieManager] %1, %2 создано у %3", _twn, _veh, [_obj, _road]];
 						};
 					};
 				};
 			};
-		}forEach ([] call gosa_fnc_listPlayers);
+		};
 
 	sleep 10;
 };
