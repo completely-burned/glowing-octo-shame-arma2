@@ -141,24 +141,26 @@ do
 			#find $TMPDIR/glowing-octo-shame-arma2/ -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
 			#find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
 			# Копирование.
-			rsync --recursive --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION
+			if [[ -x "$(command -v parallel)" ]]
+			then
+				rsync_parallel+=("rsync --recursive --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION")
+			else
+				rsync --recursive --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION
+			fi
 			rsync --recursive --no-perms ${DIR}/* $MISSION
 		fi
 
 		if [[ $LICENSE -gt 0 ]]
 		then
 			echo "Copying LICENSE"
-			rsync --recursive --no-perms $TMPDIR/*LICENSE* $MISSION
-			rsync --recursive --no-perms $TMPDIR/*authors* $MISSION
-		fi
-
-		# Не всегда все файлы нужны.
-		# version=11; <= Arma 2: Operation Arrowhead
-		Z=$(grep version $MISSION/mission.sqm | head -n1)
-		if [[ $Z == *"11"* ]]
-		then
-			Z=$MISSION/dir/arma3/config_groups.sqf
-			rm $Z
+			if [[ -x "$(command -v parallel)" ]]
+			then
+				rsync_parallel+=("rsync --recursive --no-perms $TMPDIR/*LICENSE* $MISSION")
+				rsync_parallel+=("rsync --recursive --no-perms $TMPDIR/*authors* $MISSION")
+			else
+				rsync --recursive --no-perms $TMPDIR/*LICENSE* $MISSION
+				rsync --recursive --no-perms $TMPDIR/*authors* $MISSION
+			fi
 		fi
 
 		if [[ $DIAG_LOG -le 0 ]]
@@ -176,21 +178,25 @@ do
 				var_parallel+=("makepbo -M $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo")
 				var_parallel+=("armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
 				var_parallel+=("armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
+				var_parallel+=("rsync -rLK --delete --no-perms $MISSION/* $PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}")
 			else
 				echo "Pack ${TMPDIRNAME}"
 				makepbo -M $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo
 				armake build --packonly --force $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
 				armake2 pack -v $MISSION 	$PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
+				rsync -rLK --delete --no-perms $MISSION/* $PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}
 			fi
 		fi
-
-		# Создаем безархивную версию на случай если архивация не удалась.
-		rsync -rLK --delete --no-perms $MISSION/* $PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}
-
 	fi
 done
 
 #gnu parallel
+if [[ ! -z "$var_parallel" ]]
+then
+	echo "rsync_parallel"
+	parallel ::: "${rsync_parallel[@]}"
+fi
+
 if [[ ! -z "$var_parallel" ]]
 then
 	echo "Pack pbo's"
