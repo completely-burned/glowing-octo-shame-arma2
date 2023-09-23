@@ -1,6 +1,6 @@
 EnableTeamSwitch false;
 
-private["_list","_tmp","_str","_cfgVeh"];
+private["_list","_tmp","_str","_cfgVeh","_arr","_arr0"];
 
 BIS_WFdPath = "\CA\Warfare2\";
 
@@ -28,23 +28,30 @@ if (configName(configFile >> "CfgMods" >> "acex_usnavy") != "") then {acex_usnav
 //-- Разные переменные необходимые для дальнейшей работы штабов.
 [] call compile preprocessFileLineNumbers "dir\common\init_hq.sqf";
 
+// [inf,veh,air,Ship,StaticWeapon,base,]
+_arr = [1000,1500,3500,1500,1500,3500];
+gosa_param_safeSpawnDistance = _arr;
+safeSpawnDistance = _arr;
+
 gosa_deviceType = ([] call gosa_fnc_getDeviceType);
 gosa_IslandType = ([] call gosa_fnc_getIslandType);
 
 listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","WarfareSalvageTruck_CDF","WarfareSalvageTruck_Gue","WarfareSalvageTruck_INS",
 "MtvrSalvage_DES_EP1","UralSalvage_TK_EP1","V3S_Salvage_TK_GUE_EP1"];
 
-_list = ["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F","Land_TentHangar_V1_F"];
-gosa_type_Airport = _list;
-// Совместимость.
-gosa_typesOf_airports = _list;
-Airport = _list;
+_arr = ["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F","Land_TentHangar_V1_F"];
+gosa_types_Airport = _arr;
+gosa_type_Airport = _arr;
+gosa_typesOf_airports = _arr;
+Airport = _arr;
 
-pier = ["Land_nav_pier_m_2","Land_nav_pier_m_F"];
+_arr = ["Land_nav_pier_m_2","Land_nav_pier_m_F"];
+gosa_types_pier = _arr;
+pier = _arr;
 
 safeDistance = 15;
 
-_list = [
+_arr = [
 	"InvisibleManE_EP1",
 	"InvisibleManW_EP1",
 	"InvisibleManG_EP1",
@@ -53,21 +60,21 @@ _list = [
 	""
 ];
 // Исправление регистра. Не нужно удалять классы.
-for "_i" from 0 to (count _list -1) do {
-	_str = configName (LIB_cfgVeh >> (_list select _i));
+for "_i" from 0 to (count _arr -1) do {
+	_str = configName (_cfgVeh >> (_arr select _i));
 	if (_str != "") then {
-		_list set [_i, _str];
+		_arr set [_i, _str];
 	};
 };
-gosa_types_InvisibleMan = _list;
+gosa_types_InvisibleMan = _arr;
 // Этими классами не должны управлять игроки.
-gosa_blacklisted_player_classes_L = _list;
-diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", gosa_blacklisted_player_classes_L];
+gosa_blacklisted_player_classes_L = _arr;
+diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", _arr];
 
 
 
 //-- listCrew
-_list = [
+_arr = [
 	"USMC_Soldier_Crew",
 	"CDF_Soldier_Crew",
 	"RU_Soldier_Crew",
@@ -114,7 +121,7 @@ _list = [
 	"Crew"
 ];
 #ifdef __ARMA3__
-	_list=_list+[
+	_arr append [
 		"B_W_Crew_F",
 		"B_crew_F",
 		"B_T_Crew_F",
@@ -124,16 +131,18 @@ _list = [
 		"I_crew_F"
 	];
 #endif
-gosa_crewL = [];
-{
-	_tmp = configName (_cfgVeh >> _x);
-	if (_tmp != "") then {
-		gosa_crewL set [count gosa_crewL, _tmp];
+_arr0 = [];
+for "_i" from 0 to (count _arr -1) do {
+	_str = configName (_cfgVeh >> (_arr select _i));
+	if (_str != "") then {
+		_arr0 set [count _arr0, _str];
 	};
-} forEach _list;
-diag_log format ["Log: [init_common]: gosa_crewL %1", gosa_crewL];
+};
+gosa_crewL = _arr0;
+diag_log format ["Log: [init_common]: gosa_crewL %1", _arr0];
 
-_list = [
+
+_arr = [
 	"USMC_Soldier_Pilot",
 	"CDF_Soldier_Pilot",
 	"RU_Soldier_Pilot",
@@ -160,7 +169,7 @@ _list = [
 	"Pilot"
 ];
 #ifdef __ARMA3__
-	_list=_list+[
+	_arr append [
 		"B_Fighter_Pilot_F",
 		"B_W_Helipilot_F",
 		"B_W_Helicrew_F",
@@ -187,16 +196,18 @@ _list = [
 		"I_helipilot_F"
 	];
 #endif
-gosa_pilotL = [];
-{
-	_tmp = configName (_cfgVeh >> _x);
-	if (_tmp != "") then {
-		gosa_pilotL set [count gosa_pilotL, _tmp];
+_arr0 = [];
+for "_i" from 0 to (count _arr -1) do {
+	_str = configName (_cfgVeh >> (_arr select _i));
+	if (_str != "") then {
+		_arr0 set [count _arr0, _str];
 	};
-} forEach _list;
-diag_log format ["Log: [init_common]: gosa_pilotL %1", gosa_pilotL];
+};
+gosa_pilotL = _arr0;
+diag_log format ["Log: [init_common]: gosa_pilotL %1", _arr0];
 
-_list = [
+
+_arr = [
 	"GUE_Soldier_Sniper","GUE_Soldier_Scout",
 	"INS_Soldier_Sniper","Ins_Soldier_Sab",
 	"CDF_Soldier_Sniper","CDF_Soldier_Spotter",
@@ -209,14 +220,16 @@ _list = [
 	"TK_Soldier_SniperH_EP1","TK_Soldier_Spotter_EP1",
 	"TK_GUE_Soldier_Sniper_EP1"
 ];
-gosa_StealthL = [];
-{
-	_tmp = configName (_cfgVeh >> _x);
-	if (_tmp != "") then {
-		gosa_StealthL set [count gosa_StealthL, _tmp];
+_arr0 = [];
+for "_i" from 0 to (count _arr -1) do {
+	_str = configName (_cfgVeh >> (_arr select _i));
+	if (_str != "") then {
+		_arr0 set [count _arr0, _str];
 	};
-} forEach _list;
-diag_log format ["Log: [init_common]: gosa_StealthL %1", gosa_StealthL];
+};
+gosa_StealthL = _arr0;
+diag_log format ["Log: [init_common]: gosa_StealthL %1", _arr0];
+
 
 // TODO: Совместимость с pvp.
 HQ = ["WarfareBDepot","WarfareBCamp"];
@@ -249,7 +262,7 @@ gosa_posDefaultHidenRandom = 1000;
 
 gosa_server_diag_fps_interval = 600;
 
-Officers = [
+_arr = [
 	"RU_Commander","RU_Soldier_Officer",
 	"Ins_Commander","TK_INS_Warlord_EP1",
 	"USMC_Soldier_Officer",
@@ -264,9 +277,8 @@ Officers = [
 	"UN_CDF_Soldier_Officer_EP1",
 	"Officer"
 ];
-
-// [inf,veh,air,Ship,StaticWeapon,base,]
-safeSpawnDistance = [1000,1500,3500,1500,1500,3500];
+gosa_types_officer = _arr;
+Officers = _arr;
 
 // Error Undefined variable in expression: i44_tankpenetration
 // File x\inv44\addons\i44_scripts_vehicles\s\post_init.sqf, line 3
