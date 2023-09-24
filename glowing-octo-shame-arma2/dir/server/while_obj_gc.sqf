@@ -9,8 +9,8 @@
 
 //--- gc
 private["_min_dist","_min_vehicles_count","_min_dist2","_tmp","_sleep","_arr",
-	"_s","_x_veh","_type","_noDeleteCount","_noDeleteCountTmp","_assignedVehicle"
-	"_deleteListManAlive","_deleteListManDead","_n"
+	"_s","_x_veh","_type","_noDeleteCount","_noDeleteCountTmp","_assignedVehicle",
+	"_deleteListManAlive","_deleteListManDead","_n",
 	"_deleteListVehDead","_timerDelete","_timerLocation","_timerPlayer",
 	"_timerAttack","_time","_timeNew","_mining","_mining_factor",
 	"_mining_list"];

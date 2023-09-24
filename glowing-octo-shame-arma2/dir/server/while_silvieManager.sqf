@@ -12,7 +12,7 @@
 private ["_twns","_mash","_mashType","_players","_twn","_twnpos",
 	"_actual","_scope","_side","_cfgVeh","_houselist","_bbox",
 	"_blacklist","_veh","_sm_vehicles","_dir","_pos","_roads",
-	"_road",
+	"_road","_obj",
 	"_vehicles","_distance","_count_vehicles","_maxVehicles"];
 
 if (missionNamespace getVariable "gosa_MASH" == 1) then {
@@ -62,12 +62,15 @@ while{true}do{
 				_houselist = (_twn getVariable "_houselist");
 				if (isNil "_houselist") then {
 					// -50 потому что ТС создаётся рядом и может оказаться за пределами.
-					_houselist = _twnpos nearobjects ["House", _distance -50];
+					_houselist = (_twnpos nearobjects ["House", _distance -50]);
 
 					for "_i0" from 0 to (count _houselist -1) do {
 						_obj = _houselist select _i0;
-						_bbox = abs((boundingbox _obj select 1) select 0) min abs((boundingbox _obj select 1) select 1);
-						if (_bbox < 3 || typeof _obj in _blacklist) then {_houselist = _houselist - [_obj]};
+						_bbox = abs((boundingbox _obj select 1) select 0)
+							min abs((boundingbox _obj select 1) select 1);
+						if (_bbox < 3 || typeof _obj in _blacklist) then {
+							_houselist = _houselist - [_obj]
+						};
 					};
 					_twn setVariable ["_houselist", _houselist];
 				};

@@ -129,7 +129,7 @@ if (isMultiplayer) then {
 	player addEventHandler ["killed", {_this spawn gosa_fnc_resetActions}];
 	// player addEventHandler ["killed", {_this select 0 call {_this setVariable ["BIS_lifestate","ALIVE",true]}}];
 	if(missionNamespace getVariable "respawn" != 1)then{
-		player addEventHandler ["killed", {call gosa_fnc_eh_playerKilled};
+		player addEventHandler ["killed", {call gosa_fnc_eh_playerKilled}];
 		waitUntil{!isNil "gosa_MPF_InitDone"};
 		[nil, player, rgosa_setMapPlayers, _arr select 2] call RE;
 	};

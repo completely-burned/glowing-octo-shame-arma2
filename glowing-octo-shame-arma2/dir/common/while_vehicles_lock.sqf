@@ -22,7 +22,7 @@ if(missionNamespace getVariable "gosa_vehicles_lock" == 2 or !isMultiplayer)exit
 
 private["_vehicles_lock","_grp","_units","_leaderPlayer","_isPlayer","_side",
 	"_vehicle","_grpPlayer","_lock","_transportPlayer","_arr","_obj",
-	"_friendly_vehicles_only","_sleep","_locked","_sides_check",
+	"_friendly_vehicles_only","_sleep","_locked","_sides_check","_cfgVeh",
 	"_sides_friendly"];
 
 if (missionNamespace getVariable "gosa_vehicles_lock" == 1) then {
@@ -32,6 +32,8 @@ if (missionNamespace getVariable "gosa_vehicles_lock" == 1) then {
 };
 _sleep = 5;
 _sides_check = [west,east,resistance];
+_cfgVeh = LIB_cfgVeh;
+_vehicles_lock = [];
 
 waitUntil{!isNil "gosa_friendlyside"};
 _sides_friendly = gosa_friendlyside;
@@ -39,8 +41,8 @@ _sides_friendly = gosa_friendlyside;
 while{sleep _sleep; true}do{
 	// TODO: нужно оптимизировать, слишком сильная нагрузка
 
-	_vehicles_lock = [];
 	_arr = allGroups;
+	_vehicles_lock resize 0;
 	// перечислить транспорт который нужно закрыть
 	for "_i" from 0 to (count _arr -1) do {
 		_grp = _arr select _i;
@@ -78,6 +80,11 @@ while{sleep _sleep; true}do{
 		_veh = _arr select _i;
 		// lock агрументы должны быть локальными
 		if (Local _veh) then {
+			// FIXME: Num for Arma3 0.50, Boolean for older games.
+			// Num for A2OA 1.64
+			_locked = locked _veh;
+			if (_locked >= 0) then {
+
 			// проверка только живого тс должно повысить производительность в случае большого числа уничтоженного транспорта
 			if (alive _veh) then {
 				if (_veh in _vehicles_lock) then {
@@ -99,7 +106,7 @@ while{sleep _sleep; true}do{
 						_lock = 2;
 					}else{
 						if (_friendly_vehicles_only) then {
-							_side = getNumber(configFile >> "CfgVehicles" >> typeOf _veh >> "side") call gosa_fnc_getSide;
+							_side = getNumber(_cfgVeh >> typeOf _veh >> "side") call gosa_fnc_getSide;
 							if (_side in _sides_check &&
 								!(_side in _sides_friendly)) then
 							{
@@ -113,15 +120,11 @@ while{sleep _sleep; true}do{
 					};
 				};
 
-				if (locked _veh) then {
-					_locked = 2;
-				}else{
-					_locked = 0;
-				};
 				if (_locked != _lock) then {
 					diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _veh, _lock, _locked, local _veh, typeOf _veh];
 					_veh lock _lock;
 				};
+			};
 			};
 		};
 	};
