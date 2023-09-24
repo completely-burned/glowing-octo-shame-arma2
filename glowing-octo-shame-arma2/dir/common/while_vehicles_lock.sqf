@@ -80,52 +80,58 @@ while{sleep _sleep; true}do{
 		_veh = _arr select _i;
 		// lock агрументы должны быть локальными
 		if (Local _veh) then {
-			// FIXME: Num for Arma3 0.50, Boolean for older games.
-			// Num for A2OA 1.64
+
+			// Num for Arma3 0.50, Boolean for older games.
+			#ifdef __ARMA3__
 			_locked = locked _veh;
 			if (_locked >= 0) then {
+			#else
+				_locked = if (locked _veh) then {2} else {0};
+			#endif
 
-			// проверка только живого тс должно повысить производительность в случае большого числа уничтоженного транспорта
-			if (alive _veh) then {
-				if (_veh in _vehicles_lock) then {
-					if ({_x call gosa_fnc_isPlayer} count crew _veh > 0) exitWith {
-						_lock = 0;
-					};
-					_obj = _veh getVariable "transportPlayer";
-					if !(isNil "_obj") then {
-						if (alive _obj) then {
+				// проверка только живого тс должно повысить производительность в случае большого числа уничтоженного транспорта
+				if (alive _veh) then {
+					if (_veh in _vehicles_lock) then {
+						if ({_x call gosa_fnc_isPlayer} count crew _veh > 0) exitWith {
 							_lock = 0;
+						};
+						_obj = _veh getVariable "transportPlayer";
+						if !(isNil "_obj") then {
+							if (alive _obj) then {
+								_lock = 0;
+							}else{
+								_lock = 2;
+							};
 						}else{
 							_lock = 2;
 						};
 					}else{
-						_lock = 2;
-					};
-				}else{
-					if (_veh isKindOf "UAV" or _veh isKindOf "Ka137_Base_PMC") then {
-						_lock = 2;
-					}else{
-						if (_friendly_vehicles_only) then {
-							_side = getNumber(_cfgVeh >> typeOf _veh >> "side") call gosa_fnc_getSide;
-							if (_side in _sides_check &&
-								!(_side in _sides_friendly)) then
-							{
-								_lock = 2;
+						if (_veh isKindOf "UAV" or _veh isKindOf "Ka137_Base_PMC") then {
+							_lock = 2;
+						}else{
+							if (_friendly_vehicles_only) then {
+								_side = getNumber(_cfgVeh >> typeOf _veh >> "side") call gosa_fnc_getSide;
+								if (_side in _sides_check &&
+									!(_side in _sides_friendly)) then
+								{
+									_lock = 2;
+								}else{
+									_lock = 0;
+								};
 							}else{
 								_lock = 0;
 							};
-						}else{
-							_lock = 0;
 						};
 					};
-				};
 
-				if (_locked != _lock) then {
-					diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _veh, _lock, _locked, local _veh, typeOf _veh];
-					_veh lock _lock;
+					if (_locked != _lock) then {
+						diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _veh, _lock, _locked, local _veh, typeOf _veh];
+						_veh lock _lock;
+					};
 				};
+			#ifdef __ARMA3__
 			};
-			};
+			#endif
 		};
 	};
 };
