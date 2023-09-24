@@ -10,10 +10,10 @@
 //--- gc
 private["_min_dist","_min_vehicles_count","_min_dist2","_tmp","_sleep","_arr",
 	"_s","_x_veh","_type","_noDeleteCount","_noDeleteCountTmp","_assignedVehicle",
-	"_deleteListManAlive","_deleteListManDead","_n",
+	"_deleteListManAlive","_deleteListManDead","_n","_p_t_new","_types_crew",
 	"_deleteListVehDead","_timerDelete","_timerLocation","_timerPlayer",
-	"_timerAttack","_time","_timeNew","_mining","_mining_factor",
-	"_mining_list"];
+	"_timerAttack","_time","_timeNew","_mining","_mining_factor","_types_pilot",
+	"_mining_list","_types_crew_and_pilot"];
 _min_dist			= missionNamespace getVariable "gc_dist";
 _min_vehicles_count = missionNamespace getVariable "gc_count";
 
@@ -21,11 +21,16 @@ _noDeleteCount = 0;
 _deleteListManAlive = [];
 _deleteListManDead = [];
 _deleteListVehDead = [];
+_types_crew = gosa_crewL;
+_types_pilot = gosa_pilotL;
+_types_crew_and_pilot = _types_crew + _types_pilot;
 
 _timerDelete	= ( 60 * 2.5 );
 _timerLocation	= ( 60 * 5 );
 _timerPlayer	= ( 60 * 5 );
 _timerAttack	= ( 60 * 2.5 );
+// Таймер по умолчанию.
+_p_t_new		= ( 60 * 30 );
 _sleep = 30/7;
 
 #ifndef __A2OA__
@@ -66,7 +71,7 @@ while {true} do {
 		// узнать время удаления
 		_time = (_x_veh getVariable "gosa_timeDeleteVehicle");
 		if (isNil "_time") then {
-			_time = ( time + ( 60 * 30 ) );
+			_time = (time + _p_t_new);
 			_x_veh setVariable ["gosa_timeDeleteVehicle", _time];
 			diag_log format ["Log: [GC2] %1 isNil time = %2", _x_veh, _time];
 		};
@@ -97,7 +102,7 @@ while {true} do {
 
 			// пилоты и танкисты без техники
 			_type = typeOf _x_veh;
-			if(_type in gosa_crewL+gosa_pilotL)then{
+			if(_type in _types_crew_and_pilot)then{
 				if(isNull _assignedVehicle && (vehicle _x_veh == _x_veh))then{
 					if (currentCommand _x_veh in ["MOVE"]) then {
 						_timeNew = _time min (time + _timerDelete);
@@ -339,8 +344,8 @@ while {true} do {
 		#ifdef __ARMA3__
 			_deleteListManDead deleteAt _i;
 		#else
-		_deleteListManDead set [_i, -1];
-		_deleteListManDead = _deleteListManDead - [-1];
+			_deleteListManDead set [_i, -1];
+			_deleteListManDead = _deleteListManDead - [-1];
 		#endif
 
 		if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
@@ -381,8 +386,8 @@ while {true} do {
 		#ifdef __ARMA3__
 			_deleteListVehDead deleteAt _i;
 		#else
-		_deleteListVehDead set [_i, -1];
-		_deleteListVehDead = _deleteListVehDead - [-1];
+			_deleteListVehDead set [_i, -1];
+			_deleteListVehDead = _deleteListVehDead - [-1];
 		#endif
 
 
@@ -422,8 +427,8 @@ while {true} do {
 			#ifdef __ARMA3__
 				_deleteListVehDead deleteAt _i;
 			#else
-			_deleteListVehDead set [_i, -1];
-			_deleteListVehDead = _deleteListVehDead - [-1];
+				_deleteListVehDead set [_i, -1];
+				_deleteListVehDead = _deleteListVehDead - [-1];
 			#endif
 
 			if ([_x_veh, 3] call gosa_fnc_mining) then {
