@@ -81,51 +81,57 @@ while{sleep _sleep; true}do{
 		// lock агрументы должны быть локальными
 		if (Local _veh) then {
 
-			// Num for Arma3 0.50, Boolean for older games.
+
 			#ifdef __ARMA3__
+			// Return - Num for Arma3 0.50, Boolean for older games.
 			_locked = locked _veh;
 			if (_locked >= 0) then {
-			#else
-				_locked = if (locked _veh) then {2} else {0};
+				_locked = if (_locked > 0) then {true} else {false};
 			#endif
 
 				// проверка только живого тс должно повысить производительность в случае большого числа уничтоженного транспорта
 				if (alive _veh) then {
 					if (_veh in _vehicles_lock) then {
 						if ({_x call gosa_fnc_isPlayer} count crew _veh > 0) exitWith {
-							_lock = 0;
+							_lock = false;
 						};
 						_obj = _veh getVariable "transportPlayer";
 						if !(isNil "_obj") then {
 							if (alive _obj) then {
-								_lock = 0;
+								_lock = false;
 							}else{
-								_lock = 2;
+								_lock = true;
 							};
 						}else{
-							_lock = 2;
+							_lock = true;
 						};
 					}else{
 						if (_veh isKindOf "UAV" or _veh isKindOf "Ka137_Base_PMC") then {
-							_lock = 2;
+							_lock = true;
 						}else{
 							if (_friendly_vehicles_only) then {
 								_side = getNumber(_cfgVeh >> typeOf _veh >> "side") call gosa_fnc_getSide;
 								if (_side in _sides_check &&
 									!(_side in _sides_friendly)) then
 								{
-									_lock = 2;
+									_lock = true;
 								}else{
-									_lock = 0;
+									_lock = false;
 								};
 							}else{
-								_lock = 0;
+								_lock = false;
 							};
 						};
 					};
 
-					if (_locked != _lock) then {
+					#ifdef __ARMA3__
+					if (_locked != _lock) then
+					#else
+					if (locked _veh != _lock) then
+					#endif
+					{
 						diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _veh, _lock, _locked, local _veh, typeOf _veh];
+						// Alternative Syntax lock not awailable for <= A2OA games.
 						_veh lock _lock;
 					};
 				};
