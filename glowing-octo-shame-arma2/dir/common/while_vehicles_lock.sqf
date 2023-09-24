@@ -32,9 +32,9 @@ if (missionNamespace getVariable "gosa_vehicles_lock" == 1) then {
 };
 _sleep = 5;
 _sides_check = [west,east,resistance];
-_sides_friendly = gosa_friendlyside;
 
 waitUntil{!isNil "gosa_friendlyside"};
+_sides_friendly = gosa_friendlyside;
 
 while{sleep _sleep; true}do{
 	// TODO: нужно оптимизировать, слишком сильная нагрузка
