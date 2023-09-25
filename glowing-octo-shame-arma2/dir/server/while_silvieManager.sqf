@@ -65,11 +65,16 @@ while{true}do{
 					_houselist = (_twnpos nearobjects ["House", _distance -50]);
 
 					for "_i0" from 0 to (count _houselist -1) do {
-						_obj = _houselist select _i0;
-						_bbox = abs((boundingbox _obj select 1) select 0)
-							min abs((boundingbox _obj select 1) select 1);
-						if (_bbox < 3 || typeof _obj in _blacklist) then {
-							_houselist = _houselist - [_obj]
+						_obj = (_houselist select _i0);
+
+						if (_obj in _blacklist) then {
+							_houselist = (_houselist - [_obj]);
+						}else{
+							_bbox = abs((boundingbox _obj select 1) select 0)
+								min abs((boundingbox _obj select 1) select 1);
+							if (_bbox < 3) then {
+								_houselist = (_houselist - [_obj]);
+							};
 						};
 					};
 					_twn setVariable ["_houselist", _houselist];
