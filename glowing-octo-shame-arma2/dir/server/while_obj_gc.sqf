@@ -310,8 +310,8 @@ while {sleep 5; true} do {
 	if (_c > 0) then {
 		_s = (_sleep/_c);
 		for "_i" from 0 to (_c -1) do {
-			sleep _s;
 			_x_veh = (_arr select _i);
+			sleep _s;
 			if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 
 					diag_log format ["Log: [GC2] %1 ManAlive, delete", _x_veh];
@@ -339,8 +339,8 @@ while {sleep 5; true} do {
 	if (_c > 0) then {
 		_s = (_sleep/_c);
 		for "_i" from 0 to (_c -1) do {
-			sleep _s;
 			_x_veh = (_arr select _i);
+			sleep _s;
 			if !([_x_veh, _min_dist2] call gosa_fnc_CheckPlayersDistance) then {
 				diag_log format ["Log: [GC2] %1 GC_array, delete", _x_veh];
 				// FIXME: Вероятно deleteVehicle не срабатывает на объектах определенного типа,
@@ -365,11 +365,10 @@ while {sleep 5; true} do {
 	_s = (_sleep/_c);
 	while { count _deleteListManDead > _min_vehicles_count } do {
 		// TODO: Нужно оптимизировать.
-		sleep _s;
 
 		_i = random (count _deleteListManDead -1);
-
 		_x_veh = (_deleteListManDead select _i);
+		sleep _s;
 
 		#ifdef __ARMA3__
 			_deleteListManDead deleteAt _i;
@@ -407,11 +406,9 @@ while {sleep 5; true} do {
 	_s = (_sleep/_c);
 	while { count _deleteListVehDead > _min_vehicles_count } do {
 		// TODO: Нужно оптимизировать.
-		sleep _s;
-
 		_i = random (count _deleteListVehDead -1);
-
 		_x_veh =  (_deleteListVehDead select _i);
+		sleep _s;
 
 		#ifdef __ARMA3__
 			_deleteListVehDead deleteAt _i;
