@@ -73,6 +73,7 @@ _typesHQ = [[],[]];
 	// TODO: Нужна функция исправляющая списки выше,
 	// при отсутствии расширений или камуфляжа.
 	// Удаляем неисправные.
+	// TODO: Учёт виртуальных.
 	for "_i" from 0 to (count _types0 -1) do {
 		if (configName (LIB_cfgVeh >> (_types0 select _i)) == "" &&
 			configName (LIB_cfgVeh >> (_types1 select _i)) == "") then
