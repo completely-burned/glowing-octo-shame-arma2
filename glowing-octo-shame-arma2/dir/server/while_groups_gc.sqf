@@ -33,7 +33,7 @@ while{true}do{
 			//--- времени с момента создания группы прошло достаточно для проверки
 			if(_t < (time - 10))then{
 				//--- проверка живых юнитов в группе
-				_units = _g;
+				_units = units _g;
 				for "_i0" from 0 to (count _units -1) do {
 					if (alive (_units select _i0)) then {
 						diag_log format ["Log: [while_gc_groups.sqf] %1, breakTo 'grp', %2", _g, _t];
