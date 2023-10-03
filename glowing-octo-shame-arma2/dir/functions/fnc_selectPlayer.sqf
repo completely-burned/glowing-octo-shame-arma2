@@ -14,7 +14,7 @@ if (isMultiplayer) then {
 	// Устанавливаем переменную централизовано через сервер,
 	// чтобы игроки не слипались в одно тело.
 	#ifdef __ARMA3__
-		[_new, _o] remoteExec ["rselectPlayercode", 2];
+		[nil, _new, _o] remoteExec ["rselectPlayercode", 2];
 	#else
 		[nil, _new, rselectPlayer, _o] call RE;
 	#endif
