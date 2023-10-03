@@ -12,7 +12,11 @@ _str = (_this select 3);
 if (isMultiplayer) then {
 	// Устанавливаем переменную централизовано через сервер,
 	// чтобы игроки не слипались в одно тело.
-	[nil, _new, rselectPlayer, _o] call RE;
+	#ifdef __ARMA3__
+		[_new, _o] remoteExec ["rselectPlayercode", 2];
+	#else
+		[nil, _new, rselectPlayer, _o] call RE;
+	#endif
 
 	// FIXME: Возможно приведет к ошибке 
 	// если стандартное возрождение сработает раньше переключения.
@@ -41,7 +45,9 @@ if (!isNil "_var" && (_var == _o)) then
 
 	// Добавляем обект в список игроков
 	// т.к. isPlayer не работает после переключения.
+	#ifndef __ARMA3__
 	[nil, _new, rgosa_setMapPlayers, _o] call RE;
+	#endif
 
 	_b = behaviour _new;
 	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];

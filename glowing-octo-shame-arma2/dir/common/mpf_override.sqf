@@ -1,3 +1,18 @@
+rselectPlayer = 'selectPlayer';
+rselectPlayercode = {
+	diag_log format ["Log: [respawnRandom] mpf %1", _this];
+	if (isServer) then {
+		private ["_z"];
+		_z = _this select 1 getVariable "gosa_player_owner";
+		if (isNil "_z") then {
+			diag_log format ["Log: [respawnRandom] mpf setVariable %1", _this select 2];
+			// FIXME: переменная остается
+			_this select 1 setVariable ["gosa_player_owner", _this select 2, true];
+		}else{ // diag_log
+			diag_log format ["Log: [respawnRandom] mpf variable == %1", _z];
+		};
+	};
+};
 
 #ifdef __ARMA3__
 	if (true) exitWith {
@@ -174,22 +189,6 @@ rsetOwnercode = {
 	_this select 1 setOwner _z;
 };
 */
-
-rselectPlayer = 'selectPlayer';
-rselectPlayercode = {
-	diag_log format ["Log: [respawnRandom] mpf %1", _this];
-	if (isServer) then {
-		private ["_z"];
-		_z = _this select 1 getVariable "gosa_player_owner";
-		if (isNil "_z") then {
-			diag_log format ["Log: [respawnRandom] mpf setVariable %1", _this select 2];
-			// FIXME: переменная остается
-			_this select 1 setVariable ["gosa_player_owner", _this select 2, true];
-		}else {
-			diag_log format ["Log: [respawnRandom] mpf variable == %1", _z];
-		};
-	};
-};
 
 rremoteControl = 'remoteControl';
 rremoteControlcode = {
