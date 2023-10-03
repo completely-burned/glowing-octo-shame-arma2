@@ -14,7 +14,8 @@ private["_min_dist","_min_vehicles_count","_min_dist2","_tmp","_sleep","_arr",
 	"_deleteListVehDead","_timerDelete","_timerLocation","_timerPlayer","_str",
 	"_timerAttack","_time","_timeNew","_mining","_mining_factor","_types_pilot",
 	"_dist_max_patrol_fail","_t_Delete","_twn","_t_twn","_t_new","_t",
-	"_mining_list","_types_crew_and_pilot","_twnPos","_twnSize"];
+	"_mining_list","_types_crew_and_pilot","_twnPos","_twnSize",
+	"_commands_attack"];
 _min_dist			= missionNamespace getVariable "gc_dist";
 _min_vehicles_count = missionNamespace getVariable "gc_count";
 
@@ -25,6 +26,7 @@ _deleteListVehDead = [];
 _types_crew = gosa_crewL;
 _types_pilot = gosa_pilotL;
 _types_crew_and_pilot = (_types_crew + _types_pilot);
+_commands_attack = ["ATTACK","FIRE","ATTACKFIRE"];
 
 // Растояние до проблемного патруля.
 _dist_max_patrol_fail = 2500;
@@ -150,21 +152,19 @@ while {sleep 5; true} do {
 				};
 			};
 
-			// атакует. не удалять!
-			// FIXME: Проверять всех каждый раз? exitWith
 			_arr = units _x_veh;
-			for "_i" from 0 to (count _arr -1) do {
-				_arr set [_i, currentCommand (_arr select _i)];
-			};
-			if ({_x in ["ATTACK","FIRE","ATTACKFIRE"]} count _arr > 0) then {
-				_timeNew = (_time max (time + _timerAttack));
-				diag_log format ["Log: [GC2] %1 %2+ Attack, %3", _x_veh, _timeNew, _tmp];
-			};
+			for "_i0" from 0 to (count _arr -1) do {
+				// отряд игрока. не удалять!
+				if (_arr select _i0 call gosa_fnc_isPlayer) exitWith {
+					_timeNew = (_time max (time + _timerPlayer));
+					diag_log format ["Log: [GC2] %1 %2+ isPlayer grp", _x_veh, _timeNew];
+				};
 
-			// отряд игрока. не удалять!
-			if ({_x call gosa_fnc_isPlayer} count units _x_veh > 0) then {
-				_timeNew = (_time max (time + _timerPlayer));
-				diag_log format ["Log: [GC2] %1 %2+ isPlayer grp", _x_veh, _timeNew];
+				// атакует. не удалять!
+				if (currentCommand (_arr select _i0) in _commands_attack) exitWith {
+					_timeNew = (_time max (time + _timerAttack));
+					diag_log format ["Log: [GC2] %1 %2+ Attack, %3", _x_veh, _timeNew, _tmp];
+				};
 			};
 
 			// TODO: Пилот должн быть в неисправном тс. Не удалять!
