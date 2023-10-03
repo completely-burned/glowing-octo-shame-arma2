@@ -35,7 +35,7 @@ _sm_vehicles = silvieManagerVehicles;
 _distance = 750;
 
 _twns = [];
-while{true}do{
+while{sleep 20; true}do{
 	_twns resize 0;
 	_players = ([] call gosa_fnc_listPlayers);
 	for "_i" from 0 to (count _players -1) do {
@@ -49,7 +49,7 @@ while{true}do{
 				//(civilian countSide _arr);
 				_count_vehicles = 0;
 				for "_i0" from 0 to (count _arr -1) do {
-					_obj = _arr select _i0;
+					_obj = (_arr select _i0);
 					_actual = (_cfgVeh >> typeOf _obj);
 					_scope = getnumber (_actual >> "scope");
 					_side = getnumber (_actual >> "side");
@@ -122,10 +122,9 @@ while{true}do{
 					};
 				};
 
-				_maxVehicles = ((count _houselist / 8) max 2);
-
-				if (_count_vehicles < _maxVehicles)then{
-					if (count _houselist > 0) then {
+				if (count _houselist > 0) then {
+					_maxVehicles = ((count _houselist / 8) max 2);
+					if (_count_vehicles < _maxVehicles)then{
 						for "_i0" from 0 to (_maxVehicles-_count_vehicles) do {
 							_obj = _houselist call BIS_fnc_selectRandom;
 							_pos = getpos _obj;// modeltoworld [0,0,0];
@@ -186,5 +185,4 @@ while{true}do{
 			};
 		};
 
-	sleep 10;
 };
