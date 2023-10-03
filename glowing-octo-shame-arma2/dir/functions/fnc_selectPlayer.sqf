@@ -1,4 +1,5 @@
 #define __A2OA__
+diag_log format ["Log: [fnc_selectPlayer] _this %1", _this];
 
 private["_old","_new","_b","_time","_var","_arr","_str","_o"];
 _old = (_this select 0);
@@ -26,7 +27,7 @@ if (isMultiplayer) then {
 		sleep 0.05;
 	};
 
-	diag_log format ["Log: [respawnRandom] _fnc_swich _var %1, _o %2", _var, _o];
+	diag_log format ["Log: [fnc_selectPlayer] _fnc_swich _var %1, _o %2", _var, _o];
 }else{
 	_var = _o;
 };
@@ -50,7 +51,7 @@ if (!isNil "_var" && (_var == _o)) then
 	#endif
 
 	_b = behaviour _new;
-	diag_log format ["Log: [respawnRandom] swich %1 to %2", [_old], [_new, _b]];
+	diag_log format ["Log: [fnc_selectPlayer] swich %1 to %2", [_old], [_new, _b]];
 	selectPlayer _new;
 
 	if (_b == "COMBAT") then { //&& (_new countEnemy (_new nearEntities ["Land", 500]) > 3)
@@ -81,7 +82,7 @@ if (!isNil "_var" && (_var == _o)) then
 		_new;
 	}else{
 		_new setVariable ["gosa_respawn_blt", time];
-		diag_log format ["Log: [respawnRandom] _fnc_swich переключение не удалось %1", _new];
+		diag_log format ["Log: [fnc_selectPlayer] _fnc_swich переключение не удалось %1", _new];
 		_old;
 	};
 
