@@ -40,6 +40,7 @@ if !(IsDedicated) then {
 			"fnc_menu_factory",
 			"fnc_menu_factories",
 		#endif
+		"fnc_selectPlayer_manual",
 		"fnc_eh_playerSelected",
 		"fnc_eh_playerKilled",
 		"fnc_findBestCandidate_onRespawn",
