@@ -61,9 +61,16 @@ diag_log format ["Log: [while_hq]: %1, %2", _sideUsed, _posUsed];
 for "_i" from 0 to (count _sideUsed -1) do {
 	_side = _sideUsed select _i;
 	_pos = _posUsed select _i;
-	waitUntil {!isNil format["gosa_typesHQ_%1", _side]};
-	_arr = (call compile format["gosa_typesHQ_%1", _side]);
-	_type_Lower = toLower (_arr select 0 call BIS_fnc_selectRandom);
+
+	// TODO: Виртуальные типы.
+	_arr = [gosa_types_mhq,[]];
+	for "_i0" from 0 to (count ((_arr select 0) -1)) do {
+		_n = if (_arr select 0 select 0 select _i0 == _side) then {1} else {0};
+		_arr select 1 set [_i0, _n];
+	};
+
+	diag_log format ["Log: [while_hq]: _arr_Weighted %1", _arr];
+	_type_Lower = toLower (_arr call BIS_fnc_selectRandomWeighted);
 	_dir = random 360;
 	_status = 2;
 	_str = _type_Lower call gosa_fnc_fixType;

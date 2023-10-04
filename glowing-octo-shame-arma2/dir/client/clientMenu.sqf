@@ -1,12 +1,16 @@
+/*
+ * TODO: Рефакторинг.
+ */
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 	"_arr","_count","_b","_cfg","_0","_1","_2","_n","_allow",
-	"_mod_i44","_startingClass","_types_pilot",
+	"_mod_i44","_startingClass","_types_pilot","_types_mhq_virt",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
 _startingClass = gosa_playerStartingClass;
 _types_pilot = gosa_pilotL;
+_types_mhq_virt = gosa_types_mhq_virt;
 _mod_i44 = if (configName(configFile >> "CfgVehicles" >> "I44_Man") != "") then{true}else{false};
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
@@ -182,36 +186,15 @@ private["_fnc_create_buy_menu"];
 					_itemEnable set [count _itemEnable, 1];
 
 					//- MHQ
-					switch (toLower _name) do {
-						case "i44_truck_a_gmc_cckw_army": {
-							_name = "i44_truck_a_command_army";
-							_b = true;
-						};
-						case "i44_truck_g_kfz305_gray_wh": {
-							_name = "i44_truck_g_command_wh";
-							_b = true;
-						};
-						case "o_truck_03_covered_f": {
-							_name = "o_truck_03_command_f";
-							_b = true;
-						};
-						case "b_truck_01_covered_f": {
-							_name = "b_truck_01_command_f";
-							_b = true;
-						};
-						case "i_truck_02_covered_f": {
-							_name = "i_truck_02_command_f";
-							_b = true;
-						};
-						default {
-							_b = false;
-						};
-					};
-					if (_b) then {
-						if (configName (configFile >> "CfgVehicles" >> _name) == "") then {
-							_items3 set [count _items3, _name];
-							_itemsName3 set [count _itemsName3, "MHQ " + _z];
-							_itemEnable set [count _itemEnable, 1];
+					_n = (_types_mhq_virt select 1 find toLower _name);
+					if (_n >= 0) then {
+						if (_types_mhq_virt select 0 select _n == playerSide) then {
+							_name = (_types_mhq_virt select 2 select _n);
+							if (configName (configFile >> "CfgVehicles" >> _name) == "") then {
+								_items3 set [count _items3, _name];
+								_itemsName3 set [count _itemsName3, "MHQ " + _z];
+								_itemEnable set [count _itemEnable, 1];
+							};
 						};
 					};
 				};

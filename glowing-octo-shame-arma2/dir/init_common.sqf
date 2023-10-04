@@ -36,8 +36,46 @@ safeSpawnDistance = _arr;
 gosa_deviceType = ([] call gosa_fnc_getDeviceType);
 gosa_IslandType = ([] call gosa_fnc_getIslandType);
 
-listSalvageTruck = ["WarfareSalvageTruck_RU","WarfareSalvageTruck_USMC","WarfareSalvageTruck_CDF","WarfareSalvageTruck_Gue","WarfareSalvageTruck_INS",
-"MtvrSalvage_DES_EP1","UralSalvage_TK_EP1","V3S_Salvage_TK_GUE_EP1"];
+_arr = ([
+	// [side, реальный тип, виртуальный тип].
+	[east,	"bmp2_hq_ins_unfolded",			"i44_hq_g_unfolded"],
+	[west,	"bmp2_hq_cdf_unfolded",			"i44_hq_a_unfolded"],
+	[east,			"o_truck_03_covered_f",	"o_truck_03_command_f"],
+	[west,			"b_truck_01_covered_f",	"b_truck_01_command_f"],
+	[resistance,	"i_truck_02_covered_f",	"i_truck_02_command_f"],
+	[east,	"i44_truck_g_kfz305_gray_wh",	"i44_truck_g_command_wh"],
+	[west,	"i44_truck_a_gmc_cckw_army",	"i44_truck_a_command_army"]
+] call gosa_fnc_arr_sorting0);
+gosa_types_virt = _arr;
+gosa_types_mhq_virt = _arr;
+
+_arr = ([
+	// [side, мобильный тип, разложенный тип].
+	[west,	"m1130_cv_ep1",	"m1130_hq_unfolded_ep1"],
+	[east,	"btr90_hq",		"btr90_hq_unfolded"],
+	[west,	"lav25_hq",		"lav25_hq_unfolded"],
+	[east,	"bmp2_hq_tk_ep1",	"bmp2_hq_tk_unfolded_ep1"],
+	[east,	"bmp2_hq_ins",		"bmp2_hq_ins_unfolded"],
+	[west,	"bmp2_hq_cdf",		"bmp2_hq_cdf_unfolded"],
+	[resistance, "brdm2_hq_tk_gue_ep1",	"brdm2_hq_tk_gue_unfolded_ep1"],
+	[resistance, "brdm2_hq_gue",		"brdm2_hq_gue_unfolded"],
+	[east,	"i44_truck_g_command_wh",		"i44_hq_g_unfolded"],
+	[east,	"i44_truck_a_command_army",		"i44_hq_a_unfolded"]
+] call gosa_fnc_arr_sorting0);
+gosa_types_mhq = _arr;
+
+_arr = [
+	"WarfareSalvageTruck_RU",
+	"WarfareSalvageTruck_USMC",
+	"WarfareSalvageTruck_CDF",
+	"WarfareSalvageTruck_Gue",
+	"WarfareSalvageTruck_INS",
+	"MtvrSalvage_DES_EP1",
+	"UralSalvage_TK_EP1",
+	"V3S_Salvage_TK_GUE_EP1"
+];
+gosa_types_SalvageTruck = _arr;
+listSalvageTruck = _arr;
 
 _arr = ["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F","Land_TentHangar_V1_F"];
 gosa_types_Airport = _arr;
@@ -138,6 +176,7 @@ for "_i" from 0 to (count _arr -1) do {
 		_arr0 set [count _arr0, _str];
 	};
 };
+gosa_types_crew = _arr0;
 gosa_crewL = _arr0;
 diag_log format ["Log: [init_common]: gosa_crewL %1", _arr0];
 
@@ -203,6 +242,7 @@ for "_i" from 0 to (count _arr -1) do {
 		_arr0 set [count _arr0, _str];
 	};
 };
+gosa_types_pilot = _arr0;
 gosa_pilotL = _arr0;
 diag_log format ["Log: [init_common]: gosa_pilotL %1", _arr0];
 
@@ -227,6 +267,7 @@ for "_i" from 0 to (count _arr -1) do {
 		_arr0 set [count _arr0, _str];
 	};
 };
+gosa_types_Stealth = _arr0;
 gosa_StealthL = _arr0;
 diag_log format ["Log: [init_common]: gosa_StealthL %1", _arr0];
 

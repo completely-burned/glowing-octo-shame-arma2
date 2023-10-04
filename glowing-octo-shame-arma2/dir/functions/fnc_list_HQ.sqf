@@ -21,17 +21,14 @@
 */
 diag_log format ["Log: [init_listHQ]: _this %1", _this];
 private ["_side","_return","_arr","_obj","_types","_logic","_grp","_pos",
-"_class","_status","_completed","_str"];
+"_class","_status","_completed","_str","_n"];
 
 _side = _this select 0;
 
 _return = [];
 
-_types = ([] call compile format["gosa_typesHQ_%1", _side]);
-if (isNil "_types") exitWith {
-	diag_log format ["Log: [init_listHQ]: isNil _types", nil];
-	_return;
-};
+// TODO: Виртуальные типы.
+_types = gosa_types_mhq;
 
 _grp = gosa_grpLogic;
 _completed = [];
@@ -44,9 +41,11 @@ _status = 2;
 _arr = vehicles;
 for "_i" from 0 to (count _arr -1) do {
 	_obj = _arr select _i;
+	_n = (_types select 1) find toLower typeOf _obj;
+	if (_n >= 0) then {
 	if (alive _obj
 		&& !(_obj in _completed)
-		&& (typeOf _obj in (_types select 0))) then
+		&& (_side == (_types select 0 select _n)) ) then
 	{
 		_completed set [count _completed, _obj];
 		_pos = getPos _obj;
@@ -74,6 +73,7 @@ for "_i" from 0 to (count _arr -1) do {
 			[_logic, _class, _status, [_obj,objNull,_obj], _side, _str]
 		];
 	};
+	};
 };
 
 #ifdef __A2OA__
@@ -82,12 +82,14 @@ _status = 1;
 _arr = [];
 {
 	_arr = _arr + allMissionObjects _x;
-} forEach (_types select 1);
+} forEach (_types select 2);
 for "_i" from 0 to (count _arr -1) do {
 	_obj = _arr select _i;
+	_n = (_types select 2) find toLower typeOf _obj;
+	if (_n >= 0) then {
 	if (alive _obj
 		&& !(_obj in _completed)
-		&& (typeOf _obj in (_types select 1))) then
+		&& (_side == (_types select 0 select _n)) ) then
 	{
 		_completed set [count _completed, _obj];
 		_pos = getPos _obj;
@@ -112,6 +114,7 @@ for "_i" from 0 to (count _arr -1) do {
 		_return set [count _return,
 			[_logic, _class, _status, [_obj,_obj,objNull], _side, _str]
 		];
+	};
 	};
 };
 #endif
