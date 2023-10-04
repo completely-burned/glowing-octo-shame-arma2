@@ -11,7 +11,7 @@ private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
 	"_factory_obj","_buy_dist_max","_player_pos","_player_veh",
 	"_factory_dir","_factory_pos",
 	"_side","_listHQ_str","_class","_fnc_factory_HQ","_factory_HQ",
-	"_factory","_pos","_logic","_typesHQ","_arr","_status"];
+	"_factory","_pos","_logic","_arr","_status"];
 
 _type = _this Select 0;
 
@@ -46,7 +46,6 @@ if (missionNamespace getVariable "gosa_shop" == 2) then {
 _pos = ([_pos, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 
 //-- Приобретение мобильного штаба.
-_typesHQ = gosa_typesHQ;
 if ([_type_Lower, 0] call gosa_fnc_isHQ) exitWith {
 	_status = 2;
 	_str = _type_Lower call gosa_fnc_fixType;
