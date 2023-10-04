@@ -14,7 +14,7 @@ private["_min_dist","_min_vehicles_count","_min_dist2","_tmp","_sleep","_arr",
 	"_deleteListVehDead","_timerDelete","_timerLocation","_timerPlayer","_str",
 	"_timerAttack","_time","_timeNew","_mining","_mining_factor","_types_pilot",
 	"_dist_max_patrol_fail","_t_Delete","_twn","_t_twn","_t_new","_t",
-	"_mining_list","_types_crew_and_pilot","_twnPos","_twnSize",
+	"_mining_list","_types_crew_and_pilot","_twnPos","_twnSize","_arr0",
 	"_commands_attack"];
 _min_dist			= missionNamespace getVariable "gc_dist";
 _min_vehicles_count = missionNamespace getVariable "gc_count";
@@ -152,16 +152,16 @@ while {sleep 5; true} do {
 				};
 			};
 
-			_arr = units _x_veh;
-			for "_i0" from 0 to (count _arr -1) do {
+			_arr0 = units _x_veh;
+			for "_i0" from 0 to (count _arr0 -1) do {
 				// отряд игрока. не удалять!
-				if (_arr select _i0 call gosa_fnc_isPlayer) exitWith {
+				if (_arr0 select _i0 call gosa_fnc_isPlayer) exitWith {
 					_timeNew = (_time max (time + _timerPlayer));
 					diag_log format ["Log: [GC2] %1 %2+ isPlayer grp", _x_veh, _timeNew];
 				};
 
 				// атакует. не удалять!
-				if (currentCommand (_arr select _i0) in _commands_attack) exitWith {
+				if (currentCommand (_arr0 select _i0) in _commands_attack) exitWith {
 					_timeNew = (_time max (time + _timerAttack));
 					diag_log format ["Log: [GC2] %1 %2+ Attack, %3", _x_veh, _timeNew, _tmp];
 				};
