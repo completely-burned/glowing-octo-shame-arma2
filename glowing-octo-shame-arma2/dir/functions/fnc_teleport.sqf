@@ -4,7 +4,7 @@
  * TODO: Рефакторинг.
  */
 private ["_item","_obj","_num","_str","_for","_pos","_arr",
-	"_list","_list2","_reapawnPlayer","_teleport_list",
+	"_list","_list2","_teleport_list",
 	"_class","_logic",
 	"_gosa_objectsTeleportTmp","_gosa_objectsTeleport"];
 
@@ -13,28 +13,6 @@ _teleport_list=[];
 _list2=[];
 _gosa_objectsTeleportTmp = [];
 _gosa_objectsTeleport = [];
-
-//-- Совместимость.
-switch (playerSide) do {
-	case (west):
-	{
-		_reapawnPlayer = "respawn_west";
-	};
-	case (east):
-	{
-		_reapawnPlayer = "respawn_east";
-	};
-	case (civilian):
-	{
-		_reapawnPlayer = "respawn_civilian";
-	};
-	case (resistance):
-	{
-		_reapawnPlayer = "respawn_guerrila";
-	};
-	default {};
-};
-
 
 waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
 waitUntil{!isNil "civilianBasePos"};
@@ -74,6 +52,7 @@ for "_i" from 0 to (count _for - 1) do {
 	};
 };
 
+// TODO: Локации.
 
 //-- Аэропорты, пока только для пилотов.
 // TODO: Возможность телепортироваться обратно.
@@ -97,15 +76,6 @@ if (gosa_playerStartingClass == 1) then {
 	};
 };
 
-
-// FIXME: Не актуально, mhq.
-{
-	if(toLower typeOf _x in (MHQ_list select 0))then{
-		_gosa_objectsTeleportTmp set [count _gosa_objectsTeleportTmp, _x];
-	};
-} foreach vehicles;
-
-
 //-- Дедубликация.
 {
 	if!(_x in _gosa_objectsTeleport)then{
@@ -114,6 +84,7 @@ if (gosa_playerStartingClass == 1) then {
 } foreach _gosa_objectsTeleportTmp;
 
 
+// TODO: Координаты в имени.
 //-- 
 _teleportLocations = [];
 {
