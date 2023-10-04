@@ -3,6 +3,9 @@
 это отладочная версия сценария // diag_log
 ---------------------------------------------------------------------------*/
 
+// Заглушка.
+gosa_empty_arr = [];
+
 diag_log format ["Log: [init.sqf] *** mission starting %1 ***", worldname];
 
 gosa_loglevel = missionNamespace getVariable "gosa_debugLevel"; // diag_log

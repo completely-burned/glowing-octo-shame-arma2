@@ -98,15 +98,6 @@ if (gosa_playerStartingClass == 1) then {
 };
 
 
-
-//-- Совместимость с устаревшим кодом.
-#ifdef __A2OA__
-{
-	_gosa_objectsTeleportTmp = _gosa_objectsTeleportTmp + allMissionObjects _x;
-} foreach gosa_objectsTeleport;
-#endif
-
-
 // FIXME: Не актуально, mhq.
 {
 	if(toLower typeOf _x in (MHQ_list select 0))then{

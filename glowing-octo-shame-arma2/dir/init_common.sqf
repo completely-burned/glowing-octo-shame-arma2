@@ -271,13 +271,9 @@ gosa_types_Stealth = _arr0;
 gosa_StealthL = _arr0;
 diag_log format ["Log: [init_common]: gosa_StealthL %1", _arr0];
 
-
-// TODO: Совместимость с pvp.
-HQ = ["WarfareBDepot","WarfareBCamp"];
-#ifdef __ARMA3__
-HQ = HQ+["Land_BagBunker_Large_F","Cargo_HQ_base_F","Cargo_Tower_base_F"];
-#endif
-Warfare_HQ = ["Warfare_HQ_base_unfolded"];
+HQ = gosa_empty_arr;
+Warfare_HQ = gosa_empty_arr;
+listMHQ = gosa_empty_arr;
 
 //-- Заводы.
 gosa_type_Barracks = ["Base_WarfareBBarracks"];
@@ -285,14 +281,16 @@ gosa_type_LightFactory = ["Base_WarfareBLightFactory"];
 gosa_type_HeavyFactory = ["Base_WarfareBHeavyFactory"];
 gosa_type_AircraftFactory = ["Base_WarfareBAircraftFactory"];
 
-UAVterminal = listMHQ + HQ + ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
+_arr = ["Base_WarfareBUAVterminal","HMMWV_Terminal_EP1"];
+gosa_types_UAVterminal = _arr;
+UAVterminal = _arr;
 
-gosa_objectsTeleport = listMHQ + HQ + Warfare_HQ + ["Base_WarfareBBarracks","BASE_WarfareBFieldhHospital"];
+gosa_objectsTeleport = gosa_empty_arr;
 
-gosa_objectsReammo = listMHQ + HQ + ["Base_WarfareBBarracks","Base_WarfareBLightFactory"];
+gosa_objectsReammo = gosa_empty_arr;
 gosa_distanceReammo = 150;
 
-gosa_objectsCoinBase = Warfare_HQ+HQ;
+gosa_objectsCoinBase = gosa_empty_arr;
 gosa_distanceCoinBase = 150;
 gosa_objectsCoinMHQ = listMHQ;
 gosa_distanceCoinMHQ = 15;
