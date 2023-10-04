@@ -43,6 +43,7 @@ _arr = ([
 	[east,			"o_truck_03_covered_f",	"o_truck_03_command_f"],
 	[west,			"b_truck_01_covered_f",	"b_truck_01_command_f"],
 	[resistance,	"i_truck_02_covered_f",	"i_truck_02_command_f"],
+	[civilian,		"c_truck_02_covered_f",	"c_truck_02_command_f"],
 	[east,	"i44_truck_g_kfz305_gray_wh",	"i44_truck_g_command_wh"],
 	[west,	"i44_truck_a_gmc_cckw_army",	"i44_truck_a_command_army"]
 ] call gosa_fnc_arr_sorting0);
@@ -59,6 +60,21 @@ _arr = ([
 	[west,	"bmp2_hq_cdf",		"bmp2_hq_cdf_unfolded"],
 	[resistance, "brdm2_hq_tk_gue_ep1",	"brdm2_hq_tk_gue_unfolded_ep1"],
 	[resistance, "brdm2_hq_gue",		"brdm2_hq_gue_unfolded"],
+
+	[east,			"o_truck_03_device_f",	nil],
+	[east,			"o_t_truck_03_device_ghex_f",	nil],
+	[west,			"b_truck_01_mover_f",	nil],
+	[west,			"b_t_truck_01_mover_f",	nil],
+	[west,			"b_gen_offroad_01_comms_f",	nil],
+	[resistance,	"i_e_offroad_01_comms_f",	nil],
+	[civilian,		"c_offroad_01_comms_f",	nil],
+	[civilian,		"c_idap_van_02_vehicle_f",	nil],
+
+	[east,			"o_truck_03_command_f",	nil],
+	[west,			"b_truck_01_command_f",	nil],
+	[resistance,	"i_truck_02_command_f",	nil],
+	[civilian,		"c_truck_02_command_f",	nil],
+
 	[east,	"i44_truck_g_command_wh",		"i44_hq_g_unfolded"],
 	[east,	"i44_truck_a_command_army",		"i44_hq_a_unfolded"]
 ] call gosa_fnc_arr_sorting0);
