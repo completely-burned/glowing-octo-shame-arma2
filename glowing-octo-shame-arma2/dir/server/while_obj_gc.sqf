@@ -163,7 +163,7 @@ while {sleep 5; true} do {
 				// атакует. не удалять!
 				if (currentCommand (_arr0 select _i0) in _commands_attack) exitWith {
 					_timeNew = (_time max (time + _timerAttack));
-					diag_log format ["Log: [GC2] %1 %2+ Attack, %3", _x_veh, _timeNew, _tmp];
+					diag_log format ["Log: [GC2] %1 %2+ Attack", _x_veh, _timeNew];
 				};
 			};
 
