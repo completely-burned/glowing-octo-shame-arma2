@@ -55,7 +55,7 @@ for "_i" from 0 to (count _for - 1) do {
 };
 
 //-- Локации.
-_for = gosa_list_LocationBase;
+_for = gosa_list_LocationBase+gosa_list_LocationAirport;
 for "_i" from 0 to (count _for -1) do {
 	_logic = (_for select _i);
 
@@ -77,27 +77,6 @@ for "_i" from 0 to (count _for -1) do {
 		if !(isNull _obj) then {
 			_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
 		};
-
-		_str = format ["%1, %2",
-			text ((nearestLocations [_pos, _names_location, 5000]) select 0),
-			getText(configfile >> "CfgVehicles" >> typeof _obj >> "displayName")];
-
-		_num = count _list;
-		_list set [_num, _num];
-		_teleport_list set [_num, _obj];
-		_list2 set [_num, _str];
-	};
-};
-
-//-- Аэропорты, пока только для пилотов.
-// TODO: Возможность телепортироваться обратно.
-if (gosa_playerStartingClass == 1) then {
-	_for = [] call gosa_fnc_initAirports;
-	// FIXME: Код повторяется, нужен лишь для аэропортов.
-	for "_i" from 0 to (count _for - 1) do {
-		_item = _for select _i;
-		_obj = _item select 1;
-		_pos = _item select 4;
 
 		_str = format ["%1, %2",
 			text ((nearestLocations [_pos, _names_location, 5000]) select 0),
