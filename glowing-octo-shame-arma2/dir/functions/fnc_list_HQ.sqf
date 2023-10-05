@@ -81,7 +81,9 @@ for "_i" from 0 to (count _arr -1) do {
 _status = 1;
 _arr = [];
 {
-	_arr = _arr + allMissionObjects _x;
+	if !(isNil _x) then {
+		_arr = _arr + allMissionObjects _x;
+	};
 } forEach (_types select 2);
 for "_i" from 0 to (count _arr -1) do {
 	_obj = _arr select _i;
