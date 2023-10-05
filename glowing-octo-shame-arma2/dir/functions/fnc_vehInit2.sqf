@@ -15,9 +15,11 @@ if (isNil "_gosa_init") then {
 
 	if (getNumber(configFile >> "CfgVehicles" >> typeOf _o >> "isMan") == 1) then {
 
-		if (isNil {_o getVariable "BIS_BC_carrier"}) then {_o setVariable ["BIS_BC_carrier",false];};
-		if (isNil {_o getVariable "BIS_BC_dragger"}) then {_o setVariable ["BIS_BC_dragger",false];};
-		if (isNil {_o getVariable "BIS_IS_inAgony"}) then {_o setVariable ["BIS_IS_inAgony",false];};
+		#ifndef __ARMA3__
+			if (isNil {_o getVariable "BIS_BC_carrier"}) then {_o setVariable ["BIS_BC_carrier",false];};
+			if (isNil {_o getVariable "BIS_BC_dragger"}) then {_o setVariable ["BIS_BC_dragger",false];};
+			if (isNil {_o getVariable "BIS_IS_inAgony"}) then {_o setVariable ["BIS_IS_inAgony",false];};
+		#endif
 
 		//if(isPlayer _o or _o in playableUnits)then{
 			//if (local _o) then {
