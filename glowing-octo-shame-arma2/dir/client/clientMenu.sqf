@@ -70,6 +70,7 @@ _tmp_arr=[
 // то меню выбора роли не нужно.
 if (isMultiplayer) then {
 	_tmp_arr=_tmp_arr+[
+		["selectPlayer Random","[] spawn gosa_fnc_selectPlayer_manual"],
 		["setSquad&Role prio.","[] execVM 'dir\functions\fnc_setSquadRole.sqf'"]
 	];
 };
