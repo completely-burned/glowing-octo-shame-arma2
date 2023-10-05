@@ -17,10 +17,11 @@ _p setVariable ["selectPlayerDisable", true, true];
 	_this select 0 setDamage 1;
 };
 
+_grp = group _p;
+
 waitUntil{!isNil "gosa_MPF_InitDone"};
 waitUntil{!isNil "civilianBasePos"};
 
-_grp = group _p;
 _pos = getPos _p;
 
 _bestCandidate = ([_grp, _sides_friendly, _pos] call gosa_fnc_findBestCandidate_onRespawn);

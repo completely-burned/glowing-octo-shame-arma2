@@ -16,6 +16,7 @@ rselectPlayercode = {
 
 #ifdef __ARMA3__
 	if (true) exitWith {
+		gosa_MPF_InitDone = true;
 		diag_log format ["Log: [mpf_override] exitWith %1", time];
 	};
 #endif
