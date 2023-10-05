@@ -4,9 +4,11 @@
  * TODO: Рефакторинг.
  */
 private ["_item","_obj","_num","_str","_for","_pos","_arr",
-	"_list","_list2","_teleport_list",
+	"_list","_list2","_teleport_list","_names_location",
 	"_class","_logic",
 	"_gosa_objectsTeleportTmp","_gosa_objectsTeleport"];
+
+_names_location = ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"];
 
 _list=[];
 _teleport_list=[];
@@ -69,7 +71,21 @@ for "_i" from 0 to (count _for -1) do {
 	for "_i0" from 0 to (count _arr -1) do {
 		_logic = (_arr select _i0);
 		_obj = _logic getVariable ["gosa_building", _logic];
-		_gosa_objectsTeleportTmp set [count _gosa_objectsTeleportTmp, _obj];
+		_pos = getPos _obj;
+		_num = getDir _obj;
+
+		if !(isNull _obj) then {
+			_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
+		};
+
+		_str = format ["%1, %2",
+			text ((nearestLocations [_pos, _names_location, 5000]) select 0),
+			getText(configfile >> "CfgVehicles" >> typeof _obj >> "displayName")];
+
+		_num = count _list;
+		_list set [_num, _num];
+		_teleport_list set [_num, _obj];
+		_list2 set [_num, _str];
 	};
 };
 
@@ -83,12 +99,11 @@ if (gosa_playerStartingClass == 1) then {
 		_obj = _item select 1;
 		_pos = _item select 4;
 
-		_num = count _list;
-		_str = format ["%1, %2", text ((nearestLocations [_pos,
-				["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000])
-					select 0),
-				getText(configfile >> "CfgVehicles" >> typeof _obj >> "displayName")];
+		_str = format ["%1, %2",
+			text ((nearestLocations [_pos, _names_location, 5000]) select 0),
+			getText(configfile >> "CfgVehicles" >> typeof _obj >> "displayName")];
 
+		_num = count _list;
 		_list set [_num, _num];
 		_teleport_list set [_num, _obj];
 		_list2 set [_num, _str];
