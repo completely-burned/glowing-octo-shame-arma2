@@ -52,7 +52,26 @@ for "_i" from 0 to (count _for - 1) do {
 	};
 };
 
-// TODO: Локации.
+//-- Локации.
+_for = gosa_list_LocationBase;
+for "_i" from 0 to (count _for -1) do {
+	_logic = (_for select _i);
+
+	// TODO: Side.
+
+	_arr = synchronizedObjects _logic;
+
+	// Для совместимости.
+	if (count _arr < 1) then {
+		_arr = [_logic];
+	};
+
+	for "_i0" from 0 to (count _arr -1) do {
+		_logic = (_arr select _i0);
+		_obj = _logic getVariable ["gosa_building", _logic];
+		_gosa_objectsTeleportTmp set [count _gosa_objectsTeleportTmp, _obj];
+	};
+};
 
 //-- Аэропорты, пока только для пилотов.
 // TODO: Возможность телепортироваться обратно.
