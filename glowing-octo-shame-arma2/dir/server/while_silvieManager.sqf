@@ -3,6 +3,9 @@
  * TODO: Оптимизировать код.
  */
 
+if (missionNamespace getVariable "gosa_silvieManager" <= 0) exitWith {};
+
+
 #ifdef __ARMA3__
 	if (true) exitWith {
 		diag_log format ["Log: [while_silvieManager] exitWith %1", time];

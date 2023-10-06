@@ -570,6 +570,14 @@ class Params {
 		#endif
 	};
 
+	// Транспорт в городах.
+	class gosa_silvieManager {
+		title="ENVIRONMENT: silvieManager (not working)";
+		values[] = {1,0};
+		texts[] = {STR_ENABLED,STR_DISABLED};
+		default=0;
+	};
+
 	// Типы локаций.
 	// [arbitrary] Любая позиция в пределах карты в том числе и на воде.
 	// Город или холм.
