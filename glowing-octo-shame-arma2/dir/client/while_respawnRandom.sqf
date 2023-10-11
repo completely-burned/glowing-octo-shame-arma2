@@ -73,7 +73,7 @@ while {true} do {
 		_b = true;
 		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _p];
 	};
-	if !(lifeState player in ["ALIVE", "UNCONSCIOUS"]) then {
+	if !(lifeState player in ["ALIVE", "UNCONSCIOUS","INJURED"]) then {
 		_b = true;
 		diag_log format ["Log: [respawnRandom] blacklisted lifeState %1", player];
 	};
@@ -86,8 +86,8 @@ while {true} do {
 	};
 	if (_b) then {
 
-		//--- таймер смерти
-		// FIXME: что это?
+		//--- Таймер смерти.
+		// Чтобы игрок успел понять что погиб.
 		if (isNil "_deathTime") then {
 			_deathTime = time+1;
 			breakTo "root";
