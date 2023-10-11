@@ -27,7 +27,12 @@ for "_i" from 0 to (count _arr -1) do {
 			if({_x call gosa_fnc_isPlayer} count _u == 0)then{
 			*/
 		_s = side _g;
-		if (local (_u select 0)) then {
+		#ifdef __ARMA3__
+		if (local _g) then
+		#else
+		if (local (_u select 0)) then
+		#endif
+		{
 				switch (_s) do {
 					case EAST: 		{_le set [count _le, _g]};
 					case WEST:		{_lw set [count _lw, _g]};
