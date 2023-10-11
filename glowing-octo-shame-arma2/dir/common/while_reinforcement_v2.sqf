@@ -184,7 +184,7 @@ while{_run}do{
 	_locationPos = civilianBasePos;
 
 	//--- чистка при значительном превышении лимита
-	_n = (_dyn_limit*1.4+1) max (_dyn_limit+5);
+	_n = (_dyn_limit*1.4+1) max (_dyn_limit+8);
 	if (_lg + count _conveyer > _n) then {
 			if !(_deviceT2) then {
 				private["_side","_l","_grp","_rm","_d"];
@@ -308,6 +308,8 @@ while{_run}do{
 			if (count _players < 1) then {
 				_players = [objNull];
 			};
+
+			// TODO: Случайность сторон.
 
 			// EAST
 			[	_conveyer,
