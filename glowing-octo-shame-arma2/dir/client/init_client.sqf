@@ -9,6 +9,11 @@
 private ["_str","_n","_arr"];
 _arr = [];
 
+// Для совместимости.
+if (isNil "gosa_SquadRole") then {
+	gosa_SquadRole = -2;
+};
+
 if (isNil "gosa_playerStartingClass") then {
 	_str = typeOf player;
 	while {sleep 0.01; _str == ""} do {
@@ -131,7 +136,11 @@ if (isMultiplayer) then {
 	if(missionNamespace getVariable "respawn" != 1)then{
 		player addEventHandler ["killed", {call gosa_fnc_eh_playerKilled}];
 		waitUntil{!isNil "gosa_MPF_InitDone"};
-		[nil, player, rgosa_setMapPlayers, _arr select 2] call RE;
+		#ifdef __ARMA3__
+			[nil, player, _arr select 2] remoteExec ["rgosa_setMapPlayerscode", 2];
+		#else
+			[nil, player, rgosa_setMapPlayers, _arr select 2] call RE;
+		#endif
 	};
 }else{
 	onTeamSwitch {

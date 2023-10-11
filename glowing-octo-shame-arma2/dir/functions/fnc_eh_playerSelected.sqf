@@ -17,5 +17,9 @@ if (gosa_loglevel > 0) then { //diag_log
 
 if (count _this > 2) then {
 	// Информирование других игроков о возрождении в отряде.
-	[nil, _this select 0, rhintresurrected, _this select 2] call RE;
+	#ifdef __ARMA3__
+		[nil, _this select 0, _this select 2] remoteExec ["rhintresurrectedcode"];
+	#else
+		[nil, _this select 0, rhintresurrected, _this select 2] call RE;
+	#endif
 };

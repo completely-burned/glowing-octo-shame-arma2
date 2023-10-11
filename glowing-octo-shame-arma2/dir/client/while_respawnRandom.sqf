@@ -52,10 +52,6 @@ player setVariable ["selectPlayerDisable", true, true];
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };
 
-if (isNil "gosa_SquadRole") then {
-	gosa_SquadRole = -2;
-};
-
 waitUntil{!isNil "gosa_MPF_InitDone"};
 waitUntil{!isNil "civilianBasePos"};
 

@@ -14,6 +14,45 @@ rselectPlayercode = {
 	};
 };
 
+rhintresurrected = 'hintResurrected';
+rhintresurrectedcode = {
+	private ["_z"];
+	_z = _this select 1;
+	if (group _z == group player) then {
+		_z groupChat 		"+++ resurrected +++ " + (_this select 2) + " +++";
+	};
+	_z = vehicle _z;
+	if (_z == vehicle player) then {
+		// сообщение выводится от локального игрока, а не от возродившегося, но это особенности мотора
+		_z vehicleChat 	"+++ shell-shocked +++ " + (_this select 2) + " +++";
+	};
+};
+
+if (isServer) then {
+	gosa_MapPlayers = [[],[]];
+	publicVariable "gosa_MapPlayers";
+};
+rgosa_setMapPlayers = 'gosa_setMapPlayers';
+rgosa_setMapPlayerscode = {
+	diag_log format ["Log: [MPF] rgosa_setMapPlayers %1", _this];
+	if (isServer) then {
+		private["_map","_n"];
+		_map = gosa_MapPlayers;
+		diag_log format ["Log: [MapPlayers] %1", _map];
+		_n = (_map select 0) find (_this select 2);
+		diag_log format ["Log: [MPF] rgosa_setMapPlayers %1 _n %2", _this select 2, _n];
+		if (_n < 0) then {
+			_n = 0;
+			//-- id
+			_map select 0 set [_n, _this select 2];
+		};
+		//-- data
+		_map select 1 set [_n, [_this select 1, _this select 3]];
+		diag_log format ["Log: [MapPlayers] %1", _map];
+		publicVariable "gosa_MapPlayers";
+	};
+};
+
 #ifdef __ARMA3__
 	if (true) exitWith {
 		gosa_MPF_InitDone = true;
@@ -154,20 +193,6 @@ rvehInitcode = {
 	[_this select 1] call gosa_fnc_vehInit2;
 };
 
-rhintresurrected = 'hintResurrected';
-rhintresurrectedcode = {
-	private ["_z"];
-	_z = _this select 1;
-	if (group _z == group player) then {
-		_z groupChat 		"+++ resurrected +++ " + (_this select 2) + " +++";
-	};
-	_z = vehicle _z;
-	if (_z == vehicle player) then {
-		// сообщение выводится от локального игрока, а не от возродившегося, но это особенности мотора
-		_z vehicleChat 	"+++ shell-shocked +++ " + (_this select 2) + " +++";
-	};
-};
-
 rspawn = 'spawn';
 rspawncode = {
 #ifdef __A2OA__
@@ -203,31 +228,6 @@ rremoteControlcode = {
 		}else {
 			diag_log format ["Log: [remoteControl] mpf variable == %1", _z];
 		};
-	};
-};
-
-if (isServer) then {
-	gosa_MapPlayers = [[],[]];
-	publicVariable "gosa_MapPlayers";
-};
-rgosa_setMapPlayers = 'gosa_setMapPlayers';
-rgosa_setMapPlayerscode = {
-	diag_log format ["Log: [MPF] rgosa_setMapPlayers %1", _this];
-	if (isServer) then {
-	private["_map","_n"];
-	_map = gosa_MapPlayers;
-	diag_log format ["Log: [MapPlayers] %1", _map];
-	_n = (_map select 0) find (_this select 2);
-	diag_log format ["Log: [MPF] rgosa_setMapPlayers %1 _n %2", _this select 2, _n];
-	if (_n < 0) then {
-		_n = 0;
-		//-- id
-		_map select 0 set [_n, _this select 2];
-	};
-	//-- data
-	_map select 1 set [_n, [_this select 1, _this select 3]];
-	diag_log format ["Log: [MapPlayers] %1", _map];
-	publicVariable "gosa_MapPlayers";
 	};
 };
 
