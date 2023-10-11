@@ -1,13 +1,13 @@
 #define __A2OA__
 /*
-TODO: Рефакторинг.
-*/
+ * TODO: Рефакторинг.
+ */
 
 diag_log format ["Log: [gosa_fnc_spawnGroup.sqf] %1", _this];
 // diag_log str _this;
 private ["_pos","_side","_groups","_vehicles","_roads","_z","_tmp_num","_for",
 	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
-	"_unit", "_type","_itemPos","_rank"];
+	"_unit", "_type","_itemPos","_rank","_cfgVeh"];
 
 _side = _this select 1;
 _roads = (_this select 0 select 1);
@@ -15,17 +15,13 @@ _pos = (_this select 0 select 0);
 
 _groups = [];
 _vehicles = [];
-if(count _pos == 0 && count _roads == 0)exitWith{
-		diag_log format ["spawn_group.sqf %1", "count _pos == 0 && count _roads == 0"];
-	// Для совместимости с устаревшим кодом.
-	[grpNull];
-};
+_cfgVeh = LIB_cfgVeh;
 
-	diag_log format ["spawn_group.sqf create pos %1 grp %2", _this select 0, _this select 2];
+diag_log format ["spawn_group.sqf create pos %1 grp %2", _this select 0, _this select 2];
 
 // Выбирается одна группа если десант отключен.
 // FIXME: Можел лучше вынести участок кода за файл.
-if (missionNamespace getVariable "gosa_landing" == 1) then {
+if (missionNamespace getVariable "gosa_landing" > 0) then {
 	_for = _this select 2;
 }else{
 	_for = [(_this select 2) select 0];
@@ -35,7 +31,7 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 	_grp = createGroup _side;
 	_groups set [count _groups, _grp];
 
-	// Когда достигнуто максимум отрядов в движке, то группа будет grpNull.
+	// Если достигнуто максимальное для движка количество group, то будет grpNull.
 	if !(isNull _grp) then {
 		// Эта переменная проверяется.
 		private ["_bestCandidate"];
@@ -67,7 +63,10 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 				if ((count _positions) > 0) then {
 					private ["_relPos"];
 					_relPos = _positions select _i;
-					_itemPos = [(_pos select 0) + (_relPos select 0), (_pos select 1) + (_relPos select 1)];
+					_itemPos = [
+						(_pos select 0) + (_relPos select 0),
+						(_pos select 1) + (_relPos select 1)
+					];
 				} else {
 					_itemPos = _pos;
 				};
@@ -75,7 +74,13 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 				_itemPos set [2,2];
 
 				// Для пехоты.
-				if (getNumber(configFile >> "CfgVehicles" >> _type >> "isMan") == 1) then {
+
+				// Некоторые модификации выдают bool вместо цифры.
+				#define true 1
+				#define false 0
+				if (getNumber(_cfgVeh >> _type >> "isMan") > 0) then {
+					#undef true
+					#undef false
 					_unit = _grp createUnit [_type, _itemPos, [], 0, "NONE"];
 					#ifdef __ARMA3__
 						[_unit, "fnc_spawnGroup"] remoteExec ["gosa_fnc_vehInit2"];
@@ -118,9 +123,14 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 						// вероятно из-за наклона поверхности.
 						//_itemPos resize 2;
 						_itemPos set [2,3];
-						_unit setPos _itemPos; _unit setDir _azimuth;
+						_unit setPos _itemPos;
+						_unit setDir _azimuth;
+						#ifdef __ARMA3__
+							_roads deleteAt 0;
+						#else
 						_roads set [0,-1];
 						_roads = _roads - [-1];
+						#endif
 					}else{//diag_log
 							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this];
 					};
@@ -147,7 +157,7 @@ if (missionNamespace getVariable "gosa_landing" == 1) then {
 					};
 				}else{
 					// TODO: Нужна функция.
-							_tmp_num = getNumber (configFile >> "CfgVehicles" >> _type >> "cost");
+							_tmp_num = getNumber (_cfgVeh >> _type >> "cost");
 							_rank="PRIVATE";
 							if(_tmp_num>=50000)then{_rank="CORPORAL"};
 							if(_tmp_num>=150000)then{_rank="SERGEANT"};
