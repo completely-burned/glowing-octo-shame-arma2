@@ -1,9 +1,11 @@
 /*
-	Скрипт меняет точность юнитам.
+ * Скрипт меняет точность юнитам.
+ * TODO: Рефакторинг.
  */
 
 
-private["_type","_veh","_target","_weapons","_weapon","_type_weapon","_z","_aimAcc","_mags_he","_def_aimAcc"];
+private["_type","_veh","_target","_weapons","_weapon","_n",
+	"_str","_type_weapon","_z","_aimAcc","_mags_he","_def_aimAcc"];
 private["_diag_log"]; _diag_log = [];
 _veh = _this select 0;
 
@@ -235,20 +237,20 @@ if (true) then {
 
 };
 
-if (!isNil {_aimAcc}) then {
+if !(isNil "_aimAcc") then {
 
 	_efc = effectiveCommander _veh;
 
-	// TODO: нужно учитывать CfgAISkill
-	_z = _efc skill "aimingAccuracy";
+	_str = "aimingAccuracy";
+	_n = ([_str, _efc skill _str] call gosa_fnc_normalizeCfgAISkill);
 	if (isNil{_efc getVariable "gosa_skill_aimAcc_def"}) then {
-		_efc setVariable ["gosa_skill_aimAcc_def", _z];
-		diag_log format ["Log: [fnc_dynSkill] %1 %2 default aimingAccuracy %3", _efc, _type, _z];
+		_efc setVariable ["gosa_skill_aimAcc_def", _n];
+		diag_log format ["Log: [fnc_dynSkill] %1 %2 default aimingAccuracy %3", _efc, _type, _n];
 	};
 
 	// _z = _efc getVariable "gosa_skill_aimAcc";
-	if (_z != _aimAcc) then {
-		_efc setSkill ["aimingAccuracy", _aimAcc];
+	if (_n != _aimAcc) then {
+		_efc setSkill [_str, _aimAcc];
 		// _efc setVariable ["gosa_skill_aimAcc", _aimAcc];
 		{diag_log _x} forEach _diag_log;
 		diag_log format ["Log: [fnc_dynSkill] %1 %2 set_aimAcc %3", _efc, _type, _aimAcc];
