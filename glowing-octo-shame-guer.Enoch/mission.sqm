@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=66;
+		nextID=76;
 	};
 	class MarkerIDProvider
 	{
@@ -29,13 +29,14 @@ addons[]=
 	"A3_Ui_F",
 	"A3_Characters_F_Enoch",
 	"A3_Modules_F",
-	"A3_Structures_F_Mil_Cargo"
+	"A3_Structures_F_Mil_Cargo",
+	"A3_Characters_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -61,6 +62,13 @@ class AddonsMetaData
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -201,7 +209,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=45;
+		items=55;
 		class Item0
 		{
 			dataType="Marker";
@@ -1546,6 +1554,126 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item45
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={705.005,196.0314,3266.907};
+			};
+			name="HeadlessClient";
+			isPlayable=1;
+			id=66;
+			type="HeadlessClient_F";
+		};
+		class Item46
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={438.36008,150.89021,3279.6143};
+			};
+			name="HeadlessClient_1";
+			isPlayable=1;
+			id=67;
+			type="HeadlessClient_F";
+		};
+		class Item47
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={406.61658,175.33725,3108.0681};
+			};
+			name="HeadlessClient_2";
+			isPlayable=1;
+			id=68;
+			type="HeadlessClient_F";
+		};
+		class Item48
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={654.21545,187.26515,3089.0076};
+			};
+			name="HeadlessClient_3";
+			isPlayable=1;
+			id=69;
+			type="HeadlessClient_F";
+		};
+		class Item49
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={584.37994,187.02652,2860.2805};
+			};
+			name="HeadlessClient_4";
+			isPlayable=1;
+			id=70;
+			type="HeadlessClient_F";
+		};
+		class Item50
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={355.82721,187.07948,2892.0479};
+			};
+			name="HeadlessClient_5";
+			isPlayable=1;
+			id=71;
+			type="HeadlessClient_F";
+		};
+		class Item51
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={336.78113,134.21344,2695.0874};
+			};
+			name="HeadlessClient_6";
+			isPlayable=1;
+			id=72;
+			type="HeadlessClient_F";
+		};
+		class Item52
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={565.33386,165.34183,2669.6738};
+			};
+			name="HeadlessClient_7";
+			isPlayable=1;
+			id=73;
+			type="HeadlessClient_F";
+		};
+		class Item53
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={311.38644,163.52652,2542.6025};
+			};
+			name="HeadlessClient_8";
+			isPlayable=1;
+			id=74;
+			type="HeadlessClient_F";
+		};
+		class Item54
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={565.33386,147.76912,2466.3604};
+			};
+			name="HeadlessClient_9";
+			isPlayable=1;
+			id=75;
+			type="HeadlessClient_F";
 		};
 	};
 	class Connections
