@@ -58,6 +58,7 @@ while {true} do {
 };
 diag_log format ["Log: [while_hq]: %1, %2", _sideUsed, _posUsed];
 
+waitUntil {!isNil "gosa_types_mhq"};
 for "_i" from 0 to (count _sideUsed -1) do {
 	_side = _sideUsed select _i;
 	_pos = _posUsed select _i;

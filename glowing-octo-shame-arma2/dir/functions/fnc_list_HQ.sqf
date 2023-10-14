@@ -21,17 +21,19 @@
 */
 diag_log format ["Log: [init_listHQ]: _this %1", _this];
 private ["_side","_return","_arr","_obj","_types","_logic","_grp","_pos",
-"_class","_status","_completed","_str","_n"];
+	"_class","_status","_completed","_str","_n"];
 
 _side = _this select 0;
 
 _return = [];
+_completed = [];
 
 // TODO: Виртуальные типы.
+waitUntil {!isNil "gosa_types_mhq"};
 _types = gosa_types_mhq;
 
+waitUntil {!isNil "gosa_grpLogic"};
 _grp = gosa_grpLogic;
-_completed = [];
 
 //--- Поиск уже имеющихся объектов на карте.
 // BASE.
