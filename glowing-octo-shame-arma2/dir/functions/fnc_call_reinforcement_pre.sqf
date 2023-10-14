@@ -58,14 +58,14 @@ _n = ({isNil {_x getVariable "patrol"}} count (_this select 7));
 	_arr set [3, count (_this select 8) - (_arr select 2)];
 	diag_log format ["Log: [fnc_call_reinforcement_pre] %1 сейчас %2 %3", (_this select 2), _arr, [count (_this select 7), count (_this select 8)]];
 
-if ((_arr select 0) + ((_arr select 2) * 0.5) +
-	({(_x select 1) == (_this select 11)} count (_this select 0)) < (_this select 9)) then
+if (((_arr select 0) + ((_arr select 2) * 0.5) +
+	({(_x select 1) == (_this select 11)} count (_this select 0))) < (_this select 9)) then
 {
 	(_this select 0) set [count (_this select 0),
 		[[(_this select 2), objNull, _fl] spawn gosa_fnc_call_reinforcement, _this select 11]];
 };
-if ((_arr select 1) + ((_arr select 3) * 0.5) +
-	({(_x select 1) == (_this select 12)} count (_this select 0)) < (_this select 10)) then
+if (((_arr select 1) + ((_arr select 3) * 0.5) +
+	({(_x select 1) == (_this select 12)} count (_this select 0))) < (_this select 10)) then
 {
 	(_this select 0) set [count (_this select 0),
 		[[(_this select 2), (_this select 14) call BIS_fnc_selectRandom, _fl] spawn gosa_fnc_call_reinforcement, _this select 12]];
