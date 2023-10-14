@@ -14,6 +14,7 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run","_allGroups",
 	"_frontLine_east","_frontLine_west","_frontLine_guer","_deviceT2",
 	"_lg","_enemySide","_friendlySide","_sleep","_obj","_side",
+	"_remote_miltipler",
 	"_types_pilot","_sides_friendly","_sides_enemy","_mode_pvp"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
@@ -46,6 +47,10 @@ if (gosa_deviceType == 2) then {
 	_deviceT2 = true;
 }else{
 	_deviceT2 = false;
+};
+_remote_miltipler = 0.1;
+if (gosa_deviceType in [0,1]) then {
+	_remote_miltipler = 0.5;
 };
 
 _patrol_percent = ((missionNamespace getVariable "gosa_patrolCoefficient") / 100);
@@ -319,7 +324,8 @@ while{_run}do{
 				_grp select 0,_grp select 4,
 				_limits select 0,_limits select 4,
 				0,4,
-				_locationPos,_players
+				_locationPos,_players,
+				_remote_miltipler
 			] call gosa_fnc_call_reinforcement_pre;
 
 			// WEST
@@ -330,7 +336,8 @@ while{_run}do{
 				_grp select 1,_grp select 5,
 				_limits select 1,_limits select 5,
 				1,5,
-				_locationPos,_players
+				_locationPos,_players,
+				_remote_miltipler
 			] call gosa_fnc_call_reinforcement_pre;
 
 			// GUE
@@ -341,7 +348,8 @@ while{_run}do{
 				_grp select 2,_grp select 6,
 				_limits select 2,_limits select 6,
 				2,6,
-				_locationPos,_players
+				_locationPos,_players,
+				_remote_miltipler
 			] call gosa_fnc_call_reinforcement_pre;
 			};
 		};
