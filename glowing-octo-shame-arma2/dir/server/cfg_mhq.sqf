@@ -1,4 +1,4 @@
-_arr = ([
+_arr = [
 	// [side, реальный тип, виртуальный тип].
 	[east,	"bmp2_hq_ins_unfolded",			"i44_hq_g_unfolded"],
 	[west,	"bmp2_hq_cdf_unfolded",			"i44_hq_a_unfolded"],
@@ -8,7 +8,7 @@ _arr = ([
 	[civilian,		"c_truck_02_covered_f",	"c_truck_02_command_f"],
 	[east,	"i44_truck_g_kfz305_gray_wh",	"i44_truck_g_command_wh"],
 	[west,	"i44_truck_a_gmc_cckw_army",	"i44_truck_a_command_army"]
-]);
+];
 _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_str = configName (_cfgVeh >> (_arr select _i select 1));
@@ -20,7 +20,7 @@ _arr0 call gosa_fnc_arr_sorting0;
 gosa_types_virt = _arr;
 gosa_types_mhq_virt = _arr;
 
-_arr = ([
+_arr = [
 	// [side, мобильный тип, разложенный тип].
 	[west,	"m1130_cv_ep1",	"m1130_hq_unfolded_ep1"],
 	[east,	"btr90_hq",		"btr90_hq_unfolded"],
@@ -47,7 +47,7 @@ _arr = ([
 
 	[east,	"i44_truck_g_command_wh",		"i44_hq_g_unfolded"],
 	[east,	"i44_truck_a_command_army",		"i44_hq_a_unfolded"]
-])
+];
 _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_str = configName (_cfgVeh >> ((_arr select _i select 1) call gosa_fnc_fixType));
