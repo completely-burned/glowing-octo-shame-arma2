@@ -1,7 +1,7 @@
 #define __A2OA__
 
 /*---------------------------------------------------------------------------
-TODO: в этом файле ничего не понятно
+TODO: Рефакторинг.
 ---------------------------------------------------------------------------*/
 
 //--- параметры
@@ -156,19 +156,7 @@ locationNext={
 	publicVariable "gosa_locationSize";
 };
 
-waitUntil{!isNil{MHQ_list}};
 while{isNil{civilianBasePos}}do{
-	{
-		if(toLower typeOf _x in ((MHQ_list select 0) + (MHQ_list select 1)) && alive _x)exitWith{
-			civilianBasePos = getPos _x;
-			breakTo "a";
-		};
-#ifdef __A2OA__
-	} forEach vehicles + allMissionObjects "Warfare_HQ_base_unfolded";
-#else
-	} forEach vehicles;
-#endif
-
 	if (time > 5) then {
 		diag_log format ["Log: [Init_Towns] %1 fnc_getRandomWorldPos", time];
 		civilianBasePos = [false] call gosa_fnc_getRandomWorldPos;

@@ -12,7 +12,6 @@
 #endif
 
 waitUntil {!isNil "buyMenuLoaded"};
-waitUntil {!isNil "MHQ_list"};
 
 
 private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV","_nearestObjects",
@@ -30,7 +29,7 @@ _HQ = [];
 	if(configName(configFile >> "CfgVehicles" >> _x) != "")then{
 		_HQ = _HQ + [_x];
 	};
-} forEach (MHQ_list select 0) + HQ;
+} forEach HQ;
 
 _OptionsAvailable = [];
 _factory_use = [];
@@ -41,7 +40,7 @@ _respawn_type_All = 0;
 _nearestObjects = [
 	"LandVehicle",
 	"Air",
-	"Base_WarfareBVehicleServicePoint"] + (MHQ_list select 0) + HQ + Airport + pier;
+	"Base_WarfareBVehicleServicePoint"] + HQ + Airport + pier;
 
 	if(!isServer)then{
 		_nearestObjects set [count _nearestObjects,"ReammoBox"];
@@ -589,12 +588,6 @@ while {true} do {
 							if (local _Object) then {
 								deleteVehicle _Object;
 							};
-						};
-					};
-
-					if !(_menu) then {
-						if ([[_type],(MHQ_list select 0) + HQ + gosa_objectsCoinBase] call gosa_fnc_CheckIsKindOfArray) then {
-							_menu = true;
 						};
 					};
 				};

@@ -19,7 +19,6 @@ _gosa_objectsTeleport = [];
 waitUntil{!isNil "gosa_fnc_CheckIsKindOfArray"};
 waitUntil{!isNil "civilianBasePos"};
 waitUntil{!isNil "CivilianLocation"};
-waitUntil{!isNil "MHQ_list"};
 
 
 //-- Штабы.

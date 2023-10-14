@@ -426,8 +426,6 @@ if ((count _respawnMarkers
 };
 diag_log format ["Log: [while_markers] Markers static %1", _respawnMarkers];
 
-waitUntil {!isNil {MHQ_list}};
-
 // FIXME: Имя переменной сбивает с толку.
 _dynamicMarkers = [];
 
