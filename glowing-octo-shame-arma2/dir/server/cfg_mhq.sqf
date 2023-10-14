@@ -20,7 +20,7 @@ for "_i" from 0 to (count _arr -1) do {
 		_arr0 set [count _arr0, _arr select _i];
 	};
 };
-_arr0 call gosa_fnc_arr_sorting0;
+_arr = (_arr0 call gosa_fnc_arr_sorting0);
 gosa_types_virt = _arr;
 gosa_types_mhq_virt = _arr;
 
@@ -59,7 +59,7 @@ for "_i" from 0 to (count _arr -1) do {
 		_arr0 set [count _arr0, _arr select _i];
 	};
 };
-_arr0 call gosa_fnc_arr_sorting0;
+_arr = (_arr0 call gosa_fnc_arr_sorting0);
 gosa_types_mhq = _arr;
 
 publicVariable "gosa_types_virt";
