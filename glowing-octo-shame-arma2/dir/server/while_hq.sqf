@@ -9,7 +9,7 @@ if (missionNamespace getVariable "gosa_MHQ" < 1) exitWith {
 };
 
 private ["_side","_arr","_type_Lower","_str","_status","_dir",
-	"_testPosCount","_sideUsed","_posUsed","_pos","_b",
+	"_testPosCount","_sideUsed","_posUsed","_pos","_b","_n",
 	"_startingPositions","_minDist","_sidePlayable","_worldSize"];
 scopeName "root";
 
