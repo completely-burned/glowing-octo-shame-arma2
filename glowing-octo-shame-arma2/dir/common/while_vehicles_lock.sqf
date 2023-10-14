@@ -137,7 +137,8 @@ while{sleep 1; true}do{
 						#ifdef __ARMA3__
 						if (_locked != _lock) then
 						#else
-						if ((locked _veh && !_lock) or (!locked _veh && _lock)) then
+						_locked = locked _veh;
+						if ((_locked && !_lock) or (!_locked _veh && _lock)) then
 						#endif
 						{
 							diag_log format ["Log: [while_vehicles_lock.sqf] транспорт %1 %5, локальный = %4, нужно lock %2, сейчас %3", _veh, _lock, _locked, local _veh, typeOf _veh];
