@@ -1,3 +1,7 @@
+private ["_arr","_arr0","_str","_cfgveh"];
+
+_cfgveh = LIB_cfgVeh;
+
 _arr = [
 	// [side, реальный тип, виртуальный тип].
 	[east,	"bmp2_hq_ins_unfolded",			"i44_hq_g_unfolded"],
