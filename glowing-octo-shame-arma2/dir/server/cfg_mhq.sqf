@@ -50,7 +50,7 @@ _arr = [
 	[civilian,		"c_truck_02_command_f",	nil],
 
 	[east,	"i44_truck_g_command_wh",		"i44_hq_g_unfolded"],
-	[east,	"i44_truck_a_command_army",		"i44_hq_a_unfolded"]
+	[west,	"i44_truck_a_command_army",		"i44_hq_a_unfolded"]
 ];
 _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
