@@ -49,6 +49,27 @@ _arr = [
 	[resistance,	"i_truck_02_command_f",	nil],
 	[civilian,		"c_truck_02_command_f",	nil],
 
+	[east,			"rhs_gaz66_r142_msv",	nil],
+	[east,			"rhs_gaz66_r142_vmf",	nil],
+	[east,			"rhs_gaz66_r142_vdv",	nil],
+	[east,			"rhs_gaz66_r142_vv",	nil],
+	[east,			"rhsgref_ins_gaz66_r142",	nil],
+	[east,			"rhsgref_BRDM2UM_msv",	nil],
+	[east,			"rhsgref_BRDM2UM_ins",	nil],
+	[east,			"rhsgref_BRDM2UM_vdv",	nil],
+	[east,			"rhsgref_BRDM2UM_vmf",	nil],
+	[east,			"rhsgref_BRDM2_HQ_msv",	nil],
+	[east,			"rhsgref_BRDM2_HQ_ins",	nil],
+	[east,			"rhsgref_BRDM2_HQ_vdv",	nil],
+	[east,			"rhsgref_BRDM2_HQ_vmf",	nil],
+
+	[resistance,	"rhsgref_ins_g_gaz66_r142",	nil],
+	[resistance,	"rhsgref_cdf_gaz66_r142",	nil],
+	[resistance,	"rhsgref_BRDM2UM_ins_g",	nil],
+	[resistance,	"rhsgref_BRDM2UM",	nil],
+	[resistance,	"rhsgref_BRDM2_HQ_ins_g",	nil],
+	[resistance,	"rhsgref_BRDM2_HQ",	nil],
+
 	[east,	"i44_truck_g_command_wh",		"i44_hq_g_unfolded"],
 	[west,	"i44_truck_a_command_army",		"i44_hq_a_unfolded"]
 ];
