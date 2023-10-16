@@ -1,7 +1,8 @@
-private ["_arr","_arr0","_str","_cfgveh"];
+private ["_arr","_arr0","_arr1","_str","_cfgveh"];
 
 _cfgveh = LIB_cfgVeh;
 
+//--- 
 _arr = [
 	// [side, реальный тип, виртуальный тип].
 	[east,	"bmp2_hq_ins_unfolded",			"i44_hq_g_unfolded"],
@@ -23,7 +24,12 @@ for "_i" from 0 to (count _arr -1) do {
 _arr = (_arr0 call gosa_fnc_arr_sorting0);
 gosa_types_virt = _arr;
 gosa_types_mhq_virt = _arr;
+diag_log format ["Log: [cfg_mhq]: gosa_types_virt %1", _arr];
+publicVariable "gosa_types_virt";
+publicVariable "gosa_types_mhq_virt";
 
+
+//--- 
 _arr = [
 	// [side, мобильный тип, разложенный тип].
 	[west,	"m1130_cv_ep1",	"m1130_hq_unfolded_ep1"],
@@ -82,7 +88,22 @@ for "_i" from 0 to (count _arr -1) do {
 };
 _arr = (_arr0 call gosa_fnc_arr_sorting0);
 gosa_types_mhq = _arr;
-
-publicVariable "gosa_types_virt";
-publicVariable "gosa_types_mhq_virt";
+diag_log format ["Log: [cfg_mhq]: gosa_types_mhq %1", _arr];
 publicVariable "gosa_types_mhq";
+
+
+//--- Стороны у которых есть КШМ.
+if (gosa_pvp) then {
+	_arr1 = [east,west,resistance,civilian];
+}else{
+	_arr1 = gosa_friendlyside;
+};
+_arr0 = [];
+{
+	if (_x in (_arr select 0)) then {
+		_arr0 set [count _arr0, _x];
+	};
+} forEach _arr1;
+gosa_sides_mhq = _arr0;
+diag_log format ["Log: [cfg_mhq]: gosa_sides_mhq %1", _arr0];
+publicVariable "gosa_sides_mhq";

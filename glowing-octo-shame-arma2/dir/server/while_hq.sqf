@@ -17,11 +17,9 @@ scopeName "root";
 _minDist = 500;
 _testPosCount = 500;
 //_startingPositions = [];
-if (gosa_pvp) then {
-	_sidePlayable = gosa_sides_pvp;
-} else {
-	_sidePlayable = gosa_friendlyside;
-};
+waitUntil {!isNil "gosa_sides_mhq"};
+_sidePlayable = gosa_sides_mhq;
+waitUntil {!isNil "gosa_worldSize"};
 _worldSize = gosa_worldSize;
 
 while {true} do {
