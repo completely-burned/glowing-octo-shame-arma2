@@ -58,13 +58,13 @@ while {true} do {
 diag_log format ["Log: [while_hq]: %1, %2", _sideUsed, _posUsed];
 
 waitUntil {!isNil "gosa_types_mhq"};
+_arr = gosa_types_mhq;
 for "_i" from 0 to (count _sideUsed -1) do {
 	_side = _sideUsed select _i;
 	_pos = _posUsed select _i;
 
 	// TODO: Виртуальные типы.
 	_arr0 = [[],[]];
-	_arr = gosa_types_mhq;
 	for "_i0" from 0 to ((count ((_arr select 0)) -1)) do {
 		_arr0 select 0 set [_i0, _i0];
 		if (((_arr select 0) select _i0) == _side) then {_n = 1} else {_n = 0};
