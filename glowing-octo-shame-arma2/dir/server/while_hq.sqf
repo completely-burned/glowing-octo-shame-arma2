@@ -10,7 +10,7 @@ if (missionNamespace getVariable "gosa_MHQ" < 1) exitWith {
 
 private ["_side","_arr","_type_Lower","_str","_status","_dir",
 	"_testPosCount","_sideUsed","_posUsed","_pos","_b","_n",
-	"_arr0",
+	"_arr0","_str0",
 	"_startingPositions","_minDist","_sidePlayable","_worldSize"];
 scopeName "root";
 
@@ -77,6 +77,9 @@ for "_i" from 0 to (count _sideUsed -1) do {
 	_dir = random 360;
 	_status = 2;
 	_str = _type_Lower call gosa_fnc_fixType;
+
+	_str0 = format["gosa_listHQ_%1", _side];
+	waitUntil {!isNil _str0};
 	[_pos, _type_Lower, _status, _side, objNull, _dir, _str] call gosa_fnc_createHQ;
 };
 
