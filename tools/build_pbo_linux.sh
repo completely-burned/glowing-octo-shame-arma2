@@ -188,12 +188,6 @@ done
 #gnu parallel
 if [[ ! -z "$var_parallel" ]]
 then
-	echo "rsync_parallel"
-	parallel ::: "${rsync_parallel[@]}"
-fi
-
-if [[ ! -z "$var_parallel" ]]
-then
 	echo "Pack pbo's"
 	parallel ::: "${var_parallel[@]}"
 fi
