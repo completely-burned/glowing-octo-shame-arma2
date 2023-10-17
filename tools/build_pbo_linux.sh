@@ -18,6 +18,8 @@ while getopts "dlt" opt
 	esac
 done
 
+GAMES="${GAMES:- arma3 a2oa a2}"
+
 # Нужен путь к корню проекта.
 # TODO: Улучшить.
 DIR=$(dirname "${BASH_SOURCE[0]}")/..
@@ -60,6 +62,7 @@ then
 fi
 # Основные файлы.
 rsync --recursive --no-perms $DIR/glowing-octo-shame* $TMPDIR/
+rsync --recursive --no-perms $DIR/maps $TMPDIR/
 echo $(ls $TMPDIR)
 
 
@@ -110,7 +113,24 @@ fi
 # "FDF CTF@ 24 Flag Rambos v1 beta"
 # https://forums.bohemia.net/forums/topic/217676-mission-name-standard/
 
-for DIR in $(find $TMPDIR -maxdepth 1 -type d)
+for game in ${GAMES}
+do
+	tmp_game=${TMPDIR}/core_${game}
+	echo "Copying core files ${game}"
+	rsync --recursive --no-perms ${TMPDIR}/glowing-octo-shame-arma2/* ${tmp_game}
+	# cpmpat для a2 v1.11
+	if [[ ${game} == "a2" ]]
+	then
+		find ${tmp_game} -type f -exec sed -i "/^.*#define.*__A2OA__.*/d" {} \;
+	fi
+
+	if [[ ${LICENSE} -gt 0 ]]
+	then
+		rsync --recursive --no-perms $TMPDIR/*LICENSE* ${tmp_game}
+		rsync --recursive --no-perms $TMPDIR/*authors* ${tmp_game}
+	fi
+
+for DIR in $(find ${TMPDIR}/maps/${game} -maxdepth 1 -type d)
 do
 	if [[ -f "${DIR}/mission.sqm" ]]
 	then
@@ -122,46 +142,17 @@ do
 		DLC=$(echo ${TMP} | sed -e 's/.*"\(.*\)CO.*".*/\1/' -e 's/\ /_/gi')
 
 		# Место подготовки файлов перед архивацией.
-		TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
+		TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
 		echo "Name ${TMPDIRNAME}"
 		MISSION=$TMPDIR/.build.tmp/$TMPDIRNAME
 		mkdir -p $MISSION
 		echo $MISSION
 
-
-		echo "Copying core files"
-		# cpmpat для a2 v1.11
-		if [[ $DLC == *"compat"* ]]
-		then
-			rsync --recursive --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION
-			rsync --recursive --no-perms ${DIR}/* $MISSION
-			find $MISSION -type f -exec sed -i "/^.*#define.*__A2OA__.*/d" {} \;
-		else
-			# Символьные ссылки быстрее копирования, хотя при tmpfs это не значительно.
-			#find $TMPDIR/glowing-octo-shame-arma2/ -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
-			#find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} $MISSION \;
-			# Копирование.
-			if [[ -x "$(command -v parallel)" ]]
-			then
-				rsync_parallel+=("rsync --recursive --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION")
-			else
-				rsync --recursive --no-perms $TMPDIR/glowing-octo-shame-arma2/* $MISSION
-			fi
-			rsync --recursive --no-perms ${DIR}/* $MISSION
-		fi
-
-		if [[ $LICENSE -gt 0 ]]
-		then
-			echo "Copying LICENSE"
-			if [[ -x "$(command -v parallel)" ]]
-			then
-				rsync_parallel+=("rsync --recursive --no-perms $TMPDIR/*LICENSE* $MISSION")
-				rsync_parallel+=("rsync --recursive --no-perms $TMPDIR/*authors* $MISSION")
-			else
-				rsync --recursive --no-perms $TMPDIR/*LICENSE* $MISSION
-				rsync --recursive --no-perms $TMPDIR/*authors* $MISSION
-			fi
-		fi
+		echo "Copying files ${MISSION}"
+		#find ${tmp_game}/ -mindepth 1 -maxdepth 1 -exec ln -sn {} ${MISSION} \;
+		#find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} ${MISSION} \;
+		rsync --recursive --no-perms ${tmp_game}/* ${MISSION}
+		rsync --recursive --no-perms ${DIR}/* ${MISSION}
 
 		if [[ $DIAG_LOG -le 0 ]]
 		then
@@ -191,6 +182,7 @@ do
 				rsync -rLK --delete --no-perms $MISSION/* $PRE/${DLC,,}co_00_${NAME,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}
 			fi
 	fi
+done
 done
 
 #gnu parallel
