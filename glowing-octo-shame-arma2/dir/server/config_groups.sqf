@@ -26,8 +26,8 @@ private ["_west","_east","_guer","_woodland","_deserted","_tmp","_mod_acr",
 	"_f_multi_bis_cz","_f_multi_bis_tk","_f_multi_bis_tk_gue","_shop","_landing",
 	"_r0","_r1","_r2","_r3","_r4","_r5","_r6","_westN","_eastN","_guerN",
 	"_s1","_s2","_mg","_mg2","_gl","_at","_westD","_eastD","_guerD",
-	"_multiplier_MTP","_multiplier_DDPM","_multiplier_W",
-	"_westPatrol","_eastPatrol","_guerPatrol",
+	"_multiplier_MTP","_multiplier_DDPM","_multiplier_W","_cfgVeh","_b","_n",
+	"_westPatrol","_eastPatrol","_guerPatrol","_IslandType",
 	"_westAttack","_eastAttack","_guerAttack"];
 _westPatrol=[];_eastPatrol=[];_guerPatrol=[];
 _westAttack=[];_eastAttack=[];_guerAttack=[];
@@ -43,6 +43,10 @@ _r3 = 3;
 _r4 = 4;
 _r5 = 5;
 _r6 = 6;
+
+// performance
+_cfgVeh = LIB_cfgVeh;
+_IslandType = gosa_IslandType;
 
 _woodland=false; _deserted=false;
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
@@ -2584,6 +2588,9 @@ if(_mod_acr)then{
 	};
 };
 
+// dir\server\
+#include "config_groups_OFrP.sqf"
+
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"unfinished");
 if(_tmp > 0 or (gosa_IslandType select 1 >= 1990 && _tmp == -1))then{
 // BWMod
@@ -2637,99 +2644,6 @@ if(configName(LIB_cfgVeh >> "sfp_m90w_squadleader_ak5_m203") != "")then{
 		_west=_west+[
 			[[[["sfp_m90d_squadleader_ak5_m203","sfp_m90d_rifleman_ak5","sfp_m90d_rifleman_ak5","sfp_m90d_mg_ksp58","sfp_m90d_automaticrifleman_ksp90","sfp_m90d_at_grg","sfp_m90d_at_grg","sfp_m90d_marksman_ak5c","sfp_m90d_medic_ak5"],[],
 				[_r3,_r1,_r1,_r1,_r1,_r1,_r1,_r1,_r1]]],0.4]
-		];
-	};
-};
-
-// OFrP
-if(configName(LIB_cfgVeh >> "OFrP_Soldier_Inf_TeamLeader") != "")then{
-	_west=_west+[
-		[[[["OFrP_Tiger_HAD_CE","OFrP_Tiger_HAD_CE"],[[0,15,0],[15,0,0]],
-			[_r4,_r3]]],0.2],
-		[[[["OFrP_Tiger_HAP_CE","OFrP_Tiger_HAP_CE"],[[0,15,0],[15,0,0]],
-			[_r4,_r3]]],0.02],
-		[[[["OFrP_Rafale_B1","OFrP_Rafale_B1"],[[0,20,0],[20,0,0]],
-			[_r4,_r3]]],0.05],
-		[[[["OFrP_Rafale_M3","OFrP_Rafale_M3"],[[0,20,0],[20,0,0]],
-			[_r4,_r3]]],0.05],
-		[[[["OFrP_Mirage_5","OFrP_Mirage_5"],[[0,20,0],[20,0,0]],
-			[_r4,_r3]]],0.05],
-
-		[[[["OFrP_TE_Integral_Inf1","OFrP_Spotter_Integral_Inf1"],[[0,5,0],[3,0,0]],
-			[_r2,_r2]]],0.05]
-	];
-	if(!_deserted)then{
-		_west=_west+[
-			[[[["OFrP_Caracal"],[],
-				[_r3]],[["OFrP_Soldier_Inf_TeamLeader","OFrP_Soldier_Inf_Maximi","OFrP_Soldier_Inf_SniperFRF2","OFrP_Soldier_Inf","OFrP_Soldier_Inf_Radio","OFrP_Soldier_Inf","OFrP_Soldier_Inf_ABL","OFrP_Soldier_Inf_ERYX","OFrP_Soldier_Inf_Medic"]]
-				],0.1],
-			[[[["OFrP_Puma_CE_Pirate"],[],[_r3]]],0.1],
-
-			[[[["OFrP_Soldier_CoS_TeamLeader","OFrP_Soldier_CoS_Medic","OFrP_Soldier_CoS_Minimi","OFrP_Soldier_CoS_Grenadier","OFrP_Soldier_COS_Radio","OFrP_Soldier_CoS"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[-3,0,0],[-5,0,0]],
-				[_r3,_r2,_r2,_r1,_r1,_r1]]],0.01],
-			[[[["OFrP_Soldier_CoS_TeamLeader","OFrP_Soldier_CoS_Medic","OFrP_Soldier_CoS_Laser","OFrP_Soldier_COS_SniperFRF2","OFrP_Soldier_CoS"],[[0,5,0],[-3.5,0,0],[-1.5,0,0],[1.5,0,0],[3.5,0,0]],
-				[_r3,_r2,_r2,_r1,_r1]]],0.01],
-
-			[[[["OFrP_Soldier_Inf_TeamLeader","OFrP_PVP_ANF1","OFrP_PVP_WASP","OFrP_Soldier_Inf_Grenadier"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
-				[_r2,_r2,_r1,_r1]]],0.05],
-			[[[["OFrP_Soldier_Inf_TeamLeader","OFrP_PVP_WASP_MILAN","OFrP_PVP_WASP_MILAN","OFrP_Soldier_Inf_Grenadier"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
-				[_r2,_r2,_r1,_r1]]],0.05],
-			[[[["OFrP_Soldier_Inf_TeamLeader","OFrP_VAB_TOP127","OFrP_Soldier_Inf","OFrP_Soldier_Inf_SniperFRF2","OFrP_Soldier_Inf_ABL","OFrP_Soldier_Inf_Maximi","OFrP_Soldier_Inf_Maximi","OFrP_Soldier_Inf_Medic","OFrP_Soldier_Inf_Grenadier"],[[0,5,0],[-3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
-				[_r3,_r2,_r0,_r1,_r1,_r1,_r0,_r2,_r2]]],0.05],
-
-			[[[["OFrP_Soldier_Inf_TeamLeader","OFrP_Soldier_Inf_Scout","OFrP_Soldier_Inf_Radio","OFrP_Soldier_Inf_SniperFRF2","OFrP_Soldier_Inf_SniperFRF2"],[],
-				[_r4,_r3,_r2,_r1,_r1]]],0.1],
-			[[[["OFrP_Soldier_Inf_TeamLeader","OFrP_Soldier_Inf_Medic","OFrP_Soldier_Inf_Grenadier","OFrP_Soldier_Inf_Maximi","OFrP_Soldier_Inf_ABL","OFrP_Soldier_Inf","OFrP_Soldier_Inf_ABL"],[],
-				[_r3,_r2,_r2,_r1,_r1,_r0,_r0]]],0.05],
-			[[[["OFrP_Soldier_Inf_TeamLeader","OFrP_Soldier_Inf_Maximi","OFrP_Soldier_Inf_SniperFRF2","OFrP_Soldier_Inf","OFrP_Soldier_Inf_Radio","OFrP_Soldier_Inf","OFrP_Soldier_Inf_ABL","OFrP_Soldier_Inf_ERYX","OFrP_Soldier_Inf_Medic"],[],
-				[_r3,_r2,_r2,_r0,_r1,_r0,_r1,_r1,_r2]]],0.05],
-			[[[["OFrP_Soldier_Inf_TeamLeader","OFrP_Soldier_Inf_ERYX","OFrP_Soldier_Inf_ERYX","OFrP_Soldier_Inf_LRAC89","OFrP_Soldier_Inf_LRAC89"],[],
-				[_r2,_r2,_r1,_r1,_r1]]],0.05],
-
-			[[[["OFrP_Leclerc","OFrP_Leclerc","OFrP_Leclerc"],[[0,5,0],[5,0,0],[9,0,0]],
-				[_r4,_r3,_r2]]],0.1],
-			[[[["OFrP_AMX30B2","OFrP_AMX30B2","OFrP_AMX30B2","OFrP_AMX30B2"],[[0,5,0],[5,0,0],[9,0,0],[13,0,0]],
-				[_r4,_r3,_r3,_r2]]],0.1],
-			[[[["OFrP_10RC","OFrP_10RC","OFrP_10RC"],[[0,5,0],[5,0,0],[9,0,0]],
-				[_r4,_r3,_r2]]],0.1],
-			[[[["OFrP_10RCR","OFrP_10RCR","OFrP_10RCR"],[[0,5,0],[5,0,0],[9,0,0]],
-				[_r4,_r3,_r2]]],0.1]
-		];
-	};
-	if(!_woodland)then{
-		_west=_west+[
-			[[[["OFrP_Caracal"],[],
-				[_r3]],[["OFrP_Soldier_Inf_DE_TeamLeader","OFrP_Soldier_Inf_DE_Maximi","OFrP_Soldier_Inf_DE_SniperFRF2","OFrP_Soldier_Inf_DE_Grenadier","OFrP_Soldier_Inf_DE","OFrP_Soldier_Inf_DE_Radio","OFrP_Soldier_Inf_DE_ABL","OFrP_Soldier_Inf_DE_ERYX","OFrP_Soldier_Inf_DE_Medic"]]
-				],0.1],
-			[[[["OFrP_Puma_DE_Pirate"],[],[_r3]]],0.1],
-
-			[[[["OFrP_Soldier_CoS_DE_TeamLeader","OFrP_Soldier_CoS_DE_Medic","OFrP_Soldier_CoS_DE_Maximi","OFrP_Soldier_CoS_DE_Grenadier","OFrP_Soldier_COS_DE_Radio","OFrP_Soldier_CoS_DE"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[-3,0,0],[-5,0,0]],
-				[_r3,_r2,_r2,_r1,_r1,_r1]]],0.01],
-			[[[["OFrP_Soldier_CoS_DE_TeamLeader","OFrP_Soldier_CoS_DE_Medic","OFrP_Soldier_CoS_DE_Laser","OFrP_Soldier_COS_DE_SniperHK417","OFrP_Soldier_CoS_DE"],[[0,5,0],[-3.5,0,0],[-1.5,0,0],[1.5,0,0],[3.5,0,0]],
-				[_r3,_r2,_r2,_r1,_r1]]],0.01],
-
-			[[[["OFrP_Soldier_Inf_DE_TeamLeader","OFrP_VBL_ANF1_desert","OFrP_VBL_127_desert","OFrP_Soldier_Inf_DE_Grenadier"],[[0,5,0],[-5,0,0],[-5,-7,0],[3,0,0]],
-				[_r2,_r2,_r1,_r1]]],0.1],
-			[[[["OFrP_Soldier_Inf_DE_TeamLeader","OFrP_VAB_127_desert","OFrP_Soldier_Inf_DE","OFrP_Soldier_Inf_DE_SniperFRF2","OFrP_Soldier_Inf_DE_LRAC89","OFrP_Soldier_Inf_DE_Maximi","OFrP_Soldier_Inf_DE_Maximi","OFrP_Soldier_Inf_DE_Medic","OFrP_Soldier_Inf_DE_Grenadier"],[[0,5,0],[-3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
-				[_r3,_r2,_r0,_r1,_r1,_r0,_r1,_r2,_r2]]],0.1],
-			[[[["OFrP_Soldier_Inf_DE_TeamLeader","OFrP_VBCI_vci_desert","OFrP_Soldier_Inf_DE","OFrP_Soldier_Inf_DE_SniperFRF2","OFrP_Soldier_Inf_DE_ABL","OFrP_Soldier_Inf_DE_Maximi","OFrP_Soldier_Inf_DE","OFrP_Soldier_Inf_DE_Medic","OFrP_Soldier_Inf_DE_Grenadier"],[[0,5,0],[-3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
-				[_r3,_r2,_r0,_r1,_r1,_r1,_r0,_r2,_r2]]],0.1],
-
-			[[[["OFrP_Soldier_Inf_DE_TeamLeader","OFrP_Soldier_Inf_DE_Scout","OFrP_Soldier_Inf_DE_Radio","OFrP_Soldier_Inf_DE_SniperFRF2","OFrP_Soldier_Inf_DE_SniperFRF2"],[],
-				[_r4,_r3,_r2,_r1,_r1]]],0.1],
-			[[[["OFrP_Soldier_Inf_DE_TeamLeader","OFrP_Soldier_Inf_DE_Medic","OFrP_Soldier_Inf_DE_Grenadier","OFrP_Soldier_Inf_DE_Maximi","OFrP_Soldier_Inf_DE_ABL","OFrP_Soldier_Inf_DE","OFrP_Soldier_Inf_DE_LRAC89"],[],
-				[_r3,_r2,_r2,_r1,_r1,_r0,_r0]]],0.1],
-			[[[["OFrP_Soldier_Inf_DE_TeamLeader","OFrP_Soldier_Inf_DE_Maximi","OFrP_Soldier_Inf_DE_SniperFRF2","OFrP_Soldier_Inf_DE_Grenadier","OFrP_Soldier_Inf_DE","OFrP_Soldier_Inf_DE_Radio","OFrP_Soldier_Inf_DE_ABL","OFrP_Soldier_Inf_DE_ERYX","OFrP_Soldier_Inf_DE_Medic"],[],
-				[_r3,_r2,_r2,_r2,_r0,_r1,_r0,_r1,_r1]]],0.1],
-			[[[["OFrP_Soldier_Inf_DE_TeamLeader","OFrP_Soldier_Inf_DE_ERYX","OFrP_Soldier_Inf_DE_ERYX","OFrP_Soldier_Inf_DE_LRAC89","OFrP_Soldier_Inf_DE_LRAC89"],[],
-				[_r2,_r2,_r1,_r1,_r1]]],0.1],
-
-			[[[["OFrP_Leclerc_desert","OFrP_Leclerc_desert","OFrP_Leclerc_desert"],[[0,5,0],[5,0,0],[9,0,0]],
-				[_r4,_r3,_r2]]],0.1],
-			[[[["OFrP_10RC_desert","OFrP_10RC_desert","OFrP_10RC_desert"],[[0,5,0],[5,0,0],[9,0,0]],
-				[_r4,_r3,_r2]]],0.1],
-			[[[["OFrP_10RCR_desert","OFrP_10RCR_desert","OFrP_10RCR_desert"],[[0,5,0],[5,0,0],[9,0,0]],
-				[_r4,_r3,_r2]]],0.1]
 		];
 	};
 };

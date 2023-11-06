@@ -256,6 +256,12 @@ class Params {
 		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 		default=-1;
 	};
+	class gosa_faction_multiplier_OFrP {
+		title="FACTION: OFrP";
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default=-1;
+	};
 	class gosa_faction_multiplier_I44_A {
 		title="FACTION: I44_A";
 		values[] = {-1,1,0};
