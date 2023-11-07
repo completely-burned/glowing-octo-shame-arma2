@@ -2,8 +2,19 @@
  * VME PLA MOD
  */
 
+if (configName(_cfgVeh >> "VME_PLA_Soldier") == "") then {
+	_b = false;
+}else{
+	_n = missionNamespace getVariable ("gosa_faction_multiplier_"+"VME_PLA_China");
+	if (_n > 0) exitWith {_b = true};
+	if (_n == -1 and _d >= 1990) exitWith {_b = true};
+	_b = false;
+};
+if (_b) then {
 
 //-- WoodLand(C)
+
+if (_t >= 160 and _t < 250) then {
 _east=_east+[
 	// configName PLA_InfSquad
 	[[[["VME_PLA_SquadLeaderC",
@@ -23,6 +34,37 @@ _east=_east+[
 		["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]
 	],0.05]
 ];
+
+	//-- Special(SF)
+	_east=_east+[
+		// configName PLA_SF_InfSquad
+		[[[[
+			"VME_PLA_TZB_SquadLeader",
+			"VME_PLA_TZB_Soldier_Medic","VME_PLA_TZB_Soldier_LMG",
+			"VME_PLA_TZB_Soldier_AT","VME_PLA_TZB_Soldier_G",
+			"VME_PLA_TZB_Soldier_MG","VME_PLA_TZB_Soldier_AT",
+			"VME_PLA_TZB_Soldier_Sniper","VME_PLA_TZB_Soldier_AA"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
+			["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.6],
+		// configName PLA_InfSquad_SF_GL
+		[[[[
+			"VME_PLA_TZB_GL_TeamLeader",
+			"VME_PLA_TZB_GL_Soldier","VME_PLA_TZB_Soldier_LMG",
+			"VME_PLA_TZB_Soldier_Sniper","VME_PLA_TZB_GL_Soldier_Medic",
+			"VME_PLA_TZB_GL_Soldier_Sabotage"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
+			["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.9],
+		// configName PLA_SF_MotInfSection
+		[[[[
+			"VME_PLA_TZB_SquadLeader",
+			"VME_PLA_EQ2050","VME_PLA_TZB_EQ2050B",
+			"VME_PLA_TZB_Soldier_G","VME_PLA_TZB_Soldier_MG",
+			"VME_PLA_TZB_Soldier_Medic","VME_PLA_TZB_Soldier_AT",
+			"VME_PLA_Soldier_Sniper127"],[[0,5,0],[-5,0,0],[-5,-7,0],[-5,-14,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0]],
+			["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.25]
+	];
+}else{
 
 //-- Desert(H)
 _east=_east+[
@@ -62,7 +104,10 @@ _east=_east+[
 		["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
 	],0.05]
 ];
+};
 
+/*
+// TODO: Вода.
 //-- Marine(MR)
 _east=_east+[
 	// configName PLA_MR_InfSquad
@@ -77,6 +122,7 @@ _east=_east+[
 	],0.8]
 ];
 
+// TODO: В самолёт.
 //-- Airborne(AP)
 _east=_east+[
 	// configName PLA_InfSquad_AP
@@ -106,38 +152,11 @@ _east=_east+[
 		["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]
 	],0.05]
 ];
+*/
 
-//-- Special(SF)
-_east=_east+[
-	// configName PLA_SF_InfSquad
-	[[[[
-		"VME_PLA_TZB_SquadLeader",
-		"VME_PLA_TZB_Soldier_Medic","VME_PLA_TZB_Soldier_LMG",
-		"VME_PLA_TZB_Soldier_AT","VME_PLA_TZB_Soldier_G",
-		"VME_PLA_TZB_Soldier_MG","VME_PLA_TZB_Soldier_AT",
-		"VME_PLA_TZB_Soldier_Sniper","VME_PLA_TZB_Soldier_AA"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
-		["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
-	],0.6],
-	// configName PLA_InfSquad_SF_GL
-	[[[[
-		"VME_PLA_TZB_GL_TeamLeader",
-		"VME_PLA_TZB_GL_Soldier","VME_PLA_TZB_Soldier_LMG",
-		"VME_PLA_TZB_Soldier_Sniper","VME_PLA_TZB_GL_Soldier_Medic",
-		"VME_PLA_TZB_GL_Soldier_Sabotage"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
-	],0.9],
-	// configName PLA_SF_MotInfSection
-	[[[[
-		"VME_PLA_TZB_SquadLeader",
-		"VME_PLA_EQ2050","VME_PLA_TZB_EQ2050B",
-		"VME_PLA_TZB_Soldier_G","VME_PLA_TZB_Soldier_MG",
-		"VME_PLA_TZB_Soldier_Medic","VME_PLA_TZB_Soldier_AT",
-		"VME_PLA_Soldier_Sniper127"],[[0,5,0],[-5,0,0],[-5,-7,0],[-5,-14,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
-	],0.25]
-];
-
+// TODO: Скалы
 //-- standard(T)
+if (_t <= 160) then {
 _east=_east+[
 	// configName PLA_InfSquad_ST
 	[[[["VME_PLA_SquadLeaderT",
@@ -175,6 +194,7 @@ _east=_east+[
 		["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
 	],0.05]
 ];
+};
 
 //-- Sniper
 _east=_east+[
@@ -248,3 +268,5 @@ if (false) then {
 		],0.01]
 	];
 };
+
+}; // _b

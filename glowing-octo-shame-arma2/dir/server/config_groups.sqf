@@ -27,7 +27,7 @@ private ["_west","_east","_guer","_woodland","_deserted","_tmp","_mod_acr",
 	"_r0","_r1","_r2","_r3","_r4","_r5","_r6","_westN","_eastN","_guerN",
 	"_s1","_s2","_mg","_mg2","_gl","_at","_westD","_eastD","_guerD",
 	"_multiplier_MTP","_multiplier_DDPM","_multiplier_W","_cfgVeh","_b","_n",
-	"_westPatrol","_eastPatrol","_guerPatrol","_IslandType",
+	"_westPatrol","_eastPatrol","_guerPatrol","_IslandType","_t","_d",
 	"_westAttack","_eastAttack","_guerAttack"];
 _westPatrol=[];_eastPatrol=[];_guerPatrol=[];
 _westAttack=[];_eastAttack=[];_guerAttack=[];
@@ -47,6 +47,8 @@ _r6 = 6;
 // performance
 _cfgVeh = LIB_cfgVeh;
 _IslandType = gosa_IslandType;
+_t = (_IslandType select 0);
+_d = (_IslandType select 1);
 
 _woodland=false; _deserted=false;
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
@@ -2590,6 +2592,7 @@ if(_mod_acr)then{
 
 // dir\server\
 #include "config_groups_OFrP.sqf"
+#include "config_groups_vme_pla.sqf"
 
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"unfinished");
 if(_tmp > 0 or (gosa_IslandType select 1 >= 1990 && _tmp == -1))then{
