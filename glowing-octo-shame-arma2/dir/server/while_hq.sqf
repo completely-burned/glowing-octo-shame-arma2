@@ -59,6 +59,8 @@ diag_log format ["Log: [while_hq]: %1, %2", _sideUsed, _posUsed];
 
 waitUntil {!isNil "gosa_types_mhq"};
 _arr = gosa_types_mhq;
+waitUntil {!isNil "gosa_listHQ_init_done"};
+
 for "_i" from 0 to (count _sideUsed -1) do {
 	_side = _sideUsed select _i;
 	_pos = _posUsed select _i;
@@ -79,7 +81,6 @@ for "_i" from 0 to (count _sideUsed -1) do {
 	_str = _type_Lower call gosa_fnc_fixType;
 
 	_str0 = format["gosa_listHQ_%1", _side];
-	waitUntil {!isNil _str0};
 	[_pos, _type_Lower, _status, _side, objNull, _dir, _str] call gosa_fnc_createHQ;
 };
 
