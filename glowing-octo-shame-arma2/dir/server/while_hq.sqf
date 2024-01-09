@@ -4,8 +4,6 @@
  * TODO: Совместимость с PvP.
  */
 
-// В A2 не работает должным образом.
-#ifdef __ARMA3__
 if (missionNamespace getVariable "gosa_MHQ" < 1) exitWith {
 	diag_log format ["Log: [while_hq]: param, gosa_MHQ == %1, exitWith", missionNamespace getVariable "gosa_MHQ"];
 };
@@ -84,6 +82,5 @@ for "_i" from 0 to (count _sideUsed -1) do {
 	waitUntil {!isNil _str0};
 	[_pos, _type_Lower, _status, _side, objNull, _dir, _str] call gosa_fnc_createHQ;
 };
-#endif
 
 gosa_init_MHQ_done = true;
