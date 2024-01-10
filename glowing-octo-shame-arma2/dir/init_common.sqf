@@ -132,6 +132,35 @@ _arr = [
 ];
 #ifdef __ARMA3__
 	_arr append [
+		"rhsusf_army_ucp_driver",
+		"rhsusf_army_ucp_driver_armored",
+		"rhsusf_army_ocp_driver",
+		"rhsusf_army_ocp_driver_armored",
+		"rhsusf_usmc_marpat_wd_driver",
+		"rhsusf_usmc_marpat_d_driver",
+
+		"rhsusf_army_ucp_crewman",
+		"rhsusf_army_ucp_combatcrewman",
+		"rhsusf_army_ocp_crewman",
+		"rhsusf_army_ocp_combatcrewman",
+		"rhsusf_usmc_marpat_wd_crewman",
+		"rhsusf_usmc_marpat_wd_combatcrewman",
+		"rhsusf_usmc_lar_marpat_wd_crewman",
+		"rhsusf_usmc_lar_marpat_wd_combatcrewman",
+		"rhsusf_usmc_lar_marpat_wd_machinegunner",
+		"rhsusf_usmc_marpat_d_crewman",
+		"rhsusf_usmc_marpat_d_combatcrewman",
+		"rhsusf_usmc_lar_marpat_d_crewman",
+		"rhsusf_usmc_lar_marpat_d_combatcrewman",
+		"rhsusf_usmc_lar_marpat_d_machinegunner",
+		"rhsusf_socom_swcc_officer",
+		"rhsusf_socom_swcc_crewman",
+		"rhsgref_cdf_b_ngd_crew",
+		"rhsgref_cdf_b_reg_crew_commander",
+		"rhsgref_cdf_b_reg_crew",
+		"rhsgref_cdf_b_para_crew",
+		"rhsgref_hidf_crewman",
+
 		"B_W_Crew_F",
 		"B_crew_F",
 		"B_T_Crew_F",
@@ -181,6 +210,21 @@ _arr = [
 ];
 #ifdef __ARMA3__
 	_arr append [
+		"rhsusf_army_ucp_ah64_pilot",
+		"rhsusf_army_ucp_helicrew",
+		"rhsusf_army_ucp_helipilot",
+		"rhsusf_army_ocp_ah64_pilot",
+		"rhsusf_army_ocp_helicrew",
+		"rhsusf_army_ocp_helipilot",
+		"rhsusf_airforce_jetpilot",
+		"rhsusf_airforce_pilot",
+		"rhsusf_usmc_marpat_wd_helicrew",
+		"rhsusf_usmc_marpat_wd_helipilot",
+		"rhsusf_usmc_marpat_d_helicrew",
+		"rhsusf_usmc_marpat_d_helipilot",
+		"rhsgref_cdf_b_air_pilot",
+		"rhsgref_hidf_helipilot",
+
 		"B_Fighter_Pilot_F",
 		"B_W_Helipilot_F",
 		"B_W_Helicrew_F",
