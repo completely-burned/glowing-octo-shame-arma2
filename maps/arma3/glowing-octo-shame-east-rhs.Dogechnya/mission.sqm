@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=61;
+		nextID=71;
 	};
 	class Camera
 	{
@@ -19,19 +19,20 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="glowing-octo-shame-east";
+sourceName="glowing-octo-shame-east-rhs";
 addons[]=
 {
 	"A3_Modules_F",
 	"A3_Ui_F",
 	"rhs_structures_misc",
-	"rhsgref_c_troops"
+	"rhsgref_c_troops",
+	"A3_Characters_F"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -60,6 +61,13 @@ class AddonsMetaData
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
+		class Item4
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
@@ -85,19 +93,6 @@ class CustomAttributes
 	{
 		name="Multiplayer";
 		class Attribute0
-		{
-			property="ReviveMode";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					singleType="SCALAR";
-					value=1;
-				};
-			};
-		};
-		class Attribute1
 		{
 			property="RespawnTemplates";
 			expression="true";
@@ -145,7 +140,33 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=2;
+		class Attribute1
+		{
+			property="ReviveMode";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		class Attribute2
+		{
+			property="ReviveRequiredItems";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=2;
+				};
+			};
+		};
+		nAttributes=3;
 	};
 	class Category1
 	{
@@ -194,7 +215,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=23;
+		items=33;
 		class Item0
 		{
 			dataType="Logic";
@@ -1113,6 +1134,126 @@ class Mission
 			{
 			};
 			id=59;
+		};
+		class Item23
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6116.1401,17.530001,7424.3408};
+			};
+			name="HeadlessClient";
+			isPlayable=1;
+			id=61;
+			type="HeadlessClient_F";
+		};
+		class Item24
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6113.8359,17.530001,7407.7417};
+			};
+			name="HeadlessClient_1";
+			isPlayable=1;
+			id=62;
+			type="HeadlessClient_F";
+		};
+		class Item25
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6113.8359,17.530001,7396.6748};
+			};
+			name="HeadlessClient_2";
+			isPlayable=1;
+			id=63;
+			type="HeadlessClient_F";
+		};
+		class Item26
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6112.915,17.530001,7382.8418};
+			};
+			name="HeadlessClient_3";
+			isPlayable=1;
+			id=64;
+			type="HeadlessClient_F";
+		};
+		class Item27
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6113.375,17.530001,7367.625};
+			};
+			name="HeadlessClient_4";
+			isPlayable=1;
+			id=65;
+			type="HeadlessClient_F";
+		};
+		class Item28
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6133.6479,17.530001,7362.0923};
+			};
+			name="HeadlessClient_5";
+			isPlayable=1;
+			id=66;
+			type="HeadlessClient_F";
+		};
+		class Item29
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6134.5703,17.530001,7381.9189};
+			};
+			name="HeadlessClient_6";
+			isPlayable=1;
+			id=67;
+			type="HeadlessClient_F";
+		};
+		class Item30
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6133.188,17.530001,7396.6748};
+			};
+			name="HeadlessClient_7";
+			isPlayable=1;
+			id=68;
+			type="HeadlessClient_F";
+		};
+		class Item31
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6134.5703,17.530001,7409.5859};
+			};
+			name="HeadlessClient_8";
+			isPlayable=1;
+			id=69;
+			type="HeadlessClient_F";
+		};
+		class Item32
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6135.4912,17.530001,7428.0298};
+			};
+			name="HeadlessClient_9";
+			isPlayable=1;
+			id=70;
+			type="HeadlessClient_F";
 		};
 	};
 	class Connections
