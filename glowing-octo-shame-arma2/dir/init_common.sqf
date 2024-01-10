@@ -221,6 +221,23 @@ _arr = [
 		"rhsgref_cdf_b_para_crew",
 		"rhsgref_hidf_crewman",
 
+		"rhssaf_army_m10_para_crew",
+		"rhssaf_army_m10_digital_crew_armored_nco",
+		"rhssaf_army_m10_digital_crew_armored",
+		"rhssaf_army_m10_digital_crew",
+		"rhssaf_army_m93_oakleaf_summer_crew",
+		"rhssaf_un_m10_digital_desert_crew",
+		"rhssaf_un_m10_digital_crew",
+		"rhsgref_nat_pmil_crew",
+		"rhsgref_nat_crew",
+		"rhsgref_ins_g_crew",
+		"rhsgref_cdf_ngd_crew",
+		"rhsgref_cdf_un_crew",
+		"rhsgref_cdf_reg_crew_commander",
+		"rhsgref_cdf_reg_crew",
+		"rhsgref_cdf_para_crew",
+		"rhsgref_tla_g_crew",
+
 		"B_W_Crew_F",
 		"B_crew_F",
 		"B_T_Crew_F",
@@ -270,6 +287,12 @@ _arr = [
 ];
 #ifdef __ARMA3__
 	_arr append [
+		"rhssaf_airforce_pilot_mig29",
+		"rhssaf_airforce_pilot_transport_heli",
+		"rhsgref_ins_g_pilot",
+		"rhsgref_cdf_air_pilot",
+		"rhsgref_cdf_un_pilot",
+
 		"rhs_pilot_combat_heli",
 		"rhs_pilot",
 		"rhs_pilot_transport_heli",
