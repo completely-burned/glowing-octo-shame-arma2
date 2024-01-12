@@ -4,7 +4,7 @@
 	// RUS_SpecOps, MVD
 	// Default
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_O_RU");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	if (_tmp > 0 or (_tmp == -1 && _n >= 150)) then {
 		_east=_east+[
 			// configName InfSquad
@@ -387,7 +387,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 //-- CUP_B_US_Army
 	// UCP, OCP, OEFCP
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_B_US_Army");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	// Air
 	_west=_west+[
 		// configName CUP_B_US_Army_A10Flight
