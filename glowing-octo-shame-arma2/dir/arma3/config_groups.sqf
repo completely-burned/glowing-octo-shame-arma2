@@ -822,7 +822,8 @@ _east=_east+[
 
 #include "config_groups_Apex.sqf"
 #include "config_groups_Enoch.sqf"
-// RHS
+
+#include "config_groups_CUP.sqf"
 #include "config_groups_RHS.sqf"
 
 // _west=[

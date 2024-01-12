@@ -159,6 +159,18 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_CUP_O_RU {
+			title="FACTION: CUP_O_RU";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_CUP_B_US_Army {
+			title="FACTION: CUP_B_US_Army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 	#else
 	class gosa_faction_multiplier_INS {
 		title="FACTION: BIS_INS";
