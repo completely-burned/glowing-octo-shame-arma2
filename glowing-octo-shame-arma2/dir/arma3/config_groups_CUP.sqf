@@ -582,3 +582,57 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		];
 	};
 };
+
+//-- CUP_I_NAPA
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_I_NAPA");
+if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+	_guer=_guer+[
+		// configName CUP_I_NAPA_MechInfSection
+		[[[["CUP_I_GUE_Soldier_AR","CUP_I_BRDM2_NAPA","CUP_I_GUE_Soldier_GL","CUP_I_GUE_Soldier_AKSU"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+		0.1],
+		// configName CUP_I_NAPA_MechInfSquad
+		[[[["CUP_I_GUE_Commander",
+		"CUP_I_BMP2_NAPA","CUP_I_GUE_Soldier_MG",
+		"CUP_I_GUE_Soldier_GL","CUP_I_GUE_Soldier_AKS74",
+		"CUP_I_GUE_Soldier_AR","CUP_I_GUE_Sniper",
+		"CUP_I_GUE_Soldier_AT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],
+		0.05],
+		// configName CUP_I_NAPA_TankSection
+		[[[["CUP_I_T72_NAPA","CUP_I_T72_NAPA"],[[0,10,0],[5,0,0]],["SERGEANT","CORPORAL"]]],0.01],
+		// configName CUP_I_NAPA_T55Section
+		[[[["CUP_I_T55_NAPA","CUP_I_T55_NAPA"],[[0,10,0],[5,0,0]],["SERGEANT","CORPORAL"]]],0.01],
+
+		// configName CUP_I_NAPA_InfSquad
+		[[[["CUP_I_GUE_Commander",
+		"CUP_I_GUE_Soldier_GL","CUP_I_GUE_Soldier_AR",
+		"CUP_I_GUE_Soldier_AKSU","CUP_I_GUE_Soldier_AKS74",
+		"CUP_I_GUE_Soldier_GL","CUP_I_GUE_Soldier_AKM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
+		// configName CUP_I_NAPA_InfSquad_Assault
+		[[[["CUP_I_GUE_Commander",
+		"CUP_I_GUE_Soldier_GL","CUP_I_GUE_Soldier_MG",
+		"CUP_I_GUE_Soldier_AT","CUP_I_GUE_Soldier_AR",
+		"CUP_I_GUE_Soldier_MG","CUP_I_GUE_Soldier_AT",
+		"CUP_I_GUE_Soldier_AKM","CUP_I_GUE_Soldier_AKSU"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+		// configName CUP_I_NAPA_InfSquad_Weapons
+		[[[["CUP_I_GUE_Soldier_AKM",
+		"CUP_I_GUE_Soldier_MG","CUP_I_GUE_Soldier_AT",
+		"CUP_I_GUE_Soldier_MG","CUP_I_GUE_Soldier_GL",
+		"CUP_I_GUE_Soldier_AT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.9],
+		// configName CUP_I_NAPA_InfTeam_1
+		[[[["CUP_I_GUE_Soldier_AKM","CUP_I_GUE_Soldier_MG","CUP_I_GUE_Soldier_AT","CUP_I_GUE_Soldier_GL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],1],
+		// configName CUP_I_NAPA_InfTeam_2
+		[[[["CUP_I_GUE_Soldier_AKSU","CUP_I_GUE_Soldier_AR","CUP_I_GUE_Soldier_GL","CUP_I_GUE_Soldier_AKM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],1],
+		// configName CUP_I_NAPA_InfTeam_AT
+		[[[["CUP_I_GUE_Soldier_AT","CUP_I_GUE_Soldier_AT","CUP_I_GUE_Soldier_AR"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE"]]],0.8],
+		// configName CUP_I_NAPA_GrpInf_TeamAA
+		[[[["CUP_I_GUE_Commander","CUP_I_GUE_Soldier_AA","CUP_I_GUE_Soldier_AA","CUP_I_GUE_Soldier_AR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+
+		// configName CUP_I_NAPA_GrpInf_TeamSniper
+		[[[["CUP_I_GUE_Sniper","CUP_I_GUE_Soldier_Scout"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.8],
+		// configName CUP_I_NAPA_GrpInf_Militia
+		[[[["CUP_I_GUE_Local",
+		"CUP_I_GUE_Forester","CUP_I_GUE_Farmer",
+		"CUP_I_GUE_Gamekeeper","CUP_I_GUE_Woodman",
+		"CUP_I_GUE_Villager"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
+	];
+};
