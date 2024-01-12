@@ -18,7 +18,7 @@ if !(isNil "gosa_IslandType") exitWith {gosa_IslandType};
 
 private ["_w","_r"];
 _w = toLower worldName;
-_r = [-1,2012];
+_r = [250,2012];
 
 // Тип.
 if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter"]) then {_r set [0,100]};
@@ -28,7 +28,7 @@ if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3"]) then {_
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 	"mcn_neaville","i44_merderet_v2","i44_merderet"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl"]) then {_r set [0,225]};
-if (_w in ["altis"]) then {_r set [0,250]};
+if (_w in ["altis","vr"]) then {_r set [0,250]};
 if (_w in ["zargabad","takistan","desert_e","shapur_baf","mountains_acr"]) then {_r set [0,300]};
 
 // Дата.
