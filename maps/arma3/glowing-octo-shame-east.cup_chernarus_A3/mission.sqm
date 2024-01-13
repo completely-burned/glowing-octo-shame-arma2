@@ -86,21 +86,13 @@ class CustomAttributes
 					singleType="ARRAY";
 					class value
 					{
-						items=2;
+						items=1;
 						class Item0
 						{
 							class data
 							{
 								singleType="STRING";
 								value="MenuPosition";
-							};
-						};
-						class Item1
-						{
-							class data
-							{
-								singleType="STRING";
-								value="Counter";
 							};
 						};
 					};
@@ -129,11 +121,29 @@ class CustomAttributes
 				class data
 				{
 					singleType="SCALAR";
-					value=2;
+					value=1;
 				};
 			};
 		};
 		nAttributes=3;
+	};
+	class Category1
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="EnableDebugConsole";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
 	};
 };
 class Mission

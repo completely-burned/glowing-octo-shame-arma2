@@ -103,37 +103,13 @@ class CustomAttributes
 					singleType="ARRAY";
 					class value
 					{
-						items=4;
+						items=1;
 						class Item0
 						{
 							class data
 							{
 								singleType="STRING";
 								value="MenuPosition";
-							};
-						};
-						class Item1
-						{
-							class data
-							{
-								singleType="STRING";
-								value="Spectator";
-							};
-						};
-						class Item2
-						{
-							class data
-							{
-								singleType="STRING";
-								value="Counter";
-							};
-						};
-						class Item3
-						{
-							class data
-							{
-								singleType="STRING";
-								value="None";
 							};
 						};
 					};
@@ -162,7 +138,7 @@ class CustomAttributes
 				class data
 				{
 					singleType="SCALAR";
-					value=2;
+					value=1;
 				};
 			};
 		};
