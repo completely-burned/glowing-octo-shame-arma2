@@ -100,7 +100,7 @@ class CustomAttributes
 					singleType="ARRAY";
 					class value
 					{
-						items=4;
+						items=3;
 						class Item0
 						{
 							class data
@@ -118,14 +118,6 @@ class CustomAttributes
 							};
 						};
 						class Item2
-						{
-							class data
-							{
-								singleType="STRING";
-								value="Spectator";
-							};
-						};
-						class Item3
 						{
 							class data
 							{
@@ -266,37 +258,6 @@ class Mission
 					};
 					id=3;
 					type="rhssaf_army_o_m10_digital_officer";
-					atlOffset=3.8146973e-006;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03GRE";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.99000001;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item2
 				{
@@ -314,37 +275,6 @@ class Mission
 					};
 					id=4;
 					type="rhssaf_army_o_m10_digital_sq_lead";
-					atlOffset=3.8146973e-006;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male06GRE";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item3
 				{
@@ -362,36 +292,6 @@ class Mission
 					};
 					id=5;
 					type="rhssaf_army_o_m10_digital_rifleman_m21";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male06GRE";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -423,36 +323,6 @@ class Mission
 					};
 					id=7;
 					type="rhssaf_army_o_m93_oakleaf_summer_officer";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02GRE";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -471,36 +341,6 @@ class Mission
 					};
 					id=8;
 					type="rhssaf_army_o_m93_oakleaf_summer_officer";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male06GRE";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.01;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item2
 				{
@@ -518,37 +358,6 @@ class Mission
 					};
 					id=9;
 					type="rhssaf_army_o_m93_oakleaf_summer_sq_lead";
-					atlOffset=-3.8146973e-006;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02GRE";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.98000002;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item3
 				{
@@ -566,36 +375,6 @@ class Mission
 					};
 					id=10;
 					type="rhssaf_army_o_m93_oakleaf_summer_rifleman_m70";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02GRE";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -1101,7 +880,6 @@ class Mission
 			isPlayable=1;
 			id=61;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item48
 		{
@@ -1114,7 +892,6 @@ class Mission
 			isPlayable=1;
 			id=66;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item49
 		{
@@ -1127,7 +904,6 @@ class Mission
 			isPlayable=1;
 			id=67;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item50
 		{
@@ -1140,7 +916,6 @@ class Mission
 			isPlayable=1;
 			id=68;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item51
 		{
@@ -1153,7 +928,6 @@ class Mission
 			isPlayable=1;
 			id=69;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item52
 		{
@@ -1166,7 +940,6 @@ class Mission
 			isPlayable=1;
 			id=70;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item53
 		{
@@ -1179,7 +952,6 @@ class Mission
 			isPlayable=1;
 			id=71;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item54
 		{
@@ -1192,7 +964,6 @@ class Mission
 			isPlayable=1;
 			id=72;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item55
 		{
@@ -1205,7 +976,6 @@ class Mission
 			isPlayable=1;
 			id=73;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item56
 		{
@@ -1218,7 +988,6 @@ class Mission
 			isPlayable=1;
 			id=74;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 	};
 	class Connections
