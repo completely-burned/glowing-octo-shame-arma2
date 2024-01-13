@@ -449,15 +449,91 @@ class Mission
 		};
 		class Item20
 		{
-			dataType="Logic";
-			class PositionInfo
+			dataType="Group";
+			side="East";
+			class Entities
 			{
-				position[]={6116.1401,17.530001,7424.3408};
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2117.2681,14.861439,2034.697};
+						angles[]={0,0.95541072,0};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						skill=0.60000002;
+						rank="CAPTAIN";
+						isPlayer=1;
+					};
+					id=170;
+					type="O_officer_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2110.2991,14.861439,2035.8931};
+						angles[]={0,0.95541072,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.55000001;
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=171;
+					type="O_officer_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2114.917,14.861439,2029.3611};
+						angles[]={0,0.95541072,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						skill=0.55000001;
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=172;
+					type="O_officer_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2116.072,14.861439,2027.728};
+						angles[]={0,0.95541072,0};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=173;
+					type="O_Soldier_lite_F";
+				};
 			};
-			name="HeadlessClient";
-			isPlayable=1;
-			id=61;
-			type="HeadlessClient_F";
+			class Attributes
+			{
+			};
+			id=134;
 		};
 		class Item21
 		{
@@ -569,91 +645,15 @@ class Mission
 		};
 		class Item30
 		{
-			dataType="Group";
-			side="East";
-			class Entities
+			dataType="Logic";
+			class PositionInfo
 			{
-				items=4;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2117.2681,14.861439,2034.697};
-						angles[]={0,0.95541072,0};
-					};
-					side="East";
-					flags=6;
-					class Attributes
-					{
-						skill=0.60000002;
-						rank="CAPTAIN";
-						isPlayer=1;
-					};
-					id=170;
-					type="O_officer_F";
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2110.2991,14.861439,2035.8931};
-						angles[]={0,0.95541072,0};
-					};
-					side="East";
-					flags=4;
-					class Attributes
-					{
-						skill=0.55000001;
-						rank="LIEUTENANT";
-						isPlayable=1;
-					};
-					id=171;
-					type="O_officer_F";
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2114.917,14.861439,2029.3611};
-						angles[]={0,0.95541072,0};
-					};
-					side="East";
-					flags=4;
-					class Attributes
-					{
-						skill=0.55000001;
-						rank="LIEUTENANT";
-						isPlayable=1;
-					};
-					id=172;
-					type="O_officer_F";
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={2116.072,14.861439,2027.728};
-						angles[]={0,0.95541072,0};
-					};
-					side="East";
-					flags=4;
-					class Attributes
-					{
-						rank="SERGEANT";
-						isPlayable=1;
-					};
-					id=173;
-					type="O_Soldier_lite_F";
-				};
+				position[]={6116.1401,17.530001,7424.3408};
 			};
-			class Attributes
-			{
-			};
-			id=134;
+			name="HeadlessClient";
+			isPlayable=1;
+			id=61;
+			type="HeadlessClient_F";
 		};
 		class Item31
 		{
