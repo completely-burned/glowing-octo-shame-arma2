@@ -21,11 +21,10 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 	//-- Items
 	_box = getItemCargo _this;
 
-	_arr = [];
-	for "_i" from 0 to (count (_box select 0) - 1) do {
-		_arr set [_i, toLower (_box select 0 select _i)];
+	_arr = _box select 0;
+	for "_i" from 0 to (count _arr -1) do {
+		_arr set [_i, toLower (_arr select _i)];
 	};
-	_box set [0, _arr];
 
 	_arr = _Magazines select 3;
 	for "_i" from 0 to (count _arr - 1) do {
@@ -39,7 +38,9 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 		if (_count > 0) then {
 			//_num = getNumber (_entry >> "transportMaxItems");
 			//if (count (_box select 0) < _num) then {
-				_this addItemCargo [_str, _count min 3];
+				_num = _count min 3;
+				diag_log format ["Log: [fnc_updateReammoBox] %1 addItemCargo %3 %2", _this, _str, _num];
+				_this addItemCargo [_str, _num];
 			//};
 		};
 	};
@@ -50,11 +51,10 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 	_box = getMagazineCargo _this;
 
 	// TODO: Нужна функция.
-	_arr = [];
-	for "_i" from 0 to (count (_box select 0) - 1) do {
-		_arr set [_i, toLower (_box select 0 select _i)];
+	_arr = _box select 0;
+	for "_i" from 0 to (count _arr -1) do {
+		_arr set [_i, toLower (_arr select _i)];
 	};
-	_box set [0, _arr];
 
 	_arr = _Magazines select 0;
 	for "_i" from 0 to (count _arr - 1) do {
@@ -68,7 +68,9 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 		if (_count > 0) then {
 			//_num = getNumber (_entry >> "transportMaxMagazines");
 			//if (count (_box select 0) < _num) then {
-				_this addMagazineCargo [_str, _count min 2];
+				_num = _count min 2;
+				diag_log format ["Log: [fnc_updateReammoBox] %1 addMagazineCargo %3 %2", _this, _str, _num];
+				_this addMagazineCargo [_str, _num];
 			//};
 		};
 	};
@@ -77,11 +79,10 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 	//-- Weapon
 	_box = getWeaponCargo _this;
 
-	_arr = [];
-	for "_i" from 0 to (count (_box select 0) - 1) do {
-		_arr set [_i, toLower (_box select 0 select _i)];
+	_arr = _box select 0;
+	for "_i" from 0 to (count _arr -1) do {
+		_arr set [_i, toLower (_arr select _i)];
 	};
-	_box set [0, _arr];
 
 	_arr = _Magazines select 1;
 	for "_i" from 0 to (count _arr - 1) do {
@@ -95,7 +96,9 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 		if (_count > 0) then {
 			//_num = getNumber (_entry >> "transportMaxWeapons");
 			//if (count (_box select 0) < _num) then {
-				_this addWeaponCargo [_str, _count min 1];
+				_num = _count min 1;
+				diag_log format ["Log: [fnc_updateReammoBox] %1 addWeaponCargo %3 %2", _this, _str, _num];
+				_this addWeaponCargo [_str, _num];
 			//};
 		};
 	};
@@ -104,11 +107,10 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 	//-- Backpack
 	_box = getBackpackCargo _this;
 
-	_arr = [];
-	for "_i" from 0 to (count (_box select 0) - 1) do {
-		_arr set [_i, toLower (_box select 0 select _i)];
+	_arr = _box select 0;
+	for "_i" from 0 to (count _arr -1) do {
+		_arr set [_i, toLower (_arr select _i)];
 	};
-	_box set [0, _arr];
 
 	_arr = _Magazines select 2;
 	for "_i" from 0 to (count _arr - 1) do {
@@ -122,7 +124,9 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 		if (_count > 0) then {
 			//_num = getNumber (_entry >> "transportMaxBackpacks");
 			//if (count (_box select 0) < _num) then {
-				_this addBackpackCargo [_str, _count min 1];
+				_num = _count min 1;
+				diag_log format ["Log: [fnc_updateReammoBox] %1 addBackpackCargo %3 %2", _this, _str, _num];
+				_this addBackpackCargo [_str, _num];
 			//};
 		};
 	};
