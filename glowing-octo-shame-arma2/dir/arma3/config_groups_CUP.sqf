@@ -403,15 +403,6 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	// Inf.
 	if (_tmp > 0 or (_tmp == -1 && (_n < 150 or _n > 250))) then {
 		_west=_west+[
-			// configName CUP_B_US_Army_MotorizedSection_UCP
-			[[[["CUP_B_US_Soldier_SL_UCP",
-			"CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_MK19_USA",
-			"CUP_B_US_Soldier_AT_UCP","CUP_B_US_Soldier_GL_UCP",
-			"CUP_B_US_Soldier_GL_UCP","CUP_B_US_Soldier_AAT_UCP",
-			"CUP_B_US_Soldier_Marksman_UCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_B_US_Army_MotorizedSectionAT_UCP
-			[[[["CUP_B_US_Soldier_SL_UCP","CUP_B_HMMWV_TOW_USA","CUP_B_HMMWV_TOW_USA","CUP_B_US_Soldier_AR_UCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.15],
-
 			// configName CUP_B_US_Army_RifleSquad_UCP
 			[[[["CUP_B_US_Soldier_SL_UCP",
 			"CUP_B_US_Soldier_TL_UCP","CUP_B_US_Soldier_GL_UCP",
@@ -434,17 +425,6 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 			[[[["CUP_B_US_Soldier_TL_UCP","CUP_B_US_Soldier_GL_UCP","CUP_B_US_Soldier_Marksman_UCP","CUP_B_US_Medic_UCP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.1],
 			// configName CUP_B_US_Army_HeavyATTeam_UCP
 			[[[["CUP_B_US_Soldier_HAT_UCP","CUP_B_US_Soldier_HAT_UCP","CUP_B_US_Soldier_AHAT_UCP"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
-
-			// configName CUP_B_US_Army_MotorizedSection_OCP
-			[[[["CUP_B_US_Soldier_SL_OCP",
-			"CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_MK19_USA",
-			"CUP_B_US_Soldier_AT_OCP","CUP_B_US_Soldier_GL_OCP",
-			"CUP_B_US_Soldier_GL_OCP","CUP_B_US_Soldier_AAT_OCP",
-			"CUP_B_US_Soldier_Marksman_OCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_B_US_Army_MotorizedSectionAT_OCP
-			[[[["CUP_B_US_Soldier_SL_OCP","CUP_B_HMMWV_TOW_USA","CUP_B_HMMWV_TOW_USA","CUP_B_US_Soldier_AR_OCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.15],
-			// configName CUP_B_US_Army_DeltaPatrolHMMWV
-			[[[["CUP_B_US_SpecOps_TL","CUP_B_HMMWV_SOV_USA","CUP_B_US_SpecOps_Assault","CUP_B_US_SpecOps_M"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0],
 
 			// configName CUP_B_US_Army_RifleSquad_OCP
 			[[[["CUP_B_US_Soldier_SL_OCP",
@@ -514,6 +494,17 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	// Vehicles Desert
 	if (_tmp > 0 or (_tmp == -1 && (_n < 150 or _n > 250))) then {
 		_west=_west+[
+			// configName CUP_B_US_Army_DeltaPatrolHMMWV
+			[[[["CUP_B_US_SpecOps_TL","CUP_B_HMMWV_SOV_USA","CUP_B_US_SpecOps_Assault","CUP_B_US_SpecOps_M"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0],
+
+			// configName CUP_B_US_Army_MotorizedSection_UCP
+			[[[["CUP_B_US_Soldier_SL_UCP",
+			"CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_MK19_USA",
+			"CUP_B_US_Soldier_AT_UCP","CUP_B_US_Soldier_GL_UCP",
+			"CUP_B_US_Soldier_GL_UCP","CUP_B_US_Soldier_AAT_UCP",
+			"CUP_B_US_Soldier_Marksman_UCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+			// configName CUP_B_US_Army_MotorizedSectionAT_UCP
+			[[[["CUP_B_US_Soldier_SL_UCP","CUP_B_HMMWV_TOW_USA","CUP_B_HMMWV_TOW_USA","CUP_B_US_Soldier_AR_UCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.15],
 			// configName CUP_B_US_Army_MechanizedInfantrySquadICVM2_UCP
 			[[[["CUP_B_US_Soldier_SL_UCP",
 			"CUP_B_M1126_ICV_M2_Desert","CUP_B_US_Soldier_TL_UCP",
@@ -533,6 +524,15 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 			"CUP_B_M2A3Bradley_USA_D","CUP_B_US_Soldier_AR_UCP",
 			"CUP_B_US_Soldier_GL_UCP","CUP_B_US_Soldier_GL_UCP",
 			"CUP_B_US_Soldier_AT_UCP","CUP_B_US_Soldier_LAT_UCP"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE"]]],0.6],
+
+			// configName CUP_B_US_Army_MotorizedSection_OCP
+			[[[["CUP_B_US_Soldier_SL_OCP",
+			"CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_MK19_USA",
+			"CUP_B_US_Soldier_AT_OCP","CUP_B_US_Soldier_GL_OCP",
+			"CUP_B_US_Soldier_GL_OCP","CUP_B_US_Soldier_AAT_OCP",
+			"CUP_B_US_Soldier_Marksman_OCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+			// configName CUP_B_US_Army_MotorizedSectionAT_OCP
+			[[[["CUP_B_US_Soldier_SL_OCP","CUP_B_HMMWV_TOW_USA","CUP_B_HMMWV_TOW_USA","CUP_B_US_Soldier_AR_OCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.15],
 			// configName CUP_B_US_Army_MechanizedInfantrySquadICVM2_OCP
 			[[[["CUP_B_US_Soldier_SL_OCP",
 			"CUP_B_M1126_ICV_M2_Desert","CUP_B_US_Soldier_TL_OCP",
@@ -571,6 +571,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 			"CUP_B_M2A3Bradley_USA_D","CUP_B_US_Soldier_AR_OEFCP",
 			"CUP_B_US_Soldier_GL_OEFCP","CUP_B_US_Soldier_GL_OEFCP",
 			"CUP_B_US_Soldier_AT_OEFCP","CUP_B_US_Soldier_LAT_OEFCP"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE"]]],0.6],
+
 			// configName CUP_B_US_Army_MGSPlatoon
 			[[[["CUP_B_M1128_MGS_Desert","CUP_B_M1128_MGS_Desert","CUP_B_M1128_MGS_Desert"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT"]]],0.05],
 			// configName CUP_B_US_Army_M1A2Platoon
