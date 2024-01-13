@@ -1,20 +1,21 @@
 /*
-Не рекомендуется забивать грузовики до отказа
-иначе боты дольше тупят.
-Оригинальные отряды лучше не изменять,
-они хорошо сбалансированы.
-
-	rankId
-		0 - Private
-		1 - Corporal
-		2 - Sergeant
-		3 - Lieutenant
-		4 - Captain
-		5 - Major
-		6 - Colonel
-
-TODO: FIA можно сделать либо за игроков или против, но не за обе стороны.
-*/
+ * Не рекомендуется забивать грузовики до отказа
+ * иначе боты дольше тупят.
+ * Оригинальные отряды лучше не изменять,
+ * они хорошо сбалансированы.
+ * 
+ * 	rankId
+ * 		0 - Private
+ * 		1 - Corporal
+ * 		2 - Sergeant
+ * 		3 - Lieutenant
+ * 		4 - Captain
+ * 		5 - Major
+ * 		6 - Colonel
+ * 
+ * TODO: FIA можно сделать либо за игроков или против, но не за обе стороны.
+ * TODO: Корректировка даты.
+ */
 
 // define ранга.
 #include "..\include\ranks.hpp"
@@ -37,7 +38,7 @@ _d = (gosa_IslandType select 1);
 
 // B_
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_F");
-if (_tmp > 0 or (_d >= 2035 && _tmp == -1)) then {
+if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
 if ((( _n <= 160 or _n >= 250) && 
 	_tmp == -1) or
 	_tmp > 0) then
@@ -236,7 +237,7 @@ if(true)then{
 
 // O_
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_F");
-if (_tmp > 0 or (_d >= 2035 && _tmp == -1)) then {
+if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
 if (((_n <= 160 or _n >= 250) && 
 	_tmp == -1) or
 	_tmp > 0) then
