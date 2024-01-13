@@ -87,8 +87,13 @@ while{true}do{
 				_box call gosa_fnc_updateReammoBox;
 			};
 		};
-	}
-	forEach (allMissionObjects 'ReammoBox');
+	} forEach (allMissionObjects 
+		#ifdef __ARMA3__
+			"ReammoBox_F"
+		#else
+			"ReammoBox"
+		#endif
+	);
 
 	diag_log format ["Log: [server_update_other] performance ReammoBox %1", time];
 
