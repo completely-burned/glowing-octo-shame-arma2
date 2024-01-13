@@ -1,8 +1,18 @@
 #define __A2OA__
 /*
  * Скрипт восстанавливает содержимое ящика.
- * TODO: Исправить проверку на переполнение.
+ * TODO: Необходима защита от переполнения ящиков.
  */
+
+#ifdef __ARMA3__
+	// Оптимизация.
+	#define toLower toLowerANSI
+	// В A3 работает только *Global.
+	#define addItemCargo addItemCargoGlobal
+	#define addMagazineCargo addMagazineCargoGlobal
+	#define addWeaponCargo addWeaponCargoGlobal
+	#define addBackpackCargo addBackpackCargoGlobal
+#endif
 
 private ["_Magazines","_box","_item","_entry",
 	"_count","_arr","_num","_str","_type","_cfgVeh"];
