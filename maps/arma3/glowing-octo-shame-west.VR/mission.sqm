@@ -1,0 +1,431 @@
+version=54;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=21;
+	};
+	class MarkerIDProvider
+	{
+		nextID=2;
+	};
+	class Camera
+	{
+		pos[]={3729.7651,35.783768,3571.0801};
+		dir[]={0.62083566,-0.23754406,0.74712449};
+		up[]={0.15182011,0.97137487,0.18270211};
+		aside[]={0.76913041,-3.4458935e-008,-0.6391232};
+	};
+};
+binarizationWanted=0;
+sourceName="glowing-octo-shame-west";
+addons[]=
+{
+	"A3_Modules_F",
+	"A3_Ui_F",
+	"A3_Characters_F",
+	"A3_Structures_F_Mil_Cargo",
+	"A3_Structures_F_Ind_AirPort"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=5;
+		class Item0
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Structures_F_Ind";
+			name="Arma 3 - Industrial Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+randomSeed=148431;
+class ScenarioData
+{
+	author="draga";
+};
+class Mission
+{
+	class Intel
+	{
+		briefingName="CO 00 glowing-octo-shame VR West v0.0.5.905 DEBUG";
+		timeOfChanges=1800.0002;
+		startWeather=0;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		day=28;
+		hour=13;
+		minute=37;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=9;
+		class Item0
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3993.2639,5,4003.8789};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=3;
+			type="Logic";
+		};
+		class Item1
+		{
+			dataType="Marker";
+			position[]={8187.7461,5,8185.0552};
+			name="gosa_worldSize";
+			type="Empty";
+			id=4;
+		};
+		class Item2
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3768.571,5.0014391,3611.8611};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayer=1;
+					};
+					id=6;
+					type="B_Soldier_VR_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male01ENGVR";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3766.6814,5.0014391,3615.6409};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=7;
+					type="B_Soldier_VR_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3771.2195,5.0014391,3616.5232};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=8;
+					type="B_Soldier_VR_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3766.6814,5.0014391,3619.4211};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=9;
+					type="B_Soldier_VR_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3768.5708,5.0014391,3617.531};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=11;
+					type="B_Soldier_VR_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3765.9053,5.0014391,3617.7854};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+					};
+					id=12;
+					type="B_Soldier_VR_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=5;
+		};
+		class Item3
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3766.0161,8.8754005,3661.936};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
+			};
+			id=13;
+			type="Land_Cargo_HQ_V3_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item4
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3769.761,5,3645.04};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=14;
+			type="LocationBase_F";
+		};
+		class Item5
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4815.6919,8.8754005,4823.7622};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
+			};
+			id=16;
+			type="Land_Cargo_HQ_V3_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item6
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4819.438,5,4806.8662};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=17;
+			type="LocationBase_F";
+		};
+		class Item7
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4851.3032,10.463457,4790.4741};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 1];";
+			};
+			id=19;
+			type="Land_Hangar_F";
+		};
+		class Item8
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3801.627,10.463457,3628.6479};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 1];";
+			};
+			id=20;
+			type="Land_Hangar_F";
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=4;
+		};
+		class Links
+		{
+			items=4;
+			class Item0
+			{
+				linkID=0;
+				item0=14;
+				item1=13;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=20;
+				item1=14;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=17;
+				item1=16;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=19;
+				item1=17;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
+	};
+};

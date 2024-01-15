@@ -6,7 +6,11 @@
 TODO: слишком много allMissionObjects нагружает цп
 */
 
-private ["_deleteList","_r_base"];
+private ["_deleteList","_r_base","_arr","_box","_type","_pos","_dir",
+	"_var_noDelete","_veh","_cfgVeh","_entry"];
+
+_cfgVeh = LIB_cfgVeh;
+_var_noDelete = "_noDelete";
 
 _r_base = missionNamespace getVariable "respawn";
 	if (_r_base == 0) then {
@@ -18,23 +22,23 @@ _r_base = missionNamespace getVariable "respawn";
 
 {
 	_x allowDamage false;
-	_x setVariable ["_noDelete",true];
+	_x setVariable [_var_noDelete, true];
 }forEach(allMissionObjects 'MASH')+(allMissionObjects 'ReammoBox')+(allMissionObjects 'WarfareBCamp');
 
 {
 	_x allowDamage false;
 	//_x spawn gosa_fnc_mobileHQ_init;
-	_x setVariable ["_noDelete",true];
+	_x setVariable [_var_noDelete, true];
 }forEach (allMissionObjects "Warfare_HQ_base_unfolded");
 
-while{true}do{
+while{sleep 12 + random 5; true}do{
 
 	diag_log format ["Log: [server_update_other] performance start %1", time];
 
 	_deleteList=[];
 
 	{
-		if ( isNil {_x getVariable "_noDelete"} ) then {
+		if ( isNil {_x getVariable _var_noDelete} ) then {
 			if (!alive _x) then {
 			_deleteList set [count _deleteList,_x];
 			};
@@ -50,7 +54,7 @@ while{true}do{
 				_veh allowDamage false;
 				_veh setDir _dir;
 				_veh setPos _pos;
-				_veh setVariable ["_noDelete",true];
+				_veh setVariable [_var_noDelete, true];
 			};
 		};
 	}
@@ -58,37 +62,46 @@ while{true}do{
 
 	diag_log format ["Log: [server_update_other] performance MASH %1", time];
 
-	{
-		private["_box"];
-		_box = _x;
-		if (!alive _box) then {
-			if ( isNil {_box getVariable "_noDelete"} ) then {
-				deleteVehicle _box;
+	//-- ReammoBox
+	_arr = (allMissionObjects 
+		#ifdef __ARMA3__
+			"ReammoBox_F"
+		#else
+			"ReammoBox"
+		#endif
+	);
+	sleep 3;
+	for "_i" from 0 to (count _arr -1) do {
+		_box = _arr select _i;
+		_type = typeOf _box;
+		_entry = _cfgVeh >> _type;
+		if (alive _box) then {
+			if (getNumber (_entry >> "showweaponcargo") > 0 or 
+				toLower getText (_entry >> "vehicleclass") == "backpacks") then
+			{
+				_deleteList set [count _deleteList, _box];
 			}else{
-				Private ["_type","_pos","_dir","_veh"];
-				_type = typeOf _box;
-				_pos = getPos _box;
-				_pos resize 2;
-				_dir = getDir _box;
-				deleteVehicle _box;
-				_veh = createVehicle [_type, [0,0], [], 0, "NONE"];
-				_veh allowDamage false;
-				_veh setDir _dir;
-				_veh setPos _pos;
-				_veh setVariable ["_noDelete",true];
-			};
-		}else{
-			if (getNumber (configFile >> "CfgVehicles" >> typeOf _box >> "showweaponcargo") == 1 or getText (configFile >> "CfgVehicles" >> typeOf _box >> "vehicleclass") == "Backpacks") then {
-				_deleteList set [count _deleteList,_box];
-			}else{
-				if ( isNil {_box getVariable "_noDelete"} ) then {
-					_deleteList set [count _deleteList,_box];
+				if ( isNil {_box getVariable _var_noDelete} ) then {
+					_deleteList set [count _deleteList, _box];
 				};
 				_box call gosa_fnc_updateReammoBox;
 			};
+		}else{
+			if ( isNil {_box getVariable _var_noDelete} ) then {
+				deleteVehicle _box;
+			}else{
+				_pos = getPos _box;
+				//_pos resize 2;
+				_dir = getDir _box;
+				deleteVehicle _box;
+				_box = createVehicle [_type, [0 + random 100, 0 + random 100], [], 0, "NONE"];
+				_box allowDamage false;
+				_box setDir _dir;
+				_box setPos _pos;
+				_box setVariable [_var_noDelete, true];
+			};
 		};
-	}
-	forEach (allMissionObjects 'ReammoBox');
+	};
 
 	diag_log format ["Log: [server_update_other] performance ReammoBox %1", time];
 
@@ -114,8 +127,6 @@ while{true}do{
 	(_deleteList) call gosa_fnc_cleanup;
 
 	diag_log format ["Log: [server_update_other] performance end %1", time];
-
-	sleep 15 + random 5;
 };
 
 #endif

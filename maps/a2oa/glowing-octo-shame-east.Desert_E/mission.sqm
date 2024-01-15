@@ -1,0 +1,350 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"desert_e",
+		"cacharacters_e",
+		"warfarebuildings",
+		"camisc_e",
+		"ca_modules_functions"
+	};
+	addOnsAuto[]=
+	{
+		"cacharacters_e",
+		"ca_modules_functions",
+		"warfarebuildings",
+		"camisc_e",
+		"desert_e"
+	};
+	randomSeed=15354207;
+	class Intel
+	{
+		briefingName="CO 00 glowing-octo-shame Desert_E east v0.0.5.905 DEBUG";
+		startWeather=0.30000001;
+		forecastWeather=0.30000001;
+		year=2012;
+		month=6;
+		day=24;
+	};
+	class Groups
+	{
+		items=8;
+		class Item0
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=9;
+				class Item0
+				{
+					position[]={1380.7322,41.144226,1442.0239};
+					id=0;
+					side="EAST";
+					vehicle="TK_Soldier_SL_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item1
+				{
+					position[]={1383.7322,41.284168,1437.0239};
+					id=1;
+					side="EAST";
+					vehicle="TK_Soldier_MG_EP1";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item2
+				{
+					position[]={1385.7322,41.355507,1437.0239};
+					id=2;
+					side="EAST";
+					vehicle="TK_Soldier_AT_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item3
+				{
+					position[]={1387.7322,41.421726,1437.0239};
+					id=3;
+					side="EAST";
+					vehicle="TK_Soldier_GL_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item4
+				{
+					position[]={1389.7322,41.464405,1437.0239};
+					id=4;
+					side="EAST";
+					vehicle="TK_Soldier_MG_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item5
+				{
+					position[]={1391.7322,41.504406,1437.0239};
+					id=5;
+					side="EAST";
+					vehicle="TK_Soldier_LAT_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item6
+				{
+					position[]={1393.7322,41.518421,1437.0239};
+					id=6;
+					side="EAST";
+					vehicle="TK_Soldier_GL_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item7
+				{
+					position[]={1395.7322,41.524643,1437.0239};
+					id=7;
+					side="EAST";
+					vehicle="TK_Soldier_AAT_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item8
+				{
+					position[]={1397.7322,41.502991,1437.0239};
+					id=8;
+					side="EAST";
+					vehicle="TK_Soldier_AMG_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+			};
+		};
+		class Item1
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1746.8409,43.860077,1954.6235};
+					id=11;
+					side="LOGIC";
+					vehicle="LocationLogicStart";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item2
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1949.5618,47.788898,1363.6161};
+					id=12;
+					side="LOGIC";
+					vehicle="LocationLogicStart";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item3
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={325.80179,31.62215,1935.8354};
+					id=13;
+					side="LOGIC";
+					vehicle="LocationLogicStart";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item4
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={568.88574,32.865688,476.15417};
+					id=14;
+					side="LOGIC";
+					vehicle="LocationLogicStart";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item5
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1368.2935,40.817322,1468.6506};
+					id=15;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
+				};
+			};
+		};
+		class Item6
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1174.6672,39.079021,1460.0659};
+					id=16;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
+				};
+			};
+		};
+		class Item7
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={974.33777,75.915741,1061.114};
+					id=17;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+					leader=1;
+					skill=0.60000002;
+					init="nic = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=2;
+		class Item0
+		{
+			position[]={1362.1178,41.130604,1452.3673};
+			azimut=90;
+			id=9;
+			side="EMPTY";
+			vehicle="WarfareBCamp";
+			text="gosa_LogicLocationBase";
+			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+		};
+		class Item1
+		{
+			position[]={1374.8907,40.912529,1451.2767};
+			id=10;
+			side="EMPTY";
+			vehicle="MASH_EP1";
+			skill=0.2;
+		};
+	};
+	class Markers
+	{
+		items=2;
+		class Item0
+		{
+			position[]={2029.416,47.847702,2039.1405};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={1374.3322,40.830677,1461.9384};
+			name="playerStartPos";
+			type="Empty";
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"desert_e"
+	};
+	addOnsAuto[]=
+	{
+		"desert_e"
+	};
+	randomSeed=469014;
+	class Intel
+	{
+		startWeather=0.30000001;
+		forecastWeather=0.30000001;
+		year=2012;
+		month=6;
+		day=24;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"desert_e"
+	};
+	addOnsAuto[]=
+	{
+		"desert_e"
+	};
+	randomSeed=8508157;
+	class Intel
+	{
+		startWeather=0.30000001;
+		forecastWeather=0.30000001;
+		year=2012;
+		month=6;
+		day=24;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"desert_e"
+	};
+	addOnsAuto[]=
+	{
+		"desert_e"
+	};
+	randomSeed=9135676;
+	class Intel
+	{
+		startWeather=0.30000001;
+		forecastWeather=0.30000001;
+		year=2012;
+		month=6;
+		day=24;
+	};
+};

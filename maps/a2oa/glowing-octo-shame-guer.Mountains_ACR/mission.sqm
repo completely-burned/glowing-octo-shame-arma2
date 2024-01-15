@@ -1,0 +1,317 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"cacharacters_e",
+		"warfarebuildings",
+		"camisc3",
+		"caweapons_e_ammoboxes",
+		"mountains_acr",
+		"CAWheeled_E_stryker",
+		"CAWheeled_E_ATV",
+		"CAWheeled_E_LandRover",
+		"caweapons_acr",
+		"cacharacters_acr",
+		"CAWheeled2_MMT",
+		"camisc_e_wf",
+		"camisc_e"
+	};
+	addOnsAuto[]=
+	{
+		"cacharacters_e",
+		"warfarebuildings",
+		"camisc_e",
+		"mountains_acr"
+	};
+	randomSeed=12950556;
+	class Intel
+	{
+		briefingName="CO 00 glowing-octo-shame Mountains_ACR guer v0.0.5.905 DEBUG";
+		startWeather=0.39999998;
+		forecastWeather=0.39999998;
+		year=2009;
+		day=28;
+		hour=16;
+		minute=20;
+	};
+	class Groups
+	{
+		items=2;
+		class Item0
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={6196.5596,336.35376,4882.667};
+					id=2;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_TL_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item1
+				{
+					position[]={6199.5596,336.54617,4877.667};
+					id=3;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_MG_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item2
+				{
+					position[]={6201.5596,336.51807,4877.667};
+					id=4;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_4_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item3
+				{
+					position[]={6203.5596,336.48926,4877.667};
+					id=5;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_Sniper_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item4
+				{
+					position[]={6205.5596,336.45099,4877.667};
+					id=6;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_5_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item5
+				{
+					position[]={6207.5596,336.40842,4877.667};
+					id=7;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_AT_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item6
+				{
+					position[]={6209.5596,336.36362,4877.667};
+					id=8;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_MG_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item7
+				{
+					position[]={6211.5596,336.32156,4877.667};
+					id=9;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_4_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item8
+				{
+					position[]={6213.5596,336.27658,4877.667};
+					id=10;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_2_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item9
+				{
+					position[]={6215.5596,336.22858,4877.667};
+					id=11;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_5_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+			};
+		};
+		class Item1
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={6194.7842,336.77878,4873.2827};
+					id=12;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_TL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item1
+				{
+					position[]={6197.7842,336.94696,4868.2827};
+					id=13;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_MG_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item2
+				{
+					position[]={6199.7842,336.92776,4868.2827};
+					id=14;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_AT_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item3
+				{
+					position[]={6201.7842,336.89999,4868.2827};
+					id=15;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_MG_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item4
+				{
+					position[]={6203.7842,336.87119,4868.2827};
+					id=16;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_HAT_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item5
+				{
+					position[]={6205.7842,336.84241,4868.2827};
+					id=17;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_4_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=2;
+		class Item0
+		{
+			position[]={6156.5781,337.29025,4850.0586};
+			azimut=488.78806;
+			id=0;
+			side="EMPTY";
+			vehicle="WarfareBCamp";
+			text="gosa_LogicLocationBase";
+			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+		};
+		class Item1
+		{
+			position[]={6167.1504,337.20984,4854.3706};
+			azimut=-140.18909;
+			id=1;
+			side="EMPTY";
+			vehicle="MASH_EP1";
+			skill=0.2;
+		};
+	};
+	class Markers
+	{
+		items=2;
+		class Item0
+		{
+			position[]={6344.2017,311.54187,6335.269};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={6163.4302,337.23837,4852.6572};
+			name="playerStartPos";
+			type="Empty";
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"mountains_acr"
+	};
+	addOnsAuto[]=
+	{
+		"mountains_acr"
+	};
+	randomSeed=3386467;
+	class Intel
+	{
+		startWeather=0.40000001;
+		forecastWeather=0.40000001;
+		year=2009;
+		day=28;
+		hour=16;
+		minute=20;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"mountains_acr"
+	};
+	addOnsAuto[]=
+	{
+		"mountains_acr"
+	};
+	randomSeed=11339499;
+	class Intel
+	{
+		startWeather=0.40000001;
+		forecastWeather=0.40000001;
+		year=2009;
+		day=28;
+		hour=16;
+		minute=20;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"mountains_acr"
+	};
+	addOnsAuto[]=
+	{
+		"mountains_acr"
+	};
+	randomSeed=15240113;
+	class Intel
+	{
+		startWeather=0.40000001;
+		forecastWeather=0.40000001;
+		year=2009;
+		day=28;
+		hour=16;
+		minute=20;
+	};
+};

@@ -13,4 +13,12 @@ waitUntil {!isNil "gosa_types_mhq"};
 	diag_log format ["Log: [server_init_HQ]: gosa_listHQ_%1 %2", _x, _arr];
 } forEach [east, west, resistance];
 init_list_HQ = true;
+
+#ifndef __ARMA3__
+	// Проблема синхронизации publicVariable Arma 2.
+	sleep 1;
+#endif
+gosa_listHQ_init_done = init_list_HQ;
+publicVariable "gosa_listHQ_init_done";
+
 diag_log format ["Log: [server_init_HQ]: Done.", nil];

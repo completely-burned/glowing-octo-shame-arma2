@@ -1,0 +1,255 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"cacharacters_e",
+		"provinggrounds_pmc",
+		"warfarebuildings",
+		"camisc_e",
+		"ca_modules_functions"
+	};
+	addOnsAuto[]=
+	{
+		"cacharacters_e",
+		"ca_modules_functions",
+		"warfarebuildings",
+		"camisc_e",
+		"provinggrounds_pmc"
+	};
+	randomSeed=12923257;
+	class Intel
+	{
+		briefingName="CO 00 glowing-octo-shame ProvingGrounds_PMC east v0.0.5.905 DEBUG";
+		startWeather=0.30000001;
+		forecastWeather=0.30000001;
+		year=2012;
+		month=6;
+		day=24;
+		hour=13;
+		minute=0;
+	};
+	class Groups
+	{
+		items=2;
+		class Item0
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=9;
+				class Item0
+				{
+					position[]={760.31799,51.027393,1248.5862};
+					id=0;
+					side="EAST";
+					vehicle="TK_Soldier_SL_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="LIEUTENANT";
+					skill=0.59999996;
+				};
+				class Item1
+				{
+					position[]={763.31799,51.055977,1243.5862};
+					id=1;
+					side="EAST";
+					vehicle="TK_Soldier_MG_EP1";
+					player="PLAY CDG";
+					rank="SERGEANT";
+					skill=0.46666664;
+				};
+				class Item2
+				{
+					position[]={765.31799,50.997284,1243.5862};
+					id=2;
+					side="EAST";
+					vehicle="TK_Soldier_AT_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item3
+				{
+					position[]={767.31799,50.872284,1243.5862};
+					id=3;
+					side="EAST";
+					vehicle="TK_Soldier_GL_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item4
+				{
+					position[]={769.31799,50.803299,1243.5862};
+					id=4;
+					side="EAST";
+					vehicle="TK_Soldier_MG_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item5
+				{
+					position[]={771.31799,50.763298,1243.5862};
+					id=5;
+					side="EAST";
+					vehicle="TK_Soldier_LAT_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+					skill=0.33333331;
+				};
+				class Item6
+				{
+					position[]={773.31799,50.74184,1243.5862};
+					id=6;
+					side="EAST";
+					vehicle="TK_Soldier_GL_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item7
+				{
+					position[]={775.31799,50.726841,1243.5862};
+					id=7;
+					side="EAST";
+					vehicle="TK_Soldier_AAT_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+				class Item8
+				{
+					position[]={777.31799,50.728508,1243.5862};
+					id=8;
+					side="EAST";
+					vehicle="TK_Soldier_AMG_EP1";
+					player="PLAY CDG";
+					skill=0.2;
+				};
+			};
+		};
+		class Item1
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={802.8468,51.631531,1186.0004};
+					id=11;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+					leader=1;
+					skill=0.2;
+					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=2;
+		class Item0
+		{
+			position[]={757.9696,51.297764,1232.7975};
+			azimut=121.1389;
+			id=9;
+			side="EMPTY";
+			vehicle="WarfareBCamp";
+			text="gosa_LogicLocationBase";
+			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+		};
+		class Item1
+		{
+			position[]={766.43256,51.067528,1239.5176};
+			azimut=210;
+			id=10;
+			side="EMPTY";
+			vehicle="MASH_EP1";
+			skill=0.2;
+		};
+	};
+	class Markers
+	{
+		items=2;
+		class Item0
+		{
+			position[]={1986.8728,63.984726,2020.8367};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+		class Item1
+		{
+			position[]={763.78259,51.101563,1236.5305};
+			name="playerStartPos";
+			type="Empty";
+		};
+	};
+};
+class Intro
+{
+	addOns[]=
+	{
+		"provinggrounds_pmc"
+	};
+	addOnsAuto[]=
+	{
+		"provinggrounds_pmc"
+	};
+	randomSeed=2160741;
+	class Intel
+	{
+		startWeather=0.30000001;
+		forecastWeather=0.30000001;
+		year=2012;
+		month=6;
+		day=24;
+		hour=13;
+		minute=0;
+	};
+};
+class OutroWin
+{
+	addOns[]=
+	{
+		"provinggrounds_pmc"
+	};
+	addOnsAuto[]=
+	{
+		"provinggrounds_pmc"
+	};
+	randomSeed=3290615;
+	class Intel
+	{
+		startWeather=0.30000001;
+		forecastWeather=0.30000001;
+		year=2012;
+		month=6;
+		day=24;
+		hour=13;
+		minute=0;
+	};
+};
+class OutroLoose
+{
+	addOns[]=
+	{
+		"provinggrounds_pmc"
+	};
+	addOnsAuto[]=
+	{
+		"provinggrounds_pmc"
+	};
+	randomSeed=15046966;
+	class Intel
+	{
+		startWeather=0.30000001;
+		forecastWeather=0.30000001;
+		year=2012;
+		month=6;
+		day=24;
+		hour=13;
+		minute=0;
+	};
+};

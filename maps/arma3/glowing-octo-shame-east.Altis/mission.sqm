@@ -1,0 +1,1693 @@
+version=54;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=931;
+	};
+	class MarkerIDProvider
+	{
+		nextID=4;
+	};
+	class LayerIndexProvider
+	{
+		nextID=16;
+	};
+	class Camera
+	{
+		pos[]={15044.101,241.29671,16728.648};
+		dir[]={-0.7987172,-0.37142137,-0.4734022};
+		up[]={-0.31951869,0.92846286,-0.18937932};
+		aside[]={-0.50987506,-5.9255399e-008,0.86025524};
+	};
+};
+binarizationWanted=0;
+sourceName="glowing-octo-shame-east";
+addons[]=
+{
+	"A3_Modules_F",
+	"A3_Structures_F_Mil_Cargo",
+	"A3_Structures_F_Ind_AirPort",
+	"A3_Structures_F_Mil_TentHangar",
+	"A3_Characters_F",
+	"A3_Ui_F"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=5;
+		class Item0
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Structures_F_Ind";
+			name="Arma 3 - Industrial Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+randomSeed=13197879;
+class ScenarioData
+{
+	saving=0;
+	disabledAI=1;
+	respawn=3;
+	respawnDelay=10;
+	respawnVehicleDelay=300;
+	class Header
+	{
+		gameType="Coop";
+		maxPlayers=2000;
+	};
+	wreckLimit=150;
+	wreckRemovalMaxTime=3600;
+	corpseLimit=150;
+	minPlayerDistance=1600;
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=3;
+						class Item0
+						{
+							class data
+							{
+								singleType="STRING";
+								value="MenuInventory";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="STRING";
+								value="MenuPosition";
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Counter";
+							};
+						};
+					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="ReviveMode";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		class Attribute2
+		{
+			property="ReviveRequiredItems";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=3;
+	};
+	class Category1
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="EnableDebugConsole";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
+};
+class Mission
+{
+	class Intel
+	{
+		briefingName="CO 00 glowing-octo-shame Altis East v0.0.5.905 DEBUG";
+		resistanceWest=0;
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=6;
+		day=24;
+		hour=12;
+		minute=0;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=65;
+		class Item0
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10653.936,16.554781,12267.27};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=775;
+			type="LocationCity_F";
+		};
+		class Item1
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9166.7754,16.58371,12017.926};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=776;
+			type="LocationCity_F";
+		};
+		class Item2
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5082.2427,51.237633,11270.696};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=777;
+			type="LocationCity_F";
+		};
+		class Item3
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4163.8423,52.765427,11780.393};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=778;
+			type="LocationCity_F";
+		};
+		class Item4
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3589.532,9.6915159,13109.073};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=779;
+			type="LocationCity_F";
+		};
+		class Item5
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3837.0796,17.235916,13710.318};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=780;
+			type="LocationCity_F";
+		};
+		class Item6
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7166.5942,121.0649,16459.225};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=781;
+			type="LocationCity_F";
+		};
+		class Item7
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6173.9292,43,16239.015};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=782;
+			type="LocationCity_F";
+		};
+		class Item8
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4896.5845,77.503105,16169.732};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=783;
+			type="LocationCity_F";
+		};
+		class Item9
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4582.1997,299.6084,21397.859};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=784;
+			type="LocationCity_F";
+		};
+		class Item10
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9424.2305,122.0331,20259.701};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=785;
+			type="LocationCity_F";
+		};
+		class Item11
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8617.2285,180.85866,18272.863};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=786;
+			type="LocationCity_F";
+		};
+		class Item12
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9321.4707,119.51297,15889.725};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=787;
+			type="LocationCity_F";
+		};
+		class Item13
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10327.033,126.73512,19062.941};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=788;
+			type="LocationCity_F";
+		};
+		class Item14
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14030.927,27.343981,18698.666};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=789;
+			type="LocationCity_F";
+		};
+		class Item15
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14485.405,20.809322,17662.873};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=790;
+			type="LocationCity_F";
+		};
+		class Item16
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16307.712,21.876816,17199.836};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=791;
+			type="LocationCity_F";
+		};
+		class Item17
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16658.998,17.846741,16128.932};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=792;
+			type="LocationCity_F";
+		};
+		class Item18
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={18123.432,24.54966,15242.362};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=793;
+			type="LocationCity_F";
+		};
+		class Item19
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={18808.445,31.691549,16631.469};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=794;
+			type="LocationCity_F";
+		};
+		class Item20
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={20960.092,41.637222,16976};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=795;
+			type="LocationCity_F";
+		};
+		class Item21
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={21379.439,20.221348,16368.131};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=796;
+			type="LocationCity_F";
+		};
+		class Item22
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={25680.533,20.128136,21336.43};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=797;
+			type="LocationCity_F";
+		};
+		class Item23
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={27008.842,20.311337,23219.295};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=798;
+			type="LocationCity_F";
+		};
+		class Item24
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={20237.807,50.702629,11691.713};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=799;
+			type="LocationCity_F";
+		};
+		class Item25
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={20518.838,34.294434,8878.3965};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=800;
+			type="LocationCity_F";
+		};
+		class Item26
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={21680.287,15.078564,7572.6855};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=801;
+			type="LocationCity_F";
+		};
+		class Item27
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={20797.678,36.410561,6734.394};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=802;
+			type="LocationCity_F";
+		};
+		class Item28
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16839.115,23.999998,12674.852};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=803;
+			type="LocationCity_F";
+		};
+		class Item29
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12830.86,87.85305,16694.865};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=804;
+			type="LocationCity_F";
+		};
+		class Item30
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12377.849,24.498634,15645.776};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=805;
+			type="LocationCity_F";
+		};
+		class Item31
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12962.06,28.049393,15061.848};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=806;
+			type="LocationCity_F";
+		};
+		class Item32
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12523.899,13.607124,14369.054};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=807;
+			type="LocationCity_F";
+		};
+		class Item33
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11741.65,12.886283,13698.526};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=808;
+			type="LocationCity_F";
+		};
+		class Item34
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10969.302,28.22016,13433.78};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=809;
+			type="LocationCity_F";
+		};
+		class Item35
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11130.208,42.64666,14576.891};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=810;
+			type="LocationCity_F";
+		};
+		class Item36
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19396.311,38.60759,13257.662};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=811;
+			type="LocationCity_F";
+		};
+		class Item37
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10452.484,84.99054,17248.463};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=812;
+			type="LocationCity_F";
+		};
+		class Item38
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7390.6626,55.532509,15412.597};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=813;
+			type="LocationCity_F";
+		};
+		class Item39
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14600.122,46.881844,20787.113};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 100, 100]};";
+			id=814;
+			type="LocationCity_F";
+		};
+		class Item40
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11591.57,27.479422,11985.412};
+				angles[]={0,3.8253427,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
+			};
+			id=815;
+			type="Land_Cargo_HQ_V3_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item41
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={26739.758,24.31167,24625.898};
+				angles[]={0,3.8253427,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
+			};
+			id=816;
+			type="Land_Cargo_HQ_V3_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item42
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9146.5908,18.672312,21624.973};
+				angles[]={0,4.1887903,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
+			};
+			id=819;
+			type="Land_Cargo_HQ_V3_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item43
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9182.9648,20.39138,21642.207};
+				angles[]={0,5.7595863,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+				name="gosa_airportHangar3";
+			};
+			id=820;
+			type="Land_Hangar_F";
+			atlOffset=0.39999962;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item44
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={22965.848,8.7689133,18855.615};
+				angles[]={0,3.8253427,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
+			};
+			id=821;
+			type="Land_Cargo_HQ_V3_F";
+			atlOffset=-4.7683716e-007;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item45
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20934.756,32.348743,7186.772};
+				angles[]={0,3.7129786,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+				name="gosa_airportHangar4";
+			};
+			id=823;
+			type="Land_TentHangar_V1_F";
+			atlOffset=-1.9073486e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item46
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={20958.908,31.710634,7178.7202};
+				angles[]={0,2.1816616,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
+			};
+			id=824;
+			type="Land_Cargo_HQ_V3_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item47
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={22995.23,7.1818252,18954.865};
+				angles[]={0,1.5707964,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+				name="gosa_airportHangar5";
+			};
+			id=825;
+			type="Land_TentHangar_V1_F";
+		};
+		class Item48
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14314.939,22.711451,16331.97};
+				angles[]={0,4.712389,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 0];";
+			};
+			id=826;
+			type="Land_Cargo_HQ_V3_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item49
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1956.1008,-185.96857,3338.7417};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayer=1;
+					};
+					id=857;
+					type="O_Soldier_TL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1951.1013,-185.96857,3333.7412};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=858;
+					type="O_Soldier_AR_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1961.1013,-185.96857,3333.7412};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=859;
+					type="O_Soldier_GL_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1946.1013,-185.96857,3328.7412};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=860;
+					type="O_Soldier_LAT_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=856;
+		};
+		class Item50
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1954.5862,-185.96857,3321.3984};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=862;
+					type="O_Soldier_SL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1949.5862,-185.96857,3316.3984};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=863;
+					type="O_Soldier_AR_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1959.5862,-185.96857,3316.3984};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=864;
+					type="O_Soldier_GL_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1944.5862,-185.96857,3311.3984};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=865;
+					type="O_soldier_M_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1964.5862,-185.96857,3311.3984};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=866;
+					type="O_Soldier_AT_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1939.5862,-185.96857,3306.3984};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=867;
+					type="O_Soldier_AAT_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1969.5862,-185.96857,3306.3984};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=868;
+					type="O_Soldier_A_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1934.5862,-185.96857,3301.3984};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=869;
+					type="O_medic_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=861;
+		};
+		class Item51
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1955.1372,-185.96857,3301.0254};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=871;
+					type="O_Soldier_SL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1950.1372,-185.96857,3296.0254};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=872;
+					type="O_Soldier_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1960.1372,-185.96857,3296.0254};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=873;
+					type="O_Soldier_LAT_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1945.1372,-185.96857,3291.0254};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=874;
+					type="O_soldier_M_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1965.1372,-185.96857,3291.0254};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=875;
+					type="O_Soldier_TL_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1940.1372,-185.96857,3286.0254};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=876;
+					type="O_Soldier_AR_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1970.1372,-185.96857,3286.0254};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=877;
+					type="O_Soldier_A_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1935.1372,-185.96857,3281.0254};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=878;
+					type="O_medic_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=870;
+		};
+		class Item52
+		{
+			dataType="Marker";
+			position[]={30707.404,0,30709.613};
+			name="gosa_worldSize";
+			type="Empty";
+			id=880;
+		};
+		class Item53
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14401.976,18.759029,16228.751};
+			};
+			name="gosa_airportHangar0";
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+			id=882;
+			type="Logic";
+		};
+		class Item54
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11561.919,23.92441,11966.773};
+			};
+			name="gosa_airportHangar1";
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+			id=883;
+			type="Logic";
+		};
+		class Item55
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={26756.752,20.497475,24652.049};
+			};
+			name="gosa_airportHangar2";
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+			id=884;
+			type="Logic";
+		};
+		class Item56
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1434.8245,0.060444593,1185.3521};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="MAJOR";
+						isPlayable=1;
+					};
+					id=907;
+					type="O_Pilot_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1434.0325,0.0014388561,1178.1082};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=918;
+					type="O_Pilot_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=906;
+		};
+		class Item57
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1421.4246,0.0014388561,1166.1741};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="COLONEL";
+						isPlayable=1;
+					};
+					id=920;
+					type="O_officer_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={-1425.9415,0.0014388561,1164.9502};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=921;
+					type="O_soldier_M_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=919;
+		};
+		class Item58
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15095.99,17.999001,17246.873};
+			};
+			name="gosa_airportHangar6";
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+			id=922;
+			type="Logic";
+		};
+		class Item59
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14729.334,17.91,16691.145};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=924;
+			type="LocationBase_F";
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={21019.092,23.371637,7265.9468};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=926;
+			type="LocationBase_F";
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={23042.014,3.2991943,18885.918};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=927;
+			type="LocationBase_F";
+		};
+		class Item62
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={26796.529,22.415194,24615.549};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=928;
+			type="LocationBase_F";
+		};
+		class Item63
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11629.423,23.021326,11952.711};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=929;
+			type="LocationBase_F";
+		};
+		class Item64
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9173.3438,14.759075,21625.104};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=930;
+			type="LocationBase_F";
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=13;
+		};
+		class Links
+		{
+			items=13;
+			class Item0
+			{
+				linkID=0;
+				item0=882;
+				item1=924;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=924;
+				item1=922;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=826;
+				item1=924;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=926;
+				item1=824;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=926;
+				item1=823;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item5
+			{
+				linkID=5;
+				item0=927;
+				item1=825;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item6
+			{
+				linkID=6;
+				item0=927;
+				item1=821;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item7
+			{
+				linkID=7;
+				item0=928;
+				item1=884;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item8
+			{
+				linkID=8;
+				item0=928;
+				item1=816;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item9
+			{
+				linkID=9;
+				item0=929;
+				item1=883;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item10
+			{
+				linkID=10;
+				item0=929;
+				item1=815;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item11
+			{
+				linkID=11;
+				item0=930;
+				item1=820;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item12
+			{
+				linkID=12;
+				item0=930;
+				item1=819;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
+	};
+};

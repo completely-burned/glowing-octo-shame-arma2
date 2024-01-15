@@ -159,6 +159,30 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_CUP_O_RU {
+			title="FACTION: CUP_O_RU";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_CUP_B_US_Army {
+			title="FACTION: CUP_B_US_Army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_CUP_B_USMC {
+			title="FACTION: CUP_B_USMC";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_CUP_I_NAPA {
+			title="FACTION: CUP_I_NAPA";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 	#else
 	class gosa_faction_multiplier_INS {
 		title="FACTION: BIS_INS";
@@ -252,6 +276,18 @@ class Params {
 	};
 	class gosa_faction_multiplier_FDF {
 		title="FACTION: FDF";
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default=-1;
+	};
+	class gosa_faction_multiplier_OFrP {
+		title="FACTION: OFrP";
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default=-1;
+	};
+	class gosa_faction_multiplier_VME_PLA_China {
+		title="FACTION: VME_PLA_China";
 		values[] = {-1,1,0};
 		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 		default=-1;
