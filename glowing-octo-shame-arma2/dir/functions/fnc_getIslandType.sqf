@@ -25,7 +25,7 @@ if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter"]) then {_r se
 if (_w in ["namalsk"]) then {_r set [0,160]};
 if (_w in ["utes","i44_omaha"]) then {_r set [0,180]};
 if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
-	"noe","thirsk"]) then {_r set [0,190]};
+	"noe","thirsk","vt7"]) then {_r set [0,190]};
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 	"mcn_neaville","i44_merderet_v2","i44_merderet"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl"]) then {_r set [0,225]};
@@ -61,6 +61,10 @@ if (_w in ["zargabad","takistan","desert_e"]) then
 if (_w in ["thirsk"]) then
 {
 	_r set [1,2014];
+};
+if (_w in ["vt7"]) then
+{
+	_r set [1,2015];
 };
 if (_w in ["beketov"]) then
 {

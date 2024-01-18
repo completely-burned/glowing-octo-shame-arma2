@@ -1,0 +1,2733 @@
+version=54;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=205;
+	};
+	class MarkerIDProvider
+	{
+		nextID=1;
+	};
+	class Camera
+	{
+		pos[]={15635.721,150.77071,16337.324};
+		dir[]={-0.37144691,-0.43356767,0.82100332};
+		up[]={-0.17871891,0.90112102,0.39501962};
+		aside[]={0.91109109,0,0.41220534};
+	};
+};
+binarizationWanted=0;
+sourceName="glowing-octo-shame-west";
+addons[]=
+{
+	"A3_Ui_F",
+	"A3_Modules_F",
+	"A3_Characters_F_Enoch",
+	"A3_Characters_F"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=4;
+		class Item0
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Characters_F_Enoch";
+			name="Arma 3 Contact Platform - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+dlcs[]=
+{
+	"Enoch"
+};
+randomSeed=8018026;
+class ScenarioData
+{
+	disabledAI=1;
+	respawn=3;
+	class Header
+	{
+		gameType="Coop";
+	};
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=3;
+						class Item0
+						{
+							class data
+							{
+								singleType="STRING";
+								value="MenuInventory";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="STRING";
+								value="MenuPosition";
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Counter";
+							};
+						};
+					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="ReviveMode";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		class Attribute2
+		{
+			property="ReviveRequiredItems";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=3;
+	};
+	class Category1
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="EnableDebugConsole";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
+};
+class Mission
+{
+	appId=1021790;
+	assetType="Free";
+	class Intel
+	{
+		briefingName="CO 00 glowing-octo-shame vt7 West v0.0.5.906 DEBUG";
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.30000001;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2015;
+		month=6;
+		day=6;
+		hour=12;
+		startFogBase=250;
+		forecastFogBase=250;
+		startFogDecay=0.017999999;
+		forecastFogDecay=0.017999999;
+	};
+	class Entities
+	{
+		items=165;
+		class Item0
+		{
+			dataType="Marker";
+			position[]={18001.158,19.02,18001.211};
+			name="gosa_worldSize";
+			type="Empty";
+			id=0;
+		};
+		class Item1
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15535.05,8.5900002,16701.83};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=1;
+			type="LocationBase_F";
+		};
+		class Item2
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15493.098,8.5900002,16578.668};
+			};
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+			id=2;
+			type="LocationCamp_F";
+		};
+		class Item3
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15399.03,8.5900002,16770.602};
+			};
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+			id=3;
+			type="LocationCamp_F";
+		};
+		class Item4
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15454.548,8.5900002,16622.91};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=6;
+			type="LocationCamp_F";
+		};
+		class Item5
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15369.415,8.5900002,16749.15};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=7;
+			type="LocationCamp_F";
+		};
+		class Item6
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={988.42798,13.16,3013.24};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=8;
+			type="LocationBase_F";
+		};
+		class Item7
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={871.474,13.26,3001.2319};
+			};
+			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+			id=10;
+			type="LocationCamp_F";
+		};
+		class Item8
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={943.28003,13.411,2895.2639};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=12;
+			type="LocationCamp_F";
+		};
+		class Item9
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15484.75,8.5914392,16540.668};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=14;
+					type="B_W_Soldier_SL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15489.75,8.5914392,16535.668};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=15;
+					type="B_W_Soldier_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15479.75,8.5914392,16535.668};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=16;
+					type="B_W_Soldier_LAT_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15494.75,8.5914392,16530.668};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=17;
+					type="B_W_soldier_M_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15474.75,8.5914392,16530.668};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=18;
+					type="B_W_Soldier_TL_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15499.75,8.5914392,16525.668};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=19;
+					type="B_W_Soldier_AR_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15469.75,8.5914392,16525.668};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=20;
+					type="B_W_Soldier_A_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15504.75,8.5914392,16520.668};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=21;
+					type="B_W_Medic_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=13;
+		};
+		class Item10
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15487.792,8.5914392,16521.402};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=23;
+					type="B_W_Soldier_SL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15492.792,8.5914392,16516.402};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=24;
+					type="B_W_Soldier_AR_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15482.792,8.5914392,16516.402};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=25;
+					type="B_W_Soldier_GL_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15497.792,8.5914392,16511.402};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=26;
+					type="B_W_soldier_M_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15477.792,8.5914392,16511.402};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=27;
+					type="B_W_Soldier_AT_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15502.792,8.5914392,16506.402};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=28;
+					type="B_W_Soldier_AAT_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15472.792,8.5914392,16506.402};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=29;
+					type="B_W_Soldier_A_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15507.792,8.5914392,16501.402};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=30;
+					type="B_W_Medic_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=22;
+		};
+		class Item11
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15482.242,8.5914392,16500.689};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=32;
+					type="B_W_Soldier_TL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15487.242,8.5914392,16495.689};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=33;
+					type="B_W_Soldier_AT_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15477.242,8.5914392,16495.689};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=34;
+					type="B_W_Soldier_AT_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15492.242,8.5914392,16490.689};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=35;
+					type="B_W_Soldier_AAT_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=31;
+		};
+		class Item12
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15485.003,8.5914392,16508.949};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=37;
+					type="B_W_Soldier_TL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15490.003,8.5914392,16503.949};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=38;
+					type="B_W_Soldier_AR_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15480.003,8.5914392,16503.949};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=39;
+					type="B_W_Soldier_GL_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15495.003,8.5914392,16498.949};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=40;
+					type="B_W_Soldier_LAT_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=36;
+		};
+		class Item13
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15482.199,8.5914392,16491.596};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=42;
+					type="B_W_Soldier_TL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15487.199,8.5914392,16486.596};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=43;
+					type="B_W_Soldier_AA_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15477.199,8.5914392,16486.596};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=44;
+					type="B_W_Soldier_AA_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15492.199,8.5914392,16481.596};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=45;
+					type="B_W_Soldier_AAA_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=41;
+		};
+		class Item14
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15537.438,8.5914392,16539.391};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=47;
+					type="B_Soldier_SL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15542.438,8.5914392,16534.391};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=48;
+					type="B_Soldier_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15532.438,8.5914392,16534.391};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=49;
+					type="B_soldier_LAT_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15547.438,8.5914392,16529.391};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=50;
+					type="B_soldier_M_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15527.438,8.5914392,16529.391};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=51;
+					type="B_Soldier_TL_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15552.438,8.5914392,16524.391};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=52;
+					type="B_soldier_AR_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15522.438,8.5914392,16524.391};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=53;
+					type="B_Soldier_A_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={15557.438,8.5914392,16519.391};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=54;
+					type="B_medic_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=46;
+		};
+		class Item15
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={287.64899,0.01722908,1250.162};
+			};
+			name="HeadlessClient";
+			isPlayable=1;
+			id=55;
+			type="HeadlessClient_F";
+		};
+		class Item16
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={298.69849,5.7748756,1150.6359};
+			};
+			name="HeadlessClient_1";
+			isPlayable=1;
+			id=56;
+			type="HeadlessClient_F";
+		};
+		class Item17
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={298.69849,4.0645275,1040.0516};
+			};
+			name="HeadlessClient_2";
+			isPlayable=1;
+			id=57;
+			type="HeadlessClient_F";
+		};
+		class Item18
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={282.12347,-0.73199654,934.99548};
+			};
+			name="HeadlessClient_3";
+			isPlayable=1;
+			id=58;
+			type="HeadlessClient_F";
+		};
+		class Item19
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={282.12347,0.92010117,818.88312};
+			};
+			name="HeadlessClient_4";
+			isPlayable=1;
+			id=59;
+			type="HeadlessClient_F";
+		};
+		class Item20
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={420.24823,-7.6051483,802.29456};
+			};
+			name="HeadlessClient_5";
+			isPlayable=1;
+			id=60;
+			type="HeadlessClient_F";
+		};
+		class Item21
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={425.77313,-3.9932423,901.8205};
+			};
+			name="HeadlessClient_6";
+			isPlayable=1;
+			id=61;
+			type="HeadlessClient_F";
+		};
+		class Item22
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={431.29816,-3.1425991,1001.3464};
+			};
+			name="HeadlessClient_7";
+			isPlayable=1;
+			id=62;
+			type="HeadlessClient_F";
+		};
+		class Item23
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={420.24823,-2.2997131,1145.1057};
+			};
+			name="HeadlessClient_8";
+			isPlayable=1;
+			id=63;
+			type="HeadlessClient_F";
+		};
+		class Item24
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={409.19812,3.1384735,1250.1619};
+			};
+			name="HeadlessClient_9";
+			isPlayable=1;
+			id=64;
+			type="HeadlessClient_F";
+		};
+		class Item25
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16955.311,10.43,15533.955};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=65;
+			type="LocationCity_F";
+		};
+		class Item26
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14722.828,16.652891,15802.354};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=66;
+			type="LocationCity_F";
+		};
+		class Item27
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14281.117,9.5296774,15074.021};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=67;
+			type="LocationCity_F";
+		};
+		class Item28
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14810.16,6.0646725,14683.251};
+				angles[]={0.040932652,0,0.013650165};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=68;
+			type="LocationCity_F";
+		};
+		class Item29
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15018.058,6.5915284,14037.96};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=69;
+			type="LocationCity_F";
+		};
+		class Item30
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13101.572,20.34782,14453.652};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=70;
+			type="LocationCity_F";
+		};
+		class Item31
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14186.331,8.267107,12780.313};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=71;
+			type="LocationCity_F";
+		};
+		class Item32
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15273.679,3.0463526,12119.506};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=72;
+			type="LocationCity_F";
+		};
+		class Item33
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13794.801,20.644541,11682.138};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=73;
+			type="LocationCity_F";
+		};
+		class Item34
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13454.274,7.5467949,6509.1196};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=74;
+			type="LocationCity_F";
+		};
+		class Item35
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12658.345,7.0412111,5890.1597};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=75;
+			type="LocationCity_F";
+		};
+		class Item36
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12490.257,6.1436644,7778.2725};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=76;
+			type="LocationCity_F";
+		};
+		class Item37
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15022.741,7.087935,7953.2686};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=77;
+			type="LocationCity_F";
+		};
+		class Item38
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16330.457,2.528064,4774.1973};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=78;
+			type="LocationCity_F";
+		};
+		class Item39
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10607.005,2.8255737,4557.7739};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=79;
+			type="LocationCity_F";
+		};
+		class Item40
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8898.2412,7.2512922,5740.2886};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=80;
+			type="LocationCity_F";
+		};
+		class Item41
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10504.61,9.8390484,6589.0342};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=81;
+			type="LocationCity_F";
+		};
+		class Item42
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9052.8027,3.6761816,7544.5273};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=82;
+			type="LocationCity_F";
+		};
+		class Item43
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6444.0605,4.3609104,7522.3545};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=83;
+			type="LocationCity_F";
+		};
+		class Item44
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3731.2754,14.060725,6909.0527};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=84;
+			type="LocationCity_F";
+		};
+		class Item45
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2720.9136,8.9731007,6233.3506};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=85;
+			type="LocationCity_F";
+		};
+		class Item46
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1313.2611,11.78539,7027.5674};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=86;
+			type="LocationCity_F";
+		};
+		class Item47
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2253.5544,8.5214672,7332.2891};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=87;
+			type="LocationCity_F";
+		};
+		class Item48
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1006.1047,5.5614424,6003.4346};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=88;
+			type="LocationCity_F";
+		};
+		class Item49
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={336.45685,8.0743589,6794.2271};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=89;
+			type="LocationCity_F";
+		};
+		class Item50
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={589.27893,8.7825031,5533.249};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=90;
+			type="LocationCity_F";
+		};
+		class Item51
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1845.998,12.193914,8095.7832};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=91;
+			type="LocationCity_F";
+		};
+		class Item52
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1759.9406,8.4297209,8787.4648};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=92;
+			type="LocationCity_F";
+		};
+		class Item53
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={336.42468,9.1662321,9122.1201};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=93;
+			type="LocationCity_F";
+		};
+		class Item54
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={694.79065,9.3969259,9711.7178};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=94;
+			type="LocationCity_F";
+		};
+		class Item55
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={383.89557,13.825233,10328.855};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=95;
+			type="LocationCity_F";
+		};
+		class Item56
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5236.7754,25.33972,9987.7402};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=96;
+			type="LocationCity_F";
+		};
+		class Item57
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6118.5156,31.202822,9019.7803};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=97;
+			type="LocationCity_F";
+		};
+		class Item58
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2041.0602,21.867271,13116.69};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=98;
+			type="LocationCity_F";
+		};
+		class Item59
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3224.8354,27.045921,13321.262};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=99;
+			type="LocationCity_F";
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1547.3038,27.193649,14261.376};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=100;
+			type="LocationCity_F";
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1061.8954,21.056185,16774.574};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=101;
+			type="LocationCity_F";
+		};
+		class Item62
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={385.71906,22.058516,17272.232};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=102;
+			type="LocationCity_F";
+		};
+		class Item63
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6836.3965,31.614117,14720.471};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=103;
+			type="LocationCity_F";
+		};
+		class Item64
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7137.1987,19.561527,13304.246};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=104;
+			type="LocationCity_F";
+		};
+		class Item65
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5965.0093,27.03083,13703.007};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=105;
+			type="LocationCity_F";
+		};
+		class Item66
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5991.9917,22.115484,13321.104};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=106;
+			type="LocationCity_F";
+		};
+		class Item67
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6061.2549,20.622503,12959.078};
+				angles[]={-0,0,0.0045412821};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=107;
+			type="LocationCity_F";
+		};
+		class Item68
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6636.77,20.923208,12706.97};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=108;
+			type="LocationCity_F";
+		};
+		class Item69
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8134.1733,12.198596,10529.348};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=109;
+			type="LocationCity_F";
+		};
+		class Item70
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7534.1885,22.617714,11017.084};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=110;
+			type="LocationCity_F";
+		};
+		class Item71
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6678.4541,21.303328,11815.609};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=111;
+			type="LocationCity_F";
+		};
+		class Item72
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9563.9199,4.0390844,9080.9287};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=112;
+			type="LocationCity_F";
+		};
+		class Item73
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8960.2969,17.511086,10606.094};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=113;
+			type="LocationCity_F";
+		};
+		class Item74
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9543.4258,20.89649,10900.334};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=114;
+			type="LocationCity_F";
+		};
+		class Item75
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8704.5195,5.2399998,7973.5117};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=115;
+			type="LocationCity_F";
+		};
+		class Item76
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7906.4521,10.777262,8276.9355};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=116;
+			type="LocationCity_F";
+		};
+		class Item77
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6551.937,9.6645079,8287.6123};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=117;
+			type="LocationCity_F";
+		};
+		class Item78
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2858.0576,17.103008,8591.3799};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=118;
+			type="LocationCity_F";
+		};
+		class Item79
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2595.5554,15.959886,8979.5508};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=119;
+			type="LocationCity_F";
+		};
+		class Item80
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1866.92,10.735538,8410.8945};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=120;
+			type="LocationCity_F";
+		};
+		class Item81
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1302.6151,5.1903005,6314.9316};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=121;
+			type="LocationCity_F";
+		};
+		class Item82
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1152.0466,10.715098,5481.2827};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=122;
+			type="LocationCity_F";
+		};
+		class Item83
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={919.42712,10.708619,5137.9224};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=123;
+			type="LocationCity_F";
+		};
+		class Item84
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={284.72516,10.604314,5208.8799};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=124;
+			type="LocationCity_F";
+		};
+		class Item85
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={149.32228,6.107367,5595.8062};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=125;
+			type="LocationCity_F";
+		};
+		class Item86
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1380.0857,8.47962,8102.897};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=126;
+			type="LocationCity_F";
+		};
+		class Item87
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={810.38995,9.1750088,8346.5};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=127;
+			type="LocationCity_F";
+		};
+		class Item88
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1262.5706,13.018291,8637.5439};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=128;
+			type="LocationCity_F";
+		};
+		class Item89
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={158.24203,7.0929694,9459.0869};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=129;
+			type="LocationCity_F";
+		};
+		class Item90
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2266.7629,25.430527,12545.521};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=130;
+			type="LocationCity_F";
+		};
+		class Item91
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2872.6045,27.872631,13287.888};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=131;
+			type="LocationCity_F";
+		};
+		class Item92
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1765.8706,25.743357,14607.917};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=132;
+			type="LocationCity_F";
+		};
+		class Item93
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2650.781,24.46509,14498.113};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=133;
+			type="LocationCity_F";
+		};
+		class Item94
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6512.4277,28.344593,14908.685};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=134;
+			type="LocationCity_F";
+		};
+		class Item95
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6856.8638,24.121378,14409.021};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=135;
+			type="LocationCity_F";
+		};
+		class Item96
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8555.4434,41.55164,13379.312};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=136;
+			type="LocationCity_F";
+		};
+		class Item97
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10851.33,42.438946,13106.42};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=137;
+			type="LocationCity_F";
+		};
+		class Item98
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10830.976,40.159763,11185.21};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=138;
+			type="LocationCity_F";
+		};
+		class Item99
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11555.654,39.253414,10197.659};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=139;
+			type="LocationCity_F";
+		};
+		class Item100
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10572.714,28.5331,10421.401};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=140;
+			type="LocationCity_F";
+		};
+		class Item101
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11686.374,19.002499,8837.2432};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=141;
+			type="LocationCity_F";
+		};
+		class Item102
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11794.304,8.9135494,8058.0039};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=142;
+			type="LocationCity_F";
+		};
+		class Item103
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10342.728,9.0440378,8455.2441};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=143;
+			type="LocationCity_F";
+		};
+		class Item104
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9710.7393,10.438129,8646.3311};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=144;
+			type="LocationCity_F";
+		};
+		class Item105
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10146.408,9.5388012,9128.0869};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=145;
+			type="LocationCity_F";
+		};
+		class Item106
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9093.2832,7.9024611,9592.2695};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=146;
+			type="LocationCity_F";
+		};
+		class Item107
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8511.9854,14.188544,10095.954};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=147;
+			type="LocationCity_F";
+		};
+		class Item108
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7953.4966,23.294334,10000.684};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=148;
+			type="LocationCity_F";
+		};
+		class Item109
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7386.0479,27.384508,10194.712};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=149;
+			type="LocationCity_F";
+		};
+		class Item110
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7568.3691,7.6277952,6896.8677};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=150;
+			type="LocationCity_F";
+		};
+		class Item111
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7022.439,4.2542191,7155.2393};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=151;
+			type="LocationCity_F";
+		};
+		class Item112
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6981.4941,6.1195235,6067.3188};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=152;
+			type="LocationCity_F";
+		};
+		class Item113
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6548.1279,18.468338,6635.832};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=153;
+			type="LocationCity_F";
+		};
+		class Item114
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6208.9165,5.0810156,7087.1733};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=154;
+			type="LocationCity_F";
+		};
+		class Item115
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5247.2471,30.332575,6420.6958};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=155;
+			type="LocationCity_F";
+		};
+		class Item116
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4149.8179,6.436172,5592.7139};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=156;
+			type="LocationCity_F";
+		};
+		class Item117
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1894.8351,4.186245,5354.8042};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=157;
+			type="LocationCity_F";
+		};
+		class Item118
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1930.7988,15.182822,5761.29};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=158;
+			type="LocationCity_F";
+		};
+		class Item119
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2442.7683,7.1003041,5332.2251};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=159;
+			type="LocationCity_F";
+		};
+		class Item120
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1408.8789,8.1364422,5831.0566};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=160;
+			type="LocationCity_F";
+		};
+		class Item121
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2531.6116,7.2544327,7025.9312};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=161;
+			type="LocationCity_F";
+		};
+		class Item122
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2779.6729,3.7916565,6524.6543};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=162;
+			type="LocationCity_F";
+		};
+		class Item123
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5403.3862,2.2718947,4501.7764};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=163;
+			type="LocationCity_F";
+		};
+		class Item124
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9238.4297,4.2042727,2842.1057};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=164;
+			type="LocationCity_F";
+		};
+		class Item125
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9430.6514,7.8760347,1932.2871};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=165;
+			type="LocationCity_F";
+		};
+		class Item126
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8167.8306,2.852555,4193.4243};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=166;
+			type="LocationCity_F";
+		};
+		class Item127
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6598.2114,5.4527612,4440.8149};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=167;
+			type="LocationCity_F";
+		};
+		class Item128
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6322.2578,14.648237,5552.4355};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=168;
+			type="LocationCity_F";
+		};
+		class Item129
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9046.5234,3.2762794,4350.2217};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=169;
+			type="LocationCity_F";
+		};
+		class Item130
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10417.727,2.7749903,3360.8574};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=170;
+			type="LocationCity_F";
+		};
+		class Item131
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8471.7832,7.3522511,3340.6099};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=171;
+			type="LocationCity_F";
+		};
+		class Item132
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7420.1157,9.6577826,2970.8752};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=172;
+			type="LocationCity_F";
+		};
+		class Item133
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8824.0889,5.618103,5331.0054};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=173;
+			type="LocationCity_F";
+		};
+		class Item134
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12182.137,3.5436792,5516.7153};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=174;
+			type="LocationCity_F";
+		};
+		class Item135
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13040.853,9.7036114,5451.5728};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=175;
+			type="LocationCity_F";
+		};
+		class Item136
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12927.035,4.8309646,6685.8477};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=176;
+			type="LocationCity_F";
+		};
+		class Item137
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13413.803,8.8782272,7273.0244};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=177;
+			type="LocationCity_F";
+		};
+		class Item138
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13625.04,6.4299998,7936.771};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=178;
+			type="LocationCity_F";
+		};
+		class Item139
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14530.433,8.2962017,8188.1616};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=179;
+			type="LocationCity_F";
+		};
+		class Item140
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14830.576,2.9924316,7506.7051};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=180;
+			type="LocationCity_F";
+		};
+		class Item141
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14961.586,6.2725391,9002.9238};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=181;
+			type="LocationCity_F";
+		};
+		class Item142
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13296.831,15.072906,10010.323};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=182;
+			type="LocationCity_F";
+		};
+		class Item143
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14360.723,32.831619,10369.082};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=183;
+			type="LocationCity_F";
+		};
+		class Item144
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11774.236,26.827026,13057.849};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=184;
+			type="LocationCity_F";
+		};
+		class Item145
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14156.423,11.163772,13366.459};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=185;
+			type="LocationCity_F";
+		};
+		class Item146
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15453.316,4.7621217,13178.029};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=186;
+			type="LocationCity_F";
+		};
+		class Item147
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16044.762,2.6501074,14278.318};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=187;
+			type="LocationCity_F";
+		};
+		class Item148
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15936.784,7.7817898,14986.431};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=188;
+			type="LocationCity_F";
+		};
+		class Item149
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16883.025,6.6221342,15059.637};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=189;
+			type="LocationCity_F";
+		};
+		class Item150
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={17107.408,7.2141771,14613.563};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=190;
+			type="LocationCity_F";
+		};
+		class Item151
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={16724.879,14.865673,16069.395};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=191;
+			type="LocationCity_F";
+		};
+		class Item152
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12534.485,19.086983,16308.875};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=192;
+			type="LocationCity_F";
+		};
+		class Item153
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13647.097,17.812014,15608.61};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=193;
+			type="LocationCity_F";
+		};
+		class Item154
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13212.484,12.128662,14973.589};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=194;
+			type="LocationCity_F";
+		};
+		class Item155
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11791.301,21.046877,16291.479};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=195;
+			type="LocationCity_F";
+		};
+		class Item156
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9158.4932,31.005892,16548.82};
+				angles[]={6.2695355,0,6.17665};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=196;
+			type="LocationCity_F";
+		};
+		class Item157
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7498.75,29.95083,16665.387};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=197;
+			type="LocationCity_F";
+		};
+		class Item158
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10703.098,28.818851,15570.643};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=198;
+			type="LocationCity_F";
+		};
+		class Item159
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11298.894,25.308678,17446.836};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=199;
+			type="LocationCity_F";
+		};
+		class Item160
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12049.039,18.224253,17073.076};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=200;
+			type="LocationCity_F";
+		};
+		class Item161
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14071.222,21.105797,15607.804};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=201;
+			type="LocationCity_F";
+		};
+		class Item162
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13207.421,15.893239,13169.154};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=202;
+			type="LocationCity_F";
+		};
+		class Item163
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2539.3237,19.501051,11010.123};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=203;
+			type="LocationCity_F";
+		};
+		class Item164
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3381.3462,14.473237,9171.4326};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=204;
+			type="LocationCity_F";
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=6;
+		};
+		class Links
+		{
+			items=6;
+			class Item0
+			{
+				linkID=0;
+				item0=2;
+				item1=1;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=6;
+				item1=1;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=3;
+				item1=1;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=7;
+				item1=1;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=10;
+				item1=8;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item5
+			{
+				linkID=5;
+				item0=12;
+				item1=8;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
+	};
+};
