@@ -29,7 +29,7 @@ if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 	"mcn_neaville","i44_merderet_v2","i44_merderet"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl"]) then {_r set [0,225]};
-if (_w in ["altis","vr","porto","beketov"]) then {_r set [0,250]};
+if (_w in ["altis","vr","porto","beketov","kunduz"]) then {_r set [0,250]};
 if (_w in ["zargabad","takistan","desert_e","shapur_baf","mountains_acr","fallujah"]) then {_r set [0,300]};
 
 // Дата.
@@ -42,13 +42,13 @@ if (_w in ["noe"]) then
 {
 	_r set [1,1984];
 };
-if (_w in ["utes","chernarus"]) then
-{
-	_r set [1,2009];
-};
 if (_w in ["porto"]) then
 {
 	_r set [1,2008];
+};
+if (_w in ["utes","chernarus","kunduz"]) then
+{
+	_r set [1,2009];
 };
 if (_w in ["fallujah"]) then
 {
