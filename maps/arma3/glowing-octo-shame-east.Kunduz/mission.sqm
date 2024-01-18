@@ -77,7 +77,12 @@ class AddonsMetaData
 randomSeed=8007169;
 class ScenarioData
 {
-	author="шТ";
+	disabledAI=1;
+	respawn=3;
+	class Header
+	{
+		gameType="Coop";
+	};
 };
 class CustomAttributes
 {

@@ -77,7 +77,12 @@ class AddonsMetaData
 randomSeed=148431;
 class ScenarioData
 {
-	author="draga";
+	disabledAI=1;
+	respawn=3;
+	class Header
+	{
+		gameType="Coop";
+	};
 };
 class Mission
 {

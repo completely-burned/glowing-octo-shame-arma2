@@ -81,10 +81,8 @@ dlcs[]=
 randomSeed=11636177;
 class ScenarioData
 {
-	saving=0;
 	disabledAI=1;
 	respawn=3;
-	respawnDelay=10;
 	class Header
 	{
 		gameType="Coop";

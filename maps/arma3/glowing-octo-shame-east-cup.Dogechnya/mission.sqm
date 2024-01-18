@@ -83,15 +83,12 @@ dlcs[]=
 randomSeed=467488;
 class ScenarioData
 {
-	author="шТ";
-	respawnDialog=0;
 	disabledAI=1;
 	respawn=3;
 	class Header
 	{
 		gameType="Coop";
 	};
-	wreckRemovalMaxTime=3600;
 };
 class CustomAttributes
 {
