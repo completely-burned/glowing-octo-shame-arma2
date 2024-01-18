@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=144;
+		nextID=243;
 	};
 	class MarkerIDProvider
 	{
@@ -202,7 +202,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=33;
+		items=132;
 		class Item0
 		{
 			dataType="Logic";
@@ -1372,6 +1372,1095 @@ class Mission
 			isPlayable=1;
 			id=143;
 			type="HeadlessClient_F";
+		};
+		class Item33
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7350.6128,90.152832,6913.7651};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=144;
+			type="LocationCity_F";
+		};
+		class Item34
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6857.3076,119.71,5576.7393};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=145;
+			type="LocationCity_F";
+		};
+		class Item35
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7331.9683,115.4666,5277.3755};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=146;
+			type="LocationCity_F";
+		};
+		class Item36
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8393.6406,77.830002,5180.2109};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=147;
+			type="LocationCity_F";
+		};
+		class Item37
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6346.895,167.97566,4654.9434};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=148;
+			type="LocationCity_F";
+		};
+		class Item38
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7921.208,146.30922,3012.7559};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=149;
+			type="LocationCity_F";
+		};
+		class Item39
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9539.2666,37.471718,1446.1383};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=150;
+			type="LocationCity_F";
+		};
+		class Item40
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8043.1885,106.40405,1642.1704};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=151;
+			type="LocationCity_F";
+		};
+		class Item41
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6441.9502,211.39706,2359.4043};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=152;
+			type="LocationCity_F";
+		};
+		class Item42
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5844.5762,269.12027,909.70825};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=153;
+			type="LocationCity_F";
+		};
+		class Item43
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3540.9141,207.19421,653.46619};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=154;
+			type="LocationCity_F";
+		};
+		class Item44
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1075.1593,168.78,1186.0083};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=155;
+			type="LocationCity_F";
+		};
+		class Item45
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1744.1344,160.62,1388.4143};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=156;
+			type="LocationCity_F";
+		};
+		class Item46
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1987.4742,151.43774,2240.5103};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=157;
+			type="LocationCity_F";
+		};
+		class Item47
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2567.1829,156.73734,2558.4668};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=158;
+			type="LocationCity_F";
+		};
+		class Item48
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3542.8967,168.46339,2884.1436};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=159;
+			type="LocationCity_F";
+		};
+		class Item49
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5193.9263,225.53036,3552.271};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=160;
+			type="LocationCity_F";
+		};
+		class Item50
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3518.7085,157.12932,4550.9209};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=161;
+			type="LocationCity_F";
+		};
+		class Item51
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1419.8455,132.00658,4612.9219};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=162;
+			type="LocationCity_F";
+		};
+		class Item52
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5197.7612,170.15036,5070.5645};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=163;
+			type="LocationCity_F";
+		};
+		class Item53
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5552.895,123.21,5627.2607};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=164;
+			type="LocationCity_F";
+		};
+		class Item54
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6183.8115,103.01821,7005.7544};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=165;
+			type="LocationCity_F";
+		};
+		class Item55
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6842.3867,128.80032,8375.6045};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=166;
+			type="LocationCity_F";
+		};
+		class Item56
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8978.9277,124.63835,9397.3838};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=167;
+			type="LocationCity_F";
+		};
+		class Item57
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8278.1924,218.05,8817.0645};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=168;
+			type="LocationCity_F";
+		};
+		class Item58
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7099.6821,159.34044,9155.9463};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=169;
+			type="LocationCity_F";
+		};
+		class Item59
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9024.4854,193.94051,3796.2903};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=170;
+			type="LocationCity_F";
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7105.4883,332.71875,3583.394};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=171;
+			type="LocationCity_F";
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6356.002,226.05344,3146.1235};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=172;
+			type="LocationCity_F";
+		};
+		class Item62
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8164.4526,123.00648,4346.1675};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=173;
+			type="LocationCity_F";
+		};
+		class Item63
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4979.6372,142.23,8206.5703};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=174;
+			type="LocationCity_F";
+		};
+		class Item64
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5008.27,139.12724,7004.4688};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=175;
+			type="LocationCity_F";
+		};
+		class Item65
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4683.0718,146.43015,9131.9668};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=176;
+			type="LocationCity_F";
+		};
+		class Item66
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2923.4983,145.33495,9163.1982};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=177;
+			type="LocationCity_F";
+		};
+		class Item67
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2022.8733,146.25334,8929.4893};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=178;
+			type="LocationCity_F";
+		};
+		class Item68
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={798.54138,144.77907,8607.7441};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=179;
+			type="LocationCity_F";
+		};
+		class Item69
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={464.88327,147.77762,9355.1445};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=180;
+			type="LocationCity_F";
+		};
+		class Item70
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1486.8569,137.1214,7284.5449};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=181;
+			type="LocationCity_F";
+		};
+		class Item71
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={469.37018,136.61549,7124.8496};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=182;
+			type="LocationCity_F";
+		};
+		class Item72
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1761.4534,123.31596,5792.8359};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=183;
+			type="LocationCity_F";
+		};
+		class Item73
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={238.30597,128.67703,5421.1172};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=184;
+			type="LocationCity_F";
+		};
+		class Item74
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3655.1675,134.28232,6220.0625};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=185;
+			type="LocationCity_F";
+		};
+		class Item75
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4517.7061,134.42,5820.7007};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=186;
+			type="LocationCity_F";
+		};
+		class Item76
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3975.2112,137.39966,6988.0073};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=187;
+			type="LocationCity_F";
+		};
+		class Item77
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2995.3284,137.57259,7146.0586};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=188;
+			type="LocationCity_F";
+		};
+		class Item78
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4088.8228,144.85236,8004.2524};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=189;
+			type="LocationCity_F";
+		};
+		class Item79
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3096.1958,143.35159,8462.96};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=190;
+			type="LocationCity_F";
+		};
+		class Item80
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2300.8086,122.14397,5211.249};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=191;
+			type="LocationCity_F";
+		};
+		class Item81
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1564.0164,128.99792,5288.2754};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=192;
+			type="LocationCity_F";
+		};
+		class Item82
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1041.1266,130.32967,5433.207};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=193;
+			type="LocationCity_F";
+		};
+		class Item83
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={261.06631,132.91046,6483.3652};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=194;
+			type="LocationCity_F";
+		};
+		class Item84
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={742.28223,134.92999,6790.6143};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=195;
+			type="LocationCity_F";
+		};
+		class Item85
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={935.45874,134.37971,6267.6025};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=196;
+			type="LocationCity_F";
+		};
+		class Item86
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1913.4207,132.69818,6507.7666};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=197;
+			type="LocationCity_F";
+		};
+		class Item87
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2520.1653,134.91759,6690.708};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=198;
+			type="LocationCity_F";
+		};
+		class Item88
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2435.0959,134.21799,6150.7397};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=199;
+			type="LocationCity_F";
+		};
+		class Item89
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3274.3752,129.27179,5285.8521};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=200;
+			type="LocationCity_F";
+		};
+		class Item90
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1778.7891,139.43657,7808.9395};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=201;
+			type="LocationCity_F";
+		};
+		class Item91
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2627.3379,139.19731,7362.3242};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=202;
+			type="LocationCity_F";
+		};
+		class Item92
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2649.3372,137.45908,6925.144};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=203;
+			type="LocationCity_F";
+		};
+		class Item93
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={589.69611,139.41092,7735.105};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=204;
+			type="LocationCity_F";
+		};
+		class Item94
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={659.38074,143.78326,8198.166};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=205;
+			type="LocationCity_F";
+		};
+		class Item95
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1558.0859,143.22734,8669.1338};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=206;
+			type="LocationCity_F";
+		};
+		class Item96
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2220.1216,140.88271,8040.0781};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=207;
+			type="LocationCity_F";
+		};
+		class Item97
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2736.8096,144.68364,8675.9189};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=208;
+			type="LocationCity_F";
+		};
+		class Item98
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1128.6282,150.80202,9789.4287};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=209;
+			type="LocationCity_F";
+		};
+		class Item99
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={488.37823,150.12097,9785.041};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=210;
+			type="LocationCity_F";
+		};
+		class Item100
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1205.3704,146.17255,9155.2725};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=211;
+			type="LocationCity_F";
+		};
+		class Item101
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1619.7789,150.10736,9609.4961};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=212;
+			type="LocationCity_F";
+		};
+		class Item102
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2320.5259,148.26715,9344.7871};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=213;
+			type="LocationCity_F";
+		};
+		class Item103
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2403.385,143.47644,8542.625};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=214;
+			type="LocationCity_F";
+		};
+		class Item104
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2545.5115,144.12074,8895.7842};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=215;
+			type="LocationCity_F";
+		};
+		class Item105
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1781.1628,151.16609,9279.2285};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=216;
+			type="LocationCity_F";
+		};
+		class Item106
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2213.2732,138.08475,7089.2373};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=217;
+			type="LocationCity_F";
+		};
+		class Item107
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2002.9741,138.47533,7294.2666};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=218;
+			type="LocationCity_F";
+		};
+		class Item108
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2104.9519,138.46548,6405.7397};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=219;
+			type="LocationCity_F";
+		};
+		class Item109
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1352.8372,130.90149,5766.1821};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=220;
+			type="LocationCity_F";
+		};
+		class Item110
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4044.9995,132.77167,5416.5469};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=221;
+			type="LocationCity_F";
+		};
+		class Item111
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4746.5991,137.96762,6575.4468};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=222;
+			type="LocationCity_F";
+		};
+		class Item112
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4671.9136,140.23785,7428.4722};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=223;
+			type="LocationCity_F";
+		};
+		class Item113
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4956.2886,144.38832,8594.1611};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=224;
+			type="LocationCity_F";
+		};
+		class Item114
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3789.7703,141.18025,8720.3242};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=225;
+			type="LocationCity_F";
+		};
+		class Item115
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4100.4067,144.94919,8850.0957};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=226;
+			type="LocationCity_F";
+		};
+		class Item116
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4434.7749,144.47159,8379.2695};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=227;
+			type="LocationCity_F";
+		};
+		class Item117
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3676.9912,141.8873,7944.2197};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=228;
+			type="LocationCity_F";
+		};
+		class Item118
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3798.4517,138.28,7369.4331};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=229;
+			type="LocationCity_F";
+		};
+		class Item119
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3664.373,137.97931,6804.2041};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=230;
+			type="LocationCity_F";
+		};
+		class Item120
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3477.9985,135.65286,6560.6348};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=231;
+			type="LocationCity_F";
+		};
+		class Item121
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3013.9805,138.77368,6777.5225};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=232;
+			type="LocationCity_F";
+		};
+		class Item122
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2667.8237,134.44821,6444.7261};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=233;
+			type="LocationCity_F";
+		};
+		class Item123
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1472.4878,160.0186,3252.6411};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=234;
+			type="LocationCity_F";
+		};
+		class Item124
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3181.4702,133.72154,5850.5835};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=235;
+			type="LocationCity_F";
+		};
+		class Item125
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={298.87305,144.34102,8347.2471};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=236;
+			type="LocationCity_F";
+		};
+		class Item126
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3636.8176,146.80193,9898.9453};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=237;
+			type="LocationCity_F";
+		};
+		class Item127
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4162.8877,146.96552,9296.1826};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=238;
+			type="LocationCity_F";
+		};
+		class Item128
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4405.1626,148.03316,9783.5771};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=239;
+			type="LocationCity_F";
+		};
+		class Item129
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4778.332,147.44272,9644.0322};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=240;
+			type="LocationCity_F";
+		};
+		class Item130
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3438.0874,145.24284,8936.9404};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=241;
+			type="LocationCity_F";
+		};
+		class Item131
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2724.4233,143.50868,7908.23};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=242;
+			type="LocationCity_F";
 		};
 	};
 	class Connections
