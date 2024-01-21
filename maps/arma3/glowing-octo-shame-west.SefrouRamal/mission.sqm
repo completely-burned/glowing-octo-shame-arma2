@@ -1,0 +1,1786 @@
+version=54;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=120;
+	};
+	class MarkerIDProvider
+	{
+		nextID=1;
+	};
+	class Camera
+	{
+		pos[]={8003.1699,50.117535,8769.1279};
+		dir[]={-0.51738971,-0.51650965,-0.68229443};
+		up[]={-0.31208992,0.8562814,-0.4115606};
+		aside[]={-0.79681104,0,0.60422862};
+	};
+};
+binarizationWanted=0;
+sourceName="glowing-octo-shame-west";
+addons[]=
+{
+	"A3_Ui_F",
+	"Characters_f_lxWS",
+	"A3_Modules_F",
+	"A3_Weapons_F_Ammoboxes",
+	"characters_1_F_lxWS",
+	"A3_Characters_F",
+	"A3_Structures_F_Mil_TentHangar"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=6;
+		class Item0
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="Characters_f_lxWS";
+			name="Arma 3 Western Sahara - Characters and Clothing";
+			author="Rotators Collective";
+			url="https://www.arma3.com";
+		};
+		class Item2
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+	};
+};
+dlcs[]=
+{
+	"ws"
+};
+randomSeed=1004593;
+class ScenarioData
+{
+	disabledAI=1;
+	respawn=3;
+	class Header
+	{
+		gameType="Coop";
+	};
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=3;
+						class Item0
+						{
+							class data
+							{
+								singleType="STRING";
+								value="MenuInventory";
+							};
+						};
+						class Item1
+						{
+							class data
+							{
+								singleType="STRING";
+								value="MenuPosition";
+							};
+						};
+						class Item2
+						{
+							class data
+							{
+								singleType="STRING";
+								value="Counter";
+							};
+						};
+					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="ReviveMode";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		class Attribute2
+		{
+			property="ReviveRequiredItems";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=3;
+	};
+	class Category1
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="EnableDebugConsole";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
+};
+class Mission
+{
+	class Intel
+	{
+		briefingName="CO 00 glowing-octo-shame SefrouRamal West v0.0.5.906 DEBUG";
+		timeOfChanges=1800.0002;
+		startWeather=0.30000001;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.1;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2035;
+		month=6;
+		day=6;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=70;
+		class Item0
+		{
+			dataType="Marker";
+			position[]={10039.036,81.375,10021.944};
+			name="gosa_worldSize";
+			type="Empty";
+			id=0;
+			atlOffset=0.00019073486;
+		};
+		class Item1
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4658.9448,24.910393,5824.1172};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=2;
+					type="B_D_Soldier_SL_lxWS";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4663.9448,24.469997,5819.1172};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=3;
+					type="B_D_Soldier_lxWS";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4653.9448,25.119581,5819.1172};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=4;
+					type="B_D_soldier_LAT_lxWS";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4668.9448,24.446516,5814.1172};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=5;
+					type="B_D_soldier_M_lxWS";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4648.9448,24.480988,5814.1172};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=6;
+					type="B_D_Soldier_TL_lxWS";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4673.9448,24.316639,5809.1172};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=7;
+					type="B_D_soldier_AR_lxWS";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4643.9448,24.04982,5809.1172};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=8;
+					type="B_D_Soldier_A_lxWS";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4678.9448,24.269756,5804.1172};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=9;
+					type="B_D_medic_lxWS";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=1;
+		};
+		class Item2
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4659.6719,24.293386,5903.1992};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=10;
+			type="LocationBase_F";
+		};
+		class Item3
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4846.3901,24.441,5921.9761};
+			};
+			init="this setVariable [""gosa_respawn_type"", 1];";
+			id=11;
+			type="LocationCamp_F";
+			atlOffset=0.080999374;
+		};
+		class Item4
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4657.771,23.664335,6023.4419};
+				angles[]={0,0,0.016004669};
+			};
+			init="this setVariable [""gosa_respawn_type"", 1];";
+			id=12;
+			type="LocationCamp_F";
+		};
+		class Item5
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4706.7378,24.35,5819.6831};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=13;
+			type="LocationCamp_F";
+		};
+		class Item6
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4902.4912,40.187916,5909.0879};
+				angles[]={0,0.92856753,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=15;
+			type="Box_NATO_WpsLaunch_F";
+			atlOffset=2.5998917;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item7
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4709.6626,24.508282,5820.3311};
+				angles[]={0,5.5546851,0.0039968039};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=16;
+			type="Box_NATO_WpsLaunch_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item8
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4702.125,24.607588,5813.3828};
+				angles[]={6.2791882,0.74841464,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=17;
+			type="Box_NATO_Support_F";
+			atlOffset=1.9073486e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4705.6182,24.5312,5816.0391};
+				angles[]={0,5.4109392,0.0039968039};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=19;
+			type="Box_NATO_Wps_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item10
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4904.7031,40.038368,5905.2192};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=20;
+			type="LocationCamp_F";
+			atlOffset=2.5999756;
+		};
+		class Item11
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4660.4868,24.416723,5804.7383};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=22;
+					type="B_ION_TL_lxWS";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4665.4868,24.275757,5799.7383};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=23;
+					type="B_ION_Soldier_lxWS";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4655.4868,24.633902,5799.7383};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=24;
+					type="B_ION_soldier_AR_lxWS";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4670.4868,24.218946,5794.7383};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=25;
+					type="B_ION_marksman_lxWS";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4650.4868,24.611385,5794.7383};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=26;
+					type="B_ION_Soldier_GL_lxWS";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4675.4868,24.203386,5789.7383};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=27;
+					type="B_ION_Soldier_lxWS";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4645.4868,24.235359,5789.7383};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=28;
+					type="B_ION_shot_lxWS";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4680.4868,24.177,5784.7383};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=29;
+					type="B_ION_medic_lxWS";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=21;
+		};
+		class Item12
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=7;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4661.082,24.264671,5795.084};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=31;
+					type="B_UN_Soldier_TL_lxWS";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4666.082,24.181711,5790.084};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=32;
+					type="B_UN_Soldier_GL_lxWS";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4671.082,24.170506,5785.084};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=33;
+					type="B_UN_Soldier_lxWS";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4651.082,24.552343,5785.084};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=34;
+					type="B_UN_Soldier_lxWS";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4676.082,24.141848,5780.084};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.44999999;
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=35;
+					type="B_UN_soldier_AR_lxWS";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4646.082,24.591772,5780.084};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=36;
+					type="B_UN_HeavyGunner_lxWS";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4681.082,24.06752,5775.084};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						skill=0.40000001;
+						isPlayable=1;
+					};
+					id=37;
+					type="B_UN_medic_lxWS";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=30;
+		};
+		class Item13
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4903.124,40.322445,5903.5249};
+				angles[]={0,4.0826569,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=38;
+			type="Box_NATO_Ammo_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item14
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4900.2969,40.227062,5905.3892};
+				angles[]={0,5.6255279,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=39;
+			type="Box_NATO_Wps_F";
+			atlOffset=2.5999451;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4904.7222,40.322445,5906.4663};
+				angles[]={0,0.89585334,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=40;
+			type="Box_NATO_Support_F";
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4661.7788,24.013626,6021.4751};
+				angles[]={0.0080009829,2.2616348,0.011995304};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=44;
+			type="Box_NATO_Support_F";
+			atlOffset=-3.8146973e-006;
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4663.439,24.026411,6023.3081};
+				angles[]={0.0080009829,5.1604695,0.019996032};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=45;
+			type="Box_NATO_Ammo_F";
+			atlOffset=-2.8610229e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item18
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4481.0229,22.658184,5843.4268};
+			};
+			name="HeadlessClient";
+			isPlayable=1;
+			id=46;
+			type="HeadlessClient_F";
+		};
+		class Item19
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4445.7476,22.386698,5843.4268};
+			};
+			name="HeadlessClient_1";
+			isPlayable=1;
+			id=47;
+			type="HeadlessClient_F";
+		};
+		class Item20
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4418.6128,22.35,5844.7852};
+			};
+			name="HeadlessClient_2";
+			isPlayable=1;
+			id=48;
+			type="HeadlessClient_F";
+		};
+		class Item21
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4386.0503,22.43,5840.7119};
+			};
+			name="HeadlessClient_3";
+			isPlayable=1;
+			id=49;
+			type="HeadlessClient_F";
+		};
+		class Item22
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4357.5581,22.602982,5836.6382};
+			};
+			name="HeadlessClient_4";
+			isPlayable=1;
+			id=50;
+			type="HeadlessClient_F";
+		};
+		class Item23
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4349.4175,22.726223,5869.2256};
+			};
+			name="HeadlessClient_5";
+			isPlayable=1;
+			id=51;
+			type="HeadlessClient_F";
+		};
+		class Item24
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4376.5527,22.631041,5874.6563};
+			};
+			name="HeadlessClient_6";
+			isPlayable=1;
+			id=52;
+			type="HeadlessClient_F";
+		};
+		class Item25
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4414.542,22.410704,5880.0879};
+			};
+			name="HeadlessClient_7";
+			isPlayable=1;
+			id=53;
+			type="HeadlessClient_F";
+		};
+		class Item26
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4444.3906,22.505829,5880.0879};
+			};
+			name="HeadlessClient_8";
+			isPlayable=1;
+			id=54;
+			type="HeadlessClient_F";
+		};
+		class Item27
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4470.1699,22.703094,5880.0879};
+			};
+			name="HeadlessClient_9";
+			isPlayable=1;
+			id=55;
+			type="HeadlessClient_F";
+		};
+		class Item28
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4419.417,29.675127,6228.918};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=56;
+			type="LocationCity_F";
+		};
+		class Item29
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6239.0605,51.762924,5878.7949};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=60;
+			type="LocationCity_F";
+		};
+		class Item30
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5798.5254,50.336449,6425.7134};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=61;
+			type="LocationCity_F";
+		};
+		class Item31
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4271.4243,51.589031,8706.9316};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=62;
+			type="LocationCity_F";
+		};
+		class Item32
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4155.9199,53.73,4415.605};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=63;
+			type="LocationCity_F";
+		};
+		class Item33
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5556.79,42.916935,3228.2239};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=67;
+			type="LocationCity_F";
+		};
+		class Item34
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4755.0156,48.370354,3853.7939};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=68;
+			type="LocationCity_F";
+		};
+		class Item35
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6825.4888,19.594179,2921.834};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=69;
+			type="LocationCity_F";
+		};
+		class Item36
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7936.7588,12.503443,2846.2939};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=70;
+			type="LocationCity_F";
+		};
+		class Item37
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7398.001,11.015742,2065.2869};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=71;
+			type="LocationCity_F";
+		};
+		class Item38
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5749.1133,54.002029,1607.002};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=72;
+			type="LocationCity_F";
+		};
+		class Item39
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3164.085,65.156044,2033.1592};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=73;
+			type="LocationCity_F";
+		};
+		class Item40
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2302.8201,42.296696,3384.8218};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=75;
+			type="LocationCity_F";
+		};
+		class Item41
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2360.4207,34.082962,2660.2949};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=76;
+			type="LocationCity_F";
+		};
+		class Item42
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1109.0029,42.196011,3379.2224};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=77;
+			type="LocationCity_F";
+		};
+		class Item43
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2101.7466,14.55359,5701.7651};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=78;
+			type="LocationCity_F";
+		};
+		class Item44
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4358.6299,51.281693,9429.2314};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=79;
+			type="LocationCity_F";
+		};
+		class Item45
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6065.9009,55.992489,7585.9043};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=80;
+			type="LocationCity_F";
+		};
+		class Item46
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6551.9536,66.410004,7834.1816};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=81;
+			type="LocationCity_F";
+		};
+		class Item47
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2943.043,55.311283,2550.0037};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=82;
+			type="LocationCity_F";
+		};
+		class Item48
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4328.4453,51.102924,1248.9758};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=83;
+			type="LocationCity_F";
+		};
+		class Item49
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5034.4131,42.200729,1279.0533};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=84;
+			type="LocationCity_F";
+		};
+		class Item50
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4691.6606,35.7173,698.42102};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=85;
+			type="LocationCity_F";
+		};
+		class Item51
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4305.9316,36.900002,7072.1484};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=86;
+			type="LocationCity_F";
+		};
+		class Item52
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2115.0745,34.804649,4274.8613};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=88;
+			type="LocationCity_F";
+		};
+		class Item53
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3501.6963,46.075809,5318.8579};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=91;
+			type="LocationCity_F";
+		};
+		class Item54
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3066.7146,33.200092,6271.4028};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=92;
+			type="LocationCity_F";
+		};
+		class Item55
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3354.9775,30.029642,5945.293};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=93;
+			type="LocationCity_F";
+		};
+		class Item56
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3559.6538,53.354549,4167.4438};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 650] <= 0)then{createLocation [""CityCenter"", getPos this, 700, 700]};";
+			id=95;
+			type="LocationCityCapital_F";
+		};
+		class Item57
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4603.207,51.522423,2650.1011};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 650] <= 0)then{createLocation [""CityCenter"", getPos this, 700, 700]};";
+			id=96;
+			type="LocationCityCapital_F";
+		};
+		class Item58
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4468.5171,24.557655,5036.7759};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 650] <= 0)then{createLocation [""CityCenter"", getPos this, 700, 700]};";
+			id=97;
+			type="LocationCityCapital_F";
+		};
+		class Item59
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5692.7803,57.673367,5020.6304};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 650] <= 0)then{createLocation [""CityCenter"", getPos this, 700, 700]};";
+			id=98;
+			type="LocationCityCapital_F";
+		};
+		class Item60
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5260.8105,24.625931,5629.3789};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 650] <= 0)then{createLocation [""CityCenter"", getPos this, 700, 700]};";
+			id=99;
+			type="LocationCityCapital_F";
+		};
+		class Item61
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4776.813,24.440001,5790.5186};
+			};
+			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] <= 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
+			id=101;
+			type="LocationCity_F";
+		};
+		class Item62
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8099.3066,43.73,8693.8057};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=102;
+			type="LocationBase_F";
+		};
+		class Item63
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7991.0298,38.550407,8753.8008};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=105;
+			type="LocationCamp_F";
+		};
+		class Item64
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8161.4692,49.929966,8825.1973};
+				angles[]={0,1.8313739,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawn_type"", 1];";
+			};
+			id=109;
+			type="Land_TentHangar_V1_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item65
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8164.4912,45.884697,8810.0967};
+				angles[]={6.2232509,2.6529703,6.2551899};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=110;
+			type="Box_NATO_Support_F";
+			atlOffset=-1.1444092e-005;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item66
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7995.5068,38.788422,8759.9746};
+				angles[]={6.2711945,6.0901694,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=111;
+			type="Box_NATO_Wps_F";
+			atlOffset=-7.6293945e-006;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item67
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7987.1431,39.565048,8751.7959};
+				angles[]={0.003228859,2.6690621,0.00090757123};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=113;
+			type="Box_NATO_WpsLaunch_F";
+			atlOffset=0.85100555;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item68
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7989.5352,39.70607,8750.3457};
+				angles[]={0.00059341197,1.3096253,6.2804279};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=114;
+			type="Box_NATO_Ammo_F";
+			atlOffset=0.0037460327;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item69
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8025.4038,38.637974,8705.5469};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=116;
+					type="B_D_Pilot_lxWS";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8021.7798,38.645084,8697.5674};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=117;
+					type="B_D_Pilot_lxWS";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=115;
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=6;
+		};
+		class Links
+		{
+			items=6;
+			class Item0
+			{
+				linkID=0;
+				item0=10;
+				item1=11;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=10;
+				item1=20;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=10;
+				item1=13;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item3
+			{
+				linkID=3;
+				item0=10;
+				item1=12;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=102;
+				item1=105;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item5
+			{
+				linkID=5;
+				item0=109;
+				item1=102;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
+	};
+};
