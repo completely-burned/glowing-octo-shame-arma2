@@ -1,3 +1,6 @@
+
+#include "..\include\ranks.hpp"
+
 // B_T_
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_T_F");
 if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {

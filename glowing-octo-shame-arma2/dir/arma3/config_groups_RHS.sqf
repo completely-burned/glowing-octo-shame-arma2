@@ -1,3 +1,6 @@
+
+#include "..\include\ranks.hpp"
+
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"RHS_MSV");
 if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 if (_tmp > 0 or (_tmp == -1 && _n >= 160)) then {
