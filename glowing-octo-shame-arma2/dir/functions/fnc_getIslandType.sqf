@@ -21,7 +21,7 @@ _w = toLower worldName;
 _r = [250,2012];
 
 // Тип.
-if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter"]) then {_r set [0,100]};
+if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter","chernarus_winter"]) then {_r set [0,100]};
 if (_w in ["namalsk"]) then {_r set [0,160]};
 if (_w in ["utes","i44_omaha"]) then {_r set [0,180]};
 if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
@@ -29,7 +29,7 @@ if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 	"mcn_neaville","i44_merderet_v2","i44_merderet"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl"]) then {_r set [0,225]};
-if (_w in ["altis","vr","porto","beketov","kunduz","tem_anizay"]) then {_r set [0,250]};
+if (_w in ["altis","vr","stratis","porto","beketov","kunduz","tem_anizay"]) then {_r set [0,250]};
 if (_w in ["zargabad","takistan","desert_e","shapur_baf","mountains_acr","fallujah",
 	"sefrouramal"]) then {_r set [0,300]};
 
@@ -47,7 +47,8 @@ if (_w in ["porto"]) then
 {
 	_r set [1,2008];
 };
-if (_w in ["utes","chernarus","kunduz"]) then
+if (_w in ["utes","chernarus","chernarus_winter",
+	"kunduz"]) then
 {
 	_r set [1,2009];
 };
@@ -83,7 +84,7 @@ if (_w in ["cup_chernarus_a3"]) then
 {
 	_r set [1,2020];
 };
-if (_w in ["altis","tanoa","enoch","vr","sefrouramal"]) then
+if (_w in ["altis","tanoa","enoch","vr","stratis","sefrouramal"]) then
 {
 	_r set [1,2035];
 };
