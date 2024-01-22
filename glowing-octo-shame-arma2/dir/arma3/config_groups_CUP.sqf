@@ -764,4 +764,5 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		"CUP_I_GUE_Gamekeeper","CUP_I_GUE_Woodman",
 		"CUP_I_GUE_Villager"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	];
+	};
 };
