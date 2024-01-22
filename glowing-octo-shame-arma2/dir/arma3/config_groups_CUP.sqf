@@ -11,7 +11,7 @@
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_O_RU");
 if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	if (_tmp > 0 or (_tmp == -1 && _n >= 150)) then {
-		_east=_east+[
+		_east append [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
 			"CUP_O_RU_Soldier_M_EMR_V2","CUP_O_RU_Soldier_LAT_M_EMR_V2",
@@ -302,7 +302,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	};
 	// Desert
 	if (_tmp > 0 or (_tmp == -1 && _n > 250)) then {
-		_east=_east+[
+		_east append [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Desert",
 			"CUP_O_RU_Soldier_Ratnik_Desert","CUP_O_RU_Soldier_LAT_Ratnik_Desert",
@@ -342,7 +342,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	};
 	// Winter
 	if (_tmp > 0 or (_tmp == -1 && _n < 150)) then {
-		_east=_east+[
+		_east append [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter",
 			"CUP_O_RU_Soldier_Ratnik_Winter","CUP_O_RU_Soldier_LAT_Ratnik_Winter",
@@ -394,7 +394,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_B_US_Army");
 if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	// Air
-	_west=_west+[
+	_west append [
 		// configName CUP_B_US_Army_A10Flight
 		[[[["CUP_B_A10_CAS_USA","CUP_B_A10_CAS_USA"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
 		// configName CUP_B_US_Army_AH64DFlight
@@ -407,7 +407,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 	// Inf.
 	if (_tmp > 0 or (_tmp == -1 && (_n < 150 or _n > 250))) then {
-		_west=_west+[
+		_west append [
 			// configName CUP_B_US_Army_RifleSquad_UCP
 			[[[["CUP_B_US_Soldier_SL_UCP",
 			"CUP_B_US_Soldier_TL_UCP","CUP_B_US_Soldier_GL_UCP",
@@ -461,7 +461,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		];
 	};
 	if (_tmp > 0 or (_tmp == -1 && _n >= 150)) then {
-		_west=_west+[
+		_west append [
 			// configName CUP_B_US_Army_MotorizedSection_OEFCP
 			[[[["CUP_B_US_Soldier_SL_OEFCP",
 			"CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_MK19_USA",
@@ -498,7 +498,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 	// Vehicles Desert
 	if (_tmp > 0 or (_tmp == -1 && (_n < 150 or _n > 250))) then {
-		_west=_west+[
+		_west append [
 			// configName CUP_B_US_Army_DeltaPatrolHMMWV
 			[[[["CUP_B_US_SpecOps_TL","CUP_B_HMMWV_SOV_USA","CUP_B_US_SpecOps_Assault","CUP_B_US_SpecOps_M"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0],
 
@@ -594,7 +594,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_B_USMC");
 if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	// Air
-	_west=_west+[
+	_west append [
 		// configName CUP_B_USMC_AH1ZSquadron
 		[[[["CUP_B_AH1Z","CUP_B_AH1Z"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
 		// configName CUP_B_USMC_UH1YSquadron
@@ -608,7 +608,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	];
 
 	if (_tmp > 0 or (_tmp == -1 && (_n >= 150 && _n <= 250))) then {
-		_west=_west+[
+		_west append [
 			// configName CUP_B_USMC_InfSquad_FROG_WDL
 			[[[["CUP_B_USMC_Soldier_SL_FROG_WDL","CUP_B_USMC_Soldier_TL_FROG_WDL","CUP_B_USMC_Soldier_AR_FROG_WDL","CUP_B_USMC_Soldier_LAT_FROG_WDL","CUP_B_USMC_Soldier_FROG_WDL","CUP_B_USMC_Soldier_TL_FROG_WDL","CUP_B_USMC_Soldier_AR_FROG_WDL","CUP_B_USMC_Soldier_LAT_FROG_WDL","CUP_B_USMC_Soldier_FROG_WDL","CUP_B_USMC_Soldier_TL_FROG_WDL","CUP_B_USMC_Soldier_AR_FROG_WDL","CUP_B_USMC_Soldier_LAT_FROG_WDL","CUP_B_USMC_Soldier_FROG_WDL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[12,0,0],[14,0,0],[16,0,0],[18,0,0],[3,-5,0],[5,-5,0],[7,-5,0],[9,-5,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.5],
 			// configName CUP_B_USMC_FireTeam_FROG_WDL
@@ -672,7 +672,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		];
 	};
 	if (_tmp > 0 or (_tmp == -1 && (_n < 150 or _n > 250))) then {
-		_west=_west+[
+		_west append [
 			// configName CUP_B_USMC_InfSquad_DES
 			[[[["CUP_B_USMC_Soldier_SL_des","CUP_B_USMC_Soldier_TL_des","CUP_B_USMC_Soldier_AR_des","CUP_B_USMC_Soldier_LAT_des","CUP_B_USMC_Soldier_des","CUP_B_USMC_Soldier_TL_des","CUP_B_USMC_Soldier_AR_des","CUP_B_USMC_Soldier_LAT_des","CUP_B_USMC_Soldier_des","CUP_B_USMC_Soldier_TL_des","CUP_B_USMC_Soldier_AR_des","CUP_B_USMC_Soldier_LAT_des","CUP_B_USMC_Soldier_des"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[12,0,0],[14,0,0],[16,0,0],[18,0,0],[3,-5,0],[5,-5,0],[7,-5,0],[9,-5,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.5],
 			// configName CUP_B_USMC_FireTeam_DES
