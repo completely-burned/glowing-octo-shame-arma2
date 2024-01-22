@@ -12,7 +12,7 @@
 	// Default
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_O_RU");
 if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
-	if (_tmp > 0 or (_tmp == -1 && _n >= 150)) then {
+	if (_n >= 150) then {
 		_east append [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
@@ -303,7 +303,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		];
 	};
 	// Desert
-	if (_tmp > 0 or (_tmp == -1 && _n > 250)) then {
+	if (_n > 250) then {
 		_east append [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Desert",
@@ -343,7 +343,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		];
 	};
 	// Winter
-	if (_tmp > 0 or (_tmp == -1 && _n < 150)) then {
+	if (_n < 150) then {
 		_east append [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter",
