@@ -165,6 +165,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_CUP_O_TK {
+			title="FACTION: CUP_O_TK";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 		class gosa_faction_multiplier_CUP_B_US_Army {
 			title="FACTION: CUP_B_US_Army";
 			values[] = {-1,1,0};
@@ -173,6 +179,18 @@ class Params {
 		};
 		class gosa_faction_multiplier_CUP_B_USMC {
 			title="FACTION: CUP_B_USMC";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_CUP_B_GB {
+			title="FACTION: CUP_B_GB";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_CUP_B_GER {
+			title="FACTION: CUP_B_GER";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
