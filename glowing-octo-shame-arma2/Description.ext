@@ -171,6 +171,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_CUP_O_ChDKZ {
+			title="FACTION: CUP_O_ChDKZ";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 		class gosa_faction_multiplier_CUP_B_US_Army {
 			title="FACTION: CUP_B_US_Army";
 			values[] = {-1,1,0};
