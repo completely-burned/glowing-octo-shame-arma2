@@ -1,3 +1,8 @@
+/*
+ * Отряды из CUP
+ * TODO: Назначить командира.
+ */
+
 //-- CUP_O_RU
 	// EMR, VDV, VDV_EMR, M_EMR_V2
 	// Ratnik_Summer, Ratnik_Autumn, Ratnik_Winter, Ratnik_BeigeDigital, Ratnik_Desert
