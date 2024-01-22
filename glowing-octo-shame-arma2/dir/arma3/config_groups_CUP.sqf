@@ -709,7 +709,8 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 //-- CUP_I_NAPA
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_I_NAPA");
 if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
-	_guer=_guer+[
+	if (_tmp > 0 or _n <= 250) then {
+	_guer append [
 		// configName CUP_I_NAPA_MechInfSection
 		[[[["CUP_I_GUE_Soldier_AR","CUP_I_BRDM2_NAPA","CUP_I_GUE_Soldier_GL","CUP_I_GUE_Soldier_AKSU"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
 		0.1],
