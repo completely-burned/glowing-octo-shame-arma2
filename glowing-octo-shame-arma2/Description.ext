@@ -195,6 +195,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_CUP_B_CDF {
+			title="FACTION: CUP_B_CDF";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 		class gosa_faction_multiplier_CUP_I_NAPA {
 			title="FACTION: CUP_I_NAPA";
 			values[] = {-1,1,0};
