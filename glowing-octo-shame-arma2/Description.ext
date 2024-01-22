@@ -201,6 +201,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_CUP_I_PMC_ION {
+			title="FACTION: CUP_I_PMC_ION";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 	#else
 	class gosa_faction_multiplier_INS {
 		title="FACTION: BIS_INS";
