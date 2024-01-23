@@ -12,7 +12,7 @@
 	// Default
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_O_RU");
 if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
-	if (_n >= 150) then {
+	if (_n >= 160) then {
 		_east append [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
@@ -343,7 +343,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		];
 	};
 	// Winter
-	if (_n < 150) then {
+	if (_n < 160) then {
 		_east append [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter",
@@ -491,8 +491,10 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		[[[["CUP_B_CH47F_USA"],[[0,0,0]],["CAPTAIN"]]],0.3]
 	];
 
-	// Inf.
-	if (_tmp > 0 or (_tmp == -1 && (_n < 150 or _n > 250))) then {
+	if (_n > 250 or
+		(_tmp > 0 && _n < 160)) then
+	{
+		// Inf. UCP (самый белый)
 		_west append [
 			// configName CUP_B_US_Army_RifleSquad_UCP
 			[[[["CUP_B_US_Soldier_SL_UCP",
@@ -515,8 +517,13 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 			// configName CUP_B_US_Army_TeamSupport_UCP
 			[[[["CUP_B_US_Soldier_TL_UCP","CUP_B_US_Soldier_GL_UCP","CUP_B_US_Soldier_Marksman_UCP","CUP_B_US_Medic_UCP"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.1],
 			// configName CUP_B_US_Army_HeavyATTeam_UCP
-			[[[["CUP_B_US_Soldier_HAT_UCP","CUP_B_US_Soldier_HAT_UCP","CUP_B_US_Soldier_AHAT_UCP"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
-
+			[[[["CUP_B_US_Soldier_HAT_UCP","CUP_B_US_Soldier_HAT_UCP","CUP_B_US_Soldier_AHAT_UCP"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1]
+		];
+	};
+	if (_n > 250) then
+	{
+		// Inf. OCP (цвет "Латте")
+		_west append [
 			// configName CUP_B_US_Army_RifleSquad_OCP
 			[[[["CUP_B_US_Soldier_SL_OCP",
 			"CUP_B_US_Soldier_TL_OCP","CUP_B_US_Soldier_GL_OCP",
@@ -546,17 +553,10 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 			[[[["CUP_B_US_SpecOps_TL","CUP_B_US_SpecOps_MG","CUP_B_US_SpecOps_Assault","CUP_B_US_SpecOps_M"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0]
 		];
 	};
-	if (_tmp > 0 or (_tmp == -1 && _n >= 150)) then {
-		_west append [
-			// configName CUP_B_US_Army_MotorizedSection_OEFCP
-			[[[["CUP_B_US_Soldier_SL_OEFCP",
-			"CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_MK19_USA",
-			"CUP_B_US_Soldier_AT_OEFCP","CUP_B_US_Soldier_GL_OEFCP",
-			"CUP_B_US_Soldier_GL_OEFCP","CUP_B_US_Soldier_AAT_OEFCP",
-			"CUP_B_US_Soldier_Marksman_OEFCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_B_US_Army_MotorizedSectionAT_OEFCP
-			[[[["CUP_B_US_Soldier_SL_OEFCP","CUP_B_HMMWV_TOW_USA","CUP_B_HMMWV_TOW_USA","CUP_B_US_Soldier_AR_OEFCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.15],
 
+	if (_n >= 160) then {
+		// Inf. OEFCP
+		_west append [
 			// configName CUP_B_US_Army_RifleSquad_OEFCP
 			[[[["CUP_B_US_Soldier_SL_OEFCP",
 			"CUP_B_US_Soldier_TL_OEFCP","CUP_B_US_Soldier_GL_OEFCP",
@@ -582,8 +582,9 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		];
 	};
 
-	// Vehicles Desert
-	if (_tmp > 0 or (_tmp == -1 && (_n < 150 or _n > 250))) then {
+	if (_n >= 250) then
+	{
+		// Vehicles Desert
 		_west append [
 			// configName CUP_B_US_Army_DeltaPatrolHMMWV
 			[[[["CUP_B_US_SpecOps_TL","CUP_B_HMMWV_SOV_USA","CUP_B_US_SpecOps_Assault","CUP_B_US_SpecOps_M"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0],
@@ -643,6 +644,15 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 			"CUP_B_M2A3Bradley_USA_D","CUP_B_US_Soldier_AR_OCP",
 			"CUP_B_US_Soldier_GL_OCP","CUP_B_US_Soldier_GL_OCP",
 			"CUP_B_US_Soldier_AT_OCP","CUP_B_US_Soldier_LAT_OCP"],[[3,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE"]]],0.6],
+
+			// configName CUP_B_US_Army_MotorizedSection_OEFCP
+			[[[["CUP_B_US_Soldier_SL_OEFCP",
+			"CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_MK19_USA",
+			"CUP_B_US_Soldier_AT_OEFCP","CUP_B_US_Soldier_GL_OEFCP",
+			"CUP_B_US_Soldier_GL_OEFCP","CUP_B_US_Soldier_AAT_OEFCP",
+			"CUP_B_US_Soldier_Marksman_OEFCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+			// configName CUP_B_US_Army_MotorizedSectionAT_OEFCP
+			[[[["CUP_B_US_Soldier_SL_OEFCP","CUP_B_HMMWV_TOW_USA","CUP_B_HMMWV_TOW_USA","CUP_B_US_Soldier_AR_OEFCP"],[[3,5,0],[-5,0,0],[-5,-7,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.15],
 			// configName CUP_B_US_Army_MechanizedInfantrySquadICVM2_OEFCP
 			[[[["CUP_B_US_Soldier_SL_OEFCP",
 			"CUP_B_M1126_ICV_M2_Desert","CUP_B_US_Soldier_TL_OEFCP",
@@ -673,6 +683,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 			[[[["CUP_B_M1A2_TUSK_MG_DES_US_Army","CUP_B_M1A2_TUSK_MG_DES_US_Army"],[[0,10,0],[5,0,0]],["CAPTAIN","LIEUTENANT"]]],0.05]
 		];
 	};
+	// TODO: Добавить камуфляжи лесной, зимний.
 };
 
 //-- CUP_B_USMC
@@ -693,7 +704,10 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		[[[["CUP_B_AV8B_LGB","CUP_B_AV8B_LGB"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.5]
 	];
 
-	if (_tmp > 0 or (_tmp == -1 && (_n >= 150 && _n <= 250))) then {
+	if ((_n >= 160 && _n <= 250) or
+		(_tmp > 0 && _n < 160)) then
+	{
+		// WDL
 		_west append [
 			// configName CUP_B_USMC_InfSquad_FROG_WDL
 			[[[["CUP_B_USMC_Soldier_SL_FROG_WDL","CUP_B_USMC_Soldier_TL_FROG_WDL","CUP_B_USMC_Soldier_AR_FROG_WDL","CUP_B_USMC_Soldier_LAT_FROG_WDL","CUP_B_USMC_Soldier_FROG_WDL","CUP_B_USMC_Soldier_TL_FROG_WDL","CUP_B_USMC_Soldier_AR_FROG_WDL","CUP_B_USMC_Soldier_LAT_FROG_WDL","CUP_B_USMC_Soldier_FROG_WDL","CUP_B_USMC_Soldier_TL_FROG_WDL","CUP_B_USMC_Soldier_AR_FROG_WDL","CUP_B_USMC_Soldier_LAT_FROG_WDL","CUP_B_USMC_Soldier_FROG_WDL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[12,0,0],[14,0,0],[16,0,0],[18,0,0],[3,-5,0],[5,-5,0],[7,-5,0],[9,-5,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.5],
@@ -757,7 +771,8 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 			//[[[["CUP_B_FR_Story_Miles","CUP_B_FR_Story_Cooper","CUP_B_FR_Story_Sykes","CUP_B_FR_Story_Rodriguez","CUP_B_FR_Story_OHara"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0]
 		];
 	};
-	if (_tmp > 0 or (_tmp == -1 && (_n < 150 or _n > 250))) then {
+	if (_n > 250) then {
+		// DES
 		_west append [
 			// configName CUP_B_USMC_InfSquad_DES
 			[[[["CUP_B_USMC_Soldier_SL_des","CUP_B_USMC_Soldier_TL_des","CUP_B_USMC_Soldier_AR_des","CUP_B_USMC_Soldier_LAT_des","CUP_B_USMC_Soldier_des","CUP_B_USMC_Soldier_TL_des","CUP_B_USMC_Soldier_AR_des","CUP_B_USMC_Soldier_LAT_des","CUP_B_USMC_Soldier_des","CUP_B_USMC_Soldier_TL_des","CUP_B_USMC_Soldier_AR_des","CUP_B_USMC_Soldier_LAT_des","CUP_B_USMC_Soldier_des"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[12,0,0],[14,0,0],[16,0,0],[18,0,0],[3,-5,0],[5,-5,0],[7,-5,0],[9,-5,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.5],
