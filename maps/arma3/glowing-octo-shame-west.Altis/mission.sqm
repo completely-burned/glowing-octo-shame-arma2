@@ -35,13 +35,14 @@ addons[]=
 	"A3_Structures_F_Mil_Cargo",
 	"A3_Structures_F_Ind_AirPort",
 	"A3_Structures_F_Mil_TentHangar",
-	"A3_Ui_F"
+	"A3_Ui_F",
+	"A3_Weapons_F_Ammoboxes"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=5;
+		items=6;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -74,6 +75,13 @@ class AddonsMetaData
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -2146,8 +2154,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14314.578,19.192194,16305.901};
-				angles[]={0.0066671576,0,6.2765183};
+				position[]={14306.084,19.191429,16332.947};
+				angles[]={0.0093350215,4.6873884,6.2618566};
 			};
 			side="Empty";
 			flags=4;
@@ -2179,8 +2187,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14317.937,19.145329,16305.984};
-				angles[]={0.0013439035,0,0.016004669};
+				position[]={14305.912,19.129799,16336.305};
+				angles[]={0.0053377044,4.6873884,6.2618566};
 			};
 			side="Empty";
 			flags=4;
@@ -2212,8 +2220,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14310.404,19.314388,16306.046};
-				angles[]={0.0066671576,0,6.2765183};
+				position[]={14306.047,19.32296,16328.771};
+				angles[]={0.0080009829,4.6871576,6.2631893};
 			};
 			side="Empty";
 			flags=4;
@@ -2420,7 +2428,6 @@ class Mission
 			};
 			id=939;
 			type="Box_NATO_Support_F";
-			atlOffset=4.7683716e-007;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2487,7 +2494,6 @@ class Mission
 			};
 			id=941;
 			type="Box_NATO_WpsLaunch_F";
-			atlOffset=-1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2521,7 +2527,6 @@ class Mission
 			};
 			id=942;
 			type="Box_NATO_Support_F";
-			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2720,7 +2725,6 @@ class Mission
 			};
 			id=948;
 			type="Box_NATO_Support_F";
-			atlOffset=-9.5367432e-007;
 			class CustomAttributes
 			{
 				class Attribute0
