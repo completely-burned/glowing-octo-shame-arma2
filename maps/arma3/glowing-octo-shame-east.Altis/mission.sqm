@@ -1514,7 +1514,7 @@ class Mission
 			{
 			};
 			id=931;
-			type="Box_NATO_Wps_F";
+			type="Box_East_Wps_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1547,7 +1547,7 @@ class Mission
 			{
 			};
 			id=932;
-			type="Box_NATO_WpsLaunch_F";
+			type="Box_East_WpsLaunch_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1580,7 +1580,7 @@ class Mission
 			{
 			};
 			id=933;
-			type="Box_NATO_Support_F";
+			type="O_supplyCrate_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1613,7 +1613,7 @@ class Mission
 			{
 			};
 			id=934;
-			type="Box_NATO_Wps_F";
+			type="Box_East_Wps_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1646,7 +1646,7 @@ class Mission
 			{
 			};
 			id=935;
-			type="Box_NATO_WpsLaunch_F";
+			type="Box_East_WpsLaunch_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1679,7 +1679,7 @@ class Mission
 			{
 			};
 			id=936;
-			type="Box_NATO_Support_F";
+			type="O_supplyCrate_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1712,7 +1712,7 @@ class Mission
 			{
 			};
 			id=937;
-			type="Box_NATO_Wps_F";
+			type="Box_East_Wps_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1745,7 +1745,7 @@ class Mission
 			{
 			};
 			id=938;
-			type="Box_NATO_WpsLaunch_F";
+			type="Box_East_WpsLaunch_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1778,7 +1778,7 @@ class Mission
 			{
 			};
 			id=939;
-			type="Box_NATO_Support_F";
+			type="O_supplyCrate_F";
 			atlOffset=4.7683716e-007;
 			class CustomAttributes
 			{
@@ -1812,7 +1812,7 @@ class Mission
 			{
 			};
 			id=940;
-			type="Box_NATO_Wps_F";
+			type="Box_East_Wps_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1845,7 +1845,7 @@ class Mission
 			{
 			};
 			id=941;
-			type="Box_NATO_WpsLaunch_F";
+			type="Box_East_WpsLaunch_F";
 			atlOffset=-1.9073486e-006;
 			class CustomAttributes
 			{
@@ -1879,7 +1879,7 @@ class Mission
 			{
 			};
 			id=942;
-			type="Box_NATO_Support_F";
+			type="O_supplyCrate_F";
 			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
@@ -1913,7 +1913,7 @@ class Mission
 			{
 			};
 			id=943;
-			type="Box_NATO_Wps_F";
+			type="Box_East_Wps_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1946,7 +1946,7 @@ class Mission
 			{
 			};
 			id=944;
-			type="Box_NATO_WpsLaunch_F";
+			type="Box_East_WpsLaunch_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1979,7 +1979,7 @@ class Mission
 			{
 			};
 			id=945;
-			type="Box_NATO_Support_F";
+			type="O_supplyCrate_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2012,7 +2012,7 @@ class Mission
 			{
 			};
 			id=946;
-			type="Box_NATO_Wps_F";
+			type="Box_East_Wps_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2045,7 +2045,7 @@ class Mission
 			{
 			};
 			id=947;
-			type="Box_NATO_WpsLaunch_F";
+			type="Box_East_WpsLaunch_F";
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2078,7 +2078,7 @@ class Mission
 			{
 			};
 			id=948;
-			type="Box_NATO_Support_F";
+			type="O_supplyCrate_F";
 			atlOffset=-9.5367432e-007;
 			class CustomAttributes
 			{
