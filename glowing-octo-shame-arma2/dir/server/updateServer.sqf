@@ -1,3 +1,5 @@
+#define __A2OA__
+
 waitUntil {!isNil "bis_fnc_init" && !isNil "gosa_fnc_init"};
 waitUntil {!isNil "gosa_crewL" && !isNil "listMHQ"};
 waitUntil {!isNil "silvieManagerBlacklist" && !isNil "silvieManagerVehicles"};
@@ -7,7 +9,9 @@ diag_log format ["Log: [updateServer.sqf] post waitUntil %1", time];
 private["_path"];
 _path = "dir\server\";
 [] execVM (_path + "while_vehicles_other.sqf");
+#ifdef __A2OA__
 [] execVM (_path + "server_update_other.sqf");
+#endif
 [] execVM (_path + "server_update_location.sqf");
 [] execVM (_path + "while_silvieManager.sqf");
 [] execVM (_path + "transport.sqf");

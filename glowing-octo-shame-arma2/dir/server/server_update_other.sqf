@@ -1,13 +1,9 @@
-#define __A2OA__
-
-#ifdef __A2OA__
-
 /*
-TODO: слишком много allMissionObjects нагружает цп
-*/
+ * TODO: слишком много allMissionObjects нагружает цп
+ */
 
 private ["_deleteList","_r_base","_arr","_box","_type","_pos","_dir",
-	"_var_noDelete","_veh","_cfgVeh","_entry"];
+	"_var_noDelete","_veh","_cfgVeh","_entry","_obj"];
 
 _cfgVeh = LIB_cfgVeh;
 _var_noDelete = "_noDelete";
@@ -20,16 +16,22 @@ _r_base = missionNamespace getVariable "respawn";
 	};
 
 
-{
-	_x allowDamage false;
-	_x setVariable [_var_noDelete, true];
-}forEach(allMissionObjects 'MASH')+(allMissionObjects 'ReammoBox')+(allMissionObjects 'WarfareBCamp');
-
-{
-	_x allowDamage false;
-	//_x spawn gosa_fnc_mobileHQ_init;
-	_x setVariable [_var_noDelete, true];
-}forEach (allMissionObjects "Warfare_HQ_base_unfolded");
+// Добавление объектов, расположенных на карте, в исключения сборщика мусора.
+_arr = ((allMissionObjects "MASH")
+	+(allMissionObjects 
+	#ifdef __ARMA3__
+		"ReammoBox_F"
+	#else
+		"ReammoBox"
+	#endif
+	)
+	+(allMissionObjects "WarfareBCamp")
+	+(allMissionObjects "Warfare_HQ_base_unfolded"));
+for "_i" from 0 to (count _arr -1) do {
+	_obj = (_arr select _i);
+	_obj allowDamage false;
+	_obj setVariable [_var_noDelete, true];
+};
 
 while{sleep 12 + random 5; true}do{
 
@@ -128,5 +130,3 @@ while{sleep 12 + random 5; true}do{
 
 	diag_log format ["Log: [server_update_other] performance end %1", time];
 };
-
-#endif
