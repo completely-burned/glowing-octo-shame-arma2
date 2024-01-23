@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=953;
+		nextID=963;
 	};
 	class MarkerIDProvider
 	{
@@ -213,7 +213,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=83;
+		items=93;
 		class Item0
 		{
 			dataType="Logic";
@@ -2132,6 +2132,126 @@ class Mission
 			id=952;
 			type="LocationCamp_F";
 			atlOffset=0.089000702;
+		};
+		class Item83
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15149.012,0.15472412,14799.97};
+			};
+			name="HeadlessClient";
+			isPlayable=1;
+			id=953;
+			type="HeadlessClient_F";
+		};
+		class Item84
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14951.676,7.0740547,14806.553};
+			};
+			name="HeadlessClient_1";
+			isPlayable=1;
+			id=954;
+			type="HeadlessClient_F";
+		};
+		class Item85
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14774.071,5.9858284,14799.97};
+			};
+			name="HeadlessClient_2";
+			isPlayable=1;
+			id=955;
+			type="HeadlessClient_F";
+		};
+		class Item86
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15339.771,9.3496132,14767.057};
+			};
+			name="HeadlessClient_3";
+			isPlayable=1;
+			id=956;
+			type="HeadlessClient_F";
+		};
+		class Item87
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15622.623,-7.590271,14786.805};
+			};
+			name="HeadlessClient_4";
+			isPlayable=1;
+			id=957;
+			type="HeadlessClient_F";
+		};
+		class Item88
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14714.871,9.917717,14622.231};
+			};
+			name="HeadlessClient_5";
+			isPlayable=1;
+			id=958;
+			type="HeadlessClient_F";
+		};
+		class Item89
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14951.676,16.719147,14615.646};
+			};
+			name="HeadlessClient_6";
+			isPlayable=1;
+			id=959;
+			type="HeadlessClient_F";
+		};
+		class Item90
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15149.012,8.0184174,14615.646};
+			};
+			name="HeadlessClient_7";
+			isPlayable=1;
+			id=960;
+			type="HeadlessClient_F";
+		};
+		class Item91
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15352.929,-13.536797,14609.066};
+			};
+			name="HeadlessClient_8";
+			isPlayable=1;
+			id=961;
+			type="HeadlessClient_F";
+		};
+		class Item92
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15609.467,-4.6119614,14589.316};
+			};
+			name="HeadlessClient_9";
+			isPlayable=1;
+			id=962;
+			type="HeadlessClient_F";
 		};
 	};
 	class Connections
