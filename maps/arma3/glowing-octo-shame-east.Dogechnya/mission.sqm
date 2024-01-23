@@ -195,7 +195,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={6067.292,18.906923,6985.4385};
-				angles[]={0.081816852,0,6.2452054};
 			};
 			init="this setVariable [""gosa_Location_type"", 1];";
 			id=1;
@@ -230,7 +229,6 @@ class Mission
 			name="gosa_worldSize";
 			type="Empty";
 			id=5;
-			atlOffset=-0.00030517578;
 		};
 		class Item4
 		{
@@ -288,7 +286,6 @@ class Mission
 			presenceCondition="false";
 			id=26;
 			type="LocationCity_F";
-			atlOffset=189.319;
 		};
 		class Item7
 		{
@@ -322,7 +319,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=29;
 			type="LocationCity_F";
-			atlOffset=189.13164;
 		};
 		class Item10
 		{
@@ -334,7 +330,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 800] == 0)then{createLocation [""CityCenter"", getPos this, 750, 750]};";
 			id=30;
 			type="LocationCity_F";
-			atlOffset=174.36008;
 		};
 		class Item11
 		{
@@ -346,7 +341,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
 			id=31;
 			type="LocationCity_F";
-			atlOffset=189.319;
 		};
 		class Item12
 		{
@@ -358,7 +352,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=32;
 			type="LocationCity_F";
-			atlOffset=189.13164;
 		};
 		class Item13
 		{
@@ -370,7 +363,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 800] == 0)then{createLocation [""CityCenter"", getPos this, 750, 750]};";
 			id=33;
 			type="LocationCity_F";
-			atlOffset=174.31241;
 		};
 		class Item14
 		{
@@ -382,7 +374,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=34;
 			type="LocationCity_F";
-			atlOffset=174.35995;
 		};
 		class Item15
 		{
@@ -394,7 +385,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=35;
 			type="LocationCity_F";
-			atlOffset=174.35995;
 		};
 		class Item16
 		{
@@ -406,7 +396,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=36;
 			type="LocationCity_F";
-			atlOffset=174.36005;
 		};
 		class Item17
 		{
@@ -418,7 +407,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=37;
 			type="LocationCity_F";
-			atlOffset=174.35995;
 		};
 		class Item18
 		{
@@ -430,7 +418,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=38;
 			type="LocationCity_F";
-			atlOffset=147.38113;
 		};
 		class Item19
 		{
@@ -442,7 +429,6 @@ class Mission
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=39;
 			type="LocationCity_F";
-			atlOffset=174.35995;
 		};
 		class Item20
 		{
@@ -457,13 +443,11 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2117.2681,14.861439,2034.697};
-						angles[]={0,0.95541072,0};
 					};
 					side="East";
 					flags=6;
 					class Attributes
 					{
-						skill=0.60000002;
 						rank="CAPTAIN";
 						isPlayer=1;
 					};
@@ -476,13 +460,11 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2110.2991,14.861439,2035.8931};
-						angles[]={0,0.95541072,0};
 					};
 					side="East";
 					flags=4;
 					class Attributes
 					{
-						skill=0.55000001;
 						rank="LIEUTENANT";
 						isPlayable=1;
 					};
@@ -495,13 +477,11 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2114.917,14.861439,2029.3611};
-						angles[]={0,0.95541072,0};
 					};
 					side="East";
 					flags=4;
 					class Attributes
 					{
-						skill=0.55000001;
 						rank="LIEUTENANT";
 						isPlayable=1;
 					};
@@ -514,7 +494,6 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2116.072,14.861439,2027.728};
-						angles[]={0,0.95541072,0};
 					};
 					side="East";
 					flags=4;
@@ -670,19 +649,6 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[""launch_RPG32_F"",""arifle_Katiba_F"",""LMG_Zafir_F""],[1,2,1]],[[""16Rnd_9x21_Mag"",""30Rnd_65x39_caseless_green"",""10Rnd_762x54_Mag"",""150Rnd_762x54_Box"",""1Rnd_HE_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""1Rnd_SmokeRed_Grenade_shell"",""Chemlight_red"",""RPG32_F"",""RPG32_HE_F"",""Laserbatteries"",""HandGrenade"",""MiniGrenade"",""SmokeShell"",""SmokeShellRed"",""UGL_FlareYellow_F"",""UGL_FlareRed_F"",""30Rnd_9x21_Mag_SMG_02""],[6,24,12,4,6,2,2,6,3,1,2,6,6,2,2,2,2,6]],[[""Laserdesignator_02"",""FirstAidKit"",""acc_flashlight"",""bipod_02_F_blk""],[1,10,2,1]],[[""B_FieldPack_ocamo""],[2]]],false]";
-						};
-					};
-				};
-				class Attribute1
-				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
 					class Value
@@ -694,7 +660,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item32
@@ -815,19 +781,6 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[""launch_RPG32_F"",""arifle_Katiba_F"",""LMG_Zafir_F""],[1,2,1]],[[""16Rnd_9x21_Mag"",""30Rnd_65x39_caseless_green"",""10Rnd_762x54_Mag"",""150Rnd_762x54_Box"",""1Rnd_HE_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""1Rnd_SmokeRed_Grenade_shell"",""Chemlight_red"",""RPG32_F"",""RPG32_HE_F"",""Laserbatteries"",""HandGrenade"",""MiniGrenade"",""SmokeShell"",""SmokeShellRed"",""UGL_FlareYellow_F"",""UGL_FlareRed_F"",""30Rnd_9x21_Mag_SMG_02""],[6,24,12,4,6,2,2,6,3,1,2,6,6,2,2,2,2,6]],[[""Laserdesignator_02"",""FirstAidKit"",""acc_flashlight"",""bipod_02_F_blk""],[1,10,2,1]],[[""B_FieldPack_ocamo""],[2]]],false]";
-						};
-					};
-				};
-				class Attribute1
-				{
 					property="allowDamage";
 					expression="_this allowdamage _value;";
 					class Value
@@ -839,7 +792,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=2;
+				nAttributes=1;
 			};
 		};
 		class Item36
@@ -893,7 +846,6 @@ class Mission
 					flags=6;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="MAJOR";
 						isPlayable=1;
 					};
@@ -911,7 +863,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.40000001;
 						rank="CAPTAIN";
 						isPlayable=1;
 					};
@@ -942,7 +893,6 @@ class Mission
 					flags=6;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="MAJOR";
 						isPlayable=1;
 					};
@@ -960,7 +910,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.40000001;
 						rank="CAPTAIN";
 						isPlayable=1;
 					};
@@ -978,7 +927,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="MAJOR";
 						isPlayable=1;
 					};
@@ -996,7 +944,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.40000001;
 						rank="CAPTAIN";
 						isPlayable=1;
 					};
@@ -1027,7 +974,6 @@ class Mission
 					flags=6;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="MAJOR";
 						isPlayable=1;
 					};
@@ -1045,7 +991,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.40000001;
 						rank="CAPTAIN";
 						isPlayable=1;
 					};
@@ -1076,7 +1021,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.40000001;
 						rank="CAPTAIN";
 						isPlayable=1;
 					};
@@ -1094,7 +1038,6 @@ class Mission
 					flags=6;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="MAJOR";
 						isPlayable=1;
 					};
@@ -1112,7 +1055,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="MAJOR";
 						isPlayable=1;
 					};
@@ -1130,7 +1072,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.40000001;
 						rank="CAPTAIN";
 						isPlayable=1;
 					};
@@ -1178,7 +1119,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=176;
@@ -1195,7 +1135,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -1213,7 +1152,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=178;
@@ -1247,7 +1185,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -1265,7 +1202,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=181;
@@ -1282,7 +1218,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=182;
