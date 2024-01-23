@@ -228,41 +228,10 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=3;
 					type="B_Soldier_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male08ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.04;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item2
 				{
@@ -275,42 +244,11 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
 					id=4;
 					type="B_soldier_LAT_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.94999999;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item3
 				{
@@ -323,41 +261,10 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=5;
 					type="B_soldier_M_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male07ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.98000002;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item4
 				{
@@ -375,36 +282,6 @@ class Mission
 					};
 					id=6;
 					type="B_Soldier_TL_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male04ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.03;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item5
 				{
@@ -417,42 +294,11 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
 					id=7;
 					type="B_soldier_AR_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item6
 				{
@@ -465,41 +311,10 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=8;
 					type="B_Soldier_A_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male07ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.02;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item7
 				{
@@ -512,41 +327,10 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=9;
 					type="B_medic_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03ENG";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
