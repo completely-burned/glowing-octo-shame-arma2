@@ -222,7 +222,6 @@ class Mission
 			init="this setVariable [""gosa_Location_type"", 0];";
 			id=7;
 			type="LocationBase_F";
-			atlOffset=0.17761719;
 		};
 		class Item4
 		{
@@ -243,7 +242,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1310.0222,6.1545172,617.60773};
-				angles[]={0.047963165,0,6.269186};
 			};
 			init="this setVariable [""gosa_Location_type"", 0];";
 			id=11;
@@ -267,7 +265,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1418.6733,6.4357376,2281.8936};
-				angles[]={0.0050033992,0,6.2641892};
 			};
 			init="this setVariable [""gosa_Location_type"", 0];";
 			id=15;
@@ -291,7 +288,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1700.1642,4.3012767,2299.8262};
-				angles[]={6.245204,0,0.047963165};
 			};
 			init="this setVariable [""gosa_Location_type"", 0];";
 			id=19;
@@ -315,7 +311,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3143.3047,16.540205,2269.2158};
-				angles[]={0.17809302,0,0.032986693};
 			};
 			init="this setVariable [""gosa_Location_type"", 0];";
 			id=23;
@@ -415,7 +410,6 @@ class Mission
 			isPlayable=1;
 			id=41;
 			type="HeadlessClient_F";
-			atlOffset=26.042599;
 		};
 		class Item16
 		{
@@ -428,7 +422,6 @@ class Mission
 			isPlayable=1;
 			id=42;
 			type="HeadlessClient_F";
-			atlOffset=25.785564;
 		};
 		class Item17
 		{
@@ -441,7 +434,6 @@ class Mission
 			isPlayable=1;
 			id=43;
 			type="HeadlessClient_F";
-			atlOffset=26.114;
 		};
 		class Item18
 		{
@@ -454,7 +446,6 @@ class Mission
 			isPlayable=1;
 			id=44;
 			type="HeadlessClient_F";
-			atlOffset=26.197918;
 		};
 		class Item19
 		{
@@ -467,7 +458,6 @@ class Mission
 			isPlayable=1;
 			id=45;
 			type="HeadlessClient_F";
-			atlOffset=26.268038;
 		};
 		class Item20
 		{
@@ -480,7 +470,6 @@ class Mission
 			isPlayable=1;
 			id=46;
 			type="HeadlessClient_F";
-			atlOffset=26.389364;
 		};
 		class Item21
 		{
@@ -493,7 +482,6 @@ class Mission
 			isPlayable=1;
 			id=47;
 			type="HeadlessClient_F";
-			atlOffset=26.274015;
 		};
 		class Item22
 		{
@@ -506,7 +494,6 @@ class Mission
 			isPlayable=1;
 			id=48;
 			type="HeadlessClient_F";
-			atlOffset=26.196543;
 		};
 		class Item23
 		{
@@ -519,7 +506,6 @@ class Mission
 			isPlayable=1;
 			id=49;
 			type="HeadlessClient_F";
-			atlOffset=26.227654;
 		};
 		class Item24
 		{
@@ -532,7 +518,6 @@ class Mission
 			isPlayable=1;
 			id=50;
 			type="HeadlessClient_F";
-			atlOffset=25.811104;
 		};
 		class Item25
 		{
@@ -551,7 +536,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={2108.2351,4.0058169,2204.907};
-				angles[]={6.2571969,0,0.017994344};
 			};
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] < 1)then{createLocation [""CityCenter"", getPos this, 150, 150]};";
 			id=53;
@@ -563,7 +547,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3240.616,4.0390129,2895.0491};
-				angles[]={6.2571969,0,0.017994344};
 			};
 			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] < 1)then{createLocation [""CityCenter"", getPos this, 150, 150]};";
 			id=54;
@@ -576,7 +559,6 @@ class Mission
 			name="gosa_worldSize";
 			type="Empty";
 			id=55;
-			atlOffset=1.138195;
 		};
 		class Item29
 		{
@@ -613,7 +595,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=59;
@@ -630,7 +611,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -648,7 +628,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=61;
@@ -682,7 +661,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -700,7 +678,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=64;
@@ -717,7 +694,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=65;
