@@ -111,14 +111,20 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
-		class gosa_faction_multiplier_BLU_F {
-			title="FACTION: BIS_BLU_F";
+		class gosa_faction_multiplier_OPF_T_F {
+			title="FACTION: BIS_OPF_T_F";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
-		class gosa_faction_multiplier_OPF_T_F {
-			title="FACTION: BIS_OPF_T_F";
+		class gosa_faction_multiplier_OPF_R_F {
+			title="FACTION: BIS_OPF_R_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BLU_F {
+			title="FACTION: BIS_BLU_F";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;

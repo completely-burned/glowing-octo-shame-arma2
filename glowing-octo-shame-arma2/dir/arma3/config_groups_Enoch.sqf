@@ -1,6 +1,28 @@
 
 #include "..\include\ranks.hpp"
 
+//-- Спецназ
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_R_F");
+if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+	if (_tmp > 0 or (_n >= 160 && _n < 250)) then {
+		_east append [
+			// configName O_R_InfSquad
+			[[[["O_R_soldier_TL_F","O_R_soldier_AR_F","O_R_medic_F","O_R_soldier_LAT_F","O_R_Soldier_GL_F","O_R_soldier_AR_F","O_R_soldier_LAT_F","O_R_soldier_M_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			// configName O_R_InfTeam
+			[[[["O_R_soldier_TL_F","O_R_Soldier_AR_F","O_R_soldier_M_F","O_R_Soldier_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			// configName O_R_InfSentry
+			[[[["O_R_soldier_GL_F","O_R_soldier_M_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0],
+			// configName O_R_reconSquad
+			[[[["O_R_recon_TL_F","O_R_recon_JTAC_F","O_R_recon_medic_F","O_R_recon_exp_F","O_R_recon_GL_F","O_R_recon_AR_F","O_R_recon_M_F","O_R_recon_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
+			// configName O_R_reconTeam
+			[[[["O_R_recon_TL_F","O_R_recon_M_F","O_R_recon_AR_F","O_R_recon_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0],
+			// configName O_R_reconSentry
+			[[[["O_R_recon_GL_F","O_R_recon_M_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0]
+		];
+	};
+};
+
+//-- ВСЛ
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_E_F");
 if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 	if (_tmp > 0 or (_n >= 160 && _n < 250)) then {
