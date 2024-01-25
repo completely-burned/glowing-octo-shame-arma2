@@ -1215,3 +1215,28 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 		];
 	};
 };
+
+//-- CUP_I_UN
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_I_UN");
+if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+	if (_n >= 160 && _n <= 250) then {
+		_guer append [
+			// configName CUP_I_UN_Patrol_MNT
+			[[[["CUP_I_UN_CDF_Officer_MNT","CUP_I_UN_CDF_Soldier_MNT","CUP_I_UN_CDF_Soldier_AT_MNT","CUP_I_UN_CDF_Soldier_MG_MNT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5],
+			// configName CUP_I_UN_Patrol_FST
+			[[[["CUP_I_UN_CDF_Officer_FST","CUP_I_UN_CDF_Soldier_FST","CUP_I_UN_CDF_Soldier_AT_FST","CUP_I_UN_CDF_Soldier_MG_FST"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5]
+		];
+	};
+	if (_n > 250 or (_tmp > 0 && _n < 160)) then {
+		_guer append [
+			// configName CUP_I_UN_MotorizedPatrol
+			[[[["CUP_I_UN_CDF_Guard","CUP_I_UAZ_Unarmed_UN","CUP_I_UN_CDF_Soldier","CUP_I_UN_CDF_Soldier_MG"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.6],
+			// configName CUP_I_UN_MechanizedPatrolBMP2
+			[[[["CUP_I_UN_CDF_Soldier_SL","CUP_I_BMP2_UN","CUP_I_UN_CDF_Soldier_AT","CUP_I_UN_CDF_Soldier_AT","CUP_I_UN_CDF_Soldier_MG","CUP_I_UN_CDF_Soldier_MG","CUP_I_UN_CDF_Soldier","CUP_I_UN_CDF_Soldier"],[[3,5,0],[-5,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],["SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
+			// configName CUP_I_UN_MechanizedPatrolM113
+			[[[["CUP_I_UN_CDF_Soldier_SL","CUP_I_M113_UN","CUP_I_UN_CDF_Soldier_AT","CUP_I_UN_CDF_Soldier_MG","CUP_I_UN_CDF_Soldier_MG","CUP_I_UN_CDF_Soldier","CUP_I_UN_CDF_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
+			// configName CUP_I_UN_Patrol_DST
+			[[[["CUP_I_UN_CDF_Officer_DST","CUP_I_UN_CDF_Soldier_DST","CUP_I_UN_CDF_Soldier_AT_DST","CUP_I_UN_CDF_Soldier_MG_DST"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5]
+		];
+	};
+};
