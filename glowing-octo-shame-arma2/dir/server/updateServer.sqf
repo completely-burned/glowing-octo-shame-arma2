@@ -10,6 +10,7 @@ private["_path"];
 _path = "dir\server\";
 [] execVM (_path + "while_vehicles_other.sqf");
 #ifdef __A2OA__
+	[] execVM (_path + "while_restore_objects.sqf");
 [] execVM (_path + "server_update_other.sqf");
 #endif
 [] execVM (_path + "server_update_location.sqf");

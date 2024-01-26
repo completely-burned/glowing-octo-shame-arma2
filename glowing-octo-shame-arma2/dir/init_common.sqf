@@ -23,6 +23,8 @@ if (configName(configFile >> "CfgMods" >> "acex_ru") != "") then {acex_ru_Avail 
 acex_usnavy_Avail = false;
 if (configName(configFile >> "CfgMods" >> "acex_usnavy") != "") then {acex_usnavy_Avail = true};
 
+gosa_var_noDelete = "_noDelete";
+
 //--- функции
 [] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
 //-- Разные переменные необходимые для дальнейшей работы штабов.

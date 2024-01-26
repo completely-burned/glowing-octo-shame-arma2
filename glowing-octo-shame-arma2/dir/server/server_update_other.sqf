@@ -6,7 +6,7 @@ private ["_deleteList","_r_base","_arr","_box","_type","_pos","_dir",
 	"_var_noDelete","_veh","_cfgVeh","_entry","_obj"];
 
 _cfgVeh = LIB_cfgVeh;
-_var_noDelete = "_noDelete";
+_var_noDelete = gosa_var_noDelete;
 
 _r_base = missionNamespace getVariable "respawn";
 	if (_r_base == 0) then {
@@ -18,13 +18,6 @@ _r_base = missionNamespace getVariable "respawn";
 
 // Добавление объектов, расположенных на карте, в исключения сборщика мусора.
 _arr = ((allMissionObjects "MASH")
-	+(allMissionObjects 
-	#ifdef __ARMA3__
-		"ReammoBox_F"
-	#else
-		"ReammoBox"
-	#endif
-	)
 	+(allMissionObjects "WarfareBCamp")
 	+(allMissionObjects "Warfare_HQ_base_unfolded"));
 for "_i" from 0 to (count _arr -1) do {
@@ -90,17 +83,7 @@ while{sleep 12 + random 5; true}do{
 			};
 		}else{
 			if ( isNil {_box getVariable _var_noDelete} ) then {
-				deleteVehicle _box;
-			}else{
-				_pos = getPos _box;
-				//_pos resize 2;
-				_dir = getDir _box;
-				deleteVehicle _box;
-				_box = createVehicle [_type, [0 + random 100, 0 + random 100], [], 0, "NONE"];
-				_box allowDamage false;
-				_box setDir _dir;
-				_box setPos _pos;
-				_box setVariable [_var_noDelete, true];
+				_deleteList set [count _deleteList, _box];
 			};
 		};
 	};
