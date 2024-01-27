@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=129;
+	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=76;
+		nextID=99;
 	};
 	class MarkerIDProvider
 	{
@@ -31,13 +31,16 @@ addons[]=
 	"A3_Weapons_F_Ammoboxes",
 	"A3_Characters_F",
 	"A3_Characters_F_Mark",
-	"A3_Characters_F_Tank"
+	"A3_Characters_F_Tank",
+	"A3_Air_F_Exp_Plane_Civil_01",
+	"A3_Air_F_Orange_Heli_Transport_02",
+	"A3_Air_F_Heli_Light_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=9;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -80,11 +83,35 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item6
+		{
+			className="A3_Air_F_Exp";
+			name="Arma 3 Apex - Aircraft";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item7
+		{
+			className="A3_Air_F_Orange";
+			name="Arma 3 Orange - Aircraft";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item8
+		{
+			className="A3_Air_F";
+			name="Arma 3 Alpha - Aircraft";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
 {
-	"Mark"
+	"Mark",
+	"Expansion",
+	"ORANGE",
+	"Heli"
 };
 randomSeed=15326269;
 class ScenarioData
@@ -211,7 +238,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=34;
+		items=48;
 		class Item0
 		{
 			dataType="Marker";
@@ -1280,6 +1307,227 @@ class Mission
 			{
 			};
 			id=73;
+		};
+		class Item34
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1479.0215,339.77979,2295.1477};
+				angles[]={-0,4.2292824,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=76;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item35
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1483.0061,339.78067,2288.8167};
+				angles[]={0.0013372133,4.1758733,6.2818484};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=77;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item36
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1453.4049,339.77893,2342.2468};
+				angles[]={0.0013372133,4.0839071,6.2818484};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=78;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item37
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1455.9213,339.77979,2338.3018};
+				angles[]={-0,4.0938368,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=79;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item38
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1565.158,339.77979,2134.9414};
+				angles[]={-0,4.6559081,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=80;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item39
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1564.3431,339.77979,2127.8582};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=81;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item40
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1961.1748,339.78979,1446.8657};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=82;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item41
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1961.1134,339.78979,1439.3933};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=83;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item42
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1696.4253,339.78824,1799.743};
+				angles[]={0.0013372133,1.0823394,6.2818484};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=84;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item43
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1120.2257,339.78104,2258.4424};
+				angles[]={6.2818937,4.1791573,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=85;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item44
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1681.5728,339.76981,1227.8933};
+				angles[]={-0,0.96426392,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=86;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item45
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1533.7947,340.60721,2056.7136};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=96;
+			type="C_Plane_Civil_01_racing_F";
+		};
+		class Item46
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1861.5707,342.6102,1499.2256};
+				angles[]={-0,0.97578645,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=97;
+			type="C_IDAP_Heli_Transport_02_F";
+		};
+		class Item47
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1483.0701,339.60471,2155.8704};
+				angles[]={-0,1.077374,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=98;
+			type="C_Heli_Light_01_civil_F";
 		};
 	};
 	class Connections
