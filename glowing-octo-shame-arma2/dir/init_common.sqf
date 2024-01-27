@@ -24,6 +24,9 @@ acex_usnavy_Avail = false;
 if (configName(configFile >> "CfgMods" >> "acex_usnavy") != "") then {acex_usnavy_Avail = true};
 
 gosa_var_noDelete = "_noDelete";
+gosa_var_respawnVehicle = "gosa_respawnVehicle";
+gosa_var_respawnVehicle_old = "respawnVehicle";
+gosa_var_spawn_time = "gosa_respawnveht";
 
 //--- функции
 [] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";

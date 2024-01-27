@@ -8,6 +8,7 @@ diag_log format ["Log: [updateServer.sqf] post waitUntil %1", time];
 
 private["_path"];
 _path = "dir\server\";
+[] execVM (_path + "while_respawnVehicles.sqf");
 [] execVM (_path + "while_vehicles_other.sqf");
 #ifdef __A2OA__
 	[] execVM (_path + "while_restore_objects.sqf");

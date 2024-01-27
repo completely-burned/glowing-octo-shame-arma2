@@ -25,6 +25,15 @@ for "_i" from (0) to ((count (missionConfigFile/"Params")) - 1) do {
 
 missionNamespace setVariable ["enemyCoefficient", (missionNamespace getVariable "enemyCoefficient") / 100];
 
+_z = missionNamespace getVariable "gosa_respawnVehicles";
+	if (_z == -1) then {
+		if (missionNamespace getVariable "respawn" == 0) then {
+			missionNamespace setVariable ["gosa_respawnVehicles", 1];
+		} else {
+			missionNamespace setVariable ["gosa_respawnVehicles", 0];
+		};
+	};
+
 _z = missionNamespace getVariable "gosa_MHQ";
 	if (_z == -1) then {
 		if (missionNamespace getVariable "respawn" == 0) then {

@@ -602,6 +602,20 @@ class Params {
 		default=-1;
 	};
 
+	// Респавн техники.
+	class gosa_respawnVehicles {
+		title="BASE: Respawn vehicles v2 [gp,sv,fps]";
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default=-1;
+	};
+	class gosa_respawnVehicles_old {
+		title="BASE: Respawn vehicles (deprecated) [gp,sv,fps]";
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default=-1;
+	};
+
 	// Мусоросборник. Множитель дистанции до игроков.
 	class gc_dist {
 		// FIXME: zero division
