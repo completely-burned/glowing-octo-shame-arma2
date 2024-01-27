@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=183;
+		nextID=187;
 	};
 	class Camera
 	{
@@ -188,7 +188,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=42;
+		items=44;
 		class Item0
 		{
 			dataType="Logic";
@@ -1228,6 +1228,38 @@ class Mission
 			{
 			};
 			id=174;
+		};
+		class Item42
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5955.0991,18.319809,7388.96};
+				angles[]={-0,3.7824342,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=185;
+			type="Box_East_AmmoVeh_F";
+		};
+		class Item43
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6000.4092,18.319809,7354.6899};
+				angles[]={-0,3.8867927,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=186;
+			type="Box_East_AmmoVeh_F";
 		};
 	};
 	class Connections
