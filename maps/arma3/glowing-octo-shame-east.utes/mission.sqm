@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=101;
+		nextID=110;
 	};
 	class MarkerIDProvider
 	{
@@ -33,13 +33,19 @@ addons[]=
 	"A3_Structures_F_Civ_Camping",
 	"A3_Weapons_F_Ammoboxes",
 	"A3_Characters_F_Mark",
-	"A3_Characters_F_Tank"
+	"A3_Characters_F_Tank",
+	"A3_Boat_F_Boat_Armed_01",
+	"A3_Air_F_Heli_Light_02",
+	"A3_Boat_F_Gamma_Boat_Civil_01",
+	"A3_Boat_F_Exp_Boat_Transport_02",
+	"A3_Boat_F_Boat_Transport_01",
+	"A3_Air_F_Heli_Light_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=8;
+		items=12;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -96,11 +102,41 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item8
+		{
+			className="A3_Boat_F";
+			name="Arma 3 Alpha - Boats and Submersibles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item9
+		{
+			className="A3_Air_F";
+			name="Arma 3 Alpha - Aircraft";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item10
+		{
+			className="A3_Boat_F_Gamma";
+			name="Arma 3 - Boats and Submersibles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item11
+		{
+			className="A3_Boat_F_Exp";
+			name="Arma 3 Apex - Boats and Submersibles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
 {
-	"Mark"
+	"Mark",
+	"Expansion",
+	"Heli"
 };
 randomSeed=4439021;
 class ScenarioData
@@ -227,7 +263,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=43;
+		items=50;
 		class Item0
 		{
 			dataType="Marker";
@@ -1552,6 +1588,124 @@ class Mission
 			{
 			};
 			id=90;
+		};
+		class Item43
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1376.9425,3.7138119,879.86676};
+				angles[]={0,1.5473094,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=101;
+			type="O_Boat_Armed_01_hmg_F";
+			atlOffset=99.389938;
+		};
+		class Item44
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1344.4302,3.8728542,986.47565};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=102;
+			type="O_Boat_Armed_01_hmg_F";
+			atlOffset=99.548981;
+		};
+		class Item45
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1382.17,18.054649,1132.0593};
+				angles[]={0,3.1601279,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=103;
+			type="O_Heli_Light_02_unarmed_F";
+			atlOffset=114.885;
+		};
+		class Item46
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3277.4871,1.7400579,4662.3149};
+				angles[]={0,5.4736667,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=104;
+			type="C_Boat_Civil_01_F";
+			atlOffset=10.744;
+		};
+		class Item47
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3617.063,1.7621264,4459.25};
+				angles[]={0,4.9971395,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=106;
+			type="C_Boat_Transport_02_F";
+			atlOffset=6.6669998;
+		};
+		class Item48
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4485.4731,1.6897314,3060.1411};
+				angles[]={0,5.0947032,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=108;
+			type="C_Rubberboat";
+			atlOffset=0.27700001;
+		};
+		class Item49
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3606.4409,19.481876,3650.314};
+				angles[]={0.010000736,3.5663536,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=109;
+			type="C_Heli_Light_01_civil_F";
 		};
 	};
 	class Connections
