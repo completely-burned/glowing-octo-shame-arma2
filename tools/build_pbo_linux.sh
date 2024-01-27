@@ -145,7 +145,7 @@ do
 		# Сжатие с потерями.
 		if [[ ${ZIP} -gt 0 ]]
 		then
-			sed -i -E 's/([0-9]+\.[0-9])[0-9]+/\1/g' ${DIR}/mission.sqm
+			sed -i -E '/position\[\]=|angles\[\]=/s/([0-9]+\.[0-9])[0-9]+/\1/g' ${DIR}/mission.sqm
 		fi
 
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
