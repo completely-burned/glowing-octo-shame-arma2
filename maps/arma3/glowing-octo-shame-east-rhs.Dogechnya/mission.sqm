@@ -1196,7 +1196,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -1245,7 +1244,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=121;
@@ -1306,7 +1304,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=122;
@@ -1354,7 +1351,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=123;
@@ -1415,7 +1411,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=124;
@@ -1476,7 +1471,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=125;
@@ -1524,7 +1518,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=126;
@@ -1585,7 +1578,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=127;
@@ -1633,7 +1625,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=128;
@@ -1707,7 +1698,6 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						skill=0.60000002;
 						rank="CAPTAIN";
 						isPlayer=1;
 					};
@@ -1756,7 +1746,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.55000001;
 						rank="LIEUTENANT";
 						isPlayable=1;
 					};
@@ -1805,7 +1794,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.55000001;
 						rank="LIEUTENANT";
 						isPlayable=1;
 					};

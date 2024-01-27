@@ -256,7 +256,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=3;
@@ -273,7 +272,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -291,7 +289,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=5;
@@ -325,7 +322,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -343,7 +339,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=8;
@@ -360,7 +355,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=9;
@@ -598,7 +592,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=23;
@@ -615,7 +608,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=24;
@@ -632,7 +624,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=25;
@@ -649,7 +640,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -667,7 +657,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=27;
@@ -684,7 +673,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=28;
@@ -701,7 +689,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=29;
@@ -748,7 +735,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=32;
@@ -765,7 +751,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=33;
@@ -799,7 +784,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -817,7 +801,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=36;
@@ -834,7 +817,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=37;

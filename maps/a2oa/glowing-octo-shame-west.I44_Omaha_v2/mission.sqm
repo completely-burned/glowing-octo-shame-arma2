@@ -43,7 +43,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicStart";
 					leader=1;
-					skill=0.2;
 					text="gosa_LogicLocationBase";
 					init="this setVariable [""gosa_Location_type"", 0]; (nearestBuilding position this) allowDamage false;";
 				};
@@ -64,7 +63,6 @@ class Mission
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -74,7 +72,6 @@ class Mission
 					vehicle="I44_Man_A_Army_NCO_M1A1Thompson";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -84,7 +81,6 @@ class Mission
 					vehicle="I44_Man_A_Army_M1918A2";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item3
 				{
@@ -93,7 +89,6 @@ class Mission
 					side="WEST";
 					vehicle="I44_Man_A_Army_M1Garand";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item4
 				{
@@ -102,7 +97,6 @@ class Mission
 					side="WEST";
 					vehicle="I44_Man_A_Army_RTO_M1Carbine";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -119,7 +113,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					init="nic = createLocation [""CityCenter"", getPos this, 100, 100];";
 				};
 			};
@@ -137,7 +130,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					init="nic = createLocation [""CityCenter"", getPos this, 100, 100];";
 				};
 			};
@@ -155,7 +147,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					init="nic = createLocation [""CityCenter"", getPos this, 300, 300];";
 				};
 			};
@@ -173,7 +164,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					init="nic = createLocation [""CityCenter"", getPos this, 200, 200];";
 				};
 			};
@@ -191,7 +181,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					init="nic = createLocation [""CityCenter"", getPos this, 100, 100];";
 				};
 			};
@@ -209,7 +198,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					init="nic = createLocation [""CityCenter"", getPos this, 600, 600];";
 				};
 			};
@@ -227,7 +215,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					init="nic = createLocation [""CityCenter"", getPos this, 200, 200];";
 				};
 			};

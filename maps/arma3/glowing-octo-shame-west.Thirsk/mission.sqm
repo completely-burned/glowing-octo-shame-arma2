@@ -243,7 +243,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						description="Contact DLC";
 						isPlayable=1;
 					};
@@ -261,7 +260,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						description="Contact DLC";
 						isPlayable=1;
@@ -280,7 +278,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						description="Contact DLC";
 						isPlayable=1;
 					};
@@ -316,7 +313,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						description="Contact DLC";
 						isPlayable=1;
@@ -335,7 +331,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						description="Contact DLC";
 						isPlayable=1;
 					};
@@ -353,7 +348,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						description="Contact DLC";
 						isPlayable=1;
 					};
@@ -401,7 +395,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=27;
@@ -418,7 +411,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -436,7 +428,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=29;
@@ -470,7 +461,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -488,7 +478,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=32;
@@ -505,7 +494,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=33;

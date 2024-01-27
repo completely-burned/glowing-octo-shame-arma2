@@ -47,7 +47,6 @@ class Mission
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -57,7 +56,6 @@ class Mission
 					vehicle="US_Soldier_TL_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -67,7 +65,6 @@ class Mission
 					vehicle="US_Soldier_GL_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item3
 				{
@@ -77,7 +74,6 @@ class Mission
 					vehicle="US_Soldier_AR_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item4
 				{
@@ -87,7 +83,6 @@ class Mission
 					vehicle="US_Soldier_AT_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item5
 				{
@@ -97,7 +92,6 @@ class Mission
 					vehicle="US_Soldier_TL_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item6
 				{
@@ -106,7 +100,6 @@ class Mission
 					side="WEST";
 					vehicle="US_Soldier_GL_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item7
 				{
@@ -115,7 +108,6 @@ class Mission
 					side="WEST";
 					vehicle="US_Soldier_AR_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item8
 				{
@@ -124,7 +116,6 @@ class Mission
 					side="WEST";
 					vehicle="US_Soldier_AAR_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -279,7 +270,6 @@ class Mission
 			id=0;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			skill=0.2;
 			init="this allowDamage false";
 		};
 		class Item1
@@ -288,7 +278,6 @@ class Mission
 			id=1;
 			side="EMPTY";
 			vehicle="MASH_EP1";
-			skill=0.2;
 		};
 	};
 	class Markers

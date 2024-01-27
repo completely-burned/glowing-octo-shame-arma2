@@ -59,7 +59,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					text="gosa_airportHangar0";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
@@ -78,7 +77,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -96,7 +94,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -114,7 +111,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -132,7 +128,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.60000002;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""_grps_rarity"", [[[""Air""],0],[[""Tank""],0],[[""Car"",""Motorcycle""],0],[[""Ship""],0]]];";
 				};
 			};
@@ -150,7 +145,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.60000002;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""_grps_rarity"", [[[""Air""],0],[[""Tank""],0],[[""Car"",""Motorcycle""],0],[[""Ship""],0]]];";
 				};
 			};
@@ -170,7 +164,6 @@ class Mission
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item1
 				{
@@ -180,7 +173,6 @@ class Mission
 					vehicle="GUE_Soldier_GL";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item2
 				{
@@ -190,7 +182,6 @@ class Mission
 					vehicle="GUE_Soldier_AR";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item3
 				{
@@ -199,7 +190,6 @@ class Mission
 					side="GUER";
 					vehicle="GUE_Soldier_1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item4
 				{
@@ -208,7 +198,6 @@ class Mission
 					side="GUER";
 					vehicle="GUE_Soldier_3";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item5
 				{
@@ -217,7 +206,6 @@ class Mission
 					side="GUER";
 					vehicle="GUE_Soldier_GL";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item6
 				{
@@ -226,7 +214,6 @@ class Mission
 					side="GUER";
 					vehicle="GUE_Soldier_2";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -251,7 +238,6 @@ class Mission
 			id=2;
 			side="EMPTY";
 			vehicle="MASH";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 		class Item2
@@ -261,7 +247,6 @@ class Mission
 			id=3;
 			side="EMPTY";
 			vehicle="RUBasicWeaponsBox";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 		class Item3
@@ -271,7 +256,6 @@ class Mission
 			id=4;
 			side="EMPTY";
 			vehicle="UAZ_RU";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item4
@@ -281,7 +265,6 @@ class Mission
 			id=5;
 			side="EMPTY";
 			vehicle="Old_bike_TK_INS_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item5
@@ -291,7 +274,6 @@ class Mission
 			id=6;
 			side="EMPTY";
 			vehicle="Mi17_Ins";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item6
@@ -301,7 +283,6 @@ class Mission
 			id=7;
 			side="EMPTY";
 			vehicle="An2_TK_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 	};

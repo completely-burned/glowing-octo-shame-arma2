@@ -54,7 +54,6 @@ class Mission
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -65,7 +64,6 @@ class Mission
 					vehicle="TK_Soldier_MG_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -76,7 +74,6 @@ class Mission
 					vehicle="TK_Soldier_AT_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item3
 				{
@@ -87,7 +84,6 @@ class Mission
 					vehicle="TK_Soldier_GL_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item4
 				{
@@ -98,7 +94,6 @@ class Mission
 					vehicle="TK_Soldier_MG_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item5
 				{
@@ -109,7 +104,6 @@ class Mission
 					vehicle="TK_Soldier_AT_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item6
 				{
@@ -119,7 +113,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_GL_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item7
 				{
@@ -129,7 +122,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_AAT_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item8
 				{
@@ -139,7 +131,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_AMG_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item9
 				{
@@ -149,7 +140,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_AA_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item10
 				{
@@ -159,7 +149,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_Engineer_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item11
 				{
@@ -169,7 +158,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_Medic_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item12
 				{
@@ -179,7 +167,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_Sniper_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item13
 				{
@@ -189,7 +176,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_TWS_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item14
 				{
@@ -199,7 +185,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_HAT_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 			};
 		};
@@ -219,7 +204,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -230,7 +214,6 @@ class Mission
 					vehicle="TK_Soldier_MG_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -241,7 +224,6 @@ class Mission
 					vehicle="TK_Soldier_AT_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item3
 				{
@@ -252,7 +234,6 @@ class Mission
 					vehicle="TK_Soldier_GL_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item4
 				{
@@ -263,7 +244,6 @@ class Mission
 					vehicle="TK_Soldier_MG_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item5
 				{
@@ -274,7 +254,6 @@ class Mission
 					vehicle="TK_Soldier_AT_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item6
 				{
@@ -284,7 +263,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_GL_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item7
 				{
@@ -294,7 +272,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_AAT_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item8
 				{
@@ -304,7 +281,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_AMG_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item9
 				{
@@ -314,7 +290,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_AA_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item10
 				{
@@ -324,7 +299,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_Engineer_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item11
 				{
@@ -334,7 +308,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_Medic_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item12
 				{
@@ -344,7 +317,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_Sniper_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item13
 				{
@@ -354,7 +326,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_TWS_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item14
 				{
@@ -364,7 +335,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_HAT_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 			};
 		};
@@ -384,7 +354,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -395,7 +364,6 @@ class Mission
 					vehicle="TK_Soldier_MG_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -406,7 +374,6 @@ class Mission
 					vehicle="TK_Soldier_AT_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item3
 				{
@@ -417,7 +384,6 @@ class Mission
 					vehicle="TK_Soldier_GL_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item4
 				{
@@ -428,7 +394,6 @@ class Mission
 					vehicle="TK_Soldier_MG_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item5
 				{
@@ -439,7 +404,6 @@ class Mission
 					vehicle="TK_Soldier_AT_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item6
 				{
@@ -449,7 +413,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_GL_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item7
 				{
@@ -459,7 +422,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_AAT_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item8
 				{
@@ -469,7 +431,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_AMG_EP1";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item9
 				{
@@ -479,7 +440,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_AA_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item10
 				{
@@ -489,7 +449,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_Engineer_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item11
 				{
@@ -499,7 +458,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_Medic_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item12
 				{
@@ -509,7 +467,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_Sniper_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item13
 				{
@@ -519,7 +476,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_TWS_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 				class Item14
 				{
@@ -529,7 +485,6 @@ class Mission
 					side="EAST";
 					vehicle="TK_Soldier_HAT_EP1";
 					player="PLAY CDG";
-					skill=0.33333331;
 				};
 			};
 		};
@@ -549,7 +504,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item1
 				{
@@ -560,7 +514,6 @@ class Mission
 					vehicle="TK_Soldier_Spotter_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 			};
 		};
@@ -580,7 +533,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item1
 				{
@@ -591,7 +543,6 @@ class Mission
 					vehicle="TK_Soldier_Spotter_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 			};
 		};
@@ -611,7 +562,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -622,7 +572,6 @@ class Mission
 					vehicle="TK_Special_Forces_MG_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -633,7 +582,6 @@ class Mission
 					vehicle="TK_Special_Forces_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item3
 				{
@@ -644,7 +592,6 @@ class Mission
 					vehicle="TK_Special_Forces_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item4
 				{
@@ -655,7 +602,6 @@ class Mission
 					vehicle="TK_Special_Forces_MG_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item5
 				{
@@ -666,7 +612,6 @@ class Mission
 					vehicle="TK_Special_Forces_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item6
 				{
@@ -677,7 +622,6 @@ class Mission
 					vehicle="TK_Special_Forces_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 			};
 		};
@@ -697,7 +641,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -708,7 +651,6 @@ class Mission
 					vehicle="TK_Special_Forces_MG_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -719,7 +661,6 @@ class Mission
 					vehicle="TK_Special_Forces_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item3
 				{
@@ -730,7 +671,6 @@ class Mission
 					vehicle="TK_Special_Forces_EP1";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item4
 				{
@@ -741,7 +681,6 @@ class Mission
 					vehicle="TK_Special_Forces_MG_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item5
 				{
@@ -752,7 +691,6 @@ class Mission
 					vehicle="TK_Special_Forces_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item6
 				{
@@ -763,7 +701,6 @@ class Mission
 					vehicle="TK_Special_Forces_EP1";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 			};
 		};
@@ -780,7 +717,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					text="gosa_airportHangar1";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
@@ -799,7 +735,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					text="gosa_airportHangar0";
 					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 				};
@@ -821,7 +756,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="COLONEL";
-					skill=0.60000002;
 				};
 			};
 		};
@@ -841,7 +775,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="CAPTAIN";
-					skill=0.73333329;
 				};
 				class Item1
 				{
@@ -852,7 +785,6 @@ class Mission
 					vehicle="TK_Soldier_Pilot_EP1";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item2
 				{
@@ -863,7 +795,6 @@ class Mission
 					vehicle="TK_Soldier_Pilot_EP1";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item3
 				{
@@ -874,7 +805,6 @@ class Mission
 					vehicle="TK_Soldier_Pilot_EP1";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 			};
 		};
@@ -894,7 +824,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="CAPTAIN";
-					skill=0.73333329;
 				};
 				class Item1
 				{
@@ -905,7 +834,6 @@ class Mission
 					vehicle="TK_Soldier_Pilot_EP1";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 			};
 		};
@@ -925,7 +853,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="CAPTAIN";
-					skill=0.73333329;
 				};
 				class Item1
 				{
@@ -936,7 +863,6 @@ class Mission
 					vehicle="TK_Soldier_Pilot_EP1";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 			};
 		};
@@ -955,7 +881,6 @@ class Mission
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
-					skill=0.2;
 					text="HC";
 				};
 				class Item1
@@ -966,7 +891,6 @@ class Mission
 					vehicle="Worker2";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (1)";
 				};
 				class Item2
@@ -977,7 +901,6 @@ class Mission
 					vehicle="Functionary1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (2)";
 				};
 				class Item3
@@ -988,7 +911,6 @@ class Mission
 					vehicle="Woodlander4";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (3)";
 				};
 				class Item4
@@ -999,7 +921,6 @@ class Mission
 					vehicle="Rocker1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (4)";
 				};
 				class Item5
@@ -1010,7 +931,6 @@ class Mission
 					vehicle="Worker3";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (5)";
 				};
 				class Item6
@@ -1021,7 +941,6 @@ class Mission
 					vehicle="Profiteer3";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (6)";
 				};
 				class Item7
@@ -1032,7 +951,6 @@ class Mission
 					vehicle="Profiteer2";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (7)";
 				};
 				class Item8
@@ -1043,7 +961,6 @@ class Mission
 					vehicle="Worker4";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (8)";
 				};
 				class Item9
@@ -1054,7 +971,6 @@ class Mission
 					vehicle="Profiteer1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (9)";
 				};
 			};
@@ -1074,7 +990,6 @@ class Mission
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
-					skill=0.2;
 					text="HC (10)";
 				};
 				class Item1
@@ -1085,7 +1000,6 @@ class Mission
 					vehicle="Worker2";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (11)";
 				};
 				class Item2
@@ -1096,7 +1010,6 @@ class Mission
 					vehicle="Functionary1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (12)";
 				};
 				class Item3
@@ -1107,7 +1020,6 @@ class Mission
 					vehicle="Woodlander4";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (13)";
 				};
 				class Item4
@@ -1118,7 +1030,6 @@ class Mission
 					vehicle="Rocker1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (14)";
 				};
 				class Item5
@@ -1129,7 +1040,6 @@ class Mission
 					vehicle="Worker3";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (15)";
 				};
 				class Item6
@@ -1140,7 +1050,6 @@ class Mission
 					vehicle="Profiteer3";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (16)";
 				};
 				class Item7
@@ -1151,7 +1060,6 @@ class Mission
 					vehicle="Profiteer2";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (17)";
 				};
 				class Item8
@@ -1162,7 +1070,6 @@ class Mission
 					vehicle="Worker4";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (18)";
 				};
 				class Item9
@@ -1173,7 +1080,6 @@ class Mission
 					vehicle="Profiteer1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (19)";
 				};
 			};
@@ -1219,7 +1125,6 @@ class Mission
 			id=68;
 			side="EMPTY";
 			vehicle="MASH_EP1";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 		class Item4
@@ -1229,7 +1134,6 @@ class Mission
 			id=69;
 			side="EMPTY";
 			vehicle="TKBasicWeapons_EP1";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 		class Item5
@@ -1239,7 +1143,6 @@ class Mission
 			id=70;
 			side="EMPTY";
 			vehicle="UAZ_Unarmed_TK_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item6
@@ -1249,7 +1152,6 @@ class Mission
 			id=71;
 			side="EMPTY";
 			vehicle="Old_bike_TK_INS_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item7
@@ -1259,7 +1161,6 @@ class Mission
 			id=72;
 			side="EMPTY";
 			vehicle="Mi17_TK_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item8
@@ -1269,7 +1170,6 @@ class Mission
 			id=73;
 			side="EMPTY";
 			vehicle="Mi17_TK_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item9
@@ -1279,7 +1179,6 @@ class Mission
 			id=74;
 			side="EMPTY";
 			vehicle="MASH_EP1";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 		class Item10
@@ -1289,7 +1188,6 @@ class Mission
 			id=75;
 			side="EMPTY";
 			vehicle="TKBasicWeapons_EP1";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 		class Item11
@@ -1299,7 +1197,6 @@ class Mission
 			id=76;
 			side="EMPTY";
 			vehicle="UAZ_Unarmed_TK_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item12
@@ -1309,7 +1206,6 @@ class Mission
 			id=77;
 			side="EMPTY";
 			vehicle="Old_bike_TK_INS_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item13
@@ -1319,7 +1215,6 @@ class Mission
 			id=78;
 			side="EMPTY";
 			vehicle="Mi17_TK_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item14
@@ -1329,7 +1224,6 @@ class Mission
 			id=79;
 			side="EMPTY";
 			vehicle="Old_bike_TK_INS_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item15
@@ -1339,7 +1233,6 @@ class Mission
 			id=80;
 			side="EMPTY";
 			vehicle="UAZ_Unarmed_TK_EP1";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item16
@@ -1349,7 +1242,6 @@ class Mission
 			id=81;
 			side="EMPTY";
 			vehicle="MASH_EP1";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 		class Item17
@@ -1359,7 +1251,6 @@ class Mission
 			id=82;
 			side="EMPTY";
 			vehicle="TKBasicWeapons_EP1";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 	};

@@ -56,7 +56,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.60000002;
 					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
@@ -74,7 +73,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.60000002;
 					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
@@ -92,7 +90,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.60000002;
 					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
@@ -110,7 +107,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.60000002;
 					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
@@ -128,7 +124,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.60000002;
 					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
@@ -146,7 +141,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.60000002;
 					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
@@ -164,7 +158,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.60000002;
 					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
@@ -183,7 +176,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicStart";
 					leader=1;
-					skill=0.60000002;
 				};
 			};
 		};
@@ -201,7 +193,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicStart";
 					leader=1;
-					skill=0.60000002;
 				};
 			};
 		};
@@ -664,7 +655,6 @@ class Mission
 			id=8;
 			side="EMPTY";
 			vehicle="WarfareBAirport";
-			skill=0.60000002;
 			text="gosa_airportHangar0";
 			init="_nic = [this] execVM ""dir\common\airport.sqf"";";
 		};
@@ -674,7 +664,6 @@ class Mission
 			id=9;
 			side="EMPTY";
 			vehicle="MASH_EP1";
-			skill=0.2;
 		};
 	};
 	class Markers

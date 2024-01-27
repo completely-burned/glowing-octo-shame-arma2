@@ -230,7 +230,6 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						skill=0.60000002;
 						rank="CAPTAIN";
 						isPlayer=1;
 					};
@@ -248,7 +247,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.55000001;
 						rank="LIEUTENANT";
 						isPlayable=1;
 					};
@@ -283,7 +281,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=5;
@@ -313,7 +310,6 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						skill=0.60000002;
 						rank="CAPTAIN";
 						isPlayable=1;
 					};
@@ -331,7 +327,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.55000001;
 						rank="LIEUTENANT";
 						isPlayable=1;
 					};
@@ -366,7 +361,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=10;

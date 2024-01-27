@@ -45,7 +45,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -65,7 +64,6 @@ class Mission
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -75,7 +73,6 @@ class Mission
 					vehicle="Soldier_Sniper_PMC";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -85,7 +82,6 @@ class Mission
 					vehicle="Soldier_AT_PMC";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item3
 				{
@@ -95,7 +91,6 @@ class Mission
 					vehicle="Soldier_MG_PMC";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item4
 				{
@@ -105,7 +100,6 @@ class Mission
 					vehicle="Soldier_GL_PMC";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item5
 				{
@@ -114,7 +108,6 @@ class Mission
 					side="GUER";
 					vehicle="Soldier_M4A3_PMC";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -139,7 +132,6 @@ class Mission
 			id=1;
 			side="EMPTY";
 			vehicle="MASH_EP1";
-			skill=0.2;
 		};
 	};
 	class Markers

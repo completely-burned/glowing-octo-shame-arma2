@@ -589,7 +589,6 @@ class Mission
 					flags=6;
 					class Attributes
 					{
-						skill=0.60000002;
 						rank="CAPTAIN";
 						isPlayer=1;
 					};
@@ -638,7 +637,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.55000001;
 						rank="LIEUTENANT";
 						isPlayable=1;
 					};
@@ -687,7 +685,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.55000001;
 						rank="LIEUTENANT";
 						isPlayable=1;
 					};
@@ -1374,7 +1371,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=231;
@@ -1421,7 +1417,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -1469,7 +1464,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=233;
@@ -1563,7 +1557,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -1611,7 +1604,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=236;
@@ -1658,7 +1650,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=237;
@@ -1765,7 +1756,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -1813,7 +1803,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=256;
@@ -1860,7 +1849,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
@@ -1908,7 +1896,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=258;
@@ -1955,7 +1942,6 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
 					id=259;

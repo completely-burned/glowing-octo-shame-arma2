@@ -49,7 +49,6 @@ class Mission
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -59,7 +58,6 @@ class Mission
 					vehicle="RU_Soldier_MG";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -69,7 +67,6 @@ class Mission
 					vehicle="RU_Soldier_AT";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item3
 				{
@@ -79,7 +76,6 @@ class Mission
 					vehicle="RU_Soldier_LAT";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item4
 				{
@@ -89,7 +85,6 @@ class Mission
 					vehicle="RU_Soldier_GL";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item5
 				{
@@ -99,7 +94,6 @@ class Mission
 					vehicle="RU_Soldier_Marksman";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item6
 				{
@@ -109,7 +103,6 @@ class Mission
 					vehicle="RU_Soldier_MG";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item7
 				{
@@ -119,7 +112,6 @@ class Mission
 					vehicle="RU_Soldier_AT";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item8
 				{
@@ -128,7 +120,6 @@ class Mission
 					side="EAST";
 					vehicle="RU_Soldier_AR";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item9
 				{
@@ -137,7 +128,6 @@ class Mission
 					side="EAST";
 					vehicle="RU_Soldier_LAT";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item10
 				{
@@ -146,7 +136,6 @@ class Mission
 					side="EAST";
 					vehicle="RU_Soldier_GL";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item11
 				{
@@ -155,7 +144,6 @@ class Mission
 					side="EAST";
 					vehicle="RU_Soldier";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -172,7 +160,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
 				};
 			};
@@ -190,7 +177,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -208,7 +194,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -226,7 +211,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -244,7 +228,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -262,7 +245,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -280,7 +262,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -298,7 +279,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -316,7 +296,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -334,7 +313,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -352,7 +330,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -370,7 +347,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -388,7 +364,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -406,7 +381,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -424,7 +398,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -442,7 +415,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
 				};
 			};
@@ -460,7 +432,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -478,7 +449,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					skill=0.2;
 					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
@@ -498,7 +468,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicFlat";
 					leader=1;
-					skill=0.59999996;
 				};
 			};
 		};
@@ -517,7 +486,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicFlat";
 					leader=1;
-					skill=0.59999996;
 				};
 			};
 		};
@@ -536,7 +504,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicFlat";
 					leader=1;
-					skill=0.59999996;
 				};
 			};
 		};
@@ -555,7 +522,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicFlat";
 					leader=1;
-					skill=0.59999996;
 				};
 			};
 		};
@@ -574,7 +540,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicFlat";
 					leader=1;
-					skill=0.59999996;
 				};
 			};
 		};
@@ -593,7 +558,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicFlat";
 					leader=1;
-					skill=0.59999996;
 				};
 			};
 		};
@@ -612,7 +576,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicFlat";
 					leader=1;
-					skill=0.59999996;
 				};
 			};
 		};
@@ -636,7 +599,6 @@ class Mission
 			id=13;
 			side="EMPTY";
 			vehicle="MASH";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 	};

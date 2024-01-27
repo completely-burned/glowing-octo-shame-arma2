@@ -61,7 +61,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					text="gosa_airportHangar0";
 				};
 			};
@@ -79,7 +78,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					text="gosa_airportHangar1";
 				};
 			};
@@ -97,7 +95,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					text="gosa_airportHangar2";
 				};
 			};
@@ -115,7 +112,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					text="gosa_airportHangar3";
 				};
 			};
@@ -133,7 +129,6 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					skill=0.60000002;
 					text="gosa_airportHangar4";
 				};
 			};
@@ -153,7 +148,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item1
 				{
@@ -162,7 +156,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_Jaeger_MG";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item2
 				{
@@ -171,7 +164,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_Jaeger_MG_Asst";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item3
 				{
@@ -180,7 +172,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_Jaeger_AT";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item4
 				{
@@ -189,7 +180,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_Jaeger_AT";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item5
 				{
@@ -198,7 +188,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_Jaeger";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item6
 				{
@@ -208,7 +197,6 @@ class Mission
 					vehicle="FDF_M05_Jaeger_Asst_Squad_Leader";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 			};
 		};
@@ -227,7 +215,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item1
 				{
@@ -236,7 +223,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_Jaeger_HeavyAT";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item2
 				{
@@ -245,7 +231,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_Jaeger_HeavyAT";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -264,7 +249,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item1
 				{
@@ -273,7 +257,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_Spotter";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -292,7 +275,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item1
 				{
@@ -301,7 +283,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_FRDF_MG";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item2
 				{
@@ -310,7 +291,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_FRDF_MG_Asst";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item3
 				{
@@ -319,7 +299,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_FRDF_Soldier_AT";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item4
 				{
@@ -328,7 +307,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_FRDF_Soldier_AT";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item5
 				{
@@ -337,7 +315,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_FRDF_Soldier";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item6
 				{
@@ -347,7 +324,6 @@ class Mission
 					vehicle="FDF_M05_FRDF_Asst_Squad_Leader";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 			};
 		};
@@ -366,7 +342,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item1
 				{
@@ -375,7 +350,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_FRDF_Soldier_HeavyAT";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item2
 				{
@@ -384,7 +358,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_FRDF_Soldier_HeavyAT";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -403,7 +376,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item1
 				{
@@ -413,7 +385,6 @@ class Mission
 					vehicle="FDF_SJ_Breach";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item2
 				{
@@ -422,7 +393,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_SJ_Assault";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item3
 				{
@@ -431,7 +401,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_SJ_Assault";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -450,7 +419,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item1
 				{
@@ -460,7 +428,6 @@ class Mission
 					vehicle="FDF_SJ_M05";
 					player="PLAY CDG";
 					rank="CORPORAL";
-					skill=0.33333331;
 				};
 				class Item2
 				{
@@ -469,7 +436,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_SJ_M05";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item3
 				{
@@ -478,7 +444,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_SJ_M05";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -497,7 +462,6 @@ class Mission
 					player="PLAYER COMMANDER";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -507,7 +471,6 @@ class Mission
 					vehicle="FDF_M05_Jaeger_NCO";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -516,7 +479,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_Jaeger_Medic";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item3
 				{
@@ -525,7 +487,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_Jaeger";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -544,7 +505,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="LIEUTENANT";
-					skill=0.59999996;
 				};
 				class Item1
 				{
@@ -554,7 +514,6 @@ class Mission
 					vehicle="FDF_M05_FRDF_NCO";
 					player="PLAY CDG";
 					rank="SERGEANT";
-					skill=0.46666664;
 				};
 				class Item2
 				{
@@ -563,7 +522,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_FRDF_Medic";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 				class Item3
 				{
@@ -572,7 +530,6 @@ class Mission
 					side="GUER";
 					vehicle="FDF_M05_FRDF_Soldier";
 					player="PLAY CDG";
-					skill=0.2;
 				};
 			};
 		};
@@ -591,7 +548,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="CAPTAIN";
-					skill=0.73333329;
 				};
 				class Item1
 				{
@@ -601,7 +557,6 @@ class Mission
 					vehicle="FDF_Pilot_F18";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.73333329;
 				};
 				class Item2
 				{
@@ -611,7 +566,6 @@ class Mission
 					vehicle="FDF_Pilot_F18";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.73333329;
 				};
 				class Item3
 				{
@@ -621,7 +575,6 @@ class Mission
 					vehicle="FDF_Pilot_F18";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.73333329;
 				};
 			};
 		};
@@ -640,7 +593,6 @@ class Mission
 					player="PLAY CDG";
 					leader=1;
 					rank="CAPTAIN";
-					skill=0.73333329;
 				};
 				class Item1
 				{
@@ -650,7 +602,6 @@ class Mission
 					vehicle="FDF_Pilot_Helicopter";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.73333329;
 				};
 				class Item2
 				{
@@ -660,7 +611,6 @@ class Mission
 					vehicle="FDF_Pilot_Helicopter";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.73333329;
 				};
 				class Item3
 				{
@@ -670,7 +620,6 @@ class Mission
 					vehicle="FDF_Pilot_Helicopter";
 					player="PLAY CDG";
 					rank="LIEUTENANT";
-					skill=0.73333329;
 				};
 			};
 		};
@@ -689,7 +638,6 @@ class Mission
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
-					skill=0.2;
 					text="HC";
 				};
 				class Item1
@@ -700,7 +648,6 @@ class Mission
 					vehicle="Worker2";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (1)";
 				};
 				class Item2
@@ -711,7 +658,6 @@ class Mission
 					vehicle="Functionary1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (2)";
 				};
 				class Item3
@@ -722,7 +668,6 @@ class Mission
 					vehicle="Woodlander4";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (3)";
 				};
 				class Item4
@@ -733,7 +678,6 @@ class Mission
 					vehicle="Rocker1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (4)";
 				};
 				class Item5
@@ -744,7 +688,6 @@ class Mission
 					vehicle="Worker3";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (5)";
 				};
 				class Item6
@@ -755,7 +698,6 @@ class Mission
 					vehicle="Profiteer3";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (6)";
 				};
 				class Item7
@@ -766,7 +708,6 @@ class Mission
 					vehicle="Profiteer2";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (7)";
 				};
 				class Item8
@@ -777,7 +718,6 @@ class Mission
 					vehicle="Worker4";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (8)";
 				};
 				class Item9
@@ -788,7 +728,6 @@ class Mission
 					vehicle="Profiteer1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (9)";
 				};
 			};
@@ -808,7 +747,6 @@ class Mission
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
-					skill=0.2;
 					text="HC (10)";
 				};
 				class Item1
@@ -819,7 +757,6 @@ class Mission
 					vehicle="Worker2";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (11)";
 				};
 				class Item2
@@ -830,7 +767,6 @@ class Mission
 					vehicle="Functionary1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (12)";
 				};
 				class Item3
@@ -841,7 +777,6 @@ class Mission
 					vehicle="Woodlander4";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (13)";
 				};
 				class Item4
@@ -852,7 +787,6 @@ class Mission
 					vehicle="Rocker1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (14)";
 				};
 				class Item5
@@ -863,7 +797,6 @@ class Mission
 					vehicle="Worker3";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (15)";
 				};
 				class Item6
@@ -874,7 +807,6 @@ class Mission
 					vehicle="Profiteer3";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (16)";
 				};
 				class Item7
@@ -885,7 +817,6 @@ class Mission
 					vehicle="Profiteer2";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (17)";
 				};
 				class Item8
@@ -896,7 +827,6 @@ class Mission
 					vehicle="Worker4";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (18)";
 				};
 				class Item9
@@ -907,7 +837,6 @@ class Mission
 					vehicle="Profiteer1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					skill=0.2;
 					text="HC (19)";
 				};
 			};
@@ -933,7 +862,6 @@ class Mission
 			id=3;
 			side="EMPTY";
 			vehicle="MASH";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 		class Item2
@@ -943,7 +871,6 @@ class Mission
 			id=4;
 			side="EMPTY";
 			vehicle="UNBasicWeapons_EP1";
-			skill=0.60000002;
 			init="this allowDamage false;";
 		};
 		class Item3
@@ -955,7 +882,6 @@ class Mission
 			side="EMPTY";
 			vehicle="FDF_R500";
 			leader=1;
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item4
@@ -967,7 +893,6 @@ class Mission
 			side="EMPTY";
 			vehicle="FDF_Defender";
 			leader=1;
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item5
@@ -978,7 +903,6 @@ class Mission
 			id=7;
 			side="EMPTY";
 			vehicle="FDF_NH90";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item6
@@ -989,7 +913,6 @@ class Mission
 			id=9;
 			side="EMPTY";
 			vehicle="FDF_NH90_MG3";
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item7
@@ -1001,7 +924,6 @@ class Mission
 			side="EMPTY";
 			vehicle="FDF_Defender";
 			leader=1;
-			skill=0.60000002;
 			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 	};

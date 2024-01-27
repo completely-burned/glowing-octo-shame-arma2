@@ -1521,7 +1521,6 @@ class Mission
 					flags=6;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CAPTAIN";
 						isPlayable=1;
 					};

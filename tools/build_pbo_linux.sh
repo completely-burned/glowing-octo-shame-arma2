@@ -135,6 +135,11 @@ do
 	if [[ -f "${DIR}/mission.sqm" ]]
 	then
 		echo "for ${DIR}"
+		# Параметр skill не нужен.
+		sed -i '/^.*skill.*$/d' ${DIR}/mission.sqm
+		# Сжатие с потерями.
+		sed -i -E 's/([0-9]+\.[0-9])[0-9]+/\1/g' ${DIR}/mission.sqm
+
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
 		TMP=$(grep briefingName ${DIR}/mission.sqm)
 		VERSION=$(echo ${TMP} | sed -e 's/.*".*glowing-octo-shame.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
