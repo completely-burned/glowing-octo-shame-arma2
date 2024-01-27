@@ -5,15 +5,18 @@
 # Флаги запуска.
 # ./tools/build_pbo_linux.sh -d собрать debug версию.
 # -l добавит файл лицензии в архив.
+# -z Сжатие с потерями :D
 TORRENTFILE=0
 DIAG_LOG=0
 LICENSE=0
+ZIP=0
 while getopts "dlt" opt
 	do
 	case $opt in
 	t) TORRENTFILE=1;;
 	d) DIAG_LOG=1;;
 	l) LICENSE=1;;
+	z) ZIP=1;;
 	*);;
 	esac
 done
@@ -135,10 +138,15 @@ do
 	if [[ -f "${DIR}/mission.sqm" ]]
 	then
 		echo "for ${DIR}"
+
 		# Параметр skill не нужен.
 		sed -i '/^.*skill.*$/d' ${DIR}/mission.sqm
+
 		# Сжатие с потерями.
-		sed -i -E 's/([0-9]+\.[0-9])[0-9]+/\1/g' ${DIR}/mission.sqm
+		if [[ ${ZIP} -gt 0 ]]
+		then
+			sed -i -E 's/([0-9]+\.[0-9])[0-9]+/\1/g' ${DIR}/mission.sqm
+		fi
 
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
 		TMP=$(grep briefingName ${DIR}/mission.sqm)
