@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=141;
+		nextID=157;
 	};
 	class MarkerIDProvider
 	{
@@ -31,13 +31,16 @@ addons[]=
 	"A3_Modules_F",
 	"A3_Structures_F_Mil_Cargo",
 	"A3_Characters_F",
-	"A3_Supplies_F_Enoch_Ammoboxes"
+	"A3_Supplies_F_Enoch_Ammoboxes",
+	"A3_Boat_F_Exp_Scooter_Transport_01",
+	"A3_Boat_F_Gamma_Boat_Civil_01",
+	"A3_Boat_F_Boat_Transport_01"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=6;
+		items=9;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -80,11 +83,33 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item6
+		{
+			className="A3_Boat_F_Exp";
+			name="Arma 3 Apex - Boats and Submersibles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item7
+		{
+			className="A3_Boat_F_Gamma";
+			name="Arma 3 - Boats and Submersibles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item8
+		{
+			className="A3_Boat_F";
+			name="Arma 3 Alpha - Boats and Submersibles";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
 {
-	"Enoch"
+	"Enoch",
+	"Expansion"
 };
 randomSeed=3380724;
 class ScenarioData
@@ -214,7 +239,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=67;
+		items=81;
 		class Item0
 		{
 			dataType="Marker";
@@ -1602,6 +1627,241 @@ class Mission
 			{
 			};
 			id=131;
+		};
+		class Item67
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4252.189,69.019814,10457.989};
+				angles[]={-0,5.5813489,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=141;
+			type="Box_EAF_AmmoVeh_F";
+		};
+		class Item68
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4256.959,69.019814,10462.41};
+				angles[]={-0,5.5513334,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=142;
+			type="Box_EAF_AmmoVeh_F";
+		};
+		class Item69
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4265.9907,69.019814,10464.867};
+				angles[]={-0,0.72321856,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=143;
+			type="Box_EAF_AmmoVeh_F";
+		};
+		class Item70
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4270.5522,69.022697,10460.625};
+				angles[]={-0,0.91891867,0.001544081};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=144;
+			type="Box_EAF_AmmoVeh_F";
+		};
+		class Item71
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={730.22699,1.3884529,7629.5859};
+				angles[]={0,4.1629419,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=145;
+			type="C_Scooter_Transport_01_F";
+			atlOffset=1.87;
+		};
+		class Item72
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={734.41064,1.2970161,7629.9014};
+				angles[]={0,2.4908617,-0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=146;
+			type="C_Boat_Civil_01_F";
+			atlOffset=1.3388481;
+		};
+		class Item73
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3542.9827,1.3881395,8920.8457};
+				angles[]={0,2.5697911,-0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=148;
+			type="C_Scooter_Transport_01_F";
+			atlOffset=0.93728036;
+		};
+		class Item74
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4173.144,1.3881395,8830.4814};
+				angles[]={0,1.0567449,-0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=149;
+			type="C_Scooter_Transport_01_F";
+			atlOffset=1.5884292;
+		};
+		class Item75
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4176.9067,1.2970161,8826.6152};
+				angles[]={0,0.84859473,-0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=150;
+			type="C_Boat_Civil_01_F";
+			atlOffset=1.6092883;
+		};
+		class Item76
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9511.373,1.2970161,11714.868};
+				angles[]={0,1.4287088,-0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=152;
+			type="C_Boat_Civil_01_rescue_F";
+			atlOffset=2.2984264;
+		};
+		class Item77
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11337.823,1.2435327,10794.542};
+				angles[]={0,3.9471245,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=153;
+			type="C_Rubberboat";
+			atlOffset=0.17611939;
+		};
+		class Item78
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={12336.565,1.3881414,10849.283};
+				angles[]={0,1.4798309,-0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=154;
+			type="C_Scooter_Transport_01_F";
+			atlOffset=2.3895283;
+		};
+		class Item79
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={12406.647,1.2435327,11073.374};
+				angles[]={0,2.3984942,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=155;
+			type="C_Rubberboat";
+			atlOffset=1.0976588;
+		};
+		class Item80
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5419.2227,1.2435327,9841.8516};
+				angles[]={0,5.305016,-0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+			};
+			id=156;
+			type="C_Rubberboat";
+			atlOffset=0.35807684;
 		};
 	};
 	class Connections
