@@ -244,138 +244,138 @@ class Params {
 			default=-1;
 		};
 	#else
-	class gosa_faction_multiplier_INS {
-		title="FACTION: BIS_INS";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_RU {
-		title="FACTION: BIS_RU";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_USMC {
-		title="FACTION: BIS_USMC";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_CDF {
-		title="FACTION: BIS_CDF";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_GUE {
-		title="FACTION: BIS_GUE";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_BIS_TK {
-		title="FACTION: BIS_TK";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_BIS_TK_INS {
-		title="FACTION: BIS_TK_INS";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_BIS_US {
-		title="FACTION: BIS_US";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_BIS_BAF {
-		title="FACTION: BIS_BAF";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_BIS_CZ {
-		title="FACTION: BIS_CZ";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_BIS_GER {
-		title="FACTION: BIS_GER";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_BIS_TK_GUE {
-		title="FACTION: BIS_TK_GUE";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_BIS_UN {
-		title="FACTION: BIS_UN";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_PMC_BAF {
-		title="FACTION: BIS_PMC";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_unfinished {
-		title="FACTION: OTHER (unfinished units)";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_FDF {
-		title="FACTION: FDF";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_OFrP {
-		title="FACTION: OFrP";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_VME_PLA_China {
-		title="FACTION: VME_PLA_China";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_I44_A {
-		title="FACTION: I44_A";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_I44_B {
-		title="FACTION: I44_B";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_I44_G {
-		title="FACTION: I44_G";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_faction_multiplier_I44_R {
-		title="FACTION: I44_R";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
+		class gosa_faction_multiplier_INS {
+			title="FACTION: BIS_INS";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_RU {
+			title="FACTION: BIS_RU";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_USMC {
+			title="FACTION: BIS_USMC";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_CDF {
+			title="FACTION: BIS_CDF";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_GUE {
+			title="FACTION: BIS_GUE";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BIS_TK {
+			title="FACTION: BIS_TK";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BIS_TK_INS {
+			title="FACTION: BIS_TK_INS";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BIS_US {
+			title="FACTION: BIS_US";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BIS_BAF {
+			title="FACTION: BIS_BAF";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BIS_CZ {
+			title="FACTION: BIS_CZ";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BIS_GER {
+			title="FACTION: BIS_GER";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BIS_TK_GUE {
+			title="FACTION: BIS_TK_GUE";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_BIS_UN {
+			title="FACTION: BIS_UN";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_PMC_BAF {
+			title="FACTION: BIS_PMC";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_unfinished {
+			title="FACTION: OTHER (unfinished units)";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_FDF {
+			title="FACTION: FDF";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_OFrP {
+			title="FACTION: OFrP";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_VME_PLA_China {
+			title="FACTION: VME_PLA_China";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_I44_A {
+			title="FACTION: I44_A";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_I44_B {
+			title="FACTION: I44_B";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_I44_G {
+			title="FACTION: I44_G";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_I44_R {
+			title="FACTION: I44_R";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 	#endif
 
 
