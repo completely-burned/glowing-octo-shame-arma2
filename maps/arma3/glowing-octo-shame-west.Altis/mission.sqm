@@ -104,45 +104,6 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveBleedOutDelay";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					singleType="SCALAR";
-					value=300;
-				};
-			};
-		};
-		class Attribute1
-		{
-			property="ReviveMedicSpeedMultiplier";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					singleType="SCALAR";
-					value=3;
-				};
-			};
-		};
-		class Attribute2
-		{
-			property="ReviveRequiredTrait";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					singleType="SCALAR";
-					value=0;
-				};
-			};
-		};
-		class Attribute3
-		{
 			property="RespawnTemplates";
 			expression="true";
 			class Value
@@ -152,16 +113,8 @@ class CustomAttributes
 					singleType="ARRAY";
 					class value
 					{
-						items=4;
+						items=3;
 						class Item0
-						{
-							class data
-							{
-								singleType="STRING";
-								value="Wave";
-							};
-						};
-						class Item1
 						{
 							class data
 							{
@@ -169,7 +122,7 @@ class CustomAttributes
 								value="MenuInventory";
 							};
 						};
-						class Item2
+						class Item1
 						{
 							class data
 							{
@@ -177,19 +130,19 @@ class CustomAttributes
 								value="MenuPosition";
 							};
 						};
-						class Item3
+						class Item2
 						{
 							class data
 							{
 								singleType="STRING";
-								value="Spectator";
+								value="Counter";
 							};
 						};
 					};
 				};
 			};
 		};
-		class Attribute4
+		class Attribute1
 		{
 			property="ReviveMode";
 			expression="false";
@@ -202,7 +155,20 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=5;
+		class Attribute2
+		{
+			property="ReviveRequiredItems";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=3;
 	};
 	class Category1
 	{
