@@ -1352,7 +1352,7 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV_DES_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item6
 		{
@@ -1362,7 +1362,7 @@ class Mission
 			side="EMPTY";
 			vehicle="ATV_US_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item7
 		{
@@ -1372,7 +1372,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UH60M_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item8
 		{
@@ -1382,7 +1382,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UH60M_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item9
 		{
@@ -1412,7 +1412,7 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV_DES_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item12
 		{
@@ -1422,7 +1422,7 @@ class Mission
 			side="EMPTY";
 			vehicle="ATV_US_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item13
 		{
@@ -1432,7 +1432,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UH60M_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item14
 		{
@@ -1442,7 +1442,7 @@ class Mission
 			side="EMPTY";
 			vehicle="ATV_US_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item15
 		{
@@ -1452,7 +1452,7 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV_DES_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item16
 		{

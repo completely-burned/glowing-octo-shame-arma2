@@ -956,7 +956,7 @@ class Mission
 			vehicle="FDF_R500";
 			leader=1;
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item4
 		{
@@ -968,7 +968,7 @@ class Mission
 			vehicle="FDF_Defender";
 			leader=1;
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item5
 		{
@@ -979,7 +979,7 @@ class Mission
 			side="EMPTY";
 			vehicle="FDF_NH90";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item6
 		{
@@ -990,7 +990,7 @@ class Mission
 			side="EMPTY";
 			vehicle="FDF_NH90_MG3";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item7
 		{
@@ -1002,7 +1002,7 @@ class Mission
 			vehicle="FDF_Defender";
 			leader=1;
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 	};
 	class Markers

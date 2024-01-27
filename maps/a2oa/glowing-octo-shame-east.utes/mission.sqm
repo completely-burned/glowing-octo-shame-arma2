@@ -970,7 +970,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UAZ_RU";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item2
 		{

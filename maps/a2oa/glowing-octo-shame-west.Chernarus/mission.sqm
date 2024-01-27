@@ -1458,7 +1458,7 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item7
 		{
@@ -1468,7 +1468,7 @@ class Mission
 			side="EMPTY";
 			vehicle="MMT_USMC";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item8
 		{
@@ -1498,7 +1498,7 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item11
 		{
@@ -1508,7 +1508,7 @@ class Mission
 			side="EMPTY";
 			vehicle="MMT_USMC";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item12
 		{
@@ -1518,7 +1518,7 @@ class Mission
 			side="EMPTY";
 			vehicle="MH60S";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item13
 		{
@@ -1528,7 +1528,7 @@ class Mission
 			side="EMPTY";
 			vehicle="C130J";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item14
 		{
@@ -1558,7 +1558,7 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item17
 		{
@@ -1568,7 +1568,7 @@ class Mission
 			side="EMPTY";
 			vehicle="MMT_USMC";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item18
 		{
@@ -1578,7 +1578,7 @@ class Mission
 			side="EMPTY";
 			vehicle="MH60S";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item19
 		{
@@ -1608,7 +1608,7 @@ class Mission
 			side="EMPTY";
 			vehicle="HMMWV";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item22
 		{
@@ -1618,7 +1618,7 @@ class Mission
 			side="EMPTY";
 			vehicle="MMT_USMC";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item23
 		{
@@ -1628,7 +1628,7 @@ class Mission
 			side="EMPTY";
 			vehicle="MH60S";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 	};
 	class Markers

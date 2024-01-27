@@ -873,7 +873,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Pickup_PK_GUE";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item2
 		{

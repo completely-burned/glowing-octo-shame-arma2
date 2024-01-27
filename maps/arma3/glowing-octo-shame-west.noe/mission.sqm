@@ -653,7 +653,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="this setVariable [""respawnVehicle"", true];";
+				init="this setVariable [""gosa_respawnVehicle"", true];";
 				dynamicSimulation=1;
 			};
 			id=83;
@@ -670,7 +670,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="this setVariable [""respawnVehicle"", true];";
+				init="this setVariable [""gosa_respawnVehicle"", true];";
 				dynamicSimulation=1;
 			};
 			id=84;
@@ -687,7 +687,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="this setVariable [""respawnVehicle"", true];";
+				init="this setVariable [""gosa_respawnVehicle"", true];";
 				dynamicSimulation=1;
 			};
 			id=85;
@@ -704,7 +704,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="this setVariable [""respawnVehicle"", true];";
+				init="this setVariable [""gosa_respawnVehicle"", true];";
 				dynamicSimulation=1;
 			};
 			id=86;
@@ -850,7 +850,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this setVariable [""respawnVehicle"", true];";
+				init="this setVariable [""gosa_respawnVehicle"", true];";
 				dynamicSimulation=1;
 			};
 			id=102;
@@ -868,7 +868,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this setVariable [""respawnVehicle"", true];";
+				init="this setVariable [""gosa_respawnVehicle"", true];";
 				dynamicSimulation=1;
 			};
 			id=104;

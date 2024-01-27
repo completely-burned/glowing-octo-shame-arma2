@@ -3866,7 +3866,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UAZ_RU";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item4
 		{
@@ -3876,7 +3876,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Old_bike_TK_INS_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item5
 		{
@@ -3886,7 +3886,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Mi17_Ins";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item6
 		{
@@ -3896,7 +3896,7 @@ class Mission
 			side="EMPTY";
 			vehicle="An2_TK_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 	};
 	class Markers

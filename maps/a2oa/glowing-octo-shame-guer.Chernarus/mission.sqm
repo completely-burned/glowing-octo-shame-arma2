@@ -2208,7 +2208,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UAZ_Unarmed_UN_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item7
 		{
@@ -2218,7 +2218,7 @@ class Mission
 			side="EMPTY";
 			vehicle="TT650_Gue";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item8
 		{
@@ -2228,7 +2228,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UH1H_TK_GUE_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item9
 		{
@@ -2258,7 +2258,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UAZ_Unarmed_UN_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item12
 		{
@@ -2268,7 +2268,7 @@ class Mission
 			side="EMPTY";
 			vehicle="TT650_Gue";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item13
 		{
@@ -2278,7 +2278,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UH1H_TK_GUE_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item14
 		{
@@ -2308,7 +2308,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UAZ_Unarmed_UN_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item17
 		{
@@ -2318,7 +2318,7 @@ class Mission
 			side="EMPTY";
 			vehicle="TT650_Gue";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item18
 		{
@@ -2328,7 +2328,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UH1H_TK_GUE_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item19
 		{
@@ -2358,7 +2358,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UAZ_Unarmed_UN_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item22
 		{
@@ -2368,7 +2368,7 @@ class Mission
 			side="EMPTY";
 			vehicle="TT650_Gue";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 		class Item23
 		{
@@ -2378,7 +2378,7 @@ class Mission
 			side="EMPTY";
 			vehicle="UH1H_TK_GUE_EP1";
 			skill=0.60000002;
-			init="this setVariable [""respawnVehicle"",true];";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
 		};
 	};
 	class Markers
