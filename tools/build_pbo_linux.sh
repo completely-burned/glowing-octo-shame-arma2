@@ -10,7 +10,7 @@ TORRENTFILE=0
 DIAG_LOG=0
 LICENSE=0
 ZIP=0
-while getopts "dlt" opt
+while getopts "dltz" opt
 	do
 	case $opt in
 	t) TORRENTFILE=1;;
