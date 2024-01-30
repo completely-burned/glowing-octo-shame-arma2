@@ -9,7 +9,7 @@ diag_log format ["Log: [fnc_Client_BuyUnit]: _this %1", _this];
 private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
 	"_str","_type_Lower","_Objects","_veh","_num",
 	"_factory_obj","_buy_dist_max","_player_pos","_player_veh",
-	"_factory_dir","_factory_pos",
+	"_factory_dir","_factory_pos","_name",
 	"_side","_listHQ_str","_class","_fnc_factory_HQ","_factory_HQ",
 	"_factory","_pos","_logic","_arr","_status"];
 
@@ -21,6 +21,10 @@ _player_dir = getDir _player_veh;
 _player_pos = getPos _player_veh;
 _pos = _player_pos;
 _buy_dist_max = gosa_distanceCoinBase;
+_name = getText (configFile >> "CfgVehicles" >> _type >> "displayName");
+if (_name == "") then {
+	_name = _type;
+};
 
 _type_Lower = toLower _type;
 
@@ -116,11 +120,18 @@ if (true) then {
 
 		if !(isNil "_factory_obj") then {
 				_pos = [_pos, 1.5, getDir _player_veh] call BIS_fnc_relPos;
-				// TODO: Совместимость с A3.
-				_veh = ("USBasicAmmunitionBox_EP1" createVehicleLocal _pos);
+				// TODO: A3 ящик слишком сильно нагружен, лучше использовать класический инвентарь как в миссиях других.
+				_veh = (
+					#ifdef __ARMA3__
+						"Box_NATO_Ammo_F"
+					#else
+						"USBasicAmmunitionBox_EP1"
+					#endif
+					createVehicleLocal _pos);
 				player reveal _veh;
 				_veh setVariable ["gosa_megaAmmoBox",true];
-				hint format["%1: %2", localize "str_support_done", "USBasicAmmunitionBox_EP1"];
+				// TODO: Не нужно сообщать другим игрокам о локальных объектах.
+				[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};
 
@@ -144,7 +155,7 @@ if (true) then {
 				_pos = [_pos, 1.5, getDir _player_veh] call BIS_fnc_relPos;
 				_veh = (_type createVehicle _pos);
 				player reveal _veh;
-				hint format["%1: %2", localize "str_support_done", _type];
+				[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};
 
@@ -201,7 +212,7 @@ if (true) then {
 					#endif
 
 					_veh call _fnc_1;
-					hint format["%1: %2", localize "str_support_done", _type];
+					[_veh, _name] call gosa_fnc_hint_layout_completed;
 			}else{
 				hint "10 max";
 			};
@@ -232,7 +243,7 @@ if (true) then {
 			_pos = ([_pos, 0, 10 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh = (createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
-			hint format["%1: %2", localize "str_support_done", _type];
+			[_veh, _name] call gosa_fnc_hint_layout_completed;
 	};
 	};
 
@@ -259,7 +270,7 @@ if (true) then {
 			if(_isUAV)then{
 				[_veh, createGroup playerSide] call gosa_fnc_spawnCrew;
 			};
-			hint format["%1: %2", localize "str_support_done", _type];
+			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};
 
@@ -290,7 +301,7 @@ if (true) then {
 			if(_isUAV)then{
 				[_veh, createGroup playerSide] call gosa_fnc_spawnCrew;
 			};
-			hint format["%1: %2", localize "str_support_done", _type];
+			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};
 
@@ -312,7 +323,7 @@ if (true) then {
 			_veh setPos ([_pos,0, 1 max sizeOf _type, true] call gosa_fnc_getSafePos);
 			_speed = -3;
 			_veh call _fnc_1;
-			hint format["%1: %2", localize "str_support_done", _type];
+			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};
 
@@ -323,7 +334,7 @@ if (true) then {
 			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 			_veh call _fnc_1;
-			hint format["%1: %2", localize "str_support_done", _type];
+			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};
 	// [_type] call gosa_fnc_setTimeAvailableVehiclesBuyMenu;
