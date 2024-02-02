@@ -125,9 +125,9 @@ for "_count" from 0 to (count _cityCenters -1) do {
 			_depots = [_town getVariable "depot"];
 		}else{
 			_depots = [];
-			_marker = str [_town,_position];
-			createMarker [_marker, _position];
-			_marker setMarkerType "Dot";
+			_marker = str [_town,_position];//diag_log
+			createMarker [_marker, _position];//diag_log
+			_marker setMarkerType "Dot";//diag_log
 		};
 
 	}else{
@@ -137,9 +137,9 @@ for "_count" from 0 to (count _cityCenters -1) do {
 			_type = _typeCity;
 		};
 		_town = _grp_logic CreateUnit [_type, _position, [], 0, "CAN_COLLIDE"];
-			_marker = str [_town,_position];
-			createMarker [_marker, _position];
-			_marker setMarkerType "Dot";
+			_marker = str [_town,_position];//diag_log
+			createMarker [_marker, _position];//diag_log
+			_marker setMarkerType "Dot";//diag_log
 
 		_depots = [];
 	};
@@ -186,9 +186,9 @@ for "_count" from 0 to (count _cityCenters -1) do {
 
 		};
 
-			_marker = str [_depot,_depotPosition];
-			createMarker [_marker, _depotPosition];
-			_marker setMarkerType "Dot";
+			_marker = str [_depot,_depotPosition];//diag_log
+			createMarker [_marker, _depotPosition];//diag_log
+			_marker setMarkerType "Dot";//diag_log
 
 		//- Гуманитария.
 		_town setVariable ["name", _townName];
@@ -286,9 +286,9 @@ for "_count" from 0 to (count _cityCenters -1) do {
 				_camp synchronizeObjectsAdd [_town];
 				_camps set [count _camps, _camp];
 
-				_marker = str [_camp, _destination];
-				createMarker [_marker, _destination];
-				_marker setMarkerType "Dot";
+				_marker = str [_camp, _destination];//diag_log
+				createMarker [_marker, _destination];//diag_log
+				_marker setMarkerType "Dot";//diag_log
 
 				// Постройки.
 				if (_dyno) then {
