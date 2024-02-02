@@ -22,7 +22,7 @@ _lock = "UNLOCKED";
 // _arr динамичный массив.
 _arr = [];
 {
-	_b = _x getVariable [_var_respawn, false];\
+	_b = _x getVariable [_var_respawn, false];
 	// TODO: Фильтровать по параметрам.
 	if (_b) then {
 		_arr set [count _arr, _x];
