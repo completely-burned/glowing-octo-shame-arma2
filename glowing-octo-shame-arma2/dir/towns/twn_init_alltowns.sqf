@@ -16,13 +16,13 @@ Private["_buildings","_constructFunction","_count","_customCamps","_customOwners
 
 if (missionNamespace getVariable "gosa_camps" > 0) then {
 	_dyno = true;
+	_constructFunction = Compile preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectMapper.sqf";
+	_depotCompositions = gosa_depotCompositions;
+	_campCompositions = gosa_campCompositions;
 }else{
 	_dyno = false;
 };
 _constructedList = [];
-_constructFunction = Compile preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectMapper.sqf";
-_depotCompositions = gosa_depotCompositions;
-_campCompositions = gosa_campCompositions;
 
 _locationsInitialized = 0;
 _towns = [];
