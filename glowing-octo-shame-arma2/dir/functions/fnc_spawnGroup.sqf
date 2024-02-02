@@ -126,6 +126,9 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 						_unit setPos _itemPos;
 						_unit setDir _azimuth;
 						#ifdef __ARMA3__
+							// Без этого некоторые ТС в A3 стоят на месте.
+							_unit doMove _itemPos;
+
 							_roads deleteAt 0;
 						#else
 						_roads set [0,-1];
