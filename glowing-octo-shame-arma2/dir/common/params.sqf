@@ -68,3 +68,5 @@ _z = missionNamespace getVariable "gosa_MartaManager";
 	if (_z == -1 && gosa_loglevel > 0) then {
 			missionNamespace setVariable ["gosa_MartaManager", 1];
 	};
+
+gosa_param_init_done = true;
