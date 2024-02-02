@@ -23,7 +23,7 @@ _r = [250,2012];
 // Тип.
 if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter","chernarus_winter"]) then {_r set [0,100]};
 if (_w in ["namalsk"]) then {_r set [0,160]};
-if (_w in ["utes","i44_omaha"]) then {_r set [0,180]};
+if (_w in ["utes","i44_omaha","sara"]) then {_r set [0,180]};
 if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
 	"noe","thirsk","vt7"]) then {_r set [0,190]};
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
@@ -46,6 +46,10 @@ if (_w in ["noe"]) then
 if (_w in ["stozec"]) then
 {
 	_r set [1,1986];
+};
+if (_w in ["sara"]) then
+{
+	_r set [1,2007];
 };
 if (_w in ["porto"]) then
 {
