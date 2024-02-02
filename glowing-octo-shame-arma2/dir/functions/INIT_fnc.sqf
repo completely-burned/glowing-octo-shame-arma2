@@ -19,6 +19,7 @@ if (isServer) then {
 			"fnc_createHQ",
 			"fnc_list_HQ",
 		#endif
+		"fnc_mission_capture_location",
 		"fnc_cleanup",
 		"fnc_StaticWeapon",
 		"fnc_playerRespawnSP",
