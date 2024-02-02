@@ -170,11 +170,20 @@ if(isMultiplayer)then{
 // списки групп
 [] call compile preprocessFileLineNumbers "dir\server\init_groups.sqf";
 // локации, города
+if (missionNamespace getVariable "gosa_mission" == 2) then {
+	[] spawn gosa_fnc_mission_capture_location;
+}else{
 [] execVM "dir\server\init_towns.sqf";
+};
 
+if (missionNamespace getVariable "gosa_locations" == 2) then {
+	[] call compile preprocessFileLineNumbers "dir\towns\twn_get_locations_map.sqf";
+	[] call compile preprocessFileLineNumbers "dir\towns\twn_init_alltowns.sqf";
+}else{
 #ifndef __ARMA3__
 [] execVM "dir\server\init_alltowns.sqf";
 #endif
+};
 
 // обновление техники и ботов, удаление
 [] execVM "dir\server\updateServer.sqf";

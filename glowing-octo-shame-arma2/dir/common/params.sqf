@@ -34,6 +34,20 @@ _z = missionNamespace getVariable "gosa_respawnVehicles";
 		};
 	};
 
+_z = missionNamespace getVariable "gosa_mission";
+	if (_z == -1) then {
+		missionNamespace setVariable ["gosa_mission", 1];
+	} else {
+		missionNamespace setVariable ["gosa_mission", 2];
+	};
+
+_z = missionNamespace getVariable "gosa_locations";
+	if (_z == -1) then {
+		missionNamespace setVariable ["gosa_locations", 1];
+	} else {
+		missionNamespace setVariable ["gosa_locations", 2];
+	};
+
 _z = missionNamespace getVariable "gosa_MHQ";
 	if (_z == -1) then {
 		if (missionNamespace getVariable "respawn" == 0) then {

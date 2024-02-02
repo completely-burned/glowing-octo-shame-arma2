@@ -151,7 +151,11 @@ while{true}do{
 			};
 		};
 		if(_next)then{
+			if (missionNamespace getVariable "gosa_mission" == 2) then {
+				[] call gosa_fnc_mission_capture_location;
+			}else{
 			[] call locationNext;
+			};
 			_east1 = 0;
 			_west1 = 0;
 			_resistance1 = 0;

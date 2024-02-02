@@ -694,6 +694,20 @@ class Params {
 		default=0;
 	};
 
+	// Планируется переход на новую версию.
+	class gosa_mission {
+		title="MISSION: Version [gp]";
+		values[] = {-1,1,2};
+		texts[] = {STR_DEFAULT, "capture location v1 old", "capture location v2 new (not completed)"};
+		default=-1;
+	};
+	class gosa_locations {
+		title="TOWN: Version [gp]";
+		values[] = {-1,1,2};
+		texts[] = {STR_DEFAULT, "v1 old", "v2 new (not completed)"};
+		default=-1;
+	};
+
 	// Типы локаций.
 	// [arbitrary] Любая позиция в пределах карты в том числе и на воде.
 	// Город или холм.
