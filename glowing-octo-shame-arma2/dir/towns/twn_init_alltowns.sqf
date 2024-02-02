@@ -10,7 +10,7 @@ Private["_buildings","_constructFunction","_count","_customCamps","_customOwners
 	"_composition","_constructed","_nearestDistance","_newCamps","_previousTown","_towns",
 	"_replaceTownName","_typeCity","_typeDepot","_typeCamp","_dyno","_grp_logic","_logic",
 	"_constructedList","_depotCompositions","_campCompositions","_typeCityCapital",
-	"_town","_depot","_dir",
+	"_town","_depot","_dir","_typeVillage",
 	"_cityCapital","_rangeSizeModifier","_rangeModifier","_conflict_dist","_towns_used",
 	"_minSizeMod","_sizeMod","_position","_townName","_townNames","_type","_neighbors"];
 
@@ -44,11 +44,13 @@ _rangeModifier = gosa_rangeModifier;
 #ifdef __ARMA3__
 	_typeCity = "LocationCity_F";
 	_typeCityCapital = "LocationCityCapital_F";
+	_typeVillage = "LocationVillage_F";
 	_typeDepot = "LocationFOB_F";
 	_typeCamp = "LocationCamp_F";
 #else
 	_typeCity = "LocationLogicCity";
 	_typeCityCapital = _typeCity;
+	_typeVillage = _typeCity;
 	_typeDepot = "LocationLogicDepot";
 	//_typeDepot = "LocationLogicCityFlatArea";
 	_typeCamp = "LocationLogicCamp";
@@ -57,6 +59,9 @@ _rangeModifier = gosa_rangeModifier;
 _cityCenters = (allMissionObjects _typeCity) + _cityCenters;
 if (_typeCity != _typeCityCapital) then {
 _cityCenters = (allMissionObjects _typeCityCapital) + _cityCenters;
+};
+if (_typeCity != _typeVillage) then {
+_cityCenters = (allMissionObjects _typeVillage) + _cityCenters;
 };
 
 _campAreas = (allMissionObjects _typeCamp) + _campAreas;
