@@ -225,11 +225,11 @@ then
 		-t ${tracker} -c ${COMMENT} \
 		-w 'http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/' \
 		-o '${PRE}/${FINITENAME}-transmission.torrent' \
-		${TORRENT_TMPDIR}/" )
+		${TORRENT_TMPDIR}" )
 	torrent_parallel+=( "ctorrent -t \
 		-u ${tracker} -c ${COMMENT} \
 		-s '${PRE}/${FINITENAME}-ctorrent.torrent' \
-		${TORRENT_TMPDIR}/" )
+		${TORRENT_TMPDIR}" )
 
 	if [[ ! -z "$torrent_parallel" ]]
 	then
