@@ -5,7 +5,7 @@
 
 private ["_mission_type","_battlefield_size","_towns","_pos","_location","_time_startup",
 	"_par_safeSpawnDistance","_n","_var_patrol","_var_timeDeleteVehicle",
-	"_locationRandom","_arr",
+	"_locationRandom","_arr","_min","_max","_time","_var_lastActivity","_diff",
 	"_var_grps_rarity","_grps_rarity","_grp","_sides_friendly","_towns_weighted"];
 
 _sides_friendly = gosa_friendlyside;
@@ -14,6 +14,7 @@ _mission_type = "capture_location";
 _var_grps_rarity = "_grps_rarity";
 _var_patrol = "patrol";
 _var_timeDeleteVehicle = "gosa_timeDeleteVehicle";
+_var_lastActivity = "gosa_lastActivity";
 _battlefield_size = 250;
 
 waitUntil {!isNil "gosa_param_init_done"};
@@ -21,8 +22,24 @@ waitUntil {!isNil "gosa_param_init_done"};
 if (missionNamespace getVariable "gosa_locationType" in [1,2]) then {
 	waitUntil {!isNil "gosa_towns"};
 	_towns = gosa_towns;
-	//_towns_weighted = [];
-	//for "_i" from 0 to (count _towns -1) do {};
+
+	_towns_weighted = [];
+	_min = 0;
+	_max = 0;
+	for "_i" from 0 to (count _towns -1) do {
+		_location = _towns select _i;
+		_n = _location getVariable [_var_lastActivity, 0];
+		_towns_weighted set [_i, _n];
+		_min = _min min _n;
+		_max = _max max _n;
+	};
+	_diff = _max - _min;
+	diag_log Format ["Log: [Mission capture] %1 [_max, _min, _diff]", [_max, _min, _diff]];
+	for "_i" from 0 to (count _towns -1) do {
+		_n = _towns_weighted select _i;
+		_towns_weighted set [_i, _diff - (_n - _min)];
+		diag_log Format ["Log: [Mission capture] %1 [weight, time]", [_towns_weighted select _i, _towns select _i getVariable [_var_lastActivity, 0]]];
+	};
 }else{
 	_towns = [];
 };
@@ -30,7 +47,11 @@ if (missionNamespace getVariable "gosa_locationType" in [1,2]) then {
 waitUntil {!isNil "gosa_fnc_init"};
 
 if (count _towns > 0) then {
-	_location = _towns call BIS_fnc_selectRandom;
+	if ({_x > 0} count _towns_weighted > 0) then {
+		_location = [_towns, _towns_weighted] call gosa_fnc_selectRandomWeighted;
+	}else{
+		_location = _towns call BIS_fnc_selectRandom;
+	};
 	_pos = getPos _location;
 }else{
 	_pos = [false] call gosa_fnc_getRandomWorldPos;
@@ -79,6 +100,9 @@ if !(isNil "_grps_rarity") then {
 gosa_locationSize = _battlefield_size;
 CivilianBasePos = _pos;
 CivilianLocationStartTime = _time_startup;
+if !(isNil "CivilianLocation") then {
+	CivilianLocation setVariable [_var_lastActivity, time];
+};
 CivilianLocation = _location;
 publicVariable "gosa_locationSize";
 publicVariable "CivilianBasePos";
