@@ -135,6 +135,11 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this];
 					};
 
+					#ifdef __ARMA3__
+						// Без этого некоторые ТС в A3 стоят на месте.
+						_unit doMove _itemPos;
+					#endif
+
 					//-- Одиночная игра.
 					if !(isMultiplayer) then {
 						//-- Баланс.
