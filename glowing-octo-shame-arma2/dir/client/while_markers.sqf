@@ -17,7 +17,7 @@ private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_markers_airport","_respawn_type_Pilot","_respawn_type_All","_markers_alive",
 	"_list","_arr","_b","_marker_type","_marker_type_respawn_unknown",
 	"_marker_type_respawn_plane","_fnc_update_LocationAirport",
-	"_markers_LocationBase","_fnc_update_LocationBase",
+	"_markers_LocationBase","_fnc_update_LocationBase","_types_respawn_blacklist",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
 
 _fnc_MarkerInitUnit = {
@@ -44,6 +44,8 @@ if (missionNamespace getVariable "respawn" == 0 or _rMHQ) then {
 } else {
 	_rBase = false;
 };
+
+_types_respawn_blacklist = gosa_types_location;
 
 waitUntil{!isNil "bis_fnc_init"};
 waitUntil{!isNil "gosa_fnc_init"};
@@ -104,52 +106,54 @@ if (true) then {
 			for "_i0" from 0 to (count _arr -1) do {
 				_logic = _arr select _i0;
 
-				// тип возрождения.
-				_num = _logic getVariable ["gosa_respawn_type", _respawn_type_All];
-				switch (_num) do {
-					case _respawn_type_Pilot: {
-						if (_startingClass == 1) then {
+				if !(typeOf _logic in _types_respawn_blacklist) then {
+					// тип возрождения.
+					_num = _logic getVariable ["gosa_respawn_type", _respawn_type_All];
+					switch (_num) do {
+						case _respawn_type_Pilot: {
+							if (_startingClass == 1) then {
+								_b = true;
+								_marker_type = _marker_type_respawn_plane;
+							}else{
+								_b = false;
+							};
+						};
+						case _respawn_type_All: {
 							_b = true;
-							_marker_type = _marker_type_respawn_plane;
-						}else{
+							_marker_type = _marker_type_respawn_unknown;
+						};
+						default {
 							_b = false;
 						};
 					};
-					case _respawn_type_All: {
-						_b = true;
-						_marker_type = _marker_type_respawn_unknown;
-					};
-					default {
-						_b = false;
-					};
-				};
 
-				if (_b) then {
-					_marker = format["respawn_%1_%2", _side_str, _logic];
-					_markers_alive set [count _markers_alive, _marker];
-					if !(_marker in _markers_airport) then {
-						_obj = _logic getVariable ["gosa_building", _logic];
-						_pos = getPos _obj;
-						_num = getDir _obj;
+					if (_b) then {
+						_marker = format["respawn_%1_%2", _side_str, _logic];
+						_markers_alive set [count _markers_alive, _marker];
+						if !(_marker in _markers_airport) then {
+							_obj = _logic getVariable ["gosa_building", _logic];
+							_pos = getPos _obj;
+							_num = getDir _obj;
 
-						if !(isNull _obj) then {
-							_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
+							if !(isNull _obj) then {
+								_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
+							};
+
+							createMarkerLocal [_marker, _pos];
+							diag_log format ["Log: [while_markers] %1 createMarker %2, %3", _marker, _pos, _obj];
+
+							_marker setMarkerTypeLocal _marker_type;
+
+							// A3 устанавливает цвет самостоятельно.
+							#ifdef __ARMA3__
+							if !(playerSide in [east,west,resistance]) then {
+							#endif
+								_marker setMarkerColorLocal _markerColor;
+							#ifdef __ARMA3__
+							};
+							#endif
+							_markers_airport set [count _markers_airport, _marker];
 						};
-
-						createMarkerLocal [_marker, _pos];
-						diag_log format ["Log: [while_markers] %1 createMarker %2, %3", _marker, _pos, _obj];
-
-						_marker setMarkerTypeLocal _marker_type;
-
-						// A3 устанавливает цвет самостоятельно.
-						#ifdef __ARMA3__
-						if !(playerSide in [east,west,resistance]) then {
-						#endif
-							_marker setMarkerColorLocal _markerColor;
-						#ifdef __ARMA3__
-						};
-						#endif
-						_markers_airport set [count _markers_airport, _marker];
 					};
 				};
 			};
@@ -199,53 +203,55 @@ if (true) then {
 
 			for "_i0" from 0 to (count _arr -1) do {
 				_logic = _arr select _i0;
+					if !(toLower typeOf _logic in _types_respawn_blacklist) then {
 
-				// тип возрождения.
-				_num = _logic getVariable ["gosa_respawn_type", _respawn_type_All];
-				switch (_num) do {
-					case _respawn_type_Pilot: {
-						if (_startingClass == 1) then {
+					// тип возрождения.
+					_num = _logic getVariable ["gosa_respawn_type", _respawn_type_All];
+					switch (_num) do {
+						case _respawn_type_Pilot: {
+							if (_startingClass == 1) then {
+								_b = true;
+								_marker_type = _marker_type_respawn_plane;
+							}else{
+								_b = false;
+							};
+						};
+						case _respawn_type_All: {
 							_b = true;
-							_marker_type = _marker_type_respawn_plane;
-						}else{
+							_marker_type = _marker_type_respawn_unknown;
+						};
+						default {
 							_b = false;
 						};
 					};
-					case _respawn_type_All: {
-						_b = true;
-						_marker_type = _marker_type_respawn_unknown;
-					};
-					default {
-						_b = false;
-					};
-				};
 
-				if (_b) then {
-					_marker = format["respawn_%1_%2", _side_str, _logic];
-					_markers_alive set [count _markers_alive, _marker];
-					if !(_marker in _markers_LocationBase) then {
-						_obj = _logic getVariable ["gosa_building", _logic];
-						_pos = getPos _obj;
-						_num = getDir _obj;
+					if (_b) then {
+						_marker = format["respawn_%1_%2", _side_str, _logic];
+						_markers_alive set [count _markers_alive, _marker];
+						if !(_marker in _markers_LocationBase) then {
+							_obj = _logic getVariable ["gosa_building", _logic];
+							_pos = getPos _obj;
+							_num = getDir _obj;
 
-						if !(isNull _obj) then {
-							_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
+							if !(isNull _obj) then {
+								_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
+							};
+
+							createMarkerLocal [_marker, _pos];
+							diag_log format ["Log: [while_markers] %1 createMarker %2, %3", _marker, _pos, _obj];
+
+							_marker setMarkerTypeLocal _marker_type;
+
+							// A3 устанавливает цвет самостоятельно.
+							#ifdef __ARMA3__
+							if !(playerSide in [east,west,resistance]) then {
+							#endif
+								_marker setMarkerColorLocal _markerColor;
+							#ifdef __ARMA3__
+							};
+							#endif
+							_markers_LocationBase set [count _markers_LocationBase, _marker];
 						};
-
-						createMarkerLocal [_marker, _pos];
-						diag_log format ["Log: [while_markers] %1 createMarker %2, %3", _marker, _pos, _obj];
-
-						_marker setMarkerTypeLocal _marker_type;
-
-						// A3 устанавливает цвет самостоятельно.
-						#ifdef __ARMA3__
-						if !(playerSide in [east,west,resistance]) then {
-						#endif
-							_marker setMarkerColorLocal _markerColor;
-						#ifdef __ARMA3__
-						};
-						#endif
-						_markers_LocationBase set [count _markers_LocationBase, _marker];
 					};
 				};
 			};

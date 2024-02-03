@@ -87,6 +87,20 @@ gosa_blacklisted_player_classes_L = _arr;
 diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", _arr];
 
 
+_arr = [
+	"LocationCity_F",
+	"LocationVillage_F",
+	"LocationCityCapital_F",
+	"LocationLogicCity"
+];
+_arr0 = [];
+for "_i" from 0 to (count _arr -1) do {
+	_str = configName (_cfgVeh >> (_arr select _i));
+	if (_str != "") then {
+		_arr0 set [count _arr0, _str];
+	};
+};
+gosa_types_location = _arr0;
 
 //-- listCrew
 _arr = [
