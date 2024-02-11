@@ -166,9 +166,8 @@ class Mission
 					position[]={3926.9414,54.438812,7534.7563};
 					id=13;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -183,9 +182,8 @@ class Mission
 					position[]={4970.9688,46.745724,6604.6987};
 					id=14;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -200,9 +198,8 @@ class Mission
 					position[]={4195.1338,385.61862,6677.668};
 					id=15;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -217,9 +214,8 @@ class Mission
 					position[]={4407.519,6.1481047,4817.3047};
 					id=16;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -234,9 +230,8 @@ class Mission
 					position[]={4847.4111,41,6201.1016};
 					id=17;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -251,9 +246,8 @@ class Mission
 					position[]={7072.6626,39.917961,5863.6396};
 					id=18;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -268,9 +262,8 @@ class Mission
 					position[]={7784.8711,10.576345,7660.5884};
 					id=19;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -285,9 +278,8 @@ class Mission
 					position[]={7349.3022,84.026459,7935.623};
 					id=20;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -302,9 +294,8 @@ class Mission
 					position[]={7599.7324,73.67466,8737.4648};
 					id=21;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -319,9 +310,8 @@ class Mission
 					position[]={4920.3999,37.887722,8117.8872};
 					id=22;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -336,9 +326,8 @@ class Mission
 					position[]={5754.9951,51.261559,8675.4072};
 					id=23;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -353,9 +342,8 @@ class Mission
 					position[]={6502.7959,36,9336.4814};
 					id=24;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -370,9 +358,8 @@ class Mission
 					position[]={5730.8579,22.736006,9806.6631};
 					id=25;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -387,9 +374,8 @@ class Mission
 					position[]={4714.3403,23.543583,8910.7695};
 					id=26;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -404,9 +390,8 @@ class Mission
 					position[]={7232.6118,239.29094,7093.73};
 					id=27;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -421,9 +406,8 @@ class Mission
 					position[]={6115.5669,11.796586,5752.4961};
 					id=28;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -438,9 +422,8 @@ class Mission
 					position[]={4455.1201,4.6035032,11186.092};
 					id=29;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -455,9 +438,8 @@ class Mission
 					position[]={4821.1812,14.022676,10815.78};
 					id=30;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -472,9 +454,8 @@ class Mission
 					position[]={4410.02,14.989105,10765.72};
 					id=31;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -489,9 +470,8 @@ class Mission
 					position[]={5788.6055,17.812136,10744.377};
 					id=32;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -506,9 +486,8 @@ class Mission
 					position[]={7087.6665,18.282566,10774.219};
 					id=33;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -523,9 +502,8 @@ class Mission
 					position[]={6735.8315,14.863574,11165.282};
 					id=34;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -540,9 +518,8 @@ class Mission
 					position[]={6159.8945,35.233093,10853.93};
 					id=35;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -557,9 +534,8 @@ class Mission
 					position[]={8406.4141,15,10719.14};
 					id=36;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -574,9 +550,8 @@ class Mission
 					position[]={9080.3252,7.9795804,10134.012};
 					id=37;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -591,9 +566,8 @@ class Mission
 					position[]={8076.5098,70.726929,11222};
 					id=38;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -608,9 +582,8 @@ class Mission
 					position[]={5962.1455,34.870255,6665.6274};
 					id=39;
 					side="LOGIC";
-					vehicle="Logic";
+					vehicle="LocationLogicCity";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -620,7 +593,7 @@ class Mission
 		items=1;
 		class Item0
 		{
-			position[]={12776.378,-50.00206,12776.118};
+			position[]={12777,0,12777};
 			name="gosa_worldSize";
 			type="Empty";
 		};
