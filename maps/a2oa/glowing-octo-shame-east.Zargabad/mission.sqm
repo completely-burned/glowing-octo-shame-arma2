@@ -719,7 +719,7 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={8150.7363,133.99139,8160.9116};
+			position[]={8150,0,8160};
 			name="gosa_worldSize";
 			type="Empty";
 		};
