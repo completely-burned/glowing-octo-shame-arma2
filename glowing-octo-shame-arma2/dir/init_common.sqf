@@ -86,6 +86,25 @@ gosa_types_InvisibleMan = _arr;
 gosa_blacklisted_player_classes_L = _arr;
 diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", _arr];
 
+// Обычные города или деревни.
+_arr = ["LocationCity_F", "LocationLogicCity"];
+gosa_types_location_City = ([_arr, _cfgVeh] call gosa_fnc_arr_fix_configName);
+
+// Большие города.
+_arr = ["LocationCityCapital_F"];
+gosa_types_location_CityCapital = ([_arr, _cfgVeh] call gosa_fnc_arr_fix_configName);
+
+// Прочие маленькие локации.
+_arr = ["LocationVillage_F"];
+gosa_types_location_Village = ([_arr, _cfgVeh] call gosa_fnc_arr_fix_configName);
+
+// Бункеры и лагеря.
+_arr = ["LocationFOB_F", "LocationLogicDepot", "LocationLogicCityFlatArea"];
+gosa_types_location_Depot = ([_arr, _cfgVeh] call gosa_fnc_arr_fix_configName);
+
+_arr = ["LocationCamp_F", "LocationLogicCamp"];
+gosa_types_location_Camp = ([_arr, _cfgVeh] call gosa_fnc_arr_fix_configName);
+
 
 _arr = [
 	"LocationCity_F",

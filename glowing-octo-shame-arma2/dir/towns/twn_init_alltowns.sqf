@@ -10,7 +10,8 @@ Private["_buildings","_constructFunction","_count","_customCamps","_customOwners
 	"_composition","_constructed","_nearestDistance","_newCamps","_previousTown","_towns",
 	"_replaceTownName","_typeCity","_typeDepot","_typeCamp","_dyno","_grp_logic","_logic",
 	"_constructedList","_depotCompositions","_campCompositions","_typeCityCapital",
-	"_town","_depot","_dir","_typeVillage",
+	"_town","_depot","_dir","_typeVillage","_types_City_all","_types_City","_types_Depot",
+	"_types_CityCapital","_types_Camp","_types_Village",
 	"_cityCapital","_rangeSizeModifier","_rangeModifier","_conflict_dist","_towns_used",
 	"_minSizeMod","_sizeMod","_position","_townName","_townNames","_type","_neighbors"];
 
@@ -41,30 +42,27 @@ _grp_logic = group_logic;
 _rangeSizeModifier = gosa_rangeSizeModifier;
 _rangeModifier = gosa_rangeModifier;
 
-#ifdef __ARMA3__
-	_typeCity = "LocationCity_F";
-	_typeCityCapital = "LocationCityCapital_F";
-	_typeVillage = "LocationVillage_F";
-	_typeDepot = "LocationFOB_F";
-	_typeCamp = "LocationCamp_F";
-#else
-	_typeCity = "LocationLogicCity";
-	_typeCityCapital = _typeCity;
-	_typeVillage = _typeCity;
-	_typeDepot = "LocationLogicDepot";
-	//_typeDepot = "LocationLogicCityFlatArea";
-	_typeCamp = "LocationLogicCamp";
-#endif
+_types_City = gosa_types_location_City;
+_types_CityCapital = gosa_types_location_CityCapital;
+_types_Village = gosa_types_location_Village;
+_types_Depot = gosa_types_location_Depot;
+_types_Camp = gosa_types_location_Camp;
 
-_cityCenters = (allMissionObjects _typeCity) + _cityCenters;
-if (_typeCity != _typeCityCapital) then {
-_cityCenters = (allMissionObjects _typeCityCapital) + _cityCenters;
-};
-if (_typeCity != _typeVillage) then {
-_cityCenters = (allMissionObjects _typeVillage) + _cityCenters;
-};
+_types_City_all = _types_CityCapital + _types_City + _types_Village;
 
-_campAreas = (allMissionObjects _typeCamp) + _campAreas;
+
+_arr = [];
+{
+	_arr = _arr + allMissionObjects _x;
+} forEach _types_CityCapital + _types_City + _types_Village;
+_cityCenters = _arr + _cityCenters;
+
+_arr = [];
+{
+	_arr = _arr + allMissionObjects _x;
+} forEach _types_Camp;
+_campAreas = _arr + _campAreas;
+
 
 for "_count" from 0 to (count _cityCenters -1) do {
 	_cityCenter = _cityCenters Select _count;
@@ -121,7 +119,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 
 
 	//Do not use map location if a custom location is already present.
-	_objects = _position nearEntities [[_typeCity, _typeCityCapital], _twn_nd];
+	_objects = _position nearEntities [_types_City_all, _twn_nd];
 
 	//-- Town logic.
 	if (count _objects > 0) then {
@@ -136,10 +134,10 @@ for "_count" from 0 to (count _cityCenters -1) do {
 		};
 
 	}else{
-		if (_cityCapital) then {
-			_type = _typeCityCapital;
+		if (_cityCapital && count _types_CityCapital > 0) then {
+			_type = _types_CityCapital select 0;
 		}else{
-			_type = _typeCity;
+			_type = _types_City select 0;
 		};
 		_town = _grp_logic CreateUnit [_type, _position, [], 0, "CAN_COLLIDE"];
 			_marker = str [_town,_position];//diag_log
@@ -170,7 +168,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 
 
 		//-- Create Depot.
-		_flatAreas = _position NearEntities [_typeDepot, _twn_nd];
+		_flatAreas = _position NearEntities [_types_Depot, _twn_nd];
 		if (Count _flatAreas > 0) then {
 			_depot = (_flatAreas Select 0);
 			_depotPosition = getPos _depot;
@@ -186,7 +184,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 				_depotDirection = Direction (_flatAreas Select 0);
 			};
 
-			_depot = _grp_logic CreateUnit [_typeDepot, _depotPosition, [], 0, "CAN_COLLIDE"];
+			_depot = _grp_logic CreateUnit [_types_Depot select 0, _depotPosition, [], 0, "CAN_COLLIDE"];
 			_depot setDir _depotDirection;
 
 		};
@@ -265,10 +263,10 @@ for "_count" from 0 to (count _cityCenters -1) do {
 			};
 
 			if (_destination Distance _position < _range) then {
-				_conflictingCamps = _destination nearEntities [_typeCamp, _conflict_dist];
+				_conflictingCamps = _destination nearEntities [_types_Camp, _conflict_dist];
 
 				if (Count _conflictingCamps <= 0) then {
-					_camp = _grp_logic createUnit [_typeCamp, _destination, [], 0, "CAN_COLLIDE"];
+					_camp = _grp_logic createUnit [_types_Camp select 0, _destination, [], 0, "CAN_COLLIDE"];
 
 					_camp setVariable ["town", _town, true];
 					_camp SetDir _dir;
