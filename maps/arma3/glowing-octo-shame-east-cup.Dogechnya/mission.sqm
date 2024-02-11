@@ -201,7 +201,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={6067.292,18.906923,6985.4385};
-				angles[]={0.081816852,0,6.2452054};
 			};
 			init="this setVariable [""gosa_Location_type"", 1];";
 			id=1;
@@ -216,7 +215,7 @@ class Mission
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
 			id=2;
-			type="Logic";
+			type="LocationRespawnPoint_F";
 		};
 		class Item2
 		{
@@ -227,16 +226,15 @@ class Mission
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
 			id=4;
-			type="Logic";
+			type="LocationRespawnPoint_F";
 		};
 		class Item3
 		{
 			dataType="Marker";
-			position[]={10155.328,20.525795,10183.03};
+			position[]={10155.328,0,10183.03};
 			name="gosa_worldSize";
 			type="Empty";
 			id=5;
-			atlOffset=-0.00030517578;
 		};
 		class Item4
 		{
@@ -281,7 +279,7 @@ class Mission
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=25;
-			type="Logic";
+			type="LocationRespawnPoint_F";
 		};
 		class Item6
 		{
@@ -290,11 +288,9 @@ class Mission
 			{
 				position[]={5044.5898,206.31406,4886.1758};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 1600] == 0)then{createLocation [""CityCenter"", getPos this, 1500, 1500]};";
 			presenceCondition="false";
 			id=26;
 			type="LocationCity_F";
-			atlOffset=189.319;
 		};
 		class Item7
 		{
@@ -316,7 +312,7 @@ class Mission
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=28;
-			type="Logic";
+			type="LocationRespawnPoint_F";
 		};
 		class Item9
 		{
@@ -325,10 +321,8 @@ class Mission
 			{
 				position[]={6942.0122,205.94833,7033.9121};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=29;
 			type="LocationCity_F";
-			atlOffset=189.13164;
 		};
 		class Item10
 		{
@@ -337,10 +331,8 @@ class Mission
 			{
 				position[]={8791.1982,194.834,2082.5161};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 800] == 0)then{createLocation [""CityCenter"", getPos this, 750, 750]};";
 			id=30;
 			type="LocationCity_F";
-			atlOffset=174.36008;
 		};
 		class Item11
 		{
@@ -349,10 +341,8 @@ class Mission
 			{
 				position[]={7469.1841,196.349,4434.167};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 200, 200]};";
 			id=31;
 			type="LocationCity_F";
-			atlOffset=189.319;
 		};
 		class Item12
 		{
@@ -361,10 +351,8 @@ class Mission
 			{
 				position[]={7192.9082,204.85542,7749.209};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=32;
 			type="LocationCity_F";
-			atlOffset=189.13164;
 		};
 		class Item13
 		{
@@ -373,10 +361,8 @@ class Mission
 			{
 				position[]={9089.3975,211.90384,1286.661};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 800] == 0)then{createLocation [""CityCenter"", getPos this, 750, 750]};";
 			id=33;
 			type="LocationCity_F";
-			atlOffset=174.31241;
 		};
 		class Item14
 		{
@@ -385,10 +371,8 @@ class Mission
 			{
 				position[]={7850.1328,177.38771,2801.5576};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=34;
 			type="LocationCity_F";
-			atlOffset=174.35995;
 		};
 		class Item15
 		{
@@ -397,10 +381,8 @@ class Mission
 			{
 				position[]={6750.6797,180.70805,3233.8457};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=35;
 			type="LocationCity_F";
-			atlOffset=174.35995;
 		};
 		class Item16
 		{
@@ -409,10 +391,8 @@ class Mission
 			{
 				position[]={7668.998,180.54916,3450.5903};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=36;
 			type="LocationCity_F";
-			atlOffset=174.36005;
 		};
 		class Item17
 		{
@@ -421,10 +401,8 @@ class Mission
 			{
 				position[]={5308.6572,189.28903,4311.6167};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=37;
 			type="LocationCity_F";
-			atlOffset=174.35995;
 		};
 		class Item18
 		{
@@ -433,10 +411,8 @@ class Mission
 			{
 				position[]={5487.7002,194.07776,5047.5137};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=38;
 			type="LocationCity_F";
-			atlOffset=147.38113;
 		};
 		class Item19
 		{
@@ -445,10 +421,8 @@ class Mission
 			{
 				position[]={6221.0298,190.35995,5957.623};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 600] == 0)then{createLocation [""CityCenter"", getPos this, 500, 500]};";
 			id=39;
 			type="LocationCity_F";
-			atlOffset=174.35995;
 		};
 		class Item20
 		{
@@ -583,7 +557,6 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2117.2681,14.861439,2034.697};
-						angles[]={0,0.95541072,0};
 					};
 					side="East";
 					flags=6;
@@ -594,36 +567,6 @@ class Mission
 					};
 					id=217;
 					type="CUP_O_RU_Commander";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03PER";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.04;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -631,7 +574,6 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2110.2991,14.861439,2035.8931};
-						angles[]={0,0.95541072,0};
 					};
 					side="East";
 					flags=4;
@@ -642,36 +584,6 @@ class Mission
 					};
 					id=218;
 					type="CUP_O_RU_Officer_VDV";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01PER";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.95999998;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item2
 				{
@@ -679,7 +591,6 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2114.917,14.861439,2029.3611};
-						angles[]={0,0.95541072,0};
 					};
 					side="East";
 					flags=4;
@@ -690,36 +601,6 @@ class Mission
 					};
 					id=219;
 					type="CUP_O_RU_Officer_VDV";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03PER";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.01;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item3
 				{
@@ -727,7 +608,6 @@ class Mission
 					class PositionInfo
 					{
 						position[]={2116.072,14.861439,2027.728};
-						angles[]={0,0.95541072,0};
 					};
 					side="East";
 					flags=4;
@@ -738,36 +618,6 @@ class Mission
 					};
 					id=220;
 					type="CUP_O_RU_Soldier_VDV";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01PER";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.99000001;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -790,23 +640,6 @@ class Mission
 			};
 			id=183;
 			type="CUP_BOX_RU_Wps_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item32
 		{
@@ -823,23 +656,6 @@ class Mission
 			};
 			id=184;
 			type="CUP_BOX_RU_WpsLaunch_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item33
 		{
@@ -856,23 +672,6 @@ class Mission
 			};
 			id=185;
 			type="CUP_BOX_RU_WpsSpecial_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item34
 		{
@@ -888,36 +687,6 @@ class Mission
 			};
 			id=186;
 			type="CUP_BOX_RU_Support_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[""launch_RPG32_F"",""arifle_Katiba_F"",""LMG_Zafir_F""],[1,2,1]],[[""16Rnd_9x21_Mag"",""30Rnd_65x39_caseless_green"",""10Rnd_762x54_Mag"",""150Rnd_762x54_Box"",""1Rnd_HE_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""1Rnd_SmokeRed_Grenade_shell"",""Chemlight_red"",""RPG32_F"",""RPG32_HE_F"",""Laserbatteries"",""HandGrenade"",""MiniGrenade"",""SmokeShell"",""SmokeShellRed"",""UGL_FlareYellow_F"",""UGL_FlareRed_F"",""30Rnd_9x21_Mag_SMG_02""],[6,24,12,4,6,2,2,6,3,1,2,6,6,2,2,2,2,6]],[[""Laserdesignator_02"",""FirstAidKit"",""acc_flashlight"",""bipod_02_F_blk""],[1,10,2,1]],[[""B_FieldPack_ocamo""],[2]]],false]";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=2;
-			};
 		};
 		class Item35
 		{
@@ -935,36 +704,6 @@ class Mission
 			id=187;
 			type="CUP_BOX_RU_Support_F";
 			atlOffset=0.00026893616;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ammoBox";
-					expression="[_this,_value] call bis_fnc_initAmmoBox;";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="[[[[""launch_RPG32_F"",""arifle_Katiba_F"",""LMG_Zafir_F""],[1,2,1]],[[""16Rnd_9x21_Mag"",""30Rnd_65x39_caseless_green"",""10Rnd_762x54_Mag"",""150Rnd_762x54_Box"",""1Rnd_HE_Grenade_shell"",""1Rnd_Smoke_Grenade_shell"",""1Rnd_SmokeRed_Grenade_shell"",""Chemlight_red"",""RPG32_F"",""RPG32_HE_F"",""Laserbatteries"",""HandGrenade"",""MiniGrenade"",""SmokeShell"",""SmokeShellRed"",""UGL_FlareYellow_F"",""UGL_FlareRed_F"",""30Rnd_9x21_Mag_SMG_02""],[6,24,12,4,6,2,2,6,3,1,2,6,6,2,2,2,2,6]],[[""Laserdesignator_02"",""FirstAidKit"",""acc_flashlight"",""bipod_02_F_blk""],[1,10,2,1]],[[""B_FieldPack_ocamo""],[2]]],false]";
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=2;
-			};
 		};
 		class Item36
 		{
@@ -980,23 +719,6 @@ class Mission
 			};
 			id=188;
 			type="CUP_BOX_RU_Ammo_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item37
 		{
@@ -1021,36 +743,6 @@ class Mission
 					};
 					id=191;
 					type="CUP_O_RU_Pilot";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.01;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -1068,36 +760,6 @@ class Mission
 					};
 					id=192;
 					type="CUP_O_RU_Pilot";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.99000001;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item2
 				{
@@ -1115,36 +777,6 @@ class Mission
 					};
 					id=194;
 					type="CUP_O_RU_Pilot";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item3
 				{
@@ -1162,36 +794,6 @@ class Mission
 					};
 					id=195;
 					type="CUP_O_RU_Pilot";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.03;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -1222,36 +824,6 @@ class Mission
 					};
 					id=198;
 					type="CUP_O_RU_Pilot";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -1269,36 +841,6 @@ class Mission
 					};
 					id=199;
 					type="CUP_O_RU_Pilot";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.01;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -1329,36 +871,6 @@ class Mission
 					};
 					id=230;
 					type="CUP_O_RU_Soldier_SL_M_EMR_V2";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -1375,36 +887,6 @@ class Mission
 					};
 					id=231;
 					type="CUP_O_RU_Soldier_M_EMR_V2";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.03;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item2
 				{
@@ -1422,36 +904,6 @@ class Mission
 					};
 					id=232;
 					type="CUP_O_RU_Soldier_LAT_M_EMR_V2";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.03;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item3
 				{
@@ -1468,36 +920,6 @@ class Mission
 					};
 					id=233;
 					type="CUP_O_RU_Soldier_MG_M_EMR_V2";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.01;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item4
 				{
@@ -1515,36 +937,6 @@ class Mission
 					};
 					id=234;
 					type="CUP_O_RU_Soldier_TL_M_EMR_V2";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.99000001;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item5
 				{
@@ -1562,36 +954,6 @@ class Mission
 					};
 					id=235;
 					type="CUP_O_RU_Soldier_AR_M_EMR_V2";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item6
 				{
@@ -1608,36 +970,6 @@ class Mission
 					};
 					id=236;
 					type="CUP_O_RU_Soldier_A_M_EMR_V2";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item7
 				{
@@ -1654,36 +986,6 @@ class Mission
 					};
 					id=237;
 					type="CUP_O_RU_Soldier_Medic_M_EMR_V2";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.01;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
@@ -1714,36 +1016,6 @@ class Mission
 					};
 					id=254;
 					type="CUP_O_RU_Recon_TL_Ratnik_Summer";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.03;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -1761,36 +1033,6 @@ class Mission
 					};
 					id=255;
 					type="CUP_O_RU_Recon_Marksman_Ratnik_Summer";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.94999999;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item2
 				{
@@ -1807,36 +1049,6 @@ class Mission
 					};
 					id=256;
 					type="CUP_O_RU_Recon_Medic_Ratnik_Summer";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.94999999;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item3
 				{
@@ -1854,36 +1066,6 @@ class Mission
 					};
 					id=257;
 					type="CUP_O_RU_Recon_LAT_Ratnik_Summer";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.98000002;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item4
 				{
@@ -1900,36 +1082,6 @@ class Mission
 					};
 					id=258;
 					type="CUP_O_RU_Recon_Ratnik_Summer";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male02RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item5
 				{
@@ -1946,36 +1098,6 @@ class Mission
 					};
 					id=259;
 					type="CUP_O_RU_Recon_Exp_Ratnik_Summer";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male03RUS";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.02;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 			};
 			class Attributes
