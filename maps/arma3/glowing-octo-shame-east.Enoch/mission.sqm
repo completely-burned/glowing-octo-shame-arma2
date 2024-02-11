@@ -270,7 +270,6 @@ class Mission
 			{
 				position[]={3980.21,38.105492,8032.188};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=22;
 			type="LocationCity_F";
 		};
@@ -292,7 +291,6 @@ class Mission
 			{
 				position[]={3087.8237,64.11245,6816.5718};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=28;
 			type="LocationCity_F";
 		};
@@ -303,7 +301,6 @@ class Mission
 			{
 				position[]={1555.889,98.123672,9705.2979};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=29;
 			type="LocationCity_F";
 		};
@@ -314,7 +311,6 @@ class Mission
 			{
 				position[]={9883.7422,39.878616,8500.5635};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=30;
 			type="LocationCity_F";
 		};
@@ -325,7 +321,6 @@ class Mission
 			{
 				position[]={6625.8745,7.4718504,11198.779};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=31;
 			type="LocationCity_F";
 		};
@@ -336,7 +331,6 @@ class Mission
 			{
 				position[]={11225.235,169.08636,4358.2822};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=32;
 			type="LocationCity_F";
 		};
@@ -347,7 +341,6 @@ class Mission
 			{
 				position[]={5016.0625,22.544628,9965.4385};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=33;
 			type="LocationCity_F";
 		};
@@ -358,7 +351,6 @@ class Mission
 			{
 				position[]={10748.982,7.7937284,11027.544};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=34;
 			type="LocationCity_F";
 		};
@@ -369,7 +361,6 @@ class Mission
 			{
 				position[]={11375.455,45.917122,615.18018};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=35;
 			type="LocationCity_F";
 		};
@@ -380,7 +371,6 @@ class Mission
 			{
 				position[]={893.39789,73.084396,5479.9971};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=36;
 			type="LocationCity_F";
 		};
@@ -391,7 +381,6 @@ class Mission
 			{
 				position[]={8112.0649,75.18,8727.7031};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=37;
 			type="LocationCity_F";
 		};
@@ -402,10 +391,8 @@ class Mission
 			{
 				position[]={10071.022,117.82521,6897.8965};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=38;
 			type="LocationCity_F";
-			atlOffset=7.6293945e-006;
 		};
 		class Item14
 		{
@@ -414,7 +401,6 @@ class Mission
 			{
 				position[]={8427.624,7.3842092,12020.854};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=39;
 			type="LocationCity_F";
 		};
@@ -425,7 +411,6 @@ class Mission
 			{
 				position[]={8798.0156,143.46873,6665.187};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=40;
 			type="LocationCity_F";
 		};
@@ -436,7 +421,6 @@ class Mission
 			{
 				position[]={5954.1465,104.7711,6836.9097};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=41;
 			type="LocationCity_F";
 		};
@@ -447,7 +431,6 @@ class Mission
 			{
 				position[]={3599.7227,74.938072,11908.294};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=42;
 			type="LocationCity_F";
 		};
@@ -458,7 +441,6 @@ class Mission
 			{
 				position[]={4539.6064,132.84856,6497.4092};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=43;
 			type="LocationCity_F";
 		};
@@ -469,7 +451,6 @@ class Mission
 			{
 				position[]={6070.2783,216.86589,4148.2168};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=44;
 			type="LocationCity_F";
 		};
@@ -480,7 +461,6 @@ class Mission
 			{
 				position[]={6060.626,46.988834,8196.0527};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=45;
 			type="LocationCity_F";
 		};
@@ -491,7 +471,6 @@ class Mission
 			{
 				position[]={4828.1343,109.41328,7695.7749};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=46;
 			type="LocationCity_F";
 		};
@@ -502,7 +481,6 @@ class Mission
 			{
 				position[]={3332.6003,317.16,2049.0159};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=47;
 			type="LocationCity_F";
 		};
@@ -513,7 +491,6 @@ class Mission
 			{
 				position[]={7322.3291,57.058819,6362.377};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=48;
 			type="LocationCity_F";
 		};
@@ -524,7 +501,6 @@ class Mission
 			{
 				position[]={1720.9886,28.083689,7351.3296};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=49;
 			type="LocationCity_F";
 		};
@@ -535,7 +511,6 @@ class Mission
 			{
 				position[]={6308.0591,22.340797,10221.637};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=50;
 			type="LocationCity_F";
 		};
@@ -546,7 +521,6 @@ class Mission
 			{
 				position[]={11457.976,11.214042,9514.8652};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=51;
 			type="LocationCity_F";
 		};
@@ -557,7 +531,6 @@ class Mission
 			{
 				position[]={11632.1,77.037483,7123.7939};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=52;
 			type="LocationCity_F";
 		};
@@ -568,7 +541,6 @@ class Mission
 			{
 				position[]={7625.5957,70.269341,5316.4741};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=53;
 			type="LocationCity_F";
 		};
@@ -579,7 +551,6 @@ class Mission
 			{
 				position[]={5167.1797,189.08676,5488.5024};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=54;
 			type="LocationCity_F";
 		};
@@ -590,7 +561,6 @@ class Mission
 			{
 				position[]={9368.5078,68.422737,10514.074};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=55;
 			type="LocationCity_F";
 		};
@@ -601,7 +571,6 @@ class Mission
 			{
 				position[]={7828.7271,151.41501,9865.5244};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=56;
 			type="LocationCity_F";
 		};
@@ -612,7 +581,6 @@ class Mission
 			{
 				position[]={2063.9836,117.72641,11151.672};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=57;
 			type="LocationCity_F";
 		};
@@ -623,7 +591,6 @@ class Mission
 			{
 				position[]={7387.2446,117.04,2613.8877};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=58;
 			type="LocationCity_F";
 		};
@@ -634,7 +601,6 @@ class Mission
 			{
 				position[]={11105.81,187.83943,2517.8047};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=59;
 			type="LocationCity_F";
 		};
@@ -645,7 +611,6 @@ class Mission
 			{
 				position[]={4954.0078,354.39081,2151.5977};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=60;
 			type="LocationCity_F";
 		};
@@ -814,7 +779,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4091.6235,68.2612,10230.093};
-				angles[]={0,5.4322,0};
 			};
 			name="gosa_airportHangar0";
 			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
@@ -827,7 +791,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4290.1753,68.160004,10510.263};
-				angles[]={0,5.2120681,0};
 			};
 			name="gosa_airportHangar1";
 			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
@@ -1834,7 +1797,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4252.189,69.019814,10457.989};
-				angles[]={0,5.5813532,0};
 			};
 			side="Empty";
 			flags=4;
@@ -1850,7 +1812,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4270.5527,69.022697,10460.625};
-				angles[]={0,0.91891587,0.0015358897};
 			};
 			side="Empty";
 			flags=4;
@@ -1866,7 +1827,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4265.9912,69.019814,10464.867};
-				angles[]={0,0.72321206,0};
 			};
 			side="Empty";
 			flags=4;
@@ -1882,7 +1842,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4256.959,69.019814,10462.41};
-				angles[]={0,5.5513339,0};
 			};
 			side="Empty";
 			flags=4;
@@ -1898,7 +1857,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4284.7378,70.211723,10395.154};
-				angles[]={0.017592918,5.5013475,6.2767797};
 			};
 			side="Empty";
 			flags=4;
@@ -1914,7 +1872,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={2762.6802,233.37006,5278.1714};
-				angles[]={0,5.5182943,0};
 			};
 			side="Empty";
 			class Attributes
@@ -1922,7 +1879,6 @@ class Mission
 			};
 			id=214;
 			type="Box_T_East_Wps_F";
-			atlOffset=0.60600281;
 		};
 		class Item77
 		{
@@ -1930,7 +1886,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3937.5239,68.348732,10123.24};
-				angles[]={0,3.924268,0};
 			};
 			side="Empty";
 			flags=4;
@@ -1946,7 +1901,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4290.1538,70.217201,10399.806};
-				angles[]={0.015987216,5.5429211,0};
 			};
 			side="Empty";
 			flags=4;
@@ -1955,7 +1909,6 @@ class Mission
 			};
 			id=216;
 			type="Box_East_Support_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item79
 		{
@@ -1963,7 +1916,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={2753.5146,233.02396,5278.0503};
-				angles[]={6.2815971,5.1954961,6.2703919};
 			};
 			side="Empty";
 			flags=4;
@@ -1979,7 +1931,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3933.1731,68.444061,10127.958};
-				angles[]={0,3.8930616,0};
 			};
 			side="Empty";
 			flags=4;
@@ -1995,7 +1946,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={4282.0298,70.217957,10392.326};
-				angles[]={0.0031939524,5.484889,6.2751913};
 			};
 			side="Empty";
 			flags=4;
@@ -2011,7 +1961,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={2764.48,233.33151,5276.7871};
-				angles[]={0,2.3471363,0};
 			};
 			side="Empty";
 			flags=4;
@@ -2020,7 +1969,6 @@ class Mission
 			};
 			id=220;
 			type="Box_East_WpsLaunch_F";
-			atlOffset=0.00018310547;
 		};
 		class Item83
 		{
@@ -2028,7 +1976,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3944.2747,68.318054,10120.72};
-				angles[]={0,3.9831207,0.015987216};
 			};
 			side="Empty";
 			flags=4;
