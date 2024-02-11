@@ -21,8 +21,8 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 glowing-octo-shame ProvingGrounds_PMC east v0.0.5.910 DEBUG";
-		startWeather=0.30000001;
-		forecastWeather=0.30000001;
+		startWeather=0.3;
+		forecastWeather=0.3;
 		year=2012;
 		month=6;
 		day=24;
@@ -132,7 +132,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -164,7 +163,7 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={1986.8728,63.984726,2020.8367};
+			position[]={1986,0,2020};
 			name="gosa_worldSize";
 			type="Empty";
 		};
@@ -189,8 +188,8 @@ class Intro
 	randomSeed=2160741;
 	class Intel
 	{
-		startWeather=0.30000001;
-		forecastWeather=0.30000001;
+		startWeather=0.3;
+		forecastWeather=0.3;
 		year=2012;
 		month=6;
 		day=24;
@@ -211,8 +210,8 @@ class OutroWin
 	randomSeed=3290615;
 	class Intel
 	{
-		startWeather=0.30000001;
-		forecastWeather=0.30000001;
+		startWeather=0.3;
+		forecastWeather=0.3;
 		year=2012;
 		month=6;
 		day=24;
@@ -233,8 +232,8 @@ class OutroLoose
 	randomSeed=15046966;
 	class Intel
 	{
-		startWeather=0.30000001;
-		forecastWeather=0.30000001;
+		startWeather=0.3;
+		forecastWeather=0.3;
 		year=2012;
 		month=6;
 		day=24;
