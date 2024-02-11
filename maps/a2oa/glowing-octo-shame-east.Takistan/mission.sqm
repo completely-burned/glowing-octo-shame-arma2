@@ -28,8 +28,8 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 glowing-octo-shame Takistan east v0.0.5.910 DEBUG";
-		startWeather=0.40000001;
-		forecastWeather=0.40000001;
+		startWeather=0.4;
+		forecastWeather=0.4;
 		year=2009;
 		day=28;
 		hour=16;
@@ -1259,7 +1259,7 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={12649.928,152.33382,12754.688};
+			position[]={12649,0,12754};
 			name="gosa_worldSize";
 			type="Empty";
 		};
@@ -1284,8 +1284,8 @@ class Intro
 	randomSeed=2865089;
 	class Intel
 	{
-		startWeather=0.40000001;
-		forecastWeather=0.40000001;
+		startWeather=0.4;
+		forecastWeather=0.4;
 		year=2009;
 		day=28;
 		hour=16;
@@ -1305,8 +1305,8 @@ class OutroWin
 	randomSeed=5061954;
 	class Intel
 	{
-		startWeather=0.40000001;
-		forecastWeather=0.40000001;
+		startWeather=0.4;
+		forecastWeather=0.4;
 		year=2009;
 		day=28;
 		hour=16;
@@ -1326,8 +1326,8 @@ class OutroLoose
 	randomSeed=16483175;
 	class Intel
 	{
-		startWeather=0.40000001;
-		forecastWeather=0.40000001;
+		startWeather=0.4;
+		forecastWeather=0.4;
 		year=2009;
 		day=28;
 		hour=16;
