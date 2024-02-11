@@ -79,7 +79,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -96,7 +95,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -113,7 +111,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -130,7 +127,7 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""_grps_rarity"", [[[""Air""],0],[[""Tank""],0],[[""Car"",""Motorcycle""],0],[[""Ship""],0]]];";
+					init="this setVariable [""_grps_rarity"", [[[""Air""],0],[[""Tank""],0],[[""Car"",""Motorcycle""],0],[[""Ship""],0]]];";
 				};
 			};
 		};
@@ -147,7 +144,7 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""_grps_rarity"", [[[""Air""],0],[[""Tank""],0],[[""Car"",""Motorcycle""],0],[[""Ship""],0]]];";
+					init="this setVariable [""_grps_rarity"", [[[""Air""],0],[[""Tank""],0],[[""Car"",""Motorcycle""],0],[[""Ship""],0]]];";
 				};
 			};
 		};
@@ -3378,7 +3375,7 @@ class Mission
 					forceHeadlessClient=1;
 					text="HC";
 					side="CIV";
-					vehicle="Profiteer4";
+					vehicle="Profiteer1";
 					player="PLAY CDG";
 					leader=1;
 				};
@@ -3389,7 +3386,7 @@ class Mission
 					forceHeadlessClient=1;
 					text="HC (1)";
 					side="CIV";
-					vehicle="Worker2";
+					vehicle="Profiteer1";
 					player="PLAY CDG";
 				};
 				class Item2
@@ -3399,7 +3396,7 @@ class Mission
 					forceHeadlessClient=1;
 					text="HC (2)";
 					side="CIV";
-					vehicle="Functionary1";
+					vehicle="Profiteer1";
 					player="PLAY CDG";
 				};
 				class Item3
@@ -3409,7 +3406,7 @@ class Mission
 					forceHeadlessClient=1;
 					text="HC (3)";
 					side="CIV";
-					vehicle="Woodlander4";
+					vehicle="Profiteer1";
 					player="PLAY CDG";
 				};
 				class Item4
@@ -3419,7 +3416,7 @@ class Mission
 					forceHeadlessClient=1;
 					text="HC (4)";
 					side="CIV";
-					vehicle="Rocker1";
+					vehicle="Profiteer1";
 					player="PLAY CDG";
 				};
 				class Item5
@@ -3429,7 +3426,7 @@ class Mission
 					forceHeadlessClient=1;
 					text="HC (5)";
 					side="CIV";
-					vehicle="Worker3";
+					vehicle="Profiteer1";
 					player="PLAY CDG";
 				};
 				class Item6
@@ -3439,7 +3436,7 @@ class Mission
 					forceHeadlessClient=1;
 					text="HC (6)";
 					side="CIV";
-					vehicle="Profiteer3";
+					vehicle="Profiteer1";
 					player="PLAY CDG";
 				};
 				class Item7
@@ -3449,7 +3446,7 @@ class Mission
 					forceHeadlessClient=1;
 					text="HC (7)";
 					side="CIV";
-					vehicle="Profiteer2";
+					vehicle="Profiteer1";
 					player="PLAY CDG";
 				};
 				class Item8
@@ -3459,7 +3456,7 @@ class Mission
 					forceHeadlessClient=1;
 					text="HC (8)";
 					side="CIV";
-					vehicle="Worker4";
+					vehicle="Profiteer1";
 					player="PLAY CDG";
 				};
 				class Item9
@@ -3548,7 +3545,7 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={3806.4324,180.21404,3805.5596};
+			position[]={3806,0,3806};
 			name="gosa_worldSize";
 			type="Empty";
 		};
