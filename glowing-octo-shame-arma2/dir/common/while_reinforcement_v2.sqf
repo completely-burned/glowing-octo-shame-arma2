@@ -115,6 +115,8 @@ _enemySide = [];
 		};
 	};
 
+waitUntil {!isNil "civilianBasePos"};
+
 while{_run}do{
 
 	_allGroups = allGroups;
