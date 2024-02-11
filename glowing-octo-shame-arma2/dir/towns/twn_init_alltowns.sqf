@@ -3,6 +3,7 @@
  */
 
 Private["_buildings","_constructFunction","_count","_customCamps","_customOwners","_locationsInitialized",
+	"_marker_type",//diag_log
 	"_marker","_markedPosition","_markedRegions","_path","_rangeSize","_side","_townNodeNames","_total",
 	"_campAreas","_cityCenters","_className","_direction","_name","_names","_nodeName","_nodeName1",
 	"_cityCenter","_depotDirection","_depotPosition","_depots","_depots","_flatAreas","_objects",
@@ -14,6 +15,12 @@ Private["_buildings","_constructFunction","_count","_customCamps","_customOwners
 	"_types_CityCapital","_types_Camp","_types_Village",
 	"_cityCapital","_rangeSizeModifier","_rangeModifier","_conflict_dist","_towns_used",
 	"_minSizeMod","_sizeMod","_position","_townName","_townNames","_type","_neighbors"];
+
+#ifdef __ARMA3__
+	_marker_type = "hd_dot";//diag_log
+#else
+	_marker_type = "Dot";//diag_log
+#endif
 
 if (missionNamespace getVariable "gosa_camps" > 0) then {
 	_dyno = true;
@@ -130,7 +137,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 			_depots = [];
 			_marker = str [_town,_position];//diag_log
 			createMarker [_marker, _position];//diag_log
-			_marker setMarkerType "Dot";//diag_log
+			_marker setMarkerType _marker_type;//diag_log
 		};
 
 	}else{
@@ -142,7 +149,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 		_town = _grp_logic CreateUnit [_type, _position, [], 0, "CAN_COLLIDE"];
 			_marker = str [_town,_position];//diag_log
 			createMarker [_marker, _position];//diag_log
-			_marker setMarkerType "Dot";//diag_log
+			_marker setMarkerType _marker_type;//diag_log
 
 		_depots = [];
 	};
@@ -191,7 +198,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 
 			_marker = str [_depot,_depotPosition];//diag_log
 			createMarker [_marker, _depotPosition];//diag_log
-			_marker setMarkerType "Dot";//diag_log
+			_marker setMarkerType _marker_type;//diag_log
 
 		//- Гуманитария.
 		_town setVariable ["name", _townName];
@@ -291,7 +298,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 
 				_marker = str [_camp, _destination];//diag_log
 				createMarker [_marker, _destination];//diag_log
-				_marker setMarkerType "Dot";//diag_log
+				_marker setMarkerType _marker_type;//diag_log
 
 				// Постройки.
 				if (_dyno) then {
