@@ -21,8 +21,8 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 glowing-octo-shame Desert_E east v0.0.5.910 DEBUG";
-		startWeather=0.30000001;
-		forecastWeather=0.30000001;
+		startWeather=0.3;
+		forecastWeather=0.3;
 		year=2012;
 		month=6;
 		day=24;
@@ -194,7 +194,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
 				};
 			};
 		};
@@ -211,7 +210,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
 				};
 			};
 		};
@@ -228,7 +226,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="nic = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
 				};
 			};
 		};
@@ -259,7 +256,7 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={2029.416,47.847702,2039.1405};
+			position[]={2029,0,2039};
 			name="gosa_worldSize";
 			type="Empty";
 		};
