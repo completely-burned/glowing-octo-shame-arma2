@@ -23,8 +23,8 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 glowing-octo-shame Woodland_ACR east v0.0.5.910 DEBUG";
-		startWeather=0.14999998;
-		forecastWeather=0.14999998;
+		startWeather=0.15;
+		forecastWeather=0.15;
 		year=2010;
 		month=7;
 		day=6;
@@ -160,7 +160,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
 				};
 			};
 		};
@@ -177,7 +176,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -194,7 +192,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -211,7 +208,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -228,7 +224,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -245,7 +240,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -262,7 +256,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -279,7 +272,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -296,7 +288,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -313,7 +304,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -330,7 +320,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -347,7 +336,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -364,7 +352,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -381,7 +368,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -398,7 +384,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -415,7 +400,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 500, 100];";
 				};
 			};
 		};
@@ -432,7 +416,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -449,7 +432,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100];";
 				};
 			};
 		};
@@ -607,7 +589,7 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={7642.0313,-0.54805541,7630.1113};
+			position[]={7642,0,7630};
 			name="gosa_worldSize";
 			type="Empty";
 		};
@@ -632,8 +614,8 @@ class Intro
 	randomSeed=8709030;
 	class Intel
 	{
-		startWeather=0.15000001;
-		forecastWeather=0.15000001;
+		startWeather=0.15;
+		forecastWeather=0.15;
 		year=2010;
 		month=7;
 		day=6;
@@ -654,8 +636,8 @@ class OutroWin
 	randomSeed=6464839;
 	class Intel
 	{
-		startWeather=0.15000001;
-		forecastWeather=0.15000001;
+		startWeather=0.15;
+		forecastWeather=0.15;
 		year=2010;
 		month=7;
 		day=6;
@@ -676,8 +658,8 @@ class OutroLoose
 	randomSeed=9418032;
 	class Intel
 	{
-		startWeather=0.15000001;
-		forecastWeather=0.15000001;
+		startWeather=0.15;
+		forecastWeather=0.15;
 		year=2010;
 		month=7;
 		day=6;
