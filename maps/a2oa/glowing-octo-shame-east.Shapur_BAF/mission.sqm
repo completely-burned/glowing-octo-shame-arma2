@@ -30,8 +30,8 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 glowing-octo-shame Shapur_BAF east v0.0.5.910 DEBUG";
-		startWeather=0.10000002;
-		forecastWeather=0.10000002;
+		startWeather=0.1;
+		forecastWeather=0.1;
 		year=2012;
 		month=7;
 		day=1;
@@ -54,7 +54,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
 		};
@@ -71,7 +70,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
 		};
@@ -88,7 +86,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
 		};
@@ -105,7 +102,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
 		};
@@ -122,7 +118,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
 		};
@@ -139,7 +134,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
 		};
@@ -156,7 +150,6 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="_location = createLocation [""CityCenter"", getpos this, 100, 100];";
 				};
 			};
 		};
@@ -433,7 +426,7 @@ class Mission
 		items=1;
 		class Item0
 		{
-			position[]={2025.6038,47.923115,2024.0676};
+			position[]={2025,0,2025};
 			name="gosa_worldSize";
 			type="Empty";
 		};
