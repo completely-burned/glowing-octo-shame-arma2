@@ -30,7 +30,7 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 glowing-octo-shame utes east v0.0.5.910 DEBUG";
-		startWeather=0.40000001;
+		startWeather=0.4;
 		forecastWeather=0.25;
 		year=2008;
 		month=10;
@@ -645,7 +645,7 @@ class Mission
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
 					leader=1;
-					init="m_location = createLocation [ ""CityCenter"" , getPos this, 100, 100]; m_location setVariable [""_grps_rarity"", [[[""Air""],0],[[""Tank""],0],[[""Car"",""Motorcycle""],0],[[""Ship""],0]]];";
+					init="this setVariable [""_grps_rarity"", [[[""Air""],0],[[""Tank""],0],[[""Car"",""Motorcycle""],0],[[""Ship""],0]]];";
 				};
 			};
 		};
@@ -905,7 +905,7 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={5077.4209,-99,5085.0957};
+			position[]={5085,0,5085};
 			name="gosa_worldSize";
 			type="Empty";
 		};
@@ -930,7 +930,7 @@ class Intro
 	randomSeed=6869001;
 	class Intel
 	{
-		startWeather=0.40000001;
+		startWeather=0.4;
 		forecastWeather=0.25;
 		year=2008;
 		month=10;
@@ -952,7 +952,7 @@ class OutroWin
 	randomSeed=9727472;
 	class Intel
 	{
-		startWeather=0.40000001;
+		startWeather=0.4;
 		forecastWeather=0.25;
 		year=2008;
 		month=10;
@@ -974,7 +974,7 @@ class OutroLoose
 	randomSeed=12060683;
 	class Intel
 	{
-		startWeather=0.40000001;
+		startWeather=0.4;
 		forecastWeather=0.25;
 		year=2008;
 		month=10;
