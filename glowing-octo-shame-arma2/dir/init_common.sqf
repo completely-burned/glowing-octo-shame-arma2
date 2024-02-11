@@ -87,7 +87,7 @@ gosa_blacklisted_player_classes_L = _arr;
 diag_log format ["Log: [init_common]: gosa_blacklisted_player_classes_L %1", _arr];
 
 // Обычные города или деревни.
-_arr = ["LocationCity_F", "LocationLogicCity"];
+_arr = ["LocationCity_F", "LocationLogicCity", "LocationLogicCityCenter"];
 gosa_types_location_City = ([_arr, _cfgVeh] call gosa_fnc_arr_fix_configName);
 
 // Большие города.
