@@ -28,8 +28,8 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 glowing-octo-shame Mountains_ACR east v0.0.5.910 DEBUG";
-		startWeather=0.39999998;
-		forecastWeather=0.39999998;
+		startWeather=0.4;
+		forecastWeather=0.4;
 		year=2009;
 		day=28;
 		hour=16;
@@ -153,7 +153,7 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={6344.2017,311.54187,6335.269};
+			position[]={6344,0,6335};
 			name="gosa_worldSize";
 			type="Empty";
 		};
@@ -178,8 +178,8 @@ class Intro
 	randomSeed=3386467;
 	class Intel
 	{
-		startWeather=0.40000001;
-		forecastWeather=0.40000001;
+		startWeather=0.4;
+		forecastWeather=0.4;
 		year=2009;
 		day=28;
 		hour=16;
@@ -199,8 +199,8 @@ class OutroWin
 	randomSeed=11339499;
 	class Intel
 	{
-		startWeather=0.40000001;
-		forecastWeather=0.40000001;
+		startWeather=0.4;
+		forecastWeather=0.4;
 		year=2009;
 		day=28;
 		hour=16;
@@ -220,8 +220,8 @@ class OutroLoose
 	randomSeed=15240113;
 	class Intel
 	{
-		startWeather=0.40000001;
-		forecastWeather=0.40000001;
+		startWeather=0.4;
+		forecastWeather=0.4;
 		year=2009;
 		day=28;
 		hour=16;
