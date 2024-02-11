@@ -1,7 +1,7 @@
 diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
 
 private ["_pos", "_azi", "_type", "_param4", "_grp", "_side", "_newGrp",
-	"_sim", "_veh", "_crew"];
+	"_sim", "_veh", "_crew","_air"];
 
 _pos = _this select 0;
 _azi = _this select 1;
@@ -19,9 +19,9 @@ if ((typeName _param4) == (typeName sideEnemy)) then {
 };
 
 _sim = toLower getText(configFile >> "CfgVehicles" >> _type >> "simulation");
+_air = if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"]) then {true} else {false};
 
-if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"]) then
-{
+if (_air) then {
 	_pos set [2,200];
 
 	_veh = createVehicle [_type, _pos, [], 0, "FLY"];
@@ -81,5 +81,13 @@ if ((count _this) > 4) then {
 if (_newGrp) then {
 	_grp selectLeader (commander _veh);
 };
+
+#ifdef __ARMA3__
+	// С этим кодом авиация приземляется.
+	if !(_air) then {
+		// Без этого некоторые ТС в A3 стоят на месте.
+		_veh doMove _pos;
+	};
+#endif
 
 [_veh, _crew, _grp]

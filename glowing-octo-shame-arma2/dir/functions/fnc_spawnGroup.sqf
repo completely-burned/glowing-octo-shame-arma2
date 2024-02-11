@@ -122,7 +122,7 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 						// a3 тс на некоторых позициях взрываются,
 						// вероятно из-за наклона поверхности.
 						//_itemPos resize 2;
-						_itemPos set [2,3];
+						_itemPos set [2, boundingBox _unit select 2];
 						_unit setPos _itemPos;
 						_unit setDir _azimuth;
 						#ifdef __ARMA3__
@@ -134,11 +134,6 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 					}else{//diag_log
 							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this];
 					};
-
-					#ifdef __ARMA3__
-						// Без этого некоторые ТС в A3 стоят на месте.
-						_unit doMove _itemPos;
-					#endif
 
 					//-- Одиночная игра.
 					if !(isMultiplayer) then {
