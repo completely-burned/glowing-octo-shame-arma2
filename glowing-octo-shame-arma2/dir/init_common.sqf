@@ -276,6 +276,13 @@ _arr = [
 		"rhsgref_cdf_para_crew",
 		"rhsgref_tla_g_crew",
 
+		"gm_gc_army_crew_mpiaks74nk_80_blk",
+		"gm_pl_army_crew_pm63_80_moro",
+		"gm_dk_army_crew_84_oli",
+		"gm_ge_army_crew_mp2a1_80_oli",
+		"gm_ge_army_crew_90_flk",
+		"gm_ge_bgs_crew_80_grn",
+
 		"B_W_Crew_F",
 		"B_crew_F",
 		"B_T_Crew_F",
@@ -354,6 +361,12 @@ _arr = [
 		"rhsgref_ins_pilot",
 		"rhsgref_cdf_b_air_pilot",
 		"rhsgref_hidf_helipilot",
+
+		"gm_gc_airforce_pilot_pm_80_blu",
+		"gm_pl_airforce_pilot_pm_80_gry",
+		"gm_ge_army_pilot_p1_80_oli",
+		"gm_ge_army_pilot_80_rolled_sar",
+		"gm_ge_bgs_pilot_p1_80_grn",
 
 		"B_Fighter_Pilot_F",
 		"B_W_Helipilot_F",
