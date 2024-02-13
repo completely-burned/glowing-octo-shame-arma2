@@ -15,7 +15,7 @@ diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle",
 	"_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t",
-	"_commanding","_uav","_side","_createSpecial",
+	"_commanding","_uav","_side","_createSpecial","_dontCreateAI",
 	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe","_item"];
 
 _vehicle = _this select 0;
@@ -74,7 +74,7 @@ if !(_LandVehicle) then {
 
 //--- turrets list
 	#ifdef __ARMA3__
-		_turrets = allTurrets [_vehicle, false];
+		_turrets = allTurrets [_vehicle, true];
 	#else
 		_turrets = ([_entry >> "turrets",[]] call gosa_fnc_returnVehicleTurrets);
 	#endif
@@ -137,7 +137,18 @@ if !(_LandVehicle) then {
 //--- creating turret units
 	if !(isNil "_sorted") then {
 		for "_i" from (count _sorted - 1) to 0 step -1 do {
-			if (isNull (_vehicle turretUnit (_sorted select _i select 1))) then {
+			_cfg_turret = _entry;
+			{
+				_cfg_turret = ((_cfg_turret  >> "turrets") select _x);
+			} forEach (_sorted select _i select 1);
+			#ifdef __ARMA3__
+				_dontCreateAI = getNumber (_cfg_turret >> "dontCreateAI");
+			#else
+				_dontCreateAI = 0;
+			#endif
+
+			if (_dontCreateAI <= 0 && isNull (_vehicle turretUnit (_sorted select _i select 1))) then {
+
 				if(!isNil {_typicalCargo2})then{
 					_unit = _grp createUnit [(_typicalCargo2 select _i), _tmpPosSafe, [], 0, _createSpecial];
 				}else{
@@ -150,11 +161,6 @@ if !(_LandVehicle) then {
 
 				//--- установка ранга юнитам, TODO: ранг не правильно вычисляется
 					_rank = "CORPORAL";
-					//--- turrets
-					_cfg_turret = _entry;
-					{
-						_cfg_turret = ((_cfg_turret  >> "turrets") select _x);
-					} forEach (_sorted select _i select 1);
 					_commanding = getNumber (_cfg_turret >> "commanding");
 					//--- gunner
 					// TODO: 1 не всегда означает gunner
