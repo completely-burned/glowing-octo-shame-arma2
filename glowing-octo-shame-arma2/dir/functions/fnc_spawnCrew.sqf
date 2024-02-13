@@ -41,11 +41,9 @@ _crew = [];
 _createSpecial = "CAN_COLLIDE";
 
 //--- crew types
-	if ((count _this) > 2) then {
-		_typicalCargo = (_this select 2);
-		_crewType = (_typicalCargo select 0);
+	if (count _typicalCargo > 0) then {
+		_crewType = _typicalCargo select 0;
 	}else{
-		_typicalCargo=[];
 		#ifndef __ARMA3__
 		if (_uav) then {
 			_crewType = [_grp, _type, _side] call gosa_fnc_crewUAV;
