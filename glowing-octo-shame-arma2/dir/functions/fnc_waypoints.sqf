@@ -1,6 +1,15 @@
 	diag_log format ["Log: [fnc_waypoints] start %1", _this];
-private["_leader"];
+private ["_wpType_TrUNLOAD","_leader"];
+
 _leader = (_this select 0);
+
+#ifdef __ARMA3__
+	// Тип маршрута "сброс груза" не сажает самолёт.
+	_wpType_TrUNLOAD = "UNHOOK";
+#else
+	_wpType_TrUNLOAD = "TR UNLOAD";
+#endif
+
 if(!isNil "_leader")then{
 	private["_grp","_leaderPos",
 		"_units","_vehicles","_landing","_types","_assignedVehicles",
@@ -218,7 +227,7 @@ if(!isNil "_leader")then{
 
 		// авиация десант тип маршрута
 		if(_landing && "Air" in _grp_type)then{
-			_WaypointType = "TR UNLOAD";
+			_WaypointType = _wpType_TrUNLOAD;
 		};
 
 		// лодки тип маршрута

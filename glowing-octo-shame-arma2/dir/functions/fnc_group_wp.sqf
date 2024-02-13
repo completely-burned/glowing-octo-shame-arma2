@@ -63,8 +63,18 @@ TODO: Нужна карта файла.
 
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_survival",
+	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr",
 	"_grp_wp_completed","_g2","_z","_v"];
 _grp=_this;
+
+
+#ifdef __ARMA3__
+	// Тип маршрута "сброс груза" не сажает самолёт.
+	_wpType_TrUNLOAD = "UNHOOK";
+#else
+	_wpType_TrUNLOAD = "TR UNLOAD";
+#endif
+_wpType_UNLOAD = "UNLOAD";
 
 scopeName "main";
 
@@ -207,7 +217,7 @@ if({alive _x} count _units > 0)then{
 				diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут группы вертолета", [_g2, waypointType _z, waypointPosition _z]];
 
 
-				if (waypointPosition _z select 0 != 0 && waypointType _z != "TR UNLOAD") then {
+				if (waypointPosition _z select 0 != 0 && waypointType _z != _wpType_TrUNLOAD) then {
 					for "_i" from count waypoints _g2 - 1 to 0 step -1 do {
 						deleteWaypoint [_g2, _i];
 					};
@@ -283,31 +293,40 @@ if({alive _x} count _units > 0)then{
 				_g2 = group vehicle _leader;
 				diag_log format ["Log: [fnc_group_wp] #landing самолет %1 группа %2", vehicle _leader, _g2];
 
-				if (count waypoints _g2 > 0) then {
+				_arr = waypoints _g2;
+				if (count _arr > 0) then {
+					//- исправление маршрута.
+					if (count _arr <= 1) then {
+						_n = 0;
+					}else{
+						_n = currentWaypoint _g2;
+					};
 
 					//--- маршрут пилота самолета
-					_z = [_g2, currentWaypoint _g2];
-					diag_log format ["Log: [fnc_group_wp] #landing самолет %1 маршрут %2 тип %3 позиция %4", waypoints _g2, currentWaypoint _g2, waypointType _z, waypointPosition _z];
+					_z = [_g2, _n];
+					
+					_str = toUpper waypointType _z;
+					diag_log format ["Log: [fnc_group_wp] #landing самолет %1 маршрут %2 тип %3 позиция %4", _arr, _n, _str, waypointPosition _z];
 
-					if (waypointPosition _z select 0 != 0 && waypointType _z != "TR UNLOAD") then {
-						for "_i" from count waypoints _g2 - 1 to 0 step -1 do {
+					if (waypointPosition _z select 0 != 0 && _str != _wpType_TrUNLOAD) then {
+						diag_log format ["Log: [fnc_group_wp] #landing самолет %1 %2 != %3, удаление маршрутов группы самолета и отмена", _arr, _str, _wpType_TrUNLOAD];
+						for "_i" from (count _arr -1) to 0 step -1 do {
 							deleteWaypoint [_g2, _i];
 						};
 
-						diag_log format ["Log: [fnc_group_wp] #landing самолет %1 %2 != 'TR UNLOAD', удаление маршрутов группы самолета и отмена", waypoints _g2, waypointType _z];
 						// перед типом, нужно установить маршрут на позицию чтобы небыло ложных срабатываний
 						// тип маршрута "TR UNLOAD" или "GETOUT" сажает самолет
-						// _z setWaypointType "TR UNLOAD";
+						// _z setWaypointType _wpType_TrUNLOAD;
 					 }else{
 
-						if (count waypoints _grp == 0) then {
+						if (count _arr <= 0) then {
 							diag_log format ["Log: [fnc_group_wp] #landing %1 у десанта нет маршрута, отмена", _grp];
 						 }else{
 
-							if (waypointPosition _wp select 0 != 0 && _typeWP != "UNLOAD") then {
+							if (waypointPosition _wp select 0 != 0 && _typeWP != _wpType_UNLOAD) then {
 								diag_log format ["Log: [fnc_group_wp] #landing %1 тип %2 маршрута десанта исправлен на UNLOAD", _wp, waypointType _wp];
-								// тип маршрута "UNLOAD" или "GETOUT" сажает! самолет
-								_wp setWaypointType "UNLOAD";
+								// тип маршрута _wpType_UNLOAD или "GETOUT" сажает! самолет
+								_wp setWaypointType _wpType_UNLOAD;
 							};
 
 							//--- синхронизируем маршруты
@@ -332,14 +351,14 @@ if({alive _x} count _units > 0)then{
 
 											};
 									};
-								}else{
+								}else{//diag_log
 									diag_log format ["Log: [fnc_group_wp] #landing маршруты на позиции %1, отмена", [_wp, waypointPosition _wp, _z, waypointPosition _z]];
 								};
 
 						};
 					};
 
-				 }else{
+				 }else{//diag_log
 					diag_log format ["Log: [fnc_group_wp] #landing самолет %1 нет маршрутов, отмена", _g2];
 				};
 
@@ -349,7 +368,7 @@ if({alive _x} count _units > 0)then{
 
 	// лодки
 	if ("Ship" in _grp_type) then {
-	  if (_typeWP in ["UNLOAD"]) then {
+	  if (_typeWP in [_wpType_UNLOAD]) then {
 		// не помню почему 400 метров, возможно на такой или меньшей дистанции лодка уже ищет береговую линию для десантирования
 		if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
 		  if (isNil {_grp getVariable "UNLOAD"}) then {
@@ -697,7 +716,7 @@ if({alive _x} count _units > 0)then{
 			};
 
 			//--- пост выгрузка, транспорт
-				if (_typeWP in ["TR UNLOAD"]) then {
+				if (_typeWP == _wpType_TrUNLOAD) then {
 					private["_landing"];
 					_landing = false;
 					{
@@ -721,7 +740,7 @@ if({alive _x} count _units > 0)then{
 				};
 
 			//--- пост выгрузка, пехота
-				if (_typeWP in ["UNLOAD","GETOUT"]) then {
+				if (_typeWP in [_wpType_UNLOAD,"GETOUT"]) then {
 					if ({vehicle _x == _x} count _units == count _units) then {
 						_DeleteWP = true;
 						_NoCreateWP = true;
