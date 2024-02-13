@@ -15,15 +15,18 @@ diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle",
 	"_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t",
-	"_commanding","_uav",
+	"_commanding","_uav","_side","_createSpecial",
 	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe","_item"];
 
 _vehicle = _this select 0;
 _grp = _this select 1;
+_side = _this select 2;
+_type = _this select 3;
+_typicalCargo = _this select 4;
+_entry = _this select 5;
+_tmpPosSafe = _this select 6;
 
-_type = typeOf _vehicle;
 
-_tmpPosSafe = getPos _vehicle;
 // У Ванильных отрядов на этой позиции нет техники.
 // TODO: Возможность создавать на дороге нужно учесть.
 _tmpPosSafe set [0, (_tmpPosSafe select 0) + 10];
@@ -34,8 +37,8 @@ _tmpPosSafe set [2, 2000];
 //_tmpPosSafe set [2, (_tmpPosSafe select 2) - 200];
 _uav = _vehicle call gosa_fnc_isUAV;
 
-_entry = configFile >> "CfgVehicles" >> _type;
 _crew = [];
+_createSpecial = "CAN_COLLIDE";
 
 //--- crew types
 	if ((count _this) > 2) then {
@@ -45,14 +48,14 @@ _crew = [];
 		_typicalCargo=[];
 		#ifndef __ARMA3__
 		if (_uav) then {
-			_crewType = [_grp, _type, side _grp] call gosa_fnc_crewUAV;
+			_crewType = [_grp, _type, _side] call gosa_fnc_crewUAV;
 		};
 		#endif
 		if (isNil "_crewType") then {
-			if (((getNumber (_entry >> "side")) call gosa_fnc_getSide) == side _grp) then {
+			if (((getNumber (_entry >> "side")) call gosa_fnc_getSide) == _side) then {
 				_crewType = getText (_entry >> "crew");
 			}else{
-				_crewType = ([_grp, _type, side _grp] call gosa_fnc_defaultCrew);
+				_crewType = ([_grp, _type, _side] call gosa_fnc_defaultCrew);
 			};
 		};
 	};
@@ -63,7 +66,7 @@ _LandVehicle = _type isKindOf "LandVehicle";
 //--- Пилот командир, поэтому первый.
 if !(_LandVehicle) then {
 	if ((_hasDriver == 1) && (isNull (driver _vehicle))) then {
-			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "NONE"];
+			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
 			_crew set [count _crew, _unit];
 			_unit moveInDriver _vehicle;
 			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
@@ -138,9 +141,9 @@ if !(_LandVehicle) then {
 		for "_i" from (count _sorted - 1) to 0 step -1 do {
 			if (isNull (_vehicle turretUnit (_sorted select _i select 1))) then {
 				if(!isNil {_typicalCargo2})then{
-					_unit = _grp createUnit [(_typicalCargo2 select _i), _tmpPosSafe, [], 0, "NONE"];
+					_unit = _grp createUnit [(_typicalCargo2 select _i), _tmpPosSafe, [], 0, _createSpecial];
 				}else{
-					_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "NONE"];
+					_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
 				};
 				#ifndef __A2OA__
 					_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
@@ -198,8 +201,8 @@ if !(_LandVehicle) then {
 
 //--- creating driver unit for land
 if (_LandVehicle) then {
-	if ((_hasDriver == 1) && (isNull (driver _vehicle))) then {
-			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, "NONE"];
+	if ((_hasDriver > 0) && (isNull (driver _vehicle))) then {
+			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
 			_crew set [count _crew, _unit];
 			_unit moveInDriver _vehicle;
 			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
@@ -215,11 +218,6 @@ if (_LandVehicle) then {
 		};
 	};
 };
-
-// Приказ, если ии выйдут из транспорта. Для a3 не повредит, но и не поможет.
-#ifdef __ARMA3__
-	_crew orderGetIn true;
-#endif
 
 // FIXME: Может этот кусок вынести из файла.
 for "_i" from 0 to (count _crew - 1) do {

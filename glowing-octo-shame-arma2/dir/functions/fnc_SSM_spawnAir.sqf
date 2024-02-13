@@ -70,7 +70,7 @@ if (isNil "_vehicle" or {!canMove _vehicle}) then {
       default {_class = ""};
     };
     _spawnPos = ([_requestPos]+[3500,7000, -1, -1, (100 * (pi / 180)), 0, [], _requestPos, [false, 0]]+[_side] call gosa_fnc_findSafePos) select 0;
-    _z = ([_spawnPos, random 360, _class, _grp] call gosa_fnc_spawnVehicle);
+    _z = ([_spawnPos, random 360, _class, _grp, [], _side] call gosa_fnc_spawnVehicle);
     _crew = _z select 1;
     _vehicle = _z select 0;
       _vehicle setVariable ["gosa_tmpObj","AmmoDrop"];

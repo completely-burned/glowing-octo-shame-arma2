@@ -1,24 +1,18 @@
 diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
 
-private ["_pos", "_azi", "_type", "_param4", "_grp", "_side", "_newGrp",
-	"_sim", "_veh", "_crew","_air"];
+private ["_pos","_azi","_type","_grp","_side","_str","_entry",
+	"_crew_types",
+	"_sim","_veh","_crew","_air"];
 
 _pos = _this select 0;
 _azi = _this select 1;
 _type = _this select 2;
-_param4 = _this select 3;
+_grp = _this select 3;
+_crew_types = _this select 4;
+_side = _this select 5;
 
-if ((typeName _param4) == (typeName sideEnemy)) then {
-	_side = _param4;
-	_grp = createGroup _side;
-	_newGrp = true;
-}else{
-	_grp = _param4;
-	_side = side _grp;
-	_newGrp = false;
-};
-
-_sim = toLower getText(configFile >> "CfgVehicles" >> _type >> "simulation");
+_entry = configFile >> "CfgVehicles" >> _type;
+_sim = toLower getText(_entry >> "simulation");
 _air = if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"]) then {true} else {false};
 
 if (_air) then {
@@ -41,10 +35,12 @@ if (_air) then {
 	#ifdef __ARMA3__
 		// Невозможно сразу указать наклон при создании объекта.
 		_pos set [2,1900];
+		_str = "CAN_COLLIDE";
 	#else
 		_pos resize 2;
+		_str = "FORM";
 	#endif
-	_veh = createVehicle [_type, _pos, [], 0, "FORM"];
+	_veh = createVehicle [_type, _pos, [], 0, _str];
 	_veh setDir _azi;
 	#ifdef __ARMA3__
 		// a3, тс на некоторых позициях взрываются из-за наклона поверхности.
@@ -72,22 +68,23 @@ diag_log format ["Log: [fnc_spawnVehicle] %1, created %2 %3 %4", _this, _sim, ge
 	[nil, _veh, rvehInit] call RE;
 #endif
 
-if ((count _this) > 4) then {
-	_crew = [_veh, _grp, _this select 4] call gosa_fnc_spawnCrew;
-} else {
-	_crew = [_veh, _grp] call gosa_fnc_spawnCrew;
-};
+_crew = [_veh,
+		_grp,
+		_side,
+		_type,
+		_crew_types,
+		_entry,
+		_pos
+	] call gosa_fnc_spawnCrew;
 
-if (_newGrp) then {
-	_grp selectLeader (commander _veh);
-};
 
 #ifdef __ARMA3__
 	// С этим кодом авиация приземляется.
 	if !(_air) then {
 		// Без этого некоторые ТС в A3 стоят на месте.
+		_pos resize 2;
 		_veh doMove _pos;
 	};
 #endif
 
-[_veh, _crew, _grp]
+[_veh, _crew, _grp];

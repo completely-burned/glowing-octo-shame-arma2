@@ -106,10 +106,10 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 				// Для транспорта.
 				} else {
 					private ["_fnc_spawnVehicle"];
-					if (((count _crewType) > 0)) then {
-						_fnc_spawnVehicle = [_itemPos, _azimuth, _type, _grp, _crewType select _i] call gosa_fnc_spawnVehicle;
+					if (count _crewType > 0) then {
+						_fnc_spawnVehicle = [_itemPos, _azimuth, _type, _grp, _crewType select _i, _side] call gosa_fnc_spawnVehicle;
 					}else{
-						_fnc_spawnVehicle = [_itemPos, _azimuth, _type, _grp] call gosa_fnc_spawnVehicle;
+						_fnc_spawnVehicle = [_itemPos, _azimuth, _type, _grp, [], _side] call gosa_fnc_spawnVehicle;
 					};
 					_unit = _fnc_spawnVehicle select 0;
 

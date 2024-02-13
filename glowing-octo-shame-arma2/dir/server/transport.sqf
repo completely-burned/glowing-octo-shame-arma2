@@ -179,7 +179,7 @@ while{true}do{
 					private["_pos_resp"];
 					_pos_resp = ([getPos _player]+[3500,7000, -1, -1, (100 * (pi / 180)), 0, [], getPos _player, [false, 0]]+[side _player] call gosa_fnc_findSafePos) select 0;
 					_grp = createGroup side _player;
-					_veh = ([_pos_resp, random 360, _heli_types call BIS_fnc_selectRandom, _grp] call gosa_fnc_spawnVehicle) select 0;
+					_veh = ([_pos_resp, random 360, _heli_types call BIS_fnc_selectRandom, _grp, [], side _player] call gosa_fnc_spawnVehicle) select 0;
 					_veh setVariable ["transportPlayer", _player];
 					_createVehicle_lastTime = time;
 					diag_log format ["Log: [heliTransport] %1 создан новый транспорт, закрепление за игроком %2, time %3", _veh, _player, _createVehicle_lastTime];
