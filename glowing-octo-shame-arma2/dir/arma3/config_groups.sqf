@@ -758,8 +758,8 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 
 //////////////////////////////
 // жандармерия
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"B_GEN");
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
-	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
 	_west append [
 		[[[["B_GEN_Commander_F",
 			"B_GEN_Soldier_F","B_GEN_Soldier_F",
@@ -771,7 +771,7 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 		[[[["B_GEN_Commander_F","B_GEN_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
 		[[[["B_GEN_Offroad_01_gen_F","B_GEN_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01]
 	];
-}};
+};
 
 // laws of war
 /*
