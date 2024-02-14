@@ -230,7 +230,7 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 		[[[["B_UGV_01_rcws_F"],[],["CORPORAL"]]],0.5],
 		*/
 		// авиация
-		[[[["B_T_VTOL_01_armed_F"],[],["LIEUTENANT"]]],0.5],
+		//[[[["B_T_VTOL_01_armed_F"],[],["LIEUTENANT"]]],0.5],
 		[[[["B_Plane_CAS_01_F","B_Plane_CAS_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 		[[[["B_Heli_Light_01_armed_F","B_Heli_Light_01_armed_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 		[[[["B_Heli_Attack_01_F","B_Heli_Attack_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
