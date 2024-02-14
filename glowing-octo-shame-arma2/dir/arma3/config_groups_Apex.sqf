@@ -3,7 +3,7 @@
 
 // B_T_
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_T_F");
-if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
+if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n >= 160 and _n < 250) or _tmp > 0) then {
 		_west append [
 			// пехота
@@ -98,7 +98,7 @@ if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
 
 // O_T_
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_T_F");
-if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
+if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n >= 160 and _n < 250) or _tmp > 0) then {
 		_east append [
 			// пехота
@@ -178,7 +178,7 @@ if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
 
 // IND_C_F Syndicate
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_C_F");
-if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
+if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if (_n >= 160 or _tmp > 0) then {
 		// пехота
 		_guer append [

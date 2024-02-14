@@ -63,7 +63,7 @@ if(LIB_a2Avail)then{
 	// INS
 	if(true)then{
 		_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"INS");
-		if((!_deserted && gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0)then{
+		if((!_deserted && gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0)then{
 			_mg2 = "INS_Soldier_AR";
 			_mg = "INS_Soldier_MG";
 			_gl = "INS_Soldier_GL";
@@ -313,7 +313,7 @@ if(LIB_a2Avail)then{
 	// CDF
 	if(true)then{
 		_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CDF");
-		if((!_deserted && gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0)then{
+		if((!_deserted && gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0)then{
 			_mg2 = "CDF_Soldier_AR";
 			_mg = "CDF_Soldier_MG";
 			_gl = "CDF_Soldier_GL";
@@ -561,7 +561,7 @@ if(LIB_a2Avail)then{
 	// GUE
 	if(true)then{
 		_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"GUE");
-		if((!_deserted && gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0)then{
+		if((!_deserted && gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0)then{
 			_mg2 = "GUE_Soldier_AR";
 			_mg = "GUE_Soldier_MG";
 			_gl = "GUE_Soldier_GL";
@@ -2094,7 +2094,7 @@ if(LIB_ahAvail)then{
 	// BIS_TK_INS
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK_INS");
 	if(true)then{
-		if((!_woodland && gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0)then{
+		if((!_woodland && gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0)then{
 			_east=_east+[
 				[[[["TK_INS_Soldier_TL_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_2_EP1","TK_INS_Soldier_AT_EP1","TK_INS_Soldier_EP1","TK_INS_Soldier_MG_EP1","TK_INS_Soldier_AR_EP1","TK_INS_Soldier_Sniper_EP1","TK_INS_Soldier_3_EP1","TK_INS_Soldier_4_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
 					[_r2,_r1,_r1,_r1,_r1,_r1,_r1,_r1,_r0,_r0]]],0.7],
@@ -2311,7 +2311,7 @@ if(LIB_ahAvail)then{
 	// BIS_TK_GUE
 	_f_multi_bis_tk_gue = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK_GUE");
 	if(true)then{
-		if((!_woodland && gosa_IslandType select 1 >= 1980 && _f_multi_bis_tk_gue == -1) or _f_multi_bis_tk_gue > 0)then{
+		if((!_woodland && gosa_IslandType select 1 >= 1990 && _f_multi_bis_tk_gue == -1) or _f_multi_bis_tk_gue > 0)then{
 			_guer=_guer+[
 				[[[["TK_GUE_Soldier_TL_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_4_EP1","TK_GUE_Soldier_Sniper_EP1","TK_GUE_Soldier_5_EP1","TK_GUE_Soldier_AT_EP1","TK_GUE_Soldier_MG_EP1","TK_GUE_Soldier_4_EP1","TK_GUE_Soldier_2_EP1","TK_GUE_Soldier_5_EP1"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
 					[_r2,_r1,_r1,_r1,_r1,_r1,_r0,_r0,_r0,_r0]]],0.7],
@@ -2709,7 +2709,7 @@ if(configName(LIB_cfgVeh >> "FDF_M05_FRDF_NCO") != "")then{
 	if ((_tmp == -1 && (gosa_IslandType select 0) >= 150 && (gosa_IslandType select 0) < 250)
 		or _tmp > 0) then
 	{
-		if ((gosa_IslandType select 1 >= 1980 && _tmp == -1) or _tmp > 0) then {
+		if ((gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0) then {
 			#define __FDF_M05_Jaeger_Squad [[[["FDF_M05_Jaeger_NCO","FDF_M05_Jaeger_MG","FDF_M05_Jaeger_MG_Asst","FDF_M05_Jaeger_AT","FDF_M05_Jaeger_AT","FDF_M05_Jaeger","FDF_M05_Jaeger_Asst_Squad_Leader"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],0.7]
 			_guer=_guer+[
 				// FDF_M05_Jaeger_Plt_HQ_Team"

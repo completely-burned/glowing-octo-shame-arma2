@@ -3,7 +3,7 @@
 
 //-- Спецназ
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_R_F");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if (_tmp > 0 or (_n >= 160 && _n < 250)) then {
 		_east append [
 			// configName O_R_InfSquad
@@ -24,7 +24,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 //-- ВСЛ
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_E_F");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if (_tmp > 0 or (_n >= 160 && _n < 250)) then {
 
 		_guer append [

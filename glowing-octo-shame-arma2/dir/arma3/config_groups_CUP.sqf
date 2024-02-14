@@ -11,7 +11,7 @@
 	// RUS_SpecOps, MVD
 	// Default
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_O_RU");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if (_n >= 160) then {
 		_east append [
 			// configName InfSquad
@@ -392,7 +392,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 //-- CUP_O_TK
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_O_TK");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if (_tmp > 0 or _n > 160) then {
 		_east append [
 			// configName CUP_O_TK_MotorizedReconSection
@@ -443,7 +443,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 //-- CUP_O_ChDKZ
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_O_ChDKZ");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if ((_n >= 160 && _n <= 250) or _tmp > 0) then {
 		_west append [
 			// configName CUP_O_ChDKZ_MotInfSquad
@@ -478,7 +478,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 //-- CUP_B_US_Army
 	// UCP, OCP, OEFCP
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_B_US_Army");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	// Air
 	_west append [
 		// configName CUP_B_US_Army_A10Flight
@@ -689,7 +689,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 //-- CUP_B_USMC
 	// FROG_WDL, FROG_DES, MARSOC, DES, FRTeam, FRTeam_Desert, Default
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_B_USMC");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	// Air
 	_west append [
 		// configName CUP_B_USMC_AH1ZSquadron
@@ -814,7 +814,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 //-- CUP_B_GB
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_B_GB");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if (_n >= 250) then {
 		_west append [
 			// FIXME: DDPM слишком пустынный для смешанных локаций.
@@ -928,7 +928,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 //-- CUP_B_GER
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_B_GER");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if ((_n >= 150 && _n < 250) or
 		(_tmp > 0 && _n < 150)) then
 	{
@@ -1030,7 +1030,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 //-- CUP_B_CDF
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_B_CDF");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if (_n < 160) then {
 		_west append [
 			// configName CUP_B_CDFInfSquad_SNW
@@ -1122,7 +1122,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 //-- CUP_I_NAPA
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_I_NAPA");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if (_tmp > 0 or (_n >= 160 && _n <= 250)) then {
 	_guer append [
 		// configName CUP_I_NAPA_MechInfSection
@@ -1178,7 +1178,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 //-- CUP_I_PMC_ION
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_I_PMC_ION");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if (_n < 150) then {
 		_guer append [
 			// configName CUP_I_PMC_Winter_ION_Field_Security_Patrol
@@ -1218,7 +1218,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
 
 //-- CUP_I_UN
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"CUP_I_UN");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1980)) then {
+if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 	if (_n >= 160 && _n <= 250) then {
 		_guer append [
 			// configName CUP_I_UN_Patrol_MNT

@@ -213,7 +213,7 @@ _default_west=[
 	*/
 ];
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_F");
-if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
+if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
 		_west append _default_west;
 	};
@@ -539,7 +539,7 @@ _default_east=[
 	*/
 ];
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_F");
-if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
+if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
 		_east append _default_east;
 	};
@@ -731,7 +731,7 @@ _default_guer=[
 	*/
 ];
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_F");
-if (_tmp > 0 or (_d >= 1980 && _tmp == -1)) then {
+if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
 		_guer append _default_guer;
 	};
