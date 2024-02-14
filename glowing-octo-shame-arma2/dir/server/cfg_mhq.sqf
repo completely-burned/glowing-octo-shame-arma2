@@ -1,10 +1,19 @@
-private ["_arr","_arr0","_arr1","_str","_cfgveh"];
+private ["_arr","_arr0","_arr1","_str","_cfgveh","_item"];
 
 _cfgveh = LIB_cfgVeh;
 
 //--- 
 _arr = [
 	// [side, реальный тип, виртуальный тип].
+	
+	[west,	"gm_ge_army_kat1_454_cargo"],
+	//[,	"gm_dk_army_u1300l_container"],
+	[east,	"gm_gc_army_2p16"],
+	[east,	"gm_gc_army_btr60pu12"],
+	[east,	"gm_gc_army_ural44202"],
+	//[,	"gm_pl_army_2p16"],
+	[east,	"gm_gc_pol_p601"],
+	[civilian,	"gm_ge_civ_u1300l"],
 	[east,	"bmp2_hq_ins_unfolded",			"i44_hq_g_unfolded"],
 	[west,	"bmp2_hq_cdf_unfolded",			"i44_hq_a_unfolded"],
 	[east,			"o_truck_03_covered_f",	"o_truck_03_command_f"],
@@ -16,9 +25,13 @@ _arr = [
 ];
 _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
-	_str = configName (_cfgVeh >> (_arr select _i select 1));
+	_item = _arr select _i;
+	_str = configName (_cfgVeh >> (_item select 1));
 	if (_str != "") then {
-		_arr0 set [count _arr0, _arr select _i];
+		if (count _item <= 2) then {
+			_item set [2, _str + "_command_gosa"];
+		};
+		_arr0 set [count _arr0, _item];
 	};
 };
 _arr = (_arr0 call gosa_fnc_arr_sorting0);
@@ -54,6 +67,11 @@ _arr = [
 	[west,			"b_truck_01_command_f",	nil],
 	[resistance,	"i_truck_02_command_f",	nil],
 	[civilian,		"c_truck_02_command_f",	nil],
+
+	[east,	"gm_gc_army_brdm2um",	nil],
+	[west,	"gm_ge_army_fuchsa0_command",	nil],
+	[west,	"gm_ge_army_m113a1g_command",	nil],
+	//[,	"gm_dk_army_m113a1dk_command",	nil],
 
 	[east,			"rhs_gaz66_r142_msv",	nil],
 	[east,			"rhs_gaz66_r142_vmf",	nil],
