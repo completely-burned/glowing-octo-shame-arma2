@@ -12,8 +12,11 @@ for "_i" from count _this -1 to 0 step -1 do {
 	_v = vehicle _u;
 
 	if (_v isKindOf "Plane" && !(_v isKindOf "ParachuteBase")) then {
-
 		diag_log format ["Log: [fnc_paraJump] #landing выгрузка %1", [_u, _v, assignedVehicleRole _u]];
+
+		#ifdef __ARMA3__
+			[_u] call gosa_fnc_unit_addParachute;
+		#endif
 
 		_u action ["Eject", _v];
 

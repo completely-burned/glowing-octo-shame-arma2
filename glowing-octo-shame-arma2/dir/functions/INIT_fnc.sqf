@@ -174,7 +174,9 @@ if !(IsDedicated) then {
 	"fnc_megaAmmoBox",
 	"fnc_createmenu",
 	"fnc_vehicleHandleDamage",
-	#ifndef __ARMA3__
+	#ifdef __ARMA3__
+		"fnc_unit_addParachute",
+	#else
 		"fnc_fixType",
 		"fnc_isObjHQ",
 		"fnc_isHQ",
