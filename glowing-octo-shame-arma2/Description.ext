@@ -166,8 +166,20 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_gm_pl_army {
+			title="FACTION: gm_pl_army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 		class gosa_faction_multiplier_gm_ge_army {
 			title="FACTION: gm_ge_army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_gm_dk_army {
+			title="FACTION: gm_dk_army";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
