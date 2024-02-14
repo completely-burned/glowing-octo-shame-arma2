@@ -406,7 +406,7 @@ class Mission
 				position[]={4647.0981,112.51804,1927.8418};
 			};
 			id=202;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item21
 		{
@@ -636,7 +636,7 @@ class Mission
 				position[]={11463.036,52.373241,14692.578};
 			};
 			id=225;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item44
 		{
@@ -646,7 +646,7 @@ class Mission
 				position[]={12206.155,10.108328,14947.68};
 			};
 			id=226;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item45
 		{
@@ -666,7 +666,7 @@ class Mission
 				position[]={8238.2822,37.699696,12176.825};
 			};
 			id=228;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item47
 		{
@@ -736,7 +736,7 @@ class Mission
 				position[]={3236.2151,41.130001,10864.313};
 			};
 			id=235;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item54
 		{
@@ -776,7 +776,7 @@ class Mission
 				position[]={2432.0422,131.96346,3909.2656};
 			};
 			id=239;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item58
 		{
@@ -786,7 +786,7 @@ class Mission
 				position[]={1718.5366,73.209999,447.43762};
 			};
 			id=240;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item59
 		{
@@ -796,7 +796,7 @@ class Mission
 				position[]={2785.1587,9.8999996,1023.8704};
 			};
 			id=241;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item60
 		{
@@ -806,7 +806,7 @@ class Mission
 				position[]={2680.0352,60.959999,2272.519};
 			};
 			id=242;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item61
 		{
@@ -816,7 +816,7 @@ class Mission
 				position[]={2962.7112,155.31926,5945.6313};
 			};
 			id=243;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item62
 		{
@@ -826,7 +826,7 @@ class Mission
 				position[]={2372.5667,114.30161,8538.374};
 			};
 			id=244;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item63
 		{
@@ -876,7 +876,7 @@ class Mission
 				position[]={11716.19,95.241318,606.52454};
 			};
 			id=249;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item68
 		{
@@ -886,7 +886,7 @@ class Mission
 				position[]={9596.0645,122.46385,4408.2959};
 			};
 			id=250;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item69
 		{
@@ -896,7 +896,7 @@ class Mission
 				position[]={12433.249,7.683248,2289.1543};
 			};
 			id=251;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item70
 		{
@@ -906,7 +906,7 @@ class Mission
 				position[]={12480.774,18.606644,1601.6758};
 			};
 			id=252;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item71
 		{
@@ -926,7 +926,7 @@ class Mission
 				position[]={13147.024,38.115917,563.25244};
 			};
 			id=254;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item73
 		{
@@ -936,7 +936,7 @@ class Mission
 				position[]={5291.0063,109.62967,5076.9976};
 			};
 			id=255;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item74
 		{
@@ -946,7 +946,7 @@ class Mission
 				position[]={5067.5264,178.32568,8763.5771};
 			};
 			id=256;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item75
 		{
@@ -956,7 +956,7 @@ class Mission
 				position[]={4260.8149,112.46577,8813.8242};
 			};
 			id=257;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item76
 		{
@@ -976,7 +976,7 @@ class Mission
 				position[]={2922.5918,89.572128,14981.563};
 			};
 			id=259;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item78
 		{
@@ -996,7 +996,7 @@ class Mission
 				position[]={9397.8906,106.74,6477.8989};
 			};
 			id=261;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item80
 		{
@@ -1026,7 +1026,7 @@ class Mission
 				position[]={7887.1016,106.88,8504.8887};
 			};
 			id=264;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item83
 		{
@@ -1056,7 +1056,7 @@ class Mission
 				position[]={9262.0967,290.32001,14845.128};
 			};
 			id=267;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item86
 		{
@@ -1066,7 +1066,7 @@ class Mission
 				position[]={10385.573,97.383514,12444.957};
 			};
 			id=268;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item87
 		{
@@ -1076,7 +1076,7 @@ class Mission
 				position[]={9006.5791,98.122787,11867.84};
 			};
 			id=269;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item88
 		{
@@ -1086,7 +1086,7 @@ class Mission
 				position[]={8648.4932,43.715282,8097.2554};
 			};
 			id=270;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item89
 		{
@@ -1096,7 +1096,7 @@ class Mission
 				position[]={9350.9277,8.7138414,7663.3516};
 			};
 			id=271;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item90
 		{
@@ -1106,7 +1106,7 @@ class Mission
 				position[]={9650.252,6.8080688,7447.1899};
 			};
 			id=272;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item91
 		{
@@ -1126,7 +1126,7 @@ class Mission
 				position[]={7548.6011,295.68158,2687.5234};
 			};
 			id=275;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item93
 		{
@@ -1136,7 +1136,7 @@ class Mission
 				position[]={9177.8613,138.55766,3709.5547};
 			};
 			id=276;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item94
 		{
@@ -1146,7 +1146,7 @@ class Mission
 				position[]={8842.3037,288.78503,1738.3027};
 			};
 			id=277;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item95
 		{
@@ -1156,7 +1156,7 @@ class Mission
 				position[]={1993.9456,58.48439,1345.8085};
 			};
 			id=278;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item96
 		{
@@ -1166,7 +1166,7 @@ class Mission
 				position[]={367.18607,42.16412,2192.5916};
 			};
 			id=279;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item97
 		{
@@ -1186,7 +1186,7 @@ class Mission
 				position[]={2149.0837,291.11102,12294.49};
 			};
 			id=281;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item99
 		{
@@ -1196,7 +1196,7 @@ class Mission
 				position[]={3049.2866,140.71001,12939.836};
 			};
 			id=282;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item100
 		{
@@ -1206,7 +1206,7 @@ class Mission
 				position[]={3137.0642,86.776184,12178.063};
 			};
 			id=283;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item101
 		{
@@ -1216,7 +1216,7 @@ class Mission
 				position[]={4517.0518,185.32001,13054.865};
 			};
 			id=284;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item102
 		{
@@ -1226,7 +1226,7 @@ class Mission
 				position[]={6173.7495,36.189999,12620.936};
 			};
 			id=285;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item103
 		{
@@ -1236,7 +1236,7 @@ class Mission
 				position[]={7833.7026,49.869999,12871.694};
 			};
 			id=286;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item104
 		{
@@ -1246,7 +1246,7 @@ class Mission
 				position[]={8827.416,162.10306,12678.581};
 			};
 			id=287;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item105
 		{
@@ -1256,7 +1256,7 @@ class Mission
 				position[]={10426.532,37.857647,11758.512};
 			};
 			id=288;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item106
 		{
@@ -1266,7 +1266,7 @@ class Mission
 				position[]={13629.046,32.669998,12573.949};
 			};
 			id=289;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item107
 		{
@@ -1276,7 +1276,7 @@ class Mission
 				position[]={14480.546,44.341797,11723.753};
 			};
 			id=290;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item108
 		{
@@ -1286,7 +1286,7 @@ class Mission
 				position[]={15583.069,113.52992,9977.542};
 			};
 			id=291;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item109
 		{
@@ -1296,7 +1296,7 @@ class Mission
 				position[]={14870.422,98.609154,8482.0879};
 			};
 			id=292;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item110
 		{
@@ -1306,7 +1306,7 @@ class Mission
 				position[]={13476.334,49.920536,5732.0947};
 			};
 			id=293;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item111
 		{
@@ -1316,7 +1316,7 @@ class Mission
 				position[]={14376.629,50.427315,2581.4812};
 			};
 			id=294;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item112
 		{
@@ -1326,7 +1326,7 @@ class Mission
 				position[]={7465.0356,53.209999,7212.124};
 			};
 			id=295;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item113
 		{
@@ -1336,7 +1336,7 @@ class Mission
 				position[]={7065.4512,56.976219,7052.478};
 			};
 			id=296;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item114
 		{
@@ -1346,7 +1346,7 @@ class Mission
 				position[]={5795.0552,56.301582,5733.6406};
 			};
 			id=297;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item115
 		{
@@ -1356,7 +1356,7 @@ class Mission
 				position[]={3671.6125,167.07288,8283.2344};
 			};
 			id=298;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item116
 		{
@@ -1366,7 +1366,7 @@ class Mission
 				position[]={3120.384,120.30602,8649.3408};
 			};
 			id=299;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item117
 		{
@@ -1376,7 +1376,7 @@ class Mission
 				position[]={10993.132,40.405197,11772.233};
 			};
 			id=300;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item118
 		{
@@ -1386,7 +1386,7 @@ class Mission
 				position[]={12453.458,261.42999,8641.6182};
 			};
 			id=301;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item119
 		{
@@ -1396,7 +1396,7 @@ class Mission
 				position[]={14452.097,133.86189,3247.0476};
 			};
 			id=302;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item120
 		{
@@ -1587,7 +1587,6 @@ class Mission
 				position[]={10698.482,20,9190.6416};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
@@ -1603,7 +1602,6 @@ class Mission
 				position[]={4205.1929,84,5111.3984};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
