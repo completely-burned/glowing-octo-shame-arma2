@@ -160,6 +160,19 @@ class Params {
 			default=-1;
 		};
 
+		class gosa_faction_multiplier_CSLA {
+			title="FACTION: CSLA";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_US85 {
+			title="FACTION: US85";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+
 		class gosa_faction_multiplier_gm_gc_army {
 			title="FACTION: gm_gc_army";
 			values[] = {-1,1,0};

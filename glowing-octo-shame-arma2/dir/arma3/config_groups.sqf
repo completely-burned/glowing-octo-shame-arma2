@@ -809,6 +809,7 @@ _east=_east+[
 #include "config_groups_Enoch.sqf"
 
 #include "config_groups_GM.sqf"
+#include "config_groups_CSLA.sqf"
 
 #include "config_groups_CUP.sqf"
 #include "config_groups_RHS.sqf"
