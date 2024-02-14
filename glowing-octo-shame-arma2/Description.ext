@@ -153,6 +153,26 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+
+		class gosa_faction_multiplier_gm_gc_army {
+			title="FACTION: gm_gc_army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_gm_ge_army {
+			title="FACTION: gm_ge_army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+		class gosa_faction_multiplier_gm_xx_army {
+			title="FACTION: gm_xx_army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
+
 		class gosa_faction_multiplier_RHS_MSV {
 			title="FACTION: RHS_MSV";
 			values[] = {-1,1,0};
@@ -177,6 +197,7 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+
 		class gosa_faction_multiplier_CUP_O_RU {
 			title="FACTION: CUP_O_RU";
 			values[] = {-1,1,0};

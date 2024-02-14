@@ -1,5 +1,8 @@
 // east
-_east = [
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"gm_gc_army");
+if (_tmp > 0 or (_tmp == -1 && _d >= 1960 && _d <= 1990)) then {
+	if (_tmp > 0 or _n >= 160) then {
+_east append [
 	// configName gm_gc_bgs_infantry_post_str
 	[[[["gm_gc_bgs_rifleman_mpikm72_80_str","gm_gc_bgs_rifleman_mpikm72_80_str"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
 	// configName gm_gc_bgs_sf_infantry_specops_str
@@ -53,9 +56,18 @@ _east = [
 	// configName gm_gc_army_sf_infantry_specops_str
 	[[[["gm_gc_army_sf_squadleader_mpikms72_80_str","gm_gc_army_sf_machinegunner_lmgrpk_80_str","gm_gc_army_sf_marksman_svd_80_str","gm_gc_army_sf_antitank_mpikms72_rpg7_80_str","gm_gc_army_sf_demolition_pm63_80_str","gm_gc_army_sf_antitank_mpikms72_rpg18_80_str"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.01]
 ];
+_east append [
+	[[[["gm_gc_airforce_l410t"],[],["LIEUTENANT"]],
+		[["gm_gc_army_sf_squadleader_mpikms72_80_str","gm_gc_army_sf_machinegunner_lmgrpk_80_str","gm_gc_army_sf_marksman_svd_80_str","gm_gc_army_sf_antitank_mpikms72_rpg7_80_str","gm_gc_army_sf_demolition_pm63_80_str","gm_gc_army_sf_antitank_mpikms72_rpg18_80_str"]]
+		],0.01]
+];
+}};
 
-// west 
-_west = [
+// west
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"gm_ge_army");
+if (_tmp > 0 or (_tmp == -1 && _d >= 1960 && _d <= 1990)) then {
+	if (_tmp > 0 or _n >= 160) then {
+_west append [
 	// configName gm_ge_bgs_motorizedInfantry_squad_w123_80
 	[[[["gm_ge_bgs_w123_cargo","gm_ge_bgs_sf_squadleader_mp5a2_80_blk","gm_ge_bgs_sf_specialist_hk512_80_blk","gm_ge_bgs_sf_grenadier_hk69a1_80_blk"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"],[],1]],0.01],
 	// configName gm_ge_bgs_sf_infantry_specops_80_blk
@@ -142,8 +154,18 @@ _west = [
 	// configName gm_platoon_gm_ge_army_gepard1a1_wdl
 	[[[["gm_ge_army_gepard1a1_wdl","gm_ge_army_gepard1a1_wdl"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01]
 ];
+_west append [
+	[[[["gm_ge_airforce_do28d2"],[],["LIEUTENANT"]],
+		[["gm_ge_bgs_sf_squadleader_mp5a2_80_blk","gm_ge_bgs_sf_rifleman_mp5a2_80_blk","gm_ge_bgs_sf_marksman_psg1_80_blk","gm_ge_bgs_sf_machinegunner_g8_80_blk","gm_ge_bgs_sf_demolition_mp5a2_80_blk","gm_ge_bgs_sf_specialist_hk512_80_blk"]]
+		],0.01]
+];
+}};
 
-// guer 
+
+// guer
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"gm_xx_army");
+if (_tmp > 0 or (_tmp == -1 && _d >= 1960 && _d <= 1990)) then {
+	if (_tmp > 0 or _n >= 160) then {
 _guer = [
 	// configName gm_xx_army_infantry_squad_80
 	[[[["gm_xx_army_squadleader_m16a1_80_grn","gm_xx_army_rifleman_01_akm_alp","gm_xx_army_medic_01_mpikms72_m84","gm_xx_army_machinegunner_rpk_80_oli","gm_xx_army_assault_ak74nk_80_wdl","gm_xx_army_antitank_hk53a2_rpg7_80_oli","gm_xx_army_demolition_mp2a1_80_blk","gm_xx_army_marksman_svd_80_wdl","gm_xx_army_engineer_hk33a2_80_brn"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.01],
@@ -152,3 +174,23 @@ _guer = [
 	// configName gm_xx_army_infantry_post_80
 	[[[["gm_xx_army_assault_ak74nk_80_wdl","gm_xx_army_rifleman_01_akm_alp"],[[0,0,0],[5,-5,0]],["LIEUTENANT","SERGEANT"]]],0.01]
 ];
+
+if (resistance getFriend west >= 0.6) then {
+	_guer append [
+		// configName gm_xx_army_infantry_squad_80
+		[[
+			[["gm_ge_airforce_do28d2"],[],["LIEUTENANT"],[["gm_xx_army_assault_ak74nk_80_wdl","gm_xx_army_assault_ak74nk_80_wdl"]]],
+			[["gm_xx_army_squadleader_m16a1_80_grn","gm_xx_army_rifleman_01_akm_alp","gm_xx_army_medic_01_mpikms72_m84","gm_xx_army_machinegunner_rpk_80_oli","gm_xx_army_assault_ak74nk_80_wdl","gm_xx_army_antitank_hk53a2_rpg7_80_oli","gm_xx_army_demolition_mp2a1_80_blk","gm_xx_army_marksman_svd_80_wdl","gm_xx_army_engineer_hk33a2_80_brn"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.025]
+	];
+};
+if (resistance getFriend east >= 0.6) then {
+	_guer append [
+		// configName gm_xx_army_infantry_squad_80
+		[[
+			[["gm_gc_airforce_l410t"],[],["LIEUTENANT"],[["gm_xx_army_assault_ak74nk_80_wdl","gm_xx_army_assault_ak74nk_80_wdl"]]],
+			[["gm_xx_army_squadleader_m16a1_80_grn","gm_xx_army_rifleman_01_akm_alp","gm_xx_army_medic_01_mpikms72_m84","gm_xx_army_machinegunner_rpk_80_oli","gm_xx_army_assault_ak74nk_80_wdl","gm_xx_army_antitank_hk53a2_rpg7_80_oli","gm_xx_army_demolition_mp2a1_80_blk","gm_xx_army_marksman_svd_80_wdl","gm_xx_army_engineer_hk33a2_80_brn"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.025]
+	];
+};
+}};
