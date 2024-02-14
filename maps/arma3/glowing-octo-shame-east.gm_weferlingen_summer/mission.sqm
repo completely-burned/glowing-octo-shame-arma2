@@ -192,7 +192,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="GM CO 00 glowing-octo-shame Altis East v0.0.5.911 DEBUG";
+		briefingName="GM CO 00 glowing-octo-shame gm_weferlingen_summer East v0.0.5.911 DEBUG";
 		timeOfChanges=1800;
 		startWeather=0.35;
 		startWind=0.1;
@@ -2042,7 +2042,7 @@ class Mission
 				position[]={14779.943,60.132748,19976.869};
 			};
 			id=138;
-			type="LocationCamp_F";
+			type="LocationVillage_F";
 		};
 		class Item77
 		{
