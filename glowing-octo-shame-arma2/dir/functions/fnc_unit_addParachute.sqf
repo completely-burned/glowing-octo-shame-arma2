@@ -21,7 +21,7 @@ _arr = backpackItems _unit;
 diag_log format ["Log: [fnc_unit_addParachute] #landing backpackItems %1", _arr];
 
 removeBackpack _unit;
-_unit addBackpack _type;
+_unit addBackpackGlobal _type;
 
 // FIXME: Бесполезно т.к. парашют удаляется и вместе с ним его содержимое.
 for "_i" from 0 to (count _arr -1) do {
