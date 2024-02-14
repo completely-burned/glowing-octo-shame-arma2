@@ -252,7 +252,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Tanoa East v0.0.5.911 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Tanoa East v0.0.5.912 DEBUG";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;

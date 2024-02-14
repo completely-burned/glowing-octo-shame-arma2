@@ -197,7 +197,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame stozec West v0.0.5.911 DEBUG";
+		briefingName="CO 00 glowing-octo-shame stozec West v0.0.5.912 DEBUG";
 		timeOfChanges=1800;
 		startWeather=0.3;
 		startWind=0.1;
