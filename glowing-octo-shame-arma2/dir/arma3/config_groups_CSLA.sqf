@@ -103,3 +103,54 @@ _west append [
 	[[[["US85_M1A1","US85_M1A1","US85_mcSgt","US85_mcM16GL","US85_mcM16GL","US85_mcLAW","US85_mcLAW","US85_mcM249","US85_mcM249","US85_mcSMAW","US85_mcM16","US85_M113"],[[17,0,0],[-17,0,0],[0,-12,0],[17,-7,0],[-17,-7,0],[15,-7,0],[-15,-7,0],[19,-7,0],[-19,-7,0],[2,-12,0],[-2,-12,0],[0,-7,0]],["Sergeant","Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal","Private","Corporal"]]],0.5]
 ];
 }};
+
+_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"FIA_CSLA");
+if (_tmp > 0 or (_tmp == -1 && _d >= 1960 && _d <= 1990)) then {
+	if (_tmp > 0 or _n >= 160) then {
+[
+	// configName FIA_cpSentryTeam
+	[[[["FIA_mcM16","FIA_mcFAL"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.5],
+	// configName FIA_cpFireTeam
+	[[[["FIA_mcM16","FIA_mcFAL","FIA_mcUK59L"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]],0.5],
+	// configName FIA_cpRifleTeam
+	[[[["FIA_mcM16","FIA_mcSa58","FIA_mcFAL","FIA_mcRPG7"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]],0.5],
+	// configName FIA_rScn
+	[[[["FIA_mcCmd","FIA_mcUK59L","FIA_mcVG70","FIA_mcVG70","FIA_mcRPG7","FIA_mcSa58v","FIA_mcFAL","FIA_mcUK59L","FIA_mcMdc","FIA_mcM16","FIA_mcSa58","FIA_mcSa58"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private"]]],0.5],
+	// configName FIA_rTeam
+	[[[["FIA_mcM16","FIA_mcSa58","FIA_mcFAL","FIA_mcSa58V","FIA_mcFAL"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0]],["Sergeant","Corporal","Private","Private","Private"]]],0.5],
+	// configName FIA_rSqd
+	[[[["FIA_mcM16","FIA_mcSa58","FIA_mcSa58v","FIA_mcUK59L","FIA_mcSa61","FIA_mcM16","FIA_mcRPG7","FIA_mc9K32"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]],0.5],
+	// configName FIA_rTeamRPG
+	[[[["FIA_mcM16","FIA_mcSa58v","FIA_mcRPG7","FIA_mcRPG7"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Corporal","Private","Private","Private"]]],0.5],
+	// configName FIA_rTeamBTR40DSKM
+	[[[["FIA_BTR40_DSKM","FIA_mcRPG7","FIA_mcSa58","FIA_mcUK59L"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]],0.5],
+	// configName FIA_rTeamBTR40
+	[[[["FIA_BTR40","FIA_mcM16","FIA_mcSa58","FIA_mcUK59L"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]],0.5],
+	// configName FIA_cpCldsSentryTeam
+	[[[["FIA_cldsRPG75","FIA_cldsSa24"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.5],
+	// configName FIA_cpCldsFireTeam
+	[[[["FIA_cldsRPG75","FIA_cldsUK59L","FIA_cldsUK59L"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]],0.5],
+	// configName FIA_cpCldsRifleTeam
+	[[[["FIA_cldsRPG75","FIA_cldsRPG7","FIA_cldsRPG7","FIA_cldsUK59L"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]],0.5],
+	// configName FIA_cldsScn
+	[[[["FIA_cldsCmd","FIA_cldsSa24","FIA_cldsMdc","FIA_cldsRPG75","FIA_cldsSa24Crw","FIA_cldsSvc","FIA_cldsSpr","FIA_cldsRPG7","FIA_clds9K32","FIA_cldsDrM","FIA_cldsUK59L","FIA_cldsOP63"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private"]]],0.5],
+	// configName FIA_cldsSqd
+	[[[["FIA_cldsCmd","FIA_cldsRPG75","FIA_cldsRPG75","FIA_cldsOP63","FIA_cldsOP63","FIA_cldsSpr","FIA_cldsSpr","FIA_cldsMdc","FIA_cldsMdc","FIA_cldsRPG7","FIA_cldsRPG7","FIA_cldsUK59L","FIA_cldsUK59L"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private","Private"]]],0.5],
+	// configName FIA_cldsSqdBTR40DSKM
+	[[[["FIA_BTR40_DSKM_clds","FIA_cldsCmd","FIA_cldsRPG7","FIA_cldsRPG7","FIA_cldsUK59L","FIA_cldsUK59L"],[[0,0,0],[1.5,-3,0],[-2,0,0],[2,0,0],[-2,2.5,0],[2,2.5,0]],["Corporal","Sergeant","Private","Private","Private","Private"]]],0.5],
+	// configName FIA_cldsPtrAZUpara
+	[[[["FIA_AZU_para_clds","FIA_cldsCmd","FIA_cldsOP63","FIA_cldsMdc","FIA_cldsRPG7","FIA_cldsSpr","FIA_cldsRPG75","FIA_cldsUK59L"],[[0,0,0],[1,-3,0],[-2,-2.5,0],[2,-2.5,0],[-2,0,0],[2,0,0],[-2,2.5,0],[2,2.5,0]],["Corporal","Sergeant","Corporal","Private","Private","Private","Private","Private"]]],0.5],
+	// configName FIA_cldsPtrAZUT21
+	[[[["FIA_AZU_T21_clds","FIA_cldsUK59L"],[[0,0,0],[2,2.5,0]],["Corporal","Private"]]],0.5],
+	// configName FIA_cdPtrAZUDSKM
+	[[[["FIA_AZU_DSKM_clds","FIA_cldsRPG7"],[[0,0,0],[2,2.5,0]],["Corporal","Private"]]],0.5],
+	// configName FIA_cldsSqdAZUAslt
+	[[[["FIA_AZU_DSKM_clds","FIA_AZU_T21_clds","FIA_cldsRPG7","FIA_cldsUK59L"],[[0,0,0],[10,0,0],[-2,2.5,0],[12,2.5,0]],["Sergeant","Corporal","Private","Private"]]],0.5],
+	// configName FIA_cldsSqdV3S
+	[[[["FIA_cldsCmd","CSLA_FIA_V3So_clds","FIA_cldsRPG75","FIA_cldsRPG75","FIA_cldsOP63","FIA_cldsOP63","FIA_cldsSpr","FIA_cldsSpr","FIA_cldsMdc","FIA_cldsMdc","FIA_cldsRPG7","FIA_cldsRPG7","FIA_cldsUK59L","FIA_cldsUK59L"],[[-4,0,0],[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Private","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private","Private"]]],0.5],
+	// configName FIA_cdDtmt
+	[[[["FIA_cdCmd","FIA_cdSa26RPG75","FIA_cdSa26RPG75","FIA_cdMdc","FIA_cdMdc","FIA_cdSpr","FIA_cdSpr","FIA_cdRPG7","FIA_cdRPG7","FIA_cdUK59L","FIA_cdUK59L","FIA_cdOP63","FIA_cdOP63","FIA_cdFAL","FIA_cdFAL"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0],[56,0,0],[-56,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]],0.5],
+	// configName FIA_cdPrl
+	[[[["FIA_cdCmd","FIA_cdFAL","FIA_cdUK59L","FIA_cdSa26RPG75","FIA_cdMdc","FIA_cdSpr","FIA_cdRPG7"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private"]]],0.5]
+];
+}};
