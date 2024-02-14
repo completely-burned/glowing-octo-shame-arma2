@@ -218,8 +218,9 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 		_west append _default_west;
 	};
 };
-if(true)then{
-	_west=_west+[
+if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
+	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
+	_west append [
 		// беспилотники
 		/*
 		[[[["B_UAV_01_F"],[],["CORPORAL"]]],0.5],
@@ -236,7 +237,14 @@ if(true)then{
 		[[[["B_Heli_Transport_03_F","B_Heli_Transport_03_F"],[[0,20,0],[20,0,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
 		[[[["B_Heli_Transport_01_F","B_Heli_Transport_01_F"],[[0,20,0],[20,0,0]],["LIEUTENANT","LIEUTENANT"]]],0.5]
 	];
-};
+	// jets
+	_west append [
+		//[[[["B_UAV_05_F"],[],["PRIVATE"]]],0.5],
+		[[[["B_Plane_Fighter_01_F","B_Plane_Fighter_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
+		[[[["B_Plane_Fighter_01_Stealth_F","B_Plane_Fighter_01_Stealth_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
+		//[[[["B_Radar_System_01_F","B_SAM_System_03_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
+	];
+}};
 
 //-- OPF_F CSAT
 _default_east=[
@@ -544,8 +552,9 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 		_east append _default_east;
 	};
 };
-if(true)then{
-	_east=_east+[
+if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
+	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
+	_east append [
 		// беспилотники
 		/*
 		[[[["O_UAV_01_F"],[],["CORPORAL"]]],0.5],
@@ -559,7 +568,13 @@ if(true)then{
 		[[[["O_Heli_Light_02_F","O_Heli_Light_02_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 		[[[["O_Plane_CAS_02_F","O_Plane_CAS_02_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 	];
-};
+	// jets
+	_east append [
+		[[[["O_Plane_Fighter_02_F","O_Plane_Fighter_02_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
+		[[[["O_Plane_Fighter_02_Stealth_F","O_Plane_Fighter_02_Stealth_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
+		//[[[["O_Radar_System_02_F","O_SAM_System_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
+	];
+}};
 
 //-- IND_F AAF
 _default_guer=[
@@ -734,15 +749,29 @@ _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_F");
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
 		_guer append _default_guer;
+		// jets
+		_guer append [
+			[[[["I_Plane_Fighter_04_F","I_Plane_Fighter_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
+		];
 	};
 };
 
 //////////////////////////////
 // жандармерия
-_west=_west+[
-	[[[["B_GEN_Commander_F","B_GEN_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
-	[[[["B_GEN_Offroad_01_gen_F","B_GEN_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01]
-];
+if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
+	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
+	_west append [
+		[[[["B_GEN_Commander_F",
+			"B_GEN_Soldier_F","B_GEN_Soldier_F",
+			"B_GEN_Van_02_vehicle_F"],[[0,2.5],[0,-2.5],[2.5,0],[0,0]],
+			["LIEUTENANT",
+			"PRIVATE","PRIVATE",
+			"PRIVATE"]]],0.01],
+
+		[[[["B_GEN_Commander_F","B_GEN_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
+		[[[["B_GEN_Offroad_01_gen_F","B_GEN_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01]
+	];
+}};
 
 // laws of war
 /*
@@ -751,14 +780,6 @@ _west=_west+[
 	[[[["B_UAV_06_medical_F"],[],["PRIVATE"]]],0.5]
 ];
 */
-_west=_west+[
-	[[[["B_GEN_Commander_F",
-		"B_GEN_Soldier_F","B_GEN_Soldier_F",
-		"B_GEN_Van_02_vehicle_F"],[[0,2.5],[0,-2.5],[2.5,0],[0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.01]
-];
 // laws of war
 /*
 _east=_east+[
@@ -773,24 +794,6 @@ _guer=_guer+[
 	[[[["I_UAV_06_medical_F"],[],["PRIVATE"]]],0.5]
 ];
 */
-
-// jets
-_west=_west+[
-	//[[[["B_UAV_05_F"],[],["PRIVATE"]]],0.5],
-	[[[["B_Plane_Fighter_01_F","B_Plane_Fighter_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
-	[[[["B_Plane_Fighter_01_Stealth_F","B_Plane_Fighter_01_Stealth_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
-	//[[[["B_Radar_System_01_F","B_SAM_System_03_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
-];
-// jets
-_east=_east+[
-	[[[["O_Plane_Fighter_02_F","O_Plane_Fighter_02_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
-	[[[["O_Plane_Fighter_02_Stealth_F","O_Plane_Fighter_02_Stealth_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
-	//[[[["O_Radar_System_02_F","O_SAM_System_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
-];
-// jets
-_guer=_guer+[
-	[[[["I_Plane_Fighter_04_F","I_Plane_Fighter_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
-];
 
 // дистанционный целеуказатель
 /*
