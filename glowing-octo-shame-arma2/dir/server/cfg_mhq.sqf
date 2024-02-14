@@ -7,11 +7,11 @@ _arr = [
 	// [side, реальный тип, виртуальный тип].
 	
 	[west,	"gm_ge_army_kat1_454_cargo"],
-	//[,	"gm_dk_army_u1300l_container"],
+	[west,	"gm_dk_army_u1300l_container"],
 	[east,	"gm_gc_army_2p16"],
 	[east,	"gm_gc_army_btr60pu12"],
 	[east,	"gm_gc_army_ural44202"],
-	//[,	"gm_pl_army_2p16"],
+	[east,	"gm_pl_army_2p16"],
 	[east,	"gm_gc_pol_p601"],
 	[civilian,	"gm_ge_civ_u1300l"],
 	[east,	"bmp2_hq_ins_unfolded",			"i44_hq_g_unfolded"],
@@ -71,7 +71,7 @@ _arr = [
 	[east,	"gm_gc_army_brdm2um",	nil],
 	[west,	"gm_ge_army_fuchsa0_command",	nil],
 	[west,	"gm_ge_army_m113a1g_command",	nil],
-	//[,	"gm_dk_army_m113a1dk_command",	nil],
+	[west,	"gm_dk_army_m113a1dk_command",	nil],
 
 	[east,			"rhs_gaz66_r142_msv",	nil],
 	[east,			"rhs_gaz66_r142_vmf",	nil],
