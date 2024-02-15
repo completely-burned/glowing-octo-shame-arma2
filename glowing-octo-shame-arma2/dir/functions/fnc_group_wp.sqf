@@ -188,6 +188,19 @@ if({alive _x} count _units > 0)then{
 			};
 		};
 
+	_arr = waypoints _grp;
+	if (count _arr > 0) then {
+		if (count _assignedVehicles <= 0) then {
+			if (_typeWP in [_wpType_UNLOAD, _wpType_GETOUT]) then {
+				diag_log format ["Log: [fnc_group_wp] %1 #landing, Тип маршрута %2, список ТС %3, удаление маршрутов %4", _grp, _typeWP, _assignedVehicles, _arr];
+				for "_i" from (count _arr -1) to 0 step -1 do {
+					deleteWaypoint [_grp, _i];
+				};
+				_typeWP = "";
+			};
+		};
+	};
+
 	// удалить неподвижным ии маршруты, чтобы не убегали
 	if ("StaticWeapon" in _grp_type) then {
 		if ( count waypoints _grp > 0 ) then{
@@ -197,6 +210,7 @@ if({alive _x} count _units > 0)then{
 			for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 				deleteWaypoint [_grp, _i];
 			};
+			_typeWP = "";
 		};
 	};
 
