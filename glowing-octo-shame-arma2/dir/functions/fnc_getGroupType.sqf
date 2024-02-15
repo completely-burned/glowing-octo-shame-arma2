@@ -63,8 +63,15 @@ _t = [];
 		};
 	};
 
-	_z = "SUPPORT";
+	_z = "Frigate";
 	if !(_z in _t) then {
+		if(_x isKindOf "CUP_B_Frigate_ANZAC") then {
+			_t set [count _t, _z];
+		};
+	};
+
+	_z = "SUPPORT";
+	if (!(_z in _t) && !("Frigate" in _t)) then {
 		if(getNumber(LIB_cfgVeh >> _str >> "attendant") > 0 && _x isKindOf "LandVehicle")then{
 			_t set [count _t, _z];
 			breakOut "scope1";

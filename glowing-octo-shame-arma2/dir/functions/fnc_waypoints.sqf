@@ -1,8 +1,16 @@
+/*
+ * TODO: Рефакторинг.
+ */
+
 	diag_log format ["Log: [fnc_waypoints] start %1", _this];
-private ["_wpType_TrUNLOAD","_leader","_cfgWea"];
+private ["_wpType_TrUNLOAD","_leader","_cfgWea","_b",
+	"_minDist","_minDeep","_arr","_worldSize","_n",
+	"_true","_dir","_dist2","_testPos","_limit"];
 
 _leader = (_this select 0);
 _cfgWea = LIB_cfgWea;
+_worldSize = gosa_worldSize;
+_minDeep = gosa_minDeepFrigate;
 
 #ifdef __ARMA3__
 	// Тип маршрута "сброс груза" не сажает самолёт.
@@ -76,6 +84,10 @@ if(!isNil "_leader")then{
 		};
 	} forEach _vehicles;
 
+	if ("Frigate" in _grp_type) then {
+		_landing = false;
+	};
+
 	if (_landing) then { // diag_log
 		diag_log format ["Log: [fnc_waypoints] %1 landing %2", _grp, _vehicles];
 	}; // diag_log
@@ -93,8 +105,14 @@ if(!isNil "_leader")then{
 		// private["_WaypointBehaviour"];
 		// _WaypointBehaviour = "AWARE";
 
+
 		_patrol = _grp getVariable "patrol";
 		if (!IsNil "_patrol") then {_patrol = true}else{_patrol = false};
+
+		if ("Frigate" in _grp_type) then {
+			_patrol = true;
+		};
+
 
 		_pos=civilianBasePos;
 
@@ -187,6 +205,42 @@ if(!isNil "_leader")then{
 
 		// лодки позиция маршрута
 		if("Ship" in _grp_type)then{
+			diag_log format ["Log: [fnc_waypoints] %1, if Ship", _grp];
+			if ("Frigate" in _grp_type && count _vehicles > 0) then {
+				diag_log format ["Log: [fnc_waypoints] %1, if Frigate", _grp];
+				_minDist = 2500;
+				_maxDist = 5000;
+				_b = true;
+				_testPos = [];
+				_limit = 1000;
+				while {_limit > 0 && _b && ({alive _x} count _units > 0)} do {
+					/*
+					// Просто прямо движется.
+					_dir = (getDir (_vehicles select 0) - 90 + random 180);
+					_dist2 = (_minDist + random _maxDist); // -_minDist?
+					_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir, 0];
+					*/
+					//_testPos = ([] call gosa_fnc_getRandomWorldPos);
+					//_testPos set [2, 0];
+					// Площадь локации в 2 раза больше из-за воды.
+					_testPos = [
+						((_worldSize select 0) * -2) + random ((_worldSize select 0)*4),
+						((_worldSize select 1) * -2) + random ((_worldSize select 1)*4),
+						0
+					];
+
+					if (surfaceIsWater _testPos) then {
+						_arr = ASLToATL _testPos;
+						diag_log format ["Log: [fnc_waypoints] %1, %2 ASLToATL %3", _grp, _testPos, _arr];
+						if (_arr select 2 > _minDeep) then {
+							_b = false;
+							_pos = _testPos;
+							_maxDist = -1;
+						};
+					};
+					_limit = _limit -1;
+				};
+			}else{
 
 				diag_log format ["Log: [fnc_waypoints] Ship %1", _this];
 
@@ -196,7 +250,6 @@ if(!isNil "_leader")then{
 				};
 			};
 
-			private["_true","_dir","_dist2","_testPos","_limit"];
 			if(_landing)then{
 				_true = true;
 				_testPos = [];
@@ -223,6 +276,7 @@ if(!isNil "_leader")then{
 				};
 				if(count _testPos > 0)then {_pos = _testPos; _maxDist = 0};
 				_limit = _limit -1;
+			};
 			};
 		};
 
@@ -258,8 +312,6 @@ if(!isNil "_leader")then{
 		// пехота
 		if(count _vehicles == 0)then{
 				diag_log format ["Log: [fnc_waypoints] Inf %1", _this];
-
-			private["_true","_dir","_dist2","_testPos","_limit"];
 			_true = true;
 			_testPos = [];
 			_limit = 1000;

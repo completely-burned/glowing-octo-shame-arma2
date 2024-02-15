@@ -37,6 +37,7 @@ gosa_var_spawn_time = "gosa_respawnveht";
 _arr = [1000,1500,3500,1500,1500,3500];
 gosa_param_safeSpawnDistance = _arr;
 safeSpawnDistance = _arr;
+gosa_minDeepFrigate = 25;
 
 gosa_deviceType = ([] call gosa_fnc_getDeviceType);
 gosa_IslandType = ([] call gosa_fnc_getIslandType);

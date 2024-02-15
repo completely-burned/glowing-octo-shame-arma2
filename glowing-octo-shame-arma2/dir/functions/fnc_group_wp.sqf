@@ -383,7 +383,7 @@ if({alive _x} count _units > 0)then{
 	};
 
 	// Лодки.
-	if ("Ship" in _grp_type) then {
+	if ("Ship" in _grp_type && !("Frigate" in _grp_type)) then {
 		diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1, %2, %3", _grp, [_leaderPos, waypointPosition _wp], _typeWP];
 		if (_typeWP == _wpType_GETOUT) then {_b = true} else {_b = false};
 
@@ -486,7 +486,7 @@ if({alive _x} count _units > 0)then{
 			};
 
 			// остановить группу, удалить и не создавать маршрут если боты атакуют рядом с точкой или игроками
-			if (!("Air" in _grp_type) && !("Ship" in _grp_type)) then {
+			if (!("Air" in _grp_type) && !("Ship" in _grp_type) && !("Frigate" in _grp_type)) then {
 				if ((vehicle _leader distance civilianBasePos) <= gosa_locationSize*1.20 or [_leader, 400] call gosa_fnc_CheckPlayersDistance) then {
 					if( { currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] } count units _grp > 0 )then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] группа %1 атакует рядом с точкой или игроками %2", _grp, _leaderPos];
@@ -521,6 +521,20 @@ if({alive _x} count _units > 0)then{
 					_grp setVariable ["patrol", nil];
 					_NoCreateWP = false;
 					_CreateWP = true;
+					_DeleteWP = true;
+				};
+			};
+
+
+			// Frigate
+			if ("Frigate" in _grp_type) then {
+				diag_log format ["Log: [gosa_fnc_group_wp] %1, if Frigate", _grp];
+				_wp = [_grp,_currentWP];
+				_arr = waypointPosition _wp;
+				if (_leaderPos distance _arr < 1000) then {
+					_NoCreateWP = false;
+					_CreateWP = true;
+					_StopWP = false;
 					_DeleteWP = true;
 				};
 			};
@@ -735,7 +749,7 @@ if({alive _x} count _units > 0)then{
 
 			// остановить ботов на точке 2 минут
 			if(!isNil{_grp_wp_completed})then{
-				if(!("Air" in _grp_type) && (_grp_wp_completed + 120 < time))then{
+				if(!("Air" in _grp_type) && !("Frigate" in _grp_type) && (_grp_wp_completed + 120 < time))then{
 					if ((vehicle _leader distance civilianBasePos) < gosa_locationSize) then {
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] остановить ии %1 на точке, time %2", _grp, [_grp_wp_completed, time]];
 						// удалить
@@ -749,7 +763,7 @@ if({alive _x} count _units > 0)then{
 			};
 
 			// перемещение ботов нагружает цп, некоторые отряды можно остановить
-				if !("Air" in _grp_type) then {
+				if (!("Air" in _grp_type) && !("Frigate" in _grp_type)) then {
 					_z = (missionNamespace getVariable "gosa_ai_create_fps");
 					if (_z == 0) then {
 						_z = 25;
