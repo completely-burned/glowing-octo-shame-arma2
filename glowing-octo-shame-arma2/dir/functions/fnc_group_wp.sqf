@@ -384,7 +384,7 @@ if({alive _x} count _units > 0)then{
 
 	// Лодки.
 	if ("Ship" in _grp_type) then {
-		diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #landing, pos %2, %3", _grp, [waypointPosition _wp, _leaderPos], _typeWP];
+		diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1, %2, %3", _grp, [_leaderPos, waypointPosition _wp], _typeWP];
 		if (_typeWP == _wpType_GETOUT) then {_b = true} else {_b = false};
 
 		if (_b or _typeWP in [_wpType_UNLOAD]) then {
