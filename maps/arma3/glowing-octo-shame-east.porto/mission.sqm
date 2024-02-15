@@ -8,14 +8,11 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=80;
+		nextID=84;
 	};
 	class Camera
 	{
 		pos[]={2165.1936,-32.463329,1179.4388};
-		dir[]={-0.71634132,-0.37596294,-0.58782482};
-		up[]={-0.29064,0.92663449,-0.23849776};
-		aside[]={-0.63436443,5.4365955e-008,0.77305484};
 	};
 };
 binarizationWanted=0;
@@ -186,7 +183,7 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 glowing-octo-shame porto East v0.0.5.912 DEBUG";
-		timeOfChanges=1800.0002;
+		timeOfChanges=1800;
 		startWeather=0.1;
 		startWind=0.1;
 		startWaves=0.1;
@@ -203,19 +200,17 @@ class Mission
 	};
 	class Entities
 	{
-		items=38;
+		items=42;
 		class Item0
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
 				position[]={2985.2,5.1809902,2806.4412};
-				angles[]={0.029989703,0,6.2822089};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=0;
 			type="LocationCamp_F";
-			atlOffset=1.5258789e-005;
 		};
 		class Item1
 		{
@@ -431,10 +426,6 @@ class Mission
 		class Item15
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={149.06844,0,981.44318};
-			};
 			name="HeadlessClient";
 			isPlayable=1;
 			id=41;
@@ -443,10 +434,6 @@ class Mission
 		class Item16
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={147.53868,0,1011.2961};
-			};
 			name="HeadlessClient_1";
 			isPlayable=1;
 			id=42;
@@ -455,10 +442,6 @@ class Mission
 		class Item17
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={147.63,0.63404846,1047.0798};
-			};
 			name="HeadlessClient_2";
 			isPlayable=1;
 			id=43;
@@ -467,10 +450,6 @@ class Mission
 		class Item18
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={145.24405,1.0383167,1087.0767};
-			};
 			name="HeadlessClient_3";
 			isPlayable=1;
 			id=44;
@@ -479,10 +458,6 @@ class Mission
 		class Item19
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={147.53868,1.3846169,1119.2261};
-			};
 			name="HeadlessClient_4";
 			isPlayable=1;
 			id=45;
@@ -491,10 +466,6 @@ class Mission
 		class Item20
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={175.83905,1.7065792,1121.5225};
-			};
 			name="HeadlessClient_5";
 			isPlayable=1;
 			id=46;
@@ -503,10 +474,6 @@ class Mission
 		class Item21
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={179.66342,1.3447323,1087.842};
-			};
 			name="HeadlessClient_6";
 			isPlayable=1;
 			id=47;
@@ -515,10 +482,6 @@ class Mission
 		class Item22
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={180.4283,0.95944214,1051.1001};
-			};
 			name="HeadlessClient_7";
 			isPlayable=1;
 			id=48;
@@ -527,10 +490,6 @@ class Mission
 		class Item23
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={180.4283,0.67944336,1014.3579};
-			};
 			name="HeadlessClient_8";
 			isPlayable=1;
 			id=49;
@@ -539,10 +498,6 @@ class Mission
 		class Item24
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={181.19318,0,984.505};
-			};
 			name="HeadlessClient_9";
 			isPlayable=1;
 			id=50;
@@ -553,11 +508,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={2597.6323,5.0300002,2419.1875};
+				position[]={2584.1772,5.0300002,2269.5391};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] < 1)then{createLocation [""CityCenter"", getPos this, 250, 250]};";
 			id=52;
-			type="LocationCity_F";
+			type="LocationCityCapital_F";
 		};
 		class Item26
 		{
@@ -566,7 +520,6 @@ class Mission
 			{
 				position[]={2108.2351,4.0058169,2204.907};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] < 1)then{createLocation [""CityCenter"", getPos this, 150, 150]};";
 			id=53;
 			type="LocationCity_F";
 		};
@@ -577,14 +530,13 @@ class Mission
 			{
 				position[]={3240.616,4.0390129,2895.0491};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] < 1)then{createLocation [""CityCenter"", getPos this, 150, 150]};";
 			id=54;
 			type="LocationCity_F";
 		};
 		class Item28
 		{
 			dataType="Marker";
-			position[]={5101.3105,-37.644211,5096.8081};
+			position[]={5100,0,5100};
 			name="gosa_worldSize";
 			type="Empty";
 			id=55;
@@ -740,7 +692,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1337.729,1.2967036,671.85101};
-				angles[]={0,1.6127715,0};
 			};
 			side="Empty";
 			class Attributes
@@ -749,7 +700,6 @@ class Mission
 			};
 			id=69;
 			type="C_Boat_Civil_01_F";
-			atlOffset=1.103;
 		};
 		class Item31
 		{
@@ -765,7 +715,6 @@ class Mission
 			};
 			id=70;
 			type="C_Boat_Civil_01_F";
-			atlOffset=1.747;
 		};
 		class Item32
 		{
@@ -783,7 +732,6 @@ class Mission
 			};
 			id=73;
 			type="C_Boat_Transport_02_F";
-			atlOffset=0.219;
 		};
 		class Item33
 		{
@@ -791,7 +739,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1428.839,1.3885869,2347.8359};
-				angles[]={0,1.7568834,0};
 			};
 			side="Empty";
 			class Attributes
@@ -800,7 +747,6 @@ class Mission
 			};
 			id=74;
 			type="C_Scooter_Transport_01_F";
-			atlOffset=1.363;
 		};
 		class Item34
 		{
@@ -817,7 +763,6 @@ class Mission
 			};
 			id=75;
 			type="C_Rubberboat";
-			atlOffset=0.39300001;
 		};
 		class Item35
 		{
@@ -834,7 +779,6 @@ class Mission
 			};
 			id=76;
 			type="C_Rubberboat";
-			atlOffset=1.249;
 		};
 		class Item36
 		{
@@ -870,16 +814,56 @@ class Mission
 			type="C_Boat_Civil_01_F";
 			atlOffset=3.487;
 		};
+		class Item38
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2309.1287,11.416188,2434.3069};
+			};
+			id=80;
+			type="LocationVillage_F";
+		};
+		class Item39
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2535.0103,5.0300002,2530.4629};
+			};
+			id=81;
+			type="LocationCity_F";
+		};
+		class Item40
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2853.0483,6.6110244,2171.1414};
+			};
+			id=82;
+			type="LocationVillage_F";
+		};
+		class Item41
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2838.001,5.0300002,2360.4204};
+			};
+			id=83;
+			type="LocationVillage_F";
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=8;
+			nextID=16;
 		};
 		class Links
 		{
-			items=8;
+			items=16;
 			class Item0
 			{
 				linkID=0;
@@ -943,8 +927,8 @@ class Mission
 			class Item6
 			{
 				linkID=6;
-				item0=54;
-				item1=52;
+				item0=53;
+				item1=80;
 				class CustomData
 				{
 					type="Sync";
@@ -953,8 +937,88 @@ class Mission
 			class Item7
 			{
 				linkID=7;
-				item0=53;
+				item0=80;
 				item1=52;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item8
+			{
+				linkID=8;
+				item0=80;
+				item1=81;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item9
+			{
+				linkID=9;
+				item0=81;
+				item1=52;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item10
+			{
+				linkID=10;
+				item0=81;
+				item1=54;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item11
+			{
+				linkID=11;
+				item0=52;
+				item1=83;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item12
+			{
+				linkID=12;
+				item0=83;
+				item1=54;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item13
+			{
+				linkID=13;
+				item0=83;
+				item1=81;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item14
+			{
+				linkID=14;
+				item0=83;
+				item1=80;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item15
+			{
+				linkID=15;
+				item0=82;
+				item1=83;
 				class CustomData
 				{
 					type="Sync";
