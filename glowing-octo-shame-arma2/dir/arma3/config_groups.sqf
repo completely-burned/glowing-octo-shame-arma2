@@ -220,6 +220,20 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 };
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
+	// boat
+	_west append [
+		[[[["B_Soldier_TL_F","B_soldier_GL_F","B_soldier_AR_F","B_soldier_F","B_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
+			["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.5],
+		[[[["B_Boat_Armed_01_minigun_F"],[],["LIEUTENANT"]],
+				[["B_soldier_SL_F","B_soldier_TL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F"],[[30,30,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
+				["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.5],
+		[[[["B_Boat_Armed_01_minigun_F"],[],["LIEUTENANT"]],
+				[["B_soldier_SL_F","B_soldier_AR_F","B_soldier_GL_F","B_soldier_M_F","B_soldier_AT_F","B_soldier_AAT_F","B_soldier_A_F","B_medic_F"],[[30,30,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
+				["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.5]
+	];
 	_west append [
 		// беспилотники
 		/*
@@ -554,6 +568,20 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 };
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
+	// boat
+	_east append [
+		[[[["O_Soldier_TL_F","O_soldier_GL_F","O_soldier_AR_F","O_soldier_F","O_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
+			["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.5],
+		[[[["O_Boat_Armed_01_minigun_F"],[],["LIEUTENANT"]],
+				[["O_soldier_SL_F","O_soldier_TL_F","O_soldier_F","O_soldier_LAT_F","O_soldier_M_F","O_soldier_AR_F","O_soldier_A_F","O_medic_F"],[[30,30,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
+				["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.5],
+		[[[["O_Boat_Armed_01_minigun_F"],[],["LIEUTENANT"]],
+				[["O_soldier_SL_F","O_soldier_AR_F","O_soldier_GL_F","O_soldier_M_F","O_soldier_AT_F","O_soldier_AAT_F","O_soldier_A_F","O_medic_F"],[[30,30,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
+				["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.5]
+	];
 	_east append [
 		// беспилотники
 		/*
@@ -749,6 +777,22 @@ _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_F");
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
 		_guer append _default_guer;
+		// boat
+		_guer append [
+			[[[["I_Soldier_TL_F","I_soldier_GL_F","I_soldier_AR_F","I_soldier_F","I_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
+				["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
+			],0.5],
+			// HAF_InfSquad
+			[[[["I_Boat_Armed_01_minigun_F"],[],["LIEUTENANT"]],
+					[["I_soldier_SL_F","I_soldier_F","I_soldier_LAT_F","I_soldier_M_F","I_soldier_TL_F","I_soldier_AR_F","I_soldier_A_F","I_medic_F"],[[30,30,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
+					["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
+			],0.5],
+			// HAF_InfSquad_Weapons
+			[[[["I_Boat_Armed_01_minigun_F"],[],["LIEUTENANT"]],
+					[["I_soldier_SL_F","I_soldier_AR_F","I_soldier_GL_F","I_soldier_M_F","I_soldier_AT_F","I_soldier_AAT_F","I_soldier_A_F","I_medic_F"],[[30,30,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
+					["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+			],0.5]
+		];
 		// jets
 		_guer append [
 			[[[["I_Plane_Fighter_04_F","I_Plane_Fighter_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
