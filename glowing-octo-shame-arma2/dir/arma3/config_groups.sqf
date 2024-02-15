@@ -814,12 +814,7 @@ _east=_east+[
 #include "config_groups_CUP.sqf"
 #include "config_groups_RHS.sqf"
 
-// _west=[
-// ];
-// _east=[
-// ];
-// _guer=[
-// ];
+//#include "config_groups_TEST.sqf"
 
 gosa_Groups_Night = [];
 gosa_Groups_Night set [0, _eastN call gosa_fnc_arrSorting_confGroups];
