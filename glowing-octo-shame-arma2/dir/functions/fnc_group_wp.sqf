@@ -63,8 +63,8 @@ TODO: Нужна карта файла.
 
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_survival",
-	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr",
-	"_grp_wp_completed","_g2","_z","_v"];
+	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr","_wpType_GETOUT",
+	"_grp_wp_completed","_g2","_z","_v","_b"];
 _grp=_this;
 
 
@@ -75,6 +75,7 @@ _grp=_this;
 	_wpType_TrUNLOAD = "TR UNLOAD";
 #endif
 _wpType_UNLOAD = "UNLOAD";
+_wpType_GETOUT = "GETOUT";
 
 scopeName "main";
 
@@ -198,6 +199,7 @@ if({alive _x} count _units > 0)then{
 			};
 		};
 	};
+
 
 	// десант вертолетный
 	if ("Helicopter" in _grp_type) then {
@@ -366,98 +368,42 @@ if({alive _x} count _units > 0)then{
 			};
 	};
 
-	// лодки
+	// Лодки.
 	if ("Ship" in _grp_type) then {
-	  if (_typeWP in [_wpType_UNLOAD]) then {
-		// не помню почему 400 метров, возможно на такой или меньшей дистанции лодка уже ищет береговую линию для десантирования
-		if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
-		  if (isNil {_grp getVariable "UNLOAD"}) then {
-			_grp setVariable ["UNLOAD",true];
-			_grp spawn {
-				diag_log format ["Log: [gosa_fnc_group_wp.sqf] выгрузка корабля %1", _this ];
-			  private ["_units","_vehicles"];
-				_units = units _this;
-				_vehicles = [];
-				{
-					private ["_veh"];
-					_veh = vehicle _x;
-					if(_veh != _x)then{
-						if!(_veh in _vehicles)then{
-							_vehicles set [count _vehicles, _veh];
-						};
-					};
-				}forEach _units;
+		diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #landing, pos %2, %3", _grp, [waypointPosition _wp, _leaderPos], _typeWP];
+		if (_typeWP == _wpType_GETOUT) then {_b = true} else {_b = false};
 
-			  {
-						private["_veh"];
-						_veh = _x;
-						{
-							_x leaveVehicle _veh;
-							unassignVehicle _x;
-						}forEach assignedCargo _veh;
-					}forEach _vehicles;
-			  {
-				private["_veh"];
-						_veh = _x;
-
-				// выполняется десантирование и пока живы юниты генерация нового маршрута должна быть приостановлена
-				while {({alive _x} count _units > 0) && !isNull _this && ({alive _x} count (crew _veh)-_units > 0)} do {
-					sleep 1;
+		if (_b or _typeWP in [_wpType_UNLOAD]) then {
+			_arr = waypointPosition _wp;
+			if (_arr call gosa_fnc_isZeroPos) exitWith {
+				for "_i" from (count _arr -1) to 0 step -1 do {
+					deleteWaypoint [_grp, _i];
 				};
-			  }forEach _vehicles;
-			  sleep 5;
-			  for "_i" from count waypoints _this - 1 to 0 step -1 do {
-				  deleteWaypoint [_this, _i];
-			  };
-			  _this setVariable ["UNLOAD",nil];
+				_typeWP = "";
 			};
-		  };
-		};
-	  };
-	  if (_typeWP in ["GETOUT"]) then {
-		if ((_leaderPos distance waypointPosition _wp < 400) or !isNil{_grp_wp_completed}) then {
-		  if (isNil {_grp getVariable "GETOUT"}) then {
-			_grp setVariable ["GETOUT",true];
-			_grp spawn {
-				diag_log format ["Log: [gosa_fnc_group_wp.sqf] выгрузка корабля %1", _this ];
-			  private ["_units","_vehicles"];
-				_units = units _this;
-				_vehicles = [];
-				{
-					private ["_veh"];
-					_veh = vehicle _x;
-					if(_veh != _x)then{
-						if!(_veh in _vehicles)then{
-							_vehicles set [count _vehicles, _veh];
-						};
-					};
-				}forEach _units;
 
-			  {
-						private["_veh"];
-						_veh = _x;
-						{
-							_x leaveVehicle _veh;
-							unassignVehicle _x;
-						}forEach crew _veh;
-					}forEach _vehicles;
-			  {
-				private["_veh"];
-						_veh = _x;
-				while {({alive _x} count _units > 0) && !isNull _this && ({alive _x} count crew _veh > 0)} do {
-					sleep 1;
+			//_crew = [];
+			for "_i" from 0 to (count _vehicles -1) do {
+				_veh = _vehicles select _i;
+				// На такой или меньшей дистанции лодка уже ищет береговую линию для десантирования.
+				if ((_veh distance _arr < 400) or !isNil "_grp_wp_completed") then {
+					{
+						if (_b or group _x != _grp) then {
+							//_crew set [count _crew, _x];
+							if (currentCommand _x != "GET OUT") then {							
+								diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #landing, Выгрузка корабля %2, %3, wp %4", _grp, _veh, _x, _typeWP];
+								[_x] allowGetIn false;
+								_x leaveVehicle _veh;
+								unassignVehicle _x;
+							};
+						};
+					} forEach crew _veh;
 				};
-			  }forEach _vehicles;
-			  sleep 5;
-			  for "_i" from count waypoints _this - 1 to 0 step -1 do {
-				  deleteWaypoint [_this, _i];
-			  };
-			  _this setVariable ["GETOUT",nil];
 			};
-		  };
+			//_crew allowGetIn false;
 		};
-	  };
 	};
+
 
 	if (true) then {
 		private["_grp","_leader""_currentWP","_waypoints","_createWP","_leaderPos","_NoCreateWP","_DeleteWP","_StopWP"];
