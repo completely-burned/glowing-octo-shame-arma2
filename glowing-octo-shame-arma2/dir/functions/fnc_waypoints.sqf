@@ -1,7 +1,8 @@
 	diag_log format ["Log: [fnc_waypoints] start %1", _this];
-private ["_wpType_TrUNLOAD","_leader"];
+private ["_wpType_TrUNLOAD","_leader","_cfgWea"];
 
 _leader = (_this select 0);
+_cfgWea = LIB_cfgWea;
 
 #ifdef __ARMA3__
 	// Тип маршрута "сброс груза" не сажает самолёт.
@@ -190,7 +191,7 @@ if(!isNil "_leader")then{
 				diag_log format ["Log: [fnc_waypoints] Ship %1", _this];
 
 			if!(_patrol)then{
-				if({getNumber(LIB_cfgWea >> currentWeapon _x >> "enableAttack")==0} count _vehicles > 0)then{
+				if ({getNumber (_cfgWea >> currentWeapon _x >> "enableAttack") <= 0} count _vehicles > 0) then {
 					_landing = true;
 				};
 			};
@@ -233,8 +234,11 @@ if(!isNil "_leader")then{
 		// лодки тип маршрута
 		if(_landing && "Ship" in _grp_type && count _vehicles > 0)then{
 			if((
-				(
-					getNumber(LIB_cfgWea >> currentWeapon (_vehicles select 0) >> "enableAttack")==0)
+					#ifdef __ARMA3__
+						!canFire (_vehicles select 0)
+					#else
+						(getNumber (_cfgWea >> currentWeapon (_vehicles select 0) >> "enableAttack") <= 0)
+					#endif
 					&&
 					!([_vehicles, ["RHIB"]] call gosa_fnc_CheckIsKindOfArray)
 				)
