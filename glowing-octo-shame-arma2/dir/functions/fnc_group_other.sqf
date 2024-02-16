@@ -30,12 +30,15 @@ if !(isDedicated) then {
 if (local _leader)then{
 	private["_grp","_leaderPos","_currentWP","_wp","_typeWP",
 		"_units","_vehicles","_types","_cargo","_assignedVehicles",
+		"_arr","_deep","_limit","_limit_old","_speed","_minDeep",
+		"_veh","_assignedVehicle",
 		"_grp_wp_completed","_driver","_slu","_z","_n","_grp_type"
 		];
 
 // private ["_Stealth"];
 
 _grp=_this;
+_minDeep = gosa_minDeepFrigate;
 
 scopeName "main";
 
@@ -64,7 +67,6 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	_assignedVehicles = [];
 	{
 		_types set [count _types, typeOf _x];
-		private ["_veh","_assignedVehicle"];
 		_veh = vehicle _x;
 		_assignedVehicle = assignedVehicle _x;
 		if (!isNull _assignedVehicle) then {
@@ -213,6 +215,37 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 	// _slu = objNull;
 	#endif
+
+	if ("Frigate" in _grp_type && count _vehicles > 0) then {
+		_veh = _vehicles select 0;
+		if (isEngineOn _veh) then {
+			_n = getDir _veh;
+
+			// Ограничение скорости, чтобы лучше избегать столкновений.
+			// FIXME: Не работает.
+			_arr = getPos _veh;
+			_arr = ASLToATL [(_arr select 0) + 5*sin _n, (_arr select 1) + 5*cos _n, 0];
+			_deep = ((_arr select 2) max 0);
+			_limit = (((_deep - _minDeep) * 0.5) max 0.05);
+			_limit_old = _veh getVariable ["gosa_forceSpeed", -1];
+			if (abs (_limit_old - _limit) > 0.05) then {
+				_veh disableAI "AUTOCOMBAT";
+				diag_log format ["Log: [fnc_group_other] %1, if Frigate, %2 forceSpeed %3, _deep %4, %5", _grp, _veh, _limit, _deep, _arr];
+				_veh forceSpeed _limit;
+				//_limit_old = _limit;
+				_veh setVariable ["gosa_forceSpeed", _limit];
+			};
+
+			// "CUP_B_Frigate_ANZAC" не может сдвинуться с места самостоятельно.
+			if (count waypoints _grp > 0) then {
+				_speed = speed _veh;
+				if (_speed < 0.5 && _deep > _minDeep) then {
+					_veh setVelocity [1 * (sin _n), 1 * (cos _n), 0];
+				};
+			};
+		};
+	};
+
 
 	//--- точность ии
 	{
