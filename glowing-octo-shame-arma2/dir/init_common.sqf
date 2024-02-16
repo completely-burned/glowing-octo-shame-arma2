@@ -485,6 +485,13 @@ i44_tankpenetration = false;
 
 [] call gosa_fnc_worldSize;
 
+// Без этого некоторые юниты не могут инициализировать новые заскриптованые маршруты.
+{
+	for "_i" from (count waypoints _x -1) to 0 step -1 do {
+		deleteWaypoint [_x, _i];
+	};
+} forEach allGroups;
+
 [] execVM ("dir\common\while_init.sqf");
 // [] execVM "dir\ais\gosa_is.sqf";
 [] execVM ("dir\common\while_vehicles_lock.sqf");
