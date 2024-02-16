@@ -21,7 +21,7 @@
 #include "..\include\ranks.hpp"
 
 private ["_west","_east","_guer","_woodland","_deserted","_n","_d",
-	"_westN","_eastN","_guerN","_westD","_eastD","_guerD",
+	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
 	"_default_east","_default_west","_default_guer"];
 _west=[];_east=[];_guer=[];
 // Ночь.
@@ -36,6 +36,8 @@ if(toLower worldname in ["altis","vr"])then{_deserted=true};
 if(toLower worldname in ["tanoa"])then{_woodland=true};
 _n = (gosa_IslandType select 0);
 _d = (gosa_IslandType select 1);
+_depth = call gosa_fnc_getDepthAverage;
+_depth = ((_depth select 0) / 100);
 
 
 //////////////////////////////
@@ -222,6 +224,7 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
 	// boat
 	_west append [
+		//[[[["CUP_B_Frigate_ANZAC"],[],["CAPTAIN"]]], _depth min 0.5],
 		[[[["B_Soldier_TL_F","B_soldier_GL_F","B_soldier_AR_F","B_soldier_F","B_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
 			["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.5],
@@ -779,6 +782,7 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 		_guer append _default_guer;
 		// boat
 		_guer append [
+			//[[[["CUP_I_Frigate_AAF"],[],["CAPTAIN"]]], _depth min 0.5],
 			[[[["I_Soldier_TL_F","I_soldier_GL_F","I_soldier_AR_F","I_soldier_F","I_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
 				["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
 			],0.5],
