@@ -70,6 +70,7 @@ if !(IsDedicated) then {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
 	"fnc_arr_fix_configName",
+	"fnc_getDepthAverage",
 	"fnc_findStartingPos",
 	"fnc_skill_normalize_CfgAISkill",
 	"fnc_arr_sorting0",
