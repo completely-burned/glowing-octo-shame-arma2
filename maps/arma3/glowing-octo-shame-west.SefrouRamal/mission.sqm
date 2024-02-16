@@ -90,6 +90,7 @@ dlcs[]=
 randomSeed=1004593;
 class ScenarioData
 {
+	saving=0;
 	disabledAI=1;
 	respawn=3;
 	class Header
