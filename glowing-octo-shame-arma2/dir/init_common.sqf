@@ -28,8 +28,6 @@ gosa_var_respawnVehicle = "gosa_respawnVehicle";
 gosa_var_respawnVehicle_old = "respawnVehicle";
 gosa_var_spawn_time = "gosa_respawnveht";
 
-//--- функции
-[] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
 //-- Разные переменные необходимые для дальнейшей работы штабов.
 [] call compile preprocessFileLineNumbers "dir\common\init_hq.sqf";
 

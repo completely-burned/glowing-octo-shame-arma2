@@ -31,6 +31,8 @@ if !(requiredVersion "1.60") then {
 	BIS_fnc_init = true;
 #endif
 
+	[] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
+
 	[] execVM "dir\common\mpf_override.sqf";
 
 	if (!IsDedicated) then {
