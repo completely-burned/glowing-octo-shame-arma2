@@ -161,6 +161,26 @@ class Params {
 			default=-1;
 		};
 
+		// FIA
+			class gosa_faction_multiplier_OPF_G_F {
+				title="FACTION: BIS_OPF_G_F";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+			class gosa_faction_multiplier_BLU_G_F {
+				title="FACTION: BIS_BLU_G_F";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+			class gosa_faction_multiplier_IND_G_F {
+				title="FACTION: BIS_IND_G_F";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+
 		class gosa_faction_multiplier_CSLA {
 			title="FACTION: CSLA";
 			values[] = {-1,1,0};

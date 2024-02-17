@@ -87,6 +87,24 @@ _z = missionNamespace getVariable "gosa_MartaManager";
 _str = "gosa_faction_multiplier_";
 _n = 50;
 
+// FIA
+_arr = ["BIS_OPF_G_F","BIS_BLU_G_F","BIS_IND_G_F"];
+if ({missionNamespace getVariable _str+_x > 0} count _arr <= 0) then {
+	for "_i" from 0 to (count _arr -1) do {
+		_item = _arr select _i;
+		if (missionNamespace getVariable _str+_item < 0) then {
+			_arr set [_i, ""];
+		};
+	};
+	_arr = _arr -[""];
+	if (count _arr > 0) then {
+		// За синих больше отрядов FIA.
+		_str0 = _str+([_arr, [0.5, 1, 0.5]] call gosa_fnc_selectRandomWeighted);
+		missionNamespace setVariable [_str0, _n];
+		diag_log format ["Log: [params] %1 set %2", _str0, _n];
+	};
+};
+
 // WS
 	// SFIA
 	_arr = ["OPF_SFIA_lxWS","IND_SFIA_lxWS"];

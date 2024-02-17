@@ -45,6 +45,7 @@ _replaced_OPF_F = false;
 _replaced_IND_F = false;
 
 #include "config_groups_lxWS.sqf"
+#include "config_groups_FIA.sqf"
 
 //////////////////////////////
 //--- A3 ---
@@ -58,14 +59,6 @@ _default_west=[
 	[[[["B_Soldier_TL_F","B_soldier_AA_F","B_soldier_AA_F","B_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	[[[["B_soldier_GL_F","B_soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
 	[[[["B_Soldier_SL_F","B_soldier_AR_F","B_HeavyGunner_F","B_soldier_AAR_F","B_soldier_M_F","B_Sharpshooter_F","B_soldier_LAT_F","B_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["B_G_soldier_SL_F","B_G_soldier_TL_F","B_G_soldier_F","B_G_soldier_LAT_F","B_G_Soldier_M_F","B_G_soldier_AR_F","B_G_Soldier_A_F","B_G_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["B_G_soldier_SL_F","B_G_soldier_AR_F","B_G_Soldier_GL_F","B_G_Soldier_M_F","B_G_soldier_LAT_F","B_G_soldier_LAT_F","B_G_soldier_A_F","B_G_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["B_G_Soldier_TL_F","B_G_Soldier_AR_F","B_G_Soldier_GL_F","B_G_Soldier_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["B_G_Soldier_TL_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F","B_G_Soldier_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["B_G_Soldier_GL_F","B_G_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
-	[[[["B_G_Soldier_M_F","B_G_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
-	[[[["B_G_Sharpshooter_F","B_G_Soldier_M_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
-	[[[["B_G_Soldier_SL_F","B_G_Sharpshooter_F","B_G_Soldier_AR_F","B_G_Soldier_A_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// разведка
 	[[[["B_recon_TL_F","B_recon_M_F","B_recon_medic_F","B_recon_LAT_F","B_recon_JTAC_F","B_recon_exp_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	[[[["B_recon_TL_F","B_recon_M_F","B_recon_medic_F","B_recon_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
@@ -122,8 +115,6 @@ _default_west=[
 			"PRIVATE","PRIVATE"],[],1]],0.2],
 	[[[["B_soldier_TL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_AR_F","B_soldier_A_F","B_LSV_01_unarmed_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	[[[["B_soldier_AR_F","B_soldier_LAT_F""B_LSV_01_armed_F"],[[5,-5,0],[-5,-5,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE"]]],0.5],
-	[[[["B_G_Soldier_TL_F","B_G_Soldier_AR_F","B_G_Soldier_LAT_F","B_G_medic_F","B_G_Soldier_F","B_G_Offroad_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["B_G_Offroad_01_armed_F","B_G_Offroad_01_armed_F","B_G_Offroad_01_armed_F"],[[0,0,0],[10,-10,0],[-10,-10,0]],["PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// FIXME: Может разумнее сделать командиром экипаж APC т.к. у них есть приборы наблюдения и радиостанция?
 	// бтр
 		// BUS_MechInfSquad
@@ -203,9 +194,7 @@ _default_west=[
 	[[[["B_Truck_01_medical_F"],[],["PRIVATE"],[["B_medic_F"]]]],0.02],
 	[[[["B_Truck_01_Repair_F"],[],["PRIVATE"],[["B_engineer_F"]]]],0.02],
 	[[[["B_Truck_01_fuel_F"],[],["PRIVATE"]]],0.01],
-	[[[["B_Truck_01_ammo_F"],[],["PRIVATE"]]],0.02],
-	[[[["B_G_Offroad_01_repair_F"],[],["PRIVATE"],[["B_G_engineer_F"]]]],0.01],
-	[[[["B_G_Van_01_fuel_F"],[],["PRIVATE"]]],0.01]
+	[[[["B_Truck_01_ammo_F"],[],["PRIVATE"]]],0.02]
 	// турели
 	/*
 	[[[["B_GMG_01_F"],[],["PRIVATE"]]],0.1],
@@ -217,7 +206,6 @@ _default_west=[
 	[[[["B_GMG_01_A_F"],[],["PRIVATE"]]],0.1],
 	[[[["B_GMG_01_high_F"],[],["PRIVATE"]]],0.1],
 	[[[["B_Mortar_01_F"],[],["PRIVATE"]]],0.05],
-	[[[["B_G_Mortar_01_F"],[],["PRIVATE"]]],0.05]
 	*/
 ];
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_F");
@@ -456,8 +444,6 @@ _default_east=[
 	*/
 	[[[["O_soldier_TL_F","O_soldier_F","O_soldier_LAT_F","O_soldier_M_F","O_soldier_AR_F","O_soldier_A_F","O_LSV_02_unarmed_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	[[[["O_soldier_AR_F","O_soldier_LAT_F""O_LSV_02_armed_F"],[[5,-5,0],[-5,-5,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE"]]],0.5],
-	[[[["O_G_Soldier_TL_F","O_G_Soldier_AR_F","O_G_Soldier_LAT_F","O_G_medic_F","O_G_Soldier_F","O_G_Offroad_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["O_G_Offroad_01_armed_F","O_G_Offroad_01_armed_F","O_G_Offroad_01_armed_F"],[[0,0,0],[10,-10,0],[-10,-10,0]],["PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// бтр
 		// OIA_MechInfSquad
 		[[[["O_APC_Wheeled_02_rcws_v2_F",
@@ -554,9 +540,7 @@ _default_east=[
 	[[[["O_Truck_02_medical_F"],[],["PRIVATE"],[["O_medic_F"]]]],0.01],
 	[[[["O_Truck_02_box_F"],[],["PRIVATE"],[["O_engineer_F"]]]],0.01],
 	// [[[["O_Truck_02_Ammo_F"],[],["PRIVATE"]]],0.5],
-	[[[["O_Truck_02_fuel_F"],[],["PRIVATE"]]],0.01],
-	[[[["O_G_Offroad_01_repair_F"],[],["PRIVATE"],[["O_G_engineer_F"]]]],0.01],
-	[[[["O_G_Van_01_fuel_F"],[],["PRIVATE"]]],0.01]
+	[[[["O_Truck_02_fuel_F"],[],["PRIVATE"]]],0.01]
 	// турели
 	/*
 	[[[["O_GMG_01_F"],[],["PRIVATE"]]],0.1],
@@ -568,7 +552,6 @@ _default_east=[
 	[[[["O_GMG_01_A_F"],[],["PRIVATE"]]],0.1],
 	[[[["O_GMG_01_high_F"],[],["PRIVATE"]]],0.1],
 	[[[["O_Mortar_01_F"],[],["PRIVATE"]]],0.05],
-	[[[["O_G_Mortar_01_F"],[],["PRIVATE"]]],0.05]
 	*/
 ];
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_F");
@@ -769,9 +752,7 @@ _default_guer=[
 	[[[["I_Truck_02_medical_F"],[],["PRIVATE"],[["I_medic_F"]]]],0.02],
 	[[[["I_Truck_02_box_F"],[],["PRIVATE"],[["I_engineer_F"]]]],0.02],
 	[[[["I_Truck_02_fuel_F"],[],["PRIVATE"]]],0.01],
-	[[[["I_Truck_02_ammo_F"],[],["PRIVATE"]]],0.02],
-	[[[["I_G_Offroad_01_repair_F"],[],["PRIVATE"],[["I_engineer_F"]]]],0.01],
-	[[[["I_G_Van_01_fuel_F"],[],["PRIVATE"]]],0.01]
+	[[[["I_Truck_02_ammo_F"],[],["PRIVATE"]]],0.02]
 	// турели
 	/*
 	[[[["I_GMG_01_F"],[],["PRIVATE"]]],0.1],
@@ -783,7 +764,6 @@ _default_guer=[
 	[[[["I_GMG_01_A_F"],[],["PRIVATE"]]],0.1],
 	[[[["I_GMG_01_high_F"],[],["PRIVATE"]]],0.1],
 	[[[["I_Mortar_01_F"],[],["PRIVATE"]]],0.05],
-	[[[["I_G_Mortar_01_F"],[],["PRIVATE"]]],0.05]
 	*/
 ];
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_F");
