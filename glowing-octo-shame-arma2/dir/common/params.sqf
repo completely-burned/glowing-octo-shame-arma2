@@ -1,5 +1,5 @@
 
-private ["_z","_n","_arr","_str","_str0","_item"];
+private ["_z","_n","_arr","_str","_str0","_item","_arr0"];
 
 if(isMultiplayer)then{
 	waitUntil {!isNil "paramsArray"};
@@ -90,16 +90,21 @@ _n = 50;
 // FIA
 _arr = ["BIS_OPF_G_F","BIS_BLU_G_F","BIS_IND_G_F"];
 if ({missionNamespace getVariable _str+_x > 0} count _arr <= 0) then {
+	_arr0 = [[],[]];
 	for "_i" from 0 to (count _arr -1) do {
 		_item = _arr select _i;
-		if (missionNamespace getVariable _str+_item < 0) then {
-			_arr set [_i, ""];
+		if (missionNamespace getVariable _str+_item >= 0) then {
+			_arr0 select 0 set [count (_arr0 select 0), _item];
+			// За синих больше отрядов FIA.
+			if (_i == 1) then {
+				_arr0 select 1 set [count (_arr0 select 1), 1];
+			}else{
+				_arr0 select 1 set [count (_arr0 select 1), 0.5];
+			};
 		};
 	};
-	_arr = _arr -[""];
-	if (count _arr > 0) then {
-		// За синих больше отрядов FIA.
-		_str0 = _str+([_arr, [0.5, 1, 0.5]] call gosa_fnc_selectRandomWeighted);
+	if (count (_arr0 select 0) > 0) then {
+		_str0 = _str + (_arr0 call gosa_fnc_selectRandomWeighted);
 		missionNamespace setVariable [_str0, _n];
 		diag_log format ["Log: [params] %1 set %2", _str0, _n];
 	};
