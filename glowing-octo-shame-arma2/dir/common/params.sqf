@@ -91,12 +91,12 @@ _n = 50;
 _arr = ["BIS_OPF_G_F","BIS_BLU_G_F","BIS_IND_G_F"];
 if ({missionNamespace getVariable _str+_x > 0} count _arr <= 0) then {
 	_arr0 = [[],[]];
-	for "_i" from 0 to (count _arr -1) do {
+	for "_i" from 0 to 2 do {
 		_item = _arr select _i;
 		if (missionNamespace getVariable _str+_item >= 0) then {
 			_arr0 select 0 set [count (_arr0 select 0), _item];
 			// За синих больше отрядов FIA.
-			if (_i == 1) then {
+			if (_i == 1) then { // BIS_BLU_G_F
 				_arr0 select 1 set [count (_arr0 select 1), 1];
 			}else{
 				_arr0 select 1 set [count (_arr0 select 1), 0.5];
