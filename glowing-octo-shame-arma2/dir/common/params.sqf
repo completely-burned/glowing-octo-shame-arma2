@@ -1,5 +1,5 @@
 
-private ["_z"];
+private ["_z","_n","_arr","_str","_str0","_item"];
 
 if(isMultiplayer)then{
 	waitUntil {!isNil "paramsArray"};
@@ -81,6 +81,45 @@ _z = missionNamespace getVariable "gosa_locationType";
 _z = missionNamespace getVariable "gosa_MartaManager";
 	if (_z == -1 && gosa_loglevel > 0) then {
 			missionNamespace setVariable ["gosa_MartaManager", 1];
+	};
+
+
+_str = "gosa_faction_multiplier_";
+_n = 50;
+
+// WS
+	// SFIA
+	_arr = ["OPF_SFIA_lxWS","IND_SFIA_lxWS"];
+	if ({missionNamespace getVariable _str+_x > 0} count _arr <= 0) then {
+		for "_i" from 0 to (count _arr -1) do {
+			_item = _arr select _i;
+			if (missionNamespace getVariable _str+_item < 0) then {
+				_arr set [_i, ""];
+			};
+		};
+		_arr = _arr -[""];
+		if (count _arr > 0) then {
+			_str0 = _str+(_arr call BIS_fnc_selectRandom);
+			missionNamespace setVariable [_str0, _n];
+			diag_log format ["Log: [params] %1 set %2", _str0, _n];
+		};
+	};
+
+	// TURA
+	_arr = ["OPF_TURA_lxWS","BLU_TURA_lxWS","IND_TURA_lxWS"];
+	if ({missionNamespace getVariable _str+_x > 0} count _arr <= 0) then {
+		for "_i" from 0 to (count _arr -1) do {
+			_item = _arr select _i;
+			if (missionNamespace getVariable _str+_item < 0) then {
+				_arr set [_i, ""];
+			};
+		};
+		_arr = _arr -[""];
+		if (count _arr > 0) then {
+			_str0 = _str+(_arr call BIS_fnc_selectRandom);
+			missionNamespace setVariable [_str0, _n];
+			diag_log format ["Log: [params] %1 set %2", _str0, _n];
+		};
 	};
 
 gosa_param_init_done = true;

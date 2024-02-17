@@ -211,6 +211,59 @@ class Params {
 			default=-1;
 		};
 
+		// WS
+			class gosa_faction_multiplier_BLU_NATO_lxWS {
+				title="FACTION: BLU_NATO_lxWS";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+			class gosa_faction_multiplier_BLU_ION_lxWS {
+				title="FACTION: BLU_ION_lxWS";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+			class gosa_faction_multiplier_BLU_UN_lxWS {
+				title="FACTION: BLU_UN_lxWS";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+
+			class gosa_faction_multiplier_OPF_SFIA_lxWS {
+				title="FACTION: OPF_SFIA_lxWS";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+			class gosa_faction_multiplier_IND_SFIA_lxWS {
+				title="FACTION: IND_SFIA_lxWS";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+
+			class gosa_faction_multiplier_OPF_TURA_lxWS {
+				title="FACTION: OPF_TURA_lxWS";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+			class gosa_faction_multiplier_BLU_TURA_lxWS {
+				title="FACTION: BLU_TURA_lxWS";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+			class gosa_faction_multiplier_IND_TURA_lxWS {
+				title="FACTION: IND_TURA_lxWS";
+				values[] = {0,100,-100};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = 0;
+			};
+
+		// RHS
 		class gosa_faction_multiplier_RHS_MSV {
 			title="FACTION: RHS_MSV";
 			values[] = {-1,1,0};
