@@ -1,4 +1,5 @@
 /*
+ * TODO: Рефакторинг.
 эта функция отвечает за создание маршрутных точек для ии
 TODO: коду нужна ревизия
 TODO: Нужна карта файла.
@@ -64,7 +65,7 @@ TODO: Нужна карта файла.
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_survival",
 	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr","_wpType_GETOUT",
-	"_wpType_TrUNLOAD_Plane",
+	"_wpType_TrUNLOAD_Plane","_veh",
 	"_grp_wp_completed","_g2","_z","_v","_b"];
 _grp=_this;
 
@@ -231,27 +232,33 @@ if({alive _x} count _units > 0)then{
 				_g2 = group vehicle _leader;
 				diag_log format ["Log: [fnc_group_wp] #landing %1 группа вертолета", _g2];
 
-				_z = [_g2, currentWaypoint _g2];
-				diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут группы вертолета", [_g2, waypointType _z, waypointPosition _z]];
-
-
-				if (waypointPosition _z select 0 != 0 && waypointType _z != _wpType_TrUNLOAD) then {
-					for "_i" from count waypoints _g2 - 1 to 0 step -1 do {
-						deleteWaypoint [_g2, _i];
-					};
-					diag_log format ["Log: [fnc_group_wp] #landing %1 deleteWaypoint !='TR UNLOAD'", _z, _z];
-				};
-
-				if (count waypoints _grp == 0) then {
-					diag_log format ["Log: [fnc_group_wp] #landing %1 нет маршрута", _grp];
-				}else{
-
-					if (waypointPosition _wp select 0 != 0 && _typeWP != "GETOUT") then {
-						_wp setWaypointType "GETOUT";
-						diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType 'GETOUT'", _grp];
+				_arr = waypoints _g2;
+				if (count _arr > 0) then {
+					//- исправление маршрута.
+					if (count _arr <= 1) then {
+						_n = 0;
+					}else{
+						_n = currentWaypoint _g2;
 					};
 
-					//--- синхронизируем маршруты
+					//--- маршрут пилота вертолета
+					_z = [_g2, _n];
+					
+					_str = toUpper waypointType _z;
+					diag_log format ["Log: [fnc_group_wp] #landing %1 маршрут группы вертолета", [_g2, _str, waypointPosition _z]];
+
+					if (waypointPosition _z select 0 != 0 && _str != _wpType_TrUNLOAD) then {
+						for "_i" from count waypoints _g2 - 1 to 0 step -1 do {
+							deleteWaypoint [_g2, _i];
+						};
+						diag_log format ["Log: [fnc_group_wp] #landing %1 deleteWaypoint != _wpType_TrUNLOAD", _z, _z];
+					}else{
+						if (waypointPosition _wp select 0 != 0 && _str != _wpType_GETOUT) then {
+							_wp setWaypointType _wpType_GETOUT;
+							diag_log format ["Log: [fnc_group_wp] #landing %1 setWaypointType _wpType_GETOUT", _grp];
+						};
+
+						//--- синхронизируем маршруты
 						// TODO: нужны проверка на grpNull и count waypoints и позицию [0,0] и прочее
 
 
@@ -267,12 +274,9 @@ if({alive _x} count _units > 0)then{
 
 								//--- выгрузка
 									if ((_leaderPos distance waypointPosition _z < 10) or !isNil{_grp_wp_completed}) then {
-
-
 										diag_log format ["Log: [fnc_group_wp] #landing %1 выгрузка, дист. %2", _grp, _leaderPos distance waypointPosition _wp];
 
 										//--- маршрут прикрепляю к тс для выгрузки немедленно
-											private["_veh"];
 											_veh = vehicle _leader;
 											if(waypointAttachedVehicle _z != _veh)then{
 												_z waypointAttachVehicle _veh;
@@ -285,15 +289,14 @@ if({alive _x} count _units > 0)then{
 											};
 									};
 							};
-						}else{
-							diag_log format ["Log: [fnc_group_wp] #landing маршруты на позиции %1", [_wp, waypointPosition _wp, _z, waypointPosition _z]];
-						};
-
+					}else{//diag_log
+						diag_log format ["Log: [fnc_group_wp] #landing маршруты на позиции %1", [_wp, waypointPosition _wp, _z, waypointPosition _z]];
+					};
 				};
-
-
+			}else{//diag_log
+				diag_log format ["Log: [fnc_group_wp] #landing %1 нет маршрута", _grp];
 			};
-
+		};
 	};
 
 	// десант самолетный

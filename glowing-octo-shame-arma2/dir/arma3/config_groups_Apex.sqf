@@ -77,6 +77,14 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 			// беспилотники
 			// авиация
 			[[
+				[["B_Heli_Transport_03_F"],[[0,0,0]],["LIEUTENANT"]],
+				[["B_T_soldier_SL_F","B_T_soldier_TL_F","B_T_soldier_F","B_T_soldier_LAT_F","B_T_soldier_M_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+			],0.5],
+			[[
+				[["B_Heli_Transport_03_F"],[[0,0,0]],["LIEUTENANT"]],
+				[["B_T_soldier_SL_F","B_T_soldier_AR_F","B_T_soldier_GL_F","B_T_soldier_M_F","B_T_soldier_AT_F","B_T_soldier_AAT_F","B_T_soldier_A_F","B_T_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+			],0.5],
+			[[
 				[["B_T_VTOL_01_infantry_F"],[[0,0,0]],["LIEUTENANT"]],
 				[["B_T_soldier_SL_F","B_T_soldier_TL_F","B_T_soldier_F","B_T_soldier_LAT_F","B_T_soldier_M_F","B_T_soldier_AR_F","B_T_soldier_A_F","B_T_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
 			],0.5],
@@ -161,8 +169,12 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 			// беспилотники
 			// авиация
 			[[
-				[["O_Heli_Transport_04_bench_F"],[[0,0,0]],["LIEUTENANT"]],
+				[["O_Heli_Transport_04_covered_F"],[[0,0,0]],["LIEUTENANT"]],
 				[["O_V_Soldier_TL_ghex_F","O_V_Soldier_JTAC_ghex_F","O_V_Soldier_M_ghex_F","O_V_Soldier_Exp_ghex_F","O_V_Soldier_LAT_ghex_F","O_V_Soldier_Medic_ghex_F","O_V_Soldier_ghex_F","O_V_Soldier_ghex_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+			],0.5],
+			[[
+				[["O_Heli_Transport_04_covered_F"],[[0,0,0]],["LIEUTENANT"]],
+				[["O_T_soldier_SL_F","O_T_soldier_AR_F","O_T_soldier_GL_F","O_T_soldier_M_F","O_T_soldier_AT_F","O_T_soldier_AAT_F","O_T_soldier_A_F","O_T_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
 			],0.5],
 			[[
 				[["O_Heli_Transport_04_covered_F"],[[0,0,0]],["LIEUTENANT"]],

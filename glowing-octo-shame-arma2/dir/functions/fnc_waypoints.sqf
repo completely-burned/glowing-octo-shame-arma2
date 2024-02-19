@@ -284,7 +284,11 @@ if(!isNil "_leader")then{
 
 		// авиация десант тип маршрута
 		if(_landing && "Air" in _grp_type)then{
-			_WaypointType = _wpType_TrUNLOAD_Plane;
+			if ("Plane" in _grp_type) then {
+				_WaypointType = _wpType_TrUNLOAD_Plane;
+			} else {
+				_WaypointType = _wpType_TrUNLOAD;
+			};
 		};
 
 		// лодки тип маршрута
