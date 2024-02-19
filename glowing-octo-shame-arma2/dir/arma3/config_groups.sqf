@@ -855,6 +855,14 @@ _east=_east+[
 
 //#include "config_groups_TEST.sqf"
 
+_eastN = _eastN call gosa_fnc_filtering_squads_byAvail;
+_westN = _westN call gosa_fnc_filtering_squads_byAvail;
+_guerN = _guerN call gosa_fnc_filtering_squads_byAvail;
+
+_east = _east call gosa_fnc_filtering_squads_byAvail;
+_west = _west call gosa_fnc_filtering_squads_byAvail;
+_guer = _guer call gosa_fnc_filtering_squads_byAvail;
+
 gosa_Groups_Night = [];
 gosa_Groups_Night set [0, _eastN call gosa_fnc_arrSorting_confGroups];
 gosa_Groups_Night set [1, _westN call gosa_fnc_arrSorting_confGroups];

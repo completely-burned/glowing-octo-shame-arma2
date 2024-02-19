@@ -15,29 +15,7 @@ for [{_n = 0},{_n < 100},{_n = _n + 1}] do {
 	};
 };
 
-private["_fnc4","_fnc1","_fnc5"];
-// Функция отсеивает отряды с юнитами неустановленных расширений.
-_fnc5={
-	private["_grp","_types","_true"];
-	_grp = _this; // [[[[[_types,_positions,_ranks],[_types,_positions,_ranks]]],[[_types,_positions,_ranks],[_types,_positions,_ranks]]],[0.5,0.5]]
-	for "_i" from 0 to ((count (_grp select 0)) - 1) do {
-		_types = [_grp, [0, _i, 0, 0, 0]] call BIS_fnc_returnNestedElement;
-			_true=false;
-			 ScopeName "Check_fnc5";
-			{
-				if (configName(LIB_cfgVeh >> _x) == "")  then {
-					_true=true;
-					diag_log format ["init_Groups.sqf _fnc5; %1; %2", _x, _types];
-					 BreakTo "Check_fnc5";
-				};
-			}forEach _types;
-
-			if (_true) then {
-				[_grp, [1, _i],  0] call BIS_fnc_setNestedElement;
-			};
-	};
-	_grp
-};
+private["_fnc4","_fnc1"];
 
 _fnc4={
 	private["_grp","_types"];
@@ -99,10 +77,6 @@ _fnc6={
 #else
 [] call compile preprocessFileLineNumbers "dir\server\config_groups.sqf";
 #endif
-
-AllGroupsWest = AllGroupsWest call _fnc5;
-AllGroupsEast = AllGroupsEast call _fnc5;
-AllGroupsGuer = AllGroupsGuer call _fnc5;
 
 //AllGroupsWestOld 		= AllGroupsWest;
 //AllGroupsEastOld 		= AllGroupsEast;
