@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=169;
+		nextID=177;
 	};
 	class MarkerIDProvider
 	{
@@ -17,9 +17,6 @@ class EditorData
 	class Camera
 	{
 		pos[]={2280.8491,66.79026,7179.8018};
-		dir[]={0.61713403,-0.52496821,-0.58626652};
-		up[]={0.38061073,0.8511107,-0.36157393};
-		aside[]={-0.68879646,-1.5314436e-007,-0.72506368};
 	};
 };
 binarizationWanted=0;
@@ -28,13 +25,14 @@ addons[]=
 {
 	"A3_Ui_F",
 	"A3_Characters_F",
-	"A3_Modules_F"
+	"A3_Modules_F",
+	"A3_Weapons_F_Ammoboxes"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=3;
+		items=4;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -53,6 +51,13 @@ class AddonsMetaData
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -183,11 +188,11 @@ class Mission
 	};
 	class Entities
 	{
-		items=16;
+		items=21;
 		class Item0
 		{
 			dataType="Marker";
-			position[]={20429.607,33.468811,20427.537};
+			position[]={20428,0,20428};
 			name="gosa_worldSize";
 			type="Empty";
 			id=0;
@@ -340,10 +345,6 @@ class Mission
 		class Item2
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2016.532,32.693695,7034.9438};
-			};
 			name="HeadlessClient";
 			isPlayable=1;
 			id=150;
@@ -352,10 +353,6 @@ class Mission
 		class Item3
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2016.2598,32.678741,7031.2832};
-			};
 			name="HeadlessClient_1";
 			isPlayable=1;
 			id=151;
@@ -364,10 +361,6 @@ class Mission
 		class Item4
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2016.7169,32.705585,7028.0811};
-			};
 			name="HeadlessClient_2";
 			isPlayable=1;
 			id=152;
@@ -376,10 +369,6 @@ class Mission
 		class Item5
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2016.5645,32.699821,7025.1855};
-			};
 			name="HeadlessClient_3";
 			isPlayable=1;
 			id=153;
@@ -388,10 +377,6 @@ class Mission
 		class Item6
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2016.4122,32.69289,7022.4414};
-			};
 			name="HeadlessClient_4";
 			isPlayable=1;
 			id=154;
@@ -400,10 +385,6 @@ class Mission
 		class Item7
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2020.3724,32.912479,7021.3745};
-			};
 			name="HeadlessClient_5";
 			isPlayable=1;
 			id=155;
@@ -412,10 +393,6 @@ class Mission
 		class Item8
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2020.0679,32.892452,7025.0317};
-			};
 			name="HeadlessClient_6";
 			isPlayable=1;
 			id=156;
@@ -424,10 +401,6 @@ class Mission
 		class Item9
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2020.6772,32.923054,7028.2349};
-			};
 			name="HeadlessClient_7";
 			isPlayable=1;
 			id=157;
@@ -436,10 +409,6 @@ class Mission
 		class Item10
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2020.8296,32.930576,7031.4355};
-			};
 			name="HeadlessClient_8";
 			isPlayable=1;
 			id=158;
@@ -448,10 +417,6 @@ class Mission
 		class Item11
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2020.8296,32.930576,7034.79};
-			};
 			name="HeadlessClient_9";
 			isPlayable=1;
 			id=159;
@@ -477,7 +442,7 @@ class Mission
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
 			id=163;
-			type="LocationCamp_F";
+			type="LocationRespawnPoint_F";
 		};
 		class Item14
 		{
@@ -488,7 +453,7 @@ class Mission
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=165;
-			type="LocationCamp_F";
+			type="LocationRespawnPoint_F";
 		};
 		class Item15
 		{
@@ -534,9 +499,88 @@ class Mission
 			};
 			class Attributes
 			{
-				combatMode="WHITE";
 			};
 			id=166;
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2214.7827,34.548214,7140.6646};
+				angles[]={0.0084078256,0,6.278985};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=169;
+			type="Box_IND_Wps_F";
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2217.9719,34.625381,7141.2656};
+				angles[]={0.0084078256,0,6.278985};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=172;
+			type="Box_IND_Support_F";
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2216.9592,34.473427,7143.9556};
+				angles[]={0.0075011365,0,6.279892};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=174;
+			type="Box_IND_WpsLaunch_F";
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2219.7417,34.601875,7143.5278};
+				angles[]={0.0075011365,0,6.279892};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=175;
+			type="Box_IND_Ammo_F";
+		};
+		class Item20
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2182.6753,33.854679,7095.1914};
+				angles[]={0.01831243,0,6.278985};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=176;
+			type="Box_IND_Support_F";
 		};
 	};
 	class Connections
