@@ -33,6 +33,8 @@ if !(requiredVersion "1.60") then {
 
 	[] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
 
+	[] execVM "dir\common\init_debug.sqf";//diag_log
+
 	[] execVM "dir\common\mpf_override.sqf";
 
 	if (!IsDedicated) then {
