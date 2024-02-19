@@ -27,10 +27,10 @@ if (_w in ["utes","i44_omaha","sara"]) then {_r set [0,180]};
 if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
 	"noe","thirsk","vt7"]) then {_r set [0,190]};
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
-	"gm_weferlingen_summer",
+	"gm_weferlingen_summer","beketov",
 	"mcn_neaville","i44_merderet_v2","i44_merderet","stozec"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl"]) then {_r set [0,225]};
-if (_w in ["altis","vr","stratis","porto","beketov","kunduz","tem_anizay"]) then {_r set [0,250]};
+if (_w in ["altis","vr","stratis","porto","kunduz","tem_anizay"]) then {_r set [0,250]};
 if (_w in ["zargabad","takistan","desert_e","shapur_baf","mountains_acr","fallujah",
 	"sefrouramal"]) then {_r set [0,300]};
 
