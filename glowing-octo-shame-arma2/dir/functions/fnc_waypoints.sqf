@@ -5,6 +5,7 @@
 	diag_log format ["Log: [fnc_waypoints] start %1", _this];
 private ["_wpType_TrUNLOAD","_leader","_cfgWea","_b",
 	"_minDist","_minDeep","_arr","_worldSize","_n",
+	"_wpType_TrUNLOAD_Plane",
 	"_true","_dir","_dist2","_testPos","_limit"];
 
 _leader = (_this select 0);
@@ -12,11 +13,12 @@ _cfgWea = LIB_cfgWea;
 _worldSize = gosa_worldSize;
 _minDeep = gosa_minDeepFrigate;
 
+_wpType_TrUNLOAD = "TR UNLOAD";
 #ifdef __ARMA3__
 	// Тип маршрута "сброс груза" не сажает самолёт.
-	_wpType_TrUNLOAD = "UNHOOK";
+	_wpType_TrUNLOAD_Plane = "UNHOOK";
 #else
-	_wpType_TrUNLOAD = "TR UNLOAD";
+	_wpType_TrUNLOAD_Plane = _wpType_TrUNLOAD;
 #endif
 
 if(!isNil "_leader")then{
@@ -282,7 +284,7 @@ if(!isNil "_leader")then{
 
 		// авиация десант тип маршрута
 		if(_landing && "Air" in _grp_type)then{
-			_WaypointType = _wpType_TrUNLOAD;
+			_WaypointType = _wpType_TrUNLOAD_Plane;
 		};
 
 		// лодки тип маршрута

@@ -64,15 +64,17 @@ TODO: Нужна карта файла.
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_survival",
 	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr","_wpType_GETOUT",
+	"_wpType_TrUNLOAD_Plane",
 	"_grp_wp_completed","_g2","_z","_v","_b"];
 _grp=_this;
 
 
+_wpType_TrUNLOAD = "TR UNLOAD";
 #ifdef __ARMA3__
 	// Тип маршрута "сброс груза" не сажает самолёт.
-	_wpType_TrUNLOAD = "UNHOOK";
+	_wpType_TrUNLOAD_Plane = "UNHOOK";
 #else
-	_wpType_TrUNLOAD = "TR UNLOAD";
+	_wpType_TrUNLOAD_Plane = _wpType_TrUNLOAD;
 #endif
 _wpType_UNLOAD = "UNLOAD";
 _wpType_GETOUT = "GETOUT";
@@ -324,15 +326,15 @@ if({alive _x} count _units > 0)then{
 					_str = toUpper waypointType _z;
 					diag_log format ["Log: [fnc_group_wp] #landing самолет %1 маршрут %2 тип %3 позиция %4", _arr, _n, _str, waypointPosition _z];
 
-					if (waypointPosition _z select 0 != 0 && _str != _wpType_TrUNLOAD) then {
-						diag_log format ["Log: [fnc_group_wp] #landing самолет %1 %2 != %3, удаление маршрутов группы самолета и отмена", _arr, _str, _wpType_TrUNLOAD];
+					if (waypointPosition _z select 0 != 0 && _str != _wpType_TrUNLOAD_Plane) then {
+						diag_log format ["Log: [fnc_group_wp] #landing самолет %1 %2 != %3, удаление маршрутов группы самолета и отмена", _arr, _str, _wpType_TrUNLOAD_Plane];
 						for "_i" from (count _arr -1) to 0 step -1 do {
 							deleteWaypoint [_g2, _i];
 						};
 
 						// перед типом, нужно установить маршрут на позицию чтобы небыло ложных срабатываний
-						// тип маршрута "TR UNLOAD" или "GETOUT" сажает самолет
-						// _z setWaypointType _wpType_TrUNLOAD;
+						// тип маршрута "TR UNLOAD" или _wpType_GETOUT сажает самолет
+						// _z setWaypointType _wpType_TrUNLOAD_Plane;
 					 }else{
 
 						if (count _arr <= 0) then {
@@ -341,7 +343,7 @@ if({alive _x} count _units > 0)then{
 
 							if (waypointPosition _wp select 0 != 0 && _typeWP != _wpType_UNLOAD) then {
 								diag_log format ["Log: [fnc_group_wp] #landing %1 тип %2 маршрута десанта исправлен на UNLOAD", _wp, waypointType _wp];
-								// тип маршрута _wpType_UNLOAD или "GETOUT" сажает! самолет
+								// тип маршрута _wpType_UNLOAD или _wpType_GETOUT сажает! самолет
 								_wp setWaypointType _wpType_UNLOAD;
 							};
 
@@ -690,7 +692,7 @@ if({alive _x} count _units > 0)then{
 			};
 
 			//--- пост выгрузка, транспорт
-				if (_typeWP == _wpType_TrUNLOAD) then {
+				if (_typeWP in [_wpType_TrUNLOAD_Plane,_wpType_TrUNLOAD]) then {
 					private["_landing"];
 					_landing = false;
 					{
@@ -714,7 +716,7 @@ if({alive _x} count _units > 0)then{
 				};
 
 			//--- пост выгрузка, пехота
-				if (_typeWP in [_wpType_UNLOAD,"GETOUT"]) then {
+				if (_typeWP in [_wpType_UNLOAD,_wpType_GETOUT]) then {
 					if ({vehicle _x == _x} count _units == count _units) then {
 						_DeleteWP = true;
 						_NoCreateWP = true;
