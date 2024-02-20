@@ -192,9 +192,9 @@ class Mission
 	appId=1681170;
 	class Intel
 	{
+		briefingName="WS CO 00 glowing-octo-shame SefrouRamal West v0.0.5.912 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
-		briefingName="WS CO 00 glowing-octo-shame SefrouRamal West v0.0.5.912 DEBUG";
 		startWind=0.1;
 		startWaves=0.1;
 		forecastWeather=0.1;
