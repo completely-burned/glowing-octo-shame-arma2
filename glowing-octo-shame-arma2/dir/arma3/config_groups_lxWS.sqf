@@ -1,6 +1,7 @@
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_SFIA_lxWS");
 if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
 	if (_tmp > 50 or _n >= 300) then {
+		if ((_tmp >= 0 && _tmp <= 50) && count _replace_OPF_CSAT > 0) exitWith {};
 	_replace_OPF_CSAT append ([
 		// configName OSFIA_MotInf_Team_lxWS
 		[[[["O_SFIA_Offroad_armed_lxWS","O_SFIA_soldier_at_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.5],
@@ -57,6 +58,7 @@ if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_NATO_lxWS");
 if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
 	if (_tmp > 50 or _n >= 300) then {
+		if ((_tmp >= 0 && _tmp <= 50) && count _replace_BLU_NATO > 0) exitWith {};
 	_replace_BLU_NATO append ([
 		// configName BUS_D_Support_CLS_lxWS
 		[[[["B_D_soldier_TL_lxWS","B_D_soldier_AR_lxWS","B_D_medic_lxWS","B_D_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
@@ -146,6 +148,7 @@ if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_ION_lxWS");
 if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
 	if (_tmp > 50 or _n >= 300) then {
+		if ((_tmp >= 0 && _tmp <= 50) && count _replace_IND_ION > 0) exitWith {};
 	_west append [
 		// configName B_ION_MotInf_Team_lxWS
 		[[[["B_ION_Offroad_armed_lxWS","B_ION_Soldier_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.5],
@@ -181,6 +184,7 @@ if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_UN_lxWS");
 if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
 	if (_tmp > 50 or _n >= 300) then {
+		if ((_tmp >= 0 && _tmp <= 50) && count _replace_IND_UN > 0) exitWith {};
 	_west append [
 		// configName BUNA_MotInf_Team
 		[[[["B_UN_MRAP_01_lxWS","B_UN_soldier_AR_lxWS","B_UN_Soldier_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
@@ -207,6 +211,7 @@ if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_SFIA_lxWS");
 if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
 	if (_tmp > 50 or _n >= 300) then {
+		if ((_tmp >= 0 && _tmp <= 50) && count _replace_IND_AAF > 0) exitWith {};
 	_replace_IND_AAF append ([
 		// configName ISFIA_MotInf_Team_lxWS
 		[[[["I_SFIA_Offroad_armed_lxWS","I_SFIA_soldier_at_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.5],

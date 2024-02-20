@@ -23,6 +23,7 @@
 private ["_west","_east","_guer","_woodland","_deserted","_n","_d",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
 	"_arr","_replace_BLU_NATO","_replace_OPF_CSAT","_replace_IND_AAF",
+	"_replace_UN","_replace_IND_ION",
 	"_default_east","_default_west","_default_guer"];
 _west=[];_east=[];_guer=[];
 // Ночь.
@@ -46,6 +47,11 @@ _replace_OPF_CSAT = [];
 _replace_BLU_NATO = [];
 // Отряды заменяющие ванильный AAF.
 _replace_IND_AAF = [];
+_replace_IND_UN = [];
+_replace_IND_ION = [];
+
+
+#include "config_groups_CUP.sqf"
 
 #include "config_groups_lxWS.sqf"
 #include "config_groups_FIA.sqf"
@@ -53,6 +59,8 @@ _replace_IND_AAF = [];
 _east append _replace_OPF_CSAT;
 _west append _replace_BLU_NATO;
 _guer append _replace_IND_AAF;
+_guer append _replace_IND_UN;
+_guer append _replace_IND_ION;
 
 //////////////////////////////
 //--- A3 ---
@@ -776,7 +784,7 @@ _default_guer=[
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_F");
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
-		if (_tmp == -1 && count _replace_IND_AAF > 0) exitWith {};
+		if (_tmp == -1 && count _replace_IND_AAF + count _replace_IND_UN > 0) exitWith {};
 		_guer append _default_guer;
 		// boat
 		_guer append [
@@ -857,7 +865,6 @@ _east=_east+[
 #include "config_groups_GM.sqf"
 #include "config_groups_CSLA.sqf"
 
-#include "config_groups_CUP.sqf"
 #include "config_groups_RHS.sqf"
 
 //#include "config_groups_TEST.sqf"
