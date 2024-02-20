@@ -22,7 +22,7 @@
 
 private ["_west","_east","_guer","_woodland","_deserted","_n","_d",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
-	"_arr","_replaced_BLU_F","_replaced_OPF_F","_replaced_IND_F",
+	"_arr","_replace_BLU_NATO","_replace_OPF_CSAT","_replace_IND_AAF",
 	"_default_east","_default_west","_default_guer"];
 _west=[];_east=[];_guer=[];
 // Ночь.
@@ -40,12 +40,19 @@ _d = (gosa_IslandType select 1);
 _depth = call gosa_fnc_getDepthAverage;
 _depth = ((_depth select 0) / 100);
 
-_replaced_BLU_F = false;
-_replaced_OPF_F = false;
-_replaced_IND_F = false;
+// Отряды заменяющие ванильный CSAT.
+_replace_OPF_CSAT = [];
+// Отряды заменяющие ванильный NATO.
+_replace_BLU_NATO = [];
+// Отряды заменяющие ванильный AAF.
+_replace_IND_AAF = [];
 
 #include "config_groups_lxWS.sqf"
 #include "config_groups_FIA.sqf"
+
+_east append _replace_OPF_CSAT;
+_west append _replace_BLU_NATO;
+_guer append _replace_IND_AAF;
 
 //////////////////////////////
 //--- A3 ---
@@ -211,13 +218,13 @@ _default_west=[
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_F");
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
-		if (_tmp == -1 && _replaced_BLU_F) exitWith {};
+		if (_tmp == -1 && count _replace_BLU_NATO > 0) exitWith {};
 		_west append _default_west;
 	};
 };
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
-		if (_tmp == -1 && _replaced_BLU_F) exitWith {};
+		if (_tmp == -1 && count _replace_BLU_NATO > 0) exitWith {};
 	// boat
 	_west append [
 		//[[[["CUP_B_Frigate_ANZAC"],[],["CAPTAIN"]]], _depth min 0.5],
@@ -557,13 +564,13 @@ _default_east=[
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_F");
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
-		if (_tmp == -1 && _replaced_OPF_F) exitWith {};
+		if (_tmp == -1 && count _replace_OPF_CSAT > 0) exitWith {};
 		_east append _default_east;
 	};
 };
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
-		if (_tmp == -1 && _replaced_OPF_F) exitWith {};
+		if (_tmp == -1 && count _replace_OPF_CSAT > 0) exitWith {};
 	// boat
 	_east append [
 		[[[["O_Soldier_TL_F","O_soldier_GL_F","O_soldier_AR_F","O_soldier_F","O_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
@@ -769,7 +776,7 @@ _default_guer=[
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_F");
 if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
-		if (_tmp == -1 && _replaced_IND_F) exitWith {};
+		if (_tmp == -1 && count _replace_IND_AAF > 0) exitWith {};
 		_guer append _default_guer;
 		// boat
 		_guer append [
