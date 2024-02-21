@@ -1,106 +1,7 @@
 
 #include "..\include\ranks.hpp"
 
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"RHS_MSV");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
-if (_tmp > 0 or (_tmp == -1 && _n >= 160)) then {
-
-/*
-_east=_east+[
-	// пехота
-	[[[["rhs_msv_sergeant","rhs_msv_efreitor","rhs_msv_grenadier_rpg","rhs_msv_strelok_rpg_assist","rhs_msv_machinegunner","rhs_msv_LAT","rhs_msv_strelok_rpg_assist","rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_medic"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[5,5,0],[5,10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["rhs_msv_junior_sergeant","rhs_msv_aa","rhs_msv_aa","rhs_msv_aa","rhs_msv_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["rhs_msv_junior_sergeant","rhs_msv_at","rhs_msv_strelok_rpg_assist","rhs_msv_LAT","rhs_msv_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// колесный
-	[[[
-		["rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_efreitor","rhs_msv_grenadier",
-		"rhs_msv_machinegunner","rhs_msv_arifleman","rhs_msv_marksman",
-		"rhs_msv_at","rhs_msv_grenadier_rpg",
-		"rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_machinegunner_assistant","rhs_msv_strelok_rpg_assist","rhs_msv_medic","RHS_Ural_MSV_01"],
-		[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[-5,-8,0],[-5,-10,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[5,2,0],[0,0,0]],
-		["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
-	]],0.5],
-	[[[
-		["rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_efreitor","rhs_msv_grenadier",
-		"rhs_msv_machinegunner","rhs_msv_arifleman","rhs_msv_marksman","rhs_msv_marksman",
-		"rhs_msv_at","rhs_msv_grenadier_rpg",
-		"rhs_msv_rifleman","rhs_msv_strelok_rpg_assist","rhs_msv_machinegunner_assistant","rhs_gaz66_msv"],
-		[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[-5,-8,0],[-5,-10,0],[-5,-6,0],[-5,-4,0],[-5,-2,0],[-5,0,0],[5,2,0],[0,0,0]],
-		["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
-	]],0.5],
-	// бтр
-	[[[
-		["rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_efreitor","rhs_msv_grenadier",
-		"rhs_btr70_msv",
-		"rhs_msv_machinegunner","rhs_msv_arifleman","rhs_msv_marksman",
-		"rhs_msv_at","rhs_msv_grenadier_rpg","rhs_msv_aa",
-		"rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_machinegunner_assistant","rhs_msv_strelok_rpg_assist","rhs_msv_engineer","rhs_msv_medic"],
-		[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[-5,-8,0],[-5,-10,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[5,2,0],[-5,2,0],[5,4,0],[0,0,0]],
-		["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
-	]],0.5],
-	[[[
-		["rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_efreitor","rhs_msv_grenadier",
-		"rhs_btr80a_msv",
-		"rhs_msv_machinegunner","rhs_msv_arifleman","rhs_msv_marksman","rhs_msv_marksman",
-		"rhs_msv_at","rhs_msv_grenadier_rpg","rhs_msv_aa",
-		"rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_machinegunner_assistant","rhs_msv_strelok_rpg_assist",
-		"rhs_msv_engineer","rhs_msv_medic"],
-		[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[-5,-8,0],[-5,-10,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[5,2,0],[-5,2,0],[5,4,0],[-5,4,0],[0,0,0]],
-		["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
-	]],0.5],
-	[[[
-		["rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_efreitor","rhs_msv_grenadier",
-		"rhs_btr80_msv",
-		"rhs_msv_machinegunner","rhs_msv_arifleman","rhs_msv_marksman","rhs_msv_marksman",
-		"rhs_msv_at","rhs_msv_grenadier_rpg","rhs_msv_aa",
-		"rhs_msv_rifleman","rhs_msv_rifleman","rhs_msv_machinegunner_assistant","rhs_msv_strelok_rpg_assist",
-		"rhs_msv_engineer","rhs_msv_medic"],
-		[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[-5,-8,0],[-5,-10,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[5,2,0],[-5,2,0],[5,4,0],[-5,4,0],[0,0,0]],
-		["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
-	]],0.5],
-	// гусеничный
-	[[[
-		["rhs_msv_sergeant","rhs_msv_junior_sergeant",
-		"rhs_bmp3m_msv",
-		"rhs_msv_machinegunner","rhs_msv_arifleman","rhs_msv_marksman",
-		"rhs_msv_at","rhs_msv_grenadier_rpg","rhs_msv_strelok_rpg_assist","rhs_msv_engineer"],
-		[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[-5,-8,0],[-5,-10,0],[-5,0,0],[0,0,0]],
-		["CAPTAIN","LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
-	]],0.5],
-	[[[
-		["rhs_msv_sergeant","rhs_msv_junior_sergeant","rhs_msv_efreitor","rhs_msv_grenadier",
-		"rhs_bmp2_msv",
-		"rhs_msv_machinegunner","rhs_msv_arifleman","rhs_msv_arifleman","rhs_msv_marksman","rhs_msv_marksman",
-		"rhs_msv_at","rhs_msv_at","rhs_msv_grenadier_rpg","rhs_msv_aa",
-		"rhs_msv_rifleman","rhs_msv_machinegunner_assistant","rhs_msv_strelok_rpg_assist","rhs_msv_engineer","rhs_msv_medic"],
-		[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[-5,-8,0],[-5,-10,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[5,2,0],[-5,2,0],[5,4,0],[-5,4,0],[5,6,0],[0,0,0]],
-		["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
-	]],0.5],
-	// пво
-	[[[["rhs_zsu234_aa"],[],["LIEUTENANT"]]],0.4],
-	// танки
-	[[[["rhs_t80uk","rhs_t80um","rhs_t80um"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.1],
-	[[[["rhs_t80bvk","rhs_t80bv","rhs_t80bv"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.1],
-	[[[["rhs_t72bd_tv","rhs_t72bd_tv","rhs_t72bd_tv"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.2],
-	[[[["rhs_t90_tv","rhs_t90_tv","rhs_t90_tv"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.3],
-	[[[["rhs_t90a_tv","rhs_t90a_tv","rhs_t90a_tv"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
-	// беспилотники
-	[[[["rhs_pchela1t_vvsc"],[],["LIEUTENANT"]]],0.5],
-	// авиация
-	[[[["rhs_mi28n_vvsc","rhs_mi28n_vvsc"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
-	[[[["RHS_Ka52_vvsc","RHS_Ka52_vvsc"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
-	[[[["RHS_Mi24P_vvsc","RHS_Mi24P_vvsc"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.2],
-	[[[["RHS_Mi24V_vvsc","RHS_Mi24V_vvsc"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
-	[[[["RHS_Mi8MTV3_vvsc","RHS_Mi8MTV3_vvsc"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.1],
-	[[[["rhs_mig29sm_vvsc","rhs_mig29sm_vvsc"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
-	[[[["RHS_Su25SM_vvsc","RHS_Su25SM_vvsc"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.4],
-	// артиллерия
-	[[[["rhs_2s3_tv","rhs_2s3_tv"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5]
-];
-*/
-
-// rhs_faction_msv
-_east=_east+[
+[_groups_map, east, "RHS_MSV", [
 	// configName "rhs_group_rus_msv_infantry_chq",
 	[[[["rhs_msv_officer",
 		"rhs_msv_officer_armored","rhs_msv_officer_armored",
@@ -789,16 +690,12 @@ _east=_east+[
 		"CORPORAL","PRIVATE",
 		"CORPORAL","PRIVATE",
 		"PRIVATE","PRIVATE"]]],0.75]
-];
+] call gosa_fnc_filtering_squads_byAvail,
+[1990,2100], [160,999],
+["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F"]
+] call gosa_fnc_map_groups_add;
 
-};
-};
-
-
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"RHS_TV");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
-	if (_tmp > 0 or (_tmp == -1 && _n >= 160)) then {
-	_east=_east+[
+	[_groups_map, east, "RHS_TV", [
 		// configName "RHS_T14Platoon",
 		[[[["RHS_T14_tv","RHS_T14_tv","RHS_T14_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
 		// configName "RHS_T14Platoon_AA",
@@ -919,7 +816,10 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 		[[[["rhs_t90sab_tv","rhs_zsu234_aa","rhs_t90sab_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
 		// configName "RHS_T90SABSection",
 		[[[["rhs_t90sab_tv","rhs_t90sab_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025]
-	];
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [160,999],
+	["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F"]
+	] call gosa_fnc_map_groups_add;
 	// Arty
 	/*
 	_east=_east+[
@@ -933,14 +833,10 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 		[[[["rhs_2s3_tv","rhs_2s3_tv"],[[0,0,0],[20,-30,3]],["LIEUTENANT","SERGEANT"]]],0.025]
 	];
 	*/
-	};
-};
 
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"RHS_USMC_WD");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
-if (_tmp > 0 or (_tmp == -1 && (_n >= 160 && _n < 250))) then {
+
 // nato_usmc_wd
-_west=_west+[
+[_groups_map, west, "RHS_USMC_WD", [
 	// configName "rhs_group_nato_usmc_wd_infantry_squad",
 	[[[["rhsusf_usmc_marpat_wd_squadleader",
 		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
@@ -1152,15 +1048,13 @@ _west=_west+[
 	// configName "RHS_M1A1FEP_wd_Section",
 	[[[["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_wd"],[[0,0,0],[-20,-30,2]],
 		["LIEUTENANT","SERGEANT"]]],0]
-];
-};
-};
+] call gosa_fnc_filtering_squads_byAvail,
+[1990,2100], [160,249],
+["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+] call gosa_fnc_map_groups_add;
 
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"RHS_USMC_D");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
-if (_tmp > 0 or (_tmp == -1 && _n >= 250)) then {
 // nato_usmc_d
-_west=_west+[
+[_groups_map, west, "RHS_USMC_D", [
 	// configName "rhs_group_nato_usmc_d_infantry_squad",
 	[[[["rhsusf_usmc_marpat_d_squadleader",
 		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
@@ -1359,6 +1253,7 @@ _west=_west+[
 	// configName "RHS_M1A1FEP_d_Section",
 	[[[["rhsusf_m1a1fep_d","rhsusf_m1a1fep_d"],[[0,0,0],[-20,-30,2]],
 		["LIEUTENANT","SERGEANT"]]],0]
-];
-};
-};
+] call gosa_fnc_filtering_squads_byAvail,
+[1990,2100], [250,999],
+["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+] call gosa_fnc_map_groups_add;

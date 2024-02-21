@@ -1,8 +1,4 @@
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_SFIA_lxWS");
-if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
-	if (_tmp > 50 or _n >= 300) then {
-		if ((_tmp >= 0 && _tmp <= 50) && count _replace_OPF_CSAT > 0) exitWith {};
-	_replace_OPF_CSAT append ([
+	[_groups_map, east, "OPF_SFIA_lxWS", [
 		// configName OSFIA_MotInf_Team_lxWS
 		[[[["O_SFIA_Offroad_armed_lxWS","O_SFIA_soldier_at_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.5],
 		// configName OSFIA_MotInf_AT_lxWS
@@ -33,12 +29,12 @@ if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
 		[[[["O_SFIA_Soldier_TL_lxWS","O_SFIA_soldier_aa_lxWS","O_SFIA_soldier_aa_lxWS","O_SFIA_Soldier_AAA_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 		// configName OSFIA_InfSquad_Weapons_lxWS
 		[[[["O_SFIA_Soldier_TL_lxWS","O_SFIA_Soldier_AR_lxWS","O_SFIA_Soldier_GL_lxWS","O_SFIA_sharpshooter_lxWS","O_SFIA_soldier_at_lxWS","O_SFIA_soldier_lxWS","O_SFIA_Soldier_AAT_lxWS","O_SFIA_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
-	] call gosa_fnc_filtering_squads_byAvail);
-}};
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_TURA_lxWS");
-if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
-	if (_tmp > 50 or _n >= 300) then {
-	_replace_OPF_CSAT append ([
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [300,999],
+	["IND_SFIA_lxWS"]
+	] call gosa_fnc_map_groups_add;
+
+	[_groups_map, east, "OPF_TURA_lxWS", [
 		// configName O_Tura_MotInf_Team_lxWS
 		[[[["O_Tura_Offroad_armor_armed_lxWS","O_Tura_hireling_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.5],
 		// configName O_Tura_MotInf_AT_lxWS
@@ -51,15 +47,13 @@ if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
 		[[[["O_Tura_watcher_lxWS","O_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
 		// configName O_Tura_InfTeam_lxWS
 		[[[["O_Tura_enforcer_lxWS","O_Tura_hireling_lxWS","O_Tura_watcher_lxWS","O_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
-	] call gosa_fnc_filtering_squads_byAvail);
-}};
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [300,999],
+	["BLU_TURA_lxWS", "IND_TURA_lxWS"]
+	] call gosa_fnc_map_groups_add;
 
 
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_NATO_lxWS");
-if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
-	if (_tmp > 50 or _n >= 300) then {
-		if ((_tmp >= 0 && _tmp <= 50) && count _replace_BLU_NATO > 0) exitWith {};
-	_replace_BLU_NATO append ([
+	[_groups_map, west, "BLU_NATO_lxWS", [
 		// configName BUS_D_Support_CLS_lxWS
 		[[[["B_D_soldier_TL_lxWS","B_D_soldier_AR_lxWS","B_D_medic_lxWS","B_D_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 		// configName BUS_D_Support_EOD_lxWS
@@ -142,14 +136,12 @@ if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
 		[[[["B_D_recon_TL_lxWS","B_D_recon_M_lxWS","B_D_recon_medic_lxWS","B_D_recon_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 		// configName BUS_D_ReconSentry_lxWS
 		[[[["B_D_recon_M_lxWS","B_D_recon_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5]
-	] call gosa_fnc_filtering_squads_byAvail);
-}};
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [300,999],
+	["BLU_T_F", "BLU_F"]
+	] call gosa_fnc_map_groups_add;
 
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_ION_lxWS");
-if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
-	if (_tmp > 50 or _n >= 300) then {
-		if ((_tmp >= 0 && _tmp <= 50) && count _replace_IND_ION > 0) exitWith {};
-	_west append [
+	[_groups_map, west, "BLU_ION_lxWS", [
 		// configName B_ION_MotInf_Team_lxWS
 		[[[["B_ION_Offroad_armed_lxWS","B_ION_Soldier_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.5],
 		// configName B_ION_MotInf_Reinforce_lxWS
@@ -161,12 +153,12 @@ if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
 		[[[["B_ION_Soldier_GL_lxWS","B_ION_Soldier_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
 		// configName B_ION_InfTeam_lxWS
 		[[[["B_ION_TL_lxWS","B_ION_soldier_AR_lxWS","B_ION_Soldier_GL_lxWS","B_ION_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
-	];
-}};
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_TURA_lxWS");
-if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
-	if (_tmp > 50 or _n >= 300) then {
-	_west append [
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [300,999],
+	["CUP_I_PMC_ION"]
+	] call gosa_fnc_map_groups_add;
+
+	[_groups_map, west, "BLU_TURA_lxWS", [
 		// configName B_Tura_MotInf_Team_lxWS
 		[[[["B_Tura_Offroad_armor_armed_lxWS","B_Tura_hireling_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.5],
 		// configName B_Tura_MotInf_AT_lxWS
@@ -179,13 +171,12 @@ if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
 		[[[["B_Tura_watcher_lxWS","B_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
 		// configName B_Tura_InfTeam_lxWS
 		[[[["B_Tura_enforcer_lxWS","B_Tura_hireling_lxWS","B_Tura_watcher_lxWS","B_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
-	];
-}};
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_UN_lxWS");
-if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
-	if (_tmp > 50 or _n >= 300) then {
-		if ((_tmp >= 0 && _tmp <= 50) && count _replace_IND_UN > 0) exitWith {};
-	_west append [
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [300,999],
+	["OPF_TURA_lxWS", "IND_TURA_lxWS"]
+	] call gosa_fnc_map_groups_add;
+
+	[_groups_map, west, "BLU_UN_lxWS", [
 		// configName BUNA_MotInf_Team
 		[[[["B_UN_MRAP_01_lxWS","B_UN_soldier_AR_lxWS","B_UN_Soldier_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 		// configName BUNA_MotInf_Reinforce
@@ -204,15 +195,13 @@ if (_tmp > 50 or (_d >= 1990 && _tmp >= 0)) then {
 		[[[["B_UN_Soldier_TL_lxWS","B_UN_Soldier_GL_lxWS","B_UN_Soldier_lxWS","B_UN_Soldier_lxWS","B_UN_soldier_AR_lxWS","B_UN_HeavyGunner_lxWS","B_UN_medic_lxWS"],[[0,0,0],[5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 		// configName BUNA_InfSentry_lxWS
 		[[[["B_UN_Soldier_lxWS","B_UN_Soldier_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5]
-	];
-}};
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [300,999],
+	["CUP_I_UN"]
+	] call gosa_fnc_map_groups_add;
 
 
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_SFIA_lxWS");
-if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
-	if (_tmp > 50 or _n >= 300) then {
-		if ((_tmp >= 0 && _tmp <= 50) && count _replace_IND_AAF > 0) exitWith {};
-	_replace_IND_AAF append ([
+	[_groups_map, resistance, "IND_SFIA_lxWS", [
 		// configName ISFIA_MotInf_Team_lxWS
 		[[[["I_SFIA_Offroad_armed_lxWS","I_SFIA_soldier_at_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.5],
 		// configName ISFIA_MotInf_AT_lxWS
@@ -245,12 +234,12 @@ if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
 		[[[["I_SFIA_Soldier_TL_lxWS","I_SFIA_soldier_aa_lxWS","I_SFIA_soldier_aa_lxWS","I_SFIA_Soldier_AAA_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 		// configName ISFIA_InfSquad_Weapons_lxWS
 		[[[["I_SFIA_Soldier_TL_lxWS","I_SFIA_Soldier_AR_lxWS","I_SFIA_Soldier_GL_lxWS","I_SFIA_sharpshooter_lxWS","I_SFIA_soldier_at_lxWS","I_SFIA_soldier_lxWS","I_SFIA_Soldier_AAT_lxWS","I_SFIA_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
-	] call gosa_fnc_filtering_squads_byAvail);
-}};
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_TURA_lxWS");
-if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
-	if (_tmp > 50 or _n >= 300) then {
-	_replace_IND_AAF append ([
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [300,999],
+	["OPF_SFIA_lxWS"]
+	] call gosa_fnc_map_groups_add;
+
+	[_groups_map, resistance, "IND_TURA_lxWS", [
 		// configName I_Tura_MotInf_Team_lxWS
 		[[[["I_Tura_Offroad_armor_armed_lxWS","I_SFIA_hireling_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.5],
 		// configName I_Tura_MotInf_AT_lxWS
@@ -263,5 +252,7 @@ if (_tmp > 50 or (_d >= 1990 && _tmp > 0)) then {
 		[[[["I_SFIA_watcher_lxWS","I_SFIA_deserter_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
 		// configName I_Tura_InfTeam_lxWS
 		[[[["I_SFIA_enforcer_lxWS","I_SFIA_hireling_lxWS","I_SFIA_watcher_lxWS","I_SFIA_deserter_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
-	] call gosa_fnc_filtering_squads_byAvail);
-}};
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [300,999],
+	["OPF_TURA_lxWS", "BLU_TURA_lxWS"]
+	] call gosa_fnc_map_groups_add;

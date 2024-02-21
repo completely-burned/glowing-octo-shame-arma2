@@ -20,10 +20,9 @@
 // define ранга.
 #include "..\include\ranks.hpp"
 
-private ["_west","_east","_guer","_woodland","_deserted","_n","_d",
+private ["_west","_east","_guer","_groups_map","_n","_d",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
-	"_arr","_replace_BLU_NATO","_replace_OPF_CSAT","_replace_IND_AAF",
-	"_replace_UN","_replace_IND_ION",
+	"_arr",
 	"_default_east","_default_west","_default_guer"];
 _west=[];_east=[];_guer=[];
 // Ночь.
@@ -33,34 +32,26 @@ _westD=[];_eastD=[];_guerD=[];
 // Отказоустойчивые отряды
 _default_east=[];_default_west=[];_default_guer=[];
 
-_woodland=false; _deserted=false;
-if(toLower worldname in ["altis","vr"])then{_deserted=true};
-if(toLower worldname in ["tanoa"])then{_woodland=true};
 _n = (gosa_IslandType select 0);
 _d = (gosa_IslandType select 1);
 _depth = call gosa_fnc_getDepthAverage;
 _depth = ((_depth select 0) / 100);
-
-// Отряды заменяющие ванильный CSAT.
-_replace_OPF_CSAT = [];
-// Отряды заменяющие ванильный NATO.
-_replace_BLU_NATO = [];
-// Отряды заменяющие ванильный AAF.
-_replace_IND_AAF = [];
-_replace_IND_UN = [];
-_replace_IND_ION = [];
+_groups_map = [];
 
 
+#include "config_groups_CSLA.sqf"
+#include "config_groups_GM.sqf"
+
+#include "config_groups_RHS.sqf"
 #include "config_groups_CUP.sqf"
 
 #include "config_groups_lxWS.sqf"
+
+#include "config_groups_Enoch.sqf"
+#include "config_groups_Apex.sqf"
+#include "config_groups_GEN.sqf"
 #include "config_groups_FIA.sqf"
 
-_east append _replace_OPF_CSAT;
-_west append _replace_BLU_NATO;
-_guer append _replace_IND_AAF;
-_guer append _replace_IND_UN;
-_guer append _replace_IND_ION;
 
 //////////////////////////////
 //--- A3 ---
@@ -223,18 +214,8 @@ _default_west=[
 	[[[["B_Mortar_01_F"],[],["PRIVATE"]]],0.05],
 	*/
 ];
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BLU_F");
-if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
-	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
-		if (_tmp == -1 && count _replace_BLU_NATO > 0) exitWith {};
-		_west append _default_west;
-	};
-};
-if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
-	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
-		if (_tmp == -1 && count _replace_BLU_NATO > 0) exitWith {};
-	// boat
-	_west append [
+_arr = _default_west;
+	_arr append [
 		//[[[["CUP_B_Frigate_ANZAC"],[],["CAPTAIN"]]], _depth min 0.5],
 		[[[["B_Soldier_TL_F","B_soldier_GL_F","B_soldier_AR_F","B_soldier_F","B_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
 			["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
@@ -248,7 +229,7 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 				["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.5]
 	];
-	_west append [
+	_arr append [
 		// беспилотники
 		/*
 		[[[["B_UAV_01_F"],[],["CORPORAL"]]],0.5],
@@ -266,13 +247,17 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 		[[[["B_Heli_Transport_01_F","B_Heli_Transport_01_F"],[[0,20,0],[20,0,0]],["LIEUTENANT","LIEUTENANT"]]],0.5]
 	];
 	// jets
-	_west append [
+	_arr append [
 		//[[[["B_UAV_05_F"],[],["PRIVATE"]]],0.5],
 		[[[["B_Plane_Fighter_01_F","B_Plane_Fighter_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 		[[[["B_Plane_Fighter_01_Stealth_F","B_Plane_Fighter_01_Stealth_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 		//[[[["B_Radar_System_01_F","B_SAM_System_03_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 	];
-}};
+[_groups_map, west, "BLU_F", _arr,
+[1990,2100], [250,999],
+[]
+] call gosa_fnc_map_groups_add;
+
 
 //-- OPF_F CSAT
 _default_east=[
@@ -569,18 +554,9 @@ _default_east=[
 	[[[["O_Mortar_01_F"],[],["PRIVATE"]]],0.05],
 	*/
 ];
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_F");
-if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
-	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
-		if (_tmp == -1 && count _replace_OPF_CSAT > 0) exitWith {};
-		_east append _default_east;
-	};
-};
-if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
-	if (_tmp > 0 or (_n <= 160 or _n >= 250)) then {
-		if (_tmp == -1 && count _replace_OPF_CSAT > 0) exitWith {};
+_arr = _default_east;
 	// boat
-	_east append [
+	_arr append [
 		[[[["O_Soldier_TL_F","O_soldier_GL_F","O_soldier_AR_F","O_soldier_F","O_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
 			["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.5],
@@ -593,7 +569,7 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 				["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.5]
 	];
-	_east append [
+	_arr append [
 		// беспилотники
 		/*
 		[[[["O_UAV_01_F"],[],["CORPORAL"]]],0.5],
@@ -608,12 +584,16 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 		[[[["O_Plane_CAS_02_F","O_Plane_CAS_02_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 	];
 	// jets
-	_east append [
+	_arr append [
 		[[[["O_Plane_Fighter_02_F","O_Plane_Fighter_02_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 		[[[["O_Plane_Fighter_02_Stealth_F","O_Plane_Fighter_02_Stealth_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 		//[[[["O_Radar_System_02_F","O_SAM_System_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 	];
-}};
+[_groups_map, east, "OPF_F", _arr,
+[1990,2100], [250,999],
+[]
+] call gosa_fnc_map_groups_add;
+
 
 //-- IND_F AAF
 _default_guer=[
@@ -781,13 +761,9 @@ _default_guer=[
 	[[[["I_Mortar_01_F"],[],["PRIVATE"]]],0.05],
 	*/
 ];
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_F");
-if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
-	if ((_n <= 160 or _n >= 250) or _tmp > 0) then {
-		if (_tmp == -1 && count _replace_IND_AAF + count _replace_IND_UN > 0) exitWith {};
-		_guer append _default_guer;
+_arr = _default_guer;
 		// boat
-		_guer append [
+		_arr append [
 			//[[[["CUP_I_Frigate_AAF"],[],["CAPTAIN"]]], _depth min 0.5],
 			[[[["I_Soldier_TL_F","I_soldier_GL_F","I_soldier_AR_F","I_soldier_F","I_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
 				["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
@@ -804,68 +780,16 @@ if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
 			],0.5]
 		];
 		// jets
-		_guer append [
+		_arr append [
 			[[[["I_Plane_Fighter_04_F","I_Plane_Fighter_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 		];
-	};
-};
+[_groups_map, resistance, "IND_F", _arr,
+[1990,2100], [250,999],
+[]
+] call gosa_fnc_map_groups_add;
+
 
 //////////////////////////////
-// жандармерия
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"B_GEN");
-if (_tmp > 0 or (_d >= 1990 && _tmp == -1)) then {
-	_west append [
-		[[[["B_GEN_Commander_F",
-			"B_GEN_Soldier_F","B_GEN_Soldier_F",
-			"B_GEN_Van_02_vehicle_F"],[[0,2.5],[0,-2.5],[2.5,0],[0,0]],
-			["LIEUTENANT",
-			"PRIVATE","PRIVATE",
-			"PRIVATE"]]],0.01],
-
-		[[[["B_GEN_Commander_F","B_GEN_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
-		[[[["B_GEN_Offroad_01_gen_F","B_GEN_Soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01]
-	];
-};
-
-// laws of war
-/*
-_west=_west+[
-	[[[["B_UAV_06_F"],[],["PRIVATE"]]],0.5],
-	[[[["B_UAV_06_medical_F"],[],["PRIVATE"]]],0.5]
-];
-*/
-// laws of war
-/*
-_east=_east+[
-	[[[["O_UAV_06_F"],[],["PRIVATE"]]],0.5],
-	[[[["O_UAV_06_medical_F"],[],["PRIVATE"]]],0.5]
-];
-*/
-// laws of war
-/*
-_guer=_guer+[
-	[[[["I_UAV_06_F"],[],["PRIVATE"]]],0.5],
-	[[[["I_UAV_06_medical_F"],[],["PRIVATE"]]],0.5]
-];
-*/
-
-// дистанционный целеуказатель
-/*
-_west=_west+[
-	[[[["B_Static_Designator_01_F"],[],["PRIVATE"]]],0.5]
-];
-_east=_east+[
-	[[[["O_Static_Designator_02_F"],[],["PRIVATE"]]],0.5]
-];
-*/
-
-#include "config_groups_Apex.sqf"
-#include "config_groups_Enoch.sqf"
-
-#include "config_groups_GM.sqf"
-#include "config_groups_CSLA.sqf"
-
-#include "config_groups_RHS.sqf"
 
 //#include "config_groups_TEST.sqf"
 

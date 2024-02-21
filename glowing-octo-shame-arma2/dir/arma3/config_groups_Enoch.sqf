@@ -2,10 +2,7 @@
 #include "..\include\ranks.hpp"
 
 //-- Спецназ
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"OPF_R_F");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
-	if (_tmp > 0 or (_n >= 160 && _n < 250)) then {
-		_east append [
+	[_groups_map, east, "OPF_R_F", [
 			// configName O_R_InfSquad
 			[[[["O_R_soldier_TL_F","O_R_soldier_AR_F","O_R_medic_F","O_R_soldier_LAT_F","O_R_Soldier_GL_F","O_R_soldier_AR_F","O_R_soldier_LAT_F","O_R_soldier_M_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
 			// configName O_R_InfTeam
@@ -18,16 +15,13 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 			[[[["O_R_recon_TL_F","O_R_recon_M_F","O_R_recon_AR_F","O_R_recon_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0],
 			// configName O_R_reconSentry
 			[[[["O_R_recon_GL_F","O_R_recon_M_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0]
-		];
-	};
-};
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [160,249],
+	["CUP_O_RU", "CUP_O_TK"]
+	] call gosa_fnc_map_groups_add;
 
 //-- ВСЛ
-_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"IND_E_F");
-if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
-	if (_tmp > 0 or (_n >= 160 && _n < 250)) then {
-
-		_guer append [
+	[_groups_map, resistance, "IND_E_F", [
 			// configName I_E_MotInf_Team
 			[[[["I_E_Offroad_01_F",
 				"I_E_soldier_TL_F","I_E_RadioOperator_F",
@@ -90,7 +84,7 @@ if (_tmp > 0 or (_tmp == -1 && _d >= 1990)) then {
 				["SERGEANT",
 				"CORPORAL","PRIVATE",
 				"PRIVATE"]]],0.5]
-		];
-
-	};
-};
+	] call gosa_fnc_filtering_squads_byAvail,
+	[1990,2100], [160,249],
+	["CUP_I_NAPA"]
+	] call gosa_fnc_map_groups_add;
