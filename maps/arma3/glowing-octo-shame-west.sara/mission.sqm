@@ -17,9 +17,6 @@ class EditorData
 	class Camera
 	{
 		pos[]={2858.2898,34.089317,3154.8174};
-		dir[]={0.30264226,-0.6274088,-0.71757823};
-		up[]={0.24381351,0.77866268,-0.57809556};
-		aside[]={-0.92146903,5.5378769e-007,-0.38862884};
 	};
 };
 binarizationWanted=0;
@@ -289,11 +286,10 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 glowing-octo-shame sara West v0.0.5.914 DEBUG";
-		timeOfChanges=1800.0002;
 		startWeather=0.1;
 		startWind=0.1;
 		startWaves=0.1;
-		forecastWeather=0.30000001;
+		forecastWeather=0.3;
 		forecastWind=0.1;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
@@ -483,7 +479,7 @@ class Mission
 			position[]={20480,0,20480};
 			name="gosa_worldsize";
 			type="Empty";
-			id=11
+			id=11;
 		};
 		class Item11
 		{
@@ -944,7 +940,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={9656.2129,140.78481,9994.959};
-				angles[]={0,0.067903101,0};
 			};
 			side="Empty";
 			flags=4;
@@ -960,7 +955,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={9665.2793,140.78481,9993.9209};
-				angles[]={0,0.061404794,0};
 			};
 			side="Empty";
 			flags=4;
@@ -992,7 +986,6 @@ class Mission
 			class PositionInfo
 			{
 				position[]={9389.1025,140.78481,9992.6211};
-				angles[]={0,0.13441321,0};
 			};
 			side="Empty";
 			flags=4;
