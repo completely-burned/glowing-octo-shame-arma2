@@ -164,21 +164,21 @@ class Params {
 		// FIA
 			class gosa_faction_multiplier_OPF_G_F {
 				title="FACTION: BIS_OPF_G_F";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 			class gosa_faction_multiplier_BLU_G_F {
 				title="FACTION: BIS_BLU_G_F";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 			class gosa_faction_multiplier_IND_G_F {
 				title="FACTION: BIS_IND_G_F";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 
 		class gosa_faction_multiplier_CSLA {
@@ -234,53 +234,53 @@ class Params {
 		// WS
 			class gosa_faction_multiplier_BLU_NATO_lxWS {
 				title="FACTION: BLU_NATO_lxWS";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 			class gosa_faction_multiplier_BLU_ION_lxWS {
 				title="FACTION: BLU_ION_lxWS";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 			class gosa_faction_multiplier_BLU_UN_lxWS {
 				title="FACTION: BLU_UN_lxWS";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 
 			class gosa_faction_multiplier_OPF_SFIA_lxWS {
 				title="FACTION: OPF_SFIA_lxWS";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 			class gosa_faction_multiplier_IND_SFIA_lxWS {
 				title="FACTION: IND_SFIA_lxWS";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 
 			class gosa_faction_multiplier_OPF_TURA_lxWS {
 				title="FACTION: OPF_TURA_lxWS";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 			class gosa_faction_multiplier_BLU_TURA_lxWS {
 				title="FACTION: BLU_TURA_lxWS";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 			class gosa_faction_multiplier_IND_TURA_lxWS {
 				title="FACTION: IND_TURA_lxWS";
-				values[] = {0,100,-100};
+				values[] = {-1,1,0};
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-				default = 0;
+				default = -1;
 			};
 
 		// RHS

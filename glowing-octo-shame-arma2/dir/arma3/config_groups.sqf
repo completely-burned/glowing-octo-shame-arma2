@@ -22,7 +22,11 @@
 
 private ["_west","_east","_guer","_groups_map","_n","_d",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
-	"_arr",
+	"_arr","_cfg_factions_def","_groups_use","_factions_blocked",
+	"_grp","_groups_failover","_factions_used","_climate","_date",
+	"_groups_failover_map",
+	"_groups_enabled","_factions_enabled","_groups_enabled_map",
+	"_groups_pending_map","_str","_param_default","_side",
 	"_default_east","_default_west","_default_guer"];
 _west=[];_east=[];_guer=[];
 // Ночь.
@@ -32,11 +36,23 @@ _westD=[];_eastD=[];_guerD=[];
 // Отказоустойчивые отряды
 _default_east=[];_default_west=[];_default_guer=[];
 
-_n = (gosa_IslandType select 0);
-_d = (gosa_IslandType select 1);
+_climate = (gosa_IslandType select 0);
+_date = (gosa_IslandType select 1);
 _depth = call gosa_fnc_getDepthAverage;
 _depth = ((_depth select 0) / 100);
 _groups_map = [];
+_groups_enabled = [];
+_factions_enabled = [];
+_factions_blocked = [];
+_factions_used = [];
+_groups_use = [];
+_groups_enabled_map = [];
+_groups_pending_map = [];
+_groups_failover = [];
+_groups_failover_map = [];
+_param_default = -1;
+// O,B,R,C
+_cfg_factions_def = [["OPF_F"],["BLU_F"],["IND_F"]];
 
 
 #include "config_groups_CSLA.sqf"
@@ -787,6 +803,107 @@ _arr = _default_guer;
 [1990,2100], [250,999],
 []
 ] call gosa_fnc_map_groups_add;
+
+
+//////////////////////////////
+
+//-- Включены по стартовым параметрам.
+for "_i" from 0 to (count _groups_map -1) do {
+	// [_side,_name,_groups,_date,_climate,_blacklist,_failover_prio]
+	_arr = _groups_map select _i;
+	if (count (_arr select 2) > 0) then {
+		_str = _arr select 1;
+		_b = true;
+		//- Проверка даты.
+		if ((_arr select 3 select 0) > _date or (_arr select 3 select 1) < _date) then {
+			diag_log format ["Log: [fnc_map_groups] %1 исключена, дата %2", _str, [_date, _arr select 3]];
+			_b = false;
+		};
+		//- Климат.
+		if ((_arr select 4 select 0) > _climate or (_arr select 4 select 1) < _climate) then {
+			diag_log format ["Log: [fnc_map_groups] %1 исключена, климат %2", _str, [_climate, _arr select 4]];
+			_b = false;
+		};
+
+		_n = missionNamespace getVariable ("gosa_faction_multiplier_" + _str);
+		if (_n > 0) then {
+			if (_b) then {
+				_groups_enabled set [count _groups_enabled, _i];
+				_groups_enabled_map set [count _groups_enabled_map, _arr];
+				diag_log format ["Log: [fnc_map_groups] %1, enabled", _str];
+			}else{
+				diag_log format ["Log: [fnc_map_groups] %1, failover", _str];
+				//- Если группа включена в настройках, но нет подходящей.
+				_n = _groups_failover find _str;
+				if (_n >= 0) then {
+					if (_arr select 6 > (_groups_failover_map select _n select 6)) then {
+						_groups_failover_map set [_n, _arr];
+					};
+				}else{
+					_groups_failover set [count _groups_failover, _str];
+					_groups_failover_map set [count _groups_failover, _arr];
+				};
+			};
+			//- 
+			{
+				if !(_x in _factions_blocked) then {
+					_factions_blocked set [count _factions_blocked, _x];
+					diag_log format ["Log: [fnc_map_groups] %1, blocked", _x];
+				};
+			} forEach (_arr select 5);
+			if !(_str in _factions_enabled) then {
+				_factions_enabled set [count _factions_enabled, _str];
+			};
+		}else{
+			if (_n == _param_default && _b) then {
+				if !(_i in _groups_pending_map) then {
+					_groups_pending_map set [count _groups_pending_map, _i];
+					diag_log format ["Log: [fnc_map_groups] %1, pending", _str];
+				};
+			};
+		};
+	};
+};
+
+//-- failover
+#ifdef __ARMA3__
+	_groups_enabled_map append _groups_failover_map;
+#else
+	_groups_enabled_map = _groups_enabled_map + _groups_failover_map;
+#endif
+
+//- Автомат.
+for "_i" from 0 to (count _groups_pending_map -1) do {
+	_n = _groups_pending_map select _i;
+	_arr = _groups_map select _n;
+	_str = _arr select 1;
+	//- Первые по списку вытесняют последних.
+	// TODO: Нужна рандомизация.
+	if !(_str in _factions_blocked) then {
+		_groups_use set [count _groups_use, _n];
+		_groups_enabled_map set [count _groups_enabled_map, _arr];
+		diag_log format ["Log: [fnc_map_groups] %1, enabled, pending", _str];
+		{
+			if !(_x in _factions_blocked) then {
+				_factions_blocked set [count _factions_blocked, _x];
+				diag_log format ["Log: [fnc_map_groups] %1, blocked", _x];
+			};
+		} forEach (_arr select 4);
+	};
+};
+
+
+// Включение.
+for "_i" from 0 to (count _groups_enabled_map -1) do {
+	_arr = _groups_enabled_map select _i;
+	_grp = _arr select 2;
+	switch (_arr select 0) do {
+		case east: {_east append _grp};
+		case west: {_west append _grp};
+		case resistance: {_guer append _grp};
+		default {};
+	};
+};
 
 
 //////////////////////////////
