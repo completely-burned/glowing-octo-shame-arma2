@@ -35,7 +35,7 @@ class Mission
 	randomSeed=6222077;
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Bootcamp_ACR west v0.0.5.914 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Bootcamp_ACR west v0.0.5.915 DEBUG";
 		startWeather=0.25;
 		forecastWeather=0.25;
 		year=2008;

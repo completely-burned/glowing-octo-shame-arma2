@@ -190,7 +190,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Beketov East v0.0.5.914 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Beketov East v0.0.5.915 DEBUG";
 		startWeather=0.34;
 		startWind=0.1;
 		startWaves=0.1;
