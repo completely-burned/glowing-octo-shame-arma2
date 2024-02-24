@@ -80,6 +80,9 @@ if (isNil "group_logic") then {
 	group_logic = _grp;
 };
 
+gosa_logic_ArsenalBox = _grp createUnit ["logic",[1000,10,0],[],0,"none"];
+publicVariable "gosa_logic_ArsenalBox";
+
 //-- Модули.
 gosa_HC_logic = (group_logic) createUnit ["logic",[1000,10,0],[],0,"none"];;
 publicVariable "gosa_HC_logic";

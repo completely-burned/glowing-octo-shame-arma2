@@ -3,8 +3,9 @@
  */
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
-	"_arr","_count","_b","_cfg","_0","_1","_2","_n","_allow",
+	"_arr","_count","_b","_cfg","_0","_1","_2","_3","_obj","_n","_allow",
 	"_mod_i44","_startingClass","_types_pilot","_types_mhq_virt",
+	"_availableWeapons","_availableBackpacks",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
@@ -230,6 +231,7 @@ if (_b) then {
 		waitUntil{!isNil "availableWeapons"};
 		waitUntil{!isNil "availableMagazines"};
 		diag_log format ["Log: [Menu] shop, post waitUntil %1", time];
+	_availableWeapons = availableWeapons;
 
 	//-- Ammo
 	// TODO: Устранить дубликаты.
@@ -517,6 +519,7 @@ if (_b) then {
 	_0 = _arr select 0;
 	_1 = _arr select 1;
 	_2 = _arr select 2;
+	_3 = [];
 
 	//- Heavy Factory
 	_n = 0;
@@ -585,6 +588,19 @@ if (_b) then {
 	_1 resize 0;
 	_2 resize 0;
 
+	#ifdef __ARMA3__
+		waitUntil{!isNil "gosa_logic_ArsenalBox"};
+		_obj = gosa_logic_ArsenalBox;
+		[_obj,_availableWeapons,false,false] call BIS_fnc_addVirtualWeaponCargo;
+		[_obj,true,false,false] call bis_fnc_addVirtualBackpackCargo;
+		[_obj,true,false,false] call bis_fnc_addVirtualMagazineCargo;
+		[_obj,true,false,false] call bis_fnc_addVirtualItemCargo;
+		_0 set [count _2, ""];
+		_1 set [count _2, localize "STR_A3_Arsenal"];
+		_3 set [count _2, "['Open', [nil, gosa_logic_ArsenalBox]] call BIS_fnc_arsenal"];
+		_2 set [count _2, __ON];
+	#endif
+
 	//if (leader player == player) then {
 		_0 set [count _2, "#USER:Man_0"];
 		_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
@@ -622,7 +638,11 @@ if (_b) then {
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
 	_2 set [count _2, __ON];
 
-	["Factory", "gosa_menu_factory_FactoryAll", _arr, "%1", ""] call BIS_FNC_createmenu;
+	["Factory", "gosa_menu_factory_FactoryAll", _arr, "%1", "
+		if !(isNil {%3 select %2}) then {
+			call compile (%3 select %2);
+		};
+	", _3] call BIS_FNC_createmenu;
 
 
 };
