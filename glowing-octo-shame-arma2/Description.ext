@@ -99,7 +99,7 @@ class Params {
 		values[] = {1,2,3,4,23,24,34,0};
 		texts[] = {STR_ENABLED,"Plane","Heli","Boat",
 			"Plane+Heli","Plane+Boat","Heli+Boat",STR_DISABLED};
-		default=24;
+		default = 0;
 	};
 
 
