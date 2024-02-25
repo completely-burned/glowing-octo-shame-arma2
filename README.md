@@ -12,6 +12,7 @@ PVE бой с ботами сконцентрированный в одной т
       ```bash
       # Установить
       # rsync git sed translit parallel
+      # * Lingua-Translit
       #
       # и установить дополнительно, не обязательно
       # makepbo armake armake2
