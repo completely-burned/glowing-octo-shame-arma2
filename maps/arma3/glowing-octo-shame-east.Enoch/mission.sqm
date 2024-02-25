@@ -234,7 +234,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Enoch East v0.0.5.915 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Enoch East v0.0.5.916 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;

@@ -172,7 +172,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CUP CO 00 glowing-octo-shame Dogechnya East v0.0.5.915 DEBUG";
+		briefingName="CUP CO 00 glowing-octo-shame Dogechnya East v0.0.5.916 DEBUG";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;

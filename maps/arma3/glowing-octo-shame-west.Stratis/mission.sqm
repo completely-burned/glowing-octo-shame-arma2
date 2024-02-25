@@ -192,7 +192,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Stratis West v0.0.5.915 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Stratis West v0.0.5.916 DEBUG";
 		startWeather=0.16703814;
 		startWind=0.1;
 		startWaves=0.1;
