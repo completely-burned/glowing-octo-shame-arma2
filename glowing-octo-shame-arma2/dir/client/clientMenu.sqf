@@ -84,31 +84,6 @@ if (missionNamespace getVariable "respawn" == 0) then {
 };
 
 if (missionNamespace getVariable "gosa_shop" == 2) then {
-	["BuyMenu", "BuyMenu", [
-		[
-			"#USER:Man_0","#USER:Ammo_0","#USER:StaticWeapon_0",
-			"#USER:Car_0","#USER:Motorcycle_0","#USER:Tank_0",
-			"#USER:Helicopter_0","#USER:Plane_0"
-			//, "#USER:Ship_0"
-		],
-		[
-			gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName"),
-			gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName"),
-			gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName"),
-			gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName"),
-			gettext(configfile >> "cfgvehicles" >> "Motorcycle" >> "displayName"),
-			gettext(configfile >> "cfgvehicles" >> "Tank" >> "displayName"),
-			gettext(configfile >> "cfgvehicles" >> "Helicopter" >> "displayName"),
-			gettext(configfile >> "cfgvehicles" >> "Plane" >> "displayName")
-			//, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")
-		],
-		[
-			1,1,1,
-			1,1,1,
-			1,1
-			//,1
-		]
-	], "%1", ""] call BIS_FNC_createmenu;
 	_tmp_arr=_tmp_arr+[
 		["*" + localize "STR_gosa_purchase","","#USER:BuyMenu_0"]
 	];
@@ -644,7 +619,8 @@ if (_b) then {
 		};
 	", _3] call BIS_FNC_createmenu;
 
-
+	// Для совместимости.
+	BuyMenu_0 = gosa_menu_factory_FactoryAll_0;
 };
 
 buyMenuLoaded=true;
