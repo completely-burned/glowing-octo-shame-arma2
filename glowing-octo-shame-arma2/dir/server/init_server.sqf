@@ -7,7 +7,7 @@ OnPlayerDisconnected "[_id, _uid, _name] ExecVM (""dir\server\eh_PlayerDisconnec
 
 //--- настройки миссии
 
-m_skill = (missionNamespace getVariable "m_skill") / 100;
+gosa_ai_skill = (missionNamespace getVariable "gosa_ai_skill") / 100;
 
 // отключение возможность сохраняться
 enableSaving [false,false];

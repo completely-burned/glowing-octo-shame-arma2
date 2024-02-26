@@ -9,9 +9,11 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
+	"_skill",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 
 _side = _this select 0;
+_skill = gosa_ai_skill;
 
 #ifdef __A2OA__
 if(count _this > 1 && {!isNull(_this select 1)})then
@@ -155,8 +157,8 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 	}forEach _groups;
 
 	{
-		if (m_skill >= 0) then {
-			_x setSkill m_skill;
+		if (_skill >= 0) then {
+			_x setSkill _skill;
 		};
 		_x call gosa_fnc_vehInit;
 	} foreach _units + _vehicles;
