@@ -6,6 +6,7 @@
  */
 
 private ["_type_Airport","_list_Airport","_arr","_type","_logic",
+	"_arr0","_arr1",
 	"_type_Base","_list_Base","_str"];
 _type_Airport = [1];
 _list_Airport = [];
@@ -78,6 +79,23 @@ for "_i" from 0 to (count _arr - 1) do {
 
 diag_log format ["Log: [init_LocationBase] _list_Airport %1", _list_Airport];
 diag_log format ["Log: [init_LocationBase] _list_Base %1", _list_Base];
+
+// Здание на точке возрождения неуязвимое.
+// TODO: Оставить разрушение, но сделать восстановление базы при отсутствии на ней игроков.
+_arr = _list_Base+_list_Airport;
+for "_i" from 0 to (count _arr -1) do {
+	_arr0 = [_arr select _i, _type_Airport+_type_Base, -1] call gosa_fnc_base_getRespawn;
+	for "_i0" from 0 to (count _arr0 -1) do {
+		for "_i1" from 0 to (count (_arr0 select _i0) -1) do {
+			_logic = nearestObjects [(_arr0 select _i0 select _i1), ["House", "Building"], 50];
+			if (count _logic > 0) then {
+				_logic = _logic select 0;
+				_logic allowDamage false;
+				diag_log format ["Log: [init_LocationBase] %1 теперь неуязвим", _logic];
+			};
+		};
+	};
+};
 
 gosa_list_LocationAirport = _list_Airport;
 publicVariable "gosa_list_LocationAirport";
