@@ -5,10 +5,13 @@
  */
 private ["_item","_obj","_num","_str","_for","_pos","_arr",
 	"_list","_list2","_teleport_list","_names_location",
-	"_class","_logic",
+	"_class","_logic","_type_Airport","_type_Base",
+	"_arr0","_arr1",
 	"_gosa_objectsTeleportTmp","_gosa_objectsTeleport"];
 
 _names_location = ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"];
+_type_Airport = [1];
+_type_Base = [0];
 
 _list=[];
 _teleport_list=[];
@@ -56,19 +59,10 @@ for "_i" from 0 to (count _for - 1) do {
 //-- Локации.
 _for = gosa_list_LocationBase+gosa_list_LocationAirport;
 for "_i" from 0 to (count _for -1) do {
-	_logic = (_for select _i);
-
-	// TODO: Side.
-
-	_arr = synchronizedObjects _logic;
-
-	// Для совместимости.
-	if (count _arr < 1) then {
-		_arr = [_logic];
-	};
-
-	for "_i0" from 0 to (count _arr -1) do {
-		_logic = (_arr select _i0);
+	_arr0 = [_for select _i, _type_Airport+_type_Base, -1] call gosa_fnc_base_getRespawn;
+	for "_i0" from 0 to (count _arr0 -1) do {
+		for "_i1" from 0 to (count (_arr0 select _i0) -1) do {
+		_logic = (_arr0 select _i0 select _i1);
 		_obj = _logic getVariable ["gosa_building", _logic];
 		_pos = getPos _obj;
 		_num = getDir _obj;
@@ -77,7 +71,8 @@ for "_i" from 0 to (count _for -1) do {
 			_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
 		};
 
-		_str = format ["%1, %2",
+		_str = format ["%1, %2, %3",
+			mapGridPosition _pos,
 			text ((nearestLocations [_pos, _names_location, 5000]) select 0),
 			getText(configfile >> "CfgVehicles" >> typeof _obj >> "displayName")];
 
@@ -85,6 +80,7 @@ for "_i" from 0 to (count _for -1) do {
 		_list set [_num, _num];
 		_teleport_list set [_num, _obj];
 		_list2 set [_num, _str];
+		};
 	};
 };
 
@@ -96,7 +92,6 @@ for "_i" from 0 to (count _for -1) do {
 } foreach _gosa_objectsTeleportTmp;
 
 
-// TODO: Координаты в имени.
 //-- 
 _teleportLocations = [];
 {
@@ -107,7 +102,7 @@ _teleportLocations = [];
 				if !(getNumber(configFile >> "CfgVehicles">> typeOf _x >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6) then {
 					_list = _list + [count _list];
 					_teleport_list = _teleport_list + [_x];
-					_list2= _list2 + [format ["%1, %2", text ((nearestLocations [position _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0), getText(configfile >> "CfgVehicles" >> typeof _x >> "displayName")]];
+					_list2= _list2 + [format ["%1, %2, %3", mapGridPosition position _x, text ((nearestLocations [position _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0), getText(configfile >> "CfgVehicles" >> typeof _x >> "displayName")]];
 				};
 				};
 		};
@@ -115,13 +110,14 @@ _teleportLocations = [];
 		{
 			_list = _list + [count _list];
 			_teleport_list = _teleport_list + [_x];
-			_list2= _list2 + [format ["%1, %2", text ((nearestLocations [getMarkerPos _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0), _x]];
+			_list2= _list2 + [format ["%1, %2, %3", mapGridPosition getMarkerPos _x, text ((nearestLocations [getMarkerPos _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0), _x]];
 		};
 		case ("LOCATION"):
 		{
+
 			_list = _list + [count _list];
 			_teleport_list = _teleport_list + [_x];
-			_list2= _list2 + [format ["%1", text ((nearestLocations [position _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0)]];
+			_list2= _list2 + [format ["%1, %2", mapGridPosition position _x, text ((nearestLocations [position _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0)]];
 		};
 		default {};
 	};
