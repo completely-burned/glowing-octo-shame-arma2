@@ -7,6 +7,12 @@ PVE бой с ботами сконцентрированный в одной т
 Главное меню открыть можно нажав `0-8-` `BIS_MENU_GroupCommunication`.  
 Эта миссия может быть воспроизведен на других картах Chernarus takistan utes и т.д.
 
+## Download
+ - [releases](../../releases)
+ - http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/files/games/arma3server/mpmissions/
+ - http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/arma-glowing-octo-shame/
+
+
 ## Build
  - ### linux
       ```bash
