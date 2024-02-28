@@ -59,7 +59,7 @@ if(_allow)then{
 					if ( !(_veh in _inList) && !(_veh isKindOf "StaticWeapon") ) then {
 						_inList set [count _inList, _veh];
 						_veh setVelocity [0, 0, 0];
-						_veh setPos ([_pos,0, sizeOf typeOf _veh_veh] call gosa_fnc_getSafePos);
+						_veh setPos ([_pos,0, sizeOf typeOf _veh] call gosa_fnc_getSafePos);
 						_veh setVectorUp [0,0,1];
 					};
 				};
