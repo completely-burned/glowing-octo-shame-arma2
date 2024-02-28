@@ -1,6 +1,6 @@
 /*
  * TODO: Рефакторинг.
- * FIXME: Не работает в A3.
+ * FIXME: Не работает в A3 и a2oa.
  */
 diag_log format ["Log: [fnc_teleport2] %1", _this];
 
