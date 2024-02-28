@@ -490,11 +490,11 @@ if (_b) then {
 	// TODO: Сжатие кода.
 	#define __ON 1
 
-	_arr = [[],[],[]];
+	_arr = [[],[],[],[]];
 	_0 = _arr select 0;
 	_1 = _arr select 1;
 	_2 = _arr select 2;
-	_3 = [];
+	_3 = _arr select 3;
 
 	//- Heavy Factory
 	_n = 0;
@@ -619,6 +619,7 @@ if (_b) then {
 		};
 	", _3] call BIS_FNC_createmenu;
 
+	gosa_menu_factory_FactoryAll_array = _arr;
 	// Для совместимости.
 	BuyMenu_0 = gosa_menu_factory_FactoryAll_0;
 };

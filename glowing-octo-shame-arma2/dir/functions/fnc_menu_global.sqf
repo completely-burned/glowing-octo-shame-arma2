@@ -52,6 +52,7 @@ _fnc_lib_add = {
 
 _arr_avail = availableVehicles;
 //_arr_avail = ["Offroad_DSHKM_INS","BMP2_INS","A10","T90"]; // diag_log
+_arr_avail = ["O_MRAP_02_F","B_MBT_01_TUSK_F","B_soldier_SL_F"]; // diag_log
 for "_i" from 0 to (count _arr_avail -1) do {
 	_type = _arr_avail select _i;
 	_entry = (_cfgVeh >> _type);
