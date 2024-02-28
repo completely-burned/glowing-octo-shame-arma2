@@ -165,7 +165,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Kunduz East v0.0.5.917 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Kunduz East v0.0.5.918 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;
