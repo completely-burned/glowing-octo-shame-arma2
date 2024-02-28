@@ -137,5 +137,5 @@ gosa_menu = _teleport_list;
 	"teleport",
 	[_list,_list2],
 	"",
-	"(gosa_menu select %1) spawn gosa_fnc_teleport2; gosa_menu = nil;"
+	"[gosa_menu select %1, GroupSelectedUnits player] spawn gosa_fnc_teleport2; gosa_menu = nil;"
 ] call BIS_FNC_createmenu;

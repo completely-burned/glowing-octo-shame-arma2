@@ -1,27 +1,32 @@
 /*
  * TODO: Рефакторинг.
+ * FIXME: Не работает в A3.
  */
+diag_log format ["Log: [fnc_teleport2] %1", _this];
 
-private ["_pos","_allow","_for"];
+private ["_pos","_allow","_for","_inList","_veh","_obj"];
+
+_obj = _this select 0;
+_for = _this select 1;
 
 _allow = true;
-switch (typeName _this) do {
+switch (typeName _obj) do {
 	case ("OBJECT"):
 	{
-		_pos = [_this] call gosa_fnc_respawnPos;
-		if(speed _this >= 2)then{_allow = false; hint localize "STR_gosa_CannotTeleport";};
+		_pos = [_obj] call gosa_fnc_respawnPos;
+		if(speed _obj >= 2)then{_allow = false; hint localize "STR_gosa_CannotTeleport";};
 
 	};
 	case ("LOCATION"):
 	{
-		_pos = getPos _this;
+		_pos = getPos _obj;
 	};
 	case ("STRING"):
 	{
-		_pos = getMarkerPos _this;
+		_pos = getMarkerPos _obj;
 	};
 	default {
-		_pos = [_this] call gosa_fnc_respawnPos;
+		_pos = [_obj] call gosa_fnc_respawnPos;
 	};
 };
 
@@ -35,7 +40,7 @@ if(_allow)then{
 	*/
 
 	// _pos resize 2;
-	if !(typeOf vehicle player == "StaticWeapon") then {
+	if !(vehicle player isKindOf "StaticWeapon") then {
 		vehicle player setVelocity [0, 0, 0];
 		if (vehicle player == player) then {
 			player setPos _pos;
@@ -45,20 +50,18 @@ if(_allow)then{
 		vehicle player setVectorUp [0,0,1];
 
 		// {} forEach (GroupSelectedUnits player) не работает на прямую в a2oa.
-		_for = (GroupSelectedUnits player);
-		private ["_inList"];
+		diag_log format ["Log: [fnc_teleport2] _for %1", _for];
 		_inList = [];
 		{
-			if !(_x call gosa_fnc_isPlayer && alive _x) then {
-				if (vehicle _x distance vehicle player <= 15) then {
-				private ["_veh"];
-				_veh = _x;
-				if ( !(vehicle _veh in _inList) && !(typeOf vehicle _veh == "StaticWeapon") && (damage _veh != 1))then{
-					_inList set [count _inList, vehicle _veh];
-					vehicle _veh setVelocity [0, 0, 0];
-						vehicle _veh setPos ([_pos,0, sizeOf typeOf vehicle _veh] call gosa_fnc_getSafePos);
-					vehicle _veh setVectorUp [0,0,1];
-				};
+			if (!(_x call gosa_fnc_isPlayer) && damage _x < 0.9) then {
+				_veh = vehicle _x;
+				if (_veh distance vehicle player <= 15) then {
+					if ( !(_veh in _inList) && !(_veh isKindOf "StaticWeapon") ) then {
+						_inList set [count _inList, _veh];
+						_veh setVelocity [0, 0, 0];
+						_veh setPos ([_pos,0, sizeOf typeOf _veh_veh] call gosa_fnc_getSafePos);
+						_veh setVectorUp [0,0,1];
+					};
 				};
 			};
 		} forEach _for;
