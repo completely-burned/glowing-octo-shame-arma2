@@ -5,6 +5,8 @@ Contacts
 
 	Последнюю версию сценария можно найти здесь  
 	[GitHub](https://github.com/completely-burned/glowing-octo-shame-arma2)  
+	[MEGA](https://mega.nz/folder/iJxzRYoI#YIX67tCWRUtDkO1V0w5E8Q)  
+	[www](http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/arma-glowing-octo-shame/)  
 
 * Сообщества
 
