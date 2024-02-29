@@ -613,6 +613,10 @@ _arr = _default_east;
 		[[[["O_Plane_Fighter_02_Stealth_F","O_Plane_Fighter_02_Stealth_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.1]
 		//[[[["O_Radar_System_02_F","O_SAM_System_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 	];
+	// Рельсотрон
+	_arr append [
+		[[[["O_MBT_02_railgun_F","O_MBT_02_railgun_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
+	];
 [_groups_map, east, "OPF_F", _arr,
 [1990,2100], [250,999],
 []
