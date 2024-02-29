@@ -223,6 +223,7 @@ while {sleep 0.5; true} do {
 							case _respawn_type_Pilot: {
 								if (_startingClass != 1) then {
 									_b = false;
+									_teleport = true;
 								}else{
 									_str = "#USER:gosa_menu_factory_AircraftFactory_0";											
 								};
@@ -309,6 +310,7 @@ while {sleep 0.5; true} do {
 							case _respawn_type_Pilot: {
 								if (_startingClass != 1) then {
 									_b = false;
+									_teleport = true;
 								}else{
 									_str = "#USER:gosa_menu_factory_AircraftFactory_0";											
 								};
