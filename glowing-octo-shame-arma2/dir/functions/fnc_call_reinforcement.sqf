@@ -151,6 +151,10 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 				};
 			}else{
 				_cargo set [count _cargo, _x];
+				#ifdef __ARMA3__
+					// ИИ застревают в полусогнутом состоянии, в анимации перетаскивания раненого.
+					_x switchMove "";
+				#endif
 			};
 		}forEach units _grp;
 
