@@ -4,17 +4,17 @@
 //-- Спецназ
 	[_groups_map, east, "OPF_R_F", [
 			// configName O_R_InfSquad
-			[[[["O_R_soldier_TL_F","O_R_soldier_AR_F","O_R_medic_F","O_R_soldier_LAT_F","O_R_Soldier_GL_F","O_R_soldier_AR_F","O_R_soldier_LAT_F","O_R_soldier_M_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			[[[["O_R_soldier_TL_F","O_R_soldier_AR_F","O_R_medic_F","O_R_soldier_LAT_F","O_R_Soldier_GL_F","O_R_soldier_AR_F","O_R_soldier_LAT_F","O_R_soldier_M_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 			// configName O_R_InfTeam
-			[[[["O_R_soldier_TL_F","O_R_Soldier_AR_F","O_R_soldier_M_F","O_R_Soldier_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			[[[["O_R_soldier_TL_F","O_R_Soldier_AR_F","O_R_soldier_M_F","O_R_Soldier_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 			// configName O_R_InfSentry
-			[[[["O_R_soldier_GL_F","O_R_soldier_M_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0],
+			[[[["O_R_soldier_GL_F","O_R_soldier_M_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
 			// configName O_R_reconSquad
-			[[[["O_R_recon_TL_F","O_R_recon_JTAC_F","O_R_recon_medic_F","O_R_recon_exp_F","O_R_recon_GL_F","O_R_recon_AR_F","O_R_recon_M_F","O_R_recon_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
+			[[[["O_R_recon_TL_F","O_R_recon_JTAC_F","O_R_recon_medic_F","O_R_recon_exp_F","O_R_recon_GL_F","O_R_recon_AR_F","O_R_recon_M_F","O_R_recon_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 			// configName O_R_reconTeam
-			[[[["O_R_recon_TL_F","O_R_recon_M_F","O_R_recon_AR_F","O_R_recon_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0],
+			[[[["O_R_recon_TL_F","O_R_recon_M_F","O_R_recon_AR_F","O_R_recon_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5],
 			// configName O_R_reconSentry
-			[[[["O_R_recon_GL_F","O_R_recon_M_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0]
+			[[[["O_R_recon_GL_F","O_R_recon_M_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1]
 	] call gosa_fnc_filtering_squads_byAvail,
 	[1990,2100], [160,249],
 	["CUP_O_RU", "CUP_O_TK"]
@@ -74,16 +74,16 @@
 				"PRIVATE","CORPORAL",
 				"PRIVATE","SERGEANT",
 				"CORPORAL","PRIVATE",
-				"PRIVATE"]]],0.5],
+				"PRIVATE"]]],1],
 			// configName I_E_InfSentry
-			[[[["I_E_soldier_GL_F","I_E_soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
+			[[[["I_E_soldier_GL_F","I_E_soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
 			// configName I_E_InfTeam
 			[[[["I_E_soldier_TL_F",
 				"I_E_soldier_AR_F","I_E_soldier_GL_F",
 				"I_E_RadioOperator_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],
 				["SERGEANT",
 				"CORPORAL","PRIVATE",
-				"PRIVATE"]]],0.5]
+				"PRIVATE"]]],1]
 	] call gosa_fnc_filtering_squads_byAvail,
 	[1990,2100], [160,249],
 	["CUP_I_NAPA"]
