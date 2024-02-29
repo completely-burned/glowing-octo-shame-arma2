@@ -538,10 +538,10 @@ _default_east=[
 			"O_MBT_04_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],
 			["LIEUTENANT",
 			"SERGEANT","SERGEANT",
-			"CORPORAL"]]],0.5],
+			"CORPORAL"]]],0.2],
 		// O_TankSection_Heavy
 		[[[["O_MBT_04_cannon_F","O_MBT_04_cannon_F"],[[0,0,0],[10,-10,0]],
-			["LIEUTENANT","SERGEANT"]]],0.5],
+			["LIEUTENANT","SERGEANT"]]],0.2],
 	// артиллерия
 	/*
 	[[[["O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
