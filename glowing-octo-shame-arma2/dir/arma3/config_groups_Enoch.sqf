@@ -64,6 +64,8 @@
 				"CORPORAL","PRIVATE",
 				"SERGEANT","CORPORAL",
 				"PRIVATE"],[],1]],0.5],
+			// InfTeam_Light
+			[[[["I_E_soldier_TL_F","I_E_soldier_AR_F","I_E_soldier_F","I_E_soldier_LAT2_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 			// configName I_E_InfSquad
 			[[[["I_E_soldier_SL_F",
 				"I_E_RadioOperator_F","I_E_soldier_LAT_F",
