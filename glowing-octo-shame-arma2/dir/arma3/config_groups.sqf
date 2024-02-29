@@ -207,11 +207,11 @@ _default_west=[
 	[[
 		[["B_T_VTOL_01_infantry_F"],[[0,0,0]],["LIEUTENANT"]],
 		[["B_soldier_SL_F","B_soldier_TL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
-	],0.5],
+	],0.1],
 	[[
 		[["B_Heli_Transport_03_F"],[[0,0,0]],["LIEUTENANT"]],
 		[["B_soldier_SL_F","B_soldier_TL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
-	],0.5],
+	],0.1],
 	// поддержка
 	[[[["B_Truck_01_medical_F"],[],["PRIVATE"],[["B_medic_F"]]]],0.02],
 	[[[["B_Truck_01_Repair_F"],[],["PRIVATE"],[["B_engineer_F"]]]],0.02],
@@ -350,7 +350,7 @@ _default_east=[
 			"O_recon_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],
 			["SERGEANT",
 			"CORPORAL","PRIVATE",
-			"PRIVATE"]]],0.05],
+			"PRIVATE"]]],0.5],
 	[[[["O_recon_TL_F","O_recon_M_F","O_recon_medic_F","O_recon_LAT_F","O_recon_JTAC_F","O_recon_exp_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	[[[["O_recon_TL_F","O_recon_M_F","O_recon_medic_F","O_recon_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	[[[["O_recon_M_F","O_recon_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
