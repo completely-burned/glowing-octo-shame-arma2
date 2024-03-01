@@ -19,6 +19,7 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 				_libEnabled = [_entry] call gosa_fnc_libEnabled;
 				if (_libEnabled) then {
 					_vehicleClass = getText(_entry >> "vehicleclass")
+					if (_vehicleClass in ["MenStory"]) exitWith {};
 					_true = false;
 					if (_vehicleClass in ["Ammo","ACE_Ammunition"]) then {
 						_true = true;
