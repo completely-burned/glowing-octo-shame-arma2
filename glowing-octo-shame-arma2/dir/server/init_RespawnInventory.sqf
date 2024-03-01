@@ -54,7 +54,7 @@ _types = [
 ];
 */
 
-
+// FIXME: Это не помогает.
 _types = ([] call gosa_fnc_return_types_pseudo_safe);
 _types = availableVehicles;
 diag_log format ["Log: [init_RespawnInventory] %1 count", count _types];
