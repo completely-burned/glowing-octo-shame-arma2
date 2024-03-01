@@ -143,6 +143,13 @@ if ( configName(LIB_cfgVeh >> "ACE_Logic") != "" ) then {
 	// _logic = (group_logic) createUnit ["AlternativeInjurySimulation",[1000,10,0],[],0,"none"];
 	// _logic synchronizeObjectsAdd playableUnits;
 };
+
+#ifdef __ARMA3__
+	if (missionNamespace getVariable "gosa_ModuleSlingload" != 0) then {
+		_grp createUnit ["ModuleSlingload_F",[1000,10,0],[],0,"none"];
+	};
+#endif
+
 waitUntil{!isNil "gosa_fnc_init"};
 
 //-- Стартовый список штабов и построек.
