@@ -1,9 +1,7 @@
-private["_friendly_vehicles_only"];
+private["_friendly_vehicles_only","_vehicleClass","_list","_true"];
 _friendly_vehicles_only = missionNamespace getVariable "gosa_vehicles_lock";
 
-private ["_list","_true"];
 _list = [];
-_true = false;
 for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 	private ["_entry"];
 	_entry = ((configFile >> "CfgVehicles") select _i);
@@ -20,7 +18,9 @@ for "_i" from 0 to ((count (configFile >> "CfgVehicles")) - 1) do {
 			) then {
 				_libEnabled = [_entry] call gosa_fnc_libEnabled;
 				if (_libEnabled) then {
-					if (getText(_entry >> "vehicleclass") in ["Ammo","ACE_Ammunition"]) then {
+					_vehicleClass = getText(_entry >> "vehicleclass")
+					_true = false;
+					if (_vehicleClass in ["Ammo","ACE_Ammunition"]) then {
 						_true = true;
 					};
 					if (((getText(_entry >> "simulation")) == "soldier") && (getNumber(_entry >> "isMan") == 1)) then {
