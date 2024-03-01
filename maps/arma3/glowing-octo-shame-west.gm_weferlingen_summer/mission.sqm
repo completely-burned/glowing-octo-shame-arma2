@@ -166,7 +166,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="GM CO 00 glowing-octo-shame gm_weferlingen_summer West v0.0.5.919 DEBUG";
+		briefingName="GM CO 00 glowing-octo-shame gm_weferlingen_summer West v0.0.5.920 DEBUG";
 		startWeather=0.34999999;
 		startWind=0.1;
 		startWaves=0.1;
