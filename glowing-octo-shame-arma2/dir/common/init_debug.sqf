@@ -8,3 +8,7 @@ setTerrainGrid 50;
 setAccTime 0.5;
 // Помогает учесть как день так и ночь.
 setTimeMultiplier 50;
+
+missionNamespace setVariable ["enemyCoefficient", 1];
+missionNamespace setVariable ["gosa_patrolCoefficient", 5];
+

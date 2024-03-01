@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=120;
+		nextID=135;
 	};
 	class MarkerIDProvider
 	{
@@ -176,7 +176,7 @@ class Mission
 	appId=1681170;
 	class Intel
 	{
-		briefingName="WS CO 00 glowing-octo-shame SefrouRamal West v0.0.5.919 DEBUG";
+		briefingName="WS CO 00 glowing-octo-shame SefrouRamal West v0.0.5.920 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;
@@ -193,7 +193,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=70;
+		items=85;
 		class Item0
 		{
 			dataType="Marker";
@@ -1409,6 +1409,254 @@ class Mission
 			{
 			};
 			id=115;
+		};
+		class Item70
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4903.1221,26.328667,5986.5361};
+				angles[]={0.0039967569,2.5315707,0.0080009829};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=120;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=-3.8146973e-006;
+		};
+		class Item71
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4896.8154,26.30138,5982.2598};
+				angles[]={0.027990974,2.7146595,0.0080009829};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=121;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item72
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4770.4805,24.687246,6068.6548};
+				angles[]={0.015998369,2.7179208,0.012000273};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=122;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=-1.1444092e-005;
+		};
+		class Item73
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4776.4233,24.7348,6072.9585};
+				angles[]={0.0080009829,2.736963,0.019996032};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=123;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=1.5258789e-005;
+		};
+		class Item74
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4612.6436,23.963121,5974.3179};
+				angles[]={0.0039967569,3.2910578,0.0039967569};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=124;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=1.9073486e-006;
+		};
+		class Item75
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4611.6934,23.91338,5987.7329};
+				angles[]={-0,6.0811992,0.0079935296};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=125;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=-1.9073486e-006;
+		};
+		class Item76
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4549.1733,24.049809,5920.1934};
+				angles[]={-0,1.9124025,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=126;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item77
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4537.3462,24.195246,5886.5771};
+				angles[]={0.019999012,2.3079114,6.2432065};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=127;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=4.3869019e-005;
+		};
+		class Item78
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4546.4043,24.043503,5902.7441};
+				angles[]={0.0080009829,1.646407,0.0039967569};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=128;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=1.9073486e-006;
+		};
+		class Item79
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8140.6602,46.629807,8492.5742};
+				angles[]={-0,6.1197658,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=129;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item80
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8170.6104,44.517681,8773.6846};
+				angles[]={-0,1.9580044,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=130;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item81
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8177.7681,44.552513,8786.0557};
+				angles[]={6.2711902,2.1794016,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=131;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item82
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7864.0337,44.519806,8359.1631};
+				angles[]={-0,2.5987999,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=132;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item83
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7854.8765,44.80146,8363.2275};
+				angles[]={6.2631893,0,6.1362524};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=133;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=3.4332275e-005;
+		};
+		class Item84
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7856.5366,44.515938,8347.6309};
+				angles[]={-0,2.2963645,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=134;
+			type="Box_NATO_AmmoVeh_F";
 		};
 	};
 	class Connections
