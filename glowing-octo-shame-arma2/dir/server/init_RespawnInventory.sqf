@@ -4,6 +4,7 @@
 private [
 	"_cfgVeh",
 	"_types",
+	"_types_enabled",
 	"_roles_avail",
 	"_sides_avail",
 	"_factions_avail",
@@ -55,9 +56,11 @@ _types = [
 
 
 _types = ([] call gosa_fnc_return_types_pseudo_safe);
+_types = availableVehicles;
 diag_log format ["Log: [init_RespawnInventory] %1 count", count _types];
 
 // 
+_types_enabled = [];
 for "_i" from 0 to (count _types -1) do {
 	_item = _types select _i;
 	_entry = _cfgVeh >> _item;
@@ -70,6 +73,7 @@ for "_i" from 0 to (count _types -1) do {
 				_str = toLower getText (_entry >> "faction");
 				if (_str != "") then {
 					[_side, _item] call BIS_fnc_addRespawnInventory;
+					_types_enabled set [count _types_enabled, _item];
 					diag_log format ["Log: [init_RespawnInventory] %1 added %2", _item, _side];
 				};
 			};
@@ -78,3 +82,5 @@ for "_i" from 0 to (count _types -1) do {
 		};
 	};
 };
+
+_types_enabled;
