@@ -55,7 +55,7 @@ for "_iW" from 0 to _iW_to do {
 						};
 
 						for "_iM" from 0 to (count _magazines -1) do {
-							_mag = toLower _magazines select _iM;
+							_mag = toLower (_magazines select _iM);
 							_ammo = getText (configfile >> "cfgMagazines" >> _mag >> "ammo");
 
 							_arr = getArray (_cfgAmm >> _ammo >> "submunitionAmmo");
