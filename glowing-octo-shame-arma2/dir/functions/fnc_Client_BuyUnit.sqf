@@ -10,18 +10,23 @@ private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
 	"_str","_type_Lower","_Objects","_veh","_num",
 	"_factory_obj","_buy_dist_max","_player_pos","_player_veh",
 	"_factory_dir","_factory_pos","_name",
+	"_cfgVeh","_entry","_crew",
 	"_side","_listHQ_str","_class","_fnc_factory_HQ","_factory_HQ",
 	"_factory","_pos","_logic","_arr","_status"];
 
+_cfgVeh = LIB_cfgVeh;
+_crew = [];
+
 _type = _this Select 0;
 
+_entry = _cfgVeh >> _type;
 _side = playerSide;
 _player_veh = vehicle player;
 _player_dir = getDir _player_veh;
 _player_pos = getPos _player_veh;
 _pos = _player_pos;
 _buy_dist_max = gosa_distanceCoinBase;
-_name = getText (configFile >> "CfgVehicles" >> _type >> "displayName");
+_name = getText (_entry >> "displayName");
 if (_name == "") then {
 	_name = _type;
 };
@@ -70,7 +75,7 @@ _isUAV=false;
 if(_type isKindOf "UAV")then{
 	_isUAV=true;
 }else{
-	if(getNumber (LIB_cfgVeh >> _type >> "isUav") == 1)then{
+	if(getNumber (_entry >> "isUav") == 1)then{
 		_isUAV=true;
 	};
 };
@@ -137,7 +142,7 @@ if (true) then {
 
 	//-- Ящик с оружием.
 	if ((_type isKindOf "ReammoBox")
-		or (toLower getText(configFile >> "CfgVehicles" >> _type >> "vehicleclass") in ["ammo","ace_ammunition"]))
+		or (toLower getText(_entry >> "vehicleclass") in ["ammo","ace_ammunition"]))
 	then
 	{
 		if (isNil "_factory_obj") then {
@@ -268,8 +273,14 @@ if (true) then {
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
 			if(_isUAV)then{
-				[_veh, createGroup playerSide] call gosa_fnc_spawnCrew;
+				#ifdef __ARMA3__
+					_side createVehicleCrew _veh;
+				#else
+					// Не работает с UAVs в A3.
+					_crew = ([_veh, createGroup _side, _side, _type, [], _entry, _pos] call gosa_fnc_spawnCrew);
+				#endif
 			};
+			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};
@@ -299,8 +310,14 @@ if (true) then {
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
 			if(_isUAV)then{
-				[_veh, createGroup playerSide] call gosa_fnc_spawnCrew;
+				#ifdef __ARMA3__
+					_side createVehicleCrew _veh;
+				#else
+					// Не работает с UAVs в A3.
+					_crew = ([_veh, createGroup _side, _side, _type, [], _entry, _pos] call gosa_fnc_spawnCrew);
+				#endif
 			};
+			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};

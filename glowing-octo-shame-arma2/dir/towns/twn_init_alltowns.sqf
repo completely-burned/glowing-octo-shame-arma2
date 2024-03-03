@@ -12,7 +12,7 @@ Private["_buildings","_constructFunction","_count","_customCamps","_customOwners
 	"_replaceTownName","_typeCity","_typeDepot","_typeCamp","_dyno","_grp_logic","_logic",
 	"_constructedList","_depotCompositions","_campCompositions","_typeCityCapital",
 	"_town","_depot","_dir","_typeVillage","_types_City_all","_types_City","_types_Depot",
-	"_types_CityCapital","_types_Camp","_types_Village",
+	"_types_CityCapital","_types_Camp","_types_Village","_dyno_allowed",
 	"_cityCapital","_rangeSizeModifier","_rangeModifier","_conflict_dist","_towns_used",
 	"_minSizeMod","_sizeMod","_position","_townName","_townNames","_type","_neighbors"];
 
@@ -174,12 +174,14 @@ for "_count" from 0 to (count _cityCenters -1) do {
 		if (_minSize < 20) then {_minSize = 20};
 
 
+		_dyno_allowed = false;
 		//-- Create Depot.
 		_flatAreas = _position NearEntities [_types_Depot, _twn_nd];
 		if (Count _flatAreas > 0) then {
 			_depot = (_flatAreas Select 0);
 			_depotPosition = getPos _depot;
 			_depotDirection = Direction _depot;
+			_dyno_allowed = true;
 
 		}else{
 			_depotPosition = _position;
@@ -189,6 +191,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 			if (Count _flatAreas > 0) then {
 				_depotPosition = LocationPosition (_flatAreas Select 0);
 				_depotDirection = Direction (_flatAreas Select 0);
+				_dyno_allowed = true;
 			};
 
 			_depot = _grp_logic CreateUnit [_types_Depot select 0, _depotPosition, [], 0, "CAN_COLLIDE"];
@@ -206,7 +209,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 		_town setVariable ["speech", _speech, true];
 
 		// Постройки.
-		if (_dyno) then {
+		if (_dyno && _dyno_allowed) then {
 			_composition = _depotCompositions call BIS_fnc_selectRandom;
 			_constructed = [_depotPosition, _depotDirection, _composition] call _constructFunction;
 			for "_i" from 0 to (count _constructed -1) do {

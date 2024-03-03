@@ -167,7 +167,7 @@ class Mission
 	class Intel
 	{
 		startWeather=0.3;
-		briefingName="CO 00 glowing-octo-shame Malden West v0.0.5.920 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Malden West v0.0.5.921 DEBUG";
 		startWind=0.1;
 		startWaves=0.1;
 		forecastWeather=0.3;
