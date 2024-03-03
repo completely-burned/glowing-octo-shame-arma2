@@ -15,6 +15,7 @@
  * 
  * TODO: FIA можно сделать либо за игроков или против, но не за обе стороны.
  * TODO: Корректировка даты.
+ * TODO: UGV без оружия с артиллерией должен работать или использовать лазерный указатель.
  */
 
 // define ранга.
@@ -24,7 +25,7 @@ private ["_west","_east","_guer","_groups_map","_n","_d",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked",
 	"_grp","_groups_failover","_factions_used","_climate","_date",
-	"_groups_failover_map",
+	"_groups_failover_map","_sides_friendly",
 	"_groups_enabled","_factions_enabled","_groups_enabled_map",
 	"_groups_pending_map","_str","_param_default","_side",
 	"_default_east","_default_west","_default_guer"];
@@ -36,6 +37,7 @@ _westD=[];_eastD=[];_guerD=[];
 // Отказоустойчивые отряды
 _default_east=[];_default_west=[];_default_guer=[];
 
+_sides_friendly = gosa_friendlyside;
 _climate = (gosa_IslandType select 0);
 _date = (gosa_IslandType select 1);
 _depth = call gosa_fnc_getDepthAverage;
@@ -256,14 +258,6 @@ _arr = _default_west;
 		],0.1]
 	];
 	_arr append [
-		// беспилотники
-		/*
-		[[[["B_UAV_01_F"],[],["CORPORAL"]]],0.5],
-		[[[["B_UAV_02_F"],[],["CORPORAL"]]],0.5],
-		[[[["B_UAV_02_CAS_F"],[],["CORPORAL"]]],0.5],
-		[[[["B_T_UAV_03_dynamicLoadout_F"],[],["LIEUTENANT"]]],0.5],
-		[[[["B_UGV_01_rcws_F"],[],["CORPORAL"]]],0.5],
-		*/
 		// авиация
 		//[[[["B_T_VTOL_01_armed_F"],[],["LIEUTENANT"]]],0.5],
 		[[[["B_Plane_CAS_01_F","B_Plane_CAS_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
@@ -274,7 +268,6 @@ _arr = _default_west;
 	];
 	// jets
 	_arr append [
-		//[[[["B_UAV_05_F"],[],["PRIVATE"]]],0.5],
 		[[[["B_Plane_Fighter_01_F","B_Plane_Fighter_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 		[[[["B_Plane_Fighter_01_Stealth_F","B_Plane_Fighter_01_Stealth_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.1]
 		//[[[["B_Radar_System_01_F","B_SAM_System_03_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
@@ -283,6 +276,33 @@ _arr = _default_west;
 [1990,2100], [250,999],
 []
 ] call gosa_fnc_map_groups_add;
+
+// Беспилотники
+if !(west in _sides_friendly) then {
+	_arr = [
+		//[[[["B_UGV_01_rcws_F"],[],["CORPORAL"]]],0.02],
+		[[[["B_UAV_06_F"],[],["CORPORAL"]]],0.01],
+		// TODO: Частота B_UAV_05_F от уровня океана должна зависить.
+		[[[["B_UAV_05_F"],[],["LIEUTENANT"]]],0.01],
+		// TODO: Частота B_T_UAV_03_F от уровня земли должна зависить, наоборот.
+		[[[["B_T_UAV_03_F"],[],["LIEUTENANT"]]],0.01],
+		[[[["B_UAV_02_F"],[],["CORPORAL"]]],0.01],
+		[[[["B_UAV_02_CAS_F"],[],["CORPORAL"]]],0.02],
+		[[[["B_UAV_01_F"],[],["CORPORAL"]]],0.02]
+	];
+	[_groups_map, west, "BLU_D_F", _arr,
+	[1990,2100], [300,999],
+	[]
+	] call gosa_fnc_map_groups_add;
+	[_groups_map, west, "BLU_T_F", _arr,
+	[1990,2100], [-999,249],
+	[]
+	] call gosa_fnc_map_groups_add;
+	[_groups_map, west, "BLU_F", _arr,
+	[1990,2100], [250,299],
+	[]
+	] call gosa_fnc_map_groups_add;
+};
 
 
 //-- OPF_F CSAT
@@ -600,14 +620,6 @@ _arr = _default_east;
 		],0.1]
 	];
 	_arr append [
-		// беспилотники
-		/*
-		[[[["O_UAV_01_F"],[],["CORPORAL"]]],0.5],
-		[[[["O_UAV_02_F"],[],["CORPORAL"]]],0.5],
-		[[[["O_UAV_02_CAS_F"],[],["CORPORAL"]]],0.5],
-		[[[["O_T_UAV_04_CAS_F"],[],["LIEUTENANT"]]],0.5],
-		[[[["O_UGV_01_rcws_F"],[],["CORPORAL"]]],0.5],
-		*/
 		// авиация
 		[[[["O_Heli_Attack_02_black_F","O_Heli_Attack_02_black_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 		[[[["O_Heli_Light_02_F","O_Heli_Light_02_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
@@ -627,6 +639,26 @@ _arr = _default_east;
 [1990,2100], [250,999],
 []
 ] call gosa_fnc_map_groups_add;
+
+// Беспилотники
+if !(east in _sides_friendly) then {
+	_arr = [
+		//[[[["O_UGV_01_rcws_F"],[],["CORPORAL"]]],0.02],
+		[[[["O_UAV_06_F"],[],["CORPORAL"]]],0.01],
+		[[[["O_T_UAV_04_CAS_F"],[],["LIEUTENANT"]]],0.02],
+		[[[["O_UAV_02_F"],[],["CORPORAL"]]],0.01],
+		[[[["O_UAV_02_CAS_F"],[],["CORPORAL"]]],0.02],
+		[[[["O_UAV_01_F"],[],["CORPORAL"]]],0.02]
+	];
+	[_groups_map, east, "OPF_F", _arr,
+	[1990,2100], [250,999],
+	[]
+	] call gosa_fnc_map_groups_add;
+	[_groups_map, east, "OPF_T_F", _arr,
+	[1990,2100], [-999,249],
+	[]
+	] call gosa_fnc_map_groups_add;
+};
 
 
 //-- IND_F AAF
@@ -761,13 +793,6 @@ _default_guer=[
 	//[[[["I_LT_01_scout_F","I_LT_01_AA_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
 	[[[["I_LT_01_AT_F","I_LT_01_AT_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.2],
 	[[[["I_LT_01_AA_F","I_LT_01_AA_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.2],
-	// беспилотники
-	/*
-	[[[["I_UAV_01_F"],[],["PRIVATE"]]],0.5],
-	[[[["I_UAV_02_F"],[],["PRIVATE"]]],0.5],
-	[[[["I_UAV_02_CAS_F"],[],["PRIVATE"]]],0.5],
-	[[[["I_UGV_01_rcws_F"],[],["PRIVATE"]]],0.5],
-	*/
 	// авиация
 	[[
 		[["I_Heli_light_03_dynamicLoadout_F"],[[0,0,0]],["LIEUTENANT"]],
@@ -823,6 +848,23 @@ _arr = _default_guer;
 [1990,2100], [250,999],
 []
 ] call gosa_fnc_map_groups_add;
+
+// Беспилотники
+if !(resistance in _sides_friendly) then {
+	_arr = [
+		//[[[["I_UGV_01_rcws_F"],[],["CORPORAL"]]],0.02],
+		// TODO: Мед. Беспилотники должны приземляться.
+		[[[["I_UAV_06_medical_F"],[],["CORPORAL"]]],0.01],
+		[[[["I_UAV_06_F"],[],["CORPORAL"]]],0.01],
+		[[[["I_UAV_02_F"],[],["CORPORAL"]]],0.01],
+		[[[["I_UAV_02_CAS_F"],[],["CORPORAL"]]],0.02],
+		[[[["I_UAV_01_F"],[],["CORPORAL"]]],0.02]
+	];
+	[_groups_map, resistance, "IND_F", _arr,
+	[1990,2100], [-999,999],
+	[]
+	] call gosa_fnc_map_groups_add;
+};
 
 
 //////////////////////////////
