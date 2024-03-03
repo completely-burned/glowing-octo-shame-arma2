@@ -6,9 +6,12 @@ private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 	"_arr","_count","_b","_cfg","_0","_1","_2","_3","_obj","_n","_allow",
 	"_mod_i44","_startingClass","_types_pilot","_types_mhq_virt",
 	"_availableWeapons","_availableBackpacks",
+	"_menu_expression_default","_cfgVeh",
+	"_menu_expression_coin","_coin","_type","_fnc_create_buy_menu",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
+_cfgVeh = LIB_cfgVeh;
 _startingClass = gosa_playerStartingClass;
 _types_pilot = gosa_pilotL;
 _types_mhq_virt = gosa_types_mhq_virt;
@@ -123,12 +126,26 @@ BIS_MENU_GroupCommunication = [
 #endif
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
-private["_fnc_create_buy_menu"];
+	_menu_expression_coin = "
+		BIS_CONTROL_CAM_LMB = false;
+		scopename 'main';
+		_item = '%1';
+		_id = %2;
+		_array = (call compile '%3') select _id;
+
+		_params = [_item];
+		BIS_coin_logic setvariable ['BIS_COIN_params',_params];
+	";
+	_menu_expression_default = "['%1'] spawn gosa_fnc_Client_BuyUnit";
+
 	_fnc_create_buy_menu = {
 		diag_log format ["Log: [Menu] _fnc_create_buy_menu, %1", _this];
-		private["_current","_list","_items","_itemsName","_usermenu"];
+		private["_current","_list","_items","_itemsName","_usermenu",
+			"_expression","_coin"];
 		_list = _this select 0;
 		_current = _this select 1;
+		_coin = if (_current in ["StaticWeapon","Ammo"]) then {true} else {false};
+
 		_items = []; _itemsName = [];
 		for "_i" from 0 to (count (_list select 0) - 1) do {
 			_usermenu = format["m_menu_%1_%2",_current, _list select 0 select _i];
@@ -175,7 +192,8 @@ private["_fnc_create_buy_menu"];
 						};
 					};
 				};
-				[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "","['%1'] spawn gosa_fnc_Client_BuyUnit"] call BIS_FNC_createmenu;
+				_expression = _menu_expression_default;
+				[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "", _expression] call BIS_FNC_createmenu;
 			};
 			[_usermenu, _usermenu, [_items2, _itemsName2], "%1",""] call BIS_FNC_createmenu;
 		};
@@ -552,16 +570,28 @@ if (_b) then {
 	["Barracks", "gosa_menu_factory_Barracks", _arr, "%1", ""] call BIS_FNC_createmenu;
 
 
-	//- Mega Factory
-	/*
-	_arr = [[],[],[]];
+	//- Меню строительства.
+	_arr = [[],[],[],[]];
 	_0 = _arr select 0;
 	_1 = _arr select 1;
 	_2 = _arr select 2;
-	*/
-	_0 resize 0;
-	_1 resize 0;
-	_2 resize 0;
+	_3 = _arr select 3;
+
+	_0 set [count _2, "#USER:Ammo_0"];
+	_1 set [count _2, gettext(_cfgVeh >> "ReammoBox" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:StaticWeapon_0"];
+	_1 set [count _2, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
+	_2 set [count _2, __ON];
+	["Coin", "BIS_Coin_categories", _arr, "%1", ""] call BIS_FNC_createmenu;
+
+	//- Mega Factory
+	_arr = [[],[],[],[]];
+	_0 = _arr select 0;
+	_1 = _arr select 1;
+	_2 = _arr select 2;
+	_3 = _arr select 3;
 
 	#ifdef __ARMA3__
 		waitUntil{!isNil "gosa_logic_ArsenalBox"};
@@ -572,7 +602,7 @@ if (_b) then {
 		[_obj,true,false,false] call bis_fnc_addVirtualItemCargo;
 		_0 set [count _2, ""];
 		_1 set [count _2, localize "STR_A3_Arsenal"];
-		_3 set [count _2, "['Open', [nil, gosa_logic_ArsenalBox]] call BIS_fnc_arsenal"];
+		_3 set [count _2, {['Open', [nil, gosa_logic_ArsenalBox]] call BIS_fnc_arsenal}];
 		_2 set [count _2, __ON];
 	#endif
 
@@ -613,13 +643,15 @@ if (_b) then {
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
 	_2 set [count _2, __ON];
 
+	gosa_menu_factory_FactoryAll_array = _arr;
 	["Factory", "gosa_menu_factory_FactoryAll", _arr, "%1", "
-		if !(isNil {%3 select %2}) then {
-			call compile (%3 select %2);
-		};
+		private ['_arr','_item'];
+		_arr = gosa_menu_factory_FactoryAll_array;
+		_item = (_arr select 3 select %2);
+		if (typeName _item == typeName {}) exitWith {gosa_act_array spawn _item};
+		if (typeName _item == typeName '') exitWith {gosa_act_array execVM _item};
 	", _3] call BIS_FNC_createmenu;
 
-	gosa_menu_factory_FactoryAll_array = _arr;
 	// Для совместимости.
 	BuyMenu_0 = gosa_menu_factory_FactoryAll_0;
 };
