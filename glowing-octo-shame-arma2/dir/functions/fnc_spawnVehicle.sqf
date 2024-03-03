@@ -1,7 +1,7 @@
 diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
 
 private ["_pos","_azi","_type","_grp","_side","_str","_entry",
-	"_crew_types",
+	"_crew_types","_isUAV",
 	"_sim","_veh","_crew","_air"];
 
 _pos = _this select 0;
@@ -68,6 +68,14 @@ diag_log format ["Log: [fnc_spawnVehicle] %1, created %2 %3 %4", _this, _sim, ge
 	[nil, _veh, rvehInit] call RE;
 #endif
 
+#ifdef __ARMA3__
+	_isUAV = _veh call gosa_fnc_isUAV;
+	if (_isUAV) then {
+		_side createVehicleCrew _veh;
+		_crew = crew _veh;
+	}else{
+#endif
+
 _crew = [_veh,
 		_grp,
 		_side,
@@ -79,6 +87,8 @@ _crew = [_veh,
 
 
 #ifdef __ARMA3__
+	};
+
 	// С этим кодом авиация приземляется.
 	if !(_air) then {
 		// Без этого некоторые ТС в A3 стоят на месте.
