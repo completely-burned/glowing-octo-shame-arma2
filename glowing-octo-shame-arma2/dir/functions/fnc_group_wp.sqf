@@ -66,6 +66,7 @@ private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_survival",
 	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr","_wpType_GETOUT",
 	"_wpType_TrUNLOAD_Plane","_veh",
+	"_isUAVConnected","_side","_sides_friendly",
 	"_grp_wp_completed","_g2","_z","_v","_b"];
 _grp=_this;
 
@@ -90,6 +91,8 @@ _units = units _grp;
 
 // выполнять только есть в группе есть юниты
 if({alive _x} count _units > 0)then{
+	_side = side _grp;
+	_sides_friendly = gosa_friendlyside;
 
 	// удалить [0,0], маршрутная точка на неправильной позиции
 	for "_i" from count waypoints _grp - 1 to 0 step -1 do {
@@ -190,6 +193,22 @@ if({alive _x} count _units > 0)then{
 				};
 			};
 		};
+
+	//-- Беспилотники
+	if ("UAV" in _grp_type) then {
+		if (_side in _sides_friendly) then {breakTo "main"};
+
+		#ifdef __ARMA3__
+			if ({isUAVConnected _x} count _vehicles > 0
+				or {{isUAVConnected _x} count _units > 0}) then
+			{
+				//_isUAVConnected = true;
+				breakTo "main";
+			//}else{
+				//_isUAVConnected = false;
+			};
+		#endif
+	};
 
 	_arr = waypoints _grp;
 	if (count _arr > 0) then {
