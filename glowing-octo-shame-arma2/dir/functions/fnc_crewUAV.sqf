@@ -1,3 +1,8 @@
+#define InvisibleManE_EP1 O_UAV_AI
+#define InvisibleManW_EP1 B_UAV_AI
+#define InvisibleManG_EP1 I_UAV_AI
+#define InvisibleManC_EP1 C_UAV_AI
+
 private["_s","_r"];
 _s = _this select 2;
 
