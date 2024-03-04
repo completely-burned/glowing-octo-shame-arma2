@@ -76,7 +76,6 @@ diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
 [] execVM "dir\client\clientMenu.sqf";
 [] execVM "dir\client\while_localGroup.sqf";
 [] execVM "dir\client\while_act_BuyMenu.sqf";
-[] execVM "dir\client\while_act_coin.sqf";
 [] execVM ("dir\client\while_aa_hidden.sqf");
 [] execVM ("dir\client\while_keyEH_smoke.sqf");
 [] execVM ("dir\client\while_respawnRandom.sqf");
