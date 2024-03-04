@@ -1,0 +1,17 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "RPT Watcher",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-command",
+                "Get-ChildItem -Path $env:USERPROFILE\\AppData\\Local\\Arma` 3 -Filter *.rpt | Sort-Object LastAccessTime -Descending | Select-Object -First 1 | Get-Content -Tail 1 -Wait -Encoding utf8"
+            ],
+            "problemMatcher": []
+        }
+	]
+}
