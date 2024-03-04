@@ -714,7 +714,7 @@ if (_b) then {
 
 	_0 set [count _2, "#USER:Ship_0"];
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
-	_2 set [count _2, __ON];
+	_2 set [count _2, 0];
 
 	gosa_menu_factory_FactoryAll_array = _arr;
 	["Factory", "gosa_menu_factory_FactoryAll", _arr, "%1", "
