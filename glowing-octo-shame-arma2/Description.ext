@@ -820,6 +820,14 @@ class Params {
 		default = 1;
 	};
 
+	// Осветительные ракеты.
+	class gosa_flares {
+		title="MODULE: Flares";
+		values[] = {1,0};
+		texts[] = {STR_ENABLED,STR_DISABLED};
+		default = 1;
+	};
+
 	// Лагеря, для атмосферы.
 	class gosa_camps {
 		title="ENVIRONMENT: Camps";
