@@ -808,10 +808,16 @@ class Params {
 	// Стройка.
 	// TODO: Сбор-разбор штаба и рефакторинг.
 	class gosa_coin {
-		title="MODULE: Coin (not completed)";
+		title="MODULE: Coin old (not completed)";
+		values[] = {0};
+		texts[] = {STR_DISABLED};
+		default = 0;
+	};
+	class gosa_coin_v2 {
+		title="MODULE: Coin v2";
 		values[] = {1,0};
 		texts[] = {STR_ENABLED,STR_DISABLED};
-		default=0;
+		default = 1;
 	};
 
 	// Лагеря, для атмосферы.

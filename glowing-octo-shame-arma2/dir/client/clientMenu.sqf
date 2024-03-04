@@ -665,9 +665,9 @@ if (_b) then {
 
 	#ifndef __ARMA3__
 		_0 set [count _2, ""];
-		_1 set [count _2, "coin_interface"];
+		_1 set [count _2, localize "str_coin_action"];
 		_3 set [count _2, 'dir\coin\coin_interface_v2.sqf'];
-		_2 set [count _2, __ON];
+		_2 set [count _2, missionNamespace getVariable "gosa_coin_v2"];
 	#endif
 
 	//if (leader player == player) then {
