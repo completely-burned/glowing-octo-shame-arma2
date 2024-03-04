@@ -60,12 +60,17 @@ for "_iW" from 0 to _iW_to do {
 
 							_arr = getArray (_cfgAmm >> _ammo >> "submunitionAmmo");
 							if (count _arr > 0) then {
-								_str = toLower getText (_cfgAmm >> _arr select 0 >> "simulation");
-							}else{
-								_str = toLower getText (_cfgAmm >> _ammo >> "simulation");
+								_ammo = _arr select 0;
 							};
+							_str = toLower getText (_cfgAmm >> _ammo >> "simulation");
 
 							if (_str == "shotilluminating") then {
+								if (true) then {
+									// TODO: Звук запуска ракеты.
+									_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
+									_arr set [2, 150];
+									_ammo createVehicle _arr;
+								}else{
 								_u_mags = magazines _u;
 								_n = ({toLower _x == _mag} count _u_mags);
 								#ifdef __ARMA3__
@@ -97,6 +102,7 @@ for "_iW" from 0 to _iW_to do {
 									sleep 1;
 									if (({toLower _x == _mag} count magazines _u) > _n) then {_u removeMagazine _mag};
 								#endif
+								};
 								breakTo "scope1";
 							};
 						};
