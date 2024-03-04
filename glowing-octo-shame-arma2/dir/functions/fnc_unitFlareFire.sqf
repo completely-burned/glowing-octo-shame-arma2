@@ -5,13 +5,14 @@
  * FIXME: В A3 ИИ не поднимает оружие перед выстрелом.
  * FIXME: В A3 и a2oa ИИ не стреляет во время передвижения.
  * TODO: Лучше заменить на сохданный объект, без выстрела.
+ * FIXME: Некоторые ракеты горят, но света почти не излучают.
  */
 
 diag_log format["Log: [fnc_unitFlareFire] %1", _this];
 
 private["_cfgWea","_cfgAmm","_magazines","_weapons","_mag",
 	"_target","_grp","_muzzle","_muzzles","_iW_to","_n",
-	"_u_mags",
+	"_u_mags","_obj",
 	"_units","_u","_w","_arr","_ammo","_m","_item","_str"];
 
 _cfgWea = LIB_cfgWea;
@@ -69,7 +70,12 @@ for "_iW" from 0 to _iW_to do {
 									// TODO: Звук запуска ракеты.
 									_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
 									_arr set [2, 150];
-									_ammo createVehicle _arr;
+									_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
+									#ifdef __ARMA3__
+										// Без этого ракета замирает на месте.
+										_obj setVelocity [0, 0, -0.01];
+									#endif
+									diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _ammo, _mag, _obj, _arr]];
 								}else{
 								_u_mags = magazines _u;
 								_n = ({toLower _x == _mag} count _u_mags);
