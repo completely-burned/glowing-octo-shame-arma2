@@ -290,7 +290,7 @@ if !(west in _sides_friendly) then {
 		[[[["B_UAV_02_CAS_F"],[],["CORPORAL"]]],0.02],
 		[[[["B_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
-	[_groups_map, west, "BLU_D_F", _arr,
+	[_groups_map, west, "BLU_NATO_lxWS", _arr,
 	[1990,2100], [300,999],
 	[]
 	] call gosa_fnc_map_groups_add;
