@@ -34,7 +34,7 @@ while {sleep 15 + random 15; true} do {
 	};
 
 	if (_b) then {
-		_n = ((150 / 7) * (7 - (_player call gosa_fnc_canSee)));
+		_n = ((150 / 7) * (_player call gosa_fnc_canSee));
 		sleep (_n + random (_n/2));
 		//- Запуск ракеты.
 		_arr = _player nearEntities [["Man"], _flare_dist];
