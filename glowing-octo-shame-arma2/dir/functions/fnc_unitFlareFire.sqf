@@ -6,13 +6,14 @@
  * FIXME: В A3 и a2oa ИИ не стреляет во время передвижения.
  * TODO: Лучше заменить на сохданный объект, без выстрела.
  * FIXME: Некоторые ракеты горят, но света почти не излучают.
+ * TODO: Рандомизация.
  */
 
 diag_log format["Log: [fnc_unitFlareFire] %1", _this];
 
 private["_cfgWea","_cfgAmm","_magazines","_weapons","_mag",
 	"_target","_grp","_muzzle","_muzzles","_iW_to","_n",
-	"_u_mags","_obj",
+	"_u_mags","_obj","_height",
 	"_units","_u","_w","_arr","_ammo","_m","_item","_str"];
 
 _cfgWea = LIB_cfgWea;
@@ -22,12 +23,13 @@ _units = _this select 0;
 
 _target = objNull;
 _grp = grpNull;
-_iW_to =
-	#ifdef __ARMA3__
-		2;
-	#else
-		1;
-	#endif
+#ifdef __ARMA3__
+	_iW_to = 2;
+	_height = 110;
+#else
+	_iW_to = 1;
+	_height = 150;
+#endif
 
 scopename "scope1";
 
@@ -37,11 +39,14 @@ for "_iW" from 0 to _iW_to do {
 		_u = _units select _i;
 		if (_u == vehicle _u && speed _u < 1) then {
 			switch (_iW) do {
-				case 1: {_w = secondaryWeapon _u};
 				#ifdef __ARMA3__
-				case 2: {_w = handgunWeapon _u};
-				#endif
+					case 1: {_w = secondaryWeapon _u};
+					case 2: {_w = primaryWeapon _u};
+					default {_w = handgunWeapon _u};
+				#else
+				case 1: {_w = secondaryWeapon _u};
 				default {_w = primaryWeapon _u};
+				#endif
 			};
 
 			if (_w != "") then {
@@ -69,7 +74,7 @@ for "_iW" from 0 to _iW_to do {
 								if (true) then {
 									// TODO: Звук запуска ракеты.
 									_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
-									_arr set [2, 150];
+									_arr set [2, _height];
 									_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
 									#ifdef __ARMA3__
 										// Без этого ракета замирает на месте.
