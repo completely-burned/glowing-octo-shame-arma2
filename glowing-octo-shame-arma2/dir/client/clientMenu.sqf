@@ -4,7 +4,7 @@
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 	"_arr","_count","_b","_cfg","_0","_1","_2","_3","_obj","_n","_allow",
-	"_mod_i44","_startingClass","_types_pilot","_types_mhq_virt",
+	"_mod_i44","_startingClass","_types_pilot","_types_mhq_virt","_str",
 	"_availableWeapons","_availableBackpacks",
 	"_menu_expression_default","_cfgVeh",
 	"_menu_expression_coin","_coin","_type","_fnc_create_buy_menu",
@@ -144,7 +144,7 @@ waitUntil{!isNil "BIS_FNC_createmenu"};
 			"_expression","_coin"];
 		_list = _this select 0;
 		_current = _this select 1;
-		_coin = if (_current in ["StaticWeapon","Ammo"]) then {true} else {false};
+		_coin = if (_current in ["StaticWeapon","Ammo","House","GhostPreview"]) then {true} else {false};
 
 		_items = []; _itemsName = [];
 		for "_i" from 0 to (count (_list select 0) - 1) do {
@@ -193,6 +193,11 @@ waitUntil{!isNil "BIS_FNC_createmenu"};
 					};
 				};
 				_expression = _menu_expression_default;
+				#ifndef __ARMA3__
+					if (_coin) then {
+						_expression = _menu_expression_coin;
+					};
+				#endif
 				[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "", _expression] call BIS_FNC_createmenu;
 			};
 			[_usermenu, _usermenu, [_items2, _itemsName2], "%1",""] call BIS_FNC_createmenu;
@@ -286,6 +291,52 @@ if (_b) then {
 						};
 		}forEach availableVehicles+["gosa_megaAmmoBox"];
 		[_tmp_arr,"Ammo"] call _fnc_create_buy_menu;
+
+	//-- GhostPreview
+		_tmp_arr = [[],[],[]];
+		{
+			_type = _x;
+			_entry = (_cfgVeh >> _type);
+
+			_str = getText (_entry >> "GhostPreview");
+			_b = if (_str == "") then {false} else {true};
+			if (toLower _str == toLower _type) then {_b = false};
+			_str = getText (_entry >> "displayName");
+			if (_str == "") then {_b = false};
+
+			if (_b) then {
+				_faction = getText(_entry >> "faction");
+				_class = getText(_entry >> "vehicleclass");
+
+				_factionclasses = _tmp_arr select 0;
+				if (_faction in _factionclasses)then{
+					_find_faction = _factionclasses find _faction;
+				}else{
+					_count = count _factionclasses;
+					[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
+					[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
+					[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
+					_find_faction = _factionclasses find _faction;
+				};
+
+				_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
+				if (_class in _vehicleclasses)then{
+					_find_vehicleclass = _vehicleclasses find _class;
+				}else{
+					_count = count _vehicleclasses;
+					[_tmp_arr,[1,_find_faction,_count],_class] call gosa_fnc_setNestedElement;
+					[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+					_find_vehicleclass = _vehicleclasses find _class;
+				};
+
+				_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
+				if !(_type in _types)then{
+					_count = count _types;
+					[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+				};
+			};
+		} forEach availableVehicles;
+		[_tmp_arr, "GhostPreview"] call _fnc_create_buy_menu;
 
 	// _dataListAmmoBox = _dataListAmmoBox + [["all","[] execvm 'm\functions\gosa_fnc_MegaAmmoBox.sqf'"]];
 		// _dataListAmmoBox = _dataListAmmoBox call _list_BIS_FNC_createmenu2;
@@ -584,7 +635,13 @@ if (_b) then {
 	_0 set [count _2, "#USER:StaticWeapon_0"];
 	_1 set [count _2, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
 	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:GhostPreview_0"];
+	_1 set [count _2, "GhostPreview"];
+	_2 set [count _2, __ON];
+
 	["Coin", "BIS_Coin_categories", _arr, "%1", ""] call BIS_FNC_createmenu;
+
 
 	//- Mega Factory
 	_arr = [[],[],[],[]];
@@ -606,12 +663,21 @@ if (_b) then {
 		_2 set [count _2, __ON];
 	#endif
 
+	#ifndef __ARMA3__
+		_0 set [count _2, ""];
+		_1 set [count _2, "coin_interface"];
+		_3 set [count _2, 'dir\coin\coin_interface_v2.sqf'];
+		_2 set [count _2, __ON];
+	#endif
+
 	//if (leader player == player) then {
 		_0 set [count _2, "#USER:Man_0"];
 		_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Man" >> "displayName")];
 		_2 set [count _2, __ON];
 	//};
 
+	// Меню строительства не работает в A3.
+	#ifdef __ARMA3__
 	_0 set [count _2, "#USER:Ammo_0"];
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
 	_2 set [count _2, __ON];
@@ -619,6 +685,7 @@ if (_b) then {
 	_0 set [count _2, "#USER:StaticWeapon_0"];
 	_1 set [count _2, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
 	_2 set [count _2, __ON];
+	#endif
 
 	_0 set [count _2, "#USER:Car_0"];
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName")];
