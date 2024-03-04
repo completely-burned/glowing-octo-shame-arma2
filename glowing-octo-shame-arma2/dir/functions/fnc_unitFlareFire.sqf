@@ -25,7 +25,7 @@ _target = objNull;
 _grp = grpNull;
 #ifdef __ARMA3__
 	_iW_to = 2;
-	_height = 110;
+	_height = (90 + random 20);
 #else
 	_iW_to = 1;
 	_height = 150;
