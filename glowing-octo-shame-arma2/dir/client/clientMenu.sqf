@@ -145,6 +145,7 @@ waitUntil{!isNil "BIS_FNC_createmenu"};
 		_list = _this select 0;
 		_current = _this select 1;
 		_coin = if (_current in ["StaticWeapon","Ammo","House","GhostPreview"]) then {true} else {false};
+		if (missionNamespace getVariable "gosa_coin_v2" <= 0) then {_coin = false};
 
 		_items = []; _itemsName = [];
 		for "_i" from 0 to (count (_list select 0) - 1) do {
@@ -678,6 +679,11 @@ if (_b) then {
 
 	// Меню строительства не работает в A3.
 	#ifdef __ARMA3__
+	if (true) then
+	#else
+	if (missionNamespace getVariable "gosa_coin_v2" <= 0) then
+	#endif
+	{
 	_0 set [count _2, "#USER:Ammo_0"];
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
 	_2 set [count _2, __ON];
@@ -685,7 +691,7 @@ if (_b) then {
 	_0 set [count _2, "#USER:StaticWeapon_0"];
 	_1 set [count _2, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
 	_2 set [count _2, __ON];
-	#endif
+	};
 
 	_0 set [count _2, "#USER:Car_0"];
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName")];
