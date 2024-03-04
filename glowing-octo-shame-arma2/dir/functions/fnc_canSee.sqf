@@ -13,8 +13,11 @@ private ["_magazines","_max","_ammo","_mag","_arr","_str",
 
 if ("NVGoggles" in weapons _this) exitwith {6};
 
+// В A3 с cdlc GM при 0.96 хуже видно, чем при 0.1 в A2OA.
+#ifndef __ARMA3__
 if (moonIntensity >= 0.3) exitwith {4};
 if (moonIntensity >= 0.1) exitwith {3};
+#endif
 
 _cfgMag = configfile >> "cfgMagazines";
 _cfgAmm = LIB_cfgAmm;
