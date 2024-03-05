@@ -4,11 +4,14 @@
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 	"_arr","_count","_b","_cfg","_0","_1","_2","_3","_obj","_n","_allow",
-	"_mod_i44","_startingClass","_types_pilot","_types_mhq_virt",
+	"_mod_i44","_startingClass","_types_pilot","_types_mhq_virt","_str",
 	"_availableWeapons","_availableBackpacks",
+	"_menu_expression_default","_cfgVeh",
+	"_menu_expression_coin","_coin","_type","_fnc_create_buy_menu",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
 	// ["teleport", "teleport", [[getmarkerpos 'respawn_west', getmarkerpos 'respawn_east', getmarkerpos 'respawn_guerrila'],['respawn_west','respawn_east','respawn_guerrila']], "","player setpos %1"] call BIS_FNC_createmenu;
 
+_cfgVeh = LIB_cfgVeh;
 _startingClass = gosa_playerStartingClass;
 _types_pilot = gosa_pilotL;
 _types_mhq_virt = gosa_types_mhq_virt;
@@ -123,12 +126,27 @@ BIS_MENU_GroupCommunication = [
 #endif
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
-private["_fnc_create_buy_menu"];
+	_menu_expression_coin = "
+		BIS_CONTROL_CAM_LMB = false;
+		scopename 'main';
+		_item = '%1';
+		_id = %2;
+		_array = (call compile '%3') select _id;
+
+		_params = [_item];
+		BIS_coin_logic setvariable ['BIS_COIN_params',_params];
+	";
+	_menu_expression_default = "['%1'] spawn gosa_fnc_Client_BuyUnit";
+
 	_fnc_create_buy_menu = {
 		diag_log format ["Log: [Menu] _fnc_create_buy_menu, %1", _this];
-		private["_current","_list","_items","_itemsName","_usermenu"];
+		private["_current","_list","_items","_itemsName","_usermenu",
+			"_expression","_coin"];
 		_list = _this select 0;
 		_current = _this select 1;
+		_coin = if (_current in ["StaticWeapon","Ammo","House","GhostPreview"]) then {true} else {false};
+		if (missionNamespace getVariable "gosa_coin_v2" <= 0) then {_coin = false};
+
 		_items = []; _itemsName = [];
 		for "_i" from 0 to (count (_list select 0) - 1) do {
 			_usermenu = format["m_menu_%1_%2",_current, _list select 0 select _i];
@@ -175,7 +193,13 @@ private["_fnc_create_buy_menu"];
 						};
 					};
 				};
-				[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "","['%1'] spawn gosa_fnc_Client_BuyUnit"] call BIS_FNC_createmenu;
+				_expression = _menu_expression_default;
+				#ifndef __ARMA3__
+					if (_coin) then {
+						_expression = _menu_expression_coin;
+					};
+				#endif
+				[_usermenu2, _usermenu2, [_items3, _itemsName3, _itemEnable], "", _expression] call BIS_FNC_createmenu;
 			};
 			[_usermenu, _usermenu, [_items2, _itemsName2], "%1",""] call BIS_FNC_createmenu;
 		};
@@ -268,6 +292,52 @@ if (_b) then {
 						};
 		}forEach availableVehicles+["gosa_megaAmmoBox"];
 		[_tmp_arr,"Ammo"] call _fnc_create_buy_menu;
+
+	//-- GhostPreview
+		_tmp_arr = [[],[],[]];
+		{
+			_type = _x;
+			_entry = (_cfgVeh >> _type);
+
+			_str = getText (_entry >> "GhostPreview");
+			_b = if (_str == "") then {false} else {true};
+			if (toLower _str == toLower _type) then {_b = false};
+			_str = getText (_entry >> "displayName");
+			if (_str == "") then {_b = false};
+
+			if (_b) then {
+				_faction = getText(_entry >> "faction");
+				_class = getText(_entry >> "vehicleclass");
+
+				_factionclasses = _tmp_arr select 0;
+				if (_faction in _factionclasses)then{
+					_find_faction = _factionclasses find _faction;
+				}else{
+					_count = count _factionclasses;
+					[_tmp_arr,[0,_count],_faction] call gosa_fnc_setNestedElement;
+					[_tmp_arr,[1,_count],[]] call gosa_fnc_setNestedElement;
+					[_tmp_arr,[2,_count],[]] call gosa_fnc_setNestedElement;
+					_find_faction = _factionclasses find _faction;
+				};
+
+				_vehicleclasses = ((_tmp_arr select 1) select _find_faction);
+				if (_class in _vehicleclasses)then{
+					_find_vehicleclass = _vehicleclasses find _class;
+				}else{
+					_count = count _vehicleclasses;
+					[_tmp_arr,[1,_find_faction,_count],_class] call gosa_fnc_setNestedElement;
+					[_tmp_arr,[2,_find_faction,_count],[]] call gosa_fnc_setNestedElement;
+					_find_vehicleclass = _vehicleclasses find _class;
+				};
+
+				_types = (((_tmp_arr select 2) select _find_faction) select _find_vehicleclass);
+				if !(_type in _types)then{
+					_count = count _types;
+					[_tmp_arr,[2,_find_faction,_find_vehicleclass,_count],_type] call gosa_fnc_setNestedElement;
+				};
+			};
+		} forEach availableVehicles;
+		[_tmp_arr, "GhostPreview"] call _fnc_create_buy_menu;
 
 	// _dataListAmmoBox = _dataListAmmoBox + [["all","[] execvm 'm\functions\gosa_fnc_MegaAmmoBox.sqf'"]];
 		// _dataListAmmoBox = _dataListAmmoBox call _list_BIS_FNC_createmenu2;
@@ -552,16 +622,34 @@ if (_b) then {
 	["Barracks", "gosa_menu_factory_Barracks", _arr, "%1", ""] call BIS_FNC_createmenu;
 
 
-	//- Mega Factory
-	/*
-	_arr = [[],[],[]];
+	//- Меню строительства.
+	_arr = [[],[],[],[]];
 	_0 = _arr select 0;
 	_1 = _arr select 1;
 	_2 = _arr select 2;
-	*/
-	_0 resize 0;
-	_1 resize 0;
-	_2 resize 0;
+	_3 = _arr select 3;
+
+	_0 set [count _2, "#USER:Ammo_0"];
+	_1 set [count _2, gettext(_cfgVeh >> "ReammoBox" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:StaticWeapon_0"];
+	_1 set [count _2, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
+	_2 set [count _2, __ON];
+
+	_0 set [count _2, "#USER:GhostPreview_0"];
+	_1 set [count _2, "GhostPreview"];
+	_2 set [count _2, __ON];
+
+	["Coin", "BIS_Coin_categories", _arr, "%1", ""] call BIS_FNC_createmenu;
+
+
+	//- Mega Factory
+	_arr = [[],[],[],[]];
+	_0 = _arr select 0;
+	_1 = _arr select 1;
+	_2 = _arr select 2;
+	_3 = _arr select 3;
 
 	#ifdef __ARMA3__
 		waitUntil{!isNil "gosa_logic_ArsenalBox"};
@@ -572,8 +660,15 @@ if (_b) then {
 		[_obj,true,false,false] call bis_fnc_addVirtualItemCargo;
 		_0 set [count _2, ""];
 		_1 set [count _2, localize "STR_A3_Arsenal"];
-		_3 set [count _2, "['Open', [nil, gosa_logic_ArsenalBox]] call BIS_fnc_arsenal"];
+		_3 set [count _2, {['Open', [nil, gosa_logic_ArsenalBox]] call BIS_fnc_arsenal}];
 		_2 set [count _2, __ON];
+	#endif
+
+	#ifndef __ARMA3__
+		_0 set [count _2, ""];
+		_1 set [count _2, localize "str_coin_action"];
+		_3 set [count _2, 'dir\coin\coin_interface_v2.sqf'];
+		_2 set [count _2, missionNamespace getVariable "gosa_coin_v2"];
 	#endif
 
 	//if (leader player == player) then {
@@ -582,6 +677,13 @@ if (_b) then {
 		_2 set [count _2, __ON];
 	//};
 
+	// Меню строительства не работает в A3.
+	#ifdef __ARMA3__
+	if (true) then
+	#else
+	if (missionNamespace getVariable "gosa_coin_v2" <= 0) then
+	#endif
+	{
 	_0 set [count _2, "#USER:Ammo_0"];
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "ReammoBox" >> "displayName")];
 	_2 set [count _2, __ON];
@@ -589,6 +691,7 @@ if (_b) then {
 	_0 set [count _2, "#USER:StaticWeapon_0"];
 	_1 set [count _2, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
 	_2 set [count _2, __ON];
+	};
 
 	_0 set [count _2, "#USER:Car_0"];
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Car" >> "displayName")];
@@ -611,15 +714,17 @@ if (_b) then {
 
 	_0 set [count _2, "#USER:Ship_0"];
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
-	_2 set [count _2, __ON];
-
-	["Factory", "gosa_menu_factory_FactoryAll", _arr, "%1", "
-		if !(isNil {%3 select %2}) then {
-			call compile (%3 select %2);
-		};
-	", _3] call BIS_FNC_createmenu;
+	_2 set [count _2, 0];
 
 	gosa_menu_factory_FactoryAll_array = _arr;
+	["Factory", "gosa_menu_factory_FactoryAll", _arr, "%1", "
+		private ['_arr','_item'];
+		_arr = gosa_menu_factory_FactoryAll_array;
+		_item = (_arr select 3 select %2);
+		if (typeName _item == typeName {}) exitWith {gosa_act_array spawn _item};
+		if (typeName _item == typeName '') exitWith {gosa_act_array execVM _item};
+	", _3] call BIS_FNC_createmenu;
+
 	// Для совместимости.
 	BuyMenu_0 = gosa_menu_factory_FactoryAll_0;
 };

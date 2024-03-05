@@ -26,6 +26,10 @@ if(missionNamespace getVariable "respawn" != 1 or !isMultiplayer)exitWith{
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };
 
+#ifdef __ARMA3__
+	setplayerrespawntime 99999;
+#endif
+
 _p = player;
 _p_name = name player;
 _sides_friendly = gosa_friendlyside;
@@ -47,6 +51,11 @@ player setVariable ["selectPlayerDisable", true, true];
 	waitUntil{
 		isNil{player getVariable "selectPlayerDisable"};
 	};
+	_this select 0 removeAllEventHandlers "Killed";
+	_this select 0 removeAllEventHandlers "Respawn";
+	#ifdef __ARMA3__
+	["close"] call BIS_fnc_showRespawnMenu;
+	#endif
 	_this select 0 setDamage 1;
 	respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
@@ -73,9 +82,10 @@ while {true} do {
 		_b = true;
 		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _p];
 	};
-	if !(lifeState player in ["ALIVE", "UNCONSCIOUS","INJURED"]) then {
+	_str = lifeState player;
+	if !(_str in ["ALIVE", "UNCONSCIOUS", "INJURED", "HEALTHY"]) then {
 		_b = true;
-		diag_log format ["Log: [respawnRandom] blacklisted lifeState %1", player];
+		diag_log format ["Log: [respawnRandom] %1 blacklisted lifeState %2", player, _str];
 	};
 	_str = _p getVariable "gosa_player_owner";
 	if !(isNil "_str") then {

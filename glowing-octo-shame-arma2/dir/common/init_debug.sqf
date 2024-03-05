@@ -8,9 +8,11 @@ setTerrainGrid 50;
 setAccTime 0.5;
 // Помогает учесть как день так и ночь.
 #ifdef __ARMA3__
-setTimeMultiplier 50;
+setTimeMultiplier 25;
+useAISteeringComponent true;
 #endif
 
 missionNamespace setVariable ["enemyCoefficient", 1];
 missionNamespace setVariable ["gosa_patrolCoefficient", 5];
+missionNamespace setVariable ["minGroups", 15];
 
