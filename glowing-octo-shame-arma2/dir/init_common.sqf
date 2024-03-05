@@ -120,6 +120,9 @@ for "_i" from 0 to (count _arr -1) do {
 };
 gosa_types_location = _arr0;
 
+gosa_dist_houselist = 750;
+gosa_silvieManager_dist_player = 1000;
+
 //-- listCrew
 _arr = [
 	"USMC_Soldier_Crew",

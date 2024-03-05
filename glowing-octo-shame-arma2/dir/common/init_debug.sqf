@@ -15,4 +15,5 @@ useAISteeringComponent true;
 missionNamespace setVariable ["enemyCoefficient", 1];
 missionNamespace setVariable ["gosa_patrolCoefficient", 5];
 missionNamespace setVariable ["minGroups", 15];
+missionNamespace setVariable ["gosa_silvieManager", 1];
 
