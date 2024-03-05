@@ -29,7 +29,7 @@ class Mission
 	randomSeed=12852940;
 	class Intel
 	{
-		briefingName="compat CO 00 glowing-octo-shame Chernarus east v0.0.5.921 DEBUG";
+		briefingName="compat CO 00 glowing-octo-shame Chernarus east v0.0.5.922 DEBUG";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;
