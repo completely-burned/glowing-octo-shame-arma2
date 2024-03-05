@@ -1,5 +1,6 @@
 /*
  * Проверка дистанции до игроков.
+ * [format distance, distance] call
  */
 
 private ["_visible","_Pos","_distance","_player","_cache","_arr","_obj"];
