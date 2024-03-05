@@ -129,7 +129,8 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 						// a3 тс на некоторых позициях взрываются,
 						// вероятно из-за наклона поверхности.
 						//_itemPos resize 2;
-						_itemPos set [2, boundingBox _unit select 2];
+						_itemPos set [2, (boundingBox _unit) select 2];
+						diag_log format ["Log: [fnc_spawnGroup] %1, %2, pos %3", _grp, _unit, [_itemPos, _azimuth]];
 						_unit setPos _itemPos;
 						_unit setDir _azimuth;
 						#ifdef __ARMA3__
