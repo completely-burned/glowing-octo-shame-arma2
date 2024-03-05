@@ -47,6 +47,9 @@ player setVariable ["selectPlayerDisable", true, true];
 	waitUntil{
 		isNil{player getVariable "selectPlayerDisable"};
 	};
+	_this select 0 removeAllEventHandlers "Killed";
+	_this select 0 removeAllEventHandlers "Respawn";
+	["close"] call BIS_fnc_showRespawnMenu;
 	_this select 0 setDamage 1;
 	respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
@@ -73,9 +76,10 @@ while {true} do {
 		_b = true;
 		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _p];
 	};
-	if !(lifeState player in ["ALIVE", "UNCONSCIOUS","INJURED"]) then {
+	_str = lifeState player;
+	if !(_str in ["ALIVE", "UNCONSCIOUS", "INJURED", "HEALTHY"]) then {
 		_b = true;
-		diag_log format ["Log: [respawnRandom] blacklisted lifeState %1", player];
+		diag_log format ["Log: [respawnRandom] %1 blacklisted lifeState %2", player, _str];
 	};
 	_str = _p getVariable "gosa_player_owner";
 	if !(isNil "_str") then {
