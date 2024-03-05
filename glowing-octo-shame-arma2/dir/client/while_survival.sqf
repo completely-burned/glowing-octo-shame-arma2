@@ -34,7 +34,7 @@ if (gosa_playerStartingClass in [1]) exitWith {
 };
 
 
-private ["_grp_attack","_grp_victim","_z","_g","_p","_reset"];
+private ["_grp_attack","_grp_victim","_z","_g","_p","_reset","_var"];
 _reset={
 	diag_log format ["Log: [while_survival] %1 сброс", _this];
 	if !(isNil{_this getVariable "gosa_grp_attack_player"}) then {
@@ -53,13 +53,14 @@ while {true} do {
 	//-- Поиск группы атаки.
 	// TODO: Группа атаки должна быть живой.
 	if (isNull _grp_attack) then {
-		private ["_var"];
 		{
 			if (side _x getFriend side _g < 0.6) then {
 				_var = _x getVariable "gosa_grp_attack_player";
 				if (isNil "_var") then {
 					if (leader _x distance _p < 1500) then {
-						if ([units _x, units _g] call gosa_fnc_canAttackGroup) then {
+						if ([units _x, units _g] call gosa_fnc_canAttackGroup
+							&& [units _g, units _x] call gosa_fnc_canAttackGroup) then
+						{
 							_grp_attack = _x;
 							_grp_victim = _g;
 							_grp_attack setVariable ["gosa_grp_attack_player", [gosa_owner, _g], true];
