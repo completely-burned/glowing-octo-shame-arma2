@@ -26,6 +26,10 @@ if(missionNamespace getVariable "respawn" != 1 or !isMultiplayer)exitWith{
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };
 
+#ifdef __ARMA3__
+	setplayerrespawntime 99999;
+#endif
+
 _p = player;
 _p_name = name player;
 _sides_friendly = gosa_friendlyside;
@@ -49,7 +53,9 @@ player setVariable ["selectPlayerDisable", true, true];
 	};
 	_this select 0 removeAllEventHandlers "Killed";
 	_this select 0 removeAllEventHandlers "Respawn";
+	#ifdef __ARMA3__
 	["close"] call BIS_fnc_showRespawnMenu;
+	#endif
 	_this select 0 setDamage 1;
 	respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
