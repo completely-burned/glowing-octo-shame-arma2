@@ -3,8 +3,7 @@
  * TODO: Рефакторинг.
  */
 
-diag_log format ["Log: [gosa_fnc_spawnGroup.sqf] %1", _this];
-// diag_log str _this;
+diag_log format ["Log: [gosa_fnc_spawnGroup] %1", _this];
 private ["_pos","_side","_groups","_vehicles","_roads","_z","_tmp_num","_for",
 	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
 	"_unit", "_type","_itemPos","_rank","_cfgVeh"];
@@ -16,8 +15,6 @@ _pos = (_this select 0 select 0);
 _groups = [];
 _vehicles = [];
 _cfgVeh = LIB_cfgVeh;
-
-diag_log format ["spawn_group.sqf create pos %1 grp %2", _this select 0, _this select 2];
 
 // Выбирается одна группа если десант отключен.
 // FIXME: Можел лучше вынести участок кода за файл.
@@ -132,7 +129,7 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 						_roads = _roads - [-1];
 						#endif
 					}else{//diag_log
-							diag_log format ["spawn_group.sqf no roads %1 grp %2", _roads, _this];
+						diag_log format ["Log: [fnc_spawnGroup] %1, %2, no roads %3", _grp, _unit, _roads];
 					};
 
 					//-- Одиночная игра.
