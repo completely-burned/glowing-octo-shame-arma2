@@ -13,6 +13,9 @@ Private["_buildings","_constructFunction","_count","_customCamps","_customOwners
 	"_constructedList","_depotCompositions","_campCompositions","_typeCityCapital",
 	"_town","_depot","_dir","_typeVillage","_types_City_all","_types_City","_types_Depot",
 	"_types_CityCapital","_types_Camp","_types_Village","_dyno_allowed",
+	"_houselist","_blacklist_types_house","_dist_houselist","_dist_nearRoads",
+	"_obj","_type","_bbox","_twn_maxVehicles","_houselist_roads","_pos","_obj_roads",
+	"_road","_b","_bboxA","_bboxB","_bboxY","_bboxY","_difmin","_difmax","_dif",
 	"_cityCapital","_rangeSizeModifier","_rangeModifier","_conflict_dist","_towns_used",
 	"_minSizeMod","_sizeMod","_position","_townName","_townNames","_type","_neighbors"];
 
@@ -41,6 +44,9 @@ _townNames = BIS_WF_TownNames;	//Data from Config entry on towns' actual name (t
 _campAreas = BIS_WF_CampAreas;	//Data from Config entry on towns' camps (position and direction).
 
 
+_blacklist_types_house = silvieManagerBlacklist;
+_dist_nearRoads = 40;
+_dist_houselist = gosa_dist_houselist-_dist_nearRoads;
 _twn_nd = 350;
 _conflict_dist = 20;
 _towns_used = [];
@@ -153,6 +159,86 @@ for "_count" from 0 to (count _cityCenters -1) do {
 
 		_depots = [];
 	};
+
+
+	// Список необходимо создавать до генерации объектов.
+	_houselist = (_town getVariable "gosa_houselist");
+	if (isNil "_houselist") then {
+		_houselist = (_position nearobjects ["House", _dist_houselist]);
+		for "_i" from 0 to (count _houselist -1) do {
+			_obj = (_houselist select _i);
+			_type = toLower typeOf _obj;
+			if (_type in _blacklist_types_house) then {
+				diag_log Format ["Log: [TOWN] %1, %2 blacklisted, %3", _town, _obj, _type];
+				_houselist set [_i, objNull];
+			}else{
+				_bbox = abs((boundingbox _obj select 1) select 0)
+					min abs((boundingbox _obj select 1) select 1);
+				if (_bbox < 3) then {
+					diag_log Format ["Log: [TOWN] %1, %2 ignore, bbox %3", _town, _obj, _bbox];
+					_houselist set [_i, objNull];
+				};
+			};
+		};
+		_houselist = _houselist -[objNull];
+	};
+	_town setVariable ["gosa_houselist", _houselist];
+
+	_twn_maxVehicles = 0;
+	_houselist_roads = [];
+	for "_i" from 0 to (count _houselist -1) do {
+		_obj = _houselist select _i;
+		_pos = getpos _obj;
+		_dir = direction _obj + (floor random 4)*90;
+
+		_obj_roads = (_pos nearRoads _dist_nearRoads);
+		for "_iR" from 0 to (count _obj_roads -1) do {
+			_road = _obj_roads select _iR;
+			_b = false;
+			if (count (roadsconnectedto _road) <= 2
+				or (({count (roadsconnectedto _x) > 2} count (getPos _road nearRoads 7)) <= 0)) then
+			{
+				_dir = direction _road;
+				_bbox = boundingbox _road;
+				_bboxA = (_bbox select 0);
+				_bboxB = (_bbox select 1);
+				_bboxX = abs(_bboxA select 0) + abs(_bboxB select 0);
+				_bboxY = abs(_bboxA select 1) + abs(_bboxB select 1);
+				_difmin = (_bboxX min _bboxY);
+				_difmax = (_bboxX max _bboxY);
+				_dif = _difmin/2 + sqrt(_difmin)*0.3;
+
+				if (_difmax < 15) then {
+					_pos = position _road;
+					_pos = [
+						(_pos select 0)+(sin (_dir + 90) * _dif),
+						(_pos select 1)+(cos (_dir + 90) * _dif)
+					];
+					_b = true;
+					_obj_roads set [_iR, [_road, _pos]];
+				};
+			};
+
+			if (_b) then {
+				_obj_roads set [_iR, [_road, _pos]];
+			}else{
+				_obj_roads set [_iR, -1];
+			};
+		};
+		_obj_roads = _obj_roads-[-1];
+		_houselist_roads set [_i, _obj_roads];
+
+		if (count _obj_roads > 0) then {
+			_twn_maxVehicles = _twn_maxVehicles +(1/8);
+		} else {
+			_twn_maxVehicles = _twn_maxVehicles +(1/8);
+		};
+		diag_log Format ["Log: [TOWN] %1, %2, roads %3", _town, _obj, _obj_roads];
+	};
+	_town setVariable ["gosa_houselist_roads", _houselist_roads];
+	diag_log Format ["Log: [TOWN] %1, max vehicles %2", _town, _twn_maxVehicles];
+	_town setVariable ["gosa_maxVehicles", _twn_maxVehicles];
+
 
 	/*
 	{
