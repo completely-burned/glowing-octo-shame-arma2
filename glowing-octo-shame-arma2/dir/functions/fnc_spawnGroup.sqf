@@ -6,7 +6,7 @@
 diag_log format ["Log: [gosa_fnc_spawnGroup] %1", _this];
 private ["_pos","_side","_groups","_vehicles","_roads","_z","_tmp_num","_for",
 	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
-	"_unit", "_type","_itemPos","_rank","_cfgVeh"];
+	"_unit", "_type","_itemPos","_rank","_cfgVeh","_str","_entry"];
 
 _side = _this select 1;
 _roads = (_this select 0 select 1);
@@ -56,6 +56,7 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 
 		for "_i" from 0 to ((count _types) - 1) do {
 				_type = _types select _i;
+				_entry = (_cfgVeh >> _type);
 
 				if ((count _positions) > 0) then {
 					private ["_relPos"];
@@ -75,10 +76,19 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 				// Некоторые модификации выдают bool вместо цифры.
 				#define true 1
 				#define false 0
-				if (getNumber(_cfgVeh >> _type >> "isMan") > 0) then {
+				if (getNumber(_entry >> "isMan") > 0) then {
 					#undef true
 					#undef false
 					_unit = _grp createUnit [_type, _itemPos, [], 0, "NONE"];
+
+					#ifdef __A2OA__
+						_str = getText (_entry >> "backpack");
+						if (_str != "") then {
+							if (isNull unitBackpack _unit) then {_unit addBackpack _str};
+							diag_log format ["Log: [fnc_spawnGroup] %1, %2, %3 backpack added %4", _grp, _unit, _str, unitBackpack _unit];
+						};
+					#endif
+
 					#ifdef __ARMA3__
 						[_unit, "fnc_spawnGroup"] remoteExec ["gosa_fnc_vehInit2"];
 					#else
