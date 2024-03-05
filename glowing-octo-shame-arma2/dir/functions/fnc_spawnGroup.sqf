@@ -6,7 +6,7 @@
 diag_log format ["Log: [gosa_fnc_spawnGroup] %1", _this];
 private ["_pos","_side","_groups","_vehicles","_roads","_z","_tmp_num","_for",
 	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
-	"_unit", "_type","_itemPos","_rank","_cfgVeh","_str","_entry"];
+	"_unit", "_type","_itemPos","_rank","_cfgVeh","_str","_entry","_n"];
 
 _side = _this select 1;
 _roads = (_this select 0 select 1);
@@ -126,18 +126,21 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 							_azimuth = 180 + ([_roads select 0, _roads select 1] call BIS_fnc_dirTo);
 						};
 						_itemPos = getPos (_roads select 0);
+
 						// a3 тс на некоторых позициях взрываются,
 						// вероятно из-за наклона поверхности.
 						//_itemPos resize 2;
-						_itemPos set [2, (boundingBox _unit) select 2];
+						_n = boundingBox _unit select 2;
+						if !(isNil "_n") then {_itemPos set [2, _n]};
 						diag_log format ["Log: [fnc_spawnGroup] %1, %2, pos %3", _grp, _unit, [_itemPos, _azimuth]];
+
 						_unit setPos _itemPos;
 						_unit setDir _azimuth;
 						#ifdef __ARMA3__
 							_roads deleteAt 0;
 						#else
-						_roads set [0,-1];
-						_roads = _roads - [-1];
+							_roads set [0,-1];
+							_roads = _roads - [-1];
 						#endif
 					}else{//diag_log
 						diag_log format ["Log: [fnc_spawnGroup] %1, %2, no roads %3", _grp, _unit, _roads];
