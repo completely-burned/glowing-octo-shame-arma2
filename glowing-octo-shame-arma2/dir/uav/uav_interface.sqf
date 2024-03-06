@@ -5,7 +5,7 @@
  *	Type Script, expected ..
  * TODO: Возможно неисправен и нуждается в проверке.
  * TODO: Маштабирование карты.
-// TODO: Исправление множественного запуска.
+ * TODO: Исправление множественного запуска.
  */
 private ["_arguments","_arr","_terminal","_uav","_logic",
 	"_defaultPlayer","_ppColor",
