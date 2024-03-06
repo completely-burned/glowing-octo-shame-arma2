@@ -716,6 +716,14 @@ if (_b) then {
 	_1 set [count _2, gettext(configfile >> "cfgvehicles" >> "Ship" >> "displayName")];
 	_2 set [count _2, 0];
 
+	#ifndef __ARMA3__
+		_n = if (missionNamespace getVariable "gosa_UAVManager" == 0) then {0} else {1};
+		_0 set [count _2, ""];
+		_1 set [count _2, "RC: " + gettext(_cfgVeh >> "UAVManager" >> "displayName")];
+		_3 set [count _2, gosa_fnc_createMenu_uavs];
+		_2 set [count _2, _n];
+	#endif
+
 	gosa_menu_factory_FactoryAll_array = _arr;
 	["Factory", "gosa_menu_factory_FactoryAll", _arr, "%1", "
 		private ['_arr','_item'];

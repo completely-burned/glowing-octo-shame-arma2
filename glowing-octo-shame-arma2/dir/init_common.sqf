@@ -480,6 +480,10 @@ _arr = [
 gosa_types_officer = _arr;
 Officers = _arr;
 
+_str = "gosa_menu";
+gosa_menu_str = _str;
+gosa_commandingMenu = "#USER:"+_str+"_0";
+
 // Error Undefined variable in expression: i44_tankpenetration
 // File x\inv44\addons\i44_scripts_vehicles\s\post_init.sqf, line 3
 i44_tankpenetration = false;

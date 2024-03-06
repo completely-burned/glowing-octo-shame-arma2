@@ -797,6 +797,16 @@ class Params {
 		default=0;
 	};
 
+	#ifndef __ARMA3__
+		// Модуль управления БПЛА.
+		class gosa_UAVManager {
+			title="MODULE: UAV Manager";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT, STR_ENABLED, STR_DISABLED};
+			default = -1;
+		};
+	#endif
+
 	// Замена вооружения.
 	class gosa_rearmament {
 		title="UNITS: Rearmament (not balanced) [gp]";
