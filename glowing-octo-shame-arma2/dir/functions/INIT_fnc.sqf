@@ -38,6 +38,7 @@ if !(IsDedicated) then {
 		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 	} forEach [
 		#ifndef __ARMA3__
+			"fnc_uav_interface",
 			"fnc_createMenu_uavs",
 			"fnc_interface_uav",
 			"fnc_menu_factory",
