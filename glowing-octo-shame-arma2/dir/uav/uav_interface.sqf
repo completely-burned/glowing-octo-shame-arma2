@@ -1,15 +1,18 @@
 /*
-	Интерфест беспилотника.
-
-	Скрипт приводит к ошибкам в многопользовательской игре.
-	например:
-		Type Script, expected ..
-
-	TODO: Возможно неисправен и нуждается в проверке.
-*/
-
-
-skipAddAction = true;
+ * Интерфест беспилотника.
+ * Скрипт приводит к ошибкам в многопользовательской игре.
+ * Например:
+ *	Type Script, expected ..
+ * TODO: Возможно неисправен и нуждается в проверке.
+ * TODO: Маштабирование карты.
+// TODO: Исправление множественного запуска.
+ */
+private ["_arguments","_arr","_terminal","_uav","_logic",
+	"_defaultPlayer","_ppColor",
+	"_gunner","_o","_action_leave","_displayEH_keydown",
+	"_mapEH_mousebuttondown",
+	"_isTerminalAway","_displayEH_mousebuttondown"];
+diag_log format ["Log: [uav_interface] %1", _this];
 
 _arguments = _this select 3;
 _terminal = _this select 0;
@@ -17,36 +20,45 @@ _uav = _this select 1;
 _logic = _terminal;
 
 _defaultPlayer = player;
-_o = gosa_owner;
 
 //////////////////////////////////////////////////
-// startLoadingScreen ["UAV","RscDisplayLoadMission"];
+startLoadingScreen ["UAV","RscDisplayLoadMission"];
 //////////////////////////////////////////////////
+
+
+if !(isNil "gosa_UAV_PLANE") exitwith {
+	endLoadingScreen;
+	hint "Reloading interface";
+	diag_log format ["Log: [uav_interface] Reloading %1", gosa_UAV_PLANE];
+};
 
 //--- UAV destroyed
-if (isnull _uav) exitwith {
-	// endLoadingScreen;
+if (isNull _uav) exitwith {
+	endLoadingScreen;
 	hintc format [localize "strwfbasestructuredestroyed",localize "str_uav_action"];
-	diag_log format ["Log: [uav_interface] isnull _uav %1", _uav];
+	diag_log format ["Log: [uav_interface] _uav %1", _uav];
 };
 
 _gunner = gunner _uav;
-if (isnull _gunner) exitwith {
-	// endLoadingScreen;
+if (isNull _gunner) exitwith {
+	endLoadingScreen;
 	hintc format [localize "strwfbasestructuredestroyed",localize "str_uav_action"];
-	diag_log format ["Log: [uav_interface] isnull _gunner %1", _gunner];
+	diag_log format ["Log: [uav_interface] _gunner %1", _gunner];
 };
 
 //--- Select terminal
-_dis = 10;
-if (isnull _terminal) exitwith {
-	// endLoadingScreen;
+_dis = (10 max ((_defaultPlayer distance _terminal) +1));
+diag_log format ["Log: [uav_interface] _dis %1", _dis];
+
+if (isNull _terminal) exitwith {
+	endLoadingScreen;
 	hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
-	diag_log format ["Log: [uav_interface] isnull _terminal %1", _terminal];
+	diag_log format ["Log: [uav_interface] _terminal %1", _terminal];
 };
 
 //--- Switch view
 if (isMultiplayer) then {
+	_o = gosa_owner;
 	[nil, _gunner, rremoteControl, _o] call RE;
 	private ["_time","_var"];
 	_time = time+10;
@@ -55,37 +67,43 @@ if (isMultiplayer) then {
 		sleep 0.05;
 	};
 	if (isNil "_var" or {_var != _o}) exitWith {
-		// endLoadingScreen;
+		endLoadingScreen;
 		hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
 		diag_log format ["Log: [uav_interface] rremoteControl %1 exitWith", _o];
 	};
 };
 
+{removeAllWeapons _x} forEach crew _uav;
 _gunner removeweapon "nvgoggles";
 _uav switchcamera "internal";
 _defaultPlayer remoteControl _gunner;
-_uav selectweapon (weapons _uav select 0);
+_arr = weapons _uav;
+if (count _arr > 0) then {_uav selectweapon (_arr select 0)};
+
+// FIXME: Что это?
 titletext ["","black in"];
-BIS_UAV_TIME = 0;
-BIS_UAV_PLANE = _uav;
+
+gosa_UAV_TIME = 0;
+gosa_UAV_PLANE = _uav;
 
 //--- Terminal is away
-_isTerminalAway = [_terminal,_dis] spawn {
+_isTerminalAway = [_terminal, _dis, _defaultPlayer] spawn {
+	private ["_terminal","_dis","_defaultPlayer"];
 	_terminal = _this select 0;
 	_dis = _this select 1;
+	_defaultPlayer = _this select 2;
 
-	while {true} do {
-		sleep 1;
-
-		if (isnil "BIS_UAV_PLANE") exitWith {
-			diag_log format ["Log: [uav_interface] uav terminate, isnil camera %1", nil];
+	while {!isNil "gosa_UAV_PLANE" && isNil "gosa_uav_terminate"} do {
+		sleep 0.1;
+		if (isNil "gosa_UAV_PLANE") exitWith {
+			diag_log format ["Log: [uav_interface] uav terminate, isNil camera %1", nil];
 		};
 
-		if (cameraon != BIS_UAV_PLANE) exitWith {
-			diag_log format ["Log: [uav_interface] uav terminate, cameraon %1", [cameraon, BIS_UAV_PLANE]];
+		if (cameraon != gosa_UAV_PLANE) exitWith {
+			diag_log format ["Log: [uav_interface] uav terminate, cameraon %1", [cameraon, gosa_UAV_PLANE]];
 		};
 
-		if !(alive player) exitWith {
+		if !(alive _defaultPlayer) exitWith {
 			diag_log format ["Log: [uav_interface] uav terminate, player is dead", nil];
 		};
 
@@ -93,28 +111,15 @@ _isTerminalAway = [_terminal,_dis] spawn {
 			diag_log format ["Log: [uav_interface] uav terminate, not alive %1 _terminal", _terminal];
 		};
 
-		if ((player distance _terminal >= _dis || abs speed _terminal >= 1 || !alive _terminal)
-			&& !(unitbackpack player == _terminal)
+		if ((_defaultPlayer distance _terminal >= _dis || abs speed _terminal >= 1 || !alive _terminal)
+			&& !(unitbackpack _defaultPlayer == _terminal)
 		) exitWith {
-			diag_log format ["Log: [uav_interface] uav terminate, %1", _terminal];
+			diag_log format ["Log: [uav_interface] uav terminate, terminal %1", _terminal];
 		};
-
 	};
 
-	bis_uav_terminate = true;
+	gosa_uav_terminate = true;
 };
-
-//--- Action!
-_action_leave = _uav addaction [
-	localize "STR_EP1_UAV_action_exit",
-	"ca\modules_e\uav\data\scripts\uav_actionCommit.sqf",
-	[0],
-	1,
-	false,
-	true,
-	"PersonView",
-	"isnil 'BIS_UAV_noExit'"
-];
 
 //--- Prostprocess effects
 //setaperture 24;
@@ -123,39 +128,33 @@ _ppColor ppEffectEnable true;
 _ppColor ppEffectAdjust [1, 1, 0, [1, 1, 1, 0], [1, 1, 1, 0.0], [0.2, 0.2, 0.2, 0]];
 _ppColor ppEffectCommit 0;
 
+//--- RSC, Полоса загрузки.
+progressLoadingScreen 0.5;
 
-//--- RSC
-// progressLoadingScreen 0.5;
-
-//--- Detect pressed keys (temporary solution)
-if (isNil {BIS_UAV_HELI_keydown}) then {
-	BIS_UAV_HELI_keydown = {
+//--- Обработка нажатий клавиш.
+	gosa_UAV_HELI_keydown = {
+		private ["_key","_uav","_id","_worldpos","_marker","_markertime","_newHeight"];
 		_key = _this select 1;
-		_uav = BIS_UAV_PLANE;
+		_uav = gosa_UAV_PLANE;
+		//systemChat format ["Log: [uav_interface] %1, keydown %2", _uav, _this];
 
 		//--- END
-		//if (_key in (actionkeys 'menuback') && isnil 'BIS_UAV_noExit') then {bis_uav_terminate = true};
+		if ((_key in (actionkeys 'menuback') or _key in (actionkeys 'PersonView')) && isNil 'gosa_UAV_noExit') then {gosa_uav_terminate = true};
 
 		//--- MARKER
 		if (_key in (actionkeys 'binocular') && !visiblemap) then {
-			_id = 1;
-			while {markertype format ['_user_defined_UAV_MARKER_%1',_id] != ''} do {
-				_id = _id + 1;
-			};
 			_worldpos = screentoworld [0.5,0.5];
-			_marker = createmarker [format ['_user_defined_UAV_MARKER_%1',_id],_worldpos];
-			_marker setmarkertype 'mil_destroy';
-			_marker setmarkercolor 'colorred';
-			_marker setmarkersize [0.5,0.5];
-			_markertime = [daytime] call bis_fnc_timetostring;
-			_marker setmarkertext format ['UAV %1: %2',_id,_markertime];
+			systemChat format ['UAV: %1', mapGridPosition _worldpos];
 		};
 
 		//--- UP
 		if (_key in (actionkeys 'HeliUp')) then {
 			_newHeight = (position _uav select 2) + 50;
 			if (_newHeight > 2500) then {_newHeight = 2500};
-			if (speed _uav < 1) then {_uav domove position _uav;};
+			if (speed _uav < 1) then {
+				diag_log format ["Log: [uav_interface] %1, на взлёт", _uav];
+				_uav domove position _uav;
+			};
 			_uav land 'none';
 			_uav flyinheight _newHeight;
 		};
@@ -168,8 +167,7 @@ if (isNil {BIS_UAV_HELI_keydown}) then {
 			_uav flyinheight _newHeight;
 		};
 	};
-};
-_displayEH_keydown = (finddisplay 46) displayaddeventhandler ["keydown","nil = _this spawn BIS_UAV_HELI_keydown"];
+_displayEH_keydown = (finddisplay 46) displayaddeventhandler ["keydown","call gosa_UAV_HELI_keydown"];
 
 //--- Detect pressed mouse buttons
 _displayEH_mousebuttondown = (finddisplay 46) displayaddeventhandler ["mousebuttondown","
@@ -186,20 +184,22 @@ _displayEH_mousebuttondown = (finddisplay 46) displayaddeventhandler ["mousebutt
 	};
 "];
 
-
 //_display = findDisplay 12;
 //_map = _display displayCtrl 51;
-if (isNil {BIS_UAV_HELI_mapEH_mousebuttondown}) then {
-	BIS_UAV_HELI_mapEH_mousebuttondown = {
+
+	gosa_UAV_HELI_mapEH_mousebuttondown = {
+			private ["_button","_uav","_id","_worldpos","_marker","_markertime","_newHeight",
+				"_radius","_wpcount","_add","_dir","_pos",
+				"_nextWP","_wp","_DirWP","_DirUav","_minus","_plus","_step"];
+			_uav = gosa_UAV_PLANE;
 			_button = _this select 1;
+			//systemChat format ["Log: [uav_interface] %1, keydown %2", _uav, _this];
 			if (_button == 0) then {
-				// private["_nextWP","_wp","_DirWP","_DirUav","_minus","_plus","_step"];
-				_uav = BIS_UAV_PLANE;
 				// if (!isnil {(vehicle _uav) getvariable 'BIS_UAV_keepWaypoints'}) exitwith {};
 				// if (!isnil {(group _uav) getvariable 'BIS_UAV_keepWaypoints'}) exitwith {};
 				// _gosa_UAV_WaypointPosCenter = _uav getVariable "_gosa_UAV_WaypointPosCenter";
 				_worldpos = (_this select 0) posscreentoworld [_this select 2,_this select 3];
-				group _uav setVariable ["_gosa_UAV_WaypointPosCenter", _worldpos, true];
+				group _uav setVariable ["gosa_UAV_WaypointPosCenter", _worldpos, true];
 				while {count (waypoints _uav) > 0} do {deletewaypoint ((waypoints _uav) select 0)};
 				/*for "_i" from count waypoints _uav - 1 to 1 step -1 do {
 					deleteWaypoint [group _uav, _i];
@@ -244,44 +244,50 @@ if (isNil {BIS_UAV_HELI_mapEH_mousebuttondown}) then {
 				//(group _uav) setSpeedMode "LIMITED";
 			};
 	};
-};
-_mapEH_mousebuttondown = ((findDisplay 12) displayCtrl 51) ctrladdeventhandler ["mousebuttondown", "nil = _this spawn BIS_UAV_HELI_mapEH_mousebuttondown"];
+_mapEH_mousebuttondown = ((findDisplay 12) displayCtrl 51) ctrladdeventhandler ["mousebuttondown", "call gosa_UAV_HELI_mapEH_mousebuttondown"];
 
 //////////////////////////////////////////////////
-// endLoadingScreen;
+endLoadingScreen;
 //////////////////////////////////////////////////
 
 
 //--- TERMINATE
-waituntil {!isnil "bis_uav_terminate" || !alive _uav};
+while {isNil "gosa_uav_terminate" && alive _uav} do {
+	sleep 0.1;
+};
 if (alive _uav) then {
-	if (cameraon == BIS_UAV_PLANE) then {
+	if (cameraon == gosa_UAV_PLANE) then {
 		hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
+		diag_log format ["Log: [uav_interface] %1 uav terminate, cameraon %2", _uav, gosa_UAV_PLANE];
 	};
 }else{
 	hint format [localize "strwfbasestructuredestroyed",localize "str_uav_action"];
+	diag_log format ["Log: [uav_interface] %1 uav terminate, not alive", _uav];
 };
 
 terminate _isTerminalAway;
-titletext ["","black in"];
-bis_uav_terminate = nil;
-BIS_UAV_TIME = nil;
-BIS_UAV_PLANE = nil;
-objnull remoteControl _gunner;
-_gunner setVariable ["gosa_remoteControl_owner", nil, true];
-vehicle player switchcamera "internal";
 
-_uav removeaction _action_leave;
-
-BIS_UAV_visible = nil;
+(finddisplay 46) displayremoveeventhandler ["keydown", _displayEH_keydown];
+if !(isNil "_displayEH_mousebuttondown") then {(finddisplay 46) displayremoveeventhandler ["mousebuttondown", _displayEH_mousebuttondown]};
+if !(isNil "_mapEH_mousebuttondown") then {((findDisplay 12) displayCtrl 51) ctrlremoveeventhandler ["mousebuttondown", _mapEH_mousebuttondown]};
 
 ppEffectDestroy _ppColor;
+// FIXME: Что это?
+titletext ["","black in"];
 
+// Чтобы игрок успел понять что с ним случилось.
+if !(alive _uav) then {sleep 1};
+objNull remoteControl _gunner;
+vehicle player switchcamera "internal";
 
+gosa_uav_terminate = nil;
+gosa_UAV_TIME = nil;
+_gunner setVariable ["gosa_remoteControl_owner", nil, true];
+if !(isNil "_action_leave") then {_uav removeaction _action_leave};
+
+// TODO: Исправление множественного запуска.
+sleep 1;
+gosa_UAV_PLANE = nil;
+
+// FIXME: Что это?
 //1124 cuttext ["","plain"];
-(finddisplay 46) displayremoveeventhandler ["keydown",_displayEH_keydown];
-(finddisplay 46) displayremoveeventhandler ["mousebuttondown",_displayEH_mousebuttondown];
-//(finddisplay 46) displayremoveeventhandler ["mousezchanged",_displayEH_mousezchanged];
-((findDisplay 12) displayCtrl 51) ctrlremoveeventhandler ["mousebuttondown",_mapEH_mousebuttondown];
-
-skipAddAction = nil;
