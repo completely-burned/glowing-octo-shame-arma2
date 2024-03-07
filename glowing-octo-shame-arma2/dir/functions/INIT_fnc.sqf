@@ -76,7 +76,7 @@ if !(IsDedicated) then {
 	"fnc_base_getRespawn",
 	"fnc_map_groups_add",
 	"fnc_arr_fix_configName",
-	"fnc_filtering_squads_byAvail",
+	"fnc_filtering_squads_byAvail_v2",
 	"fnc_getDepthAverage",
 	"fnc_findStartingPos",
 	"fnc_skill_normalize_CfgAISkill",

@@ -1,7 +1,7 @@
 
 #include "..\include\ranks.hpp"
 
-[_groups_map, east, "RHS_MSV", [
+[_groups_map, east, "RHS_MSV", [[
 	// configName "rhs_group_rus_msv_infantry_chq",
 	[[[["rhs_msv_officer",
 		"rhs_msv_officer_armored","rhs_msv_officer_armored",
@@ -690,12 +690,12 @@
 		"CORPORAL","PRIVATE",
 		"CORPORAL","PRIVATE",
 		"PRIVATE","PRIVATE"]]],0.75]
-] call gosa_fnc_filtering_squads_byAvail,
+], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1990,2100], [160,999],
 ["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F"]
 ] call gosa_fnc_map_groups_add;
 
-	[_groups_map, east, "RHS_TV", [
+	[_groups_map, east, "RHS_TV", [[
 		// configName "RHS_T14Platoon",
 		[[[["RHS_T14_tv","RHS_T14_tv","RHS_T14_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
 		// configName "RHS_T14Platoon_AA",
@@ -816,7 +816,7 @@
 		[[[["rhs_t90sab_tv","rhs_zsu234_aa","rhs_t90sab_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
 		// configName "RHS_T90SABSection",
 		[[[["rhs_t90sab_tv","rhs_t90sab_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025]
-	] call gosa_fnc_filtering_squads_byAvail,
+	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [160,999],
 	["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F"]
 	] call gosa_fnc_map_groups_add;
@@ -836,7 +836,7 @@
 
 
 // nato_usmc_wd
-[_groups_map, west, "RHS_USMC_WD", [
+[_groups_map, west, "RHS_USMC_WD", [[
 	// configName "rhs_group_nato_usmc_wd_infantry_squad",
 	[[[["rhsusf_usmc_marpat_wd_squadleader",
 		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
@@ -1048,13 +1048,13 @@
 	// configName "RHS_M1A1FEP_wd_Section",
 	[[[["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_wd"],[[0,0,0],[-20,-30,2]],
 		["LIEUTENANT","SERGEANT"]]],0]
-] call gosa_fnc_filtering_squads_byAvail,
+], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1990,2100], [160,249],
 ["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
 // nato_usmc_d
-[_groups_map, west, "RHS_USMC_D", [
+[_groups_map, west, "RHS_USMC_D", [[
 	// configName "rhs_group_nato_usmc_d_infantry_squad",
 	[[[["rhsusf_usmc_marpat_d_squadleader",
 		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
@@ -1253,7 +1253,7 @@
 	// configName "RHS_M1A1FEP_d_Section",
 	[[[["rhsusf_m1a1fep_d","rhsusf_m1a1fep_d"],[[0,0,0],[-20,-30,2]],
 		["LIEUTENANT","SERGEANT"]]],0]
-] call gosa_fnc_filtering_squads_byAvail,
+], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1990,2100], [250,999],
 ["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;

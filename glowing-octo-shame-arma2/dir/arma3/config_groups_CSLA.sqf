@@ -1,4 +1,4 @@
-[_groups_map, east, "CSLA", [
+[_groups_map, east, "CSLA", [[
 	// configName CSLA_T72Mptn
 	[[[["CSLA_T72M","CSLA_T72M","CSLA_T72M"],[[0,0,0],[50,0,0],[-50,0,0]],["Lieutenant","Sergeant","Sergeant"]]],0.5],
 	// configName CSLA_T72infTeam
@@ -47,13 +47,13 @@
 	[[[["CSLA_lrrCmd","CSLA_lrrSnp","CSLA_lrrSnp","CSLA_lrrMedi","CSLA_lrrMedi","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrDrM","CSLA_lrrDrM","CSLA_lrrRTO"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0]],["Lieutenant","Sergeant","Sergeant","Sergeant","Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal"]]],0.5],
 	// configName CSLA_lrrOT65Prl
 	[[[["CSLA_lrrCmd","CSLA_OT65A_lrr","CSLA_lrrSnp","CSLA_lrrMedi"],[[0,0,0],[0,-12,0],[10,-6,0],[-10,-6,0]],["Lieutenant","Sergeant","Sergeant","Corporal"]]],0.5]
-] call gosa_fnc_filtering_squads_byAvail,
+], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
 ] call gosa_fnc_map_groups_add;
 
 
-[_groups_map, west, "US85", [
+[_groups_map, west, "US85", [[
 	// configName US85_cpSentryTeam
 	[[[["US85_mcM16","US85_mcM16"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.5],
 	// configName US85_cpFireTeam
@@ -98,13 +98,13 @@
 	[[[["US85_M1A1","US85_M1A1","US85_M1A1","US85_M1A1"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]],0.5],
 	// configName US85_M1A1scM113sqd
 	[[[["US85_M1A1","US85_M1A1","US85_mcSgt","US85_mcM16GL","US85_mcM16GL","US85_mcLAW","US85_mcLAW","US85_mcM249","US85_mcM249","US85_mcSMAW","US85_mcM16","US85_M113"],[[17,0,0],[-17,0,0],[0,-12,0],[17,-7,0],[-17,-7,0],[15,-7,0],[-15,-7,0],[19,-7,0],[-19,-7,0],[2,-12,0],[-2,-12,0],[0,-7,0]],["Sergeant","Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal","Private","Corporal"]]],0.5]
-] call gosa_fnc_filtering_squads_byAvail,
+], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
 ] call gosa_fnc_map_groups_add;
 
 
-[_groups_map, resistance, "FIA_CSLA", [
+[_groups_map, resistance, "FIA_CSLA", [[
 	// configName FIA_cpSentryTeam
 	[[[["FIA_mcM16","FIA_mcFAL"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.5],
 	// configName FIA_cpFireTeam
@@ -149,7 +149,7 @@
 	[[[["FIA_cdCmd","FIA_cdSa26RPG75","FIA_cdSa26RPG75","FIA_cdMdc","FIA_cdMdc","FIA_cdSpr","FIA_cdSpr","FIA_cdRPG7","FIA_cdRPG7","FIA_cdUK59L","FIA_cdUK59L","FIA_cdOP63","FIA_cdOP63","FIA_cdFAL","FIA_cdFAL"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0],[56,0,0],[-56,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]],0.5],
 	// configName FIA_cdPrl
 	[[[["FIA_cdCmd","FIA_cdFAL","FIA_cdUK59L","FIA_cdSa26RPG75","FIA_cdMdc","FIA_cdSpr","FIA_cdRPG7"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private"]]],0.5]
-] call gosa_fnc_filtering_squads_byAvail,
+], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
 ] call gosa_fnc_map_groups_add;

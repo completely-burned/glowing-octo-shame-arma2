@@ -25,10 +25,13 @@ private ["_west","_east","_guer","_groups_map","_n","_d",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked",
 	"_grp","_groups_failover","_factions_used","_climate","_date",
-	"_groups_failover_map","_sides_friendly",
+	"_groups_failover_map","_sides_friendly","_copyRef",
 	"_groups_enabled","_factions_enabled","_groups_enabled_map",
 	"_groups_pending_map","_str","_param_default","_side",
 	"_default_east","_default_west","_default_guer"];
+
+_copyRef = availableVehicles;
+
 _west=[];_east=[];_guer=[];
 // Ночь.
 _westN=[];_eastN=[];_guerN=[];
@@ -989,13 +992,13 @@ for "_i" from 0 to (count _groups_enabled_map -1) do {
 
 //#include "config_groups_TEST.sqf"
 
-_eastN = _eastN call gosa_fnc_filtering_squads_byAvail;
-_westN = _westN call gosa_fnc_filtering_squads_byAvail;
-_guerN = _guerN call gosa_fnc_filtering_squads_byAvail;
+_eastN = [_eastN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_westN = [_westN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_guerN = [_guerN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 
-_east = _east call gosa_fnc_filtering_squads_byAvail;
-_west = _west call gosa_fnc_filtering_squads_byAvail;
-_guer = _guer call gosa_fnc_filtering_squads_byAvail;
+_east = [_east, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_west = [_west, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_guer = [_guer, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 
 gosa_Groups_Night = [];
 gosa_Groups_Night set [0, _eastN call gosa_fnc_arrSorting_confGroups];
