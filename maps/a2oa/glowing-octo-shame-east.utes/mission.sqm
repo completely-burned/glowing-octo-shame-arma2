@@ -40,7 +40,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=7;
+		items=6;
 		class Item0
 		{
 			side="EAST";
@@ -654,13 +654,13 @@ class Mission
 			side="CIV";
 			class Vehicles
 			{
-				items=10;
+				items=20;
 				class Item0
 				{
-					position[]={7656.4355,326.96924,7085.1069};
-					id=388;
+					position[]={0,0,0};
+					id=64;
 					side="CIV";
-					vehicle="Profiteer4";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
@@ -668,199 +668,191 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={7659.3599,327.71628,7082.6128};
-					id=389;
+					position[]={0,0,0};
+					id=65;
 					side="CIV";
-					vehicle="Worker2";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (1)";
 				};
 				class Item2
 				{
-					position[]={7661.3599,328.12161,7082.6128};
-					id=390;
+					position[]={0,0,0};
+					id=66;
 					side="CIV";
-					vehicle="Functionary1";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (2)";
 				};
 				class Item3
 				{
-					position[]={7663.3599,328.51913,7082.6128};
-					id=391;
+					position[]={0,0,0};
+					id=67;
 					side="CIV";
-					vehicle="Woodlander4";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (3)";
 				};
 				class Item4
 				{
-					position[]={7665.3599,328.91135,7082.6128};
-					id=392;
+					position[]={0,0,0};
+					id=68;
 					side="CIV";
-					vehicle="Rocker1";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (4)";
 				};
 				class Item5
 				{
-					position[]={7667.3599,329.31668,7082.6128};
-					id=393;
+					position[]={0,0,0};
+					id=69;
 					side="CIV";
-					vehicle="Worker3";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (5)";
 				};
 				class Item6
 				{
-					position[]={7669.3599,329.72202,7082.6128};
-					id=394;
+					position[]={0,0,0};
+					id=70;
 					side="CIV";
-					vehicle="Profiteer3";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (6)";
 				};
 				class Item7
 				{
-					position[]={7675.5376,330.90125,7083.2969};
-					id=395;
+					position[]={0,0,0};
+					id=71;
 					side="CIV";
-					vehicle="Profiteer2";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (7)";
 				};
 				class Item8
 				{
-					position[]={7673.1831,330.45557,7082.8394};
-					id=396;
+					position[]={0,0,0};
+					id=72;
 					side="CIV";
-					vehicle="Worker4";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (8)";
 				};
 				class Item9
 				{
-					position[]={7671.5879,330.12628,7082.9927};
-					id=397;
+					position[]={0,0,0};
+					id=73;
 					side="CIV";
-					vehicle="Profiteer1";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (9)";
 				};
-			};
-		};
-		class Item6
-		{
-			side="CIV";
-			class Vehicles
-			{
-				items=10;
-				class Item0
+				class Item10
 				{
-					position[]={7656.5405,327.34473,7079.2671};
-					id=398;
+					position[]={0,0,0};
+					id=74;
 					side="CIV";
-					vehicle="Profiteer4";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
 					text="HC (10)";
 				};
-				class Item1
+				class Item11
 				{
-					position[]={7660.0723,328.16293,7077.5337};
-					id=399;
+					position[]={0,0,0};
+					id=75;
 					side="CIV";
-					vehicle="Worker2";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (11)";
 				};
-				class Item2
+				class Item12
 				{
-					position[]={7662.0723,328.56824,7077.5337};
-					id=400;
+					position[]={0,0,0};
+					id=76;
 					side="CIV";
-					vehicle="Functionary1";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (12)";
 				};
-				class Item3
+				class Item13
 				{
-					position[]={7664.0723,328.97357,7077.5337};
-					id=401;
+					position[]={0,0,0};
+					id=77;
 					side="CIV";
-					vehicle="Woodlander4";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (13)";
 				};
-				class Item4
+				class Item14
 				{
-					position[]={7666.0723,329.38461,7077.5337};
-					id=402;
+					position[]={0,0,0};
+					id=78;
 					side="CIV";
-					vehicle="Rocker1";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (14)";
 				};
-				class Item5
+				class Item15
 				{
-					position[]={7668.0723,329.79736,7077.5337};
-					id=403;
+					position[]={0,0,0};
+					id=79;
 					side="CIV";
-					vehicle="Worker3";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (15)";
 				};
-				class Item6
+				class Item16
 				{
-					position[]={7670.0723,330.2027,7077.5337};
-					id=404;
+					position[]={0,0,0};
+					id=80;
 					side="CIV";
-					vehicle="Profiteer3";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (16)";
 				};
-				class Item7
+				class Item17
 				{
-					position[]={7675.7173,331.36523,7077.5332};
-					id=405;
+					position[]={0,0,0};
+					id=83;
 					side="CIV";
-					vehicle="Profiteer2";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (17)";
 				};
-				class Item8
+				class Item18
 				{
-					position[]={7674.0474,331.01865,7077.5337};
-					id=406;
+					position[]={0,0,0};
+					id=82;
 					side="CIV";
-					vehicle="Worker4";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (18)";
 				};
-				class Item9
+				class Item19
 				{
-					position[]={7672.0723,330.60803,7077.5337};
-					id=407;
+					position[]={0,0,0};
+					id=81;
 					side="CIV";
-					vehicle="Profiteer1";
+					vehicle="Citizen1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (19)";
