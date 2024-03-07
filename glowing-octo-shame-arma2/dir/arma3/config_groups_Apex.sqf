@@ -100,8 +100,8 @@
 			[[[["B_T_Mortar_01_F"],[],["PRIVATE"]]],0.05]
 			*/
 	] call gosa_fnc_filtering_squads_byAvail,
-	[1990,2100], [160,249],
-	["BLU_F", "CUP_B_US_Army", "CUP_B_USMC"]
+	[1990,2100], [225,249],
+	["BLU_F", "CUP_B_US_Army", "CUP_B_USMC", "BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
 
 // O_T_

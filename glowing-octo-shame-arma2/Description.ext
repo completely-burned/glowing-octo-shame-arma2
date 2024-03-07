@@ -136,6 +136,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_BLU_W_F {
+			title="FACTION: BIS_BLU_W_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default=-1;
+		};
 		class gosa_faction_multiplier_B_GEN {
 			title="FACTION: BIS_B_GEN";
 			values[] = {-1,1,0};
