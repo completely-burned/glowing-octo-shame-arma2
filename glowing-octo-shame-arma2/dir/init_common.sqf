@@ -490,11 +490,13 @@ i44_tankpenetration = false;
 
 [] call gosa_fnc_worldSize;
 
+#ifdef __ARMA3__
+	if (missionNamespace getVariable "gosa_useAISteeringComponent" > 0) then {useAISteeringComponent true};
+#endif
+
 // Без этого некоторые юниты не могут инициализировать новые заскриптованые маршруты.
 {
-	for "_i" from (count waypoints _x -1) to 0 step -1 do {
-		deleteWaypoint [_x, _i];
-	};
+	for "_i" from (count waypoints _x -1) to 0 step -1 do {deleteWaypoint [_x, _i]};
 } forEach allGroups;
 
 [] execVM ("dir\common\while_init.sqf");

@@ -656,6 +656,15 @@ class Params {
 		texts[] = {STR_ENABLED,STR_DISABLED};
 	};
 
+	#ifdef __ARMA3__
+		class gosa_useAISteeringComponent {
+			title="AI: useAISteeringComponent";
+			values[] = {1,0};
+			texts[] = {STR_ENABLED,STR_DISABLED};
+			default = 1;
+		};
+	#endif
+
 	// Принудительное обнаружение игрока.
 	// FIXME: Возможно бесполезно.
 	class gosa_reveal {
