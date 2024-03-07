@@ -867,10 +867,15 @@ class Params {
 
 	// Транспорт в городах.
 	class gosa_silvieManager {
-		title="ENVIRONMENT: silvieManager (not working)";
 		values[] = {1,0};
 		texts[] = {STR_ENABLED,STR_DISABLED};
+		#ifdef __ARMA3__
+			title="ENVIRONMENT: Silvie Manager (not working)";
 		default=0;
+		#else
+			title="ENVIRONMENT: Silvie Manager";
+			default = 1;
+		#endif
 	};
 
 	// Планируется переход на новую версию.
