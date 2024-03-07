@@ -259,7 +259,7 @@ _arr = _default_west;
 	];
 [_groups_map, west, "BLU_F", _arr,
 [1990,2100], [250,999],
-[]
+["BLU_NATO_lxWS","BLU_T_F","CUP_B_US_Army","CUP_B_USMC","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
 // Авиация
@@ -279,19 +279,19 @@ _arr append [
 ];
 [_groups_map, west, "BLU_NATO_lxWS", _arr,
 [1990,2100], [300,999],
-[]
+["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_W_F", _arr,
 [1990,2100], [160,224],
-[]
+["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_T_F", _arr,
 [1990,2100], [225,249],
-[]
+["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_F", _arr,
 [1990,2100], [250,299],
-[]
+["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 
 // Беспилотники
