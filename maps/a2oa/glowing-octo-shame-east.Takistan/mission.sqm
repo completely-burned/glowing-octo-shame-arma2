@@ -11,11 +11,15 @@ class Mission
 		"warfarebuildings",
 		"camisc_e",
 		"CAWheeled_E_Old_bike",
-		"caair_e_mi8"
+		"caair_e_mi8",
+		"cacharacters2",
+		"ca_modules_functions"
 	};
 	addOnsAuto[]=
 	{
 		"cacharacters_e",
+		"cacharacters2",
+		"ca_modules_functions",
 		"warfarebuildings",
 		"camisc_e",
 		"caweapons_e_ammoboxes",
@@ -37,7 +41,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=15;
+		items=17;
 		class Item0
 		{
 			side="EAST";
@@ -713,12 +717,14 @@ class Mission
 				class Item0
 				{
 					position[]={5802.5796,83.120728,11293.496};
+					azimut=315;
+					special="NONE";
 					id=66;
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					text="gosa_airportHangar1";
-					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+					init="this setVariable [""gosa_respawn_type"", 1];";
+					synchronizations[]={112};
 				};
 			};
 		};
@@ -731,12 +737,14 @@ class Mission
 				class Item0
 				{
 					position[]={8146.0796,296.12735,2043.4072};
+					azimut=150;
+					special="NONE";
 					id=67;
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					text="gosa_airportHangar0";
-					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+					init="this setVariable [""gosa_respawn_type"", 1];";
+					synchronizations[]={113};
 				};
 			};
 		};
@@ -875,7 +883,7 @@ class Mission
 				class Item0
 				{
 					position[]={7656.4355,326.96924,7085.1069};
-					id=388;
+					id=92;
 					side="CIV";
 					vehicle="Profiteer4";
 					player="PLAY CDG";
@@ -886,7 +894,7 @@ class Mission
 				class Item1
 				{
 					position[]={7659.3599,327.71628,7082.6128};
-					id=389;
+					id=93;
 					side="CIV";
 					vehicle="Worker2";
 					player="PLAY CDG";
@@ -896,7 +904,7 @@ class Mission
 				class Item2
 				{
 					position[]={7661.3599,328.12161,7082.6128};
-					id=390;
+					id=94;
 					side="CIV";
 					vehicle="Functionary1";
 					player="PLAY CDG";
@@ -906,7 +914,7 @@ class Mission
 				class Item3
 				{
 					position[]={7663.3599,328.51913,7082.6128};
-					id=391;
+					id=95;
 					side="CIV";
 					vehicle="Woodlander4";
 					player="PLAY CDG";
@@ -916,7 +924,7 @@ class Mission
 				class Item4
 				{
 					position[]={7665.3599,328.91135,7082.6128};
-					id=392;
+					id=96;
 					side="CIV";
 					vehicle="Rocker1";
 					player="PLAY CDG";
@@ -926,7 +934,7 @@ class Mission
 				class Item5
 				{
 					position[]={7667.3599,329.31668,7082.6128};
-					id=393;
+					id=97;
 					side="CIV";
 					vehicle="Worker3";
 					player="PLAY CDG";
@@ -936,7 +944,7 @@ class Mission
 				class Item6
 				{
 					position[]={7669.3599,329.72202,7082.6128};
-					id=394;
+					id=98;
 					side="CIV";
 					vehicle="Profiteer3";
 					player="PLAY CDG";
@@ -946,7 +954,7 @@ class Mission
 				class Item7
 				{
 					position[]={7675.5376,330.90125,7083.2969};
-					id=395;
+					id=99;
 					side="CIV";
 					vehicle="Profiteer2";
 					player="PLAY CDG";
@@ -956,7 +964,7 @@ class Mission
 				class Item8
 				{
 					position[]={7673.1831,330.45557,7082.8394};
-					id=396;
+					id=100;
 					side="CIV";
 					vehicle="Worker4";
 					player="PLAY CDG";
@@ -966,7 +974,7 @@ class Mission
 				class Item9
 				{
 					position[]={7671.5879,330.12628,7082.9927};
-					id=397;
+					id=101;
 					side="CIV";
 					vehicle="Profiteer1";
 					player="PLAY CDG";
@@ -984,7 +992,7 @@ class Mission
 				class Item0
 				{
 					position[]={7656.5405,327.34473,7079.2671};
-					id=398;
+					id=102;
 					side="CIV";
 					vehicle="Profiteer4";
 					player="PLAY CDG";
@@ -995,7 +1003,7 @@ class Mission
 				class Item1
 				{
 					position[]={7660.0723,328.16293,7077.5337};
-					id=399;
+					id=103;
 					side="CIV";
 					vehicle="Worker2";
 					player="PLAY CDG";
@@ -1005,7 +1013,7 @@ class Mission
 				class Item2
 				{
 					position[]={7662.0723,328.56824,7077.5337};
-					id=400;
+					id=104;
 					side="CIV";
 					vehicle="Functionary1";
 					player="PLAY CDG";
@@ -1015,7 +1023,7 @@ class Mission
 				class Item3
 				{
 					position[]={7664.0723,328.97357,7077.5337};
-					id=401;
+					id=105;
 					side="CIV";
 					vehicle="Woodlander4";
 					player="PLAY CDG";
@@ -1025,7 +1033,7 @@ class Mission
 				class Item4
 				{
 					position[]={7666.0723,329.38461,7077.5337};
-					id=402;
+					id=106;
 					side="CIV";
 					vehicle="Rocker1";
 					player="PLAY CDG";
@@ -1035,7 +1043,7 @@ class Mission
 				class Item5
 				{
 					position[]={7668.0723,329.79736,7077.5337};
-					id=403;
+					id=107;
 					side="CIV";
 					vehicle="Worker3";
 					player="PLAY CDG";
@@ -1045,7 +1053,7 @@ class Mission
 				class Item6
 				{
 					position[]={7670.0723,330.2027,7077.5337};
-					id=404;
+					id=108;
 					side="CIV";
 					vehicle="Profiteer3";
 					player="PLAY CDG";
@@ -1055,7 +1063,7 @@ class Mission
 				class Item7
 				{
 					position[]={7675.7173,331.36523,7077.5332};
-					id=405;
+					id=109;
 					side="CIV";
 					vehicle="Profiteer2";
 					player="PLAY CDG";
@@ -1065,7 +1073,7 @@ class Mission
 				class Item8
 				{
 					position[]={7674.0474,331.01865,7077.5337};
-					id=406;
+					id=110;
 					side="CIV";
 					vehicle="Worker4";
 					player="PLAY CDG";
@@ -1075,12 +1083,51 @@ class Mission
 				class Item9
 				{
 					position[]={7672.0723,330.60803,7077.5337};
-					id=407;
+					id=111;
 					side="CIV";
 					vehicle="Profiteer1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					text="HC (19)";
+				};
+			};
+		};
+		class Item15
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5741.4805,83.040001,11397.395};
+					special="NONE";
+					id=112;
+					side="LOGIC";
+					vehicle="LocationLogicAirport";
+					leader=1;
+					text="gosa_LogicLocationBase_1";
+					init="this setVariable [""gosa_Location_type"", 1];";
+					synchronizations[]={64,66};
+				};
+			};
+		};
+		class Item16
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={8006.2642,296.04001,1829.0264};
+					id=113;
+					side="LOGIC";
+					vehicle="LocationLogicAirport";
+					leader=1;
+					text="gosa_LogicLocationBase_2";
+					init="this setVariable [""gosa_Location_type"", 1];";
+					synchronizations[]={65,67};
 				};
 			};
 		};
@@ -1096,27 +1143,29 @@ class Mission
 			side="EMPTY";
 			vehicle="WarfareBCamp";
 			text="gosa_LogicLocationBase";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item1
 		{
 			position[]={5885.4551,83.040001,11379.334};
 			azimut=-137.032;
+			special="NONE";
 			id=64;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			text="gosa_LogicLocationBase_1";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			synchronizations[]={112};
 		};
 		class Item2
 		{
 			position[]={8049.8926,296.04001,1981.8599};
-			azimut=-299.53699;
+			azimut=150;
+			special="NONE";
 			id=65;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			text="gosa_LogicLocationBase_2";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			synchronizations[]={113};
 		};
 		class Item3
 		{
