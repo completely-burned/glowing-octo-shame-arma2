@@ -487,7 +487,7 @@
 		[[[["CUP_B_CH47F_USA"],[[0,0,0]],["CAPTAIN"]]],0.3]
 	] call gosa_fnc_filtering_squads_byAvail,
 	[1990,2100], [-999,999],
-	["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+	["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
 
 		// Inf. UCP (самый белый)
@@ -516,7 +516,7 @@
 			[[[["CUP_B_US_Soldier_HAT_UCP","CUP_B_US_Soldier_HAT_UCP","CUP_B_US_Soldier_AHAT_UCP"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [251,999,1],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		// Inf. OCP (цвет "Латте")
@@ -550,7 +550,7 @@
 			[[[["CUP_B_US_SpecOps_TL","CUP_B_US_SpecOps_MG","CUP_B_US_SpecOps_Assault","CUP_B_US_SpecOps_M"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [251,999],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		// Inf. OEFCP
@@ -579,7 +579,7 @@
 			[[[["CUP_B_US_Soldier_HAT_OEFCP","CUP_B_US_Soldier_HAT_OEFCP","CUP_B_US_Soldier_AHAT_OEFCP"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [160,999],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		// Vehicles Desert
@@ -681,7 +681,7 @@
 			[[[["CUP_B_M1A2_TUSK_MG_DES_US_Army","CUP_B_M1A2_TUSK_MG_DES_US_Army"],[[0,10,0],[5,0,0]],["CAPTAIN","LIEUTENANT"]]],0.05]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [250,999],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 	// TODO: Добавить камуфляжи лесной, зимний.
 
@@ -701,7 +701,7 @@
 		[[[["CUP_B_AV8B_LGB","CUP_B_AV8B_LGB"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.5]
 	] call gosa_fnc_filtering_squads_byAvail,
 	[1990,2100], [-999,999],
-	["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+	["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
 
 		// WDL
@@ -768,7 +768,7 @@
 			//[[[["CUP_B_FR_Story_Miles","CUP_B_FR_Story_Cooper","CUP_B_FR_Story_Sykes","CUP_B_FR_Story_Rodriguez","CUP_B_FR_Story_OHara"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [160,250,1],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		// DES
@@ -809,7 +809,7 @@
 			[[[["CUP_B_USMC_Soldier_HAT_FROG_DES","CUP_B_USMC_Soldier_AT_FROG_DES","CUP_B_USMC_Soldier_LAT_FROG_DES"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.15]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [251,999],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 //-- CUP_B_GB
@@ -866,7 +866,7 @@
 			[[[["CUP_B_BAF_Sniper_AS50_TWS_MTP","CUP_B_BAF_Sniper_AS50_TWS_MTP","CUP_B_BAF_Spotter_L85TWS_MTP"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE"]]],0.05]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [250,999],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		[_groups_map, west, "CUP_B_GB", [
@@ -921,7 +921,7 @@
 			*/
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [150,249,1],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 //-- CUP_B_GER
@@ -971,7 +971,7 @@
 			[[[["CUP_B_Leopard2A6_GER","CUP_B_Leopard2A6_GER","CUP_B_Leopard2A6_GER","CUP_B_Leopard2A6_GER"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.2]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [150,249,1],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		[_groups_map, west, "CUP_B_GER", [
@@ -1021,7 +1021,7 @@
 			[[[["CUP_B_UH1D_GER_KSK_Des","CUP_B_UH1D_GER_KSK_Des"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [250,999],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 //-- CUP_B_CDF
@@ -1042,7 +1042,7 @@
 			[[[["CUP_B_CDF_Sniper_SNW","CUP_B_CDF_Sniper_SNW"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.05]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [-999,159],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		[_groups_map, west, "CUP_B_CDF", [
@@ -1094,7 +1094,7 @@
 			[[[["CUP_B_T72_CDF","CUP_B_T72_CDF","CUP_B_T72_CDF"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.25]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [160,250],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		[_groups_map, west, "CUP_B_CDF", [
@@ -1114,7 +1114,7 @@
 			[[[["CUP_B_CDF_Sniper_DST","CUP_B_CDF_Sniper_DST"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.05]
 		] call gosa_fnc_filtering_squads_byAvail,
 		[1990,2100], [251,999],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 

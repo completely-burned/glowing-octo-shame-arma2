@@ -138,7 +138,7 @@
 		[[[["B_D_recon_M_lxWS","B_D_recon_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5]
 	] call gosa_fnc_filtering_squads_byAvail,
 	[1990,2100], [300,999],
-	["BLU_T_F", "BLU_F"]
+	["BLU_T_F", "BLU_F","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
 
 	[_groups_map, west, "BLU_ION_lxWS", [
@@ -173,7 +173,7 @@
 		[[[["B_Tura_enforcer_lxWS","B_Tura_hireling_lxWS","B_Tura_watcher_lxWS","B_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	] call gosa_fnc_filtering_squads_byAvail,
 	[1990,2100], [300,999],
-	["OPF_TURA_lxWS", "IND_TURA_lxWS", "BLU_F"]
+	["OPF_TURA_lxWS", "IND_TURA_lxWS", "BLU_F","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
 
 	[_groups_map, west, "BLU_UN_lxWS", [

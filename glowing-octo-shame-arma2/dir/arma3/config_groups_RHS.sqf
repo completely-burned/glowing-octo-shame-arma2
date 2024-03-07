@@ -1050,7 +1050,7 @@
 		["LIEUTENANT","SERGEANT"]]],0]
 ] call gosa_fnc_filtering_squads_byAvail,
 [1990,2100], [160,249],
-["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
 // nato_usmc_d
@@ -1255,5 +1255,5 @@
 		["LIEUTENANT","SERGEANT"]]],0]
 ] call gosa_fnc_filtering_squads_byAvail,
 [1990,2100], [250,999],
-["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS"]
+["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
