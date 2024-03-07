@@ -967,7 +967,7 @@ for "_i" from 0 to (count _groups_pending_map -1) do {
 				_factions_blocked set [count _factions_blocked, _x];
 				diag_log format ["Log: [fnc_map_groups] %1, blocked", _x];
 			};
-		} forEach (_arr select 4);
+		} forEach (_arr select 5);
 	};
 };
 
