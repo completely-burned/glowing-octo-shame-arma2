@@ -27,7 +27,7 @@ class Mission
 	randomSeed=10465836;
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Takistan east v0.0.5.922 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Takistan east v0.0.5.923 DEBUG";
 		startWeather=0.4;
 		forecastWeather=0.4;
 		year=2009;

@@ -182,7 +182,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame noe West v0.0.5.922 DEBUG";
+		briefingName="CO 00 glowing-octo-shame noe West v0.0.5.923 DEBUG";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.1;
