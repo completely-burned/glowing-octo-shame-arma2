@@ -31,7 +31,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			side="EAST";
@@ -127,11 +127,119 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={802.8468,51.631531,1186.0004};
+					position[]={802,52,1186};
 					id=11;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item2
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={0,0,0};
+					id=14;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
 					leader=1;
+					text="HC";
+				};
+				class Item1
+				{
+					position[]={0,0,0};
+					id=13;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_1";
+				};
+				class Item2
+				{
+					position[]={0,0,0};
+					id=21;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_2";
+				};
+				class Item3
+				{
+					position[]={0,0,0};
+					id=15;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_3";
+				};
+				class Item4
+				{
+					position[]={0,0,0};
+					id=16;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_4";
+				};
+				class Item5
+				{
+					position[]={0,0,0};
+					id=12;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_5";
+				};
+				class Item6
+				{
+					position[]={0,0,0};
+					id=17;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_6";
+				};
+				class Item7
+				{
+					position[]={0,0,0};
+					id=18;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_7";
+				};
+				class Item8
+				{
+					position[]={0,0,0};
+					id=19;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_8";
+				};
+				class Item9
+				{
+					position[]={0,0,0};
+					id=20;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_9";
 				};
 			};
 		};
@@ -142,12 +250,12 @@ class Mission
 		class Item0
 		{
 			position[]={757.9696,51.297764,1232.7975};
-			azimut=121.1389;
+			azimut=121;
 			id=9;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
 			text="gosa_LogicLocationBase";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0]; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item1
 		{
@@ -160,17 +268,11 @@ class Mission
 	};
 	class Markers
 	{
-		items=2;
+		items=1;
 		class Item0
 		{
 			position[]={1986,0,2020};
 			name="gosa_worldSize";
-			type="Empty";
-		};
-		class Item1
-		{
-			position[]={763.78259,51.101563,1236.5305};
-			name="playerStartPos";
 			type="Empty";
 		};
 	};
