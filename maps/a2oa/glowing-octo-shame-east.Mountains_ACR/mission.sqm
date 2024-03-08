@@ -15,11 +15,13 @@ class Mission
 		"cacharacters_acr",
 		"CAWheeled2_MMT",
 		"camisc_e_wf",
-		"camisc_e"
+		"camisc_e",
+		"ca_modules_functions"
 	};
 	addOnsAuto[]=
 	{
 		"cacharacters_e",
+		"ca_modules_functions",
 		"warfarebuildings",
 		"camisc_e",
 		"mountains_acr"
@@ -37,7 +39,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=1;
+		items=12;
 		class Item0
 		{
 			side="EAST";
@@ -125,6 +127,268 @@ class Mission
 				};
 			};
 		};
+		class Item1
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=2;
+				class Item0
+				{
+					position[]={899,220,3599};
+					id=12;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+					leader=1;
+					synchronizations[]={11};
+				};
+				class Item1
+				{
+					position[]={982,213,3543};
+					azimut=335;
+					special="NONE";
+					id=11;
+					side="LOGIC";
+					vehicle="LocationLogicCityFlatArea";
+					synchronizations[]={11,12};
+				};
+			};
+		};
+		class Item2
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1952,194,5071};
+					id=13;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item3
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2967,367,1257};
+					id=14;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item4
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2170,373,869};
+					id=15;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item5
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5924,349,2057};
+					id=16;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item6
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5487,305,1183};
+					id=17;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item7
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3038,171,5572};
+					id=18;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item8
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={414,226,3180};
+					id=19;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item9
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={174,237,2950};
+					id=20;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item10
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5715,327,5061};
+					id=21;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item11
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={0,0,0};
+					id=22;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					leader=1;
+					text="HC";
+				};
+				class Item1
+				{
+					position[]={0,0,0};
+					id=23;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_1";
+				};
+				class Item2
+				{
+					position[]={0,0,0};
+					id=27;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_2";
+				};
+				class Item3
+				{
+					position[]={0,0,0};
+					id=28;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_3";
+				};
+				class Item4
+				{
+					position[]={0,0,0};
+					id=29;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_4";
+				};
+				class Item5
+				{
+					position[]={0,0,0};
+					id=30;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_5";
+				};
+				class Item6
+				{
+					position[]={0,0,0};
+					id=26;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_6";
+				};
+				class Item7
+				{
+					position[]={0,0,0};
+					id=24;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_7";
+				};
+				class Item8
+				{
+					position[]={0,0,0};
+					id=25;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_8";
+				};
+				class Item9
+				{
+					position[]={0,0,0};
+					id=31;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_9";
+				};
+			};
+		};
 	};
 	class Vehicles
 	{
@@ -132,7 +396,7 @@ class Mission
 		class Item0
 		{
 			position[]={6156.5781,337.29025,4850.0586};
-			azimut=488.78806;
+			azimut=305;
 			id=0;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
@@ -150,81 +414,33 @@ class Mission
 	};
 	class Markers
 	{
-		items=2;
+		items=1;
 		class Item0
 		{
 			position[]={6344,0,6335};
 			name="gosa_worldSize";
 			type="Empty";
 		};
-		class Item1
-		{
-			position[]={6163.4302,337.23837,4852.6572};
-			name="playerStartPos";
-			type="Empty";
-		};
 	};
 };
 class Intro
 {
-	addOns[]=
-	{
-		"mountains_acr"
-	};
-	addOnsAuto[]=
-	{
-		"mountains_acr"
-	};
 	randomSeed=3386467;
 	class Intel
 	{
-		startWeather=0.4;
-		forecastWeather=0.4;
-		year=2009;
-		day=28;
-		hour=16;
-		minute=20;
 	};
 };
 class OutroWin
 {
-	addOns[]=
-	{
-		"mountains_acr"
-	};
-	addOnsAuto[]=
-	{
-		"mountains_acr"
-	};
 	randomSeed=11339499;
 	class Intel
 	{
-		startWeather=0.4;
-		forecastWeather=0.4;
-		year=2009;
-		day=28;
-		hour=16;
-		minute=20;
 	};
 };
 class OutroLoose
 {
-	addOns[]=
-	{
-		"mountains_acr"
-	};
-	addOnsAuto[]=
-	{
-		"mountains_acr"
-	};
 	randomSeed=15240113;
 	class Intel
 	{
-		startWeather=0.4;
-		forecastWeather=0.4;
-		year=2009;
-		day=28;
-		hour=16;
-		minute=20;
 	};
 };
