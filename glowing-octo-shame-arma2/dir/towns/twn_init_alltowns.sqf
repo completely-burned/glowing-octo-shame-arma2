@@ -21,9 +21,9 @@ Private["_buildings","_constructFunction","_count","_customCamps","_customOwners
 
 #ifdef __ARMA3__
 	_marker_type = "hd_dot";//diag_log
-	_marker_type_camp = _marker_type;//diag_log
-	_marker_type_depot = _marker_type;//diag_log
-	_marker_type_town = _marker_type;//diag_log
+	_marker_type_camp = "loc_defend";//diag_log
+	_marker_type_depot = "loc_Fortress";//diag_log
+	_marker_type_town = "mil_flag";//diag_log
 #else
 	_marker_type = "Dot";//diag_log
 	_marker_type_camp = "Strongpoint";//diag_log
