@@ -41,7 +41,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=17;
+		items=14;
 		class Item0
 		{
 			side="EAST";
@@ -710,46 +710,6 @@ class Mission
 		};
 		class Item7
 		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={5802.5796,83.120728,11293.496};
-					azimut=315;
-					special="NONE";
-					id=66;
-					side="LOGIC";
-					vehicle="Logic";
-					leader=1;
-					init="this setVariable [""gosa_respawn_type"", 1];";
-					synchronizations[]={112};
-				};
-			};
-		};
-		class Item8
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={8146.0796,296.12735,2043.4072};
-					azimut=150;
-					special="NONE";
-					id=67;
-					side="LOGIC";
-					vehicle="Logic";
-					leader=1;
-					init="this setVariable [""gosa_respawn_type"", 1];";
-					synchronizations[]={113};
-				};
-			};
-		};
-		class Item9
-		{
 			side="EAST";
 			class Vehicles
 			{
@@ -767,7 +727,7 @@ class Mission
 				};
 			};
 		};
-		class Item10
+		class Item8
 		{
 			side="EAST";
 			class Vehicles
@@ -816,7 +776,7 @@ class Mission
 				};
 			};
 		};
-		class Item11
+		class Item9
 		{
 			side="EAST";
 			class Vehicles
@@ -845,7 +805,7 @@ class Mission
 				};
 			};
 		};
-		class Item12
+		class Item10
 		{
 			side="EAST";
 			class Vehicles
@@ -874,18 +834,18 @@ class Mission
 				};
 			};
 		};
-		class Item13
+		class Item11
 		{
 			side="CIV";
 			class Vehicles
 			{
-				items=10;
+				items=20;
 				class Item0
 				{
-					position[]={7656.4355,326.96924,7085.1069};
+					position[]={0,0,0};
 					id=92;
 					side="CIV";
-					vehicle="Profiteer4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
 					leader=1;
@@ -893,215 +853,205 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={7659.3599,327.71628,7082.6128};
+					position[]={0,0,0};
 					id=93;
 					side="CIV";
-					vehicle="Worker2";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (1)";
+					text="HC_1";
 				};
 				class Item2
 				{
-					position[]={7661.3599,328.12161,7082.6128};
+					position[]={0,0,0};
 					id=94;
 					side="CIV";
-					vehicle="Functionary1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (2)";
+					text="HC_2";
 				};
 				class Item3
 				{
-					position[]={7663.3599,328.51913,7082.6128};
+					position[]={0,0,0};
 					id=95;
 					side="CIV";
-					vehicle="Woodlander4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (3)";
+					text="HC_3";
 				};
 				class Item4
 				{
-					position[]={7665.3599,328.91135,7082.6128};
+					position[]={0,0,0};
 					id=96;
 					side="CIV";
-					vehicle="Rocker1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (4)";
+					text="HC_4";
 				};
 				class Item5
 				{
-					position[]={7667.3599,329.31668,7082.6128};
+					position[]={0,0,0};
 					id=97;
 					side="CIV";
-					vehicle="Worker3";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (5)";
+					text="HC_5";
 				};
 				class Item6
 				{
-					position[]={7669.3599,329.72202,7082.6128};
+					position[]={0,0,0};
 					id=98;
 					side="CIV";
-					vehicle="Profiteer3";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (6)";
+					text="HC_6";
 				};
 				class Item7
 				{
-					position[]={7675.5376,330.90125,7083.2969};
+					position[]={0,0,0};
 					id=99;
 					side="CIV";
-					vehicle="Profiteer2";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (7)";
+					text="HC_7";
 				};
 				class Item8
 				{
-					position[]={7673.1831,330.45557,7082.8394};
+					position[]={0,0,0};
 					id=100;
 					side="CIV";
-					vehicle="Worker4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (8)";
+					text="HC_8";
 				};
 				class Item9
 				{
-					position[]={7671.5879,330.12628,7082.9927};
+					position[]={0,0,0};
 					id=101;
 					side="CIV";
-					vehicle="Profiteer1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (9)";
+					text="HC_9";
 				};
-			};
-		};
-		class Item14
-		{
-			side="CIV";
-			class Vehicles
-			{
-				items=10;
-				class Item0
+				class Item10
 				{
-					position[]={7656.5405,327.34473,7079.2671};
+					position[]={0,0,0};
 					id=102;
 					side="CIV";
-					vehicle="Profiteer4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					leader=1;
-					text="HC (10)";
+					text="HC_10";
 				};
-				class Item1
+				class Item11
 				{
-					position[]={7660.0723,328.16293,7077.5337};
+					position[]={0,0,0};
 					id=103;
 					side="CIV";
-					vehicle="Worker2";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (11)";
+					text="HC_11";
 				};
-				class Item2
+				class Item12
 				{
-					position[]={7662.0723,328.56824,7077.5337};
+					position[]={0,0,0};
 					id=104;
 					side="CIV";
-					vehicle="Functionary1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (12)";
+					text="HC_12";
 				};
-				class Item3
+				class Item13
 				{
-					position[]={7664.0723,328.97357,7077.5337};
+					position[]={0,0,0};
 					id=105;
 					side="CIV";
-					vehicle="Woodlander4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (13)";
+					text="HC_13";
 				};
-				class Item4
+				class Item14
 				{
-					position[]={7666.0723,329.38461,7077.5337};
+					position[]={0,0,0};
 					id=106;
 					side="CIV";
-					vehicle="Rocker1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (14)";
+					text="HC_14";
 				};
-				class Item5
+				class Item15
 				{
-					position[]={7668.0723,329.79736,7077.5337};
+					position[]={0,0,0};
 					id=107;
 					side="CIV";
-					vehicle="Worker3";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (15)";
+					text="HC_15";
 				};
-				class Item6
+				class Item16
 				{
-					position[]={7670.0723,330.2027,7077.5337};
-					id=108;
-					side="CIV";
-					vehicle="Profiteer3";
-					player="PLAY CDG";
-					forceHeadlessClient=1;
-					text="HC (16)";
-				};
-				class Item7
-				{
-					position[]={7675.7173,331.36523,7077.5332};
+					position[]={0,0,0};
 					id=109;
 					side="CIV";
-					vehicle="Profiteer2";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (17)";
+					text="HC_16";
 				};
-				class Item8
+				class Item17
 				{
-					position[]={7674.0474,331.01865,7077.5337};
+					position[]={0,0,0};
 					id=110;
 					side="CIV";
-					vehicle="Worker4";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (18)";
+					text="HC_17";
 				};
-				class Item9
+				class Item18
 				{
-					position[]={7672.0723,330.60803,7077.5337};
+					position[]={0,0,0};
 					id=111;
 					side="CIV";
-					vehicle="Profiteer1";
+					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
 					forceHeadlessClient=1;
-					text="HC (19)";
+					text="HC_18";
+				};
+				class Item19
+				{
+					position[]={0,0,0};
+					id=108;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_19";
 				};
 			};
 		};
-		class Item15
+		class Item12
 		{
 			side="LOGIC";
 			class Vehicles
 			{
-				items=1;
+				items=2;
 				class Item0
 				{
-					position[]={5741.4805,83.040001,11397.395};
-					special="NONE";
+					position[]={5741,83,11397};
 					id=112;
 					side="LOGIC";
 					vehicle="LocationLogicAirport";
@@ -1110,17 +1060,28 @@ class Mission
 					init="this setVariable [""gosa_Location_type"", 1];";
 					synchronizations[]={64,66};
 				};
+				class Item1
+				{
+					position[]={5802.5796,83.120728,11293.496};
+					azimut=315;
+					special="NONE";
+					id=66;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 1];";
+					synchronizations[]={112};
+				};
 			};
 		};
-		class Item16
+		class Item13
 		{
 			side="LOGIC";
 			class Vehicles
 			{
-				items=1;
+				items=2;
 				class Item0
 				{
-					position[]={8006.2642,296.04001,1829.0264};
+					position[]={8006,296,1829};
 					id=113;
 					side="LOGIC";
 					vehicle="LocationLogicAirport";
@@ -1128,6 +1089,17 @@ class Mission
 					text="gosa_LogicLocationBase_2";
 					init="this setVariable [""gosa_Location_type"", 1];";
 					synchronizations[]={65,67};
+				};
+				class Item1
+				{
+					position[]={8146.0796,296.12735,2043.4072};
+					azimut=150;
+					special="NONE";
+					id=67;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 1];";
+					synchronizations[]={113};
 				};
 			};
 		};
@@ -1138,18 +1110,17 @@ class Mission
 		class Item0
 		{
 			position[]={6942.6748,327.23199,4920.6235};
-			azimut=100.021;
+			azimut=100;
 			id=0;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
 			text="gosa_LogicLocationBase";
-			init="this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0]; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item1
 		{
 			position[]={5885.4551,83.040001,11379.334};
-			azimut=-137.032;
-			special="NONE";
+			azimut=-137;
 			id=64;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
@@ -1160,7 +1131,6 @@ class Mission
 		{
 			position[]={8049.8926,296.04001,1981.8599};
 			azimut=150;
-			special="NONE";
 			id=65;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
@@ -1305,17 +1275,11 @@ class Mission
 	};
 	class Markers
 	{
-		items=2;
+		items=1;
 		class Item0
 		{
 			position[]={12649,0,12754};
 			name="gosa_worldSize";
-			type="Empty";
-		};
-		class Item1
-		{
-			position[]={6943.8535,327.26712,4925.2129};
-			name="playerStartPos";
 			type="Empty";
 		};
 	};
