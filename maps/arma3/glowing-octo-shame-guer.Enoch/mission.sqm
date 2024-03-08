@@ -17,9 +17,6 @@ class EditorData
 	class Camera
 	{
 		pos[]={2764.0347,259.15436,5255.1899};
-		dir[]={-0.22230408,-0.4763,0.85072881};
-		up[]={-0.12041964,0.87928212,0.46082968};
-		aside[]={0.96752399,-1.1641532e-008,0.25282505};
 	};
 };
 binarizationWanted=0;
@@ -574,7 +571,6 @@ class Mission
 			{
 				position[]={3980.21,38.105492,8032.188};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=22;
 			type="LocationCity_F";
 		};
@@ -596,7 +592,6 @@ class Mission
 			{
 				position[]={3087.8237,64.11245,6816.5718};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=28;
 			type="LocationCity_F";
 		};
@@ -607,7 +602,6 @@ class Mission
 			{
 				position[]={1555.889,98.123672,9705.2979};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=29;
 			type="LocationCity_F";
 		};
@@ -618,7 +612,6 @@ class Mission
 			{
 				position[]={9883.7422,39.878616,8500.5635};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=30;
 			type="LocationCity_F";
 		};
@@ -629,7 +622,6 @@ class Mission
 			{
 				position[]={6625.8745,7.4718504,11198.779};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=31;
 			type="LocationCity_F";
 		};
@@ -640,7 +632,6 @@ class Mission
 			{
 				position[]={11225.235,169.08636,4358.2822};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=32;
 			type="LocationCity_F";
 		};
@@ -651,7 +642,6 @@ class Mission
 			{
 				position[]={5016.0625,22.544628,9965.4385};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=33;
 			type="LocationCity_F";
 		};
@@ -662,7 +652,6 @@ class Mission
 			{
 				position[]={10748.982,7.7937284,11027.544};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=34;
 			type="LocationCity_F";
 		};
@@ -673,7 +662,6 @@ class Mission
 			{
 				position[]={11375.455,45.917122,615.18018};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=35;
 			type="LocationCity_F";
 		};
@@ -684,7 +672,6 @@ class Mission
 			{
 				position[]={893.39789,73.084396,5479.9971};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=36;
 			type="LocationCity_F";
 		};
@@ -695,7 +682,6 @@ class Mission
 			{
 				position[]={8112.0649,75.18,8727.7031};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=37;
 			type="LocationCity_F";
 		};
@@ -706,7 +692,6 @@ class Mission
 			{
 				position[]={10071.022,117.82521,6897.8965};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=38;
 			type="LocationCity_F";
 		};
@@ -717,7 +702,6 @@ class Mission
 			{
 				position[]={8427.624,7.3842092,12020.854};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=39;
 			type="LocationCity_F";
 		};
@@ -728,7 +712,6 @@ class Mission
 			{
 				position[]={8798.0156,143.46873,6665.187};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=40;
 			type="LocationCity_F";
 		};
@@ -739,7 +722,6 @@ class Mission
 			{
 				position[]={5954.1465,104.7711,6836.9097};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=41;
 			type="LocationCity_F";
 		};
@@ -750,7 +732,6 @@ class Mission
 			{
 				position[]={3599.7227,74.938072,11908.294};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=42;
 			type="LocationCity_F";
 		};
@@ -761,7 +742,6 @@ class Mission
 			{
 				position[]={4539.6064,132.84856,6497.4092};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=43;
 			type="LocationCity_F";
 		};
@@ -772,7 +752,6 @@ class Mission
 			{
 				position[]={6070.2783,216.86589,4148.2168};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=44;
 			type="LocationCity_F";
 		};
@@ -783,7 +762,6 @@ class Mission
 			{
 				position[]={6060.626,46.988834,8196.0527};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=45;
 			type="LocationCity_F";
 		};
@@ -794,7 +772,6 @@ class Mission
 			{
 				position[]={4828.1343,109.41328,7695.7749};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=46;
 			type="LocationCity_F";
 		};
@@ -803,9 +780,8 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3332.6003,317.16,2049.0159};
+				position[]={3332,317.16,2049};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=47;
 			type="LocationCity_F";
 		};
@@ -816,7 +792,6 @@ class Mission
 			{
 				position[]={7322.3291,57.058819,6362.377};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=48;
 			type="LocationCity_F";
 		};
@@ -825,11 +800,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1720.9886,28.083689,7351.3296};
+				position[]={1721,28,7351};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=49;
-			type="LocationCity_F";
+			type="LocationCityCapital_F";
 		};
 		class Item29
 		{
@@ -838,7 +812,6 @@ class Mission
 			{
 				position[]={6308.0591,22.340797,10221.637};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=50;
 			type="LocationCity_F";
 		};
@@ -849,7 +822,6 @@ class Mission
 			{
 				position[]={11457.976,11.214042,9514.8652};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=51;
 			type="LocationCity_F";
 		};
@@ -860,7 +832,6 @@ class Mission
 			{
 				position[]={11632.1,77.037483,7123.7939};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=52;
 			type="LocationCity_F";
 		};
@@ -871,7 +842,6 @@ class Mission
 			{
 				position[]={7625.5957,70.269341,5316.4741};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=53;
 			type="LocationCity_F";
 		};
@@ -882,7 +852,6 @@ class Mission
 			{
 				position[]={5167.1797,189.08676,5488.5024};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=54;
 			type="LocationCity_F";
 		};
@@ -893,7 +862,6 @@ class Mission
 			{
 				position[]={9368.5078,68.422737,10514.074};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=55;
 			type="LocationCity_F";
 		};
@@ -904,7 +872,6 @@ class Mission
 			{
 				position[]={7828.7271,151.41501,9865.5244};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=56;
 			type="LocationCity_F";
 		};
@@ -913,11 +880,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={2063.9836,117.72641,11151.672};
+				position[]={2064,118,11151};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=57;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item37
 		{
@@ -926,7 +892,6 @@ class Mission
 			{
 				position[]={7387.2446,117.04,2613.8877};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=58;
 			type="LocationCity_F";
 		};
@@ -935,22 +900,20 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={11105.81,187.83943,2517.8047};
+				position[]={11105,187,2518};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=59;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item39
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={4954.0078,354.39081,2151.5977};
+				position[]={4954,354,2151};
 			};
-			init="if(count nearestLocations [getPos this, [""CityCenter""], 250] == 0)then{createLocation [""CityCenter"", getPos this, 300, 300]};";
 			id=60;
-			type="LocationCity_F";
+			type="LocationVillage_F";
 		};
 		class Item40
 		{
