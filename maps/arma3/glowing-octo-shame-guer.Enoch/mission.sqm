@@ -228,11 +228,10 @@ class Mission
 		class Item0
 		{
 			dataType="Marker";
-			position[]={12725.531,49.771,12630.518};
+			position[]={12725,0,12630};
 			name="gosa_worldSize";
 			type="Empty";
 			id=0;
-			atlOffset=-0.00030517578;
 		};
 		class Item1
 		{
@@ -980,23 +979,6 @@ class Mission
 			};
 			id=64;
 			type="Land_Cargo_HQ_V1_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item42
 		{
@@ -1014,31 +996,10 @@ class Mission
 			};
 			id=65;
 			type="Land_Cargo_HQ_V1_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item43
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={705.005,196.0314,3266.907};
-			};
 			name="HeadlessClient";
 			isPlayable=1;
 			id=66;
@@ -1047,10 +1008,6 @@ class Mission
 		class Item44
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={438.36008,150.89021,3279.6143};
-			};
 			name="HeadlessClient_1";
 			isPlayable=1;
 			id=67;
@@ -1059,10 +1016,6 @@ class Mission
 		class Item45
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={406.61658,175.33725,3108.0681};
-			};
 			name="HeadlessClient_2";
 			isPlayable=1;
 			id=68;
@@ -1071,10 +1024,6 @@ class Mission
 		class Item46
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={654.21545,187.26515,3089.0076};
-			};
 			name="HeadlessClient_3";
 			isPlayable=1;
 			id=69;
@@ -1083,10 +1032,6 @@ class Mission
 		class Item47
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={584.37994,187.02652,2860.2805};
-			};
 			name="HeadlessClient_4";
 			isPlayable=1;
 			id=70;
@@ -1095,10 +1040,6 @@ class Mission
 		class Item48
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={355.82721,187.07948,2892.0479};
-			};
 			name="HeadlessClient_5";
 			isPlayable=1;
 			id=71;
@@ -1107,10 +1048,6 @@ class Mission
 		class Item49
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={336.78113,134.21344,2695.0874};
-			};
 			name="HeadlessClient_6";
 			isPlayable=1;
 			id=72;
@@ -1119,10 +1056,6 @@ class Mission
 		class Item50
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={565.33386,165.34183,2669.6738};
-			};
 			name="HeadlessClient_7";
 			isPlayable=1;
 			id=73;
@@ -1131,10 +1064,6 @@ class Mission
 		class Item51
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={311.38644,163.52652,2542.6025};
-			};
 			name="HeadlessClient_8";
 			isPlayable=1;
 			id=74;
@@ -1143,10 +1072,6 @@ class Mission
 		class Item52
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={565.33386,147.76912,2466.3604};
-			};
 			name="HeadlessClient_9";
 			isPlayable=1;
 			id=75;
@@ -1160,10 +1085,9 @@ class Mission
 				position[]={4091.6235,68.2612,10230.093};
 				angles[]={-0,5.4322,0};
 			};
-			name="gosa_airportHangar0";
-			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+			init="this setVariable [""gosa_respawn_type"", 1];";
 			id=109;
-			type="LocationCamp_F";
+			type="LocationRespawnPoint_F";
 		};
 		class Item54
 		{
@@ -1173,10 +1097,9 @@ class Mission
 				position[]={4290.1753,68.160004,10510.263};
 				angles[]={-0,5.2120681,0};
 			};
-			name="gosa_airportHangar1";
-			init="this setVariable [""gosa_respawn_type"", 1]; _nic = [this] execVM ""dir\common\airport.sqf"";";
+			init="this setVariable [""gosa_respawn_type"", 1];";
 			id=110;
-			type="LocationCamp_F";
+			type="LocationRespawnPoint_F";
 		};
 		class Item55
 		{
@@ -1187,7 +1110,7 @@ class Mission
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=111;
-			type="LocationCamp_F";
+			type="LocationRespawnPoint_F";
 		};
 		class Item56
 		{
@@ -1204,23 +1127,6 @@ class Mission
 			};
 			id=113;
 			type="Box_EAF_Wps_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item57
 		{
@@ -1237,23 +1143,6 @@ class Mission
 			};
 			id=114;
 			type="Box_EAF_WpsLaunch_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item58
 		{
@@ -1271,23 +1160,6 @@ class Mission
 			id=115;
 			type="Box_EAF_Support_F";
 			atlOffset=-7.6293945e-006;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item59
 		{
@@ -1304,23 +1176,6 @@ class Mission
 			};
 			id=116;
 			type="Box_EAF_Support_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item60
 		{
@@ -1337,23 +1192,6 @@ class Mission
 			};
 			id=117;
 			type="Box_EAF_WpsLaunch_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item61
 		{
@@ -1370,23 +1208,6 @@ class Mission
 			};
 			id=118;
 			type="Box_EAF_Wps_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item62
 		{
@@ -1404,23 +1225,6 @@ class Mission
 			id=119;
 			type="Box_EAF_WpsLaunch_F";
 			atlOffset=0.00018310547;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item63
 		{
@@ -1437,23 +1241,6 @@ class Mission
 			id=120;
 			type="Box_EAF_Wps_F";
 			atlOffset=0.60600281;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item64
 		{
@@ -1470,23 +1257,6 @@ class Mission
 			};
 			id=121;
 			type="Box_EAF_Support_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							singleType="BOOL";
-							value=0;
-						};
-					};
-				};
-				nAttributes=1;
-			};
 		};
 		class Item65
 		{
@@ -1511,36 +1281,6 @@ class Mission
 					};
 					id=134;
 					type="I_E_Helipilot_F";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01POL";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.03;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
