@@ -6,12 +6,17 @@
  */
 
 private ["_type_Airport","_list_Airport","_arr","_type","_logic",
-	"_arr0","_arr1",
+	"_arr0","_arr1","_blacklist","_n","_type_Airport_compat",
 	"_type_Base","_list_Base","_str"];
+
 _type_Airport = [1];
 _list_Airport = [];
 _type_Base = [0];
 _list_Base = [];
+_type_Airport_compat = [1];
+
+
+_blacklist = [];
 
 #ifdef __A2OA__
 	_arr = allMissionObjects "LocationBase_F";
@@ -41,8 +46,12 @@ for "_i" from -1 to 99 do {
 	if !(isNil _str) then {
 		_logic = call compile _str;
 		_arr set [count _arr, _logic];
-		_logic setVariable ["gosa_Location_type", _type_Airport select 0, true];
-		_logic setVariable ["gosa_respawn_type", _type_Airport select 0, true];
+		{
+			_n = _logic getVariable _x;
+			if (isNil "_n") then {
+				_logic setVariable [_x, _type_Airport_compat select 0, true];
+			};
+		} forEach ["gosa_Location_type", "gosa_respawn_type"];
 	};
 };
 #ifdef __A2OA__
