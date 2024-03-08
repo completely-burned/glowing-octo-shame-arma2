@@ -9,11 +9,13 @@ class Mission
 		"camisc_e_wf",
 		"corepatch_zargabad_intro_fix",
 		"warfarebuildings",
-		"camisc_e"
+		"camisc_e",
+		"ca_modules_functions"
 	};
 	addOnsAuto[]=
 	{
 		"cacharacters_e",
+		"ca_modules_functions",
 		"warfarebuildings",
 		"camisc_e",
 		"zargabad"
@@ -561,7 +563,7 @@ class Mission
 				class Item0
 				{
 					position[]={3572.0896,22.365149,4164.5015};
-					id=152;
+					id=52;
 					side="EAST";
 					vehicle="TK_Soldier_Pilot_EP1";
 					player="PLAY CDG";
@@ -571,7 +573,7 @@ class Mission
 				class Item1
 				{
 					position[]={3576.2827,22.365149,4160.3208};
-					id=153;
+					id=53;
 					side="EAST";
 					vehicle="TK_Soldier_Pilot_EP1";
 					player="PLAY CDG";
@@ -588,7 +590,7 @@ class Mission
 				class Item0
 				{
 					position[]={3576.8879,22.39452,4127.0713};
-					id=154;
+					id=54;
 					side="EAST";
 					vehicle="TK_Soldier_Pilot_EP1";
 					player="PLAY CDG";
@@ -598,7 +600,7 @@ class Mission
 				class Item1
 				{
 					position[]={3581.0811,22.39452,4123.8794};
-					id=155;
+					id=55;
 					side="EAST";
 					vehicle="TK_Soldier_Pilot_EP1";
 					player="PLAY CDG";
@@ -611,15 +613,50 @@ class Mission
 			side="LOGIC";
 			class Vehicles
 			{
-				items=1;
+				items=4;
 				class Item0
 				{
-					position[]={3561.853,22.365149,4167.1675};
-					id=156;
+					position[]={3517,23,4216};
+					id=63;
+					side="LOGIC";
+					vehicle="LocationLogicAirport";
+					leader=1;
+					text="gosa_LogicLocationBase_1";
+					init="this setVariable [""gosa_Location_type"", 1];";
+					synchronizations[]={64,56,65};
+				};
+				class Item1
+				{
+					position[]={3567,26,4206};
+					azimut=280;
+					special="NONE";
+					id=64;
 					side="LOGIC";
 					vehicle="Logic";
-					leader=1;
-					text="gosa_airportHangar0";
+					init="this setVariable [""gosa_respawn_type"", 0];";
+					synchronizations[]={63};
+				};
+				class Item2
+				{
+					position[]={3562,22,4168};
+					azimut=270;
+					special="NONE";
+					id=56;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 1];";
+					synchronizations[]={63};
+				};
+				class Item3
+				{
+					position[]={3589,25,3899};
+					azimut=270;
+					special="NONE";
+					id=65;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 0];";
+					synchronizations[]={65,63};
 				};
 			};
 		};
@@ -631,8 +668,8 @@ class Mission
 				items=6;
 				class Item0
 				{
-					position[]={138.25487,116.66995,138.10303};
-					id=157;
+					position[]={0,0,0};
+					id=57;
 					side="CIV";
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
@@ -642,8 +679,8 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={140.98007,117.5636,133.24072};
-					id=158;
+					position[]={0,0,0};
+					id=58;
 					side="CIV";
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
@@ -652,8 +689,8 @@ class Mission
 				};
 				class Item2
 				{
-					position[]={142.98007,118.05582,133.24023};
-					id=159;
+					position[]={0,0,0};
+					id=59;
 					side="CIV";
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
@@ -662,8 +699,8 @@ class Mission
 				};
 				class Item3
 				{
-					position[]={144.98006,118.55598,133.24121};
-					id=160;
+					position[]={0,0,0};
+					id=60;
 					side="CIV";
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
@@ -672,8 +709,8 @@ class Mission
 				};
 				class Item4
 				{
-					position[]={146.98009,119.04711,133.24072};
-					id=161;
+					position[]={0,0,0};
+					id=61;
 					side="CIV";
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
@@ -682,8 +719,8 @@ class Mission
 				};
 				class Item5
 				{
-					position[]={149.39224,119.6428,133.10303};
-					id=162;
+					position[]={0,0,0};
+					id=62;
 					side="CIV";
 					vehicle="TK_CIV_Takistani01_EP1";
 					player="PLAY CDG";
@@ -698,17 +735,17 @@ class Mission
 		items=2;
 		class Item0
 		{
-			position[]={3462.8198,11.432298,3275.5576};
-			azimut=221.739;
+			position[]={3463,11,3276};
+			azimut=220;
 			id=9;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
 			text="gosa_LogicLocationBase";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0]; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item1
 		{
-			position[]={3453.2405,11.441297,3267.2783};
+			position[]={3453,11,3267};
 			id=51;
 			side="EMPTY";
 			vehicle="MASH_EP1";
@@ -716,17 +753,11 @@ class Mission
 	};
 	class Markers
 	{
-		items=2;
+		items=1;
 		class Item0
 		{
 			position[]={8150,0,8160};
 			name="gosa_worldSize";
-			type="Empty";
-		};
-		class Item1
-		{
-			position[]={3460.9658,11.404488,3275.2549};
-			name="playerStartPos";
 			type="Empty";
 		};
 	};
