@@ -86,6 +86,15 @@ _fnc_1={
 
 	_veh setDir _player_dir;
 
+	if(_isUAV)then{
+		#ifdef __ARMA3__
+			_side createVehicleCrew _veh;
+		#else
+			// Не работает с UAVs в A3.
+			_crew = ([_veh, createGroup _side, _side, _type, [], _entry, _pos] call gosa_fnc_spawnCrew);
+		#endif
+	};
+
 	#ifdef __ARMA3__
 		[_veh, "fnc_Client_BuyUnit"] remoteExec ["gosa_fnc_vehInit2"];
 	#else
@@ -272,14 +281,6 @@ if (true) then {
 			_arr = ([_pos, 0, 15 max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
-			if(_isUAV)then{
-				#ifdef __ARMA3__
-					_side createVehicleCrew _veh;
-				#else
-					// Не работает с UAVs в A3.
-					_crew = ([_veh, createGroup _side, _side, _type, [], _entry, _pos] call gosa_fnc_spawnCrew);
-				#endif
-			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
@@ -309,14 +310,6 @@ if (true) then {
 			_arr = ([_pos, 0, _num max sizeOf _type] call gosa_fnc_getSafePos);
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
-			if(_isUAV)then{
-				#ifdef __ARMA3__
-					_side createVehicleCrew _veh;
-				#else
-					// Не работает с UAVs в A3.
-					_crew = ([_veh, createGroup _side, _side, _type, [], _entry, _pos] call gosa_fnc_spawnCrew);
-				#endif
-			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
