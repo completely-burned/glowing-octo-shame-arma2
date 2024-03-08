@@ -826,16 +826,28 @@ class Mission
 			side="LOGIC";
 			class Vehicles
 			{
-				items=1;
+				items=2;
 				class Item0
 				{
 					position[]={4846.3657,339.08075,10217.116};
+					azimut=240;
+					special="NONE";
 					id=36;
 					side="LOGIC";
 					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 1];";
+					synchronizations[]={423};
+				};
+				class Item1
+				{
+					position[]={4693,339,10104};
+					id=423;
+					side="LOGIC";
+					vehicle="LocationLogicAirport";
 					leader=1;
-					text="gosa_airportHangar0";
-					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+					text="gosa_LogicLocationBase_1";
+					init="this setVariable [""gosa_Location_type"", 1];";
+					synchronizations[]={35,36};
 				};
 			};
 		};
@@ -844,16 +856,28 @@ class Mission
 			side="LOGIC";
 			class Vehicles
 			{
-				items=1;
+				items=2;
 				class Item0
 				{
 					position[]={4756.4404,8.7569866,2595.7419};
+					azimut=210;
+					special="NONE";
 					id=37;
 					side="LOGIC";
 					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 1];";
+					synchronizations[]={422};
+				};
+				class Item1
+				{
+					position[]={4778,9,2512};
+					id=422;
+					side="LOGIC";
+					vehicle="LocationLogicAirport";
 					leader=1;
-					text="gosa_airportHangar1";
-					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+					text="gosa_LogicLocationBase_2";
+					init="this setVariable [""gosa_Location_type"", 1];";
+					synchronizations[]={39,37};
 				};
 			};
 		};
@@ -862,16 +886,28 @@ class Mission
 			side="LOGIC";
 			class Vehicles
 			{
-				items=1;
+				items=2;
 				class Item0
 				{
 					position[]={12054.94,158.85699,12621.789};
+					azimut=15;
+					special="NONE";
 					id=38;
 					side="LOGIC";
 					vehicle="Logic";
 					leader=1;
-					text="gosa_airportHangar2";
-					init="_nic = [this] execVM ""dir\common\airport.sqf"";";
+					init="this setVariable [""gosa_respawn_type"", 1];";
+					synchronizations[]={424};
+				};
+				class Item1
+				{
+					position[]={12051,159,12703};
+					id=424;
+					side="LOGIC";
+					vehicle="LocationLogicAirport";
+					text="gosa_LogicLocationBase_3";
+					init="this setVariable [""gosa_Location_type"", 1];";
+					synchronizations[]={38,40};
 				};
 			};
 		};
@@ -4062,17 +4098,17 @@ class Mission
 			side="EMPTY";
 			vehicle="WarfareBCamp";
 			text="gosa_LogicLocationBase";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0]; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item1
 		{
 			position[]={4729.0977,339,10203.569};
-			azimut=330;
+			azimut=150;
 			id=35;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			text="gosa_LogicLocationBase_1";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			synchronizations[]={423};
 		};
 		class Item2
 		{
@@ -4081,8 +4117,8 @@ class Mission
 			id=39;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			text="gosa_LogicLocationBase_2";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			synchronizations[]={422};
 		};
 		class Item3
 		{
@@ -4091,8 +4127,8 @@ class Mission
 			id=40;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
-			text="gosa_LogicLocationBase_3";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			synchronizations[]={424};
 		};
 		class Item4
 		{
@@ -4312,17 +4348,11 @@ class Mission
 	};
 	class Markers
 	{
-		items=2;
+		items=1;
 		class Item0
 		{
 			position[]={14751,0,15214};
 			name="gosa_worldSize";
-			type="Empty";
-		};
-		class Item1
-		{
-			position[]={7563.4033,306.90018,6826.9907};
-			name="playerStartPos";
 			type="Empty";
 		};
 	};
