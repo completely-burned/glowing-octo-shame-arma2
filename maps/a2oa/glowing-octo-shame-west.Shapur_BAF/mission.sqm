@@ -31,7 +31,7 @@ class Mission
 	randomSeed=14018807;
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Shapur_BAF west v0.0.5.923 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Shapur_BAF west v0.0.5.924 DEBUG";
 		startWeather=0.10000002;
 		forecastWeather=0.10000002;
 		year=2012;
