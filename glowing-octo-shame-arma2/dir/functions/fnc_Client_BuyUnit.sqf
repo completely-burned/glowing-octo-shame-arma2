@@ -90,9 +90,11 @@ _fnc_1={
 		#ifdef __ARMA3__
 			_side createVehicleCrew _veh;
 		#else
-			// Не работает с UAVs в A3.
+			// Не работает с UAV или UGV в A3.
 			_crew = ([_veh, createGroup _side, _side, _type, [], _entry, _pos] call gosa_fnc_spawnCrew);
 		#endif
+	}else{
+		group player addVehicle _veh;
 	};
 
 	#ifdef __ARMA3__
@@ -110,7 +112,6 @@ _fnc_1={
 	// если земля без наклона.
 	_veh setVectorUp [0,0,1];
 
-	group player addVehicle _veh;
 	player reveal _veh;
 
 	#ifndef __ARMA3__
