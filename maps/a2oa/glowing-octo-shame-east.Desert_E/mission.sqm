@@ -29,7 +29,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=8;
+		items=9;
 		class Item0
 		{
 			side="EAST";
@@ -129,7 +129,6 @@ class Mission
 					id=11;
 					side="LOGIC";
 					vehicle="LocationLogicStart";
-					leader=1;
 				};
 			};
 		};
@@ -145,7 +144,6 @@ class Mission
 					id=12;
 					side="LOGIC";
 					vehicle="LocationLogicStart";
-					leader=1;
 				};
 			};
 		};
@@ -161,7 +159,6 @@ class Mission
 					id=13;
 					side="LOGIC";
 					vehicle="LocationLogicStart";
-					leader=1;
 				};
 			};
 		};
@@ -177,7 +174,6 @@ class Mission
 					id=14;
 					side="LOGIC";
 					vehicle="LocationLogicStart";
-					leader=1;
 				};
 			};
 		};
@@ -193,7 +189,6 @@ class Mission
 					id=15;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
-					leader=1;
 				};
 			};
 		};
@@ -209,7 +204,6 @@ class Mission
 					id=16;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
-					leader=1;
 				};
 			};
 		};
@@ -225,7 +219,106 @@ class Mission
 					id=17;
 					side="LOGIC";
 					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item8
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={0,0,0};
+					id=18;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
 					leader=1;
+					text="HC";
+				};
+				class Item1
+				{
+					position[]={0,0,0};
+					id=19;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_1";
+				};
+				class Item2
+				{
+					position[]={0,0,0};
+					id=23;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_2";
+				};
+				class Item3
+				{
+					position[]={0,0,0};
+					id=24;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_3";
+				};
+				class Item4
+				{
+					position[]={0,0,0};
+					id=25;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_4";
+				};
+				class Item5
+				{
+					position[]={0,0,0};
+					id=26;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_5";
+				};
+				class Item6
+				{
+					position[]={0,0,0};
+					id=22;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_6";
+				};
+				class Item7
+				{
+					position[]={0,0,0};
+					id=20;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_7";
+				};
+				class Item8
+				{
+					position[]={0,0,0};
+					id=21;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_8";
+				};
+				class Item9
+				{
+					position[]={0,0,0};
+					id=27;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					forceHeadlessClient=1;
+					text="HC_9";
 				};
 			};
 		};
@@ -241,7 +334,7 @@ class Mission
 			side="EMPTY";
 			vehicle="WarfareBCamp";
 			text="gosa_LogicLocationBase";
-			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+			init="this setVariable [""gosa_respawn_type"", 0]; this setVariable [""gosa_Location_type"", 0];";
 		};
 		class Item1
 		{
@@ -253,36 +346,20 @@ class Mission
 	};
 	class Markers
 	{
-		items=2;
+		items=1;
 		class Item0
 		{
 			position[]={2029,0,2039};
 			name="gosa_worldSize";
 			type="Empty";
 		};
-		class Item1
-		{
-			position[]={1374.3322,40.830677,1461.9384};
-			name="playerStartPos";
-			type="Empty";
-		};
 	};
 };
 class Intro
 {
-	addOns[]=
-	{
-		"desert_e"
-	};
-	addOnsAuto[]=
-	{
-		"desert_e"
-	};
 	randomSeed=469014;
 	class Intel
 	{
-		startWeather=0.30000001;
-		forecastWeather=0.30000001;
 		year=2012;
 		month=6;
 		day=24;
@@ -290,19 +367,9 @@ class Intro
 };
 class OutroWin
 {
-	addOns[]=
-	{
-		"desert_e"
-	};
-	addOnsAuto[]=
-	{
-		"desert_e"
-	};
 	randomSeed=8508157;
 	class Intel
 	{
-		startWeather=0.30000001;
-		forecastWeather=0.30000001;
 		year=2012;
 		month=6;
 		day=24;
@@ -310,19 +377,9 @@ class OutroWin
 };
 class OutroLoose
 {
-	addOns[]=
-	{
-		"desert_e"
-	};
-	addOnsAuto[]=
-	{
-		"desert_e"
-	};
 	randomSeed=9135676;
 	class Intel
 	{
-		startWeather=0.30000001;
-		forecastWeather=0.30000001;
 		year=2012;
 		month=6;
 		day=24;
