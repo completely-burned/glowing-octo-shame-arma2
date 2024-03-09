@@ -176,6 +176,15 @@ _default_west=[
 			"CORPORAL","PRIVATE",
 			"PRIVATE","CORPORAL",
 			"PRIVATE","PRIVATE"],[],1]],0.5],
+		// BUS_D_MechInf_AT_lxWS
+		[[[["APC_Wheeled_01_atgm_base_lxWS",
+			"B_soldier_SL_F","B_soldier_AR_F",
+			"B_soldier_AT_F","B_soldier_AT_F",
+			"B_soldier_AT_F","B_soldier_AAT_F",
+			"B_soldier_AAT_F","B_soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+			["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],
+			0.5],
+
 	[[[["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.2],
 	[[[["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_cannon_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.2],
 	[[[["B_AFV_Wheeled_01_up_cannon_F","B_AFV_Wheeled_01_up_cannon_F","B_AFV_Wheeled_01_up_cannon_F","B_AFV_Wheeled_01_up_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.2],
@@ -300,6 +309,7 @@ _arr append [
 // Беспилотники
 if !(west in _sides_friendly) then {
 	_arr = [
+		[[[["B_UAV_02_lxWS"],[],["CORPORAL"]]],0.02],
 		//[[[["B_UGV_01_rcws_F"],[],["CORPORAL"]]],0.02],
 		[[[["B_UAV_06_F"],[],["CORPORAL"]]],0.01],
 		// TODO: Частота B_UAV_05_F от уровня океана должна зависить.
@@ -409,7 +419,10 @@ _default_east=[
 	[[[["O_recon_TL_F","O_recon_M_F","O_recon_medic_F","O_recon_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	[[[["O_recon_M_F","O_recon_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
 	[[[["O_recon_TL_F","O_recon_M_F","O_recon_medic_F","O_recon_F","O_recon_LAT_F","O_recon_JTAC_F","O_recon_exp_F","O_Pathfinder_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	[[[["O_sniper_F","O_spotter_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
+	[[[["O_sniper_F","O_spotter_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.025],
+	[[[["O_ghillie_ard_F","O_ghillie_ard_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.025],
+	[[[["O_ghillie_sard_F","O_ghillie_sard_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.025],
+	[[[["O_ghillie_lsh_F","O_ghillie_lsh_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.025],
 	// водолазы
 	[[[["O_diver_TL_F","O_diver_exp_F","O_diver_F","O_diver_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE"]]],0.01],
 	// корабль
@@ -538,6 +551,12 @@ _default_east=[
 			"PRIVATE","CORPORAL",
 			"PRIVATE","PRIVATE"],[],1]],0.5],
 	// гусеничный
+		// OSFIA_MechInf_AT
+		[[[["O_APC_Tracked_02_30mm_lxWS","O_Soldier_TL_F","O_Soldier_AR_F","O_soldier_AT_F","O_soldier_AT_F","O_soldier_AT_F","O_Soldier_AAT_F","O_Soldier_AAT_F","O_Soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+			["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.5],
+		// OSFIA_MechInf_AA
+		[[[["O_APC_Tracked_02_30mm_lxWS","O_Soldier_TL_F","O_Soldier_AR_F","O_soldier_AA_F","O_soldier_AA_F","O_soldier_AA_F","O_Soldier_AAA_F","O_Soldier_AAA_F","O_Soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+			["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.5],
 		// OIA_MechInf_AT
 		[[[["O_APC_Tracked_02_cannon_F",
 			"O_soldier_SL_F","O_soldier_AR_F",
@@ -663,6 +682,7 @@ _arr = _default_east;
 // Беспилотники
 if !(east in _sides_friendly) then {
 	_arr = [
+		[[[["O_UAV_02_lxWS"],[],["CORPORAL"]]],0.02],
 		//[[[["O_UGV_01_rcws_F"],[],["CORPORAL"]]],0.02],
 		[[[["O_UAV_06_F"],[],["CORPORAL"]]],0.01],
 		[[[["O_T_UAV_04_CAS_F"],[],["LIEUTENANT"]]],0.02],
@@ -709,7 +729,10 @@ _default_guer=[
 	// I_InfTeam_Light
 	[[[["I_soldier_TL_F","I_soldier_AR_F","I_soldier_F","I_soldier_LAT2_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 	// разведка
-	[[[["I_Sniper_F","I_Spotter_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
+	[[[["I_Sniper_F","I_Spotter_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.25],
+	[[[["I_ghillie_ard_F","I_ghillie_ard_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.25],
+	[[[["I_ghillie_lsh_F","I_ghillie_lsh_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.25],
+	[[[["I_ghillie_sard_F","I_ghillie_sard_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.25],
 	// водолазы
 	[[[["I_diver_TL_F","I_diver_exp_F","I_diver_F","I_diver_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE"]]],0.01],
 	// корабль
@@ -872,6 +895,7 @@ _arr = _default_guer;
 // Беспилотники
 if !(resistance in _sides_friendly) then {
 	_arr = [
+		[[[["I_UAV_02_lxWS"],[],["CORPORAL"]]],0.02],
 		//[[[["I_UGV_01_rcws_F"],[],["CORPORAL"]]],0.02],
 		// TODO: Мед. Беспилотники должны приземляться.
 		[[[["I_UAV_06_medical_F"],[],["CORPORAL"]]],0.01],
