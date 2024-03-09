@@ -25,7 +25,7 @@
 	if !(west in _sides_friendly) then {
 		_arr = [[
 			[[[["B_G_UAV_02_IED_lxWS"],[],["CORPORAL"]]],0.02]
-		] _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 		[
 			_groups_map, west, "BLU_G_F", _arr,
 			[1990,2100], [250,299],
