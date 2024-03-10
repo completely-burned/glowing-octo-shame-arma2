@@ -654,13 +654,18 @@ if (_b) then {
 	#ifdef __ARMA3__
 		waitUntil{!isNil "gosa_logic_ArsenalBox"};
 		_obj = gosa_logic_ArsenalBox;
-		[_obj,_availableWeapons,false,false] call BIS_fnc_addVirtualWeaponCargo;
-		[_obj,true,false,false] call bis_fnc_addVirtualBackpackCargo;
-		[_obj,true,false,false] call bis_fnc_addVirtualMagazineCargo;
-		[_obj,true,false,false] call bis_fnc_addVirtualItemCargo;
+		if (isNil "ace_arsenal_fnc_initBox") then {
+			[_obj,_availableWeapons,false,false] call BIS_fnc_addVirtualWeaponCargo;
+			[_obj,true,false,false] call bis_fnc_addVirtualBackpackCargo;
+			[_obj,true,false,false] call bis_fnc_addVirtualMagazineCargo;
+			[_obj,true,false,false] call bis_fnc_addVirtualItemCargo;
+			_3 set [count _2, {['Open', [nil, gosa_logic_ArsenalBox]] call BIS_fnc_arsenal}];
+		} else {
+			[_obj, _availableWeapons] call ace_arsenal_fnc_initBox;
+			_3 set [count _2, {[gosa_logic_ArsenalBox, player] call ace_arsenal_fnc_openBox}];
+		};
 		_0 set [count _2, ""];
 		_1 set [count _2, localize "STR_A3_Arsenal"];
-		_3 set [count _2, {['Open', [nil, gosa_logic_ArsenalBox]] call BIS_fnc_arsenal}];
 		_2 set [count _2, __ON];
 	#endif
 
