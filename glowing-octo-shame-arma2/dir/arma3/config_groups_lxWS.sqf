@@ -30,7 +30,7 @@
 		// configName OSFIA_InfSquad_Weapons_lxWS
 		[[[["O_SFIA_Soldier_TL_lxWS","O_SFIA_Soldier_AR_lxWS","O_SFIA_Soldier_GL_lxWS","O_SFIA_sharpshooter_lxWS","O_SFIA_soldier_at_lxWS","O_SFIA_soldier_lxWS","O_SFIA_Soldier_AAT_lxWS","O_SFIA_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[1990,2100], [275,999],
 	["IND_SFIA_lxWS", "OPF_F"]
 	] call gosa_fnc_map_groups_add;
 
@@ -154,7 +154,7 @@
 		// configName B_ION_InfTeam_lxWS
 		[[[["B_ION_TL_lxWS","B_ION_soldier_AR_lxWS","B_ION_Soldier_GL_lxWS","B_ION_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[1990,2100], [275,999],
 	["CUP_I_PMC_ION"]
 	] call gosa_fnc_map_groups_add;
 
@@ -196,7 +196,7 @@
 		// configName BUNA_InfSentry_lxWS
 		[[[["B_UN_Soldier_lxWS","B_UN_Soldier_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[1990,2100], [275,999],
 	["CUP_I_UN"]
 	] call gosa_fnc_map_groups_add;
 
@@ -235,7 +235,7 @@
 		// configName ISFIA_InfSquad_Weapons_lxWS
 		[[[["I_SFIA_Soldier_TL_lxWS","I_SFIA_Soldier_AR_lxWS","I_SFIA_Soldier_GL_lxWS","I_SFIA_sharpshooter_lxWS","I_SFIA_soldier_at_lxWS","I_SFIA_soldier_lxWS","I_SFIA_Soldier_AAT_lxWS","I_SFIA_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[1990,2100], [275,999],
 	["OPF_SFIA_lxWS", "IND_F"]
 	] call gosa_fnc_map_groups_add;
 
