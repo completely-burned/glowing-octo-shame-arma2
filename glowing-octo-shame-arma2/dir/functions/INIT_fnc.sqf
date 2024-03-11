@@ -72,6 +72,10 @@ if !(IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_unit_isAttacker",
+	"fnc_var_clean",
+	"fnc_forceSpeed",
+	"fnc_getForcedSpeed",
 	"fnc_return_types_pseudo_safe",
 	"fnc_base_getRespawn",
 	"fnc_map_groups_add",
