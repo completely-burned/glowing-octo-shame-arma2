@@ -193,6 +193,10 @@ if(toLower worldName == "utes")then{
 	[AllGroupsGuer, [[["Ship"], 15]]] call gosa_fnc_groupsRarity;
 };
 
+	[AllGroupsWest, [[["Air"], 0.5]]] call gosa_fnc_groupsRarity;
+	[AllGroupsEast, [[["Air"], 0.5]]] call gosa_fnc_groupsRarity;
+	[AllGroupsGuer, [[["Air"], 0.5]]] call gosa_fnc_groupsRarity;
+
 // Woodland_ACR ии не может должным образом использовать дороги
 if(toLower worldName == "woodland_acr")then{
 	diag_log format ["Log: [init_groups.sqf] worldName %1, rarity", worldName];
