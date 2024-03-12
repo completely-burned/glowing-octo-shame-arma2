@@ -3166,6 +3166,13 @@ _guer=[
 */
 #endif
 
+_eastN = [_eastN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_westN = [_westN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_guerN = [_guerN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_east = [_east, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_west = [_west, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_guer = [_guer, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+
 gosa_Groups_Night = [];
 gosa_Groups_Night set [0, _eastN call gosa_fnc_arrSorting_confGroups];
 gosa_Groups_Night set [1, _westN call gosa_fnc_arrSorting_confGroups];
