@@ -24,7 +24,7 @@ while {isNil "gosa_spectator_exit"} do {
 				_arr set [_i, objNull];
 			};
 			_grp = group (_arr select _i);
-			if !(isNil (_grp getVariable "patrol")) then {
+			if !(isNil {_grp getVariable "patrol"}) then {
 				_arr set [_i, objNull];
 			};
 		};
