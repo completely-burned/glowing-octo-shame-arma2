@@ -1,4 +1,4 @@
-private ["_obj","_switchCamera","_arr","_str"];
+private ["_obj","_switchCamera","_arr","_str","_grp","_n"];
 gosa_spectator_exit = true;
 sleep 0.1;
 gosa_spectator_exit = nil;
@@ -21,6 +21,10 @@ while {isNil "gosa_spectator_exit"} do {
 		_arr = (_arr - units group player);
 		for "_i" from 0 to (count _arr -1) do {
 			if (vehicle (_arr select _i) isKindOf "Air") then {
+				_arr set [_i, objNull];
+			};
+			_grp = group (_arr select _i);
+			if !(isNil (_grp getVariable "patrol")) then {
 				_arr set [_i, objNull];
 			};
 		};
