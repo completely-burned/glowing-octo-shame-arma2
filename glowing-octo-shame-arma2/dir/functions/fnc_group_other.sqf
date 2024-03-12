@@ -12,9 +12,6 @@
 #ifdef __A2OA__
 	#define speedLimit
 #endif
-#ifdef __ARMA3__
-	#undef speedLimit
-#endif
 
 private["_leader"];
 _leader = leader _this;
@@ -32,6 +29,7 @@ if (local _leader)then{
 		"_units","_vehicles","_types","_cargo","_assignedVehicles",
 		"_arr","_deep","_limit","_limit_old","_speed","_minDeep",
 		"_veh","_assignedVehicle",
+		"_dist_leader","_blacklist","_target","_dist_x","_dist",
 		"_grp_wp_completed","_driver","_slu","_z","_n","_grp_type"
 		];
 
@@ -120,7 +118,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 			// лидер двигаться в сторону атакующей техники отряда
 			{
-				if (currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]) then {
+				if (canMove _x && [_x] call gosa_fnc_unit_isAttacker) then {
 					_follow = _x;
 					breakTo "_follow";
 				};
@@ -138,7 +136,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 			// лидер двигаться в сторону атакующего юнита отряда
 			{
-				if (currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"] && vehicle _x == _x ) then {
+				if ([_x] call gosa_fnc_unit_isAttacker && vehicle _x == _x ) then {
 					_follow = _x;
 					breakTo "_follow";
 				};
@@ -147,7 +145,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		};
 
 		// движение лидера
-		if (!isNil{_follow}) then {
+		if !(isNil "_follow") then {
 			if (_leader Distance _follow > 75) then {
 				Private["_position","_position1"];
 				_position = GetPos _leader;
@@ -162,59 +160,118 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 
 	//--- ограничение скорости транспорта
 	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/76
-	#ifdef speedLimit
-	//--- снимает ограничение юнитам вне транспорта
-	{
-		if(_x == vehicle _x)then{
-			if(!isNil{_x getVariable "gosa_forceSpeed"})then{
-				if (gosa_loglevel > 0) then { // diag_log
-					diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 forceSpeed -1 %2", _x, typeOf _x ];
-				}; // diag_log
-				_x forceSpeed -1;
-				_x setVariable ["gosa_forceSpeed",nil];
+	_blacklist = [];
+
+	//--- Снимает ограничение юнитам при условии.
+	for "_i" from 0 to ((count _units) - 1) do {
+		_obj = _units select _i;
+		if (alive _obj) then {
+			if (_obj == vehicle _obj) then
+			{
+				if (_obj call gosa_fnc_getForcedSpeed select 0 >= 0) then {
+					[_obj, -1, time] call gosa_fnc_forceSpeed;
+					_blacklist set [count _blacklist, _obj];
+				};
+				// один юнит группы вне транспорта, obj потому что хотел проверять дистанцию
+				if (isNull _slu) then {_slu = _obj};
 			};
-			// один юнит группы вне транспорта, obj потому что хотел проверять дистанцию
-			if(isNull _slu)then{_slu = _x};
 		};
-	}forEach _units;
+	};
 
 	//--- устанавливает ограничение скорости транспорта
+		// FIXME: Значения установлены от балды и не сбалансировны, десятичная нужна просто для упрощения отладки.
 		// TODO: тс застревает из-за маленькой скорости
-		_n = if (behaviour _leader == "COMBAT") then {1}else{5};
+		// Подопечные ИИ покидают строй с назначенной целью в CombatMode RED,
+		// а командир убегает от отряда с режимом скорости FULL.
+
+		//if (combatMode _grp == "RED") then {
 		{
+			// FIXME: Эта проверка исключала безоружные лодки.
 			if (_x isKindOf "Land") then {
 				_driver = driver _x;
-				// _driver = _x;
-				_z = _driver getVariable "gosa_forceSpeed";
-				// есть юнит отряда вне транспорта
-				if(		!isNull _slu
-					// техника атакует
-					or	{currentCommand _x in ["ATTACK","FIRE","ATTACKFIRE"]}
-					// рядом с техникой прочая пехота
-					or	{count (_x nearEntities ["Man", 150]) > 0}
-				)then{
-					if(isNil {_z} or {_z != _n})then{
-						if (gosa_loglevel > 0) then { // diag_log
-							diag_log format ["Log: [gosa_fnc_group_other.sqf] %1 forceSpeed %2 %3", _driver, _n, typeOf _driver ];
-						}; // diag_log
-						_driver setVariable ["gosa_forceSpeed",_n];
-						_driver forceSpeed _n;
+				if !(_driver in _blacklist) then {
+					_arr = _driver call gosa_fnc_getForcedSpeed;
+					_n = -1;
+
+					if (isNil "_arr") exitWith {
+						diag_log format ["Log: [fnc_group_other] %1, %2", _driver, nil];
 					};
-				//--- снятие ограничения
-				}else{
-					if(!isNil {_z})then{
-						if (gosa_loglevel > 0) then { // diag_log
-							diag_log format ["Log: [gosa_fnc_group_other.sqf] forceSpeed -1 %1 %2", _driver, typeOf _driver ];
-						}; // diag_log
-						_driver setVariable ["gosa_forceSpeed",nil];
-						_driver forceSpeed -1;
+
+					// TODO: Нужно учитывать что модель поведения лидера и подопечного различаются.
+					_b = false;
+					//if (_x == vehicle _leader) then {
+					//} else {
+						// FIXME: Думаю нужно проверять что-то одно.
+						if (combatMode effectiveCommander _driver == "RED"
+							&& combatMode _driver == "RED") then
+						{
+							_b = true;
+						};
+					//};
+
+					if (_b) then {
+						// Ограничение скорости ТС, потому что пехота ползёт и не успевает.
+						_n = if (behaviour _leader == "COMBAT" && formation _grp != "DIAMOND" && !isNull _slu) then {15}else{-1};
+
+						// Ограничение скорости передвижения атакующего юнита, чтобы он не уехал без прикрытия своего отряда.
+						_target = assignedTarget _x;
+						_dist_x = _x distance _target;
+						if !(isNull _x) then {
+							_dist_leader = _leader distance _target;
+							if (!isNull _leader && !isNull _target) then {
+								if ([_x] call gosa_fnc_unit_isAttacker) then {
+									_dist = _dist_x - _dist_leader;
+									if (_dist > 0) then {
+										_n = _n max 10.1;
+									}else{
+										_n = _n max 7.1;
+									};
+								};
+							};
+						};
 					};
+
+					// Рядом союзная пехота.
+					//if (side _x countSide (_x nearEntities ["Man", 75]) > 0) then {
+						//_n = _n min 5;
+					//};
+
+					// TODO: По тревоге нужна модель поведения ТС уменьшающая вероятность попадания по нему.
+
+					// Если рядом с ТС есть любая пехота, ТС передвигается медленнее, и действовали более скрытно.
+					// TODO: И чтобы игроки с малым fps могли подготовиться к бою.
+					//if (count (_x nearEntities ["Man", 150]) > 0) then {
+						//_n = _n min 7;
+					//};
+
+					// TODO: Если балансировка орудия отсутствует и размер мишени невелик, нужно ограничивать скорость.
+
+					#ifdef __ARMA3__
+						if (_arr select 0 isNotEqualTo _n) then {
+							[_driver, _n] call gosa_fnc_forceSpeed;
+						};
+					#else
+						_b = false;
+						if (_arr select 0 != _n) then {
+							_b = true;
+						}else{
+								if (count _arr > 1) then {
+									// FIXME: Перезапись для надёжности.
+									if (_arr select 1 +15 > time) then {
+										_b = true
+									};
+								};
+						};
+						if (_b) then {
+							[_driver, _n, time] call gosa_fnc_forceSpeed;
+						};
+					#endif
 				};
 			};
 		}forEach _vehicles;
-
+		//};
 	// _slu = objNull;
-	#endif
+
 
 	if ("Frigate" in _grp_type && count _vehicles > 0) then {
 		_veh = _vehicles select 0;
@@ -294,9 +351,12 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_SpeedMode = "FULL";
 		};
 
+		// SAFE нужен чтобы ТС ехали по дороге.
 		// для машин, пехотинцы при SAFE_Behaviour идут медленно, поэтому делать SAFE_Behaviour только если все находятся в транспорте.
-		if("Car" in _grp_type && ({vehicle _x == _x} count _units == 0))then{
-			_Behaviour = "SAFE";
+		if ("Car" in _grp_type) then {
+			if ({vehicle _x == _x} count _units <= 0) then {
+				_Behaviour = "SAFE";
+			};
 		};
 
 		if ((vehicle _leader distance civilianBasePos) <= gosa_locationSize) then {
@@ -372,8 +432,8 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_SpeedMode = "FULL";
 		};
 
-		// танки
-		if("Tank" in _grp_type && !("Tracked_APC" in _grp_type))then{
+		// Техника теперь не покидает строй, поэтому можно RED.
+		if ("LandLehicle" in _grp_type) then {
 			_CombatMode = "RED";
 		};
 
