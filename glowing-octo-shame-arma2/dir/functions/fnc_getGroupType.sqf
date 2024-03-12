@@ -34,6 +34,9 @@ _t = [];
 	_z = "Ship";
 	ADD
 
+	_z = "LandLehicle";
+	ADD
+
 	_z = "StaticWeapon";
 	ADD
 
