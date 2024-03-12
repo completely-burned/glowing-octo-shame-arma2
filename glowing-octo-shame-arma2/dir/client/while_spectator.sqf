@@ -4,7 +4,7 @@
  * FIXME: Не работает в мультиплеере.
  */
 
-private ["_obj","_nominees","_targets","_target",
+private ["_obj","_nominees","_targets","_target","_units",
 	"_switchCamera","_arr","_str","_grp","_n","_allUnits","_unit"];
 gosa_spectator_exit = true;
 sleep 0.1;
@@ -23,12 +23,14 @@ while {isNil "gosa_spectator_exit"} do {
 		_nominees select _i resize 0;
 	};
 
-	_allUnits = allUnits;
-	_allUnits = (_allUnits - units group player);
-	for "_i" from 0 to (count _allUnits -1) do {
-		_obj = _allUnits select _i;
+	// FIXME: allUnits нельзя использовать с forFromTo.
+	//_allUnits = allUnits;
+	//_allUnits = (_allUnits - units group player);
+	//for "_i" from 0 to (count _allUnits -1) do 
+	{
+		_obj = _x;
 
-		if (alive _obj) then {
+		if (alive _obj && vehicle _obj == _obj) then {
 			#ifdef __ARMA3__
 				_n = 0;
 				_target = getAttackTarget _obj;
@@ -74,32 +76,41 @@ while {isNil "gosa_spectator_exit"} do {
 			_nominees select _n set [count (_nominees select _n), _obj];
 			diag_log format ["Log: [while_spectator] %1, _nominees %2 added ", _obj, _n];
 		};
-	};
+	}
+	forEach allUnits;
+
+	_grp = group _unit;
+	_units = units _grp;
 
 	for "_i" from 0 to (count _nominees -1) do {
 		diag_log format ["Log: [while_spectator] _nominees %1, %2", _i, _nominees select _i];
 		if (_unit in (_nominees select _i)) exitWith {
 			diag_log format ["Log: [while_spectator] %1 in _nominees %2, breakTo ", _unit, _i];
 		};
-		if (count (_nominees select _i) > 0) exitWith {
+		if (count ((_nominees select _i) - _units) > 0) exitWith {
 			_switchCamera = true;
 			diag_log format ["Log: [while_spectator] %1 out _nominees %2, _switchCamera = true", _unit, _i];
 		};
 	};
 
-	_grp = group _unit;
-	_arr = units _grp;
 	#ifdef __ARMA3__
-		if ({!isNull getAttackTarget _x} count _arr > 0) then {
+		if ({!isNull getAttackTarget _x} count _units > 0) then {
 			diag_log format ["Log: [while_spectator] %1, getAttackTarget", _unit];
 			_switchCamera = false;
 		};
-		if (count (_grp targets [true, 500]) > 0) then {
-			diag_log format ["Log: [while_spectator] %1, targets %2 > 0", _unit, _grp];
+		_arr = _grp targets [true, 500];
+		if (count _arr > 0) then {
+			diag_log format ["Log: [while_spectator] %1, targets %2 > 0", _unit, _arr];
+			_switchCamera = false;
+		};
+	#else
+		_arr = _unit nearTargets 500;
+		if (side _grp countSide _arr > 0) then {
+			diag_log format ["Log: [while_spectator] %1, countSide nearTargets %2 > 0", _unit, _arr];
 			_switchCamera = false;
 		};
 	#endif
-	if ({!isNull assignedTarget _x} count _arr > 0) then {
+	if ({!isNull assignedTarget _x} count _units > 0) then {
 		diag_log format ["Log: [while_spectator] %1, assignedTarget", _unit];
 		_switchCamera = false;
 	};
@@ -127,15 +138,38 @@ while {isNil "gosa_spectator_exit"} do {
 		for "_i" from 0 to (count _nominees -1) do {
 			//for "_i0" from 0 to (count (_nominees select _i) -1) do {
 				_arr = (_nominees select _i);
+				if ({_x in _arr} count _units > 0) exitWith {
+					diag_log format ["Log: [while_spectator] %1 in _nominees %2, breakTo", _grp, _i];
+				};
+				_arr = (_arr - _units - [objNull]);
 				if (count _arr > 0) then {
-					_unit = (_arr call BIS_fnc_selectRandom);
-					preloadCamera getPos _unit;
+					_obj = (_arr call BIS_fnc_selectRandom);
+					preloadCamera getPos _obj;
 					_str = "INTERNAL";
 					sleep 2;
-					if (vehicle _unit != _unit) then {
-						_str = "GUNNER";
+					if (vehicle _obj != _obj) then {
+						_str = "CARGO";
+						_obj0 = commander vehicle _obj;
+						if (alive _obj0) exitWith {
+							_str = "GUNNER";
+							_unit = _obj0;
+						};
+						_obj0 = gunner vehicle _obj;
+						if (alive _obj0) exitWith {
+							_str = "GUNNER";
+							_unit = _obj0;
+						};
+						_obj0 = driver vehicle _obj;
+						if (alive _obj0) exitWith {
+							_str = "GUNNER";
+							_unit = _obj0;
+						};
 					};
-					_unit switchCamera _str;
+					if (vehicle _unit != vehicle _obj) then {
+						diag_log format ["Log: [while_spectator] %1 switchCamera %2", _unit, _obj];
+						_obj switchCamera _str;
+						waitUntil {_obj == cameraOn};
+					};
 				};
 			//};
 		};
