@@ -2704,7 +2704,7 @@ class Mission
 	{
 		class LinkIDProvider
 		{
-			nextID=20;
+			nextID=15;
 		};
 		class Links
 		{
@@ -2851,7 +2851,7 @@ class Mission
 			};
 			class Item14
 			{
-				linkID=16;
+				linkID=14;
 				item0=1065;
 				item1=926;
 				class CustomData
