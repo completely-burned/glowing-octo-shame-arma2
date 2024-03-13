@@ -92,8 +92,7 @@ else
 	DEBUGPOSTFIX=""
 
 	echo "Delete non ASCII strings"
-	LANG=C find $TMPDIR -type f -iname "*.sqf" -exec sed -i '/^.*[^\x00-\x7F].*$/d' {} \;
-	LANG=C find $TMPDIR -type f -iname "Description.ext" -exec sed -i '/^.*[^\x00-\x7F].*$/d' {} \;
+	LANG=C find $TMPDIR -type f ! -iname '*.csv' ! -iname '*.xml' ! -iname '*.md' -exec sed -i '/^.*[^\x00-\x7F].*$/d' {} \;
 
 	# строки начинающиеся с diag_log нужны для отладки
 	# они возможно снижают производительность
