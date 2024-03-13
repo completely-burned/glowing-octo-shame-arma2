@@ -195,7 +195,7 @@ do
 				fi
 					var_parallel+=("armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
 					var_parallel+=("armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
-					var_parallel+=("armake build --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake-bin.${MAP,,}.pbo")
+					var_parallel+=("armake binarize --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake-bin.${MAP,,}.pbo")
 					var_parallel+=("armake2 build -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2-bin.${MAP,,}.pbo")
 				var_parallel+=("rsync -rLK --delete --no-perms ${MISSION}/* ${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}")
 			else
@@ -210,7 +210,7 @@ do
 				fi
 					armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
 					armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
-					armake build --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake-bin.${MAP,,}.pbo
+					armake binarize --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake-bin.${MAP,,}.pbo
 					armake2 build -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2-bin.${MAP,,}.pbo
 				rsync -rLK --delete --no-perms ${MISSION}/* ${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}
 			fi
