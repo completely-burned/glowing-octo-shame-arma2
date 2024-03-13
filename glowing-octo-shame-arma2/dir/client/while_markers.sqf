@@ -92,6 +92,7 @@ if (true) then {
 		_markers_alive = [];
 		_list = gosa_list_LocationAirport;
 		for "_i" from 0 to (count _list -1) do {
+			scopeName "for_b";
 			_logic = _list select _i;
 			// TODO: Side.
 
@@ -99,6 +100,19 @@ if (true) then {
 			_arr = synchronizedObjects _logic;
 
 			// Для совместимости.
+			// Дедупликация.
+			_b = true;
+			for "_iS" from 0 to (count _arr -1) do {
+				_obj = _arr select _iS;
+				_num = _obj getVariable "gosa_Location_type";
+				if !(isNil "_num") then {
+					if (_num in [_respawn_type_Pilot, _respawn_type_All]) then {
+						_b = false;
+						breakTo "for_b";
+					};
+				};
+			};
+			if (_b) then {
 			if (count _arr < 1) then {
 				_arr = [_logic];
 			};
@@ -157,6 +171,7 @@ if (true) then {
 					};
 				};
 			};
+			};
 		};
 
 		for "_i" from 0 to (count _markers_airport -1) do {
@@ -190,6 +205,7 @@ if (true) then {
 		_markers_alive = [];
 		_list = gosa_list_LocationBase;
 		for "_i" from 0 to (count _list -1) do {
+			scopeName "for_b";
 			_logic = _list select _i;
 			// TODO: Side.
 
@@ -197,6 +213,19 @@ if (true) then {
 			_arr = synchronizedObjects _logic;
 
 			// Для совместимости.
+			// Дедупликация.
+			_b = true;
+			for "_iS" from 0 to (count _arr -1) do {
+				_obj = _arr select _iS;
+				_num = _obj getVariable "gosa_Location_type";
+				if !(isNil "_num") then {
+					if (_num in [_respawn_type_Pilot, _respawn_type_All]) then {
+						_b = false;
+						breakTo "for_b";
+					};
+				};
+			};
+			if (_b) then {
 			if (count _arr < 1) then {
 				_arr = [_logic];
 			};
@@ -254,6 +283,7 @@ if (true) then {
 						};
 					};
 				};
+			};
 			};
 		};
 
