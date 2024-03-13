@@ -188,7 +188,10 @@ do
 				if [[ $WINDOWS -le 0 ]]
 				then
 						var_parallel+=("makepbo -M ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo")
+					if [[ $binarize -gt 0 ]]
+					then
 						var_parallel+=("makepbo ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo-bin.${MAP,,}.pbo")
+					fi
 				fi
 					var_parallel+=("armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
 					var_parallel+=("armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
@@ -200,7 +203,10 @@ do
 				if [[ $WINDOWS -le 0 ]]
 				then
 						makepbo -M ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo
+					if [[ $binarize -gt 0 ]]
+					then
 						makepbo ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo-bin.${MAP,,}.pbo
+					fi
 				fi
 					armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
 					armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
