@@ -199,7 +199,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame porto East v0.0.5.926 DEBUG";
+		briefingName="CO 00 glowing-octo-shame porto East v0.0.5.927 DEBUG";
 		startWeather=0.1;
 		startWind=0.1;
 		startWaves=0.1;
