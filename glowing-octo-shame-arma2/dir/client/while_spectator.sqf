@@ -2,6 +2,7 @@
  * Это лишь заготовка.
  * Режим наблюдателя, автоматический.
  * FIXME: Не работает в мультиплеере.
+ * Чтобы выйти; gosa_spectator_exit = true; switchCamera player;
  */
 
 private ["_obj","_nominees","_targets","_target","_units",
