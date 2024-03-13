@@ -6,16 +6,12 @@ private ["_i","_ii","_E","_players","_side","_arr","_n","_min","_max",
 _sides_friendly = [];
 _sides_enemy = [];
 
-#ifdef __ARMA3__
-	_players = allPlayers select {!(_x isKindOf "VirtualMan_F")};
-#else
 	_players = playableUnits;
 	for "_i" from 0 to (count _players -1) do {
 		if !(isPlayer (_players select _i)) then {
 			_players set [_i, objNull];
 		};
 	};
-#endif
 // TODO: Рандомизация стороны конфликта.
 if !(isMultiplayer) then {
 	_players = [player];
