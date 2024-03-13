@@ -34,6 +34,22 @@ class Params {
 		default=1;
 	};
 
+	// Тип возрождения.
+	class respawn {
+		title = "BASE: Respawn [gp]";
+		values[] = {0,1};
+		texts[] = {"Base","Random unit"};
+		default = 1;
+	};
+
+	// Долбаный и ненавистный мне магазин.
+	class gosa_shop {
+		title = "BASE: Shop [gp,cl,fps]";
+		values[] = {-1,1,0,2};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED,"home delivery"};
+		default = -1;
+	};
+
 	// Мобильный штаб.
 	class gosa_MHQ {
 		title="BASE: MHQ (not completed) [gp]";
@@ -744,41 +760,6 @@ class Params {
 		default=0;
 	};
 
-	// Тип возрождения.
-	class respawn {
-		title="BASE: Respawn [gp]";
-		values[] = {0,1};
-		#ifdef __ARMA3__
-			texts[] = {"Base","Random unit (not working)"};
-			default=0;
-		#else
-			texts[] = {"Base","Random unit"};
-			default=1;
-		#endif
-	};
-
-	// Долбаный и ненавистный мне магазин.
-	class gosa_shop {
-		title="BASE: Shop [gp,cl,fps]";
-		values[] = {-1,1,0,2};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED,"home delivery"};
-		default=-1;
-	};
-
-	// Респавн техники.
-	class gosa_respawnVehicles {
-		title="BASE: Respawn vehicles v2 [gp,sv,fps]";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-	class gosa_respawnVehicles_old {
-		title="BASE: Respawn vehicles (deprecated) [gp,sv,fps]";
-		values[] = {-1,1,0};
-		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-		default=-1;
-	};
-
 	// Мусоросборник. Множитель дистанции до игроков.
 	class gc_dist {
 		// FIXME: zero division
@@ -859,6 +840,20 @@ class Params {
 		values[] = {1,0};
 		texts[] = {STR_ENABLED,STR_DISABLED};
 		default = 1;
+	};
+
+	// Респавн техники.
+	class gosa_respawnVehicles {
+		title = "ENVIRONMENT: Respawn vehicles v2 [gp,sv,fps]";
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default = -1;
+	};
+	class gosa_respawnVehicles_old {
+		title = "ENVIRONMENT: Respawn vehicles (deprecated) [gp,sv,fps]";
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default = -1;
 	};
 
 	// Лагеря, для атмосферы.
