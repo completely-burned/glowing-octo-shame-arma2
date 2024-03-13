@@ -696,7 +696,11 @@ if (_b) then {
 	_2 set [count _2, __ON];
 
 	_0 set [count _2, "#USER:StaticWeapon_0"];
+	#ifdef __ARMA3__
+		_1 set [count _2, gettext(configfile >> "CfgVehicles" >> "StaticCannon" >> "displayName")];
+	#else
 	_1 set [count _2, gettext(configFile >> "CfgVehicleClasses" >> "static" >> "displayName")];
+	#endif
 	_2 set [count _2, __ON];
 	};
 
