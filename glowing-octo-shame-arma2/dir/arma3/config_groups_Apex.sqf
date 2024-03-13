@@ -1,5 +1,5 @@
 
-#include "..\include\ranks.hpp"
+#include "..\include\ranks.sqf"
 
 // B_T_
 	[_groups_map, west, "BLU_T_F", [[

@@ -3,7 +3,7 @@
  * TODO: Назначить командира.
  */
 
-#include "..\include\ranks.hpp"
+#include "..\include\ranks.sqf"
 
 //-- CUP_O_RU
 	// EMR, VDV, VDV_EMR, M_EMR_V2

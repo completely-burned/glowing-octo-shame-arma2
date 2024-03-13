@@ -1,5 +1,5 @@
 
-#include "..\include\ranks.hpp"
+#include "..\include\ranks.sqf"
 
 [_groups_map, east, "RHS_MSV", [[
 	// configName "rhs_group_rus_msv_infantry_chq",

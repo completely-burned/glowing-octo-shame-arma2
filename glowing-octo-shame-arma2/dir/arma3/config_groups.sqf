@@ -19,7 +19,7 @@
  */
 
 // define ранга.
-#include "..\include\ranks.hpp"
+#include "..\include\ranks.sqf"
 
 private ["_west","_east","_guer","_groups_map","_n","_d",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
