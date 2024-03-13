@@ -1,73 +1,70 @@
 gosa_friendlyside = [];
 
-private ["_i","_ii","_E"];
+private ["_i","_ii","_E","_players","_side","_arr","_n","_min","_max",
+	"_sides_enemy","_sides_friendly"];
+
+_sides_friendly = [];
+_sides_enemy = [];
 
 #ifdef __ARMA3__
-	_E = "Entities";
+	_players = allPlayers select {!(_x isKindOf "VirtualMan_F")};
 #else
-	_E = "Groups";
-#endif
-
-for [{_i = 0}, {_i < count (missionConfigFile >> "MissionSQM" >> "Mission" >> _E)}, {_i = _i + 1}] do {
-	private["_grpCFG"];
-		_grpCFG = (missionConfigFile >> "MissionSQM" >> "Mission" >> _E) select _i;
-		if (isClass _grpCFG) then {
-			diag_log format ["Log: [config_server] _grpCFG %1", _grpCFG];
-			#ifdef __ARMA3__
-			if (getText (_grpCFG >> "dataType") == "Group") then {
-			#endif
-			private["_sideCFG","_unitsCFG"];
-			_sideCFG = getText (_grpCFG >> "side");
-
-			#ifdef __ARMA3__
-			_unitsCFG = _grpCFG >> _E;
-			#else
-			_unitsCFG = _grpCFG >> "Vehicles";
-			#endif
-
-			for [{_ii = 0}, {_ii < count _unitsCFG}, {_ii = _ii + 1}] do {
-				private ["_unitCFG"];
-				_unitCFG = _unitsCFG select _ii;
-				if (isClass _unitCFG) then {
-					diag_log format ["Log: [config_server] _unitsCFG %1", _unitsCFG];
-					private ["_isPlayable"];
-					_isPlayable = false;
-					if (getText (_unitCFG >> "player") in ["PLAY CDG","PLAYER COMMANDER"]) then {
-						_isPlayable = true;
-					};
-
-					//--- arma 3
-					if (getNumber (_unitCFG >> "Attributes" >> "isPlayer") == 1) then {
-						_isPlayable = true;
-					};
-					if (getNumber (_unitCFG >> "Attributes" >> "isPlayable") == 1) then {
-						_isPlayable = true;
-					};
-
-					if (_isPlayable) then {
-						diag_log format ["Log: [config_server] _isPlayable %1", _isPlayable];
-						switch (toUpper _sideCFG) do {
-							case "EAST": {if !(east in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [east]}};
-							case "WEST": {if !(west in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [west]}};
-							case "INDEPENDENT";
-							case "GUER": {if !(resistance in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [resistance]}};
-							case "CIVILIAN";
-							case "CIV": {if !(civilian in gosa_friendlyside) then {gosa_friendlyside = gosa_friendlyside + [civilian]}};
-							default {};
-						};
-					};
-				};
-			#ifdef __ARMA3__
-			};
-			#endif
+	_players = playableUnits;
+	for "_i" from 0 to (count _players -1) do {
+		if !(isPlayer (_players select _i)) then {
+			_players set [_i, objNull];
 		};
+	};
+#endif
+// TODO: Рандомизация стороны конфликта.
+if !(isMultiplayer) then {
+	_players = [player];
+};
+_players = _players -[objNull];
+diag_log format ["Log: [config_server] _players %1", _players];
+if (count _players <= 0) then {
+	_sides_enemy = [floor random 3];
+};
+
+_arr = [east countSide _players, west countSide _players, resistance countSide _players, civilian countSide _players];
+_max = _arr select 0;
+_min = _arr select 0;
+for "_i" from 0 to 2 do {
+	_n = _arr select _i;
+	if (_n <= 0) then {
+		_sides_enemy set [count _sides_enemy, _i];
+	};
+	_max = _max max _n;
+	_min = _min min _n;
+};
+if (count _sides_enemy <= 0) then {
+	if (_max == _min) then {
+		_sides_enemy = [floor random 3];
+	}else{
+		for "_i" from 0 to 2 do {
+			_n = _arr select _i;
+			if (_n == _min) then {
+				_sides_enemy set [count _sides_enemy, _i];
+			};
+		};
+		// Только одна сторона, чтобы не раздражать игроков изгнанием напрасно.
+		_sides_enemy = [_sides_enemy call gosa_fnc_selectRandom];
 	};
 };
 
-diag_log format ["Log: [config_server] _friendlyside %1", gosa_friendlyside];
+for "_i" from 0 to (count _sides_enemy -1) do {
+	_sides_enemy set [_i, _sides_enemy select _i call gosa_fnc_getSide];
+};
+
+diag_log format ["Log: [config_server] _sides_enemy %1", _sides_enemy];
+
+
+_sides_friendly = [east,west,resistance,civilian]-_sides_enemy;
+gosa_friendlyside = _sides_friendly;
+diag_log format ["Log: [config_server] _sides_friendly %1", _sides_friendly];
 publicVariable "gosa_friendlyside";
-m_sideEnemy = [east,west,resistance]-gosa_friendlyside;
-diag_log format ["Log: [config_server] _sideEnemy %1", m_sideEnemy];
+m_sideEnemy = _sides_enemy;
+diag_log format ["Log: [config_server] _sides_enemy %1", _sides_enemy];
 publicVariable "m_sideEnemy";
 
 
