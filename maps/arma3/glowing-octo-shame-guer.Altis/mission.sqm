@@ -183,7 +183,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Altis Guer v0.0.5.927 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Altis Guer v0.0.5.928 DEBUG";
 		resistanceWest=0;
 		startWeather=0.3;
 		startWind=0.1;
