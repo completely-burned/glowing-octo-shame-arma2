@@ -6,6 +6,7 @@ private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 	"_arr","_count","_b","_cfg","_0","_1","_2","_3","_obj","_n","_allow",
 	"_mod_i44","_startingClass","_types_pilot","_types_mhq_virt","_str",
 	"_availableWeapons","_availableBackpacks",
+	"_availableVehicles","_availableMagazines",
 	"_menu_expression_default","_cfgVeh",
 	"_menu_expression_coin","_coin","_type","_fnc_create_buy_menu",
 	"_dataListUnit","_dataListUnitNames","_fnc_vehicles","_libEnabled","_z"];
@@ -231,6 +232,7 @@ if (_b) then {
 		waitUntil{!isNil "availableMagazines"};
 		diag_log format ["Log: [Menu] shop, post waitUntil %1", time];
 	_availableWeapons = availableWeapons;
+	_availableVehicles = availableVehicles;
 
 	//-- Ammo
 	// TODO: Устранить дубликаты.
@@ -661,7 +663,7 @@ if (_b) then {
 			[_obj,true,false,false] call bis_fnc_addVirtualItemCargo;
 			_3 set [count _2, {['Open', [nil, gosa_logic_ArsenalBox]] call BIS_fnc_arsenal}];
 		} else {
-			[_obj, _availableWeapons] call ace_arsenal_fnc_initBox;
+			[_obj, [] append _availableWeapons append _availableVehicles] call ace_arsenal_fnc_initBox;
 			_3 set [count _2, {[gosa_logic_ArsenalBox, player] call ace_arsenal_fnc_openBox}];
 		};
 		_0 set [count _2, ""];
