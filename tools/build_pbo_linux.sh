@@ -174,24 +174,55 @@ do
 			sed -i "s/\(.*briefingName.*\) DEBUG\(.*\)/\1\2/" $MISSION/mission.sqm
 		fi
 
+		if [[ ${SIDE,,} == "multi" ]]
+		then
+			binarize=1
+			echo "Removing #include 'mission.sqm' from Description.ext ${MISSION}"
+			find ${MISSION} -type f -iname 'Description.ext' -exec sed -i "/^.*#include.*mission.sqm.*$/d" {} \;
+		else
+			binarize=0
+		fi
+
 			# Если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив.
 			if [[ -x "$(command -v parallel)" ]]
 			then
 				if [[ $WINDOWS -le 0 ]]
 				then
-					var_parallel+=("makepbo -M ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo")
+					if [[ $binarize -le 0 ]]
+					then
+						var_parallel+=("makepbo -M ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo")
+					else
+						var_parallel+=("makepbo ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo-bin.${MAP,,}.pbo")
+					fi
 				fi
-				var_parallel+=("armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
-				var_parallel+=("armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
+				if [[ $binarize -le 0 ]]
+				then
+					var_parallel+=("armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
+					var_parallel+=("armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
+				else
+					var_parallel+=("armake build --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
+					var_parallel+=("armake2 build -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
+				fi
 				var_parallel+=("rsync -rLK --delete --no-perms ${MISSION}/* ${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}")
 			else
 				echo "Pack ${TMPDIRNAME}"
 				if [[ $WINDOWS -le 0 ]]
 				then
-					makepbo -M ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo
+					if [[ $binarize -le 0 ]]
+					then
+						makepbo -M ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo
+					else
+						makepbo ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo-bin.${MAP,,}.pbo
+					fi
 				fi
-				armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
-				armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
+				if [[ $binarize -le 0 ]]
+				then
+					armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
+					armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
+				else
+					armake build --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
+					armake2 build -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
+				fi
 				rsync -rLK --delete --no-perms ${MISSION}/* ${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}
 			fi
 	fi
