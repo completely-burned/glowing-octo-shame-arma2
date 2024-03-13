@@ -10,7 +10,7 @@ OnPlayerDisconnected "[_id, _uid, _name] ExecVM (""dir\server\eh_PlayerDisconnec
 gosa_ai_skill = (missionNamespace getVariable "gosa_ai_skill") / 100;
 
 #ifdef __ARMA3__
-	_n = (missionNamespace getVariable "gosa_setTimeMultiplier");
+	_n = missionNamespace getVariable "gosa_setTimeMultiplier";
 	if (_n != 1) then {
 		diag_log format ["Log: [init_server] setTimeMultiplier %1", _n];
 		setTimeMultiplier _n;
