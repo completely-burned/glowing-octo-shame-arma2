@@ -305,6 +305,14 @@ class Params {
 				default = -1;
 			};
 
+		// BWA3
+		class gosa_faction_multiplier_BWA3 {
+			title = "FACTION: BWA3";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+
 		// RHS
 		class gosa_faction_multiplier_RHS_MSV {
 			title="FACTION: RHS_MSV";
