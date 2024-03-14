@@ -127,7 +127,9 @@ _logic spawn {
 	//waituntil {!isnil {_this getvariable "BIS_COIN_fundsOld"} || isnil "BIS_CONTROL_CAM"};
 	while {!isnil "BIS_CONTROL_CAM"} do {
 		waituntil {
+			sleep 0.01;
 			_params = (_logic getvariable ["BIS_COIN_params",[]]);
+			if (isNil "_params") then {_params = []};
 			(commandingmenu == "" && count _params <= 0 && !BIS_CONTROL_CAM_RMB)
 			|| isnil "BIS_CONTROL_CAM"
 		};
