@@ -210,6 +210,18 @@ if(toLower worldName == "woodland_acr")then{
 
 #endif
 
+#ifdef __ARMA3__
+	// Горы.
+	if (gosa_IslandType select 2 >= 750) then {
+		for "_i" from 0 to 3 do {
+			_arr = gosa_Groups_common select _i;
+			if !(isNil "_arr") then {
+					[_arr, [[["Tank"], 1/3]]] call gosa_fnc_groupsRarity;
+			};
+		};
+	};
+#endif
+
 publicVariable "AllGroupsWest";
 publicVariable "AllGroupsEast";
 publicVariable "AllGroupsGuer";
