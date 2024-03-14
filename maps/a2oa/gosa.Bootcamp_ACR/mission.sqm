@@ -82,6 +82,7 @@ class Mission
 				{
 					position[]={2913,268,1774};
 					azimut=305;
+					special="NONE";
 					id=412;
 					side="LOGIC";
 					vehicle="LocationLogicCityFlatArea";
@@ -3195,6 +3196,7 @@ class Mission
 				class Item1
 				{
 					position[]={1719.8671,348.12177,1717.7786};
+					special="NONE";
 					id=410;
 					side="LOGIC";
 					vehicle="Logic";
@@ -3204,6 +3206,7 @@ class Mission
 				class Item2
 				{
 					position[]={1835.566,342.81848,1757.3456};
+					special="NONE";
 					id=411;
 					side="LOGIC";
 					vehicle="Logic";
@@ -3213,6 +3216,7 @@ class Mission
 				class Item3
 				{
 					position[]={1847.917,339.08075,1715.4089};
+					special="NONE";
 					id=1;
 					side="LOGIC";
 					vehicle="Logic";
