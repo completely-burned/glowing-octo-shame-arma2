@@ -200,7 +200,6 @@ if !(IsDedicated) then {
 	"fnc_isUAV",
 	"fnc_getPlayersDistance",
 	"fnc_roads",
-	"fnc_coin_variable",
 	"fnc_smoke",
 	"fnc_respawnPos",
 	"fnc_eh_getout",
