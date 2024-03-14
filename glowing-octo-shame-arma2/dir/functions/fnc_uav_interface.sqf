@@ -17,9 +17,20 @@ diag_log format ["Log: [uav_interface] %1", _this];
 _arguments = _this select 3;
 _terminal = _this select 0;
 _uav = _this select 1;
+if (isNil "_terminal") then {
+	_terminal = _arguments select 1 select 0;
+};
 _logic = _terminal;
 
 _defaultPlayer = player;
+
+// Ошибка аргументов может привести к бесконечному LoadingScreen.
+if (typeName _terminal != typeName objNull) exitwith {
+	diag_log format ["Log: [uav_interface] Ошибка аргументов _terminal %1", _terminal];
+};
+if (typeName _uav != typeName objNull) exitwith {
+	diag_log format ["Log: [uav_interface] Ошибка аргументов _uav %1", _uav];
+};
 
 //////////////////////////////////////////////////
 startLoadingScreen ["UAV","RscDisplayLoadMission"];
@@ -47,14 +58,13 @@ if (isNull _gunner) exitwith {
 };
 
 //--- Select terminal
-_dis = (10 max ((_defaultPlayer distance _terminal) +1));
-diag_log format ["Log: [uav_interface] _dis %1", _dis];
-
 if (isNull _terminal) exitwith {
 	endLoadingScreen;
 	hint (localize "str_uav_action" + " - " + localize "str_mp_logged_out");
 	diag_log format ["Log: [uav_interface] _terminal %1", _terminal];
 };
+_dis = (10 max ((_defaultPlayer distance _terminal) +1));
+diag_log format ["Log: [uav_interface] _dis %1", _dis];
 
 //--- Switch view
 if (isMultiplayer) then {
