@@ -80,7 +80,7 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={2913,268,1774};
+					position[]={2888.9409,269.23572,1787.9558};
 					azimut=305;
 					special="NONE";
 					id=412;
@@ -3810,6 +3810,7 @@ class Mission
 		{
 			position[]={1730.6489,339,1701.8621};
 			azimut=330;
+			special="NONE";
 			id=0;
 			side="EMPTY";
 			vehicle="WarfareBCamp";
