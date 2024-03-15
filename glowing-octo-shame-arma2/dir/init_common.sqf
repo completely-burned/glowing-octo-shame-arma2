@@ -484,14 +484,19 @@ _str = "gosa_menu";
 gosa_menu_str = _str;
 gosa_commandingMenu = "#USER:"+_str+"_0";
 
-// Error Undefined variable in expression: i44_tankpenetration
-// File x\inv44\addons\i44_scripts_vehicles\s\post_init.sqf, line 3
-i44_tankpenetration = false;
-
 [] call gosa_fnc_worldSize;
 
 #ifdef __ARMA3__
 	if (missionNamespace getVariable "gosa_useAISteeringComponent" > 0) then {useAISteeringComponent true};
+#else
+	// TODO: Всё это необходимо проверить.
+
+	// Error Undefined variable in expression: rhsdecalsoff
+	RHSDecalsOff = true;
+
+	// Error Undefined variable in expression: i44_tankpenetration
+	// File x\inv44\addons\i44_scripts_vehicles\s\post_init.sqf, line 3
+	i44_tankpenetration = false;
 #endif
 
 // Без этого некоторые юниты не могут инициализировать новые заскриптованые маршруты.
