@@ -70,6 +70,7 @@ waitUntil{!isNil "gosa_MapPlayers"};
 diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
 #endif
 
+[] execVM "dir\client\init_gameMode.sqf";
 [] execVM "dir\client\while_debug_notice.sqf";
 [] execVM "dir\client\while_sp_rating.sqf";
 [] spawn gosa_fnc_handleLocationTask;
