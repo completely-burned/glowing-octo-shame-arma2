@@ -1,62 +1,23 @@
 #define __A2OA__
 /*
-TODO: Рефакторинг.
-TODO: Комментарии.
-*/
+ * TODO: Рефакторинг.
+ * TODO: Комментарии.
+ */
 diag_log format ["Log: [fnc_allowGetIn] %1", _this];
 
-private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_fnc_CrewLeave",
+private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_role","_type",
+	"_units","_leader",
 	"_vehicles","_tmpNum","_item","_tmpObj"];
 
-_fnc_CrewLeave={
-	private ["_u","_t","_b","_g"];
-	_u = _this select 0;
-	_t = _this select 1;
-	_g = _this select 2;
-	_b = true;
-
-	diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники, fnc", _this];
-
-	// failover, нужно исключить ложные срабатывания
-	while {time < _t} do {
-		if (count assignedVehicleRole _u > 0 or vehicle _u != _u) exitWith {
-			diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники, отмена перехода, assignedVehicle", _u];
-			_b = false;
-		};
-		sleep 1;
-	};
-
-	if (_b) then {
-
-		// игрок может оказатся в группе по истечении таймера
-		if ({_x call gosa_fnc_isPlayer} count units _g > 0) exitWith {
-			diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники, отмена перехода, игроки в группе %2", _u, units _g];
-		};
-
-		private ["_n"];
-		_n = _g getVariable "gosa_grpCrewNew";
-		if(isNil "_n" or {isNull _n})then{
-			_n = createGroup side _g;
-			_g setVariable ["gosa_grpCrewNew", _n];
-			_n setVariable ["gosa_grpCrewOld", _g];
-		};
-
-		diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники переходит в группу %2", _u, _n];
-		[_u] joinSilent _n;
-	}else{ //diag_log
-		diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники, отмена перехода %2 %3 %4", _u, typeof _u, typeof vehicle _u, assignedVehicleRole _u];
-	};
-};
-
-
-// _units = _this select 0;
-// _leader = _this select 1;
+_units = _this select 0;
+_leader = _this select 1;
 _out=[];
 _ng_l = [];
 
-if !((_this select 1) call gosa_fnc_isPlayer) then {
-	{ // _units
-		_u = _x;
+if !(_leader call gosa_fnc_isPlayer) then {
+	for "_i" from 0 to (count _units -1) do {
+		_u = _units select _i;
+		_type = typeOf _u;
 		_veh = assignedVehicle _u;
 
 		// failover
@@ -73,25 +34,17 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 		_allow=true;
 		if(!isNull _u)then{
 			if(!isNull _veh)then{
-				private ["_role"];
 				_role = assignedVehicleRole _u;
+				[_role, _veh] call gosa_fnc_assignedVehicleRole_fix;
 				diag_log format ["Log: [fnc_allowGetIn] %1", [_u,_veh,_role], _allow];
 
 				// в бою
 				if(_allow)then{
-					if((behaviour _u == "COMBAT" ) or ( currentCommand _u in ["ATTACK","FIRE","ATTACKFIRE"]))then{
+					if ([_u] call gosa_fnc_unit_isAttacker or behaviour _u == "COMBAT") then {
 						if(count _role > 0)then{
-							if(_role select 0 == "Cargo")then{
+							if (_role select 0 in ["Cargo", "FFV"]) then {
 								_allow=false;
 								diag_log format ["Log: [fnc_allowGetIn] %1, COMBAT, %2", [_u,_veh,_role], _allow];
-							};
-							if(_role select 0 == "Turret")then{
-								if(_veh isKindOf "BMP3")then{
-									if(([_role, [1, 0]] call BIS_fnc_returnNestedElement) in [1,2])then{
-										_allow=false;
-										diag_log format ["Log: [fnc_allowGetIn] %1, COMBAT, %2, BMP3", [_u,_veh,_role], _allow];
-									};
-								};
 							};
 						};
 					};
@@ -109,25 +62,12 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						_out_dist = safeSpawnDistance select 1;
 					};
 
+					// TODO: Нужна функция проверки ближайших заданий.
 					if( ((civilianBasePos distance vehicle _u)<(_out_dist max gosa_locationSize)) or ((civilianBasePos distance _veh)<(_out_dist max gosa_locationSize)) )then{
 						private ["_attack"];
 						_attack = true;
 
-						// транспорт без вооружения
-						if(_attack)then{
-							if(getNumber(LIB_cfgWea >> currentWeapon _veh >> "enableAttack")==0)then{
-								_attack = false;
-								diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==0, %2", [_u,_veh,_role], _allow];
-							};
-						};
-
-						// транспорт без вооружения 2
-						if!(_attack)then{
-							if([[_veh], ["M1128_MGS_EP1", "Pandur2_ACR"]] call gosa_fnc_CheckIsKindOfArray)then{
-								_attack = true;
-								diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==0, %2, fixed", [_u,_veh,_role], _allow];
-							};
-						};
+						_attack = [_attack, _veh] call gosa_fnc_veh_isAttacker_fix;
 
 						// не авиация, без вооружения
 						if!(_attack)then{
@@ -140,17 +80,9 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						// техника с вооружением
 						if(_attack)then{
 							if(count _role > 0)then{
-								if(_role select 0 == "Cargo")then{
+								if (_role select 0 in ["Cargo", "FFV"]) then {
 									_allow=false;
 									diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==1, %2", [_u,_veh,_role], _allow];
-								};
-								if(_role select 0 == "Turret")then{
-									if(_veh isKindOf "BMP3")then{
-										if(([_role, [1, 0]] call BIS_fnc_returnNestedElement) in [1,2])then{
-											_allow=false;
-											diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==1, %2, BMP3", [_u,_veh,_role], _allow];
-										};
-									};
 								};
 							};
 						};
@@ -182,6 +114,13 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 				};
 				*/
 
+				//- Роль.
+				if !(_allow) then {
+					if ([_type] call gosa_fnc_role_isCrew) then {
+						_allow = true;
+					};
+				};
+
 				// авиация
 				if!(_allow)then{
 					if(_veh isKindOf "Air")then{
@@ -200,7 +139,7 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 					};
 				};
 				// самолеты
-				if(toLower getText(configFile >> "CfgVehicles" >> typeOf _veh >> "simulation") == "airplane")then{
+				if (toLower getText(configFile >> "CfgVehicles" >> _type >> "simulation") in ["airplane", "airplanex"]) then {
 					// юнит вне самолета
 					if(_u == vehicle _u)then{
 						_allow=false;
@@ -248,34 +187,13 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 						diag_log format ["Log: [fnc_allowGetIn] %1, isPlayer, %2", [_u,_veh,_role], _allow];
 					};
 				};
-
-			}else{
-				// isNull _veh
-				// экипаж подбитой техники переходит в другую группу чтобы не задерживать движение основной группы
-				if(typeOf _u in (gosa_crewL+gosa_pilotL) &&
-					// команда работает лишь на сервере или локальных юнитах клиента
-					count assignedVehicleRole _u == 0 &&
-					vehicle _u == _u
-					//&& !(behaviour _u in ["COMBAT","STEALTH"])
-					//&& !(currentCommand _u in ["ATTACK","FIRE","ATTACKFIRE"])
-					// не нужно разделять отряд при отсутствии тс в отряде
-					&& {_x != vehicle _x or (count assignedVehicleRole _x > 0)} count units _u == 0
-				 )then{
-					// TODO: лишние Variable занимают память и группу невозможно использовать повторно
-					if (isNil {_grp getVariable "gosa_grpCrewOld"}) then {
-						_ng_l set [count _ng_l, _u];
-					};
-				};
-
-			}; // isNull _veh
+			};
 
 			if!(_allow)then{
 				_out set [count _out, _u];
 			};
-
-		}; // isNull _u
-
-	} forEach (_this select 0);
+		};
+	};
 
 	_out allowGetin false;
 
@@ -293,44 +211,9 @@ if !((_this select 1) call gosa_fnc_isPlayer) then {
 					_vehicles set [count _vehicles, _tmpObj];
 				};
 			};
-			_vehicles doFollow (_this select 1);
+			_vehicles doFollow _leader;
 		};
 	#endif
 
-	(_this select 0) - _out allowGetin true;
-
-
-	//--- переход экипажа подбитой техники в новую группу
-	if (count _ng_l > 0) then {
-		diag_log format ["Log: [fnc_allowGetIn] %1, %2 экипаж подбитой техники", [_u,_veh], _ng_l];
-	{
-		_z = _x getVariable "gosa_grpCrewLeave";
-		// TODO: код нужно оптимизировать
-		#ifdef __A2OA__
-		if (isNil "_z" or {scriptDone _z}) then
-		#else
-		if (isNil "_z" or (scriptDone _z)) then
-		#endif
-		{
-			_x setVariable ["gosa_grpCrewLeave", [_x, time+ 30, _grp] spawn _fnc_CrewLeave];
-		};
-	} forEach _ng_l;
-	};
-
-	/*
-	TODO: нестабильно
-	if (count _ng_l > 0) then {
-
-		_ng = _grp getVariable "gosa_grpCrewNew";
-		if(isNil "_ng")then{
-			_ng = createGroup side _grp;
-			_grp setVariable ["gosa_grpCrewNew", _ng];
-			_ng setVariable ["gosa_grpCrewOld", _grp];
-		};
-
-		diag_log format ["Log: [fnc_allowGetIn]: %1 экипаж подбитой техники переходит в группу %2", _ng_l, _ng];
-		_ng_l joinSilent _ng;
-	};
-	*/
-
+	_units - _out allowGetin true;
 };
