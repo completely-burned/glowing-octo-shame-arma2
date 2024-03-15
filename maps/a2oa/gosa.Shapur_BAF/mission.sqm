@@ -4,20 +4,12 @@ class Mission
 	addOns[]=
 	{
 		"ca_modules_functions",
-		"shapur_baf",
-		"warfarebuildings",
-		"CAWheeled2_MMT",
-		"CAWheeled_E_LandRover",
-		"caweapons_baf",
-		"caweapons_e_ammoboxes",
-		"cawheeled_d_baf",
-		"CAWheeled_E_stryker",
-		"CACharacters_BAF",
-		"camisc_e_wf",
-		"corepatch_shapur_intro_fix",
 		"cacharacters_e",
+		"CACharacters_BAF",
+		"cacharacters_pmc",
+		"warfarebuildings",
 		"camisc_e",
-		"cacharacters_pmc"
+		"shapur_baf"
 	};
 	addOnsAuto[]=
 	{
