@@ -14,7 +14,7 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run","_allGroups",
 	"_frontLine_east","_frontLine_west","_frontLine_guer","_deviceT2",
 	"_lg","_enemySide","_friendlySide","_sleep","_obj","_side",
-	"_remote_miltipler",
+	"_remote_miltipler","_cfi_sides_friendly","_cfi_sides_enemy",
 	"_types_pilot","_sides_friendly","_sides_enemy","_mode_pvp"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
@@ -115,6 +115,16 @@ _enemySide = [];
 		};
 	};
 
+_cfi_sides_enemy = ([_enemySide, gosa_Groups_common] call gosa_fnc_groups_get_cfi_side);
+for "_i" from 0 to (count _cfi_sides_enemy -1) do {
+	_cfi_sides_enemy set [_i, (_cfi_sides_enemy select _i) * count _cfi_sides_enemy];
+};
+_cfi_sides_friendly = ([_friendlySide, gosa_Groups_common] call gosa_fnc_groups_get_cfi_side);
+for "_i" from 0 to (count _cfi_sides_friendly -1) do {
+	_cfi_sides_friendly set [_i, (_cfi_sides_friendly select _i) * count _cfi_sides_friendly];
+};
+diag_log format ["Log: [reinforcements] _cfi_sides %1", [_cfi_sides_enemy, _cfi_sides_friendly]];
+
 waitUntil {!isNil "civilianBasePos"};
 
 while{_run}do{
@@ -176,14 +186,18 @@ while{_run}do{
 				};
 
 				_limits = [];
-					{
-						_limits set [_x, 	round (((_dyn_limit / (1+_e_cfi)) * _e_cfi) * (1 - _patrol_percent) / count _enemySide)];
-						_limits set [_x+4, round (((_dyn_limit / (1+_e_cfi)) * _e_cfi) * _patrol_percent / count _enemySide)];
-					} forEach _enemySide;
-					{
-						_limits set [_x, 	round (( _dyn_limit / (1+_e_cfi)) * (1 - _patrol_percent) / count _friendlySide)];
-						_limits set [_x+4, round (( _dyn_limit / (1+_e_cfi)) * _patrol_percent / count _friendlySide)];
-					} forEach _friendlySide;
+					for "_i" from 0 to (count _enemySide -1) do {
+						_item = _enemySide select _i;
+						_n = (_cfi_sides_enemy select _i);
+						_limits set [_item, 	round ((((_dyn_limit / (1+_e_cfi)) * _e_cfi) * (1 - _patrol_percent) / count _enemySide) * _n)];
+						_limits set [_item+4, round ((((_dyn_limit / (1+_e_cfi)) * _e_cfi) * _patrol_percent / count _enemySide) * _n)];
+					};
+					for "_i" from 0 to (count _friendlySide -1) do {
+						_item = _friendlySide select _i;
+						_n = (_cfi_sides_friendly select _i);
+						_limits set [_item, 	round ((( _dyn_limit / (1+_e_cfi)) * (1 - _patrol_percent) / count _friendlySide) * _n)];
+						_limits set [_item+4, round ((( _dyn_limit / (1+_e_cfi)) * _patrol_percent / count _friendlySide) * _n)];
+					};
 					_limits set [8, _dyn_limit];
 		};
 		diag_log format ["Log: [reinforcements] _limits %1", _limits];
