@@ -2,6 +2,7 @@
  * Проверка дистанции до игроков.
  * [format distance, distance] call
  */
+diag_log format ["Log: [fnc_CheckPlayersDistance] %1", _this];
 
 private ["_visible","_Pos","_distance","_player","_cache","_arr","_obj"];
 _Pos = _this select 0;
@@ -81,14 +82,15 @@ if(isMultiplayer)then{
 		};
 	};
 
-}else{
+#endif
+};
+if !(isMultiplayer) then {
 	if ((vehicle player distance _Pos) < _distance)then{
 		_visible = true;
 	};
 };
 
 gosa_cachePlayers = _cache-[objNull];
-#endif
 
 diag_log format ["Log: [fnc_CheckPlayersDistance] return, %1", [_Pos, _visible]];
 _visible;
