@@ -81,9 +81,9 @@ if(isMultiplayer)then{
 			};
 		};
 	};
-
-#endif
 };
+#endif
+
 if !(isMultiplayer) then {
 	if ((vehicle player distance _Pos) < _distance)then{
 		_visible = true;
