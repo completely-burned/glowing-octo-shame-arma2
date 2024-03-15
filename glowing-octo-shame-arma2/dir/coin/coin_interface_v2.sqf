@@ -580,8 +580,9 @@ while {sleep 0.01; !isnil "BIS_CONTROL_CAM"
 
 BIS_CONTROL_CAM cameraeffect ["terminate","back"];
 camdestroy BIS_CONTROL_CAM;
-BIS_CONTROL_CAM = nil;
+sleep 1;
 BIS_CONTROL_CAM_Handler = nil;
+BIS_CONTROL_CAM = nil;
 // Круг
 //1122 cuttext ["","plain"];
 
