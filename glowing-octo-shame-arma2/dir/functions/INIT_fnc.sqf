@@ -72,6 +72,7 @@ if !(IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_CheckDistance_mission",
 	"fnc_veh_isAttacker_fix",
 	"fnc_assignedVehicleRole_fix",
 	"fnc_role_isCrew",

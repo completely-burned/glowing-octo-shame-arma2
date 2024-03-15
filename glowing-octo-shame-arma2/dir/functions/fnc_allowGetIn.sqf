@@ -63,7 +63,7 @@ if !(_leader call gosa_fnc_isPlayer) then {
 					};
 
 					// TODO: Нужна функция проверки ближайших заданий.
-					if( ((civilianBasePos distance vehicle _u)<(_out_dist max gosa_locationSize)) or ((civilianBasePos distance _veh)<(_out_dist max gosa_locationSize)) )then{
+					if ([_veh, _out_dist max gosa_locationSize] call gosa_fnc_CheckDistance_mission) then {
 						private ["_attack"];
 						_attack = true;
 
