@@ -28,7 +28,8 @@ if (missionNamespace getVariable "gosa_locationType" in [1,2]) then {
 	_max = 0;
 	for "_i" from 0 to (count _towns -1) do {
 		_location = _towns select _i;
-		_n = _location getVariable [_var_lastActivity, 0];
+		_n = _location getVariable _var_lastActivity;
+		if (isNil "_n") then {_n = 0};
 		_towns_weighted set [_i, _n];
 		_min = _min min _n;
 		_max = _max max _n;
@@ -38,7 +39,7 @@ if (missionNamespace getVariable "gosa_locationType" in [1,2]) then {
 	for "_i" from 0 to (count _towns -1) do {
 		_n = _towns_weighted select _i;
 		_towns_weighted set [_i, _diff - (_n - _min)];
-		diag_log Format ["Log: [Mission capture] %1 [weight, time]", [_towns_weighted select _i, _towns select _i getVariable [_var_lastActivity, 0]]];
+		diag_log Format ["Log: [Mission capture] %1 [weight, time]", [_towns_weighted select _i, _towns select _i getVariable _var_lastActivity]];
 	};
 }else{
 	_towns = [];

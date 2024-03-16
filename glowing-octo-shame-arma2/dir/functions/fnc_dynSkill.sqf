@@ -4,7 +4,7 @@
  */
 
 
-private["_type","_veh","_target","_weapons","_weapon","_n",
+private["_type","_veh","_target","_weapons","_weapon","_n","_b",
 	"_str","_type_weapon","_z","_aimAcc","_mags_he","_def_aimAcc"];
 private["_diag_log"]; _diag_log = [];
 _veh = _this select 0;
@@ -77,12 +77,21 @@ if (true) then {
 
 				//--- низкая точность если рядом с целью нет союзников
 				_z = assignedTarget _veh;
-				if (isNull _z or {_veh countFriendly (_z nearEntities 75) == 0}) then {
+				_b = false;
+				if (isNull _z) then {
+					_b = true;
+				}else{
+					if (_veh countFriendly (_z nearEntities 75) <= 0) then {
+						_b = true;
+					};
+				};
+				if (_b) then {
 					_aimAcc = 0.1;
 					_diag_log = _diag_log + [format ["Log: [fnc_dynSkill] %1 %2 рядом с целью нет союзников %3 %4", _veh, _type, _z, _aimAcc]];
 					breakOut "scope1";
 				};
 
+				#ifdef __A2OA__
 				// магазины пилота отличаются от основных
 				_z = _veh magazinesTurret [-1];
 
@@ -92,6 +101,7 @@ if (true) then {
 					_diag_log = _diag_log + [format ["Log: [fnc_dynSkill] %1 %2 нар %3 %4", _veh, _type, _z, _aimAcc]];
 					breakOut "scope1";
 				};
+				#endif
 
 				if (_type isKindOf "Helicopter") then{
 

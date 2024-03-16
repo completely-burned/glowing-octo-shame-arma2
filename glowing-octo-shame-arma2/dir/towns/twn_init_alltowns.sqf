@@ -70,6 +70,7 @@ _types_Camp = gosa_types_location_Camp;
 _types_City_all = _types_CityCapital + _types_City + _types_Village;
 
 
+#ifdef __A2OA__
 _arr = [];
 {
 	_arr = _arr + allMissionObjects _x;
@@ -81,6 +82,7 @@ _arr = [];
 	_arr = _arr + allMissionObjects _x;
 } forEach _types_Camp;
 _campAreas = _arr + _campAreas;
+#endif
 
 
 for "_count" from 0 to (count _cityCenters -1) do {
@@ -197,10 +199,10 @@ for "_count" from 0 to (count _cityCenters -1) do {
 		_pos = getpos _obj;
 		_dir = direction _obj + (floor random 4)*90;
 
-		_obj_roads = (_pos nearRoads _dist_nearRoads);
-		for "_iR" from 0 to (count _obj_roads -1) do {
-			_road = _obj_roads select _iR;
-			_b = false;
+		_obj_roads = [];
+		_arr = (_pos nearRoads _dist_nearRoads);
+		for "_iR" from 0 to (count _arr -1) do {
+			_road = _arr select _iR;
 			if (count (roadsconnectedto _road) <= 2
 				or (({count (roadsconnectedto _x) > 2} count (getPos _road nearRoads 7)) <= 0)) then
 			{
@@ -220,18 +222,10 @@ for "_count" from 0 to (count _cityCenters -1) do {
 						(_pos select 0)+(sin (_dir + 90) * _dif),
 						(_pos select 1)+(cos (_dir + 90) * _dif)
 					];
-					_b = true;
-					_obj_roads set [_iR, [_road, _pos]];
+					_obj_roads set [count _obj_roads, [_road, _pos]];
 				};
 			};
-
-			if (_b) then {
-				_obj_roads set [_iR, [_road, _pos]];
-			}else{
-				_obj_roads set [_iR, -1];
-			};
 		};
-		_obj_roads = _obj_roads-[-1];
 		_houselist_roads set [_i, _obj_roads];
 
 		if (count _obj_roads > 0) then {
@@ -376,12 +370,14 @@ for "_count" from 0 to (count _cityCenters -1) do {
 				}else{
 					//Check if this camp is closer to current town then one it was created for.
 					_camp = _conflictingCamps Select 0;
-					_previousTown = _camp GetVariable ["town", _town];
+					_previousTown = _camp GetVariable "town";
+					if (isNil "_previousTown") then {_previousTown = _town};
 
 					if (_camp Distance _town < _camp Distance _previousTown) then {
 						_camp setVariable ["town", _town, true];
 
-						_newCamps = (_previousTown GetVariable ["camps", []]);
+						_newCamps = (_previousTown GetVariable "camps");
+						if (isNil "_newCamps") then {_newCamps = []};
 						_newCamps = _newCamps - [_camp];
 						_previousTown setVariable ["camps", _newCamps, true];
 					};

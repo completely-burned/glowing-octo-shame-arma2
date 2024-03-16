@@ -122,7 +122,8 @@ if (true) then {
 
 				if !(typeOf _logic in _types_respawn_blacklist) then {
 					// тип возрождения.
-					_num = _logic getVariable ["gosa_respawn_type", _respawn_type_All];
+					_num = _logic getVariable "gosa_respawn_type";
+					if (isNil "_num") then {_num = _respawn_type_All};
 					switch (_num) do {
 						case _respawn_type_Pilot: {
 							if (_startingClass == 1) then {
@@ -145,7 +146,8 @@ if (true) then {
 						_marker = format["respawn_%1_%2", _side_str, _logic];
 						_markers_alive set [count _markers_alive, _marker];
 						if !(_marker in _markers_airport) then {
-							_obj = _logic getVariable ["gosa_building", _logic];
+							_obj = _logic getVariable "gosa_building";
+							if (isNil "_obj") then {_obj = _logic};
 							_pos = getPos _obj;
 							_num = getDir _obj;
 
@@ -235,7 +237,8 @@ if (true) then {
 					if !(toLower typeOf _logic in _types_respawn_blacklist) then {
 
 					// тип возрождения.
-					_num = _logic getVariable ["gosa_respawn_type", _respawn_type_All];
+					_num = _logic getVariable "gosa_respawn_type";
+					if (isNil "_num") then {_num = _respawn_type_All};
 					switch (_num) do {
 						case _respawn_type_Pilot: {
 							if (_startingClass == 1) then {
@@ -258,7 +261,8 @@ if (true) then {
 						_marker = format["respawn_%1_%2", _side_str, _logic];
 						_markers_alive set [count _markers_alive, _marker];
 						if !(_marker in _markers_LocationBase) then {
-							_obj = _logic getVariable ["gosa_building", _logic];
+							_obj = _logic getVariable "gosa_building";
+							if (isNil "_obj") then {_obj = _logic};
 							_pos = getPos _obj;
 							_num = getDir _obj;
 

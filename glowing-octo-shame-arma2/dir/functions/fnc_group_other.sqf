@@ -273,6 +273,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	// _slu = objNull;
 
 
+	#ifdef __A2OA__
 	if ("Frigate" in _grp_type && count _vehicles > 0) then {
 		_veh = _vehicles select 0;
 		if (isEngineOn _veh) then {
@@ -301,6 +302,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			};
 		};
 	};
+	#endif
 
 
 	//--- точность ии

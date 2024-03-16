@@ -97,10 +97,12 @@ while{sleep 20; true}do{
 			};
 
 
-			_houselist = (_twn getVariable ["gosa_houselist", []]);
+			_houselist = _twn getVariable "gosa_houselist";
+			if (isNil "_houselist") then {_houselist = []};
 			if (count _houselist > 0) then {
 				_houselist_roads = _twn getVariable "gosa_houselist_roads";
-				_maxVehicles = (_twn getVariable ["gosa_maxVehicles", (count _houselist / 8) max 2]);
+				_maxVehicles = _twn getVariable "gosa_maxVehicles";
+				if (isNil "_maxVehicles") then {_maxVehicles = (count _houselist / 8) max 2};
 				if (_count_vehicles < _maxVehicles)then{
 					for "_i0" from 0 to (_maxVehicles-_count_vehicles) do {
 						_n = floor random count _houselist;

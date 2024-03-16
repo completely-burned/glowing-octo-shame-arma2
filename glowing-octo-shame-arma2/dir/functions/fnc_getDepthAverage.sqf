@@ -1,3 +1,4 @@
+#ifdef __A2OA__
 private ["_worldSize","_n","_min","_max"];
 _worldSize = gosa_worldSize;
 _n = 0;
@@ -22,3 +23,6 @@ _n = (_n/10000);
 
 diag_log format ["Log: [fnc_getDepthAverage] avg %1, min %2, max %3", _n, _min, _max];
 [_n, _min, _max];
+#else
+	[50, 50, 50];
+#endif

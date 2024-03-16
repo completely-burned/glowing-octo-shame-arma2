@@ -232,13 +232,17 @@ if(!isNil "_leader")then{
 					];
 
 					if (surfaceIsWater _testPos) then {
+						#ifdef __A2OA__
 						_arr = ASLToATL _testPos;
 						diag_log format ["Log: [fnc_waypoints] %1, %2 ASLToATL %3", _grp, _testPos, _arr];
 						if (_arr select 2 > _minDeep) then {
+						#endif
 							_b = false;
 							_pos = _testPos;
 							_maxDist = -1;
+						#ifdef __A2OA__
 						};
+						#endif
 					};
 					_limit = _limit -1;
 				};

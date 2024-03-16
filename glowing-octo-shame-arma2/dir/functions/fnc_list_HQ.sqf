@@ -21,7 +21,7 @@
 */
 diag_log format ["Log: [init_listHQ]: _this %1", _this];
 private ["_side","_return","_arr","_obj","_types","_logic","_grp","_pos",
-	"_class","_status","_completed","_str","_n"];
+	"_class","_status","_completed","_str","_n","_code"];
 
 _side = _this select 0;
 
@@ -34,6 +34,15 @@ _types = gosa_types_mhq;
 
 waitUntil {!isNil "gosa_grpLogic"};
 _grp = gosa_grpLogic;
+
+_code = {
+	//params ["_unit", "_killer"];
+	private ["_logic","_unit"];
+	_unit = _this select 0;
+	_logic = _unit getVariable "gosa_logic_hq";
+	_logic setDamage 1;
+	diag_log format ["Log: [eh_hq]: %1, %2, %3", _logic, _this, alive _logic];
+};
 
 //--- Поиск уже имеющихся объектов на карте.
 // BASE.
@@ -55,14 +64,11 @@ for "_i" from 0 to (count _arr -1) do {
 		_logic attachTo [_obj];
 
 		_obj setVariable ["gosa_logic_hq", _logic, false];
-		_obj addMPEventHandler ["MPKilled", {
-			//params ["_unit", "_killer"];
-			private ["_logic","_unit"];
-			_unit = _this select 0;
-			_logic = _unit getVariable "gosa_logic_hq";
-			_logic setDamage 1;
-			diag_log format ["Log: [eh_hq]: %1, %2, %3", _logic, _this, alive _logic];
-		}];
+		#ifdef __A2OA__
+			_obj addMPEventHandler ["MPKilled", _code];
+		#else
+			_obj addEventHandler ["Killed", _code];
+		#endif
 		// отказоустойчивость
 		if !(alive _obj) then {
 			_logic setDamage 1;
@@ -101,14 +107,8 @@ for "_i" from 0 to (count _arr -1) do {
 		_logic attachTo [_obj];
 
 		_obj setVariable ["gosa_logic_hq", _logic, false];
-		_obj addMPEventHandler ["MPKilled", {
-			//params ["_unit", "_killer"];
-			private ["_logic","_unit"];
-			_unit = _this select 0;
-			_logic = _unit getVariable "gosa_logic_hq";
-			_logic setDamage 1;
-			diag_log format ["Log: [eh_hq]: %1, %2, %3", _logic, _this, alive _logic];
-		}];
+		// TODO: Нужна функция.
+		_obj addMPEventHandler ["MPKilled", _code];
 		// отказоустойчивость
 		if !(alive _obj) then {
 			_logic setDamage 1;

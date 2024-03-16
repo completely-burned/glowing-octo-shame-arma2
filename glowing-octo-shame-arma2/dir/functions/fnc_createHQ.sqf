@@ -10,7 +10,7 @@ if !(isServer) exitWith {
 diag_log format ["Log: [fnc_createHQ]: _this %1", _this];
 
 private ["_r","_grp","_logic","_pos","_class","_status","_str","_side",
-	"_obj","_arr","_type","_type_fixed"];
+	"_obj","_arr","_type","_type_fixed","_code"];
 
 _pos = _this select 0;
 _type = _this select 1;
@@ -58,14 +58,21 @@ _logic attachTo [_obj];
 _obj setVariable ["gosa_logic_hq", _logic, false];
 // FIXME: ТС становится локальным для водителя,
 // и возможно поэтому обычный addEventHandler удаляется.
-_obj addMPEventHandler ["MPKilled", {
+
+_code = {
 	//params ["_unit", "_killer"];
 	private ["_logic","_unit"];
 	_unit = _this select 0;
 	_logic = _unit getVariable "gosa_logic_hq";
 	_logic setDamage 1;
 	diag_log format ["Log: [eh_hq]: %1, %2, %3", _logic, _this, alive _logic];
-}];
+};
+#ifdef __A2OA__
+	_obj addMPEventHandler ["MPKilled", _code];
+#else
+	// TODO: Проверить.
+	_obj addEventHandler ["Killed", _code];
+#endif
 // отказоустойчивость
 if !(alive _obj) then {
 	_logic setDamage 1;

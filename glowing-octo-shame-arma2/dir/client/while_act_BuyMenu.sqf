@@ -183,7 +183,8 @@ while {sleep 0.5; true} do {
 				};
 				for "_i0" from 0 to (count _arr -1) do {
 					_logic = _arr select _i0;
-					_obj = _logic getVariable ["gosa_building", _logic];
+					_obj = _logic getVariable "gosa_building";
+					if (isNil "_obj") then {_obj = _logic};
 					_dist = _obj distance _player_veh;
 					_action = _obj getVariable "gosa_act_factory";
 					if !(isNil "_action") then {
@@ -270,7 +271,8 @@ while {sleep 0.5; true} do {
 				};
 				for "_i0" from 0 to (count _arr -1) do {
 					_logic = _arr select _i0;
-					_obj = _logic getVariable ["gosa_building", _logic];
+					_obj = _logic getVariable "gosa_building";
+					if (isNil "_obj") then {_obj = _logic};
 					_dist = _obj distance _player_veh;
 					_action = _obj getVariable "gosa_act_factory";
 					if !(isNil "_action") then {
@@ -305,7 +307,8 @@ while {sleep 0.5; true} do {
 						_b = true;
 					};
 					if (_b) then {
-						_num = _logic getVariable ["gosa_respawn_type", _respawn_type_All];
+						_num = _logic getVariable "gosa_respawn_type";
+						if (isNil "_num") then {_num = _respawn_type_All};
 						switch (_num) do {
 							case _respawn_type_Pilot: {
 								if (_startingClass != 1) then {

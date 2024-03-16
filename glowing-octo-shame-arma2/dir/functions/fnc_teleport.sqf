@@ -63,7 +63,8 @@ for "_i" from 0 to (count _for -1) do {
 	for "_i0" from 0 to (count _arr0 -1) do {
 		for "_i1" from 0 to (count (_arr0 select _i0) -1) do {
 		_logic = (_arr0 select _i0 select _i1);
-		_obj = _logic getVariable ["gosa_building", _logic];
+		_obj = _logic getVariable "gosa_building";
+		if (isNil "_obj") then {_obj = _logic};
 		_pos = getPos _obj;
 		_num = getDir _obj;
 

@@ -23,7 +23,8 @@ if (count _arr < 1) then {
 
 for "_i" from 0 to (count _arr -1) do {
 	_logic = _arr select _i;
-	_n = _logic getVariable ["gosa_respawn_type", _def];
+	_n = _logic getVariable "gosa_respawn_type";
+	if (isNil "_n") then {_n = _def};
 	for "_t" from 0 to (count _types -1) do {
 		if (_types select _t == _n) then {
 			_return select _t set [count (_return select _t), _logic];
