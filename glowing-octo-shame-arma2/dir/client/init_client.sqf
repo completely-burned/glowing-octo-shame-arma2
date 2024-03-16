@@ -55,8 +55,10 @@ waitUntil{!isNil "gosa_fnc_init"};
 */
 
 _str = getPlayerUID player;
+if (isMultiplayer) then {
 while {sleep 0.01; _str == ""} do {
 	_str = getPlayerUID player;
+};
 };
 gosa_playerOwner = _str;
 gosa_owner = _str;
@@ -147,7 +149,11 @@ if (isMultiplayer) then {
 		SetGroupIconsVisible [true,false];
 		40 CutRsc["OptionsAvailable","PLAIN",0];
 	};
-	{deleteVehicle _x}forEach SwitchableUnits-(units group player);
+
+	{
+		diag_log format ["Log: [init_client] delete switchableUnits, %1", _x];
+		deleteVehicle _x;
+	} forEach switchableUnits - units group player;
 	EnableTeamSwitch true;
 
 	PlayerType = [typeOf leader player, rank leader player];

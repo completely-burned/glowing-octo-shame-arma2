@@ -177,13 +177,13 @@ for "_count" from 0 to (count _cityCenters -1) do {
 			_obj = (_houselist select _i);
 			_type = toLower typeOf _obj;
 			if (_type in _blacklist_types_house) then {
-				diag_log Format ["Log: [TOWN] %1, %2 blacklisted, %3", _town, _obj, _type];
+				//diag_log Format ["Log: [TOWN] %1, %2 blacklisted, %3", _town, _obj, _type];
 				_houselist set [_i, objNull];
 			}else{
 				_bbox = abs((boundingbox _obj select 1) select 0)
 					min abs((boundingbox _obj select 1) select 1);
 				if (_bbox < 3) then {
-					diag_log Format ["Log: [TOWN] %1, %2 ignore, bbox %3", _town, _obj, _bbox];
+					//diag_log Format ["Log: [TOWN] %1, %2 ignore, bbox %3", _town, _obj, _bbox];
 					_houselist set [_i, objNull];
 				};
 			};
@@ -233,7 +233,7 @@ for "_count" from 0 to (count _cityCenters -1) do {
 		} else {
 			_twn_maxVehicles = _twn_maxVehicles +(1/8);
 		};
-		diag_log Format ["Log: [TOWN] %1, %2, roads %3", _town, _obj, _obj_roads];
+		//diag_log Format ["Log: [TOWN] %1, %2, roads %3", _town, _obj, _obj_roads];
 	};
 	_town setVariable ["gosa_houselist_roads", _houselist_roads];
 	diag_log Format ["Log: [TOWN] %1, max vehicles %2", _town, _twn_maxVehicles];
