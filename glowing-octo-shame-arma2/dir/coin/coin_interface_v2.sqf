@@ -128,7 +128,8 @@ _logic spawn {
 	while {!isnil "BIS_CONTROL_CAM"} do {
 		waituntil {
 			sleep 0.01;
-			_params = (_logic getvariable ["BIS_COIN_params",[]]);
+			_params = _logic getvariable "BIS_COIN_params";
+			if (isNil "_params") then {_params = []};
 			if (isNil "_params") then {_params = []};
 			(commandingmenu == "" && count _params <= 0 && !BIS_CONTROL_CAM_RMB)
 			|| isnil "BIS_CONTROL_CAM"
@@ -465,7 +466,9 @@ while {sleep 0.01; !isnil "BIS_CONTROL_CAM"
 					// TODO: Безопасное размещение.
 					_building = _itemclass createvehicle _pos;
 					_building setdir _dir;
+					#ifdef __A2OA__
 					_building setVectorUp surfaceNormal _pos;
+					#endif
 					_building setpos _pos;
 					//if (gettext (_cfgVeh >> _itemclass >> "placement") == "vertical") then {_building setpos _pos}; //--- Vertical
 					if (gettext (_cfgVeh >> _itemclass >> "namesound") == "fence" || _itemclass iskindof "StaticWeapon") then {_building setpos _pos}; //--- Vertical
