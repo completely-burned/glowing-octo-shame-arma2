@@ -18,7 +18,11 @@ if(missionNamespace getVariable "gosa_vehicles_lock" == 2 or !isMultiplayer)exit
  };
 #endif
 
-#ifdef __A2OA__
+#ifndef __A2OA__
+if (true) exitWith {
+	diag_log format ["Log: [while_vehicles_lock] exitWith %1", time];
+};
+#endif
 
 private["_vehicles_lock","_grp","_units","_leaderPlayer","_isPlayer","_side",
 	"_vehicle","_grpPlayer","_lock","_transportPlayer","_arr","_obj",
@@ -153,4 +157,3 @@ while{sleep 1; true}do{
 		};
 	};
 };
-#endif
