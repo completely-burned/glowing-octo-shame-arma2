@@ -170,6 +170,7 @@ while {isNil "gosa_spectator_exit"} do {
 						diag_log format ["Log: [while_spectator] %1 switchCamera %2", _unit, _obj];
 						_obj switchCamera _str;
 						waitUntil {_obj == cameraOn};
+						breakTo "main";
 					};
 				};
 			//};
