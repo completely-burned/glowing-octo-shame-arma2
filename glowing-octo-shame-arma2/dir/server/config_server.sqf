@@ -179,6 +179,10 @@ publicVariable "availableMagazines";
 availableBackpacks = [] call gosa_fnc_availableBackpacks;
 publicVariable "availableBackpacks";
 
+_arr = [] call gosa_fnc_zone_init;
+gosa_zone_islands = _arr select 0;
+publicVariable "gosa_zone_islands";
+
 _woodland=false; _deserted=false;
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
 if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{_woodland=true};

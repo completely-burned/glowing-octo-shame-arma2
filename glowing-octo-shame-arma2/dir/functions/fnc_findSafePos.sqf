@@ -8,6 +8,7 @@ private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient
 	"_allowPos","_testPos","_preferRoads","_tmp_dir","_tmp_radius","_run_timer",
 	"_max_square","_square","_max_attempt","_branchesRoads","_roads","_branchRoad",
 	"_roadSize","_square_step","_r","_start_radius","_start_square","_dir_s",
+	"_arr","_island",
 	"_withinMap","_z"];
 
 
@@ -107,6 +108,10 @@ if(_preferRoads)then{
 
 // минимальное количество частей дороги 2, для верного направления
 _roadSize = (_this select 9 select 1) max 2;
+
+if (_waterMode == 0) then {
+	_island = [_pos, gosa_zone_islands] call gosa_fnc_getIsland;
+};
 
 _attempts = 1;
 
@@ -225,6 +230,35 @@ while {!_allowPos} do {
 	if(_allowPos)then{
 		if([_testPos, _blacklist] call BIS_fnc_isPosBlacklisted)then{
 			_allowPos = false;
+		};
+	};
+
+	//--- Остров.
+	if !(isNil "_island") then {
+		if (_allowPos) then {
+			if (_island select 0) then {
+				_arr = [_testPos, gosa_zone_islands] call gosa_fnc_getIsland;
+				if (_arr select 0) then {
+					if ((_island select 3 select 0) != (_arr select 3 select 0)) then {
+						_allowPos = false;
+						diag_log format ["Log: [fnc_findSafePos] _island, %1, %2", _allowPos, [_island, _arr]];
+					}
+
+				}else{
+					// Вне зоны доступа.
+					_allowPos = false;
+					diag_log format ["Log: [fnc_findSafePos] _island, %1, %2", _allowPos, [_island, _arr]];
+				};
+
+				/*
+				// Этот вариант не учитывает зону в зоне.
+				_arr = [_testPos, [_island select 1]] call gosa_fnc_getIsland;
+				if !(_arr select 0) then {
+					_allowPos = false;
+					diag_log format ["Log: [fnc_findSafePos] _island, %1, %2", _allowPos, [_island, _arr]];
+				};
+				*/
+			};
 		};
 	};
 
