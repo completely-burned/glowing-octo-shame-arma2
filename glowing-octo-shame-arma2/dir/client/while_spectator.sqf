@@ -29,7 +29,10 @@ while {isNil "gosa_spectator_exit"} do {
 	//_allUnits = (_allUnits - units group player);
 	//for "_i" from 0 to (count _allUnits -1) do 
 	{
-		_obj = _x;
+		_grp = _x;
+		_units = units _grp;
+		for "_i" from (count _units -1) to 0 step -1 do {
+		_obj = _units select _i;
 
 		if (alive _obj && vehicle _obj == _obj) then {
 			#ifdef __ARMA3__
@@ -55,30 +58,37 @@ while {isNil "gosa_spectator_exit"} do {
 			// _targets == _nominees select 2;
 
 			_n = 3;
+			if (currentCommand _obj in ["ATTACK","FIRE","ATTACKFIRE"]) exitWith {
+				_nominees select _n set [count (_nominees select _n), _obj];
+				diag_log format ["Log: [while_spectator] %1, _nominees %2 added", _obj, _n];
+			};
+
+			_n = 4;
 			_grp = group _obj;
 			if (isNil {_grp getVariable "patrol"}) exitWith {
 				_nominees select _n set [count (_nominees select _n), _obj];
 				diag_log format ["Log: [while_spectator] %1, _nominees %2 added", _obj, _n];
 			};
 
-			_n = 4;
+			_n = 5;
 			if !(vehicle _obj isKindOf "Air") exitWith {
 				_nominees select _n set [count (_nominees select _n), _obj];
 				diag_log format ["Log: [while_spectator] %1, _nominees %2 added", _obj, _n];
 			};
 
-			_n = 5;
+			_n = 6;
 			if !(vehicle _obj isKindOf "LandVehicle") exitWith {
 				_nominees select _n set [count (_nominees select _n), _obj];
 				diag_log format ["Log: [while_spectator] %1, _nominees %2 added", _obj, _n];
 			};
 
-			_n = 6;
+			_n = 7;
 			_nominees select _n set [count (_nominees select _n), _obj];
 			diag_log format ["Log: [while_spectator] %1, _nominees %2 added ", _obj, _n];
 		};
+		};
 	}
-	forEach allUnits;
+	forEach allGroups;
 
 	_grp = group _unit;
 	_units = units _grp;
