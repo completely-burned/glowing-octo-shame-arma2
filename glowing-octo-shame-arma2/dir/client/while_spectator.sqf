@@ -31,7 +31,9 @@ while {isNil "gosa_spectator_exit"} do {
 	{
 		_grp = _x;
 		_units = units _grp;
-		for "_i" from (count _units -1) to 0 step -1 do {
+		//for "_i" from (count _units -1) to 0 step -1 do
+		for "_i" from 0 to (count _units -1) do
+		{
 		_obj = _units select _i;
 
 		if (alive _obj && vehicle _obj == _obj) then {
