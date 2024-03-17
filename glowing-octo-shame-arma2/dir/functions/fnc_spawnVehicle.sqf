@@ -89,12 +89,8 @@ _crew = [_veh,
 #ifdef __ARMA3__
 	};
 
-	// С этим кодом авиация приземляется.
-	if !(_air) then {
 		// Без этого некоторые ТС в A3 стоят на месте.
-		_pos resize 2;
-		_veh doMove _pos;
-	};
+		_crew doFollow leader _grp;
 #endif
 
 [_veh, _crew, _grp];
