@@ -150,12 +150,12 @@ while {isNil "gosa_spectator_exit"} do {
 					sleep 2;
 					if (vehicle _obj != _obj) then {
 						_str = "CARGO";
-						_obj0 = commander vehicle _obj;
+						_obj0 = gunner vehicle _obj;
 						if (alive _obj0) exitWith {
 							_str = "GUNNER";
 							_unit = _obj0;
 						};
-						_obj0 = gunner vehicle _obj;
+						_obj0 = commander vehicle _obj;
 						if (alive _obj0) exitWith {
 							_str = "GUNNER";
 							_unit = _obj0;
