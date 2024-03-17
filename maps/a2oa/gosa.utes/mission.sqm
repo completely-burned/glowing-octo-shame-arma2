@@ -1341,6 +1341,132 @@ class Mission
 			type="Empty";
 		};
 	};
+	class Sensors
+	{
+		items=9;
+		class Item0
+		{
+			position[]={3685.2893,19,3558.3025};
+			a=1140;
+			b=800;
+			angle=40;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_4";
+			class Effects
+			{
+			};
+		};
+		class Item1
+		{
+			position[]={2994.7092,28.916817,4401.3887};
+			a=300;
+			b=300;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_4_1";
+			class Effects
+			{
+			};
+		};
+		class Item2
+		{
+			position[]={2247.0208,-0.018132798,4215.9106};
+			a=300;
+			b=200;
+			angle=47;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_3";
+			class Effects
+			{
+			};
+		};
+		class Item3
+		{
+			position[]={4358.1069,8.5857706,2398.2092};
+			a=100;
+			b=100;
+			angle=40;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_1";
+			class Effects
+			{
+			};
+		};
+		class Item4
+		{
+			position[]={2235.8867,14.131063,3806.749};
+			a=100;
+			b=70;
+			angle=40;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_0";
+			class Effects
+			{
+			};
+		};
+		class Item5
+		{
+			position[]={2440.3875,18.348495,4586.2627};
+			a=200;
+			b=150;
+			angle=40;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_2";
+			class Effects
+			{
+			};
+		};
+		class Item6
+		{
+			position[]={2575.9668,22.631308,3960.2219};
+			a=100;
+			b=250;
+			angle=47;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_4_0";
+			class Effects
+			{
+			};
+		};
+		class Item7
+		{
+			position[]={1366.2693,15.885103,1009.7574};
+			b=180;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_5";
+			class Effects
+			{
+			};
+		};
+		class Item8
+		{
+			position[]={3696.8779,19,3597.749};
+			a=550;
+			b=100;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_airport";
+			class Effects
+			{
+			};
+		};
+	};
 };
 class Intro
 {
