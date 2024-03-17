@@ -1,3 +1,4 @@
+#define __A2OA__
 #ifdef __A2OA__
 private ["_worldSize","_n","_min","_max"];
 _worldSize = gosa_worldSize;
