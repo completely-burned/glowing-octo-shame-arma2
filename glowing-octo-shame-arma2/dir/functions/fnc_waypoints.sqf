@@ -7,6 +7,7 @@
 private ["_wpType_TrUNLOAD","_leader","_cfgWea","_b",
 	"_minDist","_minDeep","_arr","_worldSize","_n",
 	"_wpType_TrUNLOAD_Plane",
+	"_island","_allowPos","_obj",
 	"_true","_dir","_dist2","_testPos","_limit"];
 
 _leader = (_this select 0);
@@ -102,6 +103,8 @@ if(!isNil "_leader")then{
 			deleteWaypoint [_grp, _i];
 		};
 
+		_island = [_leaderPos, gosa_zone_islands] call gosa_fnc_getIsland;
+
 		// private["_WaypointCombatMode"];
 		// _WaypointCombatMode = "YELLOW";
 
@@ -145,16 +148,38 @@ if(!isNil "_leader")then{
 			_pos = _leaderPos;
 
 			//- Позиция случайного игрока.
-			_tmp_arr = (([] call gosa_fnc_listPlayers)-[objNull]);
-			if (count _tmp_arr > 0) then {
-				_tmp_arr = getPos (_tmp_arr call BIS_fnc_selectRandom);
-				if (_tmp_arr call gosa_fnc_isZeroPos) then {
-					diag_log format ["Log: [fnc_waypoints] %1  позиция wp [0,0] удаление, _pos = _leaderPos", _grp ];
-				}else{
-					_pos = _tmp_arr;
+			_tmp_arr = [] call gosa_fnc_listPlayers;
+			for "_i" from 0 to (count _tmp_arr -1) do {
+				_obj = _tmp_arr select _i;
+				_testPos = getPos _obj;
+				scopeName "for";
+				if !(isNull _obj) then {
+					if !(isNil "_island") then {
+						if (_island select 0) then {
+							_arr = [_testPos, gosa_zone_islands] call gosa_fnc_getIsland;
+							if (_arr select 0) then {
+								if ((_island select 3 select 0) != (_arr select 3 select 0)) then {
+									_tmp_arr set [_i, objNull];
+									diag_log format ["Log: [fnc_waypoints] _patrol, _island, %1, %2", false, [_island, _arr]];
+									breakTo "for";
+								}
+							}else{
+								// Вне зоны доступа.
+								_tmp_arr set [_i, objNull];
+								diag_log format ["Log: [fnc_waypoints] _patrol, _island, %1, %2", false, [_island, _arr]];
+								breakTo "for";
+							};
+						};
+					};
+					_tmp_arr set [_i, _testPos];
 				};
 			};
 
+			_tmp_arr = _tmp_arr-[objNull];
+
+			if (count _tmp_arr > 0) then {
+				_pos = _tmp_arr call BIS_fnc_selectRandom;
+			};
 
 			_maxDist = ((_maxDist * 10) max 1500);
 		};
@@ -321,18 +346,38 @@ if(!isNil "_leader")then{
 		};
 
 		// пехота
-		if(count _vehicles == 0)then{
+		if (count _vehicles <= 0) then {
 				diag_log format ["Log: [fnc_waypoints] Inf %1", _this];
 			_true = true;
 			_testPos = [];
 			_limit = 1000;
 			while {_limit > 0 && _true && ({alive _x} count _units > 0)} do {
+				_allowPos = true;
 				_dir = random 360;
 				_dist2 = random _maxDist;
 				_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
 				if(!surfaceIsWater _testPos)then {
-					_true = false;
-					_pos = _testPos;
+					//--- Один остров.
+					// TODO: Нужна функция.
+					if !(isNil "_island") then {
+						if (_island select 0) then {
+							_arr = [_testPos, gosa_zone_islands] call gosa_fnc_getIsland;
+							if (_arr select 0) then {
+								if ((_island select 3 select 0) != (_arr select 3 select 0)) then {
+									_allowPos = false;
+									diag_log format ["Log: [fnc_waypoints] _island, %1, %2", _allowPos, [_island, _arr]];
+								}
+							}else{
+								// Вне зоны доступа.
+								_allowPos = false;
+								diag_log format ["Log: [fnc_waypoints] _island, %1, %2", _allowPos, [_island, _arr]];
+							};
+						};
+					};
+					if (_allowPos) then {
+						_true = false;
+						_pos = _testPos;
+					};
 				};
 				_limit = _limit -1;
 			};
