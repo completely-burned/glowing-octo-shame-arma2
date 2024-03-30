@@ -55,7 +55,7 @@ _arr = [
 ];
 [_groups_map, west, "BWA3", _arr,
 [1990,2100], [250,299],
-[]
+["CUP_B_GER"]
 ] call gosa_fnc_map_groups_add;
 
 // Лес.
@@ -115,7 +115,7 @@ _arr = [
 ];
 [_groups_map, west, "BWA3", _arr,
 [1990,2100], [150,249],
-[]
+["CUP_B_GER"]
 ] call gosa_fnc_map_groups_add;
 
 // Пустынный.
@@ -175,5 +175,5 @@ _arr = [
 ];
 [_groups_map, west, "BWA3", _arr,
 [1990,2100], [300,999],
-[]
+["CUP_B_GER"]
 ] call gosa_fnc_map_groups_add;
