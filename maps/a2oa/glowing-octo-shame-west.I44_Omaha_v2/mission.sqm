@@ -16,7 +16,7 @@ class Mission
 	randomSeed=9469078;
 	class Intel
 	{
-		briefingName="I44 CO 00 glowing-octo-shame I44_Omaha_v2 west v0.0.5.929 DEBUG";
+		briefingName="I44 CO 00 glowing-octo-shame I44_Omaha_v2 west v0.0.5.930 DEBUG";
 		startWeather=0.60000002;
 		startFog=0.30000001;
 		forecastWeather=0.30000001;

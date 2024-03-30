@@ -165,7 +165,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame VR West v0.0.5.929 DEBUG";
+		briefingName="CO 00 glowing-octo-shame VR West v0.0.5.930 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0;
 		startWind=0.1;
