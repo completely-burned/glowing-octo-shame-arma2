@@ -174,7 +174,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Malden Multi v0.0.5.930 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Malden Multi v0.0.5.931 DEBUG";
 		startWeather=0.3;
 		startWind=0.1;
 		startWaves=0.1;

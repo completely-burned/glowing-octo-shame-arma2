@@ -162,7 +162,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Thirsk West v0.0.5.930 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Thirsk West v0.0.5.931 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.25;
 		startFog=0.15000001;

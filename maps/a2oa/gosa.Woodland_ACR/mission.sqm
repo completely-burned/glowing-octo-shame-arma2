@@ -12,7 +12,7 @@ class Mission
 	randomSeed=6245650;
 	class Intel
 	{
-		briefingName="CO 00 glowing-octo-shame Woodland_ACR Multi v0.0.5.930 DEBUG";
+		briefingName="CO 00 glowing-octo-shame Woodland_ACR Multi v0.0.5.931 DEBUG";
 		startWeather=0.15;
 		forecastWeather=0.15;
 		year=2010;
