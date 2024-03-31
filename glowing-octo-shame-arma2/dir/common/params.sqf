@@ -84,6 +84,7 @@ _z = missionNamespace getVariable "gosa_MartaManager";
 	};
 
 
+#ifdef __ARMA3__
 _str = "gosa_faction_multiplier_";
 _n = 50;
 
@@ -144,5 +145,6 @@ if ({missionNamespace getVariable _str+_x > 0} count _arr <= 0) then {
 			diag_log format ["Log: [params] %1 set %2", _str0, _n];
 		};
 	};
+#endif
 
 gosa_param_init_done = true;
