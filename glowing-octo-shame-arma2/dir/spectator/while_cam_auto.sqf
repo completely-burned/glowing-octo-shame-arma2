@@ -52,7 +52,7 @@ while {isNil "gosa_spectator_exit"} do {
 			_obj = _nominees call gosa_fnc_selectRandomWeighted;
 			preloadCamera getPos _obj;
 			_str = "INTERNAL";
-			diag_log format ["Log: [while_cam_auto] %1 switchCamera %2, %3", _camera, _obj, [_prio_curent, _prio]];
+			diag_log format ["Log: [while_cam_auto] %1 switchCamera %2", _camera, _obj];
 			_veh = vehicle _obj;
 			if (_veh == _obj) then {
 				_obj switchCamera _str;
