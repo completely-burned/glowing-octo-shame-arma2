@@ -49,7 +49,7 @@ while {sleep 1; isNil "gosa_spectator_prio_exit"} do {
 
 					#ifdef __ARMA3__
 						_arr = _grp targets [true, 500];
-						_prio = _prio + _arr;
+						_prio = _prio + count _arr;
 					#else
 						_arr = _obj nearTargets 500;
 						_prio = _prio + (side _grp countSide _arr);
