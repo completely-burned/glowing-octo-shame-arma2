@@ -1,0 +1,1387 @@
+version=11;
+class Mission
+{
+	addOns[]=
+	{
+		"woodland_acr"
+	};
+	addOnsAuto[]=
+	{
+		"woodland_acr"
+	};
+	randomSeed=6245650;
+	class Intel
+	{
+		briefingName="CO 00 glowing-octo-shame Woodland_ACR Multi v0.0.5.930 DEBUG";
+		startWeather=0.15;
+		forecastWeather=0.15;
+		year=2010;
+		month=7;
+		day=6;
+		hour=10;
+		minute=0;
+	};
+	class Groups
+	{
+		items=31;
+		class Item0
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=12;
+				class Item0
+				{
+					position[]={3696.8547,323.55997,5018.2793};
+					id=0;
+					side="EAST";
+					vehicle="RU_Soldier_SL";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+				};
+				class Item1
+				{
+					position[]={3699.8547,323.36111,5013.2793};
+					id=1;
+					side="EAST";
+					vehicle="RU_Soldier_MG";
+					player="PLAY CDG";
+					rank="SERGEANT";
+				};
+				class Item2
+				{
+					position[]={3701.8547,322.97479,5013.2793};
+					id=2;
+					side="EAST";
+					vehicle="RU_Soldier_AT";
+					player="PLAY CDG";
+					rank="SERGEANT";
+				};
+				class Item3
+				{
+					position[]={3703.8547,322.59344,5013.2793};
+					id=3;
+					side="EAST";
+					vehicle="RU_Soldier_LAT";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item4
+				{
+					position[]={3705.8547,322.20187,5013.2793};
+					id=4;
+					side="EAST";
+					vehicle="RU_Soldier_GL";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item5
+				{
+					position[]={3707.8547,321.79654,5013.2793};
+					id=5;
+					side="EAST";
+					vehicle="RU_Soldier_Marksman";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item6
+				{
+					position[]={3709.8547,321.38867,5013.2793};
+					id=6;
+					side="EAST";
+					vehicle="RU_Soldier_MG";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item7
+				{
+					position[]={3711.8547,320.97534,5013.2793};
+					id=7;
+					side="EAST";
+					vehicle="RU_Soldier_AT";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item8
+				{
+					position[]={3713.8547,320.53671,5013.2793};
+					id=8;
+					side="EAST";
+					vehicle="RU_Soldier_AR";
+					player="PLAY CDG";
+				};
+				class Item9
+				{
+					position[]={3715.8547,320.08606,5013.2793};
+					id=9;
+					side="EAST";
+					vehicle="RU_Soldier_LAT";
+					player="PLAY CDG";
+				};
+				class Item10
+				{
+					position[]={3717.8547,319.62479,5013.2793};
+					id=10;
+					side="EAST";
+					vehicle="RU_Soldier_GL";
+					player="PLAY CDG";
+				};
+				class Item11
+				{
+					position[]={3719.8547,319.15546,5013.2793};
+					id=11;
+					side="EAST";
+					vehicle="RU_Soldier";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item1
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1235.5715,7.8560934,1727.3909};
+					id=14;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item2
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={458.72449,133.53113,4007.9849};
+					id=15;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item3
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2131.676,214.00552,4340.3657};
+					id=16;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item4
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1126.3083,322.08102,5289.1929};
+					id=17;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item5
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={702.89648,300.98999,6933.1426};
+					id=18;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item6
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1657.2621,293.98999,6875.1602};
+					id=19;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item7
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4213.2075,204.09709,5762.5186};
+					id=20;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item8
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5274.1382,210.99001,7241.8647};
+					id=21;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item9
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6711.7075,193.03653,6455.1802};
+					id=22;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item10
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5799.6558,77,5764.0884};
+					id=23;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item11
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6822.9731,41.723465,5463.2056};
+					id=24;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item12
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3043.1233,360.30435,5870.6523};
+					id=25;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item13
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4697.9849,245.02676,4684.356};
+					id=26;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item14
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5845.103,255.17169,4662.416};
+					id=27;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item15
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6649.0259,6,2774.0581};
+					id=28;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item16
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4945.7422,6.0035305,1300.4568};
+					id=29;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item17
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3742.054,234.50285,3059.2715};
+					id=30;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item18
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2637.2476,5.7158413,2546.8289};
+					id=31;
+					side="LOGIC";
+					vehicle="LocationLogicCityCenter";
+				};
+			};
+		};
+		class Item19
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={2794.4275,276.1459,5076.2168};
+					azimut=25;
+					special="NONE";
+					id=32;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+				};
+			};
+		};
+		class Item20
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1253.0017,223.9025,3850.1689};
+					azimut=25;
+					special="NONE";
+					id=33;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+				};
+			};
+		};
+		class Item21
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3242.4736,330.12506,7258.502};
+					azimut=25;
+					special="NONE";
+					id=34;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+				};
+			};
+		};
+		class Item22
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6078.3677,1.9848108,2351.9265};
+					azimut=25;
+					special="NONE";
+					id=35;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+				};
+			};
+		};
+		class Item23
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={5767.1401,260.0325,3954.7805};
+					azimut=25;
+					special="NONE";
+					id=36;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+				};
+			};
+		};
+		class Item24
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={4743.2979,267.19849,5049.4551};
+					azimut=25;
+					special="NONE";
+					id=37;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+				};
+			};
+		};
+		class Item25
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={7010.7813,169.41479,6001.9741};
+					azimut=25;
+					special="NONE";
+					id=38;
+					side="LOGIC";
+					vehicle="LocationLogicFlat";
+				};
+			};
+		};
+		class Item26
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=8;
+				class Item0
+				{
+					position[]={4274.7515,320.82904,5069.583};
+					id=39;
+					side="WEST";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
+					player="PLAYER COMMANDER";
+					leader=1;
+					rank="LIEUTENANT";
+				};
+				class Item1
+				{
+					position[]={4277.7515,319.85138,5064.583};
+					id=40;
+					side="WEST";
+					vehicle="CZ_Soldier_805g_Wdl_ACR";
+					player="PLAY CDG";
+					rank="SERGEANT";
+				};
+				class Item2
+				{
+					position[]={4279.7515,319.63272,5064.583};
+					id=41;
+					side="WEST";
+					vehicle="CZ_Soldier_MG2_Wdl_ACR";
+					player="PLAY CDG";
+					rank="SERGEANT";
+				};
+				class Item3
+				{
+					position[]={4281.7515,319.38736,5064.583};
+					id=42;
+					side="WEST";
+					vehicle="CZ_Soldier_805_Wdl_ACR";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item4
+				{
+					position[]={4283.7515,319.112,5064.583};
+					id=43;
+					side="WEST";
+					vehicle="CZ_Sharpshooter_Wdl_ACR";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item5
+				{
+					position[]={4285.7515,318.82666,5064.583};
+					id=44;
+					side="WEST";
+					vehicle="CZ_Soldier_RPG_Wdl_ACR";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item6
+				{
+					position[]={4287.7515,318.54135,5064.583};
+					id=45;
+					side="WEST";
+					vehicle="CZ_Soldier_RPG_Ass_Wdl_ACR";
+					player="PLAY CDG";
+				};
+				class Item7
+				{
+					position[]={4289.7515,318.22659,5064.583};
+					id=46;
+					side="WEST";
+					vehicle="CZ_Soldier_Medic_Wdl_ACR";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item27
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={4279.5376,316.83353,5045.0015};
+					id=47;
+					side="WEST";
+					vehicle="CZ_Soldier_Leader_Wdl_ACR";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+				};
+				class Item1
+				{
+					position[]={4282.5376,315.85712,5040.0015};
+					id=48;
+					side="WEST";
+					vehicle="CZ_Soldier_MG2_Wdl_ACR";
+					player="PLAY CDG";
+					rank="SERGEANT";
+				};
+				class Item2
+				{
+					position[]={4284.5376,315.6918,5040.0015};
+					id=49;
+					side="WEST";
+					vehicle="CZ_Sharpshooter_Wdl_ACR";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item3
+				{
+					position[]={4286.5376,315.52646,5040.0015};
+					id=50;
+					side="WEST";
+					vehicle="CZ_Soldier_805_Wdl_ACR";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item4
+				{
+					position[]={4288.5376,315.36115,5040.0015};
+					id=51;
+					side="WEST";
+					vehicle="CZ_Soldier_Engineer_Wdl_ACR";
+					player="PLAY CDG";
+				};
+				class Item5
+				{
+					position[]={4290.5376,315.18359,5040.0015};
+					id=52;
+					side="WEST";
+					vehicle="CZ_Soldier_Medic_Wdl_ACR";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item28
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=7;
+				class Item0
+				{
+					position[]={3979.6101,228.10074,4499.0864};
+					id=53;
+					side="GUER";
+					vehicle="GUE_Soldier_CO";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+				};
+				class Item1
+				{
+					position[]={3982.6101,225.43332,4494.0864};
+					id=54;
+					side="GUER";
+					vehicle="GUE_Soldier_GL";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item2
+				{
+					position[]={3984.6101,225.13733,4494.0864};
+					id=55;
+					side="GUER";
+					vehicle="GUE_Soldier_AR";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item3
+				{
+					position[]={3986.6101,224.84132,4494.0864};
+					id=56;
+					side="GUER";
+					vehicle="GUE_Soldier_1";
+					player="PLAY CDG";
+				};
+				class Item4
+				{
+					position[]={3988.6101,224.55347,4494.0864};
+					id=57;
+					side="GUER";
+					vehicle="GUE_Soldier_3";
+					player="PLAY CDG";
+				};
+				class Item5
+				{
+					position[]={3990.6101,224.284,4494.0864};
+					id=58;
+					side="GUER";
+					vehicle="GUE_Soldier_GL";
+					player="PLAY CDG";
+				};
+				class Item6
+				{
+					position[]={3992.6101,223.88667,4494.0864};
+					id=59;
+					side="GUER";
+					vehicle="GUE_Soldier_2";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item29
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=9;
+				class Item0
+				{
+					position[]={3979.0806,210.37663,4466.6001};
+					id=60;
+					side="GUER";
+					vehicle="GUE_Soldier_CO";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+				};
+				class Item1
+				{
+					position[]={3982.0806,206.81741,4461.6001};
+					id=61;
+					side="GUER";
+					vehicle="GUE_Soldier_GL";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item2
+				{
+					position[]={3984.0806,206.27094,4461.6001};
+					id=62;
+					side="GUER";
+					vehicle="GUE_Soldier_MG";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item3
+				{
+					position[]={3986.0806,205.7216,4461.6001};
+					id=63;
+					side="GUER";
+					vehicle="GUE_Soldier_AT";
+					player="PLAY CDG";
+				};
+				class Item4
+				{
+					position[]={3988.0806,205.17229,4461.6001};
+					id=64;
+					side="GUER";
+					vehicle="GUE_Soldier_AR";
+					player="PLAY CDG";
+				};
+				class Item5
+				{
+					position[]={3990.0806,204.61974,4461.6001};
+					id=65;
+					side="GUER";
+					vehicle="GUE_Soldier_MG";
+					player="PLAY CDG";
+				};
+				class Item6
+				{
+					position[]={3992.0806,204.00446,4461.6001};
+					id=66;
+					side="GUER";
+					vehicle="GUE_Soldier_AT";
+					player="PLAY CDG";
+				};
+				class Item7
+				{
+					position[]={3994.0806,203.39912,4461.6001};
+					id=67;
+					side="GUER";
+					vehicle="GUE_Soldier_2";
+					player="PLAY CDG";
+				};
+				class Item8
+				{
+					position[]={3996.0806,202.79381,4461.6001};
+					id=68;
+					side="GUER";
+					vehicle="GUE_Soldier_1";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item30
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={0,0,0};
+					id=74;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC";
+				};
+				class Item1
+				{
+					position[]={0,0,0};
+					id=75;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_1";
+				};
+				class Item2
+				{
+					position[]={0,0,0};
+					id=76;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_2";
+				};
+				class Item3
+				{
+					position[]={0,0,0};
+					id=77;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_3";
+				};
+				class Item4
+				{
+					position[]={0,0,0};
+					id=78;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_4";
+				};
+				class Item5
+				{
+					position[]={0,0,0};
+					id=79;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAY CDG";
+					forceHeadlessClient=1;
+					text="HC_5";
+				};
+			};
+		};
+	};
+	class Vehicles
+	{
+		items=7;
+		class Item0
+		{
+			position[]={4240.0103,325.51633,5105.877};
+			id=12;
+			side="EMPTY";
+			vehicle="WarfareBCamp";
+			text="gosa_LogicLocationBase";
+			init="this allowDamage false; this setVariable [""gosa_Location_type"", 0];";
+		};
+		class Item1
+		{
+			position[]={4226.3354,325.23407,5113.1201};
+			azimut=451.19412;
+			id=13;
+			side="EMPTY";
+			vehicle="MASH";
+			init="this allowDamage false;";
+		};
+		class Item2
+		{
+			position[]={6903.0635,-0.78305697,2401.8174};
+			id=69;
+			side="EMPTY";
+			vehicle="Smallboat_1";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
+		};
+		class Item3
+		{
+			position[]={4389.4116,1.0304049,892.76648};
+			id=70;
+			side="EMPTY";
+			vehicle="Smallboat_1";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
+		};
+		class Item4
+		{
+			position[]={3577.2283,1.1224768,947.16748};
+			id=71;
+			side="EMPTY";
+			vehicle="Smallboat_1";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
+		};
+		class Item5
+		{
+			position[]={516.64795,0.95809013,1182.2068};
+			id=72;
+			side="EMPTY";
+			vehicle="Smallboat_1";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
+		};
+		class Item6
+		{
+			position[]={2562.7004,1.1468735,2089.2449};
+			id=73;
+			side="EMPTY";
+			vehicle="Smallboat_1";
+			init="this setVariable [""gosa_respawnVehicle"", true];";
+		};
+	};
+	class Markers
+	{
+		items=1;
+		class Item0
+		{
+			position[]={7642,0,7630};
+			name="gosa_worldSize";
+			type="Empty";
+		};
+	};
+	class Sensors
+	{
+		items=30;
+		class Item0
+		{
+			position[]={4513.0093,54.21608,1892.1632};
+			a=1100;
+			b=1100;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10";
+			class Effects
+			{
+			};
+		};
+		class Item1
+		{
+			position[]={3742.3418,95.083031,1879.9713};
+			a=700;
+			b=700;
+			angle=300;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_1";
+			class Effects
+			{
+			};
+		};
+		class Item2
+		{
+			position[]={3060.4399,50.96941,2532.8276};
+			a=700;
+			b=700;
+			angle=-130.30524;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_2";
+			class Effects
+			{
+			};
+		};
+		class Item3
+		{
+			position[]={1601.149,6.0224628,2429.332};
+			a=700;
+			b=700;
+			angle=-48.359737;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_2";
+			class Effects
+			{
+			};
+		};
+		class Item4
+		{
+			position[]={716.26007,5.9101319,1360.7371};
+			a=300;
+			b=300;
+			angle=-31.8517;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_3";
+			class Effects
+			{
+			};
+		};
+		class Item5
+		{
+			position[]={509.26831,54.239723,2178.3557};
+			a=1000;
+			b=1000;
+			angle=-195.61865;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_4";
+			class Effects
+			{
+			};
+		};
+		class Item6
+		{
+			position[]={6852.666,2.5707548,2377.479};
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_0_2";
+			class Effects
+			{
+			};
+		};
+		class Item7
+		{
+			position[]={6777.3882,2.1961839,2347.9182};
+			a=100;
+			b=100;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_0_1";
+			class Effects
+			{
+			};
+		};
+		class Item8
+		{
+			position[]={6627.1152,1.1047927,2339.9773};
+			a=200;
+			b=60;
+			angle=328;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_0";
+			class Effects
+			{
+			};
+		};
+		class Item9
+		{
+			position[]={6970.0962,2.5440979,2486.4412};
+			a=100;
+			b=100;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_1";
+			class Effects
+			{
+			};
+		};
+		class Item10
+		{
+			position[]={6870.4702,2.2120209,2484.0576};
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_1_1";
+			class Effects
+			{
+			};
+		};
+		class Item11
+		{
+			position[]={7104.854,2.2932971,2535.5588};
+			a=120;
+			b=70;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_1_2";
+			class Effects
+			{
+			};
+		};
+		class Item12
+		{
+			position[]={5769.5591,271.06955,3081.4124};
+			a=1000;
+			b=1000;
+			angle=328;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_5";
+			class Effects
+			{
+			};
+		};
+		class Item13
+		{
+			position[]={7091.4492,11.286724,2826.2986};
+			a=200;
+			b=200;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_6";
+			class Effects
+			{
+			};
+		};
+		class Item14
+		{
+			position[]={7365.8345,79.295357,3032.0869};
+			a=300;
+			b=300;
+			angle=60.008701;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_7";
+			class Effects
+			{
+			};
+		};
+		class Item15
+		{
+			position[]={2249.5615,202.32373,5199.5073};
+			a=3000;
+			b=3000;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_8";
+			class Effects
+			{
+			};
+		};
+		class Item16
+		{
+			position[]={5027.0757,197.54994,5834.3013};
+			a=3000;
+			b=3000;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_10_9";
+			class Effects
+			{
+			};
+		};
+		class Item17
+		{
+			position[]={7776.438,152.94925,1672.7245};
+			a=1000;
+			b=1000;
+			angle=322;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11";
+			class Effects
+			{
+			};
+		};
+		class Item18
+		{
+			position[]={6498.6694,130.13564,1173.8687};
+			a=1000;
+			b=1000;
+			angle=322;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_1";
+			class Effects
+			{
+			};
+		};
+		class Item19
+		{
+			position[]={7210.4858,221.64502,1313.8982};
+			a=1000;
+			b=1000;
+			angle=439;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_2";
+			class Effects
+			{
+			};
+		};
+		class Item20
+		{
+			position[]={6119.8315,182.70145,467.19876};
+			a=1000;
+			b=1000;
+			angle=210;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_3";
+			class Effects
+			{
+			};
+		};
+		class Item21
+		{
+			position[]={5108.1597,83.394386,-177.06287};
+			a=1000;
+			b=1000;
+			angle=443;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_4";
+			class Effects
+			{
+			};
+		};
+		class Item22
+		{
+			position[]={3940.125,221.77126,-144.11533};
+			a=1000;
+			b=1000;
+			angle=374;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_5";
+			class Effects
+			{
+			};
+		};
+		class Item23
+		{
+			position[]={2916.5535,103.03786,378.79544};
+			a=1000;
+			b=1000;
+			angle=300;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_6";
+			class Effects
+			{
+			};
+		};
+		class Item24
+		{
+			position[]={2384.7061,76.802841,1757.6405};
+			a=300;
+			b=300;
+			angle=315;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_6";
+			class Effects
+			{
+			};
+		};
+		class Item25
+		{
+			position[]={2224.4116,62.646252,847.73431};
+			a=800;
+			b=800;
+			angle=405;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_7";
+			class Effects
+			{
+			};
+		};
+		class Item26
+		{
+			position[]={2134.835,54.349285,753.44366};
+			a=800;
+			b=800;
+			angle=433;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_8";
+			class Effects
+			{
+			};
+		};
+		class Item27
+		{
+			position[]={975.05853,71.125259,234.84323};
+			a=800;
+			b=800;
+			angle=240;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_9";
+			class Effects
+			{
+			};
+		};
+		class Item28
+		{
+			position[]={-0.85207462,119.52105,112.26648};
+			a=800;
+			b=800;
+			angle=430;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_10";
+			class Effects
+			{
+			};
+		};
+		class Item29
+		{
+			position[]={4022.0056,82.480087,-1304.8761};
+			a=5000;
+			b=2000;
+			rectangular=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="gosa_zone_11_11";
+			class Effects
+			{
+			};
+		};
+	};
+};
+class Intro
+{
+	randomSeed=8709030;
+	class Intel
+	{
+	};
+};
+class OutroWin
+{
+	randomSeed=6464839;
+	class Intel
+	{
+	};
+};
+class OutroLoose
+{
+	randomSeed=9418032;
+	class Intel
+	{
+	};
+};
