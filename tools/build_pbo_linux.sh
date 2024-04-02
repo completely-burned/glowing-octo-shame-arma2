@@ -149,8 +149,8 @@ do
 
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
 		TMP=$(grep briefingName ${DIR}/mission.sqm)
-		VERSION=$(echo ${TMP} | sed -e 's/.*".*glowing-octo-shame.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
-		SIDE=$(echo ${TMP} | sed -e 's/.*".*glowing-octo-shame.* .* \(.*\) v.*".*/\1/')
+		VERSION=$(echo ${TMP} | sed -e 's/.*".*gosa.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
+		SIDE=$(echo ${TMP} | sed -e 's/.*".*gosa.* .* \(.*\) v.*".*/\1/')
 		DLC=$(echo ${TMP} | sed -e 's/.*"\(.*\)CO.*".*/\1/' -e 's/\ /_/gi')
 
 		# Место подготовки файлов перед архивацией.
