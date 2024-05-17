@@ -425,6 +425,7 @@ _default_east=[
 	[[[["O_ghillie_ard_F","O_ghillie_ard_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.025],
 	[[[["O_ghillie_sard_F","O_ghillie_sard_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.025],
 	[[[["O_ghillie_lsh_F","O_ghillie_lsh_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.025],
+	[[[["O_V_Soldier_TL_hex_F","O_V_Soldier_JTAC_hex_F","O_V_Soldier_M_hex_F","O_V_Soldier_Exp_hex_F","O_V_Soldier_LAT_hex_F","O_V_Soldier_Medic_hex_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// водолазы
 	[[[["O_diver_TL_F","O_diver_exp_F","O_diver_F","O_diver_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE"]]],0.01],
 	// корабль
