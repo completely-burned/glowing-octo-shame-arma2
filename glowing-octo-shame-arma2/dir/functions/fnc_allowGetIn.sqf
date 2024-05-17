@@ -6,13 +6,16 @@
 diag_log format ["Log: [fnc_allowGetIn] %1", _this];
 
 private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_role","_type",
-	"_units","_leader",
+	"_units","_leader","_arr","_b","_var","_Getin",
 	"_vehicles","_tmpNum","_item","_tmpObj"];
 
 _units = _this select 0;
 _leader = _this select 1;
 _out=[];
+_Getin = [];
 _ng_l = [];
+_arr = [];
+_var = "allowGetin";
 
 if !(_leader call gosa_fnc_isPlayer) then {
 	for "_i" from 0 to (count _units -1) do {
@@ -189,13 +192,23 @@ if !(_leader call gosa_fnc_isPlayer) then {
 				};
 			};
 
-			if!(_allow)then{
+			if !(_allow) then {
 				_out set [count _out, _u];
+				_b = _u getVariable _var;
+				if (isNil "_b") then {_b = true};
+			
+				if (_b) then {
+					_u setVariable [_var, _allow];
+					_arr set [count _arr, _u];
+				};
 			};
 		};
 	};
 
-	_out allowGetin false;
+	if (count _arr > 0) then {
+		diag_log format ["Log: [fnc_allowGetIn] false %1", _arr];
+		_arr allowGetin false;
+	};
 
 	#ifdef __ARMA3__
 		// a3 тс не останавливается само если у других есть приказ выйти.
@@ -215,5 +228,20 @@ if !(_leader call gosa_fnc_isPlayer) then {
 		};
 	#endif
 
-	_units - _out allowGetin true;
+	_arr = (_units - _out);
+	for "_i" from 0 to (count _arr -1) do {
+		_u = _arr select _i;
+
+		_b = _u getVariable _var;
+		if (isNil "_b") then {_b = true};
+	
+		if !(_b) then {
+			_u setVariable [_var, true];
+			_Getin set [count _Getin, _u];
+		};
+	};
+	if (count _Getin > 0) then {
+		diag_log format ["Log: [fnc_allowGetIn] true %1", _Getin];
+		_Getin allowGetin true;
+	};
 };
