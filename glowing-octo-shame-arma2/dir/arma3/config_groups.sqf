@@ -567,6 +567,17 @@ _default_east=[
 			"CORPORAL","PRIVATE",
 			"PRIVATE","CORPORAL",
 			"PRIVATE","PRIVATE"],[],1]],0.5],
+		// A MechInfSquad_Wheeled
+		[[[["O_APC_Wheeled_02_hmg_lxWS","O_A_Soldier_TL_lxWS",
+			"O_A_Soldier_lxWS","O_A_Soldier_LAT_lxWS",
+			"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
+			"O_A_HeavyGunner_lxWS","O_A_Soldier_LAT_lxWS",
+			"O_A_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+			["LIEUTENANT","LIEUTENANT",
+			"PRIVATE","CORPORAL",
+			"PRIVATE","SERGEANT",
+			"CORPORAL","PRIVATE",
+			"PRIVATE"],[["O_A_crew_lxWS","O_A_crew_lxWS","O_A_crew_lxWS"]],1]],0.5],
 	// гусеничный
 		// OSFIA_MechInf_AT
 		[[[["O_APC_Tracked_02_30mm_lxWS","O_Soldier_TL_F","O_Soldier_AR_F","O_soldier_AT_F","O_soldier_AT_F","O_soldier_AT_F","O_Soldier_AAT_F","O_Soldier_AAT_F","O_Soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
@@ -596,6 +607,17 @@ _default_east=[
 			"PRIVATE","PRIVATE",
 			"SERGEANT","CORPORAL",
 			"PRIVATE","PRIVATE"],[],1]],0.5],
+		// A MechInfSquad
+		[[[["O_APC_Tracked_02_30mm_lxWS","O_A_Soldier_TL_lxWS",
+			"O_A_Soldier_lxWS","O_A_Soldier_LAT_lxWS",
+			"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
+			"O_A_HeavyGunner_lxWS","O_A_Soldier_LAT_lxWS",
+			"O_A_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+			["LIEUTENANT","LIEUTENANT",
+			"PRIVATE","CORPORAL",
+			"PRIVATE","SERGEANT",
+			"CORPORAL","PRIVATE",
+			"PRIVATE"],[["O_A_crew_lxWS","O_A_crew_lxWS","O_A_crew_lxWS"]],1]],0.5],
 	// танки
 		// OIA_TankPlatoon
 		[[[["O_MBT_02_cannon_F",
