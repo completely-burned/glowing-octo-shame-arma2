@@ -95,10 +95,6 @@ class AddonsMetaData
 		};
 	};
 };
-dlcs[]=
-{
-	"Expansion"
-};
 randomSeed=11636177;
 class ScenarioData
 {
@@ -192,7 +188,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa Tanoa Milti v0.0.5.934 DEBUG";
+		briefingName="CO 00 gosa Tanoa Multi v0.0.5.934 DEBUG";
 		resistanceWest=0;
 		startWeather=0.3;
 		startWind=0.1;
