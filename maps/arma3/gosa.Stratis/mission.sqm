@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2239.4807,50.141796,5646.2583};
+		pos[]={2019.4233,56.960045,5155.4888};
 	};
 };
 binarizationWanted=0;
