@@ -104,6 +104,8 @@ _arr = [[
 	[[[["B_W_APC_Tracked_01_aa_F","B_W_soldier_SL_F","B_W_soldier_AR_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.5],
 	// BUS_MechInf_Support
 	[[[["B_W_APC_Wheeled_01_cannon_F","B_W_soldier_SL_F","B_W_soldier_TL_F","B_W_soldier_repair_F","B_W_engineer_F","B_W_medic_F","B_W_soldier_AR_F","B_W_soldier_exp_F","B_W_soldier_A_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.5],
+	// lxWS
+	[[[["B_T_APC_Wheeled_01_atgm_lxWS","B_W_soldier_SL_F","B_W_soldier_F","B_W_soldier_LAT_F","B_W_soldier_M_F","B_W_soldier_TL_F","B_W_soldier_AR_F","B_W_soldier_A_F","B_W_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","LIEUTENANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.5],
 
 	// BUS_MotInf_Team
 	[[[["B_W_MRAP_01_gmg_F","B_W_soldier_AR_F","B_W_soldier_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"],[],1]],0.5],

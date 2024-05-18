@@ -1,5 +1,11 @@
 // Жандармерия.
 [_groups_map, west, "B_GEN", [[
+	// lxWS
+	[[[["B_GEN_APC_Wheeled_02_hmg_lxWS","B_GEN_Commander_F",
+		"B_GEN_Soldier_F","B_GEN_Soldier_F","B_GEN_Soldier_F"],[[0,0],[0,5],[1,5],[-1,5],[1,6]],
+		["SERGEANT","LIEUTENANT",
+		"PRIVATE","PRIVATE", "PRIVATE"],[],1]],0.01],
+
 	[[[["B_GEN_Commander_F",
 		"B_GEN_Soldier_F","B_GEN_Soldier_F",
 		"B_GEN_Van_02_vehicle_F"],[[0,2.5],[0,-2.5],[2.5,0],[0,0]],
