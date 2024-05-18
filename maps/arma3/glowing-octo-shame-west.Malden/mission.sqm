@@ -167,7 +167,7 @@ class Mission
 	class Intel
 	{
 		startWeather=0.3;
-		briefingName="CO 00 gosa Malden West v0.0.5.934 DEBUG";
+		briefingName="CO 00 gosa Malden West v0.0.5.935 DEBUG";
 		startWind=0.1;
 		startWaves=0.1;
 		forecastWeather=0.3;
