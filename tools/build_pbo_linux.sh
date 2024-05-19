@@ -46,6 +46,7 @@ case "$(uname -s)" in
 esac
 
 NAME="glowing-octo-shame"
+NAME_SHORT="gosa"
 # Финишное имя, стабильное,
 # под него подстраиваться придется, т.е. оно не меняется,
 # но имя миссии может поменяться, и это тоже,
@@ -182,37 +183,39 @@ do
 			binarize=0
 		fi
 
+		filename_prefix="${PRE}/${DLC,,}co_00_${NAME_SHORT,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}"
+
 			# Если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив.
 			if [[ -x "$(command -v parallel)" ]]
 			then
 				if [[ $WINDOWS -le 0 ]]
 				then
-						var_parallel+=("makepbo -M ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo")
+						var_parallel+=("makepbo -M ${MISSION} 	${filename_prefix}-makepbo.${MAP,,}.pbo")
 					if [[ $binarize -gt 0 ]]
 					then
-						var_parallel+=("makepbo ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo-bin.${MAP,,}.pbo")
+						var_parallel+=("makepbo ${MISSION} 	${filename_prefix}-makepbo-bin.${MAP,,}.pbo")
 					fi
 				fi
-					var_parallel+=("armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo")
-					var_parallel+=("armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo")
-					var_parallel+=("armake binarize --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake-bin.${MAP,,}.pbo")
-					var_parallel+=("armake2 build -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2-bin.${MAP,,}.pbo")
-				var_parallel+=("rsync -rLK --delete --no-perms ${MISSION}/* ${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}")
+					var_parallel+=("armake build --packonly --force ${MISSION} 	${filename_prefix}-armake.${MAP,,}.pbo")
+					var_parallel+=("armake2 pack -v ${MISSION} 	${filename_prefix}-armake2.${MAP,,}.pbo")
+					var_parallel+=("armake binarize --force ${MISSION} 	${filename_prefix}-armake-bin.${MAP,,}.pbo")
+					var_parallel+=("armake2 build -v ${MISSION} 	${filename_prefix}-armake2-bin.${MAP,,}.pbo")
+				var_parallel+=("rsync -rLK --delete --no-perms ${MISSION}/* ${filename_prefix}-rsync.${MAP,,}")
 			else
 				echo "Pack ${TMPDIRNAME}"
 				if [[ $WINDOWS -le 0 ]]
 				then
-						makepbo -M ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo.${MAP,,}.pbo
+						makepbo -M ${MISSION} 	${filename_prefix}-makepbo.${MAP,,}.pbo
 					if [[ $binarize -gt 0 ]]
 					then
-						makepbo ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-makepbo-bin.${MAP,,}.pbo
+						makepbo ${MISSION} 	${filename_prefix}-makepbo-bin.${MAP,,}.pbo
 					fi
 				fi
-					armake build --packonly --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake.${MAP,,}.pbo
-					armake2 pack -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2.${MAP,,}.pbo
-					armake binarize --force ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake-bin.${MAP,,}.pbo
-					armake2 build -v ${MISSION} 	${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-armake2-bin.${MAP,,}.pbo
-				rsync -rLK --delete --no-perms ${MISSION}/* ${PRE}/${DLC,,}co_00_${NAME,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}-rsync.${MAP,,}
+					armake build --packonly --force ${MISSION} 	${filename_prefix}-armake.${MAP,,}.pbo
+					armake2 pack -v ${MISSION} 	${filename_prefix}-armake2.${MAP,,}.pbo
+					armake binarize --force ${MISSION} 	${filename_prefix}-armake-bin.${MAP,,}.pbo
+					armake2 build -v ${MISSION} 	${filename_prefix}-armake2-bin.${MAP,,}.pbo
+				rsync -rLK --delete --no-perms ${MISSION}/* ${filename_prefix}-rsync.${MAP,,}
 			fi
 	fi
 done
@@ -227,6 +230,13 @@ fi
 
 echo "Deleting empty pbo's"
 find $PRE -type f -empty -iname "*.pbo" -print -delete
+
+echo "run rdfind"
+rdfind -makehardlinks true ${PRE}
+
+# 7z
+echo "7z file create"
+7z a -mmt -snh ${PRE}/${FINITENAME}-latest ${PRE}/*rsync*
 
 # Torrent файл.
 if [[ $TORRENTFILE -gt 0 ]]
