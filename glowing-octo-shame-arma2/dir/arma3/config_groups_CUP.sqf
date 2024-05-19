@@ -345,7 +345,97 @@
 	] call gosa_fnc_map_groups_add;
 
 	// Winter
+	/* TODO:
+		CUP_O_Tigr_233014_WINTER_PK_RU
+		CUP_O_Tigr_M_233114_WINTER_KORD_RU
+		CUP_O_Tigr_M_233114_WINTER_PK_RU
+		CUP_O_Tigr_M_233114_WINTER_RU
+	*/
 	[_groups_map, east, "CUP_O_RU", [[
+		// User
+			// CUP_O_Tigr_M_233114_WINTER_RU
+			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter","CUP_O_Tigr_M_233114_WINTER_RU",
+				"CUP_O_RU_Soldier_MG_Ratnik_Winter","CUP_O_RU_Soldier_AT_Ratnik_Winter",
+				"CUP_O_RU_Soldier_Marksman_Ratnik_Winter","CUP_O_RU_Soldier_GL_Ratnik_Winter",
+				"CUP_O_RU_Soldier_MG_Ratnik_Winter","CUP_O_RU_Soldier_AT_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
+				["SERGEANT","PRIVATE",
+				"SERGEANT","SERGEANT",
+				"PRIVATE","CORPORAL",
+				"PRIVATE","PRIVATE"]]],0.05],
+
+			// CUP_O_Tigr_233014_WINTER_RU
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Winter","CUP_O_Tigr_233014_WINTER_RU",
+				"CUP_O_RU_Soldier_AR_Ratnik_Winter","CUP_O_RU_Soldier_LAT_Ratnik_Winter",
+				"CUP_O_RU_Soldier_GL_Ratnik_Winter","CUP_O_RU_Soldier_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
+				["SERGEANT","PRIVATE",
+				"PRIVATE","PRIVATE",
+				"CORPORAL","PRIVATE"]]],0.05],
+			// CUP_O_Tigr_233014_WINTER_RU AT
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Winter","CUP_O_Tigr_233014_WINTER_RU",
+				"CUP_O_RU_Soldier_HAT_Ratnik_Winter","CUP_O_RU_Soldier_HAT_Ratnik_Winter",
+				"CUP_O_RU_Soldier_AT_Ratnik_Winter","CUP_O_RU_Soldier_AT_Ratnik_Winter",
+				"CUP_O_RU_Soldier_AHAT_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
+				["SERGEANT","PRIVATE",
+				"CORPORAL","CORPORAL",
+				"PRIVATE","PRIVATE",
+				"PRIVATE"]]],0.05],
+			// CUP_O_Tigr_233014_WINTER_RU AA
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Winter","CUP_O_Tigr_233014_WINTER_RU",
+				"CUP_O_RU_Soldier_AA_Ratnik_Winter","CUP_O_RU_Soldier_AA_Ratnik_Winter",
+				"CUP_O_RU_Soldier_AA_Ratnik_Winter","CUP_O_RU_Soldier_AAA_Ratnik_Winter",
+				"CUP_O_RU_Soldier_AAA_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
+				["SERGEANT","PRIVATE",
+				"CORPORAL","CORPORAL",
+				"PRIVATE","PRIVATE",
+				"PRIVATE"]]],0.05],
+			// CUP_O_Tigr_233014_WINTER_RU MG
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Winter","CUP_O_Tigr_233014_WINTER_RU",
+				"CUP_O_RU_Soldier_MG_Ratnik_Winter","CUP_O_RU_Soldier_MG_Ratnik_Winter",
+				"CUP_O_RU_Soldier_GL_Ratnik_Winter","CUP_O_RU_Soldier_AT_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
+				["SERGEANT","PRIVATE",
+				"CORPORAL","CORPORAL",
+				"PRIVATE","PRIVATE"]]],0.05],
+
+			// CUP_O_Tigr_233011_WINTER_RU
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Winter","CUP_O_Tigr_233011_WINTER_RU",
+				"CUP_O_RU_Soldier_Medic_Ratnik_Winter","CUP_O_RU_Soldier_LAT_Ratnik_Winter",
+				"CUP_O_RU_Soldier_AR_Ratnik_Winter","CUP_O_RU_Soldier_GL_Ratnik_Winter",
+				"CUP_O_RU_Soldier_Marksman_Ratnik_Winter","CUP_O_RU_Soldier_LAT_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
+				["SERGEANT","PRIVATE",
+				"PRIVATE","CORPORAL",
+				"CORPORAL","CORPORAL",
+				"PRIVATE","PRIVATE"]]],0.05],
+
+			// CUP_O_T90M_WINTER_RU
+			[[[["CUP_O_T90M_WINTER_RU","CUP_O_T90M_WINTER_RU","CUP_O_T90M_WINTER_RU"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT"]]],0.6],
+			// CUP_O_BTR60_Winter_RU
+			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter",
+			"CUP_O_BTR60_Winter_RU","CUP_O_RU_Soldier_Ratnik_Winter",
+			"CUP_O_RU_Soldier_MG_Ratnik_Winter","CUP_O_RU_Soldier_AT_Ratnik_Winter",
+			"CUP_O_RU_Soldier_LAT_Ratnik_Winter","CUP_O_RU_Soldier_GL_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.01],
+			// CUP_O_BTR80_WINTER_RU
+			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter",
+			"CUP_O_BTR80_WINTER_RU","CUP_O_RU_Soldier_Ratnik_Winter",
+			"CUP_O_RU_Soldier_MG_Ratnik_Winter","CUP_O_RU_Soldier_AT_Ratnik_Winter",
+			"CUP_O_RU_Soldier_LAT_Ratnik_Winter","CUP_O_RU_Soldier_GL_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+			// CUP_O_BTR80A_WINTER_RU
+			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter",
+			"CUP_O_BTR80A_WINTER_RU","CUP_O_RU_Soldier_Ratnik_Winter",
+			"CUP_O_RU_Soldier_MG_Ratnik_Winter","CUP_O_RU_Soldier_AT_Ratnik_Winter",
+			"CUP_O_RU_Soldier_LAT_Ratnik_Winter","CUP_O_RU_Soldier_GL_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+			// CUP_O_MTLB_pk_Winter_RU
+			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter","CUP_O_MTLB_pk_Winter_RU",
+				"CUP_O_RU_Soldier_AR_Ratnik_Winter","CUP_O_RU_Soldier_AT_Ratnik_Winter",
+				"CUP_O_RU_Soldier_Marksman_Ratnik_Winter","CUP_O_RU_Soldier_GL_Ratnik_Winter",
+				"CUP_O_RU_Soldier_MG_Ratnik_Winter","CUP_O_RU_Soldier_AT_Ratnik_Winter",
+				"CUP_O_RU_Soldier_A_Ratnik_Winter","CUP_O_RU_Soldier_AAT_Ratnik_Winter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
+				["LIEUTENANT","SERGEANT",
+				"PRIVATE","CORPORAL",
+				"PRIVATE","SERGEANT",
+				"PRIVATE","PRIVATE",
+				"CORPORAL","PRIVATE"]]],0.1],
+
+		// cfgGroups
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter",
 			"CUP_O_RU_Soldier_Ratnik_Winter","CUP_O_RU_Soldier_LAT_Ratnik_Winter",
@@ -814,6 +904,14 @@
 
 //-- CUP_B_GB
 		[_groups_map, west, "CUP_B_GB", [[
+			[[[["CUP_B_Challenger2_Snow_BAF","CUP_B_Challenger2_Snow_BAF","CUP_B_Challenger2_Snow_BAF","CUP_B_Challenger2_Snow_BAF"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.05],
+			[[[["CUP_B_Challenger2_2CS_BAF","CUP_B_Challenger2_2CS_BAF"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.05]
+		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [-999,149,1],
+		[]
+		] call gosa_fnc_map_groups_add;
+
+		[_groups_map, west, "CUP_B_GB", [[
 			// FIXME: DDPM слишком пустынный для смешанных локаций.
 			// configName CUP_B_GB_Section_DDPM
 			[[[["CUP_B_BAF_Soldier_SL_DDPM","CUP_B_BAF_Soldier_TL_DDPM","CUP_B_BAF_Soldier_GL_DDPM","CUP_B_BAF_Soldier_AR_DDPM","CUP_B_BAF_Soldier_Marksman_DDPM","CUP_B_BAF_Soldier_GL_DDPM","CUP_B_BAF_Soldier_AR_DDPM","CUP_B_BAF_Soldier_AAR_DDPM"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],["SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
@@ -926,6 +1024,18 @@
 
 //-- CUP_B_GER
 		[_groups_map, west, "CUP_B_GER", [[
+			[[[["CUP_B_Leopard_1A3GRNW_GER","CUP_B_Leopard_1A3GRNW_GER","CUP_B_Leopard_1A3GRNW_GER","CUP_B_Leopard_1A3GRNW_GER"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.03],
+			[[[["CUP_B_Leopard_1A3GRNW_GER","CUP_B_Leopard_1A3GRNW_GER"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["LIEUTENANT","LIEUTENANT"]]],0.03],
+			[[[["CUP_B_Leopard_1A3WDS_GER","CUP_B_Leopard_1A3WDS_GER","CUP_B_Leopard_1A3WDS_GER","CUP_B_Leopard_1A3WDS_GER"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.03],
+			[[[["CUP_B_Leopard_1A3WDS_GER","CUP_B_Leopard_1A3WDS_GER"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["LIEUTENANT","LIEUTENANT"]]],0.03],
+			[[[["CUP_B_Leopard_1A3SNOW_GER","CUP_B_Leopard_1A3SNOW_GER","CUP_B_Leopard_1A3SNOW_GER","CUP_B_Leopard_1A3SNOW_GER"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.04],
+			[[[["CUP_B_Leopard_1A3SNOW_GER","CUP_B_Leopard_1A3SNOW_GER"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.04]
+		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [-999,149],
+		[]
+		] call gosa_fnc_map_groups_add;
+
+		[_groups_map, west, "CUP_B_GER", [[
 			// configName CUP_B_GER_Fleck_KSK_Team
 			[[[["CUP_B_GER_Fleck_Soldier_TL","CUP_B_GER_Fleck_Soldier_MG","CUP_B_GER_Fleck_Soldier","CUP_B_GER_Fleck_Soldier_Scout","CUP_B_GER_Fleck_Soldier","CUP_B_GER_Fleck_Medic"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			// configName CUP_B_GER_Fleck_KSK_AssaultTeam
@@ -1026,6 +1136,18 @@
 
 //-- CUP_B_CDF
 		[_groups_map, west, "CUP_B_CDF", [[
+			// CUP_B_MTLB_pk_Winter_CDF
+			[[[["CUP_B_CDF_Soldier_TL_SNW","CUP_B_MTLB_pk_Winter_CDF",
+				"CUP_B_CDF_Medic_SNW","CUP_B_CDF_Soldier_LAT_SNW",
+				"CUP_B_CDF_Soldier_AR_SNW","CUP_B_CDF_Soldier_GL_SNW",
+				"CUP_B_CDF_Soldier_Marksman_SNW","CUP_B_CDF_Soldier_LAT_SNW",
+				"CUP_B_CDF_Soldier_MG_SNW","CUP_B_CDF_Soldier_SNW"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],
+				["LIEUTENANT","SERGEANT",
+				"PRIVATE","CORPORAL",
+				"PRIVATE","SERGEANT",
+				"PRIVATE","PRIVATE",
+				"CORPORAL","PRIVATE"]]],0.4],
+
 			// configName CUP_B_CDFInfSquad_SNW
 			[[[["CUP_B_CDF_Soldier_TL_SNW","CUP_B_CDF_Soldier_MG_SNW","CUP_B_CDF_Soldier_LAT_SNW","CUP_B_CDF_Soldier_GL_SNW","CUP_B_CDF_Soldier_SNW","CUP_B_CDF_Soldier_MG_SNW","CUP_B_CDF_Soldier_GL_SNW","CUP_B_CDF_Soldier_LAT_SNW","CUP_B_CDF_Soldier_SNW","CUP_B_CDF_Medic_SNW"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 			// configName CUP_B_CDFInfSquad_Weapons_SNW
