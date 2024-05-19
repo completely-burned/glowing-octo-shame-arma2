@@ -907,7 +907,7 @@
 			[[[["CUP_B_Challenger2_Snow_BAF","CUP_B_Challenger2_Snow_BAF","CUP_B_Challenger2_Snow_BAF","CUP_B_Challenger2_Snow_BAF"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.05],
 			[[[["CUP_B_Challenger2_2CS_BAF","CUP_B_Challenger2_2CS_BAF"],[[0,10,0],[5,0,0],[10,0,0],[15,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.05]
 		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1990,2100], [-999,149,1],
+		[1990,2100], [-999,149],
 		[]
 		] call gosa_fnc_map_groups_add;
 
