@@ -193,7 +193,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CUP CO 00 gosa Chernarus_Winter Multi v0.0.5.938 DEBUG";
+		briefingName="CUP CO 00 gosa Chernarus_Winter Multi v0.0.5.939 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.25;
 		startWind=0.1;

@@ -200,7 +200,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa Enoch Guer v0.0.5.938 DEBUG";
+		briefingName="CO 00 gosa Enoch Guer v0.0.5.939 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;

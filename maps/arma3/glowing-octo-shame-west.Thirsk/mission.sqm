@@ -162,7 +162,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa Thirsk West v0.0.5.938 DEBUG";
+		briefingName="CO 00 gosa Thirsk West v0.0.5.939 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.25;
 		startFog=0.15000001;
