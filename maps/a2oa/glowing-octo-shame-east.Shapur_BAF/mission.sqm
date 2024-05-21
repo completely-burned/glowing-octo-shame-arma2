@@ -29,7 +29,7 @@ class Mission
 	randomSeed=14018807;
 	class Intel
 	{
-		briefingName="CO 00 gosa Shapur_BAF east v0.0.5.937 DEBUG";
+		briefingName="CO 00 gosa Shapur_BAF east v0.0.5.938 DEBUG";
 		startWeather=0.1;
 		forecastWeather=0.1;
 		year=2012;

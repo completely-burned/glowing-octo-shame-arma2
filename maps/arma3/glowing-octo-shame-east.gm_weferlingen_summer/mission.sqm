@@ -177,7 +177,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="GM CO 00 gosa gm_weferlingen_summer East v0.0.5.937 DEBUG";
+		briefingName="GM CO 00 gosa gm_weferlingen_summer East v0.0.5.938 DEBUG";
 		timeOfChanges=1800;
 		startWeather=0.35;
 		startWind=0.1;
