@@ -66,10 +66,6 @@ class AddonsMetaData
 		};
 	};
 };
-dlcs[]=
-{
-	"Enoch"
-};
 randomSeed=1210711;
 class ScenarioData
 {

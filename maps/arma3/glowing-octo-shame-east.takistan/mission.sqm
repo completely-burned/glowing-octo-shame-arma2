@@ -82,10 +82,6 @@ class AddonsMetaData
 		};
 	};
 };
-dlcs[]=
-{
-	"Mark"
-};
 randomSeed=2633189;
 class ScenarioData
 {

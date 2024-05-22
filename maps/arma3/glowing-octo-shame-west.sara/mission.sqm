@@ -172,12 +172,6 @@ class AddonsMetaData
 		};
 	};
 };
-dlcs[]=
-{
-	"Expansion",
-	"Heli",
-	"Mark"
-};
 randomSeed=230674;
 class ScenarioData
 {

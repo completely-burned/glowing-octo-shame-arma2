@@ -96,9 +96,7 @@ class AddonsMetaData
 };
 dlcs[]=
 {
-	"TERRACORE",
-	"Enoch",
-	"Expansion"
+	"TERRACORE"
 };
 randomSeed=467488;
 class ScenarioData
