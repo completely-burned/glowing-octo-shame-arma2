@@ -1,3 +1,7 @@
+/*
+ * TODO: Баланс.
+ */
+
 // east
 [_groups_map, east, "gm_gc_army", [[
 	// configName gm_gc_bgs_infantry_post_str
@@ -69,49 +73,49 @@
 // gm_gc_army_win
 _arr = [
 	// gm_gc_army_motorizedinfantly_squad_ural4320_cargo_80
-	[[[["gm_gc_army_ural4320_cargo_olw","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0],
+	[[[["gm_gc_army_ural4320_cargo_olw","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// gm_gc_army_motorizedinfantly_squad_bmp1sp2
-	[[[["gm_gc_army_bmp1sp2_olw","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0],
+	[[[["gm_gc_army_bmp1sp2_olw","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.5],
 	// gm_gc_army_motorizedinfantly_squad_BTR60PB_80
-	[[[["gm_gc_army_btr60pb_olw","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0],
+	[[[["gm_gc_army_btr60pb_olw","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// gm_gc_army_motorizedinfantly_squad_BTR60PA_80
-	[[[["gm_gc_army_btr60pa_olw","gm_gc_army_squadleader_mpiak74n_80_str","gm_gc_army_rifleman_mpiak74n_80_str","gm_gc_army_machinegunner_lmgrpk74_80_str","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_str","gm_gc_army_squadleader_mpiak74n_80_str","gm_gc_army_antitank_mpiak74n_rpg7_80_str","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_str","gm_gc_army_rifleman_mpiak74n_80_str","gm_gc_army_rifleman_mpiak74n_80_str"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0],
+	[[[["gm_gc_army_btr60pa_olw","gm_gc_army_squadleader_mpiak74n_80_str","gm_gc_army_rifleman_mpiak74n_80_str","gm_gc_army_machinegunner_lmgrpk74_80_str","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_str","gm_gc_army_squadleader_mpiak74n_80_str","gm_gc_army_antitank_mpiak74n_rpg7_80_str","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_str","gm_gc_army_rifleman_mpiak74n_80_str","gm_gc_army_rifleman_mpiak74n_80_str"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// gm_gc_army_motorizedinfantly_squad_BTR60PA_DSHKM_80
-	[[[["gm_gc_army_btr60pa_dshkm_olw","gm_gc_army_squadleader_mpiak74n_80_str","gm_gc_army_rifleman_mpiak74n_80_str","gm_gc_army_machinegunner_lmgrpk74_80_str","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_str","gm_gc_army_squadleader_mpiak74n_80_str","gm_gc_army_antitank_mpiak74n_rpg7_80_str","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_str","gm_gc_army_rifleman_mpiak74n_80_str","gm_gc_army_rifleman_mpiak74n_80_str"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0],
+	[[[["gm_gc_army_btr60pa_dshkm_olw","gm_gc_army_squadleader_mpiak74n_80_str","gm_gc_army_rifleman_mpiak74n_80_str","gm_gc_army_machinegunner_lmgrpk74_80_str","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_str","gm_gc_army_squadleader_mpiak74n_80_str","gm_gc_army_antitank_mpiak74n_rpg7_80_str","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_str","gm_gc_army_rifleman_mpiak74n_80_str","gm_gc_army_rifleman_mpiak74n_80_str"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// gm_gc_army_motorizedinfantly_squad_ural375d_cargo_80
-	[[[["gm_gc_army_ural375d_cargo_olw","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0],
+	[[[["gm_gc_army_ural375d_cargo_olw","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// gm_gc_army_supply_team_01
-	[[[["gm_gc_army_ural4320_repair_olw","gm_gc_army_ural375d_refuel_olw","gm_gc_army_ural4320_reammo_olw"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0],
+	[[[["gm_gc_army_ural4320_repair_olw","gm_gc_army_ural375d_refuel_olw","gm_gc_army_ural4320_reammo_olw"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_gc_army_2p16_olw
-	[[[["gm_gc_army_2p16_olw","gm_gc_army_2p16_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0],
+	//[[[["gm_gc_army_2p16_olw","gm_gc_army_2p16_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_gc_army_2s1_olw
-	[[[["gm_gc_army_2s1_olw","gm_gc_army_2s1_olw","gm_gc_army_2s1_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0],
+	//[[[["gm_gc_army_2s1_olw","gm_gc_army_2s1_olw","gm_gc_army_2s1_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_gc_army_ural375d_mlrs_olw
-	[[[["gm_gc_army_ural375d_mlrs_olw","gm_gc_army_ural375d_mlrs_olw","gm_gc_army_ural375d_mlrs_olw","gm_gc_army_ural375d_mlrs_olw"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0],
+	//[[[["gm_gc_army_ural375d_mlrs_olw","gm_gc_army_ural375d_mlrs_olw","gm_gc_army_ural375d_mlrs_olw","gm_gc_army_ural375d_mlrs_olw"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_gc_army_t55a_olw
-	[[[["gm_gc_army_t55a_olw","gm_gc_army_t55a_olw","gm_gc_army_t55a_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0],
+	[[[["gm_gc_army_t55a_olw","gm_gc_army_t55a_olw","gm_gc_army_t55a_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_gc_army_t55am2_olw
-	[[[["gm_gc_army_t55am2b_olw","gm_gc_army_t55am2_olw","gm_gc_army_t55am2_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0],
+	[[[["gm_gc_army_t55am2b_olw","gm_gc_army_t55am2_olw","gm_gc_army_t55am2_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_gc_army_btr60pu12_olw_gm_gc_army_zsu234v1_olw
-	[[[["gm_gc_army_btr60pu12_olw","gm_gc_army_zsu234v1_olw","gm_gc_army_zsu234v1_olw","gm_gc_army_zsu234v1_olw","gm_gc_army_zsu234v1_olw"],[[0,0,0],[10,-10,0],[-10,-10,0],[-10,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0],
+	[[[["gm_gc_army_btr60pu12_olw","gm_gc_army_zsu234v1_olw","gm_gc_army_zsu234v1_olw","gm_gc_army_zsu234v1_olw","gm_gc_army_zsu234v1_olw"],[[0,0,0],[10,-10,0],[-10,-10,0],[-10,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_gc_army_zsu234v1_olw
-	[[[["gm_gc_army_zsu234v1_olw","gm_gc_army_zsu234v1_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0],
+	[[[["gm_gc_army_zsu234v1_olw","gm_gc_army_zsu234v1_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_gc_army_pt76b_olw
-	[[[["gm_gc_army_pt76b_olw","gm_gc_army_pt76b_olw"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0],
+	[[[["gm_gc_army_pt76b_olw","gm_gc_army_pt76b_olw"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_gc_army_brdm2_olw
-	[[[["gm_gc_army_brdm2_olw","gm_gc_army_brdm2_olw"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0],
+	[[[["gm_gc_army_brdm2_olw","gm_gc_army_brdm2_olw"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 	// gm_gc_army_infantry_squad_win
-	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0],
+	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_machinegunner_lmgrpk74_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_lmgrpk74_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win","gm_gc_army_rifleman_mpiak74n_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// gm_ge_army_infantry_mggroup_win
-	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_machinegunner_pk_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_pk_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
+	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_machinegunner_pk_80_win","gm_gc_army_machinegunner_assistant_mpiak74n_pk_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// gm_ge_army_infantry_atgroup_win
-	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
+	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_rpg7_80_win","gm_gc_army_antitank_assistant_mpiak74n_rpg7_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// gm_ge_army_infantry_aagroup_win
-	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antiair_mpiak74n_9k32m_80_win","gm_gc_army_antiair_mpiak74n_9k32m_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0],
+	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antiair_mpiak74n_9k32m_80_win","gm_gc_army_antiair_mpiak74n_9k32m_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.5],
 	// gm_ge_army_infantry_atgmgroup_win
-	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_fagot_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
+	[[[["gm_gc_army_squadleader_mpiak74n_80_win","gm_gc_army_antitank_mpiak74n_fagot_80_win","gm_gc_army_rifleman_mpiak74n_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// gm_gc_army_sf_infantry_specops_win
-	[[[["gm_gc_army_sf_squadleader_mpikms72_80_win","gm_gc_army_sf_machinegunner_lmgrpk_80_win","gm_gc_army_sf_marksman_svd_80_win","gm_gc_army_sf_antitank_mpikms72_rpg7_80_win","gm_gc_army_sf_demolition_pm63_80_win","gm_gc_army_sf_antitank_mpikms72_rpg18_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0]
+	[[[["gm_gc_army_sf_squadleader_mpikms72_80_win","gm_gc_army_sf_machinegunner_lmgrpk_80_win","gm_gc_army_sf_marksman_svd_80_win","gm_gc_army_sf_antitank_mpikms72_rpg7_80_win","gm_gc_army_sf_demolition_pm63_80_win","gm_gc_army_sf_antitank_mpikms72_rpg18_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5]
 ];
 [_groups_map, east, "gm_gc_army", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [-999,159],
@@ -172,11 +176,11 @@ _arr = [
 	// gm_pl_army_supply_team_01
 	[[[["gm_pl_army_ural4320_repair_olw","gm_pl_army_ural375d_refuel_olw","gm_pl_army_ural4320_reammo_olw"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_pl_army_2p16_olw
-	[[[["gm_pl_army_2p16_olw","gm_pl_army_2p16_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.5],
+	//[[[["gm_pl_army_2p16_olw","gm_pl_army_2p16_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_pl_army_2s1_olw
-	[[[["gm_pl_army_2s1_olw","gm_pl_army_2s1_olw","gm_pl_army_2s1_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.5],
+	//[[[["gm_pl_army_2s1_olw","gm_pl_army_2s1_olw","gm_pl_army_2s1_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_pl_army_ural375d_mlrs_olw
-	[[[["gm_pl_army_ural375d_mlrs_olw","gm_pl_army_ural375d_mlrs_olw","gm_pl_army_ural375d_mlrs_olw","gm_pl_army_ural375d_mlrs_olw"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
+	//[[[["gm_pl_army_ural375d_mlrs_olw","gm_pl_army_ural375d_mlrs_olw","gm_pl_army_ural375d_mlrs_olw","gm_pl_army_ural375d_mlrs_olw"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_pl_army_pt76b_olw
 	[[[["gm_pl_army_pt76b_olw","gm_pl_army_pt76b_olw"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_pl_army_t55a_olw
@@ -328,9 +332,9 @@ _arr = [
 	// gm_platoon_gm_ge_army_Leopard1a5_win
 	[[[["gm_ge_army_Leopard1a5_win","gm_ge_army_Leopard1a5_win","gm_ge_army_Leopard1a5_win","gm_ge_army_Leopard1a5_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
 	// gm_platoon_gm_ge_army_m109g_win
-	[[[["gm_ge_army_m109g_win","gm_ge_army_m109g_win","gm_ge_army_m109g_win","gm_ge_army_m109g_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
+	//[[[["gm_ge_army_m109g_win","gm_ge_army_m109g_win","gm_ge_army_m109g_win","gm_ge_army_m109g_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_platoon_gm_ge_army_kat1_463_mlrs_win
-	[[[["gm_ge_army_kat1_463_mlrs_win","gm_ge_army_kat1_463_mlrs_win","gm_ge_army_kat1_463_mlrs_win","gm_ge_army_kat1_463_mlrs_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
+	//[[[["gm_ge_army_kat1_463_mlrs_win","gm_ge_army_kat1_463_mlrs_win","gm_ge_army_kat1_463_mlrs_win","gm_ge_army_kat1_463_mlrs_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_ge_army_mechanizedInfantry_squad_m113a1g
 	[[[["gm_ge_army_m113a1g_apc_win","gm_ge_army_squadleader_g3a3_p2a1_parka_80_win","gm_ge_army_rifleman_g3a3_parka_80_win","gm_ge_army_machinegunner_mg3_parka_80_win","gm_ge_army_machinegunner_assistant_g3a3_mg3_parka_80_win","gm_ge_army_squadleader_g3a3_p2a1_parka_80_win","gm_ge_army_antitank_g3a3_pzf44_parka_80_win","gm_ge_army_antitank_assistant_g3a3_pzf44_parka_80_win","gm_ge_army_grenadier_g3a3_parka_80_win","gm_ge_army_rifleman_g3a3_parka_80_win","gm_ge_army_rifleman_g3a3_parka_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// gm_ge_army_mechanizedInfantry_squad_marder1a1a
@@ -436,7 +440,7 @@ _arr = [
 	// gm_platoon_gm_dk_army_Leopard1a3_win
 	[[[["gm_dk_army_Leopard1a3_win","gm_dk_army_Leopard1a3_win","gm_dk_army_Leopard1a3_win","gm_dk_army_Leopard1a3_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
 	// gm_platoon_gm_dk_army_m109_win
-	[[[["gm_dk_army_m109_win","gm_dk_army_m109_win","gm_dk_army_m109_win","gm_dk_army_m109_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
+	//[[[["gm_dk_army_m109_win","gm_dk_army_m109_win","gm_dk_army_m109_win","gm_dk_army_m109_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	// gm_dk_army_mechanizedInfantry_squad_m113a1dk_80
 	[[[["gm_dk_army_m113a1dk_apc_win","gm_dk_army_squadleader_g3a3_p2a1_84_win","gm_dk_army_machinegunner_mg3_84_win","gm_dk_army_machinegunner_assistant_g3a3_mg3_84_win","gm_dk_army_antitank_g3a3_pzf84_84_win","gm_dk_army_machinegunner_mg3_84_win","gm_dk_army_antitank_assistant_g3a3_pzf84_84_win","gm_dk_army_rifleman_g3a3_84_win","gm_dk_army_rifleman_g3a3_84_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// gm_dk_army_infantry_squad_84_win
