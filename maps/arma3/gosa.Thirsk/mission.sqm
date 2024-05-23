@@ -232,6 +232,7 @@ class Mission
 			name="HeadlessClient";
 			isPlayable=1;
 			id=37;
+			type="HeadlessClient_F";
 		};
 		class Item3
 		{
@@ -239,6 +240,7 @@ class Mission
 			name="HeadlessClient_1";
 			isPlayable=1;
 			id=38;
+			type="HeadlessClient_F";
 		};
 		class Item4
 		{
@@ -246,6 +248,7 @@ class Mission
 			name="HeadlessClient_2";
 			isPlayable=1;
 			id=39;
+			type="HeadlessClient_F";
 		};
 		class Item5
 		{
@@ -253,6 +256,7 @@ class Mission
 			name="HeadlessClient_3";
 			isPlayable=1;
 			id=40;
+			type="HeadlessClient_F";
 		};
 		class Item6
 		{
@@ -260,6 +264,7 @@ class Mission
 			name="HeadlessClient_4";
 			isPlayable=1;
 			id=41;
+			type="HeadlessClient_F";
 		};
 		class Item7
 		{
@@ -267,6 +272,7 @@ class Mission
 			name="HeadlessClient_5";
 			isPlayable=1;
 			id=42;
+			type="HeadlessClient_F";
 		};
 		class Item8
 		{
@@ -274,6 +280,7 @@ class Mission
 			name="HeadlessClient_6";
 			isPlayable=1;
 			id=43;
+			type="HeadlessClient_F";
 		};
 		class Item9
 		{
@@ -281,6 +288,7 @@ class Mission
 			name="HeadlessClient_7";
 			isPlayable=1;
 			id=44;
+			type="HeadlessClient_F";
 		};
 		class Item10
 		{
@@ -288,6 +296,7 @@ class Mission
 			name="HeadlessClient_8";
 			isPlayable=1;
 			id=45;
+			type="HeadlessClient_F";
 		};
 		class Item11
 		{
@@ -295,6 +304,7 @@ class Mission
 			name="HeadlessClient_9";
 			isPlayable=1;
 			id=46;
+			type="HeadlessClient_F";
 		};
 		class Item12
 		{
