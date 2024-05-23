@@ -23,7 +23,8 @@ _w = toLower worldName;
 _r = [250,2012,100];
 
 // Тип.
-if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter","chernarus_winter"]) then {_r set [0,100]};
+if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter","chernarus_winter",
+	"gm_weferlingen_winter"]) then {_r set [0,100]};
 if (_w in ["namalsk"]) then {_r set [0,160]};
 if (_w in ["utes","i44_omaha","sara"]) then {_r set [0,180]};
 if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
@@ -43,7 +44,7 @@ if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter",
 {
 	_r set [1,1944];
 };
-if (_w in ["gm_weferlingen_summer"]) then
+if (_w in ["gm_weferlingen_summer","gm_weferlingen_winter"]) then
 {
 	_r set [1,1983];
 };
