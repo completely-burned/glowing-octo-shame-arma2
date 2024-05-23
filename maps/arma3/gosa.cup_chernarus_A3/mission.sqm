@@ -2715,6 +2715,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=261;
 					type="B_W_Soldier_SL_F";
@@ -2730,6 +2731,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=262;
 					type="B_W_Soldier_F";
@@ -2746,6 +2748,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=263;
 					type="B_W_Soldier_LAT_F";
@@ -2761,6 +2764,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=264;
 					type="B_W_soldier_M_F";
@@ -2777,6 +2781,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=265;
 					type="B_W_Soldier_TL_F";
@@ -2793,6 +2798,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=266;
 					type="B_W_Soldier_AR_F";
@@ -2808,6 +2814,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=267;
 					type="B_W_Soldier_A_F";
@@ -2823,6 +2830,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=268;
 					type="B_W_Medic_F";
@@ -2852,6 +2860,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=270;
 					type="B_W_Soldier_TL_F";
@@ -2869,6 +2878,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=271;
 					type="B_W_Soldier_AT_F";
@@ -2884,6 +2894,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=272;
 					type="B_W_Soldier_AT_F";
@@ -2899,6 +2910,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=273;
 					type="B_W_Soldier_AAT_F";
@@ -2929,6 +2941,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=275;
 					type="B_W_Soldier_GL_F";
@@ -2945,6 +2958,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=276;
 					type="B_W_Soldier_F";
@@ -2976,6 +2990,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=278;
 					type="B_W_Soldier_SL_F";
@@ -2991,6 +3006,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=279;
 					type="B_W_Soldier_AR_F";
@@ -3007,6 +3023,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=280;
 					type="B_W_Soldier_GL_F";
@@ -3023,6 +3040,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=281;
 					type="B_W_soldier_M_F";
@@ -3039,6 +3057,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=282;
 					type="B_W_Soldier_AT_F";
@@ -3054,6 +3073,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=283;
 					type="B_W_Soldier_AAT_F";
@@ -3069,6 +3089,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=284;
 					type="B_W_Soldier_A_F";
@@ -3084,6 +3105,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=285;
 					type="B_W_Medic_F";
@@ -3113,6 +3135,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=287;
 					type="B_W_Soldier_TL_F";
@@ -3129,6 +3152,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=288;
 					type="B_W_Soldier_AR_F";
@@ -3144,6 +3168,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=289;
 					type="B_W_Soldier_GL_F";
@@ -3159,6 +3184,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=290;
 					type="B_W_Soldier_LAT_F";
@@ -3189,6 +3215,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=292;
 					type="B_W_Soldier_TL_F";
@@ -3205,6 +3232,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=293;
 					type="B_W_Soldier_AA_F";
@@ -3220,6 +3248,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=294;
 					type="B_W_Soldier_AA_F";
@@ -3236,6 +3265,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=295;
 					type="B_W_Soldier_AAA_F";
@@ -3265,6 +3295,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=297;
 					type="I_Soldier_SL_F";
@@ -3280,6 +3311,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=298;
 					type="I_soldier_F";
@@ -3296,6 +3328,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=299;
 					type="I_Soldier_LAT_F";
@@ -3311,6 +3344,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=300;
 					type="I_Soldier_M_F";
@@ -3327,6 +3361,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=301;
 					type="I_Soldier_TL_F";
@@ -3343,6 +3378,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=302;
 					type="I_Soldier_AR_F";
@@ -3358,6 +3394,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=303;
 					type="I_Soldier_A_F";
@@ -3373,6 +3410,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=304;
 					type="I_medic_F";
@@ -3402,6 +3440,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=306;
 					type="I_Soldier_TL_F";
@@ -3418,6 +3457,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=307;
 					type="I_Soldier_AR_F";
@@ -3433,6 +3473,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=308;
 					type="I_soldier_F";
@@ -3448,6 +3489,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=309;
 					type="I_Soldier_LAT2_F";
@@ -3477,6 +3519,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=311;
 					type="I_Sniper_F";
@@ -3493,6 +3536,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=312;
 					type="I_Spotter_F";
@@ -3522,6 +3566,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=314;
 					type="I_Soldier_TL_F";
@@ -3538,6 +3583,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=315;
 					type="I_Soldier_AT_F";
@@ -3553,6 +3599,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=316;
 					type="I_Soldier_AT_F";
@@ -3568,6 +3615,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=317;
 					type="I_Soldier_AAT_F";
@@ -3597,6 +3645,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=319;
 					type="I_Soldier_GL_F";
@@ -3612,6 +3661,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=320;
 					type="I_soldier_F";
@@ -3641,6 +3691,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=322;
 					type="I_Soldier_SL_F";
@@ -3656,6 +3707,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=323;
 					type="I_Soldier_AR_F";
@@ -3672,6 +3724,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=324;
 					type="I_Soldier_GL_F";
@@ -3688,6 +3741,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=325;
 					type="I_Soldier_M_F";
@@ -3704,6 +3758,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=326;
 					type="I_Soldier_AT_F";
@@ -3719,6 +3774,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=327;
 					type="I_Soldier_AAT_F";
@@ -3734,6 +3790,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=328;
 					type="I_Soldier_A_F";
@@ -3749,6 +3806,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=329;
 					type="I_medic_F";
@@ -3778,6 +3836,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=331;
 					type="I_Soldier_TL_F";
@@ -3794,6 +3853,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=332;
 					type="I_Soldier_AR_F";
@@ -3809,6 +3869,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=333;
 					type="I_Soldier_GL_F";
@@ -3824,6 +3885,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=334;
 					type="I_Soldier_LAT_F";
@@ -3853,6 +3915,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=336;
 					type="I_Soldier_TL_F";
@@ -3869,6 +3932,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=337;
 					type="I_Soldier_AA_F";
@@ -3884,6 +3948,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=338;
 					type="I_Soldier_AA_F";
@@ -3899,6 +3964,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=339;
 					type="I_Soldier_AAA_F";
