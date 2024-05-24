@@ -225,12 +225,6 @@ _default_west=[
 	[[[["B_MBT_01_TUSK_F","B_MBT_01_TUSK_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
 	// lxWS
 	[[[["APC_Wheeled_01_atgm_base_lxWS","APC_Wheeled_01_atgm_base_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
-	// артиллерия
-	/*
-	[[[["B_MBT_01_arty_F","B_MBT_01_arty_F","B_MBT_01_arty_F","B_MBT_01_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
-	[[[["B_MBT_01_arty_F","B_MBT_01_arty_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
-	[[[["B_MBT_01_mlrs_F","B_MBT_01_mlrs_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
-	*/
 	// авиация
 	[[
 		[["B_T_VTOL_01_infantry_F"],[[0,0,0]],["LIEUTENANT"]],
@@ -273,6 +267,14 @@ _arr = _default_west;
 				["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.1]
 	];
+	// Arty.
+	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+		_arr append [
+			[[[["B_MBT_01_arty_F","B_MBT_01_arty_F","B_MBT_01_arty_F","B_MBT_01_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
+			[[[["B_MBT_01_arty_F","B_MBT_01_arty_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
+			[[[["B_MBT_01_mlrs_F","B_MBT_01_mlrs_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5]
+		];
+	};
 [_groups_map, west, "BLU_F", _arr,
 [1990,2100], [250,999],
 ["BLU_NATO_lxWS","BLU_T_F","CUP_B_US_Army","CUP_B_USMC","BLU_W_F"]
@@ -646,11 +648,6 @@ _default_east=[
 		// O_TankSection_Heavy
 		[[[["O_MBT_04_cannon_F","O_MBT_04_cannon_F"],[[0,0,0],[10,-10,0]],
 			["LIEUTENANT","SERGEANT"]]],0.2],
-	// артиллерия
-	/*
-	[[[["O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
-	[[[["O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5],
-	*/
 	// авиация
 	[[
 		[["O_Heli_Transport_04_covered_F"],[[0,0,0]],["LIEUTENANT"]],
@@ -713,6 +710,15 @@ _arr = _default_east;
 	_arr append [
 		[[[["O_MBT_02_railgun_F","O_MBT_02_railgun_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
 	];
+	// Arty.
+	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+		_arr append [
+			// OIA_SPGPlatoon_Scorcher
+			[[[["O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
+			// OIA_SPGSection_Scorcher
+			[[[["O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5]
+		];
+	};
 [_groups_map, east, "OPF_F", _arr,
 [1990,2100], [250,999],
 []
@@ -929,6 +935,13 @@ _arr = _default_guer;
 		_arr append [
 			[[[["I_Plane_Fighter_04_F","I_Plane_Fighter_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.2]
 		];
+		// Arty.
+		if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+			_arr append [
+				[[[["I_Truck_02_MRL_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
+				[[[["I_Truck_02_MRL_F","I_Truck_02_MRL_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5]
+			];
+		};
 [_groups_map, resistance, "IND_F", _arr,
 [1990,2100], [250,999],
 []

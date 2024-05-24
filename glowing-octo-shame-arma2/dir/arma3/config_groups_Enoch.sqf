@@ -181,7 +181,7 @@ if (count _arr > 0) then {
 
 
 //-- ВСЛ
-	[_groups_map, resistance, "IND_E_F", [[
+_arr = [
 			// configName I_E_MotInf_Team
 			[[[["I_E_Offroad_01_F",
 				"I_E_soldier_TL_F","I_E_RadioOperator_F",
@@ -246,7 +246,14 @@ if (count _arr > 0) then {
 				["SERGEANT",
 				"CORPORAL","PRIVATE",
 				"PRIVATE"]]],1]
-	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+];
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		[[[["I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
+		[[[["I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5]
+	];
+};
+	[_groups_map, resistance, "IND_E_F", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [160,249],
 	["CUP_I_NAPA"]
 	] call gosa_fnc_map_groups_add;

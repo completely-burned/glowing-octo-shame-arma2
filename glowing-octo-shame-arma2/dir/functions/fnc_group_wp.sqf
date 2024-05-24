@@ -237,6 +237,16 @@ if({alive _x} count _units > 0)then{
 	};
 
 
+	// Артиллерия.
+	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+		if ("Artillery" in _grp_type) then {
+			if (isNil {_grp getVariable "gosa_taskArtilleryRegistered"}) then {
+				_grp setVariable ["gosa_taskArtilleryRegistered", _grp call lambs_wp_fnc_taskArtilleryRegister];
+			};
+		};
+	};
+
+
 	// десант вертолетный
 	if ("Helicopter" in _grp_type) then {
 
@@ -700,6 +710,16 @@ if({alive _x} count _units > 0)then{
 						_NoCreateWP = false;
 						_createWP = true;
 					};
+				};
+			};
+
+			// Артиллерия.
+			// TODO: Менять позицию после выстрела или при обнаружении противником.
+			// TODO: Выполнять задание при отсутствии союзных отрядов.
+			if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+				if ("Artillery" in _grp_type) then {
+					_NoCreateWP = true;
+					_CreateWP = false;
 				};
 			};
 
