@@ -20,7 +20,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="gosa";
+sourceName="gosa-gm";
 addons[]=
 {
 	"A3_Ui_F",
