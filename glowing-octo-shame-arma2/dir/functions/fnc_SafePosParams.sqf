@@ -6,7 +6,7 @@ diag_log format ["Log: [gosa_fnc_SafePosParams] %1", _this];
 
 private["_types","_playerDist", "_searchDistMax", "_objDist", "_waterMode",
 	"_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_distances",
-	"_safePositionRadius","_preferRoads","_roadSize"];
+	"_safePositionRadius","_preferRoads","_roadSize","_roles","_arr"];
 _types = _this select 0;
 _objDist = 2;
 _waterMode = 0;
@@ -81,6 +81,17 @@ if ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then{
 	_waterMode = 0;
 	_objDist = 30;
 	_preferRoads = false;
+};
+
+_roles = _types call gosa_fnc_getGroupType;
+
+if ("Artillery" in _roles) then {
+	_preferRoads = false;
+	_arr = [_types] call gosa_fnc_returnVehicleRange;
+	// Минимальный рекмендуемый радиус обстрела.
+	_playerDist = _arr select 2;
+	// Максимальный рекмендуемый радиус обстрела.
+	_searchDistMax = _arr select 3;
 };
 
 _roadSize = ({_x isKindOf "LandVehicle"} count _types);

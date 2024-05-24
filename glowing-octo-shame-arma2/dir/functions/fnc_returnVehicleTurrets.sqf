@@ -22,6 +22,5 @@ for "_i" from 0 to ((count _entry) - 1) do{
 	};
 };
 
-
-
+diag_log format ["Log: [fnc_returnVehicleTurrets] %1, r %2", _this, _turrets];
 _turrets
