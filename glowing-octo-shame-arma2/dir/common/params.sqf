@@ -111,40 +111,6 @@ if ({missionNamespace getVariable _str+_x > 0} count _arr <= 0) then {
 	};
 };
 
-// WS
-	// SFIA
-	_arr = ["OPF_SFIA_lxWS","IND_SFIA_lxWS"];
-	if ({missionNamespace getVariable _str+_x > 0} count _arr <= 0) then {
-		for "_i" from 0 to (count _arr -1) do {
-			_item = _arr select _i;
-			if (missionNamespace getVariable _str+_item < 0) then {
-				_arr set [_i, ""];
-			};
-		};
-		_arr = _arr -[""];
-		if (count _arr > 0) then {
-			_str0 = _str+(_arr call BIS_fnc_selectRandom);
-			missionNamespace setVariable [_str0, _n];
-			diag_log format ["Log: [params] %1 set %2", _str0, _n];
-		};
-	};
-
-	// TURA
-	_arr = ["OPF_TURA_lxWS","BLU_TURA_lxWS","IND_TURA_lxWS"];
-	if ({missionNamespace getVariable _str+_x > 0} count _arr <= 0) then {
-		for "_i" from 0 to (count _arr -1) do {
-			_item = _arr select _i;
-			if (missionNamespace getVariable _str+_item < 0) then {
-				_arr set [_i, ""];
-			};
-		};
-		_arr = _arr -[""];
-		if (count _arr > 0) then {
-			_str0 = _str+(_arr call BIS_fnc_selectRandom);
-			missionNamespace setVariable [_str0, _n];
-			diag_log format ["Log: [params] %1 set %2", _str0, _n];
-		};
-	};
 #endif
 
 gosa_param_init_done = true;
