@@ -16,3 +16,5 @@ rm ~/a2oa-server-private/mpmissions/* ; OUT="~/a2oa-server-private/mpmissions/" 
 
 # #define __ARMA3__ необходимо установить самостоятельно до версии 2.02
 find ./ -type f -exec sed -i '1s/^/#define __ARMA3__\n/' {} \;
+
+find ~/*/mpmissions/ -not -iname '*v0-0-5-942*' \( -iname '*glowing-octo-shame*.pbo' -or -iname '*gosa*.pbo' \) -print -delete
