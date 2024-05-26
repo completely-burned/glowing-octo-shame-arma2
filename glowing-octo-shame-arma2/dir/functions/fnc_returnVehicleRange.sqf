@@ -14,7 +14,9 @@ for "_i" from 0 to (count _vehicles -1) do {
 		diag_log format ["Log: [fnc_returnVehicleRange] %1", [_veh, _weapons select _i_veh, _range]];
 		// [_minR, _maxR, _midR_min, _midR_max];
 		_n = _range select 0;
-		if (_n > 0) then {
+		if (_n > 0 or
+			_veh isKindOf "APC_Wheeled_01_mortar_base_lxWS") then
+		{
 			if (isNil "_minR") then {
 				_minR = _n;
 			}else{
