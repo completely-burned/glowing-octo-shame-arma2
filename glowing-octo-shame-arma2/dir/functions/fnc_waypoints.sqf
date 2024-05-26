@@ -6,7 +6,7 @@
 	diag_log format ["Log: [fnc_waypoints] start %1", _this];
 private ["_wpType_TrUNLOAD","_leader","_cfgWea","_b",
 	"_minDist","_minDeep","_arr","_worldSize","_n",
-	"_wpType_TrUNLOAD_Plane",
+	"_wpType_TrUNLOAD_Plane","_wpDistZero",
 	"_island","_allowPos","_obj",
 	"_true","_dir","_dist2","_testPos","_limit"];
 
@@ -19,8 +19,10 @@ _wpType_TrUNLOAD = "TR UNLOAD";
 #ifdef __ARMA3__
 	// Тип маршрута "сброс груза" не сажает самолёт.
 	_wpType_TrUNLOAD_Plane = "UNHOOK";
+	_wpDistZero = -1;
 #else
 	_wpType_TrUNLOAD_Plane = _wpType_TrUNLOAD;
+	_wpDistZero = 0;
 #endif
 
 if(!isNil "_leader")then{
@@ -228,7 +230,7 @@ if(!isNil "_leader")then{
 		if("SUPPORT" in _grp_type)then{
 			_WaypointType = "SUPPORT";
 			_pos = _leaderPos;
-			_maxDist = -1;
+			_maxDist = _wpDistZero;
 		};
 
 		// лодки позиция маршрута
@@ -265,7 +267,7 @@ if(!isNil "_leader")then{
 						#endif
 							_b = false;
 							_pos = _testPos;
-							_maxDist = -1;
+							_maxDist = _wpDistZero;
 						#ifdef __A2OA__
 						};
 						#endif
@@ -282,32 +284,46 @@ if(!isNil "_leader")then{
 					};
 				};
 
-				if(_landing)then{
-					_true = true;
-					_testPos = [];
-					_limit = 1000;
-					while {_limit > 0 && _true && ({alive _x} count _units > 0)} do {
+				_testPos = [];
+				_limit = 1000;
+				// TODO: Нужна функция.
+				if (_landing) then {
+					while {_limit > 0 && ({alive _x} count _units > 0)} do {
+						_limit = _limit -1;
 						_dir = random 360;
 						_dist2 = random _maxDist;
-						_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
-						_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 0, true]);
-						if(count _testPos > 0 or (({alive _x} count _units) == 0))then {_true = false};
+						_arr = ([(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]
+							isFlatEmpty [-1, -1, -1, -1, 0, true]);
+						if (count _arr > 0) then {
+							// FIXME: Должно быть над водой?
+							_n = 1000;
+							while {_n > 0 && ({alive _x} count _units > 0)} do {
+								_n = _n -1;
+								_dir = random 360;
+								// isFlatEmpty position is over shoreline (< ~25 m from water)
+								_dist2 = random 50;
+								_testPos = ([(_arr select 0) + _dist2*sin _dir, (_arr select 1) + _dist2*cos _dir]
+									isFlatEmpty [-1, -1, -1, -1, 2, false]);
+								if (count _testPos > 0 or (({alive _x} count _units) <= 0)) then {
+									_n = -1;
+									_limit = -1;
+								};
+							};
+						};
 					};
-					if(count _testPos > 0)then {_pos = _testPos; _maxDist = 0};
-					_limit = _limit -1;
 				}else{
-					_true = true;
-					_testPos = [];
-					_limit = 1000;
-					while {_limit > 0 && _true && ({alive _x} count _units > 0)} do {
+					while {_limit > 0 && ({alive _x} count _units > 0)} do {
+						_limit = _limit -1;
 						_dir = random 360;
 						_dist2 = random _maxDist;
 						_testPos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
 						_testPos = (_testPos isFlatEmpty [-1, -1, -1, -1, 2, false]);
-						if(count _testPos > 0 or (({alive _x} count _units) == 0))then {_true = false};
+						if (count _testPos > 0 or (({alive _x} count _units) <= 0)) then {_limit = -1};
 					};
-					if(count _testPos > 0)then {_pos = _testPos; _maxDist = 0};
-					_limit = _limit -1;
+				};
+				if (count _testPos > 0) then {
+					_pos = _testPos;
+					_maxDist = _wpDistZero;
 				};
 			};
 		};
@@ -337,7 +353,7 @@ if(!isNil "_leader")then{
 			)then{
 				_WaypointType = "GETOUT";
 			}else{
-				_WaypointType = "UNLOAD";
+				_WaypointType = _wpType_TrUNLOAD;
 			};
 		};
 
