@@ -61,6 +61,7 @@ _cfg_factions_def = [["OPF_F"],["BLU_F"],["IND_F"]];
 
 
 #include "config_groups_CSLA.sqf"
+#include "config_groups_VN.sqf"
 #include "config_groups_GM.sqf"
 
 #include "config_groups_BWA3.sqf"

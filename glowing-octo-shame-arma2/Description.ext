@@ -222,6 +222,25 @@ class Params {
 			default=-1;
 		};
 
+		class gosa_faction_multiplier_VN_PAVN {
+			title="FACTION: VN_PAVN";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_VN_MACV {
+			title="FACTION: VN_MACV";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_VN_ARVN {
+			title="FACTION: VN_ARVN";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+
 		class gosa_faction_multiplier_gm_gc_army {
 			title="FACTION: gm_gc_army";
 			values[] = {-1,1,0};
