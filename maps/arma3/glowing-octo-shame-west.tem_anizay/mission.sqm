@@ -165,7 +165,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa tem_anizay West v0.0.5.940 DEBUG";
+		briefingName="CO 00 gosa tem_anizay West v0.0.5.941 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0;
 		startWind=0.10000001;

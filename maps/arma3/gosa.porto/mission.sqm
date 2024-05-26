@@ -202,7 +202,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa porto Multi v0.0.5.940 DEBUG";
+		briefingName="CO 00 gosa porto Multi v0.0.5.941 DEBUG";
 		startWeather=0.1;
 		startWind=0.1;
 		startWaves=0.1;

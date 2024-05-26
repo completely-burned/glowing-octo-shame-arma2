@@ -182,7 +182,7 @@ class Mission
 	appId=1294440;
 	class Intel
 	{
-		briefingName="CSLA CO 00 gosa cain Multi v0.0.5.940 DEBUG";
+		briefingName="CSLA CO 00 gosa cain Multi v0.0.5.941 DEBUG";
 		startWeather=0.3;
 		startWind=0.1;
 		startWaves=0.1;
