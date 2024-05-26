@@ -685,11 +685,11 @@ _arr = _default_east;
 		[[[["O_Soldier_TL_F","O_soldier_GL_F","O_soldier_AR_F","O_soldier_F","O_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
 			["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.1],
-		[[[["O_Boat_Armed_01_minigun_F"],[],["LIEUTENANT"]],
+		[[[["O_Boat_Armed_01_hmg_F"],[],["LIEUTENANT"]],
 				[["O_soldier_SL_F","O_soldier_TL_F","O_soldier_F","O_soldier_LAT_F","O_soldier_M_F","O_soldier_AR_F","O_soldier_A_F","O_medic_F"],[[30,30,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
 				["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.1],
-		[[[["O_Boat_Armed_01_minigun_F"],[],["LIEUTENANT"]],
+		[[[["O_Boat_Armed_01_hmg_F"],[],["LIEUTENANT"]],
 				[["O_soldier_SL_F","O_soldier_AR_F","O_soldier_GL_F","O_soldier_M_F","O_soldier_AT_F","O_soldier_AAT_F","O_soldier_A_F","O_medic_F"],[[30,30,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],
 				["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.1]
