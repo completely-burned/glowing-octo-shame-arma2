@@ -17,9 +17,6 @@ class EditorData
 	class Camera
 	{
 		pos[]={4713.5103,91.910477,5424.7148};
-		dir[]={0.11123957,-0.060590316,0.99195218};
-		up[]={0.0067526964,0.99816132,0.060215581};
-		aside[]={0.99377716,-4.1291059e-009,-0.11144442};
 	};
 };
 binarizationWanted=0;
@@ -33,18 +30,13 @@ addons[]=
 	"characters_1_F_lxWS",
 	"A3_Characters_F",
 	"A3_Structures_F_Mil_TentHangar",
-	"ace_rearm",
-	"ace_dragging",
-	"A3_Characters_F_Tank",
-	"ace_explosives",
-	"ace_gforces",
-	"ace_parachute"
+	"A3_Characters_F_Tank"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=11;
+		items=7;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -89,38 +81,10 @@ class AddonsMetaData
 		};
 		class Item6
 		{
-			className="ace_rearm";
-			name="ACE3 - Rearm";
-			author="Команда ACE";
-			url="https://ace3.acemod.org/";
-		};
-		class Item7
-		{
-			className="ace_dragging";
-			name="ACE3 - Dragging";
-			author="Команда ACE";
-			url="https://ace3.acemod.org/";
-		};
-		class Item8
-		{
 			className="A3_Characters_F_Tank";
 			name="Arma 3 Tank - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
-		};
-		class Item9
-		{
-			className="ace_explosives";
-			name="ACE3 - Explosives";
-			author="Команда ACE";
-			url="https://ace3.acemod.org/";
-		};
-		class Item10
-		{
-			className="ace_parachute";
-			name="ACE3 - Parachute";
-			author="Команда ACE";
-			url="https://ace3.acemod.org/";
 		};
 	};
 };
