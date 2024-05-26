@@ -1,4 +1,4 @@
-	[_groups_map, east, "OPF_SFIA_lxWS", [[
+_arr = [
 		// configName OSFIA_MotInf_Team_lxWS
 		[[[["O_SFIA_Offroad_armed_lxWS","O_SFIA_soldier_at_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.5],
 		// configName OSFIA_MotInf_AT_lxWS
@@ -29,7 +29,14 @@
 		[[[["O_SFIA_Soldier_TL_lxWS","O_SFIA_soldier_aa_lxWS","O_SFIA_soldier_aa_lxWS","O_SFIA_Soldier_AAA_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 		// configName OSFIA_InfSquad_Weapons_lxWS
 		[[[["O_SFIA_Soldier_TL_lxWS","O_SFIA_Soldier_AR_lxWS","O_SFIA_Soldier_GL_lxWS","O_SFIA_sharpshooter_lxWS","O_SFIA_soldier_at_lxWS","O_SFIA_soldier_lxWS","O_SFIA_Soldier_AAT_lxWS","O_SFIA_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
-	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+];
+// артиллерия
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		[[[["O_SFIA_Truck_02_MRL_lxWS","O_SFIA_Truck_02_MRL_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1]
+	];
+};
+	[_groups_map, east, "OPF_SFIA_lxWS", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [275,999],
 	["IND_SFIA_lxWS", "OPF_F"]
 	] call gosa_fnc_map_groups_add;
@@ -53,7 +60,7 @@
 	] call gosa_fnc_map_groups_add;
 
 
-	[_groups_map, west, "BLU_NATO_lxWS", [[
+_arr = [
 		// configName BUS_D_Support_CLS_lxWS
 		[[[["B_D_soldier_TL_lxWS","B_D_soldier_AR_lxWS","B_D_medic_lxWS","B_D_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 		// configName BUS_D_Support_EOD_lxWS
@@ -99,13 +106,6 @@
 		// configName BUS_D_TankSection_lxWS
 		[[[["B_D_MBT_01_cannon_lxWS","B_D_MBT_01_cannon_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 
-		// configName BUS_D_SPGPlatoon_Scorcher_lxWS
-		//[[[["B_D_MBT_01_arty_lxWS","B_D_MBT_01_arty_lxWS","B_D_MBT_01_arty_lxWS","B_D_MBT_01_arty_lxWS"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
-		// configName BUS_D_SPGSection_Scorcher_lxWS
-		//[[[["B_D_MBT_01_arty_lxWS","B_D_MBT_01_arty_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-		// configName BUS_D_SPGSection_MLRS_lxWS
-		//[[[["B_D_MBT_01_mlrs_lxWS","B_D_MBT_01_mlrs_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-
 		// configName lxWS_BUS_D_SmallTeam_UAV
 		//[[[["B_D_soldier_TL_lxWS","B_D_soldier_UAV01_lxWS","B_UAV_01_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 		// configName BUS_D_ReconTeam_UGV_lxWS
@@ -136,7 +136,22 @@
 		[[[["B_D_recon_TL_lxWS","B_D_recon_M_lxWS","B_D_recon_medic_lxWS","B_D_recon_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 		// configName BUS_D_ReconSentry_lxWS
 		[[[["B_D_recon_M_lxWS","B_D_recon_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5]
-	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+];
+
+// артиллерия
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		[[[["B_D_APC_Wheeled_01_mortar_lxWS","B_D_APC_Wheeled_01_mortar_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.05],
+		// BUS_D_SPGPlatoon_Scorcher_lxWS
+		[[[["B_D_MBT_01_arty_lxWS","B_D_MBT_01_arty_lxWS","B_D_MBT_01_arty_lxWS","B_D_MBT_01_arty_lxWS"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.05],
+		// BUS_D_SPGSection_Scorcher_lxWS
+		[[[["B_D_MBT_01_arty_lxWS","B_D_MBT_01_arty_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.05],
+		// BUS_D_SPGSection_MLRS_lxWS
+		[[[["B_D_MBT_01_mlrs_lxWS","B_D_MBT_01_mlrs_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.05]
+	];
+};
+
+	[_groups_map, west, "BLU_NATO_lxWS", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [300,999],
 	["BLU_T_F", "BLU_F","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
