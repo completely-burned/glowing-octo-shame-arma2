@@ -249,8 +249,8 @@ _arr = [
 ];
 if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	_arr append [
-		[[[["I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.5],
-		[[[["I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.5]
+		[[[["I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.1],
+		[[[["I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1]
 	];
 };
 	[_groups_map, resistance, "IND_E_F", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
