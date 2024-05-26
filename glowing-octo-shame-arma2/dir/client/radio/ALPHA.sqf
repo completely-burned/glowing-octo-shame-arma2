@@ -8,3 +8,6 @@ cameraon commandFollow leader cameraon;
 } forEach units cameraon;
 
 setAccTime 1;
+
+player allowDamage false;
+player setCaptive true;
