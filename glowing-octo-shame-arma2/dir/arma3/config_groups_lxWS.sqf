@@ -155,24 +155,6 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	["CUP_I_PMC_ION"]
 	] call gosa_fnc_map_groups_add;
 
-	[_groups_map, west, "BLU_TURA_lxWS", [[
-		// configName B_Tura_MotInf_Team_lxWS
-		[[[["B_Tura_Offroad_armor_armed_lxWS","B_Tura_hireling_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.5],
-		// configName B_Tura_MotInf_AT_lxWS
-		[[[["B_Tura_Offroad_armor_AT_lxWS","B_Tura_hireling_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.5],
-		// configName B_Tura_MotInf_Reinforce_lxWS
-		[[[["B_Tura_Offroad_armor_lxWS","B_Tura_enforcer_lxWS","B_Tura_scout_lxWS","B_Tura_hireling_lxWS","B_Tura_defector_lxWS","B_Tura_medic2_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[],1]],0.5],
-		// configName B_Tura_InfSquad_lxWS
-		[[[["B_Tura_enforcer_lxWS","B_Tura_scout_lxWS","B_Tura_hireling_lxWS","B_Tura_watcher_lxWS","B_Tura_defector_lxWS","B_Tura_deserter_lxWS","B_Tura_thug_lxWS","B_Tura_medic2_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-		// configName B_Tura_InfSentry_lxWS
-		[[[["B_Tura_watcher_lxWS","B_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
-		// configName B_Tura_InfTeam_lxWS
-		[[[["B_Tura_enforcer_lxWS","B_Tura_hireling_lxWS","B_Tura_watcher_lxWS","B_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
-	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
-	["OPF_TURA_lxWS", "IND_TURA_lxWS", "BLU_F","BLU_W_F"]
-	] call gosa_fnc_map_groups_add;
-
 	[_groups_map, west, "BLU_UN_lxWS", [[
 		// configName BUNA_MotInf_Team
 		[[[["B_UN_MRAP_01_lxWS","B_UN_soldier_AR_lxWS","B_UN_Soldier_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
@@ -270,4 +252,22 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [300,999],
 	["BLU_TURA_lxWS", "IND_TURA_lxWS", "OPF_F"]
+	] call gosa_fnc_map_groups_add;
+
+	[_groups_map, west, "BLU_TURA_lxWS", [[
+		// configName B_Tura_MotInf_Team_lxWS
+		[[[["B_Tura_Offroad_armor_armed_lxWS","B_Tura_hireling_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.5],
+		// configName B_Tura_MotInf_AT_lxWS
+		[[[["B_Tura_Offroad_armor_AT_lxWS","B_Tura_hireling_lxWS"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.5],
+		// configName B_Tura_MotInf_Reinforce_lxWS
+		[[[["B_Tura_Offroad_armor_lxWS","B_Tura_enforcer_lxWS","B_Tura_scout_lxWS","B_Tura_hireling_lxWS","B_Tura_defector_lxWS","B_Tura_medic2_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[],1]],0.5],
+		// configName B_Tura_InfSquad_lxWS
+		[[[["B_Tura_enforcer_lxWS","B_Tura_scout_lxWS","B_Tura_hireling_lxWS","B_Tura_watcher_lxWS","B_Tura_defector_lxWS","B_Tura_deserter_lxWS","B_Tura_thug_lxWS","B_Tura_medic2_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+		// configName B_Tura_InfSentry_lxWS
+		[[[["B_Tura_watcher_lxWS","B_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5],
+		// configName B_Tura_InfTeam_lxWS
+		[[[["B_Tura_enforcer_lxWS","B_Tura_hireling_lxWS","B_Tura_watcher_lxWS","B_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
+	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1990,2100], [300,999],
+	["OPF_TURA_lxWS", "IND_TURA_lxWS", "BLU_F","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
