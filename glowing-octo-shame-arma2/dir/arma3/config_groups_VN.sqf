@@ -40,8 +40,6 @@ _arr = [
 	[[[["vn_o_men_nva_65_01","vn_o_men_nva_65_02","vn_o_men_nva_65_03","vn_o_men_nva_65_04","vn_o_men_nva_65_05","vn_o_men_nva_65_06","vn_o_men_nva_65_07","vn_o_men_nva_65_08","vn_o_men_nva_65_09","vn_o_men_nva_65_10","vn_o_men_nva_65_11","vn_o_men_nva_65_10","vn_o_men_nva_65_13","vn_o_men_nva_65_14","vn_o_men_nva_65_08","vn_o_men_nva_65_11","vn_o_men_nva_65_14","vn_o_men_nva_65_03","vn_o_men_nva_65_04","vn_o_men_nva_65_05","vn_o_men_nva_65_06","vn_o_men_nva_65_07","vn_o_men_nva_65_08"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0],[0,-75,0],[0,-80,0],[0,-85,0],[0,-90,0],[0,-95,0],[0,-100,0],[0,-105,0],[0,-110,0],[0,-115,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// vn_o_group_men_nva_65_04
 	[[[["vn_o_men_nva_65_02","vn_o_men_nva_65_05","vn_o_men_nva_65_09","vn_o_men_nva_65_10"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_05
-	[[[["vn_o_men_nva_65_35","vn_o_men_nva_65_37","vn_o_men_nva_65_36"],[[0,-5,0],[0,-10,0],[0,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE"]]],0.5],
 	// vn_o_group_men_nva_65_06
 	[[[["vn_o_men_nva_65_01","vn_o_men_nva_65_02","vn_o_men_nva_65_12","vn_o_men_nva_65_12","vn_o_men_nva_65_13","vn_o_men_nva_65_08"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["MAJOR","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// vn_o_group_men_nva_65_07
@@ -88,16 +86,12 @@ _arr = [
 	[[[["vn_o_wheeled_z157_mg_02","vn_o_men_nva_22","vn_o_men_nva_25","vn_o_men_nva_25"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_motor_nva_07
 	[[[["vn_o_wheeled_z157_01","vn_o_men_nva_15","vn_o_men_nva_16","vn_o_men_nva_17","vn_o_men_nva_18","vn_o_men_nva_19","vn_o_men_nva_20","vn_o_men_nva_21","vn_o_men_nva_22","vn_o_men_nva_23","vn_o_men_nva_24","vn_o_men_nva_25","vn_o_men_nva_26","vn_o_men_nva_27","vn_o_men_nva_28","vn_o_men_nva_28","vn_o_men_nva_16"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_08
-	[[[["vn_o_bicycle_02","vn_o_bicycle_02","vn_o_bicycle_02","vn_o_bicycle_02","vn_o_bicycle_02"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_09
-	[[[["vn_o_bicycle_01","vn_o_bicycle_01","vn_o_bicycle_01","vn_o_bicycle_01","vn_o_bicycle_01"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// vn_o_group_motor_nva_10
 	[[[["vn_o_wheeled_btr40_mg_06","vn_o_men_nva_16","vn_o_men_nva_20","vn_o_men_nva_18"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nva_01
 	[[[["vn_o_wheeled_btr40_mg_01","vn_o_wheeled_btr40_01","vn_o_wheeled_btr40_02","vn_o_wheeled_btr40_mg_02"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nva_02
-	[[[["vn_o_wheeled_btr40_mg_01","vn_o_wheeled_z157_mg_02","vn_o_wheeled_z157_04","vn_o_wheeled_z157_03"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	//[[[["vn_o_wheeled_btr40_mg_01","vn_o_wheeled_z157_mg_02","vn_o_wheeled_z157_04","vn_o_wheeled_z157_03"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nva_07
 	[[[["vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_01"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 	// vn_o_group_mech_nva_08
@@ -112,6 +106,7 @@ _arr = [
 	[[[["vn_o_wheeled_btr40_mg_04","vn_o_wheeled_btr40_mg_05","vn_o_wheeled_btr40_mg_06","vn_o_wheeled_btr40_mg_06"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nva_13
 	[[[["vn_o_armor_m577_01","vn_o_armor_m113_01","vn_o_armor_m577_02","vn_o_armor_m113_acav_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// Arty "vn_o_armor_m125_01"
 	// vn_o_group_mech_nva_14
 	[[[["vn_o_armor_m113_01","vn_o_armor_m125_01","vn_o_armor_m125_01","vn_o_armor_m113_acav_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_armor_nva_01
@@ -152,10 +147,6 @@ _arr = [
 	[[[["vn_o_wheeled_z157_mg_02_nva65","vn_o_men_nva_65_22","vn_o_men_nva_65_25","vn_o_men_nva_65_25"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_motor_nva_65_07
 	[[[["vn_o_wheeled_z157_01_nva65","vn_o_men_nva_65_15","vn_o_men_nva_65_16","vn_o_men_nva_65_17","vn_o_men_nva_65_18","vn_o_men_nva_65_19","vn_o_men_nva_65_20","vn_o_men_nva_65_21","vn_o_men_nva_65_22","vn_o_men_nva_65_23","vn_o_men_nva_65_24","vn_o_men_nva_65_25","vn_o_men_nva_65_26","vn_o_men_nva_65_27","vn_o_men_nva_65_28","vn_o_men_nva_65_28","vn_o_men_nva_65_16"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_65_08
-	[[[["vn_o_bicycle_02_nva65","vn_o_bicycle_02_nva65","vn_o_bicycle_02_nva65","vn_o_bicycle_02_nva65","vn_o_bicycle_02_nva65"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_65_09
-	[[[["vn_o_bicycle_01_nva65","vn_o_bicycle_01_nva65","vn_o_bicycle_01_nva65","vn_o_bicycle_01_nva65","vn_o_bicycle_01_nva65"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// vn_o_group_motor_nva_65_10
 	[[[["vn_o_wheeled_btr40_mg_06_nva65","vn_o_men_nva_65_16","vn_o_men_nva_65_20","vn_o_men_nva_65_18"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nva_65_01
@@ -208,8 +199,7 @@ _arr = [
 	[[[["vn_o_wheeled_z157_mg_02_nvam","vn_o_men_nva_marine_08","vn_o_men_nva_marine_11","vn_o_men_nva_marine_11"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_motor_nvam_07
 	[[[["vn_o_wheeled_z157_01_nvam","vn_o_men_nva_marine_01","vn_o_men_nva_marine_02","vn_o_men_nva_marine_03","vn_o_men_nva_marine_04","vn_o_men_nva_marine_05","vn_o_men_nva_marine_06","vn_o_men_nva_marine_07","vn_o_men_nva_marine_08","vn_o_men_nva_marine_09","vn_o_men_nva_marine_10","vn_o_men_nva_marine_11","vn_o_men_nva_marine_12","vn_o_men_nva_marine_13","vn_o_men_nva_marine_14","vn_o_men_nva_marine_14","vn_o_men_nva_marine_03"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nvam_08
-	[[[["vn_o_bicycle_01_nvam","vn_o_bicycle_01_nvam","vn_o_bicycle_01_nvam","vn_o_bicycle_01_nvam","vn_o_bicycle_01_nvam"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
+	// Arty "vn_o_wheeled_btr40_mg_06_nvam"
 	// vn_o_group_motor_nvam_10
 	[[[["vn_o_wheeled_btr40_mg_06_nvam","vn_o_men_nva_marine_02","vn_o_men_nva_marine_06","vn_o_men_nva_marine_04"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nvam_01
@@ -226,6 +216,7 @@ _arr = [
 	[[[["vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_02_nvam","vn_o_armor_btr50pk_02_nvam","vn_o_armor_btr50pk_02_nvam"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nvam_11
 	[[[["vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_03_nvam","vn_o_armor_btr50pk_03_nvam","vn_o_armor_btr50pk_01_nvam"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// Arty "vn_o_wheeled_btr40_mg_06_nvam"
 	// vn_o_group_mech_nvam_12
 	[[[["vn_o_wheeled_btr40_mg_04_nvam","vn_o_wheeled_btr40_mg_05_nvam","vn_o_wheeled_btr40_mg_06_nvam","vn_o_wheeled_btr40_mg_06_nvam"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_air_01
@@ -308,14 +299,10 @@ _arr = [
 	[[[["vn_b_men_army_01","vn_b_men_army_22","vn_b_men_army_22","vn_b_men_army_22"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
 	// vn_b_group_men_army_05
 	[[[["vn_b_men_army_23","vn_b_men_army_25","vn_b_men_army_24"],[[0,-5,0],[0,-10,0],[0,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE"]]],0.5],
-	// vn_b_group_men_army_06
-	[[[["vn_b_men_army_26","vn_b_men_army_26","vn_b_men_army_26"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.5],
 	// vn_b_group_men_army_07
 	[[[["vn_b_men_army_29","vn_b_men_army_30","vn_b_men_army_31"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.5],
 	// vn_b_group_men_army_08
 	[[[["vn_b_men_army_28","vn_b_men_army_22","vn_b_men_army_08","vn_b_men_army_13","vn_b_men_army_20","vn_b_men_army_21"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["MAJOR","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_b_group_men_army_09
-	[[[["vn_b_men_army_13","vn_b_men_army_14"],[[0,-5,0],[0,-10,0]],["PRIVATE","SERGEANT"]]],0.5],
 	// vn_b_group_men_lrrp_01
 	[[[["vn_b_men_lrrp_01","vn_b_men_lrrp_02","vn_b_men_lrrp_03","vn_b_men_lrrp_04","vn_b_men_lrrp_05","vn_b_men_lrrp_06"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// vn_b_group_men_navy_01
@@ -360,6 +347,7 @@ _arr = [
 	[[[["vn_b_wheeled_m151_mg_03","vn_b_wheeled_m151_mg_06","vn_b_wheeled_m151_mg_06","vn_b_wheeled_m151_mg_04"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_b_group_mech_army_13
 	[[[["vn_b_armor_m577_01","vn_b_armor_m113_01","vn_b_armor_m577_02","vn_b_armor_m113_acav_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// Arty "vn_b_armor_m125_01"
 	// vn_b_group_mech_army_14
 	[[[["vn_b_armor_m113_01","vn_b_armor_m125_01","vn_b_armor_m125_01","vn_b_armor_m113_acav_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_b_group_mech_army_15
@@ -538,8 +526,6 @@ _arr = [
 	[[[["vn_b_men_usmc_66_23","vn_b_men_usmc_66_25","vn_b_men_usmc_66_24"],[[0,-5,0],[0,-10,0],[0,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE"]]],0.5],
 	// vn_b_group_men_usmc_66_06
 	[[[["vn_b_men_usmc_66_04","vn_b_men_usmc_66_12","vn_b_men_usmc_66_05"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_b_group_men_usmc_66_07
-	[[[["vn_b_men_usmc_66_26","vn_b_men_usmc_66_27","vn_b_men_usmc_66_28"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.5],
 	// vn_b_group_men_usmc_66_08
 	[[[["vn_b_men_usmc_66_01","vn_b_men_usmc_66_17","vn_b_men_usmc_66_21","vn_b_men_usmc_66_03","vn_b_men_usmc_66_03","vn_b_men_usmc_66_10"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["CAPTAIN","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// vn_b_group_men_usmc_66_09
