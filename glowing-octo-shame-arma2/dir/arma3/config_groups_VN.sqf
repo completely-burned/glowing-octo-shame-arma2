@@ -98,12 +98,6 @@ _arr = [
 	[[[["vn_o_wheeled_btr40_mg_01","vn_o_wheeled_btr40_01","vn_o_wheeled_btr40_02","vn_o_wheeled_btr40_mg_02"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nva_02
 	[[[["vn_o_wheeled_btr40_mg_01","vn_o_wheeled_z157_mg_02","vn_o_wheeled_z157_04","vn_o_wheeled_z157_03"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nva_03
-	[[[["vn_o_wheeled_btr40_mg_01","vn_o_wheeled_z157_ammo","vn_o_wheeled_z157_fuel","vn_o_wheeled_z157_repair","vn_o_wheeled_z157_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nva_04
-	[[[["vn_o_wheeled_btr40_mg_02","vn_o_wheeled_z157_02","vn_o_wheeled_z157_fuel","vn_o_wheeled_z157_01","vn_o_wheeled_btr40_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nva_05
-	[[[["vn_o_wheeled_btr40_mg_02","vn_o_wheeled_z157_mg_01","vn_o_wheeled_z157_fuel","vn_o_wheeled_z157_mg_02","vn_o_wheeled_z157_ammo","vn_o_wheeled_z157_01","vn_o_wheeled_btr40_mg_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0],[0,-72,0],[0,-84,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL"]]],0.5],
 	// vn_o_group_mech_nva_07
 	[[[["vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_01"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 	// vn_o_group_mech_nva_08
@@ -168,12 +162,6 @@ _arr = [
 	[[[["vn_o_wheeled_btr40_mg_01_nva65","vn_o_wheeled_btr40_01_nva65","vn_o_wheeled_btr40_02_nva65","vn_o_wheeled_btr40_mg_02_nva65"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nva_65_02
 	[[[["vn_o_wheeled_btr40_mg_01_nva65","vn_o_wheeled_z157_mg_02_nva65","vn_o_wheeled_z157_04_nva65","vn_o_wheeled_z157_03_nva65"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nva_65_03
-	[[[["vn_o_wheeled_btr40_mg_01_nva65","vn_o_wheeled_z157_ammo_nva65","vn_o_wheeled_z157_fuel_nva65","vn_o_wheeled_z157_repair_nva65","vn_o_wheeled_z157_02_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nva_65_04
-	[[[["vn_o_wheeled_btr40_mg_02_nva65","vn_o_wheeled_z157_02_nva65","vn_o_wheeled_z157_fuel_nva65","vn_o_wheeled_z157_01_nva65","vn_o_wheeled_btr40_02_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nva_65_05
-	[[[["vn_o_wheeled_btr40_mg_02_nva65","vn_o_wheeled_z157_mg_01_nva65","vn_o_wheeled_z157_fuel_nva65","vn_o_wheeled_z157_mg_02_nva65","vn_o_wheeled_z157_ammo_nva65","vn_o_wheeled_z157_01_nva65","vn_o_wheeled_btr40_mg_03_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0],[0,-72,0],[0,-84,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL"]]],0.5],
 	// vn_o_group_mech_nva_65_07
 	[[[["vn_o_armor_btr50pk_01_nva65","vn_o_armor_btr50pk_01_nva65"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 	// vn_o_group_mech_nva_65_08
@@ -228,12 +216,6 @@ _arr = [
 	[[[["vn_o_wheeled_btr40_mg_01_nvam","vn_o_wheeled_btr40_01_nvam","vn_o_wheeled_btr40_02_nvam","vn_o_wheeled_btr40_mg_02_nvam"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_o_group_mech_nvam_02
 	[[[["vn_o_wheeled_btr40_mg_01_nvam","vn_o_wheeled_z157_mg_02_nvam","vn_o_wheeled_z157_04_nvam","vn_o_wheeled_z157_03_nvam"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nvam_03
-	[[[["vn_o_wheeled_btr40_mg_01_nvam","vn_o_wheeled_z157_ammo_nvam","vn_o_wheeled_z157_fuel_nvam","vn_o_wheeled_z157_repair_nvam","vn_o_wheeled_z157_02_nvam"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nvam_04
-	[[[["vn_o_wheeled_btr40_mg_02_nvam","vn_o_wheeled_z157_02_nvam","vn_o_wheeled_z157_fuel_nvam","vn_o_wheeled_z157_01_nvam","vn_o_wheeled_btr40_02_nvam"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nvam_05
-	[[[["vn_o_wheeled_btr40_mg_02_nvam","vn_o_wheeled_z157_mg_01_nvam","vn_o_wheeled_z157_fuel_nvam","vn_o_wheeled_z157_mg_02_nvam","vn_o_wheeled_z157_ammo_nvam","vn_o_wheeled_z157_01_nvam","vn_o_wheeled_btr40_mg_03_nvam"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0],[0,-72,0],[0,-84,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL"]]],0.5],
 	// vn_o_group_mech_nvam_07
 	[[[["vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_01_nvam"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 	// vn_o_group_mech_nvam_08
@@ -364,14 +346,6 @@ _arr = [
 	[[[["vn_b_wheeled_m151_mg_03","vn_b_wheeled_m151_01","vn_b_wheeled_m151_02","vn_b_wheeled_m151_mg_04"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_b_group_mech_army_02
 	[[[["vn_b_wheeled_m151_mg_03_mp","vn_b_wheeled_m151_01_mp","vn_b_wheeled_m151_02_mp","vn_b_wheeled_m151_mg_04_mp"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_b_group_mech_army_03
-	[[[["vn_b_wheeled_m54_ammo_airport","vn_b_wheeled_m54_fuel_airport","vn_b_wheeled_m54_repair_airport","vn_b_wheeled_m54_01_airport","vn_b_wheeled_m151_mg_04_mp"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","LIEUTENANT"]]],0.5],
-	// vn_b_group_mech_army_04
-	[[[["vn_b_wheeled_m151_mg_03","vn_b_wheeled_m54_02","vn_b_wheeled_m54_fuel","vn_b_wheeled_m54_01","vn_b_wheeled_m151_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_b_group_mech_army_05
-	[[[["vn_b_wheeled_m54_mg_01","vn_b_wheeled_m54_fuel","vn_b_wheeled_m54_mg_02","vn_b_wheeled_m54_ammo","vn_b_wheeled_m54_02","vn_b_wheeled_m54_mg_03","vn_b_wheeled_m151_mg_04"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0],[0,-72,0],[0,-84,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","LIEUTENANT"]]],0.5],
-	// vn_b_group_mech_army_06
-	[[[["vn_b_wheeled_m54_mg_03","vn_b_wheeled_m54_ammo","vn_b_wheeled_m54_fuel","vn_b_wheeled_m54_repair","vn_b_wheeled_m151_mg_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// vn_b_group_mech_army_07
 	[[[["vn_b_armor_m113_acav_01","vn_b_armor_m113_acav_01","vn_b_armor_m113_acav_01"],[[0,-12,0],[0,-24,0],[0,-36,0]],["LIEUTENANT","SERGEANT","CORPORAL"]]],0.5],
 	// vn_b_group_mech_army_08
@@ -626,12 +600,6 @@ _arr = [
 	[[[["vn_b_wheeled_m274_mg_03_02","vn_b_men_usmc_68_02","vn_b_men_usmc_68_06","vn_b_men_usmc_68_27"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_b_group_mech_usmc_01
 	[[[["vn_b_wheeled_m151_mg_03_usmc","vn_b_wheeled_m151_01_usmc","vn_b_wheeled_m151_02_usmc","vn_b_wheeled_m151_mg_04_usmc"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_b_group_mech_usmc_04
-	[[[["vn_b_wheeled_m151_mg_03_usmc","vn_b_wheeled_m54_02_usmc","vn_b_wheeled_m54_fuel_usmc","vn_b_wheeled_m54_01_usmc","vn_b_wheeled_m151_02_usmc"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_b_group_mech_usmc_05
-	[[[["vn_b_wheeled_m151_mg_02_usmc","vn_b_wheeled_m54_fuel_usmc","vn_b_wheeled_m54_02_usmc","vn_b_wheeled_m54_ammo_usmc","vn_b_wheeled_m54_01_usmc","vn_b_wheeled_m54_02_usmc","vn_b_wheeled_m151_mg_04_usmc"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0],[0,-72,0],[0,-84,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","LIEUTENANT"]]],0.5],
-	// vn_b_group_mech_usmc_06
-	[[[["vn_b_wheeled_m151_mg_02_usmc","vn_b_wheeled_m54_ammo_usmc","vn_b_wheeled_m54_fuel_usmc","vn_b_wheeled_m54_repair_usmc","vn_b_wheeled_m151_mg_02_usmc"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// vn_b_group_mech_usmc_07
 	[[[["vn_b_wheeled_m274_mg_01_02","vn_b_wheeled_m274_02_02","vn_b_wheeled_m274_01_02","vn_b_wheeled_m274_mg_01_02"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_b_group_mech_usmc_08
@@ -694,10 +662,6 @@ _arr = [
 	[[[["vn_i_wheeled_m151_mg_01","vn_i_wheeled_m151_01","vn_i_wheeled_m151_02","vn_i_wheeled_m151_mg_01"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// vn_i_group_mech_army_02
 	[[[["vn_i_wheeled_m151_mg_01_mp","vn_i_wheeled_m151_01_mp","vn_i_wheeled_m151_02_mp","vn_i_wheeled_m151_mg_01_mp"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_mech_army_03
-	[[[["vn_i_wheeled_m151_mg_01","vn_i_wheeled_m54_01","vn_i_wheeled_m54_fuel","vn_i_wheeled_m54_03","vn_i_wheeled_m54_ammo","vn_i_wheeled_m54_02","vn_i_wheeled_m151_mg_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0],[0,-72,0],[0,-84,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL"]]],0.5],
-	// vn_i_group_mech_army_04
-	[[[["vn_i_wheeled_m151_mg_01","vn_i_wheeled_m54_ammo","vn_i_wheeled_m54_fuel","vn_i_wheeled_m54_repair","vn_i_wheeled_m151_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 	// vn_i_group_mech_army_05
 	[[[["vn_i_armor_m113_acav_01","vn_i_armor_m113_acav_01","vn_i_armor_m113_acav_01"],[[0,-12,0],[0,-24,0],[0,-36,0]],["LIEUTENANT","SERGEANT","CORPORAL"]]],0.5],
 	// vn_i_group_mech_army_06
@@ -753,11 +717,7 @@ _arr = [
 	// vn_i_group_motor_marines_07
 	[[[["vn_i_wheeled_m54_01_marines","vn_i_men_marine_14","vn_i_men_marine_03","vn_i_men_marine_04","vn_i_men_marine_05","vn_i_men_marine_06","vn_i_men_marine_07","vn_i_men_marine_08","vn_i_men_marine_09","vn_i_men_marine_10","vn_i_men_marine_11","vn_i_men_marine_11","vn_i_men_marine_12","vn_i_men_marine_16","vn_i_men_marine_17","vn_i_men_marine_18","vn_i_men_marine_07"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.5],
 	// vn_i_group_mech_marines_01
-	[[[["vn_i_wheeled_m151_mg_01_marines","vn_i_wheeled_m151_01_marines","vn_i_wheeled_m151_02_marines","vn_i_wheeled_m151_mg_01_marines"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_mech_marines_02
-	[[[["vn_i_wheeled_m151_mg_01_marines","vn_i_wheeled_m54_01_marines","vn_i_wheeled_m54_fuel_marines","vn_i_wheeled_m54_03_marines","vn_i_wheeled_m54_ammo_marines","vn_i_wheeled_m54_02_marines","vn_i_wheeled_m151_mg_06_marines"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0],[0,-72,0],[0,-84,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL"]]],0.5],
-	// vn_i_group_mech_marines_03
-	[[[["vn_i_wheeled_m151_mg_01_marines","vn_i_wheeled_m54_ammo_marines","vn_i_wheeled_m54_fuel_marines","vn_i_wheeled_m54_repair_marines","vn_i_wheeled_m151_02_marines"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5]
+	[[[["vn_i_wheeled_m151_mg_01_marines","vn_i_wheeled_m151_01_marines","vn_i_wheeled_m151_02_marines","vn_i_wheeled_m151_mg_01_marines"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5]
 ];
 [_groups_map, resistance, "VN_ARVN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
