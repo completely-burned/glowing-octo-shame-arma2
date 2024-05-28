@@ -28,6 +28,7 @@ private ["_west","_east","_guer","_groups_map","_n","_d",
 	"_groups_failover_map","_sides_friendly","_copyRef",
 	"_groups_enabled","_factions_enabled","_groups_enabled_map",
 	"_groups_pending_map","_str","_param_default","_side",
+	"_sl","_tl",
 	"_default_east","_default_west","_default_guer"];
 
 _copyRef = availableVehicles;
