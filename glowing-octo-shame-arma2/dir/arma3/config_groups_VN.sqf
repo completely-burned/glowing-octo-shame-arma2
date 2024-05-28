@@ -608,18 +608,12 @@ _arr = [
 _arr = [
 	// vn_i_group_men_army_01
 	[[[["vn_i_men_army_01","vn_i_men_army_02","vn_i_men_army_03","vn_i_men_army_04","vn_i_men_army_05","vn_i_men_army_06","vn_i_men_army_07","vn_i_men_army_08","vn_i_men_army_09","vn_i_men_army_10","vn_i_men_army_11","vn_i_men_army_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_army_02
-	[[[["vn_i_men_army_13","vn_i_men_army_14","vn_i_men_army_15","vn_i_men_army_16","vn_i_men_army_17","vn_i_men_army_18","vn_i_men_army_07","vn_i_men_army_19","vn_i_men_army_20","vn_i_men_army_10","vn_i_men_army_21","vn_i_men_army_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// vn_i_group_men_army_03
 	[[[["vn_i_men_army_01","vn_i_men_army_14","vn_i_men_army_03","vn_i_men_army_04","vn_i_men_army_05","vn_i_men_army_06","vn_i_men_army_07","vn_i_men_army_08","vn_i_men_army_09","vn_i_men_army_10","vn_i_men_army_11","vn_i_men_army_11","vn_i_men_army_12","vn_i_men_army_16","vn_i_men_army_17","vn_i_men_army_18","vn_i_men_army_07","vn_i_men_army_19","vn_i_men_army_20","vn_i_men_army_10","vn_i_men_army_21","vn_i_men_army_12","vn_i_men_army_11"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0],[0,-75,0],[0,-80,0],[0,-85,0],[0,-90,0],[0,-95,0],[0,-100,0],[0,-105,0],[0,-110,0],[0,-115,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// vn_i_group_men_army_04
 	[[[["vn_i_men_army_01","vn_i_men_army_22","vn_i_men_army_22","vn_i_men_army_22"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_army_05
-	[[[["vn_i_men_army_23","vn_i_men_army_25","vn_i_men_army_24"],[[0,-5,0],[0,-10,0],[0,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE"]]],0.5],
 	// vn_i_group_men_army_08
 	[[[["vn_i_men_army_26","vn_i_men_army_22","vn_i_men_army_08","vn_i_men_army_13","vn_i_men_army_20","vn_i_men_army_21"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["MAJOR","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_army_09
-	[[[["vn_i_men_army_13","vn_i_men_army_14"],[[0,-5,0],[0,-10,0]],["PRIVATE","SERGEANT"]]],0.5],
 	// vn_i_group_men_ranger_01
 	[[[["vn_i_men_ranger_01","vn_i_men_ranger_02","vn_i_men_ranger_03","vn_i_men_ranger_04","vn_i_men_ranger_05","vn_i_men_ranger_06","vn_i_men_ranger_07","vn_i_men_ranger_08","vn_i_men_ranger_09","vn_i_men_ranger_10","vn_i_men_ranger_11","vn_i_men_ranger_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0]],["SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// vn_i_group_men_ranger_02
