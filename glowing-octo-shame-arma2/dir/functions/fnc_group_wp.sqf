@@ -723,8 +723,11 @@ if({alive _x} count _units > 0)then{
 			// TODO: Выполнять задание при отсутствии союзных отрядов.
 			if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 				if ("Artillery" in _grp_type) then {
-					_NoCreateWP = true;
-					_CreateWP = false;
+					_arr = [_types] call gosa_fnc_returnVehicleRange;
+					if (_arr select 0 > 500) then {
+						_NoCreateWP = true;
+						_CreateWP = false;
+					};
 				};
 			};
 

@@ -196,8 +196,12 @@ if(!isNil "_leader")then{
 
 		// артиллерия
 		if("Artillery" in _grp_type)then{
-			_pos = _leaderPos;
-			_maxDist = ((_maxDist * 10) max 1500);
+			// TODO: Разделить артиллерию и полу артиллерию, нужна функция.
+			_arr = [_types] call gosa_fnc_returnVehicleRange;
+			if (_arr select 0 > 500) then {			
+				_pos = _leaderPos;
+				_maxDist = ((_maxDist * 10) max 1500);
+			};
 		};
 
 		// десант
