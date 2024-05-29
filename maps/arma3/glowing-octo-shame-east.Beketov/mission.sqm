@@ -174,7 +174,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa Beketov East v0.0.5.942 DEBUG";
+		briefingName="CO 00 gosa Beketov East v0.0.5.943 DEBUG";
 		startWeather=0.34;
 		startWind=0.1;
 		startWaves=0.1;
