@@ -147,12 +147,18 @@ if (isMultiplayer) then {
 }else{
 	onTeamSwitch {
 		SetGroupIconsVisible [true,false];
-		40 CutRsc["OptionsAvailable","PLAIN",0];
+		#ifndef __ARMA3__
+			40 CutRsc["OptionsAvailable","PLAIN",0];
+		#endif
 	};
 
 	{
-		diag_log format ["Log: [init_client] delete switchableUnits, %1", _x];
-		deleteVehicle _x;
+		if (side _x in [sideLogic]) then {
+			diag_log format ["Log: [init_client] not delete switchableUnit %1", _x];
+		}else{
+			diag_log format ["Log: [init_client] delete switchableUnit %1", _x];
+			deleteVehicle _x;
+		};
 	} forEach switchableUnits - units group player;
 	EnableTeamSwitch true;
 
