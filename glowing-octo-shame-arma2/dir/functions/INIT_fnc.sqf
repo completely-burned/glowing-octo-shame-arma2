@@ -72,6 +72,7 @@ if !(IsDedicated) then {
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_findSpawnPos_veh",
 	"fnc_waypointPosition",
 	"fnc_returnWeaponRange",
 	"fnc_returnVehicleRange",

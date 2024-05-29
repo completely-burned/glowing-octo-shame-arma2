@@ -7,7 +7,7 @@
  */
 diag_log format ["Log: [fnc_Client_BuyUnit]: _this %1", _this];
 private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
-	"_str","_type_Lower","_Objects","_veh","_num",
+	"_str","_type_Lower","_Objects","_veh","_num","_b",
 	"_factory_obj","_buy_dist_max","_player_pos","_player_veh",
 	"_factory_dir","_factory_pos","_name",
 	"_cfgVeh","_entry","_crew",
@@ -279,7 +279,18 @@ if (true) then {
 		};
 
 		if !(isNil "_factory_obj") then {
+			_arr = [_pos, [23], 1000] call gosa_fnc_findSpawnPos_veh;
+			_b = true;
+			// TODO: Расчищать место.
+			for "_i" from 0 to (count _arr -1) do {
+				if (count (_arr select _i nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
+					_b = false;
+					_arr = _arr select _i;
+				};
+			};
+			if (_b) then {
 			_arr = ([_pos, 0, 15 max sizeOf _type] call gosa_fnc_getSafePos);
+			};
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
 			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
