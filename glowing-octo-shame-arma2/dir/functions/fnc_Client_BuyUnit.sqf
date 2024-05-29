@@ -279,13 +279,15 @@ if (true) then {
 		};
 
 		if !(isNil "_factory_obj") then {
-			_arr = [_pos, [23], 1000] call gosa_fnc_findSpawnPos_veh;
+			_arr = [_pos, [23,22,20], 1000] call gosa_fnc_findSpawnPos_veh;
 			_b = true;
 			// TODO: Расчищать место.
 			for "_i" from 0 to (count _arr -1) do {
-				if (count (_arr select _i nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
+				_obj = _arr select _i;
+				if (count (_obj nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
 					_b = false;
-					_arr = _arr select _i;
+					_arr = getPos _obj;
+					_num = getDir _obj;
 				};
 			};
 			if (_b) then {
@@ -293,6 +295,7 @@ if (true) then {
 			};
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
+			_veh setDir _num;
 			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
@@ -318,10 +321,26 @@ if (true) then {
 		};
 
 		if !(isNil "_factory_obj") then {
+			_arr = [_pos, [21,20,22], 1000] call gosa_fnc_findSpawnPos_veh;
+			_b = true;
+			// TODO: Расчищать место.
+			for "_i" from 0 to (count _arr -1) do {
+				_obj = _arr select _i;
+				if (count (_obj nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
+					_b = false;
+					_arr = getPos _obj;
+					_num = getDir _obj;
+				};
+			};
+			if (_b) then {
 			if(_isUAV)then{_num = 35}else{_num = 25};
 			_arr = ([_pos, 0, _num max sizeOf _type] call gosa_fnc_getSafePos);
+			};
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
+			if !(_b) then {
+				_veh setDir _num;
+			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};

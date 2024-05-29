@@ -16,7 +16,7 @@ for "_i" from 0 to (count _arr -1) do {
 	_var = _obj getVariable "gosa_respawn_type";
 	if !(isNil "_var") then {
 		if (_var in _types) then {
-			_return set [count _return, getPos _obj];
+			_return set [count _return, _obj];
 		};
 	};
 };
