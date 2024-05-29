@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=622;
+	toggles=609;
 	class ItemIDProvider
 	{
-		nextID=386;
+		nextID=400;
 	};
 	class MarkerIDProvider
 	{
@@ -200,7 +200,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=252;
+		items=265;
 		class Item0
 		{
 			dataType="Logic";
@@ -4214,23 +4214,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={9294.3535,608.09717,10399.622};
-			};
-			id=374;
-			type="LocationVillage_F";
-		};
-		class Item241
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
 				position[]={10757.796,159.73509,8391.5547};
 			};
 			id=375;
 			type="LocationVillage_F";
 			atlOffset=-3.0517578e-005;
 		};
-		class Item242
+		class Item241
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4241,7 +4231,7 @@ class Mission
 			type="LocationCity_F";
 			atlOffset=-3.5524368e-005;
 		};
-		class Item243
+		class Item242
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4251,7 +4241,7 @@ class Mission
 			id=377;
 			type="LocationVillage_F";
 		};
-		class Item244
+		class Item243
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4261,7 +4251,7 @@ class Mission
 			id=378;
 			type="LocationCity_F";
 		};
-		class Item245
+		class Item244
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4272,7 +4262,7 @@ class Mission
 			type="LocationCity_F";
 			atlOffset=6.1035156e-005;
 		};
-		class Item246
+		class Item245
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4283,7 +4273,7 @@ class Mission
 			type="LocationCity_F";
 			atlOffset=2.0027161e-005;
 		};
-		class Item247
+		class Item246
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4294,7 +4284,7 @@ class Mission
 			type="LocationCity_F";
 			atlOffset=-3.8146973e-005;
 		};
-		class Item248
+		class Item247
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4305,7 +4295,7 @@ class Mission
 			type="LocationCity_F";
 			atlOffset=-6.8664551e-005;
 		};
-		class Item249
+		class Item248
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4316,7 +4306,7 @@ class Mission
 			type="LocationVillage_F";
 			atlOffset=-6.1035156e-005;
 		};
-		class Item250
+		class Item249
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4327,7 +4317,7 @@ class Mission
 			type="LocationVillage_F";
 			atlOffset=-3.9100647e-005;
 		};
-		class Item251
+		class Item250
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -4337,16 +4327,189 @@ class Mission
 			id=385;
 			type="LocationVillage_F";
 		};
+		class Item251
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5102.896,336.61002,11307.71};
+				angles[]={0,0.2617994,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=386;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.0069274902;
+		};
+		class Item252
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10722.489,98.400002,3112.78};
+				angles[]={0,5.4977875,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=387;
+			type="LocationRespawnPoint_F";
+		};
+		class Item253
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10722.926,98.460152,3132.1794};
+				angles[]={0,3.926991,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=388;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.0071334839;
+		};
+		class Item254
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10704.241,98.440002,3113.6387};
+				angles[]={0,5.4977875,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=389;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.0071411133;
+		};
+		class Item255
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10705.17,98.439987,3133.0374};
+				angles[]={0,3.9269912,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=390;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.0071411133;
+		};
+		class Item256
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10687.699,98.452881,3133.7229};
+				angles[]={0,3.141593,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=391;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.0064544678;
+		};
+		class Item257
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={10687.395,98.443626,3113.6458};
+				angles[]={0,5.7595868,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=392;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.0071105957;
+		};
+		class Item258
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4669.1304,33.66,1014.5977};
+				angles[]={0,5.7595868,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=393;
+			type="LocationRespawnPoint_F";
+		};
+		class Item259
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9294.3535,608.09717,10399.622};
+			};
+			init="this setVariable [""gosa_Location_type"", 0];";
+			id=394;
+			type="LocationBase_F";
+		};
+		class Item260
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9334.3945,610.75653,10398.373};
+				angles[]={6.2823396,0.78539807,6.2815294};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=395;
+			type="LocationRespawnPoint_F";
+		};
+		class Item261
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9523.2764,588.0589,10400.129};
+				angles[]={6.2763147,5.2360034,0.0010918301};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=396;
+			type="LocationRespawnPoint_F";
+		};
+		class Item262
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9298.6768,608.34125,10389.724};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=397;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.00030517578;
+		};
+		class Item263
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9495.5908,584.60797,10399.128};
+				angles[]={0.0026354471,0,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=398;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.008972168;
+		};
+		class Item264
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9323.0342,608.76141,10424.804};
+			};
+			init="this setVariable [""gosa_Location_type"", 0];";
+			id=399;
+			type="LocationRespawnPoint_F";
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=29;
+			nextID=32;
 		};
 		class Links
 		{
-			items=29;
+			items=32;
 			class Item0
 			{
 				linkID=0;
@@ -4632,6 +4795,36 @@ class Mission
 				linkID=28;
 				item0=176;
 				item1=45;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item29
+			{
+				linkID=29;
+				item0=397;
+				item1=394;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item30
+			{
+				linkID=30;
+				item0=398;
+				item1=394;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item31
+			{
+				linkID=31;
+				item0=399;
+				item1=394;
 				class CustomData
 				{
 					type="Sync";
