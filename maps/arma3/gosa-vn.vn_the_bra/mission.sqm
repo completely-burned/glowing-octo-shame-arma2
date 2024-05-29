@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=622;
+	toggles=618;
 	class ItemIDProvider
 	{
-		nextID=175;
+		nextID=181;
 	};
 	class MarkerIDProvider
 	{
@@ -235,7 +235,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=71;
+		items=77;
 		class Item0
 		{
 			dataType="Marker";
@@ -2488,6 +2488,81 @@ class Mission
 			{
 			};
 			id=151;
+		};
+		class Item71
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3218.7642,40,4280.3921};
+				angles[]={0,2.3561947,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=175;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.089141846;
+		};
+		class Item72
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3216.8262,39.917984,4300.3887};
+				angles[]={0,2.3561945,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=176;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.0071258545;
+		};
+		class Item73
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3220.147,39.917965,4259.3408};
+				angles[]={0,5.4977875,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=177;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.007106781;
+		};
+		class Item74
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3193.9299,39.66,4278.729};
+				angles[]={0,2.3561947,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=178;
+			type="LocationRespawnPoint_F";
+		};
+		class Item75
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3192.3394,39.66,4299.228};
+				angles[]={0,2.3561945,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=179;
+			type="LocationRespawnPoint_F";
+		};
+		class Item76
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3194.9561,39.66,4258.2749};
+				angles[]={0,5.4977875,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=180;
+			type="LocationRespawnPoint_F";
 		};
 	};
 	class Connections
