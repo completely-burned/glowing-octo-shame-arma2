@@ -9,9 +9,9 @@ private ["_type_Airport","_list_Airport","_arr","_type","_logic",
 	"_arr0","_arr1","_blacklist","_n","_type_Airport_compat",
 	"_type_Base","_list_Base","_str"];
 
-_type_Airport = [1];
+_type_Airport = [1,2,3];
 _list_Airport = [];
-_type_Base = [0];
+_type_Base = [0,3];
 _list_Base = [];
 _type_Airport_compat = [1];
 

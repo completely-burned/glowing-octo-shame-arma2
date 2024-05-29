@@ -10,8 +10,8 @@ private ["_item","_obj","_num","_str","_for","_pos","_arr",
 	"_gosa_objectsTeleportTmp","_gosa_objectsTeleport"];
 
 _names_location = ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"];
-_type_Airport = [1];
-_type_Base = [0];
+_type_Airport = [1,2,3];
+_type_Base = [0,3];
 
 _list=[];
 _teleport_list=[];
