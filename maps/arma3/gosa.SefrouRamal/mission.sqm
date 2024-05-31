@@ -2,13 +2,13 @@ version=54;
 class EditorData
 {
 	moveGridStep=1;
-	angleGridStep=0.2617994;
+	angleGridStep=0.017453292;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=9;
+	toggles=45;
 	class ItemIDProvider
 	{
-		nextID=240;
+		nextID=254;
 	};
 	class MarkerIDProvider
 	{
@@ -201,7 +201,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=101;
+		items=115;
 		class Item0
 		{
 			dataType="Marker";
@@ -3226,6 +3226,181 @@ class Mission
 			};
 			id=101;
 			type="LocationCity_F";
+		};
+		class Item101
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4644,23.532837,6019};
+				angles[]={-0,2.4609175,0.0079935296};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=240;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.00083732605;
+		};
+		class Item102
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4679,24,6047};
+				angles[]={0.023993526,2.3911021,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=241;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.038002014;
+		};
+		class Item103
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4714.835,23.422697,6074.79};
+				angles[]={0.012000273,2.4609175,0.0039967569};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=242;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.00083732605;
+		};
+		class Item104
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4849,24.360001,5938};
+				angles[]={-0,5.6025105,-0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=243;
+			type="LocationRespawnPoint_F";
+		};
+		class Item105
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4924,25.651999,5980};
+				angles[]={-0,5.6723185,0.0079935296};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=244;
+			type="LocationRespawnPoint_F";
+		};
+		class Item106
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4894,25.644001,5958};
+				angles[]={0.015994642,5.6374159,0.0079935296};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=245;
+			type="LocationRespawnPoint_F";
+		};
+		class Item107
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4579,23.143999,5950};
+				angles[]={0.0039968039,1.1693705,6.2791882};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=246;
+			type="LocationRespawnPoint_F";
+		};
+		class Item108
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4661,23.671999,6034};
+				angles[]={0,2.4609141,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 20];";
+			id=247;
+			type="LocationRespawnPoint_F";
+			atlOffset=-1.9073486e-006;
+		};
+		class Item109
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4618.231,23.128769,6006.4468};
+				angles[]={-0,2.4434609,0.011995304};
+			};
+			init="this setVariable [""gosa_respawn_type"", 20];";
+			id=248;
+			type="LocationRespawnPoint_F";
+			atlOffset=-1.9073486e-006;
+		};
+		class Item110
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4695.3623,23.527309,6062.1348};
+				angles[]={0.023993526,2.4085543,6.2791886};
+			};
+			init="this setVariable [""gosa_respawn_type"", 20];";
+			id=249;
+			type="LocationRespawnPoint_F";
+			atlOffset=-1.9073486e-006;
+		};
+		class Item111
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4597,22.814001,6024};
+				angles[]={0,0.20943952,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=250;
+			type="LocationRespawnPoint_F";
+			atlOffset=1.9073486e-006;
+		};
+		class Item112
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4595.416,23.024143,5989.7959};
+				angles[]={0.0039968039,2.9670596,0.0079936078};
+			};
+			init="this setVariable [""gosa_respawn_type"", 20];";
+			id=251;
+			type="LocationRespawnPoint_F";
+		};
+		class Item113
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8162,45.84,8825};
+				angles[]={-0,1.8151424,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=252;
+			type="LocationRespawnPoint_F";
+		};
+		class Item114
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8027.895,38.658791,8718.2432};
+				angles[]={0.0080009829,0.59341055,0.011995304};
+			};
+			init="this setVariable [""gosa_respawn_type"", 23];";
+			id=253;
+			type="LocationRespawnPoint_F";
 		};
 	};
 	class Connections
