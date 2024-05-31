@@ -324,6 +324,7 @@ class Params {
 				default = -1;
 			};
 
+		// TODO: Убрать конфликты [SPE, WW2, LIB, IFA, I44]
 		// SPE
 		class gosa_faction_multiplier_SPE_WEHRMACHT {
 			title="FACTION: SPE_WEHRMACHT";
@@ -341,6 +342,18 @@ class Params {
 		// WW2
 		class gosa_faction_multiplier_LIB_RKKA {
 			title="FACTION: LIB_RKKA";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_LIB_WEHRMACHT {
+			title="FACTION: LIB_WEHRMACHT";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_LIB_US_ARMY {
+			title="FACTION: LIB_US_ARMY";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
