@@ -32,11 +32,13 @@ if(missionNamespace getVariable "respawn" != 1 or !isMultiplayer)exitWith{
 
 _p = player;
 _p_name = name player;
-_sides_friendly = gosa_friendlyside;
 _cam = objNull;
 _o = gosa_owner;
 gosa_lastSwitchBodyTime = -99999;
 _arr = [];
+
+waitUntil{!isNil "gosa_friendlyside"};
+_sides_friendly = gosa_friendlyside;
 
 diag_log format ["Log: [respawnRandom] init info %1", [_p, _p_name, _o]];
 

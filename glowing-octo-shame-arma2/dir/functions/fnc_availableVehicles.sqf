@@ -20,10 +20,6 @@ for "_i" from 0 to ((count _cfgVeh) - 1) do {
 					!(((getNumber(_entry >> "side")) call gosa_fnc_getSide) in [west,east,resistance])
 				or
 					(_friendly_vehicles_only != 1)
-				//or
-					//!isMultiplayer
-				or
-					((getNumber(_entry >> "side")) call gosa_fnc_getSide) in gosa_friendlyside
 			) then {
 				_libEnabled = [_entry] call gosa_fnc_libEnabled;
 				if (_libEnabled) then {

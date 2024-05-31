@@ -31,6 +31,16 @@ if(debug)then{
 // "AwareFormationSoft" enableAIFeature false;
 // "CombatFormationSoft" enableAIFeature false;
 
+_arr = [] call gosa_fnc_availableVehicles;
+availableVehicles = _arr; publicVariable "availableVehicles";
+_arr = [] call gosa_fnc_availableWeapons;
+availableWeapons = _arr; publicVariable "availableWeapons";
+_arr = [] call gosa_fnc_availableMagazines;
+availableMagazines = _arr; publicVariable "availableMagazines";
+_arr = [] call gosa_fnc_availableBackpacks;
+availableBackpacks = _arr; publicVariable "availableBackpacks";
+
+[] call compile preprocessFileLineNumbers "dir\server\init_groups.sqf";
 [] call compile preprocessFileLineNumbers "dir\server\config_server.sqf";
 
 //--- создание сторон
@@ -181,12 +191,6 @@ if(isMultiplayer)then{
 	{RemoveSwitchableUnit _x} ForEach SwitchableUnits;
 };
 
-
-//
-[] call compile preprocessFileLineNumbers "dir\server\init_objects.sqf";
-
-// списки групп
-[] call compile preprocessFileLineNumbers "dir\server\init_groups.sqf";
 // локации, города
 if (missionNamespace getVariable "gosa_mission" == 2) then {
 	[] spawn gosa_fnc_mission_capture_location;

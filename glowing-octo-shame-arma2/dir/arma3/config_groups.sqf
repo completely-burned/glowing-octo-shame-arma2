@@ -31,6 +31,7 @@ private ["_west","_east","_guer","_groups_map","_n","_d",
 	"_sl","_tl",
 	"_default_east","_default_west","_default_guer"];
 
+waitUntil{!isNil "availableVehicles"};
 _copyRef = availableVehicles;
 
 _west=[];_east=[];_guer=[];
@@ -41,7 +42,6 @@ _westD=[];_eastD=[];_guerD=[];
 // Отказоустойчивые отряды
 _default_east=[];_default_west=[];_default_guer=[];
 
-_sides_friendly = gosa_friendlyside;
 _climate = (gosa_IslandType select 0);
 _date = (gosa_IslandType select 1);
 _depth = call gosa_fnc_getDepthAverage;
@@ -316,7 +316,6 @@ _arr append [
 ] call gosa_fnc_map_groups_add;
 
 // Беспилотники
-if !(west in _sides_friendly) then {
 	_arr = [
 		[[[["B_UAV_02_lxWS"],[],["CORPORAL"]]],0.02],
 		//[[[["B_UGV_01_rcws_F"],[],["CORPORAL"]]],0.02],
@@ -341,7 +340,6 @@ if !(west in _sides_friendly) then {
 	[1990,2100], [250,299],
 	[]
 	] call gosa_fnc_map_groups_add;
-};
 
 
 //-- OPF_F CSAT
@@ -728,7 +726,6 @@ _arr = _default_east;
 ] call gosa_fnc_map_groups_add;
 
 // Беспилотники
-if !(east in _sides_friendly) then {
 	_arr = [
 		[[[["O_UAV_02_lxWS"],[],["CORPORAL"]]],0.02],
 		//[[[["O_UGV_01_rcws_F"],[],["CORPORAL"]]],0.02],
@@ -746,7 +743,6 @@ if !(east in _sides_friendly) then {
 	[1990,2100], [-999,249],
 	[]
 	] call gosa_fnc_map_groups_add;
-};
 
 
 //-- IND_F AAF
@@ -951,7 +947,6 @@ _arr = _default_guer;
 ] call gosa_fnc_map_groups_add;
 
 // Беспилотники
-if !(resistance in _sides_friendly) then {
 	_arr = [
 		[[[["I_UAV_02_lxWS"],[],["CORPORAL"]]],0.02],
 		//[[[["I_UGV_01_rcws_F"],[],["CORPORAL"]]],0.02],
@@ -966,7 +961,6 @@ if !(resistance in _sides_friendly) then {
 	[1990,2100], [-999,999],
 	[]
 	] call gosa_fnc_map_groups_add;
-};
 
 
 //////////////////////////////

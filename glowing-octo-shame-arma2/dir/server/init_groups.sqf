@@ -143,6 +143,7 @@ for "_i" from 0 to (count _arr -1) do {
 
 // Ограничить сверхдержав если игроки играют за независимых.
 // FIXME: Некоторые игроки любят сложнее.
+/*
 if !(west in gosa_friendlyside or east in gosa_friendlyside) then {
 	_arr = ["RU","BIS_TK"];
 	for "_i" from 0 to (count _arr -1) do {
@@ -175,7 +176,7 @@ if !(west in gosa_friendlyside or east in gosa_friendlyside) then {
 		};
 	};
 };
-
+*/
 //--- лес
 if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{
 	_z=["PMC_BAF"];

@@ -15,10 +15,11 @@ private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 _cfgVeh = LIB_cfgVeh;
 _startingClass = gosa_playerStartingClass;
 _types_pilot = gosa_pilotL;
-_types_mhq_virt = gosa_types_mhq_virt;
 _mod_i44 = if (configName(configFile >> "CfgVehicles" >> "I44_Man") != "") then{true}else{false};
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
+waitUntil{!isNil "gosa_types_mhq_virt"};
+_types_mhq_virt = gosa_types_mhq_virt;
 
 _list_BIS_FNC_createmenu2={
 	private["_arr1","_arr2","_arr3","_arr4"];

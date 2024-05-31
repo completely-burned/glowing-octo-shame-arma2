@@ -1,68 +1,7 @@
-gosa_friendlyside = [];
-
-private ["_i","_ii","_E","_players","_side","_arr","_n","_min","_max",
-	"_sides_enemy","_sides_friendly"];
-
-_sides_friendly = [];
-_sides_enemy = [];
-
-	_players = playableUnits;
-	for "_i" from 0 to (count _players -1) do {
-		if !(isPlayer (_players select _i)) then {
-			_players set [_i, objNull];
-		};
-	};
-// TODO: Рандомизация стороны конфликта.
-if !(isMultiplayer) then {
-	_players = [player];
-};
-_players = _players -[objNull];
-diag_log format ["Log: [config_server] _players %1", _players];
-if (count _players <= 0) then {
-	_sides_enemy = [floor random 3];
-};
-
-_arr = [east countSide _players, west countSide _players, resistance countSide _players, civilian countSide _players];
-_max = _arr select 0;
-_min = _arr select 0;
-for "_i" from 0 to 2 do {
-	_n = _arr select _i;
-	if (_n <= 0) then {
-		_sides_enemy set [count _sides_enemy, _i];
-	};
-	_max = _max max _n;
-	_min = _min min _n;
-};
-if (count _sides_enemy <= 0) then {
-	if (_max == _min) then {
-		_sides_enemy = [floor random 3];
-	}else{
-		for "_i" from 0 to 2 do {
-			_n = _arr select _i;
-			if (_n == _min) then {
-				_sides_enemy set [count _sides_enemy, _i];
-			};
-		};
-		// Только одна сторона, чтобы не раздражать игроков изгнанием напрасно.
-		_sides_enemy = [_sides_enemy call gosa_fnc_selectRandom];
-	};
-};
-
-for "_i" from 0 to (count _sides_enemy -1) do {
-	_sides_enemy set [_i, _sides_enemy select _i call gosa_fnc_getSide];
-};
-
-diag_log format ["Log: [config_server] _sides_enemy %1", _sides_enemy];
+private ["_i","_ii","_E","_players","_side","_arr","_n"];
 
 
-_sides_friendly = [east,west,resistance,civilian]-_sides_enemy;
-gosa_friendlyside = _sides_friendly;
-diag_log format ["Log: [config_server] _sides_friendly %1", _sides_friendly];
-publicVariable "gosa_friendlyside";
-m_sideEnemy = _sides_enemy;
-diag_log format ["Log: [config_server] _sides_enemy %1", _sides_enemy];
-publicVariable "m_sideEnemy";
-
+[] call compile preprocessFileLineNumbers "dir\server\init_side_balance.sqf";
 
 [] call compile preprocessFileLineNumbers "dir\server\cfg_mhq.sqf";
 
@@ -169,15 +108,6 @@ for [{_i = 0}, {_i < count (configfile >> "cfgVehicles")}, {_i = _i + 1}] do {
 	};
 };
 /// silvieManager ///
-
-availableVehicles = [] call gosa_fnc_availableVehicles;
-publicVariable "availableVehicles";
-availableWeapons = [] call gosa_fnc_availableWeapons;
-publicVariable "availableWeapons";
-availableMagazines = [] call gosa_fnc_availableMagazines;
-publicVariable "availableMagazines";
-availableBackpacks = [] call gosa_fnc_availableBackpacks;
-publicVariable "availableBackpacks";
 
 _arr = [] call gosa_fnc_zone_init;
 gosa_zone_islands = _arr select 0;

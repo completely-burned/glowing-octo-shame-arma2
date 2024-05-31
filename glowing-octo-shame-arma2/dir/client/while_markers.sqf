@@ -190,7 +190,7 @@ if (true) then {
 	};
 
 
-	_num = time+15;
+	_num = time+300;
 	waitUntil {
 		_num < time
 		or !isNil "gosa_list_LocationAirport";
