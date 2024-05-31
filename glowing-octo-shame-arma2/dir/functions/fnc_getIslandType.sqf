@@ -30,8 +30,8 @@ if (_w in ["utes","i44_omaha","sara"]) then {_r set [0,180]};
 if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
 	"noe","thirsk","vt7"]) then {_r set [0,190]};
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
-	"gm_weferlingen_summer","beketov","zdanice",
-	"mcn_neaville","i44_merderet_v2","i44_merderet","stozec"]) then {_r set [0,200]};
+	"gm_weferlingen_summer","beketov","zdanice","stozec",
+	"mcn_neaville","i44_merderet_v2","i44_merderet","spe_normandy"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl","vn_khe_sanh","vn_the_bra","cam_lao_nam"]) then {_r set [0,225]};
 if (_w in ["altis","vr","stratis","porto","tem_anizay","cain"]) then {_r set [0,250]};
 if (_w in ["kunduz"]) then {_r set [0,275]};
@@ -40,7 +40,7 @@ if (_w in ["zargabad","takistan","desert_e","shapur_baf","mountains_acr","falluj
 
 // Дата.
 if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter",
-	"plr_bulge","mcn_neaville_winter","i44_merderet","i44_merderet_v2"]) then
+	"plr_bulge","mcn_neaville_winter","i44_merderet","i44_merderet_v2","spe_normandy"]) then
 {
 	_r set [1,1944];
 };
