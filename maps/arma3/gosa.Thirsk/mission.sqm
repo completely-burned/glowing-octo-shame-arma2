@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=101;
+	toggles=109;
 	class ItemIDProvider
 	{
-		nextID=310;
+		nextID=319;
 	};
 	class MarkerIDProvider
 	{
@@ -30,13 +30,15 @@ addons[]=
 	"A3_Structures_F_Enoch_Military_Camps",
 	"A3_Characters_F_Enoch",
 	"A3_Characters_F_Exp",
-	"A3_Characters_F_Tank"
+	"A3_Characters_F_Tank",
+	"A3_Supplies_F_Orange_Ammoboxes",
+	"A3_Weapons_F_Ammoboxes"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=8;
+		items=10;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -90,6 +92,20 @@ class AddonsMetaData
 		{
 			className="A3_Characters_F_Tank";
 			name="Arma 3 Tank - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item8
+		{
+			className="A3_Supplies_F_Orange";
+			name="Arma 3 Orange - Ammoboxes and Supplies";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item9
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -206,7 +222,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=103;
+		items=112;
 		class Item0
 		{
 			dataType="Marker";
@@ -814,7 +830,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1550,46.396156,2970};
+				position[]={1543,46.396156,2981};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
 			id=123;
@@ -825,7 +841,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1507,46.395386,2992};
+				position[]={1498,46.394619,3000};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
 			id=124;
@@ -836,11 +852,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1519,46.389236,3161};
+				position[]={1535,46.390007,3169};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
 			id=125;
 			type="LocationRespawnPoint_F";
+			atlOffset=3.8146973e-006;
 		};
 		class Item61
 		{
@@ -852,7 +869,7 @@ class Mission
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=127;
 			type="LocationRespawnPoint_F";
-			atlOffset=0.28634644;
+			atlOffset=0.28499603;
 		};
 		class Item62
 		{
@@ -886,7 +903,7 @@ class Mission
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=130;
 			type="LocationRespawnPoint_F";
-			atlOffset=0.23838043;
+			atlOffset=0.023334503;
 		};
 		class Item65
 		{
@@ -898,7 +915,7 @@ class Mission
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=131;
 			type="LocationRespawnPoint_F";
-			atlOffset=0.23838043;
+			atlOffset=0.023334503;
 		};
 		class Item66
 		{
@@ -3719,6 +3736,122 @@ class Mission
 			{
 			};
 			id=307;
+		};
+		class Item103
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={748,16.612,488};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=310;
+			type="LocationRespawnPoint_F";
+		};
+		class Item104
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1519,46.389236,3160};
+				angles[]={-0,3.6651917,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=311;
+			type="LocationRespawnPoint_F";
+		};
+		class Item105
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1550,46.396156,2972};
+				angles[]={0,0.2617994,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=312;
+			type="LocationRespawnPoint_F";
+		};
+		class Item106
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1506,46.39539,2993};
+				angles[]={-0,0.2617994,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=313;
+			type="LocationRespawnPoint_F";
+		};
+		class Item107
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1642,46.396198,2937};
+				angles[]={-0,0.2617994,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 22];";
+			id=314;
+			type="LocationRespawnPoint_F";
+		};
+		class Item108
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1625,46.396198,2944};
+				angles[]={-0,6.0213861,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 22];";
+			id=315;
+			type="LocationRespawnPoint_F";
+		};
+		class Item109
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1511,46.68021,3111};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=316;
+			type="Box_IDAP_AmmoOrd_F";
+		};
+		class Item110
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1672.9994,47.175964,3023.9995};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=317;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item111
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1664,47.175964,3026.9995};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=318;
+			type="Box_NATO_AmmoVeh_F";
 		};
 	};
 	class Connections
