@@ -75,6 +75,7 @@ if (_pvp) then {
 
 if (isMultiplayer) then {
 		// side игроков ожидающих возрождения == civilian. И countSide не работает.
+	#ifdef __ARMA3__
 		_allDead = allDead;
 		for "_i" from 0 to (count _allDead -1) do {
 			_obj = _allDead select _i;
@@ -84,6 +85,7 @@ if (isMultiplayer) then {
 			diag_log format ["Log: [init_side_balance] _allDead %1", [_obj, _str, _n]];
 			_players_cfi set [_n, _count +1];
 		};
+	#endif
 
 	_players = playableUnits;
 	for "_i" from 0 to (count _players -1) do {
