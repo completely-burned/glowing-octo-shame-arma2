@@ -61,6 +61,8 @@ _param_default = -1;
 _cfg_factions_def = [["OPF_F"],["BLU_F"],["IND_F"]];
 
 
+#include "groups_SPE.sqf"
+
 #include "config_groups_CSLA.sqf"
 #include "config_groups_VN.sqf"
 #include "config_groups_GM.sqf"

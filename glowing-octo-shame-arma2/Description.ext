@@ -324,6 +324,20 @@ class Params {
 				default = -1;
 			};
 
+		// SPE
+		class gosa_faction_multiplier_SPE_WEHRMACHT {
+			title="FACTION: SPE_WEHRMACHT";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_SPE_US_ARMY {
+			title="FACTION: SPE_US_ARMY";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+
 		// BWA3
 		class gosa_faction_multiplier_BWA3 {
 			title = "FACTION: BWA3";
