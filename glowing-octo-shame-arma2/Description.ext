@@ -358,6 +358,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
+		class gosa_faction_multiplier_LIB_UK_ARMY {
+			title="FACTION: LIB_UK_ARMY";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 
 		// BWA3
 		class gosa_faction_multiplier_BWA3 {
