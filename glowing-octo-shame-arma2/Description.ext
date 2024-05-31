@@ -338,6 +338,14 @@ class Params {
 			default = -1;
 		};
 
+		// WW2
+		class gosa_faction_multiplier_LIB_RKKA {
+			title="FACTION: LIB_RKKA";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+
 		// BWA3
 		class gosa_faction_multiplier_BWA3 {
 			title = "FACTION: BWA3";
