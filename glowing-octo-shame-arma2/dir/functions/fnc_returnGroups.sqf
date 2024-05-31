@@ -10,7 +10,9 @@ copyToClipboard str ([["West"],["CUP_B_US_Army"],[]] call gosa_fnc_returnGroups)
 */
 
 
-private ["_cfgGroups","_Blacklist"];
+private ["_cfgGroups","_Blacklist","_args","_side", "_type", "_cfgFaction"];
+_args = _this;
+
 _cfgGroups = configFile >> "CfgGroups";
 _Blacklist=[
 _cfgGroups >> "West" >> "USMC" >> "Infantry" >> "USMC_FRTeam_Razor",
@@ -19,10 +21,9 @@ _cfgGroups >> "Guerrila" >> "PMC_BAF" >> "Infantry" >> "PMC_Team_Sword"
 
 
 ];
-private ["_side", "_type", "_cfgFaction"];
-_side = _this select 0;
-if ((count(_this select 1)) > 0) then{
-	_cfgFaction = _this select 1;
+_side = _args select 0;
+if ((count(_args select 1)) > 0) then{
+	_cfgFaction = _args select 1;
 }
 else{
 	_cfgFaction=[];
@@ -40,8 +41,8 @@ else{
 		};
 
 };
-if ((count(_this select 2)) > 0) then {
-	_type = _this select 2;
+if ((count(_args select 2)) > 0) then {
+	_type = _args select 2;
 }
 else {
 	_type = [];
@@ -102,4 +103,4 @@ _groups = [];
 	} forEach _cfgFaction;
 } forEach _side;
 
-_groups
+_groups;
