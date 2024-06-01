@@ -10,7 +10,7 @@ private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
 	"_str","_type_Lower","_Objects","_veh","_num","_b",
 	"_factory_obj","_buy_dist_max","_player_pos","_player_veh",
 	"_factory_dir","_factory_pos","_name",
-	"_cfgVeh","_entry","_crew",
+	"_cfgVeh","_entry","_crew","_sizeOf","_sizeAllowed","_box",
 	"_side","_listHQ_str","_class","_fnc_factory_HQ","_factory_HQ",
 	"_factory","_pos","_logic","_arr","_status"];
 
@@ -19,6 +19,11 @@ _crew = [];
 
 _type = _this Select 0;
 
+#ifdef __ARMA3__
+	_sizeAllowed = 27;
+#else
+	_sizeAllowed = 25;
+#endif
 _entry = _cfgVeh >> _type;
 _side = playerSide;
 _player_veh = vehicle player;
@@ -52,6 +57,8 @@ if (missionNamespace getVariable "gosa_shop" == 2) then {
 	_factory_obj = _player_veh;
 };
 
+// FIXME: sizeOf не работает. At least one object of the given classname has to be present in the current mission otherwise zero will be returned.
+// FIXME: Переназначение оригинальной позиции нельзя делать.
 _pos = ([_pos, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 
 //-- Приобретение мобильного штаба.
@@ -280,12 +287,15 @@ if (true) then {
 
 		if !(isNil "_factory_obj") then {
 			_b = true;
-			if (sizeOf _type < 27) then {
+			_arr = [_pos select 0, _pos select 1, 2000 + random 500];
+			_veh = createVehicle [_type, _arr, [], 2000, "NONE"];
+			_sizeOf = sizeOf _type;
+			if (_sizeOf < _sizeAllowed) then {
 				_arr = [_pos, [23,22,20], 1000] call gosa_fnc_findSpawnPos_veh;
 				// TODO: Расчищать место.
 				for "_i" from 0 to (count _arr -1) do {
 					_obj = _arr select _i;
-					if (count (_obj nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
+					if (count (_obj nearEntities ["AllVehicles", (5 max _sizeOf)]) <= 0) exitWith {
 						_b = false;
 						_arr = getPos _obj;
 						_num = getDir _obj;
@@ -293,14 +303,14 @@ if (true) then {
 				};
 			};
 			if (_b) then {
-				_arr = ([_pos, 0, 15 max sizeOf _type] call gosa_fnc_getSafePos);
+				_arr = ([_pos, 0, 15 max _sizeOf] call gosa_fnc_getSafePos);
 			};
-			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
 			if !(_b) then {
 				_veh setDir _num;
 			};
-			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
+			_veh setPos _arr;
+			diag_log format ["Log: [fnc_Client_BuyUnit] Created %1", [_veh, _arr, _isUAV, _crew, _sizeOf]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};
@@ -326,12 +336,15 @@ if (true) then {
 
 		if !(isNil "_factory_obj") then {
 			_b = true;
-			if (sizeOf _type < 27) then {
+			_arr = [_pos select 0, _pos select 1, 2000 + random 500];
+			_veh = createVehicle [_type, _arr, [], 2000, "NONE"];
+			_sizeOf = sizeOf _type;
+			if (_sizeOf < _sizeAllowed) then {
 				_arr = [_pos, [21,20,22], 1000] call gosa_fnc_findSpawnPos_veh;
 				// TODO: Расчищать место.
 				for "_i" from 0 to (count _arr -1) do {
 					_obj = _arr select _i;
-					if (count (_obj nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
+					if (count (_obj nearEntities ["AllVehicles", (5 max _sizeOf)]) <= 0) exitWith {
 						_b = false;
 						_arr = getPos _obj;
 						_num = getDir _obj;
@@ -340,14 +353,14 @@ if (true) then {
 			};
 			if (_b) then {
 				if(_isUAV)then{_num = 35}else{_num = 25};
-				_arr = ([_pos, 0, _num max sizeOf _type] call gosa_fnc_getSafePos);
+				_arr = ([_pos, 0, _num max _sizeOf] call gosa_fnc_getSafePos);
 			};
-			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
 			if !(_b) then {
 				_veh setDir _num;
 			};
-			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
+			_veh setPos _arr;
+			diag_log format ["Log: [fnc_Client_BuyUnit] Created %1", [_veh, _arr, _isUAV, _crew, _sizeOf]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
 	};
