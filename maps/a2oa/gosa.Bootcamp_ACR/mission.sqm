@@ -47,7 +47,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=33;
+		items=41;
 		class Item0
 		{
 			side="LOGIC";
@@ -3799,6 +3799,150 @@ class Mission
 					vehicle="Soldier_Medic_PMC";
 					player="PLAY CDG";
 					rank="SERGEANT";
+				};
+			};
+		};
+		class Item33
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1875.0096,339.08075,1678.2612};
+					azimut=240;
+					special="NONE";
+					id=413;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 21];";
+				};
+			};
+		};
+		class Item34
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1899.6184,339.08075,1637.1387};
+					azimut=240;
+					special="NONE";
+					id=414;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 21];";
+				};
+			};
+		};
+		class Item35
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1923.6191,339.08075,1595.6415};
+					azimut=240;
+					special="NONE";
+					id=415;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 21];";
+				};
+			};
+		};
+		class Item36
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1945.9952,339.08075,1553.1782};
+					azimut=240;
+					special="NONE";
+					id=416;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 21];";
+				};
+			};
+		};
+		class Item37
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1973.1182,339.07578,1511.9185};
+					azimut=240;
+					special="NONE";
+					id=417;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 21];";
+				};
+			};
+		};
+		class Item38
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1850.9189,339.08075,1719.9668};
+					azimut=240;
+					special="NONE";
+					id=418;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 21];";
+				};
+			};
+		};
+		class Item39
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1583.8176,339.06924,2183.0969};
+					azimut=240;
+					special="NONE";
+					id=419;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 21];";
+				};
+			};
+		};
+		class Item40
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1524.7479,339.07074,2283.4741};
+					azimut=240;
+					special="NONE";
+					id=420;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 21];";
 				};
 			};
 		};
