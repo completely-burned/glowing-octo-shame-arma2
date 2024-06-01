@@ -387,8 +387,14 @@ if({alive _x} count _units > 0)then{
 										[_z call gosa_fnc_waypointPosition, _wp call gosa_fnc_waypointPosition] call BIS_fnc_distance2D > 100) then
 									{
 										// setWaypointPosition PositionASL if radius is negative
-										_arr = AGLToASL (_z call gosa_fnc_waypointPosition);
-										_wp setWaypointPosition [_arr, -1];
+										_arr = _z call gosa_fnc_waypointPosition;
+										#ifdef __ARMA3__
+											_arr = AGLToASL _arr;
+											_wp setWaypointPosition [_arr, -1];
+										#else
+											_arr resize 2;
+											_wp setWaypointPosition [_arr, 0];
+										#endif
 										// FIXME: не понимаю нужное направление
 										_wp synchronizeWaypoint [_z];
 										_z synchronizeWaypoint [_wp];
