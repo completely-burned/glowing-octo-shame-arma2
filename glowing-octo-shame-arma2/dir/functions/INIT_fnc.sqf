@@ -1,5 +1,6 @@
-﻿//--- переменные нужные для некоторых функций
+﻿diag_log format ["Log: [gosa_fnc_init] start %1", time];
 
+//--- Необходимые переменные для некоторых функций.
 // для fnc_deleteGroup
 deadGroup = grpNull;
 gosa_cache_HQ = [objNull];
@@ -30,6 +31,7 @@ if (isServer) then {
 		"fnc_playerRespawn"
 	];
 };
+diag_log format ["Log: [gosa_fnc_init] server done %1", time];
 
 
 //--- клиент
@@ -67,6 +69,7 @@ if !(IsDedicated) then {
 		"fnc_turnVehicle"
 	];
 };
+diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 
 //--- общие
 {
@@ -222,6 +225,7 @@ if !(IsDedicated) then {
 	"fnc_group_wp",
 	"fnc_isPlayer"
 ];
+diag_log format ["Log: [gosa_fnc_init] common done %1", time];
 
 if (!isMultiplayer) then {
 	{
@@ -240,3 +244,4 @@ if (!isMultiplayer) then {
 #endif
 
 gosa_fnc_init = true;
+diag_log format ["Log: [gosa_fnc_init] done %1", time];

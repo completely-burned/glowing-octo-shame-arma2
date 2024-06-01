@@ -28,9 +28,6 @@ gosa_var_respawnVehicle = "gosa_respawnVehicle";
 gosa_var_respawnVehicle_old = "respawnVehicle";
 gosa_var_spawn_time = "gosa_respawnveht";
 
-//-- Разные переменные необходимые для дальнейшей работы штабов.
-[] call compile preprocessFileLineNumbers "dir\common\init_hq.sqf";
-
 // [0inf,1veh,2air,3Ship,4StaticWeapon,5base,6frigate]
 _arr = [1000,1500,3500,1500,1500,3500,4000];
 gosa_param_safeSpawnDistance = _arr;
@@ -508,3 +505,5 @@ gosa_commandingMenu = "#USER:"+_str+"_0";
 // [] execVM "dir\ais\gosa_is.sqf";
 [] execVM ("dir\common\while_vehicles_lock.sqf");
 [] execVM ("dir\common\while_fps.sqf");
+
+diag_log format ["Log: [init_common] Done %1", time];

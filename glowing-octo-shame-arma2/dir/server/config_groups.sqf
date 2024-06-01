@@ -21,6 +21,7 @@
  * 
  */
 
+diag_log format ["Log: [config_groups] start %1", time];
 
 private ["_west","_east","_guer","_woodland","_deserted","_tmp","_mod_acr",
 	"_f_multi_bis_cz","_f_multi_bis_tk","_f_multi_bis_tk_gue","_shop","_landing",
@@ -769,7 +770,7 @@ if(LIB_a2Avail)then{
 
 		// Можно добавить за сторону игроков отряды которые плохо используются ии.
 		// Маршруты не готовы поэтому false.
-		if (false && west in gosa_friendlyside && _shop == 0) then {
+		if (false) then {
 			_west=_west+[
 				[[[["MLRS","MLRS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
 			];
@@ -1175,7 +1176,7 @@ if(LIB_a2Avail)then{
 		_s2 = "RU_Soldier_LAT";
 		_s1 = "RU_Soldier";
 
-		if (false && east in gosa_friendlyside && _shop == 0) then {
+		if (false) then {
 			_east=_east+[
 				[[[["GRAD_RU","GRAD_RU"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
 			];
@@ -1917,7 +1918,7 @@ if(LIB_ahAvail)then{
 	_tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_US");
 	if(true)then{
 		if((!_woodland && gosa_IslandType select 1 >= 1990 && _tmp == -1) or _tmp > 0)then{
-			if (false && west in gosa_friendlyside && _shop == 0) then {
+			if (false) then {
 				_west=_west+[
 					[[[["M1129_MC_EP1","M1129_MC_EP1"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01],
 					[[[["MLRS_DES_EP1","MLRS_DES_EP1"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
@@ -2128,7 +2129,7 @@ if(LIB_ahAvail)then{
 	// BIS_TK
 	_f_multi_bis_tk = missionNamespace getVariable ("gosa_faction_multiplier_"+"BIS_TK");
 	if(_f_multi_bis_tk > 0 or (gosa_IslandType select 1 >= 1990 && _f_multi_bis_tk == -1))then{
-		if (false && east in gosa_friendlyside && _shop == 0) then {
+		if (false) then {
 			_west=_west+[
 				[[[["GRAD_TK_EP1","GRAD_TK_EP1"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
 			];
@@ -3167,6 +3168,8 @@ _guer=[
 ];
 */
 #endif
+
+waitUntil {!isNil "bis_fnc_init"};
 
 _eastN = [_eastN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 _westN = [_westN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;

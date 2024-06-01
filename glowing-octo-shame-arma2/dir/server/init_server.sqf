@@ -1,6 +1,18 @@
 #define __A2OA__
 private ["_grp","_n"];
 
+// FIXME: Возможно при использовании одной группы на все объекты,
+// то при изменении одного синхронизируются все их параметры по сети.
+_grp = createGroup sideLogic;
+gosa_grpLogic = _grp;
+publicVariable "gosa_grpLogic";
+// Совместимость.
+if (isNil "group_logic") then {group_logic = _grp};
+#ifndef __ARMA3__
+	BIS_missionScope = _grp createUnit ["FunctionsManager",[1000,10,0],[],0,"none"];
+	publicVariable "BIS_missionScope";
+#endif
+
 OnPlayerDisconnected "[_id, _uid, _name] ExecVM (""dir\server\eh_PlayerDisconnected.sqf"")";
 
 [] execVM ("dir\server\" + "server_update_respawnVehicles.sqf");
@@ -31,6 +43,7 @@ if(debug)then{
 // "AwareFormationSoft" enableAIFeature false;
 // "CombatFormationSoft" enableAIFeature false;
 
+diag_log format ["Log: [init_server] Создаём белый список объектов.", nil];
 _arr = [] call gosa_fnc_availableVehicles;
 availableVehicles = _arr; publicVariable "availableVehicles";
 _arr = [] call gosa_fnc_availableWeapons;
@@ -39,6 +52,7 @@ _arr = [] call gosa_fnc_availableMagazines;
 availableMagazines = _arr; publicVariable "availableMagazines";
 _arr = [] call gosa_fnc_availableBackpacks;
 availableBackpacks = _arr; publicVariable "availableBackpacks";
+diag_log format ["Log: [init_server] Создан белый список объектов. %1", [count availableVehicles, count availableWeapons, count availableMagazines, count availableBackpacks]];
 
 [] call compile preprocessFileLineNumbers "dir\server\init_groups.sqf";
 [] call compile preprocessFileLineNumbers "dir\server\config_server.sqf";
@@ -88,16 +102,6 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 // civilian setFriend [resistance, 0];
 // civilian setFriend [civilian, 0];
 
-// FIXME: Возможно при использовании одной группы на все объекты,
-// то при изменении одного синхронизируются все их параметры по сети.
-_grp = createGroup sideLogic;
-gosa_grpLogic = _grp;
-publicVariable "gosa_grpLogic";
-// Совместимость.
-if (isNil "group_logic") then {
-	group_logic = _grp;
-};
-
 gosa_logic_ArsenalBox = _grp createUnit ["logic",[1000,10,0],[],0,"none"];
 publicVariable "gosa_logic_ArsenalBox";
 
@@ -117,11 +121,6 @@ BIS_GC_trashItFunc = {
 #endif
 };
 waitUntil {!isNil "BIS_GC_trashItFunc"};
-
-// функции
-BIS_missionScope = (group_logic) createUnit ["FunctionsManager",[1000,10,0],[],0,"none"];
-publicVariable "BIS_missionScope";
-waitUntil {!isNil "BIS_fnc_init"};
 
 // командование
 // if (isNil "BIS_HC_mainscope") then	{
