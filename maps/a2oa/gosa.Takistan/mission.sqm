@@ -30,7 +30,7 @@ class Mission
 	randomSeed=10465836;
 	class Intel
 	{
-		briefingName="CO 00 gosa Takistan Multi v0.0.5.943 DEBUG";
+		briefingName="CO 00 gosa Takistan Multi v0.0.5.944 DEBUG";
 		startWeather=0.4;
 		forecastWeather=0.4;
 		year=2009;
