@@ -297,7 +297,9 @@ if (true) then {
 			};
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
-			_veh setDir _num;
+			if !(_b) then {
+				_veh setDir _num;
+			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] %1, %2", [_veh, _arr], [_isUAV, _crew]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
