@@ -279,19 +279,21 @@ if (true) then {
 		};
 
 		if !(isNil "_factory_obj") then {
-			_arr = [_pos, [23,22,20], 1000] call gosa_fnc_findSpawnPos_veh;
 			_b = true;
-			// TODO: Расчищать место.
-			for "_i" from 0 to (count _arr -1) do {
-				_obj = _arr select _i;
-				if (count (_obj nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
-					_b = false;
-					_arr = getPos _obj;
-					_num = getDir _obj;
+			if (sizeOf _type < 27) then {
+				_arr = [_pos, [23,22,20], 1000] call gosa_fnc_findSpawnPos_veh;
+				// TODO: Расчищать место.
+				for "_i" from 0 to (count _arr -1) do {
+					_obj = _arr select _i;
+					if (count (_obj nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
+						_b = false;
+						_arr = getPos _obj;
+						_num = getDir _obj;
+					};
 				};
 			};
 			if (_b) then {
-			_arr = ([_pos, 0, 15 max sizeOf _type] call gosa_fnc_getSafePos);
+				_arr = ([_pos, 0, 15 max sizeOf _type] call gosa_fnc_getSafePos);
 			};
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
@@ -321,20 +323,22 @@ if (true) then {
 		};
 
 		if !(isNil "_factory_obj") then {
-			_arr = [_pos, [21,20,22], 1000] call gosa_fnc_findSpawnPos_veh;
 			_b = true;
-			// TODO: Расчищать место.
-			for "_i" from 0 to (count _arr -1) do {
-				_obj = _arr select _i;
-				if (count (_obj nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
-					_b = false;
-					_arr = getPos _obj;
-					_num = getDir _obj;
+			if (sizeOf _type < 27) then {
+				_arr = [_pos, [21,20,22], 1000] call gosa_fnc_findSpawnPos_veh;
+				// TODO: Расчищать место.
+				for "_i" from 0 to (count _arr -1) do {
+					_obj = _arr select _i;
+					if (count (_obj nearEntities ["AllVehicles", (5 max sizeOf _type)]) <= 0) exitWith {
+						_b = false;
+						_arr = getPos _obj;
+						_num = getDir _obj;
+					};
 				};
 			};
 			if (_b) then {
-			if(_isUAV)then{_num = 35}else{_num = 25};
-			_arr = ([_pos, 0, _num max sizeOf _type] call gosa_fnc_getSafePos);
+				if(_isUAV)then{_num = 35}else{_num = 25};
+				_arr = ([_pos, 0, _num max sizeOf _type] call gosa_fnc_getSafePos);
 			};
 			_veh = (createVehicle [_type, _arr, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
