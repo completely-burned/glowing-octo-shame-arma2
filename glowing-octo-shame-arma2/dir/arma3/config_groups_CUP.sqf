@@ -481,6 +481,16 @@
 	[1990,2100], [-999,159],
 	["OPF_G_F","OPF_F","OPF_T_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
 	] call gosa_fnc_map_groups_add;
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr = [
+		[[[["CUP_O_BM21_RU","CUP_O_BM21_RU"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
+	];
+	[_groups_map, east, "CUP_O_RU",
+		[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [-999,999],
+		["OPF_G_F","OPF_F","OPF_T_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	] call gosa_fnc_map_groups_add;
+};
 
 //-- CUP_O_TK
 	[_groups_map, east, "CUP_O_TK", [[
@@ -1238,6 +1248,16 @@
 		[1990,2100], [251,999],
 		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr = [
+		[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
+	];
+	[_groups_map, west, "CUP_B_CDF",
+		[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [-999,999],
+		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+	] call gosa_fnc_map_groups_add;
+};
 
 
 //-- CUP_I_NAPA
