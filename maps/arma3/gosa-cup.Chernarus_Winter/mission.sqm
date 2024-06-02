@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1;
+	toggles=1038;
 	class ItemIDProvider
 	{
-		nextID=209;
+		nextID=418;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={4618.9761,351.35513,10405.173};
-		dir[]={0.060353287,-0.27401206,0.95983076};
-		up[]={0.017195672,0.96172631,0.27347201};
-		aside[]={0.99802911,0,-0.06275516};
+		pos[]={4793.0547,34.032223,2488.5151};
+		dir[]={0.65646046,-0.37459278,0.65479523};
+		up[]={0.26521581,0.92718852,0.26454353};
+		aside[]={0.70621395,-2.0139851e-008,-0.70800894};
 	};
 };
 binarizationWanted=0;
@@ -27,20 +27,21 @@ sourceName="gosa";
 addons[]=
 {
 	"CUP_Creatures_Military_CDF",
-	"A3_Modules_F",
 	"A3_Ui_F",
-	"A3_Characters_F",
 	"CUP_Weapons_AmmoBoxes",
+	"A3_Modules_F",
 	"A3_Weapons_F_Ammoboxes",
 	"CUP_Creatures_Military_Russia",
-	"CUP_Creatures_Military_RussiaModern_Units",
-	"CUP_Creatures_Military_PMC"
+	"CUP_Creatures_Military_PMC",
+	"A3_Data_F_Exp_A_Virtual",
+	"A3_Characters_F",
+	"CUP_Creatures_Military_RussiaModern_Units"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=9;
+		items=10;
 		class Item0
 		{
 			className="CUP_Creatures_Military_CDF";
@@ -48,52 +49,59 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="A3_Modules_F";
-			name="Arma 3 Alpha - Scripted Modules";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item2
-		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
-		{
-			className="A3_Characters_F";
-			name="Arma 3 Alpha - Characters and Clothing";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item4
+		class Item2
 		{
 			className="CUP_Weapons_AmmoBoxes";
 			name="CUP_Weapons_AmmoBoxes";
 		};
-		class Item5
+		class Item3
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item5
 		{
 			className="CUP_Creatures_Military_Russia";
 			name="CUP_Creatures_Military_Russia";
 		};
+		class Item6
+		{
+			className="CUP_Creatures_Military_PMC";
+			name="CUP_Creatures_Military_PMC";
+		};
 		class Item7
+		{
+			className="A3_Data_F_Exp_A";
+			name="Arma 3 Nexus Update - Main Configuration";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item8
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item9
 		{
 			className="CUP_Creatures_Military_RussiaModern";
 			name="CUP_Creatures_Military_RussiaModern_Units";
 			author="Community Upgrade Project";
-		};
-		class Item8
-		{
-			className="CUP_Creatures_Military_PMC";
-			name="CUP_Creatures_Military_PMC";
 		};
 	};
 };
@@ -191,10 +199,10 @@ class CustomAttributes
 };
 class Mission
 {
+	assetType="Free";
 	class Intel
 	{
 		briefingName="CUP CO 00 gosa Chernarus_Winter Multi v0.0.5.944 DEBUG";
-		timeOfChanges=1800.0002;
 		startWeather=0.25;
 		startWind=0.1;
 		startWaves=0.1;
@@ -212,7 +220,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=83;
+		items=159;
 		class Item0
 		{
 			dataType="Group";
@@ -232,7 +240,6 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=1;
@@ -395,24 +402,14 @@ class Mission
 		};
 		class Item1
 		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4908.3701,9,2410.397};
-			};
-			init="this setVariable [""gosa_Location_type"", 1];";
-			id=11;
-			type="LocationBase_F";
-		};
-		class Item2
-		{
 			dataType="Marker";
-			position[]={14701.883,132.62759,15069.973};
+			position[]={14701,132.62801,15069};
 			name="gosa_worldSize";
 			type="Empty";
 			id=19;
+			atlOffset=0.13525391;
 		};
-		class Item3
+		class Item2
 		{
 			dataType="Group";
 			side="West";
@@ -424,7 +421,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4793.9731,8.5561028,2627.676};
+						position[]={4795,9.0014391,2595.05};
 					};
 					side="West";
 					flags=6;
@@ -435,13 +432,14 @@ class Mission
 					};
 					id=27;
 					type="CUP_B_CDF_Pilot_SNW";
+					atlOffset=0.24301147;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4808.9731,8.7050161,2612.676};
+						position[]={4797,9.0014391,2595.05};
 					};
 					side="West";
 					flags=4;
@@ -452,14 +450,16 @@ class Mission
 					};
 					id=28;
 					type="CUP_B_CDF_Pilot_SNW";
+					atlOffset=0.24301147;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=20;
+			atlOffset=0.24301147;
 		};
-		class Item4
+		class Item3
 		{
 			dataType="Group";
 			side="West";
@@ -478,6 +478,7 @@ class Mission
 					class Attributes
 					{
 						rank="MAJOR";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=31;
@@ -506,137 +507,7 @@ class Mission
 			};
 			id=29;
 		};
-		class Item5
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4479.6611,0.068945885,1998.368};
-			};
-			name="HeadlessClient";
-			isPlayable=1;
-			id=34;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item6
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4508.3657,0.14167023,2000.9739};
-			};
-			name="HeadlessClient_1";
-			isPlayable=1;
-			id=35;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item7
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4538.1831,0.43504143,1999.553};
-			};
-			name="HeadlessClient_2";
-			isPlayable=1;
-			id=36;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item8
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4572.2598,0.93299866,2000.9739};
-			};
-			name="HeadlessClient_3";
-			isPlayable=1;
-			id=37;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item9
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4612.0166,2.7594967,2000.9739};
-			};
-			name="HeadlessClient_4";
-			isPlayable=1;
-			id=38;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item10
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4607.7573,2.2045736,1975.3967};
-			};
-			name="HeadlessClient_5";
-			isPlayable=1;
-			id=39;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item11
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4576.5195,1.0703115,1975.3967};
-			};
-			name="HeadlessClient_6";
-			isPlayable=1;
-			id=40;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item12
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4533.9233,0.25983334,1972.554};
-			};
-			name="HeadlessClient_7";
-			isPlayable=1;
-			id=41;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item13
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4506.9458,-0.03126049,1972.554};
-			};
-			name="HeadlessClient_8";
-			isPlayable=1;
-			id=42;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item14
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4478.5483,-0.11057949,1972.554};
-			};
-			name="HeadlessClient_9";
-			isPlayable=1;
-			id=43;
-			type="HeadlessClient_F";
-			atlOffset=13.982;
-		};
-		class Item15
+		class Item4
 		{
 			dataType="Object";
 			class PositionInfo
@@ -649,6 +520,3669 @@ class Mission
 			{
 			};
 			id=44;
+			type="CUP_BOX_CDF_Ammo_F";
+			atlOffset=-4.2915344e-005;
+		};
+		class Item5
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5156.2349,10.274195,2338.4529};
+				angles[]={0,0.55705673,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=45;
+			type="CUP_BOX_CDF_Wps_F";
+		};
+		class Item6
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5153.4883,10.069052,2336.1521};
+				angles[]={0,6.2080312,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=46;
+			type="CUP_BOX_CDF_WpsLaunch_F";
+			atlOffset=-9.5367432e-005;
+		};
+		class Item7
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4717.7368,10.274195,2584.2041};
+				angles[]={0,3.0975754,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=49;
+			type="CUP_BOX_CDF_Support_F";
+		};
+		class Item8
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5150.9419,10.274195,2338.345};
+				angles[]={0,5.2807031,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=47;
+			type="CUP_BOX_CDF_Support_F";
+		};
+		class Item9
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4792.7261,8.6999998,2575.604};
+				angles[]={0,3.696049,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=54;
+			type="LocationRespawnPoint_F";
+		};
+		class Item10
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4755.8027,8.6999998,2594.1411};
+				angles[]={0,3.6241031,0};
+			};
+			id=55;
+			type="LocationRespawnPoint_F";
+		};
+		class Item11
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12192.44,164.024,12599.724};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=57;
+			type="LocationRespawnPoint_F";
+		};
+		class Item12
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12010.373,158.8,12635.754};
+				angles[]={0,0.32991329,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=59;
+			type="LocationRespawnPoint_F";
+		};
+		class Item13
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12056.422,158.8,12622.202};
+				angles[]={0,0.32862806,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=60;
+			type="LocationRespawnPoint_F";
+		};
+		class Item14
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12470.268,159.09399,12517.828};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=61;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.093994141;
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={12337.756,159.78981,12558.006};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=62;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={12325.796,159.78981,12562.274};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=63;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={11960,159.78981,12710};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=64;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5190.9932,9.8031158,2290.5864};
+				angles[]={0,0,0.013327583};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=65;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=-1.335144e-005;
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5265.4966,7.7921848,2270.7813};
+				angles[]={0.039979152,0,6.2166171};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=66;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=0.1702323;
+		};
+		class Item20
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4628,339.26901,10493};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=69;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.00030517578;
+		};
+		class Item21
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4662,339.26898,9594};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=73;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.0010375977;
+		};
+		class Item22
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4846.7832,339,10217.113};
+				angles[]={0,4.2226515,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=75;
+			type="LocationRespawnPoint_F";
+		};
+		class Item23
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4870.5742,339,10175.477};
+				angles[]={0,4.1861343,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=76;
+			type="LocationRespawnPoint_F";
+		};
+		class Item24
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4895.2822,339,10135.9};
+				angles[]={0,4.1713886,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=77;
+			type="LocationRespawnPoint_F";
+		};
+		class Item25
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4918.6167,339,10092.434};
+				angles[]={0,4.2234659,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=78;
+			type="LocationRespawnPoint_F";
+		};
+		class Item26
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4943,339,10051};
+				angles[]={0,4.2037849,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=79;
+			type="LocationRespawnPoint_F";
+		};
+		class Item27
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4965.7441,338.991,10007.333};
+				angles[]={0,4.2184334,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=80;
+			type="LocationRespawnPoint_F";
+		};
+		class Item28
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4579.729,338.98999,10680.553};
+				angles[]={0,4.1759315,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=81;
+			type="LocationRespawnPoint_F";
+		};
+		class Item29
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4520.6997,338.98999,10780.495};
+				angles[]={0,4.2017784,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 21];";
+			id=82;
+			type="LocationRespawnPoint_F";
+		};
+		class Item30
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4994.3257,339.7807,9877.7422};
+				angles[]={0,0,6.2818937};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=83;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item31
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4997.4932,339.78311,9869.1709};
+				angles[]={0,0,0.0012918708};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=84;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item32
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4988.9326,339.78979,9902.8145};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=85;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item33
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4986.7539,339.78979,9908.6865};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=86;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item34
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4972.6758,339.77979,9957.5811};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=87;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item35
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4544.4639,339.77197,9938.8486};
+				angles[]={6.2805333,0,0.0026520467};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=88;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item36
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4548.4883,339.77911,9931.0273};
+				angles[]={0,0,0.0026520467};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=89;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item37
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4119,339.78979,10706};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=90;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item38
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11837.158,158.97726,12584.528};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=92;
+					type="CUP_O_RU_Soldier_SL_Ratnik_Winter";
+					atlOffset=0.75424194;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11842.158,159.00143,12579.528};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=93;
+					type="CUP_O_RU_Soldier_Ratnik_Winter";
+					atlOffset=1.1117096;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11832.158,159.00108,12579.528};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=94;
+					type="CUP_O_RU_Soldier_LAT_Ratnik_Winter";
+					atlOffset=0.73323059;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11847.158,159.00143,12574.528};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=95;
+					type="CUP_O_RU_Soldier_MG_Ratnik_Winter";
+					atlOffset=1.5475006;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11827.158,159.00143,12574.528};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=96;
+					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=0.62709045;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11852.158,158.93512,12569.528};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=97;
+					type="CUP_O_RU_Soldier_AR_Ratnik_Winter";
+					atlOffset=1.9478149;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11822.158,158.96774,12569.528};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=98;
+					type="CUP_O_RU_Soldier_A_Ratnik_Winter";
+					atlOffset=0.47349548;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11857.158,158.94392,12564.528};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=99;
+					type="CUP_O_RU_Soldier_Medic_Ratnik_Winter";
+					atlOffset=2.4232635;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=91;
+			atlOffset=0.75424194;
+		};
+		class Item39
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11837.596,159.00143,12575.695};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=101;
+					type="CUP_O_RU_Soldier_SL_Ratnik_Winter";
+					atlOffset=1.0780029;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11842.596,159.00143,12570.695};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=102;
+					type="CUP_O_RU_Soldier_AR_Ratnik_Winter";
+					atlOffset=1.4792786;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11832.596,159.00143,12570.695};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=103;
+					type="CUP_O_RU_Soldier_MG_Ratnik_Winter";
+					atlOffset=0.96321106;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11847.596,159.00143,12565.695};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=104;
+					type="CUP_O_RU_Soldier_AAR_Ratnik_Winter";
+					atlOffset=1.9459991;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11827.596,159.00143,12565.695};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=105;
+					type="CUP_O_RU_Soldier_Marksman_Ratnik_Winter";
+					atlOffset=0.87930298;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11852.596,159.00143,12560.695};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=106;
+					type="CUP_O_RU_Soldier_AT_Ratnik_Winter";
+					atlOffset=2.4373474;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11822.596,158.90143,12560.695};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=107;
+					type="CUP_O_RU_Soldier_AAT_Ratnik_Winter";
+					atlOffset=0.68791199;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11857.596,158.96263,12555.695};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=108;
+					type="CUP_O_RU_Soldier_Medic_Ratnik_Winter";
+					atlOffset=2.9306946;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=100;
+			atlOffset=1.0780029;
+		};
+		class Item40
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11876.714,159.00143,12596.748};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=110;
+					type="CUP_O_RU_Recon_Marksman_Ratnik_Winter";
+					atlOffset=0.98190308;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11881.714,159.00143,12591.748};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=111;
+					type="CUP_O_RU_Recon_Ratnik_Winter";
+					atlOffset=1.4175262;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=109;
+			atlOffset=0.98190308;
+		};
+		class Item41
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11837.276,159.00143,12565.481};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=113;
+					type="CUP_O_RU_Recon_TL_Ratnik_Winter";
+					atlOffset=1.4071655;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11842.276,159.00143,12560.481};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=114;
+					type="CUP_O_RU_Recon_Marksman_Ratnik_Winter";
+					atlOffset=1.8777313;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11832.276,159.00143,12560.481};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=115;
+					type="CUP_O_RU_Recon_Medic_Ratnik_Winter";
+					atlOffset=1.3374634;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11847.276,159.00143,12555.481};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=116;
+					type="CUP_O_RU_Recon_LAT_Ratnik_Winter";
+					atlOffset=2.4017792;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11827.276,158.90143,12555.481};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=117;
+					type="CUP_O_RU_Recon_Ratnik_Winter";
+					atlOffset=1.0765533;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11852.276,159.00143,12550.481};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=118;
+					type="CUP_O_RU_Recon_Exp_Ratnik_Winter";
+					atlOffset=2.9071655;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=112;
+			atlOffset=1.4071655;
+		};
+		class Item42
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11875.437,159.00143,12605.366};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=120;
+					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=0.46456909;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11880.437,159.00143,12600.366};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=121;
+					type="CUP_O_RU_Soldier_HAT_Ratnik_Winter";
+					atlOffset=0.80374146;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11870.437,159.00143,12600.366};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=122;
+					type="CUP_O_RU_Soldier_HAT_Ratnik_Winter";
+					atlOffset=0.6602478;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11885.437,159.00143,12595.366};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=123;
+					type="CUP_O_RU_Soldier_AHAT_Ratnik_Winter";
+					atlOffset=1.2599335;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=119;
+			atlOffset=0.46456909;
+		};
+		class Item43
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11875.117,159.00143,12613.187};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=125;
+					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=0.17448425;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11880.117,159.00143,12608.187};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=126;
+					type="CUP_O_RU_Soldier_AT_Ratnik_Winter";
+					atlOffset=0.37608337;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11870.117,159.00143,12608.187};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=127;
+					type="CUP_O_RU_Soldier_AT_Ratnik_Winter";
+					atlOffset=0.29216003;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11885.117,159.00143,12603.187};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=128;
+					type="CUP_O_RU_Soldier_AAT_Ratnik_Winter";
+					atlOffset=0.75906372;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=124;
+			atlOffset=0.17448425;
+		};
+		class Item44
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11872.584,159.00143,12583.459};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=130;
+					type="CUP_O_RU_Soldier_GL_Ratnik_Winter";
+					atlOffset=1.8093872;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11877.584,159.00143,12581.459};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=131;
+					type="CUP_O_RU_Soldier_Ratnik_Winter";
+					atlOffset=2.1227722;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=129;
+			atlOffset=1.8093872;
+		};
+		class Item45
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11836,159.00143,12594.05};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=133;
+					type="CUP_O_RU_Soldier_SL_Ratnik_Winter";
+					atlOffset=0.47532654;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11841,159.00143,12589.05};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=134;
+					type="CUP_O_RU_Soldier_AR_Ratnik_Winter";
+					atlOffset=0.7199707;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11831,158.91696,12589.05};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=135;
+					type="CUP_O_RU_Soldier_GL_Ratnik_Winter";
+					atlOffset=0.40753174;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11846,159.00143,12584.05};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=136;
+					type="CUP_O_RU_Soldier_MG_Ratnik_Winter";
+					atlOffset=1.0466766;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11826,158.91896,12584.05};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=137;
+					type="CUP_O_RU_Soldier_AT_Ratnik_Winter";
+					atlOffset=0.30418396;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11851,159.00143,12579.05};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=138;
+					type="CUP_O_RU_Soldier_AAT_Ratnik_Winter";
+					atlOffset=1.4613342;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11821,158.9503,12579.05};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=139;
+					type="CUP_O_RU_Soldier_A_Ratnik_Winter";
+					atlOffset=0.27555847;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11856,159.00143,12574.05};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=140;
+					type="CUP_O_RU_Soldier_Medic_Ratnik_Winter";
+					atlOffset=1.9299774;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=132;
+			atlOffset=0.47532654;
+		};
+		class Item46
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11874,159.00143,12620.05};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=142;
+					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=0.033325195;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11879,159.00143,12615.05};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=143;
+					type="CUP_O_RU_Soldier_AR_Ratnik_Winter";
+					atlOffset=0.099990845;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11869,159.00143,12615.05};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=144;
+					type="CUP_O_RU_Soldier_GL_Ratnik_Winter";
+					atlOffset=0.099990845;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11884,159.00143,12610.05};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=145;
+					type="CUP_O_RU_Soldier_LAT_Ratnik_Winter";
+					atlOffset=0.35333252;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=141;
+			atlOffset=0.033325195;
+		};
+		class Item47
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11872.196,159.00143,12592.597};
+					};
+					side="East";
+					flags=3;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=147;
+					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=1.1927795;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11877.196,159.00143,12587.597};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=148;
+					type="CUP_O_RU_Soldier_AA_Ratnik_Winter";
+					atlOffset=1.6553802;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11867.196,159.00143,12587.597};
+					};
+					side="East";
+					flags=1;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=149;
+					type="CUP_O_RU_Soldier_AA_Ratnik_Winter";
+					atlOffset=1.4227142;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=146;
+			atlOffset=1.1927795;
+		};
+		class Item48
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=10;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4617.623,339.00143,10610.928};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=154;
+					type="CUP_I_PMC_Winter_Soldier_TL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4620.623,339.00143,10605.928};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=155;
+					type="CUP_I_PMC_Winter_Sniper";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4622.623,339.00143,10605.928};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=156;
+					type="CUP_I_PMC_Winter_Soldier_AT";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4624.623,339.00143,10605.928};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=157;
+					type="CUP_I_PMC_Winter_Soldier_MG";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4626.623,339.00143,10605.928};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=158;
+					type="CUP_I_PMC_Winter_Soldier_MG_PKM";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4628.623,339.00143,10605.928};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=159;
+					type="CUP_I_PMC_Winter_Soldier_GL";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4630.623,339.00143,10605.928};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=160;
+					type="CUP_I_PMC_Winter_Soldier_GL";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4632.623,339.00143,10605.928};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=161;
+					type="CUP_I_PMC_Winter_Soldier_M4A3";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4634.623,339.00076,10605.928};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=162;
+					type="CUP_I_PMC_Winter_Soldier";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4636.623,338.99811,10605.928};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=163;
+					type="CUP_I_PMC_Winter_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=153;
+		};
+		class Item49
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4595.8906,339.00143,10603.149};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=165;
+					type="CUP_I_PMC_Winter_Soldier_TL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4598.8906,339.00143,10598.149};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=166;
+					type="CUP_I_PMC_Winter_Sniper_KSVK";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4600.8906,339.00143,10598.149};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=167;
+					type="CUP_I_PMC_Winter_Soldier_AT";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4602.8906,339.00143,10598.149};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=168;
+					type="CUP_I_PMC_Winter_Soldier_MG";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4604.8906,339.00079,10598.149};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=169;
+					type="CUP_I_PMC_Winter_Soldier";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=164;
+		};
+		class Item50
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4595.4897,339.00143,10598.006};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=171;
+					type="CUP_I_PMC_Winter_Soldier_GL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4598.4897,339.00143,10593.006};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=172;
+					type="CUP_I_PMC_Winter_Soldier_GL";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4600.4897,339.00143,10593.006};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=173;
+					type="CUP_I_PMC_Winter_Engineer";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4602.4897,339.00143,10593.006};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=174;
+					type="CUP_I_PMC_Winter_Medic";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=170;
+		};
+		class Item51
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4617.2905,339.00143,10605.084};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=176;
+					type="CUP_I_PMC_Winter_Soldier_TL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4620.2905,339.00143,10600.084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=177;
+					type="CUP_I_PMC_Winter_Sniper";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4622.2905,339.00143,10600.084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=178;
+					type="CUP_I_PMC_Winter_Soldier_AT";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4624.2905,339.00143,10600.084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=179;
+					type="CUP_I_PMC_Winter_Soldier_MG";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4626.2905,339.00143,10600.084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=180;
+					type="CUP_I_PMC_Winter_Soldier_GL";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4628.2905,339.00143,10600.084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=181;
+					type="CUP_I_PMC_Winter_Soldier_M4A3";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=175;
+		};
+		class Item52
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4594.3574,339.00143,10592.344};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=183;
+					type="CUP_I_PMC_Winter_Soldier_GL";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4597.3574,339.00143,10587.344};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=184;
+					type="CUP_I_PMC_Winter_Soldier_GL";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4599.3574,339.00143,10587.344};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=185;
+					type="CUP_I_PMC_Winter_Soldier_M4A3";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4601.3574,339.00143,10587.344};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=186;
+					type="CUP_I_PMC_Winter_Soldier_M4A3";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=182;
+		};
+		class Item53
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4605.417,339.00143,10630.767};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=188;
+					type="CUP_I_PMC_Winter_Pilot";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4603.7881,339.00143,10627.092};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=190;
+					type="CUP_I_PMC_Winter_Pilot";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=187;
+		};
+		class Item54
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11998,159.00143,12624.05};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=205;
+					type="CUP_O_RU_Pilot";
+					atlOffset=0.14297485;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11999,159.00111,12621.05};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=206;
+					type="CUP_O_RU_Pilot";
+					atlOffset=0.14265442;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={12000,159.00143,12623.05};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=208;
+					type="CUP_O_RU_Pilot";
+					atlOffset=0.14297485;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11996,159.00143,12622.05};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=209;
+					type="CUP_O_RU_Pilot";
+					atlOffset=0.14297485;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=191;
+			atlOffset=0.14297485;
+		};
+		class Item55
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={11837,147.74536,12387};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=210;
+			type="LocationRespawnPoint_F";
+		};
+		class Item56
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4967.2788,12.646299,2534.5249};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=213;
+					type="CUP_B_CDF_Soldier_MG_SNW";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4970.2788,12.549375,2529.5249};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=214;
+					type="CUP_B_CDF_Soldier_MG_SNW";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4972.2788,12.599628,2529.5249};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=215;
+					type="CUP_B_CDF_Soldier_AR_SNW";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4974.2788,12.647333,2529.5249};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=216;
+					type="CUP_B_CDF_Soldier_LAT_SNW";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=212;
+		};
+		class Item57
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4967.2788,12.449534,2530.0662};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=218;
+					type="CUP_B_CDF_Soldier_TL_SNW";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4970.2788,12.32745,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=219;
+					type="CUP_B_CDF_Soldier_LAT_SNW";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4972.2788,12.412782,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=220;
+					type="CUP_B_CDF_Soldier_LAT_SNW";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4974.2788,12.500485,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=221;
+					type="CUP_B_CDF_Soldier_AR_SNW";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=217;
+		};
+		class Item58
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4967.5493,12.202922,2524.9292};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=223;
+					type="CUP_B_CDF_Soldier_TL_SNW";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4970.5493,12.049368,2519.9292};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=224;
+					type="CUP_B_CDF_Soldier_AA_SNW";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4972.5493,12.177959,2519.9292};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=225;
+					type="CUP_B_CDF_Soldier_AA_SNW";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4974.5493,12.268236,2519.9292};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=226;
+					type="CUP_B_CDF_Soldier_MG_SNW";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=222;
+		};
+		class Item59
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4951.4663,10.253265,2519.1184};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=228;
+					type="CUP_B_CDF_Sniper_SNW";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4954.4663,10.113923,2514.1184};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=229;
+					type="CUP_B_CDF_Sniper_SNW";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=227;
+		};
+		class Item60
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4966.6035,11.814381,2520.1987};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=231;
+					type="CUP_B_CDF_Militia_SNW";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4969.6035,11.698741,2515.1987};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=232;
+					type="CUP_B_CDF_Militia_SNW";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4971.6035,11.833006,2515.1987};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=233;
+					type="CUP_B_CDF_Militia_SNW";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4973.6035,11.974248,2515.1987};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=234;
+					type="CUP_B_CDF_Militia_SNW";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=230;
+		};
+		class Item61
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4921.3267,9.0014391,2530.0662};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=236;
+					type="CUP_B_CDF_Soldier_TL_SNW";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4924.3267,9.0014391,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=237;
+					type="CUP_B_CDF_Soldier_AR_SNW";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4926.3267,9.0014391,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=238;
+					type="CUP_B_CDF_Soldier_MG_SNW";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4928.3267,9.0014391,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=239;
+					type="CUP_B_CDF_Soldier_MG_SNW";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4930.3267,9.019268,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=240;
+					type="CUP_B_CDF_Soldier_LAT_SNW";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4932.3267,9.1232901,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=241;
+					type="CUP_B_CDF_Soldier_LAT_SNW";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4934.3267,9.2272892,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=242;
+					type="CUP_B_CDF_Soldier_GL_SNW";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4936.3267,9.2693577,2525.0662};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=243;
+					type="CUP_B_CDF_Soldier_Marksman_SNW";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=235;
+		};
+		class Item62
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4922.688,9,2441.2329};
+			};
+			isPlayable=1;
+			id=244;
+			type="VirtualSpectator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="WhitelistedSides";
+					expression="_this setVariable ['WhitelistedSides', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="ARRAY";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="AllowAi";
+					expression="_this setVariable ['AllowAi', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Allow3PPCamera";
+					expression="_this setVariable ['Allow3PPCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item63
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12053.036,163.90314,12554.1};
+			};
+			isPlayable=1;
+			id=245;
+			type="VirtualSpectator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="WhitelistedSides";
+					expression="_this setVariable ['WhitelistedSides', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="ARRAY";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="AllowAi";
+					expression="_this setVariable ['AllowAi', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Allow3PPCamera";
+					expression="_this setVariable ['Allow3PPCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item64
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4647.8145,338.95227,9555.5898};
+			};
+			isPlayable=1;
+			id=247;
+			type="VirtualSpectator_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="WhitelistedSides";
+					expression="_this setVariable ['WhitelistedSides', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="ARRAY";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="AllowAi";
+					expression="_this setVariable ['AllowAi', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Allow3PPCamera";
+					expression="_this setVariable ['Allow3PPCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item65
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1303,287,335};
+			};
+			isPlayable=1;
+			id=248;
+			type="VirtualSpectator_F";
+			atlOffset=348.66733;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="WhitelistedSides";
+					expression="_this setVariable ['WhitelistedSides', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="ARRAY";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="AllowAi";
+					expression="_this setVariable ['AllowAi', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Allow3PPCamera";
+					expression="_this setVariable ['Allow3PPCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item66
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={663,124,412};
+			};
+			isPlayable=1;
+			id=249;
+			type="VirtualSpectator_F";
+			atlOffset=177.16333;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="AllowFreeCamera";
+					expression="_this setVariable ['AllowFreeCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="WhitelistedSides";
+					expression="_this setVariable ['WhitelistedSides', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="ARRAY";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ShowFocusInfo";
+					expression="_this setVariable ['ShowFocusInfo', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="AllowAi";
+					expression="_this setVariable ['AllowAi', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="Allow3PPCamera";
+					expression="_this setVariable ['Allow3PPCamera', _value];";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=5;
+			};
+		};
+		class Item67
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={12040,158.94667,12688};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=56;
+			type="LocationBase_F";
+			atlOffset=-1.5258789e-005;
+		};
+		class Item68
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={307.71143,1.0435781,305.41992};
+			};
+			name="HeadlessClient_3";
+			isPlayable=1;
+			id=37;
+			type="HeadlessClient_F";
+			atlOffset=53.171074;
+		};
+		class Item69
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={347.46826,2.8700762,305.41992};
+			};
+			name="HeadlessClient_4";
+			isPlayable=1;
+			id=38;
+			type="HeadlessClient_F";
+			atlOffset=55.432457;
+		};
+		class Item70
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={343.20898,2.3151531,279.84277};
+			};
+			name="HeadlessClient_5";
+			isPlayable=1;
+			id=39;
+			type="HeadlessClient_F";
+			atlOffset=55.236908;
+		};
+		class Item71
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={311.97119,1.180891,279.84277};
+			};
+			name="HeadlessClient_6";
+			isPlayable=1;
+			id=40;
+			type="HeadlessClient_F";
+			atlOffset=53.63369;
+		};
+		class Item72
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={215.11279,0.17952538,302.81409};
+			};
+			name="HeadlessClient";
+			isPlayable=1;
+			id=34;
+			type="HeadlessClient_F";
+			atlOffset=51.061195;
+		};
+		class Item73
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={243.81738,0.25224972,305.41992};
+			};
+			name="HeadlessClient_1";
+			isPlayable=1;
+			id=35;
+			type="HeadlessClient_F";
+			atlOffset=51.557652;
+		};
+		class Item74
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={273.63477,0.54562092,303.99902};
+			};
+			name="HeadlessClient_2";
+			isPlayable=1;
+			id=36;
+			type="HeadlessClient_F";
+			atlOffset=52.261913;
+		};
+		class Item75
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={269.375,0.37041283,277};
+			};
+			name="HeadlessClient_7";
+			isPlayable=1;
+			id=41;
+			type="HeadlessClient_F";
+			atlOffset=52.22625;
+		};
+		class Item76
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={242.39746,0.079319,277};
+			};
+			name="HeadlessClient_8";
+			isPlayable=1;
+			id=42;
+			type="HeadlessClient_F";
+			atlOffset=51.602093;
+		};
+		class Item77
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={214,0,277};
+			};
+			name="HeadlessClient_9";
+			isPlayable=1;
+			id=43;
+			type="HeadlessClient_F";
+			atlOffset=51.118664;
+		};
+		class Item78
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4717,13.586664,2596};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=53;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.01994133;
+		};
+		class Item79
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4758.0659,8.6999998,2601.0859};
+			};
+			init="this setVariable [""gosa_respawn_type"", 1];";
+			id=52;
+			type="LocationRespawnPoint_F";
+		};
+		class Item80
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=10;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4916.5635,9.0014391,2522.7629};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=251;
+					type="CUP_B_CDF_Soldier_TL_SNW";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4919.5635,9.0014391,2517.7629};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=252;
+					type="CUP_B_CDF_Soldier_MG_SNW";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4921.5635,9.0014391,2517.7629};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=253;
+					type="CUP_B_CDF_Soldier_LAT_SNW";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4923.5635,9.0014391,2517.7629};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=254;
+					type="CUP_B_CDF_Soldier_GL_SNW";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4925.5635,9.0014391,2517.7629};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=255;
+					type="CUP_B_CDF_Soldier_SNW";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4927.5635,9.0014391,2517.7629};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=256;
+					type="CUP_B_CDF_Soldier_MG_SNW";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4929.5635,9.0014391,2517.7629};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=257;
+					type="CUP_B_CDF_Soldier_GL_SNW";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4931.5635,9.0014391,2517.7629};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=258;
+					type="CUP_B_CDF_Soldier_LAT_SNW";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4933.5635,9.0014391,2517.7629};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=259;
+					type="CUP_B_CDF_Soldier_SNW";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4935.5635,9.0014391,2517.7629};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=260;
+					type="CUP_B_CDF_Medic_SNW";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=250;
+		};
+		class Item81
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4886,9,2396};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=261;
+			type="LocationBase_F";
+			atlOffset=0.093336105;
+		};
+		class Item82
+		{
+			dataType="Marker";
+			position[]={14701.883,132.62759,15069.973};
+			name="gosa_worldSize_1";
+			type="Empty";
+			id=262;
+		};
+		class Item83
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4793.9731,8.5561028,2627.676};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=264;
+					type="CUP_B_CDF_Pilot_SNW";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4808.9731,8.7050161,2612.676};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=265;
+					type="CUP_B_CDF_Pilot_SNW";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=263;
+		};
+		class Item84
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4952.9712,11.071421,2524.8691};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						rank="MAJOR";
+						isPlayable=1;
+					};
+					id=267;
+					type="CUP_B_CDF_Commander_SNW";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4955.6499,10.622539,2518.0835};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=268;
+					type="CUP_B_CDF_Militia_SNW";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=266;
+		};
+		class Item85
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4479.6611,0.068945885,1998.368};
+			};
+			name="HeadlessClient_10";
+			isPlayable=1;
+			id=269;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item86
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4508.3657,0.14167023,2000.9739};
+			};
+			name="HeadlessClient_11";
+			isPlayable=1;
+			id=270;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item87
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4538.1831,0.43504143,1999.553};
+			};
+			name="HeadlessClient_12";
+			isPlayable=1;
+			id=271;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item88
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4572.2598,0.93299866,2000.9739};
+			};
+			name="HeadlessClient_13";
+			isPlayable=1;
+			id=272;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item89
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4612.0166,2.7594967,2000.9739};
+			};
+			name="HeadlessClient_14";
+			isPlayable=1;
+			id=273;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item90
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4607.7573,2.2045736,1975.3967};
+			};
+			name="HeadlessClient_15";
+			isPlayable=1;
+			id=274;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item91
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4576.5195,1.0703115,1975.3967};
+			};
+			name="HeadlessClient_16";
+			isPlayable=1;
+			id=275;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item92
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4533.9233,0.25983334,1972.554};
+			};
+			name="HeadlessClient_17";
+			isPlayable=1;
+			id=276;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item93
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4506.9458,-0.03126049,1972.554};
+			};
+			name="HeadlessClient_18";
+			isPlayable=1;
+			id=277;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item94
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4478.5483,-0.11057949,1972.554};
+			};
+			name="HeadlessClient_19";
+			isPlayable=1;
+			id=278;
+			type="HeadlessClient_F";
+			atlOffset=13.982;
+		};
+		class Item95
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={4723.7939,9.1594038,2584.554};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=279;
 			type="CUP_BOX_CDF_Ammo_F";
 			atlOffset=-4.2915344e-005;
 			class CustomAttributes
@@ -669,7 +4203,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item16
+		class Item96
 		{
 			dataType="Object";
 			class PositionInfo
@@ -682,7 +4216,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=45;
+			id=280;
 			type="CUP_BOX_CDF_Wps_F";
 			class CustomAttributes
 			{
@@ -702,7 +4236,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item17
+		class Item97
 		{
 			dataType="Object";
 			class PositionInfo
@@ -715,9 +4249,9 @@ class Mission
 			class Attributes
 			{
 			};
-			id=46;
+			id=281;
 			type="CUP_BOX_CDF_WpsLaunch_F";
-			atlOffset=-9.5367432e-005;
+			atlOffset=-9.4413757e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -736,7 +4270,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item18
+		class Item98
 		{
 			dataType="Object";
 			class PositionInfo
@@ -749,7 +4283,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=49;
+			id=282;
 			type="CUP_BOX_CDF_Support_F";
 			class CustomAttributes
 			{
@@ -769,7 +4303,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item19
+		class Item99
 		{
 			dataType="Object";
 			class PositionInfo
@@ -782,7 +4316,7 @@ class Mission
 			class Attributes
 			{
 			};
-			id=47;
+			id=283;
 			type="CUP_BOX_CDF_Support_F";
 			class CustomAttributes
 			{
@@ -802,7 +4336,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item20
+		class Item100
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -810,23 +4344,11 @@ class Mission
 				position[]={5166.4751,9.6960001,2317.1531};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=50;
+			id=284;
 			type="LocationRespawnPoint_F";
 			atlOffset=0.6960001;
 		};
-		class Item21
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4811.4771,8.8409996,2556.3311};
-			};
-			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=51;
-			type="LocationRespawnPoint_F";
-			atlOffset=0.14099979;
-		};
-		class Item22
+		class Item101
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -834,34 +4356,10 @@ class Mission
 				position[]={4758.0659,8.6999998,2601.0859};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
-			id=52;
+			id=286;
 			type="LocationRespawnPoint_F";
 		};
-		class Item23
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={4720.2808,17.961319,2597.0701};
-			};
-			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=54;
-			type="LocationRespawnPoint_F";
-			atlOffset=4.3945961;
-		};
-		class Item24
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={12089.457,158.94121,12747.45};
-				angles[]={0.013332055,0,6.2698536};
-			};
-			init="this setVariable [""gosa_Location_type"", 1];";
-			id=55;
-			type="LocationBase_F";
-		};
-		class Item25
+		class Item102
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -869,10 +4367,10 @@ class Mission
 				position[]={4650,339,10163};
 			};
 			init="this setVariable [""gosa_Location_type"", 1];";
-			id=57;
+			id=289;
 			type="LocationBase_F";
 		};
-		class Item26
+		class Item103
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -881,10 +4379,10 @@ class Mission
 				angles[]={6.2551947,0,0.049292382};
 			};
 			init="this setVariable [""gosa_Location_type"", 1];";
-			id=59;
+			id=290;
 			type="LocationBase_F";
 		};
-		class Item27
+		class Item104
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -892,11 +4390,11 @@ class Mission
 				position[]={7809.9189,313.754,6901.5508};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=60;
+			id=291;
 			type="LocationRespawnPoint_F";
 			atlOffset=0.00021362305;
 		};
-		class Item28
+		class Item105
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -904,10 +4402,10 @@ class Mission
 				position[]={13418.152,4.661304,2798};
 			};
 			init="this setVariable [""gosa_Location_type"", 0];";
-			id=61;
+			id=292;
 			type="LocationBase_F";
 		};
-		class Item29
+		class Item106
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -915,10 +4413,10 @@ class Mission
 				position[]={13403,4.6393156,2793};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=62;
+			id=293;
 			type="LocationRespawnPoint_F";
 		};
-		class Item30
+		class Item107
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -926,10 +4424,10 @@ class Mission
 				position[]={1337,331,13411};
 			};
 			init="this setVariable [""gosa_Location_type"", 0];";
-			id=63;
+			id=294;
 			type="LocationBase_F";
 		};
-		class Item31
+		class Item108
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -937,10 +4435,10 @@ class Mission
 				position[]={1306,331,13388};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=64;
+			id=295;
 			type="LocationRespawnPoint_F";
 		};
-		class Item32
+		class Item109
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -948,10 +4446,10 @@ class Mission
 				position[]={8144,470.70065,9141};
 			};
 			init="this setVariable [""gosa_Location_type"", 0];";
-			id=65;
+			id=296;
 			type="LocationBase_F";
 		};
-		class Item33
+		class Item110
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -959,21 +4457,10 @@ class Mission
 				position[]={8103,470,9290};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=66;
+			id=297;
 			type="LocationRespawnPoint_F";
 		};
-		class Item34
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={12192.75,168.41901,12597.003};
-			};
-			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=67;
-			type="LocationRespawnPoint_F";
-		};
-		class Item35
+		class Item111
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -981,11 +4468,11 @@ class Mission
 				position[]={12162.261,159.06544,12604.766};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=68;
+			id=299;
 			type="LocationRespawnPoint_F";
 			atlOffset=0.0034484863;
 		};
-		class Item36
+		class Item112
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -993,11 +4480,11 @@ class Mission
 				position[]={11984.828,159.07201,12674.935};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=69;
+			id=300;
 			type="LocationRespawnPoint_F";
 			atlOffset=0.27200317;
 		};
-		class Item37
+		class Item113
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1005,22 +4492,10 @@ class Mission
 				position[]={12055.882,158.8,12620.973};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
-			id=71;
+			id=301;
 			type="LocationRespawnPoint_F";
 		};
-		class Item38
-		{
-			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={12470.881,159.09399,12517.64};
-			};
-			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=72;
-			type="LocationRespawnPoint_F";
-			atlOffset=0.093994141;
-		};
-		class Item39
+		class Item114
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1032,10 +4507,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=75;
+			id=303;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item40
+		class Item115
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1048,11 +4523,11 @@ class Mission
 			class Attributes
 			{
 			};
-			id=76;
+			id=304;
 			type="Box_NATO_AmmoVeh_F";
 			atlOffset=1.5258789e-005;
 		};
-		class Item41
+		class Item116
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1064,10 +4539,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=77;
+			id=305;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item42
+		class Item117
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1080,10 +4555,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=78;
+			id=306;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item43
+		class Item118
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1096,11 +4571,11 @@ class Mission
 			class Attributes
 			{
 			};
-			id=79;
+			id=307;
 			type="Box_NATO_AmmoVeh_F";
 			atlOffset=-1.5258789e-005;
 		};
-		class Item44
+		class Item119
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1108,11 +4583,11 @@ class Mission
 				position[]={4717.5659,348.10999,10214.821};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=80;
+			id=308;
 			type="LocationRespawnPoint_F";
 			atlOffset=4.394989;
 		};
-		class Item45
+		class Item120
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1120,10 +4595,10 @@ class Mission
 				position[]={4587.0698,339.00284,9665.415};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=81;
+			id=309;
 			type="LocationRespawnPoint_F";
 		};
-		class Item46
+		class Item121
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1131,10 +4606,10 @@ class Mission
 				position[]={5043.939,338.97476,9969.3633};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=82;
+			id=310;
 			type="LocationRespawnPoint_F";
 		};
-		class Item47
+		class Item122
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1142,10 +4617,10 @@ class Mission
 				position[]={5025.6548,338.98001,9992.3447};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=83;
+			id=311;
 			type="LocationRespawnPoint_F";
 		};
-		class Item48
+		class Item123
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1153,10 +4628,10 @@ class Mission
 				position[]={4964.0029,338.98999,10005.877};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
-			id=84;
+			id=312;
 			type="LocationRespawnPoint_F";
 		};
-		class Item49
+		class Item124
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1164,10 +4639,10 @@ class Mission
 				position[]={4847.793,339,10216.828};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
-			id=85;
+			id=313;
 			type="LocationRespawnPoint_F";
 		};
-		class Item50
+		class Item125
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1175,10 +4650,10 @@ class Mission
 				position[]={4835.438,338.99075,10259.424};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=86;
+			id=314;
 			type="LocationRespawnPoint_F";
 		};
-		class Item51
+		class Item126
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1186,11 +4661,11 @@ class Mission
 				position[]={4782.4922,352.91901,10251.085};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=87;
+			id=315;
 			type="LocationRespawnPoint_F";
 			atlOffset=4.454895;
 		};
-		class Item52
+		class Item127
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1198,11 +4673,11 @@ class Mission
 				position[]={4783.3462,344.853,10261.539};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=88;
+			id=316;
 			type="LocationRespawnPoint_F";
 			atlOffset=3.1239624;
 		};
-		class Item53
+		class Item128
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1210,10 +4685,10 @@ class Mission
 				position[]={4095.7981,339,10741.683};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=89;
+			id=317;
 			type="LocationRespawnPoint_F";
 		};
-		class Item54
+		class Item129
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1221,11 +4696,11 @@ class Mission
 				position[]={4063.2229,339.12354,10796.013};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
-			id=90;
+			id=318;
 			type="LocationRespawnPoint_F";
 			atlOffset=0.16400146;
 		};
-		class Item55
+		class Item130
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1233,11 +4708,11 @@ class Mission
 				position[]={4317.1909,339.11972,10997.645};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=91;
+			id=319;
 			type="LocationRespawnPoint_F";
 			atlOffset=0.00039672852;
 		};
-		class Item56
+		class Item131
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1245,10 +4720,10 @@ class Mission
 				position[]={4590.4209,339,10622.366};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
-			id=92;
+			id=320;
 			type="LocationRespawnPoint_F";
 		};
-		class Item57
+		class Item132
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1256,10 +4731,10 @@ class Mission
 				position[]={4578.9482,338.98999,10680.741};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
-			id=93;
+			id=321;
 			type="LocationRespawnPoint_F";
 		};
-		class Item58
+		class Item133
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -1267,10 +4742,10 @@ class Mission
 				position[]={4523.5508,338.98999,10781.331};
 			};
 			init="this setVariable [""gosa_respawn_type"", 1];";
-			id=94;
+			id=322;
 			type="LocationRespawnPoint_F";
 		};
-		class Item59
+		class Item134
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1283,11 +4758,11 @@ class Mission
 			class Attributes
 			{
 			};
-			id=95;
+			id=323;
 			type="Box_NATO_AmmoVeh_F";
 			atlOffset=-0.0023593903;
 		};
-		class Item60
+		class Item135
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1300,11 +4775,11 @@ class Mission
 			class Attributes
 			{
 			};
-			id=96;
+			id=324;
 			type="Box_NATO_AmmoVeh_F";
 			atlOffset=-6.9618225e-005;
 		};
-		class Item61
+		class Item136
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1316,10 +4791,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=97;
+			id=325;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item62
+		class Item137
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1332,11 +4807,11 @@ class Mission
 			class Attributes
 			{
 			};
-			id=98;
+			id=326;
 			type="Box_NATO_AmmoVeh_F";
 			atlOffset=-6.9618225e-005;
 		};
-		class Item63
+		class Item138
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1348,10 +4823,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=99;
+			id=327;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item64
+		class Item139
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1364,11 +4839,11 @@ class Mission
 			class Attributes
 			{
 			};
-			id=100;
+			id=328;
 			type="Box_NATO_AmmoVeh_F";
 			atlOffset=-4.7683716e-006;
 		};
-		class Item65
+		class Item140
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1380,10 +4855,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=101;
+			id=329;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item66
+		class Item141
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1395,10 +4870,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=102;
+			id=330;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item67
+		class Item142
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1410,10 +4885,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=103;
+			id=331;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item68
+		class Item143
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1425,10 +4900,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=104;
+			id=332;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item69
+		class Item144
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1440,10 +4915,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=105;
+			id=333;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item70
+		class Item145
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1455,10 +4930,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=106;
+			id=334;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item71
+		class Item146
 		{
 			dataType="Object";
 			class PositionInfo
@@ -1470,10 +4945,10 @@ class Mission
 			class Attributes
 			{
 			};
-			id=107;
+			id=335;
 			type="Box_NATO_AmmoVeh_F";
 		};
-		class Item72
+		class Item147
 		{
 			dataType="Group";
 			side="East";
@@ -1485,146 +4960,149 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3665.8896,358.70865,10382.649};
+						position[]={11758,359.00143,12650.05};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=109;
+					id=337;
 					type="CUP_O_RU_Soldier_SL_Ratnik_Winter";
+					atlOffset=200.10001;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3670.8896,358.7175,10377.649};
+						position[]={11763,359.01028,12645.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=110;
+					id=338;
 					type="CUP_O_RU_Soldier_Ratnik_Winter";
+					atlOffset=200.10886;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3660.8896,358.86075,10377.649};
+						position[]={11753,359.15353,12645.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=111;
+					id=339;
 					type="CUP_O_RU_Soldier_LAT_Ratnik_Winter";
+					atlOffset=200.06548;
 				};
 				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3675.8896,358.72296,10372.649};
+						position[]={11768,359.01575,12640.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=112;
+					id=340;
 					type="CUP_O_RU_Soldier_MG_Ratnik_Winter";
+					atlOffset=200.05434;
 				};
 				class Item4
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3655.8896,358.96323,10372.649};
+						position[]={11748,359.25601,12640.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=113;
+					id=341;
 					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=199.94527;
 				};
 				class Item5
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3680.8896,358.71643,10367.649};
+						position[]={11773,359.00922,12635.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=114;
+					id=342;
 					type="CUP_O_RU_Soldier_AR_Ratnik_Winter";
+					atlOffset=200.04781;
 				};
 				class Item6
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3650.8896,359.02625,10367.649};
+						position[]={11743,359.31903,12635.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=115;
+					id=343;
 					type="CUP_O_RU_Soldier_A_Ratnik_Winter";
+					atlOffset=199.64763;
 				};
 				class Item7
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3685.8896,358.70975,10362.649};
+						position[]={11778,359.00253,12630.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=116;
+					id=344;
 					type="CUP_O_RU_Soldier_Medic_Ratnik_Winter";
+					atlOffset=200.00111;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=108;
+			id=336;
+			atlOffset=200.10001;
 		};
-		class Item73
+		class Item148
 		{
 			dataType="Group";
 			side="East";
@@ -1636,146 +5114,149 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3685.6377,357.10767,10426.703};
+						position[]={11758,357.00143,12664.05};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=118;
+					id=346;
 					type="CUP_O_RU_Soldier_SL_Ratnik_Winter";
+					atlOffset=198.2;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3690.6377,357.14233,10421.703};
+						position[]={11763,357.0361,12659.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=119;
+					id=347;
 					type="CUP_O_RU_Soldier_AR_Ratnik_Winter";
+					atlOffset=198.19467;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3680.6377,357.42017,10421.703};
+						position[]={11753,357.31393,12659.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=120;
+					id=348;
 					type="CUP_O_RU_Soldier_GL_Ratnik_Winter";
+					atlOffset=198.49916;
 				};
 				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3695.6377,357.16898,10416.703};
+						position[]={11768,357.06274,12654.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=121;
+					id=349;
 					type="CUP_O_RU_Soldier_MG_Ratnik_Winter";
+					atlOffset=198.16132;
 				};
 				class Item4
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3675.6377,357.70178,10416.703};
+						position[]={11748,357.59555,12654.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=122;
+					id=350;
 					type="CUP_O_RU_Soldier_AT_Ratnik_Winter";
+					atlOffset=198.53813;
 				};
 				class Item5
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3700.6377,357.19147,10411.703};
+						position[]={11773,357.08524,12649.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=123;
+					id=351;
 					type="CUP_O_RU_Soldier_AAT_Ratnik_Winter";
+					atlOffset=198.18381;
 				};
 				class Item6
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3670.6377,357.95459,10411.703};
+						position[]={11743,357.84836,12649.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=124;
+					id=352;
 					type="CUP_O_RU_Soldier_A_Ratnik_Winter";
+					atlOffset=198.47231;
 				};
 				class Item7
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3705.6377,357.20169,10406.703};
+						position[]={11778,357.09546,12644.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=125;
+					id=353;
 					type="CUP_O_RU_Soldier_Medic_Ratnik_Winter";
+					atlOffset=198.19403;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=117;
+			id=345;
+			atlOffset=198.2;
 		};
-		class Item74
+		class Item149
 		{
 			dataType="Group";
 			side="East";
@@ -1787,77 +5268,79 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3752.4775,357.07721,10360.622};
+						position[]={11791.08,356.98022,12635.904};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=127;
+					id=355;
 					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=198.0788;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3757.4775,357.06644,10355.622};
+						position[]={11796.08,356.96945,12630.904};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=128;
+					id=356;
 					type="CUP_O_RU_Soldier_AT_Ratnik_Winter";
+					atlOffset=198.06802;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3747.4775,357.40125,10355.622};
+						position[]={11786.08,357.30426,12630.904};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=129;
+					id=357;
 					type="CUP_O_RU_Soldier_AT_Ratnik_Winter";
+					atlOffset=198.36197;
 				};
 				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3762.4775,357.05975,10350.622};
+						position[]={11801.08,356.96277,12625.904};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=130;
+					id=358;
 					type="CUP_O_RU_Soldier_AAT_Ratnik_Winter";
+					atlOffset=198.06134;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=126;
+			id=354;
+			atlOffset=198.0788;
 		};
-		class Item75
+		class Item150
 		{
 			dataType="Group";
 			side="East";
@@ -1869,77 +5352,79 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3754.7561,357.92242,10331};
+						position[]={11791,358.00143,12625.05};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=132;
+					id=360;
 					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=199.04668;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3759.7561,357.93372,10326};
+						position[]={11796,358.01273,12620.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=133;
+					id=361;
 					type="CUP_O_RU_Soldier_HAT_Ratnik_Winter";
+					atlOffset=199.05798;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3749.7561,358.19034,10326};
+						position[]={11786,358.26935,12620.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=134;
+					id=362;
 					type="CUP_O_RU_Soldier_HAT_Ratnik_Winter";
+					atlOffset=199.26791;
 				};
 				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3764.7561,357.9404,10321};
+						position[]={11801,358.01941,12615.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=135;
+					id=363;
 					type="CUP_O_RU_Soldier_AHAT_Ratnik_Winter";
+					atlOffset=199.06467;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=131;
+			id=359;
+			atlOffset=199.04668;
 		};
-		class Item76
+		class Item151
 		{
 			dataType="Group";
 			side="East";
@@ -1951,60 +5436,62 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3798.05,356.04562,10342.395};
+						position[]={11791,356.00143,12614.05};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=137;
+					id=365;
 					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=197;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3803.05,356.04486,10337.395};
+						position[]={11796,356.00067,12609.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=138;
+					id=366;
 					type="CUP_O_RU_Soldier_AA_Ratnik_Winter";
+					atlOffset=196.99924;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3793.05,356.44302,10337.395};
+						position[]={11786,356.39883,12609.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=139;
+					id=367;
 					type="CUP_O_RU_Soldier_AA_Ratnik_Winter";
+					atlOffset=197.36407;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=136;
+			id=364;
+			atlOffset=197;
 		};
-		class Item77
+		class Item152
 		{
 			dataType="Group";
 			side="East";
@@ -2016,112 +5503,114 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3665.8896,359.07559,10347.71};
+						position[]={11757.492,358.97861,12630.992};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=141;
+					id=369;
 					type="CUP_O_RU_Recon_TL_Ratnik_Winter";
+					atlOffset=199.82413;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3670.8896,359.07776,10342.71};
+						position[]={11762.492,358.98077,12625.992};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=142;
+					id=370;
 					type="CUP_O_RU_Recon_Marksman_Ratnik_Winter";
+					atlOffset=199.83765;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3660.8896,359.11841,10342.71};
+						position[]={11752.492,359.02142,12625.992};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=143;
+					id=371;
 					type="CUP_O_RU_Recon_Medic_Ratnik_Winter";
+					atlOffset=199.61143;
 				};
 				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3675.8896,359.08423,10337.71};
+						position[]={11767.492,358.98724,12620.992};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=144;
+					id=372;
 					type="CUP_O_RU_Recon_LAT_Ratnik_Winter";
+					atlOffset=199.86691;
 				};
 				class Item4
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3655.8896,359.15436,10337.71};
+						position[]={11747.492,359.05737,12620.992};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=145;
+					id=373;
 					type="CUP_O_RU_Recon_Ratnik_Winter";
+					atlOffset=199.31487;
 				};
 				class Item5
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3680.8896,359.08777,10332.71};
+						position[]={11772.492,358.99078,12615.992};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=146;
+					id=374;
 					type="CUP_O_RU_Recon_Exp_Ratnik_Winter";
+					atlOffset=199.87057;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=140;
+			id=368;
+			atlOffset=199.82413;
 		};
-		class Item78
+		class Item153
 		{
 			dataType="Group";
 			side="East";
@@ -2133,146 +5622,148 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3686.3975,356.09842,10451.768};
+						position[]={11759,356.00143,12673.05};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=148;
+					id=376;
 					type="CUP_O_RU_Soldier_SL_Ratnik_Winter";
+					atlOffset=197.14;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3691.3975,356.12158,10446.768};
+						position[]={11764,356.0246,12668.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=149;
+					id=377;
 					type="CUP_O_RU_Soldier_AR_Ratnik_Winter";
+					atlOffset=197.16313;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3681.3975,356.46402,10446.768};
+						position[]={11754,356.36703,12668.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=150;
+					id=378;
 					type="CUP_O_RU_Soldier_MG_Ratnik_Winter";
+					atlOffset=197.5656;
 				};
 				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3696.3975,356.14157,10441.768};
+						position[]={11769,356.04459,12663.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=151;
+					id=379;
 					type="CUP_O_RU_Soldier_AAR_Ratnik_Winter";
+					atlOffset=197.14316;
 				};
 				class Item4
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3676.3975,356.80402,10441.768};
+						position[]={11749,356.70703,12663.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=152;
+					id=380;
 					type="CUP_O_RU_Soldier_Marksman_Ratnik_Winter";
+					atlOffset=197.80565;
 				};
 				class Item5
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3701.3975,356.15036,10436.768};
+						position[]={11774,356.05338,12658.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=153;
+					id=381;
 					type="CUP_O_RU_Soldier_AT_Ratnik_Winter";
+					atlOffset=197.15195;
 				};
 				class Item6
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3671.3975,357.1348,10436.768};
+						position[]={11744,357.03781,12658.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=154;
+					id=382;
 					type="CUP_O_RU_Soldier_AAT_Ratnik_Winter";
+					atlOffset=197.84573;
 				};
 				class Item7
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3706.3975,356.1535,10431.768};
+						position[]={11779,356.05652,12653.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=155;
+					id=383;
 					type="CUP_O_RU_Soldier_Medic_Ratnik_Winter";
+					atlOffset=197.15509;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=147;
+			id=375;
+			atlOffset=197.14;
 		};
-		class Item79
+		class Item154
 		{
 			dataType="Group";
 			side="East";
@@ -2284,77 +5775,79 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3693.71,358.01364,10389.036};
+						position[]={11792,358.00143,12644.05};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=157;
+					id=385;
 					type="CUP_O_RU_Soldier_TL_Ratnik_Winter";
+					atlOffset=199.08667;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3698.71,358.01199,10384.036};
+						position[]={11797,357.99979,12639.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=158;
+					id=386;
 					type="CUP_O_RU_Soldier_AR_Ratnik_Winter";
+					atlOffset=199.08501;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3688.71,358.23392,10384.036};
+						position[]={11787,358.22171,12639.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=159;
+					id=387;
 					type="CUP_O_RU_Soldier_GL_Ratnik_Winter";
+					atlOffset=199.32028;
 				};
 				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3703.71,358.004,10379.036};
+						position[]={11802,357.99179,12634.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=160;
+					id=388;
 					type="CUP_O_RU_Soldier_LAT_Ratnik_Winter";
+					atlOffset=199.09036;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=156;
+			id=384;
+			atlOffset=199.08667;
 		};
-		class Item80
+		class Item155
 		{
 			dataType="Group";
 			side="East";
@@ -2366,146 +5859,149 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4181.1104,346.65988,9932.5225};
+						position[]={11834.603,348.90445,12622.332};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=171;
+					id=390;
 					type="CUP_O_RUS_M_Soldier_SL_VKPO_Winter";
+					atlOffset=189.91119;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4186.1104,346.3812,9927.5225};
+						position[]={11839.603,348.62576,12617.332};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=172;
+					id=391;
 					type="CUP_O_RUS_M_Soldier_VKPO_Winter";
+					atlOffset=189.69389;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4176.1104,347.27792,9927.5225};
+						position[]={11829.603,349.52249,12617.332};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=173;
+					id=392;
 					type="CUP_O_RUS_M_Soldier_LAT_VKPO_Winter";
+					atlOffset=190.62106;
 				};
 				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4191.1104,346.09436,9922.5225};
+						position[]={11844.603,348.33893,12612.332};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=174;
+					id=393;
 					type="CUP_O_RUS_M_Soldier_MG_VKPO_Winter";
+					atlOffset=189.47372;
 				};
 				class Item4
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4171.1104,347.88446,9922.5225};
+						position[]={11824.603,350.12903,12612.332};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=175;
+					id=394;
 					type="CUP_O_RUS_M_Soldier_TL_VKPO_Winter";
+					atlOffset=191.2276;
 				};
 				class Item5
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4196.1104,345.7955,9917.5225};
+						position[]={11849.603,348.04007,12607.332};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=176;
+					id=395;
 					type="CUP_O_RUS_M_Soldier_AR_VKPO_Winter";
+					atlOffset=189.24731;
 				};
 				class Item6
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4166.1104,348.44373,9917.5225};
+						position[]={11819.603,350.68829,12607.332};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=177;
+					id=396;
 					type="CUP_O_RUS_M_Soldier_A_VKPO_Winter";
+					atlOffset=191.78687;
 				};
 				class Item7
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4201.1104,345.50134,9912.5225};
+						position[]={11854.603,347.74591,12602.332};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=178;
+					id=397;
 					type="CUP_O_RUS_M_Soldier_Medic_VKPO_Winter";
+					atlOffset=189.21452;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=170;
+			id=389;
+			atlOffset=189.91119;
 		};
-		class Item81
+		class Item156
 		{
 			dataType="Group";
 			side="East";
@@ -2517,146 +6013,149 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4696.7881,338.99512,9561.7588};
+						position[]={11759,339.00143,12618.05};
 					};
 					side="East";
-					flags=7;
+					flags=3;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=180;
+					id=399;
 					type="CUP_O_RUS_M_Soldier_SL_Ratnik_Winter";
+					atlOffset=179.61336;
 				};
 				class Item1
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4701.7881,338.95511,9556.7588};
+						position[]={11764,338.96143,12613.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=181;
+					id=400;
 					type="CUP_O_RUS_M_Soldier_Ratnik_Winter";
+					atlOffset=179.64268;
 				};
 				class Item2
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4691.7881,338.99857,9556.7588};
+						position[]={11754,339.00488,12613.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=182;
+					id=401;
 					type="CUP_O_RUS_M_Soldier_LAT_Ratnik_Winter";
+					atlOffset=179.41016;
 				};
 				class Item3
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4706.7881,338.8804,9551.7588};
+						position[]={11769,338.88672,12608.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=183;
+					id=402;
 					type="CUP_O_RUS_M_Soldier_MG_Ratnik_Winter";
+					atlOffset=179.61462;
 				};
 				class Item4
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4686.7881,339.00482,9551.7588};
+						position[]={11749,339.01114,12608.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=184;
+					id=403;
 					type="CUP_O_RUS_M_Soldier_TL_Ratnik_Winter";
+					atlOffset=179.07443;
 				};
 				class Item5
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4711.7881,338.79556,9546.7588};
+						position[]={11774,338.80188,12603.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=185;
+					id=404;
 					type="CUP_O_RUS_M_Soldier_AR_Ratnik_Winter";
+					atlOffset=179.5298;
 				};
 				class Item6
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4681.7881,338.98508,9546.7588};
+						position[]={11744,338.99139,12603.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=186;
+					id=405;
 					type="CUP_O_RUS_M_Soldier_A_Ratnik_Winter";
+					atlOffset=178.74998;
 				};
 				class Item7
 				{
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={4716.7881,338.72888,9541.7588};
+						position[]={11779,338.7352,12598.05};
 					};
 					side="East";
-					flags=5;
+					flags=1;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=187;
+					id=406;
 					type="CUP_O_RUS_M_Soldier_Medic_Ratnik_Winter";
+					atlOffset=179.49245;
 				};
 			};
 			class Attributes
 			{
 			};
-			id=179;
+			id=398;
+			atlOffset=179.61336;
 		};
-		class Item82
+		class Item157
 		{
 			dataType="Group";
 			side="Independent";
@@ -2674,11 +6173,10 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						skill=0.55000001;
 						rank="LIEUTENANT";
 						isPlayable=1;
 					};
-					id=189;
+					id=408;
 					type="CUP_I_PMC_Winter_Soldier_TL";
 				};
 				class Item1
@@ -2695,7 +6193,7 @@ class Mission
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=190;
+					id=409;
 					type="CUP_I_PMC_Winter_Sniper";
 				};
 				class Item2
@@ -2712,7 +6210,7 @@ class Mission
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=191;
+					id=410;
 					type="CUP_I_PMC_Winter_Soldier_AT";
 				};
 				class Item3
@@ -2729,7 +6227,7 @@ class Mission
 						rank="SERGEANT";
 						isPlayable=1;
 					};
-					id=192;
+					id=411;
 					type="CUP_I_PMC_Winter_Soldier_MG";
 				};
 				class Item4
@@ -2743,11 +6241,10 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=193;
+					id=412;
 					type="CUP_I_PMC_Winter_Soldier_MG_PKM";
 				};
 				class Item5
@@ -2761,11 +6258,10 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=194;
+					id=413;
 					type="CUP_I_PMC_Winter_Soldier_GL";
 				};
 				class Item6
@@ -2779,11 +6275,10 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.44999999;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
-					id=195;
+					id=414;
 					type="CUP_I_PMC_Winter_Soldier_GL";
 				};
 				class Item7
@@ -2797,10 +6292,9 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=196;
+					id=415;
 					type="CUP_I_PMC_Winter_Soldier_M4A3";
 				};
 				class Item8
@@ -2814,10 +6308,9 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=197;
+					id=416;
 					type="CUP_I_PMC_Winter_Soldier";
 				};
 				class Item9
@@ -2831,33 +6324,44 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						skill=0.40000001;
 						isPlayable=1;
 					};
-					id=198;
+					id=417;
 					type="CUP_I_PMC_Winter_Soldier";
 				};
 			};
 			class Attributes
 			{
 			};
-			id=188;
+			id=407;
+		};
+		class Item158
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={4811.4771,8.8409996,2556.3311};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=285;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.14099979;
 		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=27;
+			nextID=31;
 		};
 		class Links
 		{
-			items=27;
+			items=31;
 			class Item0
 			{
 				linkID=0;
-				item0=50;
-				item1=11;
+				item0=57;
+				item1=56;
 				class CustomData
 				{
 					type="Sync";
@@ -2866,8 +6370,8 @@ class Mission
 			class Item1
 			{
 				linkID=1;
-				item0=51;
-				item1=11;
+				item0=61;
+				item1=56;
 				class CustomData
 				{
 					type="Sync";
@@ -2876,8 +6380,8 @@ class Mission
 			class Item2
 			{
 				linkID=2;
-				item0=52;
-				item1=11;
+				item0=210;
+				item1=56;
 				class CustomData
 				{
 					type="Sync";
@@ -2886,8 +6390,8 @@ class Mission
 			class Item3
 			{
 				linkID=3;
-				item0=54;
-				item1=11;
+				item0=284;
+				item1=261;
 				class CustomData
 				{
 					type="Sync";
@@ -2896,8 +6400,8 @@ class Mission
 			class Item4
 			{
 				linkID=4;
-				item0=60;
-				item1=59;
+				item0=285;
+				item1=261;
 				class CustomData
 				{
 					type="Sync";
@@ -2906,8 +6410,8 @@ class Mission
 			class Item5
 			{
 				linkID=5;
-				item0=62;
-				item1=61;
+				item0=286;
+				item1=261;
 				class CustomData
 				{
 					type="Sync";
@@ -2916,8 +6420,8 @@ class Mission
 			class Item6
 			{
 				linkID=6;
-				item0=64;
-				item1=63;
+				item0=291;
+				item1=290;
 				class CustomData
 				{
 					type="Sync";
@@ -2926,8 +6430,8 @@ class Mission
 			class Item7
 			{
 				linkID=7;
-				item0=66;
-				item1=65;
+				item0=293;
+				item1=292;
 				class CustomData
 				{
 					type="Sync";
@@ -2936,8 +6440,8 @@ class Mission
 			class Item8
 			{
 				linkID=8;
-				item0=69;
-				item1=55;
+				item0=295;
+				item1=294;
 				class CustomData
 				{
 					type="Sync";
@@ -2946,8 +6450,8 @@ class Mission
 			class Item9
 			{
 				linkID=9;
-				item0=71;
-				item1=55;
+				item0=297;
+				item1=296;
 				class CustomData
 				{
 					type="Sync";
@@ -2956,8 +6460,8 @@ class Mission
 			class Item10
 			{
 				linkID=10;
-				item0=68;
-				item1=55;
+				item0=289;
+				item1=308;
 				class CustomData
 				{
 					type="Sync";
@@ -2966,8 +6470,8 @@ class Mission
 			class Item11
 			{
 				linkID=11;
-				item0=67;
-				item1=55;
+				item0=309;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -2976,8 +6480,8 @@ class Mission
 			class Item12
 			{
 				linkID=12;
-				item0=72;
-				item1=55;
+				item0=310;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -2986,8 +6490,8 @@ class Mission
 			class Item13
 			{
 				linkID=13;
-				item0=57;
-				item1=80;
+				item0=311;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -2996,8 +6500,8 @@ class Mission
 			class Item14
 			{
 				linkID=14;
-				item0=81;
-				item1=57;
+				item0=312;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3006,8 +6510,8 @@ class Mission
 			class Item15
 			{
 				linkID=15;
-				item0=82;
-				item1=57;
+				item0=313;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3016,8 +6520,8 @@ class Mission
 			class Item16
 			{
 				linkID=16;
-				item0=83;
-				item1=57;
+				item0=314;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3026,8 +6530,8 @@ class Mission
 			class Item17
 			{
 				linkID=17;
-				item0=84;
-				item1=57;
+				item0=315;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3036,8 +6540,8 @@ class Mission
 			class Item18
 			{
 				linkID=18;
-				item0=85;
-				item1=57;
+				item0=316;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3046,8 +6550,8 @@ class Mission
 			class Item19
 			{
 				linkID=19;
-				item0=86;
-				item1=57;
+				item0=320;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3056,8 +6560,8 @@ class Mission
 			class Item20
 			{
 				linkID=20;
-				item0=87;
-				item1=57;
+				item0=321;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3066,8 +6570,8 @@ class Mission
 			class Item21
 			{
 				linkID=21;
-				item0=88;
-				item1=57;
+				item0=322;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3076,8 +6580,8 @@ class Mission
 			class Item22
 			{
 				linkID=22;
-				item0=92;
-				item1=57;
+				item0=317;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3086,8 +6590,8 @@ class Mission
 			class Item23
 			{
 				linkID=23;
-				item0=93;
-				item1=57;
+				item0=318;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
@@ -3096,8 +6600,8 @@ class Mission
 			class Item24
 			{
 				linkID=24;
-				item0=94;
-				item1=57;
+				item0=301;
+				item1=56;
 				class CustomData
 				{
 					type="Sync";
@@ -3106,8 +6610,8 @@ class Mission
 			class Item25
 			{
 				linkID=25;
-				item0=89;
-				item1=57;
+				item0=300;
+				item1=56;
 				class CustomData
 				{
 					type="Sync";
@@ -3116,8 +6620,48 @@ class Mission
 			class Item26
 			{
 				linkID=26;
-				item0=90;
-				item1=57;
+				item0=299;
+				item1=56;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item27
+			{
+				linkID=27;
+				item0=53;
+				item1=261;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item28
+			{
+				linkID=28;
+				item0=73;
+				item1=289;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item29
+			{
+				linkID=29;
+				item0=69;
+				item1=289;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item30
+			{
+				linkID=30;
+				item0=319;
+				item1=289;
 				class CustomData
 				{
 					type="Sync";
