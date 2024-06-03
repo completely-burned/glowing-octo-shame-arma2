@@ -23,3 +23,12 @@ if (count _this > 2) then {
 		[nil, _this select 0, rhintresurrected, _this select 2] call RE;
 	#endif
 };
+
+// Теоретически это должно улучшить качество респавнов, исправив возникшие проблемы, но после их возникновения и не на 100%.
+// TODO: Устранить открытие меню, применение эффектов и другие проблемы. Но на данный момент нет времени искать проблему.
+#ifdef __ARMA3__
+	if !(isNil "BIS_DeathBlur") then {
+		["close"] call BIS_fnc_showRespawnMenu;
+		ppEffectDestroy BIS_DeathBlur;
+	};
+#endif
