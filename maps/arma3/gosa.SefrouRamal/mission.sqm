@@ -47,9 +47,9 @@ class AddonsMetaData
 		class Item1
 		{
 			className="Characters_f_lxWS";
-			name="Arma 3 Western Sahara - Characters and Clothing";
+			name="Arma 3 Creator DLC: Western Sahara - Characters and Clothing";
 			author="Rotators Collective";
-			url="https://www.arma3.com";
+			url="https://sahara.rotators.net/";
 		};
 		class Item2
 		{
