@@ -8,7 +8,7 @@ class EditorData
 	toggles=37;
 	class ItemIDProvider
 	{
-		nextID=162;
+		nextID=171;
 	};
 	class MarkerIDProvider
 	{
@@ -35,13 +35,14 @@ addons[]=
 	"WW2_SPE_Structures_c",
 	"WW2_SPE_Structures_c_SimpleObjects_c",
 	"WW2_SPE_Assets_c_Vehicles_SimpleObjects_c",
-	"WW2_SPE_Assets_c_Weapons_Ammoboxes_c"
+	"WW2_SPE_Assets_c_Weapons_Ammoboxes_c",
+	"WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=13;
+		items=14;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -114,6 +115,11 @@ class AddonsMetaData
 		{
 			className="WW2_SPE_Assets_c_Weapons_Ammoboxes_c";
 			name="WW2_SPE_Assets_c_Weapons_Ammoboxes_c";
+		};
+		class Item13
+		{
+			className="WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce";
+			name="WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce";
 		};
 	};
 };
@@ -234,7 +240,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=62;
+		items=64;
 		class Item0
 		{
 			dataType="Marker";
@@ -2290,6 +2296,105 @@ class Mission
 			init="this setVariable [""gosa_respawn_type"", 20];";
 			id=160;
 			type="LocationRespawnPoint_F";
+		};
+		class Item62
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10845,37.614754,10204.05};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=163;
+					type="SPE_GER_pilot";
+					atlOffset=-3.8146973e-006;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10843,37.588097,10205.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=164;
+					type="SPE_GER_pilot";
+					atlOffset=-3.8146973e-006;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=162;
+			atlOffset=-3.8146973e-006;
+		};
+		class Item63
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11108.105,37.278419,10196.099};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=169;
+					type="SPE_US_Pilot";
+					atlOffset=3.8146973e-006;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11105.546,36.477921,10196.897};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=170;
+					type="SPE_US_Pilot";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=168;
+			atlOffset=3.8146973e-006;
 		};
 	};
 	class Connections
