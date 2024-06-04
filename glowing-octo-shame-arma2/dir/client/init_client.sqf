@@ -42,7 +42,9 @@ if(worldName == "namalsk")then{
 };
 SetGroupIconsVisible [true,false];
 
-waitUntil{!isNil "bis_fnc_init"};
+#ifndef __ARMA3__
+	waitUntil{!isNil "bis_fnc_init"};
+#endif
 waitUntil{!isNil "gosa_fnc_init"};
 
 /*
