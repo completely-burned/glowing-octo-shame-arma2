@@ -85,7 +85,7 @@ while {true} do {
 		diag_log format ["Log: [respawnRandom] blacklisted unit %1", _p];
 	};
 	_str = lifeState player;
-	if !(_str in ["ALIVE", "UNCONSCIOUS", "INJURED", "HEALTHY"]) then {
+	if !(_str in ["ALIVE", "UNCONSCIOUS", "INJURED", "HEALTHY", "INCAPACITATED"]) then {
 		_b = true;
 		diag_log format ["Log: [respawnRandom] %1 blacklisted lifeState %2", player, _str];
 	};
