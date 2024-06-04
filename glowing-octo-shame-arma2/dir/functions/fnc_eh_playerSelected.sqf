@@ -27,8 +27,8 @@ if (count _this > 2) then {
 // Теоретически это должно улучшить качество респавнов, исправив возникшие проблемы, но после их возникновения и не на 100%.
 // TODO: Устранить открытие меню, применение эффектов и другие проблемы. Но на данный момент нет времени искать проблему.
 #ifdef __ARMA3__
+	["close"] call BIS_fnc_showRespawnMenu;
 	if !(isNil "BIS_DeathBlur") then {
-		["close"] call BIS_fnc_showRespawnMenu;
 		ppEffectDestroy BIS_DeathBlur;
 	};
 #endif
