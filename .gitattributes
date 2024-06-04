@@ -1,3 +1,6 @@
+mission.sqm linguist-language=js
+Description.ext linguist-language=js
+
 * text=auto
 
 *.sqf text eol=crlf
