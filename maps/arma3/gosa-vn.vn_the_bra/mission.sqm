@@ -31,15 +31,13 @@ addons[]=
 	"air_f_vietnam_02_c",
 	"wheeled_f_vietnam_02_c",
 	"A3_Weapons_F_Ammoboxes",
-	"ace_rearm",
-	"ace_dragging",
 	"characters_f_vietnam_c"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=11;
+		items=9;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -97,20 +95,6 @@ class AddonsMetaData
 			url="https://www.arma3.com";
 		};
 		class Item8
-		{
-			className="ace_rearm";
-			name="ACE3 - Rearm";
-			author="Команда ACE";
-			url="https://ace3.acemod.org/";
-		};
-		class Item9
-		{
-			className="ace_dragging";
-			name="ACE3 - Dragging";
-			author="Команда ACE";
-			url="https://ace3.acemod.org/";
-		};
-		class Item10
 		{
 			className="characters_f_vietnam_c";
 			name="characters_f_vietnam_c";
@@ -847,7 +831,6 @@ class Mission
 				position[]={3192,43,4297};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				init="this setVariable [""gosa_respawnVehicle"", true];";
@@ -863,7 +846,6 @@ class Mission
 				position[]={3193,43,4277};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				init="this setVariable [""gosa_respawnVehicle"", true];";
@@ -896,7 +878,6 @@ class Mission
 				angles[]={0,4,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 				init="this setVariable [""gosa_respawnVehicle"", true];";
@@ -912,7 +893,6 @@ class Mission
 				position[]={3208,41,4269};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
@@ -927,7 +907,6 @@ class Mission
 				position[]={3237,41,4252};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
