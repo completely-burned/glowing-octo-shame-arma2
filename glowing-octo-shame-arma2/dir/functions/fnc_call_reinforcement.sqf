@@ -140,7 +140,7 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 	if (_patrol)then{
 		_SafePosParams set [1,((_SafePosParams select 1) * 2)];
 	};
-	_pos_resp = _arr call gosa_fnc_findSafePos_v2;
+	_pos_resp = _arr call gosa_fnc_findSafePos;
 	if (count _pos_resp < 1) exitWith {
 		diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _pos_resp isNil ", nil];
 	};
