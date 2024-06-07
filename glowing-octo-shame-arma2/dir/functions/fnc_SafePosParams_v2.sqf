@@ -33,9 +33,11 @@ if ([_types, ["LandVehicle"]] call gosa_fnc_CheckIsKindOfArray) then{
 	_playerDist = _distances select 1;
 	_searchDistMax = _playerDist*3;
 	_waterMode = 0;
+	/*
 	if ("canfloat" in _types) then {
 		_island_isolate = false;
 	};
+	*/
 	_objDist = 15;
 };
 
