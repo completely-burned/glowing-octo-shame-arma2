@@ -8,7 +8,7 @@ private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient
 	"_allowPos","_testPos","_preferRoads","_tmp_dir","_tmp_radius","_run_timer",
 	"_max_square","_square","_max_attempt","_branchesRoads","_roads","_branchRoad",
 	"_roadSize","_square_step","_r","_start_radius","_start_square","_dir_s",
-	"_arr","_island",
+	"_arr","_island","_island_isolate",
 	"_withinMap","_z"];
 
 
@@ -65,6 +65,18 @@ if ((count _this) > 12 && (!isNil {_this select 12})) then
 	_withinMap = false;
 };
 
+#ifdef __A2OA__
+if ((count _this) > 13 && {!isNil {_this select 13}}) then
+#else
+if ((count _this) > 13 && (!isNil {_this select 13})) then
+#endif
+{
+	_island_isolate = _this select 13;
+}else{
+	// false потомучто старый код был написан задолго до учёта островов.
+	_island_isolate = false;
+};
+
 _posX = _pos select 0;
 _posY = _pos select 1;
 
@@ -109,8 +121,10 @@ if(_preferRoads)then{
 // минимальное количество частей дороги 2, для верного направления
 _roadSize = (_this select 9 select 1) max 2;
 
+if (_island_isolate) then {
 if (_waterMode == 0) then {
 	_island = [_pos, gosa_zone_islands] call gosa_fnc_getIsland;
+};
 };
 
 _attempts = 1;
@@ -234,6 +248,7 @@ while {!_allowPos} do {
 	};
 
 	//--- Остров.
+	if (_island_isolate) then {
 	if !(isNil "_island") then {
 		if (_allowPos) then {
 			if (_island select 0) then {
@@ -260,6 +275,7 @@ while {!_allowPos} do {
 				*/
 			};
 		};
+	};
 	};
 
 	//--- проверка позиции на отсутствия лишних объектов и наклона

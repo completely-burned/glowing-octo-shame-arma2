@@ -43,8 +43,24 @@ _grp1 = (_typeList call gosa_fnc_selectRandomWeighted);
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 diag_log format ["Log: [fnc_failoverGroup] _grp1 %1", _grp1];
 
-_SafePosParams = ([_types] call gosa_fnc_SafePosParams);
-_pos_resp = ([_pos]+_SafePosParams+[_side]+[[],true] call gosa_fnc_findSafePos);
+_SafePosParams = ([_types] call gosa_fnc_SafePosParams_v2);
+_arr = [
+	_pos,
+	_SafePosParams select 0,
+	_SafePosParams select 1,
+	_SafePosParams select 2,
+	_SafePosParams select 3,
+	_SafePosParams select 4,
+	_SafePosParams select 5,
+	_SafePosParams select 6,
+	_SafePosParams select 7,
+	_SafePosParams select 8,
+	_side,
+	[],
+	true,
+	_SafePosParams select 9
+];
+_pos_resp = _arr call gosa_fnc_findSafePos;
 
 _groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
 for "_i" from 0 to (count _groups - 1) do {
