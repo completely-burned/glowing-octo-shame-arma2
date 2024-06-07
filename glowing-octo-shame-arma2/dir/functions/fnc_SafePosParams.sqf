@@ -7,4 +7,4 @@
  * но оставлена для совместимости.
  */
 
-resize (_this call gosa_fnc_SafePosParams_v2) 9;
+_this call gosa_fnc_SafePosParams_v2 resize 9;
