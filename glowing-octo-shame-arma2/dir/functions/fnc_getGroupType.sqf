@@ -121,6 +121,14 @@ _t = [];
 		};
 	};
 
+	#ifdef __ARMA3__
+		_z = "MenDiver";
+		if !(_z in _t) then {
+			if (toLowerANSI getText(LIB_cfgVeh >> _str >> "vehicleClass") isEqualTo toLowerANSI _z) then {
+				_t set [count _t, _z];
+			};
+		};
+	#endif
 
 } forEach _this;
 
