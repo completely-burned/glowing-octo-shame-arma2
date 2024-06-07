@@ -89,7 +89,7 @@ if ("Artillery" in _roles) then {
 	_preferRoads = false;
 	_arr = [_types] call gosa_fnc_returnVehicleRange;
 	// Минимальный рекмендуемый радиус обстрела.
-	_playerDist = _arr select 2;
+	_playerDist = _playerDist max (_arr select 2);
 	// Максимальный рекмендуемый радиус обстрела.
 	_searchDistMax = _arr select 3;
 };
