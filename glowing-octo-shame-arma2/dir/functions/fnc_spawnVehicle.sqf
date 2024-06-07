@@ -1,4 +1,7 @@
 diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
+#ifdef __ARMA3__
+	#define toLower toLowerANSI
+#endif
 
 private ["_pos","_azi","_type","_grp","_side","_str","_entry",
 	"_crew_types","_isUAV",
@@ -71,11 +74,11 @@ diag_log format ["Log: [fnc_spawnVehicle] %1, created %2 %3 %4", _this, _sim, ge
 #ifdef __ARMA3__
 	_isUAV = _veh call gosa_fnc_isUAV;
 	if (_isUAV) then {
+		// FIXME: Возможно достаточно чтобы пилот и стрелок были в разных группах.
 		_side createVehicleCrew _veh;
 		_crew = crew _veh;
 	}else{
 #endif
-
 _crew = [_veh,
 		_grp,
 		_side,
@@ -84,13 +87,8 @@ _crew = [_veh,
 		_entry,
 		_pos
 	] call gosa_fnc_spawnCrew;
-
-
 #ifdef __ARMA3__
 	};
-
-		// Без этого некоторые ТС в A3 стоят на месте.
-		_crew doFollow leader _grp;
 #endif
 
 [_veh, _crew, _grp];
