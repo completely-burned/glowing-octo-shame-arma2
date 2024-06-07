@@ -81,12 +81,6 @@ if ([_types, ["Ship"]] call gosa_fnc_CheckIsKindOfArray) then{
 	_island_isolate = false;
 };
 
-if ("MenDiver" in _roles) then {
-	_waterMode = 0;
-	_blacklist = [];
-	_island_isolate = false;
-};
-
 if ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then{
 	_playerDist = _distances select 4;
 	_searchDistMax = gosa_locationSize;
@@ -96,6 +90,12 @@ if ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then{
 };
 
 _roles = _types call gosa_fnc_getGroupType;
+
+if ("MenDiver" in _roles) then {
+	_waterMode = 0;
+	_blacklist = [];
+	_island_isolate = false;
+};
 
 if ("Artillery" in _roles) then {
 	_preferRoads = false;
