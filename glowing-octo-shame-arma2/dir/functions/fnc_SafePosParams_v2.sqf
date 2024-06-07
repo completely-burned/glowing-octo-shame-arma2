@@ -2,7 +2,7 @@
 Вычисление параметров поиска безопасной позиции для возрождения ии.
 */
 
-diag_log format ["Log: [gosa_fnc_SafePosParams] %1", _this];
+diag_log format ["Log: [fnc_SafePosParams_v2] %1", _this];
 
 private["_types","_playerDist", "_searchDistMax", "_objDist", "_waterMode",
 	"_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_distances",
@@ -109,4 +109,6 @@ if ("Artillery" in _roles) then {
 
 _roadSize = ({_x isKindOf "LandVehicle"} count _types);
 
-[_playerDist,_searchDistMax, _objDist, _waterMode, _maxGradient, _shoreMode, _blacklist, _defaultPos, [_preferRoads, _roadSize], _island_isolate];
+_arr = [_playerDist,_searchDistMax, _objDist, _waterMode, _maxGradient, _shoreMode, _blacklist, _defaultPos, [_preferRoads, _roadSize], _island_isolate];
+diag_log format ["Log: [fnc_SafePosParams_v2] return %1", _arr];
+_arr;
