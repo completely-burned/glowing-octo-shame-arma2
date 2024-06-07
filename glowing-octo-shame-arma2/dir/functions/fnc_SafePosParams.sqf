@@ -7,4 +7,8 @@
  * но оставлена для совместимости.
  */
 
-_this call gosa_fnc_SafePosParams_v2 resize 9;
+private ["_arr"];
+_arr = _this call gosa_fnc_SafePosParams_v2;
+_arr resize 9;
+diag_log format ["Log: [fnc_SafePosParams] %1, %2", _this, _arr];
+_arr;
