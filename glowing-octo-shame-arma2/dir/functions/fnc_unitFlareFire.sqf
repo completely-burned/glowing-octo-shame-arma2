@@ -25,10 +25,8 @@ _target = objNull;
 _grp = grpNull;
 #ifdef __ARMA3__
 	_iW_to = 2;
-	_height = (90 + random 20);
 #else
 	_iW_to = 1;
-	_height = 150;
 #endif
 
 scopename "scope1";
@@ -74,6 +72,11 @@ for "_iW" from 0 to _iW_to do {
 								if (true) then {
 									// TODO: Звук запуска ракеты.
 									_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
+									#ifdef __ARMA3__
+										_height = (120 + random 20);
+									#else
+										_height = (140 + random 20);
+									#endif
 									_arr set [2, _height];
 									_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
 									#ifdef __ARMA3__
