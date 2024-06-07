@@ -1064,6 +1064,10 @@ class CfgFunctions
 			{
 				file = "dir\functions\fnc_createHQ.sqf";
 			};
+			class SafePosParams_v2
+			{
+				file = "dir\functions\fnc_SafePosParams_v2.sqf";
+			};
 		};
 		class Systems
 		{

@@ -208,6 +208,7 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 		"fnc_isObjHQ",
 		"fnc_isHQ",
 		"fnc_vehInit2",
+		"fnc_SafePosParams_v2",
 	#endif
 	"fnc_CheckRespawnDistance",
 	"fnc_CheckTurretAlive",
