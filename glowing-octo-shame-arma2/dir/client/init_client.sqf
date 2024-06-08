@@ -147,12 +147,19 @@ if (isMultiplayer) then {
 		#endif
 	};
 }else{
+	#ifdef __ARMA3__
+		addMissionEventHandler ["TeamSwitch", {
+			//params ["_previousUnit", "_newUnit"];
+			[_this select 1, objNull] spawn gosa_fnc_eh_playerSelected;
+			_this select 0 enableAI "TeamSwitch";
+		}];
+	#else
 	onTeamSwitch {
-		SetGroupIconsVisible [true,false];
-		#ifndef __ARMA3__
 			40 CutRsc["OptionsAvailable","PLAIN",0];
-		#endif
+			[_to, objNull] spawn gosa_fnc_eh_playerSelected;
+			_from enableAI "TeamSwitch";
 	};
+	#endif
 
 	{
 		if (side _x in [sideLogic]) then {
@@ -163,6 +170,8 @@ if (isMultiplayer) then {
 		};
 	} forEach switchableUnits - units group player;
 	EnableTeamSwitch true;
+
+	[_this select 0, "menu"] call BIS_fnc_addCommMenuItem;
 };
 
 // радио 0-0, чтоб разные скрипты тестировать
