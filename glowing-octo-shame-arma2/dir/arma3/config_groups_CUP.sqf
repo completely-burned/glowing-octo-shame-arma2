@@ -299,7 +299,7 @@
 			"CUP_O_MVD_Soldier_Marksman","CUP_O_MVD_Soldier_GL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.02]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [160,999],
-	["OPF_G_F","OPF_F","OPF_T_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
 	] call gosa_fnc_map_groups_add;
 
 	// Desert
@@ -341,7 +341,7 @@
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Desert","CUP_O_RU_Soldier_HAT_Ratnik_Desert","CUP_O_RU_Soldier_HAT_Ratnik_Desert","CUP_O_RU_Soldier_AHAT_Ratnik_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [251,999],
-	["OPF_G_F","OPF_F","OPF_T_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
 	] call gosa_fnc_map_groups_add;
 
 	// Winter
@@ -479,7 +479,7 @@
 			0.15]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [-999,159],
-	["OPF_G_F","OPF_F","OPF_T_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
 	] call gosa_fnc_map_groups_add;
 if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	_arr = [
@@ -538,7 +538,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			[[[["CUP_O_TK_SpecOps_TL","CUP_O_TK_SpecOps_MG","CUP_O_TK_SpecOps","CUP_O_TK_SpecOps","CUP_O_TK_SpecOps_MG","CUP_O_TK_SpecOps","CUP_O_TK_SpecOps"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [161,999],
-	["OPF_G_F","OPF_F","OPF_T_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
 	] call gosa_fnc_map_groups_add;
 
 //-- CUP_O_ChDKZ
@@ -569,7 +569,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			[[[["CUP_O_INS_Sniper","CUP_O_INS_Sniper","CUP_O_INS_Soldier"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE"]]],0.2]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [160,250],
-	["OPF_G_F","OPF_F","OPF_T_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
 	] call gosa_fnc_map_groups_add;
 
 
