@@ -973,6 +973,9 @@ _arr = _default_guer;
 		_arr append [
 			[[[["I_Plane_Fighter_04_F","I_Plane_Fighter_04_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.2]
 		];
+		_arr append [
+			[[[["CUP_I_AH1Z_Dynamic_AAF","CUP_I_AH1Z_Dynamic_AAF"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.2]
+		];
 		// Arty.
 		if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			_arr append [
