@@ -23,11 +23,9 @@ if (isServer) then {
 		"fnc_mission_capture_location",
 		"fnc_cleanup",
 		"fnc_StaticWeapon",
-		"fnc_playerRespawnSP",
 		"fnc_playerRespawn",
 		"fnc_call_reinforcement",
 		"fnc_StaticWeapon",
-		"fnc_playerRespawnSP",
 		"fnc_playerRespawn"
 	];
 };

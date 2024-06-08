@@ -163,9 +163,6 @@ if (isMultiplayer) then {
 		};
 	} forEach switchableUnits - units group player;
 	EnableTeamSwitch true;
-
-	PlayerType = [typeOf leader player, rank leader player];
-	player addEventHandler ["killed", {_this call gosa_fnc_playerRespawnSP}];
 };
 
 // радио 0-0, чтоб разные скрипты тестировать
