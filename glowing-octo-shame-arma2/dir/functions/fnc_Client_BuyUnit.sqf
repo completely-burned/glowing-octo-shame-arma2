@@ -96,6 +96,7 @@ _fnc_1={
 	if(_isUAV)then{
 		#ifdef __ARMA3__
 			_side createVehicleCrew _veh;
+			_veh setAutonomous false;
 		#else
 			// Не работает с UAV или UGV в A3.
 			_crew = ([_veh, createGroup _side, _side, _type, [], _entry, _pos] call gosa_fnc_spawnCrew);
