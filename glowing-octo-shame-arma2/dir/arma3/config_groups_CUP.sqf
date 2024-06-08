@@ -1,6 +1,7 @@
 /*
  * Отряды из CUP
  * TODO: Назначить командира.
+ * TODO: Из MTLB плохой боец, его нужно попробовать разместить в конце отряда чтобы он не бросался в атаку первым.
  */
 
 #include "..\include\ranks.sqf"
@@ -436,7 +437,7 @@
 				"PRIVATE","CORPORAL",
 				"PRIVATE","SERGEANT",
 				"PRIVATE","PRIVATE",
-				"CORPORAL","PRIVATE"]]],0.1],
+				"CORPORAL","PRIVATE"]]],0.01],
 
 		// cfgGroups
 			// configName InfSquad
@@ -1159,7 +1160,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 				"PRIVATE","CORPORAL",
 				"PRIVATE","SERGEANT",
 				"PRIVATE","PRIVATE",
-				"CORPORAL","PRIVATE"]]],0.4],
+				"CORPORAL","PRIVATE"]]],0.05],
 
 			// configName CUP_B_CDFInfSquad_SNW
 			[[[["CUP_B_CDF_Soldier_TL_SNW","CUP_B_CDF_Soldier_MG_SNW","CUP_B_CDF_Soldier_LAT_SNW","CUP_B_CDF_Soldier_GL_SNW","CUP_B_CDF_Soldier_SNW","CUP_B_CDF_Soldier_MG_SNW","CUP_B_CDF_Soldier_GL_SNW","CUP_B_CDF_Soldier_LAT_SNW","CUP_B_CDF_Soldier_SNW","CUP_B_CDF_Medic_SNW"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
