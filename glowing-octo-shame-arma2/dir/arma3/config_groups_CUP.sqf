@@ -176,6 +176,7 @@
 			// configName O_InfTeam_AT_Heavy
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_BeigeDigital","CUP_O_RU_Soldier_HAT_Ratnik_BeigeDigital","CUP_O_RU_Soldier_HAT_Ratnik_BeigeDigital","CUP_O_RU_Soldier_AHAT_Ratnik_BeigeDigital"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
 
+			// EMR похож на камуфляж РФ из A2.
 			// configName CUP_O_RU_InfSquad_EMR
 			[[[["CUP_O_RU_Soldier_SL_EMR",
 			"CUP_O_RU_Soldier_MG_EMR","CUP_O_RU_Soldier_AT_EMR",
@@ -197,6 +198,7 @@
 			// configName CUP_O_RU_SniperTeam_EMR
 			[[[["CUP_O_RU_Sniper_EMR","CUP_O_RU_Spotter_EMR"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
 
+			// VDV под бронёй более сухой-осенний чем EMR, а броня на EMR.
 			// configName CUP_O_RU_InfSquad_VDV
 			[[[["CUP_O_RU_Soldier_SL_VDV",
 			"CUP_O_RU_Soldier_MG_VDV","CUP_O_RU_Soldier_AT_VDV",
@@ -218,6 +220,7 @@
 			// configName CUP_O_RU_SniperTeam_VDV
 			[[[["CUP_O_RU_Sniper_VDV","CUP_O_RU_Spotter_VDV"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
 
+			// VDV_EMR под бронёй похож на ратник, а броня на EMR.
 			// configName CUP_O_RU_InfSquad_VDV_EMR
 			[[[["CUP_O_RU_Soldier_SL_VDV_EMR",
 			"CUP_O_RU_Soldier_MG_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR",
@@ -1193,6 +1196,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			// configName CUP_B_CDFSniperTeam_MNT
 			[[[["CUP_B_CDF_Sniper_MNT","CUP_B_CDF_Sniper_MNT"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.05],
 
+			// FST очень зелёный.
 			// configName CUP_B_CDFInfSquad_FST
 			[[[["CUP_B_CDF_Soldier_TL_FST","CUP_B_CDF_Soldier_MG_FST","CUP_B_CDF_Soldier_LAT_FST","CUP_B_CDF_Soldier_GL_FST","CUP_B_CDF_Soldier_FST","CUP_B_CDF_Soldier_MG_FST","CUP_B_CDF_Soldier_GL_FST","CUP_B_CDF_Soldier_LAT_FST","CUP_B_CDF_Soldier_FST","CUP_B_CDF_Medic_FST"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 			// configName CUP_B_CDFInfSquad_Weapons_FST
