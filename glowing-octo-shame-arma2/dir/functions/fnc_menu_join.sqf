@@ -17,7 +17,7 @@ for "_i" from 0 to (count _arr -1) do
 		&& _obj != player) then
 	{
 		_l set [_n, _obj];
-		_lstr set [_n, str _obj];
+		_lstr set [_n, mapGridPosition _obj + " " + str _obj];
 		_n = _n + 1;
 	};
 };
@@ -30,7 +30,7 @@ for "_i" from 0 to (count _arr -1) do
 	if (playerSide == side _obj) then
 	{
 		_l set [_n, _obj];
-		_lstr set [_n, str _obj];
+		_lstr set [_n, mapGridPosition _obj + " " + str _obj];
 		_n = _n + 1;
 	};
 };
