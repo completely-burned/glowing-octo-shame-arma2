@@ -1174,7 +1174,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			[[[["CUP_B_CDF_Sniper_SNW","CUP_B_CDF_Sniper_SNW"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.05]
 		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [-999,159],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+		["CUP_I_UN","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		[_groups_map, west, "CUP_B_CDF", [[
@@ -1226,7 +1226,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			[[[["CUP_B_T72_CDF","CUP_B_T72_CDF","CUP_B_T72_CDF"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.25]
 		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [160,250],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+		["CUP_I_UN","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
 		[_groups_map, west, "CUP_B_CDF", [[
@@ -1246,7 +1246,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			[[[["CUP_B_CDF_Sniper_DST","CUP_B_CDF_Sniper_DST"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.05]
 		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [251,999],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+		["CUP_I_UN","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	_arr = [
@@ -1255,7 +1255,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	[_groups_map, west, "CUP_B_CDF",
 		[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [-999,999],
-		["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+		["CUP_I_UN","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
 };
 
@@ -1363,7 +1363,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			[[[["CUP_I_UN_CDF_Officer_FST","CUP_I_UN_CDF_Soldier_FST","CUP_I_UN_CDF_Soldier_AT_FST","CUP_I_UN_CDF_Soldier_MG_FST"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [160,250],
-	["BLU_UN_lxWS"]
+	["CUP_B_CDF","BLU_UN_lxWS"]
 	] call gosa_fnc_map_groups_add;
 
 	_arr = ([[
@@ -1378,5 +1378,5 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2);
 	[_groups_map, resistance, "CUP_I_UN", _arr,
 	[1990,2100], [251,999,1],
-	["BLU_UN_lxWS"]
+	["CUP_B_CDF","BLU_UN_lxWS"]
 	] call gosa_fnc_map_groups_add;
