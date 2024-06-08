@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=382;
+		nextID=396;
 	};
 	class MarkerIDProvider
 	{
@@ -280,7 +280,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=205;
+		items=214;
 		class Item0
 		{
 			dataType="Object";
@@ -4947,17 +4947,138 @@ class Mission
 			init="this setVariable [""gosa_respawn_type"", 21];";
 			id=381;
 			type="LocationRespawnPoint_F";
+			atlOffset=9.5367432e-007;
+		};
+		class Item205
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19198,11.97,13983};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=382;
+			type="LocationBase_F";
+		};
+		class Item206
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19158.137,16.028,14022.34};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=383;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.00026321411;
+		};
+		class Item207
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19137.789,11.97,13974.125};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=384;
+			type="LocationRespawnPoint_F";
+		};
+		class Item208
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19179.645,12.083,13954.968};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=385;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.11299992;
+		};
+		class Item209
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={19226.486,11.97,13908.619};
+			};
+			init="this setVariable [""gosa_respawn_type"", 1];";
+			id=386;
+			type="LocationRespawnPoint_F";
+		};
+		class Item210
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={19286.852,12.744395,13880.563};
+				angles[]={-0,0,6.2809477};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=389;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item211
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={19292.207,12.732347,13885.426};
+				angles[]={-0,0,6.2809477};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=390;
+			type="Box_NATO_AmmoVeh_F";
+			atlOffset=3.8146973e-006;
+		};
+		class Item212
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={19195.949,12.759809,13950.499};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=393;
+			type="Box_NATO_AmmoVeh_F";
+		};
+		class Item213
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={19265.18,12.759809,13878.063};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=395;
+			type="Box_NATO_AmmoVeh_F";
 		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=4;
+			nextID=8;
 		};
 		class Links
 		{
-			items=4;
+			items=8;
 			class Item0
 			{
 				linkID=0;
@@ -4993,6 +5114,46 @@ class Mission
 				linkID=3;
 				item0=232;
 				item1=231;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=382;
+				item1=384;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item5
+			{
+				linkID=5;
+				item0=382;
+				item1=383;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item6
+			{
+				linkID=6;
+				item0=385;
+				item1=382;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item7
+			{
+				linkID=7;
+				item0=386;
+				item1=382;
 				class CustomData
 				{
 					type="Sync";
