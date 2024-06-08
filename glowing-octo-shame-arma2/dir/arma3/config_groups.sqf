@@ -86,6 +86,23 @@ _cfg_factions_def = [["OPF_F"],["BLU_F"],["IND_F"]];
 //////////////////////////////
 //-- BLU_F NATO
 _default_west=[
+	// BUS_AirInf_Reinforce_RF
+	[
+		[
+			[["B_Heli_EC_04_military_RF"],[],["LIEUTENANT"]],
+			[["B_soldier_SL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_TL_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F","B_soldier_repair_F","B_support_CMort_RF"],[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[5,-16,0],[5,-18,0]],			["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]],
+			[["B_soldier_SL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_TL_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F","B_soldier_repair_F","B_support_CMort_RF"],[[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0],[-5,-16,0],[-5,-18,0]],	["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.5
+	],
+	// BUS_Support_Mort_RF
+	[[[["B_soldier_TL_F","B_support_CMort_RF","B_support_CMort_RF"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// BUS_MotInf_AA_RF
+	[[[["B_Pickup_aat_rf","B_soldier_AA_F","B_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// BUS_MotInf_mmg_rf
+	[[[["B_Pickup_mmg_rf","B_Soldier_TL_F","B_Soldier_GL_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// BUS_QRFSquad_RF
+	[[[["B_QRF_Soldier_SL_RF","B_QRF_Sharpshooter_RF","B_QRF_medic_RF","B_QRF_Soldier_RF","B_QRF_soldier_LAT2_RF","B_QRF_Soldier_AR_RF","B_QRF_soldier_UAV_RF","B_QRF_Soldier_GL_RF"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],1],
+
 	[[[["B_soldier_SL_F","B_soldier_TL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],1],
 	[[[["B_soldier_SL_F","B_soldier_AR_F","B_soldier_GL_F","B_soldier_M_F","B_soldier_AT_F","B_soldier_AAT_F","B_soldier_A_F","B_medic_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],1],
 	[[[["B_Soldier_TL_F","B_Soldier_AR_F","B_soldier_GL_F","B_soldier_LAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],1],
@@ -344,33 +361,14 @@ _arr append [
 	[]
 	] call gosa_fnc_map_groups_add;
 
-// Reaction Forces
-_arr = [
-	// BUS_AirInf_Reinforce_RF
-	[
-		[
-			[["B_Heli_EC_04_military_RF"],[],["LIEUTENANT"]],
-			[["B_soldier_SL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_TL_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F","B_soldier_repair_F","B_support_CMort_RF"],[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[5,-16,0],[5,-18,0]],			["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]],
-			[["B_soldier_SL_F","B_soldier_F","B_soldier_LAT_F","B_soldier_M_F","B_soldier_TL_F","B_soldier_AR_F","B_soldier_A_F","B_medic_F","B_soldier_repair_F","B_support_CMort_RF"],[[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0],[-5,-16,0],[-5,-18,0]],	["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
-		],0.5
-	],
-	// BUS_Support_Mort_RF
-	[[[["B_soldier_TL_F","B_support_CMort_RF","B_support_CMort_RF"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// BUS_MotInf_AA_RF
-	[[[["B_Pickup_aat_rf","B_soldier_AA_F","B_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// BUS_MotInf_mmg_rf
-	[[[["B_Pickup_mmg_rf","B_Soldier_TL_F","B_Soldier_GL_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// BUS_QRFSquad_RF
-	[[[["B_QRF_Soldier_SL_RF","B_QRF_Sharpshooter_RF","B_QRF_medic_RF","B_QRF_Soldier_RF","B_QRF_soldier_LAT2_RF","B_QRF_Soldier_AR_RF","B_QRF_soldier_UAV_RF","B_QRF_Soldier_GL_RF"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],1]
-];
-[_groups_map, west, "BLU_F", _arr,
-	[1990,2100], [250,999],
-	[]
-] call gosa_fnc_map_groups_add;
-
 
 //-- OPF_F CSAT
 _default_east=[
+	// OIA_Support_Mort_RF
+	[[[["O_Soldier_TL_F","O_support_CMort_RF","O_support_CMort_RF"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// OIA_QRFSquad_RF
+	[[[["O_QRF_Soldier_SL_RF","O_QRF_soldier_M_RF","O_QRF_medic_RF","O_QRF_Soldier_RF","O_QRF_Soldier_HAT_RF","O_QRF_Soldier_AR_RF","O_QRF_Soldier_UAV_RF","O_QRF_Soldier_GL_RF"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],1],
+
 	// пехота
 		// OIA_GuardSquad
 		[[[["O_soldierU_SL_F",
@@ -771,21 +769,34 @@ _arr = _default_east;
 	[]
 	] call gosa_fnc_map_groups_add;
 
-// Reaction Forces
-_arr = [
-	// OIA_Support_Mort_RF
-	[[[["O_Soldier_TL_F","O_support_CMort_RF","O_support_CMort_RF"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// OIA_QRFSquad_RF
-	[[[["O_QRF_Soldier_SL_RF","O_QRF_soldier_M_RF","O_QRF_medic_RF","O_QRF_Soldier_RF","O_QRF_Soldier_HAT_RF","O_QRF_Soldier_AR_RF","O_QRF_Soldier_UAV_RF","O_QRF_Soldier_GL_RF"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],1]
-];
-[_groups_map, east, "OPF_F", _arr,
-	[1990,2100], [250,999],
-	[]
-] call gosa_fnc_map_groups_add;
-
 
 //-- IND_F AAF
 _default_guer=[
+	// HAF_AirInf_Reinforce_RF
+	[
+		[
+			[["I_Heli_EC_01A_military_RF"],[],["LIEUTENANT"]],
+			[["I_soldier_SL_F",
+				"I_soldier_F","I_soldier_LAT_F",
+				"I_soldier_M_F","I_soldier_TL_F",
+				"I_soldier_AR_F","I_soldier_A_F",
+				"I_medic_F","I_soldier_repair_F",
+				"I_support_CMort_RF"],[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[5,-16,0],[5,-18,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
+			],
+			[["I_soldier_SL_F",
+				"I_soldier_F","I_soldier_LAT_F",
+				"I_soldier_M_F","I_soldier_TL_F",
+				"I_soldier_AR_F","I_soldier_A_F",
+				"I_medic_F","I_soldier_repair_F",
+				"I_support_CMort_RF"],[[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0],[-5,-16,0],[-5,-18,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
+			]
+		],0.5
+	],
+	// HAF_Support_Mort_RF
+	[[[["I_soldier_TL_F","I_support_CMort_RF","I_support_CMort_RF"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// HAF_MotInf_AA_RF
+	[[[["I_Pickup_aat_rf","I_soldier_AA_F","I_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+
 	// пехота
 		// HAF_InfSquad
 		[[[["I_soldier_SL_F",
@@ -1003,38 +1014,6 @@ _arr = _default_guer;
 	[1990,2100], [-999,999],
 	[]
 	] call gosa_fnc_map_groups_add;
-
-// Reaction Forces
-_arr = [
-	// HAF_AirInf_Reinforce_RF
-	[
-		[
-			[["I_Heli_EC_01A_military_RF"],[],["LIEUTENANT"]],
-			[["I_soldier_SL_F",
-				"I_soldier_F","I_soldier_LAT_F",
-				"I_soldier_M_F","I_soldier_TL_F",
-				"I_soldier_AR_F","I_soldier_A_F",
-				"I_medic_F","I_soldier_repair_F",
-				"I_support_CMort_RF"],[[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[5,-16,0],[5,-18,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
-			],
-			[["I_soldier_SL_F",
-				"I_soldier_F","I_soldier_LAT_F",
-				"I_soldier_M_F","I_soldier_TL_F",
-				"I_soldier_AR_F","I_soldier_A_F",
-				"I_medic_F","I_soldier_repair_F",
-				"I_support_CMort_RF"],[[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0],[-5,-16,0],[-5,-18,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]
-			]
-		],0.5
-	],
-	// HAF_Support_Mort_RF
-	[[[["I_soldier_TL_F","I_support_CMort_RF","I_support_CMort_RF"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// HAF_MotInf_AA_RF
-	[[[["I_Pickup_aat_rf","I_soldier_AA_F","I_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5]
-];
-[_groups_map, resistance, "IND_F", _arr,
-[1990,2100], [250,999],
-	[]
-] call gosa_fnc_map_groups_add;
 
 
 //////////////////////////////
