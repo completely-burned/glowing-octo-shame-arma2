@@ -63,6 +63,7 @@ for "_i0" from 0 to (count _sides -1) do {
 		_superpower = nil;
 	};
 };
+diag_log format ["Log: [init_side_balance] _superpowers_rating %1", _superpowers_rating];
 
 // В режиме PvP нужно учитывать баланс и доступность.
 // TODO: Типы балансов PvP. Равны только две стороны, а остальные смеха ради (1) или отсутсвуют вовсе (2). Все равны (3). Слабые и сильные против средних (4).
