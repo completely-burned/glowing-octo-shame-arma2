@@ -77,7 +77,6 @@ diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
 [] execVM "dir\client\init_gameMode.sqf";
 [] execVM "dir\client\while_debug_notice.sqf";
 [] execVM "dir\client\while_sp_rating.sqf";
-[] spawn gosa_fnc_handleLocationTask;
 [] execVM "dir\client\clientMenu.sqf";
 [] execVM "dir\client\while_localGroup.sqf";
 [] execVM "dir\client\while_act_BuyMenu.sqf";
