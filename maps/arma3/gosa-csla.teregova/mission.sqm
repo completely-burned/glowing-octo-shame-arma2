@@ -8,7 +8,7 @@ class EditorData
 	toggles=9;
 	class ItemIDProvider
 	{
-		nextID=470;
+		nextID=472;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=13;
+		nextID=15;
 	};
 	class Camera
 	{
@@ -46,13 +46,14 @@ addons[]=
 	"A3_Structures_F_EPC_Civ_Garbage",
 	"A3_Structures_F_EPB_Furniture",
 	"A3_Characters_F",
-	"A3_Data_F_Exp_A_Virtual"
+	"A3_Data_F_Exp_A_Virtual",
+	"CSLA_CIV"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=15;
+		items=16;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -153,6 +154,12 @@ class AddonsMetaData
 			name="Arma 3 Nexus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
+		};
+		class Item15
+		{
+			className="CSLA_CIV";
+			name="CSLA_CIV";
+			author="ČSLA Studio";
 		};
 	};
 };
@@ -265,7 +272,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=38;
+		items=39;
 		class Item0
 		{
 			dataType="Marker";
@@ -347,7 +354,6 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=23;
@@ -3082,6 +3088,36 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item38
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2423.9709,1.0953354,4644.6118};
+					};
+					side="Civilian";
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=471;
+					type="CSLA_CIV_Citizen";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=470;
 		};
 	};
 	class Connections
