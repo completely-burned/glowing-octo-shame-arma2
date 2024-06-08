@@ -417,6 +417,7 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+
 		class gosa_faction_multiplier_CUP_B_US_Army {
 			title="FACTION: CUP_B_US_Army";
 			values[] = {-1,1,0};
@@ -447,6 +448,13 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_CUP_B_HIL {
+			title="FACTION: CUP_B_HIL";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+
 		class gosa_faction_multiplier_CUP_I_NAPA {
 			title="FACTION: CUP_I_NAPA";
 			values[] = {-1,1,0};
