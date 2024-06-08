@@ -44,7 +44,7 @@ waitUntil{!isNil "gosa_fnc_RespawnWeaponsAdd"};
 _tmp_arr=[
 	[localize "STR_gosa_car_flip", "nearestObjects [vehicle player, ['AllVehicles'], 10] call gosa_fnc_turnVehicle;"],
 	["camera.sqf","[] execvm 'camera.sqf'"],
-	["SetGroupIconsVisible [true,true]","SetGroupIconsVisible [true,true];"],
+	["setGroupIconsVisible","","#USER:setGroupIconsVisible_0"],
 	[localize "STR_gosa_setTerrainGrid","","#USER:setTerrainGrid_0"],
 	[localize "STR_gosa_setViewDistance","","#USER:setViewDistance_0"],
 
@@ -101,6 +101,7 @@ if (missionNamespace getVariable "gosa_shop" == 2) then {
 _list_BIS_FNC_createmenu = _tmp_arr call _list_BIS_FNC_createmenu2;
 
 ["#USER:c_0", "c", [_list_BIS_FNC_createmenu select 1, _list_BIS_FNC_createmenu select 0, _list_BIS_FNC_createmenu select 2, _list_BIS_FNC_createmenu select 3], "","%1"] call gosa_fnc_createmenu;
+["setGroupIconsVisible", "setGroupIconsVisible", [[[false,false],[true,false],[true,true]],["Disable","2D","3D"]], "","gosa_GroupIconsVisible = %1; setGroupIconsVisible gosa_GroupIconsVisible"] call BIS_FNC_createmenu;
 ["setTerrainGrid", "setTerrainGrid", [[50,25,12.5,6.25,3.125],["50","25","12.5","6.25","3.125"]], "","setTerrainGrid %1"] call BIS_FNC_createmenu;
 ["setViewDistance", "setViewDistance", [
 	[ -1,  2000,  2500,  3000,  3500,  4000,  4500,  5000,  5500,  6000,  6500,  7000,  7500,  8000,  8500,  9000,  9500,  10000],

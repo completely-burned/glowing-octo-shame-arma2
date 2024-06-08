@@ -40,7 +40,7 @@ availableVehiclesBuyMenu = [[],[],[]];
 if(worldName == "namalsk")then{
 	enableEnvironment false;
 };
-SetGroupIconsVisible [true,false];
+gosa_GroupIconsVisible = if (gosa_loglevel > 0) then {[true, true]}else{[true, false]};
 
 #ifndef __ARMA3__
 	waitUntil{!isNil "bis_fnc_init"};
