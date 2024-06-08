@@ -81,7 +81,7 @@ for "_iW" from 0 to _iW_to do {
 									_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
 									#ifdef __ARMA3__
 										// Без этого ракета замирает на месте.
-										_obj setVelocity [0, 0, -0.01];
+										_obj setVelocity [0, 0, -0.00000001];
 									#endif
 									diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _ammo, _mag, _obj, _arr]];
 								}else{
