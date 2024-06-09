@@ -517,6 +517,8 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 []
 ] call gosa_fnc_map_groups_add;
 
+/*
+// Союзы формируются после групп.
 if (resistance getFriend west >= 0.6) then {
 	[_groups_map, resistance, "gm_xx_army", [[
 		// configName gm_xx_army_infantry_squad_80
@@ -541,3 +543,4 @@ if (resistance getFriend east >= 0.6) then {
 	[]
 	] call gosa_fnc_map_groups_add;
 };
+*/
