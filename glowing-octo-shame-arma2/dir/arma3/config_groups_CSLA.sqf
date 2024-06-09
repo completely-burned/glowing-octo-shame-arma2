@@ -1,3 +1,6 @@
+//-- East
+_arr = [
+];
 [_groups_map, east, "CSLA", [[
 	// configName CSLA_T72Mptn
 	[[[["CSLA_T72M","CSLA_T72M","CSLA_T72M"],[[0,0,0],[50,0,0],[-50,0,0]],["Lieutenant","Sergeant","Sergeant"]]],0.5],
@@ -25,8 +28,6 @@
 	[[[["CSLA_rOfc","CSLA_rRF10","CSLA_rOP63","CSLA_rMedi"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Corporal","Corporal","Corporal"]]],0.5],
 	// configName CSLA_rUK59Team
 	[[[["CSLA_rUK59a","CSLA_rUK59m","CSLA_rUK59m"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]],0.5],
-	// configName CSLA_rM52Team
-	[[[["CSLA_rM52g","CSLA_rM52a","CSLA_rM52m","CSLA_rM52m"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0.5],
 	// configName CSLA_rT21Team
 	[[[["CSLA_rT21","CSLA_rT21a","CSLA_rT21a"],[[0,0,0],[2,-1,0],[-4,-2,0]],["Corporal","Private","Private"]]],0.5],
 	// configName CSLA_r9P135MTeam
@@ -51,8 +52,21 @@
 [1960,1990], [160,999],
 []
 ] call gosa_fnc_map_groups_add;
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		// configName CSLA_rM52Team
+		[[[["CSLA_rM52g","CSLA_rM52a","CSLA_rM52m","CSLA_rM52m"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0.1]
+	];
+};
+[_groups_map, east, "CSLA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [160,999],
+	[]
+] call gosa_fnc_map_groups_add;
 
 
+//-- West
+_arr = [
+];
 [_groups_map, west, "US85", [[
 	// configName US85_cpSentryTeam
 	[[[["US85_mcM16","US85_mcM16"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.5],
@@ -70,8 +84,6 @@
 	[[[["US85_mcM60","US85_mcM16","US85_mcM16"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]],0.5],
 	// configName US85_infADSqd
 	[[[["US85_mcFIM92","US85_mcFIM92","US85_mcM16","US85_mcM16"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Sergeant","Corporal","Private","Private"]]],0.5],
-	// configName US85_infM252Sqd
-	[[[["US85_M252_Stat","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcM16"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Sergeant","Corporal","Private","Private","Private","Private"]]],0.5],
 	// configName US85_infAslSqd
 	[[[["US85_mcSMAW","US85_mcSMAW","US85_mcM16","US85_mcM16"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Corporal"]]],0.5],
 	// configName US85_infCHQ
@@ -101,6 +113,16 @@
 ], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
+] call gosa_fnc_map_groups_add;
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		// configName US85_infM252Sqd
+		[[[["US85_M252_Stat","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcM16"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Sergeant","Corporal","Private","Private","Private","Private"]]],0.1]
+	];
+};
+[_groups_map, west, "US85", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [160,999],
+	[]
 ] call gosa_fnc_map_groups_add;
 
 
