@@ -170,6 +170,7 @@ if (isMultiplayer) then {
 	} forEach switchableUnits - units group player;
 	EnableTeamSwitch true;
 
+	// FIXME: _this select 0? wiki: owner: Object - object to which the item belongs to
 	[_this select 0, "menu"] call BIS_fnc_addCommMenuItem;
 };
 
