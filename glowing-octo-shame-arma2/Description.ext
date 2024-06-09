@@ -209,6 +209,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_AFMC {
+			title="FACTION: AFMC";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_US85 {
 			title="FACTION: US85";
 			values[] = {-1,1,0};

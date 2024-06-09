@@ -54,6 +54,8 @@ _arr = [
 ] call gosa_fnc_map_groups_add;
 if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	_arr append [
+		[[[["CSLA_ShKH77","CSLA_ShKH77"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
+		[[[["CSLA_RM51","CSLA_RM51"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
 		// configName CSLA_rM52Team
 		[[[["CSLA_rM52g","CSLA_rM52a","CSLA_rM52m","CSLA_rM52m"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0.1]
 	];
@@ -65,6 +67,69 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 
 
 //-- West
+//- AFMC
+_arr = [
+	// AFMC_cpSentryTeam
+	[[[["AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],1],
+	// AFMC_cpFireTeam
+	[[[["AFMC_infFAL","AFMC_infFAL","AFMC_infM249"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]],1],
+	// AFMC_cpRifleTeam
+	[[[["AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infLAW"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]],1],
+	// AFMC_infSqd
+	[[[["AFMC_infSgt","AFMC_infM60","AFMC_infFAL","AFMC_infMdc","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infFAL","AFMC_infLAW","AFMC_infLAW","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infM249"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]],1],
+	// AFMC_infPLTeam
+	[[[["AFMC_infOfc","AFMC_infSgt","AFMC_infMdc","AFMC_infRTO"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Sergeant","Corporal","Private"]]],1],
+	// AFMC_infTeam
+	[[[["AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infLAW"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Corporal","Private","Private","Private"]]],1],
+	// AFMC_infM60Team
+	[[[["AFMC_infM60","AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]],1],
+	// AFMC_infADSqd
+	[[[["AFMC_infFIM92","AFMC_infFIM92","AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Sergeant","Corporal","Private","Private"]]],1],
+	// AFMC_infAslSqd
+	[[[["AFMC_infSMAWg","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infSMAWa"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Corporal"]]],1],
+	// AFMC_infCHQ
+	[[[["AFMC_infOfc","AFMC_infOfc","AFMC_infSgt","AFMC_infMdc","AFMC_infRTO","AFMC_infM21"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Captain","Lieutenant","Sergeant","Corporal","Corporal","Corporal"]]],1],
+
+	// AFMC_M113Sec
+	[[[["AFMC_infSgt","AFMC_infM249","AFMC_infFAL","AFMC_infMdc","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infFAL","AFMC_M113A1","AFMC_M113A1","AFMC_infLAW","AFMC_infLAW","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infM249"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0],[56,0,0],[-56,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"],[],0]],0.5],
+	// AFMC_M113Sqd
+	[[[["AFMC_M113A1","AFMC_infSMAWg","AFMC_infLAW","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infM249"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0]],["Corporal","Corporal","Private","Private","Private","Private","Private"]]],0.5],
+	// AFMC_M113ADSqd
+	[[[["AFMC_M113A1","AFMC_infFIM92","AFMC_infFIM92","AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0]],["Corporal","Sergeant","Corporal","Private","Private"],[],1]],0.5],
+	// AFMC_LAV25sqd
+	[[[["AFMC_infSgt","AFMC_infFAL","AFMC_infFAL","AFMC_infLAW","AFMC_infFAL","AFMC_infM60","AFMC_LAV25"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Corporal"],[],0]],0.5],
+	// AFMC_M1008Team
+	[[[["AFMC_M1008","AFMC_infSgt","AFMC_infLAW","AFMC_infM249","AFMC_infFAL"],[[0,0,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0]],["Corporal","Sergeant","Corporal","Private","Private"],[],1]],0.5],
+	// AFMC_M1008HfSqd
+	[[[["AFMC_M1008","AFMC_infSgt","AFMC_infMrks","AFMC_infMdc","AFMC_infSMAWa","AFMC_infLAW","AFMC_infSMAWg","AFMC_infM249","AFMC_infM249"],[[0,0,0],[-1.5,-5,0],[1.5,-5,0],[-2.5,-2,0],[2.5,-2,0],[-2.5,1,0],[2.5,1,0],[-2.5,4,0],[2.5,4,0]],["Private","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private"],[],1]],0.5],
+	// AFMC_TruckSqd
+	[[[["AFMC_infSgt","AFMC_infM60","AFMC_infFAL","AFMC_infM47","AFMC_infM60","AFMC_infSMAWg","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infSMAWa","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infMdc","AFMC_M923c"],[[3,6,0],[3,4,0],[-3,4,0],[3,2,0],[-3,2,0],[3,0,0],[-3,0,0],[3,-2,0],[-3,-2,0],[3,-4,0],[-3,-4,0],[3,-6,0],[-3,-6,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"],[],0]],0.5],
+
+	// AFMC_abSqd
+	[[[["AFMC_ptSgt","AFMC_ptM60","AFMC_ptM60","AFMC_ptMdc","AFMC_ptMdc","AFMC_ptM136","AFMC_ptM136","AFMC_ptM249","AFMC_ptM249"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0]],["Sergeant","Private","Private","Private","Private","Private","Private","Private","Private"]]],0.5],
+	// AFMC_abDtmt
+	[[[["AFMC_ptSgt","AFMC_ptM60","AFMC_ptM21","AFMC_ptRTO","AFMC_ptMdc","AFMC_ptMdc","AFMC_ptM47g","AFMC_ptM47a","AFMC_ptMAAWSg","AFMC_ptMAAWSa","AFMC_ptM136","AFMC_ptM136","AFMC_ptEng","AFMC_ptEng","AFMC_ptDrv","AFMC_ptM249","AFMC_ptM249"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0],[0,-48,0],[4,-52,0],[0,-56,0],[4,-60,0],[0,-64,0]],["Sergeant","Private","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]],0.5],
+	// AFMC_sfSqd
+	[[[["AFMC_sfCmd","AFMC_sfSpr","AFMC_sfM21","AFMC_sfDrv","AFMC_sfMdc","AFMC_sfRTO"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0],[4,-12,0],[-4,-12,0]],["Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal"]]],0.5],
+
+	// AFMC_M1A1ptn
+	[[[["AFMC_M1A1","AFMC_M1A1","AFMC_M1A1","AFMC_M1A1"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]],0.5],
+	// AFMC_M1A1scM113sqd
+	[[[["AFMC_M1A1","AFMC_M1A1","AFMC_infSgt","AFMC_infFAL","AFMC_infFAL","AFMC_infLAW","AFMC_infLAW","AFMC_infM249","AFMC_infM249","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_M113A2ext"],[[17,0,0],[-17,0,0],[0,-12,0],[17,-7,0],[-17,-7,0],[15,-7,0],[-15,-7,0],[19,-7,0],[-19,-7,0],[2,-12,0],[-2,-12,0],[0,-7,0]],["Sergeant","Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal","Private","Corporal"]]],0.5]
+];
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		// AFMC_infM252Sqd
+		[[[["AFMC_infM252g","AFMC_infMB","AFMC_infM252m","AFMC_infM252m"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Private"]]],0.1],
+		[[[["AFMC_M270","AFMC_M270"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1]
+	];
+};
+[_groups_map, west, "AFMC", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [160,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
+//- US85
 _arr = [
 ];
 [_groups_map, west, "US85", [[
@@ -116,6 +181,7 @@ _arr = [
 ] call gosa_fnc_map_groups_add;
 if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	_arr append [
+		[[[["US85_M270","US85_M270"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
 		// configName US85_infM252Sqd
 		[[[["US85_M252_Stat","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcM16"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Sergeant","Corporal","Private","Private","Private","Private"]]],0.1]
 	];
