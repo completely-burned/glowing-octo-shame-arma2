@@ -1,10 +1,14 @@
 #define __A2OA__
+/*
+ * TODO: Совместимость с A3.
+ */
+
+private ["_weapon","_player","_Backpack","_typeBackpack","_magazinesBackpack","_cfgWea"];
+_cfgWea = LIB_cfgWea;
 
 switch (_this) do {
 	case ('save'):
 	{
-		private["_weapon","_player","_Backpack","_typeBackpack","_magazinesBackpack"];
-
 		_player=player;
 
 		_weapon = (currentWeapon _player);
@@ -30,7 +34,6 @@ switch (_this) do {
 	};
 	case ("respawn"):
 	{
-		private "_player";
 		WaitUntil {alive player};
 		_player=player;
 		if(!isNil "SAVELOADOUT")then{
@@ -47,7 +50,6 @@ switch (_this) do {
 			if((SAVELOADOUT select 3) != "")then{
 #ifdef __A2OA__
 				_player addBackpack (SAVELOADOUT select 3);
-				private "_Backpack";
 				_Backpack = unitBackpack _player;
 #endif
 				clearMagazineCargo _Backpack;
@@ -65,12 +67,15 @@ switch (_this) do {
 				_player selectWeapon (SAVELOADOUT select 2);
 			};
 		};
-		if !([LIB_cfgWea, weapons _player,"simulation","NVGoggles"] call gosa_fnc_check_config_use) then {
-				_player addWeapon "NVGoggles";
-		};
-		if !([LIB_cfgWea, weapons _player,"simulation","Binocular"] call gosa_fnc_check_config_use) then {
-				_player addWeapon "Binocular";
-		};
+
+		#ifndef __ARMA3__
+			if !([_cfgWea, weapons _player, "simulation", "NVGoggles"] call gosa_fnc_check_config_use) then {
+					_player addWeapon "NVGoggles";
+			};
+			if !([_cfgWea, weapons _player, "simulation", "Binocular"] call gosa_fnc_check_config_use) then {
+					_player addWeapon "Binocular";
+			};
+		#endif
 	};
 	default {};
 };
