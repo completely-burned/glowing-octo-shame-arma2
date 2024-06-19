@@ -1101,6 +1101,10 @@ class CfgFunctions
 			{
 				file = "dir\functions\fnc_isHQ.sqf";
 			};
+			class groups_get_factions
+			{
+				file = "dir\functions\fnc_groups_get_factions.sqf";
+			};
 		};
 	};
 };
