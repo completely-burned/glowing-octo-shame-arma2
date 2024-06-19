@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1577;
+	toggles=1578;
 	class ItemIDProvider
 	{
-		nextID=510;
+		nextID=516;
 	};
 	class MarkerIDProvider
 	{
@@ -203,7 +203,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=376;
+		items=377;
 		class Item0
 		{
 			dataType="Marker";
@@ -592,7 +592,6 @@ class Mission
 					class Attributes
 					{
 						rank="MAJOR";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=48;
@@ -5915,6 +5914,103 @@ class Mission
 			id=509;
 			type="LocationRespawnPoint_F";
 			atlOffset=10.985999;
+		};
+		class Item376
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11452,69.91143,14526.05};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=511;
+					type="vn_c_men_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11452.839,69.931442,14521.095};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=512;
+					type="vn_c_men_07";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11452.839,69.931442,14516.095};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=513;
+					type="vn_c_men_11";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11452.839,69.931442,14511.095};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=514;
+					type="vn_c_men_32";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11452.839,69.931442,14506.095};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=515;
+					type="vn_c_men_29";
+				};
+			};
+			class Attributes
+			{
+				init="!isMultiplayer";
+				placementRadius=25;
+			};
+			id=510;
 		};
 	};
 	class Connections
