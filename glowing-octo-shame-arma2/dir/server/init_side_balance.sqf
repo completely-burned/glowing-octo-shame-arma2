@@ -133,6 +133,7 @@ if (isMultiplayer) then {
 				};
 				// Только одна сторона, чтобы не раздражать игроков изгнанием напрасно.
 				_problem0 = [_problem0 call gosa_fnc_selectRandom];
+				_problem1 = _problem1 - _problem0;
 			};
 		};
 	};
