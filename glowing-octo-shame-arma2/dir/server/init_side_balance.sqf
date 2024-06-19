@@ -81,9 +81,11 @@ if (isMultiplayer) then {
 			_obj = _allDead select _i;
 			_str = typeOf _obj;
 			_n = getNumber(_cfgVeh >> _str >> "side");
-			_count = _players_cfi select _n;
-			diag_log format ["Log: [init_side_balance] _allDead %1", [_obj, _str, _n]];
-			_players_cfi set [_n, _count +1];
+			if (_n >= 0 && _n < 3) then {
+				_count = _players_cfi select _n;
+				diag_log format ["Log: [init_side_balance] _allDead %1", [_obj, _str, _n]];
+				_players_cfi set [_n, _count +1];
+			};
 		};
 	#endif
 
