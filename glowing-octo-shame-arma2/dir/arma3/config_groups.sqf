@@ -30,6 +30,7 @@ private ["_west","_east","_guer","_groups_map","_n","_d",
 	"_groups_enabled","_factions_enabled","_groups_enabled_map",
 	"_groups_pending_map","_str","_param_default","_side",
 	"_sl","_tl",
+	"_alliances","_alliances_enabled","_alliance","_sides",
 	"_default_east","_default_west","_default_guer"];
 
 waitUntil{!isNil "availableVehicles"};
@@ -57,6 +58,10 @@ _groups_enabled_map = [];
 _groups_pending_map = [];
 _groups_failover = [];
 _groups_failover_map = [];
+_alliances = [
+	["VN_MACV","VN_ARVN"]
+];
+_alliances_enabled = [];
 _param_default = -1;
 // O,B,R,C
 _cfg_factions_def = [["OPF_F"],["BLU_F"],["IND_F"]];
@@ -1104,6 +1109,29 @@ for "_i" from 0 to (count _groups_pending_map -1) do {
 	};
 };
 
+//- Союзы.
+{
+	_alliance = _x;
+	_n = 0;
+	_sides = [];
+	{
+		_str = _x;
+		{
+			_arr = _x;
+			if (count (_x select 2) > 0) then {
+				if (_x select 1 == _str) then {
+					_n = _n +1;
+					_sides set [count _sides, _x select 0];
+				};
+			};
+		} forEach _groups_enabled_map;
+	} forEach _alliance;
+	if (_n > 1) then {
+		_alliances_enabled set [count _alliances_enabled, [_alliance,_sides]];
+	};
+} forEach _alliances;
+diag_log format ["Log: [config_groups.sqf] alliances %1", _alliances_enabled];
+gosa_Groups_alliances = _alliances_enabled;
 
 // Включение.
 for "_i" from 0 to (count _groups_enabled_map -1) do {
