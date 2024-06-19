@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=618;
+	toggles=617;
 	class ItemIDProvider
 	{
-		nextID=181;
+		nextID=187;
 	};
 	class MarkerIDProvider
 	{
@@ -219,7 +219,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=77;
+		items=78;
 		class Item0
 		{
 			dataType="Marker";
@@ -932,7 +932,6 @@ class Mission
 					class Attributes
 					{
 						rank="MAJOR";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=83;
@@ -2542,6 +2541,103 @@ class Mission
 			init="this setVariable [""gosa_respawn_type"", 23];";
 			id=180;
 			type="LocationRespawnPoint_F";
+		};
+		class Item77
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3181.3369,39.661438,4283.0137};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=182;
+					type="vn_c_men_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3181.3372,39.661438,4278.0137};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=183;
+					type="vn_c_men_07";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3181.3372,39.661438,4273.0137};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=184;
+					type="vn_c_men_11";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3181.3372,39.661438,4268.0137};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=185;
+					type="vn_c_men_32";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3181.3372,39.661438,4263.0137};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=186;
+					type="vn_c_men_29";
+				};
+			};
+			class Attributes
+			{
+				init="!isMultiplayer";
+				placementRadius=25;
+			};
+			id=181;
 		};
 	};
 	class Connections
