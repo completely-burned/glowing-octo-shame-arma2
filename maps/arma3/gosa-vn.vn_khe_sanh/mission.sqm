@@ -8,7 +8,7 @@ class EditorData
 	toggles=609;
 	class ItemIDProvider
 	{
-		nextID=416;
+		nextID=422;
 	};
 	class MarkerIDProvider
 	{
@@ -200,7 +200,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=279;
+		items=280;
 		class Item0
 		{
 			dataType="Logic";
@@ -1113,7 +1113,6 @@ class Mission
 					class Attributes
 					{
 						rank="MAJOR";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=84;
@@ -4677,6 +4676,103 @@ class Mission
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=415;
 			type="LocationRespawnPoint_F";
+		};
+		class Item279
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10947,98.481445,3064.05};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=417;
+					type="vn_c_men_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10947.683,98.481445,3059.437};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=418;
+					type="vn_c_men_07";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10947.683,98.481445,3054.437};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=419;
+					type="vn_c_men_11";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10947.683,98.481445,3049.437};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=420;
+					type="vn_c_men_32";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10947.683,98.481445,3044.437};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=421;
+					type="vn_c_men_29";
+				};
+			};
+			class Attributes
+			{
+				init="!isMultiplayer";
+				placementRadius=25;
+			};
+			id=416;
 		};
 	};
 	class Connections
