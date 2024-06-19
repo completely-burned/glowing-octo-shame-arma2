@@ -244,7 +244,7 @@ class Params {
 			title="FACTION: VN_ARVN";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-			default = 0;
+			default = -1;
 		};
 
 		class gosa_faction_multiplier_gm_gc_army {
