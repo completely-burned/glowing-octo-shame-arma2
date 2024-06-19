@@ -614,6 +614,12 @@ class Params {
 		};
 	#endif
 
+	class gosa_side_alliances {
+		title="SIDE: Alliances [gp]";
+		values[] = {1,0};
+		texts[] = {STR_ENABLED,STR_DISABLED};
+		default = 1;
+	};
 
 	// Количество отрядов ии гарантировано.
 	/*
