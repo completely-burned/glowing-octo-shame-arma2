@@ -4695,6 +4695,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						presenceCondition="!isMultiplayer";
 						rank="SERGEANT";
 						isPlayer=1;
 						isPlayable=1;
@@ -4713,6 +4714,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						presenceCondition="!isMultiplayer";
 						isPlayable=1;
 					};
 					id=418;
@@ -4729,6 +4731,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						presenceCondition="!isMultiplayer";
 						isPlayable=1;
 					};
 					id=419;
@@ -4745,6 +4748,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						presenceCondition="!isMultiplayer";
 						isPlayable=1;
 					};
 					id=420;
@@ -4761,6 +4765,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						presenceCondition="!isMultiplayer";
 						isPlayable=1;
 					};
 					id=421;
@@ -4769,7 +4774,7 @@ class Mission
 			};
 			class Attributes
 			{
-				init="!isMultiplayer";
+				presenceCondition="!isMultiplayer";
 				placementRadius=25;
 			};
 			id=416;
