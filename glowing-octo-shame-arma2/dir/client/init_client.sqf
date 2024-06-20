@@ -170,8 +170,9 @@ if (isMultiplayer) then {
 	} forEach switchableUnits - units group player;
 	EnableTeamSwitch true;
 
-	// FIXME: _this select 0? wiki: owner: Object - object to which the item belongs to
-	[_this select 0, "menu"] call BIS_fnc_addCommMenuItem;
+	#ifdef __ARMA3__
+		[nil, "menu"] call BIS_fnc_addCommMenuItem;
+	#endif
 };
 
 // радио 0-0, чтоб разные скрипты тестировать
