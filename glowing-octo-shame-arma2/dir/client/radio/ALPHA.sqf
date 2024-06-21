@@ -17,6 +17,8 @@ setAccTime 1;
 player allowDamage false;
 player setCaptive true;
 
+group cameraon setVariable ["lambs_danger_enableGroupReinforce", true, true];
+
 [] execVM "dir\spectator\while_spec_prio.sqf";
 [] execVM "dir\spectator\while_cam_auto.sqf";
 gosa_spectator_exit = true;

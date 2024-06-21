@@ -209,6 +209,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_AFMC {
+			title="FACTION: AFMC";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_US85 {
 			title="FACTION: US85";
 			values[] = {-1,1,0};
@@ -224,6 +230,12 @@ class Params {
 
 		class gosa_faction_multiplier_VN_PAVN {
 			title="FACTION: VN_PAVN";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_VN_KR {
+			title="FACTION: VN_KR";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
@@ -608,6 +620,12 @@ class Params {
 		};
 	#endif
 
+	class gosa_side_alliances {
+		title="SIDE: Alliances [gp]";
+		values[] = {1,0};
+		texts[] = {STR_ENABLED,STR_DISABLED};
+		default = 1;
+	};
 
 	// Количество отрядов ии гарантировано.
 	/*
@@ -1094,6 +1112,10 @@ class CfgFunctions
 			class isHQ
 			{
 				file = "dir\functions\fnc_isHQ.sqf";
+			};
+			class groups_get_factions
+			{
+				file = "dir\functions\fnc_groups_get_factions.sqf";
 			};
 		};
 	};

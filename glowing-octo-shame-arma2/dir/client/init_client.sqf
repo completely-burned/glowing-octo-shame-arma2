@@ -33,6 +33,9 @@ gosa_squadOn = [];
 gosa_squadOff = [];
 gosa_squadOnW = [];
 gosa_squadOffW = [506,600,605];
+if (difficultyOption "thirdPersonView" <= 0) then {
+	gosa_squadOffW set [count gosa_squadOffW, 500];
+};
 gosa_MapPlayer = [];
 availableVehiclesBuyMenu = [[],[],[]];
 
@@ -40,7 +43,7 @@ availableVehiclesBuyMenu = [[],[],[]];
 if(worldName == "namalsk")then{
 	enableEnvironment false;
 };
-SetGroupIconsVisible [true,false];
+gosa_GroupIconsVisible = if (gosa_loglevel > 0) then {[true, true]}else{[true, false]};
 
 #ifndef __ARMA3__
 	waitUntil{!isNil "bis_fnc_init"};
@@ -77,7 +80,6 @@ diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
 [] execVM "dir\client\init_gameMode.sqf";
 [] execVM "dir\client\while_debug_notice.sqf";
 [] execVM "dir\client\while_sp_rating.sqf";
-[] spawn gosa_fnc_handleLocationTask;
 [] execVM "dir\client\clientMenu.sqf";
 [] execVM "dir\client\while_localGroup.sqf";
 [] execVM "dir\client\while_act_BuyMenu.sqf";
@@ -147,12 +149,19 @@ if (isMultiplayer) then {
 		#endif
 	};
 }else{
+	#ifdef __ARMA3__
+		addMissionEventHandler ["TeamSwitch", {
+			//params ["_previousUnit", "_newUnit"];
+			[_this select 1, objNull] spawn gosa_fnc_eh_playerSelected;
+			_this select 0 enableAI "TeamSwitch";
+		}];
+	#else
 	onTeamSwitch {
-		SetGroupIconsVisible [true,false];
-		#ifndef __ARMA3__
 			40 CutRsc["OptionsAvailable","PLAIN",0];
-		#endif
+			[_to, objNull] spawn gosa_fnc_eh_playerSelected;
+			_from enableAI "TeamSwitch";
 	};
+	#endif
 
 	{
 		if (side _x in [sideLogic]) then {
@@ -164,8 +173,9 @@ if (isMultiplayer) then {
 	} forEach switchableUnits - units group player;
 	EnableTeamSwitch true;
 
-	PlayerType = [typeOf leader player, rank leader player];
-	player addEventHandler ["killed", {_this call gosa_fnc_playerRespawnSP}];
+	#ifdef __ARMA3__
+		[nil, "menu"] call BIS_fnc_addCommMenuItem;
+	#endif
 };
 
 // радио 0-0, чтоб разные скрипты тестировать

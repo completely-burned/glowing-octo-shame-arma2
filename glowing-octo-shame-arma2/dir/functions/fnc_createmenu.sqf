@@ -1,7 +1,6 @@
 scriptName "Functions\misc\fn_createmenu.sqf";
 /*
 	File: fn_createMenu.sqf
-	Author: Karel Moricky
 
 	Description:
 	Create custom commanding menu (with multiple pages if necessary).

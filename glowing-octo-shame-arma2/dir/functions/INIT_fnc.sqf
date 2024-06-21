@@ -23,11 +23,9 @@ if (isServer) then {
 		"fnc_mission_capture_location",
 		"fnc_cleanup",
 		"fnc_StaticWeapon",
-		"fnc_playerRespawnSP",
 		"fnc_playerRespawn",
 		"fnc_call_reinforcement",
 		"fnc_StaticWeapon",
-		"fnc_playerRespawnSP",
 		"fnc_playerRespawn"
 	];
 };
@@ -65,7 +63,6 @@ if !(IsDedicated) then {
 		"fnc_getSafePos",
 		"fnc_ACT_WinchManager",
 		"fnc_handleTeleport",
-		"fnc_handleLocationTask",
 		"fnc_turnVehicle"
 	];
 };
@@ -209,6 +206,7 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 		"fnc_isHQ",
 		"fnc_vehInit2",
 		"fnc_SafePosParams_v2",
+		"fnc_groups_get_factions",
 	#endif
 	"fnc_CheckRespawnDistance",
 	"fnc_CheckTurretAlive",

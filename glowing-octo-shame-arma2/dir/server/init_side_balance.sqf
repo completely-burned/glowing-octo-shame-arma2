@@ -3,7 +3,7 @@
  * TODO: Должен быть динамичным, с возможностью вкл/выключать стороны после старта.
  */
 
-private [
+private ["_alliances","_alliance","_side",
 	"_count",
 	"_allDead",
 	"_cfgVeh",
@@ -63,13 +63,13 @@ for "_i0" from 0 to (count _sides -1) do {
 		_superpower = nil;
 	};
 };
+diag_log format ["Log: [init_side_balance] _superpowers_rating %1", _superpowers_rating];
 
 // В режиме PvP нужно учитывать баланс и доступность.
 // TODO: Типы балансов PvP. Равны только две стороны, а остальные смеха ради (1) или отсутсвуют вовсе (2). Все равны (3). Слабые и сильные против средних (4).
 if (_pvp) then {
 	for "_i" from 0 to (count _superpowers_rating -1) do {
 		_problems set [_i, [_sides select (_superpowers_rating select _i)]];
-		_problems_num set [_i, [_superpowers_rating select _i]];
 	};
 };
 
@@ -81,9 +81,11 @@ if (isMultiplayer) then {
 			_obj = _allDead select _i;
 			_str = typeOf _obj;
 			_n = getNumber(_cfgVeh >> _str >> "side");
-			_count = _players_cfi select _n;
-			diag_log format ["Log: [init_side_balance] _allDead %1", [_obj, _str, _n]];
-			_players_cfi set [_n, _count +1];
+			if (_n >= 0 && _n < 3) then {
+				_count = _players_cfi select _n;
+				diag_log format ["Log: [init_side_balance] _allDead %1", [_obj, _str, _n]];
+				_players_cfi set [_n, _count +1];
+			};
 		};
 	#endif
 
@@ -100,11 +102,11 @@ if (isMultiplayer) then {
 	for "_i" from 0 to (count _sides -1) do {
 		_count = _players_cfi select _i;
 		if (_count > 0) then {
-			_problem1 set [count _problem1, _i];
+			_problem1 set [count _problem1, _sides select _i];
 		}else{
 			// Проверка на доступность.
 			if (_i in _superpowers_rating) then {
-				_problem0 set [count _problem0, _i];
+				_problem0 set [count _problem0, _sides select _i];
 			};
 		};
 	};
@@ -127,11 +129,12 @@ if (isMultiplayer) then {
 					_n = _players_cfi select (_superpowers_rating select _i);
 					if (_n <= _min) then {
 						_min = _n;
-						_problem0 set [count _problem0, _superpowers_rating select _i];
+						_problem0 set [count _problem0, _sides select (_superpowers_rating select _i)];
 					};
 				};
 				// Только одна сторона, чтобы не раздражать игроков изгнанием напрасно.
 				_problem0 = [_problem0 call gosa_fnc_selectRandom];
+				_problem1 = _problem1 - _problem0;
 			};
 		};
 	};
@@ -139,30 +142,56 @@ if (isMultiplayer) then {
 	_players = [player];
 	// TODO: Рандомизация.
 	if (count _superpowers_rating > 1) then {
-		_problem0 set [count _problem0, _superpowers_rating select 0];
+		_problem0 set [count _problem0, _sides select (_superpowers_rating select 0)];
 		if (count _superpowers_rating > 2) then {
-			_problem0 set [count _problem0, _superpowers_rating select 2];
+			_problem0 set [count _problem0, _sides select (_superpowers_rating select 2)];
 		};
-		_problem1 set [count _problem1, _superpowers_rating select 1];
+		_problem1 set [count _problem1, _sides select (_superpowers_rating select 1)];
 	};
 };
 
-
 if !(_pvp) then {
-	_problems_num = [_problem0, _problem1];
-	for "_i" from 0 to (count _problems_num -1) do {
-		_arr = [];
-		_problems set [_i, _arr];
-		for "_i0" from 0 to (count (_problems_num select _i) -1) do {
-			_arr set [_i0, _sides select (_problems_num select _i select _i0)];
+	_n = missionNamespace getVariable "gosa_side_alliances";
+	if (_n > 0) then {
+		waitUntil {!isNil "gosa_Groups_alliances"};
+		_alliances = gosa_Groups_alliances;
+		if (count _alliances > 0) then {
+			_alliance = (_alliances select 0 select 1);
+			if (count _problem0 > 1) then {
+				for "_i" from 0 to (count _problem1 -1) do {
+					_side = _problem1 select _i;
+					if (_side in _alliance) then {
+						for "_i0" from 0 to (count _problem0 -1) do {
+							_side = _problem0 select _i0;
+							if (_side in _alliance) then {
+								_problem1 set [count _problem1, _side];
+								_problem0 set [_i0, -1];
+								diag_log format ["Log: [init_side_balance] _alliance, %1, %2", _alliance, [_problem0,_problem1]];
+							};
+						};
+					};
+				};
+			};
+			_problem0 = _problem0 -[-1];
 		};
 	};
+};
+
+if !(_pvp) then {
+	_problems = [_problem0, _problem1];
+};
+_problems_num =+ _problems;
+for "_i" from 0 to (count _problems_num -1) do {
+	_arr = _problems_num select _i;
+	for "_i0" from 0 to (count _arr -1) do {
+		_arr set [_i0, _arr select _i0 call gosa_fnc_getSideNum];
+	};
+};
 
 	m_sideEnemy = _problems select 0;
 	gosa_friendlyside = _problems select 1;
 	publicVariable "m_sideEnemy";
 	publicVariable "gosa_friendlyside";
-};
 
 _arr = [_sides, _sides_cfi, _superpowers_rating, [_problems, _problems_num], [_players_cfi, _allDead, _players]];
 diag_log format ["Log: [init_side_balance] %1", _arr];
