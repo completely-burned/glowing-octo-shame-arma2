@@ -155,23 +155,25 @@ if !(_pvp) then {
 	if (_n > 0) then {
 		waitUntil {!isNil "gosa_Groups_alliances"};
 		_alliances = gosa_Groups_alliances;
-		_alliance = (_alliances select 0 select 1);
-		if (count _problem0 > 1) then {
-			for "_i" from 0 to (count _problem1 -1) do {
-				_side = _problem1 select _i;
-				if (_side in _alliance) then {
-					for "_i0" from 0 to (count _problem0 -1) do {
-						_side = _problem0 select _i0;
-						if (_side in _alliance) then {
-							_problem1 set [count _problem1, _side];
-							_problem0 set [_i0, -1];
-							diag_log format ["Log: [init_side_balance] _alliance, %1, %2", _alliance, [_problem0,_problem1]];
+		if (count _alliances > 0) then {
+			_alliance = (_alliances select 0 select 1);
+			if (count _problem0 > 1) then {
+				for "_i" from 0 to (count _problem1 -1) do {
+					_side = _problem1 select _i;
+					if (_side in _alliance) then {
+						for "_i0" from 0 to (count _problem0 -1) do {
+							_side = _problem0 select _i0;
+							if (_side in _alliance) then {
+								_problem1 set [count _problem1, _side];
+								_problem0 set [_i0, -1];
+								diag_log format ["Log: [init_side_balance] _alliance, %1, %2", _alliance, [_problem0,_problem1]];
+							};
 						};
 					};
 				};
 			};
+			_problem0 = _problem0 -[-1];
 		};
-		_problem0 = _problem0 -[-1];
 	};
 };
 
