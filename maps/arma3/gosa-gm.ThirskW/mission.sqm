@@ -388,6 +388,7 @@ class Mission
 			{
 				position[]={4072,45.042622,1165};
 			};
+			presenceCondition="false";
 			id=52;
 			type="LocationCity_F";
 		};
@@ -470,6 +471,7 @@ class Mission
 			{
 				position[]={3970,17.399996,1372};
 			};
+			presenceCondition="false";
 			id=69;
 			type="LocationCity_F";
 		};
@@ -480,6 +482,7 @@ class Mission
 			{
 				position[]={4354,45.445602,1341};
 			};
+			presenceCondition="false";
 			id=70;
 			type="LocationCity_F";
 		};
@@ -570,6 +573,7 @@ class Mission
 			{
 				position[]={3885,40.062054,1006};
 			};
+			presenceCondition="false";
 			id=90;
 			type="LocationVillage_F";
 			atlOffset=3.8146973e-006;
