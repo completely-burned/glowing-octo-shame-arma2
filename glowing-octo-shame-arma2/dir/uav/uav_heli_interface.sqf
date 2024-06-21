@@ -1,7 +1,6 @@
 scriptName "UAV_Heli\data\scripts\uav_interface.sqf";
 /*
 	File: uav_interface.sqf
-	Author: Karel Moricky
 
 	Description:
 		UAV Heli Interface system

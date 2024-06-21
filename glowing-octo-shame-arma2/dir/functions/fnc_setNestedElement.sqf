@@ -1,7 +1,6 @@
 scriptName "Functions\arrays\fn_setNestedElement.sqf";
 /*
 	File: fn_setNestedElement.sqf
-	Author: Joris-Jan van 't Land
 
 	Description:
 	Function to set an item in a nested array using a path.
