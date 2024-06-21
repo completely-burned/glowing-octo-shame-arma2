@@ -23,7 +23,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="gosa";
+sourceName="gosa-gm";
 addons[]=
 {
 	"A3_Ui_F",
@@ -229,7 +229,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=118;
+		items=119;
 		class Item0
 		{
 			dataType="Marker";
@@ -258,7 +258,6 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=2;
@@ -4411,6 +4410,117 @@ class Mission
 			{
 			};
 			id=333;
+		};
+		class Item118
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10976,192,2313};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						presenceCondition="!isMultiplayer";
+						isPlayer=1;
+					};
+					type="gm_ge_pol_officer_80_grn";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10978,192.18971,2311.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					type="gm_ge_pol_patrol_80_blk";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10974.712,192.1389,2311.5271};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					type="gm_ge_dbp_man_01_80_blu";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ENH_unitTraits_engineer";
+							expression="[_this, ['Engineer', _value]] remoteExec ['setUnitTrait', _this]";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="ENH_unitTrait_explosiveSpecialist";
+							expression="[_this, ['ExplosiveSpecialist', _value]] remoteExec ['setUnitTrait', _this]";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10977,192.22151,2307.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					type="gm_ge_ff_man_80_orn";
+				};
+			};
+			class Attributes
+			{
+				presenceCondition="!isMultiplayer";
+				placementRadius=25;
+			};
 		};
 	};
 	class Connections
