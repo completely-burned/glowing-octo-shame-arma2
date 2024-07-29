@@ -1,5 +1,5 @@
-mission.sqm linguist-language=js
-Description.ext linguist-language=js
+mission.sqm linguist-language=sqf
+Description.ext linguist-language=sqf
 
 * text=auto
 
