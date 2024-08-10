@@ -1311,7 +1311,7 @@ _arr = [
 ];
 [_groups_map, west, "CUP_B_HIL",
 	[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [-999,999],
+	[1990,2100], [160,999],
 	["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
