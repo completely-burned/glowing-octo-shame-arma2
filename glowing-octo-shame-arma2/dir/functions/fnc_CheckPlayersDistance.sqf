@@ -85,7 +85,7 @@ if(isMultiplayer)then{
 #endif
 
 if !(isMultiplayer) then {
-	if ((vehicle player distance _Pos) < _distance)then{
+	if ((vehicle cameraOn distance _Pos) < _distance)then{
 		_visible = true;
 	};
 };
