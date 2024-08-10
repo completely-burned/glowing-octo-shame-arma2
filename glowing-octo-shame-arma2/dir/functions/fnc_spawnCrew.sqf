@@ -16,6 +16,7 @@ diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle",
 	"_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t",
 	"_commanding","_uav","_side","_createSpecial","_dontCreateAI",
+	"_bestCommander",
 	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe","_item"];
 
 _vehicle = _this select 0;
@@ -236,6 +237,13 @@ if (_LandVehicle) then {
 for "_i" from 0 to (count _crew - 1) do {
 	_item = _crew select _i;
 	#ifdef __ARMA3__
+		if (isNil "_bestCommander") then {
+			_bestCommander = _item;
+		}else{
+			if (rankId _item > rankId _bestCommander) then {
+				_bestCommander = _item;
+			};
+		};
 		[_item, "fnc_spawnCrew"] remoteExec ["gosa_fnc_vehInit2"];
 	#else
 		if (_uav) then {
@@ -247,5 +255,12 @@ for "_i" from 0 to (count _crew - 1) do {
 		[nil, _item, rvehInit] call RE;
 	#endif
 };
+
+#ifdef __ARMA3__
+	if !(isNil "_bestCommander") then {
+		diag_log format ["Log: [fnc_spawnCrew.sqf] %1 setEffectiveCommander %2", _vehicle, _bestCommander];
+		_vehicle setEffectiveCommander _bestCommander;
+	};
+#endif
 
 _crew
