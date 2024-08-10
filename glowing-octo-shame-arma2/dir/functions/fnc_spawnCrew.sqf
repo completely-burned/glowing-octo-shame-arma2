@@ -66,6 +66,15 @@ if !(_LandVehicle) then {
 	if ((_hasDriver == 1) && (isNull (driver _vehicle))) then {
 			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
 			_crew set [count _crew, _unit];
+
+			// CUP_B_UH1Y_GUNSHIP_F не начинает движение если leader != effectiveCommander.
+			_rank = "CAPTAIN";
+			#ifdef __ARMA3__
+				_unit setRank _rank;
+			#else
+				[nil, _unit, rsetRank, _rank] call RE;
+			#endif
+
 			_unit moveInDriver _vehicle;
 			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
 			_unit assignAsDriver _vehicle;
