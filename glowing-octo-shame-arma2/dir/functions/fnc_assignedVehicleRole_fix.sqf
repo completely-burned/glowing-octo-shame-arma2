@@ -1,6 +1,9 @@
 private ["_role","_type"];
 _role = _this select 0;
 
+#define "turret" "Turret"
+#define "TURRET" "Turret"
+
 if (count _role >= 2) then {
 	if (_role select 0 == "Turret") then {
 		_type = _this select 1;
