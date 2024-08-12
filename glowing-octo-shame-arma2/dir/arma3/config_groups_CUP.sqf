@@ -1265,6 +1265,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 };
 
 //-- CUP_B_HIL
+// FIXME: _Res - зеленый.
 _arr = [
 	// CUP_B_HIL_InfantrySquad
 	[[[["CUP_B_HIL_SL_Res","CUP_B_HIL_MMG_Res","CUP_B_HIL_Soldier_Res","CUP_B_HIL_GL_Res","CUP_B_HIL_MMG_Res","CUP_B_HIL_Soldier_MAT_Res","CUP_B_HIL_GL_Res","CUP_B_HIL_Medic_Res","CUP_B_HIL_M_Res"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.7],
