@@ -23,6 +23,12 @@ if (count _role >= 2) then {
 					breakTo "root";
 				};
 			};
+			if (_type isKindOf "CUP_BAF_Jackal2_BASE_D") then {
+				if (_role select 1 isEqualTo [0]) then {
+					_role set [0, "FFV"];
+					breakTo "root";
+				};
+			};
 			if (_type isKindOf "CUP_BMP3_Base") then {
 				if (_role select 1 isEqualTo [1] or _role select 1 isEqualTo [2]) then {
 					_role set [0, "FFV"];
