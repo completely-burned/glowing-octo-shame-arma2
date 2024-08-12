@@ -751,6 +751,19 @@ _arr = _default_east;
 			[[[["O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1]
 		];
 	};
+	_arr append [
+		[[[["CUP_O_T90MS_CSAT",
+			"CUP_O_T90MS_CSAT","CUP_O_T90MS_CSAT",
+			"CUP_O_T90MS_CSAT"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],
+			["LIEUTENANT",
+			"SERGEANT","SERGEANT",
+			"CORPORAL"]]],0.2],
+		[[[["CUP_O_T90MS_CSAT","CUP_O_T90MS_CSAT"],[[0,0,0],[10,-10,0]],
+			["LIEUTENANT","SERGEANT"]]],0.2],
+		[[[["CUP_O_T90MS_CSAT","CUP_O_T72_CSAT","CUP_O_T72_CSAT"],[[0,0,0],[10,-10,0],[-10,-10,0]],
+			["LIEUTENANT","SERGEANT","SERGEANT"]]],0.2],
+		[[[["CUP_O_SU34_CSAT","CUP_O_SU34_CSAT"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.1]
+	];
 [_groups_map, east, "OPF_F", _arr,
 [1990,2100], [250,999],
 []
