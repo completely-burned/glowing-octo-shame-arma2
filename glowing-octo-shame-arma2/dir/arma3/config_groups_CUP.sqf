@@ -11,7 +11,8 @@
 	// Ratnik_Summer, Ratnik_Autumn, Ratnik_Winter, Ratnik_BeigeDigital, Ratnik_Desert
 	// RUS_SpecOps, MVD
 	// Default
-	[_groups_map, east, "CUP_O_RU", [[
+	// TODO: Добавить недостающие камуфляжи.
+	_arr = [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
 			"CUP_O_RU_Soldier_M_EMR_V2","CUP_O_RU_Soldier_LAT_M_EMR_V2",
@@ -301,8 +302,9 @@
 			"CUP_O_MVD_Soldier_MG","CUP_O_MVD_Soldier_AT",
 			"CUP_O_MVD_Soldier_GL","CUP_O_MVD_Sniper",
 			"CUP_O_MVD_Soldier_Marksman","CUP_O_MVD_Soldier_GL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.02]
-	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [160,999],
+	];
+	[_groups_map, east, "CUP_O_RU", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1990,2100], [160,274],
 	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
 	] call gosa_fnc_map_groups_add;
 
