@@ -162,7 +162,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="RHS CO 00 gosa rhspkl East v0.0.5.946 DEBUG";
+		briefingName="RHS CO 00 gosa rhspkl East v0.0.5.947 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.34999999;
 		startFog=0.025;

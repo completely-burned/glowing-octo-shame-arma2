@@ -150,7 +150,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa fallujah West v0.0.5.946 DEBUG";
+		briefingName="CO 00 gosa fallujah West v0.0.5.947 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;

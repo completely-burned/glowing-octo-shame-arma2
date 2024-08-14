@@ -10,7 +10,7 @@ class Mission
 	randomSeed=12923257;
 	class Intel
 	{
-		briefingName="CO 00 gosa ProvingGrounds_PMC Multi v0.0.5.946 DEBUG";
+		briefingName="CO 00 gosa ProvingGrounds_PMC Multi v0.0.5.947 DEBUG";
 		startWeather=0.3;
 		forecastWeather=0.3;
 		year=2012;
