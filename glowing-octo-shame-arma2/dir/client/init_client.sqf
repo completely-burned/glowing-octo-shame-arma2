@@ -33,9 +33,11 @@ gosa_squadOn = [];
 gosa_squadOff = [];
 gosa_squadOnW = [];
 gosa_squadOffW = [506,600,605];
+#ifdef __ARMA3__
 if (difficultyOption "thirdPersonView" <= 0) then {
 	gosa_squadOffW set [count gosa_squadOffW, 500];
 };
+#endif
 gosa_MapPlayer = [];
 availableVehiclesBuyMenu = [[],[],[]];
 
