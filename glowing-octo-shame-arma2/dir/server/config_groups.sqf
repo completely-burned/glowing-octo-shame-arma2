@@ -3171,6 +3171,9 @@ _guer=[
 
 waitUntil {!isNil "bis_fnc_init"};
 
+// Для совместимости.
+gosa_Groups_alliances = [];
+
 _eastN = [_eastN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 _westN = [_westN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 _guerN = [_guerN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
