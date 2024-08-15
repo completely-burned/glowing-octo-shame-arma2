@@ -196,7 +196,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="VN CO 00 gosa rhspkl Multi v0.0.5.947 DEBUG";
+		briefingName="VN CO 00 gosa rhspkl Multi v0.0.5.948 DEBUG";
 		resistanceWest=0;
 		startWeather=0.35;
 		startFog=0.025;
