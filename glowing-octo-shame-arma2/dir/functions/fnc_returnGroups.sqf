@@ -1,6 +1,7 @@
 /*
 Конвертирует CfgGroups в формат этого сценария.
 Примеры:
+copyToClipboard str ([["East"],["CUP_O_RUS_M"],["Infantry_VKPO_Desert]] call gosa_fnc_returnGroups);
 copyToClipboard str ([["East"],["INS","RU"],[]] call gosa_fnc_returnGroups);
 copyToClipboard str ([["I44_A"],[],[]] call gosa_fnc_returnGroups);
 copyToClipboard str ([["West"],["BLU_F"],[]] call gosa_fnc_returnGroups);
