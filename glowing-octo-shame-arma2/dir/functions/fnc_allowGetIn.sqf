@@ -8,7 +8,7 @@ if (isNil "lambs_danger_fnc_brainVehicle") then {
 	diag_log format ["Log: [fnc_allowGetIn] %1", _this];
 
 	private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_role","_type",
-		"_units","_leader","_arr","_b","_var","_Getin",
+		"_units","_leader","_arr","_b","_var","_Getin","_role_cargo",
 		"_vehicles","_tmpNum","_item","_tmpObj"];
 
 	_units = _this select 0;
@@ -18,6 +18,7 @@ if (isNil "lambs_danger_fnc_brainVehicle") then {
 	_ng_l = [];
 	_arr = [];
 	_var = "allowGetin";
+	_role_cargo = ["cargo","Cargo","CARGO","FFV"];
 
 	if !(_leader call gosa_fnc_isPlayer) then {
 		for "_i" from 0 to (count _units -1) do {
@@ -47,7 +48,7 @@ if (isNil "lambs_danger_fnc_brainVehicle") then {
 					if(_allow)then{
 						if ([_u] call gosa_fnc_unit_isAttacker or behaviour _u == "COMBAT") then {
 							if(count _role > 0)then{
-								if (_role select 0 in ["Cargo", "FFV"]) then {
+								if (_role select 0 in _role_cargo) then {
 									_allow=false;
 									diag_log format ["Log: [fnc_allowGetIn] %1, COMBAT, %2", [_u,_veh,_role], _allow];
 								};
@@ -85,7 +86,7 @@ if (isNil "lambs_danger_fnc_brainVehicle") then {
 							// техника с вооружением
 							if(_attack)then{
 								if(count _role > 0)then{
-									if (_role select 0 in ["Cargo", "FFV"]) then {
+									if (_role select 0 in _role_cargo) then {
 										_allow=false;
 										diag_log format ["Log: [fnc_allowGetIn] %1, cfg enableAttack==1, %2", [_u,_veh,_role], _allow];
 									};
