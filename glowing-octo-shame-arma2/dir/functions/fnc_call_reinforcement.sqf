@@ -9,7 +9,7 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
-	"_skill",
+	"_skill","_grp","_veh",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 
 _side = _this select 0;
@@ -149,14 +149,12 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 
 	_units = []; _vehicles=[]; _crew = []; _cargo=[];
 	{
-		private ["_grp"];
 		_grp = _x;
 		if(_patrol)then{
 			_grp setVariable ["patrol", true, true];
 		};
 		{
 			_units set [count _units, _x];
-			private ["_veh"];
 			_veh = vehicle _x;
 			if(_veh != _x)then{
 				_crew set [count _crew, _x];
@@ -165,10 +163,6 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 				};
 			}else{
 				_cargo set [count _cargo, _x];
-				#ifdef __ARMA3__
-					// ИИ застревают в полусогнутом состоянии, в анимации перетаскивания раненого.
-					_x switchMove "";
-				#endif
 			};
 		}forEach units _grp;
 
@@ -191,5 +185,17 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 		// посадить в багажное отделение
 		[_vehicles, _cargo] call gosa_fnc_MoveInCargo;
 	};
+
+	#ifdef __ARMA3__
+		{
+			_grp = _x;
+			{
+				if (vehicle _x isEqualTo _x) then {
+						// ИИ застревают в полусогнутом состоянии, в анимации перетаскивания раненого.
+						_x switchMove "";
+				};
+			} forEach units _grp;
+		} forEach _groups;
+	#endif
 
 	{_x setVariable ["grp_created",true,true]}forEach _groups;
