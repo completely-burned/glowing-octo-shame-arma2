@@ -197,7 +197,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa Bootcamp_ACR East v0.0.5.948 DEBUG";
+		briefingName="CO 00 gosa Bootcamp_ACR East v0.0.5.949 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.25;
 		startWind=0.1;

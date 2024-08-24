@@ -195,7 +195,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa Thirsk Multi v0.0.5.948 DEBUG";
+		briefingName="CO 00 gosa Thirsk Multi v0.0.5.949 DEBUG";
 		startWeather=0.25;
 		startFog=0.15;
 		startWind=0.1;

@@ -159,7 +159,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa vt7 West v0.0.5.948 DEBUG";
+		briefingName="CO 00 gosa vt7 West v0.0.5.949 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;
