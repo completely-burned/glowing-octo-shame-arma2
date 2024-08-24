@@ -35,8 +35,8 @@ if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 if (_w in ["tanoa","rhspkl","vn_khe_sanh","vn_the_bra","cam_lao_nam"]) then {_r set [0,225]};
 if (_w in ["altis","vr","stratis","porto","cain"]) then {_r set [0,250]};
 if (_w in ["kunduz"]) then {_r set [0,275]};
-if (_w in ["zargabad","takistan","desert_e","shapur_baf","mountains_acr","fallujah",
-	"sefrouramal","tem_anizay"]) then {_r set [0,300]};
+if (_w in ["zargabad","takistan","shapur_baf","mountains_acr","fallujah","tem_anizay"]) then {_r set [0,280]};
+if (_w in ["desert_e","sefrouramal"]) then {_r set [0,300]};
 
 // Дата.
 if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter",

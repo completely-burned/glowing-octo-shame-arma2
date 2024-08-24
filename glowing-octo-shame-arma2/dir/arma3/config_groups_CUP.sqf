@@ -12,72 +12,82 @@
 	// RUS_SpecOps, MVD
 	// Default
 	// TODO: Добавить недостающие камуфляжи.
+	// TODO: Отделить современную от других.
+
+	// _Ratnik_Summer
 	_arr = [
-			// configName InfSquad
-			[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
-			"CUP_O_RU_Soldier_M_EMR_V2","CUP_O_RU_Soldier_LAT_M_EMR_V2",
-			"CUP_O_RU_Soldier_MG_M_EMR_V2","CUP_O_RU_Soldier_TL_M_EMR_V2",
-			"CUP_O_RU_Soldier_AR_M_EMR_V2","CUP_O_RU_Soldier_A_M_EMR_V2",
-			"CUP_O_RU_Soldier_Medic_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
-			// configName InfSquad_Weapons
-			[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
-			"CUP_O_RU_Soldier_AR_M_EMR_V2","CUP_O_RU_Soldier_GL_M_EMR_V2",
-			"CUP_O_RU_Soldier_MG_M_EMR_V2","CUP_O_RU_Soldier_AT_M_EMR_V2",
-			"CUP_O_RU_Soldier_AAT_M_EMR_V2","CUP_O_RU_Soldier_A_M_EMR_V2",
-			"CUP_O_RU_Soldier_Medic_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0],
-			// configName InfTeam
-			[[[["CUP_O_RU_Soldier_TL_M_EMR_V2","CUP_O_RU_Soldier_AR_M_EMR_V2","CUP_O_RU_Soldier_GL_M_EMR_V2","CUP_O_RU_Soldier_LAT_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
-			// configName InfTeam_AT
-			[[[["CUP_O_RU_Soldier_TL_M_EMR_V2","CUP_O_RU_Soldier_AT_M_EMR_V2","CUP_O_RU_Soldier_AT_M_EMR_V2","CUP_O_RU_Soldier_AAT_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
-			// configName InfTeam_AA
-			[[[["CUP_O_RU_Soldier_TL_M_EMR_V2","CUP_O_RU_Soldier_AA_M_EMR_V2","CUP_O_RU_Soldier_AA_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
-			// configName InfSentry
-			[[[["CUP_O_RU_Soldier_GL_M_EMR_V2","CUP_O_RU_Soldier_M_EMR_V2"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0],
-			// configName InfAssault
-			[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
-			"CUP_O_RU_Soldier_AR_M_EMR_V2","CUP_O_RU_Soldier_MG_M_EMR_V2",
-			"CUP_O_RU_Soldier_AAR_M_EMR_V2","CUP_O_RU_Soldier_Marksman_M_EMR_V2",
-			"CUP_O_RU_Soldier_AT_M_EMR_V2","CUP_O_RU_Soldier_AAT_M_EMR_V2",
-			"CUP_O_RU_Soldier_Medic_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0],
-			// configName O_InfTeam_AT_Heavy
-			[[[["CUP_O_RU_Soldier_TL_M_EMR_V2","CUP_O_RU_Soldier_HAT_M_EMR_V2","CUP_O_RU_Soldier_HAT_M_EMR_V2","CUP_O_RU_Soldier_AHAT_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+		// TODO: "CUP_O_Kamaz_6396_transport_RUS_M"
+		// configName CUP_O_RU_MotInfSquad
+		[[[["CUP_O_RU_Soldier_SL_Ratnik_Summer",
+		"CUP_O_Kamaz_6396_covered_RUS_M","CUP_O_RU_Soldier_MG_Ratnik_Summer",
+		"CUP_O_RU_Soldier_AT_Ratnik_Summer","CUP_O_RU_Soldier_LAT_Ratnik_Summer",
+		"CUP_O_RU_Soldier_GL_Ratnik_Summer","CUP_O_RU_Soldier_Marksman_Ratnik_Summer",
+		"CUP_O_RU_Soldier_MG_Ratnik_Summer","CUP_O_RU_Soldier_LAT_Ratnik_Summer",
+		"CUP_O_RU_Soldier_AR_Ratnik_Summer","CUP_O_RU_Soldier_AT_Ratnik_Summer",
+		"CUP_O_RU_Soldier_GL_Ratnik_Summer","CUP_O_RU_Soldier_Ratnik_Summer"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],
+		["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[],0]],0.5],
+		// configName CUP_O_RU_MechInfSquad_2
+		[[[["CUP_O_RU_Soldier_SL_Ratnik_Summer",
+		"CUP_O_BTR80A_GREEN_RU","CUP_O_RU_Soldier_MG_Ratnik_Summer",
+		"CUP_O_RU_Soldier_MG_Ratnik_Summer","CUP_O_RU_Soldier_AT_Ratnik_Summer",
+		"CUP_O_RU_Soldier_LAT_Ratnik_Summer","CUP_O_RU_Soldier_GL_Ratnik_Summer"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
+		["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"],[],0]],0.5],
+
+		// configName CUP_O_RU_TankPlatoon
+		[[[["CUP_O_T90M_RU","CUP_O_T90M_RU","CUP_O_T90M_RU"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.5],
+
+		// configName CUP_O_RU_Mi24VSquadron
+		[[[["CUP_O_Mi24_V_RU","CUP_O_Mi24_V_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
+		// configName CUP_O_RU_Mi24PSquadron
+		[[[["CUP_O_Mi24_P_RU","CUP_O_Mi24_P_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
+		// configName CUP_O_RU_Mi8Squadron
+		[[[["CUP_O_Mi8_RU","CUP_O_Mi8_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.1],
+		// configName CUP_O_RU_Su34FighterSquadron
+		[[[["CUP_O_SU34_AGM_RU","CUP_O_SU34_AGM_RU"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.2],
 
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Summer",
 			"CUP_O_RU_Soldier_Ratnik_Summer","CUP_O_RU_Soldier_LAT_Ratnik_Summer",
 			"CUP_O_RU_Soldier_MG_Ratnik_Summer","CUP_O_RU_Soldier_TL_Ratnik_Summer",
 			"CUP_O_RU_Soldier_AR_Ratnik_Summer","CUP_O_RU_Soldier_A_Ratnik_Summer",
-			"CUP_O_RU_Soldier_Medic_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			"CUP_O_RU_Soldier_Medic_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 			// configName InfSquad_Weapons
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Summer",
 			"CUP_O_RU_Soldier_AR_Ratnik_Summer","CUP_O_RU_Soldier_GL_Ratnik_Summer",
 			"CUP_O_RU_Soldier_MG_Ratnik_Summer","CUP_O_RU_Soldier_AT_Ratnik_Summer",
 			"CUP_O_RU_Soldier_AAT_Ratnik_Summer","CUP_O_RU_Soldier_A_Ratnik_Summer",
-			"CUP_O_RU_Soldier_Medic_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0],
+			"CUP_O_RU_Soldier_Medic_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],1],
 			// configName InfTeam
-			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_AR_Ratnik_Summer","CUP_O_RU_Soldier_GL_Ratnik_Summer","CUP_O_RU_Soldier_LAT_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_AR_Ratnik_Summer","CUP_O_RU_Soldier_GL_Ratnik_Summer","CUP_O_RU_Soldier_LAT_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 			// configName InfTeam_AT
-			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_AT_Ratnik_Summer","CUP_O_RU_Soldier_AT_Ratnik_Summer","CUP_O_RU_Soldier_AAT_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_AT_Ratnik_Summer","CUP_O_RU_Soldier_AT_Ratnik_Summer","CUP_O_RU_Soldier_AAT_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 			// configName InfTeam_AA
-			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_AA_Ratnik_Summer","CUP_O_RU_Soldier_AA_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_AA_Ratnik_Summer","CUP_O_RU_Soldier_AA_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],1],
 			// configName InfSentry
-			[[[["CUP_O_RU_Soldier_GL_Ratnik_Summer","CUP_O_RU_Soldier_Ratnik_Summer"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0],
+			[[[["CUP_O_RU_Soldier_GL_Ratnik_Summer","CUP_O_RU_Soldier_Ratnik_Summer"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0.1],
 			// configName reconTeam
 			[[[["CUP_O_RU_Recon_TL_Ratnik_Summer",
 			"CUP_O_RU_Recon_Marksman_Ratnik_Summer","CUP_O_RU_Recon_Medic_Ratnik_Summer",
 			"CUP_O_RU_Recon_LAT_Ratnik_Summer","CUP_O_RU_Recon_Ratnik_Summer",
-			"CUP_O_RU_Recon_Exp_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			"CUP_O_RU_Recon_Exp_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			// configName reconSentry
-			[[[["CUP_O_RU_Recon_Marksman_Ratnik_Summer","CUP_O_RU_Recon_Ratnik_Summer"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0],
+			[[[["CUP_O_RU_Recon_Marksman_Ratnik_Summer","CUP_O_RU_Recon_Ratnik_Summer"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
 			// configName InfAssault
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Summer",
 			"CUP_O_RU_Soldier_AR_Ratnik_Summer","CUP_O_RU_Soldier_MG_Ratnik_Summer",
 			"CUP_O_RU_Soldier_AAR_Ratnik_Summer","CUP_O_RU_Soldier_Marksman_Ratnik_Summer",
 			"CUP_O_RU_Soldier_AT_Ratnik_Summer","CUP_O_RU_Soldier_AAT_Ratnik_Summer",
-			"CUP_O_RU_Soldier_Medic_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			"CUP_O_RU_Soldier_Medic_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],1],
 			// configName O_InfTeam_AT_Heavy
-			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_HAT_Ratnik_Summer","CUP_O_RU_Soldier_HAT_Ratnik_Summer","CUP_O_RU_Soldier_AHAT_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_HAT_Ratnik_Summer","CUP_O_RU_Soldier_HAT_Ratnik_Summer","CUP_O_RU_Soldier_AHAT_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1]
+	];
+	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [160,249],
+		["CUP_O_RU"]
+	] call gosa_fnc_map_groups_add;
 
+	/*
+	_arr = [
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Autumn",
 			"CUP_O_RU_Soldier_Ratnik_Autumn","CUP_O_RU_Soldier_LAT_Ratnik_Autumn",
@@ -148,171 +158,93 @@
 			"CUP_O_RU_Soldier_AT_Ratnik_BeigeDigital","CUP_O_RU_Soldier_AAT_Ratnik_BeigeDigital",
 			"CUP_O_RU_Soldier_Medic_Ratnik_BeigeDigital"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0],
 			// configName O_InfTeam_AT_Heavy
-			[[[["CUP_O_RU_Soldier_TL_Ratnik_BeigeDigital","CUP_O_RU_Soldier_HAT_Ratnik_BeigeDigital","CUP_O_RU_Soldier_HAT_Ratnik_BeigeDigital","CUP_O_RU_Soldier_AHAT_Ratnik_BeigeDigital"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
-
-			// EMR похож на камуфляж РФ из A2.
-			// configName CUP_O_RU_InfSquad_EMR
-			[[[["CUP_O_RU_Soldier_SL_EMR",
-			"CUP_O_RU_Soldier_MG_EMR","CUP_O_RU_Soldier_AT_EMR",
-			"CUP_O_RU_Soldier_LAT_EMR","CUP_O_RU_Soldier_GL_EMR",
-			"CUP_O_RU_Soldier_Marksman_EMR","CUP_O_RU_Soldier_MG_EMR",
-			"CUP_O_RU_Soldier_AT_EMR","CUP_O_RU_Soldier_AR_EMR",
-			"CUP_O_RU_Soldier_LAT_EMR","CUP_O_RU_Soldier_GL_EMR",
-			"CUP_O_RU_Soldier_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.7],
-			// configName CUP_O_RU_InfSection_EMR
-			[[[["CUP_O_RU_Soldier_TL_EMR","CUP_O_RU_Soldier_AR_EMR","CUP_O_RU_Soldier_AT_EMR","CUP_O_RU_Soldier_GL_EMR","CUP_O_RU_Soldier_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSection_AT_EMR
-			[[[["CUP_O_RU_Soldier_HAT_EMR","CUP_O_RU_Soldier_HAT_EMR","CUP_O_RU_Soldier_AT_EMR","CUP_O_RU_Soldier_AT_EMR","CUP_O_RU_Soldier_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSection_AA_EMR
-			[[[["CUP_O_RU_Soldier_AA_EMR","CUP_O_RU_Soldier_AA_EMR","CUP_O_RU_Soldier_AA_EMR"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
-			// configName CUP_O_RU_InfSection_MG_EMR
-			[[[["CUP_O_RU_Soldier_TL_EMR","CUP_O_RU_Soldier_MG_EMR","CUP_O_RU_Soldier_MG_EMR","CUP_O_RU_Soldier_GL_EMR","CUP_O_RU_Soldier_AT_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSentry_EMR
-			[[[["CUP_O_RU_Soldier_GL_EMR","CUP_O_RU_Soldier_EMR"],[[0,5,0],[3,0,0]],["CORPORAL","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_SniperTeam_EMR
-			[[[["CUP_O_RU_Sniper_EMR","CUP_O_RU_Spotter_EMR"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
-
-			// configName CUP_O_RU_MotInfSquad
-			[[[["CUP_O_RU_Soldier_SL",
-			"CUP_O_Ural_RU","CUP_O_RU_Soldier_MG",
-			"CUP_O_RU_Soldier_AT","CUP_O_RU_Soldier_LAT",
-			"CUP_O_RU_Soldier_GL","CUP_O_RU_Soldier_Marksman",
-			"CUP_O_RU_Soldier_MG","CUP_O_RU_Soldier_LAT",
-			"CUP_O_RU_Soldier_AR","CUP_O_RU_Soldier_AT",
-			"CUP_O_RU_Soldier_GL","CUP_O_RU_Soldier"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.3],
-			// configName CUP_O_RU_MechInfSquad_2
-			[[[["CUP_O_RU_Soldier_SL",
-			"CUP_O_BTR90_RU","CUP_O_RU_Soldier_MG",
-			"CUP_O_RU_Soldier_MG","CUP_O_RU_Soldier_AT",
-			"CUP_O_RU_Soldier_LAT","CUP_O_RU_Soldier_GL"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.9],
-			// configName CUP_O_RU_TankPlatoon
-			[[[["CUP_O_T72_RU","CUP_O_T72_RU","CUP_O_T72_RU"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.6],
-
-			// configName CUP_O_RU_Mi24VSquadron
-			[[[["CUP_O_Mi24_V_RU","CUP_O_Mi24_V_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
-			// configName CUP_O_RU_Mi24PSquadron
-			[[[["CUP_O_Mi24_P_RU","CUP_O_Mi24_P_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
-			// configName CUP_O_RU_Mi8Squadron
-			[[[["CUP_O_Mi8_RU","CUP_O_Mi8_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.5],
-			// configName CUP_O_RU_Su34FighterSquadron
-			[[[["CUP_O_SU34_AGM_RU","CUP_O_SU34_AGM_RU"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.2],
-
-			// configName CUP_O_RU_InfSquad
-			[[[["CUP_O_RU_Soldier_SL",
-			"CUP_O_RU_Soldier_MG","CUP_O_RU_Soldier_AT",
-			"CUP_O_RU_Soldier_LAT","CUP_O_RU_Soldier_GL",
-			"CUP_O_RU_Soldier_Marksman","CUP_O_RU_Soldier_MG",
-			"CUP_O_RU_Soldier_AT","CUP_O_RU_Soldier_AR",
-			"CUP_O_RU_Soldier_LAT","CUP_O_RU_Soldier_GL",
-			"CUP_O_RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.7],
-			// configName CUP_O_RU_InfSection
-			[[[["CUP_O_RU_Soldier_TL","CUP_O_RU_Soldier_AR","CUP_O_RU_Soldier_AT","CUP_O_RU_Soldier_GL","CUP_O_RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSection_AT
-			[[[["CUP_O_RU_Soldier_HAT","CUP_O_RU_Soldier_HAT","CUP_O_RU_Soldier_AT","CUP_O_RU_Soldier_AT","CUP_O_RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSection_AA
-			[[[["CUP_O_RU_Soldier_AA","CUP_O_RU_Soldier_AA","CUP_O_RU_Soldier_AA"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
-			// configName CUP_O_RU_InfSection_MG
-			[[[["CUP_O_RU_Soldier_TL","CUP_O_RU_Soldier_MG","CUP_O_RU_Soldier_MG","CUP_O_RU_Soldier_GL","CUP_O_RU_Soldier_AT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSentry
-			[[[["CUP_O_RU_Soldier_GL","CUP_O_RU_Soldier"],[[0,5,0],[3,0,0]],["CORPORAL","PRIVATE"]]],0.2],
-
-			// configName CUP_O_RU_SniperTeam
-			[[[["CUP_O_RU_Sniper","CUP_O_RU_Spotter"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
-			// configName CUP_O_RU_ReconTeam
-			[[[["CUP_O_RUS_Soldier_TL","CUP_O_RUS_Soldier_GL","CUP_O_RUS_Soldier_Marksman","CUP_O_RUS_SpecOps_Scout","CUP_O_RUS_SpecOps","CUP_O_RUS_SpecOps_SD"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.07],
-			// configName CUP_O_RU_ReconTeam_AUT
-			[[[["CUP_O_RUS_Soldier_TL_Autumn",
-			"CUP_O_RUS_Soldier_GL_Autumn","CUP_O_RUS_Soldier_Marksman_Autumn",
-			"CUP_O_RUS_SpecOps_Scout_Autumn","CUP_O_RUS_SpecOps_Autumn",
-			"CUP_O_RUS_SpecOps_SD_Autumn"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.07],
-			// configName CUP_O_MVD_AssaultTeam
-			[[[["CUP_O_MVD_Soldier_TL",
-			"CUP_O_MVD_Soldier_MG","CUP_O_MVD_Soldier_AT",
-			"CUP_O_MVD_Soldier_GL","CUP_O_MVD_Sniper",
-			"CUP_O_MVD_Soldier_Marksman","CUP_O_MVD_Soldier_GL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.02]
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_BeigeDigital","CUP_O_RU_Soldier_HAT_Ratnik_BeigeDigital","CUP_O_RU_Soldier_HAT_Ratnik_BeigeDigital","CUP_O_RU_Soldier_AHAT_Ratnik_BeigeDigital"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0]
 	];
-	[_groups_map, east, "CUP_O_RU", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [160,274],
-	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [160,274],
+		["CUP_O_RU"]
+	] call gosa_fnc_map_groups_add;
+	*/
+
+	// _VKPO_Desert
+	_arr = [
+		// configName CUP_O_RU_MotInfSquad
+		[[[["CUP_O_RU_Soldier_SL_VKPO_Desert",
+		"CUP_O_Kamaz_6396_covered_RUS_M","CUP_O_RU_Soldier_MG_VKPO_Desert",
+		"CUP_O_RU_Soldier_AT_VKPO_Desert","CUP_O_RU_Soldier_LAT_VKPO_Desert",
+		"CUP_O_RU_Soldier_GL_VKPO_Desert","CUP_O_RU_Soldier_Marksman_VKPO_Desert",
+		"CUP_O_RU_Soldier_MG_VKPO_Desert","CUP_O_RU_Soldier_LAT_VKPO_Desert",
+		"CUP_O_RU_Soldier_AR_VKPO_Desert","CUP_O_RU_Soldier_AT_VKPO_Desert",
+		"CUP_O_RU_Soldier_GL_VKPO_Desert","CUP_O_RU_Soldier_VKPO_Desert"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[],0]],0.5],
+		// configName CUP_O_RU_MechInfSquad_2
+		[[[["CUP_O_RU_Soldier_SL_VKPO_Desert",
+		"CUP_O_BTR80A_DESERT_RU","CUP_O_RU_Soldier_MG_VKPO_Desert",
+		"CUP_O_RU_Soldier_MG_VKPO_Desert","CUP_O_RU_Soldier_AT_VKPO_Desert",
+		"CUP_O_RU_Soldier_LAT_VKPO_Desert","CUP_O_RU_Soldier_GL_VKPO_Desert"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"],[],0]],0.5],
+
+		// configName CUP_O_RU_TankPlatoon
+		[[[["CUP_O_T90M_CAMO_RU","CUP_O_T90M_CAMO_RU","CUP_O_T90M_CAMO_RU"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.5],
+
+		// configName CUP_O_RU_Mi24VSquadron
+		[[[["CUP_O_Mi24_V_RU","CUP_O_Mi24_V_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
+		// configName CUP_O_RU_Mi24PSquadron
+		[[[["CUP_O_Mi24_P_RU","CUP_O_Mi24_P_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
+		// configName CUP_O_RU_Mi8Squadron
+		[[[["CUP_O_Mi8_RU","CUP_O_Mi8_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.1],
+		// configName CUP_O_RU_Su34FighterSquadron
+		[[[["CUP_O_SU34_AGM_RU","CUP_O_SU34_AGM_RU"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.2],
+
+		// InfSquad
+		[[[["CUP_O_RUS_M_Soldier_SL_VKPO_Desert","CUP_O_RUS_M_Soldier_VKPO_Desert","CUP_O_RUS_M_Soldier_LAT_VKPO_Desert","CUP_O_RUS_M_Soldier_MG_VKPO_Desert","CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_AR_VKPO_Desert","CUP_O_RUS_M_Soldier_A_VKPO_Desert","CUP_O_RUS_M_Soldier_Medic_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
+		// InfSquad_Weapons
+		[[[["CUP_O_RUS_M_Soldier_SL_VKPO_Desert","CUP_O_RUS_M_Soldier_AR_VKPO_Desert","CUP_O_RUS_M_Soldier_GL_VKPO_Desert","CUP_O_RUS_M_Soldier_MG_VKPO_Desert","CUP_O_RUS_M_Soldier_AT_VKPO_Desert","CUP_O_RUS_M_Soldier_AAT_VKPO_Desert","CUP_O_RUS_M_Soldier_A_VKPO_Desert","CUP_O_RUS_M_Soldier_Medic_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],1],
+		// InfTeam
+		[[[["CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_AR_VKPO_Desert","CUP_O_RUS_M_Soldier_GL_VKPO_Desert","CUP_O_RUS_M_Soldier_LAT_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
+		// InfTeam_AT
+		[[[["CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_AT_VKPO_Desert","CUP_O_RUS_M_Soldier_AT_VKPO_Desert","CUP_O_RUS_M_Soldier_AAT_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
+		// InfTeam_AA
+		[[[["CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_AA_VKPO_Desert","CUP_O_RUS_M_Soldier_AA_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],1],
+		// InfSentry
+		[[[["CUP_O_RUS_M_Soldier_GL_VKPO_Desert","CUP_O_RUS_M_Soldier_VKPO_Desert"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0.1],
+		// InfAssault
+		[[[["CUP_O_RUS_M_Soldier_SL_VKPO_Desert","CUP_O_RUS_M_Soldier_AR_VKPO_Desert","CUP_O_RUS_M_Soldier_MG_VKPO_Desert","CUP_O_RUS_M_Soldier_AAR_VKPO_Desert","CUP_O_RUS_M_Soldier_Marksman_VKPO_Desert","CUP_O_RUS_M_Soldier_AT_VKPO_Desert","CUP_O_RUS_M_Soldier_AAT_VKPO_Desert","CUP_O_RUS_M_Soldier_Medic_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],1],
+		// O_InfTeam_AT_Heavy
+		[[[["CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_HAT_VKPO_Desert","CUP_O_RUS_M_Soldier_HAT_VKPO_Desert","CUP_O_RUS_M_Soldier_AHAT_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1]
+	];
+	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [275,299],
+		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
-			/*
-			// configName InfSquad
-			[[[["CUP_O_RU_Soldier_SL_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_M_VDV_EMR_V2","CUP_O_RU_Soldier_LAT_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_MG_M_VDV_EMR_V2","CUP_O_RU_Soldier_TL_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_AR_M_VDV_EMR_V2","CUP_O_RU_Soldier_A_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_Medic_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
-			// configName InfSquad_Weapons
-			[[[["CUP_O_RU_Soldier_SL_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_AR_M_VDV_EMR_V2","CUP_O_RU_Soldier_GL_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_MG_M_VDV_EMR_V2","CUP_O_RU_Soldier_AT_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_AAT_M_VDV_EMR_V2","CUP_O_RU_Soldier_A_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_Medic_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0],
-			// configName InfTeam
-			[[[["CUP_O_RU_Soldier_TL_M_VDV_EMR_V2","CUP_O_RU_Soldier_AR_M_VDV_EMR_V2","CUP_O_RU_Soldier_GL_M_VDV_EMR_V2","CUP_O_RU_Soldier_LAT_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
-			// configName InfTeam_AT
-			[[[["CUP_O_RU_Soldier_TL_M_VDV_EMR_V2","CUP_O_RU_Soldier_AT_M_VDV_EMR_V2","CUP_O_RU_Soldier_AT_M_VDV_EMR_V2","CUP_O_RU_Soldier_AAT_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
-			// configName InfTeam_AA
-			[[[["CUP_O_RU_Soldier_TL_M_VDV_EMR_V2","CUP_O_RU_Soldier_AA_M_VDV_EMR_V2","CUP_O_RU_Soldier_AA_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
-			// configName InfSentry
-			[[[["CUP_O_RU_Soldier_GL_M_VDV_EMR_V2","CUP_O_RU_Soldier_M_VDV_EMR_V2"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0],
-			// configName InfAssault
-			[[[["CUP_O_RU_Soldier_SL_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_AR_M_VDV_EMR_V2","CUP_O_RU_Soldier_MG_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_AAR_M_VDV_EMR_V2","CUP_O_RU_Soldier_Marksman_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_AT_M_VDV_EMR_V2","CUP_O_RU_Soldier_AAT_M_VDV_EMR_V2",
-			"CUP_O_RU_Soldier_Medic_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0],
-			// configName O_InfTeam_AT_Heavy
-			[[[["CUP_O_RU_Soldier_TL_M_VDV_EMR_V2","CUP_O_RU_Soldier_HAT_M_VDV_EMR_V2","CUP_O_RU_Soldier_HAT_M_VDV_EMR_V2","CUP_O_RU_Soldier_AHAT_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+	// _Ratnik_Desert
+	_arr = [
+		// TODO: "CUP_O_Kamaz_6396_transport_RUS_M"
+		// configName CUP_O_RU_MotInfSquad
+		[[[["CUP_O_RU_Soldier_SL_Ratnik_Desert",
+		"CUP_O_Kamaz_6396_covered_RUS_M","CUP_O_RU_Soldier_MG_Ratnik_Desert",
+		"CUP_O_RU_Soldier_AT_Ratnik_Desert","CUP_O_RU_Soldier_LAT_Ratnik_Desert",
+		"CUP_O_RU_Soldier_GL_Ratnik_Desert","CUP_O_RU_Soldier_Marksman_Ratnik_Desert",
+		"CUP_O_RU_Soldier_MG_Ratnik_Desert","CUP_O_RU_Soldier_LAT_Ratnik_Desert",
+		"CUP_O_RU_Soldier_AR_Ratnik_Desert","CUP_O_RU_Soldier_AT_Ratnik_Desert",
+		"CUP_O_RU_Soldier_GL_Ratnik_Desert","CUP_O_RU_Soldier_Ratnik_Desert"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,-5,0],[21,-5,0],[23,-5,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[],0]],0.5],
+		// configName CUP_O_RU_MechInfSquad_2
+		[[[["CUP_O_RU_Soldier_SL_Ratnik_Desert",
+		"CUP_O_BTR80A_DESERT_RU","CUP_O_RU_Soldier_MG_Ratnik_Desert",
+		"CUP_O_RU_Soldier_MG_Ratnik_Desert","CUP_O_RU_Soldier_AT_Ratnik_Desert",
+		"CUP_O_RU_Soldier_LAT_Ratnik_Desert","CUP_O_RU_Soldier_GL_Ratnik_Desert"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"],[],0]],0.5],
 
-			// VDV под бронёй более сухой-осенний чем EMR, а броня на EMR.
-			// configName CUP_O_RU_InfSquad_VDV
-			[[[["CUP_O_RU_Soldier_SL_VDV",
-			"CUP_O_RU_Soldier_MG_VDV","CUP_O_RU_Soldier_AT_VDV",
-			"CUP_O_RU_Soldier_LAT_VDV","CUP_O_RU_Soldier_GL_VDV",
-			"CUP_O_RU_Soldier_Marksman_VDV","CUP_O_RU_Soldier_MG_VDV",
-			"CUP_O_RU_Soldier_AT_VDV","CUP_O_RU_Soldier_AR_VDV",
-			"CUP_O_RU_Soldier_LAT_VDV","CUP_O_RU_Soldier_GL_VDV",
-			"CUP_O_RU_Soldier_VDV"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.7],
-			// configName CUP_O_RU_InfSection_VDV
-			[[[["CUP_O_RU_Soldier_TL_VDV","CUP_O_RU_Soldier_AR_VDV","CUP_O_RU_Soldier_AT_VDV","CUP_O_RU_Soldier_GL_VDV","CUP_O_RU_Soldier_VDV"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSection_AT_VDV
-			[[[["CUP_O_RU_Soldier_HAT_VDV","CUP_O_RU_Soldier_HAT_VDV","CUP_O_RU_Soldier_AT_VDV","CUP_O_RU_Soldier_AT_VDV","CUP_O_RU_Soldier_VDV"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSection_AA_VDV
-			[[[["CUP_O_RU_Soldier_AA_VDV","CUP_O_RU_Soldier_AA_VDV","CUP_O_RU_Soldier_AA_VDV"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
-			// configName CUP_O_RU_InfSection_MG_VDV
-			[[[["CUP_O_RU_Soldier_TL_VDV","CUP_O_RU_Soldier_MG_VDV","CUP_O_RU_Soldier_MG_VDV","CUP_O_RU_Soldier_GL_VDV","CUP_O_RU_Soldier_AT_VDV"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSentry_VDV
-			[[[["CUP_O_RU_Soldier_GL_VDV","CUP_O_RU_Soldier_VDV"],[[0,5,0],[3,0,0]],["CORPORAL","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_SniperTeam_VDV
-			[[[["CUP_O_RU_Sniper_VDV","CUP_O_RU_Spotter_VDV"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
+		// configName CUP_O_RU_TankPlatoon
+		[[[["CUP_O_T90M_DESERT_RU","CUP_O_T90M_DESERT_RU","CUP_O_T90M_DESERT_RU"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.5],
 
-			// VDV_EMR под бронёй похож на ратник, а броня на EMR.
-			// configName CUP_O_RU_InfSquad_VDV_EMR
-			[[[["CUP_O_RU_Soldier_SL_VDV_EMR",
-			"CUP_O_RU_Soldier_MG_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR",
-			"CUP_O_RU_Soldier_LAT_VDV_EMR","CUP_O_RU_Soldier_GL_VDV_EMR",
-			"CUP_O_RU_Soldier_Marksman_VDV_EMR","CUP_O_RU_Soldier_MG_VDV_EMR",
-			"CUP_O_RU_Soldier_AT_VDV_EMR","CUP_O_RU_Soldier_AR_VDV_EMR",
-			"CUP_O_RU_Soldier_LAT_VDV_EMR","CUP_O_RU_Soldier_GL_VDV_EMR",
-			"CUP_O_RU_Soldier_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.7],
-			// configName CUP_O_RU_InfSection_VDV_EMR
-			[[[["CUP_O_RU_Soldier_TL_VDV_EMR","CUP_O_RU_Soldier_AR_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR","CUP_O_RU_Soldier_GL_VDV_EMR","CUP_O_RU_Soldier_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSection_AT_VDV_EMR
-			[[[["CUP_O_RU_Soldier_HAT_VDV_EMR","CUP_O_RU_Soldier_HAT_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR","CUP_O_RU_Soldier_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSection_AA_VDV_EMR
-			[[[["CUP_O_RU_Soldier_AA_VDV_EMR","CUP_O_RU_Soldier_AA_VDV_EMR","CUP_O_RU_Soldier_AA_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
-			// configName CUP_O_RU_InfSection_MG_VDV_EMR
-			[[[["CUP_O_RU_Soldier_TL_VDV_EMR","CUP_O_RU_Soldier_MG_VDV_EMR","CUP_O_RU_Soldier_MG_VDV_EMR","CUP_O_RU_Soldier_GL_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_InfSentry_VDV_EMR
-			[[[["CUP_O_RU_Soldier_GL_VDV_EMR","CUP_O_RU_Soldier_VDV_EMR"],[[0,5,0],[3,0,0]],["CORPORAL","PRIVATE"]]],0.2],
-			// configName CUP_O_RU_SniperTeam_VDV_EMR
-			[[[["CUP_O_RU_Sniper_VDV_EMR","CUP_O_RU_Spotter_VDV_EMR"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
-			*/
+		// configName CUP_O_RU_Mi24VSquadron
+		[[[["CUP_O_Mi24_V_RU","CUP_O_Mi24_V_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
+		// configName CUP_O_RU_Mi24PSquadron
+		[[[["CUP_O_Mi24_P_RU","CUP_O_Mi24_P_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
+		// configName CUP_O_RU_Mi8Squadron
+		[[[["CUP_O_Mi8_RU","CUP_O_Mi8_RU"],[[0,15,0],[15,0,0]],["CAPTAIN","LIEUTENANT"]]],0.1],
+		// configName CUP_O_RU_Su34FighterSquadron
+		[[[["CUP_O_SU34_AGM_RU","CUP_O_SU34_AGM_RU"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.2],
 
-	// Desert
-	[_groups_map, east, "CUP_O_RU", [[
 			// configName InfSquad
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Desert",
 			"CUP_O_RU_Soldier_Ratnik_Desert","CUP_O_RU_Soldier_LAT_Ratnik_Desert",
@@ -348,9 +280,10 @@
 			"CUP_O_RU_Soldier_Medic_Ratnik_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			// configName O_InfTeam_AT_Heavy
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Desert","CUP_O_RU_Soldier_HAT_Ratnik_Desert","CUP_O_RU_Soldier_HAT_Ratnik_Desert","CUP_O_RU_Soldier_AHAT_Ratnik_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5]
-	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [275,999],
-	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	];
+	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [300,999],
+		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
 	// Winter
@@ -360,7 +293,7 @@
 		CUP_O_Tigr_M_233114_WINTER_PK_RU
 		CUP_O_Tigr_M_233114_WINTER_RU
 	*/
-	[_groups_map, east, "CUP_O_RU", [[
+	_arr = [
 		// User
 			// CUP_O_Tigr_M_233114_WINTER_RU
 			[[[["CUP_O_RU_Soldier_SL_Ratnik_Winter","CUP_O_Tigr_M_233114_WINTER_RU",
@@ -486,20 +419,194 @@
 			// configName O_InfTeam_AT_Heavy
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Winter","CUP_O_RU_Soldier_HAT_Ratnik_Winter","CUP_O_RU_Soldier_HAT_Ratnik_Winter","CUP_O_RU_Soldier_AHAT_Ratnik_Winter"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],
 			0.15]
-	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [-999,159],
-	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
-	] call gosa_fnc_map_groups_add;
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
-	_arr = [
-		[[[["CUP_O_BM21_RU","CUP_O_BM21_RU"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
 	];
-	[_groups_map, east, "CUP_O_RU",
-		[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1990,2100], [-999,999],
-		["OPF_G_F","OPF_F","OPF_T_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [-999,159],
+		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
-};
+
+	_arr = [
+		// configName InfSquad
+		[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
+		"CUP_O_RU_Soldier_M_EMR_V2","CUP_O_RU_Soldier_LAT_M_EMR_V2",
+		"CUP_O_RU_Soldier_MG_M_EMR_V2","CUP_O_RU_Soldier_TL_M_EMR_V2",
+		"CUP_O_RU_Soldier_AR_M_EMR_V2","CUP_O_RU_Soldier_A_M_EMR_V2",
+		"CUP_O_RU_Soldier_Medic_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+		// configName InfSquad_Weapons
+		[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
+		"CUP_O_RU_Soldier_AR_M_EMR_V2","CUP_O_RU_Soldier_GL_M_EMR_V2",
+		"CUP_O_RU_Soldier_MG_M_EMR_V2","CUP_O_RU_Soldier_AT_M_EMR_V2",
+		"CUP_O_RU_Soldier_AAT_M_EMR_V2","CUP_O_RU_Soldier_A_M_EMR_V2",
+		"CUP_O_RU_Soldier_Medic_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0],
+		// configName InfTeam
+		[[[["CUP_O_RU_Soldier_TL_M_EMR_V2","CUP_O_RU_Soldier_AR_M_EMR_V2","CUP_O_RU_Soldier_GL_M_EMR_V2","CUP_O_RU_Soldier_LAT_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+		// configName InfTeam_AT
+		[[[["CUP_O_RU_Soldier_TL_M_EMR_V2","CUP_O_RU_Soldier_AT_M_EMR_V2","CUP_O_RU_Soldier_AT_M_EMR_V2","CUP_O_RU_Soldier_AAT_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+		// configName InfTeam_AA
+		[[[["CUP_O_RU_Soldier_TL_M_EMR_V2","CUP_O_RU_Soldier_AA_M_EMR_V2","CUP_O_RU_Soldier_AA_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
+		// configName InfSentry
+		[[[["CUP_O_RU_Soldier_GL_M_EMR_V2","CUP_O_RU_Soldier_M_EMR_V2"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0],
+		// configName InfAssault
+		[[[["CUP_O_RU_Soldier_SL_M_EMR_V2",
+		"CUP_O_RU_Soldier_AR_M_EMR_V2","CUP_O_RU_Soldier_MG_M_EMR_V2",
+		"CUP_O_RU_Soldier_AAR_M_EMR_V2","CUP_O_RU_Soldier_Marksman_M_EMR_V2",
+		"CUP_O_RU_Soldier_AT_M_EMR_V2","CUP_O_RU_Soldier_AAT_M_EMR_V2",
+		"CUP_O_RU_Soldier_Medic_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0],
+		// configName O_InfTeam_AT_Heavy
+		[[[["CUP_O_RU_Soldier_TL_M_EMR_V2","CUP_O_RU_Soldier_HAT_M_EMR_V2","CUP_O_RU_Soldier_HAT_M_EMR_V2","CUP_O_RU_Soldier_AHAT_M_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+
+		// EMR похож на камуфляж РФ из A2.
+		// configName CUP_O_RU_InfSquad_EMR
+		[[[["CUP_O_RU_Soldier_SL_EMR",
+		"CUP_O_RU_Soldier_MG_EMR","CUP_O_RU_Soldier_AT_EMR",
+		"CUP_O_RU_Soldier_LAT_EMR","CUP_O_RU_Soldier_GL_EMR",
+		"CUP_O_RU_Soldier_Marksman_EMR","CUP_O_RU_Soldier_MG_EMR",
+		"CUP_O_RU_Soldier_AT_EMR","CUP_O_RU_Soldier_AR_EMR",
+		"CUP_O_RU_Soldier_LAT_EMR","CUP_O_RU_Soldier_GL_EMR",
+		"CUP_O_RU_Soldier_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.7],
+		// configName CUP_O_RU_InfSection_EMR
+		[[[["CUP_O_RU_Soldier_TL_EMR","CUP_O_RU_Soldier_AR_EMR","CUP_O_RU_Soldier_AT_EMR","CUP_O_RU_Soldier_GL_EMR","CUP_O_RU_Soldier_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSection_AT_EMR
+		[[[["CUP_O_RU_Soldier_HAT_EMR","CUP_O_RU_Soldier_HAT_EMR","CUP_O_RU_Soldier_AT_EMR","CUP_O_RU_Soldier_AT_EMR","CUP_O_RU_Soldier_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSection_AA_EMR
+		[[[["CUP_O_RU_Soldier_AA_EMR","CUP_O_RU_Soldier_AA_EMR","CUP_O_RU_Soldier_AA_EMR"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
+		// configName CUP_O_RU_InfSection_MG_EMR
+		[[[["CUP_O_RU_Soldier_TL_EMR","CUP_O_RU_Soldier_MG_EMR","CUP_O_RU_Soldier_MG_EMR","CUP_O_RU_Soldier_GL_EMR","CUP_O_RU_Soldier_AT_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSentry_EMR
+		[[[["CUP_O_RU_Soldier_GL_EMR","CUP_O_RU_Soldier_EMR"],[[0,5,0],[3,0,0]],["CORPORAL","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_SniperTeam_EMR
+		[[[["CUP_O_RU_Sniper_EMR","CUP_O_RU_Spotter_EMR"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
+
+		// configName CUP_O_RU_InfSquad
+		[[[["CUP_O_RU_Soldier_SL",
+		"CUP_O_RU_Soldier_MG","CUP_O_RU_Soldier_AT",
+		"CUP_O_RU_Soldier_LAT","CUP_O_RU_Soldier_GL",
+		"CUP_O_RU_Soldier_Marksman","CUP_O_RU_Soldier_MG",
+		"CUP_O_RU_Soldier_AT","CUP_O_RU_Soldier_AR",
+		"CUP_O_RU_Soldier_LAT","CUP_O_RU_Soldier_GL",
+		"CUP_O_RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.7],
+		// configName CUP_O_RU_InfSection
+		[[[["CUP_O_RU_Soldier_TL","CUP_O_RU_Soldier_AR","CUP_O_RU_Soldier_AT","CUP_O_RU_Soldier_GL","CUP_O_RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSection_AT
+		[[[["CUP_O_RU_Soldier_HAT","CUP_O_RU_Soldier_HAT","CUP_O_RU_Soldier_AT","CUP_O_RU_Soldier_AT","CUP_O_RU_Soldier"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSection_AA
+		[[[["CUP_O_RU_Soldier_AA","CUP_O_RU_Soldier_AA","CUP_O_RU_Soldier_AA"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
+		// configName CUP_O_RU_InfSection_MG
+		[[[["CUP_O_RU_Soldier_TL","CUP_O_RU_Soldier_MG","CUP_O_RU_Soldier_MG","CUP_O_RU_Soldier_GL","CUP_O_RU_Soldier_AT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSentry
+		[[[["CUP_O_RU_Soldier_GL","CUP_O_RU_Soldier"],[[0,5,0],[3,0,0]],["CORPORAL","PRIVATE"]]],0.2],
+
+		// configName CUP_O_RU_SniperTeam
+		[[[["CUP_O_RU_Sniper","CUP_O_RU_Spotter"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
+		// configName CUP_O_RU_ReconTeam
+		[[[["CUP_O_RUS_Soldier_TL","CUP_O_RUS_Soldier_GL","CUP_O_RUS_Soldier_Marksman","CUP_O_RUS_SpecOps_Scout","CUP_O_RUS_SpecOps","CUP_O_RUS_SpecOps_SD"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.07],
+		// configName CUP_O_RU_ReconTeam_AUT
+		[[[["CUP_O_RUS_Soldier_TL_Autumn",
+		"CUP_O_RUS_Soldier_GL_Autumn","CUP_O_RUS_Soldier_Marksman_Autumn",
+		"CUP_O_RUS_SpecOps_Scout_Autumn","CUP_O_RUS_SpecOps_Autumn",
+		"CUP_O_RUS_SpecOps_SD_Autumn"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.07],
+		// configName CUP_O_MVD_AssaultTeam
+		[[[["CUP_O_MVD_Soldier_TL",
+		"CUP_O_MVD_Soldier_MG","CUP_O_MVD_Soldier_AT",
+		"CUP_O_MVD_Soldier_GL","CUP_O_MVD_Sniper",
+		"CUP_O_MVD_Soldier_Marksman","CUP_O_MVD_Soldier_GL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.02]
+	];
+	[_groups_map, east, "CUP_O_RU", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1990,2100], [160,274],
+		["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS","CUP_O_RUS_M"]
+	] call gosa_fnc_map_groups_add;
+
+	/*
+		// configName InfSquad
+		[[[["CUP_O_RU_Soldier_SL_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_M_VDV_EMR_V2","CUP_O_RU_Soldier_LAT_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_MG_M_VDV_EMR_V2","CUP_O_RU_Soldier_TL_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_AR_M_VDV_EMR_V2","CUP_O_RU_Soldier_A_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_Medic_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+		// configName InfSquad_Weapons
+		[[[["CUP_O_RU_Soldier_SL_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_AR_M_VDV_EMR_V2","CUP_O_RU_Soldier_GL_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_MG_M_VDV_EMR_V2","CUP_O_RU_Soldier_AT_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_AAT_M_VDV_EMR_V2","CUP_O_RU_Soldier_A_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_Medic_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0],
+		// configName InfTeam
+		[[[["CUP_O_RU_Soldier_TL_M_VDV_EMR_V2","CUP_O_RU_Soldier_AR_M_VDV_EMR_V2","CUP_O_RU_Soldier_GL_M_VDV_EMR_V2","CUP_O_RU_Soldier_LAT_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+		// configName InfTeam_AT
+		[[[["CUP_O_RU_Soldier_TL_M_VDV_EMR_V2","CUP_O_RU_Soldier_AT_M_VDV_EMR_V2","CUP_O_RU_Soldier_AT_M_VDV_EMR_V2","CUP_O_RU_Soldier_AAT_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+		// configName InfTeam_AA
+		[[[["CUP_O_RU_Soldier_TL_M_VDV_EMR_V2","CUP_O_RU_Soldier_AA_M_VDV_EMR_V2","CUP_O_RU_Soldier_AA_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
+		// configName InfSentry
+		[[[["CUP_O_RU_Soldier_GL_M_VDV_EMR_V2","CUP_O_RU_Soldier_M_VDV_EMR_V2"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0],
+		// configName InfAssault
+		[[[["CUP_O_RU_Soldier_SL_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_AR_M_VDV_EMR_V2","CUP_O_RU_Soldier_MG_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_AAR_M_VDV_EMR_V2","CUP_O_RU_Soldier_Marksman_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_AT_M_VDV_EMR_V2","CUP_O_RU_Soldier_AAT_M_VDV_EMR_V2",
+		"CUP_O_RU_Soldier_Medic_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0],
+		// configName O_InfTeam_AT_Heavy
+		[[[["CUP_O_RU_Soldier_TL_M_VDV_EMR_V2","CUP_O_RU_Soldier_HAT_M_VDV_EMR_V2","CUP_O_RU_Soldier_HAT_M_VDV_EMR_V2","CUP_O_RU_Soldier_AHAT_M_VDV_EMR_V2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0],
+
+		// VDV под бронёй более сухой-осенний чем EMR, а броня на EMR.
+		// configName CUP_O_RU_InfSquad_VDV
+		[[[["CUP_O_RU_Soldier_SL_VDV",
+		"CUP_O_RU_Soldier_MG_VDV","CUP_O_RU_Soldier_AT_VDV",
+		"CUP_O_RU_Soldier_LAT_VDV","CUP_O_RU_Soldier_GL_VDV",
+		"CUP_O_RU_Soldier_Marksman_VDV","CUP_O_RU_Soldier_MG_VDV",
+		"CUP_O_RU_Soldier_AT_VDV","CUP_O_RU_Soldier_AR_VDV",
+		"CUP_O_RU_Soldier_LAT_VDV","CUP_O_RU_Soldier_GL_VDV",
+		"CUP_O_RU_Soldier_VDV"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.7],
+		// configName CUP_O_RU_InfSection_VDV
+		[[[["CUP_O_RU_Soldier_TL_VDV","CUP_O_RU_Soldier_AR_VDV","CUP_O_RU_Soldier_AT_VDV","CUP_O_RU_Soldier_GL_VDV","CUP_O_RU_Soldier_VDV"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSection_AT_VDV
+		[[[["CUP_O_RU_Soldier_HAT_VDV","CUP_O_RU_Soldier_HAT_VDV","CUP_O_RU_Soldier_AT_VDV","CUP_O_RU_Soldier_AT_VDV","CUP_O_RU_Soldier_VDV"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSection_AA_VDV
+		[[[["CUP_O_RU_Soldier_AA_VDV","CUP_O_RU_Soldier_AA_VDV","CUP_O_RU_Soldier_AA_VDV"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
+		// configName CUP_O_RU_InfSection_MG_VDV
+		[[[["CUP_O_RU_Soldier_TL_VDV","CUP_O_RU_Soldier_MG_VDV","CUP_O_RU_Soldier_MG_VDV","CUP_O_RU_Soldier_GL_VDV","CUP_O_RU_Soldier_AT_VDV"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSentry_VDV
+		[[[["CUP_O_RU_Soldier_GL_VDV","CUP_O_RU_Soldier_VDV"],[[0,5,0],[3,0,0]],["CORPORAL","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_SniperTeam_VDV
+		[[[["CUP_O_RU_Sniper_VDV","CUP_O_RU_Spotter_VDV"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
+
+		// VDV_EMR под бронёй похож на ратник, а броня на EMR.
+		// configName CUP_O_RU_InfSquad_VDV_EMR
+		[[[["CUP_O_RU_Soldier_SL_VDV_EMR",
+		"CUP_O_RU_Soldier_MG_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR",
+		"CUP_O_RU_Soldier_LAT_VDV_EMR","CUP_O_RU_Soldier_GL_VDV_EMR",
+		"CUP_O_RU_Soldier_Marksman_VDV_EMR","CUP_O_RU_Soldier_MG_VDV_EMR",
+		"CUP_O_RU_Soldier_AT_VDV_EMR","CUP_O_RU_Soldier_AR_VDV_EMR",
+		"CUP_O_RU_Soldier_LAT_VDV_EMR","CUP_O_RU_Soldier_GL_VDV_EMR",
+		"CUP_O_RU_Soldier_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.7],
+		// configName CUP_O_RU_InfSection_VDV_EMR
+		[[[["CUP_O_RU_Soldier_TL_VDV_EMR","CUP_O_RU_Soldier_AR_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR","CUP_O_RU_Soldier_GL_VDV_EMR","CUP_O_RU_Soldier_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSection_AT_VDV_EMR
+		[[[["CUP_O_RU_Soldier_HAT_VDV_EMR","CUP_O_RU_Soldier_HAT_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR","CUP_O_RU_Soldier_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSection_AA_VDV_EMR
+		[[[["CUP_O_RU_Soldier_AA_VDV_EMR","CUP_O_RU_Soldier_AA_VDV_EMR","CUP_O_RU_Soldier_AA_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0.1],
+		// configName CUP_O_RU_InfSection_MG_VDV_EMR
+		[[[["CUP_O_RU_Soldier_TL_VDV_EMR","CUP_O_RU_Soldier_MG_VDV_EMR","CUP_O_RU_Soldier_MG_VDV_EMR","CUP_O_RU_Soldier_GL_VDV_EMR","CUP_O_RU_Soldier_AT_VDV_EMR"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_InfSentry_VDV_EMR
+		[[[["CUP_O_RU_Soldier_GL_VDV_EMR","CUP_O_RU_Soldier_VDV_EMR"],[[0,5,0],[3,0,0]],["CORPORAL","PRIVATE"]]],0.2],
+		// configName CUP_O_RU_SniperTeam_VDV_EMR
+		[[[["CUP_O_RU_Sniper_VDV_EMR","CUP_O_RU_Spotter_VDV_EMR"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
+	*/
+
+	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+		_arr = [
+			[[[["CUP_O_BM21_RU","CUP_O_BM21_RU"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
+		];
+		[_groups_map, east, "CUP_O_RU",
+			[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+			[1990,2100], [-999,999],
+			["CUP_O_RUS_M"]
+		] call gosa_fnc_map_groups_add;
+		[_groups_map, east, "CUP_O_RUS_M",
+			[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+			[1990,2100], [-999,999],
+			["CUP_O_RU"]
+		] call gosa_fnc_map_groups_add;
+	};
+
 
 //-- CUP_O_TK
 	[_groups_map, east, "CUP_O_TK", [[
