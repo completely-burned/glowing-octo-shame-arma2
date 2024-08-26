@@ -62,31 +62,6 @@ _createSpecial = "CAN_COLLIDE";
 
 _hasDriver = getNumber (_entry >> "hasDriver");
 _LandVehicle = _type isKindOf "LandVehicle";
-//--- Пилот командир, поэтому первый.
-if !(_LandVehicle) then {
-	if ((_hasDriver == 1) && (isNull (driver _vehicle))) then {
-			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
-			_crew set [count _crew, _unit];
-
-			// CUP_B_UH1Y_GUNSHIP_F не начинает движение если leader != effectiveCommander.
-			_rank = "CAPTAIN";
-			#ifdef __ARMA3__
-				_unit setRank _rank;
-			#else
-				[nil, _unit, rsetRank, _rank] call RE;
-			#endif
-
-			_unit moveInDriver _vehicle;
-			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
-			_unit assignAsDriver _vehicle;
-
-		#ifdef __ARMA3__
-			_bestCommander = _unit;
-			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 setEffectiveCommander %2", _vehicle, _unit];
-			_vehicle setEffectiveCommander _unit;
-		#endif
-	};
-};
 
 //--- turrets list
 	#ifdef __ARMA3__
@@ -151,10 +126,35 @@ if !(_LandVehicle) then {
 		};
 	};
 
-	if (_LandVehicle) then {
-		_rankId = count _commandings;
-	}else{
-		_rankId = count _commandings -1;
+	_rankId = count _commandings;
+	if !(_LandVehicle) then {
+		//--- Пилот командир, поэтому перед стрелками.
+		if (_hasDriver > 0) then {
+			if (isNull driver _vehicle) then {
+				_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
+				_crew set [count _crew, _unit];
+
+				if (_rankId > 0) then {
+					_rank = _rankId call gosa_fnc_rankConv;
+					#ifdef __ARMA3__
+						_unit setRank _rank;
+					#else
+						[nil, _unit, rsetRank, _rank] call RE;
+					#endif
+				};
+
+				_unit moveInDriver _vehicle;
+				diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
+				_unit assignAsDriver _vehicle;
+
+				#ifdef __ARMA3__
+					_bestCommander = _unit;
+					diag_log format ["Log: [fnc_spawnCrew.sqf] %1 setEffectiveCommander %2", _vehicle, _unit];
+					_vehicle setEffectiveCommander _unit;
+				#endif
+			};
+			_rankId = _rankId -1;
+		};
 	};
 
 	if !(isNil "_sorted") then { // diag_log
