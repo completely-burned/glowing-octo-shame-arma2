@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=345;
+		nextID=371;
 	};
 	class MarkerIDProvider
 	{
@@ -192,7 +192,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=206;
+		items=212;
 		class Item0
 		{
 			dataType="Logic";
@@ -1810,6 +1810,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=187;
 		};
@@ -1864,6 +1865,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=197;
 		};
@@ -1941,6 +1943,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=201;
 		};
@@ -1971,6 +1974,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=209;
 		};
@@ -2632,13 +2636,12 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={4583.606,385.69406,9648.9102};
+				position[]={4583,338.98865,9649};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=254;
 			type="LocationRespawnPoint_F";
-			atlOffset=42.545624;
-		};
+					};
 		class Item182
 		{
 			dataType="Logic";
@@ -2838,6 +2841,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=260;
 		};
@@ -2918,6 +2922,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=269;
 			atlOffset=9.5367432e-007;
@@ -2967,6 +2972,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=274;
 			atlOffset=9.5367432e-007;
@@ -3113,6 +3119,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=277;
 		};
@@ -3193,6 +3200,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=286;
 		};
@@ -3273,6 +3281,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=291;
 		};
@@ -3418,6 +3427,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=296;
 		};
@@ -3497,6 +3507,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=305;
 		};
@@ -3544,6 +3555,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=310;
 		};
@@ -3623,6 +3635,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=313;
 		};
@@ -3669,6 +3682,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=318;
 		};
@@ -3814,6 +3828,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=321;
 		};
@@ -3893,6 +3908,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=330;
 		};
@@ -3972,6 +3988,7 @@ class Mission
 			};
 			class Attributes
 			{
+				placementRadius=25;
 			};
 			id=335;
 		};
@@ -4032,16 +4049,330 @@ class Mission
 			id=344;
 			type="LocationRespawnPoint_F";
 		};
+		class Item206
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13506.92,-0.00038719177,2761.071};
+			};
+			init="this setVariable [""gosa_respawn_type"", 50];";
+			id=345;
+			type="LocationRespawnPoint_F";
+			atlOffset=5.3000007;
+		};
+		class Item207
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={13289,-0.041333675,2891};
+			};
+			init="this setVariable [""gosa_respawn_type"", 50];";
+			id=346;
+			type="LocationRespawnPoint_F";
+			atlOffset=5.8180003;
+		};
+		class Item208
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4804.6704,8.7453394,2548.5872};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=350;
+					type="B_W_Helipilot_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4806.6831,8.7536402,2546.0938};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=351;
+					type="B_W_Helicrew_F";
+					atlOffset=9.5367432e-007;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=347;
+		};
+		class Item209
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4805.8271,8.7409477,2549.1033};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=355;
+					type="B_Pilot_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4807.8398,8.7488794,2546.6099};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=356;
+					type="B_Pilot_F";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=352;
+		};
+		class Item210
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4858.0815,14.745444,2664.4709};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=358;
+					type="B_Soldier_SL_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4863.0815,14.253058,2659.4709};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=359;
+					type="B_Soldier_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4853.0815,13.993928,2659.4709};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=360;
+					type="B_soldier_LAT_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4868.0815,13.735054,2654.4709};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=361;
+					type="B_soldier_M_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4848.0815,13.118327,2654.4709};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=362;
+					type="B_Soldier_TL_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4873.0815,13.156845,2649.4709};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=363;
+					type="B_soldier_AR_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4843.0815,12.269902,2649.4709};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=364;
+					type="B_Soldier_A_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4878.0815,12.537316,2644.4709};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=365;
+					type="B_medic_F";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=357;
+		};
+		class Item211
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11781.437,140.90427,12477.584};
+					};
+					side="Independent";
+					flags=6;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=369;
+					type="I_pilot_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={11786.437,140.79515,12472.584};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=370;
+					type="I_pilot_F";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=366;
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=19;
+			nextID=21;
 		};
 		class Links
 		{
-			items=19;
+			items=21;
 			class Item0
 			{
 				linkID=0;
@@ -4226,6 +4557,26 @@ class Mission
 			{
 				linkID=18;
 				item0=344;
+				item1=343;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item19
+			{
+				linkID=19;
+				item0=345;
+				item1=343;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item20
+			{
+				linkID=20;
+				item0=346;
 				item1=343;
 				class CustomData
 				{
