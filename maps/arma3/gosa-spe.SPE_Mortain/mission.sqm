@@ -1,0 +1,4973 @@
+version=54;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=549;
+	class ItemIDProvider
+	{
+		nextID=344;
+	};
+	class MarkerIDProvider
+	{
+		nextID=1;
+	};
+	class Camera
+	{
+		pos[]={456,232,4048};
+	};
+};
+binarizationWanted=0;
+sourceName="gosa-spe";
+addons[]=
+{
+	"A3_Ui_F",
+	"WW2_SPE_Core_c_UI_Gui_c",
+	"A3_Modules_F",
+	"WW2_SPE_Assets_c_Characters_Americans_c_US_Army",
+	"WW2_SPE_Core_c_EditorPreviews_c",
+	"WW2_SPE_Assets_c_Characters_Americans_c_US_Armored",
+	"WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce",
+	"WW2_SPE_Assets_c_Characters_Germans_c_GER_Wehrmacht",
+	"WW2_SPE_Assets_c_Characters_Germans_c_GER_TankTroops",
+	"WW2_SPE_Assets_c_Characters_Frenchs_c_FR_Late",
+	"WW2_SPE_Assets_c_Characters_Germans_c_GER_Sturmtroopers",
+	"WW2_SPE_Assets_c_Characters_Germans_U1_c_GER_Sturmtroopers",
+	"A3_Characters_F",
+	"WW2_SPE_Assets_c_Weapons_Ammoboxes_c",
+	"WW2_SPE_Assets_c_Vehicles_SimpleObjects_c",
+	"WW2_SPE_Assets_c_Weapons_SimpleObjects_c",
+	"WW2_SPE_Assets_c_Vehicles_Wheeled_U1_c_CCKW_353",
+	"WW2_SPE_Assets_c_Vehicles_StaticWeapons_U1_c_105mm_M3",
+	"WW2_SPE_Assets_c_Vehicles_ModelConfig_U1_c",
+	"WW2_SPE_Core_c_Core_c_Eventhandlers"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=20;
+		class Item0
+		{
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item1
+		{
+			className="WW2_SPE_Core_c_UI_Gui_c";
+			name="WW2_SPE_Core_c_UI_Gui_c";
+		};
+		class Item2
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="WW2_SPE_Assets_c_Characters_Americans_c_US_Army";
+			name="WW2_SPE_Assets_c_Characters_Americans_c_US_Army";
+		};
+		class Item4
+		{
+			className="WW2_SPE_Core_c_EditorPreviews_c";
+			name="WW2_SPE_Core_c_EditorPreviews_c";
+		};
+		class Item5
+		{
+			className="WW2_SPE_Assets_c_Characters_Americans_c_US_Armored";
+			name="WW2_SPE_Assets_c_Characters_Americans_c_US_Armored";
+		};
+		class Item6
+		{
+			className="WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce";
+			name="WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce";
+		};
+		class Item7
+		{
+			className="WW2_SPE_Assets_c_Characters_Germans_c_GER_Wehrmacht";
+			name="WW2_SPE_Assets_c_Characters_Germans_c_GER_Wehrmacht";
+		};
+		class Item8
+		{
+			className="WW2_SPE_Assets_c_Characters_Germans_c_GER_TankTroops";
+			name="WW2_SPE_Assets_c_Characters_Germans_c_GER_TankTroops";
+		};
+		class Item9
+		{
+			className="WW2_SPE_Assets_c_Characters_Frenchs_c_FR_Late";
+			name="WW2_SPE_Assets_c_Characters_Frenchs_c_FR_Late";
+		};
+		class Item10
+		{
+			className="WW2_SPE_Assets_c_Characters_Germans_c_GER_Sturmtroopers";
+			name="WW2_SPE_Assets_c_Characters_Germans_c_GER_Sturmtroopers";
+		};
+		class Item11
+		{
+			className="WW2_SPE_Assets_c_Characters_Germans_U1_c_GER_Sturmtroopers";
+			name="WW2_SPE_Assets_c_Characters_Germans_U1_c_GER_Sturmtroopers";
+		};
+		class Item12
+		{
+			className="A3_Characters_F";
+			name="Arma 3 Alpha - Characters and Clothing";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item13
+		{
+			className="WW2_SPE_Assets_c_Weapons_Ammoboxes_c";
+			name="WW2_SPE_Assets_c_Weapons_Ammoboxes_c";
+		};
+		class Item14
+		{
+			className="WW2_SPE_Assets_c_Vehicles_SimpleObjects_c";
+			name="WW2_SPE_Assets_c_Vehicles_SimpleObjects_c";
+		};
+		class Item15
+		{
+			className="WW2_SPE_Assets_c_Weapons_SimpleObjects_c";
+			name="WW2_SPE_Assets_c_Weapons_SimpleObjects_c";
+		};
+		class Item16
+		{
+			className="WW2_SPE_Assets_c_Vehicles_Wheeled_U1_c_CCKW_353";
+			name="WW2_SPE_Assets_c_Vehicles_Wheeled_U1_c_CCKW_353";
+		};
+		class Item17
+		{
+			className="WW2_SPE_Assets_c_Vehicles_StaticWeapons_U1_c_105mm_M3";
+			name="WW2_SPE_Assets_c_Vehicles_StaticWeapons_U1_c_105mm_M3";
+		};
+		class Item18
+		{
+			className="WW2_SPE_Assets_c_Vehicles_ModelConfig_U1_c";
+			name="WW2_SPE_Assets_c_Vehicles_ModelConfig_U1_c";
+		};
+		class Item19
+		{
+			className="WW2_SPE_Core_c_Core_c_Eventhandlers";
+			name="WW2_SPE_Core_c_Core_c_Eventhandlers";
+		};
+	};
+};
+dlcs[]=
+{
+	"SPE"
+};
+randomSeed=16747476;
+class ScenarioData
+{
+	saving=0;
+	disabledAI=1;
+	respawn=3;
+	class Header
+	{
+		gameType="Coop";
+	};
+};
+class CustomAttributes
+{
+	class Category0
+	{
+		name="Multiplayer";
+		class Attribute0
+		{
+			property="RespawnTemplates";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="ARRAY";
+					class value
+					{
+						items=1;
+						class Item0
+						{
+							class data
+							{
+								singleType="STRING";
+								value="MenuPosition";
+							};
+						};
+					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="ReviveMode";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		class Attribute2
+		{
+			property="ReviveRequiredItems";
+			expression="false";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=3;
+	};
+	class Category1
+	{
+		name="Scenario";
+		class Attribute0
+		{
+			property="EnableDebugConsole";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					singleType="SCALAR";
+					value=1;
+				};
+			};
+		};
+		nAttributes=1;
+	};
+};
+class Mission
+{
+	appId=1175380;
+	class Intel
+	{
+		briefingName="SPE CO 00 gosa SPE_Mortain Multi v0.0.5.949 DEBUG";
+		startWeather=0.3;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=1944;
+		month=8;
+		hour=8;
+		minute=0;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=61;
+		class Item0
+		{
+			dataType="Marker";
+			position[]={8190,0,8190};
+			name="gosa_worldSize";
+			type="Empty";
+			id=0;
+		};
+		class Item1
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={500,196,4100};
+			};
+			init="this setVariable [""gosa_Location_type"", 1];";
+			id=1;
+			type="LocationBase_F";
+		};
+		class Item2
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={509,195.91,4111};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=3;
+			type="LocationRespawnPoint_F";
+		};
+		class Item3
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={467,184.97643,4166.0498};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=10;
+					type="SPE_US_Second_Lieutenant";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={472,186.25143,4161.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=11;
+					type="SPE_US_Radioman";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={462,185.95145,4161.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=12;
+					type="SPE_US_Rifleman";
+					atlOffset=1.5258789e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={477,187.75143,4156.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=13;
+					type="SPE_US_Medic";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={457,187.05643,4156.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=14;
+					type="SPE_US_Rifleman";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={482,189.27144,4151.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=15;
+					type="SPE_US_Rifleman";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=9;
+		};
+		class Item4
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={468,188.89143,4218.0498};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=24;
+					type="SPE_US_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={473,187.97144,4213.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=25;
+					type="SPE_US_Autorifleman";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={463,188.25644,4213.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=26;
+					type="SPE_US_Medic";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={478,187.03143,4208.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=27;
+					type="SPE_US_Assist_SquadLead";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={458,187.50143,4208.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=28;
+					type="SPE_US_Autorifleman";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={483,186.20642,4203.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=29;
+					type="SPE_US_Rifleman_AmmoBearer";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={453,186.75143,4203.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=30;
+					type="SPE_US_Grenadier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={488,185.59143,4198.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=31;
+					type="SPE_US_Grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={448,186.08144,4198.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=32;
+					type="SPE_US_Assist_Autorifleman";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={493,185.20645,4193.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=33;
+					type="SPE_US_Assist_Autorifleman";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={443,185.55643,4193.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=34;
+					type="SPE_US_Rifleman";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={498,184.94144,4188.0498};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=35;
+					type="SPE_US_Rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=23;
+		};
+		class Item5
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={468.69333,187.53453,4209.7588};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=37;
+					type="SPE_US_SquadLead";
+					atlOffset=-0.00010681152;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={473.69333,186.59091,4204.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=38;
+					type="SPE_US_Assist_SquadLead";
+					atlOffset=-9.1552734e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={463.69333,186.78955,4204.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=39;
+					type="SPE_US_Sniper";
+					atlOffset=-7.6293945e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={478.69333,185.82098,4199.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=40;
+					type="SPE_US_Medic";
+					atlOffset=-6.1035156e-005;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={458.69333,186.09673,4199.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=41;
+					type="SPE_US_Autorifleman";
+					atlOffset=-9.1552734e-005;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={483.69333,185.30812,4194.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=42;
+					type="SPE_US_Rifleman_AmmoBearer";
+					atlOffset=-3.0517578e-005;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={453.69333,185.55907,4194.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=43;
+					type="SPE_US_Grenadier";
+					atlOffset=-3.0517578e-005;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={488.69333,184.94795,4189.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=44;
+					type="SPE_US_Grenadier";
+					atlOffset=-4.5776367e-005;
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={448.69333,185.06606,4189.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=45;
+					type="SPE_US_Assist_Autorifleman";
+					atlOffset=-4.5776367e-005;
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={493.69333,184.71872,4184.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=46;
+					type="SPE_US_Rifleman";
+					atlOffset=-3.0517578e-005;
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={443.69333,184.54243,4184.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=47;
+					type="SPE_US_Rifleman";
+					atlOffset=-6.1035156e-005;
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={498.69333,184.76703,4179.7588};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=48;
+					type="SPE_US_Rifleman";
+					atlOffset=3.0517578e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=36;
+			atlOffset=-0.00010681152;
+		};
+		class Item6
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={493.57193,184.80304,4172.4971};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=50;
+					type="SPE_US_Sniper";
+					atlOffset=3.0517578e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={498.57193,185.67256,4167.4971};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=51;
+					type="SPE_US_Sniper";
+					atlOffset=9.1552734e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=49;
+			atlOffset=3.0517578e-005;
+		};
+		class Item7
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={468.49319,185.70851,4198.1611};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=53;
+					type="SPE_US_Assist_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={473.49319,185.16144,4193.1611};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=54;
+					type="SPE_US_Grenadier";
+					atlOffset=-1.5258789e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={463.49319,185.23019,4193.1611};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=55;
+					type="SPE_US_Grenadier";
+					atlOffset=3.0517578e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={478.49319,184.73582,4188.1611};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=56;
+					type="SPE_US_Rifleman";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={458.49319,184.76122,4188.1611};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=57;
+					type="SPE_US_Rifleman";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={483.49319,184.45195,4183.1611};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=58;
+					type="SPE_US_Rifleman";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=52;
+		};
+		class Item8
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=6;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={469.15475,184.42189,4184.6455};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=60;
+					type="SPE_US_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={474.15475,184.2049,4179.6455};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=61;
+					type="SPE_US_Autorifleman";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={464.15475,184.12085,4179.6455};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=62;
+					type="SPE_US_Assist_Autorifleman";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={479.15475,184.28386,4174.6455};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=63;
+					type="SPE_US_Rifleman";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={459.15475,184.01578,4174.6455};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=64;
+					type="SPE_US_Rifleman";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={484.15475,184.74988,4169.6455};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=65;
+					type="SPE_US_Rifleman_AmmoBearer";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=59;
+		};
+		class Item9
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={468.3847,184.9268,4190.5273};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=67;
+					type="SPE_US_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={473.3847,184.50488,4185.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=68;
+					type="SPE_US_Assist_SquadLead";
+					atlOffset=3.0517578e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={463.3847,184.48964,4185.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=69;
+					type="SPE_US_AT_Soldier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={478.3847,184.27632,4180.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=70;
+					type="SPE_US_AT_Soldier";
+					atlOffset=1.5258789e-005;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={458.3847,184.13202,4180.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=71;
+					type="SPE_US_AT_Soldier";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={483.3847,184.33051,4175.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=72;
+					type="SPE_US_Autorifleman";
+					atlOffset=1.5258789e-005;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={453.3847,183.95099,4175.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=73;
+					type="SPE_US_Assist_Autorifleman";
+					atlOffset=3.0517578e-005;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={488.3847,184.76953,4170.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=74;
+					type="SPE_US_Grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={448.3847,184.02094,4170.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=75;
+					type="SPE_US_Grenadier";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={493.3847,185.74347,4165.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=76;
+					type="SPE_US_Rifleman_AmmoBearer";
+					atlOffset=1.5258789e-005;
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={443.3847,184.46272,4165.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=77;
+					type="SPE_US_Rifleman";
+					atlOffset=-1.5258789e-005;
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={498.3847,187.16129,4160.5273};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=78;
+					type="SPE_US_Rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=66;
+		};
+		class Item10
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=11;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={468.15741,184.11116,4177.5205};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=89;
+					type="SPE_US_HBT44_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={473.15741,184.3029,4172.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=90;
+					type="SPE_US_HBT44_Autorifleman";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={463.15741,184.14575,4172.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=91;
+					type="SPE_US_HBT44_Rifleman";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={478.15741,184.93721,4167.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=92;
+					type="SPE_US_HBT44_Assist_SquadLead";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={458.15741,184.52742,4167.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=93;
+					type="SPE_US_HBT44_Autorifleman";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={483.15741,186.08925,4162.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=94;
+					type="SPE_US_HBT44_AT_Soldier";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={453.15741,185.29546,4162.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=95;
+					type="SPE_US_HBT44_Grenadier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={488.15741,187.55621,4157.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=96;
+					type="SPE_US_HBT44_Grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={448.15741,186.26083,4157.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=97;
+					type="SPE_US_HBT44_Rifleman";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={493.15741,189.12251,4152.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=98;
+					type="SPE_US_HBT44_Rifleman";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={443.15741,187.24634,4152.5205};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=99;
+					type="SPE_US_HBT44_Rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=88;
+		};
+		class Item11
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={450.96173,184.37695,4183.583};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=104;
+					type="SPE_US_Pilot";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={446.96173,184.07344,4179.583};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=105;
+					type="SPE_US_Pilot";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=103;
+		};
+		class Item12
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={415.89819,194.4014,3994.8896};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=107;
+					type="SPE_GER_lieutenant";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={420.89819,194.31194,3989.8896};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=108;
+					type="SPE_GER_rifleman_2";
+					atlOffset=1.5258789e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={410.89819,194.2319,3989.8896};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=109;
+					type="SPE_GER_medic";
+					atlOffset=-1.5258789e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={425.89819,194.21559,3984.8896};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=110;
+					type="SPE_GER_radioman";
+					atlOffset=-1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=106;
+		};
+		class Item13
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=9;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={415.96289,194.59908,4003.4502};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=112;
+					type="SPE_GER_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={420.96289,194.53107,3998.4502};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=113;
+					type="SPE_GER_mgunner";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={410.96289,194.44426,3998.4502};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=114;
+					type="SPE_GER_medic";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={425.96289,194.44608,3993.4502};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=115;
+					type="SPE_GER_Assist_SquadLead";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={405.96289,194.28607,3993.4502};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=116;
+					type="SPE_GER_rifleman";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={430.96289,194.35626,3988.4502};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=117;
+					type="SPE_GER_amgunner";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={400.96289,194.11624,3988.4502};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=118;
+					type="SPE_GER_LAT_Rifleman";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={435.96289,194.26607,3983.4502};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=119;
+					type="SPE_GER_ober_grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={395.96289,193.93309,3983.4502};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=120;
+					type="SPE_GER_rifleman";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=111;
+		};
+		class Item14
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={429.35291,194.19121,3982.9248};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=122;
+					type="SPE_GER_scout_sniper";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={434.35291,194.09297,3977.9248};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=123;
+					type="SPE_GER_scout_sniper";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=121;
+		};
+		class Item15
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=9;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={415.40839,194.71553,4010.0498};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=125;
+					type="SPE_GER_scout_SquadLead";
+					atlOffset=1.5258789e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={420.40839,194.66551,4005.0498};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=126;
+					type="SPE_GER_scout_mgunner";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={410.40839,194.57848,4005.0498};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=127;
+					type="SPE_GER_scout_sniper";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={425.40839,194.59848,4000.0498};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=128;
+					type="SPE_GER_scout_Assist_SquadLead";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={405.40839,194.43553,4000.0498};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=129;
+					type="SPE_GER_scout_ober_rifleman";
+					atlOffset=1.5258789e-005;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={430.40839,194.52051,3995.0498};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=130;
+					type="SPE_GER_scout_amgunner";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={400.40839,194.27847,3995.0498};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=131;
+					type="SPE_GER_scout_rifleman";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={435.40839,194.43552,3990.0498};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=132;
+					type="SPE_GER_scout_ober_grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={395.40839,194.10551,3990.0498};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=133;
+					type="SPE_GER_scout_rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=124;
+			atlOffset=1.5258789e-005;
+		};
+		class Item16
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={416.4989,194.21735,3987.7871};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=135;
+					type="SPE_GER_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={421.4989,194.11104,3982.7871};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=136;
+					type="SPE_GER_mgunner";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={411.4989,194.03105,3982.7871};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=137;
+					type="SPE_GER_rifleman";
+					atlOffset=1.5258789e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={426.4989,194.00851,3977.7871};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=138;
+					type="SPE_GER_amgunner";
+					atlOffset=-1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=134;
+		};
+		class Item17
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=9;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={414.71234,194.91304,4025.4973};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=140;
+					type="SPE_GER_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={419.71234,194.91306,4020.4973};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=141;
+					type="SPE_GER_AT_grenadier";
+					atlOffset=1.5258789e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={409.71234,194.81302,4020.4973};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=142;
+					type="SPE_GER_AT_grenadier";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={424.71234,194.90025,4015.4973};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=143;
+					type="SPE_GER_Assist_SquadLead";
+					atlOffset=-1.5258789e-005;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={404.71234,194.7003,4015.4973};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=144;
+					type="SPE_GER_LAT_Rifleman";
+					atlOffset=3.0517578e-005;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={429.71234,194.8575,4010.4973};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=145;
+					type="SPE_GER_LAT_Rifleman";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={399.71234,194.58527,4010.4973};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=146;
+					type="SPE_GER_LAT_Rifleman";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={434.71234,194.80394,4005.4973};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=147;
+					type="SPE_GER_ober_grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={394.71234,194.44751,4005.4973};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=148;
+					type="SPE_GER_LAT_Rifleman";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=139;
+		};
+		class Item18
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={415.36243,194.81935,4017.0034};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=150;
+					type="SPE_GER_lehr_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={420.36243,194.79413,4012.0034};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=151;
+					type="SPE_GER_lehr_mgunner";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={410.36243,194.70415,4012.0034};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=152;
+					type="SPE_GER_lehr_amgunner";
+					atlOffset=1.5258789e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={425.36243,194.74889,4007.0034};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=153;
+					type="SPE_GER_lehr_LAT_Rifleman";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={405.36243,194.57414,4007.0034};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=154;
+					type="SPE_GER_lehr_Assist_SquadLead";
+					atlOffset=1.5258789e-005;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={430.36243,194.6839,4002.0034};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=155;
+					type="SPE_GER_lehr_mgunner";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={400.36243,194.43413,4002.0034};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=156;
+					type="SPE_GER_lehr_amgunner";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={435.36243,194.60732,3997.0034};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=157;
+					type="SPE_GER_lehr_grenadier";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=149;
+		};
+		class Item19
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={414,194.97144,4034.05};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=159;
+					type="SPE_GER_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={419,194.99644,4029.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=160;
+					type="SPE_GER_mgunner";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={409,194.88644,4029.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=161;
+					type="SPE_GER_mgunner";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={424,195.01143,4024.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=162;
+					type="SPE_GER_sapper_gefr";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={404,194.80145,4024.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=163;
+					type="SPE_GER_rifleman_2";
+					atlOffset=1.5258789e-005;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={429,195.00143,4019.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=164;
+					type="SPE_GER_amgunner";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={399,194.69644,4019.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=165;
+					type="SPE_GER_sapper";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={434,194.97145,4014.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=166;
+					type="SPE_GER_sapper";
+					atlOffset=1.5258789e-005;
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={394,194.58142,4014.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=167;
+					type="SPE_GER_amgunner";
+					atlOffset=-1.5258789e-005;
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={439,194.91644,4009.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=168;
+					type="SPE_GER_Flamethrower_Operator";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={389,194.45645,4009.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=169;
+					type="SPE_GER_AT_grenadier";
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={444,194.84143,4004.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=170;
+					type="SPE_GER_AT_grenadier";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=158;
+		};
+		class Item20
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={406,194.06143,3985.05};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=180;
+					type="SPE_GER_pilot";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={405.116,194.03217,3984.2561};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=181;
+					type="SPE_GER_pilot";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=179;
+		};
+		class Item21
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=11;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={546.92633,187.25273,4214.1084};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=200;
+					type="SPE_FR_Captain";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={551.92633,187.24496,4209.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=201;
+					type="SPE_FR_Radioman";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={541.92633,186.85649,4209.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=202;
+					type="SPE_FR_Sniper";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={556.92633,187.1107,4204.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=203;
+					type="SPE_FR_Medic";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={536.92633,186.45547,4204.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=204;
+					type="SPE_FR_SquadLead";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={561.92633,187.7663,4199.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=205;
+					type="SPE_FR_AT_Soldier";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={531.92633,186.07364,4199.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=206;
+					type="SPE_FR_Grenadier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={566.92633,188.29526,4194.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=207;
+					type="SPE_FR_Grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={526.92633,185.76701,4194.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=208;
+					type="SPE_FR_Rifleman_Carbine";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={571.92633,188.85358,4189.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=209;
+					type="SPE_FR_Rifleman";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={521.92633,185.58562,4189.1084};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=210;
+					type="SPE_FR_Rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=199;
+		};
+		class Item22
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={563.09497,188.20309,4192.4893};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=212;
+					type="SPE_FR_Sniper";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={566.09497,188.75896,4187.4893};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=213;
+					type="SPE_FR_Sniper";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=211;
+		};
+		class Item23
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=11;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={546.33478,187.77376,4221.9951};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=215;
+					type="SPE_FR_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={551.33478,187.55347,4216.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=216;
+					type="SPE_FR_Autorifleman";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={541.33478,187.30763,4216.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=217;
+					type="SPE_FR_Rifleman";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={556.33478,187.44568,4211.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=218;
+					type="SPE_FR_Assist_SquadLead";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={536.33478,186.84792,4211.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=219;
+					type="SPE_FR_Rifleman_Carbine";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={561.33478,187.03975,4206.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=220;
+					type="SPE_FR_AT_Soldier";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={531.33478,186.37819,4206.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=221;
+					type="SPE_FR_Grenadier";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={566.33478,187.8618,4201.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=222;
+					type="SPE_FR_Grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={526.33478,185.90265,4201.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=223;
+					type="SPE_FR_Rifleman";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={571.33478,188.31561,4196.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=224;
+					type="SPE_FR_Rifleman";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={521.33478,185.52179,4196.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=225;
+					type="SPE_FR_Rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=214;
+		};
+		class Item24
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={549.09528,187.02171,4204.0522};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=227;
+					type="SPE_FR_Rifleman_Carbine";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={554.09528,187.35257,4199.0522};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=228;
+					type="SPE_FR_Rifleman";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={544.09528,186.74713,4199.0522};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=229;
+					type="SPE_FR_Rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=226;
+		};
+		class Item25
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={556.58807,187.78383,4192.8135};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=231;
+					type="SPE_FR_Rifleman_Carbine";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={561.58807,188.48917,4187.8135};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=232;
+					type="SPE_FR_Rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=230;
+		};
+		class Item26
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=11;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={545.54608,188.48813,4228.6997};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=234;
+					type="SPE_FR_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={550.54608,188.02084,4223.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=235;
+					type="SPE_FR_HMGunner";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={540.54608,187.86189,4223.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=236;
+					type="SPE_FR_Rifleman";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={555.54608,187.77681,4218.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=237;
+					type="SPE_FR_Assist_SquadLead";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={535.54608,187.35213,4218.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=238;
+					type="SPE_FR_HMGunner";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={560.54608,187.55533,4213.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=239;
+					type="SPE_FR_AT_Soldier";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={530.54608,186.86162,4213.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=240;
+					type="SPE_FR_Rifleman";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={565.54608,187.0204,4208.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=241;
+					type="SPE_FR_Rifleman";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={525.54608,186.33987,4208.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=242;
+					type="SPE_FR_AHMGunner";
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={570.54608,188.0593,4203.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=243;
+					type="SPE_FR_AHMGunner";
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={520.54608,185.83786,4203.6997};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=244;
+					type="SPE_FR_Rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=233;
+		};
+		class Item27
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={545.15167,189.44557,4235.9951};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=246;
+					type="SPE_FR_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={550.15167,188.8466,4230.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=247;
+					type="SPE_FR_Flamethrower_Operator";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={540.15167,188.73509,4230.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=248;
+					type="SPE_FR_Rifleman";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={555.15167,188.35477,4225.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=249;
+					type="SPE_FR_Assist_SquadLead";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={535.15167,188.07542,4225.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=250;
+					type="SPE_FR_Flamethrower_Operator";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={560.15167,188.05743,4220.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=251;
+					type="SPE_FR_Rifleman";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={530.15167,187.51672,4220.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=252;
+					type="SPE_FR_Engineer";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={565.15167,187.63713,4215.9951};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=253;
+					type="SPE_FR_Engineer";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=245;
+		};
+		class Item28
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={637.87415,196.1051,3861.0461};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=255;
+					type="SPE_sturmtrooper_untersturmfuhrer";
+					atlOffset=1.5258789e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={642.87415,196.03011,3856.0461};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=256;
+					type="SPE_sturmtrooper_rifleman";
+					atlOffset=1.5258789e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={632.87415,195.9301,3856.0461};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=257;
+					type="SPE_sturmtrooper_medic";
+					atlOffset=1.5258789e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={647.87415,195.96074,3851.0461};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=258;
+					type="SPE_sturmtrooper_radioman";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=254;
+			atlOffset=1.5258789e-005;
+		};
+		class Item29
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=9;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={637.36603,196.68199,3901.6311};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=260;
+					type="SPE_sturmtrooper_SquadLead";
+					atlOffset=1.5258789e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={642.36603,196.64383,3896.6311};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=261;
+					type="SPE_sturmtrooper_mgunner";
+					atlOffset=1.5258789e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={632.36603,196.56383,3896.6311};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=262;
+					type="SPE_sturmtrooper_medic";
+					atlOffset=1.5258789e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={647.36603,196.59726,3891.6311};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=263;
+					type="SPE_sturmtrooper_Assist_SquadLead";
+					atlOffset=1.5258789e-005;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={627.36603,196.43773,3891.6311};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=264;
+					type="SPE_sturmtrooper_stggunner";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={652.36603,196.52544,3886.6311};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=265;
+					type="SPE_sturmtrooper_amgunner";
+					atlOffset=1.5258789e-005;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={622.36603,196.31276,3886.6311};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=266;
+					type="SPE_sturmtrooper_LAT_rifleman";
+					atlOffset=1.5258789e-005;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={657.36603,196.42831,3881.6311};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=267;
+					type="SPE_sturmtrooper_ober_grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={617.36603,196.18773,3881.6311};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=268;
+					type="SPE_sturmtrooper_rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=259;
+			atlOffset=1.5258789e-005;
+		};
+		class Item30
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={637.87415,195.95569,3854.8235};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=270;
+					type="SPE_sturmtrooper_sniper";
+					atlOffset=3.0517578e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={642.87415,195.8968,3849.8235};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=271;
+					type="SPE_sturmtrooper_sniper";
+					atlOffset=3.0517578e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=269;
+			atlOffset=3.0517578e-005;
+		};
+		class Item31
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=9;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={638.83014,196.55917,3891.9924};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=273;
+					type="SPE_sturmtrooper_SquadLead";
+					atlOffset=1.5258789e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={643.83014,196.53473,3886.9924};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=274;
+					type="SPE_sturmtrooper_AT_grenadier";
+					atlOffset=1.5258789e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={633.83014,196.45918,3886.9924};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=275;
+					type="SPE_sturmtrooper_AT_grenadier";
+					atlOffset=1.5258789e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={648.83014,196.4767,3881.9924};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=276;
+					type="SPE_sturmtrooper_Assist_SquadLead";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={628.83014,196.35916,3881.9924};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=277;
+					type="SPE_sturmtrooper_LAT_rifleman";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={653.83014,196.38643,3876.9924};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=278;
+					type="SPE_sturmtrooper_LAT_rifleman";
+					atlOffset=1.5258789e-005;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={623.83014,196.23834,3876.9924};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=279;
+					type="SPE_sturmtrooper_LAT_rifleman";
+					atlOffset=3.0517578e-005;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={658.83014,196.28641,3871.9924};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=280;
+					type="SPE_sturmtrooper_ober_grenadier";
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={618.83014,196.09688,3871.9924};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=281;
+					type="SPE_sturmtrooper_LAT_rifleman";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=272;
+			atlOffset=1.5258789e-005;
+		};
+		class Item32
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={638.1181,196.23665,3866.7805};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=283;
+					type="SPE_sturmtrooper_SquadLead";
+					atlOffset=1.5258789e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={643.1181,196.16165,3861.7805};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=284;
+					type="SPE_sturmtrooper_mgunner";
+					atlOffset=1.5258789e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={633.1181,196.07587,3861.7805};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=285;
+					type="SPE_sturmtrooper_ober_rifleman";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={648.1181,196.07607,3856.7805};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=286;
+					type="SPE_sturmtrooper_amgunner";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=282;
+			atlOffset=1.5258789e-005;
+		};
+		class Item33
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=12;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={637,196.81145,3910.05};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=288;
+					type="SPE_sturmtrooper_SquadLead";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={642,196.76646,3905.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=289;
+					type="SPE_sturmtrooper_mgunner";
+					atlOffset=3.0517578e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={632,196.69145,3905.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=290;
+					type="SPE_sturmtrooper_mgunner";
+					atlOffset=1.5258789e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={647,196.71144,3900.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=291;
+					type="SPE_sturmtrooper_sapper_gefr";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={627,196.55144,3900.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=292;
+					type="SPE_sturmtrooper_stggunner";
+					atlOffset=1.5258789e-005;
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={652,196.63644,3895.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=293;
+					type="SPE_sturmtrooper_amgunner";
+					atlOffset=1.5258789e-005;
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={622,196.40645,3895.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=294;
+					type="SPE_sturmtrooper_sapper";
+					atlOffset=1.5258789e-005;
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={657,196.55647,3890.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=295;
+					type="SPE_sturmtrooper_sapper";
+					atlOffset=4.5776367e-005;
+				};
+				class Item8
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={617,196.26646,3890.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=296;
+					type="SPE_sturmtrooper_amgunner";
+					atlOffset=3.0517578e-005;
+				};
+				class Item9
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={662,196.46144,3885.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=297;
+					type="SPE_sturmtrooper_Flamethrower_Operator";
+					atlOffset=1.5258789e-005;
+				};
+				class Item10
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={612,196.13145,3885.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=298;
+					type="SPE_sturmtrooper_AT_grenadier";
+					atlOffset=1.5258789e-005;
+				};
+				class Item11
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={667,196.38646,3880.05};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=299;
+					type="SPE_sturmtrooper_AT_grenadier";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=287;
+		};
+		class Item34
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=3;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={638.95215,196.46046,3882.4753};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=301;
+					type="SPE_sturmtrooper_stggunner";
+					atlOffset=1.5258789e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={643.95215,196.4257,3877.4753};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=302;
+					type="SPE_sturmtrooper_rifleman";
+					atlOffset=1.5258789e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={633.95215,196.36523,3877.4753};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=303;
+					type="SPE_sturmtrooper_rifleman";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=300;
+			atlOffset=1.5258789e-005;
+		};
+		class Item35
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={648.10291,196.3871,3874.6667};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=305;
+					type="SPE_sturmtrooper_SquadLead";
+					atlOffset=1.5258789e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={653.10291,196.29018,3869.6667};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=306;
+					type="SPE_sturmtrooper_rifleman";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=304;
+			atlOffset=1.5258789e-005;
+		};
+		class Item36
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={638.60614,196.32964,3872.3928};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=308;
+					type="SPE_ST_AT_Soldier_SquadLead";
+					atlOffset=1.5258789e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={643.60614,196.27634,3867.3928};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=309;
+					type="SPE_ST_AT_Soldier";
+					atlOffset=1.5258789e-005;
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={633.60614,196.20438,3867.3928};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=310;
+					type="SPE_ST_AT_Soldier";
+					atlOffset=3.0517578e-005;
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={648.60614,196.18356,3862.3928};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=311;
+					type="SPE_ST_AT_Soldier_Assistant";
+					atlOffset=3.0517578e-005;
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={628.60614,196.03912,3862.3928};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=312;
+					type="SPE_ST_AT_Soldier_Assistant";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=307;
+			atlOffset=1.5258789e-005;
+		};
+		class Item37
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={619.91852,196.18936,3877.9612};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=314;
+					type="SPE_sturmtrooper_sapper_gefr";
+					atlOffset=3.0517578e-005;
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={624.91852,196.1989,3872.9612};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=315;
+					type="SPE_sturmtrooper_Flamethrower_Operator";
+					atlOffset=1.5258789e-005;
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=313;
+			atlOffset=3.0517578e-005;
+		};
+		class Item38
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-80.129997,108.92837,253.28};
+			};
+			name="HeadlessClient";
+			isPlayable=1;
+			id=316;
+			type="HeadlessClient_F";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item39
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-93.945435,108.86874,198.01855};
+			};
+			name="HeadlessClient_1";
+			isPlayable=1;
+			id=317;
+			type="HeadlessClient_F";
+			atlOffset=-1.5258789e-005;
+		};
+		class Item40
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-85.656151,106.44209,134.46777};
+			};
+			name="HeadlessClient_2";
+			isPlayable=1;
+			id=318;
+			type="HeadlessClient_F";
+		};
+		class Item41
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-88.419334,104.48629,95.78418};
+			};
+			name="HeadlessClient_3";
+			isPlayable=1;
+			id=319;
+			type="HeadlessClient_F";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item42
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-85.656151,102.58584,51.574707};
+			};
+			name="HeadlessClient_4";
+			isPlayable=1;
+			id=320;
+			type="HeadlessClient_F";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item43
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-163.02289,106.46464,54.337402};
+			};
+			name="HeadlessClient_5";
+			isPlayable=1;
+			id=321;
+			type="HeadlessClient_F";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item44
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-168.549,110.42277,115.12598};
+			};
+			name="HeadlessClient_6";
+			isPlayable=1;
+			id=322;
+			type="HeadlessClient_F";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item45
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-168.549,112.75413,170.3877};
+			};
+			name="HeadlessClient_7";
+			isPlayable=1;
+			id=323;
+			type="HeadlessClient_F";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item46
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-179.60146,114.30775,231.17578};
+			};
+			name="HeadlessClient_8";
+			isPlayable=1;
+			id=324;
+			type="HeadlessClient_F";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item47
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={-190.65379,115.01994,289.20117};
+			};
+			name="HeadlessClient_9";
+			isPlayable=1;
+			id=325;
+			type="HeadlessClient_F";
+		};
+		class Item48
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={325,193.925,3929};
+				angles[]={0,1.3089969,0};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=326;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.030044556;
+		};
+		class Item49
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={498.96555,197.84291,4053.0085};
+				angles[]={6.278182,0,0.024996169};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=328;
+			type="SPE_AmmoCrate_VehicleAmmo_US";
+			atlOffset=1.5258789e-005;
+		};
+		class Item50
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={495.95694,197.77272,4056.0085};
+				angles[]={0,0,0.01999305};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=329;
+			type="SPE_AmmoCrate_VehicleAmmo_US";
+			atlOffset=-6.1035156e-005;
+		};
+		class Item51
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={579.97418,199.03775,4091.0344};
+				angles[]={0.01499443,0,0.010000871};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=330;
+			type="SPE_AmmoCrate_VehicleAmmo_US";
+			atlOffset=-4.5776367e-005;
+		};
+		class Item52
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={505.96555,197.87285,4088.0173};
+				angles[]={0.010000871,0,0.01999305};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=331;
+			type="SPE_AmmoCrate_VehicleAmmo_US";
+		};
+		class Item53
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={328.60181,189.34373,3900.8269};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=334;
+			type="SPE_BasicWeaponsBox_US";
+		};
+		class Item54
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={328.65967,189.48405,3901.6858};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=335;
+			type="SPE_BasicAmmunitionBox_US";
+		};
+		class Item55
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={320.38385,189.57027,3909.0093};
+				angles[]={6.19839,0,6.2133002};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=338;
+			type="SPE_BasicAmmunitionBox_US";
+			atlOffset=3.0517578e-005;
+		};
+		class Item56
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={328.05188,194.105,3930.8096};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=339;
+			type="SPE_BasicAmmunitionBox_US";
+		};
+		class Item57
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={326.91751,193.96468,3931.8584};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=340;
+			type="SPE_BasicWeaponsBox_US";
+		};
+		class Item58
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={337,193.88602,3926};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=341;
+			type="LocationRespawnPoint_F";
+			atlOffset=3.1941681;
+		};
+		class Item59
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={353.95242,193.03297,3938.9143};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this setVariable [""gosa_respawnVehicle"", true];";
+				dynamicSimulation=1;
+			};
+			id=342;
+			type="SPE_CCKW_353";
+		};
+		class Item60
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={370.96671,190.08984,3872.9656};
+				angles[]={0,2.0943952,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				dynamicSimulation=1;
+			};
+			id=343;
+			type="SPE_105mm_M3";
+		};
+	};
+	class Connections
+	{
+		class LinkIDProvider
+		{
+			nextID=3;
+		};
+		class Links
+		{
+			items=3;
+			class Item0
+			{
+				linkID=0;
+				item0=1;
+				item1=3;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item1
+			{
+				linkID=1;
+				item0=326;
+				item1=1;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item2
+			{
+				linkID=2;
+				item0=341;
+				item1=1;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+		};
+	};
+};
