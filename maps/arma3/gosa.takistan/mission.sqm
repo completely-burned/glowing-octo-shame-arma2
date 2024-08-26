@@ -8,7 +8,7 @@ class EditorData
 	toggles=5;
 	class ItemIDProvider
 	{
-		nextID=308;
+		nextID=328;
 	};
 	class MarkerIDProvider
 	{
@@ -188,7 +188,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=90;
+		items=94;
 		class Item0
 		{
 			dataType="Marker";
@@ -4567,6 +4567,195 @@ class Mission
 			{
 			};
 			id=304;
+		};
+		class Item90
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8050.0039,296.04144,2001.4801};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=314;
+					type="B_Pilot_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8055.0039,296.04144,1996.4801};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=315;
+					type="B_Pilot_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=308;
+		};
+		class Item91
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8048.8848,296.04144,1996.063};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=316;
+					type="B_Helipilot_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8053.8848,296.04144,1991.063};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=317;
+					type="B_helicrew_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=311;
+		};
+		class Item92
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6530.8418,371.72464,4554.3779};
+					};
+					side="Independent";
+					flags=6;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=324;
+					type="I_pilot_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6535.8418,372.12332,4549.3779};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=325;
+					type="I_pilot_F";
+					atlOffset=-3.0517578e-005;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=318;
+		};
+		class Item93
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6531.5161,372.49683,4548.6968};
+					};
+					side="Independent";
+					flags=6;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=326;
+					type="I_helipilot_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={6536.5161,372.70972,4543.6968};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=327;
+					type="I_helicrew_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=321;
 		};
 	};
 	class Connections
