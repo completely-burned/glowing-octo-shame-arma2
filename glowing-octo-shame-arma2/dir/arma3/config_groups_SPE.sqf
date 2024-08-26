@@ -44,11 +44,15 @@ _arr = [
 	[[[["SPE_PzKpfwIII_L","SPE_PzKpfwIII_L","SPE_PzKpfwIII_L","SPE_PzKpfwIII_L"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
 	// SPE_GER_PzKpfwIII_J_Platoon
 	[[[["SPE_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_Nashorn_TD_Platoon
-	[[[["SPE_Nashorn","SPE_Nashorn","SPE_Nashorn","SPE_Nashorn"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
 	// SPE_GER_PzKpfwVI_H1_Platoon
 	[[[["SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25]
 ];
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		// SPE_GER_Nashorn_TD_Platoon
+		[[[["SPE_Nashorn","SPE_Nashorn","SPE_Nashorn","SPE_Nashorn"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25]
+	];
+};
 [_groups_map, west, "SPE_WEHRMACHT", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1900,1950], [160,999],
 ["BLU_NATO_lxWS","BLU_F","BLU_T_F","CUP_B_US_Army","CUP_B_USMC","BLU_W_F"]
@@ -120,11 +124,19 @@ _arr = [
 	[[[["SPE_M10","SPE_M10","SPE_M10","SPE_M10"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
 	// SPE_M18_TD_Platoon
 	[[[["SPE_M18_Hellcat","SPE_M18_Hellcat","SPE_M18_Hellcat","SPE_M18_Hellcat"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
-	// SPE_M4A1_Calliope_Section
-	[[[["SPE_M4A1_T34_Calliope","SPE_M4A1_T34_Calliope"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.3],
 	// SPE_US_P47_Group
 	[[[["SPE_P47","SPE_P47","SPE_P47"],[[0,20,0],[-10,-10,0],[-20,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.5]
 ];
+if (isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		[[[["SPE_M4A3_T34_Calliope_Direct","SPE_M4A3_T34_Calliope_Direct"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.03]
+	];
+}else{
+	_arr append [
+		// SPE_M4A1_Calliope_Section
+		[[[["SPE_M4A1_T34_Calliope","SPE_M4A1_T34_Calliope"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.3]
+	];
+};
 [_groups_map, resistance, "SPE_US_ARMY", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1900,1950], [160,999],
 []
