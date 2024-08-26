@@ -1541,132 +1541,82 @@ class Mission
 		class Item123
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={15690.89,0.015075684,10669.656};
-			};
 			name="HeadlessClient";
 			isPlayable=1;
 			id=176;
 			type="HeadlessClient_F";
-			atlOffset=145.91901;
 		};
 		class Item124
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={15637.948,-5.3203735,10281.123};
-			};
 			name="HeadlessClient_1";
 			isPlayable=1;
 			id=177;
 			type="HeadlessClient_F";
-			atlOffset=145.91901;
 		};
 		class Item125
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={16043.831,-13.587952,10334.104};
-			};
 			name="HeadlessClient_2";
 			isPlayable=1;
 			id=178;
 			type="HeadlessClient_F";
-			atlOffset=145.91901;
 		};
 		class Item126
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={16608.537,-64.06842,10281.123};
-			};
 			name="HeadlessClient_3";
 			isPlayable=1;
 			id=179;
 			type="HeadlessClient_F";
-			atlOffset=145.91899;
 		};
 		class Item127
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={16996.773,-72.222443,10316.444};
-			};
 			name="HeadlessClient_4";
 			isPlayable=1;
 			id=180;
 			type="HeadlessClient_F";
-			atlOffset=145.91901;
 		};
 		class Item128
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={17473.242,-40.766373,10316.444};
-			};
 			name="HeadlessClient_5";
 			isPlayable=1;
 			id=181;
 			type="HeadlessClient_F";
-			atlOffset=145.91901;
 		};
 		class Item129
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={16061.479,-0.014862061,10846.262};
-			};
 			name="HeadlessClient_6";
 			isPlayable=1;
 			id=182;
 			type="HeadlessClient_F";
-			atlOffset=145.91901;
 		};
 		class Item130
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={16643.832,-22.862869,10846.262};
-			};
 			name="HeadlessClient_7";
 			isPlayable=1;
 			id=183;
 			type="HeadlessClient_F";
-			atlOffset=145.91901;
 		};
 		class Item131
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={16943.832,-32.741318,10810.94};
-			};
 			name="HeadlessClient_8";
 			isPlayable=1;
 			id=184;
 			type="HeadlessClient_F";
-			atlOffset=145.91902;
 		};
 		class Item132
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={17490.891,-46.920471,10828.602};
-			};
 			name="HeadlessClient_9";
 			isPlayable=1;
 			id=185;
 			type="HeadlessClient_F";
-			atlOffset=145.91901;
 		};
 		class Item133
 		{
