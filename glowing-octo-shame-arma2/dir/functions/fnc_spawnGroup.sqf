@@ -110,6 +110,33 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 						};
 					};
 
+					//-- Звания.
+					// TODO: Для ТС тоже.
+					if (((count _ranks) > 0)) then {
+						_rank = _ranks select _i;
+						if (typeName _rank == typeName 0) then {
+							_rank = _rank call gosa_fnc_rankConv;
+						};
+					}else{
+						// TODO: Нужна функция.
+								_tmp_num = getNumber (_cfgVeh >> _type >> "cost");
+								_rank="PRIVATE";
+								if(_tmp_num>=50000)then{_rank="CORPORAL"};
+								if(_tmp_num>=150000)then{_rank="SERGEANT"};
+								if(_tmp_num>=250000)then{_rank="LIEUTENANT"};
+								if(_tmp_num>=350000)then{_rank="CAPTAIN"};
+								if(_tmp_num>=500000)then{_rank="MAJOR"};
+								if(_tmp_num>=750000)then{_rank="COLONEL"};
+					};
+					if (toUpper _rank != "PRIVATE") then {
+						#ifdef __ARMA3__
+							_unit setRank _rank;
+						#else
+							// До A3 движок не синхронизирует ранги самостоятельно.
+							[nil, _unit, rsetRank, _rank] call RE;
+						#endif
+					};
+
 				// Для транспорта.
 				} else {
 					private ["_fnc_spawnVehicle"];
@@ -158,32 +185,6 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 							} forEach (_fnc_spawnVehicle select 1);
 						};
 					};
-				};
-
-				//-- Звания.
-				if (((count _ranks) > 0)) then {
-					_rank = _ranks select _i;
-					if (typeName _rank == typeName 0) then {
-						_rank = _rank call gosa_fnc_rankConv;
-					};
-				}else{
-					// TODO: Нужна функция.
-							_tmp_num = getNumber (_cfgVeh >> _type >> "cost");
-							_rank="PRIVATE";
-							if(_tmp_num>=50000)then{_rank="CORPORAL"};
-							if(_tmp_num>=150000)then{_rank="SERGEANT"};
-							if(_tmp_num>=250000)then{_rank="LIEUTENANT"};
-							if(_tmp_num>=350000)then{_rank="CAPTAIN"};
-							if(_tmp_num>=500000)then{_rank="MAJOR"};
-							if(_tmp_num>=750000)then{_rank="COLONEL"};
-				};
-				if (toUpper _rank != "PRIVATE") then {
-					#ifdef __ARMA3__
-						_unit setRank _rank;
-					#else
-						// До A3 движок не синхронизирует ранги самостоятельно.
-						[nil, _unit, rsetRank, _rank] call RE;
-					#endif
 				};
 
 				// Командир указан в параметрах.
