@@ -16,7 +16,7 @@ diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle",
 	"_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t",
 	"_commanding","_uav","_side","_createSpecial","_dontCreateAI",
-	"_bestCommander",
+	"_bestCommander","_commandings","_commanding_max","_rankId",
 	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe","_item"];
 
 _vehicle = _this select 0;
@@ -27,7 +27,7 @@ _typicalCargo = _this select 4;
 _entry = _this select 5;
 _tmpPosSafe = _this select 6;
 
-
+_commandings = [];
 // У Ванильных отрядов на этой позиции нет техники.
 // TODO: Возможность создавать на дороге нужно учесть.
 _tmpPosSafe set [0, (_tmpPosSafe select 0) + 10];
@@ -79,6 +79,12 @@ if !(_LandVehicle) then {
 			_unit moveInDriver _vehicle;
 			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
 			_unit assignAsDriver _vehicle;
+
+		#ifdef __ARMA3__
+			_bestCommander = _unit;
+			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 setEffectiveCommander %2", _vehicle, _unit];
+			_vehicle setEffectiveCommander _unit;
+		#endif
 	};
 };
 
@@ -107,7 +113,16 @@ if !(_LandVehicle) then {
 		{
 			_cfg_turret = ((_cfg_turret  >> "turrets") select _x);
 		} forEach (_turrets select _n);
+
 		_commanding = getNumber(_cfg_turret >> "commanding");
+		if !(_commanding in _commandings) then {
+			_commandings set [count _commandings, _commanding];
+		};
+		if (isNil "_commanding_max") then {
+			_commanding_max = _commanding;
+		}else{
+			_commanding_max = _commanding_max max _commanding;
+		};
 
 		if (isNil {_sorted}) then {
 			_sorted = [[_commanding, _turrets select _n]];
@@ -134,6 +149,12 @@ if !(_LandVehicle) then {
 				};
 			};
 		};
+	};
+
+	if (_LandVehicle) then {
+		_rankId = count _commandings;
+	}else{
+		_rankId = count _commandings -1;
 	};
 
 	if !(isNil "_sorted") then { // diag_log
@@ -170,20 +191,13 @@ if !(_LandVehicle) then {
 				_crew set [count _crew, _unit];
 
 				//--- установка ранга юнитам, TODO: ранг не правильно вычисляется
-					_rank = "CORPORAL";
 					_commanding = getNumber (_cfg_turret >> "commanding");
-					//--- gunner
-					// TODO: 1 не всегда означает gunner
-					if ( _commanding == 1 ) then {
-						_rank = "SERGEANT";
+					if (_commanding < _commanding_max) then {
+						_rankId = _rankId -1;
+						_commanding_max = _commanding;
 					};
-					//--- commander
-					// TODO: 2 не всегда означает commander
-					if ( _commanding == 2 ) then {
-						_rank = "LIEUTENANT";
-					};
-					//--- set rank
-					if (toUpper _rank != "PRIVATE") then {
+					if (_rankId > 0) then {
+						_rank = _rankId call gosa_fnc_rankConv;
 						#ifdef __ARMA3__
 							_unit setRank _rank;
 						#else
@@ -191,6 +205,14 @@ if !(_LandVehicle) then {
 							[nil, _unit, rsetRank, _rank] call RE;
 						#endif
 					};
+					diag_log format ["Log: [fnc_spawnCrew.sqf] %1 setRank %2, %3, _c%4, %5", _unit, _rank, _sorted select _i select 1, _commanding, _cfg_turret];
+					#ifdef __ARMA3__
+						if (isNil "_bestCommander") then {
+							_bestCommander = _unit;
+							diag_log format ["Log: [fnc_spawnCrew.sqf] %1 setEffectiveCommander %2", _vehicle, _bestCommander];
+							_vehicle setEffectiveCommander _bestCommander;
+						};
+					#endif
 
 				_unit moveInTurret [_vehicle, _sorted select _i select 1];
 					if (commander _vehicle == _unit) then {
@@ -237,13 +259,6 @@ if (_LandVehicle) then {
 for "_i" from 0 to (count _crew - 1) do {
 	_item = _crew select _i;
 	#ifdef __ARMA3__
-		if (isNil "_bestCommander") then {
-			_bestCommander = _item;
-		}else{
-			if (rankId _item > rankId _bestCommander) then {
-				_bestCommander = _item;
-			};
-		};
 		[_item, "fnc_spawnCrew"] remoteExec ["gosa_fnc_vehInit2"];
 	#else
 		if (_uav) then {
@@ -255,12 +270,5 @@ for "_i" from 0 to (count _crew - 1) do {
 		[nil, _item, rvehInit] call RE;
 	#endif
 };
-
-#ifdef __ARMA3__
-	if !(isNil "_bestCommander") then {
-		diag_log format ["Log: [fnc_spawnCrew.sqf] %1 setEffectiveCommander %2", _vehicle, _bestCommander];
-		_vehicle setEffectiveCommander _bestCommander;
-	};
-#endif
 
 _crew
