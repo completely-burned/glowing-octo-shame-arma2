@@ -956,7 +956,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={5842.6611,17.530001,7440.6372};
+				position[]={5741.4263,19.147293,7116.4844};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
 			id=185;
