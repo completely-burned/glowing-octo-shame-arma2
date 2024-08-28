@@ -8,6 +8,7 @@ private [ "_flare_dist","_players","_player","_types_flare",
  _flare_dist = 500;
  _types_flare = [
 	"FlareBase",
+	"SPE_40mm_White",
 	"gm_Flare_base",
 	// Пули не светятся.
 	"flareBullet_base",
@@ -34,7 +35,11 @@ while {sleep 15 + random 15; true} do {
 			};
 
 			if (_b) then {
-				_n = ((150 / 7) * (_player call gosa_fnc_canSee));
+				_n = 150;
+				if (worldName == "Hyde_Sark") then {
+					_n = 30;
+				};
+				_n = ((_n / 7) * (_player call gosa_fnc_canSee));
 				sleep (_n + random (_n/2));
 				//- Запуск ракеты.
 				_arr = _player nearEntities [["Man"], _flare_dist];
