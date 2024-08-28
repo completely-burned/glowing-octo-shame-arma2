@@ -13,7 +13,7 @@ diag_log format["Log: [fnc_unitFlareFire] %1", _this];
 
 private["_cfgWea","_cfgAmm","_magazines","_weapons","_mag",
 	"_target","_grp","_muzzle","_muzzles","_iW_to","_n",
-	"_u_mags","_obj","_height",
+	"_u_mags","_obj","_height","_windX","_windZ","_velocity",
 	"_units","_u","_w","_arr","_ammo","_m","_item","_str"];
 
 _cfgWea = LIB_cfgWea;
@@ -23,11 +23,15 @@ _units = _this select 0;
 
 _target = objNull;
 _grp = grpNull;
+_windX = wind select 0;
+_windZ = wind select 1;
 #ifdef __ARMA3__
 	_iW_to = 2;
+	if (_windX isEqualTo 0) then {_windX = random [-0.5, 0.1, 0.5];};
 #else
 	_iW_to = 1;
 #endif
+_velocity = [_windX, _windZ, 30];
 
 scopename "scope1";
 
@@ -79,10 +83,13 @@ for "_iW" from 0 to _iW_to do {
 									#endif
 									_arr set [2, _height];
 									_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
+									/*
 									#ifdef __ARMA3__
 										// Без этого ракета замирает на месте.
 										_obj setVelocity [0, 0, -0.00000001];
 									#endif
+									*/
+									_obj setVelocity _velocity;
 									diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _ammo, _mag, _obj, _arr]];
 								}else{
 								_u_mags = magazines _u;
@@ -128,3 +135,59 @@ for "_iW" from 0 to _iW_to do {
 		};
 	};
 };
+
+if (isNil "_obj") then {
+	scopename "scope10";
+
+	if (count _units > 0) then {
+		for "_i" from 0 to (count _units -1) do {
+			_u = _units select _i;
+			_arr = getPos _u;
+			if !(isNull _u) then {
+				//_arr resize 0;
+			//}else{
+				breakTo "scope10";
+			};
+
+		};
+	}else{
+		_u = objNull;
+	};
+
+	if !(isNull _u) then {
+		_ammo = "SPE_40mm_White";
+		if (configName(_cfgAmm >> "SPE_40mm_White") != "") then {
+			// Pick a random altitude between 100 and 150m
+			_arr set [2, 100 + random 50];
+			/*
+			private _sound = "SN_Flare_Fired_4";
+			private _soundSourceClass = "SoundFlareLoop_F";
+			private _minDist = _options getOrDefault [QUOTE(PARAM_NAME(mindist)), 300];
+			*/
+
+			// Spawn the flare projectile
+			_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
+					//_projectile setPos _pos;
+					_obj setVelocity _velocity;
+					diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _ammo, _obj, _arr]];
+					breakTo "scope1";
+			/*
+			// Play the flare sound lighting up
+			[[_projectile,_sound,"say3D"],"bis_fnc_sayMessage"] call bis_fnc_mp;
+			// Create sound source of burning sound and attach to projectile
+			private _soundSource = createSoundSource [_soundSourceClass, _pos, [], 0];
+			_soundSource attachTo [_projectile, [0, 0, 0]];
+			// Trigger is used as a data structure as we cannot store variables in projectiles and sound sources
+			private _trigger = createTrigger ["EmptyDetector", _pos];
+			_trigger attachTo [_projectile, [0, 0, 0]];
+			_trigger setVariable [QUOTE(PARAM_NAME(soundSource)), _soundSource];
+			_trigger setVariable [QUOTE(PARAM_NAME(projectile)), _projectile];
+			*/
+		};
+	};
+};
+
+if (isNil "_obj") then {
+	_obj = objNull;
+};
+_obj;
