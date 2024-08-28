@@ -102,7 +102,9 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 					//-- Одиночная игра.
 					if !(isMultiplayer) then {
 						//-- Баланс.
-						if (_side getFriend playerSide >= 0.6) then {
+						//if (_side getFriend playerSide >= 0.6) then
+						if (_side in gosa_friendlyside) then
+						{
 							addSwitchableUnit _unit;
 							#ifdef __ARMA3__
 								_tmp_num = [_unit,"menu"] call BIS_fnc_addCommMenuItem;
