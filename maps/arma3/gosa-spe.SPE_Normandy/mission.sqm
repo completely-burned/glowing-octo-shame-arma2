@@ -548,7 +548,6 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=39;
@@ -2761,10 +2760,11 @@ class Mission
 						position[]={10875,31.701439,10386.05};
 					};
 					side="Civilian";
-					flags=3;
+					flags=7;
 					class Attributes
 					{
 						presenceCondition="!isMultiplayer";
+						isPlayer=1;
 						isPlayable=1;
 					};
 					id=172;
