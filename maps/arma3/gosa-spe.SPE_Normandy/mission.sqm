@@ -8,7 +8,7 @@ class EditorData
 	toggles=37;
 	class ItemIDProvider
 	{
-		nextID=171;
+		nextID=180;
 	};
 	class MarkerIDProvider
 	{
@@ -16,11 +16,11 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={10898,151,9604};
+		pos[]={10945,142,9727};
 	};
 };
 binarizationWanted=0;
-sourceName="gosa";
+sourceName="gosa-spe";
 addons[]=
 {
 	"A3_Ui_F",
@@ -36,13 +36,14 @@ addons[]=
 	"WW2_SPE_Structures_c_SimpleObjects_c",
 	"WW2_SPE_Assets_c_Vehicles_SimpleObjects_c",
 	"WW2_SPE_Assets_c_Weapons_Ammoboxes_c",
-	"WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce"
+	"WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce",
+	"WW2_SPE_Assets_c_Characters_Civilians_c_French"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=14;
+		items=15;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -120,6 +121,11 @@ class AddonsMetaData
 		{
 			className="WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce";
 			name="WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce";
+		};
+		class Item14
+		{
+			className="WW2_SPE_Assets_c_Characters_Civilians_c_French";
+			name="WW2_SPE_Assets_c_Characters_Civilians_c_French";
 		};
 	};
 };
@@ -222,7 +228,6 @@ class Mission
 		briefingName="SPE CO 00 gosa SPE_Normandy Multi v0.0.5.950 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
-		timeOfChanges=1800;
 		startWeather=0.3;
 		startWind=0.1;
 		startWaves=0.1;
@@ -240,7 +245,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=64;
+		items=65;
 		class Item0
 		{
 			dataType="Marker";
@@ -2740,6 +2745,157 @@ class Mission
 			};
 			id=168;
 			atlOffset=3.8146973e-006;
+		};
+		class Item64
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10875,31.701439,10386.05};
+					};
+					side="Civilian";
+					flags=3;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=172;
+					type="SPE_CIV_pak2_zwart";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10877,31.604786,10381.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=173;
+					type="SPE_CIV_Citizen_1";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10873,31.474802,10381.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=174;
+					type="SPE_CIV_Citizen_7";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10879,31.764795,10376.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=175;
+					type="SPE_CIV_Citizen_4";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10871,31.251451,10376.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=176;
+					type="SPE_CIV_pak2_grijs_tie";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10881,32.191437,10371.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=177;
+					type="SPE_CIV_Swetr_2_vest";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10869,31.071438,10371.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=178;
+					type="SPE_CIV_Worker_3_trop";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={10883,32.36483,10366.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=179;
+					type="SPE_CIV_Worker_Coverall_1_trop";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+				presenceCondition="!isMultiplayer";
+			};
+			id=171;
 		};
 	};
 	class Connections
