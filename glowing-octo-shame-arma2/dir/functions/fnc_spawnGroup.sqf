@@ -4,7 +4,7 @@
  */
 
 diag_log format ["Log: [gosa_fnc_spawnGroup] %1", _this];
-private ["_pos","_side","_groups","_vehicles","_roads","_z","_tmp_num","_for",
+private ["_pos","_side","_groups","_vehicles","_roads","_z","_for",
 	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
 	"_unit", "_type","_itemPos","_rank","_cfgVeh","_str","_entry","_n"];
 
@@ -68,6 +68,25 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 				} else {
 					_itemPos = _pos;
 				};
+
+				if (count _ranks > 0) then {
+					_rank = _ranks select _i;
+					if (typeName _rank == typeName 0) then {
+						_rank = _rank call gosa_fnc_rankConv;
+					};
+					_rank = toUpper _rank;
+				}else{
+					// TODO: Нужна функция.
+					_n = getNumber (_cfgVeh >> _type >> "cost");
+					_rank="PRIVATE";
+					if(_n>=50000)then{_rank="CORPORAL"};
+					if(_n>=150000)then{_rank="SERGEANT"};
+					if(_n>=250000)then{_rank="LIEUTENANT"};
+					if(_n>=350000)then{_rank="CAPTAIN"};
+					if(_n>=500000)then{_rank="MAJOR"};
+					if(_n>=750000)then{_rank="COLONEL"};
+				};
+
 				// Чтобы не застряли.
 				_itemPos set [2,2];
 
@@ -107,30 +126,12 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 						{
 							addSwitchableUnit _unit;
 							#ifdef __ARMA3__
-								_tmp_num = [_unit,"menu"] call BIS_fnc_addCommMenuItem;
+								_n = [_unit, "menu"] call BIS_fnc_addCommMenuItem;
 							#endif
 						};
 					};
 
-					//-- Звания.
-					// TODO: Для ТС тоже.
-					if (((count _ranks) > 0)) then {
-						_rank = _ranks select _i;
-						if (typeName _rank == typeName 0) then {
-							_rank = _rank call gosa_fnc_rankConv;
-						};
-					}else{
-						// TODO: Нужна функция.
-								_tmp_num = getNumber (_cfgVeh >> _type >> "cost");
-								_rank="PRIVATE";
-								if(_tmp_num>=50000)then{_rank="CORPORAL"};
-								if(_tmp_num>=150000)then{_rank="SERGEANT"};
-								if(_tmp_num>=250000)then{_rank="LIEUTENANT"};
-								if(_tmp_num>=350000)then{_rank="CAPTAIN"};
-								if(_tmp_num>=500000)then{_rank="MAJOR"};
-								if(_tmp_num>=750000)then{_rank="COLONEL"};
-					};
-					if (toUpper _rank != "PRIVATE") then {
+					if (_rank != "PRIVATE") then {
 						#ifdef __ARMA3__
 							_unit setRank _rank;
 						#else
@@ -141,12 +142,17 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 
 				// Для транспорта.
 				} else {
+					// FIXME: Название переменной вводит в заблуждения.
 					private ["_fnc_spawnVehicle"];
 					if (count _crewType > 0) then {
-						_fnc_spawnVehicle = [_itemPos, _azimuth, _type, _grp, _crewType select _i, _side] call gosa_fnc_spawnVehicle;
+						_arr = [_itemPos, _azimuth, _type, _grp, _crewType select _i, _side];
 					}else{
-						_fnc_spawnVehicle = [_itemPos, _azimuth, _type, _grp, [], _side] call gosa_fnc_spawnVehicle;
+						_arr = [_itemPos, _azimuth, _type, _grp, [], _side]
 					};
+					if (_rank != "PRIVATE") then {
+						_arr set [6, _rank];
+					};
+					_fnc_spawnVehicle = _arr call gosa_fnc_spawnVehicle;
 					_unit = _fnc_spawnVehicle select 0;
 
 					//-- ТС на дороге размещается.
@@ -182,7 +188,7 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 							{
 								addSwitchableUnit _x;
 								#ifdef __ARMA3__
-									_tmp_num = [_x,"menu"] call BIS_fnc_addCommMenuItem;
+									_n = [_x, "menu"] call BIS_fnc_addCommMenuItem;
 								#endif
 							} forEach (_fnc_spawnVehicle select 1);
 						};

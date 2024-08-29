@@ -4,7 +4,7 @@ diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
 #endif
 
 private ["_pos","_azi","_type","_grp","_side","_str","_entry",
-	"_crew_types","_isUAV",
+	"_crew_types","_isUAV","_rank",
 	"_sim","_veh","_crew","_air"];
 
 _pos = _this select 0;
@@ -13,6 +13,12 @@ _type = _this select 2;
 _grp = _this select 3;
 _crew_types = _this select 4;
 _side = _this select 5;
+if (count _this > 6) then {
+	_rank = _this select 6;
+}else{
+	_rank = "PRIVATE";
+};
+
 
 _entry = configFile >> "CfgVehicles" >> _type;
 _sim = toLower getText(_entry >> "simulation");
@@ -84,7 +90,8 @@ _crew = [_veh,
 		_type,
 		_crew_types,
 		_entry,
-		_pos
+		_pos,
+		_rank
 	] call gosa_fnc_spawnCrew;
 #ifdef __ARMA3__
 	};

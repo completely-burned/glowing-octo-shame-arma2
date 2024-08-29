@@ -16,6 +16,7 @@ diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle",
 	"_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t",
 	"_commanding","_uav","_side","_createSpecial","_dontCreateAI",
+	"_rank_next",
 	"_bestCommander","_commandings","_commanding_max","_rankId",
 	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe","_item"];
 
@@ -26,6 +27,15 @@ _type = _this select 3;
 _typicalCargo = _this select 4;
 _entry = _this select 5;
 _tmpPosSafe = _this select 6;
+if (count _this > 7) then {
+	if (typeName (_this select 7) == typeName 0) then {
+		_rankId = _this select 7;
+		_rank = _rankId call gosa_fnc_rankConv;
+	}else{
+		_rank = _this select 7;
+		_rankId = _rank call gosa_fnc_rankConv;
+	};
+};
 
 _commandings = [];
 // У Ванильных отрядов на этой позиции нет техники.
@@ -126,7 +136,13 @@ _LandVehicle = _type isKindOf "LandVehicle";
 		};
 	};
 
-	_rankId = count _commandings;
+//--- creating driver.
+	if (isNil "_rankId") then {
+		// {count _commandings} это количество турелей без учёта водителя, поэтому -1 не нужен.
+		_rank_next = count _commandings;
+	}else{
+		_rank_next = _rankId;
+	};
 	if !(_LandVehicle) then {
 		//--- Пилот командир, поэтому перед стрелками.
 		if (_hasDriver > 0) then {
@@ -134,8 +150,15 @@ _LandVehicle = _type isKindOf "LandVehicle";
 				_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
 				_crew set [count _crew, _unit];
 
-				if (_rankId > 0) then {
-					_rank = _rankId call gosa_fnc_rankConv;
+				if (isNil "_rank") then {
+					if (_rank_next > 0) then {
+						_rank = _rank_next call gosa_fnc_rankConv;
+					}else{
+						_rank = "PRIVATE";
+					};
+				};
+				diag_log format ["Log: [fnc_spawnCrew.sqf] %1 setRank %2, Pilot", _unit, _rank];
+				if (_rank != "PRIVATE") then {
 					#ifdef __ARMA3__
 						_unit setRank _rank;
 					#else
@@ -153,7 +176,7 @@ _LandVehicle = _type isKindOf "LandVehicle";
 					_vehicle setEffectiveCommander _unit;
 				#endif
 			};
-			_rankId = _rankId -1;
+			_rank_next = _rank_next -1;
 		};
 	};
 
@@ -193,11 +216,11 @@ _LandVehicle = _type isKindOf "LandVehicle";
 				//--- установка ранга юнитам, TODO: ранг не правильно вычисляется
 					_commanding = getNumber (_cfg_turret >> "commanding");
 					if (_commanding < _commanding_max) then {
-						_rankId = _rankId -1;
+						_rank_next = _rank_next -1;
 						_commanding_max = _commanding;
 					};
-					if (_rankId > 0) then {
-						_rank = _rankId call gosa_fnc_rankConv;
+					if (_rank_next > 0) then {
+						_rank = _rank_next call gosa_fnc_rankConv;
 						#ifdef __ARMA3__
 							_unit setRank _rank;
 						#else
