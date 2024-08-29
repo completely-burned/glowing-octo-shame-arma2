@@ -34,13 +34,21 @@ if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 	"mcn_neaville","i44_merderet_v2","i44_merderet","hyde_sark",
 	"spe_normandy","spe_mortain"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl","vn_khe_sanh","vn_the_bra","cam_lao_nam"]) then {_r set [0,225]};
-if (_w in ["altis","vr","stratis","porto","cain"]) then {_r set [0,250]};
+if (_w in ["altis","vr","stratis","porto","cain","swu_greece_pella_region"]) then {_r set [0,250]};
 if (_w in ["kunduz"]) then {_r set [0,275]};
 if (_w in ["zargabad","takistan","shapur_baf","mountains_acr","fallujah","tem_anizay"]) then {_r set [0,280]};
 if (_w in ["desert_e","sefrouramal"]) then {_r set [0,300]};
 
 // Дата.
-if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter","hyde_sark",
+if (_w in ["hyde_sark"]) then
+{
+	_r set [1,1939];
+};
+if (_w in ["swu_greece_pella_region"]) then
+{
+	_r set [1,1940];
+};
+if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter",
 	"plr_bulge","mcn_neaville_winter","i44_merderet","i44_merderet_v2","spe_normandy","spe_mortain"]) then
 {
 	_r set [1,1944];
