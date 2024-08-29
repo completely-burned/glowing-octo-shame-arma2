@@ -344,6 +344,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
+		class gosa_faction_multiplier_SPE_STURM {
+			title="FACTION: SPE_STURM";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_SPE_US_ARMY {
 			title="FACTION: SPE_US_ARMY";
 			values[] = {-1,1,0};
