@@ -27,11 +27,6 @@ if (_air) then {
 	if (_sim in ["airplane","airplanex"]) then
 	{
 		_veh setVelocity [50 * (sin _azi), 50 * (cos _azi), 60];
-		#ifdef __ARMA3__
-	}else{
-		// FIXME: a3 тс не инициализируются без этого.
-		_veh setVelocity [0,0,1];
-		#endif
 	};
 
 }else{
@@ -52,7 +47,11 @@ if (_air) then {
 		// Высота не должна быть большой или малой.
 		private _box = boundingBox _veh;
 		diag_log format ["Log: [fnc_spawnVehicle] %1, boundingBox %2", _this, _box];
-		_pos set [2, (_box select 1 select 2) min 0.05];
+		// FIXME: Высота "от балды".
+		// Взрываются с этими значениями: min 0.05
+		// Возможно получают повреждения от падения с этими значениями: min 0.2
+		_pos set [2, (_box select 1 select 2) min 0.1];
+		// FIXME: ТС оказываются выше чем указано в {_pos select 2}.
 		_veh setPos _pos;
 	#else
 	// FIXME: Почему здесь -1?
