@@ -122,7 +122,7 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 					if !(isMultiplayer) then {
 						//-- Баланс.
 						//if (_side getFriend playerSide >= 0.6) then
-						if (_side in gosa_friendlyside) then
+						if (_side == gosa_friendlyside select 0) then
 						{
 							addSwitchableUnit _unit;
 							#ifdef __ARMA3__
@@ -184,7 +184,8 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 					//-- Одиночная игра.
 					if !(isMultiplayer) then {
 						//-- Баланс.
-						if (_side getFriend playerSide >= 0.6) then {
+						if (_side == gosa_friendlyside select 0) then
+						{
 							{
 								addSwitchableUnit _x;
 								#ifdef __ARMA3__
