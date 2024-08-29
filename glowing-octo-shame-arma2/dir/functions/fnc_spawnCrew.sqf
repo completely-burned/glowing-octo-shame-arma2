@@ -166,9 +166,9 @@ _LandVehicle = _type isKindOf "LandVehicle";
 					#endif
 				};
 
-				_unit moveInDriver _vehicle;
 				diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
 				_unit assignAsDriver _vehicle;
+				_unit moveInDriver _vehicle;
 
 				#ifdef __ARMA3__
 					_bestCommander = _unit;
@@ -237,7 +237,6 @@ _LandVehicle = _type isKindOf "LandVehicle";
 						};
 					#endif
 
-				_unit moveInTurret [_vehicle, _sorted select _i select 1];
 					if (commander _vehicle == _unit) then {
 						diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsCommander %2", _unit, _vehicle];
 						_unit assignAsCommander _vehicle;
@@ -252,7 +251,7 @@ _LandVehicle = _type isKindOf "LandVehicle";
 							#endif
 						};
 					};
-
+					_unit moveInTurret [_vehicle, _sorted select _i select 1];
 			};
 		};
 	};
