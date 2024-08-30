@@ -1392,7 +1392,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-158.729,149.03654,522.87799};
+				position[]={2868,100,1842};
 			};
 			isPlayable=1;
 			id=135;
@@ -1471,7 +1471,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-326.80939,148.28223,516.41296};
+				position[]={2868,100,1842};
 			};
 			isPlayable=1;
 			id=136;
@@ -1550,7 +1550,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-462.56683,149.03653,522.87781};
+				position[]={2868,100,1842};
 			};
 			isPlayable=1;
 			id=137;
@@ -1629,7 +1629,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-637.11212,149.76773,529.34204};
+				position[]={2868,100,1842};
 			};
 			isPlayable=1;
 			id=138;
@@ -1708,7 +1708,7 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-805.19318,149.03653,522.87781};
+				position[]={2868,100,1842};
 			};
 			isPlayable=1;
 			id=139;
