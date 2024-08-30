@@ -4,7 +4,7 @@
  * Функция отсеивает неподходящие тела для перерождения.
  */
 
-private ["_n","_b","_t_om","_t_bl"];
+private ["_n","_b","_t_om","_t_bl","_weapon","_veh","_str","_arr"];
 
 // timeout за пределами карты.
 _t_om = 25;
@@ -53,6 +53,33 @@ if (isNil{group _this getVariable "grp_created"}) exitWith {
 
 
 _b = false;
+
+/*
+// TODO: Перед включением этого кода необходимо сделать генератор отказоустойчивых отрядов.
+#ifdef __ARMA3__
+		_weapon = primaryWeapon _this;
+		if !(getAssetDLCInfo _weapon select 1) then {
+			diag_log format ["Log: [fnc_selectPlayer_isFit] %1, not owned %1", _this, _weapon];
+			_b = true;
+		};
+	_veh = _this call gosa_fnc_assignedVeh;
+	if !(isNull _veh) then {
+		if !(getAssetDLCInfo _veh select 1) then {
+			_arr = assignedVehicleRole _this;
+			if (count _arr > 0) then {
+				if (toLowerANSI (_arr select 0) in ["driver","gunner","commander","turret"]) then {
+					diag_log format ["Log: [fnc_selectPlayer_isFit] %1, not owned %1", _this, _veh];
+					_b = true;
+				};
+			};
+		};
+	};
+
+	if (_b) exitWith {
+		false;
+	};
+#endif
+*/
 
 if (isNil "gosa_player_needs_revival") then {
 	_b = true;
