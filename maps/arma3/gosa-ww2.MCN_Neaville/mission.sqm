@@ -1300,10 +1300,6 @@ class Mission
 		class Item54
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-94.082001,106.01199,147.92799};
-			};
 			name="HeadlessClient";
 			isPlayable=1;
 			id=125;
@@ -1312,10 +1308,6 @@ class Mission
 		class Item55
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-275.09186,104.55947,134.99878};
-			};
 			name="HeadlessClient_1";
 			isPlayable=1;
 			id=126;
@@ -1324,10 +1316,6 @@ class Mission
 		class Item56
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-410.84991,104.55947,134.99878};
-			};
 			name="HeadlessClient_2";
 			isPlayable=1;
 			id=127;
@@ -1336,10 +1324,6 @@ class Mission
 		class Item57
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-533.67798,103.90813,128.53455};
-			};
 			name="HeadlessClient_3";
 			isPlayable=1;
 			id=128;
@@ -1348,10 +1332,6 @@ class Mission
 		class Item58
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-656.50604,102.86668,115.60486};
-			};
 			name="HeadlessClient_4";
 			isPlayable=1;
 			id=129;
@@ -1361,10 +1341,6 @@ class Mission
 		class Item59
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-701.75873,118.07366,270.75653};
-			};
 			name="HeadlessClient_5";
 			isPlayable=1;
 			id=130;
@@ -1373,10 +1349,6 @@ class Mission
 		class Item60
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-578.93066,120.51189,296.61499};
-			};
 			name="HeadlessClient_6";
 			isPlayable=1;
 			id=131;
@@ -1386,10 +1358,6 @@ class Mission
 		class Item61
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-443.17291,122.03744,309.54468};
-			};
 			name="HeadlessClient_7";
 			isPlayable=1;
 			id=132;
@@ -1398,10 +1366,6 @@ class Mission
 		class Item62
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-300.95093,121.2543,303.07983};
-			};
 			name="HeadlessClient_8";
 			isPlayable=1;
 			id=133;
@@ -1410,10 +1374,6 @@ class Mission
 		class Item63
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-158.72864,121.2543,303.07983};
-			};
 			name="HeadlessClient_9";
 			isPlayable=1;
 			id=134;
