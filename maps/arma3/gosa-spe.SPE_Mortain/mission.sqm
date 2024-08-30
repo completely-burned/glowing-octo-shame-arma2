@@ -8,7 +8,7 @@ class EditorData
 	toggles=549;
 	class ItemIDProvider
 	{
-		nextID=344;
+		nextID=352;
 	};
 	class MarkerIDProvider
 	{
@@ -42,13 +42,14 @@ addons[]=
 	"WW2_SPE_Assets_c_Vehicles_Wheeled_U1_c_CCKW_353",
 	"WW2_SPE_Assets_c_Vehicles_StaticWeapons_U1_c_105mm_M3",
 	"WW2_SPE_Assets_c_Vehicles_ModelConfig_U1_c",
-	"WW2_SPE_Core_c_Core_c_Eventhandlers"
+	"WW2_SPE_Core_c_Core_c_Eventhandlers",
+	"WW2_SPE_Assets_c_Characters_Civilians_c_French"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=20;
+		items=21;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -154,6 +155,11 @@ class AddonsMetaData
 		{
 			className="WW2_SPE_Core_c_Core_c_Eventhandlers";
 			name="WW2_SPE_Core_c_Core_c_Eventhandlers";
+		};
+		class Item20
+		{
+			className="WW2_SPE_Assets_c_Characters_Civilians_c_French";
+			name="WW2_SPE_Assets_c_Characters_Civilians_c_French";
 		};
 	};
 };
@@ -270,7 +276,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=61;
+		items=62;
 		class Item0
 		{
 			dataType="Marker";
@@ -320,7 +326,6 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=10;
@@ -4600,37 +4605,26 @@ class Mission
 		class Item38
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-80.129997,108.92837,253.28};
-			};
 			name="HeadlessClient";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=316;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item39
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-93.945435,108.86874,198.01855};
-			};
 			name="HeadlessClient_1";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=317;
 			type="HeadlessClient_F";
-			atlOffset=-1.5258789e-005;
 		};
 		class Item40
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-85.656151,106.44209,134.46777};
-			};
 			name="HeadlessClient_2";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=318;
 			type="HeadlessClient_F";
@@ -4638,89 +4632,62 @@ class Mission
 		class Item41
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-88.419334,104.48629,95.78418};
-			};
 			name="HeadlessClient_3";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=319;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item42
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-85.656151,102.58584,51.574707};
-			};
 			name="HeadlessClient_4";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=320;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item43
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-163.02289,106.46464,54.337402};
-			};
 			name="HeadlessClient_5";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=321;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item44
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-168.549,110.42277,115.12598};
-			};
 			name="HeadlessClient_6";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=322;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item45
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-168.549,112.75413,170.3877};
-			};
 			name="HeadlessClient_7";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=323;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item46
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-179.60146,114.30775,231.17578};
-			};
 			name="HeadlessClient_8";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=324;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item47
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={-190.65379,115.01994,289.20117};
-			};
 			name="HeadlessClient_9";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=325;
 			type="HeadlessClient_F";
@@ -4927,6 +4894,90 @@ class Mission
 			};
 			id=343;
 			type="SPE_105mm_M3";
+		};
+		class Item61
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={319,185.69644,3591.05};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=345;
+					type="SPE_CIV_pak2_bruin_swetr";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={321,186.08644,3586.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=347;
+					type="SPE_CIV_Worker_1_tie";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={317,186.31642,3586.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=349;
+					type="SPE_CIV_Citizen_4";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={323,185.79143,3581.05};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=351;
+					type="SPE_CIV_Swetr_2_vest";
+				};
+			};
+			class Attributes
+			{
+				presenceCondition="!isMultiplayer";
+				placementRadius=25;
+			};
+			id=344;
 		};
 	};
 	class Connections
