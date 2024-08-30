@@ -76,7 +76,7 @@ for "_iW" from 0 to _iW_to do {
 								if (true) then {
 									// TODO: Звук запуска ракеты.
 									#ifdef __ARMA3__
-										_arr = ([_u, random 150, getDir _u -45 +random 90] call BIS_fnc_relPos);
+										_arr = ([_u, 50 + random 100, getDir _u -45 +random 90] call BIS_fnc_relPos);
 										_height = (100 + random 50);
 									#else
 										_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
