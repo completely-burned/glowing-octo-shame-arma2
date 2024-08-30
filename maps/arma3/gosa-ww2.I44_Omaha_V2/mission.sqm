@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={58,519,-182};
+		pos[]={2830,200,1631};
 	};
 };
 binarizationWanted=0;
@@ -25,7 +25,6 @@ addons[]=
 {
 	"A3_Ui_F",
 	"WW2_Core_c_IF_Gui_c",
-	"WW2_SPE_Core_c_UI_Gui_c",
 	"A3_Modules_F",
 	"A3_Characters_F",
 	"A3_Data_F_Exp_A_Virtual",
@@ -39,7 +38,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=11;
+		items=10;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -54,51 +53,46 @@ class AddonsMetaData
 		};
 		class Item2
 		{
-			className="WW2_SPE_Core_c_UI_Gui_c";
-			name="WW2_SPE_Core_c_UI_Gui_c";
-		};
-		class Item3
-		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item4
 		{
 			className="A3_Data_F_Exp_A";
 			name="Arma 3 Nexus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item5
 		{
 			className="WW2_Assets_c_Characters_Americans_c_US_Army";
 			name="WW2_Assets_c_Characters_Americans_c_US_Army";
 		};
-		class Item7
+		class Item6
 		{
 			className="WW2_Core_c_WW2_EditorPreviews_c";
 			name="WW2_Core_c_WW2_EditorPreviews_c";
 		};
-		class Item8
+		class Item7
 		{
 			className="WW2_Assets_c_Characters_Soviets_c_SOV_RKKA";
 			name="WW2_Assets_c_Characters_Soviets_c_SOV_RKKA";
 		};
-		class Item9
+		class Item8
 		{
 			className="WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht";
 			name="WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht";
 		};
-		class Item10
+		class Item9
 		{
 			className="WW2_Assets_c_Characters_Civilians_c_CIV_Civilians";
 			name="WW2_Assets_c_Characters_Civilians_c_CIV_Civilians";
