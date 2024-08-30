@@ -4152,6 +4152,23 @@ class Mission
 				placementRadius=25;
 			};
 			id=274;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="_this setGroupID [_value];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="LIB GER";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item75
 		{
@@ -4331,6 +4348,23 @@ class Mission
 				placementRadius=25;
 			};
 			id=285;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="_this setGroupID [_value];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="LIB US";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item76
 		{
@@ -4510,6 +4544,23 @@ class Mission
 				placementRadius=25;
 			};
 			id=296;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="groupID";
+					expression="_this setGroupID [_value];";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="LIB UK";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections
