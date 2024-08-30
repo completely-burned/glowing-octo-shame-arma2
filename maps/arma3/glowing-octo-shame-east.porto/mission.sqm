@@ -1729,7 +1729,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						skill=0.40000001;
 						rank="CORPORAL";
 						isPlayable=1;
 					};
