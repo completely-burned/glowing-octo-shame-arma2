@@ -160,8 +160,8 @@ if (isNil "_obj") then {
 		if (configName(_cfgAmm >> "SPE_40mm_White") != "") then {
 			// Pick a random altitude between 100 and 150m
 			_arr set [2, 100 + random 50];
-			_arr set [0, (_arr select 0) -100 +random 200];
-			_arr set [1, (_arr select 1) -100 +random 200];
+			_arr set [0, (_arr select 0) -250 +random 500];
+			_arr set [1, (_arr select 1) -250 +random 500];
 			/*
 			private _sound = "SN_Flare_Fired_4";
 			private _soundSourceClass = "SoundFlareLoop_F";
