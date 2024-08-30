@@ -25,7 +25,6 @@ addons[]=
 {
 	"A3_Ui_F",
 	"WW2_Core_c_IF_Gui_c",
-	"WW2_SPE_Core_c_UI_Gui_c",
 	"WW2_Assets_c_Characters_Soviets_c_SOV_RKKA",
 	"WW2_Core_c_WW2_EditorPreviews_c",
 	"A3_Modules_F",
@@ -54,7 +53,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=26;
+		items=25;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -69,128 +68,123 @@ class AddonsMetaData
 		};
 		class Item2
 		{
-			className="WW2_SPE_Core_c_UI_Gui_c";
-			name="WW2_SPE_Core_c_UI_Gui_c";
-		};
-		class Item3
-		{
 			className="WW2_Assets_c_Characters_Soviets_c_SOV_RKKA";
 			name="WW2_Assets_c_Characters_Soviets_c_SOV_RKKA";
 		};
-		class Item4
+		class Item3
 		{
 			className="WW2_Core_c_WW2_EditorPreviews_c";
 			name="WW2_Core_c_WW2_EditorPreviews_c";
 		};
-		class Item5
+		class Item4
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item5
 		{
 			className="WW2_Assets_c_Characters_Civilians_c_CIV_Civilians";
 			name="WW2_Assets_c_Characters_Civilians_c_CIV_Civilians";
 		};
-		class Item7
+		class Item6
 		{
 			className="WW2_Assets_c_Vehicles_Wheeled_c_GazM1";
 			name="WW2_Assets_c_Vehicles_Wheeled_c_GazM1";
 		};
-		class Item8
+		class Item7
 		{
 			className="WW2_Assets_c_Vehicles_Pictures_c";
 			name="WW2_Assets_c_Vehicles_Pictures_c";
 		};
-		class Item9
+		class Item8
 		{
 			className="WW2_Assets_c_Vehicles_SimpleObjects_c";
 			name="WW2_Assets_c_Vehicles_SimpleObjects_c";
 		};
-		class Item10
+		class Item9
 		{
 			className="WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht";
 			name="WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht";
 		};
-		class Item11
+		class Item10
 		{
 			className="WW2_Assets_c_Characters_British_c_UK_Army";
 			name="WW2_Assets_c_Characters_British_c_UK_Army";
 		};
-		class Item12
+		class Item11
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item13
+		class Item12
 		{
 			className="A3_Data_F_Exp_A";
 			name="Arma 3 Nexus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item14
+		class Item13
 		{
 			className="WW2_Assets_c_Weapons_Ammoboxes_c";
 			name="WW2_Assets_c_Weapons_Ammoboxes_c";
 		};
-		class Item15
+		class Item14
 		{
 			className="WW2_Assets_c_Weapons_SimpleObjects_c";
 			name="WW2_Assets_c_Weapons_SimpleObjects_c";
 		};
-		class Item16
+		class Item15
 		{
 			className="WW2_Assets_c_Weapons_Mines_c";
 			name="WW2_Assets_c_Weapons_Mines_c";
 		};
-		class Item17
+		class Item16
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item18
+		class Item17
 		{
 			className="CUP_Misc_e_Config";
 			name="CUP_Misc_e_Config";
 		};
-		class Item19
+		class Item18
 		{
 			className="WW2_Objects_c_Misc_WW2_SimpleObjects_c_CUP";
 			name="WW2_Objects_c_Misc_WW2_SimpleObjects_c_CUP";
 		};
-		class Item20
+		class Item19
 		{
 			className="WW2_Assets_c_Vehicles_StaticWeapons_c_Lefh18";
 			name="WW2_Assets_c_Vehicles_StaticWeapons_c_Lefh18";
 		};
-		class Item21
+		class Item20
 		{
 			className="WW2_Assets_c_Vehicles_ModelConfig_c";
 			name="WW2_Assets_c_Vehicles_ModelConfig_c";
 		};
-		class Item22
+		class Item21
 		{
 			className="WW2_Assets_c_Vehicles_StaticWeapons_c_Pak40";
 			name="WW2_Assets_c_Vehicles_StaticWeapons_c_Pak40";
 		};
-		class Item23
+		class Item22
 		{
 			className="WW2_Assets_c_Vehicles_StaticWeapons_c_Flak36";
 			name="WW2_Assets_c_Vehicles_StaticWeapons_c_Flak36";
 		};
-		class Item24
+		class Item23
 		{
 			className="WW2_Assets_c_Vehicles_StaticWeapons_c_FlakVierling_38";
 			name="WW2_Assets_c_Vehicles_StaticWeapons_c_FlakVierling_38";
 		};
-		class Item25
+		class Item24
 		{
 			className="WW2_Assets_c_Characters_Americans_c_US_Airforce";
 			name="WW2_Assets_c_Characters_Americans_c_US_Airforce";
