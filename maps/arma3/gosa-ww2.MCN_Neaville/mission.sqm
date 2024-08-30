@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=140;
+		nextID=151;
 	};
 	class MarkerIDProvider
 	{
@@ -205,7 +205,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=69;
+		items=70;
 		class Item0
 		{
 			dataType="Group";
@@ -1813,6 +1813,157 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item69
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4660,58.022968,2110};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=141;
+					type="LIB_CIV_Citizen_1";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4662,57.842308,2105};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+					};
+					id=143;
+					type="LIB_CIV_Rocker";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4656,57.476604,2100};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+						receiveRemoteTargets=1;
+					};
+					id=149;
+					type="LIB_CIV_Functionary_2";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4658,57.755665,2105};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+						reportOwnPosition=1;
+					};
+					id=145;
+					type="LIB_CIV_Worker_4";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ENH_unitTraits_engineer";
+							expression="[_this, ['Engineer', _value]] remoteExec ['setUnitTrait', _this]";
+							class Value
+							{
+								class data
+								{
+									singleType="BOOL";
+									value=1;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="ace_isEngineer";
+							expression="if !(_value == ([0, 1] select (_this getUnitTrait 'engineer')) || {_value == -1}) then {_this setVariable ['ace_isEngineer', _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={4664,57.659393,2100};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						presenceCondition="!isMultiplayer";
+						isPlayable=1;
+						reportOwnPosition=1;
+					};
+					id=147;
+					type="LIB_CIV_Doctor";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="ace_isMedic";
+							expression="if (_value != -1 && {_value != (parseNumber (_this getUnitTrait 'medic'))}) then {_this setVariable [""ace_medical_medicClass"", _value, true]}";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=2;
+								};
+							};
+						};
+						nAttributes=1;
+					};
+				};
+			};
+			class Attributes
+			{
+				presenceCondition="!isMultiplayer";
+				placementRadius=25;
+			};
+			id=140;
 		};
 	};
 	class Connections
