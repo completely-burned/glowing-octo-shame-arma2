@@ -178,7 +178,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa stozec East v0.0.5.951 DEBUG";
+		briefingName="CO 00 gosa stozec East v0.0.5.952 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;

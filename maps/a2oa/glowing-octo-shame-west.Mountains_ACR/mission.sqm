@@ -27,7 +27,7 @@ class Mission
 	randomSeed=12950556;
 	class Intel
 	{
-		briefingName="CO 00 gosa Mountains_ACR west v0.0.5.951 DEBUG";
+		briefingName="CO 00 gosa Mountains_ACR west v0.0.5.952 DEBUG";
 		startWeather=0.39999998;
 		forecastWeather=0.39999998;
 		year=2009;

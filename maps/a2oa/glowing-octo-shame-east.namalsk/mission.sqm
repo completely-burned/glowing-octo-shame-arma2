@@ -14,7 +14,7 @@ class Mission
 	randomSeed=9259447;
 	class Intel
 	{
-		briefingName="CO 00 gosa namalsk east v0.0.5.951 DEBUG";
+		briefingName="CO 00 gosa namalsk east v0.0.5.952 DEBUG";
 		startWeather=0;
 		forecastWeather=0;
 		year=2011;
