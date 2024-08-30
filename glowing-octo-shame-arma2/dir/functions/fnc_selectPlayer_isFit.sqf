@@ -4,12 +4,14 @@
  * Функция отсеивает неподходящие тела для перерождения.
  */
 
-private ["_n","_b","_t_om","_t_bl","_weapon","_veh","_str","_arr"];
+private ["_n","_b","_t_om","_t_bl","_weapon","_veh","_str","_arr","_cfgWea"];
 
 // timeout за пределами карты.
 _t_om = 25;
 // timeout временного чёрного списка.
 _t_bl = 10;
+
+_cfgWea = LIB_cfgWea;
 
 if !(side _this in gosa_friendlyside) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, Не дружественная сторона", _this];
@@ -58,7 +60,7 @@ _b = false;
 // TODO: Перед включением этого кода необходимо сделать генератор отказоустойчивых отрядов.
 #ifdef __ARMA3__
 		_weapon = primaryWeapon _this;
-		if !(getAssetDLCInfo _weapon select 1) then {
+		if !(getAssetDLCInfo [_weapon, _cfgWea] select 1) then {
 			diag_log format ["Log: [fnc_selectPlayer_isFit] %1, not owned %1", _this, _weapon];
 			_b = true;
 		};
