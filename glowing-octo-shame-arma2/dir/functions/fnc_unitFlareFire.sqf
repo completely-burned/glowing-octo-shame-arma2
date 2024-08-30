@@ -75,10 +75,11 @@ for "_iW" from 0 to _iW_to do {
 							if (_str == "shotilluminating") then {
 								if (true) then {
 									// TODO: Звук запуска ракеты.
-									_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
 									#ifdef __ARMA3__
+										_arr = ([_u, random 150, getDir _u -45 +random 90] call BIS_fnc_relPos);
 										_height = (100 + random 50);
 									#else
+										_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
 										_height = (140 + random 20);
 									#endif
 									_arr set [2, _height];
@@ -159,6 +160,8 @@ if (isNil "_obj") then {
 		if (configName(_cfgAmm >> "SPE_40mm_White") != "") then {
 			// Pick a random altitude between 100 and 150m
 			_arr set [2, 100 + random 50];
+			_arr set [0, (_arr select 0) -100 +random 200];
+			_arr set [1, (_arr select 1) -100 +random 200];
 			/*
 			private _sound = "SN_Flare_Fired_4";
 			private _soundSourceClass = "SoundFlareLoop_F";
