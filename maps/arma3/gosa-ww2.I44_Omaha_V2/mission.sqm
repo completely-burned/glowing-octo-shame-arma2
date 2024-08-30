@@ -8,7 +8,7 @@ class EditorData
 	toggles=46;
 	class ItemIDProvider
 	{
-		nextID=115;
+		nextID=129;
 	};
 	class MarkerIDProvider
 	{
@@ -25,19 +25,21 @@ addons[]=
 {
 	"A3_Ui_F",
 	"WW2_Core_c_IF_Gui_c",
+	"WW2_SPE_Core_c_UI_Gui_c",
 	"A3_Modules_F",
 	"A3_Characters_F",
 	"A3_Data_F_Exp_A_Virtual",
 	"WW2_Assets_c_Characters_Americans_c_US_Army",
 	"WW2_Core_c_WW2_EditorPreviews_c",
 	"WW2_Assets_c_Characters_Soviets_c_SOV_RKKA",
-	"WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht"
+	"WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht",
+	"WW2_Assets_c_Characters_Civilians_c_CIV_Civilians"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=9;
+		items=11;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -52,44 +54,54 @@ class AddonsMetaData
 		};
 		class Item2
 		{
+			className="WW2_SPE_Core_c_UI_Gui_c";
+			name="WW2_SPE_Core_c_UI_Gui_c";
+		};
+		class Item3
+		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item3
+		class Item4
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item5
 		{
 			className="A3_Data_F_Exp_A";
 			name="Arma 3 Nexus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item6
 		{
 			className="WW2_Assets_c_Characters_Americans_c_US_Army";
 			name="WW2_Assets_c_Characters_Americans_c_US_Army";
 		};
-		class Item6
+		class Item7
 		{
 			className="WW2_Core_c_WW2_EditorPreviews_c";
 			name="WW2_Core_c_WW2_EditorPreviews_c";
 		};
-		class Item7
+		class Item8
 		{
 			className="WW2_Assets_c_Characters_Soviets_c_SOV_RKKA";
 			name="WW2_Assets_c_Characters_Soviets_c_SOV_RKKA";
 		};
-		class Item8
+		class Item9
 		{
 			className="WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht";
 			name="WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht";
+		};
+		class Item10
+		{
+			className="WW2_Assets_c_Characters_Civilians_c_CIV_Civilians";
+			name="WW2_Assets_c_Characters_Civilians_c_CIV_Civilians";
 		};
 	};
 };
@@ -206,7 +218,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=53;
+		items=54;
 		class Item0
 		{
 			dataType="Marker";
@@ -702,7 +714,6 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=75;
@@ -1343,6 +1354,133 @@ class Mission
 			{
 			};
 			id=104;
+		};
+		class Item53
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=7;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2838,56.193439,2034.05};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=116;
+					type="LIB_CIV_Worker_2";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2840,56.254234,2029.1001};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=118;
+					type="LIB_CIV_Worker_4";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2836,56.268635,2029.1001};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=120;
+					type="LIB_CIV_Worker_1";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2842,56.362637,2024.1001};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=122;
+					type="LIB_CIV_Woodlander_3";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2834,56.354637,2024.1001};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=124;
+					type="LIB_CIV_Villager_2";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2844,56.820221,2019.1001};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=126;
+					type="LIB_CIV_Citizen_6";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2832,56.436634,2019.1001};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=128;
+					type="LIB_CIV_Doctor";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=115;
 		};
 	};
 	class Connections
