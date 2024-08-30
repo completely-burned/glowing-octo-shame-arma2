@@ -8,7 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=307;
+		nextID=328;
 	};
 	class MarkerIDProvider
 	{
@@ -25,6 +25,7 @@ addons[]=
 {
 	"A3_Ui_F",
 	"WW2_Core_c_IF_Gui_c",
+	"WW2_SPE_Core_c_UI_Gui_c",
 	"WW2_Assets_c_Characters_Soviets_c_SOV_RKKA",
 	"WW2_Core_c_WW2_EditorPreviews_c",
 	"A3_Modules_F",
@@ -46,13 +47,14 @@ addons[]=
 	"WW2_Assets_c_Vehicles_ModelConfig_c",
 	"WW2_Assets_c_Vehicles_StaticWeapons_c_Pak40",
 	"WW2_Assets_c_Vehicles_StaticWeapons_c_Flak36",
-	"WW2_Assets_c_Vehicles_StaticWeapons_c_FlakVierling_38"
+	"WW2_Assets_c_Vehicles_StaticWeapons_c_FlakVierling_38",
+	"WW2_Assets_c_Characters_Americans_c_US_Airforce"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=24;
+		items=26;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -67,121 +69,131 @@ class AddonsMetaData
 		};
 		class Item2
 		{
+			className="WW2_SPE_Core_c_UI_Gui_c";
+			name="WW2_SPE_Core_c_UI_Gui_c";
+		};
+		class Item3
+		{
 			className="WW2_Assets_c_Characters_Soviets_c_SOV_RKKA";
 			name="WW2_Assets_c_Characters_Soviets_c_SOV_RKKA";
 		};
-		class Item3
+		class Item4
 		{
 			className="WW2_Core_c_WW2_EditorPreviews_c";
 			name="WW2_Core_c_WW2_EditorPreviews_c";
 		};
-		class Item4
+		class Item5
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item6
 		{
 			className="WW2_Assets_c_Characters_Civilians_c_CIV_Civilians";
 			name="WW2_Assets_c_Characters_Civilians_c_CIV_Civilians";
 		};
-		class Item6
+		class Item7
 		{
 			className="WW2_Assets_c_Vehicles_Wheeled_c_GazM1";
 			name="WW2_Assets_c_Vehicles_Wheeled_c_GazM1";
 		};
-		class Item7
+		class Item8
 		{
 			className="WW2_Assets_c_Vehicles_Pictures_c";
 			name="WW2_Assets_c_Vehicles_Pictures_c";
 		};
-		class Item8
+		class Item9
 		{
 			className="WW2_Assets_c_Vehicles_SimpleObjects_c";
 			name="WW2_Assets_c_Vehicles_SimpleObjects_c";
 		};
-		class Item9
+		class Item10
 		{
 			className="WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht";
 			name="WW2_Assets_c_Characters_Germans_c_GER_Wehrmacht";
 		};
-		class Item10
+		class Item11
 		{
 			className="WW2_Assets_c_Characters_British_c_UK_Army";
 			name="WW2_Assets_c_Characters_British_c_UK_Army";
 		};
-		class Item11
+		class Item12
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item12
+		class Item13
 		{
 			className="A3_Data_F_Exp_A";
 			name="Arma 3 Nexus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item13
+		class Item14
 		{
 			className="WW2_Assets_c_Weapons_Ammoboxes_c";
 			name="WW2_Assets_c_Weapons_Ammoboxes_c";
 		};
-		class Item14
+		class Item15
 		{
 			className="WW2_Assets_c_Weapons_SimpleObjects_c";
 			name="WW2_Assets_c_Weapons_SimpleObjects_c";
 		};
-		class Item15
+		class Item16
 		{
 			className="WW2_Assets_c_Weapons_Mines_c";
 			name="WW2_Assets_c_Weapons_Mines_c";
 		};
-		class Item16
+		class Item17
 		{
 			className="A3_Weapons_F";
 			name="Arma 3 Alpha - Weapons and Accessories";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item17
+		class Item18
 		{
 			className="CUP_Misc_e_Config";
 			name="CUP_Misc_e_Config";
 		};
-		class Item18
+		class Item19
 		{
 			className="WW2_Objects_c_Misc_WW2_SimpleObjects_c_CUP";
 			name="WW2_Objects_c_Misc_WW2_SimpleObjects_c_CUP";
 		};
-		class Item19
+		class Item20
 		{
 			className="WW2_Assets_c_Vehicles_StaticWeapons_c_Lefh18";
 			name="WW2_Assets_c_Vehicles_StaticWeapons_c_Lefh18";
 		};
-		class Item20
+		class Item21
 		{
 			className="WW2_Assets_c_Vehicles_ModelConfig_c";
 			name="WW2_Assets_c_Vehicles_ModelConfig_c";
 		};
-		class Item21
+		class Item22
 		{
 			className="WW2_Assets_c_Vehicles_StaticWeapons_c_Pak40";
 			name="WW2_Assets_c_Vehicles_StaticWeapons_c_Pak40";
 		};
-		class Item22
+		class Item23
 		{
 			className="WW2_Assets_c_Vehicles_StaticWeapons_c_Flak36";
 			name="WW2_Assets_c_Vehicles_StaticWeapons_c_Flak36";
 		};
-		class Item23
+		class Item24
 		{
 			className="WW2_Assets_c_Vehicles_StaticWeapons_c_FlakVierling_38";
 			name="WW2_Assets_c_Vehicles_StaticWeapons_c_FlakVierling_38";
+		};
+		class Item25
+		{
+			className="WW2_Assets_c_Characters_Americans_c_US_Airforce";
+			name="WW2_Assets_c_Characters_Americans_c_US_Airforce";
 		};
 	};
 };
@@ -278,7 +290,6 @@ class Mission
 	class Intel
 	{
 		briefingName="WW2 CO 00 gosa Hyde_Sark Multi v0.0.5.952 DEBUG";
-		timeOfChanges=1800;
 		startWeather=0.3;
 		startWind=0.1;
 		startWaves=0.1;
@@ -298,7 +309,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=82;
+		items=85;
 		class Item0
 		{
 			dataType="Marker";
@@ -1388,36 +1399,6 @@ class Mission
 					};
 					id=68;
 					type="LIB_SOV_captain_summer";
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01SU";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=1.01;
-								};
-							};
-						};
-						nAttributes=2;
-					};
 				};
 				class Item1
 				{
@@ -4190,6 +4171,144 @@ class Mission
 			};
 			id=301;
 			type="LIB_BasicWeaponsBox_SU";
+		};
+		class Item82
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1269,4.6900196,3219.05};
+					};
+					side="East";
+					flags=6;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=324;
+					type="LIB_SOV_pilot";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1272,4.6904888,3214.05};
+					};
+					side="East";
+					flags=4;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=325;
+					type="LIB_SOV_pilot";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=307;
+		};
+		class Item83
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1261,4.6906614,3196.05};
+					};
+					side="Independent";
+					flags=6;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=326;
+					type="LIB_US_Pilot";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1264,4.6914172,3191.05};
+					};
+					side="Independent";
+					flags=4;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=327;
+					type="LIB_US_Pilot";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=316;
+		};
+		class Item84
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1425,4.690587,3152.05};
+					};
+					side="West";
+					flags=6;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=322;
+					type="LIB_GER_pilot";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1428,4.690587,3147.05};
+					};
+					side="West";
+					flags=4;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=323;
+					type="LIB_GER_pilot";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=319;
 		};
 	};
 	class Connections
