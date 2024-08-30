@@ -1301,6 +1301,7 @@ class Mission
 		{
 			dataType="Logic";
 			name="HeadlessClient";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=125;
 			type="HeadlessClient_F";
@@ -1309,6 +1310,7 @@ class Mission
 		{
 			dataType="Logic";
 			name="HeadlessClient_1";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=126;
 			type="HeadlessClient_F";
@@ -1317,6 +1319,7 @@ class Mission
 		{
 			dataType="Logic";
 			name="HeadlessClient_2";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=127;
 			type="HeadlessClient_F";
@@ -1325,6 +1328,7 @@ class Mission
 		{
 			dataType="Logic";
 			name="HeadlessClient_3";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=128;
 			type="HeadlessClient_F";
@@ -1333,15 +1337,16 @@ class Mission
 		{
 			dataType="Logic";
 			name="HeadlessClient_4";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=129;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item59
 		{
 			dataType="Logic";
 			name="HeadlessClient_5";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=130;
 			type="HeadlessClient_F";
@@ -1350,15 +1355,16 @@ class Mission
 		{
 			dataType="Logic";
 			name="HeadlessClient_6";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=131;
 			type="HeadlessClient_F";
-			atlOffset=-7.6293945e-006;
 		};
 		class Item61
 		{
 			dataType="Logic";
 			name="HeadlessClient_7";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=132;
 			type="HeadlessClient_F";
@@ -1367,6 +1373,7 @@ class Mission
 		{
 			dataType="Logic";
 			name="HeadlessClient_8";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=133;
 			type="HeadlessClient_F";
@@ -1375,6 +1382,7 @@ class Mission
 		{
 			dataType="Logic";
 			name="HeadlessClient_9";
+			presenceCondition="isMultiplayer";
 			isPlayable=1;
 			id=134;
 			type="HeadlessClient_F";
