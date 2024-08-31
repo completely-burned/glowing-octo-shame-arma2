@@ -5,7 +5,11 @@
 private [ "_flare_dist","_players","_player","_types_flare",
 	"_item","_arr","_b"];
 
+#ifdef __ARMA3__
+	_flare_dist = 75;
+#else
  _flare_dist = 500;
+#endif
  _types_flare = [
 	"FlareBase",
 	"SPE_40mm_White",
