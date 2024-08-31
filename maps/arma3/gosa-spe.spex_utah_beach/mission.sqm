@@ -24,7 +24,6 @@ sourceName="gosa-spe";
 addons[]=
 {
 	"A3_Ui_F",
-	"WW2_Core_c_IF_Gui_c",
 	"WW2_SPE_Core_c_UI_Gui_c",
 	"A3_Modules_F",
 	"WW2_SPE_Assets_c_Characters_Civilians_c_French",
@@ -46,7 +45,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=18;
+		items=17;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -56,91 +55,86 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="WW2_Core_c_IF_Gui_c";
-			name="WW2_Core_c_IF_Gui_c";
-		};
-		class Item2
-		{
 			className="WW2_SPE_Core_c_UI_Gui_c";
 			name="WW2_SPE_Core_c_UI_Gui_c";
 		};
-		class Item3
+		class Item2
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item3
 		{
 			className="WW2_SPE_Assets_c_Characters_Civilians_c_French";
 			name="WW2_SPE_Assets_c_Characters_Civilians_c_French";
 		};
-		class Item5
+		class Item4
 		{
 			className="WW2_SPE_Core_c_EditorPreviews_c";
 			name="WW2_SPE_Core_c_EditorPreviews_c";
 		};
-		class Item6
+		class Item5
 		{
 			className="WW2_SPE_Assets_c_Characters_Americans_c_US_Army";
 			name="WW2_SPE_Assets_c_Characters_Americans_c_US_Army";
 		};
-		class Item7
+		class Item6
 		{
 			className="WW2_SPE_Assets_c_Characters_Germans_c_GER_Wehrmacht";
 			name="WW2_SPE_Assets_c_Characters_Germans_c_GER_Wehrmacht";
 		};
-		class Item8
+		class Item7
 		{
 			className="WW2_SPE_Assets_c_Characters_Germans_U1_c_GER_Wehrmacht";
 			name="WW2_SPE_Assets_c_Characters_Germans_U1_c_GER_Wehrmacht";
 		};
-		class Item9
+		class Item8
 		{
 			className="WW2_SPE_Assets_c_Characters_Frenchs_c_FR_FFI";
 			name="WW2_SPE_Assets_c_Characters_Frenchs_c_FR_FFI";
 		};
-		class Item10
+		class Item9
 		{
 			className="WW2_SPE_Core_c_Core_c_Eventhandlers";
 			name="WW2_SPE_Core_c_Core_c_Eventhandlers";
 		};
-		class Item11
+		class Item10
 		{
 			className="WW2_SPE_Assets_c_Characters_Frenchs_U1_c_FR_FFI";
 			name="WW2_SPE_Assets_c_Characters_Frenchs_U1_c_FR_FFI";
 		};
-		class Item12
+		class Item11
 		{
 			className="WW2_SPE_Structures_c";
 			name="WW2_SPE_Structures_c";
 		};
-		class Item13
+		class Item12
 		{
 			className="WW2_SPE_Structures_c_SimpleObjects_c";
 			name="WW2_SPE_Structures_c_SimpleObjects_c";
 		};
-		class Item14
+		class Item13
 		{
 			className="WW2_SPE_Assets_c_Vehicles_SimpleObjects_c";
 			name="WW2_SPE_Assets_c_Vehicles_SimpleObjects_c";
 		};
-		class Item15
+		class Item14
 		{
 			className="A3_Data_F_Exp_A";
 			name="Arma 3 Nexus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item16
+		class Item15
 		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item17
+		class Item16
 		{
 			className="WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce";
 			name="WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce";
@@ -3679,10 +3673,6 @@ class Mission
 		class Item45
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1051.726,29.16,1845.021};
-			};
 			name="HeadlessClient";
 			isPlayable=1;
 			id=231;
@@ -3691,10 +3681,6 @@ class Mission
 		class Item46
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1053.5942,29.16,1840.473};
-			};
 			name="HeadlessClient_1";
 			isPlayable=1;
 			id=232;
@@ -3703,10 +3689,6 @@ class Mission
 		class Item47
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1056.1624,29.16,1836.0002};
-			};
 			name="HeadlessClient_2";
 			isPlayable=1;
 			id=233;
@@ -3715,10 +3697,6 @@ class Mission
 		class Item48
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1058.2721,29.16,1831.9437};
-			};
 			name="HeadlessClient_3";
 			isPlayable=1;
 			id=234;
@@ -3727,10 +3705,6 @@ class Mission
 		class Item49
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1060.4459,29.16,1827.0645};
-			};
 			name="HeadlessClient_4";
 			isPlayable=1;
 			id=235;
@@ -3739,10 +3713,6 @@ class Mission
 		class Item50
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1064.4314,29.16,1829.1134};
-			};
 			name="HeadlessClient_5";
 			isPlayable=1;
 			id=236;
@@ -3751,10 +3721,6 @@ class Mission
 		class Item51
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1060.8545,29.16,1833.7372};
-			};
 			name="HeadlessClient_6";
 			isPlayable=1;
 			id=237;
@@ -3763,10 +3729,6 @@ class Mission
 		class Item52
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1058.7816,29.16,1839.1566};
-			};
 			name="HeadlessClient_7";
 			isPlayable=1;
 			id=238;
@@ -3775,10 +3737,6 @@ class Mission
 		class Item53
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1056.5886,29.16,1843.5608};
-			};
 			name="HeadlessClient_8";
 			isPlayable=1;
 			id=239;
@@ -3787,10 +3745,6 @@ class Mission
 		class Item54
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={1054.4261,29.16,1847.8331};
-			};
 			name="HeadlessClient_9";
 			isPlayable=1;
 			id=240;
