@@ -29,6 +29,9 @@
 if (missionNamespace getVariable "gosa_survival" != 1) exitWith {
 	diag_log format ["Log: [while_survival] gosa_survival != 1 exitWith", nil];
 };
+if ([player] call gosa_fnc_role_isCrew) exitWith {
+	diag_log format ["Log: [while_survival] player isCrew", nil];
+};
 if (gosa_playerStartingClass in [1]) exitWith {
 	diag_log format ["Log: [while_survival] gosa_playerStartingClass == %1 exitWith", gosa_playerStartingClass];
 };
