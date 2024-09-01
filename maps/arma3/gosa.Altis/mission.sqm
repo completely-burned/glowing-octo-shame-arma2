@@ -27,6 +27,7 @@ binarizationWanted=0;
 sourceName="gosa";
 addons[]=
 {
+	"A3_Characters_F_Orange",
 	"A3_Characters_F",
 	"A3_Modules_F",
 	"A3_Structures_F_Mil_Cargo",
