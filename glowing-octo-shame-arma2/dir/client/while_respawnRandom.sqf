@@ -15,6 +15,10 @@ private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
 	"_pre","_sorted","_str","_obj",
 	"_listPlayers","_deathTime","_cam","_b","_o","_z","_p_name"];
 
+if ([player] call gosa_fnc_role_isCrew) exitWith {
+	diag_log format ["Log: [respawnRandom] player isCrew", nil];
+};
+
 waitUntil{!isNil "gosa_playerStartingClass"};
 if (gosa_playerStartingClass == 1) exitWith {
 	diag_log format ["Log: [respawnRandom] Player class %1, exitWith", gosa_playerStartingClass];
