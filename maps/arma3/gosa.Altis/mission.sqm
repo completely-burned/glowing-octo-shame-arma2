@@ -232,6 +232,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=715;
 					type="B_Soldier_SL_F";
