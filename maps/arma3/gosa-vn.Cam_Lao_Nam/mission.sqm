@@ -183,7 +183,7 @@ class Mission
 	appId=1227700;
 	class Intel
 	{
-		briefingName="VN CO 00 gosa Cam_Lao_Nam Multi v0.0.5.952 DEBUG";
+		briefingName="VN CO 00 gosa Cam_Lao_Nam Multi v0.0.5.953 DEBUG";
 		startWeather=0.2;
 		startWind=0.1;
 		startWaves=0.1;
