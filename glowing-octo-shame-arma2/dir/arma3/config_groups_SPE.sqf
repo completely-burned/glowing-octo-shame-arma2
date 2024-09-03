@@ -109,6 +109,14 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		[[[["SPE_Nashorn","SPE_Nashorn","SPE_Nashorn","SPE_Nashorn"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25]
 	];
 };
+_arr append [
+	[[[["SPE_GER_SquadLead",
+		"SPE_GER_Assist_SquadLead","SPE_GER_LAT_Rifleman",
+		"SPE_GER_ober_grenadier","B_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
+		["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"],
+		[nil,nil,nil,nil,["SPE_GER_rifleman","SPE_GER_rifleman","SPE_GER_rifleman","SPE_GER_rifleman","SPE_GER_rifleman"]],0]
+	],0.1]
+];
 [_groups_map, west, "SPE_WEHRMACHT", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1900,1950], [160,999],
 ["BLU_NATO_lxWS","BLU_F","BLU_T_F","CUP_B_US_Army","CUP_B_USMC","BLU_W_F"]
@@ -323,6 +331,15 @@ _arr = [
 	[[[["SPE_M20_AUC","SPE_M20_AUC"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
 	// SPE_US_P47_Group
 	[[[["SPE_P47","SPE_P47","SPE_P47"],[[0,20,0],[-10,-10,0],[-20,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.5]
+];
+_arr append [
+	// TODO: LCVP
+	[[[["SPE_US_SquadLead",
+		"SPE_US_Assist_SquadLead","SPE_US_AT_Soldier",
+		"SPE_US_Grenadier","I_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
+		["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"],
+		[nil,nil,nil,nil,["SPE_US_Rifleman","SPE_US_Rifleman","SPE_US_Rifleman","SPE_US_Rifleman","SPE_US_Rifleman"]],0]
+	],0.1]
 ];
 if (isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	_arr append [
