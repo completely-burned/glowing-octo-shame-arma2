@@ -16,7 +16,7 @@ diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle",
 	"_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t",
 	"_commanding","_uav","_side","_createSpecial","_dontCreateAI",
-	"_rank_next",
+	"_rank_next","_arr",
 	"_bestCommander","_commandings","_commanding_max","_rankId",
 	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe","_item"];
 
@@ -266,6 +266,15 @@ if (_LandVehicle) then {
 			_unit moveInDriver _vehicle;
 			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
 			_unit assignAsDriver _vehicle;
+	};
+
+	// lambs выгружает юнитов которых выгружать не нужно.
+	if !(isNil "lambs_danger_fnc_brainVehicle") then {
+		_arr = ((fullCrew [_vehicle, "turret"] select {_x select 4}) apply {_x select 0});
+		for "_i" from 0 to (count _arr -1) do {
+			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 deleteVehicle %2, %3, lambs turret compat", _vehicle, _arr select _i, assignedVehicleRole (_arr select _i)];
+			deleteVehicle (_arr select _i);
+		};
 	};
 }else{
 	// Высокие деревья. В бою авиация не должна опускаться.
