@@ -20,7 +20,6 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="glowing-octo-shame-west";
 addons[]=
 {
 	"A3_Characters_F",

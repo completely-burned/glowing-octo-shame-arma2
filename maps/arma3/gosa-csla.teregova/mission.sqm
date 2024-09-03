@@ -24,7 +24,6 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="gosa-csla";
 addons[]=
 {
 	"A3_Ui_F",

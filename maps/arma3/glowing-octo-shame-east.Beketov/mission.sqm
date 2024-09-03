@@ -20,7 +20,6 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="glowing-octo-shame-east";
 addons[]=
 {
 	"A3_Ui_F",

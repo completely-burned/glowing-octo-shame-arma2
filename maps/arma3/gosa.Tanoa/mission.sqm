@@ -20,7 +20,6 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="gosa";
 addons[]=
 {
 	"A3_Structures_F_Exp_Military_ContainerBases",
