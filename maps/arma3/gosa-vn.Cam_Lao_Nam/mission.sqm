@@ -8,7 +8,7 @@ class EditorData
 	toggles=1578;
 	class ItemIDProvider
 	{
-		nextID=516;
+		nextID=578;
 	};
 	class MarkerIDProvider
 	{
@@ -201,7 +201,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=377;
+		items=389;
 		class Item0
 		{
 			dataType="Marker";
@@ -6014,6 +6014,717 @@ class Mission
 				placementRadius=25;
 			};
 			id=510;
+		};
+		class Item377
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2442.2678,33.637314,3964.0288};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=523;
+					type="vn_o_men_aircrew_05";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2442.2678,34.278561,3959.0288};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=524;
+					type="vn_o_men_aircrew_06";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=522;
+		};
+		class Item378
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2440.2002,33.597298,3960.717};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=526;
+					type="vn_o_men_aircrew_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2440.2002,34.6147,3955.717};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=527;
+					type="vn_o_men_aircrew_02";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2440.2002,35.933208,3950.717};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=528;
+					type="vn_o_men_aircrew_03";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2440.2002,37.212811,3945.717};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=529;
+					type="vn_o_men_aircrew_04";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=525;
+		};
+		class Item379
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2445.0435,34.509521,3961.6355};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="MAJOR";
+						isPlayable=1;
+					};
+					id=531;
+					type="vn_o_men_aircrew_07";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2445.0435,35.247379,3956.6355};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=532;
+					type="vn_o_men_aircrew_08";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=530;
+		};
+		class Item380
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2093.0105,30.066837,3860.1021};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=539;
+					type="vn_b_men_aircrew_05";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2093.0105,31.127365,3855.1021};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=540;
+					type="vn_b_men_aircrew_06";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2093.0105,31.981754,3850.1021};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=541;
+					type="vn_b_men_aircrew_07";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2093.0105,32.924313,3845.1021};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=542;
+					type="vn_b_men_aircrew_08";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=538;
+		};
+		class Item381
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2096.5432,30.23814,3863.2813};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="MAJOR";
+						isPlayable=1;
+					};
+					id=544;
+					type="vn_b_men_aircrew_25";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2096.5432,31.252539,3858.2813};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=545;
+					type="vn_b_men_aircrew_26";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=543;
+		};
+		class Item382
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2099.5413,31.074417,3862.75};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=553;
+					type="vn_b_men_jetpilot_05";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2099.5413,31.988035,3857.75};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=554;
+					type="vn_b_men_jetpilot_06";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=552;
+		};
+		class Item383
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2098.334,30.343021,3864.5798};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=557;
+					type="vn_b_men_jetpilot_03";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2098.334,31.506668,3859.5798};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=558;
+					type="vn_b_men_jetpilot_04";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=556;
+		};
+		class Item384
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2101.4053,31.08577,3864.4749};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="MAJOR";
+						isPlayable=1;
+					};
+					id=560;
+					type="vn_b_men_jetpilot_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={2101.4053,32.145908,3859.4749};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=561;
+					type="vn_b_men_jetpilot_02";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=559;
+		};
+		class Item385
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1668.0978,30.341471,4200.3652};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=563;
+					type="vn_i_men_aircrew_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1668.0978,30.173214,4195.3652};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=564;
+					type="vn_i_men_aircrew_02";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1668.0978,29.858847,4190.3652};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=565;
+					type="vn_i_men_aircrew_03";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1668.0978,29.562454,4185.3652};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=566;
+					type="vn_i_men_aircrew_04";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=562;
+		};
+		class Item386
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1660.9781,29.678579,4195.6143};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=568;
+					type="vn_i_men_aircrew_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1660.9781,29.470064,4190.6143};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=569;
+					type="vn_i_men_aircrew_02";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1660.9781,29.270283,4185.6143};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						isPlayable=1;
+					};
+					id=570;
+					type="vn_i_men_aircrew_03";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1660.9781,29.06163,4180.6143};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayable=1;
+					};
+					id=571;
+					type="vn_i_men_aircrew_04";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=567;
+		};
+		class Item387
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1653.4954,29.876675,4195.3452};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=573;
+					type="vn_i_men_jetpilot_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1653.4954,29.668619,4190.3452};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=574;
+					type="vn_i_men_jetpilot_02";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=572;
+		};
+		class Item388
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=2;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1643.7498,31.147598,4191.4985};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="CAPTAIN";
+						isPlayable=1;
+					};
+					id=576;
+					type="vn_i_men_jetpilot_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={1643.7498,30.860891,4186.4985};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="LIEUTENANT";
+						isPlayable=1;
+					};
+					id=577;
+					type="vn_i_men_jetpilot_02";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=25;
+			};
+			id=575;
 		};
 	};
 	class Connections
