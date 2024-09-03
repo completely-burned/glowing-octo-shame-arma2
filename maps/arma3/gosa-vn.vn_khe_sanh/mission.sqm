@@ -4696,8 +4696,8 @@ class Mission
 					flags=7;
 					class Attributes
 					{
-						presenceCondition="!isMultiplayer";
 						rank="SERGEANT";
+						presenceCondition="!isMultiplayer";
 						isPlayer=1;
 						isPlayable=1;
 					};
