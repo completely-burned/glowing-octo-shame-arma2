@@ -147,6 +147,7 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 
 	_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
 
+	// TODO: Получать эти данные сразу из fnc_spawnGroup.
 	_units = []; _vehicles=[]; _crew = []; _cargo=[];
 	{
 		_grp = _x;
@@ -186,6 +187,14 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 		[_vehicles, _cargo] call gosa_fnc_MoveInCargo;
 	};
 
+	// Чтобы отличать от чужого контента.
+	for "_i" from 0 to (count _units) do {
+		_units select _i setVariable ["gosa", true, true];
+	};
+	for "_i" from 0 to (count _vehicles) do {
+		_vehicles select _i setVariable ["gosa", true, true];
+	};
+
 	#ifdef __ARMA3__
 		{
 			_grp = _x;
@@ -196,6 +205,10 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 				};
 			} forEach units _grp;
 		} forEach _groups;
+
+		{
+			_x addCuratorEditableObjects [_units+_vehicles, true];
+		} forEach allCurators;
 	#endif
 
 	{_x setVariable ["grp_created",true,true]}forEach _groups;
