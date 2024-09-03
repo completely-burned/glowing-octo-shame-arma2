@@ -1113,8 +1113,13 @@ class CfgFunctions
 				file = "dir\functions\fnc_SafePosParams_v2.sqf";
 			};
 		};
+		// Systems or unsorted.
 		class Systems
 		{
+			class group_findType
+			{
+				file = "dir\functions\fnc_group_findType.sqf";
+			};
 			class fixType
 			{
 				file = "dir\functions\fnc_fixType.sqf";
