@@ -45,13 +45,12 @@ if (_w in ["hyde_sark"]) then
 {
 	_r set [1,1939];
 };
-if (_w in ["swu_greece_pella_region"]) then
+if (_w in ["swu_ardennes_1940","swu_greece_pella_region"]) then
 {
 	_r set [1,1940];
 };
 if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter",
 	"plr_bulge","mcn_neaville_winter","i44_merderet","i44_merderet_v2",
-	"swu_ardennes_1940",
 	"spe_normandy","spe_mortain","spex_utah_beach"]) then
 {
 	_r set [1,1944];
