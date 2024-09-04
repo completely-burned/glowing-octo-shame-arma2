@@ -234,6 +234,13 @@ _arr = [
 	// vn_o_group_boat_02
 	[[[["vn_o_boat_03_01","vn_o_boat_03_02","vn_o_boat_04_01","vn_o_boat_04_02"],[[0,-30,0],[0,-60,0],[0,-90,0],[0,-120,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.05]
 ];
+// Support.
+_arr append [
+	// vn_o_group_mech_nva_03
+	[[[["vn_o_wheeled_btr40_mg_01","vn_o_wheeled_z157_ammo","vn_o_wheeled_z157_fuel","vn_o_wheeled_z157_repair","vn_o_wheeled_z157_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.05],
+	// vn_o_group_mech_nva_11
+	[[[["vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_03","vn_o_armor_btr50pk_03","vn_o_armor_btr50pk_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05]
+];
 [_groups_map, east, "VN_PAVN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
@@ -709,10 +716,19 @@ _arr append [
 	[[[["vn_b_wheeled_m274_mg_01_02","vn_b_wheeled_m274_mg_03_02","vn_b_wheeled_m274_mg_03_02","vn_b_wheeled_m274_mg_01_02"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.01]
 ];
 
+// Support.
+_arr append [
+	// vn_b_group_mech_army_06
+	[[[["vn_b_wheeled_m54_mg_03","vn_b_wheeled_m54_ammo","vn_b_wheeled_m54_fuel","vn_b_wheeled_m54_repair","vn_b_wheeled_m151_mg_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.05],
+	// vn_b_group_mech_army_13
+	[[[["vn_b_armor_m577_01","vn_b_armor_m113_01","vn_b_armor_m577_02","vn_b_armor_m113_acav_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05]
+];
+
 [_groups_map, west, "VN_MACV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
 ] call gosa_fnc_map_groups_add;
+
 
 // resistance
 _arr = [
@@ -805,6 +821,13 @@ _arr = [
 	[[[["vn_i_wheeled_m54_01_marines","vn_i_men_marine_14","vn_i_men_marine_03","vn_i_men_marine_04","vn_i_men_marine_05","vn_i_men_marine_06","vn_i_men_marine_07","vn_i_men_marine_08","vn_i_men_marine_09","vn_i_men_marine_10","vn_i_men_marine_11","vn_i_men_marine_11","vn_i_men_marine_12","vn_i_men_marine_16","vn_i_men_marine_17","vn_i_men_marine_18","vn_i_men_marine_07"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.5],
 	// vn_i_group_mech_marines_01
 	[[[["vn_i_wheeled_m151_mg_01_marines","vn_i_wheeled_m151_01_marines","vn_i_wheeled_m151_02_marines","vn_i_wheeled_m151_mg_01_marines"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5]
+];
+// Support.
+_arr append [
+	// vn_i_group_mech_army_04
+	[[[["vn_i_wheeled_m151_mg_01","vn_i_wheeled_m54_ammo","vn_i_wheeled_m54_fuel","vn_i_wheeled_m54_repair","vn_i_wheeled_m151_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.05],
+	// vn_i_group_mech_army_08
+	[[[["vn_i_armor_m577_01","vn_i_armor_m113_01","vn_i_armor_m577_02","vn_i_armor_m113_acav_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05]
 ];
 [_groups_map, resistance, "VN_ARVN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
