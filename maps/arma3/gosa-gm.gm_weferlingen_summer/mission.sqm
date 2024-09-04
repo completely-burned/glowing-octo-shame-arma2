@@ -237,7 +237,7 @@ class Mission
 		class Item0
 		{
 			dataType="Marker";
-			position[]={20400,0,20400};
+			position[]={20480,0,20480};
 			name="gosa_worldSize";
 			type="Empty";
 			id=0;
