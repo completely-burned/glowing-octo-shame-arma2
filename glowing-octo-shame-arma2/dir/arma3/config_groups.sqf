@@ -59,6 +59,8 @@ _groups_pending_map = [];
 _groups_failover = [];
 _groups_failover_map = [];
 _alliances = [
+	["LIB_RKKA","LIB_UK_ARMY","LIB_US_ARMY","SPE_US_ARMY","SPE_FFI"],
+	["LIB_WEHRMACHT","SPE_STURM","SPE_WEHRMACHT"],
 	["VN_MACV","VN_ARVN"]
 ];
 _alliances_enabled = [];
