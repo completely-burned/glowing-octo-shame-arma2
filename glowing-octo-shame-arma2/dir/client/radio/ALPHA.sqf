@@ -7,8 +7,15 @@ cameraon commandFollow leader cameraon;
 	deleteVehicle _x;
 } forEach units cameraon;
 
+{
+	_x allowDamage false;
+} forEach units player;
+
 cameraon disableAI "LIGHTS";
 cameraon setPilotLight true;
+
+[cameraOn] allowGetIn true;
+[cameraOn] orderGetIn true;
 
 //commander cameraon action ["TurnOut", cameraon];
 
