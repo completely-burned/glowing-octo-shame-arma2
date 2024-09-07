@@ -252,7 +252,7 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
-
+		// GM
 		class gosa_faction_multiplier_gm_gc_army {
 			title="FACTION: gm_gc_army";
 			values[] = {-1,1,0};
@@ -283,6 +283,25 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		// gmx
+			class gosa_faction_multiplier_gmx_chdkz {
+				title="FACTION: gmx_chdkz";
+				values[] = {-1,1,0};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = -1;
+			};
+			class gosa_faction_multiplier_gmx_tak_army {
+				title="FACTION: gmx_tak_army";
+				values[] = {-1,1,0};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = -1;
+			};
+			class gosa_faction_multiplier_gmx_cdf {
+				title="FACTION: gmx_cdf";
+				values[] = {-1,1,0};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = -1;
+			};
 
 		// WS
 			class gosa_faction_multiplier_BLU_NATO_lxWS {

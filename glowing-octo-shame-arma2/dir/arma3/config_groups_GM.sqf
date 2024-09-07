@@ -239,6 +239,137 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 []
 ] call gosa_fnc_map_groups_add;
 
+// gmx_chdkz
+_arr = [
+	// gm_platoon_gmx_chdkz_pt76b_wdl
+	[[[["gmx_chdkz_pt76b_wdl","gmx_chdkz_pt76b_wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],
+	0.1],
+	// gm_platoon_gmx_chdkz_brdm2_wdl
+	[[[["gmx_chdkz_brdm2_wdl","gmx_chdkz_brdm2_wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],
+	0.1],
+	// gm_platoon_uaz469
+	[[[["gmx_chdkz_uaz469_dshkm_wdl","gmx_chdkz_uaz469_spg9_wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],
+	0.15],
+	// gmx_chdkz_motorizedinfantly_squad_ural4320_cargo
+	[[[["gmx_chdkz_ural4320_cargo_wdl","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_machinegunner_pk_mix","gmx_chdkz_army_grenadier_akm_pallad_mix","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_rifleman_akm_mix"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.4],
+	// gmx_chdkz_motorizedinfantly_squad_bmp1sp2
+	[[[["gmx_chdkz_bmp1sp2_wdl","gmx_chdkz_army_radioman_akm_mix","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_machinegunner_pk_mix","gmx_chdkz_army_grenadier_akm_pallad_mix","gmx_chdkz_army_radioman_akm_mix","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_rifleman_akm_mix"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.9],
+	// gmx_chdkz_motorizedinfantly_squad_btr60pb
+	[[[["gmx_chdkz_btr60pb_wdl","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_machinegunner_pk_mix","gmx_chdkz_army_grenadier_akm_pallad_mix","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_rifleman_akm_mix"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.3],
+	// gmx_chdkz_motorizedinfantly_squad_btr60pa_dshkm
+	[[[["gmx_chdkz_btr60pa_dshkm_wdl","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_machinegunner_pk_mix","gmx_chdkz_army_grenadier_akm_pallad_mix","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_rifleman_akm_mix"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.3],
+	// gmx_chdkz_motorizedinfantly_squad_btr60pa
+	[[[["gmx_chdkz_btr60pa_wdl","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_machinegunner_pk_mix","gmx_chdkz_army_grenadier_akm_pallad_mix","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_rifleman_akm_mix"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.3],
+	// gmx_chdkz_motorizedinfantly_squad_ot64a
+	[[[["gmx_chdkz_ot64a_wdl","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_machinegunner_rpk_mix","gmx_chdkz_army_grenadier_akm_pallad_mix","gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_rifleman_akm_mix","gmx_chdkz_army_rifleman_akm_mix"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.3],
+	// gm_platoon_gmx_chdkz_t55a_wdl
+	[[[["gmx_chdkz_t55a_wdl","gmx_chdkz_t55a_wdl","gmx_chdkz_t55a_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],
+	0.3],
+	// gm_platoon_gmx_chdkz_t55am2b_wdl
+	[[[["gmx_chdkz_t55am2b_wdl","gmx_chdkz_t55am2b_wdl","gmx_chdkz_t55am2b_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],
+	0.3],
+	// gm_platoon_gmx_chdkz_btr60pu12_wdl_gmx_chdkz_zsu234v1_wdl
+	[[[["gmx_chdkz_btr60pu12_wdl","gmx_chdkz_zsu234v1_wdl","gmx_chdkz_zsu234v1_wdl","gmx_chdkz_zsu234v1_wdl","gmx_chdkz_zsu234v1_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0],[-10,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],
+	0.05],
+	// gm_platoon_gmx_chdkz_zsu234v1_wdl
+	[[[["gmx_chdkz_zsu234v1_wdl","gmx_chdkz_zsu234v1_wdl"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],
+	0.1],
+	// gmx_chdkz_army_infantry_squad_mix
+	[[[["gmx_chdkz_army_squadleader_akm_win","gmx_chdkz_army_machinegunner_pk_mix","gmx_chdkz_army_grenadier_akm_pallad_mix","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_antitank_assistant_akm_rpg7_mix","gmx_chdkz_army_medic_akm_mix","gmx_chdkz_army_machinegunner_rpk_mix","gmx_chdkz_army_machinegunner_rpk_mix"],[[0,0,0],[5,-5,0],[10,-10,0],[-10,-10,0],[-15,-15,0],[-20,-20,0],[15,-15,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.9],
+	// gmx_chdkz_army_infantry_mggroup_oli
+	[[[["gmx_chdkz_army_grenadier_akm_pallad_mix","gmx_chdkz_army_machinegunner_pk_mix","gmx_chdkz_army_machinegunner_pk_mix"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],
+	0.2],
+	// gmx_chdkz_army_infantry_atgroup_oli
+	[[[["gmx_chdkz_army_grenadier_akm_pallad_mix","gmx_chdkz_army_antitank_akm_rpg7_mix","gmx_chdkz_army_antitank_akm_rpg7_mix"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],
+	0.4]
+];
+_arr append [
+	// gm_ge_army_supply_team_01
+	[[[["gmx_chdkz_ural4320_repair_wdl","gmx_chdkz_ural375d_refuel_wdl","gmx_chdkz_ural4320_reammo_wdl"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05],
+	[[[["gmx_chdkz_ural375d_medic_wdr"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
+];
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		[[[["gmx_chdkz_2p16_wdr"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
+		[[[["gmx_chdkz_2s1_wdr","gmx_chdkz_2s1_wdr"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.1],
+		[[[["gmx_chdkz_ural375d_mlrs_wdr","gmx_chdkz_ural375d_mlrs_wdr"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1]
+	];
+};
+[_groups_map, east, "gmx_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [160,999],
+	["CUP_O_ChDKZ"]
+] call gosa_fnc_map_groups_add;
+
+// gmx_tak_army
+_arr = [
+	// gmx_tak_army_motorizedinfantly_squad_ural4320_cargo
+	[[[["gmx_tak_army_ural4320_cargo_des","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_machinegunner_pkm_oli","gmx_tak_army_machinegunner_assistant_g3a3_pkm_oli","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_antitank_g3a3_rpg7_oli","gmx_tak_army_antitank_assistant_g3a3_rpg7_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_rifleman_g3a3_oli"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.4],
+	// gmx_tak_army_motorizedinfantly_squad_bmp1sp2
+	[[[["gmx_tak_army_bmp1sp2_des","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_machinegunner_pkm_oli","gmx_tak_army_machinegunner_assistant_g3a3_pkm_oli","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_antitank_g3a3_rpg7_oli","gmx_tak_army_antitank_assistant_g3a3_rpg7_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_rifleman_g3a3_oli"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.5],
+	// gmx_tak_army_motorizedinfantly_squad_m113a1g
+	[[[["gmx_tak_army_m113a1g_apc_des","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_machinegunner_pkm_oli","gmx_tak_army_machinegunner_assistant_g3a3_pkm_oli","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_antitank_g3a3_rpg7_oli","gmx_tak_army_antitank_assistant_g3a3_rpg7_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_rifleman_g3a3_oli"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.4],
+	// gmx_tak_army_motorizedinfantly_squad_btr60pb
+	[[[["gmx_tak_army_btr60pb_des","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_machinegunner_pkm_oli","gmx_tak_army_machinegunner_assistant_g3a3_pkm_oli","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_antitank_g3a3_rpg7_oli","gmx_tak_army_antitank_assistant_g3a3_rpg7_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_rifleman_g3a3_oli"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.3],
+	// gmx_tak_army_motorizedinfantly_squad_ot64a
+	[[[["gmx_tak_army_ot64a_des","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_machinegunner_pkm_oli","gmx_tak_army_machinegunner_assistant_g3a3_pkm_oli","gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_antitank_g3a3_rpg7_oli","gmx_tak_army_antitank_assistant_g3a3_rpg7_oli","gmx_tak_army_rifleman_g3a3_oli","gmx_tak_army_rifleman_g3a3_oli"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.3],
+	// gm_platoon_gmx_tak_army_pt76b_des
+	[[[["gmx_tak_army_pt76b_des","gmx_tak_army_pt76b_des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],
+	0.1],
+	// gm_platoon_gmx_tak_army_t55a_des
+	[[[["gmx_tak_army_t55a_des","gmx_tak_army_t55a_des","gmx_tak_army_t55a_des"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],
+	0.3],
+	// gm_platoon_gmx_tak_army_t55am2b_des
+	[[[["gmx_tak_army_t55am2b_des","gmx_tak_army_t55am2b_des","gmx_tak_army_t55am2b_des"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],
+	0.3],
+	// gm_platoon_gmx_tak_army_btr60pu12_des_gmx_tak_army_zsu234v1_des
+	[[[["gmx_tak_army_btr60pu12_des","gmx_tak_army_zsu234v1_des","gmx_tak_army_zsu234v1_des","gmx_tak_army_zsu234v1_des","gmx_tak_army_zsu234v1_des"],[[0,0,0],[10,-10,0],[-10,-10,0],[-10,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],
+	0.05],
+	// gm_platoon_gmx_tak_army_zsu234v1_des
+	[[[["gmx_tak_army_zsu234v1_des","gmx_tak_army_zsu234v1_des"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],
+	0.1],
+	// gm_platoon_gmx_tak_army_brdm2_des
+	[[[["gmx_tak_army_brdm2_des","gmx_tak_army_brdm2_des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],
+	0.1],
+	// gmx_tak_army_infantry_squad_oli
+	[[[["gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_machinegunner_pkm_oli","gmx_tak_army_machinegunner_assistant_g3a3_pkm_oli","gmx_tak_army_antitank_g3a3_rpg7_oli","gmx_tak_army_antitank_assistant_g3a3_rpg7_oli","gmx_tak_army_medic_g3a3_oli","gmx_tak_army_machinegunner_rpk_oli","gmx_tak_army_machinegunner_rpk_oli"],[[0,0,0],[5,-5,0],[10,-10,0],[-10,-10,0],[-15,-15,0],[-20,-20,0],[15,-15,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.9],
+	// gmx_tak_army_infantry_mggroup_oli
+	[[[["gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_machinegunner_pkm_oli","gmx_tak_army_machinegunner_assistant_g3a3_pkm_oli"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],
+	0.2],
+	// gmx_tak_army_infantry_atgroup_oli
+	[[[["gmx_tak_army_squadleader_g3a3_p2a1_oli","gmx_tak_army_antitank_g3a3_pzf84_oli","gmx_tak_army_antitank_assistant_g3a3_pzf84_oli"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],
+	0.4]
+];
+_arr append [
+	// gm_ge_army_supply_team_01
+	[[[["gmx_tak_army_ural4320_repair_des","gmx_tak_army_ural375d_refuel_des","gmx_tak_army_ural4320_reammo_des"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.5],
+	[[[["gmx_tak_army_ural375d_medic"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
+];
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		[[[["gmx_tak_army_2p16_des"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
+		[[[["gmx_tak_army_2s1_des","gmx_tak_army_2s1_des"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.1],
+		[[[["gmx_tak_army_ural375d_mlrs","gmx_tak_army_ural375d_mlrs"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1],
+		[[[["gmx_tak_army_m109g_des","gmx_tak_army_m109g_des"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1]
+	];
+};
+[_groups_map, east, "gmx_tak_army", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [160,999],
+	["CUP_O_TK"]
+] call gosa_fnc_map_groups_add;
+
 
 // west
 _arr = [
@@ -530,6 +661,73 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 [_groups_map, west, "gm_dk_army", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [-999,159],
 []
+] call gosa_fnc_map_groups_add;
+
+// gmx_cdf
+_arr = [
+	// gmx_cdf_squad_ural4320_cargo_wdl
+	[[[["gmx_cdf_ural4320_cargo_wdl","gmx_cdf_army_squadleader_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_machinegunner_pk_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_squadleader_ak74_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.4],
+	// gmx_cdf_squad_bmp1sp2_wdl
+	[[[["gmx_cdf_bmp1sp2_wdl","gmx_cdf_army_radioman_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_machinegunner_pk_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_radioman_ak74_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.9],
+	// gmx_cdf_squad_btr60pb_wdl
+	[[[["gmx_cdf_btr60pb_wdl","gmx_cdf_army_squadleader_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_machinegunner_pk_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_squadleader_ak74_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.3],
+	// gmx_cdf_squad_btr60pa_wdl
+	[[[["gmx_cdf_btr60pa_wdl","gmx_cdf_army_squadleader_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_machinegunner_pk_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_squadleader_ak74_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.3],
+	// gmx_cdf_squad_btr60pa_dshkm_wdl
+	[[[["gmx_cdf_btr60pa_dshkm_wdl","gmx_cdf_army_squadleader_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_machinegunner_pk_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_squadleader_ak74_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_rifleman_ak74_ttsko"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.3],
+	// gmx_cdf_platoon_gmx_cdf_pt76b_wdl
+	[[[["gmx_cdf_pt76b_wdl","gmx_cdf_pt76b_wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],
+	0.1],
+	// gmx_cdf_platoon_gmx_cdf_brdm2_wdl
+	[[[["gmx_cdf_brdm2_wdl","gmx_cdf_brdm2_wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],
+	0.1],
+	// gmx_cdf_platoon_uaz469_wdl
+	[[[["gmx_cdf_uaz469_dshkm_wdl","gmx_cdf_uaz469_spg9_wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],
+	0.15],
+	// gmx_cdf_platoon_gmx_cdf_t55a_wdl
+	[[[["gmx_cdf_t55a_wdl","gmx_cdf_t55a_wdl","gmx_cdf_t55a_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],
+	0.3],
+	// gmx_cdf_platoon_gmx_cdf_t55am2b_wdl
+	[[[["gmx_cdf_t55am2b_wdl","gmx_cdf_t55am2b_wdl","gmx_cdf_t55am2b_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],
+	0.3],
+	// gmx_cdf_platoon_gmx_cdf_btr60pu12_wdl_gmx_cdf_zsu234v1_wdl
+	[[[["gmx_cdf_btr60pu12_wdl","gmx_cdf_zsu234v1_wdl","gmx_cdf_zsu234v1_wdl","gmx_cdf_zsu234v1_wdl","gmx_cdf_zsu234v1_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0],[-10,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],
+	0.05],
+	// gmx_cdf_platoon_gmx_cdf_zsu234v1_wdl
+	[[[["gmx_cdf_zsu234v1_wdl","gmx_cdf_zsu234v1_wdl"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],
+	0.1],
+	// gmx_cdf_army_infantry_squad_ttsko
+	[[[["gmx_cdf_army_squadleader_ak74_ttsko","gmx_cdf_army_machinegunner_pk_ttsko","gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_antitank_assistant_ak74_rpg7_ttsko","gmx_cdf_army_medic_ak74_ttsko","gmx_cdf_army_machinegunner_rpk_ttsko","gmx_cdf_army_machinegunner_rpk_ttsko"],[[0,0,0],[5,-5,0],[10,-10,0],[-10,-10,0],[-15,-15,0],[-20,-20,0],[15,-15,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],
+	0.9],
+	// gmx_cdf_army_infantry_mggroup_oli
+	[[[["gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_machinegunner_pk_ttsko","gmx_cdf_army_machinegunner_pk_ttsko"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],
+	0.2],
+	// gmx_cdf_army_infantry_atgroup_oli
+	[[[["gmx_cdf_army_rifleman_ak74_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko","gmx_cdf_army_antitank_ak74_rpg7_ttsko"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],
+	0.4]
+];
+_arr append [
+	// gm_ge_army_supply_team_01
+	[[[["gmx_cdf_ural4320_repair_wdl","gmx_cdf_ural375d_refuel_wdl","gmx_cdf_ural4320_reammo_wdl"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0],
+	[[[["gmx_cdf_ural375d_medic_wdl"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
+];
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+	// gmx_cdf_platoon_2p16_wdl
+	[[[["gmx_cdf_2p16_wdl","gmx_cdf_2p16_wdl"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
+	// gmx_cdf_platoon_2s1_wdl
+	[[[["gmx_cdf_2s1_wdl","gmx_cdf_2s1_wdl","gmx_cdf_2s1_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.1],
+	[[[["gmx_cdf_ural375d_mlrs_wdl","gmx_cdf_ural375d_mlrs_wdl"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.1]
+	];
+};
+[_groups_map, west, "gmx_cdf", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [160,999],
+	["CUP_B_CDF"]
 ] call gosa_fnc_map_groups_add;
 
 
