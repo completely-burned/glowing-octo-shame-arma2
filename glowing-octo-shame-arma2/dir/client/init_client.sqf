@@ -165,14 +165,20 @@ if (isMultiplayer) then {
 	};
 	#endif
 
+	_arr = [];
 	{
 		if (side _x in [sideLogic]) then {
-			diag_log format ["Log: [init_client] not delete switchableUnit %1", _x];
+			_arr set [count _arr, _x];
 		}else{
 			diag_log format ["Log: [init_client] delete switchableUnit %1", _x];
 			deleteVehicle _x;
 		};
 	} forEach switchableUnits - units group player;
+	// Один слот остаётся для совместимости.
+	for "_i" from 0 to (count _arr -2) do {
+		diag_log format ["Log: [init_client] delete switchableUnit %1", _arr select _i];
+		deleteVehicle (_arr select _i);
+	};
 	EnableTeamSwitch true;
 
 	#ifdef __ARMA3__
