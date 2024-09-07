@@ -140,13 +140,23 @@ if (isMultiplayer) then {
 	};
 }else{
 	_players = [player];
-	// TODO: Рандомизация.
+	// TODO: Псевдо рандомизация.
 	if (count _superpowers_rating > 1) then {
+	/*
 		_problem0 set [count _problem0, _sides select (_superpowers_rating select 0)];
 		if (count _superpowers_rating > 2) then {
 			_problem0 set [count _problem0, _sides select (_superpowers_rating select 2)];
 		};
 		_problem1 set [count _problem1, _sides select (_superpowers_rating select 1)];
+	}else{
+	*/
+		_n = floor random count _superpowers_rating;
+		_problem1 set [count _problem1, _sides select (_superpowers_rating select _n)];
+		for "_i" from 0 to (count _superpowers_rating -1) do {
+			if (_i != _n) then {
+				_problem0 set [count _problem0, _sides select (_superpowers_rating select _i)];
+			};
+		};
 	};
 };
 
