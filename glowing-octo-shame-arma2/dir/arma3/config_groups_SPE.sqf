@@ -103,6 +103,16 @@ _arr = [
 	// SPE_GER_Jagdpanther_Section
 	[[[["SPE_Jagdpanther_G1","SPE_Jagdpanther_G1"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25]
 ];
+// FIXME: Поддержка плохо совместима с lambs, потомучто ИИ покидает водительское место.
+_arr append [
+	[[[["SPE_OpelBlitz_Repair","SPE_OpelBlitz_Ammo","SPE_OpelBlitz_Fuel"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05],
+	[[[["SPE_OpelBlitz_Ambulance"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
+];
+_arr append [
+	// TODO: Нужен более осмысленный отряд.
+	[[[["SPE_OpelBlitz_Flak38","SPE_OpelBlitz_Flak38"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.1]
+];
+
 if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	_arr append [
 		// SPE_GER_Nashorn_TD_Platoon
@@ -333,6 +343,17 @@ _arr = [
 	[[[["SPE_P47","SPE_P47","SPE_P47"],[[0,20,0],[-10,-10,0],[-20,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.5]
 ];
 _arr append [
+	[[[["SPE_US_M3_Halftrack_Repair","SPE_US_M3_Halftrack_Ammo","SPE_US_M3_Halftrack_Fuel"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.025],
+	[[[["SPE_CCKW_353_Repair","SPE_CCKW_353_Ammo","SPE_CCKW_353_Fuel"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.025],
+	[[[["SPE_US_M3_Halftrack_Ambulance"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.017],
+	[[[["SPE_CCKW_353_Ambulance"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.017],
+	[[[["SPE_US_G503_MB_Ambulance"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.016]
+];
+_arr append [
+	// TODO: Нужен более осмысленный отряд.
+	[[[["SPE_US_M16_Halftrack","SPE_US_M16_Halftrack"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.1]
+];
+_arr append [
 	// TODO: LCVP
 	[[[["SPE_US_SquadLead",
 		"SPE_US_Assist_SquadLead","SPE_US_AT_Soldier",
@@ -382,6 +403,9 @@ if (isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	[[[["SPE_FFI_Teamleader","SPE_FFI_Militia","SPE_FFI_Militia_No3","SPE_FFI_Militia_M37_Shotgun","SPE_FFI_Militia_Shotgun","SPE_FFI_Militia_No3"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
 	// SPE_FFI_250_Team
 	[[[["SPE_FFI_TeamLeader_Sten","SPE_FFI_SdKfz250_1","SPE_FFI_Fighter_G43","SPE_FFI_Fighter_MP40","SPE_FFI_Sniper"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6]
+];
+_arr append [
+	[[[["SPE_FFI_OpelBlitz_Ambulance"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
 [_groups_map, resistance, "SPE_FFI", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1900,1950], [160,999],
