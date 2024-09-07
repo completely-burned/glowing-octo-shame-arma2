@@ -722,8 +722,42 @@ _arr = [
 	// configName gm_platoon_gm_dk_army_Leopard1a3_wdl
 	[[[["gm_dk_army_Leopard1a3_wdl","gm_dk_army_Leopard1a3_wdl","gm_dk_army_Leopard1a3_wdl","gm_dk_army_Leopard1a3_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
 	// configName gm_dk_army_mechanizedInfantry_squad_m113a1dk_80
-	[[[["gm_dk_army_m113a1dk_apc_wdl","gm_dk_army_squadleader_g3a3_p2a1_84_m84","gm_dk_army_machinegunner_mg3_84_m84","gm_dk_army_machinegunner_assistant_g3a3_mg3_84_m84","gm_dk_army_antitank_g3a3_pzf84_84_m84","gm_dk_army_machinegunner_mg3_84_m84","gm_dk_army_antitank_assistant_g3a3_pzf84_84_m84","gm_dk_army_rifleman_g3a3_84_m84","gm_dk_army_rifleman_g3a3_84_m84"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[],1]],0.5],
+	[[[["gm_dk_army_m113a1dk_apc_wdl","gm_dk_army_squadleader_g3a3_p2a1_84_m84","gm_dk_army_machinegunner_mg3_84_m84","gm_dk_army_machinegunner_assistant_g3a3_mg3_84_m84","gm_dk_army_antitank_g3a3_pzf84_84_m84","gm_dk_army_machinegunner_mg3_84_m84","gm_dk_army_antitank_assistant_g3a3_pzf84_84_m84","gm_dk_army_rifleman_g3a3_84_m84","gm_dk_army_rifleman_g3a3_84_m84"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[],1]],0.5]
+];
+[_groups_map, west, "gm_dk_army", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [160,249],
+	[]
+] call gosa_fnc_map_groups_add;
 
+_arr = [
+	// configName gm_dk_army_mechanizedInfantry_squad_m113a1dk_90
+	[[[["gm_dk_army_m113a1dk_apc_des","gm_dk_army_squadleader_gvm95_p2a1_90_m84","gm_dk_army_machinegunner_mg3_90_m84","gm_dk_army_machinegunner_assistant_gvm95_mg3_90_m84","gm_dk_army_antitank_gvm95_pzf84_90_m84","gm_dk_army_machinegunner_mg3_90_m84","gm_dk_army_antitank_assistant_gvm95_pzf84_90_m84","gm_dk_army_rifleman_gvm95_90_m84","gm_dk_army_rifleman_gvm95_90_m84"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[],1]],0.5],
+	// configName gm_section_gm_dk_army_m113a2dk_wdl
+	[[[["gm_dk_army_m113a2dk_des","gm_dk_army_m113a2dk_des"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.1],
+	// configName gm_dk_army_motorizedInfantry_squad_u1300l_80
+	[[[["gm_dk_army_u1300l_container_des","gm_dk_army_squadleader_g3a3_p2a1_84_m84","gm_dk_army_rifleman_g3a3_84_m84","gm_dk_army_machinegunner_mg3_84_m84","gm_dk_army_machinegunner_assistant_g3a3_mg3_84_m84","gm_dk_army_squadleader_g3a3_p2a1_84_m84","gm_dk_army_antitank_g3a3_pzf84_84_m84","gm_dk_army_antitank_assistant_g3a3_pzf84_84_m84","gm_dk_army_rifleman_g3a3_84_m84","gm_dk_army_rifleman_g3a3_84_m84"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"],[],1]],0.2],
+	// configName gm_dk_army_motorizedInfantry_squad_u1300l_90
+	[[[["gm_dk_army_u1300l_container_des","gm_dk_army_squadleader_gvm95_p2a1_90_m84","gm_dk_army_rifleman_gvm95_90_m84","gm_dk_army_machinegunner_mg3_90_m84","gm_dk_army_machinegunner_assistant_gvm95_mg3_90_m84","gm_dk_army_squadleader_gvm95_p2a1_90_m84","gm_dk_army_antitank_gvm95_pzf84_90_m84","gm_dk_army_antitank_assistant_gvm95_pzf84_90_m84","gm_dk_army_rifleman_gvm95_90_m84","gm_dk_army_rifleman_gvm95_90_m84"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"],[],1]],0.2],
+	// configName gm_platoon_gm_dk_army_Leopard1a3_wdl
+	[[[["gm_dk_army_Leopard1a3_des","gm_dk_army_Leopard1a3_des","gm_dk_army_Leopard1a3_des","gm_dk_army_Leopard1a3_des"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
+	// configName gm_dk_army_mechanizedInfantry_squad_m113a1dk_80
+	[[[["gm_dk_army_m113a1dk_apc_des","gm_dk_army_squadleader_g3a3_p2a1_84_m84","gm_dk_army_machinegunner_mg3_84_m84","gm_dk_army_machinegunner_assistant_g3a3_mg3_84_m84","gm_dk_army_antitank_g3a3_pzf84_84_m84","gm_dk_army_machinegunner_mg3_84_m84","gm_dk_army_antitank_assistant_g3a3_pzf84_84_m84","gm_dk_army_rifleman_g3a3_84_m84","gm_dk_army_rifleman_g3a3_84_m84"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"],[],1]],0.5]
+];
+_arr append [
+	[[[["gm_dk_army_m113a1dk_medic_des_rc"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
+];
+if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	_arr append [
+		// configName gm_platoon_gm_dk_army_m109_wdl
+		[[[["gm_dk_army_m109_des","gm_dk_army_m109_des","gm_dk_army_m109_des","gm_dk_army_m109_des"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1]
+	];
+};
+[_groups_map, west, "gm_dk_army", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [250,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
+_arr = [
 	// configName gm_dk_army_infantry_squad_84_m84
 	[[[["gm_dk_army_squadleader_g3a3_p2a1_84_m84","gm_dk_army_machinegunner_mg3_84_m84","gm_dk_army_machinegunner_assistant_g3a3_mg3_84_m84","gm_dk_army_antitank_g3a3_pzf84_84_m84","gm_dk_army_antitank_assistant_g3a3_pzf84_84_m84","gm_dk_army_rifleman_g3a3_84_m84","gm_dk_army_rifleman_g3a3_84_m84","gm_dk_army_rifleman_g3a3_84_m84"],[[0,0,0],[5,-5,0],[10,-10,0],[-5,-5,0],[-10,-10,0],[-15,-15,0],[15,-15,0],[-20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],1],
 	// configName gm_dk_army_infantry_mggroup_84_m84
