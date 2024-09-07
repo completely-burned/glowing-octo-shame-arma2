@@ -370,7 +370,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	];
 };
 [_groups_map, east, "gmx_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160,999],
+	[1960,1990], [160,249],
 	["CUP_O_ChDKZ"]
 ] call gosa_fnc_map_groups_add;
 
@@ -906,7 +906,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	];
 };
 [_groups_map, west, "gmx_cdf", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160,999],
+	[1960,1990], [160,249],
 	["CUP_B_CDF"]
 ] call gosa_fnc_map_groups_add;
 
