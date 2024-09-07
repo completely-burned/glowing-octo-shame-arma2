@@ -44,5 +44,5 @@ for "_i" from 0 to (count _arr -1) do {
 	};
 };
 
-diag_log format ["Log: [fnc_filtering_squads_byAvail_v2] count _this %1, count _r %2", count _this, count _r];
+//diag_log format ["Log: [fnc_filtering_squads_byAvail_v2] count _this %1, count _r %2", count _this, count _r];
 _r;
