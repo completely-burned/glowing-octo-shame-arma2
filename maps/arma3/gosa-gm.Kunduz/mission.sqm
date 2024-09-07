@@ -2739,8 +2739,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3383.5645,11.015184,2419.6184};
-				angles[]={0,0.41887903,0};
+				position[]={3383.7,11.1,2419};
 			};
 			side="Empty";
 			flags=4;
@@ -2749,15 +2748,13 @@ class Mission
 			};
 			id=274;
 			type="gm_ge_army_ammobox_smallarms_80";
-			atlOffset=0.039999962;
 		};
 		class Item75
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3384.5869,11.02558,2421.0972};
-				angles[]={0,5.1836276,0};
+				position[]={3384.5,11.1,2421};
 			};
 			side="Empty";
 			flags=4;
@@ -2766,7 +2763,6 @@ class Mission
 			};
 			id=275;
 			type="gm_ge_army_ammobox_allmagazines_90";
-			atlOffset=0.069999695;
 		};
 		class Item76
 		{
