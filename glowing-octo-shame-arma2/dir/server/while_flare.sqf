@@ -22,9 +22,7 @@ private [ "_flare_dist","_players","_player","_types_flare",
 	"gm_shell_artillery_Illum_Base",
 	"gm_flareBullet_base"
 ];
-_blacklist = [
-	"US85_FlareBase"
-];
+_blacklist = gosa_flare_blacklist;
 
 _arr = [];
 
@@ -65,7 +63,7 @@ while {sleep 15 + random 15; true} do {
 				//- Запуск ракеты.
 				_arr = _player nearEntities [["Man"], _flare_dist];
 				_arr = _arr - units _player;
-				[_arr] call gosa_fnc_unitFlareFire;
+				[_arr, _blacklist] call gosa_fnc_unitFlareFire;
 			};
 		};
 	// Слишком долгая пауза плохо сказывается при отладке с ускоренным временем.

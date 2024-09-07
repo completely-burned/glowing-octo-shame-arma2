@@ -459,6 +459,11 @@ gosa_posDefaultHidenRandom = 1000;
 
 gosa_server_diag_fps_interval = 600;
 
+// Эти осветительные ракеты не излучают свет.
+gosa_flare_blacklist = [
+	"US85_FlareBase"
+];
+
 _arr = [
 	"RU_Commander","RU_Soldier_Officer",
 	"Ins_Commander","TK_INS_Warlord_EP1",

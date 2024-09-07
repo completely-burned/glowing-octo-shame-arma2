@@ -9,11 +9,15 @@
  * TODO: Рандомизация.
  */
 
+#ifdef __ARMA3__
+	#define == isEqualTo
+#endif
+
 diag_log format["Log: [fnc_unitFlareFire] %1", _this];
 
 private["_cfgWea","_cfgAmm","_magazines","_weapons","_mag",
 	"_target","_grp","_muzzle","_muzzles","_iW_to","_n",
-	"_arr0",
+	"_arr0","_blacklist",
 	"_u_mags","_obj","_height","_windX","_windZ","_velocity",
 	"_units","_u","_w","_arr","_ammo","_m","_item","_str"];
 
@@ -21,6 +25,11 @@ _cfgWea = LIB_cfgWea;
 _cfgAmm = LIB_cfgAmm;
 
 _units = _this select 0;
+if (count _this > 1) then {
+	_blacklist = _this select 1;
+}else{
+	_blacklist = [];
+};
 
 _target = objNull;
 _grp = grpNull;
@@ -71,62 +80,57 @@ for "_iW" from 0 to _iW_to do {
 							if (count _arr > 0) then {
 								_ammo = _arr select 0;
 							};
-							_str = toLower getText (_cfgAmm >> _ammo >> "simulation");
-
-							if (_str == "shotilluminating") then {
-								if (true) then {
-									// TODO: Звук запуска ракеты.
-									#ifdef __ARMA3__
-										_arr = ([_u, 50 + random 100, getDir _u -45 +random 90] call BIS_fnc_relPos);
-										_height = (100 + random 50);
-									#else
-										_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
-										_height = (140 + random 20);
-									#endif
-									_arr set [2, _height];
-									_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
-									/*
-									#ifdef __ARMA3__
-										// Без этого ракета замирает на месте.
-										_obj setVelocity [0, 0, -0.00000001];
-									#endif
-									*/
-									_obj setVelocity _velocity;
-									diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _ammo, _mag, _obj, _arr]];
-								}else{
-								_u_mags = magazines _u;
-								_n = ({toLower _x == _mag} count _u_mags);
-								#ifdef __ARMA3__
-									if (_n <= 0) then {_u addMagazineGlobal _mag};
-									_u selectWeapon _w;
-									_arr = ([_u, 30, getDir _u] call BIS_fnc_relPos);
-									_arr set [2, 30];
-									_u doWatch _arr;
-									/*
-										if (isNull _target) then {
-											_target = "B_TargetSoldier" createVehicleLocal _arr;
-											//_target = _grp createUnit ["B_TargetSoldier", _arr, [], 0, "CAN_COLLIDE"];
-										};
-										_target setPos _arr;
-									*/
-									sleep 3;
-									diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _w, _mag, _target, _arr]];
-									//_u fireAtTarget [_target, _w];
-									[_u, _w] call BIS_fnc_fire;
-									//deleteVehicle _target;
-									_u doWatch objNull;
-									sleep 1;
-									if (({toLower _x == _mag} count magazines _u) > _n) then {_u removeMagazineGlobal _mag};
-								#else
-									_u addMagazine _mag;
-									if (_n <= 0) then {_u addMagazine _mag};
-									diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _w, _mag]];
-									_u fire [_muzzle, _muzzle, _mag];
-									sleep 1;
-									if (({toLower _x == _mag} count magazines _u) > _n) then {_u removeMagazine _mag};
-								#endif
+							if ({_ammo isKindOf _x} count _blacklist <= 0) then {
+								_str = toLower getText (_cfgAmm >> _ammo >> "simulation");
+								if (_str == "shotilluminating") then {
+									if (true) then {
+										// TODO: Звук запуска ракеты.
+										#ifdef __ARMA3__
+											_arr = ([_u, 50 + random 100, getDir _u -45 +random 90] call BIS_fnc_relPos);
+											_height = (100 + random 50);
+										#else
+											_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
+											_height = (140 + random 20);
+										#endif
+										_arr set [2, _height];
+										_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
+										_obj setVelocity _velocity;
+										diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _ammo, _mag, _obj, _arr]];
+									}else{
+										_u_mags = magazines _u;
+										_n = ({toLower _x == _mag} count _u_mags);
+										#ifdef __ARMA3__
+											if (_n <= 0) then {_u addMagazineGlobal _mag};
+											_u selectWeapon _w;
+											_arr = ([_u, 30, getDir _u] call BIS_fnc_relPos);
+											_arr set [2, 30];
+											_u doWatch _arr;
+											/*
+												if (isNull _target) then {
+													_target = "B_TargetSoldier" createVehicleLocal _arr;
+													//_target = _grp createUnit ["B_TargetSoldier", _arr, [], 0, "CAN_COLLIDE"];
+												};
+												_target setPos _arr;
+											*/
+											sleep 3;
+											diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _w, _mag, _target, _arr]];
+											//_u fireAtTarget [_target, _w];
+											[_u, _w] call BIS_fnc_fire;
+											//deleteVehicle _target;
+											_u doWatch objNull;
+											sleep 1;
+											if (({toLower _x == _mag} count magazines _u) > _n) then {_u removeMagazineGlobal _mag};
+										#else
+											_u addMagazine _mag;
+											if (_n <= 0) then {_u addMagazine _mag};
+											diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _w, _mag]];
+											_u fire [_muzzle, _muzzle, _mag];
+											sleep 1;
+											if (({toLower _x == _mag} count magazines _u) > _n) then {_u removeMagazine _mag};
+										#endif
+									};
+									breakTo "scope1";
 								};
-								breakTo "scope1";
 							};
 						};
 					};
