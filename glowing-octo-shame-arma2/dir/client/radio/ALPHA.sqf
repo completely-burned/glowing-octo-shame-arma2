@@ -13,6 +13,11 @@ cameraon commandFollow leader cameraon;
 
 cameraon disableAI "LIGHTS";
 cameraon setPilotLight true;
+cameraon enableGunLights "ForceOn";
+
+{
+	_x enableGunLights "ForceOn";
+} forEach allGroups;
 
 [cameraOn] allowGetIn true;
 [cameraOn] orderGetIn true;
