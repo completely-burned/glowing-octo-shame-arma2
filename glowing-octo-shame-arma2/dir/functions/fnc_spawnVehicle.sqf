@@ -95,6 +95,9 @@ _crew = [_veh,
 	] call gosa_fnc_spawnCrew;
 #ifdef __ARMA3__
 	};
+	for "_i" from 0 to (count _crew -1) do {
+		_crew select _i commandFollow (_crew select _i);
+	};
 #endif
 
 [_veh, _crew, _grp];
