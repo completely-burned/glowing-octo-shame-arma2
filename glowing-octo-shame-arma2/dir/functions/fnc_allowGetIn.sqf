@@ -223,7 +223,6 @@ if (isNil "lambs_danger_fnc_brainVehicle") then {
 		#ifdef __ARMA3__
 			// a3 тс не останавливается само если у других есть приказ выйти.
 			// Находим тс и останавливаем их.
-			// TODO: Некоторые тс не восстанавливают движение.
 			_tmpNum = count _out;
 			if (_tmpNum > 0) then {
 				_vehicles = [];
@@ -234,7 +233,10 @@ if (isNil "lambs_danger_fnc_brainVehicle") then {
 						_vehicles set [count _vehicles, _tmpObj];
 					};
 				};
-				_vehicles doFollow _leader;
+				// FIXME: Некоторые ТС не восстанавливают движение.
+				for "_i" from 0 to (count _vehicles -1) do {
+					_vehicles select _i commandFollow (_vehicles select _i);
+				};
 			};
 		#endif
 
