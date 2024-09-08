@@ -17,7 +17,7 @@ diag_log format["Log: [fnc_unitFlareFire] %1", _this];
 
 private["_cfgWea","_cfgAmm","_magazines","_weapons","_mag",
 	"_target","_grp","_muzzle","_muzzles","_iW_to","_n",
-	"_arr0","_blacklist",
+	"_arr0","_blacklist","_flare_failover",
 	"_u_mags","_obj","_height","_windX","_windZ","_velocity",
 	"_units","_u","_w","_arr","_ammo","_m","_item","_str"];
 
@@ -29,6 +29,15 @@ if (count _this > 1) then {
 	_blacklist = _this select 1;
 }else{
 	_blacklist = [];
+};
+if (count _this > 2) then {
+	_flare_failover = _this select 2;
+}else{
+	if (isNil "gosa_flare") then {
+		_flare_failover = [];
+	}else{
+		_flare_failover = gosa_flare;
+	};
 };
 
 _target = objNull;
@@ -161,13 +170,14 @@ if (isNil "_obj") then {
 	};
 
 	if !(isNull _u) then {
-		// TODO: Случайность.
 		// TODO: Учитывать яркость свечения.
-		_arr0 = ["SPE_40mm_White","gm_flare_illum_wht","ACE_40mm_Flare_white","F_40mm_White"];
-			for "_i" from 0 to (count _arr0 -1) do {
-				_ammo = _arr0 select _i;
-				if (configName(_cfgAmm >> _ammo) != "") then {
-					if (_ammo in ["gm_shell_122x447mm_illum_s463","gm_shell_155mm_illum_m485","gm_rocket_84x245mm_ILLUM_DM16","gm_flare_illum_wht"]) then {
+		_ammo = _flare_failover call BIS_fnc_selectRandom;
+					// Pick a random altitude between 100 and 150m
+					_arr set [2, 100 + random 50];
+					_arr set [0, (_arr select 0) -250 +random 500];
+					_arr set [1, (_arr select 1) -250 +random 500];
+
+					if (_ammo in ["gm_shell_122x447mm_illum_s463","gm_shell_155mm_illum_m485","gm_rocket_84x245mm_illum_dm16","gm_flare_illum_wht"]) then {
 						// Светят очень ярко.
 						if (random 10 >= 1) then {
 							breakTo "scope1";
@@ -176,10 +186,13 @@ if (isNil "_obj") then {
 						_arr set [0, (_arr select 0) -500 +random 1000];
 						_arr set [1, (_arr select 1) -500 +random 1000];
 					};
-			// Pick a random altitude between 100 and 150m
-			_arr set [2, 100 + random 50];
-			_arr set [0, (_arr select 0) -250 +random 500];
-			_arr set [1, (_arr select 1) -250 +random 500];
+					// Очень маленькие, для личного использования, не должны находиться далеко от юнитов.
+					if (_ammo in ["vn_22mm_lume_ammo"]) then {
+						_arr set [2, 50 + random 25];
+						_arr set [0, (_arr select 0) -50 + random 25];
+						_arr set [1, (_arr select 1) -50 + random 25];
+					};
+					
 			/*
 			private _sound = "SN_Flare_Fired_4";
 			private _soundSourceClass = "SoundFlareLoop_F";
@@ -204,8 +217,6 @@ if (isNil "_obj") then {
 			_trigger setVariable [QUOTE(PARAM_NAME(soundSource)), _soundSource];
 			_trigger setVariable [QUOTE(PARAM_NAME(projectile)), _projectile];
 			*/
-			};
-		};
 	};
 };
 
