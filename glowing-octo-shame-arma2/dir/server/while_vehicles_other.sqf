@@ -3,7 +3,8 @@
 	TODO: много лишнего кода
 */
 
-private ["_countMHQ","_count_transportammo","_count_transportrepair","_count_transportfuel","_timeNew","_timerDelete","_shop"];
+private ["_countMHQ","_count_transportammo","_count_transportrepair","_count_transportfuel","_timeNew","_timerDelete","_shop",
+	"_delete","_time","_veh","_type"];
 
 if (missionNamespace getVariable "gosa_shop" == 1) then {
 	_shop = true;
@@ -17,7 +18,6 @@ while{true}do{
 _countMHQ = 0;
 _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 {
-	Private["_delete","_time","_veh","_type"];
 	_delete = false;
 	_veh=_x;
 	_type = typeOf _veh;
