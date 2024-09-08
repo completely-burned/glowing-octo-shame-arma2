@@ -1,6 +1,7 @@
 if (true) exitWith {};
 
 cameraon commandFollow leader cameraon;
+cameraon commandFollow cameraon;
 
 {
 	deleteVehicle vehicle _x;
@@ -40,6 +41,12 @@ tmp_veh = vehicle cameraOn;
 tmp_speed = 15;
 tmp_azi = getdir tmp_veh;
 tmp_veh setVelocity [tmp_speed * (sin tmp_azi), tmp_speed * (cos tmp_azi), 5];
+
+tmp_veh = vehicle cameraOn;
+tmp_arr = tmp_veh nearRoads 150;
+if (count tmp_arr > 0) then {
+	tmp_veh commandMove getPos (tmp_arr call BIS_fnc_selectRandom);
+};
 
 {
 	deleteVehicle vehicle _x;
