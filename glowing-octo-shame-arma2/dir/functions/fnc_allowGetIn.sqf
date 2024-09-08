@@ -9,7 +9,7 @@ if (isNil "lambs_danger_fnc_brainVehicle") then {
 
 	private["_out","_allow","_veh","_ng","_ng_l","_u","_z","_role","_type",
 		"_units","_leader","_arr","_b","_var","_Getin","_role_cargo",
-		"_vehicles","_tmpNum","_item","_tmpObj"];
+		"_vehicles","_tmpNum","_item","_tmpObj","_arr0"];
 
 	_units = _this select 0;
 	_leader = _this select 1;
@@ -173,7 +173,14 @@ if (isNil "lambs_danger_fnc_brainVehicle") then {
 							}else{
 								_allow=true;
 							};
-							diag_log format ["Log: [fnc_allowGetIn] %1, SUPPORT, %2, %3", [_u,_veh,_role], _allow, currentCommand (_this select 1)];
+							diag_log format ["Log: [fnc_allowGetIn] %1, waypointType SUPPORT, %2, %3", [_u,_veh,_role], _allow, currentCommand (_this select 1)];
+						};
+						if !(_allow) then {
+							_arr0 = [_veh] call gosa_fnc_getGroupType;
+							if ("SUPPORT" in _arr0) then {
+								_allow = true;
+								diag_log format ["Log: [fnc_allowGetIn] %1, _veh type, %2, %3", [_u,_veh,_role], _allow, _arr0];
+							};
 						};
 
 					// неподвижное
