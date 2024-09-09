@@ -15,6 +15,7 @@ cameraon commandFollow cameraon;
 cameraon disableAI "LIGHTS";
 cameraon setPilotLight true;
 cameraon enableGunLights "ForceOn";
+{_x action ["SearchLightOn", cameraon]} forEach crew cameraon;
 
 {
 	_x enableGunLights "ForceOn";
@@ -23,7 +24,11 @@ cameraon enableGunLights "ForceOn";
 [cameraOn] allowGetIn true;
 [cameraOn] orderGetIn true;
 
-//commander cameraon action ["TurnOut", cameraon];
+commander cameraon action ["TurnOut", cameraon];
+
+{
+	_x action ["TurnOut", cameraon];
+} forEach (crew cameraon - [driver cameraon]);
 
 setAccTime 1;
 
