@@ -18,11 +18,14 @@ _i = (_this select 1);
 _arr = (gosa_Groups_common select _i);
 _arr0 = [_arr];
 _arr1 = [count (_arr select 1)];
+if !(isNil "gosa_Groups_Night") then {
 if ([daytime - 1] call gosa_fnc_isNight) then {
+		// TODO: нужна функция обединяющая Groups_common_Night_Patrol_SUPPORT_Other.
 	_arr = (gosa_Groups_Night select _i);
 	if !(isNil "_arr") then {
 		_arr0 set [count _arr0, _arr];
 		_arr1 set [count _arr1, count (_arr select 1)];
+	};
 	};
 };
 _arr = ([_arr0, _arr1] call gosa_fnc_selectRandomWeighted);

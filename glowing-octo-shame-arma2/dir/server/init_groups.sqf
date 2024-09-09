@@ -207,10 +207,19 @@ if(toLower worldName == "woodland_acr")then{
 	};
 #endif
 
-publicVariable "AllGroupsWest";
-publicVariable "AllGroupsEast";
-publicVariable "AllGroupsGuer";
-publicVariable "gosa_Groups_common";
+_arr = [
+	"gosa_Groups_Night",
+	"AllGroupsEast",
+	"AllGroupsWest",
+	"AllGroupsGuer",
+	"gosa_Groups_common"
+];
+for "_i" from 0 to (count _arr -1) do {
+	if !(isNil (_arr select _i)) then {
+		publicVariable (_arr select _i);
+	};
+};
+
 GroupsStarted=true;
 publicVariable "GroupsStarted";
 
