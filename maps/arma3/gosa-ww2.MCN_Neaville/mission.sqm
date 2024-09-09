@@ -184,7 +184,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa MCN_Neaville Multi v0.0.5.957 DEBUG";
+		briefingName="WW2 CO 00 gosa MCN_Neaville Multi v0.0.5.958 DEBUG";
 		startWeather=0.05;
 		startWind=0.1;
 		startWaves=0.1;

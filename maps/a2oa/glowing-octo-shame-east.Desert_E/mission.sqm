@@ -20,7 +20,7 @@ class Mission
 	randomSeed=15354207;
 	class Intel
 	{
-		briefingName="CO 00 gosa Desert_E east v0.0.5.957 DEBUG";
+		briefingName="CO 00 gosa Desert_E east v0.0.5.958 DEBUG";
 		startWeather=0.3;
 		forecastWeather=0.3;
 		year=2012;
