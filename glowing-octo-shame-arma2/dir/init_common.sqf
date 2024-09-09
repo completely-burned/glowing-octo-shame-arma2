@@ -464,13 +464,31 @@ gosa_server_diag_fps_interval = 600;
 _arr = [
 	"SPE_40mm_White","gm_flare_illum_wht",
 	"vn_22mm_lume_ammo","vn_40mm_m583_flare_w_ammo",
-	"ACE_40mm_Flare_white"
+	"LIB_40mm_White"
 ];
 _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_str = toLower configName (_cfgAmm >> (_arr select _i));
 	if (_str != "") then {
 		_arr0 set [count _arr0, _str];
+	};
+};
+if (count _arr0 <= 0) then {
+	_arr = ["ACE_40mm_Flare_white"];
+	for "_i" from 0 to (count _arr -1) do {
+		_str = toLower configName (_cfgAmm >> (_arr select _i));
+		if (_str != "") then {
+			_arr0 set [count _arr0, _str];
+		};
+	};
+};
+if (count _arr0 <= 0) then {
+	_arr = ["F_40mm_White"];
+	for "_i" from 0 to (count _arr -1) do {
+		_str = toLower configName (_cfgAmm >> (_arr select _i));
+		if (_str != "") then {
+			_arr0 set [count _arr0, _str];
+		};
 	};
 };
 gosa_flare = _arr0;
