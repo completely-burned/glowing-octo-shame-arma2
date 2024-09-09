@@ -26,9 +26,10 @@ if !(isDedicated) then {
 // запускается у всех
 if (local _leader)then{
 	private["_grp","_leaderPos","_currentWP","_wp","_typeWP",
+		"_diag_log",
 		"_units","_vehicles","_types","_cargo","_assignedVehicles",
 		"_arr","_deep","_limit","_limit_old","_speed","_minDeep",
-		"_veh","_assignedVehicle",
+		"_veh","_assignedVehicle","_follow",
 		"_dist_leader","_blacklist","_target","_dist_x","_dist",
 		"_grp_wp_completed","_driver","_slu","_z","_n","_grp_type"
 		];
@@ -107,22 +108,35 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	};
 	#endif
 
-	// лидер двигается ближе к атакующим юнитам
+	// Движение лидера ближе к атакующим юнитам отряда.
 	if (_leader == Vehicle _leader) then {
-
-		private["_follow"];
-
+		_diag_log = "";
 		scopeName "_follow";
 
 		if !(_leader call gosa_fnc_isPlayer) then {
-
-			// лидер двигаться в сторону атакующей техники отряда
+			// Движение лидера в сторону игрока.
 			{
-				if (canMove _x && [_x] call gosa_fnc_unit_isAttacker) then {
-					_follow = _x;
+				if (_x call gosa_fnc_isPlayer) then {
+					_diag_log = "player";
+					_follow = vehicle _x;
 					breakTo "_follow";
 				};
-			} forEach _vehicles;
+			} forEach _units-[_leader];
+
+			_arr = waypointPosition _wp;
+			if !(_arr call gosa_fnc_isZeroPos) then {
+				// Движение лидера в сторону атакующей техники отряда.
+				_n = _leaderPos distance _arr;
+				for "_i" from 0 to (count _vehicles -1) do {
+					// ТС может застрять.
+					if (_n > (_vehicles select _i distance _arr)) then {
+						if (canMove (_vehicles select _i) && [_vehicles select _i] call gosa_fnc_unit_isAttacker) then {
+							_diag_log = ["veh attack", _arr];
+							_follow = _vehicles select _i;
+							breakTo "_follow";
+						};
+					};
+				};
 
 			// лидер двигаться в сторону техники отряда
 			/*
@@ -133,11 +147,13 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 				};
 			} forEach _vehicles;
 			*/
+			};
 
 			// лидер двигаться в сторону атакующего юнита отряда
 			{
 				if ([_x] call gosa_fnc_unit_isAttacker && vehicle _x == _x ) then {
 					_follow = _x;
+					_diag_log = "unit attack";
 					breakTo "_follow";
 				};
 			} forEach _units-[_leader];
@@ -152,6 +168,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 				_position1 = GetPos _follow;
 				_position = [((_position Select 0) + (_position1 Select 0)) / 2,((_position Select 1) + (_position1 Select 1)) / 2];
 				// _grp Move _position;
+				diag_log format ["Log: [fnc_group_other] %1 движение к %2, %3", _leader, _follow, _diag_log];
 				_leader doMove _position;
 			};
 		};
@@ -340,7 +357,8 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	*/
 
 	if !(_leader call gosa_fnc_isPlayer) then {
-		private["_SpeedMode","_CombatMode","_Behaviour"];
+		private["_SpeedMode","_CombatMode","_Behaviour",
+			"_countStealth","_Stealth"];
 		_SpeedMode = "NORMAL";
 		_CombatMode = "YELLOW";
 		_Behaviour = "AWARE";
@@ -375,9 +393,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_Behaviour = "COMBAT";
 		};
 
-		private ["_Stealth"];
 		_Stealth = false;
-		private ["_countStealth"];
 		_countStealth = 0;
 		{
 			if (_x in gosa_StealthL) then {
