@@ -17,7 +17,7 @@ diag_log format["Log: [fnc_unitFlareFire] %1", _this];
 
 private["_cfgWea","_cfgAmm","_magazines","_weapons","_mag",
 	"_target","_grp","_muzzle","_muzzles","_iW_to","_n",
-	"_arr0","_blacklist","_flare_failover",
+	"_arr0","_blacklist","_flare_failover","_n0",
 	"_u_mags","_obj","_height","_windX","_windZ","_velocity",
 	"_units","_u","_w","_arr","_ammo","_m","_item","_str"];
 
@@ -172,27 +172,19 @@ if (isNil "_obj") then {
 	if !(isNull _u) then {
 		// TODO: Учитывать яркость свечения.
 		_ammo = _flare_failover call BIS_fnc_selectRandom;
-					// Pick a random altitude between 100 and 150m
-					_arr set [2, 100 + random 50];
-					_arr set [0, (_arr select 0) -250 +random 500];
-					_arr set [1, (_arr select 1) -250 +random 500];
-
+		_n = _ammo call gosa_fnc_flareDist;
 					if (_ammo in ["gm_shell_122x447mm_illum_s463","gm_shell_155mm_illum_m485","gm_rocket_84x245mm_illum_dm16","gm_flare_illum_wht"]) then {
 						// Светят очень ярко.
 						if (random 10 >= 1) then {
 							breakTo "scope1";
 						};
-						_arr set [2, 200 + random 100];
-						_arr set [0, (_arr select 0) -500 +random 1000];
-						_arr set [1, (_arr select 1) -500 +random 1000];
 					};
-					// Очень маленькие, для личного использования, не должны находиться далеко от юнитов.
-					if (_ammo in ["vn_22mm_lume_ammo"]) then {
-						_arr set [2, 50 + random 25];
-						_arr set [0, (_arr select 0) -50 + random 25];
-						_arr set [1, (_arr select 1) -50 + random 25];
-					};
-					
+		_n0 = _n*2;
+		_arr set [0, (_arr select 0) - _n + random _n0];
+		_arr set [1, (_arr select 1) - _n + random _n0];
+
+		_n = _ammo call gosa_fnc_fnc_flareHeight;
+		_arr set [2, _n + random (_n/3)];
 			/*
 			private _sound = "SN_Flare_Fired_4";
 			private _soundSourceClass = "SoundFlareLoop_F";

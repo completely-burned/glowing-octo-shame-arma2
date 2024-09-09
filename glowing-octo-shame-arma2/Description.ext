@@ -1118,7 +1118,6 @@ class CfgFunctions
 		};
 		class Spawning
 		{
-			file = "dir\functions\objects";
 			class vehInit2
 			{
 				file = "dir\functions\fnc_vehInit2.sqf";
@@ -1130,6 +1129,14 @@ class CfgFunctions
 			class SafePosParams_v2
 			{
 				file = "dir\functions\fnc_SafePosParams_v2.sqf";
+			};
+			class fnc_flareDist
+			{
+				file = "dir\functions\fnc_flareDist.sqf";
+			};
+			class fnc_flareHeight
+			{
+				file = "dir\functions\fnc_flareHeight.sqf";
 			};
 		};
 		// Systems or unsorted.
