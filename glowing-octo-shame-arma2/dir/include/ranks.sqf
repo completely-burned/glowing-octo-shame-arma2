@@ -4,6 +4,7 @@
 #define "SERGANT" 2
 #define "LIEUTENANT" 3
 #define "CAPTAIN" 4
+#define "CAPITAN" 4
 #define "MAJOR" 5
 #define "COLONEL" 6
 
@@ -13,6 +14,7 @@
 #define "sergant" 2
 #define "lieutenant" 3
 #define "captain" 4
+#define "capitan" 4
 #define "major" 5
 #define "colonel" 6
 
@@ -22,6 +24,7 @@
 #define "Sergant" 2
 #define "Lieutenant" 3
 #define "Captain" 4
+#define "Capitan" 4
 #define "Major" 5
 #define "Colonel" 6
 
