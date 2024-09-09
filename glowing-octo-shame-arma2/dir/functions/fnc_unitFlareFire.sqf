@@ -171,6 +171,7 @@ if (isNil "_obj") then {
 
 	if !(isNull _u) then {
 		// TODO: Учитывать яркость свечения.
+		if (count _flare_failover > 0) then {
 		_ammo = _flare_failover call BIS_fnc_selectRandom;
 		_n = _ammo call gosa_fnc_flareDist;
 					if (_ammo in ["gm_shell_122x447mm_illum_s463","gm_shell_155mm_illum_m485","gm_rocket_84x245mm_illum_dm16","gm_flare_illum_wht"]) then {
@@ -209,6 +210,7 @@ if (isNil "_obj") then {
 			_trigger setVariable [QUOTE(PARAM_NAME(soundSource)), _soundSource];
 			_trigger setVariable [QUOTE(PARAM_NAME(projectile)), _projectile];
 			*/
+		};
 	};
 };
 
