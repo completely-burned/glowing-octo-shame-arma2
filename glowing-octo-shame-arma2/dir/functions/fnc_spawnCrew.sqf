@@ -269,13 +269,15 @@ if (_LandVehicle) then {
 	};
 
 	// lambs выгружает юнитов которых выгружать не нужно.
-	if !(isNil "lambs_danger_fnc_brainVehicle") then {
-		_arr = ((fullCrew [_vehicle, "turret"] select {_x select 4}) apply {_x select 0});
-		for "_i" from 0 to (count _arr -1) do {
-			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 deleteVehicle %2, %3, lambs turret compat", _vehicle, _arr select _i, assignedVehicleRole (_arr select _i)];
-			deleteVehicle (_arr select _i);
+	#ifdef __ARMA3__
+		if !(isNil "lambs_danger_fnc_brainVehicle") then {
+			_arr = ((fullCrew [_vehicle, "turret"] select {_x select 4}) apply {_x select 0});
+			for "_i" from 0 to (count _arr -1) do {
+				diag_log format ["Log: [fnc_spawnCrew.sqf] %1 deleteVehicle %2, %3, lambs turret compat", _vehicle, _arr select _i, assignedVehicleRole (_arr select _i)];
+				deleteVehicle (_arr select _i);
+			};
 		};
-	};
+	#endif
 }else{
 	// Высокие деревья. В бою авиация не должна опускаться.
 	if (worldName == "FDF_Isle1_a") then {
