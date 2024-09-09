@@ -27,17 +27,16 @@ while {!isNil "gosa_testing"} do {
 			} forEach _arrOff;
 			_b = false;
 		}else{
-			if !(_b) then {
-				_n = _obj distance _veh;
-				if (_n <= 100) then {
-					_b = true;
-				};
+			_b = true;
+			_n = _obj distance _veh;
+			if (_n > 100) then {
+				_b = false;
+			};
 				if (_b) then {
 					{
 						_x action ["SearchLightOn", _veh];
 					} forEach _arrOff;
 				};
-			};
 		};
 
 		if (_b) then {
