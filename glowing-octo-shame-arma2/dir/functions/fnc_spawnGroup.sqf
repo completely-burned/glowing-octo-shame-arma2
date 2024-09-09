@@ -6,6 +6,7 @@
 diag_log format ["Log: [gosa_fnc_spawnGroup] %1", _this];
 private ["_pos","_side","_groups","_vehicles","_roads","_z","_for",
 	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
+	"_relPos","_bestCandidate",
 	"_unit", "_type","_itemPos","_rank","_cfgVeh","_str","_entry","_n"];
 
 _side = _this select 1;
@@ -31,7 +32,6 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 	// Если достигнуто максимальное для движка количество group, то будет grpNull.
 	if !(isNull _grp) then {
 		// Эта переменная проверяется.
-		private ["_bestCandidate"];
 
 		if ((count _x) > 1) then {
 			_positions = _x select 1;
@@ -59,7 +59,6 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 				_entry = (_cfgVeh >> _type);
 
 				if ((count _positions) > 0) then {
-					private ["_relPos"];
 					_relPos = _positions select _i;
 					_itemPos = [
 						(_pos select 0) + (_relPos select 0),
