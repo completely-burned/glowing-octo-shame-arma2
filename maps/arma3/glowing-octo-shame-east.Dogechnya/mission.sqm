@@ -165,7 +165,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa Dogechnya East v0.0.5.955 DEBUG";
+		briefingName="CO 00 gosa Dogechnya East v0.0.5.956 DEBUG";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
