@@ -172,7 +172,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa takistan East v0.0.5.956 DEBUG";
+		briefingName="CO 00 gosa takistan East v0.0.5.957 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.40000001;
 		startWind=0.1;

@@ -282,7 +282,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa Hyde_Sark Multi v0.0.5.956 DEBUG";
+		briefingName="WW2 CO 00 gosa Hyde_Sark Multi v0.0.5.957 DEBUG";
 		startWeather=0.3;
 		startWind=0.1;
 		startWaves=0.1;
