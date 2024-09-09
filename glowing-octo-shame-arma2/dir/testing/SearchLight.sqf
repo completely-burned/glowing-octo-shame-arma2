@@ -29,7 +29,7 @@ while {!isNil "gosa_testing"} do {
 		}else{
 			_b = true;
 			_n = _obj distance _veh;
-			if (_n > 100) then {
+			if (_n > 150) then {
 				_b = false;
 			};
 				if (_b) then {
