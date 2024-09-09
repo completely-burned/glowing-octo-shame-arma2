@@ -350,7 +350,9 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		_currentWaypointType = waypointType _currentWaypoint;
 
 		if ((vehicle _leader distance civilianBasePos) > gosa_locationSize + gosa_locationSize/2) then {
-			_SpeedMode = "FULL";
+			if ({_x call gosa_fnc_isPlayer} count _units <= 0) then {
+				_SpeedMode = "FULL";
+			};
 		};
 
 		// SAFE нужен чтобы ТС ехали по дороге.
