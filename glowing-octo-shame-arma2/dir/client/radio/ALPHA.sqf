@@ -26,6 +26,17 @@ cameraon enableGunLights "ForceOn";
 
 commander cameraon action ["TurnOut", cameraon];
 
+/*
+"LEFT" - turn left, while moving or not
+"RIGHT" - turn right, while moving or not
+Arma 3 logo black.png
+1.78
+ "STOPTURNING" cancel turning (special case, normally would be called by the engine when LEFT or RIGHT turn key is released by the player)
+*/
+cameraOn sendSimpleCommand "LEFT";
+cameraOn sendSimpleCommand "RIGHT";
+cameraOn sendSimpleCommand "STOPTURNING";
+
 {
 	_x action ["TurnOut", cameraon];
 } forEach (crew cameraon - [driver cameraon]);
