@@ -4,7 +4,7 @@
 */
 
 private ["_countMHQ","_count_transportammo","_count_transportrepair","_count_transportfuel","_timeNew","_timerDelete","_shop",
-	"_delete","_time","_veh","_type"];
+	"_delete","_time","_veh","_type","_n","_str","_arr"];
 
 if (missionNamespace getVariable "gosa_shop" == 1) then {
 	_shop = true;
@@ -88,6 +88,22 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 		};
 
 		if (_veh call gosa_fnc_isCrewAlive) then{
+			if (fuel _veh < 0.01) then {
+				if ({_x call gosa_fnc_isPlayer} count crew _veh <= 0) then {
+					_veh setFuel 0.2;
+					diag_log format ["Log: [vehicles_other] %1 refueling", _veh];
+				};
+			};
+			#ifdef __ARMA3__
+				_str = "hitEngine";
+				_n = _veh getHitPointDamage _str;
+				if (_n < 0.1) then {
+					_n = 0.3;
+					_arr = [_str, _n];
+					_veh setHitPointDamage _arr;
+					diag_log format ["Log: [vehicles_other] %1 setHitPointDamage %2", _veh, _arr];
+				};
+			#endif
 			if(isEngineOn _veh && speed _veh == 0 && alive driver _veh)then{
 				_veh engineOn false;
 			};
