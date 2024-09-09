@@ -149,15 +149,19 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			*/
 			};
 
-			// лидер двигаться в сторону атакующего юнита отряда
-			{
-				if ([_x] call gosa_fnc_unit_isAttacker && vehicle _x == _x ) then {
-					_follow = _x;
-					_diag_log = "unit attack";
-					breakTo "_follow";
+			// Движение лидера в сторону атакующего юнита отряда.
+			if (combatMode _grp == "RED") then {
+				_arr = _units-[_leader];
+				for "_i" from 0 to (count _arr -1) do {
+					if (vehicle (_arr select _i) == _arr select _i) then {
+						if ([_arr select _i] call gosa_fnc_unit_isAttacker) then {
+							_follow = _arr select _i;
+							_diag_log = "unit attack";
+							breakTo "_follow";
+						};
+					};
 				};
-			} forEach _units-[_leader];
-
+			};
 		};
 
 		// движение лидера
