@@ -197,7 +197,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa Bootcamp_ACR Multi v0.0.5.954 DEBUG";
+		briefingName="CO 00 gosa Bootcamp_ACR Multi v0.0.5.955 DEBUG";
 		startWeather=0.25;
 		startWind=0.1;
 		startWaves=0.1;
