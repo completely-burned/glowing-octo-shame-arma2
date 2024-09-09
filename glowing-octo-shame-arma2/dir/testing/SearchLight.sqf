@@ -25,6 +25,7 @@ while {!isNil "gosa_testing"} do {
 			{
 				_x action ["SearchLightOff", _veh];
 			} forEach _arrOff;
+			_b = false;
 		}else{
 			if !(_b) then {
 				_n = _obj distance _veh;
