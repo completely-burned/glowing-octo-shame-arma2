@@ -26,6 +26,11 @@ cameraon enableGunLights "ForceOn";
 
 commander cameraon action ["TurnOut", cameraon];
 
+tmp_arr = crew cameraon - [driver cameraon];
+{
+	_x action ["TurnOut", cameraon];
+} forEach tmp_arr;
+
 /*
 "LEFT" - turn left, while moving or not
 "RIGHT" - turn right, while moving or not
