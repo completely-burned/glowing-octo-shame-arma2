@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=145;
+		nextID=159;
 	};
 	class MarkerIDProvider
 	{
@@ -28,13 +28,14 @@ addons[]=
 	"A3_Ui_F",
 	"AFMC",
 	"FIA",
-	"A3_Data_F_Exp_A_Virtual"
+	"A3_Data_F_Exp_A_Virtual",
+	"CSLA_CIV"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=7;
+		items=8;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -80,6 +81,12 @@ class AddonsMetaData
 			name="Arma 3 Nexus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
+		};
+		class Item7
+		{
+			className="CSLA_CIV";
+			name="CSLA_CIV";
+			author="ČSLA Studio";
 		};
 	};
 };
@@ -194,7 +201,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=78;
+		items=79;
 		class Item0
 		{
 			dataType="Logic";
@@ -277,7 +284,6 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						isPlayer=1;
 						isPlayable=1;
 					};
 					id=6;
@@ -2107,6 +2113,101 @@ class Mission
 			isPlayable=1;
 			id=144;
 			type="VirtualSpectator_F";
+		};
+		class Item78
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=5;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3191,27.659103,1587};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=146;
+					type="CSLA_CIV_Woodlander_V2";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3195,27.658461,1582};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=148;
+					type="CSLA_CIV_Citizen_V2";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3186,27.838369,1582};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=150;
+					type="CSLA_CIV_Villager_V2";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3199,27.663054,1577};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=152;
+					type="CSLA_CIV_Worker_V2";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3182,28.044815,1577};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=154;
+					type="CSLA_CIV_Doctor";
+				};
+			};
+			class Attributes
+			{
+				placementRadius=15;
+			};
+			id=145;
 		};
 	};
 	class Connections
