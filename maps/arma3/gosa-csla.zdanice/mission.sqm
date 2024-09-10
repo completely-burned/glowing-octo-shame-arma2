@@ -869,88 +869,86 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3187.1956,31,1538.9656};
-				angles[]={6.2771163,3.6780827,6.2617841};
+				position[]={3187.1001,29.300325,1538.9};
+				angles[]={0,3.5999999,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=51;
 			type="CSLA_ammobox_launchers";
-			atlOffset=1.7013226;
 		};
 		class Item21
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3185.3477,30,1536.2489};
-				angles[]={6.2799468,3.5941751,6.2589645};
+				position[]={3185.3,29.311699,1536.2};
+				angles[]={0,3.5,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=52;
 			type="CSLA_ammobox_ammunition";
-			atlOffset=0.68929672;
 		};
 		class Item22
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3185.0647,30,1539.3258};
-				angles[]={6.2799468,3.7065303,6.2589645};
+				position[]={3185,29.344999,1539.3};
+				angles[]={0,3.7,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=53;
 			type="CSLA_ammobox_firearms";
-			atlOffset=0.6564064;
 		};
 		class Item23
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3183.2422,32,1537.0522};
-				angles[]={6.2799468,5.1553288,6.2651219};
+				position[]={3183.2,29.370068,1537};
+				angles[]={0,5.0999999,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=54;
 			type="CSLA_ammobox_support";
-			atlOffset=2.6305294;
 		};
 		class Item24
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2932.782,11,1051.2644};
-				angles[]={6.2341113,0,0.022756703};
+				position[]={2932.7,10.467937,1051.2};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=55;
 			type="CSLA_ammobox_vehicleAmmo";
-			atlOffset=0.52702904;
 		};
 		class Item25
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2935.6831,11,1059.8099};
-				angles[]={6.2341843,0,0.022405609};
+				position[]={2935.6001,10.955586,1059.8};
 			};
 			side="Empty";
 			flags=4;
@@ -959,15 +957,13 @@ class Mission
 			};
 			id=57;
 			type="CSLA_ammobox_vehicleAmmo";
-			atlOffset=0.042067528;
 		};
 		class Item26
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2936.1216,11,1055.733};
-				angles[]={6.2348337,0,0.021757729};
+				position[]={2936.1001,10.767789,1055.7};
 			};
 			side="Empty";
 			flags=4;
@@ -976,95 +972,88 @@ class Mission
 			};
 			id=58;
 			type="CSLA_ammobox_vehicleAmmo";
-			atlOffset=0.23014832;
 		};
 		class Item27
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2938.9768,11,1051.5386};
-				angles[]={6.2325444,0,0.021754989};
+				position[]={2938.8999,10.617504,1051.5};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=59;
 			type="CSLA_ammobox_vehicleAmmo";
-			atlOffset=0.37886524;
 		};
 		class Item28
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2930.0837,11,1040.0996};
-				angles[]={6.2299094,0,0.021691877};
+				position[]={2930,9.8261061,1040};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=60;
 			type="CSLA_ammobox_vehicleAmmo";
-			atlOffset=1.1667643;
 		};
 		class Item29
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2941.5063,12,1068.9442};
-				angles[]={6.235548,0,0.02180152};
+				position[]={2941.5,11.520636,1068.9};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=61;
 			type="CSLA_ammobox_vehicleAmmo";
-			atlOffset=0.47711849;
 		};
 		class Item30
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2935.1052,12,1067.9408};
-				angles[]={6.2364755,0,0.023004204};
+				position[]={2935.1001,11.326854,1067.9};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=62;
 			type="CSLA_ammobox_vehicleAmmo";
-			atlOffset=0.67112541;
 		};
 		class Item31
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2941.0918,12,1063.3499};
-				angles[]={6.2352076,0,0.020888319};
+				position[]={2941,11.243307,1063.3};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=63;
 			type="CSLA_ammobox_vehicleAmmo";
-			atlOffset=0.75238228;
 		};
 		class Item32
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2926.8879,11,1060.8354};
-				angles[]={6.2370901,0,0.025731789};
+				position[]={2926.8,10.786206,1060.8};
 			};
 			side="Empty";
 			flags=4;
@@ -1073,103 +1062,102 @@ class Mission
 			};
 			id=64;
 			type="CSLA_ammobox_vehicleAmmo";
-			atlOffset=0.20989895;
 		};
 		class Item33
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2949.9739,12,967.13269};
-				angles[]={6.2738442,5.1553288,0.0019834081};
+				position[]={2949.8999,7.5124688,967.09998};
+				angles[]={0,5.0999999,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=65;
 			type="CSLA_ammobox_support";
-			atlOffset=4.4870791;
 		};
 		class Item34
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2950.8079,8,969.13184};
-				angles[]={6.2738442,3.5941751,0.0016194459};
+				position[]={2950.8,7.5165901,969.09998};
+				angles[]={0,3.5,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=66;
 			type="CSLA_ammobox_ammunition";
-			atlOffset=0.48309898;
 		};
 		class Item35
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2764.1882,7,905.81006};
-				angles[]={0.043971907,0.64144564,6.261188};
+				position[]={2764.1001,6.2457266,905.79999};
+				angles[]={0,0.60000002,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=67;
 			type="CSLA_ammobox_support";
-			atlOffset=0.75665045;
 		};
 		class Item36
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2778.3914,7,928.33154};
-				angles[]={6.2751918,0.79723334,0.013995145};
+				position[]={2778.3,5.8470616,928.29999};
+				angles[]={0,0.69999999,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=68;
 			type="CSLA_ammobox_ammunition";
-			atlOffset=1.1514039;
 		};
 		class Item37
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2768.9517,7,911.22559};
-				angles[]={0.039979152,5.4035997,0.0020132356};
+				position[]={2768.8999,5.9953384,911.20001};
+				angles[]={0,5.4000001,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=69;
 			type="CSLA_ammobox_launchers";
-			atlOffset=1.0055833;
 		};
 		class Item38
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2764.7581,7,914.69574};
-				angles[]={0.041975394,3.8536496,6.2631893};
+				position[]={2764.7,5.8538666,914.59998};
+				angles[]={0,3.8,0};
 			};
 			side="Empty";
+			flags=4;
 			class Attributes
 			{
 			};
 			id=70;
 			type="CSLA_ammobox_firearms";
-			atlOffset=1.1513238;
 		};
 		class Item39
 		{
