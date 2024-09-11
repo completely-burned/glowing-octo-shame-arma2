@@ -227,7 +227,7 @@ class Mission
 	appId=1227700;
 	class Intel
 	{
-		briefingName="VN CO 00 gosa vn_the_bra Multi v0.0.5.958 DEBUG";
+		briefingName="VN CO 00 gosa vn_the_bra Multi v0.0.5.959 DEBUG";
 		startWeather=0.2;
 		startWind=0.1;
 		startWaves=0.1;
