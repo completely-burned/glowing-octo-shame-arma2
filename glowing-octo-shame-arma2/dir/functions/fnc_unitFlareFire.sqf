@@ -89,6 +89,8 @@ for "_iW" from 0 to _iW_to do {
 							if (count _arr > 0) then {
 								_ammo = _arr select 0;
 							};
+							_n = getNumber (_cfgAmm >> _ammo >> "intensity");
+							if (_n >= 100000) then {
 							if ({_ammo isKindOf _x} count _blacklist <= 0) then {
 								_str = toLower getText (_cfgAmm >> _ammo >> "simulation");
 								if (_str == "shotilluminating") then {
@@ -96,7 +98,8 @@ for "_iW" from 0 to _iW_to do {
 										// TODO: Звук запуска ракеты.
 										#ifdef __ARMA3__
 											_arr = ([_u, 50 + random 100, getDir _u -45 +random 90] call BIS_fnc_relPos);
-											_height = (100 + random 50);
+											_height = _ammo call gosa_fnc_fnc_flareHeight;
+											_height = _height + random (_height/3);
 										#else
 											_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
 											_height = (140 + random 20);
@@ -140,6 +143,7 @@ for "_iW" from 0 to _iW_to do {
 									};
 									breakTo "scope1";
 								};
+							};
 							};
 						};
 					};
