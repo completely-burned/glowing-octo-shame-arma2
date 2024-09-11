@@ -90,8 +90,8 @@ _arr append [
 		["Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
 	],0.1],
 
-	[[[["CSLA_lodka","US85_mcM16","US85_mcM16GL","US85_mcM249","US85_mcLAW"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0]],
-		["PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
+	[[[["CSLA_lodka","CSLA_rSa58P","CSLA_rRPG75","CSLA_rVG70","CSLA_rUK59L"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0]],
+		["Private","Corporal","Private","Private","Private"]]
 	],0.1],
 
 	[[[["CSLA_Mi24V","CSLA_Mi24V"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
@@ -205,8 +205,8 @@ _arr append [
 		["Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
 	],0.1],
 
-	[[[["CSLA_lodka","US85_mcM16","US85_mcM16GL","US85_mcM249","US85_mcLAW"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0]],
-		["PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
+	[[[["CSLA_lodka","CSLA_rSa58P","CSLA_rRPG75","CSLA_rVG70","CSLA_rUK59L"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0]],
+		["Private","Corporal","Private","Private","Private"]]
 	],0.1],
 
 	[[[["CSLA_Mi24V","CSLA_Mi24V"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
