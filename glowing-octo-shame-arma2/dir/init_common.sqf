@@ -464,6 +464,7 @@ gosa_server_diag_fps_interval = 600;
 _arr = [
 	"SPE_40mm_White","gm_flare_illum_wht",
 	"vn_22mm_lume_ammo","vn_40mm_m583_flare_w_ammo",
+	//"CSLA_26_5SigB1a_Ammo","US85_G_40mm_FW",
 	"LIB_40mm_White"
 ];
 _arr0 = [];
