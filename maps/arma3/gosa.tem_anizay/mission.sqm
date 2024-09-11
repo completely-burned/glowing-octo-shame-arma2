@@ -209,7 +209,7 @@ class Mission
 		class Item1
 		{
 			dataType="Marker";
-			position[]={10239,0,10239};
+			position[]={10240,0,10240};
 			name="gosa_worldSize";
 			type="Empty";
 			id=7;
