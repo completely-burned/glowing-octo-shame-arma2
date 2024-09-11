@@ -496,6 +496,7 @@ gosa_flare = _arr0;
 // Эти осветительные ракеты не излучают свет.
 gosa_flare_blacklist = [
 	// "F_40mm_White" родитель многих и его нет смысла добавлять сюда.
+	"CSLA_FlareBase",
 	"US85_FlareBase"
 ];
 
