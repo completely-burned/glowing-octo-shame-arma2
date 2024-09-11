@@ -29,7 +29,9 @@ addons[]=
 	"A3_Weapons_F_Ammoboxes",
 	"A3_Characters_F_Tank",
 	"A3_Characters_F_Exp",
-	"A3_Data_F_Exp_A_Virtual"
+	"A3_Data_F_Exp_A_Virtual",
+	"A3_Characters_F_Exp_Civil",
+	"A3_Characters_F_Orange"
 };
 class AddonsMetaData
 {
