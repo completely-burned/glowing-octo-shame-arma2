@@ -193,6 +193,7 @@ if (gosa_loglevel > 0) then {	//diag_log
 	// Военные обозначения, показ всех, чтобы видеть как и где создаются боты.	//diag_log
 	_arr = ([] call BIS_fnc_getFactions);	//diag_log
 	// player setVariable ["MARTA_showRules", ["USMC", 1, "CDF", 0]];	//diag_log
+	if (typeName (_arr select 0) == typeName (_arr select 1)) then {//diag_log
 	for "_i" from (count _arr * 2 -1) to 1 step -2 do {	//diag_log
 		_arr set [_i, 1];	//diag_log
 	};	//diag_log
@@ -200,6 +201,7 @@ if (gosa_loglevel > 0) then {	//diag_log
 		_arr set [_i, _arr select _i];	//diag_log
 	};	//diag_log
 	gosa_MARTA_showRules = _arr;	//diag_log
+	};//diag_log
 };  //diag_log
 
 diag_log format ["Log: [init_client] Done %1", time];
