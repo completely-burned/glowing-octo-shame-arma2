@@ -51,10 +51,10 @@ _tmp_arr=[
 	// TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
 	// 					_g selectLeader _p;
 	["selectLeader (%SELECTED_UNIT_ID)","[] call gosa_fnc_menu_selectLeader"],
-	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","(GroupSelectedUnits player) call gosa_fnc_groupUnitsDismiss"],
+	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","([]+GroupSelectedUnits player) call gosa_fnc_groupUnitsDismiss"],
 	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
 	[Localize "STR_gosa_join_the_squad",
-		"[] execVM 'dir\functions\fnc_menu_join.sqf'"]
+		"[[]+GroupSelectedUnits player] execVM 'dir\functions\fnc_menu_join.sqf'"]
 	/*
 	setOwner не возвращает контроль над юнитами, но ломает управление игрокам
 	["setOwner (%SELECTED_UNIT_ID) player","

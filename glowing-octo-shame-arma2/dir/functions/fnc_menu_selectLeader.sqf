@@ -1,7 +1,7 @@
 private['_g','_tmp_obj','_tmp_arr'];
 _tmp_obj = player;
 _g = group _tmp_obj;
-_tmp_arr = GroupSelectedUnits _tmp_obj;
+_tmp_arr = []+GroupSelectedUnits _tmp_obj;
 
 if (count _tmp_arr > 0) then {
 	_tmp_obj = _tmp_arr select 0;

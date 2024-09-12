@@ -1,4 +1,12 @@
-private ["_l","_lstr","_c","_dist","_n","_arr","_obj"];
+private ["_l","_lstr","_c","_dist","_n","_arr","_obj",
+	"_GroupSelectedUnits"];
+
+if (count _this > 0) then {
+	_GroupSelectedUnits = _this select 0;
+};
+for "_i" from 0 to (count _GroupSelectedUnits -1) do {
+	player groupSelectUnit [_GroupSelectedUnits select _i, true];
+};
 
 _dist = 500;
 
@@ -46,9 +54,7 @@ if (count _l < 1) exitWith {
 
 
 _c = "
-	private ['_arr'];
-	_arr = (GroupSelectedUnits player);
-	([player]+_arr) join (gosa_joinMenu select %2);
+	([player]+GroupSelectedUnits player) join (gosa_joinMenu select %2);
 	hint 'Ok';
 	gosa_joinMenu = nil;
 ";
