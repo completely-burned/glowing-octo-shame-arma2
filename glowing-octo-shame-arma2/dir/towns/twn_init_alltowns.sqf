@@ -2,7 +2,6 @@
 /*
  * Скрипт создает бункеры у городов.
  * FIXME: `synchronizedObjects` возможно имеет проблемы сетевой синхронизации в A2, поэтому setVariable тоже использутся до проведения тестов.
- * TODO: Размещать camps не закреплённые за городом.
  */
 
 Private["_buildings","_constructFunction","_count","_customCamps","_customOwners","_locationsInitialized",
@@ -16,6 +15,7 @@ Private["_buildings","_constructFunction","_count","_customCamps","_customOwners
 	"_constructedList","_depotCompositions","_campCompositions","_typeCityCapital",
 	"_town","_depot","_dir","_typeVillage","_types_City_all","_types_City","_types_Depot",
 	"_types_CityCapital","_types_Camp","_types_Village","_dyno_allowed",
+	"_camps_used","_marker_type_fob",
 	"_houselist","_blacklist_types_house","_dist_houselist","_dist_nearRoads",
 	"_obj","_type","_bbox","_twn_maxVehicles","_houselist_roads","_pos","_obj_roads",
 	"_road","_b","_bboxA","_bboxB","_bboxY","_bboxY","_difmin","_difmax","_dif",
@@ -27,10 +27,12 @@ Private["_buildings","_constructFunction","_count","_customCamps","_customOwners
 	_marker_type_camp = "loc_defend";//diag_log
 	_marker_type_depot = "loc_Fortress";//diag_log
 	_marker_type_town = "mil_flag";//diag_log
+	_marker_type_fob = _marker_type;//diag_log
 #else
 	_marker_type = "Dot";//diag_log
 	_marker_type_camp = "Strongpoint";//diag_log
 	_marker_type_depot = "Depot";//diag_log
+	_marker_type_fob = "FOB";//diag_log
 	_marker_type_town = "City";//diag_log
 #endif
 
@@ -87,6 +89,7 @@ _arr = [];
 _campAreas = _arr + _campAreas;
 #endif
 
+_camps_used = [];
 
 for "_count" from 0 to (count _cityCenters -1) do {
 	_cityCenter = _cityCenters Select _count;
@@ -356,26 +359,41 @@ for "_count" from 0 to (count _cityCenters -1) do {
 			if (typeName _x == typeName []) then {
 				_destination = (_x Select 0);
 				_dir = (_x Select 1);
+				if (count _x > 2) then {
+					_obj = _x Select 2;
+				}else{
+					_obj = objNull;
+				};
 			}else{
 				_destination = getPos _x;
 				_dir = getDir _x;
+				_obj = _x;
 			};
 
 			if (_destination Distance _position < _range) then {
 				_conflictingCamps = _destination nearEntities [_types_Camp, _conflict_dist];
 
 				if (Count _conflictingCamps <= 0) then {
+					if (!isNull _obj && _obj isKindOf "Logic") then {
+							_camp = _obj;
+					}else{
 					_camp = _grp_logic createUnit [_types_Camp select 0, _destination, [], 0, "CAN_COLLIDE"];
+						if (typeName _x == typeName []) then {
+							_x set [2, _camp];
+						};
+					};
 
 					_camp setVariable ["town", _town, true];
 					_camp SetDir _dir;
 
 					_camp synchronizeObjectsAdd [_town];
 					_camps set [count _camps, _camp];
+					_camps_used set [count _camps_used, _camp];
 
 					_marker = str [_camp, _destination];//diag_log
 					createMarker [_marker, _destination];//diag_log
 					_marker setMarkerType _marker_type_camp;//diag_log
+					_marker setMarkerDir _dir;//diag_log
 
 					// Постройки.
 					if (_dyno) then {
@@ -426,6 +444,34 @@ for "_count" from 0 to (count _cityCenters -1) do {
 	};
 };
 
+// Одинокие camps.
+for "_i" from 0 to (count _campAreas -1) do {
+	_camp = _campAreas select _i;
+	if (typeName _camp == typeName []) then {
+		if (count _camp > 2) then {
+			_camp = _camp select 2;
+		}else{
+			_camp = objNull;
+		};
+	};
+
+	if !(isNull _camp) then {
+		if !(_camp in _camps_used) then {
+			_camps_used set [count _camps_used, _camp];
+			if (typeName _camp == typeName []) then {
+				_destination = _camp Select 0;
+				_dir = _camp Select 1;
+			}else{
+				_destination = getPos _camp;
+				_dir = getDir _camp;
+			};
+			_marker = str [_camp, _destination];//diag_log
+			createMarker [_marker, _destination];//diag_log
+			_marker setMarkerType _marker_type_fob;//diag_log
+			_marker setMarkerDir _dir;//diag_log
+		};
+	};
+};
 
 gosa_towns_constructed = _constructedList;
 gosa_towns = _towns;
