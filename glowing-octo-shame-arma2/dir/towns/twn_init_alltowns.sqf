@@ -1,6 +1,8 @@
 #define __A2OA__
 /*
  * Скрипт создает бункеры у городов.
+ * FIXME: `synchronizedObjects` возможно имеет проблемы сетевой синхронизации в A2, поэтому setVariable тоже использутся до проведения тестов.
+ * TODO: Размещать camps не закреплённые за городом.
  */
 
 Private["_buildings","_constructFunction","_count","_customCamps","_customOwners","_locationsInitialized",
@@ -368,6 +370,22 @@ for "_count" from 0 to (count _cityCenters -1) do {
 					_camp setVariable ["town", _town, true];
 					_camp SetDir _dir;
 
+					_camp synchronizeObjectsAdd [_town];
+					_camps set [count _camps, _camp];
+
+					_marker = str [_camp, _destination];//diag_log
+					createMarker [_marker, _destination];//diag_log
+					_marker setMarkerType _marker_type_camp;//diag_log
+
+					// Постройки.
+					if (_dyno) then {
+						_composition = _campCompositions call BIS_fnc_selectRandom;
+						_constructed = [_destination, _dir, _composition] call _constructFunction;
+						for "_i" from 0 to (count _constructed -1) do {
+							_constructed select _i setVariable [_var_gc_time_d, 0];
+						};
+						_constructedList set [count _constructedList, _constructed];
+					};
 				}else{
 					//Check if this camp is closer to current town then one it was created for.
 					_camp = _conflictingCamps Select 0;
@@ -383,24 +401,21 @@ for "_count" from 0 to (count _cityCenters -1) do {
 						_previousTown setVariable ["camps", _newCamps, true];
 					};
 
-				};
-
-				_camp synchronizeObjectsAdd [_town];
-				_camps set [count _camps, _camp];
-
-				_marker = str [_camp, _destination];//diag_log
-				createMarker [_marker, _destination];//diag_log
-				_marker setMarkerType _marker_type_camp;//diag_log
-
-				// Постройки.
-				if (_dyno) then {
-					_composition = _campCompositions call BIS_fnc_selectRandom;
-					_constructed = [_destination, _dir, _composition] call _constructFunction;
-					for "_i" from 0 to (count _constructed -1) do {
-						_constructed select _i setVariable [_var_gc_time_d, 0];
+					// FIXME: _camp должен быть закреплён только за одним городом.
+					_arr = synchronizedObjects _camp;
+					if (count _arr > 0) then {
+						for "_i" from 0 to (count _arr -1) do {
+							_previousTown = _arr select _i;
+							if ({_previousTown isKindOf _x} count _types_City_all > 0) then {
+								if (_camp distance _previousTown > _camp distance _town) then {
+									_camp synchronizeObjectsRemove [_previousTown];
+									_previousTown synchronizeObjectsRemove [_camp];
+								};
+							};
+						};
 					};
-					_constructedList set [count _constructedList, _constructed];
 				};
+
 			};
 		} ForEach _campAreas;
 
