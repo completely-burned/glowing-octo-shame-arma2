@@ -1150,6 +1150,112 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class mission_capture_location
+			{
+				file = "dir\functions\fnc_mission_capture_location.sqf";
+			};
+			class cleanup
+			{
+				file = "dir\functions\fnc_cleanup.sqf";
+			};
+			class StaticWeapon
+			{
+				file = "dir\functions\fnc_StaticWeapon.sqf";
+			};
+			class playerRespawn
+			{
+				file = "dir\functions\fnc_playerRespawn.sqf";
+			};
+
+			class uav_interface
+			{
+				file = "dir\functions\fnc_uav_interface.sqf";
+			};
+			class createMenu_uavs
+			{
+				file = "dir\functions\fnc_createMenu_uavs.sqf";
+			};
+			class interface_uav
+			{
+				file = "dir\functions\fnc_interface_uav.sqf";
+			};
+			class hint_layout_completed
+			{
+				file = "dir\functions\fnc_hint_layout_completed.sqf";
+			};
+			class selectPlayer_manual
+			{
+				file = "dir\functions\fnc_selectPlayer_manual.sqf";
+			};
+			class eh_playerSelected
+			{
+				file = "dir\functions\fnc_eh_playerSelected.sqf";
+			};
+			class eh_playerKilled
+			{
+				file = "dir\functions\fnc_eh_playerKilled.sqf";
+			};
+			class findBestCandidate_onRespawn
+			{
+				file = "dir\functions\fnc_findBestCandidate_onRespawn.sqf";
+			};
+			class selectPlayer
+			{
+				file = "dir\functions\fnc_selectPlayer.sqf";
+			};
+			class eh_playerRespawn
+			{
+				file = "dir\functions\fnc_eh_playerRespawn.sqf";
+			};
+			class reveal
+			{
+				file = "dir\functions\fnc_reveal.sqf";
+			};
+			class initBriefing
+			{
+				file = "dir\functions\fnc_initBriefing.sqf";
+			};
+			class Client_BuyUnit
+			{
+				file = "dir\functions\fnc_Client_BuyUnit.sqf";
+			};
+			class respawnWeaponsAdd
+			{
+				file = "dir\functions\fnc_respawnWeaponsAdd.sqf";
+			};
+			class killcam
+			{
+				file = "dir\functions\fnc_killcam.sqf";
+			};
+			class teleport
+			{
+				file = "dir\functions\fnc_teleport.sqf";
+			};
+			class teleport2
+			{
+				file = "dir\functions\fnc_teleport2.sqf";
+			};
+			class resetActions
+			{
+				file = "dir\functions\fnc_resetActions.sqf";
+			};
+			class getSafePos
+			{
+				file = "dir\functions\fnc_getSafePos.sqf";
+			};
+			class ACT_WinchManager
+			{
+				file = "dir\functions\fnc_ACT_WinchManager.sqf";
+			};
+			class handleTeleport
+			{
+				file = "dir\functions\fnc_handleTeleport.sqf";
+			};
+			class turnVehicle
+			{
+				file = "dir\functions\fnc_turnVehicle.sqf";
+			};
+
 			class waypointPosition
 			{
 				file = "dir\functions\fnc_waypointPosition.sqf";
