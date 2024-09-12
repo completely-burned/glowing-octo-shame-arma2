@@ -13,9 +13,7 @@ _prefix="gosa_";
 
 //--- сервер
 if (isServer) then {
-	{
-		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
-	} forEach [
+	_arr = [
 		#ifndef __ARMA3__
 			"fnc_createHQ",
 			"fnc_list_HQ",
@@ -28,15 +26,18 @@ if (isServer) then {
 		"fnc_StaticWeapon",
 		"fnc_playerRespawn"
 	];
+	for "_i" from 0 to (count _arr -1) do {
+		if (isNil format ["%1%2", _prefix, _arr select _i]) then {
+			call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _arr select _i, _path];
+		};
+	};
 };
 diag_log format ["Log: [gosa_fnc_init] server done %1", time];
 
 
 //--- клиент
 if !(IsDedicated) then {
-	{
-		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
-	} forEach [
+	_arr = [
 		#ifndef __ARMA3__
 			"fnc_uav_interface",
 			"fnc_createMenu_uavs",
@@ -65,13 +66,16 @@ if !(IsDedicated) then {
 		"fnc_handleTeleport",
 		"fnc_turnVehicle"
 	];
+	for "_i" from 0 to (count _arr -1) do {
+		if (isNil format ["%1%2", _prefix, _arr select _i]) then {
+			call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _arr select _i, _path];
+		};
+	};
 };
 diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 
 //--- общие
-{
-	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
-} forEach [
+_arr = [
 	"fnc_unit_canTeleport",
 	"fnc_flareHeight",
 	"fnc_flareDist",
@@ -227,6 +231,11 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 	"fnc_group_wp",
 	"fnc_isPlayer"
 ];
+for "_i" from 0 to (count _arr -1) do {
+	if (isNil format ["%1%2", _prefix, _arr select _i]) then {
+		call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _arr select _i, _path];
+	};
+};
 diag_log format ["Log: [gosa_fnc_init] common done %1", time];
 
 if (!isMultiplayer) then {
