@@ -12,7 +12,6 @@ class Mission
 		"camisc_e",
 		"CAWheeled_E_Old_bike",
 		"caair_e_mi8",
-		"cacharacters2",
 		"ca_modules_functions"
 	};
 	addOnsAuto[]=
@@ -40,7 +39,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=16;
+		items=17;
 		class Item0
 		{
 			side="EAST";
@@ -53,7 +52,7 @@ class Mission
 					id=1;
 					side="EAST";
 					vehicle="TK_Soldier_SL_EP1";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					rank="LIEUTENANT";
 				};
@@ -1144,10 +1143,10 @@ class Mission
 				class Item2
 				{
 					position[]={6850,334,4799};
-					player="PLAY CDG";
 					id=125;
 					side="GUER";
 					vehicle="TK_GUE_Soldier_4_EP1";
+					player="PLAY CDG";
 					rank="CORPORAL";
 				};
 				class Item3
@@ -1207,6 +1206,63 @@ class Mission
 					id=132;
 					side="GUER";
 					vehicle="TK_GUE_Soldier_5_EP1";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item16
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={6824.502,325.60583,4995.8838};
+					id=133;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+				};
+				class Item1
+				{
+					position[]={6827.502,325.77731,4990.8838};
+					id=134;
+					side="CIV";
+					vehicle="TK_CIV_Takistani02_EP1";
+					player="PLAY CDG";
+				};
+				class Item2
+				{
+					position[]={6829.502,325.89746,4990.8838};
+					id=135;
+					side="CIV";
+					vehicle="TK_CIV_Takistani03_EP1";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={6831.502,326.02863,4990.8838};
+					id=136;
+					side="CIV";
+					vehicle="TK_CIV_Takistani05_EP1";
+					player="PLAY CDG";
+				};
+				class Item4
+				{
+					position[]={6833.502,326.15982,4990.8838};
+					id=137;
+					side="CIV";
+					vehicle="TK_CIV_Woman01_EP1";
+					player="PLAY CDG";
+				};
+				class Item5
+				{
+					position[]={6835.502,326.28659,4990.8838};
+					id=138;
+					side="CIV";
+					vehicle="TK_CIV_Takistani06_EP1";
 					player="PLAY CDG";
 				};
 			};
