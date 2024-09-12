@@ -1115,6 +1115,10 @@ class CfgFunctions
 			{
 				file = "dir\functions\fnc_menu_factories.sqf";
 			};
+			class unit_canTeleport
+			{
+				file = "dir\functions\fnc_unit_canTeleport.sqf";
+			};
 		};
 		class Spawning
 		{
@@ -1138,10 +1142,578 @@ class CfgFunctions
 			{
 				file = "dir\functions\fnc_flareHeight.sqf";
 			};
+			class findSpawnPos_veh
+			{
+				file = "dir\functions\fnc_findSpawnPos_veh.sqf";
+			};
 		};
 		// Systems or unsorted.
 		class Systems
 		{
+			class waypointPosition
+			{
+				file = "dir\functions\fnc_waypointPosition.sqf";
+			};
+			class returnWeaponRange
+			{
+				file = "dir\functions\fnc_returnWeaponRange.sqf";
+			};
+			class returnVehicleRange
+			{
+				file = "dir\functions\fnc_returnVehicleRange.sqf";
+			};
+			class returnVehicleWeapons
+			{
+				file = "dir\functions\fnc_returnVehicleWeapons.sqf";
+			};
+			class getIsland
+			{
+				file = "dir\functions\fnc_getIsland.sqf";
+			};
+			class zone_init
+			{
+				file = "dir\functions\fnc_zone_init.sqf";
+			};
+			class groups_get_cfi_side
+			{
+				file = "dir\functions\fnc_groups_get_cfi_side.sqf";
+			};
+			class CheckDistance_mission
+			{
+				file = "dir\functions\fnc_CheckDistance_mission.sqf";
+			};
+			class veh_isAttacker_fix
+			{
+				file = "dir\functions\fnc_veh_isAttacker_fix.sqf";
+			};
+			class assignedVehicleRole_fix
+			{
+				file = "dir\functions\fnc_assignedVehicleRole_fix.sqf";
+			};
+			class role_isCrew
+			{
+				file = "dir\functions\fnc_role_isCrew.sqf";
+			};
+			class unit_isAttacker
+			{
+				file = "dir\functions\fnc_unit_isAttacker.sqf";
+			};
+			class var_clean
+			{
+				file = "dir\functions\fnc_var_clean.sqf";
+			};
+			class forceSpeed
+			{
+				file = "dir\functions\fnc_forceSpeed.sqf";
+			};
+			class getForcedSpeed
+			{
+				file = "dir\functions\fnc_getForcedSpeed.sqf";
+			};
+			class return_types_pseudo_safe
+			{
+				file = "dir\functions\fnc_return_types_pseudo_safe.sqf";
+			};
+			class base_getRespawn
+			{
+				file = "dir\functions\fnc_base_getRespawn.sqf";
+			};
+			class map_groups_add
+			{
+				file = "dir\functions\fnc_map_groups_add.sqf";
+			};
+			class arr_fix_configName
+			{
+				file = "dir\functions\fnc_arr_fix_configName.sqf";
+			};
+			class filtering_squads_byAvail_v2
+			{
+				file = "dir\functions\fnc_filtering_squads_byAvail_v2.sqf";
+			};
+			class getDepthAverage
+			{
+				file = "dir\functions\fnc_getDepthAverage.sqf";
+			};
+			class findStartingPos
+			{
+				file = "dir\functions\fnc_findStartingPos.sqf";
+			};
+			class skill_normalize_CfgAISkill
+			{
+				file = "dir\functions\fnc_skill_normalize_CfgAISkill.sqf";
+			};
+			class arr_sorting0
+			{
+				file = "dir\functions\fnc_arr_sorting0.sqf";
+			};
+			class call_reinforcement_pre
+			{
+				file = "dir\functions\fnc_call_reinforcement_pre.sqf";
+			};
+			class sortGroups
+			{
+				file = "dir\functions\fnc_sortGroups.sqf";
+			};
+			class sortGroupsPre
+			{
+				file = "dir\functions\fnc_sortGroupsPre.sqf";
+			};
+			class sortObjects_onDist
+			{
+				file = "dir\functions\fnc_sortObjects_onDist.sqf";
+			};
+			class sortUnits_onRank
+			{
+				file = "dir\functions\fnc_sortUnits_onRank.sqf";
+			};
+			class sortUnits_onWeapon
+			{
+				file = "dir\functions\fnc_sortUnits_onWeapon.sqf";
+			};
+			class arrSorting_confGroups
+			{
+				file = "dir\functions\fnc_arrSorting_confGroups.sqf";
+			};
+			class listPlayers
+			{
+				file = "dir\functions\fnc_listPlayers.sqf";
+			};
+			class selectRandomWeighted
+			{
+				file = "dir\functions\fnc_selectRandomWeighted.sqf";
+			};
+			class getSideNum
+			{
+				file = "dir\functions\fnc_getSideNum.sqf";
+			};
+			class selectPlayer_isFit
+			{
+				file = "dir\functions\fnc_selectPlayer_isFit.sqf";
+			};
+			class getSafePosForObject
+			{
+				file = "dir\functions\fnc_getSafePosForObject.sqf";
+			};
+			class getGroupUnits
+			{
+				file = "dir\functions\fnc_getGroupUnits.sqf";
+			};
+			class initAirports
+			{
+				file = "dir\functions\fnc_initAirports.sqf";
+			};
+			class getPlayerParam
+			{
+				file = "dir\functions\fnc_getPlayerParam.sqf";
+			};
+			class groupUnitsDismiss
+			{
+				file = "dir\functions\fnc_groupUnitsDismiss.sqf";
+			};
+			class isZeroPos
+			{
+				file = "dir\functions\fnc_isZeroPos.sqf";
+			};
+			class menu_selectLeader
+			{
+				file = "dir\functions\fnc_menu_selectLeader.sqf";
+			};
+			class getTypeOfSide
+			{
+				file = "dir\functions\fnc_getTypeOfSide.sqf";
+			};
+			class getStartingPosMHQ
+			{
+				file = "dir\functions\fnc_getStartingPosMHQ.sqf";
+			};
+			class getIslandType
+			{
+				file = "dir\functions\fnc_getIslandType.sqf";
+			};
+			class getDeviceType
+			{
+				file = "dir\functions\fnc_getDeviceType.sqf";
+			};
+			class isCrewAlive
+			{
+				file = "dir\functions\fnc_isCrewAlive.sqf";
+			};
+			class addWaypoint
+			{
+				file = "dir\functions\fnc_addWaypoint.sqf";
+			};
+			class canAttack
+			{
+				file = "dir\functions\fnc_canAttack.sqf";
+			};
+			class canAttackGroup
+			{
+				file = "dir\functions\fnc_canAttackGroup.sqf";
+			};
+			class assignedVeh
+			{
+				file = "dir\functions\fnc_assignedVeh.sqf";
+			};
+			class eh_killed
+			{
+				file = "dir\functions\fnc_eh_killed.sqf";
+			};
+			class clean_vars
+			{
+				file = "dir\functions\fnc_clean_vars.sqf";
+			};
+			class rankConv
+			{
+				file = "dir\functions\fnc_rankConv.sqf";
+			};
+			class SSM_RequestRadio
+			{
+				file = "dir\functions\fnc_SSM_RequestRadio.sqf";
+			};
+			class SSM_Request
+			{
+				file = "dir\functions\fnc_SSM_Request.sqf";
+			};
+			class SSM_findReadyVehicle
+			{
+				file = "dir\functions\fnc_SSM_findReadyVehicle.sqf";
+			};
+			class SSM_spawnAir
+			{
+				file = "dir\functions\fnc_SSM_spawnAir.sqf";
+			};
+			class SSM_AmmoDropWaypointReached
+			{
+				file = "dir\functions\fnc_SSM_AmmoDropWaypointReached.sqf";
+			};
+			class getRandomWorldPos
+			{
+				file = "dir\functions\fnc_getRandomWorldPos.sqf";
+			};
+			class getUnitClass
+			{
+				file = "dir\functions\fnc_getUnitClass.sqf";
+			};
+			class crewUAV
+			{
+				file = "dir\functions\fnc_crewUAV.sqf";
+			};
+			class explosionCar
+			{
+				file = "dir\functions\fnc_explosionCar.sqf";
+			};
+			class dynSleep
+			{
+				file = "dir\functions\fnc_dynSleep.sqf";
+			};
+			class getGroups
+			{
+				file = "dir\functions\fnc_getGroups.sqf";
+			};
+			class find_heliUnload_pos
+			{
+				file = "dir\functions\fnc_find_heliUnload_pos.sqf";
+			};
+			class getPosBehind
+			{
+				file = "dir\functions\fnc_getPosBehind.sqf";
+			};
+			class paraJump
+			{
+				file = "dir\functions\fnc_paraJump.sqf";
+			};
+			class withinMap
+			{
+				file = "dir\functions\fnc_withinMap.sqf";
+			};
+			class worldSize
+			{
+				file = "dir\functions\fnc_worldSize.sqf";
+			};
+			class centerOfImpact
+			{
+				file = "dir\functions\fnc_centerOfImpact.sqf";
+			};
+			class allowGetIn
+			{
+				file = "dir\functions\fnc_allowGetIn.sqf";
+			};
+			class he
+			{
+				file = "dir\functions\fnc_he.sqf";
+			};
+			class failoverGroup
+			{
+				file = "dir\functions\fnc_failoverGroup.sqf";
+			};
+			class groupsRarity
+			{
+				file = "dir\functions\fnc_groupsRarity.sqf";
+			};
+			class getGroupType
+			{
+				file = "dir\functions\fnc_getGroupType.sqf";
+			};
+			class dynSkill
+			{
+				file = "dir\functions\fnc_dynSkill.sqf";
+			};
+			class act_repairVehicle
+			{
+				file = "dir\functions\fnc_act_repairVehicle.sqf";
+			};
+			class repairVehicle
+			{
+				file = "dir\functions\fnc_repairVehicle.sqf";
+			};
+			class getFaction
+			{
+				file = "dir\functions\fnc_getFaction.sqf";
+			};
+			class autoLeader
+			{
+				file = "dir\functions\fnc_autoLeader.sqf";
+			};
+			class find_AA_pos
+			{
+				file = "dir\functions\fnc_find_AA_pos.sqf";
+			};
+			class isNight
+			{
+				file = "dir\functions\fnc_isNight.sqf";
+			};
+			class aiFlareSupport
+			{
+				file = "dir\functions\fnc_aiFlareSupport.sqf";
+			};
+			class unitFlareFire
+			{
+				file = "dir\functions\fnc_unitFlareFire.sqf";
+			};
+			class canSee
+			{
+				file = "dir\functions\fnc_canSee.sqf";
+			};
+			class deleteGroup
+			{
+				file = "dir\functions\fnc_deleteGroup.sqf";
+			};
+			class call_reinforcement
+			{
+				file = "dir\functions\fnc_call_reinforcement.sqf";
+			};
+			class mining
+			{
+				file = "dir\functions\fnc_mining.sqf";
+			};
+			class laserBomb
+			{
+				file = "dir\functions\fnc_laserBomb.sqf";
+			};
+			class check_config_use
+			{
+				file = "dir\functions\fnc_check_config_use.sqf";
+			};
+			class CheckCombatNearUnits
+			{
+				file = "dir\functions\fnc_CheckCombatNearUnits.sqf";
+			};
+			class CheckIsKindOfArray
+			{
+				file = "dir\functions\fnc_CheckIsKindOfArray.sqf";
+			};
+			class CheckPlayersDistance
+			{
+				file = "dir\functions\fnc_CheckPlayersDistance.sqf";
+			};
+			class Fuel
+			{
+				file = "dir\functions\fnc_Fuel.sqf";
+			};
+			class GetTransportMagazines
+			{
+				file = "dir\functions\fnc_GetTransportMagazines.sqf";
+			};
+			class MoveInCargo
+			{
+				file = "dir\functions\fnc_MoveInCargo.sqf";
+			};
+			class ReammoBox
+			{
+				file = "dir\functions\fnc_ReammoBox.sqf";
+			};
+			class updateReammoBox
+			{
+				file = "dir\functions\fnc_updateReammoBox.sqf";
+			};
+			class SafePosParams
+			{
+				file = "dir\functions\fnc_SafePosParams.sqf";
+			};
+			class findSafePos
+			{
+				file = "dir\functions\fnc_findSafePos.sqf";
+			};
+			class getSide
+			{
+				file = "dir\functions\fnc_getSide.sqf";
+			};
+			class nearestPlayer
+			{
+				file = "dir\functions\fnc_nearestPlayer.sqf";
+			};
+			class returnGroups
+			{
+				file = "dir\functions\fnc_returnGroups.sqf";
+			};
+			class returnVehicleTurrets
+			{
+				file = "dir\functions\fnc_returnVehicleTurrets.sqf";
+			};
+			class reweapon
+			{
+				file = "dir\functions\fnc_reweapon.sqf";
+			};
+			class spawnCrew
+			{
+				file = "dir\functions\fnc_spawnCrew.sqf";
+			};
+			class spawnGroup
+			{
+				file = "dir\functions\fnc_spawnGroup.sqf";
+			};
+			class spawnVehicle
+			{
+				file = "dir\functions\fnc_spawnVehicle.sqf";
+			};
+			class waypoints
+			{
+				file = "dir\functions\fnc_waypoints.sqf";
+			};
+			class libEnabled
+			{
+				file = "dir\functions\fnc_libEnabled.sqf";
+			};
+			class mobileHQ_init
+			{
+				file = "dir\functions\fnc_mobileHQ_init.sqf";
+			};
+			class vehInit
+			{
+				file = "dir\functions\fnc_vehInit.sqf";
+			};
+			class SalvageTruck
+			{
+				file = "dir\functions\fnc_SalvageTruck.sqf";
+			};
+			class defaultCrew
+			{
+				file = "dir\functions\fnc_defaultCrew.sqf";
+			};
+			class setNestedElement
+			{
+				file = "dir\functions\fnc_setNestedElement.sqf";
+			};
+			class availableVehicles
+			{
+				file = "dir\functions\fnc_availableVehicles.sqf";
+			};
+			class availableWeapons
+			{
+				file = "dir\functions\fnc_availableWeapons.sqf";
+			};
+			class availableMagazines
+			{
+				file = "dir\functions\fnc_availableMagazines.sqf";
+			};
+			class availableBackpacks
+			{
+				file = "dir\functions\fnc_availableBackpacks.sqf";
+			};
+			class CheckTimeAvailableVehiclesBuyMenu
+			{
+				file = "dir\functions\fnc_CheckTimeAvailableVehiclesBuyMenu.sqf";
+			};
+			class setTimeAvailableVehiclesBuyMenu
+			{
+				file = "dir\functions\fnc_setTimeAvailableVehiclesBuyMenu.sqf";
+			};
+			class megaAmmoBox
+			{
+				file = "dir\functions\fnc_megaAmmoBox.sqf";
+			};
+			class createmenu
+			{
+				file = "dir\functions\fnc_createmenu.sqf";
+			};
+			class vehicleHandleDamage
+			{
+				file = "dir\functions\fnc_vehicleHandleDamage.sqf";
+			};
+			class unit_addParachute
+			{
+				file = "dir\functions\fnc_unit_addParachute.sqf";
+			};
+			class CheckRespawnDistance
+			{
+				file = "dir\functions\fnc_CheckRespawnDistance.sqf";
+			};
+			class CheckTurretAlive
+			{
+				file = "dir\functions\fnc_CheckTurretAlive.sqf";
+			};
+			class uav
+			{
+				file = "dir\functions\fnc_uav.sqf";
+			};
+			class isUAV
+			{
+				file = "dir\functions\fnc_isUAV.sqf";
+			};
+			class getPlayersDistance
+			{
+				file = "dir\functions\fnc_getPlayersDistance.sqf";
+			};
+			class roads
+			{
+				file = "dir\functions\fnc_roads.sqf";
+			};
+			class smoke
+			{
+				file = "dir\functions\fnc_smoke.sqf";
+			};
+			class respawnPos
+			{
+				file = "dir\functions\fnc_respawnPos.sqf";
+			};
+			class eh_getout
+			{
+				file = "dir\functions\fnc_eh_getout.sqf";
+			};
+			class eh_getin
+			{
+				file = "dir\functions\fnc_eh_getin.sqf";
+			};
+			class teamDamaging
+			{
+				file = "dir\functions\fnc_teamDamaging.sqf";
+			};
+			class group_cleanup
+			{
+				file = "dir\functions\fnc_group_cleanup.sqf";
+			};
+			class group_other
+			{
+				file = "dir\functions\fnc_group_other.sqf";
+			};
+			class group_wp
+			{
+				file = "dir\functions\fnc_group_wp.sqf";
+			};
+			class isPlayer
+			{
+				file = "dir\functions\fnc_isPlayer.sqf";
+			};
 			class group_findType
 			{
 				file = "dir\functions\fnc_group_findType.sqf";
