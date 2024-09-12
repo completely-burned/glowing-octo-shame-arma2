@@ -36,7 +36,7 @@ switch (typeName _obj) do {
 				_allow_veh = _obj getVariable "gosa_teleport_allow_veh";
 				if (isNil "_allow_veh") then {
 					// На земле.
-					if (getPos _obj select 2 < 2 && getPos _obj select 2 > -0.01) then {
+					if (getposATL _obj select 2 < 2) then {
 						diag_log format ["Log: [fnc_teleport2] %1, land", _obj];
 						_allow_veh = 0;
 						_asl = false;
