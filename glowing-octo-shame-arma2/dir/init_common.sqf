@@ -1,6 +1,6 @@
 EnableTeamSwitch false;
 
-private["_list","_tmp","_str","_cfgVeh","_cfgAmm","_arr","_arr0"];
+private["_list","_tmp","_str","_cfgVeh","_cfgAmm","_arr","_arr0","_n"];
 
 BIS_WFdPath = "\CA\Warfare2\";
 
@@ -461,6 +461,8 @@ gosa_posDefaultHidenRandom = 1000;
 gosa_server_diag_fps_interval = 600;
 
 // Осветительные ракеты.
+_n = 100000;
+gosa_flare_intensity_required = _n;
 _arr = [
 	"SPE_40mm_White","gm_flare_illum_wht",
 	"vn_22mm_lume_ammo","vn_40mm_m583_flare_w_ammo",
@@ -471,7 +473,9 @@ _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_str = toLower configName (_cfgAmm >> (_arr select _i));
 	if (_str != "") then {
+		if (getNumber (_cfgAmm >> _str >> "intensity") >= _n) then {
 		_arr0 set [count _arr0, _str];
+		};
 	};
 };
 if (count _arr0 <= 0) then {
@@ -479,7 +483,9 @@ if (count _arr0 <= 0) then {
 	for "_i" from 0 to (count _arr -1) do {
 		_str = toLower configName (_cfgAmm >> (_arr select _i));
 		if (_str != "") then {
+			if (getNumber (_cfgAmm >> _str >> "intensity") >= _n) then {
 			_arr0 set [count _arr0, _str];
+			};
 		};
 	};
 };
@@ -488,7 +494,9 @@ if (count _arr0 <= 0) then {
 	for "_i" from 0 to (count _arr -1) do {
 		_str = toLower configName (_cfgAmm >> (_arr select _i));
 		if (_str != "") then {
+			if (getNumber (_cfgAmm >> _str >> "intensity") >= _n) then {
 			_arr0 set [count _arr0, _str];
+			};
 		};
 	};
 };
