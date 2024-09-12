@@ -72,6 +72,7 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 {
 	call compile format ["%1%2 = compile (preprocessFileLineNumbers '%3%2.sqf')", _prefix, _x, _path];
 } forEach [
+	"fnc_unit_canTeleport",
 	"fnc_flareHeight",
 	"fnc_flareDist",
 	"fnc_findSpawnPos_veh",
