@@ -1,21 +1,22 @@
-private ["_arr","_obj"];
+diag_log format ["Log: [fnc_spectator_init] _this %1", _this];
 
-_obj = ["GetCamera"] call BIS_fnc_EGSpectator;
-if (isNull _obj) then {
-	_arr = [
-		"AllowAi",
-		"AllowFreeCamera",
-		"Allow3PPCamera",
-		"ShowCameraButtons",
-		"ShowFocusInfo",
-		"ShowControlsHelper",
-		"ShowHeader",
-		"ShowLists"
-	];
-	for "_i" from 0 to (count _arr -1) do {
-		if (isNil {player getVariable (_arr select _i)}) then {
-			player setVariable [_arr select _i, true];
-		};
+private ["_arr","_obj","_player"];
+
+_player = _this select 0;
+
+_arr = [
+	"AllowAi",
+	"AllowFreeCamera",
+	"Allow3PPCamera",
+	"ShowCameraButtons",
+	"ShowFocusInfo",
+	"ShowControlsHelper",
+	"ShowHeader",
+	"ShowLists"
+];
+for "_i" from 0 to (count _arr -1) do {
+	if (isNil {_player getVariable (_arr select _i)}) then {
+		_player setVariable [_arr select _i, true];
 	};
 };
 

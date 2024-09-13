@@ -8524,7 +8524,7 @@ class Mission
 		class Item535
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1414;
 			type="VirtualSpectator_F";
@@ -8600,7 +8600,7 @@ class Mission
 		class Item536
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1415;
 			type="VirtualSpectator_F";
@@ -8676,7 +8676,7 @@ class Mission
 		class Item537
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1416;
 			type="VirtualSpectator_F";
@@ -8752,7 +8752,7 @@ class Mission
 		class Item538
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1417;
 			type="VirtualSpectator_F";
@@ -8828,7 +8828,7 @@ class Mission
 		class Item539
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1418;
 			type="VirtualSpectator_F";
@@ -8904,7 +8904,7 @@ class Mission
 		class Item540
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1419;
 			type="VirtualSpectator_F";
@@ -8980,7 +8980,7 @@ class Mission
 		class Item541
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1420;
 			type="VirtualSpectator_F";
@@ -9056,7 +9056,7 @@ class Mission
 		class Item542
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1421;
 			type="VirtualSpectator_F";
@@ -9132,7 +9132,7 @@ class Mission
 		class Item543
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1422;
 			type="VirtualSpectator_F";
@@ -9208,7 +9208,7 @@ class Mission
 		class Item544
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=1423;
 			type="VirtualSpectator_F";

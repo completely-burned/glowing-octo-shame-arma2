@@ -1527,7 +1527,7 @@ class Mission
 		class Item63
 		{
 			dataType="Logic";
-			init="call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=172;
 			type="VirtualSpectator_F";
