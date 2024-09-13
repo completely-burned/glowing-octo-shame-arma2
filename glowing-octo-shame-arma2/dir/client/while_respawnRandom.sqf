@@ -27,6 +27,14 @@ if (playerSide == sideLogic) exitWith {
 	["Terminate"] call BIS_fnc_EGSpectator;
 	["Initialize", [player]] call BIS_fnc_EGSpectator;
 
+		//- Перемещение камеры на случайную позицию.
+		if !(isNil "gosa_worldSize") then {
+			_arr = gosa_worldSize;
+			_obj = ["GetCamera"] call BIS_fnc_EGSpectator;
+			_obj setPos [((_arr select 0)/4) + random ((_arr select 0)/2), ((_arr select 1)/4) + random ((_arr select 1)/2), 50];
+			_obj setDir random 360;
+		};
+
 		// FIXME: Ни на что не влияет.
 		_arr = [
 			"BIS_respSpecAI",					// Allow spectating of AI
