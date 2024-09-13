@@ -19,6 +19,7 @@ if (playerSide == sideLogic) exitWith {
 	diag_log format ["Log: [respawnRandom] playerSide == %1, exitWith", playerSide];
 
 	#ifdef __ARMA3__
+		waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > 30};
 	diag_log format ["Log: [respawnRandom] RespawnMenu close", nil];
 	["close"] call BIS_fnc_showRespawnMenu;
 
