@@ -63,7 +63,7 @@
 	// BUS_InfTeam_AT
 	[[[["B_W_soldier_TL_F","B_W_soldier_AT_F","B_W_soldier_AT_F","B_W_soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 	// BUS_InfTeam_AA
-	[[[["B_W_soldier_TL_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
+	[[[["B_W_soldier_TL_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
 	// BUS_InfSentry
 	[[[["B_W_soldier_GL_F","B_W_soldier_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
 	// BUS_InfAssault
@@ -80,7 +80,7 @@ _arr = [[
 	// BUS_TankPlatoon
 	[[[["B_W_MBT_01_cannon_F","B_W_MBT_01_cannon_F","B_W_MBT_01_cannon_F","B_W_MBT_01_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
 	// BUS_TankPlatoon_AA
-	[[[["B_W_MBT_01_cannon_F","B_W_APC_Tracked_01_aa_F","B_W_MBT_01_cannon_F","B_W_APC_Tracked_01_aa_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
+	[[[["B_W_MBT_01_cannon_F","B_W_APC_Tracked_01_aa_F","B_W_MBT_01_cannon_F","B_W_APC_Tracked_01_aa_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.1],
 	// BUS_TankSection
 	[[[["B_W_MBT_01_cannon_F","B_W_MBT_01_cannon_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 
@@ -101,7 +101,7 @@ _arr = [[
 	// BUS_MechInf_AT
 	[[[["B_W_APC_Tracked_01_rcws_F","B_W_soldier_SL_F","B_W_soldier_AR_F","B_W_soldier_AT_F","B_W_soldier_AT_F","B_W_soldier_AT_F","B_W_soldier_AAT_F","B_W_soldier_AAT_F","B_W_soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.5],
 	// BUS_MechInf_AA
-	[[[["B_W_APC_Tracked_01_aa_F","B_W_soldier_SL_F","B_W_soldier_AR_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.5],
+	[[[["B_W_APC_Tracked_01_aa_F","B_W_soldier_SL_F","B_W_soldier_AR_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.1],
 	// BUS_MechInf_Support
 	[[[["B_W_APC_Wheeled_01_cannon_F","B_W_soldier_SL_F","B_W_soldier_TL_F","B_W_soldier_repair_F","B_W_engineer_F","B_W_medic_F","B_W_soldier_AR_F","B_W_soldier_exp_F","B_W_soldier_A_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.5],
 	// lxWS
@@ -112,7 +112,7 @@ _arr = [[
 	// BUS_MotInf_AT
 	[[[["B_W_MRAP_01_F","B_W_soldier_AT_F","B_W_soldier_AT_F","B_W_soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"],[],1]],0.5],
 	// BUS_MotInf_AA
-	[[[["B_W_MRAP_01_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"],[],1]],0.5],
+	[[[["B_W_MRAP_01_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"],[],1]],0.1],
 	// BUS_MotInf_MGTeam
 	[[[["B_W_MRAP_01_F","B_W_soldier_TL_F","B_W_support_MG_F","B_W_support_AMG_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"],[],1]],0.5],
 	// BUS_MotInf_GMGTeam
@@ -133,7 +133,7 @@ if (count _arr > 0) then {
 		// BUS_TankPlatoon
 		[[[["B_T_MBT_01_cannon_F","B_T_MBT_01_cannon_F","B_T_MBT_01_cannon_F","B_T_MBT_01_cannon_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
 		// BUS_TankPlatoon_AA
-		[[[["B_T_MBT_01_cannon_F","B_T_APC_Tracked_01_aa_F","B_T_MBT_01_cannon_F","B_T_APC_Tracked_01_aa_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
+		[[[["B_T_MBT_01_cannon_F","B_T_APC_Tracked_01_aa_F","B_T_MBT_01_cannon_F","B_T_APC_Tracked_01_aa_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.1],
 		// BUS_TankSection
 		[[[["B_T_MBT_01_cannon_F","B_T_MBT_01_cannon_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5],
 
@@ -154,7 +154,7 @@ if (count _arr > 0) then {
 		// BUS_MechInf_AT
 		[[[["B_T_APC_Tracked_01_rcws_F","B_W_soldier_SL_F","B_W_soldier_AR_F","B_W_soldier_AT_F","B_W_soldier_AT_F","B_W_soldier_AT_F","B_W_soldier_AAT_F","B_W_soldier_AAT_F","B_W_soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.4],
 		// BUS_MechInf_AA
-		[[[["B_T_APC_Tracked_01_aa_F","B_W_soldier_SL_F","B_W_soldier_AR_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.4],
+		[[[["B_T_APC_Tracked_01_aa_F","B_W_soldier_SL_F","B_W_soldier_AR_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.1],
 		// BUS_MechInf_Support
 		[[[["B_T_APC_Wheeled_01_cannon_F","B_W_soldier_SL_F","B_W_soldier_TL_F","B_W_soldier_repair_F","B_W_engineer_F","B_W_medic_F","B_W_soldier_AR_F","B_W_soldier_exp_F","B_W_soldier_A_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.4],
 
@@ -163,7 +163,7 @@ if (count _arr > 0) then {
 		// BUS_MotInf_AT
 		[[[["B_T_MRAP_01_F","B_W_soldier_AT_F","B_W_soldier_AT_F","B_W_soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.4],
 		// BUS_MotInf_AA
-		[[[["B_T_MRAP_01_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.4],
+		[[[["B_T_MRAP_01_F","B_W_soldier_AA_F","B_W_soldier_AA_F","B_W_soldier_AAA_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.1],
 		// BUS_MotInf_MGTeam
 		[[[["B_T_MRAP_01_F","B_W_soldier_TL_F","B_W_support_MG_F","B_W_support_AMG_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"],[],1]],0.4],
 		// BUS_MotInf_GMGTeam

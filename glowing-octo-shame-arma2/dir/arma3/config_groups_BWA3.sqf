@@ -7,7 +7,7 @@ _arr = [
 	// BWA3_InfTeam_AT
 	[[[["BWA3_TL_Multi","BWA3_RiflemanAT_PzF3_Multi","BWA3_RiflemanAT_PzF3_Multi","BWA3_RiflemanAT_PzF3_Multi"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 	// BWA3_InfTeam_AA
-	[[[["BWA3_TL_Multi","BWA3_RiflemanAA_Fliegerfaust_Multi","BWA3_RiflemanAA_Fliegerfaust_Multi","BWA3_RiflemanAA_Fliegerfaust_Multi"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
+	[[[["BWA3_TL_Multi","BWA3_RiflemanAA_Fliegerfaust_Multi","BWA3_RiflemanAA_Fliegerfaust_Multi","BWA3_RiflemanAA_Fliegerfaust_Multi"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
 	// BWA3_InfSentry
 	[[[["BWA3_Grenadier_Multi","BWA3_Rifleman_Multi"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
 
@@ -67,7 +67,7 @@ _arr = [
 	// BWA3_InfTeam_AT
 	[[[["BWA3_TL_Fleck","BWA3_RiflemanAT_PzF3_Fleck","BWA3_RiflemanAT_PzF3_Fleck","BWA3_RiflemanAT_PzF3_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 	// BWA3_InfTeam_AA
-	[[[["BWA3_TL_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
+	[[[["BWA3_TL_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
 	// BWA3_InfSentry
 	[[[["BWA3_Grenadier_Fleck","BWA3_Rifleman_Fleck"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
 
@@ -95,13 +95,13 @@ _arr = [
 	// BWA3_MotInf_AT
 	[[[["BWA3_Eagle_Fleck","BWA3_RiflemanAT_PzF3_Fleck","BWA3_RiflemanAT_PzF3_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// BWA3_MotInf_AA
-	[[[["BWA3_Eagle_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	[[[["BWA3_Eagle_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.1],
 	// BWA3_MechInfSquad
 	[[[["BWA3_Puma_Fleck","BWA3_TL_Fleck","BWA3_Grenadier_Fleck","BWA3_RiflemanAT_PzF3_Fleck","BWA3_Marksman_Fleck","BWA3_MachineGunner_MG4_Fleck","BWA3_Medic_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
 	// BWA3_MechInf_AT
 	[[[["BWA3_Puma_Fleck","BWA3_TL_Fleck","BWA3_MachineGunner_MG4_Fleck","BWA3_RiflemanAT_PzF3_Fleck","BWA3_RiflemanAT_PzF3_Fleck","BWA3_RiflemanAT_PzF3_Fleck","BWA3_RiflemanAT_PzF3_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
 	// BWA3_MechInf_AA
-	[[[["BWA3_Puma_Fleck","BWA3_TL_Fleck","BWA3_MachineGunner_MG4_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
+	[[[["BWA3_Puma_Fleck","BWA3_TL_Fleck","BWA3_MachineGunner_MG4_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck","BWA3_RiflemanAA_Fliegerfaust_Fleck"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE"]]],0.1],
 
 	// BWA3_TankPlatoon
 	[[[["BWA3_Leopard2_Fleck","BWA3_Leopard2_Fleck","BWA3_Leopard2_Fleck","BWA3_Leopard2_Fleck"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
@@ -127,7 +127,7 @@ _arr = [
 	// BWA3_InfTeam_AT
 	[[[["BWA3_TL_Tropen","BWA3_RiflemanAT_PzF3_Tropen","BWA3_RiflemanAT_PzF3_Tropen","BWA3_RiflemanAT_PzF3_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 	// BWA3_InfTeam_AA
-	[[[["BWA3_TL_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
+	[[[["BWA3_TL_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
 	// BWA3_InfSentry
 	[[[["BWA3_Grenadier_Tropen","BWA3_Rifleman_Tropen"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
 
@@ -155,13 +155,13 @@ _arr = [
 	// BWA3_MotInf_AT
 	[[[["BWA3_Eagle_Tropen","BWA3_RiflemanAT_PzF3_Tropen","BWA3_RiflemanAT_PzF3_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
 	// BWA3_MotInf_AA
-	[[[["BWA3_Eagle_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	[[[["BWA3_Eagle_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.1],
 	// BWA3_MechInfSquad
 	[[[["BWA3_Puma_Tropen","BWA3_TL_Tropen","BWA3_Grenadier_Tropen","BWA3_RiflemanAT_PzF3_Tropen","BWA3_Marksman_Tropen","BWA3_MachineGunner_MG4_Tropen","BWA3_Medic_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
 	// BWA3_MechInf_AT
 	[[[["BWA3_Puma_Tropen","BWA3_TL_Tropen","BWA3_MachineGunner_MG4_Tropen","BWA3_RiflemanAT_PzF3_Tropen","BWA3_RiflemanAT_PzF3_Tropen","BWA3_RiflemanAT_PzF3_Tropen","BWA3_RiflemanAT_PzF3_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
 	// BWA3_MechInf_AA
-	[[[["BWA3_Puma_Tropen","BWA3_TL_Tropen","BWA3_MachineGunner_MG4_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
+	[[[["BWA3_Puma_Tropen","BWA3_TL_Tropen","BWA3_MachineGunner_MG4_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen","BWA3_RiflemanAA_Fliegerfaust_Tropen"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE"]]],0.1],
 
 	// BWA3_TankPlatoon
 	[[[["BWA3_Leopard2_Tropen","BWA3_Leopard2_Tropen","BWA3_Leopard2_Tropen","BWA3_Leopard2_Tropen"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],

@@ -62,7 +62,7 @@
 			// configName InfTeam_AT
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_AT_Ratnik_Summer","CUP_O_RU_Soldier_AT_Ratnik_Summer","CUP_O_RU_Soldier_AAT_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 			// configName InfTeam_AA
-			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_AA_Ratnik_Summer","CUP_O_RU_Soldier_AA_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],1],
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_AA_Ratnik_Summer","CUP_O_RU_Soldier_AA_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.1],
 			// configName InfSentry
 			[[[["CUP_O_RU_Soldier_GL_Ratnik_Summer","CUP_O_RU_Soldier_Ratnik_Summer"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0.1],
 			// configName reconTeam
@@ -203,7 +203,7 @@
 		// InfTeam_AT
 		[[[["CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_AT_VKPO_Desert","CUP_O_RUS_M_Soldier_AT_VKPO_Desert","CUP_O_RUS_M_Soldier_AAT_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 		// InfTeam_AA
-		[[[["CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_AA_VKPO_Desert","CUP_O_RUS_M_Soldier_AA_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],1],
+		[[[["CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_AA_VKPO_Desert","CUP_O_RUS_M_Soldier_AA_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.1],
 		// InfSentry
 		[[[["CUP_O_RUS_M_Soldier_GL_VKPO_Desert","CUP_O_RUS_M_Soldier_VKPO_Desert"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0.1],
 		// InfAssault
@@ -262,7 +262,7 @@
 			// configName InfTeam_AT
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Desert","CUP_O_RU_Soldier_AT_Ratnik_Desert","CUP_O_RU_Soldier_AT_Ratnik_Desert","CUP_O_RU_Soldier_AAT_Ratnik_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			// configName InfTeam_AA
-			[[[["CUP_O_RU_Soldier_TL_Ratnik_Desert","CUP_O_RU_Soldier_AA_Ratnik_Desert","CUP_O_RU_Soldier_AA_Ratnik_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+			[[[["CUP_O_RU_Soldier_TL_Ratnik_Desert","CUP_O_RU_Soldier_AA_Ratnik_Desert","CUP_O_RU_Soldier_AA_Ratnik_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.1],
 			// configName InfSentry
 			[[[["CUP_O_RU_Soldier_GL_Ratnik_Desert","CUP_O_RU_Soldier_Ratnik_Desert"],[[0,0,0],[5,-2,0]],["CORPORAL","PRIVATE"]]],0.1],
 			// configName reconTeam
@@ -1171,7 +1171,7 @@
 			// configName CUP_B_GER_Fleck_KSK_ATTeam
 			[[[["CUP_B_GER_Fleck_Soldier_TL","CUP_B_GER_Fleck_Soldier_AT","CUP_B_GER_Fleck_Soldier_AAT","CUP_B_GER_Fleck_Soldier_Scout"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			// configName CUP_B_GER_Fleck_KSK_AATeam
-			[[[["CUP_B_GER_Fleck_Soldier_TL","CUP_B_GER_Fleck_Soldier_AA","CUP_B_GER_Fleck_Soldier_AAA","CUP_B_GER_Fleck_Soldier_Scout"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
+			[[[["CUP_B_GER_Fleck_Soldier_TL","CUP_B_GER_Fleck_Soldier_AA","CUP_B_GER_Fleck_Soldier_AAA","CUP_B_GER_Fleck_Soldier_Scout"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
 			// configName CUP_B_GER_Fleck_KSK_EngineerTeam
 			[[[["CUP_B_GER_Fleck_Soldier_TL","CUP_B_GER_Fleck_Soldier_Engineer","CUP_B_GER_Fleck_Soldier_Engineer","CUP_B_GER_Fleck_Soldier_Scout"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			// configName CUP_B_GER_Fleck_KSK_ReconPatrol
@@ -1191,7 +1191,7 @@
 			// configName CUP_B_GER_BW_Fleck_anti_tank_team
 			[[[["CUP_B_GER_BW_Fleck_Soldier_AT","CUP_B_GER_BW_Fleck_Soldier_AAT","CUP_B_GER_BW_Fleck_Soldier_AT","CUP_B_GER_BW_Fleck_Soldier_AAT"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 			// configName CUP_B_GER_BW_Fleck_anti_air_team
-			[[[["CUP_B_GER_BW_Fleck_Soldier_AA","CUP_B_GER_BW_Fleck_Soldier_AAA","CUP_B_GER_BW_Fleck_Soldier_AA","CUP_B_GER_BW_Fleck_Soldier_AAA"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+			[[[["CUP_B_GER_BW_Fleck_Soldier_AA","CUP_B_GER_BW_Fleck_Soldier_AAA","CUP_B_GER_BW_Fleck_Soldier_AA","CUP_B_GER_BW_Fleck_Soldier_AAA"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.1],
 
 			// configName CUP_B_GER_SF_MotInf_KSK_WDL
 			[[[["CUP_B_GER_Fleck_Soldier_TL","CUP_B_GER_Fleck_Soldier_MG","CUP_B_GER_Fleck_Soldier","CUP_B_GER_Fleck_Soldier_Scout","CUP_B_GER_Fleck_Soldier","CUP_B_GER_Fleck_Medic","CUP_B_GER_Fleck_Soldier_AT","CUP_B_GER_Fleck_Soldier_Ammo","CUP_B_Dingo_GER_Wdl","CUP_B_Dingo_GL_GER_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[15,0,0],[15,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT"]]],0.6],
@@ -1220,7 +1220,7 @@
 			// configName CUP_B_GER_BW_anti_tank_team
 			[[[["CUP_B_GER_BW_Soldier_AT","CUP_B_GER_BW_Soldier_AAT","CUP_B_GER_BW_Soldier_AT","CUP_B_GER_BW_Soldier_AAT"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 			// configName CUP_B_GER_BW_anti_air_team
-			[[[["CUP_B_GER_BW_Soldier_AA","CUP_B_GER_BW_Soldier_AAA","CUP_B_GER_BW_Soldier_AA","CUP_B_GER_BW_Soldier_AAA"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+			[[[["CUP_B_GER_BW_Soldier_AA","CUP_B_GER_BW_Soldier_AAA","CUP_B_GER_BW_Soldier_AA","CUP_B_GER_BW_Soldier_AAA"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.1],
 
 			// configName CUP_B_GER_SF_MotInf_KSK
 			[[[["CUP_B_GER_Soldier_TL","CUP_B_GER_Soldier_MG","CUP_B_GER_Soldier","CUP_B_GER_Soldier_Scout","CUP_B_GER_Soldier","CUP_B_GER_Medic","CUP_B_GER_Soldier_AT","CUP_B_GER_Soldier_Ammo","CUP_B_Dingo_GL_GER_Des","CUP_B_Dingo_GER_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[15,0,0],[15,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT"]]],0.6],
@@ -1242,7 +1242,7 @@
 			// configName CUP_B_GER_KSK_ATTeam
 			[[[["CUP_B_GER_Soldier_TL","CUP_B_GER_Soldier_AT","CUP_B_GER_Soldier_AAT","CUP_B_GER_Soldier_Scout"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			// configName CUP_B_GER_KSK_AATeam
-			[[[["CUP_B_GER_Soldier_TL","CUP_B_GER_Soldier_AA","CUP_B_GER_Soldier_AAA","CUP_B_GER_Soldier_Scout"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
+			[[[["CUP_B_GER_Soldier_TL","CUP_B_GER_Soldier_AA","CUP_B_GER_Soldier_AAA","CUP_B_GER_Soldier_Scout"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
 			// configName CUP_B_GER_KSK_EngineerTeam
 			[[[["CUP_B_GER_Soldier_TL","CUP_B_GER_Soldier_Engineer","CUP_B_GER_Soldier_Engineer","CUP_B_GER_Soldier_Scout"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			// configName CUP_B_GER_KSK_ReconPatrol
