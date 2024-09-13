@@ -4444,6 +4444,7 @@ class Mission
 		class Item87
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=413;
 			type="VirtualSpectator_F";
@@ -4519,6 +4520,7 @@ class Mission
 		class Item88
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=414;
 			type="VirtualSpectator_F";
@@ -4594,6 +4596,7 @@ class Mission
 		class Item89
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=415;
 			type="VirtualSpectator_F";
@@ -4669,6 +4672,7 @@ class Mission
 		class Item90
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=416;
 			type="VirtualSpectator_F";

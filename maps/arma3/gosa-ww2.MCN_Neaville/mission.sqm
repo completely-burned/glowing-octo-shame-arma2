@@ -1389,6 +1389,7 @@ class Mission
 		class Item64
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={2868,100,1842};

@@ -2661,6 +2661,7 @@ class Mission
 		class Item85
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={3720,44.932549,2645};
@@ -2740,6 +2741,7 @@ class Mission
 		class Item86
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={3716,44.919476,2641};
@@ -2819,6 +2821,7 @@ class Mission
 		class Item87
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={3713,44.843513,2637};
@@ -2898,6 +2901,7 @@ class Mission
 		class Item88
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={3723,44.859367,2636};
@@ -2977,6 +2981,7 @@ class Mission
 		class Item89
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={3725,44.343895,2640};

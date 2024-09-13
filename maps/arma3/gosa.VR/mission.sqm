@@ -822,6 +822,7 @@ class Mission
 		class Item22
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=65;
 			type="VirtualSpectator_F";
@@ -897,6 +898,7 @@ class Mission
 		class Item23
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=66;
 			type="VirtualSpectator_F";
@@ -972,6 +974,7 @@ class Mission
 		class Item24
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=67;
 			type="VirtualSpectator_F";
@@ -1047,6 +1050,7 @@ class Mission
 		class Item25
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=68;
 			type="VirtualSpectator_F";
@@ -1122,6 +1126,7 @@ class Mission
 		class Item26
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=69;
 			type="VirtualSpectator_F";
@@ -1197,6 +1202,7 @@ class Mission
 		class Item27
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=70;
 			type="VirtualSpectator_F";
@@ -1272,6 +1278,7 @@ class Mission
 		class Item28
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=71;
 			type="VirtualSpectator_F";
@@ -1347,6 +1354,7 @@ class Mission
 		class Item29
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=72;
 			type="VirtualSpectator_F";
@@ -1422,6 +1430,7 @@ class Mission
 		class Item30
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=73;
 			type="VirtualSpectator_F";
@@ -1497,6 +1506,7 @@ class Mission
 		class Item31
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=74;
 			type="VirtualSpectator_F";

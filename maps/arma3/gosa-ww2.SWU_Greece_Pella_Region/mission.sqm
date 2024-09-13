@@ -4121,6 +4121,7 @@ class Mission
 		class Item53
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={-1434.8571,207.51421,1200.782};
@@ -4200,6 +4201,7 @@ class Mission
 		class Item54
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={-1473.6456,253.62003,968.05542};
@@ -4279,6 +4281,7 @@ class Mission
 		class Item55
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={-1434.8572,285.84848,735.32837};
@@ -4358,6 +4361,7 @@ class Mission
 		class Item56
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={-1447.7869,282.01419,476.74194};
@@ -4437,6 +4441,7 @@ class Mission
 		class Item57
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			class PositionInfo
 			{
 				position[]={-1447.7869,273.16153,244.01489};

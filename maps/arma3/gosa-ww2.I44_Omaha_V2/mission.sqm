@@ -656,6 +656,7 @@ class Mission
 		class Item44
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=47;
 			type="VirtualSpectator_F";
@@ -731,6 +732,7 @@ class Mission
 		class Item45
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=48;
 			type="VirtualSpectator_F";
@@ -806,6 +808,7 @@ class Mission
 		class Item46
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=49;
 			type="VirtualSpectator_F";
@@ -881,6 +884,7 @@ class Mission
 		class Item47
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=50;
 			type="VirtualSpectator_F";
@@ -956,6 +960,7 @@ class Mission
 		class Item48
 		{
 			dataType="Logic";
+			init="call gosa_fnc_spectator_init";
 			isPlayable=1;
 			id=51;
 			type="VirtualSpectator_F";
