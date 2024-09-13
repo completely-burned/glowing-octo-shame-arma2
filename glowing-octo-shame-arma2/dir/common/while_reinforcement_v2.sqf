@@ -173,8 +173,11 @@ while{_run}do{
 
 			//--- enemyCoefficient
 				if(!isNil {CivilianLocationStartTime})then{
+					diag_log format ["Log: [reinforcements] _e_cfi, _n=%1-%2", time, CivilianLocationStartTime];
 					_n = time - CivilianLocationStartTime;
+					diag_log format ["Log: [reinforcements] _e_cfi, _n=%1-%2", _timeFriendlyReinforcements, _n];
 					_n = 0 max (_timeFriendlyReinforcements - _n);
+					diag_log format ["Log: [reinforcements] _e_cfi=%1/%2", _n, _e_multipler];
 					_e_cfi = _n / _e_multipler;
 
 					if (_cfg_cfi >= 1) then {
