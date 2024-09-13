@@ -18,11 +18,14 @@ private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
 if (playerSide == sideLogic) exitWith {
 	diag_log format ["Log: [respawnRandom] playerSide == %1, exitWith", playerSide];
 
+	#ifdef __ARMA3__
 	diag_log format ["Log: [respawnRandom] RespawnMenu close", nil];
 	["close"] call BIS_fnc_showRespawnMenu;
+
 	diag_log format ["Log: [respawnRandom] reInitialize EGSpectator", nil];
 	["Terminate"] call BIS_fnc_EGSpectator;
 	["Initialize", [player]] call BIS_fnc_EGSpectator;
+	#endif
 };
 
 if ([player] call gosa_fnc_role_isCrew) exitWith {
