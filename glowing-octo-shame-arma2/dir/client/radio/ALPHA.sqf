@@ -1,5 +1,9 @@
 if (true) exitWith {};
 
+["close"] call BIS_fnc_showRespawnMenu;
+["Terminate"] call BIS_fnc_EGSpectator;
+["Initialize", [player]] call BIS_fnc_EGSpectator;
+
 cameraon commandFollow leader cameraon;
 cameraon commandFollow cameraon;
 
