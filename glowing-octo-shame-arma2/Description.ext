@@ -1845,6 +1845,14 @@ class CfgFunctions
 				file = "dir\functions\fnc_groups_get_factions.sqf";
 			};
 		};
+
+		class compile
+		{
+			class config_groups
+			{
+				file = "dir\arma3\config_groups.sqf";
+			};
+		}
 	};
 };
 

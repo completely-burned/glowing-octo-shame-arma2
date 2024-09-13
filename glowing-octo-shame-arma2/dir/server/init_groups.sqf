@@ -57,7 +57,7 @@ _fnc6={
 };
 
 #ifdef __ARMA3__
-	[] call compile preprocessFileLineNumbers "dir\arma3\config_groups.sqf";
+	[] call gosa_fnc_config_groups;
 #else
 [] call compile preprocessFileLineNumbers "dir\server\config_groups.sqf";
 #endif
