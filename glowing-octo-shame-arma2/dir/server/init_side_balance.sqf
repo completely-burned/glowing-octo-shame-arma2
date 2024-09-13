@@ -142,6 +142,11 @@ if (isMultiplayer) then {
 };
 if (!isMultiplayer or _spectator) then {
 	_players = [player];
+
+	if (count _problem0 + count _problem1 > 0) then {diag_log format ["Log: [init_side_balance] SPorSpec, _problem0 %1, _problem1 %2, resize 0", _problem0, _problem1]};
+	_problem0 resize 0;
+	_problem1 resize 0;
+
 	// TODO: Псевдо рандомизация.
 	if (count _superpowers_rating > 1) then {
 	/*
