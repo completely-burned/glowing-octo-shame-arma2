@@ -1147,6 +1147,15 @@ class CfgFunctions
 				file = "dir\functions\fnc_findSpawnPos_veh.sqf";
 			};
 		};
+
+		class Spectator
+		{
+			class spectator_init
+			{
+				file = "dir\functions\fnc_spectator_init.sqf";
+			};
+		};
+
 		// Systems or unsorted.
 		class Systems
 		{

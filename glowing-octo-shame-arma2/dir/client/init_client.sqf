@@ -6,6 +6,12 @@
 // Маркеры возрождения должны присутствовать до начала миссии.
 [] execVM "dir\client\while_markers.sqf";
 
+#ifdef __ARMA3__
+	if (playerSide == sideLogic) then {
+		[] spawn gosa_fnc_spectator_init;
+	};
+#endif
+
 private ["_str","_n","_arr"];
 _arr = [];
 
