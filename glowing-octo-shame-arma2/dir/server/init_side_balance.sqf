@@ -4,7 +4,7 @@
  */
 
 private ["_alliances","_alliance","_side",
-	"_count",
+	"_count","_spectator",
 	"_allDead",
 	"_cfgVeh",
 	"_obj",
@@ -39,6 +39,7 @@ _problem0 = [];
 // Союзники.
 _problem1 = [];
 _superpowers_rating = [];
+_spectator = false;
 
 
 // TODO: Нужно учитывать колличество фракций стороны.
@@ -115,7 +116,7 @@ if (isMultiplayer) then {
 	if (count _problem1 <= 0) then {
 		// TODO: Нужно найти две основные стороны конфликта и распределить остальные.
 		diag_log format ["Log: [init_side_balance] _problem1 %1", _problem1];
-		failMission "LOSER";
+		_spectator = true;
 	}else{
 		if (count _superpowers_rating < 2) then {
 			diag_log format ["Log: [init_side_balance] _superpowers_rating %1", _superpowers_rating];
@@ -138,7 +139,8 @@ if (isMultiplayer) then {
 			};
 		};
 	};
-}else{
+};
+if (!isMultiplayer or _spectator) then {
 	_players = [player];
 	// TODO: Псевдо рандомизация.
 	if (count _superpowers_rating > 1) then {
