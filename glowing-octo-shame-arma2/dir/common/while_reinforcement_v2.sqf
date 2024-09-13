@@ -84,6 +84,7 @@ _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
 _playerCoefficient = missionNamespace getVariable "playerCoefficient";
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
+diag_log format ["Log: [reinforcements] _e_multipler=%1/%2", _timeFriendlyReinforcements, _cfg_cfi];
 _frames_required = _limit_fps * _dfi;
 _time = time;
 _frontLine_east = missionNamespace getVariable "gosa_frontLine_east";
