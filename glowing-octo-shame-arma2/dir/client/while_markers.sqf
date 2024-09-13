@@ -89,6 +89,8 @@ _startingClass = _respawn_type_All;
 if (true) then {
 
 	_fnc_update_LocationAirport = {
+		if !(isNil "gosa_list_LocationAirport") then {
+
 		_markers_alive = [];
 		_list = gosa_list_LocationAirport;
 		for "_i" from 0 to (count _list -1) do {
@@ -187,6 +189,7 @@ if (true) then {
 		};
 		_markers_airport = _markers_airport -[-1];
 
+		};
 	};
 
 
@@ -204,6 +207,8 @@ _markers_LocationBase = [];
 if (true) then {
 
 	_fnc_update_LocationBase = {
+		if !(isNil "gosa_list_LocationBase") then {
+
 		_markers_alive = [];
 		_list = gosa_list_LocationBase;
 		for "_i" from 0 to (count _list -1) do {
@@ -302,6 +307,7 @@ if (true) then {
 		};
 		_markers_LocationBase = _markers_LocationBase -[-1];
 
+		};
 	};
 
 
@@ -457,7 +463,8 @@ if ((count _markers_airport
 if ((count _respawnMarkers
 	+ count _markers_airport
 	+ count _markers_LocationBase
-	+ count _markersHQ) < 1) then
+	+ count _markersHQ) <= 0 && 
+	playerSide != sideLogic) then
 {
 	diag_log format ["Log: [while_markers] no base", nil];
 	_pos = getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
