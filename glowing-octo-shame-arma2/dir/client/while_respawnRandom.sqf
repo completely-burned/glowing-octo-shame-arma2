@@ -25,34 +25,25 @@ if (playerSide == sideLogic) exitWith {
 
 	diag_log format ["Log: [respawnRandom] reInitialize EGSpectator", nil];
 	["Terminate"] call BIS_fnc_EGSpectator;
-	["Initialize", [player]] call BIS_fnc_EGSpectator;
-
+		/*
+			["_spectator", objNull, [objNull]],
+			["_whitelistedSides", [], []],
+			["_allowAi", false, [false]],
+			["_allowFreeCamera", true, [false]],
+			["_allow3PPCamera", true, [false]],
+			["_showFocusInfo", true, [false]],
+			["_showCameraButtons", true, [false]],
+			["_showControlsHelper", true, [false]],
+			["_showHeader", true, [false]],
+			["_showLists", true, [false]]
+		*/
+		["Initialize", [player,[],true,true,true,true,true,true,true,true]] call BIS_fnc_EGSpectator; 
 		//- Перемещение камеры на случайную позицию.
 		if !(isNil "gosa_worldSize") then {
 			_arr = gosa_worldSize;
 			_obj = ["GetCamera"] call BIS_fnc_EGSpectator;
 			_obj setPos [((_arr select 0)/4) + random ((_arr select 0)/2), ((_arr select 1)/4) + random ((_arr select 1)/2), 50];
 			_obj setDir random 360;
-		};
-
-		// FIXME: Ни на что не влияет.
-		_arr = [
-			"BIS_respSpecAI",					// Allow spectating of AI
-			"BIS_respSpecAllowFreeCamera",		// Allow moving the camera independent from units (players)
-			"BIS_respSpecAllow3PPCamera",		// Allow 3rd person camera
-			"BIS_respSpecShowCameraButtons"	// Show buttons for switching between free camera, 1st and 3rd person view (partially overlayed by respawn UI)
-		];
-		for "_i" from 0 to (count _arr -1) do {
-			missionNamespace setVariable [_arr select _i, true];
-		};
-		_arr = [
-			"BIS_respSpecShowFocus",			// Show info about the selected unit (dissapears behind the respawn UI)
-			"BIS_respSpecShowControlsHelper",	// Show the controls tutorial box
-			"BIS_respSpecShowHeader",			// Top bar of the spectator UI including mission time
-			"BIS_respSpecLists"					// Show list of available units and locations on the left hand side
-		];
-		for "_i" from 0 to (count _arr -1) do {
-			missionNamespace setVariable [_arr select _i, false];
 		};
 	#endif
 };
