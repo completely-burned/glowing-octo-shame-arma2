@@ -3276,10 +3276,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={1153,60,1967};
-			};
 			isPlayable=1;
 			id=226;
 			type="VirtualSpectator_F";
@@ -3356,10 +3352,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={1153,60,1967};
-			};
 			isPlayable=1;
 			id=227;
 			type="VirtualSpectator_F";
@@ -3436,10 +3428,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={1153,60,1967};
-			};
 			isPlayable=1;
 			id=228;
 			type="VirtualSpectator_F";
@@ -3516,10 +3504,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={1153,60,1967};
-			};
 			isPlayable=1;
 			id=229;
 			type="VirtualSpectator_F";
@@ -3596,10 +3580,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={1153,60,1967};
-			};
 			isPlayable=1;
 			id=230;
 			type="VirtualSpectator_F";
