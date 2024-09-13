@@ -187,7 +187,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa Tanoa Multi v0.0.5.960 DEBUG";
+		briefingName="CO 00 gosa Tanoa Multi v0.0.5.961 DEBUG";
 		resistanceWest=0;
 		startWeather=0.3;
 		startWind=0.1;
