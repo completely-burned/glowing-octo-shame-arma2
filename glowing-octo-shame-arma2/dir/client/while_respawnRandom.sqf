@@ -20,31 +20,8 @@ if (playerSide == sideLogic) exitWith {
 
 	#ifdef __ARMA3__
 		waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > 30};
-	diag_log format ["Log: [respawnRandom] RespawnMenu close", nil];
-	["close"] call BIS_fnc_showRespawnMenu;
-
-	diag_log format ["Log: [respawnRandom] reInitialize EGSpectator", nil];
-	["Terminate"] call BIS_fnc_EGSpectator;
-		/*
-			["_spectator", objNull, [objNull]],
-			["_whitelistedSides", [], []],
-			["_allowAi", false, [false]],
-			["_allowFreeCamera", true, [false]],
-			["_allow3PPCamera", true, [false]],
-			["_showFocusInfo", true, [false]],
-			["_showCameraButtons", true, [false]],
-			["_showControlsHelper", true, [false]],
-			["_showHeader", true, [false]],
-			["_showLists", true, [false]]
-		*/
-		["Initialize", [player,[],true,true,true,true,true,true,true,true]] call BIS_fnc_EGSpectator; 
-		//- Перемещение камеры на случайную позицию.
-		if !(isNil "gosa_worldSize") then {
-			_arr = gosa_worldSize;
-			_obj = ["GetCamera"] call BIS_fnc_EGSpectator;
-			_obj setPos [((_arr select 0)/4) + random ((_arr select 0)/2), ((_arr select 1)/4) + random ((_arr select 1)/2), 50];
-			_obj setDir random 360;
-		};
+		diag_log format ["Log: [respawnRandom] RespawnMenu close", nil];
+		["close"] call BIS_fnc_showRespawnMenu;
 	#endif
 };
 
