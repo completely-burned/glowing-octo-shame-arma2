@@ -2696,7 +2696,7 @@ class Mission
 		class Item33
 		{
 			dataType="Logic";
-			init="[this] call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={4972,100,1643};
@@ -2776,7 +2776,7 @@ class Mission
 		class Item34
 		{
 			dataType="Logic";
-			init="[this] call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={1074,100,1478};
@@ -2856,7 +2856,7 @@ class Mission
 		class Item35
 		{
 			dataType="Logic";
-			init="[this] call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={2509,100,2719};
@@ -2936,7 +2936,7 @@ class Mission
 		class Item36
 		{
 			dataType="Logic";
-			init="[this] call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={2447,100,4294};
@@ -3016,7 +3016,7 @@ class Mission
 		class Item37
 		{
 			dataType="Logic";
-			init="[this] call gosa_fnc_spectator_init";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={2494,150,1106};

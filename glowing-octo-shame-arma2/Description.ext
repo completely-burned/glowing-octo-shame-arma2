@@ -1150,6 +1150,10 @@ class CfgFunctions
 
 		class Spectator
 		{
+			class spectator_init_unit
+			{
+				file = "dir\functions\fnc_spectator_init_unit.sqf";
+			};
 			class spectator_init
 			{
 				file = "dir\functions\fnc_spectator_init.sqf";
