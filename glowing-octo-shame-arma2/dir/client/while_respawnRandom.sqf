@@ -27,6 +27,7 @@ if (playerSide == sideLogic) exitWith {
 	["Terminate"] call BIS_fnc_EGSpectator;
 	["Initialize", [player]] call BIS_fnc_EGSpectator;
 
+		// FIXME: Ни на что не влияет.
 		_arr = [
 			"BIS_respSpecAI",					// Allow spectating of AI
 			"BIS_respSpecAllowFreeCamera",		// Allow moving the camera independent from units (players)
