@@ -189,7 +189,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa I44_Omaha_V2 Multi v0.0.5.959 DEBUG";
+		briefingName="WW2 CO 00 gosa I44_Omaha_V2 Multi v0.0.5.960 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.05;

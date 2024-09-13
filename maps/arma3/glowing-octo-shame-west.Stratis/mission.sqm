@@ -171,7 +171,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa Stratis West v0.0.5.959 DEBUG";
+		briefingName="CO 00 gosa Stratis West v0.0.5.960 DEBUG";
 		startWeather=0.16703814;
 		startWind=0.1;
 		startWaves=0.1;

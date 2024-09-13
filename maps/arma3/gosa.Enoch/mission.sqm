@@ -272,7 +272,7 @@ class Mission
 	appId=1021790;
 	class Intel
 	{
-		briefingName="CO 00 gosa Enoch Multi v0.0.5.959 DEBUG";
+		briefingName="CO 00 gosa Enoch Multi v0.0.5.960 DEBUG";
 		timeOfChanges=1800;
 		startWeather=0.3;
 		startWind=0.1;

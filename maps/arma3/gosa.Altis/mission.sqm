@@ -207,7 +207,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa Altis Multi v0.0.5.959 DEBUG";
+		briefingName="CO 00 gosa Altis Multi v0.0.5.960 DEBUG";
 		resistanceWest=0;
 		startWeather=0.3;
 		startWind=0.1;

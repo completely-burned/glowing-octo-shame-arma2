@@ -221,7 +221,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="GM CO 00 gosa ThirskW Multi v0.0.5.959 DEBUG";
+		briefingName="GM CO 00 gosa ThirskW Multi v0.0.5.960 DEBUG";
 		startWeather=0.25;
 		startFog=0.15;
 		startWind=0.1;

@@ -34,7 +34,7 @@ class Mission
 	randomSeed=6222077;
 	class Intel
 	{
-		briefingName="CO 00 gosa Bootcamp_ACR guer v0.0.5.959 DEBUG";
+		briefingName="CO 00 gosa Bootcamp_ACR guer v0.0.5.960 DEBUG";
 		startWeather=0.25;
 		forecastWeather=0.25;
 		year=2008;
