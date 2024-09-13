@@ -2251,10 +2251,6 @@ class Mission
 		class Item50
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2276,128.77798,3820};
-			};
 			isPlayable=1;
 			id=149;
 			type="VirtualSpectator_F";

@@ -2049,7 +2049,6 @@ class Mission
 			isPlayable=1;
 			id=133;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2125,7 +2124,6 @@ class Mission
 			isPlayable=1;
 			id=134;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2201,7 +2199,6 @@ class Mission
 			isPlayable=1;
 			id=135;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2277,7 +2274,6 @@ class Mission
 			isPlayable=1;
 			id=136;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2353,7 +2349,6 @@ class Mission
 			isPlayable=1;
 			id=137;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0
