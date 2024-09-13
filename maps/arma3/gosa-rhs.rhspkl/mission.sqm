@@ -836,7 +836,6 @@ class Mission
 			isPlayable=1;
 			id=79;
 			type="VirtualSpectator_F";
-			atlOffset=150;
 			class CustomAttributes
 			{
 				class Attribute0
