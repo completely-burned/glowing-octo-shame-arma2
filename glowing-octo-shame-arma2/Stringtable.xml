@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="gosaProject">
+	<Package name="gosaPackage">
+		<Container name="gosaContainer">
+			<Key ID="STR_ACT_Crew">
+				<Original>Crew</Original>
+				<Russian>Экипаж</Russian>
+			</Key>
+			<Key ID="STR_RADIO_Friendlyfire">
+				<Original>%1 has engaged %2, %3, %4</Original>
+				<Russian>%1 открыл огонь по %2, %3, %4</Russian>
+			</Key>
+			<Key ID="STR_gosa_purchase">
+				<Original>Purchase</Original>
+				<Russian>Покупка</Russian>
+			</Key>
+			<Key ID="STR_gosa_teleportation">
+				<Original>Teleportation</Original>
+				<Russian>Телепортация</Russian>
+			</Key>
+			<Key ID="STR_gosa_maintain_equipment">
+				<Original>Maintain equipment.</Original>
+				<Russian>Сохранить снаряжение.</Russian>
+			</Key>
+			<Key ID="STR_gosa_dismiss_unit">
+				<Original>Dismiss the selected unit.</Original>
+				<Russian>Уволить выбранных подчиненных.</Russian>
+			</Key>
+			<Key ID="STR_gosa_leave_the_squad">
+				<Original>Leave the squad.</Original>
+				<Russian>Покинуть отряд.</Russian>
+			</Key>
+			<Key ID="STR_gosa_car_flip">
+				<Original>Car flip.</Original>
+				<Russian>Перевернуть автомобиль.</Russian>
+			</Key>
+			<Key ID="STR_gosa_setTerrainGrid">
+				<Original>set Terrain Grid</Original>
+				<Russian>Настройка травы</Russian>
+			</Key>
+			<Key ID="STR_gosa_setViewDistance">
+				<Original>set View Distance</Original>
+				<Russian>Настройка дальности обзора</Russian>
+			</Key>
+			<Key ID="STR_gosa_join_the_squad">
+				<Original>join the squad</Original>
+				<Russian>Присоединиться к отряду</Russian>
+			</Key>
+			<Key ID="STR_gosa_saved">
+				<Original>Saved.</Original>
+				<Russian>Сохранено.</Russian>
+			</Key>
+			<Key ID="STR_gosa_CannotTeleport">
+				<Original>You can not teleport to a moving object.</Original>
+				<Russian>Нельзя телепортироваться к движущемуся объекту.</Russian>
+			</Key>
+			<Key ID="STR_gosa_heli_transport">
+				<Original>air transportation</Original>
+				<Russian>Воздушный транспорт</Russian>
+			</Key>
+			<Key ID="STR_gosa_heli_transport_move">
+				<Original>%1 in transit</Original>
+				<Russian>%1 уже в пути</Russian>
+			</Key>
+			<Key ID="STR_friendly_vehicles_only">
+				<Original>Allow friendly vehicles only</Original>
+				<Russian>Разрешить только дружественные транспортные средства</Russian>
+			</Key>
+			<Key ID="STR_gosa_cheat_detected">
+				<Original>cheat detected</Original>
+				<Russian>чит обнаружен</Russian>
+			</Key>
+			<Key ID="STR_gosa_debug_notice">
+				<Original>debug script version</Original>
+				<Russian>отладочная версия сценария</Russian>
+			</Key>
+			<Key ID="STR_gosa_player_wrong_side">
+				<Original>You have chosen a conflict side that is incompatible with PvE, please choose an allied side or observer mode.</Original>
+				<Russian>Вы выбрали несовместимую с PvE сторону конфликта, пожалуйста выберите союзную сторону или режим наблюдателя.</Russian>
+			</Key>
+			<Key ID="STR_gosa_Situation">
+				<Original>Ситуация</Original>
+			</Key>
+			<Key ID="STR_gosa_Situation2">
+				<Original>Сценарий не завершен, поэтому этот текст может не иметь смысла.&lt;br/&gt;&lt;br/&gt;# Магазин.&lt;br/&gt;Магазин по умолчанию он отключен, его нужно включать перед запуском сценария, потому что он ещё должным образом не готов и возможно приводит тормозам.&lt;br/&gt;С помощью мобильных баз можно строить большую базу, только для A2, но стройка еще не доработана и частенько глючит.&lt;br/&gt;Покупка техники и ящиков оружия доступна у точек возрождения и у построенных объектов базы или у мобильных баз если они включены.&lt;br/&gt;&lt;br/&gt;# Возрождение.&lt;br/&gt;Возрождение может быть прямо на поле боя, в этом случае база имеет мало смысла, режим выбирается при старте.&lt;br/&gt;Такие роли как пилот, член экипажа, высший офицер или гражданский всегда будут возрождатся на базе независимо от выбранного режима возрождения, не забудьте включить для них магазин.&lt;br/&gt;Между точками возрождения, казармами или госпиталями можно телепортироваться.&lt;br/&gt;Можно сохранять вооружение при возрождении (для этого нужно нажать 0-8- и т.д.), только для A2 при возрождении на базе.&lt;br/&gt;С помощью грузовиков утилизаторов можно удалять уничтоженную технику, только для A2.&lt;br/&gt;&lt;br/&gt;# Настройки.&lt;br/&gt;Вы можете присоединится к другому отряду или покинуть его с помощью меню 0-8 commandingMenu.&lt;br/&gt;&lt;br/&gt;# Задача.&lt;br/&gt;Цель сценария - простой бой с ботами, сконцентрированный в одной точке.&lt;br/&gt;Большая часть ботов пытается отбить точку, другие патрулируют местность.&lt;br/&gt;У противников есть пво и радар новой разработки, летайте пониже.&lt;br/&gt;В нашей армии лишь инженеров, а не всех бойцов обучили полевому ремонту техники.&lt;br/&gt;Тоже самое с медиками, если вас ранят в ногу санитара может не быть рядом.&lt;br/&gt;И сапёры тоже по умолчанию.&lt;br/&gt;Если долго удерживать точку то она сменится.&lt;br/&gt;</Original>
+			</Key>
+		</Container>
+	</Package>
+</Project>
