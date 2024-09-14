@@ -9,11 +9,14 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
-	"_skill","_grp","_veh",
+	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 
 _side = _this select 0;
 _skill = gosa_ai_skill;
+
+_var_grp_ready = "gosa_grp_ready";
+_var_grp_ready_compat = "grp_created";
 
 #ifdef __A2OA__
 if(count _this > 1 && {!isNull(_this select 1)})then
@@ -196,6 +199,7 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 	};
 
 	#ifdef __ARMA3__
+		/*
 		{
 			_grp = _x;
 			{
@@ -205,10 +209,15 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 				};
 			} forEach units _grp;
 		} forEach _groups;
+		*/
 
 		{
 			_x addCuratorEditableObjects [_units+_vehicles, true];
 		} forEach allCurators;
 	#endif
 
-	{_x setVariable ["grp_created",true,true]}forEach _groups;
+for "_i" from 0 to (count _groups) do {
+	_groups select _i setVariable ["grp_created", true, true];
+	_groups select _i setVariable ["gosa_grp_ready", true, true];
+	diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1 готова", _groups select _i];
+};
