@@ -8,7 +8,7 @@ class EditorData
 	toggles=101;
 	class ItemIDProvider
 	{
-		nextID=1424;
+		nextID=1433;
 	};
 	class MarkerIDProvider
 	{
@@ -226,7 +226,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=545;
+		items=554;
 		class Item0
 		{
 			dataType="Group";
@@ -9280,6 +9280,132 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item545
+		{
+			dataType="Trigger";
+			position[]={8472,110.72906,25071};
+			class Attributes
+			{
+				name="gosa_island_0";
+				sizeA=750;
+				sizeB=750;
+			};
+			id=1424;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item546
+		{
+			dataType="Trigger";
+			position[]={2282,0.28656435,11531};
+			class Attributes
+			{
+				name="gosa_island_1";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=1425;
+			type="EmptyDetectorAreaR250";
+			atlOffset=4.4400001;
+		};
+		class Item547
+		{
+			dataType="Trigger";
+			position[]={4014,0.1052351,9690};
+			class Attributes
+			{
+				name="gosa_island_2";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=1426;
+			type="EmptyDetectorAreaR250";
+			atlOffset=14.505;
+		};
+		class Item548
+		{
+			dataType="Trigger";
+			position[]={2640,0,9025};
+			class Attributes
+			{
+				name="gosa_island_3";
+				sizeA=470;
+				sizeB=470;
+			};
+			id=1427;
+			type="EmptyDetectorAreaR250";
+			atlOffset=77.613228;
+		};
+		class Item549
+		{
+			dataType="Trigger";
+			position[]={7858,5.3539119,7637};
+			class Attributes
+			{
+				name="gosa_island_4";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=1428;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-4.7683716e-007;
+		};
+		class Item550
+		{
+			dataType="Trigger";
+			position[]={14500,0,6082};
+			class Attributes
+			{
+				name="gosa_island_5";
+				sizeA=500;
+				sizeB=500;
+			};
+			id=1429;
+			type="EmptyDetectorAreaR250";
+			atlOffset=2.795409;
+		};
+		class Item551
+		{
+			dataType="Trigger";
+			position[]={14181,0,13564};
+			class Attributes
+			{
+				name="gosa_island_6";
+				sizeA=400;
+				sizeB=400;
+			};
+			id=1430;
+			type="EmptyDetectorAreaR250";
+			atlOffset=18.950869;
+		};
+		class Item552
+		{
+			dataType="Trigger";
+			position[]={13640,0,11882};
+			class Attributes
+			{
+				name="gosa_island_8";
+				sizeA=800;
+				sizeB=800;
+			};
+			id=1431;
+			type="EmptyDetectorAreaR250";
+			atlOffset=15.526434;
+		};
+		class Item553
+		{
+			dataType="Trigger";
+			position[]={15360,-49.639999,15360};
+			class Attributes
+			{
+				name="gosa_island_99";
+				sizeA=35360;
+				sizeB=35360;
+				sizeC=0;
+			};
+			id=1432;
+			type="EmptyDetectorArea10x10";
 		};
 	};
 	class Connections
