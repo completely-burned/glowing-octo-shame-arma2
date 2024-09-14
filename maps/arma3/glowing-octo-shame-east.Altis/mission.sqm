@@ -173,7 +173,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa Altis East v0.0.5.961 DEBUG";
+		briefingName="CO 00 gosa Altis East v0.0.5.962 DEBUG";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;

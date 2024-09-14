@@ -210,7 +210,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="GM CO 00 gosa Kunduz Multi v0.0.5.961 DEBUG";
+		briefingName="GM CO 00 gosa Kunduz Multi v0.0.5.962 DEBUG";
 		startWeather=0.3;
 		startWind=0.1;
 		startWaves=0.1;
