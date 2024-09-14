@@ -3,6 +3,9 @@
  * TODO: Рефакторинг.
  */
 
+// Ошибки настроек.
+[] execVM "dir\client\init_gameMode.sqf";
+
 // Маркеры возрождения должны присутствовать до начала миссии.
 [] execVM "dir\client\while_markers.sqf";
 
@@ -85,7 +88,6 @@ waitUntil{!isNil "gosa_MapPlayers"};
 diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
 #endif
 
-[] execVM "dir\client\init_gameMode.sqf";
 [] execVM "dir\client\while_debug_notice.sqf";
 [] execVM "dir\client\while_sp_rating.sqf";
 [] execVM "dir\client\clientMenu.sqf";

@@ -49,3 +49,9 @@ STR_gosa_heli_transport_move,"%1 in transit","%1 в пути"
 STR_friendly_vehicles_only,"Allow friendly vehicles only","Разрешить только дружественные транспортные средства"
 STR_gosa_cheat_detected,"cheat detected","чит обнаружен"
 STR_gosa_debug_notice,"debug script version","отладочная версия сценария"
+
+STR_gosa_player_wrong_side,"
+You have chosen a conflict side that is incompatible with PvE, please choose an allied side or observer mode.
+","
+Вы выбрали несовместимую с PvE сторону конфликта, пожалуйста выберите союзную сторону или режим наблюдателя.
+"
