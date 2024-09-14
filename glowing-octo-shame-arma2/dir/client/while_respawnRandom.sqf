@@ -25,6 +25,11 @@ if (playerSide == sideLogic) exitWith {
 	#endif
 };
 
+// TODO: Модуль гражданских.
+if (playerSide == civilian) exitWith {
+	diag_log format ["Log: [respawnRandom] playerSide == %1, exitWith", playerSide];
+};
+
 if ([player] call gosa_fnc_role_isCrew) exitWith {
 	diag_log format ["Log: [respawnRandom] player isCrew", nil];
 };
