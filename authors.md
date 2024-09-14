@@ -7,6 +7,7 @@ Contacts
 	[GitHub](https://github.com/completely-burned/glowing-octo-shame-arma2)  
 	[MEGA](https://mega.nz/folder/iJxzRYoI#YIX67tCWRUtDkO1V0w5E8Q)  
 	[Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3251386425)  
+	[InterPlanetary Name System (IPNS)](https://ipfs.io/ipns/k51qzi5uqu5dmeusj626elcyuraqirrdzjjibsb0cwkqnyjcz7hf1qyj5mlfgd)  
 	[www](http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/arma-glowing-octo-shame/)  
 
 * Сообщества
