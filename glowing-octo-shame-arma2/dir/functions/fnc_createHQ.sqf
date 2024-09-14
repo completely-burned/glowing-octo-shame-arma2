@@ -46,7 +46,7 @@ if (count _this > 5) then {
 	_obj setVectorUp surfaceNormal _pos;
 	// a3, ии покидают тс после ранения от столкновения.
 	// Высота не должна быть большой или малой.
-	private _box = boundingBox _obj;
+	private _box = boundingBoxReal _obj;
 	diag_log format ["Log: [fnc_createHQ] %1, boundingBox %2", _this, _box];
 	_pos set [2, _box select 1 select 2];
 	_obj setPos _pos;
