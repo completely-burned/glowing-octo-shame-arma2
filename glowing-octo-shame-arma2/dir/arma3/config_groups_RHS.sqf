@@ -1385,5 +1385,5 @@ _arr = [
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, resistance, "rhssaf_army", _arr,
 	[1990,2100], [160,999],
-	["IND_F","IND_E_F","IND_G_F"]
+	["IND_F","IND_E_F","IND_G_F","IND_C_F"]
 ] call gosa_fnc_map_groups_add;
