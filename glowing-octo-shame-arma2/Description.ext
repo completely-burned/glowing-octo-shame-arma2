@@ -441,6 +441,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_rhssaf_army {
+			title="FACTION: rhssaf_army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 
 		class gosa_faction_multiplier_CUP_O_RUS_M {
 			title="FACTION: CUP_O_RUS_M";
