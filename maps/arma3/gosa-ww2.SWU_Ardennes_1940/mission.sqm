@@ -212,7 +212,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa SWU_Ardennes_1940 Multi v0.0.5.963 DEBUG";
+		briefingName="WW2 CO 00 gosa SWU_Ardennes_1940 Multi v0.0.5.964 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.3;
