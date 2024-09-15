@@ -161,7 +161,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa Kunduz Multi v0.0.5.962 DEBUG";
+		briefingName="CO 00 gosa Kunduz Multi v0.0.5.963 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;

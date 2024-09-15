@@ -198,7 +198,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CSLA CO 00 gosa stozec Multi v0.0.5.962 DEBUG";
+		briefingName="CSLA CO 00 gosa stozec Multi v0.0.5.963 DEBUG";
 		timeOfChanges=1800;
 		startWeather=0.3;
 		startWind=0.1;
