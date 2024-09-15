@@ -1,6 +1,7 @@
 
 #include "..\include\ranks.sqf"
 
+//--- East
 [_groups_map, east, "RHS_MSV", [[
 	// configName "rhs_group_rus_msv_infantry_chq",
 	[[[["rhs_msv_officer",
@@ -835,6 +836,7 @@
 	*/
 
 
+//--- West
 // nato_usmc_wd
 [_groups_map, west, "RHS_USMC_WD", [[
 	// configName "rhs_group_nato_usmc_wd_infantry_squad",
