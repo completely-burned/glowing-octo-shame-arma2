@@ -1383,11 +1383,7 @@ _arr = [
 	[[[["rhssaf_army_t72s","rhssaf_army_t72s"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.1]
 ];
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
-[_groups_map, resistance, "rhssaf_army_m93", _arr,
-	[1990,2100], [160,999],
-	[]
-] call gosa_fnc_map_groups_add;
 [_groups_map, resistance, "rhssaf_army", _arr,
-	[1990,2100], [-111,999],
+	[1990,2100], [160,999],
 	["IND_F","IND_E_F","IND_G_F"]
 ] call gosa_fnc_map_groups_add;
