@@ -1,10 +1,15 @@
 /*
 	Скрипт обновляет различные значения транспорту, например уровень топлива.
 	TODO: много лишнего кода
+	// TODO: Совместимость с GC2.
 */
 
 private ["_countMHQ","_count_transportammo","_count_transportrepair","_count_transportfuel","_timeNew","_timerDelete","_shop",
+	"_obj","_cfgVeh","_side","_entry","_sides_friendly_num",
 	"_delete","_time","_veh","_type","_n","_str","_arr"];
+
+_cfgVeh = LIB_cfgVeh;
+_sides_friendly_num = gosa_sides_friendly_num;
 
 if (missionNamespace getVariable "gosa_shop" == 1) then {
 	_shop = true;
@@ -30,12 +35,12 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 	};
 
 	if(alive _veh)then{
-
 		if (_shop) then {
-			private["_side"];
-			_side = getNumber(LIB_cfgVeh >> _type >> "side") call gosa_fnc_getSide;
-			if (_side in gosa_friendlyside) then{
-				if(getNumber(configFile >> "CfgVehicles" >> _type >> "attendant")> 0) then{
+			_entry = _cfgVeh >> _type;
+			_n = getNumber(_entry >> "side");
+
+			if (_n in _sides_friendly_num) then{
+				if (getNumber(_entry >> "attendant") > 0) then {
 					if (_delete) then{
 						_count_transportammo = _count_transportammo + 1;
 						if (_count_transportammo <= 3) then {
@@ -44,7 +49,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 						};
 					};
 				};
-				if(getNumber(configFile >> "CfgVehicles" >> _type >> "transportammo")> 0) then{
+				if (getNumber(_entry >> "transportammo") > 0) then {
 					_veh setAmmoCargo 1;
 					if (_delete) then{
 						_count_transportammo = _count_transportammo + 1;
@@ -54,7 +59,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 						};
 					};
 				};
-				if(getNumber(configFile >> "CfgVehicles" >> _type >> "transportrepair")> 0) then{
+				if (getNumber(_entry >> "transportrepair") > 0) then {
 					_veh setRepairCargo 1;
 					if (_delete) then{
 						_count_transportrepair = _count_transportrepair + 1;
@@ -64,21 +69,12 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 						};
 					};
 				};
-				if(getNumber(configFile >> "CfgVehicles" >> _type >> "transportfuel")> 0) then{
+				if (getNumber(_entry >> "transportfuel") > 0) then {
 					_veh setFuelCargo 1;
 					_veh setFuel 1;
 					if (_delete) then{
 						_count_transportfuel = _count_transportfuel + 1;
 						if (_count_transportfuel <= 3) then {
-							_delete = false;
-							_timeNew = _time max (time + _timerDelete);
-						};
-					};
-				};
-				if (_delete) then{
-					if ([[_veh], listMHQ] call gosa_fnc_CheckIsKindOfArray) then {
-						_countMHQ = _countMHQ + 1;
-						if (_countMHQ <= 3) then {
 							_delete = false;
 							_timeNew = _time max (time + _timerDelete);
 						};
@@ -104,8 +100,15 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 					diag_log format ["Log: [vehicles_other] %1 setHitPointDamage %2", _veh, _arr];
 				};
 			#endif
-			if(isEngineOn _veh && speed _veh == 0 && alive driver _veh)then{
-				_veh engineOn false;
+			if (isEngineOn _veh) then {
+				if (speed _veh == 0) then {
+					_obj = driver _veh;
+					if (alive _obj) then {
+						if !(_obj call gosa_fnc_isPlayer) then {
+							_veh engineOn false;
+						};
+					};
+				};
 			};
 			_delete = false;
 			_timeNew = _time max (time + _timerDelete);

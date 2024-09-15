@@ -205,6 +205,13 @@ for "_i" from 0 to (count _problems_num -1) do {
 	};
 };
 
+_arr = [];
+for "_i" from 0 to (count (_problems select 1) -1) do {
+	_arr set [_i, _problems select 1 select _i call gosa_fnc_getSideNum];
+};
+gosa_sides_friendly_num = _arr;
+publicVariable "gosa_sides_friendly_num";
+
 	m_sideEnemy = _problems select 0;
 	gosa_friendlyside = _problems select 1;
 	publicVariable "m_sideEnemy";
