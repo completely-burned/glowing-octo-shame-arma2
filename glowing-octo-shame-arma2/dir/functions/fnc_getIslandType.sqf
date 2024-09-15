@@ -26,7 +26,7 @@ _r = [250,2012,100];
 if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter","chernarus_winter",
 	"gm_weferlingen_winter"]) then {_r set [0,100]};
 if (_w in ["namalsk","abramia"]) then {_r set [0,160]};
-if (_w in ["utes","i44_omaha","sara"]) then {_r set [0,180]};
+if (_w in ["utes","i44_omaha","sara","tem_summa"]) then {_r set [0,180]};
 if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
 	"noe","thirsk","vt7"]) then {_r set [0,190]};
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
@@ -51,6 +51,7 @@ if (_w in ["swu_ardennes_1940","swu_greece_pella_region"]) then
 };
 if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter",
 	"plr_bulge","mcn_neaville_winter","i44_merderet","i44_merderet_v2",
+	"tem_summa",
 	"spe_normandy","spe_mortain","spex_utah_beach"]) then
 {
 	_r set [1,1944];
