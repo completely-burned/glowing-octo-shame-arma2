@@ -122,7 +122,9 @@ _fnc_1={
 
 	player reveal _veh;
 
-	#ifndef __ARMA3__
+	#ifdef __ARMA3__
+		_veh setCollisionLight true;
+	#else
 		[[_veh], true] call gosa_fnc_reweapon;
 	#endif
 };
