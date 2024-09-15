@@ -1969,6 +1969,7 @@ class Mission
 					class Attributes
 					{
 						rank="CAPTAIN";
+						isPlayable=1;
 					};
 					id=210;
 					type="O_officer_F";
@@ -4793,7 +4794,6 @@ class Mission
 					};
 					id=377;
 					type="C_IDAP_Man_AidWorker_01_F";
-					atlOffset=4.7683716e-007;
 				};
 				class Item1
 				{
@@ -4810,7 +4810,7 @@ class Mission
 					};
 					id=381;
 					type="C_IDAP_Man_AidWorker_02_F";
-					atlOffset=-2.3841858e-006;
+					atlOffset=-1.9073486e-006;
 				};
 				class Item2
 				{
@@ -4827,7 +4827,7 @@ class Mission
 					};
 					id=383;
 					type="C_IDAP_Man_EOD_01_F";
-					atlOffset=-5.2452087e-006;
+					atlOffset=-5.7220459e-006;
 				};
 				class Item3
 				{
@@ -4844,7 +4844,7 @@ class Mission
 					};
 					id=385;
 					type="C_IDAP_Man_Paramedic_01_F";
-					atlOffset=-6.1988831e-006;
+					atlOffset=-5.7220459e-006;
 				};
 				class Item4
 				{
@@ -4861,7 +4861,7 @@ class Mission
 					};
 					id=387;
 					type="C_Man_UtilityWorker_01_F";
-					atlOffset=-7.1525574e-006;
+					atlOffset=-7.6293945e-006;
 				};
 				class Item5
 				{
@@ -4878,7 +4878,6 @@ class Mission
 					};
 					id=389;
 					type="C_IDAP_Pilot_01_F";
-					atlOffset=-4.7683716e-007;
 				};
 				class Item6
 				{
@@ -4895,14 +4894,13 @@ class Mission
 					};
 					id=391;
 					type="C_Journalist_01_War_F";
-					atlOffset=-9.5367432e-007;
+					atlOffset=-4.7683716e-007;
 				};
 			};
 			class Attributes
 			{
 			};
 			id=376;
-			atlOffset=4.7683716e-007;
 		};
 	};
 	class Connections
