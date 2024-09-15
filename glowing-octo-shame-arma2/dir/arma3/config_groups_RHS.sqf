@@ -1304,7 +1304,7 @@ _arr = [
 	[[[["rhssaf_army_m93_oakleaf_summer_sq_lead","rhssaf_army_m93_oakleaf_summer_ft_lead","rhssaf_army_m93_oakleaf_summer_mgun_m84","rhssaf_army_ural","rhssaf_army_m93_oakleaf_summer_sniper_m76","rhssaf_army_m93_oakleaf_summer_mgun_m84","rhssaf_army_m93_oakleaf_summer_rifleman_at","rhssaf_army_m93_oakleaf_summer_rifleman_m70","rhssaf_army_m93_oakleaf_summer_rifleman_m70"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
 	],0.1]
 ];
-_arr = [
+_arr append [
 	// rhssaf_group_army_m10_digital_company_hq
 	[[[["rhssaf_army_m10_digital_officer","rhssaf_army_m10_digital_officer","rhssaf_army_m10_digital_sq_lead","rhssaf_army_m10_digital_rifleman_m21"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT","PRIVATE"]]
 	],0.1],
@@ -1376,7 +1376,7 @@ _arr = [
 	[[[["rhssaf_m1025_olive","rhssaf_army_m10_digital_mgun_m84","rhssaf_army_m10_digital_spec_aa","rhssaf_army_m10_digital_asst_spec_aa"],[[0,0,0],[13,-12,0],[-12,-13,0],[18,-17,-2]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]
 	],0.01]
 ];
-_arr = [
+_arr append [
 	// rhssaf_army_group_t72s_platoon
 	[[[["rhssaf_army_t72s","rhssaf_army_t72s","rhssaf_army_t72s"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.1],
 	// rhssaf_army_group_t72s_section
