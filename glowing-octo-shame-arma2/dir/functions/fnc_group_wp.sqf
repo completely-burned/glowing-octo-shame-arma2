@@ -65,6 +65,7 @@ TODO: Нужна карта файла.
 private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_survival",
 	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr","_wpType_GETOUT",
+	"_waypoints","_createWP","_NoCreateWP","_DeleteWP","_StopWP",
 	"_wpType_TrUNLOAD_Plane","_veh",
 	"_isUAVConnected","_side","_sides_friendly",
 	"_grp_wp_completed","_g2","_z","_v","_b"];
@@ -459,14 +460,8 @@ if({alive _x} count _units > 0)then{
 
 
 	if (true) then {
-		private["_grp","_leader""_currentWP","_waypoints","_createWP","_leaderPos","_NoCreateWP","_DeleteWP","_StopWP"];
-		_grp = _this;
-		_leader = leader _grp;
-
-		_currentWP = currentWaypoint _grp;
 		_waypoints = waypoints _grp;
 		_createWP = false;
-		_leaderPos = getPos vehicle _leader;
 
 		// если отряд у цели установить переменную _grp_wp_completed если она не установлена
 		if (isNil{_grp_wp_completed}) then {
