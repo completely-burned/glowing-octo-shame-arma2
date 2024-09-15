@@ -93,8 +93,8 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 			#ifdef __ARMA3__
 				_str = "hitEngine";
 				_n = _veh getHitPointDamage _str;
-				if (_n < 0.1) then {
-					_n = 0.3;
+				if (_n >= 0.9) then {
+					_n = 0.7;
 					_arr = [_str, _n];
 					_veh setHitPointDamage _arr;
 					diag_log format ["Log: [vehicles_other] %1 setHitPointDamage %2", _veh, _arr];
