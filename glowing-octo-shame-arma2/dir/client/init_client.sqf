@@ -188,6 +188,7 @@ if (isMultiplayer) then {
 		deleteVehicle (_arr select _i);
 	};
 	EnableTeamSwitch true;
+	gosa_switchableUnits_removed = true;
 
 	#ifdef __ARMA3__
 		[nil, "menu"] call BIS_fnc_addCommMenuItem;
