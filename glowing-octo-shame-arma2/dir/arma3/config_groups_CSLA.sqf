@@ -475,6 +475,7 @@ _arr = [
 	[]
 ] call gosa_fnc_map_groups_add;
 
+
 //-- FIA_CSLA
 [_groups_map, resistance, "FIA_CSLA", [[
 	// configName FIA_cpSentryTeam
