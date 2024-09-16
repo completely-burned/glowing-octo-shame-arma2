@@ -8,7 +8,7 @@ class EditorData
 	toggles=1026;
 	class ItemIDProvider
 	{
-		nextID=472;
+		nextID=572;
 	};
 	class MarkerIDProvider
 	{
@@ -220,7 +220,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=240;
+		items=333;
 		class Item0
 		{
 			dataType="Marker";
@@ -6534,6 +6534,1244 @@ class Mission
 			{
 			};
 			id=467;
+		};
+		class Item240
+		{
+			dataType="Trigger";
+			position[]={3671,5.7164259,1149};
+			class Attributes
+			{
+				name="gosa_island_0";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=472;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item241
+		{
+			dataType="Trigger";
+			position[]={3736.8779,1.616737,2684.573};
+			class Attributes
+			{
+				name="gosa_island_1";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=473;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item242
+		{
+			dataType="Trigger";
+			position[]={6867.2998,0.1625818,1584.9984};
+			class Attributes
+			{
+				name="gosa_island_2";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=474;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item243
+		{
+			dataType="Trigger";
+			position[]={6883.124,2.1537938,1116.0134};
+			class Attributes
+			{
+				name="gosa_island_3";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=475;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item244
+		{
+			dataType="Trigger";
+			position[]={3398.6379,0.83416933,4539.2158};
+			class Attributes
+			{
+				name="gosa_island_4";
+			};
+			id=477;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item245
+		{
+			dataType="Trigger";
+			position[]={1354,2.5805452,3867};
+			class Attributes
+			{
+				name="gosa_island_5";
+			};
+			id=478;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item246
+		{
+			dataType="Trigger";
+			position[]={1220,4.2828846,562};
+			class Attributes
+			{
+				name="gosa_island_6";
+				sizeA=750;
+				sizeB=750;
+			};
+			id=479;
+			type="EmptyDetectorAreaR250";
+			atlOffset=28.931997;
+		};
+		class Item247
+		{
+			dataType="Trigger";
+			position[]={7601.8965,13.010756,564.20276};
+			class Attributes
+			{
+				name="gosa_island_7";
+				sizeA=500;
+				sizeB=500;
+			};
+			id=480;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item248
+		{
+			dataType="Trigger";
+			position[]={9000.96,16.57,9000.96};
+			class Attributes
+			{
+				name="gosa_island_999";
+				sizeA=20000;
+				sizeB=20000;
+				sizeC=0;
+			};
+			id=481;
+			type="EmptyDetectorArea10x10";
+		};
+		class Item249
+		{
+			dataType="Trigger";
+			position[]={7902,-0.027851105,1194};
+			class Attributes
+			{
+				name="gosa_island_8";
+				sizeA=1000;
+				sizeB=1000;
+			};
+			id=482;
+			type="EmptyDetectorAreaR250";
+			atlOffset=22.467999;
+		};
+		class Item250
+		{
+			dataType="Trigger";
+			position[]={11469.101,0.0001668632,3976.2681};
+			class Attributes
+			{
+				name="gosa_island_20";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=484;
+			type="EmptyDetectorAreaR250";
+			atlOffset=0.040999994;
+		};
+		class Item251
+		{
+			dataType="Trigger";
+			position[]={10256.193,9.4771385e-006,3049.5391};
+			class Attributes
+			{
+				name="gosa_island_149";
+				sizeA=160;
+				sizeB=160;
+			};
+			id=487;
+			type="EmptyDetectorAreaR250";
+			atlOffset=0.78600007;
+		};
+		class Item252
+		{
+			dataType="Trigger";
+			position[]={13594.194,17.645933,3058.7334};
+			class Attributes
+			{
+				name="gosa_island_22";
+				sizeA=350;
+				sizeB=350;
+			};
+			id=488;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item253
+		{
+			dataType="Trigger";
+			position[]={13637.198,0,1940.8153};
+			class Attributes
+			{
+				name="gosa_island_21";
+				sizeA=500;
+				sizeB=500;
+			};
+			id=489;
+			type="EmptyDetectorAreaR250";
+			atlOffset=1.6914356;
+		};
+		class Item254
+		{
+			dataType="Trigger";
+			position[]={13091.966,13.463748,2627.5984};
+			class Attributes
+			{
+				name="gosa_island_23";
+				sizeA=500;
+				sizeB=500;
+			};
+			id=490;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item255
+		{
+			dataType="Trigger";
+			position[]={15169.062,0.96475095,3253.4502};
+			class Attributes
+			{
+				name="gosa_island_24";
+				sizeA=500;
+				sizeB=500;
+			};
+			id=491;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item256
+		{
+			dataType="Trigger";
+			position[]={15922.87,0.71631348,3680.5916};
+			class Attributes
+			{
+				name="gosa_island_25";
+				sizeA=350;
+				sizeB=350;
+			};
+			id=492;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item257
+		{
+			dataType="Trigger";
+			position[]={17222.768,-13.272858,4761.9644};
+			class Attributes
+			{
+				name="gosa_island_26";
+				sizeA=350;
+				sizeB=350;
+			};
+			id=493;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-12.976122;
+		};
+		class Item258
+		{
+			dataType="Trigger";
+			position[]={17326.092,0.97134399,8252.9512};
+			class Attributes
+			{
+				name="gosa_island_27";
+				sizeA=350;
+				sizeB=350;
+			};
+			id=494;
+			type="EmptyDetectorAreaR250";
+			atlOffset=1.8033692;
+		};
+		class Item259
+		{
+			dataType="Trigger";
+			position[]={16106.814,-1.3710022,7852.4766};
+			class Attributes
+			{
+				name="gosa_island_28";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=495;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.0155432;
+		};
+		class Item260
+		{
+			dataType="Trigger";
+			position[]={15984.924,0,8927.125};
+			class Attributes
+			{
+				name="gosa_island_29";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=496;
+			type="EmptyDetectorAreaR250";
+			atlOffset=0.31809571;
+		};
+		class Item261
+		{
+			dataType="Trigger";
+			position[]={15930.622,0,9079.3467};
+			class Attributes
+			{
+				name="gosa_island_30";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=497;
+			type="EmptyDetectorAreaR250";
+			atlOffset=4.2132816;
+		};
+		class Item262
+		{
+			dataType="Trigger";
+			position[]={16207.469,7.4036179,9109.6143};
+			class Attributes
+			{
+				name="gosa_island_31";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=498;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item263
+		{
+			dataType="Trigger";
+			position[]={15704.514,0,10490.079};
+			class Attributes
+			{
+				name="gosa_island_32";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=499;
+			type="EmptyDetectorAreaR250";
+			atlOffset=4.9571486;
+		};
+		class Item264
+		{
+			dataType="Trigger";
+			position[]={15779.126,2.4006653,10206.227};
+			class Attributes
+			{
+				name="gosa_island_33";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=500;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-0.77365112;
+		};
+		class Item265
+		{
+			dataType="Trigger";
+			position[]={15809.365,-7.0634815e-005,11549.646};
+			class Attributes
+			{
+				name="gosa_island_34";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=501;
+			type="EmptyDetectorAreaR250";
+			atlOffset=0.84688979;
+		};
+		class Item266
+		{
+			dataType="Trigger";
+			position[]={15733.13,1.0357202,11814.034};
+			class Attributes
+			{
+				name="gosa_island_35";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=502;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item267
+		{
+			dataType="Trigger";
+			position[]={15992.654,5.7223487,11762.131};
+			class Attributes
+			{
+				name="gosa_island_36";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=503;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item268
+		{
+			dataType="Trigger";
+			position[]={16521.135,1.4741895,13729.768};
+			class Attributes
+			{
+				name="gosa_island_37";
+			};
+			id=504;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item269
+		{
+			dataType="Trigger";
+			position[]={16840.313,0.76520991,13487.746};
+			class Attributes
+			{
+				name="gosa_island_38";
+			};
+			id=505;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item270
+		{
+			dataType="Trigger";
+			position[]={17441.588,22.353863,13314.665};
+			class Attributes
+			{
+				name="gosa_island_38_1";
+				sizeA=850;
+				sizeB=850;
+			};
+			id=506;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-4.3659992;
+		};
+		class Item271
+		{
+			dataType="Trigger";
+			position[]={15729.371,0,12458.589};
+			class Attributes
+			{
+				name="gosa_island_40";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=507;
+			type="EmptyDetectorAreaR250";
+			atlOffset=16.150774;
+		};
+		class Item272
+		{
+			dataType="Trigger";
+			position[]={3497.0066,3.1690769,4854.6768};
+			class Attributes
+			{
+				name="gosa_island_41";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=508;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item273
+		{
+			dataType="Trigger";
+			position[]={3741.9319,1.4378436,5039.5845};
+			class Attributes
+			{
+				name="gosa_island_9";
+			};
+			id=509;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item274
+		{
+			dataType="Trigger";
+			position[]={3909.2319,2.202992,5168.8301};
+			class Attributes
+			{
+				name="gosa_island_10";
+				sizeA=60;
+				sizeB=60;
+			};
+			id=510;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item275
+		{
+			dataType="Trigger";
+			position[]={6891.5991,1.1520435,3471.2065};
+			class Attributes
+			{
+				name="gosa_island_11";
+			};
+			id=511;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item276
+		{
+			dataType="Trigger";
+			position[]={6688.5127,0.2001709,3698.5159};
+			class Attributes
+			{
+				name="gosa_island_12";
+			};
+			id=512;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item277
+		{
+			dataType="Trigger";
+			position[]={2874.897,3.3415332,5145.5332};
+			class Attributes
+			{
+				name="gosa_island_13";
+			};
+			id=513;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item278
+		{
+			dataType="Trigger";
+			position[]={2698.1812,2.2454283,5032.8521};
+			class Attributes
+			{
+				name="gosa_island_14";
+			};
+			id=514;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item279
+		{
+			dataType="Trigger";
+			position[]={3415.9092,0.55978394,5319.2471};
+			class Attributes
+			{
+				name="gosa_island_15";
+			};
+			id=515;
+			type="EmptyDetectorAreaR50";
+			atlOffset=1.654934;
+		};
+		class Item280
+		{
+			dataType="Trigger";
+			position[]={3506.0098,1.1890478,5205.8379};
+			angle=5.9803195;
+			class Attributes
+			{
+				name="gosa_island_16";
+				sizeA=37.656612;
+				sizeB=70.36499;
+			};
+			id=516;
+			type="EmptyDetectorAreaR50";
+		};
+		class Item281
+		{
+			dataType="Trigger";
+			position[]={3320.6433,3.7578804,5149.5547};
+			class Attributes
+			{
+				name="gosa_island_42";
+				sizeA=170;
+				sizeB=170;
+			};
+			id=517;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item282
+		{
+			dataType="Trigger";
+			position[]={2226.3899,2.8405631,4812.083};
+			class Attributes
+			{
+				name="gosa_island_43";
+				sizeA=90;
+				sizeB=90;
+			};
+			id=518;
+			type="EmptyDetectorAreaR250";
+			atlOffset=4.566;
+		};
+		class Item283
+		{
+			dataType="Trigger";
+			position[]={2137.3181,3.2829325,4628.9058};
+			class Attributes
+			{
+				name="gosa_island_44";
+				sizeA=100;
+				sizeB=100;
+			};
+			id=519;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item284
+		{
+			dataType="Trigger";
+			position[]={2371.688,4.5292263,4575.2622};
+			class Attributes
+			{
+				name="gosa_island_45";
+				sizeA=175;
+				sizeB=175;
+			};
+			id=520;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item285
+		{
+			dataType="Trigger";
+			position[]={3745.042,3.5320399,4164.2559};
+			class Attributes
+			{
+				name="gosa_island_46";
+				sizeA=175;
+				sizeB=175;
+			};
+			id=522;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item286
+		{
+			dataType="Trigger";
+			position[]={11064.301,5.5171995,7380.7427};
+			class Attributes
+			{
+				name="gosa_island_47";
+				sizeA=300;
+				sizeB=300;
+			};
+			id=523;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item287
+		{
+			dataType="Trigger";
+			position[]={10042.905,15.845917,7544.875};
+			class Attributes
+			{
+				name="gosa_island_48";
+				sizeA=300;
+				sizeB=300;
+			};
+			id=524;
+			type="EmptyDetectorAreaR250";
+			atlOffset=1.2393761;
+		};
+		class Item288
+		{
+			dataType="Trigger";
+			position[]={8208.0146,0.68580806,5425.5742};
+			class Attributes
+			{
+				name="gosa_island_17";
+				sizeA=100;
+				sizeB=100;
+			};
+			id=525;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item289
+		{
+			dataType="Trigger";
+			position[]={8565.876,0,5458.9175};
+			class Attributes
+			{
+				name="gosa_island_18";
+				sizeA=100;
+				sizeB=100;
+			};
+			id=526;
+			type="EmptyDetectorAreaR250";
+			atlOffset=5.1801772;
+		};
+		class Item290
+		{
+			dataType="Trigger";
+			position[]={9280.1475,0,7002.8994};
+			class Attributes
+			{
+				name="gosa_island_19";
+				sizeA=90;
+				sizeB=90;
+			};
+			id=527;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.6796558;
+		};
+		class Item291
+		{
+			dataType="Trigger";
+			position[]={17389.641,28.402233,6280.062};
+			class Attributes
+			{
+				name="gosa_island_39";
+				sizeA=630;
+				sizeB=630;
+			};
+			id=528;
+			type="EmptyDetectorAreaR250";
+			atlOffset=12.349924;
+		};
+		class Item292
+		{
+			dataType="Trigger";
+			position[]={9287.9385,2.1571493,6783.3198};
+			class Attributes
+			{
+				name="gosa_island_70";
+				sizeA=90;
+				sizeB=90;
+			};
+			id=529;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.6460001;
+		};
+		class Item293
+		{
+			dataType="Trigger";
+			position[]={9294.9639,5.1361275,6720.0879};
+			class Attributes
+			{
+				name="gosa_island_70_1";
+				sizeA=90;
+				sizeB=90;
+			};
+			id=530;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.0900002;
+		};
+		class Item294
+		{
+			dataType="Trigger";
+			position[]={9327.082,0.71168458,6608.6802};
+			class Attributes
+			{
+				name="gosa_island_70_2";
+				sizeA=90;
+				sizeB=90;
+			};
+			id=531;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item295
+		{
+			dataType="Trigger";
+			position[]={9322.0635,1.6096851,6535.4111};
+			class Attributes
+			{
+				name="gosa_island_70_3";
+				sizeA=90;
+				sizeB=90;
+			};
+			id=532;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item296
+		{
+			dataType="Trigger";
+			position[]={2998.8999,24.512251,4705.0151};
+			class Attributes
+			{
+				name="gosa_island_49";
+				sizeA=550;
+				sizeB=550;
+			};
+			id=533;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item297
+		{
+			dataType="Trigger";
+			position[]={15782.697,6.5367312,7711.21};
+			class Attributes
+			{
+				name="gosa_island_80_3";
+				sizeA=396.51401;
+				sizeB=384.69199;
+			};
+			id=534;
+			type="EmptyDetectorAreaR250";
+			atlOffset=2.4419999;
+		};
+		class Item298
+		{
+			dataType="Trigger";
+			position[]={15776.786,6.724494,7448.168};
+			class Attributes
+			{
+				name="gosa_island_80_2";
+				sizeA=368.43701;
+				sizeB=368.43701;
+			};
+			id=535;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.8870001;
+		};
+		class Item299
+		{
+			dataType="Trigger";
+			position[]={16051.65,4.4848294,7282.6602};
+			class Attributes
+			{
+				name="gosa_island_80_1";
+				sizeA=228.049;
+				sizeB=229.528;
+			};
+			id=536;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item300
+		{
+			dataType="Trigger";
+			position[]={16279.225,2.6822896,7146.7061};
+			class Attributes
+			{
+				name="gosa_island_80";
+				sizeA=229.52699;
+				sizeB=229.528;
+			};
+			id=537;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-0.88599992;
+		};
+		class Item301
+		{
+			dataType="Trigger";
+			position[]={6477.2852,12.337671,4101.9131};
+			class Attributes
+			{
+				name="gosa_island_50";
+				sizeA=90;
+				sizeB=90;
+			};
+			id=538;
+			type="EmptyDetectorAreaR250";
+			atlOffset=10.63;
+		};
+		class Item302
+		{
+			dataType="Trigger";
+			position[]={5335.6719,3.8325176,3880.0249};
+			class Attributes
+			{
+				name="gosa_island_90";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=539;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.4320002;
+		};
+		class Item303
+		{
+			dataType="Trigger";
+			position[]={5891.2319,2.4992805,4078.062};
+			class Attributes
+			{
+				name="gosa_island_90_1";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=540;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item304
+		{
+			dataType="Trigger";
+			position[]={5610.3306,1.3678589,4149.1309};
+			class Attributes
+			{
+				name="gosa_island_90_2";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=541;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-2.2222016;
+		};
+		class Item305
+		{
+			dataType="Trigger";
+			position[]={5356.5063,4.8458862,4154.9844};
+			class Attributes
+			{
+				name="gosa_island_90_3";
+				sizeA=177.7583;
+				sizeB=176.17944;
+			};
+			id=542;
+			type="EmptyDetectorAreaR250";
+			atlOffset=1.4000742;
+		};
+		class Item306
+		{
+			dataType="Trigger";
+			position[]={5287.4531,5.8766479,4333.5356};
+			class Attributes
+			{
+				name="gosa_island_90_4";
+				sizeA=66.887695;
+				sizeB=65.424805;
+			};
+			id=543;
+			type="EmptyDetectorAreaR250";
+			atlOffset=4.0220513;
+		};
+		class Item307
+		{
+			dataType="Trigger";
+			position[]={4924.9678,5.5028076,3961.4209};
+			class Attributes
+			{
+				name="gosa_island_100";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=545;
+			type="EmptyDetectorAreaR250";
+			atlOffset=2.4734912;
+		};
+		class Item308
+		{
+			dataType="Trigger";
+			position[]={5024.4902,2.4736123,4271.4712};
+			class Attributes
+			{
+				name="gosa_island_100_1";
+				sizeA=250;
+				sizeB=250;
+			};
+			id=546;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-0.86400008;
+		};
+		class Item309
+		{
+			dataType="Trigger";
+			position[]={4791.6323,3.4706776,4519.4873};
+			class Attributes
+			{
+				name="gosa_island_100_2";
+				sizeA=230;
+				sizeB=230;
+			};
+			id=547;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item310
+		{
+			dataType="Trigger";
+			position[]={4643.417,3.9497583,4733.5781};
+			class Attributes
+			{
+				name="gosa_island_100_3";
+				sizeA=160;
+				sizeB=160;
+			};
+			id=548;
+			type="EmptyDetectorAreaR250";
+			atlOffset=1.45;
+		};
+		class Item311
+		{
+			dataType="Trigger";
+			position[]={3927.8401,9.894228,4573.0981};
+			class Attributes
+			{
+				name="gosa_island_120";
+				sizeA=590;
+				sizeB=590;
+			};
+			id=549;
+			type="EmptyDetectorAreaR250";
+			atlOffset=27.533003;
+		};
+		class Item312
+		{
+			dataType="Trigger";
+			position[]={4448.1382,6.0222168,4391.8047};
+			class Attributes
+			{
+				name="gosa_island_120_1";
+				sizeA=500;
+				sizeB=500;
+			};
+			id=550;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.1823974;
+		};
+		class Item313
+		{
+			dataType="Trigger";
+			position[]={5851.333,13.926669,3014.2151};
+			class Attributes
+			{
+				name="gosa_island_95";
+				sizeA=1000;
+				sizeB=1000;
+			};
+			id=551;
+			type="EmptyDetectorAreaR250";
+			atlOffset=2.2620001;
+		};
+		class Item314
+		{
+			dataType="Trigger";
+			position[]={10607.212,-0.0001174286,2987.679};
+			class Attributes
+			{
+				name="gosa_island_150";
+				sizeA=100;
+				sizeB=100;
+			};
+			id=552;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-0.011;
+		};
+		class Item315
+		{
+			dataType="Trigger";
+			position[]={10755.031,-0.26302978,2999.321};
+			class Attributes
+			{
+				name="gosa_island_151";
+				sizeA=160;
+				sizeB=160;
+			};
+			id=553;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item316
+		{
+			dataType="Trigger";
+			position[]={10851.277,0,3153.6421};
+			class Attributes
+			{
+				name="gosa_island_152";
+				sizeA=100;
+				sizeB=100;
+			};
+			id=554;
+			type="EmptyDetectorAreaR250";
+			atlOffset=1.7582471;
+		};
+		class Item317
+		{
+			dataType="Trigger";
+			position[]={10474.504,-1.5913277,2812.5029};
+			class Attributes
+			{
+				name="gosa_island_153";
+			};
+			id=555;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.688;
+		};
+		class Item318
+		{
+			dataType="Trigger";
+			position[]={10765.771,0.00034463865,1180.7367};
+			class Attributes
+			{
+				name="gosa_island_154";
+			};
+			id=556;
+			type="EmptyDetectorAreaR250";
+			atlOffset=0.13086222;
+		};
+		class Item319
+		{
+			dataType="Trigger";
+			position[]={11147.215,0.75167513,2462.9141};
+			class Attributes
+			{
+				name="gosa_island_155";
+			};
+			id=557;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.0669231e-005;
+		};
+		class Item320
+		{
+			dataType="Trigger";
+			position[]={10872.607,0,2459.3618};
+			class Attributes
+			{
+				name="gosa_island_156";
+				sizeA=100;
+				sizeB=100;
+			};
+			id=558;
+			type="EmptyDetectorAreaR250";
+			atlOffset=0.65945613;
+		};
+		class Item321
+		{
+			dataType="Trigger";
+			position[]={11595.533,0,2036.9722};
+			class Attributes
+			{
+				name="gosa_island_157";
+				sizeA=100;
+				sizeB=100;
+			};
+			id=560;
+			type="EmptyDetectorAreaR250";
+			atlOffset=0.10801575;
+		};
+		class Item322
+		{
+			dataType="Trigger";
+			position[]={11406.933,2.1035025,2375.355};
+			class Attributes
+			{
+				name="gosa_island_158";
+				sizeA=100;
+				sizeB=100;
+			};
+			id=561;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-2.3841858e-007;
+		};
+		class Item323
+		{
+			dataType="Trigger";
+			position[]={11705.279,3.9872298,2428.4661};
+			class Attributes
+			{
+				name="gosa_island_159";
+				sizeA=100;
+				sizeB=100;
+			};
+			id=562;
+			type="EmptyDetectorAreaR250";
+			atlOffset=7.1763992e-005;
+		};
+		class Item324
+		{
+			dataType="Trigger";
+			position[]={11048.428,0.15569778,2109.3779};
+			class Attributes
+			{
+				name="gosa_island_160";
+				sizeA=180;
+				sizeB=180;
+			};
+			id=563;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-0.052000001;
+		};
+		class Item325
+		{
+			dataType="Trigger";
+			position[]={11394.178,8.9017944,3503.9194};
+			class Attributes
+			{
+				name="gosa_island_161";
+				sizeA=180;
+				sizeB=180;
+			};
+			id=564;
+			type="EmptyDetectorAreaR250";
+			atlOffset=1.6975818;
+		};
+		class Item326
+		{
+			dataType="Trigger";
+			position[]={10649.294,3.6084814,2641.3049};
+			class Attributes
+			{
+				name="gosa_island_162";
+				sizeA=230;
+				sizeB=230;
+			};
+			id=565;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item327
+		{
+			dataType="Trigger";
+			position[]={10997.085,6.6528931,1698.6376};
+			class Attributes
+			{
+				name="gosa_island_163";
+				sizeA=230;
+				sizeB=230;
+			};
+			id=566;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-1.0593824;
+		};
+		class Item328
+		{
+			dataType="Trigger";
+			position[]={11965.015,0.00016140938,2806.634};
+			class Attributes
+			{
+				name="gosa_island_164";
+				sizeA=400;
+				sizeB=400;
+			};
+			id=567;
+			type="EmptyDetectorAreaR250";
+			atlOffset=-2.7349999;
+		};
+		class Item329
+		{
+			dataType="Trigger";
+			position[]={11791.319,0,3512.8271};
+			class Attributes
+			{
+				name="gosa_island_165";
+				sizeA=400;
+				sizeB=400;
+			};
+			id=568;
+			type="EmptyDetectorAreaR250";
+			atlOffset=4.0917068;
+		};
+		class Item330
+		{
+			dataType="Trigger";
+			position[]={10976.86,0,2563.8386};
+			class Attributes
+			{
+				name="gosa_island_166";
+				sizeA=400;
+				sizeB=400;
+			};
+			id=569;
+			type="EmptyDetectorAreaR250";
+			atlOffset=4.8735547;
+		};
+		class Item331
+		{
+			dataType="Trigger";
+			position[]={11325.338,-9.059906e-006,2407.127};
+			class Attributes
+			{
+				name="gosa_island_166_1";
+				sizeA=400;
+				sizeB=400;
+			};
+			id=570;
+			type="EmptyDetectorAreaR250";
+			atlOffset=4.2570004;
+		};
+		class Item332
+		{
+			dataType="Trigger";
+			position[]={11246.507,6.0953126,3139.646};
+			class Attributes
+			{
+				name="gosa_island_167";
+				sizeA=400;
+				sizeB=400;
+			};
+			id=571;
+			type="EmptyDetectorAreaR250";
 		};
 	};
 	class Connections
