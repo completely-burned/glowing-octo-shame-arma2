@@ -22,7 +22,7 @@ for "_i" from 0 to (count _arr -1) do {
 			_type = configName (_cfgVeh >> (_types select _iT));
 			if (_type == "")  then {
 				_b = false;
-				diag_log format ["Log: [fnc_filtering_squads_byAvail_v2] not available %1, deleting %2", _types select _iT, _types];
+				//diag_log format ["Log: [fnc_filtering_squads_byAvail_v2] not available %1, deleting %2", _types select _iT, _types];
 				BreakTo "_arr_item";
 
 				// Reference
