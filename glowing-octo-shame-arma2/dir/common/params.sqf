@@ -50,10 +50,14 @@ _z = missionNamespace getVariable "gosa_locations";
 
 _z = missionNamespace getVariable "gosa_MHQ";
 	if (_z == -1) then {
+		if (isMultiplayer) then {
 		if (missionNamespace getVariable "respawn" == 0) then {
 			missionNamespace setVariable ["gosa_MHQ", 1];
 		} else {
 			missionNamespace setVariable ["gosa_MHQ", 0];
+		};
+		}else{
+			missionNamespace setVariable ["gosa_MHQ", 1];
 		};
 	};
 
