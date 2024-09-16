@@ -7984,7 +7984,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=855;
-					type="FIA_mcSvc";
+					type="FIA_mrDrM_Sa26";
 				};
 				class Item1
 				{
@@ -8000,7 +8000,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=857;
-					type="FIA_mcSvc";
+					type="FIA_mrDrM_Sa26";
 				};
 				class Item2
 				{
@@ -8016,7 +8016,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=859;
-					type="FIA_mcSvc";
+					type="FIA_mrDrM_Sa26";
 				};
 				class Item3
 				{
@@ -8032,7 +8032,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=861;
-					type="FIA_mcSvc";
+					type="FIA_mrDrM_Sa26";
 				};
 			};
 			class Attributes
