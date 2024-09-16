@@ -1,7 +1,7 @@
 private ["_areas","_str","_islands"];
 _islands = [];
 
-for "_iZ" from -1 to 99 do {
+for "_iZ" from -1 to 999 do {
 	_areas = [];
 	_islands set [count _islands, _areas];
 
@@ -21,7 +21,7 @@ for "_iZ" from -1 to 99 do {
 			_areas set [count _areas, call compile _str];
 		};
 
-		for "_i" from 0 to 99 do {
+		for "_i" from 0 to 999 do {
 			_str = format["gosa_island%1_%2", _iZ, _i];
 			if !(isNil _str) then {
 				_areas set [count _areas, call compile _str];
