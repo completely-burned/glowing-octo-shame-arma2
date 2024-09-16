@@ -43,7 +43,7 @@ _arr = [
 
 	// configName CSLA_lrrOT65Prl
 	[[[["CSLA_lrrCmd","CSLA_OT65A_Des","CSLA_lrrSnp","CSLA_lrrMedi"],[[0,0,0],[0,-12,0],[10,-6,0],[-10,-6,0]],["Lieutenant","Sergeant","Sergeant","Corporal"]]
-	],0.5]
+	],0.05]
 ];
 // Если юнитов с пустынным камуфляжем недостаточно, то обычные тоже будут добавлены. FIXME: Это временное решение.
 _n = count _arr;
@@ -109,7 +109,7 @@ _arr = [
 
 	// configName CSLA_lrrOT65Prl
 	[[[["CSLA_lrrCmd","CSLA_OT65A_lrr","CSLA_lrrSnp","CSLA_lrrMedi"],[[0,0,0],[0,-12,0],[10,-6,0],[-10,-6,0]],["Lieutenant","Sergeant","Sergeant","Corporal"]]
-	],0.5]
+	],0.05]
 ];
 [_groups_map, east, "CSLA", _arr,
 	[1960,1990], [160, _n-1],
@@ -189,10 +189,10 @@ _arr = [
 
 	// configName CSLA_lrrAbPrl
 	[[[["CSLA_lrrCmd","CSLA_lrrSnp","CSLA_lrrSpr","CSLA_lrrMedi","CSLA_lrrDrM","CSLA_lrrRTO"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0]],["Lieutenant","Sergeant","Corporal","Sergeant","Corporal","Corporal"]]
-	],0.5],
+	],0.05],
 	// configName CSLA_lrrSbtDtmt
 	[[[["CSLA_lrrCmd","CSLA_lrrSnp","CSLA_lrrSnp","CSLA_lrrMedi","CSLA_lrrMedi","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrDrM","CSLA_lrrDrM","CSLA_lrrRTO"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0]],["Lieutenant","Sergeant","Sergeant","Sergeant","Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal"]]
-	],0.5]
+	],0.05]
 ];
 [_groups_map, east, "CSLA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1960,1990], [160, 999],
