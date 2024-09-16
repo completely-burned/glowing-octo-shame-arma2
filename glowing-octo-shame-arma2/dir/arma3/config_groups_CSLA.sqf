@@ -35,7 +35,7 @@ _arr = [
 	],0.2],
 
 	// configName CSLA_rADTeamAZU
-	[[[["CSLA_AZU_Des","CSLA_r9K32","CSLA_r9K32","CSLA_r9K32"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]
+	[[[["CSLA_AZU_para_Des","CSLA_r9K32","CSLA_r9K32","CSLA_r9K32"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]
 	],0.1],
 	// configName CSLA_rADTeamV3S
 	[[[["CSLA_rSgt","CSLA_V3S_Des","CSLA_rRF10","CSLA_rSa58V","CSLA_rUK59L","CSLA_rUK59L","CSLA_rRPG7","CSLA_rRPG7a","CSLA_rMedi","CSLA_rVG70","CSLA_r9K32"],[[3,-3,0],[0,0,0],[0,-12,0],[-3,-3,0],[-3,-9,0],[3,-9,0],[3,-12,0],[-3,-12,0],[0,-15,0],[3,-15,0],[-3,-15,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
