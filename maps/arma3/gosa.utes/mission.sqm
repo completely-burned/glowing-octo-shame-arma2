@@ -3764,14 +3764,9 @@ class Mission
 		class Item81
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={69.389,0.72100067,695.86603};
-			};
 			isPlayable=1;
 			id=257;
 			type="VirtualSpectator_F";
-			atlOffset=99.721001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3844,14 +3839,9 @@ class Mission
 		class Item82
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={108.17688,1.0155623,560.10895};
-			};
 			isPlayable=1;
 			id=258;
 			type="VirtualSpectator_F";
-			atlOffset=100.01556;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -3924,14 +3914,9 @@ class Mission
 		class Item83
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={69.389038,0.70720053,443.74542};
-			};
 			isPlayable=1;
 			id=259;
 			type="VirtualSpectator_F";
-			atlOffset=99.707199;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4004,14 +3989,9 @@ class Mission
 		class Item84
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={101.71204,0.61004734,282.12921};
-			};
 			isPlayable=1;
 			id=260;
 			type="VirtualSpectator_F";
-			atlOffset=99.610046;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4084,14 +4064,9 @@ class Mission
 		class Item85
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={134.03503,0.71383488,178.69446};
-			};
 			isPlayable=1;
 			id=261;
 			type="VirtualSpectator_F";
-			atlOffset=99.713837;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4164,14 +4139,9 @@ class Mission
 		class Item86
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={321.51001,0.97721285,152.83569};
-			};
 			isPlayable=1;
 			id=262;
 			type="VirtualSpectator_F";
-			atlOffset=99.977211;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4244,14 +4214,9 @@ class Mission
 		class Item87
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={315.04517,0.033999711,307.98767};
-			};
 			isPlayable=1;
 			id=263;
 			type="VirtualSpectator_F";
-			atlOffset=99.033997;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4324,14 +4289,9 @@ class Mission
 		class Item88
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={282.72217,0.33254927,417.88696};
-			};
 			isPlayable=1;
 			id=264;
 			type="VirtualSpectator_F";
-			atlOffset=99.33255;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4404,14 +4364,9 @@ class Mission
 		class Item89
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={263.32825,0.81520039,566.57349};
-			};
 			isPlayable=1;
 			id=265;
 			type="VirtualSpectator_F";
-			atlOffset=99.815201;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4484,14 +4439,9 @@ class Mission
 		class Item90
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={269.79279,0.43350935,741.11877};
-			};
 			isPlayable=1;
 			id=266;
 			type="VirtualSpectator_F";
-			atlOffset=99.43351;
 			class CustomAttributes
 			{
 				class Attribute0
