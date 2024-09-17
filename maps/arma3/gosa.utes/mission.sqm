@@ -6,10 +6,6 @@ class EditorData
 	scaleGridStep=1;
 	autoGroupingDist=10;
 	toggles=514;
-	mods[]=
-	{
-		"3denEnhanced"
-	};
 	class ItemIDProvider
 	{
 		nextID=257;
@@ -20,14 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1431.775,25.242828,1062.3717};
-		dir[]={-0.84860981,-0.36809319,0.38004184};
-		up[]={-0.33595935,0.92978257,0.15045705};
-		aside[]={0.40873817,8.7544322e-008,0.91268504};
+		pos[]={1354,40,786};
 	};
 };
 binarizationWanted=0;
-sourceName="gosa";
 addons[]=
 {
 	"A3_Ui_F",
@@ -45,7 +37,6 @@ addons[]=
 	"A3_Boat_F_Boat_Transport_01",
 	"A3_Air_F_Heli_Light_01",
 	"A3_Characters_F_Orange",
-	"cba_xeh",
 	"A3_Characters_F_Enoch",
 	"A3_Characters_F_Exp",
 	"A3_Structures_F_Enoch_Military_Camps"
@@ -294,7 +285,6 @@ class Mission
 			name="gosa_worldSize";
 			type="Empty";
 			id=0;
-			atlOffset=99;
 		};
 		class Item1
 		{
@@ -303,7 +293,6 @@ class Mission
 			isPlayable=1;
 			id=1;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item2
 		{
@@ -312,7 +301,6 @@ class Mission
 			isPlayable=1;
 			id=2;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item3
 		{
@@ -321,7 +309,6 @@ class Mission
 			isPlayable=1;
 			id=3;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item4
 		{
@@ -330,7 +317,6 @@ class Mission
 			isPlayable=1;
 			id=4;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item5
 		{
@@ -339,7 +325,6 @@ class Mission
 			isPlayable=1;
 			id=5;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item6
 		{
@@ -348,7 +333,6 @@ class Mission
 			isPlayable=1;
 			id=6;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item7
 		{
@@ -357,7 +341,6 @@ class Mission
 			isPlayable=1;
 			id=7;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item8
 		{
@@ -366,7 +349,6 @@ class Mission
 			isPlayable=1;
 			id=8;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item9
 		{
@@ -375,7 +357,6 @@ class Mission
 			isPlayable=1;
 			id=9;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item10
 		{
@@ -384,7 +365,6 @@ class Mission
 			isPlayable=1;
 			id=10;
 			type="HeadlessClient_F";
-			atlOffset=99.900002;
 		};
 		class Item11
 		{
@@ -1622,7 +1602,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1376.9425,3.7138119,879.86676};
+				position[]={1377,3,880};
 				angles[]={0,1.5473094,0};
 			};
 			side="Empty";
@@ -1632,14 +1612,14 @@ class Mission
 			};
 			id=101;
 			type="O_Boat_Armed_01_hmg_F";
-			atlOffset=99.389938;
+			atlOffset=98.676125;
 		};
 		class Item42
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={1344.4302,3.8728542,1014.7517};
+				position[]={1344,3,1015};
 			};
 			side="Empty";
 			class Attributes
@@ -1648,7 +1628,7 @@ class Mission
 			};
 			id=102;
 			type="O_Boat_Armed_01_hmg_F";
-			atlOffset=99.548981;
+			atlOffset=98.676125;
 		};
 		class Item43
 		{
@@ -1672,7 +1652,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3277.4871,1.7400579,4662.3149};
+				position[]={3277,2,4662};
 				angles[]={0,5.4736667,0};
 			};
 			side="Empty";
@@ -1682,14 +1662,14 @@ class Mission
 			};
 			id=104;
 			type="C_Boat_Civil_01_F";
-			atlOffset=10.744;
+			atlOffset=10.962999;
 		};
 		class Item45
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3617.063,1.7621264,4459.25};
+				position[]={3617,2,4459};
 				angles[]={0,4.9971395,0};
 			};
 			side="Empty";
@@ -1699,14 +1679,14 @@ class Mission
 			};
 			id=106;
 			type="C_Boat_Transport_02_F";
-			atlOffset=6.6669998;
+			atlOffset=6.82095;
 		};
 		class Item46
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4485.4731,1.6897314,3060.1411};
+				position[]={4485,2,3060};
 				angles[]={0,5.0947032,0};
 			};
 			side="Empty";
@@ -1716,15 +1696,14 @@ class Mission
 			};
 			id=108;
 			type="C_Rubberboat";
-			atlOffset=0.27700007;
+			atlOffset=0.55646729;
 		};
 		class Item47
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={3606.4409,19.501593,3650.314};
-				angles[]={0,3.5663536,0};
+				position[]={3663.5957,19.953728,3480.7881};
 			};
 			side="Empty";
 			flags=4;
@@ -1912,7 +1891,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={4543,1.6981649,3558};
+				position[]={4543,2,3558};
 				angles[]={0,2.0071287,0};
 			};
 			side="Empty";
@@ -1922,7 +1901,7 @@ class Mission
 			};
 			id=126;
 			type="C_Boat_Transport_02_F";
-			atlOffset=3.1990004;
+			atlOffset=3.5008354;
 		};
 		class Item50
 		{
