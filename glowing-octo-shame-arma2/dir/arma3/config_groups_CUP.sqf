@@ -1527,11 +1527,12 @@ _arr append [
 ];
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "CUP_B_AFU", _arr,
-	[1990,2100], [250,274],
+	[1990,2100], [160,274],
 	["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
 // ILDU
+/*
 _arr = [
 	// CUP_B_AFU_ILDU_Command
 	[[[["CUP_B_ILDU_Soldier_TeamleaderUS","CUP_B_ILDU_Soldier_MedicGB"],[[0,0,0],[4.72705,-4.70166,0]],["LIEUTENANT","SERGEANT"]]
@@ -1575,6 +1576,7 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 	[1990,2100], [160,249],
 	["BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
+*/
 
 // FIXME: TDF для Altis слишком пустынный.
 _arr = [
