@@ -258,7 +258,7 @@ class Mission
 	appId=1175380;
 	class Intel
 	{
-		briefingName="SPE CO 00 gosa SPE_Mortain Multi v0.0.5.964 DEBUG";
+		briefingName="SPE CO 00 gosa SPE_Mortain Multi v0.0.5.965 DEBUG";
 		startWeather=0.3;
 		startWind=0.1;
 		startWaves=0.1;
