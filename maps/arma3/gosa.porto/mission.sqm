@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=513;
+	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=509;
+		nextID=519;
 	};
 	class Camera
 	{
@@ -241,7 +241,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=116;
+		items=118;
 		class Item0
 		{
 			dataType="Logic";
@@ -769,7 +769,7 @@ class Mission
 			position[]={1250,4.8649998,635};
 			class Attributes
 			{
-				name="gosa_island_0";
+				name="gosa_islandR_2";
 				sizeA=300;
 				sizeB=300;
 			};
@@ -782,7 +782,7 @@ class Mission
 			position[]={800,0.10300019,2779};
 			class Attributes
 			{
-				name="gosa_island_1";
+				name="gosa_islandR_1";
 				sizeA=150;
 				sizeB=150;
 			};
@@ -795,7 +795,7 @@ class Mission
 			position[]={2594,5.0300002,2441};
 			class Attributes
 			{
-				name="gosa_island_10";
+				name="gosa_islandR_0";
 				sizeA=1500;
 				sizeB=1500;
 			};
@@ -6766,6 +6766,32 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item116
+		{
+			dataType="Trigger";
+			position[]={1736.3164,0,2035.9534};
+			class Attributes
+			{
+				name="gosa_islandR_3";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=516;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item117
+		{
+			dataType="Trigger";
+			position[]={1386.6429,6.0610533,2297.7576};
+			class Attributes
+			{
+				name="gosa_islandR_4";
+				sizeA=150;
+				sizeB=150;
+			};
+			id=517;
+			type="EmptyDetectorAreaR250";
 		};
 	};
 	class Connections
