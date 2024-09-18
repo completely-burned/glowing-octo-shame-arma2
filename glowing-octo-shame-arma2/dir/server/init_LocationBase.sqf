@@ -7,7 +7,7 @@
 
 private ["_type_Airport","_list_Airport","_arr","_type","_logic",
 	"_arr0","_arr1","_blacklist","_n","_type_Airport_compat",
-	"_type_Base","_list_Base","_str"];
+	"_type_Base","_list_Base","_str","_arr2"];
 
 _type_Airport = [1,2,3];
 _list_Airport = [];
@@ -21,6 +21,9 @@ _blacklist = [];
 #ifdef __A2OA__
 	_arr = allMissionObjects "LocationBase_F";
 	diag_log format ["Log: [init_LocationBase] LocationBase_F %1", _arr];
+	_arr0 = allMissionObjects "LocationLogicAirport";
+	diag_log format ["Log: [init_LocationBase] LocationLogicAirport %1", _arr0];
+	_arr = _arr + _arr0;
 #else
 	_arr = [];
 #endif
