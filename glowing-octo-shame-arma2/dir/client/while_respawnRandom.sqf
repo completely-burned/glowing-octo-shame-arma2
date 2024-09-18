@@ -27,6 +27,11 @@ if (playerSide == sideLogic) exitWith {
 
 [player, objNull] call gosa_fnc_eh_playerSelected;
 
+if !(isMultiplayer) exitWith {
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] isMultiplayer %1, exitWith", isMultiplayer];
+};
+
 // TODO: Модуль гражданских.
 if (playerSide == civilian) exitWith {
 	gosa_respawnDone = true;
