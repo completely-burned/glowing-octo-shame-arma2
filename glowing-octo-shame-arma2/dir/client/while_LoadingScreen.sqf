@@ -19,6 +19,9 @@ _script = _this spawn {
 
 	// TODO: Проверить на отказоустойчивость.
 	if !(call _condition) then {
+		// Брифинг уже должен быть закрыт.
+		waitUntil {time > 0};
+
 		startLoadingScreen _resource;
 		diag_log format ["Log: [LoadingScreen] %1, startLoadingScreen %2", time, _this];
 		_progress = 0;
