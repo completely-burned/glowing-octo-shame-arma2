@@ -28,6 +28,9 @@ if(!isMultiplayer)exitWith{
 //waitUntil {time > 0};
 	// LoadingScreen
 	[["Loading My Mission","RscDisplayLoadMission"],{!isNil "respawnDone"},300,[
+		{!isNil format["gosa_listHQ_%1", playerSide]},
+		{!isNil "gosa_list_LocationAirport"},
+		{!isNil "gosa_list_LocationBase"},
 		{!isNil "GroupsStarted"},
 		{!isNil "gosa_framesAVG"},
 		{!isNil "civilianBasePos"},
