@@ -83,7 +83,6 @@ player setVariable ["selectPlayerDisable", true, true];
 };
 
 waitUntil{!isNil "gosa_MPF_InitDone"};
-waitUntil{!isNil "civilianBasePos"};
 
 while {true} do {
 
