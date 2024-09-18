@@ -199,17 +199,12 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 	};
 
 	#ifdef __ARMA3__
-		/*
-		{
-			_grp = _x;
-			{
-				if (vehicle _x isEqualTo _x) then {
-						// ИИ застревают в полусогнутом состоянии, в анимации перетаскивания раненого.
-						_x switchMove "";
-				};
-			} forEach units _grp;
-		} forEach _groups;
-		*/
+		for "_i" from 0 to (count _units) do {
+			if (vehicle (_units select _i) isEqualTo (_units select _i)) then {
+				// ИИ застревают в полусогнутом состоянии, в анимации перетаскивания раненого, "acinpknlmstpsraswrfldnon".
+				(_units select _i) switchMove "";
+			};
+		};
 
 		{
 			_x addCuratorEditableObjects [_units+_vehicles, true];
