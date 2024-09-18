@@ -105,7 +105,7 @@ fi
 # Перевод кириллицы в транслит.
 if [[ -x "$(command -v translit)" && -x "$(command -v iconv)" ]]
 then
-	find $TMPDIR -type f ! -iname 'stringtable.csv' -exec translit -i {} -o {}.translit -t "ISO 9" \; -exec iconv -f UTF8 -t US-ASCII//TRANSLIT -o {} {}.translit \; -exec rm {}.translit \;
+	find $TMPDIR -type f ! -iname 'stringtable*' -exec translit -i {} -o {}.translit -t "ISO 9" \; -exec iconv -f UTF8 -t US-ASCII//TRANSLIT -o {} {}.translit \; -exec rm {}.translit \;
 fi
 
 if [[ ! -d $TMPDIR/.build.out ]]
