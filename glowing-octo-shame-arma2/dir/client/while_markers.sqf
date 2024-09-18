@@ -19,6 +19,7 @@ private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_marker_type_respawn_plane","_fnc_update_LocationAirport",
 	"_markers_LocationBase","_fnc_update_LocationBase","_types_respawn_blacklist",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
+diag_log format ["Log: [while_markers] %1 start", time];
 
 _fnc_MarkerInitUnit = {
 	diag_log format ["Log: [while_markers] %1 Marker init %2", _this select 0, _this];
