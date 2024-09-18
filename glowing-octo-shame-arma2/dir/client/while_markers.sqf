@@ -215,6 +215,7 @@ if (true) then {
 
 			// объекты аэропорта.
 			_arr = synchronizedObjects _logic;
+			diag_log format ["Log: [while_markers] %1 synchronizedObjects %2", _logic, _arr];
 
 			// Для совместимости.
 			// Дедупликация.
@@ -236,11 +237,14 @@ if (true) then {
 
 			for "_i0" from 0 to (count _arr -1) do {
 				_logic = _arr select _i0;
-					if !(toLower typeOf _logic in _types_respawn_blacklist) then {
+				if (toLower typeOf _logic in _types_respawn_blacklist) then {
+					diag_log format ["Log: [while_markers] %1, %2 _blacklist", _logic, typeOf _logic];
+				}else{
 
 					// тип возрождения.
 					_num = _logic getVariable "gosa_respawn_type";
 					if (isNil "_num") then {_num = _respawn_type_All};
+					diag_log format ["Log: [while_markers] %1, respawn_type %2", _logic, _num];
 					switch (_num) do {
 						case _respawn_type_Pilot: {
 							if (_startingClass == 1) then {
