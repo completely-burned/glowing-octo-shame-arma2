@@ -77,6 +77,10 @@ for "_i" from 0 to (count _arr - 1) do {
 			or _logic in _type_Base) then
 		{			
 			_list_Airport set [count _list_Airport, _logic];
+			#ifndef __ARMA3__
+				_arr0 = synchronizedObjects _logic;
+				_logic synchronizeObjectsAdd _arr0;
+			#endif
 		};
 	};
 
@@ -85,6 +89,10 @@ for "_i" from 0 to (count _arr - 1) do {
 			or _logic in _type_Base) then
 		{
 			_list_Base set [count _list_Base, _logic];
+			#ifndef __ARMA3__
+				_arr0 = synchronizedObjects _logic;
+				_logic synchronizeObjectsAdd _arr0;
+			#endif
 		};
 	};
 };
