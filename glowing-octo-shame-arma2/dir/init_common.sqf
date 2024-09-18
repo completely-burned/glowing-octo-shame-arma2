@@ -36,6 +36,7 @@ safeSpawnDistance = _arr;
 gosa_minDeepFrigate = 25;
 
 gosa_deviceType = ([] call gosa_fnc_getDeviceType);
+diag_log format ["Log: [init_common] gosa_deviceType %1", gosa_deviceType];
 gosa_IslandType = ([] call gosa_fnc_getIslandType);
 
 _arr = [

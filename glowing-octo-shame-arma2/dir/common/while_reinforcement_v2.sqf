@@ -43,7 +43,7 @@ _conveyer = [];
 _conveyer_limit = 12;
 
 // Не выделенный клиент.
-if (gosa_deviceType == 2) then {
+if (gosa_deviceType in [2,1]) then {
 	_deviceT2 = true;
 }else{
 	_deviceT2 = false;

@@ -4,7 +4,9 @@
  * Функция отсеивает неподходящие тела для перерождения.
  */
 
-private ["_n","_b","_t_om","_t_bl","_weapon","_veh","_str","_arr","_cfgWea"];
+private ["_n","_b","_t_om","_t_bl","_weapon","_veh","_str","_arr","_cfgWea",
+	"_obj"];
+scopeName "root";
 
 // timeout за пределами карты.
 _t_om = 25;
@@ -106,6 +108,10 @@ if (_b) exitWith {
 
 // TODO: Улучшить переключение на далёкий патруль.
 if (vehicle _this distance civilianBasePos > (safeSpawnDistance select 1)) then {
+	_obj = _this call gosa_fnc_assignedVeh;
+	if (_obj distance _this < 500 && canMove _obj) then {
+		breakTo "root";
+	};
 	if !(isNil {group _this getVariable "patrol"}) then {
 		_b = true;
 	};
