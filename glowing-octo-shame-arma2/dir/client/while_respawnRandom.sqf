@@ -88,7 +88,7 @@ player setVariable ["selectPlayerDisable", true, true];
 	["close"] call BIS_fnc_showRespawnMenu;
 	#endif
 	_this select 0 setDamage 1;
-	respawnDone = true;
+	gosa_respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };
 
