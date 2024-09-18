@@ -2,7 +2,7 @@
 /*
  * Перемещает игрока после подключения на стартовую позицию.
  */
- private ["_arr"];
+ private ["_arr","_n"];
 
 // FIXME: Возможно для A2 то-же нужно, но не проверено.
 #ifdef __A2OA__
@@ -27,7 +27,12 @@ if(!isMultiplayer)exitWith{
 
 //waitUntil {time > 0};
 	// LoadingScreen
-	[["Loading My Mission","RscDisplayLoadMission"],{!isNil "respawnDone"},300,[
+	if (gosa_loglevel > 0) then {
+		_n = 15;
+	}else{
+		_n = 99999999999999999999;
+	};
+	[["Loading My Mission","RscDisplayLoadMission"],{!isNil "respawnDone"},_n,[
 		{!isNil format["gosa_listHQ_%1", playerSide]},
 		{!isNil "gosa_list_LocationAirport"},
 		{!isNil "gosa_list_LocationBase"},
