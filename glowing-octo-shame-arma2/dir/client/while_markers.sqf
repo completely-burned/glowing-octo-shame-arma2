@@ -194,11 +194,7 @@ if (true) then {
 	};
 
 
-	_num = time+300;
-	waitUntil {
-		_num < time
-		or !isNil "gosa_list_LocationAirport";
-	};
+	waitUntil {!isNil "gosa_list_LocationAirport"};
 	[] call _fnc_update_LocationAirport;
 };
 diag_log format ["Log: [while_markers] _markers_airport %1", _markers_airport];
@@ -312,11 +308,7 @@ if (true) then {
 	};
 
 
-	_num = time+15;
-	waitUntil {
-		_num < time
-		or !isNil "gosa_list_LocationBase";
-	};
+	waitUntil {!isNil "gosa_list_LocationBase"};
 	[] call _fnc_update_LocationBase;
 };
 diag_log format ["Log: [while_markers] _markers_LocationBase %1", _markers_LocationBase];
@@ -367,11 +359,7 @@ if ((count _markers_airport
 	if (_rMHQ) then {
 		_listHQ_str = format["gosa_listHQ_%1", playerSide];
 
-		_tmp_num = time+15;
-		waitUntil {
-			_tmp_num < time
-			or !isNil _listHQ_str;
-		};
+		waitUntil {!isNil _listHQ_str};
 
 		// TODO: Совместимость `gosa_respawnMarkers`.
 
