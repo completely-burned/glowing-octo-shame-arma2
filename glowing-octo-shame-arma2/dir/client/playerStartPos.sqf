@@ -2,6 +2,7 @@
 /*
  * Перемещает игрока после подключения на стартовую позицию.
  */
+ private ["_arr"];
 
 // FIXME: Возможно для A2 то-же нужно, но не проверено.
 #ifdef __A2OA__
@@ -24,27 +25,32 @@ if(!isMultiplayer)exitWith{
 	} forEach (player nearObjects 100);
 };
 
+//waitUntil {time > 0};
+	// LoadingScreen
+	[["Loading My Mission","RscDisplayLoadMission"],{!isNil "respawnDone"},300,[
+		{!isNil "GroupsStarted"},
+		{!isNil "gosa_framesAVG"},
+		{!isNil "civilianBasePos"},
+		{!isNil "gosa_MPF_InitDone"},
+		{!isNil "gosa_playerStartingClass"},
+		{!isNil "gosa_friendlyside"},
+		{!isNull player},
+		{!isNil "BIS_fnc_init"},
+		{!isNil "gosa_fnc_init"},
+		{!isNil "gosa_towns"},
+		{!isNil "gosa_respawnMarkers"}
+	]] execVM "dir\client\while_LoadingScreen.sqf";
+
 waitUntil {!isNull player};
 player setPos [-2000 - random 500, 1000 - random 500];
-
-waitUntil {time > 0};
-startLoadingScreen["Loading My Mission"];
-
-waitUntil {!isNil "gosa_fnc_init" or time > 30};
-progressLoadingScreen 0.5;
-
-waitUntil {!isNil {gosa_respawnMarkers} or time > 30};
-progressLoadingScreen 0.75;
 
 if (!isNil "gosa_respawnMarkers" && {count gosa_respawnMarkers > 0}) then {
 	player setPos getMarkerPos (gosa_respawnMarkers call BIS_fnc_selectRandom);
 }else{
-	player setPos getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+	_arr = getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+	_arr resize 2;
+	player setPos _arr;
 };
-
-waitUntil {!isNil "respawnDone" or time > 30};
-
-endLoadingScreen;
 
 playerReady = true;
 

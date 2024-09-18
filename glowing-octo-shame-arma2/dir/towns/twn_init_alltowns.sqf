@@ -475,3 +475,4 @@ for "_i" from 0 to (count _campAreas -1) do {
 
 gosa_towns_constructed = _constructedList;
 gosa_towns = _towns;
+publicVariable "gosa_towns";
