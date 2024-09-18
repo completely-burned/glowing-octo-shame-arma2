@@ -6,6 +6,7 @@
 # ./tools/build_pbo_linux.sh -d собрать debug версию.
 # -l добавит файл лицензии в архив.
 # -z Сжатие с потерями :D
+ARCHIVE=0
 TORRENTFILE=0
 DIAG_LOG=0
 LICENSE=0
@@ -13,6 +14,7 @@ ZIP=0
 while getopts "dltz" opt
 	do
 	case $opt in
+	a) ARCHIVE=1;;
 	t) TORRENTFILE=1;;
 	d) DIAG_LOG=1;;
 	l) LICENSE=1;;
@@ -260,15 +262,18 @@ echo "run rdfind"
 rdfind -makehardlinks true ${PRE}
 
 # 7z
-echo "7z file create"
-if [[ -x "$(command -v parallel)" ]]
+if [[ $ARCHIVE -gt 0 ]]
 then
-	var_parallel=("7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-latest ${PRE}/*rsync*")
-	var_parallel+=("7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-latest ${PRE}/*arma3*workshop*")
-	parallel ::: "${var_parallel[@]}"
-else
-	7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-latest ${PRE}/*rsync*
-	7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-latest ${PRE}/*arma3*workshop*
+	echo "7z file create"
+	if [[ -x "$(command -v parallel)" ]]
+	then
+		var_parallel=("7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-latest ${PRE}/*rsync*")
+		var_parallel+=("7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-latest ${PRE}/*arma3*workshop*")
+		parallel ::: "${var_parallel[@]}"
+	else
+		7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-latest ${PRE}/*rsync*
+		7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-latest ${PRE}/*arma3*workshop*
+	fi
 fi
 
 # Torrent файл.
