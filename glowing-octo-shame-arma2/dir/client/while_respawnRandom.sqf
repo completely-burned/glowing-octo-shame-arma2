@@ -25,25 +25,30 @@ if (playerSide == sideLogic) exitWith {
 	#endif
 };
 
+[player, objNull] call gosa_fnc_eh_playerSelected;
+
 // TODO: Модуль гражданских.
 if (playerSide == civilian) exitWith {
+	gosa_respawnDone = true;
 	diag_log format ["Log: [respawnRandom] playerSide == %1, exitWith", playerSide];
 };
 
+if (missionNamespace getVariable "respawn" != 1) exitWith {
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] respawn %1, exitWith", missionNamespace getVariable "respawn"];
+};
+
 if ([player] call gosa_fnc_role_isCrew) exitWith {
-	diag_log format ["Log: [respawnRandom] player isCrew", nil];
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] player isCrew, exitWith", nil];
 };
 
 waitUntil{!isNil "gosa_playerStartingClass"};
 if (gosa_playerStartingClass == 1) exitWith {
+	gosa_respawnDone = true;
 	diag_log format ["Log: [respawnRandom] Player class %1, exitWith", gosa_playerStartingClass];
 };
 
-if(missionNamespace getVariable "respawn" != 1 or !isMultiplayer)exitWith{
-	[player, objNull] call gosa_fnc_eh_playerSelected;
-	respawnDone = true;
-	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
-};
 
 #ifdef __ARMA3__
 	setplayerrespawntime 99999;

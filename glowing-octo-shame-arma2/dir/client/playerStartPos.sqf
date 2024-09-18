@@ -32,7 +32,7 @@ if(!isMultiplayer)exitWith{
 	}else{
 		_n = 99999999999999999999;
 	};
-	[["Loading My Mission","RscDisplayLoadMission"],{!isNil "respawnDone"},_n,[
+	[["Loading My Mission","RscDisplayLoadMission"],{!isNil "gosa_respawnDone"},_n,[
 		{!isNil format["gosa_listHQ_%1", playerSide]},
 		{!isNil "gosa_list_LocationAirport"},
 		{!isNil "gosa_list_LocationBase"},
