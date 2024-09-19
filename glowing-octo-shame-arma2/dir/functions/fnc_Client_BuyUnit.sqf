@@ -294,7 +294,7 @@ if (true) then {
 			_veh = createVehicle [_type, _arr, [], 2000, "NONE"];
 			_sizeOf = sizeOf _type;
 			if (_sizeOf < _sizeAllowed) then {
-				_arr = [_pos, [23,22,20], 1000] call gosa_fnc_findSpawnPos_veh;
+				_arr = [_factory_obj, [23,22,20], 1000] call gosa_fnc_findSpawnPos_veh;
 				// TODO: Расчищать место.
 				for "_i" from 0 to (count _arr -1) do {
 					_obj = _arr select _i;
@@ -343,7 +343,7 @@ if (true) then {
 			_veh = createVehicle [_type, _arr, [], 2000, "NONE"];
 			_sizeOf = sizeOf _type;
 			if (_sizeOf < _sizeAllowed) then {
-				_arr = [_pos, [21,20,22], 1000] call gosa_fnc_findSpawnPos_veh;
+				_arr = [_factory_obj, [21,20,22], 1000] call gosa_fnc_findSpawnPos_veh;
 				// TODO: Расчищать место.
 				for "_i" from 0 to (count _arr -1) do {
 					_obj = _arr select _i;
