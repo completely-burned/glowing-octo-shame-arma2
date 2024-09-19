@@ -103,7 +103,7 @@ if (true) then {
 			// TODO: Side.
 
 			// объекты аэропорта.
-			_arr = [_logic, _respawn_type_Pilot+_respawn_type_All, -1] call gosa_fnc_base_getRespawn;
+			_arr = [_logic, [_respawn_type_Pilot, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
 
 			// Для совместимости.
 			// Дедупликация.
@@ -220,7 +220,7 @@ if (true) then {
 			// TODO: Side.
 
 			// объекты аэропорта.
-			_arr = [_logic, _respawn_type_Pilot+_respawn_type_All, -1] call gosa_fnc_base_getRespawn;
+			_arr = [_logic, [_respawn_type_Pilot, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
 
 			// Для совместимости.
 			// Дедупликация.
