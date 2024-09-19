@@ -198,7 +198,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa abramia Multi v0.0.5.966 DEBUG";
+		briefingName="CO 00 gosa abramia Multi v0.0.5.967 DEBUG";
 		startWeather=0.44999999;
 		startFog=0.2;
 		startWind=0.5;

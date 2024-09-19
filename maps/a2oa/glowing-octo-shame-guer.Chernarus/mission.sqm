@@ -34,7 +34,7 @@ class Mission
 	randomSeed=12852940;
 	class Intel
 	{
-		briefingName="CO 00 gosa Chernarus guer v0.0.5.966 DEBUG";
+		briefingName="CO 00 gosa Chernarus guer v0.0.5.967 DEBUG";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0;
