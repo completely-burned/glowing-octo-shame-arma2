@@ -26,8 +26,6 @@ if (playerSide == sideLogic) exitWith {
 	#endif
 };
 
-[player, objNull] call gosa_fnc_eh_playerSelected;
-
 if !(isMultiplayer) exitWith {
 	gosa_respawnDone = true;
 	diag_log format ["Log: [respawnRandom] isMultiplayer %1, exitWith", isMultiplayer];
@@ -74,6 +72,8 @@ if !(playerSide in _sides_friendly) exitWith {
 	gosa_respawnDone = true;
 	diag_log format ["Log: [respawnRandom] playerSide %1 out %2 _sides_friendly, exitWith", playerSide, _sides_friendly];
 };
+
+[player, objNull] call gosa_fnc_eh_playerSelected;
 
 diag_log format ["Log: [respawnRandom] init info %1", [_p, _p_name, _o]];
 
