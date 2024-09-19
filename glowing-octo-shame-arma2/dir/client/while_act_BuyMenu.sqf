@@ -20,9 +20,12 @@ private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV","_nearestObjects",
 	"_uav_terminals","_actionObj","_action_uav","_types_MHQ","_types_HQ",
 	"_player_veh","_factory_HQ","_factory_all","_logic","_class","_num",
 	"_action_factory","_action_num","_action_object","_b","_dist","_str",
+	"_var_synchronizedObjects",
 	"_factory_use","_respawn_type_Pilot","_respawn_type_All","_startingClass",
 	"_type","_Object","_action","_0","_1","_2","_listHQ_str","_arr","_listHQ",
 	"_action_teleport","_action_menu","_action_buy","_resetActions","_shop"];
+
+_var_synchronizedObjects = "gosa_synchronizedObjects";
 
 _HQ = [];
 {
@@ -177,8 +180,15 @@ while {sleep 0.5; true} do {
 			for "_i" from 0 to (count _list -1) do {
 				_logic = _list select _i;
 				_arr = synchronizedObjects _logic;
+				#ifndef __ARMA3__
+					// Синхронизации в редакторе A2 имеют локальный для сервера эффект.
+					if (count _arr <= 0) then {
+						_arr = _logic getVariable _var_synchronizedObjects;
+						if (isNil "_arr") then {_arr = []};
+					};
+				#endif
 				// Для совместимости.
-				if (count _arr < 1) then {
+				if (count _arr <= 0) then {
 					_arr = [_logic];
 				};
 				for "_i0" from 0 to (count _arr -1) do {
@@ -266,8 +276,14 @@ while {sleep 0.5; true} do {
 			for "_i" from 0 to (count _list -1) do {
 				_logic = _list select _i;
 				_arr = synchronizedObjects _logic;
+				#ifndef __ARMA3__
+					if (count _arr <= 0) then {
+						_arr = _logic getVariable _var_synchronizedObjects;
+						if (isNil "_arr") then {_arr = []};
+					};
+				#endif
 				// Для совместимости.
-				if (count _arr < 1) then {
+				if (count _arr <= 0) then {
 					_arr = [_logic];
 				};
 				for "_i0" from 0 to (count _arr -1) do {
