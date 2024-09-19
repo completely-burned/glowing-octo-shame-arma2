@@ -29,7 +29,6 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Modules_F",
 	"A3_Structures_F_Mil_Cargo",
-	"A3_Structures_F_Ind_AirPort",
 	"A3_Structures_F_Mil_TentHangar",
 	"A3_Ui_F",
 	"A3_Weapons_F_Ammoboxes",
@@ -726,18 +725,17 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9182.9648,20.39138,21642.207};
-				angles[]={0,5.7595863,0};
+				position[]={9194,18.74062,21646};
+				angles[]={0,3.1415925,0};
 			};
 			side="Empty";
-			flags=1;
+			flags=5;
 			class Attributes
 			{
 				init="this setVariable [""gosa_respawn_type"", 1];";
 			};
 			id=820;
-			type="Land_Hangar_F";
-			atlOffset=0.39999962;
+			type="Land_TentHangar_V1_F";
 		};
 		class Item32
 		{
@@ -763,7 +761,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={20934.756,32.348743,7186.772};
-				angles[]={0,3.7129786,0};
+				angles[]={0,0.57138586,0};
 			};
 			side="Empty";
 			flags=5;
@@ -773,7 +771,6 @@ class Mission
 			};
 			id=823;
 			type="Land_TentHangar_V1_F";
-			atlOffset=-1.9073486e-006;
 		};
 		class Item34
 		{
