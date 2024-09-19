@@ -20,7 +20,7 @@ private ["_HQ","_BuyMenu","_OptionsAvailable","_Buy_UAV","_nearestObjects",
 	"_uav_terminals","_actionObj","_action_uav","_types_MHQ","_types_HQ",
 	"_player_veh","_factory_HQ","_factory_all","_logic","_class","_num",
 	"_action_factory","_action_num","_action_object","_b","_dist","_str",
-	"_var_synchronizedObjects",
+	"_var_synchronizedObjects","_respawn_type_Aircraft_carrier",
 	"_factory_use","_respawn_type_Pilot","_respawn_type_All","_startingClass",
 	"_type","_Object","_action","_0","_1","_2","_listHQ_str","_arr","_listHQ",
 	"_action_teleport","_action_menu","_action_buy","_resetActions","_shop"];
@@ -37,6 +37,7 @@ _HQ = [];
 _factory_use = [];
 
 _respawn_type_Pilot = 1;
+_respawn_type_Aircraft_carrier = 2;
 _respawn_type_All = 0;
 
 _nearestObjects = [
@@ -240,6 +241,10 @@ while {sleep 0.5; true} do {
 									_str = "#USER:gosa_menu_factory_AircraftFactory_0";											
 								};
 							};
+							// TODO: Aircraft_carrier_Factory
+							case _respawn_type_Aircraft_carrier: {
+								_str = "#USER:gosa_menu_factory_FactoryAll_0";
+							};
 							case _respawn_type_All: {
 								_str = "#USER:gosa_menu_factory_FactoryAll_0";
 							};
@@ -334,6 +339,10 @@ while {sleep 0.5; true} do {
 								}else{
 									_str = "#USER:gosa_menu_factory_AircraftFactory_0";											
 								};
+							};
+							// TODO: Aircraft_carrier_Factory
+							case _respawn_type_Aircraft_carrier: {
+								_str = "#USER:gosa_menu_factory_FactoryAll_0";
 							};
 							case _respawn_type_All: {
 								_str = "#USER:gosa_menu_factory_FactoryAll_0";
