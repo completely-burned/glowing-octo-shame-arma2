@@ -2,7 +2,8 @@ if (isPlayer _this) exitWith {
 	true
 };
 
-if (getPlayerUID _this != "") exitWith {
+// getPlayerUID возвращает "_SP_AI_" в одиночной игре.
+if (isMultiplayer && getPlayerUID _this != "") exitWith {
 	true
 };
 
