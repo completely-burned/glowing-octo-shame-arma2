@@ -15,9 +15,16 @@ for "_t" from 0 to (count _types -1) do {
 };
 
 _arr = synchronizedObjects _logic;
+#ifndef __ARMA3__
+	// Синхронизации в редакторе A2 имеют локальный для сервера эффект.
+	if (count _arr <= 0) then {
+		_arr = _logic getVariable _var_synchronizedObjects;
+		if (isNil "_arr") then {_arr = []};
+	};
+#endif
 // TODO: getVariable
 // Для совместимости.
-if (count _arr < 1) then {
+if (count _arr <= 0) then {
 	_arr = [_logic];
 };
 
