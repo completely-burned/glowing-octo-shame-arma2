@@ -69,6 +69,10 @@ _arr = [];
 
 waitUntil{!isNil "gosa_friendlyside"};
 _sides_friendly = gosa_friendlyside;
+if !(playerSide in _sides_friendly) exitWith {
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] playerSide %1 out %2 _sides_friendly, exitWith", playerSide, _sides_friendly];
+};
 
 diag_log format ["Log: [respawnRandom] init info %1", [_p, _p_name, _o]];
 
