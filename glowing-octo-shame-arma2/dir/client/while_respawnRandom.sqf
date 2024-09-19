@@ -54,6 +54,7 @@ if (gosa_playerStartingClass == 1) exitWith {
 	diag_log format ["Log: [respawnRandom] Player class %1, exitWith", gosa_playerStartingClass];
 };
 
+gosa_respawnRandom = true;
 
 #ifdef __ARMA3__
 	setplayerrespawntime 99999;

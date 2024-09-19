@@ -25,7 +25,7 @@ if(!isMultiplayer)exitWith{
 	} forEach (player nearObjects 100);
 };
 
-_code = {!isNil "gosa_respawnDone" && !isNil "gosa_respawnMarkers"};
+_code = {!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "gosa_respawnRandom")};
 //waitUntil {time > 0};
 	// LoadingScreen
 	if (gosa_loglevel > 0) then {
@@ -53,12 +53,14 @@ waitUntil {!isNull player};
 player setPos [-2000 - random 500, 1000 - random 500];
 
 waitUntil _code;
+if (isNil "gosa_respawnRandom") then {
 if (!isNil "gosa_respawnMarkers" && {count gosa_respawnMarkers > 0}) then {
 	player setPos getMarkerPos (gosa_respawnMarkers call BIS_fnc_selectRandom);
 }else{
 	_arr = getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
 	_arr resize 2;
 	player setPos _arr;
+};
 };
 
 playerReady = true;
