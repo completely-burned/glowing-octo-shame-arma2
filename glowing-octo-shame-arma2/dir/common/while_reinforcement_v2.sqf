@@ -14,7 +14,7 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run","_allGroups",
 	"_frontLine_east","_frontLine_west","_frontLine_guer","_deviceT2",
 	"_lg","_enemySide","_friendlySide","_sleep","_obj","_side",
-	"_remote_miltipler","_cfi_sides_friendly","_cfi_sides_enemy",
+	"_remote_miltipler","_cfi_sides_friendly","_cfi_sides_enemy","_deviceType",
 	"_types_pilot","_sides_friendly","_sides_enemy","_mode_pvp"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
@@ -42,14 +42,15 @@ private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 _conveyer = [];
 _conveyer_limit = 12;
 
+_deviceType = gosa_deviceType;
 // Не выделенный клиент.
-if (gosa_deviceType in [2,1]) then {
+if (_deviceType == 2) then {
 	_deviceT2 = true;
 }else{
 	_deviceT2 = false;
 };
 _remote_miltipler = 0.1;
-if (gosa_deviceType in [0,1]) then {
+if (_deviceType in [0,1]) then {
 	_remote_miltipler = 0.5;
 };
 
@@ -254,7 +255,8 @@ while{_run}do{
 				};
 			};
 	}else{
-		if (_deviceT2) then {
+		if !(isNil "gosa_respawnRandom") then {
+		if (_deviceT2 or _deviceType in [1,2]) then {
 			//--- Аварийная группа возрождения.
 			// FIXME: Не проверенно в одиночной игре.
 			// Чтобы не закончились юниты для перерождения.
@@ -308,6 +310,7 @@ while{_run}do{
 					];
 				};
 			};
+		};
 		};
 
 	//--- создание отрядов
