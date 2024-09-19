@@ -81,10 +81,10 @@ for "_i" from 0 to (count _arr - 1) do {
 		{			
 			_list_Airport set [count _list_Airport, _logic];
 			#ifndef __ARMA3__
-				_arr = synchronizedObjects _logic;
-				if (count _arr > 0) then {
+				_arr0 = synchronizedObjects _logic;
+				if (count _arr0 > 0) then {
 					// Синхронизации в редакторе A2 имеют локальный для сервера эффект.
-					_logic setVariable [_var_synchronizedObjects, _arr, true];
+					_logic setVariable [_var_synchronizedObjects, _arr0, true];
 				};
 			#endif
 		};
@@ -96,9 +96,9 @@ for "_i" from 0 to (count _arr - 1) do {
 		{
 			_list_Base set [count _list_Base, _logic];
 			#ifndef __ARMA3__
-				_arr = synchronizedObjects _logic;
-				if (count _arr > 0) then {
-					_logic setVariable [_var_synchronizedObjects, _arr, true];
+				_arr0 = synchronizedObjects _logic;
+				if (count _arr0 > 0) then {
+					_logic setVariable [_var_synchronizedObjects, _arr0, true];
 				};
 			#endif
 		};
