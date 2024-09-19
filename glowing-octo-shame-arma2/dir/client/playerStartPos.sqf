@@ -32,7 +32,7 @@ if(!isMultiplayer)exitWith{
 	}else{
 		_n = 99999999999999999999;
 	};
-	[["Loading My Mission","RscDisplayLoadMission"],{!isNil "gosa_respawnDone"},_n,[
+	[["Loading My Mission","RscDisplayLoadMission"],{!isNil "gosa_respawnDone" && !isNil "gosa_respawnMarkers"},_n,[
 		{!isNil format["gosa_listHQ_%1", playerSide]},
 		{!isNil "gosa_list_LocationAirport"},
 		{!isNil "gosa_list_LocationBase"},
@@ -42,11 +42,10 @@ if(!isMultiplayer)exitWith{
 		{!isNil "gosa_MPF_InitDone"},
 		{!isNil "gosa_playerStartingClass"},
 		{!isNil "gosa_friendlyside"},
-		{!isNull player},
 		{!isNil "BIS_fnc_init"},
 		{!isNil "gosa_fnc_init"},
 		{!isNil "gosa_towns"},
-		{!isNil "gosa_respawnMarkers"}
+		{!isNull player}
 	]] execVM "dir\client\while_LoadingScreen.sqf";
 
 waitUntil {!isNull player};
