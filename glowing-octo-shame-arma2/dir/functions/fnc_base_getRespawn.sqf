@@ -2,8 +2,11 @@
  * Функция взвращает точки возрождения базы.
  */
 
-private ["_logic","_types","_def","_return","_arr","_n"];
+private ["_logic","_types","_def","_return","_arr","_n",
+	"_var_synchronizedObjects"];
 diag_log format ["Log: [fnc_base_getRespawn] _this %1", _this];
+
+_var_synchronizedObjects = "gosa_synchronizedObjects";
 
 _logic = _this select 0;
 _types = _this select 1;
