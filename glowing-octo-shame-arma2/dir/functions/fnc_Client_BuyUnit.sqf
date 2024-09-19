@@ -7,7 +7,7 @@
  */
 diag_log format ["Log: [fnc_Client_BuyUnit]: _this %1", _this];
 private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
-	"_str","_type_Lower","_Objects","_veh","_num","_b",
+	"_str","_type_Lower","_Objects","_veh","_num","_b","_asl",
 	"_factory_obj","_buy_dist_max","_player_pos","_player_veh",
 	"_factory_dir","_factory_pos","_name",
 	"_cfgVeh","_entry","_crew","_sizeOf","_sizeAllowed","_box",
@@ -16,6 +16,7 @@ private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
 
 _cfgVeh = LIB_cfgVeh;
 _crew = [];
+_asl = false;
 
 _type = _this Select 0;
 
@@ -300,7 +301,9 @@ if (true) then {
 					_obj = _arr select _i;
 					if (count (_obj nearEntities ["AllVehicles", (5 max _sizeOf)]) <= 0) exitWith {
 						_b = false;
-						_arr = getPos _obj;
+						// FIXME: Возможно setPos перемещает на самый низкий этаж по Z.
+						_asl = true;
+						_arr = getPosASL _obj;
 						_num = getDir _obj;
 					};
 				};
@@ -312,7 +315,11 @@ if (true) then {
 			if !(_b) then {
 				_veh setDir _num;
 			};
+			if (_asl) then {
+				_veh setPosASL _arr;
+			}else{
 			_veh setPos _arr;
+			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] Created %1", [_veh, _arr, _isUAV, _crew, _sizeOf]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
@@ -349,7 +356,8 @@ if (true) then {
 					_obj = _arr select _i;
 					if (count (_obj nearEntities ["AllVehicles", (5 max _sizeOf)]) <= 0) exitWith {
 						_b = false;
-						_arr = getPos _obj;
+						_asl = true;
+						_arr = getPosASL _obj;
 						_num = getDir _obj;
 					};
 				};
@@ -362,7 +370,11 @@ if (true) then {
 			if !(_b) then {
 				_veh setDir _num;
 			};
+			if (_asl) then {
+				_veh setPosASL _arr;
+			}else{
 			_veh setPos _arr;
+			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] Created %1", [_veh, _arr, _isUAV, _crew, _sizeOf]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
 		};
