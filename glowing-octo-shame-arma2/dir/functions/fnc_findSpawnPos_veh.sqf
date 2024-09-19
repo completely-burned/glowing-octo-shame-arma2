@@ -3,6 +3,7 @@
  * TODO: Учитывать размер объекта.
  * TODO: Сортировать по типу.
  */
+diag_log format ["Log: [fnc_findSpawnPos_veh] _this %1", _this];
 private ["_center","_types","_dist_max","_arr","_return","_obj","_var"];
 
 _center = _this select 0;
@@ -21,4 +22,5 @@ for "_i" from 0 to (count _arr -1) do {
 	};
 };
 
+diag_log format ["Log: [fnc_findSpawnPos_veh] %1 -> %2", _this, _return];
 _return;
