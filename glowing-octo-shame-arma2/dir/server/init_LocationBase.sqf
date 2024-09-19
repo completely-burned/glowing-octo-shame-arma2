@@ -7,7 +7,10 @@
 
 private ["_type_Airport","_list_Airport","_arr","_type","_logic",
 	"_arr0","_arr1","_blacklist","_n","_type_Airport_compat",
+	"_var_synchronizedObjects",
 	"_type_Base","_list_Base","_str","_arr2"];
+
+_var_synchronizedObjects = "gosa_synchronizedObjects";
 
 _type_Airport = [1,2,3];
 _list_Airport = [];
@@ -77,6 +80,13 @@ for "_i" from 0 to (count _arr - 1) do {
 			or _logic in _type_Base) then
 		{			
 			_list_Airport set [count _list_Airport, _logic];
+			#ifndef __ARMA3__
+				_arr = synchronizedObjects _logic;
+				if (count _arr > 0) then {
+					// Синхронизации в редакторе A2 имеют локальный для сервера эффект.
+					_arr = _logic setVariable [_var_synchronizedObjects, _arr, true];
+				};
+			#endif
 		};
 	};
 
@@ -85,6 +95,12 @@ for "_i" from 0 to (count _arr - 1) do {
 			or _logic in _type_Base) then
 		{
 			_list_Base set [count _list_Base, _logic];
+			#ifndef __ARMA3__
+				_arr = synchronizedObjects _logic;
+				if (count _arr > 0) then {
+					_arr = _logic setVariable [_var_synchronizedObjects, _arr, true];
+				};
+			#endif
 		};
 	};
 };
