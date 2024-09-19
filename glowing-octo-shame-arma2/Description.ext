@@ -1175,6 +1175,10 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class respawnPosVeh
+			{
+				file = "dir\functions\fnc_respawnPosVeh.sqf";
+			};
 			class mission_capture_location
 			{
 				file = "dir\functions\fnc_mission_capture_location.sqf";

@@ -9,7 +9,7 @@ diag_log format ["Log: [fnc_Client_BuyUnit]: _this %1", _this];
 private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
 	"_str","_type_Lower","_Objects","_veh","_num","_b","_asl",
 	"_factory_obj","_buy_dist_max","_player_pos","_player_veh",
-	"_factory_dir","_factory_pos","_name",
+	"_factory_dir","_factory_pos","_name","_alive","_arr0","_obj0",
 	"_cfgVeh","_entry","_crew","_sizeOf","_sizeAllowed","_box",
 	"_side","_listHQ_str","_class","_fnc_factory_HQ","_factory_HQ",
 	"_factory","_pos","_logic","_arr","_status"];
@@ -60,12 +60,12 @@ if (missionNamespace getVariable "gosa_shop" == 2) then {
 
 // FIXME: sizeOf не работает. At least one object of the given classname has to be present in the current mission otherwise zero will be returned.
 // FIXME: Переназначение оригинальной позиции нельзя делать.
-_pos = ([_pos, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 
 //-- Приобретение мобильного штаба.
 if ([_type_Lower, 0] call gosa_fnc_isHQ) exitWith {
 	_status = 2;
 	_str = _type_Lower call gosa_fnc_fixType;
+	_pos = ([_pos, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
 	_arr = [_pos, _type_Lower, _status, playerSide, player, _player_dir, _str];
 	#ifdef __ARMA3__
 		_arr remoteExec ["gosa_fnc_createHQ", 2];
@@ -92,8 +92,6 @@ if(_type isKindOf "UAV")then{
 _fnc_1={
 	//_veh = _this;
 
-	_veh setDir _player_dir;
-
 	if(_isUAV)then{
 		#ifdef __ARMA3__
 			_side createVehicleCrew _veh;
@@ -112,20 +110,22 @@ _fnc_1={
 		[nil, _veh, rvehInit] call RE;
 	#endif
 
-	// Синхронизация.
-	if (isMultiplayer) then {
-		_veh setPos getPos _veh;
-	};
-
-	// FIXME: В подталкивании нет необходимости,
-	// если земля без наклона.
-	_veh setVectorUp [0,0,1];
 
 	player reveal _veh;
 
 	#ifdef __ARMA3__
 		_veh setCollisionLight true;
 	#else
+		// Синхронизация.
+		// TODO: Проверить с A3.
+		if (isMultiplayer) then {
+			_veh setPos getPos _veh;
+		};
+
+		// FIXME: В подталкивании нет необходимости,
+		// если земля без наклона.
+		_veh setVectorUp [0,0,1];
+
 		[[_veh], true] call gosa_fnc_reweapon;
 	#endif
 };
@@ -270,7 +270,7 @@ if (true) then {
 			_veh = (createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
-	};
+		};
 	};
 
 	// TODO: Беспилотники Arma 3.
@@ -294,17 +294,64 @@ if (true) then {
 			_arr = [_pos select 0, _pos select 1, 2000 + random 500];
 			_veh = createVehicle [_type, _arr, [], 2000, "NONE"];
 			_sizeOf = sizeOf _type;
+			#ifdef __ARMA3__
+				_box = boundingBoxReal _veh;
+			#else
+				_box = boundingBox _veh;
+			#endif
 			if (_sizeOf < _sizeAllowed) then {
 				_arr = [_factory_obj, [23,22,20], 1000] call gosa_fnc_findSpawnPos_veh;
-				// TODO: Расчищать место.
 				for "_i" from 0 to (count _arr -1) do {
 					_obj = _arr select _i;
-					if (count (_obj nearEntities ["AllVehicles", (5 max _sizeOf)]) <= 0) exitWith {
+
+					_alive = false;
+					_arr0 = nearestObjects [_obj, ["LandVehicles","Air"], 5 max _sizeOf];
+					for "_i0" from 0 to (count _arr0 -1) do {
+						_obj0 = _arr0 select _i0;
+						if (alive _obj0) exitWith {
+							diag_log format ["Log: [fnc_Client_BuyUnit] %1, alive %2", _obj, _obj0];
+							_alive = true;
+						};
+					};
+
+					if !(_alive) exitWith {
 						_b = false;
-						// FIXME: Возможно setPos перемещает на самый низкий этаж по Z.
 						_asl = true;
 						_arr = getPosASL _obj;
 						_num = getDir _obj;
+						for "_i0" from 0 to (count _arr0 -1) do {
+							diag_log format ["Log: [fnc_Client_BuyUnit] %1, deleteVehicle %2", _obj, _arr0 select _i0];
+							deleteVehicle (_arr0 select _i0);
+						};
+						_arr set [2, (_arr select 2) + (_box select 1 select 2)];
+					};
+				};
+
+				if (_b) then {
+					_arr = [_factory_obj, [23,22,20], 1000, _type, _box, _sizeOf] call gosa_fnc_respawnPosVeh;
+					for "_i" from 0 to (count _arr -1) do {
+						_obj = _arr select _i select 0;
+
+						_alive = false;
+						_arr0 = nearestObjects [_obj, ["LandVehicles","Air"], 5 max _sizeOf];
+						for "_i0" from 0 to (count _arr0 -1) do {
+							_obj0 = _arr0 select _i0;
+							if (alive _obj0) exitWith {
+								diag_log format ["Log: [fnc_Client_BuyUnit] %1, alive %2", _obj, _obj0];
+								_alive = true;
+							};
+						};
+
+						if !(_alive) exitWith {
+							_b = false;
+							_num = _arr select _i select 2;
+							_asl = _arr select _i select 3;
+							_arr = _arr select _i select 1;
+							for "_i0" from 0 to (count _arr0 -1) do {
+								diag_log format ["Log: [fnc_Client_BuyUnit] %1, deleteVehicle %2", _obj, _arr0 select _i0];
+								deleteVehicle (_arr0 select _i0);
+							};
+						};
 					};
 				};
 			};
@@ -318,6 +365,8 @@ if (true) then {
 			if (_asl) then {
 				_veh setPosASL _arr;
 			}else{
+				_arr set [2, _box select 1 select 2];
+				_veh setVectorUp surfaceNormal _arr;
 			_veh setPos _arr;
 			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] Created %1", [_veh, _arr, _isUAV, _crew, _sizeOf]];
@@ -349,16 +398,66 @@ if (true) then {
 			_arr = [_pos select 0, _pos select 1, 2000 + random 500];
 			_veh = createVehicle [_type, _arr, [], 2000, "NONE"];
 			_sizeOf = sizeOf _type;
+			#ifdef __ARMA3__
+				_box = boundingBoxReal _veh;
+			#else
+				_box = boundingBox _veh;
+			#endif
 			if (_sizeOf < _sizeAllowed) then {
+				//- Позиции логики.
 				_arr = [_factory_obj, [21,20,22], 1000] call gosa_fnc_findSpawnPos_veh;
-				// TODO: Расчищать место.
 				for "_i" from 0 to (count _arr -1) do {
 					_obj = _arr select _i;
-					if (count (_obj nearEntities ["AllVehicles", (5 max _sizeOf)]) <= 0) exitWith {
+
+					_alive = false;
+					_arr0 = nearestObjects [_obj, ["LandVehicles","Air"], 5 max _sizeOf];
+					for "_i0" from 0 to (count _arr0 -1) do {
+						_obj0 = _arr0 select _i0;
+						if (alive _obj0) exitWith {
+							diag_log format ["Log: [fnc_Client_BuyUnit] %1, alive %2", _obj, _obj0];
+							_alive = true;
+						};
+					};
+
+					if !(_alive) exitWith {
 						_b = false;
 						_asl = true;
 						_arr = getPosASL _obj;
 						_num = getDir _obj;
+						for "_i0" from 0 to (count _arr0 -1) do {
+							diag_log format ["Log: [fnc_Client_BuyUnit] %1, deleteVehicle %2", _obj, _arr0 select _i0];
+							deleteVehicle (_arr0 select _i0);
+						};
+					};
+				};
+
+				//- Позиции зданий.
+				if (_b) then {
+					_arr = [_factory_obj, [21,20,22], 1000, _type, _box, _sizeOf] call gosa_fnc_respawnPosVeh;
+					for "_i" from 0 to (count _arr -1) do {
+						_obj = _arr select _i select 0;
+
+						_alive = false;
+						// FIXME: Позиция не по центру.
+						_arr0 = nearestObjects [_obj, ["LandVehicles","Air"], 5 max _sizeOf];
+						for "_i0" from 0 to (count _arr0 -1) do {
+							_obj0 = _arr0 select _i0;
+							if (alive _obj0) exitWith {
+								diag_log format ["Log: [fnc_Client_BuyUnit] %1, alive %2", _obj, _obj0];
+								_alive = true;
+							};
+						};
+
+						if !(_alive) exitWith {
+							_b = false;
+							_num = _arr select _i select 2;
+							_asl = _arr select _i select 3;
+							_arr = _arr select _i select 1;
+							for "_i0" from 0 to (count _arr0 -1) do {
+								diag_log format ["Log: [fnc_Client_BuyUnit] %1, deleteVehicle %2", _obj, _arr0 select _i0];
+								deleteVehicle (_arr0 select _i0);
+							};
+						};
 					};
 				};
 			};
@@ -373,6 +472,9 @@ if (true) then {
 			if (_asl) then {
 				_veh setPosASL _arr;
 			}else{
+				// FIXME: V-44 X взрывается от падения.
+				_arr set [2, (_box select 1 select 2) min 2];
+				_veh setVectorUp surfaceNormal _arr;
 			_veh setPos _arr;
 			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] Created %1", [_veh, _arr, _isUAV, _crew, _sizeOf]];
