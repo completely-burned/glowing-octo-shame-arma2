@@ -10,7 +10,7 @@
  * 	name синхоризируется не сразу.
  */
 
-private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
+private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first","_n",
 	"_fnc_prio_units","_findBody","_arr","_sides_friendly",
 	"_pre","_sorted","_str","_obj",
 	"_listPlayers","_deathTime","_cam","_b","_o","_z","_p_name"];
@@ -19,7 +19,8 @@ if (playerSide == sideLogic) exitWith {
 	diag_log format ["Log: [respawnRandom] playerSide == %1, exitWith", playerSide];
 
 	#ifdef __ARMA3__
-		waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > 30};
+		_n = time +30;
+		waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > _n};
 		diag_log format ["Log: [respawnRandom] RespawnMenu close", nil];
 		["close"] call BIS_fnc_showRespawnMenu;
 	#endif
