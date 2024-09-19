@@ -59,7 +59,7 @@ for "_i" from 0 to (count _for - 1) do {
 //-- Локации.
 _for = gosa_list_LocationBase+gosa_list_LocationAirport;
 for "_i" from 0 to (count _for -1) do {
-	_arr0 = [_for select _i, _type_Airport+_type_Base, 0] call gosa_fnc_base_getRespawn;
+	_arr0 = [_for select _i, _type_Airport+_type_Base, -1] call gosa_fnc_base_getRespawn;
 	for "_i0" from 0 to (count _arr0 -1) do {
 		for "_i1" from 0 to (count (_arr0 select _i0) -1) do {
 		_logic = (_arr0 select _i0 select _i1);
