@@ -104,7 +104,7 @@ if (true) then {
 
 			// объекты аэропорта.
 			_arr = [_logic, [_respawn_type_Pilot, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
-			_arr = _arr select 0 + _arr select 1;
+			_arr = (_arr select 0) + (_arr select 1);
 
 			// Для совместимости.
 			// Дедупликация.
@@ -222,7 +222,7 @@ if (true) then {
 
 			// объекты аэропорта.
 			_arr = [_logic, [_respawn_type_Pilot, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
-			_arr = _arr select 0 + _arr select 1;
+			_arr = (_arr select 0) + (_arr select 1);
 
 			// Для совместимости.
 			// Дедупликация.
