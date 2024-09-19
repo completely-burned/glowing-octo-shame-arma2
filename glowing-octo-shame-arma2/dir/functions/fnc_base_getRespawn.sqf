@@ -7,6 +7,7 @@ private ["_logic","_types","_def","_return","_arr","_n",
 diag_log format ["Log: [fnc_base_getRespawn] _this %1", _this];
 
 _var_synchronizedObjects = "gosa_synchronizedObjects";
+_types_respawn_blacklist = gosa_types_location;
 
 _logic = _this select 0;
 _types = _this select 1;
@@ -33,6 +34,7 @@ if (count _arr <= 0) then {
 
 for "_i" from 0 to (count _arr -1) do {
 	_logic = _arr select _i;
+	if !(_logic in _types_respawn_blacklist) then {
 	_n = _logic getVariable "gosa_respawn_type";
 	if (isNil "_n") then {
 		if (_def == -1) then {
@@ -49,6 +51,7 @@ for "_i" from 0 to (count _arr -1) do {
 		if (_types select _t == _n) then {
 			_return select _t set [count (_return select _t), _logic];
 		};
+	};
 	};
 };
 

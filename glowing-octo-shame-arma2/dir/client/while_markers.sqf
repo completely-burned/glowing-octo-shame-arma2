@@ -103,15 +103,7 @@ if (true) then {
 			// TODO: Side.
 
 			// объекты аэропорта.
-			_arr = synchronizedObjects _logic;
-			#ifndef __ARMA3__
-				// Синхронизации в редакторе A2 имеют локальный для сервера эффект.
-				if (count _arr <= 0) then {
-					_arr = _logic getVariable _var_synchronizedObjects;
-					if (isNil "_arr") then {_arr = []};
-				};
-			#endif
-			diag_log format ["Log: [while_markers] %1 synchronizedObjects %2", _logic, _arr];
+			_arr = [_logic, _respawn_type_Pilot+_respawn_type_All, -1] call gosa_fnc_base_getRespawn;
 
 			// Для совместимости.
 			// Дедупликация.
@@ -228,15 +220,7 @@ if (true) then {
 			// TODO: Side.
 
 			// объекты аэропорта.
-			_arr = synchronizedObjects _logic;
-			#ifndef __ARMA3__
-				// Синхронизации в редакторе A2 имеют локальный для сервера эффект.
-				if (count _arr <= 0) then {
-					_arr = _logic getVariable _var_synchronizedObjects;
-					if (isNil "_arr") then {_arr = []};
-				};
-			#endif
-			diag_log format ["Log: [while_markers] %1 synchronizedObjects %2", _logic, _arr];
+			_arr = [_logic, _respawn_type_Pilot+_respawn_type_All, -1] call gosa_fnc_base_getRespawn;
 
 			// Для совместимости.
 			// Дедупликация.
