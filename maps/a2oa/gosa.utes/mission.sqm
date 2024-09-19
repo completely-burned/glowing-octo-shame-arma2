@@ -831,6 +831,7 @@ class Mission
 					id=94;
 					side="LOGIC";
 					vehicle="LocationLogicOwnerWest";
+					init="this setVariable [""gosa_respawn_type"", -2];";
 					synchronizations[]={70};
 				};
 			};
