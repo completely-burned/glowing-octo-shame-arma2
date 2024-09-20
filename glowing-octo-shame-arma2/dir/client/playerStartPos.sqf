@@ -4,18 +4,6 @@
  */
  private ["_arr","_n","_code"];
 
-// FIXME: Возможно для A2 то-же нужно, но не проверено.
-#ifdef __A2OA__
-	#define __playerStartPos
-#endif
-
-// A3 перемещает игрока после выбора маркера через gui.
-#ifdef __ARMA3__
-	#undef __playerStartPos
-#endif
-
-
-#ifdef __playerStartPos
 if(!isMultiplayer)exitWith{
 	playerReady = true;
 
@@ -29,10 +17,15 @@ _code = {!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "g
 //waitUntil {time > 0};
 	// LoadingScreen
 	if (gosa_loglevel > 0) then {
-		_n = 15;
+		_n = time+15;
 	}else{
-		_n = 99999999999999999999;
+		_n = time+99999999999999999999;
 	};
+	#ifdef __ARMA3__
+		// Не конфликтуют.
+		//waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > _n};
+	#endif
+	// FIXME: Можно не запускать при возрождении на базе.
 	[["Loading My Mission","RscDisplayLoadMission"], _code, _n, [
 		{!isNil format["gosa_listHQ_%1", playerSide]},
 		{!isNil "gosa_list_LocationAirport"},
@@ -49,10 +42,12 @@ _code = {!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "g
 		{!isNull player}
 	]] execVM "dir\client\while_LoadingScreen.sqf";
 
+#ifndef __ARMA3__
 waitUntil {!isNull player};
 player setPos [-2000 - random 500, 1000 - random 500];
 
 waitUntil _code;
+// A3 перемещает игрока после выбора маркера через gui.
 if (isNil "gosa_respawnRandom") then {
 if (!isNil "gosa_respawnMarkers" && {count gosa_respawnMarkers > 0}) then {
 	player setPos getMarkerPos (gosa_respawnMarkers call BIS_fnc_selectRandom);

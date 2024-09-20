@@ -16,10 +16,15 @@ private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first","_n",
 	"_listPlayers","_deathTime","_cam","_b","_o","_z","_p_name"];
 
 if (playerSide == sideLogic) exitWith {
+	gosa_respawnDone = true;
 	diag_log format ["Log: [respawnRandom] playerSide == %1, exitWith", playerSide];
 
 	#ifdef __ARMA3__
+		if (gosa_loglevel > 0) then {
 		_n = time +30;
+		}else{
+			_n = time+99999999999999999999;
+		};
 		waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > _n};
 		diag_log format ["Log: [respawnRandom] RespawnMenu close", nil];
 		["close"] call BIS_fnc_showRespawnMenu;
