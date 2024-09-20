@@ -12,7 +12,7 @@ jobs:
       - name: ubuntu apt
         run: |
           sudo apt update
-          sudo apt -y install rsync sed rdfind liblingua-translit-perl
+          sudo apt -y install rsync sed rdfind liblingua-translit-perl libssl-dev
 
       - name: armake checkout
         uses: actions/checkout@master
