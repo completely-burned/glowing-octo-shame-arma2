@@ -14,20 +14,6 @@ jobs:
           sudo apt update
           sudo apt -y install rsync sed rdfind liblingua-translit-perl libssl-dev
 
-      - name: armake checkout
-        uses: actions/checkout@master
-        with:
-          repository: 'KoffeinFlummi/armake'
-          path: tools/armake
-      - name: armake build
-        working-directory: tools/armake
-        run: |
-          sed -i "s/    /\t/" Makefile
-          make
-          sudo make install
-      - name: armake test
-        run: armake --help
-
       - name: gosa checkout
         uses: actions/checkout@v4
       - name: gosa build
