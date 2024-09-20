@@ -12,19 +12,18 @@ jobs:
       - name: ubuntu update
         run: sudo apt update
 
-      - name: armake download
-        uses: robinraju/release-downloader@v1
+      - name: armake checkout
+        uses: actions/checkout@master
         with:
           repository: 'KoffeinFlummi/armake'
-          latest: true
-          fileName: 'armake*'
-      - name: armake extract
-        uses: ihiroky/extract-action@v1
-        with:
-          file_path: 'armake*'
-          extract_dir: tools/armake
+          path: tools/armake
+      - name: armake build
+        working-directory: tools/armake
+        run: |
+          make
+          sudo make install
       - name: armake test
-        run: tools/armake/armake --help
+        run: armake --help
 
       - name: gosa tools install
         run: sudo apt -y install rsync sed rdfind liblingua-translit-perl
@@ -32,6 +31,8 @@ jobs:
         uses: actions/checkout@v4
       - name: gosa build
         run: ./tools/build_pbo_linux.sh -ltza
+      - name: gosa clean
+        run: rm -v arma-glowing-octo-shame/*workshop*
 
       - name: GitHub release
         uses: softprops/action-gh-release@v2
