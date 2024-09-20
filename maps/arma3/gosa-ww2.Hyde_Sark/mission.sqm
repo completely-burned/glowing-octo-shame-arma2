@@ -282,7 +282,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa Hyde_Sark Multi v0.0.5.959 DEBUG";
+		briefingName="WW2 CO 00 gosa Hyde_Sark Multi v0.0.5.968 DEBUG";
 		startWeather=0.3;
 		startWind=0.1;
 		startWaves=0.1;
@@ -3324,6 +3324,7 @@ class Mission
 		class Item47
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={3375,50,3133};
@@ -3403,6 +3404,7 @@ class Mission
 		class Item48
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={3375,50,3133};
@@ -3482,6 +3484,7 @@ class Mission
 		class Item49
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={3375,50,3133};
@@ -3561,6 +3564,7 @@ class Mission
 		class Item50
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={3375,50,3133};
@@ -3640,6 +3644,7 @@ class Mission
 		class Item51
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={3375,50,3133};

@@ -17,8 +17,12 @@ private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_markers_airport","_respawn_type_Pilot","_respawn_type_All","_markers_alive",
 	"_list","_arr","_b","_marker_type","_marker_type_respawn_unknown",
 	"_marker_type_respawn_plane","_fnc_update_LocationAirport",
+	"_var_synchronizedObjects",
 	"_markers_LocationBase","_fnc_update_LocationBase","_types_respawn_blacklist",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
+diag_log format ["Log: [while_markers] %1 start", time];
+
+_var_synchronizedObjects = "gosa_synchronizedObjects";
 
 _fnc_MarkerInitUnit = {
 	diag_log format ["Log: [while_markers] %1 Marker init %2", _this select 0, _this];
@@ -59,7 +63,7 @@ _markerColor = _tmp_arr select 1;
 if (_rBase) then {
 	_markerMHQ = format["respawn_%1_MHQ",_side_str];
 	#ifdef __ARMA3__
-		switch (playerSide) do {
+		switch (gosa_playerSide) do {
 			case EAST: 		{_markerMHQtype = "o_hq"};
 			case WEST:		{_markerMHQtype = "b_hq"};
 			default {_markerMHQtype = "n_hq"};
@@ -89,6 +93,8 @@ _startingClass = _respawn_type_All;
 if (true) then {
 
 	_fnc_update_LocationAirport = {
+		if !(isNil "gosa_list_LocationAirport") then {
+
 		_markers_alive = [];
 		_list = gosa_list_LocationAirport;
 		for "_i" from 0 to (count _list -1) do {
@@ -97,7 +103,8 @@ if (true) then {
 			// TODO: Side.
 
 			// объекты аэропорта.
-			_arr = synchronizedObjects _logic;
+			_arr = [_logic, [_respawn_type_Pilot, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
+			_arr = (_arr select 0) + (_arr select 1);
 
 			// Для совместимости.
 			// Дедупликация.
@@ -113,17 +120,20 @@ if (true) then {
 				};
 			};
 			if (_b) then {
-			if (count _arr < 1) then {
+			if (count _arr <= 0) then {
 				_arr = [_logic];
 			};
 
 			for "_i0" from 0 to (count _arr -1) do {
 				_logic = _arr select _i0;
 
-				if !(typeOf _logic in _types_respawn_blacklist) then {
+				if (toLower typeOf _logic in _types_respawn_blacklist) then {
+					diag_log format ["Log: [while_markers] %1, %2 _blacklist", _logic, typeOf _logic];
+				}else{
 					// тип возрождения.
 					_num = _logic getVariable "gosa_respawn_type";
 					if (isNil "_num") then {_num = _respawn_type_All};
+					diag_log format ["Log: [while_markers] %1, respawn_type %2", _logic, _num];
 					switch (_num) do {
 						case _respawn_type_Pilot: {
 							if (_startingClass == 1) then {
@@ -162,7 +172,7 @@ if (true) then {
 
 							// A3 устанавливает цвет самостоятельно.
 							#ifdef __ARMA3__
-							if !(playerSide in [east,west,resistance]) then {
+							if !(gosa_playerSide in [east,west,resistance]) then {
 							#endif
 								_marker setMarkerColorLocal _markerColor;
 							#ifdef __ARMA3__
@@ -187,14 +197,11 @@ if (true) then {
 		};
 		_markers_airport = _markers_airport -[-1];
 
+		};
 	};
 
 
-	_num = time+300;
-	waitUntil {
-		_num < time
-		or !isNil "gosa_list_LocationAirport";
-	};
+	waitUntil {!isNil "gosa_list_LocationAirport"};
 	[] call _fnc_update_LocationAirport;
 };
 diag_log format ["Log: [while_markers] _markers_airport %1", _markers_airport];
@@ -204,6 +211,8 @@ _markers_LocationBase = [];
 if (true) then {
 
 	_fnc_update_LocationBase = {
+		if !(isNil "gosa_list_LocationBase") then {
+
 		_markers_alive = [];
 		_list = gosa_list_LocationBase;
 		for "_i" from 0 to (count _list -1) do {
@@ -212,7 +221,8 @@ if (true) then {
 			// TODO: Side.
 
 			// объекты аэропорта.
-			_arr = synchronizedObjects _logic;
+			_arr = [_logic, [_respawn_type_Pilot, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
+			_arr = (_arr select 0) + (_arr select 1);
 
 			// Для совместимости.
 			// Дедупликация.
@@ -228,17 +238,20 @@ if (true) then {
 				};
 			};
 			if (_b) then {
-			if (count _arr < 1) then {
+			if (count _arr <= 0) then {
 				_arr = [_logic];
 			};
 
 			for "_i0" from 0 to (count _arr -1) do {
 				_logic = _arr select _i0;
-					if !(toLower typeOf _logic in _types_respawn_blacklist) then {
+				if (toLower typeOf _logic in _types_respawn_blacklist) then {
+					diag_log format ["Log: [while_markers] %1, %2 _blacklist", _logic, typeOf _logic];
+				}else{
 
 					// тип возрождения.
 					_num = _logic getVariable "gosa_respawn_type";
 					if (isNil "_num") then {_num = _respawn_type_All};
+					diag_log format ["Log: [while_markers] %1, respawn_type %2", _logic, _num];
 					switch (_num) do {
 						case _respawn_type_Pilot: {
 							if (_startingClass == 1) then {
@@ -277,7 +290,7 @@ if (true) then {
 
 							// A3 устанавливает цвет самостоятельно.
 							#ifdef __ARMA3__
-							if !(playerSide in [east,west,resistance]) then {
+							if !(gosa_playerSide in [east,west,resistance]) then {
 							#endif
 								_marker setMarkerColorLocal _markerColor;
 							#ifdef __ARMA3__
@@ -302,14 +315,11 @@ if (true) then {
 		};
 		_markers_LocationBase = _markers_LocationBase -[-1];
 
+		};
 	};
 
 
-	_num = time+15;
-	waitUntil {
-		_num < time
-		or !isNil "gosa_list_LocationBase";
-	};
+	waitUntil {!isNil "gosa_list_LocationBase"};
 	[] call _fnc_update_LocationBase;
 };
 diag_log format ["Log: [while_markers] _markers_LocationBase %1", _markers_LocationBase];
@@ -358,13 +368,9 @@ if ((count _markers_airport
 	_markersHQ = [];
 	//-- Обновление маркеров объектов базы.
 	if (_rMHQ) then {
-		_listHQ_str = format["gosa_listHQ_%1", playerSide];
+		_listHQ_str = format["gosa_listHQ_%1", gosa_playerSide];
 
-		_tmp_num = time+15;
-		waitUntil {
-			_tmp_num < time
-			or !isNil _listHQ_str;
-		};
+		waitUntil {!isNil _listHQ_str};
 
 		// TODO: Совместимость `gosa_respawnMarkers`.
 
@@ -424,7 +430,7 @@ if ((count _markers_airport
 
 								// A3 устанавливает цвет самостоятельно.
 								#ifdef __ARMA3__
-								if !(playerSide in [east,west,resistance]) then {
+								if !(gosa_playerSide in [east,west,resistance]) then {
 								#endif
 									_marker setMarkerColorLocal _markerColor;
 								#ifdef __ARMA3__
@@ -457,7 +463,8 @@ if ((count _markers_airport
 if ((count _respawnMarkers
 	+ count _markers_airport
 	+ count _markers_LocationBase
-	+ count _markersHQ) < 1) then
+	+ count _markersHQ) <= 0 && 
+	gosa_playerSide != sideLogic) then
 {
 	diag_log format ["Log: [while_markers] no base", nil];
 	_pos = getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
@@ -532,7 +539,7 @@ if(true)then{
 					_item = _tmp_arr select _i;
 
 					if( !(_item in _units) &&
-						(side _item == playerSide) &&
+						(side _item == gosa_playerSide) &&
 						#ifdef __A2OA__
 							{alive _item} && {_item call gosa_fnc_isPlayer}
 						#else
@@ -555,7 +562,7 @@ if(true)then{
 				_marker = (_markers select _i);
 				// TODO: нужна проверка на отключеных игроков
 				if (alive _unit) then {
-						if (playerSide getFriend side _unit >= 0.6) then
+						if (gosa_playerSide getFriend side _unit >= 0.6) then
 						{
 							_tmp_obj = vehicle _unit;
 

@@ -6,7 +6,7 @@ private ["_str","_arr","_for","_factories","_class",
 	"_Buy_Man","_Buy_Car","_Buy_Tank","_Buy_Helicopter",
 	"_arr0","_arr1","_arr2","_n"];
 
-_str = format["gosa_listHQ_%1", playerSide];
+_str = format["gosa_listHQ_%1", gosa_playerSide];
 if (isNil _str) exitWith {
 };
 

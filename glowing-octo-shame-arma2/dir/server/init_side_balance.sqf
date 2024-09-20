@@ -4,7 +4,7 @@
  */
 
 private ["_alliances","_alliance","_side",
-	"_count",
+	"_count","_spectator",
 	"_allDead",
 	"_cfgVeh",
 	"_obj",
@@ -39,6 +39,7 @@ _problem0 = [];
 // Союзники.
 _problem1 = [];
 _superpowers_rating = [];
+_spectator = false;
 
 
 // TODO: Нужно учитывать колличество фракций стороны.
@@ -115,7 +116,7 @@ if (isMultiplayer) then {
 	if (count _problem1 <= 0) then {
 		// TODO: Нужно найти две основные стороны конфликта и распределить остальные.
 		diag_log format ["Log: [init_side_balance] _problem1 %1", _problem1];
-		failMission "LOSER";
+		_spectator = true;
 	}else{
 		if (count _superpowers_rating < 2) then {
 			diag_log format ["Log: [init_side_balance] _superpowers_rating %1", _superpowers_rating];
@@ -138,8 +139,14 @@ if (isMultiplayer) then {
 			};
 		};
 	};
-}else{
+};
+if (!isMultiplayer or _spectator) then {
 	_players = [player];
+
+	if (count _problem0 + count _problem1 > 0) then {diag_log format ["Log: [init_side_balance] SPorSpec, _problem0 %1, _problem1 %2, resize 0", _problem0, _problem1]};
+	_problem0 resize 0;
+	_problem1 resize 0;
+
 	// TODO: Псевдо рандомизация.
 	if (count _superpowers_rating > 1) then {
 	/*
@@ -198,10 +205,20 @@ for "_i" from 0 to (count _problems_num -1) do {
 	};
 };
 
+_arr = [];
+for "_i" from 0 to (count (_problems select 1) -1) do {
+	_arr set [_i, _problems select 1 select _i call gosa_fnc_getSideNum];
+};
+
+if !(_pvp) then {
+gosa_sides_friendly_num = _arr;
+publicVariable "gosa_sides_friendly_num";
+
 	m_sideEnemy = _problems select 0;
 	gosa_friendlyside = _problems select 1;
 	publicVariable "m_sideEnemy";
 	publicVariable "gosa_friendlyside";
+};
 
 _arr = [_sides, _sides_cfi, _superpowers_rating, [_problems, _problems_num], [_players_cfi, _allDead, _players]];
 diag_log format ["Log: [init_side_balance] %1", _arr];

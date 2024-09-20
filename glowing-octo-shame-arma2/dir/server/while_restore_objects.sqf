@@ -4,7 +4,7 @@
 
 private ["_arr","_arr0","_dist_max","_var_noDelete"];
 _var_noDelete = gosa_var_noDelete;
-_dist_max = 1;
+_dist_max = 50;
 
 // Создаем список восстанавливаемых объектов.
 _arr = (allMissionObjects 
@@ -30,7 +30,7 @@ while {sleep 58 + random 5; true} do {
 		if (!alive (_arr select _i)
 			#ifdef __ARMA3__
 				// В Arma 3 ящики могут улететь от столкновений или взрывов.
-				or (getPos (_arr select _i) distance (_arr0 select _i select 1) > _dist_max)
+				or (getPos (_arr select _i) distance2D (_arr0 select _i select 1) > _dist_max)
 			#endif
 			) then
 		{

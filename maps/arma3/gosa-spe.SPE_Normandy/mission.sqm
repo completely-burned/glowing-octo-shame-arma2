@@ -224,7 +224,7 @@ class Mission
 	appId=1175380;
 	class Intel
 	{
-		briefingName="SPE CO 00 gosa SPE_Normandy Multi v0.0.5.959 DEBUG";
+		briefingName="SPE CO 00 gosa SPE_Normandy Multi v0.0.5.968 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.3;
@@ -2046,10 +2046,10 @@ class Mission
 		class Item46
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=133;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2122,10 +2122,10 @@ class Mission
 		class Item47
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=134;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2198,10 +2198,10 @@ class Mission
 		class Item48
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=135;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2274,10 +2274,10 @@ class Mission
 		class Item49
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=136;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2350,10 +2350,10 @@ class Mission
 		class Item50
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=137;
 			type="VirtualSpectator_F";
-			atlOffset=-22.940001;
 			class CustomAttributes
 			{
 				class Attribute0

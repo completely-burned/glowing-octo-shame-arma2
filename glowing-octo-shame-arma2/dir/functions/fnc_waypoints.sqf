@@ -7,13 +7,14 @@
 private ["_wpType_TrUNLOAD","_leader","_cfgWea","_b",
 	"_minDist","_minDeep","_arr","_worldSize","_n",
 	"_wpType_TrUNLOAD_Plane","_wpDistZero",
-	"_island","_allowPos","_obj",
+	"_island","_allowPos","_obj","_missions_pos",
 	"_true","_dir","_dist2","_testPos","_limit"];
 
 _leader = (_this select 0);
 _cfgWea = LIB_cfgWea;
 _worldSize = gosa_worldSize;
 _minDeep = gosa_minDeepFrigate;
+_missions_pos = [civilianBasePos];
 
 _wpType_TrUNLOAD = "TR UNLOAD";
 #ifdef __ARMA3__
@@ -120,9 +121,16 @@ if(!isNil "_leader")then{
 		if ("Frigate" in _grp_type) then {
 			_patrol = true;
 		};
+		if ("Ship" in _grp_type) then {
+			_patrol = true;
+		};
 
-
-		_pos=civilianBasePos;
+		if (count _missions_pos > 0) then {
+			_pos = _missions_pos call BIS_fnc_selectRandom;
+		}else{
+			_pos = gosa_worldSize;
+			_pos = [random (_pos select 0), random (_pos select 1)];
+		};
 
 		if("UAV" in _grp_type)then{
 			// _WaypointCombatMode = "BLUE";
@@ -177,6 +185,7 @@ if(!isNil "_leader")then{
 				};
 			};
 
+			_tmp_arr = _tmp_arr + _missions_pos;
 			_tmp_arr = _tmp_arr-[objNull];
 
 			if (count _tmp_arr > 0) then {
@@ -206,24 +215,24 @@ if(!isNil "_leader")then{
 
 		// десант
 		if(_landing && "Plane" in _grp_type)then{
-			_pos = civilianBasePos;
+			_pos = _missions_pos call BIS_fnc_selectRandom;
 			_maxDist = gosa_locationSize*2;
 			_WaypointCompletionRadius = _maxDist;
 			// _SpeedMode = "NORMAL";
 		};
 		if(_landing && "Helicopter" in _grp_type)then{
-			_pos = [civilianBasePos, 1500, 500, side _grp] call gosa_fnc_find_heliUnload_pos;
+			_pos = [_missions_pos call BIS_fnc_selectRandom, 1500, 500, side _grp] call gosa_fnc_find_heliUnload_pos;
 			_maxDist = 0;
 			// TODO: в случае не найденной позиции высадки нужно сделать выгрузку с парашютом
 			if (count _pos == 0) then {
-				_pos = civilianBasePos;
+				_pos = _missions_pos call BIS_fnc_selectRandom;
 				_maxDist = gosa_locationSize*2;
 			};
 		};
 
 		// лодки та точке
 		if(_landing && "Ship" in _grp_type)then{
-			_pos = civilianBasePos;
+			_pos = _missions_pos call BIS_fnc_selectRandom;
 			_maxDist = gosa_locationSize*2;
 			_WaypointCompletionRadius = 400;
 			// _SpeedMode = "NORMAL";
@@ -282,11 +291,9 @@ if(!isNil "_leader")then{
 
 				diag_log format ["Log: [fnc_waypoints] Ship %1", _this];
 
-				if!(_patrol)then{
 					if ({getNumber (_cfgWea >> currentWeapon _x >> "enableAttack") <= 0} count _vehicles > 0) then {
 						_landing = true;
 					};
-				};
 
 				_testPos = [];
 				_limit = 1000;
@@ -406,7 +413,6 @@ if(!isNil "_leader")then{
 		// создать маршрут
 		_wp = [_grp,_pos,_maxDist,_WaypointType] call gosa_fnc_addWaypoint;
 
-		diag_log format ["Log: [fnc_waypoints] %1 %2", _wp, [_pos, _maxDist, _pos distance civilianBasePos]];
 		diag_log format ["Log: [fnc_waypoints] %1 added %2", _grp, [_wp, _WaypointType, waypointPosition _wp], _grp_type];
 	};
 };

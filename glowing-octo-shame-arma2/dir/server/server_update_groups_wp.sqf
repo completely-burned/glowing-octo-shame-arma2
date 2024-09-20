@@ -1,8 +1,12 @@
+private["_gosa_initGroup"];
 waitUntil {!isNil "civilianBasePos"};
 waitUntil {!isNil "gosa_locationSize"};
 waitUntil {!isNil "group_system_units"};
 waitUntil {!isNil "group_off_units"};
-private["_gosa_initGroup"];
+waitUntil {!isNil "gosa_fnc_init"};
+if !(isMultiplayer) then {
+	waitUntil {!isNil "gosa_switchableUnits_removed"};
+};
 
 diag_log format ["Log: [server_update_groups_wp.sqf] start %1", time];
 

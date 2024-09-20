@@ -6,13 +6,15 @@
 # ./tools/build_pbo_linux.sh -d собрать debug версию.
 # -l добавит файл лицензии в архив.
 # -z Сжатие с потерями :D
+ARCHIVE=0
 TORRENTFILE=0
 DIAG_LOG=0
 LICENSE=0
 ZIP=0
-while getopts "dltz" opt
+while getopts "dltza" opt
 	do
 	case $opt in
+	a) ARCHIVE=1;;
 	t) TORRENTFILE=1;;
 	d) DIAG_LOG=1;;
 	l) LICENSE=1;;
@@ -105,7 +107,7 @@ fi
 # Перевод кириллицы в транслит.
 if [[ -x "$(command -v translit)" && -x "$(command -v iconv)" ]]
 then
-	find $TMPDIR -type f ! -iname 'stringtable.csv' -exec translit -i {} -o {}.translit -t "ISO 9" \; -exec iconv -f UTF8 -t US-ASCII//TRANSLIT -o {} {}.translit \; -exec rm {}.translit \;
+	find $TMPDIR -type f ! -iname 'stringtable*' -exec translit -i {} -o {}.translit -t "ISO 9" \; -exec iconv -f UTF8 -t US-ASCII//TRANSLIT -o {} {}.translit \; -exec rm {}.translit \;
 fi
 
 if [[ ! -d $TMPDIR/.build.out ]]
@@ -152,7 +154,8 @@ do
 		TMP=$(grep briefingName ${DIR}/mission.sqm)
 		VERSION=$(echo ${TMP} | sed -e 's/.*".*gosa.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
 		SIDE=$(echo ${TMP} | sed -e 's/.*".*gosa.* .* \(.*\) v.*".*/\1/')
-		DLC=$(echo ${TMP} | sed -e 's/.*"\(.*\)CO.*".*/\1/' -e 's/\ /_/gi')
+		DLC2=$(echo ${TMP} | sed -e 's/.*"\(.*\)CO.*".*/\1/')
+		DLC=$(echo "${DLC2}" | sed -e 's/\ /_/gi')
 
 		# Место подготовки файлов перед архивацией.
 		TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
@@ -183,6 +186,22 @@ do
 			binarize=0
 		fi
 
+		if [[ ${DIAG_LOG} -le 0 ]]
+		then
+			briefingNameWORKSHOP="${DLC2}COOP gosa ${MAP}"
+			echo "WORKSHOP: briefingName '${briefingNameWORKSHOP}'"
+
+			WORKSHOPTMPDIRNAME="workshop_${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
+			echo "WORKSHOP: Name ${WORKSHOPTMPDIRNAME}"
+			WORKSHOPMISSION=${TMPDIR}/.build.tmp/${WORKSHOPTMPDIRNAME}
+
+			echo "WORKSHOP: Copying files ${WORKSHOPMISSION}"
+			mkdir -p ${WORKSHOPMISSION}
+			rsync --recursive --no-perms ${MISSION}/ ${WORKSHOPMISSION}
+
+			sed -i 's/\(.*briefingName.*=\).*/\1"'"${briefingNameWORKSHOP}"'";/' ${WORKSHOPMISSION}/mission.sqm
+		fi
+
 		filename_prefix="${PRE}/${DLC,,}co_00_${NAME_SHORT,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}"
 
 			# Если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив.
@@ -200,7 +219,11 @@ do
 					var_parallel+=("armake2 pack -v ${MISSION} 	${filename_prefix}-armake2.${MAP,,}.pbo")
 					var_parallel+=("armake binarize --force ${MISSION} 	${filename_prefix}-armake-bin.${MAP,,}.pbo")
 					var_parallel+=("armake2 build -v ${MISSION} 	${filename_prefix}-armake2-bin.${MAP,,}.pbo")
-				var_parallel+=("rsync -rLK --delete --no-perms ${MISSION}/* ${filename_prefix}-rsync.${MAP,,}")
+					var_parallel+=("rsync -rLK --delete --no-perms ${MISSION}/ ${filename_prefix}-rsync.${MAP,,}")
+					if [[ ${DIAG_LOG} -le 0 && ${SIDE,,} == "multi" ]]
+					then
+						var_parallel+=("rsync -rLK --delete --no-perms ${WORKSHOPMISSION}/ ${filename_prefix}-workshop.${MAP,,}")
+					fi
 			else
 				echo "Pack ${TMPDIRNAME}"
 				if [[ $WINDOWS -le 0 ]]
@@ -215,7 +238,11 @@ do
 					armake2 pack -v ${MISSION} 	${filename_prefix}-armake2.${MAP,,}.pbo
 					armake binarize --force ${MISSION} 	${filename_prefix}-armake-bin.${MAP,,}.pbo
 					armake2 build -v ${MISSION} 	${filename_prefix}-armake2-bin.${MAP,,}.pbo
-				rsync -rLK --delete --no-perms ${MISSION}/* ${filename_prefix}-rsync.${MAP,,}
+					rsync -rLK --delete --no-perms ${MISSION}/ ${filename_prefix}-rsync.${MAP,,}
+					if [[ ${DIAG_LOG} -le 0 && ${SIDE,,} == "multi" ]]
+					then
+						rsync -rLK --delete --no-perms ${WORKSHOPMISSION}/ ${filename_prefix}-workshop.${MAP,,}
+					fi
 			fi
 	fi
 done
@@ -235,8 +262,19 @@ echo "run rdfind"
 rdfind -makehardlinks true ${PRE}
 
 # 7z
-echo "7z file create"
-7z a -mmt -snh ${PRE}/${FINITENAME}-latest ${PRE}/*rsync*
+if [[ $ARCHIVE -gt 0 ]]
+then
+	echo "7z file create"
+	if [[ -x "$(command -v parallel)" ]]
+	then
+		var_parallel=("7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-latest ${PRE}/*rsync*")
+		var_parallel+=("7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-latest ${PRE}/*arma3*workshop*")
+		parallel ::: "${var_parallel[@]}"
+	else
+		7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-latest ${PRE}/*rsync*
+		7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-latest ${PRE}/*arma3*workshop*
+	fi
+fi
 
 # Torrent файл.
 if [[ $TORRENTFILE -gt 0 ]]

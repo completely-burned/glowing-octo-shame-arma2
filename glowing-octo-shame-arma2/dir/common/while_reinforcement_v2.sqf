@@ -8,13 +8,13 @@
 #define __A2OA__
 
 private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
-	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
+	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_sides",
 	"_frames_required","_time","_dyn_limit","_n","_b","_dfi","_conveyer",
 	"_conveyer_limit","_limits","_l_enemy","_locationPos","_grp","_e_multipler",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run","_allGroups",
 	"_frontLine_east","_frontLine_west","_frontLine_guer","_deviceT2",
 	"_lg","_enemySide","_friendlySide","_sleep","_obj","_side",
-	"_remote_miltipler","_cfi_sides_friendly","_cfi_sides_enemy",
+	"_remote_miltipler","_cfi_sides_friendly","_cfi_sides_enemy","_deviceType",
 	"_types_pilot","_sides_friendly","_sides_enemy","_mode_pvp"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
@@ -42,14 +42,15 @@ private["_diag_log_m_fl_e","_diag_log_m_fl_w","_diag_log_m_fl_r"];
 _conveyer = [];
 _conveyer_limit = 12;
 
+_deviceType = gosa_deviceType;
 // Не выделенный клиент.
-if (gosa_deviceType == 2) then {
+if (_deviceType == 2) then {
 	_deviceT2 = true;
 }else{
 	_deviceT2 = false;
 };
 _remote_miltipler = 0.1;
-if (gosa_deviceType in [0,1]) then {
+if (_deviceType in [0,1]) then {
 	_remote_miltipler = 0.5;
 };
 
@@ -84,6 +85,7 @@ _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
 _playerCoefficient = missionNamespace getVariable "playerCoefficient";
 _timeFriendlyReinforcements = (missionNamespace getVariable "timeFriendlyReinforcements") * 60;
 _e_multipler = _timeFriendlyReinforcements / _cfg_cfi;
+diag_log format ["Log: [reinforcements] _e_multipler=%1/%2", _timeFriendlyReinforcements, _cfg_cfi];
 _frames_required = _limit_fps * _dfi;
 _time = time;
 _frontLine_east = missionNamespace getVariable "gosa_frontLine_east";
@@ -92,8 +94,13 @@ _frontLine_guer = missionNamespace getVariable "gosa_frontLine_guer";
 _mode_pvp = gosa_pvp;
 _types_pilot = gosa_pilotL;
 
+if (_mode_pvp) then {
+	// TODO: Учесть то что количество сторон может быть другим.
+	_sides = [west,east,resistance];
+}else{
 _sides_friendly = gosa_friendlyside - [civilian];
 _sides_enemy = [west,east,resistance] - gosa_friendlyside;
+	_sides = _sides_friendly+_sides_enemy;
 _friendlySide = [];
 _enemySide = [];
 	for "_i" from 0 to (count _sides_enemy -1) do {
@@ -124,6 +131,7 @@ for "_i" from 0 to (count _cfi_sides_friendly -1) do {
 	_cfi_sides_friendly set [_i, (_cfi_sides_friendly select _i) * count _cfi_sides_friendly];
 };
 diag_log format ["Log: [reinforcements] _cfi_sides %1", [_cfi_sides_enemy, _cfi_sides_friendly]];
+};
 
 waitUntil {!isNil "civilianBasePos"};
 
@@ -173,8 +181,11 @@ while{_run}do{
 
 			//--- enemyCoefficient
 				if(!isNil {CivilianLocationStartTime})then{
+					diag_log format ["Log: [reinforcements] _e_cfi, _n=%1-%2", time, CivilianLocationStartTime];
 					_n = time - CivilianLocationStartTime;
+					diag_log format ["Log: [reinforcements] _e_cfi, _n=%1-%2", _timeFriendlyReinforcements, _n];
 					_n = 0 max (_timeFriendlyReinforcements - _n);
+					diag_log format ["Log: [reinforcements] _e_cfi=%1/%2", _n, _e_multipler];
 					_e_cfi = _n / _e_multipler;
 
 					if (_cfg_cfi >= 1) then {
@@ -250,7 +261,10 @@ while{_run}do{
 				};
 			};
 	}else{
-		if (_deviceT2) then {
+		if !(isNil "gosa_respawnRandom") then {
+			// TODO: Совместимость с PvP.
+			if !(_mode_pvp) then {
+		if (_deviceT2 or _deviceType in [1,2]) then {
 			//--- Аварийная группа возрождения.
 			// FIXME: Не проверенно в одиночной игре.
 			// Чтобы не закончились юниты для перерождения.
@@ -261,7 +275,7 @@ while{_run}do{
 				_n = {local _x} count units player;
 				diag_log format ["Log: [reinforcements] %1 local units %2", _n, units player];
 				if (_n < 3) then {
-						if (east getFriend playerSide >= 0.6) then {
+						if (east getFriend gosa_playerSide >= 0.6) then {
 							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 east grp %2", _n];
 						}else{
@@ -269,14 +283,14 @@ while{_run}do{
 						};
 
 					if (_n < 1) then {
-						if (west getFriend playerSide >= 0.6) then {
+						if (west getFriend gosa_playerSide >= 0.6) then {
 							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 1)+(_grp select 4))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 west grp %2", _n];
 						};
 					};
 
 					if (_n < 1) then {
-						if (resistance getFriend playerSide >= 0.6) then {
+						if (resistance getFriend gosa_playerSide >= 0.6) then {
 							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 2)+(_grp select 5))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 guer grp %2", _n];
 						};
@@ -305,6 +319,8 @@ while{_run}do{
 				};
 			};
 		};
+			};
+		};
 
 	//--- создание отрядов
 		if (count _conveyer < _conveyer_limit) then {
@@ -319,7 +335,7 @@ while{_run}do{
 				}else{
 					// Отсеим гражданских.
 					_side = side _obj;
-					if !(_side in _sides_enemy or _side in _sides_friendly) then {
+					if !(_side in _sides) then {
 						diag_log format ["Log: [reinforcements] %1 исключён из целей патруля, гражданский", _obj];
 						_players set [_i, objNull];
 					};

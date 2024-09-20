@@ -182,7 +182,7 @@ class Mission
 	appId=1227700;
 	class Intel
 	{
-		briefingName="VN CO 00 gosa Cam_Lao_Nam Multi v0.0.5.959 DEBUG";
+		briefingName="VN CO 00 gosa Cam_Lao_Nam Multi v0.0.5.968 DEBUG";
 		startWeather=0.2;
 		startWind=0.1;
 		startWaves=0.1;
@@ -2251,10 +2251,7 @@ class Mission
 		class Item50
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2276,128.77798,3820};
-			};
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=149;
 			type="VirtualSpectator_F";

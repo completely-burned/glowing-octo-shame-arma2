@@ -1,6 +1,6 @@
 EnableTeamSwitch false;
 
-private["_list","_tmp","_str","_cfgVeh","_cfgAmm","_arr","_arr0"];
+private["_list","_tmp","_str","_cfgVeh","_cfgAmm","_arr","_arr0","_n","_arr1"];
 
 BIS_WFdPath = "\CA\Warfare2\";
 
@@ -36,6 +36,7 @@ safeSpawnDistance = _arr;
 gosa_minDeepFrigate = 25;
 
 gosa_deviceType = ([] call gosa_fnc_getDeviceType);
+diag_log format ["Log: [init_common] gosa_deviceType %1", gosa_deviceType];
 gosa_IslandType = ([] call gosa_fnc_getIslandType);
 
 _arr = [
@@ -51,11 +52,63 @@ _arr = [
 gosa_types_SalvageTruck = _arr;
 listSalvageTruck = _arr;
 
-_arr = ["Land_SS_hangar","WarfareBAirport","Land_Mil_hangar_EP1","Land_Hangar_F","Land_TentHangar_V1_F"];
-gosa_types_Airport = _arr;
-gosa_type_Airport = _arr;
-gosa_typesOf_airports = _arr;
-Airport = _arr;
+_arr = ["Land_SS_hangar","Land_SS_hangard",
+	"Land_CSLA_UL_V1","Land_csla_Mil_hangar",
+	"Land_vn_airport_02_hangar_left_f", 
+	"Land_vn_airport_02_hangar_right_f", 
+	"Land_vn_airport_01_hangar_f", 
+	"Land_vn_usaf_hangar_01", 
+	"Land_vn_usaf_hangar_02", 
+	"Land_vn_usaf_hangar_03",	
+	"WarfareBAirport","Land_Airport_01_hangar_F",
+	"Land_Mil_hangar_EP1","Land_Hangar_F","Land_TentHangar_V1_F",
+	"Land_ServiceHangar_01_R_F","Land_ServiceHangar_01_L_F",
+	"Land_Airport_02_hangar_right_F","Land_Airport_02_hangar_left_F"];
+_arr0 = [];
+for "_i" from 0 to (count _arr -1) do {
+	_str = configName (_cfgVeh >> (_arr select _i));
+	if (_str != "") then {
+		_arr0 set [count _arr0, _str];
+	};
+};
+diag_log format ["Log: [init_common] gosa_types_Airport %1", _arr0];
+gosa_types_Airport = _arr0;
+gosa_type_Airport = _arr0;
+gosa_typesOf_airports = _arr0;
+Airport = _arr0;
+
+// [typeOf, sizeOf inside, boundingBox inside, [side]]
+_arr = [
+	["Land_CSLA_UL_V1", 18]
+];
+_arr0 = [[],[]];
+for "_i" from 0 to (count _arr -1) do {
+	_arr1 = _arr select _i;
+	_str = configName (_cfgVeh >> (_arr1 select 0));
+	if (_str != "") then {
+		_arr0 select 1 set [count (_arr0 select 0), _arr1 select 1];
+		_arr0 select 0 set [count (_arr0 select 0), _str];
+	};
+};
+diag_log format ["Log: [init_common] gosa_params_Airport %1", _arr0];
+gosa_params_Airport = _arr0;
+
+_arr = [
+	// Центр смещен.
+	//"Land_csla_Hospital_side2",
+	"Land_vn_usaf_revetment_helipad_02",
+	// Мало места.
+	"Land_vn_usaf_revetment_helipad_01",
+
+	"Land_vn_b_helipad_01",
+	"Land_vn_helipadsquare_f",
+	"Land_vn_helipadcircle_f",
+	"Land_vn_helipadrescue_f",
+	"Land_vn_helipadcivil_f",
+	"Land_AirstripPlatform_01_F",
+	"Land_vn_helipadempty_f"
+];
+gosa_types_helipad = _arr;
 
 _arr = ["Land_nav_pier_m_2","Land_nav_pier_m_F"];
 gosa_types_pier = _arr;
@@ -461,6 +514,8 @@ gosa_posDefaultHidenRandom = 1000;
 gosa_server_diag_fps_interval = 600;
 
 // Осветительные ракеты.
+_n = 100000;
+gosa_flare_intensity_required = _n;
 _arr = [
 	"SPE_40mm_White","gm_flare_illum_wht",
 	"vn_22mm_lume_ammo","vn_40mm_m583_flare_w_ammo",
@@ -471,7 +526,9 @@ _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_str = toLower configName (_cfgAmm >> (_arr select _i));
 	if (_str != "") then {
+		if (getNumber (_cfgAmm >> _str >> "intensity") >= _n) then {
 		_arr0 set [count _arr0, _str];
+		};
 	};
 };
 if (count _arr0 <= 0) then {
@@ -479,7 +536,9 @@ if (count _arr0 <= 0) then {
 	for "_i" from 0 to (count _arr -1) do {
 		_str = toLower configName (_cfgAmm >> (_arr select _i));
 		if (_str != "") then {
+			if (getNumber (_cfgAmm >> _str >> "intensity") >= _n) then {
 			_arr0 set [count _arr0, _str];
+			};
 		};
 	};
 };
@@ -488,7 +547,9 @@ if (count _arr0 <= 0) then {
 	for "_i" from 0 to (count _arr -1) do {
 		_str = toLower configName (_cfgAmm >> (_arr select _i));
 		if (_str != "") then {
+			if (getNumber (_cfgAmm >> _str >> "intensity") >= _n) then {
 			_arr0 set [count _arr0, _str];
+			};
 		};
 	};
 };
@@ -496,8 +557,7 @@ gosa_flare = _arr0;
 // Эти осветительные ракеты не излучают свет.
 gosa_flare_blacklist = [
 	// "F_40mm_White" родитель многих и его нет смысла добавлять сюда.
-	"CSLA_FlareBase",
-	"US85_FlareBase"
+	// Модификации могут изменить яркость, поэтому нет смысла в этом массиве.
 ];
 
 _arr = [

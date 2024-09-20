@@ -212,7 +212,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa SWU_Ardennes_1940 Multi v0.0.5.959 DEBUG";
+		briefingName="WW2 CO 00 gosa SWU_Ardennes_1940 Multi v0.0.5.968 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.3;
@@ -4369,11 +4369,6 @@ class Mission
 		class Item86
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={9474,171.07797,1422};
-				angles[]={0.25811237,0,6.148016};
-			};
 			isPlayable=1;
 			id=412;
 			type="VirtualSpectator_F";
@@ -4449,11 +4444,7 @@ class Mission
 		class Item87
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={940.58289,257.68475,685.25146};
-				angles[]={0.25811237,0,6.148016};
-			};
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=413;
 			type="VirtualSpectator_F";
@@ -4529,11 +4520,7 @@ class Mission
 		class Item88
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={2711.8958,84.453178,6981.8174};
-				angles[]={0.25811237,0,6.148016};
-			};
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=414;
 			type="VirtualSpectator_F";
@@ -4609,11 +4596,7 @@ class Mission
 		class Item89
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={6357.9561,16.669765,5507.8779};
-				angles[]={0.25811237,0,6.148016};
-			};
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=415;
 			type="VirtualSpectator_F";
@@ -4689,11 +4672,7 @@ class Mission
 		class Item90
 		{
 			dataType="Logic";
-			class PositionInfo
-			{
-				position[]={3953.1079,225.44672,4938.9888};
-				angles[]={0.25811237,0,6.148016};
-			};
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=416;
 			type="VirtualSpectator_F";

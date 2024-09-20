@@ -22,7 +22,7 @@ _e = [[localize "STR_EP1_MENU_TITLE",false]];
 _usable = [];
 
 _b= true;
-_side = str playerSide;
+_side = str gosa_playerSide;
 
 ["gosa_SSM_AmmoDrop_ENABLED_"+_side,   if (missionNamespace getVariable "gosa_AmmoDrop" > 0) then {true} else {false}  ] call gosa_SSM_fnc_InitVariable;
 ["gosa_SSM_UnitsDrop_ENABLED_"+_side, false] call gosa_SSM_fnc_InitVariable;

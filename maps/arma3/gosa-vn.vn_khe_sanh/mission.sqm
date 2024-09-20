@@ -197,7 +197,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="VN CO 00 gosa vn_khe_sanh Multi v0.0.5.959 DEBUG";
+		briefingName="VN CO 00 gosa vn_khe_sanh Multi v0.0.5.968 DEBUG";
 		startWeather=0.25;
 		startWind=0.1;
 		startWaves=0.1;
@@ -5675,6 +5675,7 @@ class Mission
 		class Item293
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={10840,180,3621};
@@ -5754,6 +5755,7 @@ class Mission
 		class Item294
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={10840,180,3621};
@@ -5833,6 +5835,7 @@ class Mission
 		class Item295
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={10840,180,3621};
@@ -5912,6 +5915,7 @@ class Mission
 		class Item296
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={10840,180,3621};
@@ -5991,6 +5995,7 @@ class Mission
 		class Item297
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			class PositionInfo
 			{
 				position[]={10840,180,3621};

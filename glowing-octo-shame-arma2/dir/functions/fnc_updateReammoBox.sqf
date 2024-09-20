@@ -27,15 +27,34 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 	_Magazines = ([] call gosa_fnc_megaAmmoBox);
 };
 
+_box = [[],[]];
+#ifdef __A2OA__
+	_arr = getMagazineCargo _this;
+	for "_i" from 0 to (count (_arr select 0) -1) do {
+		_box select 0 set [count (_box select 1), toLower (_arr select 0 select _i)];
+		_box select 1 set [count (_box select 1), _arr select 1 select _i];
+	};
+	_arr = getWeaponCargo _this;
+	for "_i" from 0 to (count (_arr select 0) -1) do {
+		_box select 0 set [count (_box select 1), toLower (_arr select 0 select _i)];
+		_box select 1 set [count (_box select 1), _arr select 1 select _i];
+	};
+	_arr = getBackpackCargo _this;
+	for "_i" from 0 to (count (_arr select 0) -1) do {
+		_box select 0 set [count (_box select 1), toLower (_arr select 0 select _i)];
+		_box select 1 set [count (_box select 1), _arr select 1 select _i];
+	};
+#endif
 #ifdef __ARMA3__
-	//-- Items
-	_box = getItemCargo _this;
-
-	_arr = _box select 0;
-	for "_i" from 0 to (count _arr -1) do {
-		_arr set [_i, toLower (_arr select _i)];
+	// TODO: Нужна функция.
+	_arr = getItemCargo _this;
+	for "_i" from 0 to (count (_arr select 0) -1) do {
+		_box select 0 set [count (_box select 1), toLower (_arr select 0 select _i)];
+		_box select 1 set [count (_box select 1), _arr select 1 select _i];
 	};
 
+	//-- Items
+	_arr = _box select 0;
 	_arr = _Magazines select 3;
 	for "_i" from 0 to (count _arr - 1) do {
 		_item = _arr select _i;
@@ -54,18 +73,16 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 			//};
 		};
 	};
+	if (getAmmoCargo _this < 0.1) then {
+		_this setammocargo 1;
+	};
+#else
+	_this setammocargo 1;
 #endif
 
 #ifdef __A2OA__
-	//-- Magazine
-	_box = getMagazineCargo _this;
-
 	// TODO: Нужна функция.
 	_arr = _box select 0;
-	for "_i" from 0 to (count _arr -1) do {
-		_arr set [_i, toLower (_arr select _i)];
-	};
-
 	_arr = _Magazines select 0;
 	for "_i" from 0 to (count _arr - 1) do {
 		_item = _arr select _i;
@@ -87,13 +104,6 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 
 
 	//-- Weapon
-	_box = getWeaponCargo _this;
-
-	_arr = _box select 0;
-	for "_i" from 0 to (count _arr -1) do {
-		_arr set [_i, toLower (_arr select _i)];
-	};
-
 	_arr = _Magazines select 1;
 	for "_i" from 0 to (count _arr - 1) do {
 		_item = _arr select _i;
@@ -115,13 +125,6 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 
 
 	//-- Backpack
-	_box = getBackpackCargo _this;
-
-	_arr = _box select 0;
-	for "_i" from 0 to (count _arr -1) do {
-		_arr set [_i, toLower (_arr select _i)];
-	};
-
 	_arr = _Magazines select 2;
 	for "_i" from 0 to (count _arr - 1) do {
 		_item = _arr select _i;
@@ -142,4 +145,3 @@ if (isnil {_this getVariable "gosa_megaAmmoBox"}) then {
 	};
 #endif
 
-_this setammocargo 1;

@@ -98,7 +98,7 @@ _unit kbAddtopic[_rt, BIS_SSM_BIKB];
 
 if (isNull _hq) then {
   // TODO: нужна функция
-  _hq_g = createGroup playerSide; 
+  _hq_g = createGroup gosa_playerSide; 
   _hq = _hq_g createUnit ["Logic", [10,10,1000], [], 0, "NONE"];
   _hq setGroupId ["HQ", "SIX"];
   //_hq setIdentity "SSMHQ_EN";

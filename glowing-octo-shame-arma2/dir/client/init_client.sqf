@@ -2,11 +2,27 @@
 /*
  * TODO: Рефакторинг.
  */
+private ["_str","_n","_arr","_player","_side"];
+
+// playerSide не меняется самостоятельно.
+_side = side player;
+while {sleep 0.01; _side == sideUnknown} do {
+	_side = side player;
+};
+gosa_playerSide = _side;
+
+// Ошибки настроек.
+[] execVM "dir\client\init_gameMode.sqf";
 
 // Маркеры возрождения должны присутствовать до начала миссии.
 [] execVM "dir\client\while_markers.sqf";
 
-private ["_str","_n","_arr"];
+#ifdef __ARMA3__
+	if (gosa_playerSide == sideLogic) then {
+		[] spawn gosa_fnc_spectator_init;
+	};
+#endif
+
 _arr = [];
 
 // Для совместимости.
@@ -79,7 +95,6 @@ waitUntil{!isNil "gosa_MapPlayers"};
 diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
 #endif
 
-[] execVM "dir\client\init_gameMode.sqf";
 [] execVM "dir\client\while_debug_notice.sqf";
 [] execVM "dir\client\while_sp_rating.sqf";
 [] execVM "dir\client\clientMenu.sqf";
@@ -180,6 +195,7 @@ if (isMultiplayer) then {
 		deleteVehicle (_arr select _i);
 	};
 	EnableTeamSwitch true;
+	gosa_switchableUnits_removed = true;
 
 	#ifdef __ARMA3__
 		[nil, "menu"] call BIS_fnc_addCommMenuItem;
@@ -193,6 +209,7 @@ if (gosa_loglevel > 0) then {	//diag_log
 	// Военные обозначения, показ всех, чтобы видеть как и где создаются боты.	//diag_log
 	_arr = ([] call BIS_fnc_getFactions);	//diag_log
 	// player setVariable ["MARTA_showRules", ["USMC", 1, "CDF", 0]];	//diag_log
+	if (typeName (_arr select 0) == typeName (_arr select 1)) then {//diag_log
 	for "_i" from (count _arr * 2 -1) to 1 step -2 do {	//diag_log
 		_arr set [_i, 1];	//diag_log
 	};	//diag_log
@@ -200,6 +217,7 @@ if (gosa_loglevel > 0) then {	//diag_log
 		_arr set [_i, _arr select _i];	//diag_log
 	};	//diag_log
 	gosa_MARTA_showRules = _arr;	//diag_log
+	};//diag_log
 };  //diag_log
 
 diag_log format ["Log: [init_client] Done %1", time];

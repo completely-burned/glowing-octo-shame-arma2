@@ -26,7 +26,7 @@ waitUntil{!isNil "CivilianLocation"};
 
 //-- Штабы.
 //- Список штабов.
-_str = format["gosa_listHQ_%1", playerSide];
+_str = format["gosa_listHQ_%1", gosa_playerSide];
 //waitUntil{!isNil _str};
 _for = ([] call compile _str);
 
@@ -59,7 +59,7 @@ for "_i" from 0 to (count _for - 1) do {
 //-- Локации.
 _for = gosa_list_LocationBase+gosa_list_LocationAirport;
 for "_i" from 0 to (count _for -1) do {
-	_arr0 = [_for select _i, _type_Airport+_type_Base, 0] call gosa_fnc_base_getRespawn;
+	_arr0 = [_for select _i, _type_Airport+_type_Base, -1] call gosa_fnc_base_getRespawn;
 	for "_i0" from 0 to (count _arr0 -1) do {
 		for "_i1" from 0 to (count (_arr0 select _i0) -1) do {
 		_logic = (_arr0 select _i0 select _i1);
@@ -100,7 +100,7 @@ _teleportLocations = [];
 		case ("OBJECT"):
 		{
 				if (alive _x) then {
-				if !(getNumber(configFile >> "CfgVehicles">> typeOf _x >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6) then {
+				if !(getNumber(configFile >> "CfgVehicles">> typeOf _x >> "side") call gosa_fnc_getSide getFriend gosa_playerSide < 0.6) then {
 					_list = _list + [count _list];
 					_teleport_list = _teleport_list + [_x];
 					_list2= _list2 + [format ["%1, %2, %3", mapGridPosition position _x, text ((nearestLocations [position _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0), getText(configfile >> "CfgVehicles" >> typeof _x >> "displayName")]];
@@ -138,5 +138,5 @@ gosa_menu = _teleport_list;
 	"teleport",
 	[_list,_list2],
 	"",
-	"[gosa_menu select %1, GroupSelectedUnits player] spawn gosa_fnc_teleport2; gosa_menu = nil;"
+	"[gosa_menu select %1, []+GroupSelectedUnits player] spawn gosa_fnc_teleport2; gosa_menu = nil;"
 ] call BIS_FNC_createmenu;

@@ -1,4 +1,12 @@
-private ["_l","_lstr","_c","_dist","_n","_arr","_obj"];
+private ["_l","_lstr","_c","_dist","_n","_arr","_obj",
+	"_GroupSelectedUnits"];
+
+if (count _this > 0) then {
+	_GroupSelectedUnits = _this select 0;
+};
+for "_i" from 0 to (count _GroupSelectedUnits -1) do {
+	player groupSelectUnit [_GroupSelectedUnits select _i, true];
+};
 
 _dist = 500;
 
@@ -11,7 +19,7 @@ for "_i" from 0 to (count _arr -1) do
 {
 	_obj = _arr select _i;
 
-	if (playerSide == side _obj
+	if (gosa_playerSide == side _obj
 		// Командир отряда, а не тс.
 		&& leader effectiveCommander _obj == effectiveCommander _obj
 		&& _obj != player) then
@@ -27,7 +35,7 @@ _arr = (([] call gosa_fnc_listPlayers) -[player]);
 for "_i" from 0 to (count _arr -1) do
 {
 	_obj = _arr select _i;
-	if (playerSide == side _obj) then
+	if (gosa_playerSide == side _obj) then
 	{
 		_l set [_n, _obj];
 		_lstr set [_n, mapGridPosition _obj + " " + str _obj];
@@ -46,9 +54,7 @@ if (count _l < 1) exitWith {
 
 
 _c = "
-	private ['_arr'];
-	_arr = (GroupSelectedUnits player);
-	([player]+_arr) join (gosa_joinMenu select %2);
+	([player]+GroupSelectedUnits player) join (gosa_joinMenu select %2);
 	hint 'Ok';
 	gosa_joinMenu = nil;
 ";

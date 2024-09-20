@@ -8,11 +8,12 @@ private ["_pos","_safe_dist","_max_radius","_objDist","_waterMode","_maxGradient
 	"_allowPos","_testPos","_preferRoads","_tmp_dir","_tmp_radius","_run_timer",
 	"_max_square","_square","_max_attempt","_branchesRoads","_roads","_branchRoad",
 	"_roadSize","_square_step","_r","_start_radius","_start_square","_dir_s",
-	"_arr","_island","_island_isolate",
+	"_arr","_island","_island_isolate","_leader","_dist_conflict_veh",
 	"_withinMap","_z"];
 
 
 _run_timer = time;
+_dist_conflict_veh = 100;
 
 
 // центр поиска
@@ -209,6 +210,14 @@ while {!_allowPos} do {
 		_testPos = getPos (_roads select 0);
 	};
 
+	// Отряды ТС мешают ИИ.
+	if (_allowPos) then {
+		_arr = _testPos nearEntities ["LandVehicle", _dist_conflict_veh];
+		if (count _arr > 0) then {
+			_allowPos = false;
+		};
+	};
+
 	//--- проверка присутствия игроков рядом
 	if(_allowPos)then{
 		if([_testPos, _safe_dist] call gosa_fnc_CheckPlayersDistance)then{
@@ -221,7 +230,6 @@ while {!_allowPos} do {
 		if(_allowPos)then {
 			ScopeName "CheckForEnemy";
 			{
-				private "_leader";
 				_leader = leader _x;
 				if (alive _leader) then {
 					if (( side _x getFriend _side) < 0.6 ) then {

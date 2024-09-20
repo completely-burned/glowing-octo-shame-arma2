@@ -1,0 +1,25 @@
+name: Upload Release
+
+on:
+  push:
+    tags:
+    - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: apt install
+        run: |
+          sudo apt update
+          sudo apt -y install rsync sed rdfind liblingua-translit-perl
+      - name: Build
+        run: ./tools/build_pbo_linux.sh -ltza
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          prerelease: true
+          files: arma-glowing-octo-shame/*

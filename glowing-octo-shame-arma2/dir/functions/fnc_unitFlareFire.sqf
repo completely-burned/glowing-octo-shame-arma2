@@ -18,11 +18,13 @@ diag_log format["Log: [fnc_unitFlareFire] %1", _this];
 private["_cfgWea","_cfgAmm","_magazines","_weapons","_mag",
 	"_target","_grp","_muzzle","_muzzles","_iW_to","_n",
 	"_arr0","_blacklist","_flare_failover","_n0",
+	"_intensity_required",
 	"_u_mags","_obj","_height","_windX","_windZ","_velocity",
 	"_units","_u","_w","_arr","_ammo","_m","_item","_str"];
 
 _cfgWea = LIB_cfgWea;
 _cfgAmm = LIB_cfgAmm;
+_intensity_required = gosa_flare_intensity_required;
 
 _units = _this select 0;
 if (count _this > 1) then {
@@ -90,7 +92,7 @@ for "_iW" from 0 to _iW_to do {
 								_ammo = _arr select 0;
 							};
 							_n = getNumber (_cfgAmm >> _ammo >> "intensity");
-							if (_n >= 100000) then {
+							if (_n >= _intensity_required) then {
 							if ({_ammo isKindOf _x} count _blacklist <= 0) then {
 								_str = toLower getText (_cfgAmm >> _ammo >> "simulation");
 								if (_str == "shotilluminating") then {

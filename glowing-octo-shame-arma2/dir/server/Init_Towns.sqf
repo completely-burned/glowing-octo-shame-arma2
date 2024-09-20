@@ -85,6 +85,7 @@ locationNext={
 				союзные отряды тоже лишние.
 				*/
 				if ( leader _grp distance civilianBasePos > ((safeSpawnDistance select 1) max 2000) or
+					gosa_pvp or
 				 side _grp in gosa_friendlyside ) then {
 					// чтобы отряды ушли от точки можно их сделать патрулями
 					_grp setVariable ["patrol", true, true];

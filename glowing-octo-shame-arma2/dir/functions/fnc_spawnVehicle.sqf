@@ -51,13 +51,9 @@ if (_air) then {
 		_veh setVectorUp surfaceNormal _pos;
 		// a3, ии покидают тс после ранения от столкновения.
 		// Высота не должна быть большой или малой.
-		private _box = boundingBox _veh;
+		private _box = boundingBoxReal _veh;
 		diag_log format ["Log: [fnc_spawnVehicle] %1, boundingBox %2", _this, _box];
-		// FIXME: Высота "от балды".
-		// Взрываются с этими значениями: min 0.05
-		// Возможно получают повреждения от падения с этими значениями: min 0.2
 		_pos set [2, (_box select 1 select 2) min 0.1];
-		// FIXME: ТС оказываются выше чем указано в {_pos select 2}.
 		_veh setPos _pos;
 	#else
 	// FIXME: Почему здесь -1?

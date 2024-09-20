@@ -10,25 +10,55 @@
  * 	name синхоризируется не сразу.
  */
 
-private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
-	"_fnc_prio_units","_findBody","_arr","_sides_friendly",
+private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first","_n",
+	"_fnc_prio_units","_findBody","_arr","_sides_friendly","_pvp",
 	"_pre","_sorted","_str","_obj",
 	"_listPlayers","_deathTime","_cam","_b","_o","_z","_p_name"];
 
+if (gosa_playerSide == sideLogic) exitWith {
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] gosa_playerSide == %1, exitWith", gosa_playerSide];
+
+	#ifdef __ARMA3__
+		if (gosa_loglevel > 0) then {
+		_n = time +30;
+		}else{
+			_n = time+99999999999999999999;
+		};
+		waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > _n};
+		diag_log format ["Log: [respawnRandom] RespawnMenu close", nil];
+		["close"] call BIS_fnc_showRespawnMenu;
+	#endif
+};
+
+if !(isMultiplayer) exitWith {
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] isMultiplayer %1, exitWith", isMultiplayer];
+};
+
+// TODO: Модуль гражданских.
+if (gosa_playerSide == civilian) exitWith {
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] gosa_playerSide == %1, exitWith", gosa_playerSide];
+};
+
+if (missionNamespace getVariable "respawn" != 1) exitWith {
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] respawn %1, exitWith", missionNamespace getVariable "respawn"];
+};
+
 if ([player] call gosa_fnc_role_isCrew) exitWith {
-	diag_log format ["Log: [respawnRandom] player isCrew", nil];
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] player isCrew, exitWith", nil];
 };
 
 waitUntil{!isNil "gosa_playerStartingClass"};
 if (gosa_playerStartingClass == 1) exitWith {
+	gosa_respawnDone = true;
 	diag_log format ["Log: [respawnRandom] Player class %1, exitWith", gosa_playerStartingClass];
 };
 
-if(missionNamespace getVariable "respawn" != 1 or !isMultiplayer)exitWith{
-	[player, objNull] call gosa_fnc_eh_playerSelected;
-	respawnDone = true;
-	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
-};
+gosa_respawnRandom = true;
 
 #ifdef __ARMA3__
 	setplayerrespawntime 99999;
@@ -41,8 +71,20 @@ _o = gosa_owner;
 gosa_lastSwitchBodyTime = -99999;
 _arr = [];
 
-waitUntil{!isNil "gosa_friendlyside"};
-_sides_friendly = gosa_friendlyside;
+_pvp = gosa_pvp;
+if (_pvp) then {
+	_sides_friendly = [gosa_playerSide];
+}else{
+	waitUntil{!isNil "gosa_friendlyside"};
+	_sides_friendly = gosa_friendlyside;
+	if !(gosa_playerSide in _sides_friendly) exitWith {
+		gosa_respawnDone = true;
+		diag_log format ["Log: [respawnRandom] gosa_playerSide %1 out %2 _sides_friendly, exitWith", gosa_playerSide, _sides_friendly];
+	};
+};
+if !(isNil "gosa_respawnDone") exitWith {};
+
+[player, objNull] call gosa_fnc_eh_playerSelected;
 
 diag_log format ["Log: [respawnRandom] init info %1", [_p, _p_name, _o]];
 
@@ -63,12 +105,11 @@ player setVariable ["selectPlayerDisable", true, true];
 	["close"] call BIS_fnc_showRespawnMenu;
 	#endif
 	_this select 0 setDamage 1;
-	respawnDone = true;
+	gosa_respawnDone = true;
 	diag_log format ["Log: [respawnRandom] respawnDone %1", time];
 };
 
 waitUntil{!isNil "gosa_MPF_InitDone"};
-waitUntil{!isNil "civilianBasePos"};
 
 while {true} do {
 

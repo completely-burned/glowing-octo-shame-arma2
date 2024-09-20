@@ -43,7 +43,7 @@ while {_r} do {
 
 			_l_enemy = [];
 			{
-				if (side _x getFriend playerSide < 0.6) then {
+				if (side _x getFriend gosa_playerSide < 0.6) then {
 					_l_enemy set [count _l_enemy, _x];
 				};
 			// lineIntersects 1000m ограничен

@@ -2,19 +2,8 @@
 /*
  * Перемещает игрока после подключения на стартовую позицию.
  */
+ private ["_arr","_n","_code"];
 
-// FIXME: Возможно для A2 то-же нужно, но не проверено.
-#ifdef __A2OA__
-	#define __playerStartPos
-#endif
-
-// A3 перемещает игрока после выбора маркера через gui.
-#ifdef __ARMA3__
-	#undef __playerStartPos
-#endif
-
-
-#ifdef __playerStartPos
 if(!isMultiplayer)exitWith{
 	playerReady = true;
 
@@ -24,27 +13,50 @@ if(!isMultiplayer)exitWith{
 	} forEach (player nearObjects 100);
 };
 
+_code = {!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "gosa_respawnRandom")};
+//waitUntil {time > 0};
+	// LoadingScreen
+	if (gosa_loglevel > 0) then {
+		_n = time+15;
+	}else{
+		_n = time+99999999999999999999;
+	};
+	#ifdef __ARMA3__
+		// Конфликтуют с respawnMenu.
+		waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > _n};
+	#endif
+	// FIXME: Можно не запускать при возрождении на базе.
+	[["Loading My Mission","RscDisplayLoadMission"], _code, _n, [
+		{!isNil format["gosa_listHQ_%1", gosa_playerSide]},
+		{!isNil "gosa_list_LocationAirport"},
+		{!isNil "gosa_list_LocationBase"},
+		{!isNil "GroupsStarted"},
+		{!isNil "gosa_framesAVG"},
+		{!isNil "civilianBasePos"},
+		{!isNil "gosa_MPF_InitDone"},
+		{!isNil "gosa_playerStartingClass"},
+		{!isNil "gosa_friendlyside"},
+		{!isNil "BIS_fnc_init"},
+		{!isNil "gosa_fnc_init"},
+		{!isNil "gosa_towns"},
+		{!isNull player}
+	]] execVM "dir\client\while_LoadingScreen.sqf";
+
+#ifndef __ARMA3__
 waitUntil {!isNull player};
 player setPos [-2000 - random 500, 1000 - random 500];
 
-waitUntil {time > 0};
-startLoadingScreen["Loading My Mission"];
-
-waitUntil {!isNil "gosa_fnc_init" or time > 30};
-progressLoadingScreen 0.5;
-
-waitUntil {!isNil {gosa_respawnMarkers} or time > 30};
-progressLoadingScreen 0.75;
-
+waitUntil _code;
+// A3 перемещает игрока после выбора маркера через gui.
+if (isNil "gosa_respawnRandom") then {
 if (!isNil "gosa_respawnMarkers" && {count gosa_respawnMarkers > 0}) then {
 	player setPos getMarkerPos (gosa_respawnMarkers call BIS_fnc_selectRandom);
 }else{
-	player setPos getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+	_arr = getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+	_arr resize 2;
+	player setPos _arr;
 };
-
-waitUntil {!isNil "respawnDone" or time > 30};
-
-endLoadingScreen;
+};
 
 playerReady = true;
 

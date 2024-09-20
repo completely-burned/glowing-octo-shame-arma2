@@ -189,7 +189,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa I44_Omaha_V2 Multi v0.0.5.959 DEBUG";
+		briefingName="WW2 CO 00 gosa I44_Omaha_V2 Multi v0.0.5.968 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.05;
@@ -656,6 +656,7 @@ class Mission
 		class Item44
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=47;
 			type="VirtualSpectator_F";
@@ -731,6 +732,7 @@ class Mission
 		class Item45
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=48;
 			type="VirtualSpectator_F";
@@ -806,6 +808,7 @@ class Mission
 		class Item46
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=49;
 			type="VirtualSpectator_F";
@@ -881,6 +884,7 @@ class Mission
 		class Item47
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=50;
 			type="VirtualSpectator_F";
@@ -956,6 +960,7 @@ class Mission
 		class Item48
 		{
 			dataType="Logic";
+			init="[this] call gosa_fnc_spectator_init_unit";
 			isPlayable=1;
 			id=51;
 			type="VirtualSpectator_F";
