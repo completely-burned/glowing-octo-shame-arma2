@@ -4,11 +4,10 @@
  */
 
 private ["_mission_type","_battlefield_size","_towns","_pos","_location","_time_startup",
-	"_par_safeSpawnDistance","_n","_var_patrol","_var_timeDeleteVehicle",
+	"_par_safeSpawnDistance","_n","_var_patrol","_var_timeDeleteVehicle","_pvp",
 	"_locationRandom","_arr","_min","_max","_time","_var_lastActivity","_diff",
 	"_var_grps_rarity","_grps_rarity","_grp","_sides_friendly","_towns_weighted"];
 
-_sides_friendly = gosa_friendlyside;
 _par_safeSpawnDistance = safeSpawnDistance;
 _mission_type = "capture_location";
 _var_grps_rarity = "_grps_rarity";
@@ -16,6 +15,12 @@ _var_patrol = "patrol";
 _var_timeDeleteVehicle = "gosa_timeDeleteVehicle";
 _var_lastActivity = "gosa_lastActivity";
 _battlefield_size = 250;
+_pvp = gosa_pvp;
+if (_pvp) then {
+	_sides_friendly = [];
+}else{
+	_sides_friendly = gosa_friendlyside;
+};
 
 waitUntil {!isNil "gosa_param_init_done"};
 

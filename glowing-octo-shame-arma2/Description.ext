@@ -25,6 +25,12 @@ weaponPool = 1;
 debriefing = 0;
 
 class Params {
+	class gosa_gamemode {
+		title="GAME: Mode";
+		values[] = {1,0};
+		texts[] = {"PvE","PvP (not tested, not completed)"};
+		default = 1;
+	};
 
 	// Полевой госпиталь.
 	class gosa_MASH {

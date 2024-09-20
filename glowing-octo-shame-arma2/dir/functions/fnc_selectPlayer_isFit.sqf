@@ -5,7 +5,7 @@
  */
 
 private ["_n","_b","_t_om","_t_bl","_weapon","_veh","_str","_arr","_cfgWea",
-	"_obj"];
+	"_obj","_pvp"];
 scopeName "root";
 
 // timeout за пределами карты.
@@ -14,8 +14,14 @@ _t_om = 25;
 _t_bl = 10;
 
 _cfgWea = LIB_cfgWea;
+_pvp = gosa_pvp;
+if (_pvp) then {
+	_sides_friendly = [playerSide];
+}else{
+	_sides_friendly = gosa_friendlyside;
+};
 
-if !(side _this in gosa_friendlyside) exitWith {
+if !(side _this in _sides_friendly) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, Не дружественная сторона", _this];
 	false;
 };

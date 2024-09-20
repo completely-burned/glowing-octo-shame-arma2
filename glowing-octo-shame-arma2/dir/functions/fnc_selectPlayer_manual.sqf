@@ -1,11 +1,16 @@
 private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first",
-	"_fnc_prio_units","_findBody","_arr","_sides_friendly",
+	"_fnc_prio_units","_findBody","_arr","_sides_friendly","_pvp",
 	"_pre","_sorted","_str","_obj",
 	"_listPlayers","_deathTime","_cam","_b","_o","_z","_p_name"];
 
 _p = player;
 _p_name = name player;
+_pvp = gosa_pvp;
+if (_pvp) then {
+	_sides_friendly = [playerSide];
+} else {
 _sides_friendly = gosa_friendlyside;
+};
 _o = gosa_owner;
 _arr = [];
 

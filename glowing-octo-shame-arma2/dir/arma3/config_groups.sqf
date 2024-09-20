@@ -22,7 +22,7 @@
 // define ранга.
 #include "..\include\ranks.sqf"
 
-private ["_west","_east","_guer","_groups_map","_n","_d",
+private ["_west","_east","_guer","_groups_map","_n","_d","_pvp",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked",
 	"_grp","_groups_failover","_factions_used","_climate","_date",
@@ -32,6 +32,8 @@ private ["_west","_east","_guer","_groups_map","_n","_d",
 	"_sl","_tl",
 	"_alliances","_alliances_enabled","_alliance","_sides",
 	"_default_east","_default_west","_default_guer"];
+
+_pvp = gosa_pvp;
 
 waitUntil{!isNil "availableVehicles"};
 _copyRef = availableVehicles;
@@ -1125,6 +1127,8 @@ for "_i" from 0 to (count _groups_pending_map -1) do {
 };
 
 //- Союзы.
+// TODO: Баланс PvP.
+if !(_pvp) then {
 {
 	_alliance = _x;
 	_n = 0;
@@ -1145,6 +1149,7 @@ for "_i" from 0 to (count _groups_pending_map -1) do {
 		_alliances_enabled set [count _alliances_enabled, [_alliance,_sides]];
 	};
 } forEach _alliances;
+};
 diag_log format ["Log: [config_groups.sqf] alliances %1", _alliances_enabled];
 gosa_Groups_alliances = _alliances_enabled;
 

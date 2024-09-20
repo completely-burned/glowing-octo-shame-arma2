@@ -60,6 +60,21 @@ diag_log format ["Log: [init_server] Создан белый список объ
 //--- создание сторон
 if (( sideLogic CountSide AllUnits ) < 1) then { CreateCenter sideLogic };
 if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
+if (gosa_pvp) then {
+	west setFriend [east, 0];
+	west setFriend [resistance, 0];
+	west setFriend [civilian, 1];
+	east setFriend [west, 0];
+	east setFriend [resistance, 0];
+	east setFriend [civilian, 1];
+	resistance setFriend [west, 0];
+	resistance setFriend [east, 0];
+	resistance setFriend [civilian, 1];
+	civilian setFriend [west, 1];
+	civilian setFriend [east, 1];
+	civilian setFriend [resistance, 1];
+	civilian setFriend [civilian, 1];
+} else {
 {
 	if ((_x CountSide AllUnits) < 1) then {
 		CreateCenter _x;
@@ -88,19 +103,7 @@ if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
 	// _x SetFriend [sideUnknown ,0];
 	// sideUnknown  SetFriend [_x,0];
 } ForEach [East,West,Resistance];
-// west setFriend [east, 1];
-// west setFriend [resistance, 1];
-// west setFriend [civilian, 0];
-// east setFriend [west, 1];
-// east setFriend [resistance, 0];
-// east setFriend [civilian, 0];
-// resistance setFriend [west, 1];
-// resistance setFriend [east, 0];
-// resistance setFriend [civilian, 0];
-// civilian setFriend [west, 0];
-// civilian setFriend [east, 0];
-// civilian setFriend [resistance, 0];
-// civilian setFriend [civilian, 0];
+};
 
 gosa_logic_ArsenalBox = _grp createUnit ["logic",[1000,10,0],[],0,"none"];
 publicVariable "gosa_logic_ArsenalBox";

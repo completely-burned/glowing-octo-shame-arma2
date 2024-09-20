@@ -11,7 +11,7 @@
  */
 
 private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first","_n",
-	"_fnc_prio_units","_findBody","_arr","_sides_friendly",
+	"_fnc_prio_units","_findBody","_arr","_sides_friendly","_pvp",
 	"_pre","_sorted","_str","_obj",
 	"_listPlayers","_deathTime","_cam","_b","_o","_z","_p_name"];
 
@@ -66,11 +66,16 @@ _o = gosa_owner;
 gosa_lastSwitchBodyTime = -99999;
 _arr = [];
 
+_pvp = gosa_pvp;
+if (_pvp) then {
+	_sides_friendly = [playerSide];
+}else{
 waitUntil{!isNil "gosa_friendlyside"};
 _sides_friendly = gosa_friendlyside;
 if !(playerSide in _sides_friendly) exitWith {
 	gosa_respawnDone = true;
 	diag_log format ["Log: [respawnRandom] playerSide %1 out %2 _sides_friendly, exitWith", playerSide, _sides_friendly];
+};
 };
 
 [player, objNull] call gosa_fnc_eh_playerSelected;

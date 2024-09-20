@@ -50,7 +50,11 @@ if !(requiredVersion "1.60") then {
 		[] execVM "dir\server\StartTime.sqf"
 	};
 
-	gosa_pvp = false;
+	if (missionNamespace getVariable "gosa_gamemode" == 0) then {
+		gosa_pvp = true;
+	}else{
+		gosa_pvp = false;
+	};
 
 	[] Call Compile preprocessFileLineNumbers "dir\init_common.sqf";
 	if (isServer) then {

@@ -8,6 +8,10 @@
  * setVehicleLock "LOCKEDPLAYER" = same as "lock 3"
  */
 
+if (gosa_pvp) exitWith {
+	diag_log format ["Log: [while_vehicles_lock] %1, PvP, exitWith ", time];
+};
+
 if(missionNamespace getVariable "gosa_vehicles_lock" == 2 or !isMultiplayer)exitWith{
 	diag_log format ["Log: [while_vehicles_lock] exitWith %1", time];
 };

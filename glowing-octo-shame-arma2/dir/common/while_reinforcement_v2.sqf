@@ -8,7 +8,7 @@
 #define __A2OA__
 
 private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
-	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps",
+	"_enemyCoefficientCfg","_timeFriendlyReinforcements","_limit_fps","_sides",
 	"_frames_required","_time","_dyn_limit","_n","_b","_dfi","_conveyer",
 	"_conveyer_limit","_limits","_l_enemy","_locationPos","_grp","_e_multipler",
 	"_fl","_cfg_cfi","_patrol_percent","_respawn_mode","_run","_allGroups",
@@ -94,8 +94,13 @@ _frontLine_guer = missionNamespace getVariable "gosa_frontLine_guer";
 _mode_pvp = gosa_pvp;
 _types_pilot = gosa_pilotL;
 
+if (_mode_pvp) then {
+	// TODO: Учесть то что количество сторон может быть другим.
+	_sides = [west,east,resistance];
+}else{
 _sides_friendly = gosa_friendlyside - [civilian];
 _sides_enemy = [west,east,resistance] - gosa_friendlyside;
+	_sides = _sides_friendly+_sides_enemy;
 _friendlySide = [];
 _enemySide = [];
 	for "_i" from 0 to (count _sides_enemy -1) do {
@@ -126,6 +131,7 @@ for "_i" from 0 to (count _cfi_sides_friendly -1) do {
 	_cfi_sides_friendly set [_i, (_cfi_sides_friendly select _i) * count _cfi_sides_friendly];
 };
 diag_log format ["Log: [reinforcements] _cfi_sides %1", [_cfi_sides_enemy, _cfi_sides_friendly]];
+};
 
 waitUntil {!isNil "civilianBasePos"};
 
@@ -256,6 +262,8 @@ while{_run}do{
 			};
 	}else{
 		if !(isNil "gosa_respawnRandom") then {
+			// TODO: Совместимость с PvP.
+			if !(_mode_pvp) then {
 		if (_deviceT2 or _deviceType in [1,2]) then {
 			//--- Аварийная группа возрождения.
 			// FIXME: Не проверенно в одиночной игре.
@@ -311,6 +319,7 @@ while{_run}do{
 				};
 			};
 		};
+			};
 		};
 
 	//--- создание отрядов
@@ -326,7 +335,7 @@ while{_run}do{
 				}else{
 					// Отсеим гражданских.
 					_side = side _obj;
-					if !(_side in _sides_enemy or _side in _sides_friendly) then {
+					if !(_side in _sides) then {
 						diag_log format ["Log: [reinforcements] %1 исключён из целей патруля, гражданский", _obj];
 						_players set [_i, objNull];
 					};
