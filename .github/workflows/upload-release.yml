@@ -19,7 +19,7 @@ jobs:
       - name: gosa build
         run: ./tools/build_pbo_linux.sh -ltza
       - name: gosa clean
-        run: rm -v arma-glowing-octo-shame/*workshop*
+        run: rm -rf arma-glowing-octo-shame/*workshop*
 
       - name: GitHub release
         uses: softprops/action-gh-release@v2
