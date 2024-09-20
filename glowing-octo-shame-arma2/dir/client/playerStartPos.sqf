@@ -22,8 +22,8 @@ _code = {!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "g
 		_n = time+99999999999999999999;
 	};
 	#ifdef __ARMA3__
-		// Не конфликтуют.
-		//waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > _n};
+		// Конфликтуют с respawnMenu.
+		waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > _n};
 	#endif
 	// FIXME: Можно не запускать при возрождении на базе.
 	[["Loading My Mission","RscDisplayLoadMission"], _code, _n, [
