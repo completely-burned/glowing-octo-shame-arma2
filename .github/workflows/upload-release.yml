@@ -17,6 +17,7 @@ jobs:
       - name: armake2 build
         uses: actions-rs/cargo@v1
         with:
+          cwd: ./tools/armake2
           command: build
           args: --release
       - name: armake2 test
