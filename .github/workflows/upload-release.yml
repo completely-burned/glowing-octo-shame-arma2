@@ -9,15 +9,30 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: apt install
+      - name: armake2 checkout
+        uses: actions/checkout@master
+        with:
+          repository: KoffeinFlummi/armake2
+          path: tools/armake2
+      - name: armake2 build
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release
+      - name: armake2 test
+        run: armake2 --help
+ 
+      - name: ubuntu apt install
         run: |
           sudo apt update
           sudo apt -y install rsync sed rdfind liblingua-translit-perl
-      - name: Build
+
+      - name: gosa checkout
+        uses: actions/checkout@v4
+      - name: gosa build
         run: ./tools/build_pbo_linux.sh -ltza
-      - name: Release
+
+      - name: GitHub release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
