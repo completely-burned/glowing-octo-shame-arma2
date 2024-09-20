@@ -11,7 +11,7 @@ TORRENTFILE=0
 DIAG_LOG=0
 LICENSE=0
 ZIP=0
-while getopts "dltz" opt
+while getopts "dltza" opt
 	do
 	case $opt in
 	a) ARCHIVE=1;;
