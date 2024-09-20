@@ -13,8 +13,9 @@ jobs:
         uses: actions/checkout@v4
       - name: apt install
         run: |
+          sudo add-apt-repository ppa:koffeinflummi/armake
           sudo apt update
-          sudo apt -y install rsync sed translit rdfind
+          sudo apt -y install rsync sed translit rdfind armake armake2 depbo-tools
       - name: Build
         run: ./tools/build_pbo_linux.sh -ltza
       - name: Release
