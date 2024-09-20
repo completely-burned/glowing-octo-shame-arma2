@@ -15,7 +15,7 @@ jobs:
           repository: KoffeinFlummi/armake2
           path: tools/armake2
       - name: armake2 build
-        uses: actions-rs/cargo@v1
+        uses: marcopolo/cargo@master
         with:
           working-directory: ./tools/armake2
           command: build
