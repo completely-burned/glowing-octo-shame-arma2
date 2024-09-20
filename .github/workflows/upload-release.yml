@@ -11,6 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: apt install
+        run: |
+          sudo apt update
+          sudo apt -y install rsync sed translit rdfind
       - name: Build
         run: ./tools/build_pbo_linux.sh -ltza
       - name: Release
