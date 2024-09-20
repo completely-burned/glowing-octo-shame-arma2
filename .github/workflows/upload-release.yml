@@ -12,23 +12,21 @@ jobs:
       - name: ubuntu update
         run: sudo apt update
 
-      - name: armake2 checkout
-        uses: actions/checkout@master
+      - name: armake download
+        uses: robinraju/release-downloader@v1
         with:
-          repository: KoffeinFlummi/armake2
-          path: tools/armake2
-      - name: armake2 build pre
-        run: sudo apt -y install libssl-dev
-      - name: armake2 build
-        uses: marcopolo/cargo@master
+          repository: 'KoffeinFlummi/armake'
+          latest: true
+          fileName: 'armake*'
+      - name: armake extract
+        uses: ihiroky/extract-action@v1
         with:
-          working-directory: ./tools/armake2
-          command: build
-          args: --release
-      - name: armake2 test
-        run: armake2 --help
- 
-      - name: gosa tools
+          file_path: 'armake*'
+          extract_dir: tools/armake
+      - name: armake test
+        run: tools/armake/armake --help
+
+      - name: gosa tools install
         run: sudo apt -y install rsync sed rdfind liblingua-translit-perl
       - name: gosa checkout
         uses: actions/checkout@v4
