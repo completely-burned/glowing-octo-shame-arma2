@@ -75,13 +75,14 @@ _pvp = gosa_pvp;
 if (_pvp) then {
 	_sides_friendly = [gosa_playerSide];
 }else{
-waitUntil{!isNil "gosa_friendlyside"};
-_sides_friendly = gosa_friendlyside;
-if !(gosa_playerSide in _sides_friendly) exitWith {
-	gosa_respawnDone = true;
-	diag_log format ["Log: [respawnRandom] gosa_playerSide %1 out %2 _sides_friendly, exitWith", gosa_playerSide, _sides_friendly];
+	waitUntil{!isNil "gosa_friendlyside"};
+	_sides_friendly = gosa_friendlyside;
+	if !(gosa_playerSide in _sides_friendly) exitWith {
+		gosa_respawnDone = true;
+		diag_log format ["Log: [respawnRandom] gosa_playerSide %1 out %2 _sides_friendly, exitWith", gosa_playerSide, _sides_friendly];
+	};
 };
-};
+if !(isNil "gosa_respawnDone") exitWith {};
 
 [player, objNull] call gosa_fnc_eh_playerSelected;
 
