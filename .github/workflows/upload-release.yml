@@ -9,8 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: ubuntu update
-        run: sudo apt update
+      - name: ubuntu apt
+        run: |
+          sudo apt update
+          sudo apt -y install rsync sed rdfind liblingua-translit-perl
 
       - name: armake checkout
         uses: actions/checkout@master
@@ -20,13 +22,12 @@ jobs:
       - name: armake build
         working-directory: tools/armake
         run: |
+          sed -i "s/    /\t/" Makefile
           make
           sudo make install
       - name: armake test
         run: armake --help
 
-      - name: gosa tools install
-        run: sudo apt -y install rsync sed rdfind liblingua-translit-perl
       - name: gosa checkout
         uses: actions/checkout@v4
       - name: gosa build
