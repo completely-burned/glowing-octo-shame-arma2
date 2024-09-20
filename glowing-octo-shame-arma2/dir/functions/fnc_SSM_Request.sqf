@@ -1,6 +1,6 @@
   private ["_var","_rp","_rt","_b","_var","_val","_fnc","_ch","_hq","_p"];
 
-  if (playerSide != civilian) then {
+  if (gosa_playerSide != civilian) then {
     // request pos (position array), request type (string),
     _rp = [(_this select 0) select 0, (_this select 0) select 1];
     _rt = _this select 1;

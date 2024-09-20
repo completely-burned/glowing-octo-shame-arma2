@@ -4,7 +4,7 @@
 
 private ["_side_str","_markerColor"];
 
-switch (playerSide) do {
+switch (gosa_playerSide) do {
 	case (resistance):
 	{
 		_side_str = "guerrila";
@@ -26,7 +26,7 @@ switch (playerSide) do {
 		_markerColor = "ColorRed";
 	};
 	default {
-		_side_str = str playerSide;
+		_side_str = str gosa_playerSide;
 		_markerColor = "Default";
 	};
 };

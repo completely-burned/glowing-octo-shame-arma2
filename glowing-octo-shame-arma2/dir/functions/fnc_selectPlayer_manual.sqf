@@ -7,7 +7,7 @@ _p = player;
 _p_name = name player;
 _pvp = gosa_pvp;
 if (_pvp) then {
-	_sides_friendly = [playerSide];
+	_sides_friendly = [gosa_playerSide];
 } else {
 _sides_friendly = gosa_friendlyside;
 };

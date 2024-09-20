@@ -16,7 +16,7 @@ _t_bl = 10;
 _cfgWea = LIB_cfgWea;
 _pvp = gosa_pvp;
 if (_pvp) then {
-	_sides_friendly = [playerSide];
+	_sides_friendly = [gosa_playerSide];
 }else{
 	_sides_friendly = gosa_friendlyside;
 };

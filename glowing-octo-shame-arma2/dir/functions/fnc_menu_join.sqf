@@ -19,7 +19,7 @@ for "_i" from 0 to (count _arr -1) do
 {
 	_obj = _arr select _i;
 
-	if (playerSide == side _obj
+	if (gosa_playerSide == side _obj
 		// Командир отряда, а не тс.
 		&& leader effectiveCommander _obj == effectiveCommander _obj
 		&& _obj != player) then
@@ -35,7 +35,7 @@ _arr = (([] call gosa_fnc_listPlayers) -[player]);
 for "_i" from 0 to (count _arr -1) do
 {
 	_obj = _arr select _i;
-	if (playerSide == side _obj) then
+	if (gosa_playerSide == side _obj) then
 	{
 		_l set [_n, _obj];
 		_lstr set [_n, mapGridPosition _obj + " " + str _obj];

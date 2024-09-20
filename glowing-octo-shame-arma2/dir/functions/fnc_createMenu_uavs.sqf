@@ -14,7 +14,7 @@ _vehicles = vehicles;
 for "_i" from 0 to (count _vehicles -1) do {
 	_obj = _vehicles select _i;
 	if (alive _obj
-		&& playerSide == side _obj
+		&& gosa_playerSide == side _obj
 		&& _obj call gosa_fnc_isUAV) then
 	{
 		_type = typeOf _obj;

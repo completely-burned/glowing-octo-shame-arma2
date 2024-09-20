@@ -2,6 +2,14 @@
 /*
  * TODO: Рефакторинг.
  */
+private ["_str","_n","_arr","_player","_side"];
+
+// playerSide не меняется самостоятельно.
+_side = side player;
+while {sleep 0.01; _side == sideUnknown} do {
+	_side = side player;
+};
+gosa_playerSide = _side;
 
 // Ошибки настроек.
 [] execVM "dir\client\init_gameMode.sqf";
@@ -10,12 +18,11 @@
 [] execVM "dir\client\while_markers.sqf";
 
 #ifdef __ARMA3__
-	if (playerSide == sideLogic) then {
+	if (gosa_playerSide == sideLogic) then {
 		[] spawn gosa_fnc_spectator_init;
 	};
 #endif
 
-private ["_str","_n","_arr"];
 _arr = [];
 
 // Для совместимости.

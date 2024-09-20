@@ -4,7 +4,7 @@ gosa_uavs=[];
 _list=[];
 _list2=[];
 {
-	if ((vehicle _x iskindof "uav") && alive vehicle _x && playerSide == side _x) then {
+	if ((vehicle _x iskindof "uav") && alive vehicle _x && gosa_playerSide == side _x) then {
 		gosa_uavs set [count gosa_uavs, [player,_x,nil,_arguments]];
 		_list2 set [count _list2, getText (configFile >> "CfgVehicles" >> typeOf vehicle _x >> "displayName")];
 		_list set [count _list, count _list];

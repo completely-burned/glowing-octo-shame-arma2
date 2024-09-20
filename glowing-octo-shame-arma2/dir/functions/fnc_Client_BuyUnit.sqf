@@ -26,7 +26,7 @@ _type = _this Select 0;
 	_sizeAllowed = 25;
 #endif
 _entry = _cfgVeh >> _type;
-_side = playerSide;
+_side = gosa_playerSide;
 _player_veh = vehicle player;
 _player_dir = getDir _player_veh;
 _player_pos = getPos _player_veh;
@@ -66,7 +66,7 @@ if ([_type_Lower, 0] call gosa_fnc_isHQ) exitWith {
 	_status = 2;
 	_str = _type_Lower call gosa_fnc_fixType;
 	_pos = ([_pos, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
-	_arr = [_pos, _type_Lower, _status, playerSide, player, _player_dir, _str];
+	_arr = [_pos, _type_Lower, _status, gosa_playerSide, player, _player_dir, _str];
 	#ifdef __ARMA3__
 		_arr remoteExec ["gosa_fnc_createHQ", 2];
 	#else

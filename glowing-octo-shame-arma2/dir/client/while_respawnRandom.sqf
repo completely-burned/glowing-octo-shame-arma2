@@ -15,9 +15,9 @@ private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first","_n",
 	"_pre","_sorted","_str","_obj",
 	"_listPlayers","_deathTime","_cam","_b","_o","_z","_p_name"];
 
-if (playerSide == sideLogic) exitWith {
+if (gosa_playerSide == sideLogic) exitWith {
 	gosa_respawnDone = true;
-	diag_log format ["Log: [respawnRandom] playerSide == %1, exitWith", playerSide];
+	diag_log format ["Log: [respawnRandom] gosa_playerSide == %1, exitWith", gosa_playerSide];
 
 	#ifdef __ARMA3__
 		if (gosa_loglevel > 0) then {
@@ -37,9 +37,9 @@ if !(isMultiplayer) exitWith {
 };
 
 // TODO: Модуль гражданских.
-if (playerSide == civilian) exitWith {
+if (gosa_playerSide == civilian) exitWith {
 	gosa_respawnDone = true;
-	diag_log format ["Log: [respawnRandom] playerSide == %1, exitWith", playerSide];
+	diag_log format ["Log: [respawnRandom] gosa_playerSide == %1, exitWith", gosa_playerSide];
 };
 
 if (missionNamespace getVariable "respawn" != 1) exitWith {
@@ -73,13 +73,13 @@ _arr = [];
 
 _pvp = gosa_pvp;
 if (_pvp) then {
-	_sides_friendly = [playerSide];
+	_sides_friendly = [gosa_playerSide];
 }else{
 waitUntil{!isNil "gosa_friendlyside"};
 _sides_friendly = gosa_friendlyside;
-if !(playerSide in _sides_friendly) exitWith {
+if !(gosa_playerSide in _sides_friendly) exitWith {
 	gosa_respawnDone = true;
-	diag_log format ["Log: [respawnRandom] playerSide %1 out %2 _sides_friendly, exitWith", playerSide, _sides_friendly];
+	diag_log format ["Log: [respawnRandom] gosa_playerSide %1 out %2 _sides_friendly, exitWith", gosa_playerSide, _sides_friendly];
 };
 };
 

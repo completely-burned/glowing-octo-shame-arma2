@@ -27,7 +27,7 @@ _code = {!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "g
 	#endif
 	// FIXME: Можно не запускать при возрождении на базе.
 	[["Loading My Mission","RscDisplayLoadMission"], _code, _n, [
-		{!isNil format["gosa_listHQ_%1", playerSide]},
+		{!isNil format["gosa_listHQ_%1", gosa_playerSide]},
 		{!isNil "gosa_list_LocationAirport"},
 		{!isNil "gosa_list_LocationBase"},
 		{!isNil "GroupsStarted"},

@@ -26,7 +26,7 @@ waitUntil{!isNil "CivilianLocation"};
 
 //-- Штабы.
 //- Список штабов.
-_str = format["gosa_listHQ_%1", playerSide];
+_str = format["gosa_listHQ_%1", gosa_playerSide];
 //waitUntil{!isNil _str};
 _for = ([] call compile _str);
 
@@ -100,7 +100,7 @@ _teleportLocations = [];
 		case ("OBJECT"):
 		{
 				if (alive _x) then {
-				if !(getNumber(configFile >> "CfgVehicles">> typeOf _x >> "side") call gosa_fnc_getSide getFriend playerSide < 0.6) then {
+				if !(getNumber(configFile >> "CfgVehicles">> typeOf _x >> "side") call gosa_fnc_getSide getFriend gosa_playerSide < 0.6) then {
 					_list = _list + [count _list];
 					_teleport_list = _teleport_list + [_x];
 					_list2= _list2 + [format ["%1, %2, %3", mapGridPosition position _x, text ((nearestLocations [position _x, ["nameCity","NameCityCapital","NameVillage","NameLocal","NameMarine","Hill"],5000]) select 0), getText(configfile >> "CfgVehicles" >> typeof _x >> "displayName")]];

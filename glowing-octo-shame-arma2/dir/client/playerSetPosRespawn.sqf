@@ -1,6 +1,6 @@
 waitUntil {alive player};
 private ["_pos"];
-switch (playerSide) do {
+switch (gosa_playerSide) do {
 	case (resistance):
 	{
 		_pos = getMarkerPos "respawn_guerrila";
@@ -18,7 +18,7 @@ switch (playerSide) do {
 		_pos = getMarkerPos "respawn_civilian";
 	};
 	default {
-		_pos = getMarkerPos format["respawn_%1", playerSide];
+		_pos = getMarkerPos format["respawn_%1", gosa_playerSide];
 	};
 };
 if(count _pos > 0)then{

@@ -275,7 +275,7 @@ while{_run}do{
 				_n = {local _x} count units player;
 				diag_log format ["Log: [reinforcements] %1 local units %2", _n, units player];
 				if (_n < 3) then {
-						if (east getFriend playerSide >= 0.6) then {
+						if (east getFriend gosa_playerSide >= 0.6) then {
 							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 east grp %2", _n];
 						}else{
@@ -283,14 +283,14 @@ while{_run}do{
 						};
 
 					if (_n < 1) then {
-						if (west getFriend playerSide >= 0.6) then {
+						if (west getFriend gosa_playerSide >= 0.6) then {
 							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 1)+(_grp select 4))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 west grp %2", _n];
 						};
 					};
 
 					if (_n < 1) then {
-						if (resistance getFriend playerSide >= 0.6) then {
+						if (resistance getFriend gosa_playerSide >= 0.6) then {
 							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 2)+(_grp select 5))-[group player]);
 							diag_log format ["Log: [reinforcements] %1 guer grp %2", _n];
 						};

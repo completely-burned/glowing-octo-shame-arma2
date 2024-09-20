@@ -12,19 +12,19 @@ if(missionNamespace getVariable "gosa_airDefense" != 1)exitWith{
 private["_testPos","_dir","_posPlayerASL","_height","_heightMax","_veh","_aa","_unit","_hills","_dist","_aaType","_grp","_aaSide","_fps_conf"];
 
 if(isNil {_aaType})then{
-	if(playerSide getFriend EAST < 0.6)then{
+	if(gosa_playerSide getFriend EAST < 0.6)then{
 		_aaType = "Igla_AA_pod_TK_EP1";
 		_aaSide = EAST;
 	};
 };
 if(isNil {_aaType})then{
-	if(playerSide getFriend WEST < 0.6)then{
+	if(gosa_playerSide getFriend WEST < 0.6)then{
 		_aaType = "Stinger_Pod_US_EP1";
 		_aaSide = WEST;
 	};
 };
 if(isNil {_aaType})then{
-	// if(playerSide getFriend RESISTANCE < 0.6)then{
+	// if(gosa_playerSide getFriend RESISTANCE < 0.6)then{
 		_aaType = "Igla_AA_pod_TK_EP1";
 		_aaSide = RESISTANCE;
 	// };

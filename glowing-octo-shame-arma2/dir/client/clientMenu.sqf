@@ -186,7 +186,7 @@ waitUntil{!isNil "BIS_FNC_createmenu"};
 					//- MHQ
 					_n = (_types_mhq_virt select 1 find toLower _name);
 					if (_n >= 0) then {
-						if (_types_mhq_virt select 0 select _n == playerSide) then {
+						if (_types_mhq_virt select 0 select _n == gosa_playerSide) then {
 							_name = (_types_mhq_virt select 2 select _n);
 							if (configName (configFile >> "CfgVehicles" >> _name) == "") then {
 								_items3 set [count _items3, _name];

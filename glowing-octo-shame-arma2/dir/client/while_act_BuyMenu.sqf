@@ -76,7 +76,7 @@ if (isNil "gosa_playerStartingClass") then {
 };
 
 
-_listHQ_str = format["gosa_listHQ_%1", playerSide];
+_listHQ_str = format["gosa_listHQ_%1", gosa_playerSide];
 
 waitUntil {!isNil "gosa_list_LocationAirport"};
 

@@ -63,7 +63,7 @@ _markerColor = _tmp_arr select 1;
 if (_rBase) then {
 	_markerMHQ = format["respawn_%1_MHQ",_side_str];
 	#ifdef __ARMA3__
-		switch (playerSide) do {
+		switch (gosa_playerSide) do {
 			case EAST: 		{_markerMHQtype = "o_hq"};
 			case WEST:		{_markerMHQtype = "b_hq"};
 			default {_markerMHQtype = "n_hq"};
@@ -172,7 +172,7 @@ if (true) then {
 
 							// A3 устанавливает цвет самостоятельно.
 							#ifdef __ARMA3__
-							if !(playerSide in [east,west,resistance]) then {
+							if !(gosa_playerSide in [east,west,resistance]) then {
 							#endif
 								_marker setMarkerColorLocal _markerColor;
 							#ifdef __ARMA3__
@@ -290,7 +290,7 @@ if (true) then {
 
 							// A3 устанавливает цвет самостоятельно.
 							#ifdef __ARMA3__
-							if !(playerSide in [east,west,resistance]) then {
+							if !(gosa_playerSide in [east,west,resistance]) then {
 							#endif
 								_marker setMarkerColorLocal _markerColor;
 							#ifdef __ARMA3__
@@ -368,7 +368,7 @@ if ((count _markers_airport
 	_markersHQ = [];
 	//-- Обновление маркеров объектов базы.
 	if (_rMHQ) then {
-		_listHQ_str = format["gosa_listHQ_%1", playerSide];
+		_listHQ_str = format["gosa_listHQ_%1", gosa_playerSide];
 
 		waitUntil {!isNil _listHQ_str};
 
@@ -430,7 +430,7 @@ if ((count _markers_airport
 
 								// A3 устанавливает цвет самостоятельно.
 								#ifdef __ARMA3__
-								if !(playerSide in [east,west,resistance]) then {
+								if !(gosa_playerSide in [east,west,resistance]) then {
 								#endif
 									_marker setMarkerColorLocal _markerColor;
 								#ifdef __ARMA3__
@@ -464,7 +464,7 @@ if ((count _respawnMarkers
 	+ count _markers_airport
 	+ count _markers_LocationBase
 	+ count _markersHQ) <= 0 && 
-	playerSide != sideLogic) then
+	gosa_playerSide != sideLogic) then
 {
 	diag_log format ["Log: [while_markers] no base", nil];
 	_pos = getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
@@ -539,7 +539,7 @@ if(true)then{
 					_item = _tmp_arr select _i;
 
 					if( !(_item in _units) &&
-						(side _item == playerSide) &&
+						(side _item == gosa_playerSide) &&
 						#ifdef __A2OA__
 							{alive _item} && {_item call gosa_fnc_isPlayer}
 						#else
@@ -562,7 +562,7 @@ if(true)then{
 				_marker = (_markers select _i);
 				// TODO: нужна проверка на отключеных игроков
 				if (alive _unit) then {
-						if (playerSide getFriend side _unit >= 0.6) then
+						if (gosa_playerSide getFriend side _unit >= 0.6) then
 						{
 							_tmp_obj = vehicle _unit;
 
