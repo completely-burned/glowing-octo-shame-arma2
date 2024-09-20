@@ -14,6 +14,7 @@ jobs:
       - name: apt install
         run: |
           sudo add-apt-repository ppa:koffeinflummi/armake
+          sudo add-apt-repository -S 'deb https://ppa.launchpadcontent.net/koffeinflummi/armake/ubuntu bionic main'
           sudo apt update
           sudo apt -y install rsync sed translit rdfind armake armake2 depbo-tools
       - name: Build
