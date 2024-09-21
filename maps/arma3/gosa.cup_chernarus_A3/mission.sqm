@@ -214,7 +214,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa cup_chernarus_A3 Multi v0.0.5.968 DEBUG";
+		briefingName="CO 00 gosa cup_chernarus_A3 Multi v0.0.5.969 DEBUG";
 		resistanceWest=0;
 		startWeather=0.3;
 		startWind=0.1;
