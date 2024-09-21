@@ -9,11 +9,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Dependencies
+        uses: daaku/gh-action-apt-install@v4
+        with:
+          packages: rsync sed rdfind liblingua-translit-perl
+
+      - name: gosa checkout
         uses: actions/checkout@v4
-      - name: Build
+      - name: gosa build
         run: ./tools/build_pbo_linux.sh -ltza
-      - name: Release
+      - name: gosa clean
+        run: rm -rf arma-glowing-octo-shame/*workshop*
+
+      - name: GitHub release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
