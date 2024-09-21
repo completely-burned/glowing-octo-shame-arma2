@@ -25,6 +25,7 @@ _code = {!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "g
 		// Конфликтуют с respawnMenu.
 		waitUntil {missionNamespace getVariable ["BIS_RscRespawnControlsMap_shown", false] or time > _n};
 	#endif
+	waitUntil {!isNil "gosa_playerSide"};
 	// FIXME: Можно не запускать при возрождении на базе.
 	[["Loading My Mission","RscDisplayLoadMission"], _code, _n, [
 		{!isNil format["gosa_listHQ_%1", gosa_playerSide]},
