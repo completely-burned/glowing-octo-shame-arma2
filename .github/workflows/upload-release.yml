@@ -9,10 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: ubuntu apt
-        run: |
-          sudo apt update
-          sudo apt -y install rsync sed rdfind liblingua-translit-perl libssl-dev
+      - name: Dependencies
+        uses: daaku/gh-action-apt-install@v4
+        with:
+          packages: rsync sed rdfind liblingua-translit-perl libssl-dev armake armake2 depbo-tools
 
       - name: gosa checkout
         uses: actions/checkout@v4
