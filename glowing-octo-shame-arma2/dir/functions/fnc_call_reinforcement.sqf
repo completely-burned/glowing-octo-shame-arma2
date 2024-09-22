@@ -10,6 +10,7 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
 	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat",
+	"_positions_static",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 
 _side = _this select 0;
@@ -143,12 +144,19 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 	if (_patrol)then{
 		_SafePosParams set [1,((_SafePosParams select 1) * 2)];
 	};
+	// TODO: Нужна более лучшая функция.
 	_pos_resp = _arr call gosa_fnc_findSafePos;
 	if (count _pos_resp < 1) exitWith {
 		diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _pos_resp isNil ", nil];
 	};
 
+	if ({_x isKindOf "SPE_FlaK_36"} count _types > 0) then {
+		_positions_static = [_pos_resp select 0, _SafePosParams select 1, _types, _SafePosParams select 0]
+			call gosa_fnc_find_pos_static;
+		_groups = ([_pos_resp, _side, _grp1 select 0, _positions_static] call gosa_fnc_spawnGroup);
+	}else{
 	_groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
+	};
 
 	// TODO: Получать эти данные сразу из fnc_spawnGroup.
 	_units = []; _vehicles=[]; _crew = []; _cargo=[];

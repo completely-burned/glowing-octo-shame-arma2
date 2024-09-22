@@ -1181,6 +1181,10 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class find_pos_static
+			{
+				file = "dir\functions\fnc_find_pos_static.sqf";
+			};
 			class respawnPosVeh
 			{
 				file = "dir\functions\fnc_respawnPosVeh.sqf";

@@ -74,6 +74,7 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 
 //--- общие
 _arr = [
+	"fnc_find_pos_static",
 	"fnc_respawnPosVeh",
 	"fnc_unit_canTeleport",
 	"fnc_flareHeight",
