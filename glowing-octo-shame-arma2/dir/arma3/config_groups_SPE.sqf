@@ -120,6 +120,8 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	];
 };
 _arr append [
+	[[[["SPE_FlaK_36","SPE_FlaK_36"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT"]]],0.01],
+	[[[["SPE_FlaK_36_AA","SPE_FlaK_36_AA"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT"]]],0.01],
 	[[[["SPE_GER_SquadLead",
 		"SPE_GER_Assist_SquadLead","SPE_GER_LAT_Rifleman",
 		"SPE_GER_ober_grenadier","B_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],

@@ -43,6 +43,39 @@ _arr = [
 [1900,1950], [160,999],
 []
 ] call gosa_fnc_map_groups_add;
+// LIB_RKKA_w
+_arr = [
+	// LIB_SOV_sentry
+	[[[["LIB_SOV_sergeant_w","LIB_SOV_LC_rifleman_w"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.4],
+	// LIB_SOV_infantry_squad
+	[[[["LIB_SOV_sergeant_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w","LIB_SOV_mgunner_w","LIB_SOV_medic_w","LIB_SOV_LAT_Soldier_w","LIB_SOV_AT_grenadier_w","LIB_SOV_LC_rifleman_w","LIB_SOV_rifleman_w","LIB_SOV_rifleman_w","LIB_SOV_rifleman_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
+	// LIB_SOV_smg_squad
+	[[[["LIB_SOV_sergeant_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w","LIB_SOV_mgunner_w","LIB_SOV_medic_w","LIB_SOV_LAT_Soldier_w","LIB_SOV_AT_grenadier_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_SOV_AT_squad
+	[[[["LIB_SOV_sergeant_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w","LIB_SOV_AT_soldier_w","LIB_SOV_AT_M1A1_soldier_w","LIB_SOV_LAT_Soldier_w","LIB_SOV_LAT_Soldier_w","LIB_SOV_AT_grenadier_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// LIB_SOV_ATRifle_team
+	[[[["LIB_SOV_scout_atrifle_gunner_w","LIB_SOV_scout_atrifle_assistant_w"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.4],
+	// LIB_SOV_scout_squad
+	[[[["LIB_SOV_scout_sergeant_w","LIB_SOV_scout_smgunner_w","LIB_SOV_scout_smgunner_w","LIB_SOV_scout_mgunner_w","LIB_SOV_scout_sniper_w","LIB_SOV_assault_smgunner_w","LIB_SOV_assault_smgunner_w","LIB_SOV_scout_smgunner_w","LIB_SOV_scout_smgunner_w","LIB_SOV_scout_smgunner_w","LIB_SOV_scout_smgunner_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// LIB_Motorized_Infantry_Squad
+	[[[["LIB_SOV_sergeant_w","LIB_US6_tent_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w","LIB_SOV_mgunner_w","LIB_SOV_medic_w","LIB_SOV_AT_grenadier_w","LIB_SOV_AT_grenadier_w","LIB_SOV_LC_rifleman_w","LIB_SOV_rifleman_w","LIB_SOV_rifleman_w","LIB_SOV_rifleman_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_Scout_Motorized_Infantry_Squad
+	[[[["LIB_SOV_scout_sergeant_w","LIB_Scout_m3_w","LIB_SOV_scout_smgunner_w","LIB_SOV_scout_smgunner_w","LIB_SOV_scout_mgunner_w","LIB_SOV_scout_sniper_w","LIB_SOV_assault_smgunner_w","LIB_SOV_assault_smgunner_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// LIB_Mechanized_Infantry_Squad
+	[[[["LIB_SOV_sergeant_w","LIB_SOV_M3_Halftrack_w","LIB_SOV_smgunner_w","LIB_SOV_smgunner_w","LIB_SOV_mgunner_w","LIB_SOV_medic_w","LIB_SOV_AT_grenadier_w","LIB_SOV_AT_grenadier_w","LIB_SOV_LC_rifleman_w","LIB_SOV_rifleman_w","LIB_SOV_rifleman_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_SOV_JS2_43_Platoon
+	[[[["LIB_JS2_43_w","LIB_JS2_43_w"],[[0,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3],
+	// LIB_SOV_T34_76_Platoon
+	[[[["LIB_T34_76_w","LIB_T34_76_w","LIB_T34_76_w","LIB_T34_76_w"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","PRIVATE"]]],0.3],
+	// LIB_SOV_T34_85_Platoon
+	[[[["LIB_T34_85_w","LIB_T34_85_w","LIB_T34_85_w","LIB_T34_85_w"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","PRIVATE"]]],0.4],
+	// LIB_SOV_SU85_Platoon
+	[[[["LIB_SU85_w","LIB_SU85_w","LIB_SU85_w"],[[0,10,0],[10,0,0],[20,0,0]],["LIEUTENANT","SERGEANT","PRIVATE"]]],0.3]
+];
+[_groups_map, east, "LIB_RKKA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[1900,1950], [-999,159],
+[]
+] call gosa_fnc_map_groups_add;
 
 
 // LIB_WEHRMACHT
@@ -84,6 +117,57 @@ _arr = [
 ];
 [_groups_map, west, "LIB_WEHRMACHT", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1900,1950], [160,999],
+[]
+] call gosa_fnc_map_groups_add;
+// LIB_WEHRMACHT_w
+_arr = [
+	// LIB_GER_infantry_squad
+	[[[["LIB_GER_unterofficer_w","LIB_GER_mgunner_w","LIB_GER_medic_w","LIB_GER_scout_ober_rifleman_w","LIB_GER_ober_rifleman_w","LIB_GER_rifleman_w","LIB_GER_ober_grenadier_w","LIB_GER_LAT_Rifleman_w","LIB_GER_rifleman_w","LIB_GER_scout_rifleman_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
+	// LIB_GER_AT_squad
+	[[[["LIB_GER_unterofficer_w","LIB_GER_AT_soldier_w","LIB_GER_AT_soldier_w","LIB_GER_ober_grenadier_w","LIB_GER_LAT_Rifleman_w","LIB_GER_LAT_Rifleman_w","LIB_GER_AT_grenadier_w","LIB_GER_AT_grenadier_w","LIB_GER_AT_soldier_w","LIB_GER_AT_soldier_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
+	// LIB_GER_scout_squad
+	[[[["LIB_GER_scout_unterofficer_w","LIB_GER_scout_mgunner_w","LIB_GER_scout_sniper_w","LIB_GER_scout_ober_rifleman_w","LIB_GER_scout_smgunner_w","LIB_GER_scout_smgunner_w","LIB_GER_scout_smgunner_w","LIB_GER_scout_smgunner_w","LIB_GER_Scout_ober_grenadier_w","LIB_GER_scout_rifleman_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// LIB_Motorized_Infantry_Squad
+	[[[["LIB_GER_unterofficer_w","LIB_OpelBlitz_Open_Y_Camo_w","LIB_GER_mgunner_w","LIB_GER_medic_w","LIB_GER_scout_ober_rifleman_w","LIB_GER_ober_rifleman_w","LIB_GER_rifleman_w","LIB_GER_AT_grenadier_w","LIB_GER_AT_grenadier_w","LIB_GER_rifleman_w","LIB_GER_scout_rifleman_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_Mechanized_Infantry_Squad
+	[[[["LIB_GER_unterofficer_w","LIB_SdKfz251_w","LIB_GER_mgunner_w","LIB_GER_medic_w","LIB_GER_scout_ober_rifleman_w","LIB_GER_ober_rifleman_w","LIB_GER_rifleman_w","LIB_GER_AT_grenadier_w","LIB_GER_AT_grenadier_w","LIB_GER_rifleman_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_Scout_Mechanized_Infantry_Squad
+	[[[["LIB_GER_scout_unterofficer_w","LIB_SdKfz251_w","LIB_GER_scout_mgunner_w","LIB_GER_scout_sniper_w","LIB_GER_scout_ober_rifleman_w","LIB_GER_scout_smgunner_w","LIB_GER_scout_smgunner_w","LIB_GER_scout_smgunner_w","LIB_GER_scout_rifleman_w","LIB_GER_scout_rifleman_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// LIB_GER_fw190f8_Group
+	[[[["LIB_Fw190f8_w","LIB_Fw190f8_w"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.5],
+	// LIB_GER_PzKpfwIV_H_Platoon
+	[[[["LIB_PzKpfwIV_H_w","LIB_PzKpfwIV_H_w","LIB_PzKpfwIV_H_w","LIB_PzKpfwIV_H_w"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","PRIVATE"]]],0.25],
+	// LIB_GER_PzKpfwV_Platoon
+	[[[["LIB_PzKpfwV_w","LIB_PzKpfwV_w","LIB_PzKpfwV_w"],[[0,10,0],[10,0,0],[20,0,0]],["LIEUTENANT","SERGEANT","PRIVATE"]]],0.15],
+	// LIB_GER_PzKpfwVI_B_Platoon
+	[[[["LIB_PzKpfwVI_B_camo_w","LIB_PzKpfwVI_B_camo_w"],[[0,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT"]]],0.05],
+	// LIB_GER_PzKpfwVI_E_Platoon
+	[[[["LIB_PzKpfwVI_E_w","LIB_PzKpfwVI_E_w","LIB_PzKpfwVI_E_w","LIB_PzKpfwVI_E_w"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.2],
+	// LIB_GER_StuG_III_G_Platoon
+	[[[["LIB_StuG_III_G_w","LIB_StuG_III_G_w","LIB_StuG_III_G_w","LIB_StuG_III_G_w"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","PRIVATE"]]],0.2]
+];
+// LIB_PANZERWAFFE_w
+_arr append [
+	// LIB_GER_StuG_III_G_Platoon
+	[[[["LIB_StuG_III_G_w","LIB_StuG_III_G_w","LIB_StuG_III_G_w","LIB_StuG_III_G_w"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","PRIVATE"]]],0.2],
+	// LIB_GER_PzKpfwIV_H_Platoon
+	[[[["LIB_PzKpfwIV_H_w","LIB_PzKpfwIV_H_w","LIB_PzKpfwIV_H_w","LIB_PzKpfwIV_H_w"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","PRIVATE"]]],0.25],
+	// LIB_GER_PzKpfwV_Platoon
+	[[[["LIB_PzKpfwV_w","LIB_PzKpfwV_w","LIB_PzKpfwV_w"],[[0,10,0],[10,0,0],[20,0,0]],["LIEUTENANT","SERGEANT","PRIVATE"]]],0.15],
+	// LIB_GER_PzKpfwVI_B_Platoon
+	[[[["LIB_PzKpfwVI_B_camo_w","LIB_PzKpfwVI_B_camo_w"],[[0,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT"]]],0.05],
+	// LIB_GER_PzKpfwVI_E_Platoon
+	[[[["LIB_PzKpfwVI_E_w","LIB_PzKpfwVI_E_w","LIB_PzKpfwVI_E_w","LIB_PzKpfwVI_E_w"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.2]
+];
+// LIB_LUFTWAFFE_w
+_arr append [
+	// LIB_GER_fw190f8_Group
+	[[[["LIB_fw190f8_w","LIB_fw190f8_w"],[[0,20,0],[20,0,0]],["CAPTAIN","LIEUTENANT"]]],0.5],
+	// LIB_GER_Ju87_Group
+	[[[["LIB_Ju87_w","LIB_Ju87_w"],[[0,30,0],[30,0,0]],["CAPTAIN","LIEUTENANT"]]],0.5]
+];
+[_groups_map, west, "LIB_WEHRMACHT", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[1900,1950], [-999,159],
 []
 ] call gosa_fnc_map_groups_add;
 
@@ -131,6 +215,33 @@ _arr = [
 [1900,1950], [160,999],
 []
 ] call gosa_fnc_map_groups_add;
+// LIB_US_ARMY_w
+[
+	// LIB_Motorized_Infantry_Squad
+	[[[["LIB_US_smgunner_w","LIB_US_GMC_Open_w","LIB_US_mgunner_w","LIB_US_medic_w","LIB_US_Corporal_w","LIB_US_mgunner_w","LIB_US_FC_rifleman_w","LIB_US_FC_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_US_infantry_sentry_3
+	[[[["LIB_US_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.4],
+	// LIB_US_infantry_sentry_2
+	[[[["LIB_US_smgunner_w","LIB_US_rifleman_w"],[[0,5,0],[3,0,0]],["SERGEANT","PRIVATE"]]],0.4],
+	// LIB_US_infantry_squad
+	[[[["LIB_US_smgunner_w","LIB_US_mgunner_w","LIB_US_medic_w","LIB_US_corporal_w","LIB_US_mgunner_w","LIB_US_FC_rifleman_w","LIB_US_FC_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
+	// LIB_US_machine_gun_team
+	[[[["LIB_US_smgunner_w","LIB_US_mgunner_w","LIB_US_mgunner_w","LIB_US_rifleman_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_US_AT_squad
+	[[[["LIB_US_smgunner_w","LIB_US_AT_soldier_w","LIB_US_AT_soldier_w","LIB_US_AT_soldier_w","LIB_US_FC_rifleman_w","LIB_US_FC_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// LIB_US_sniper_team
+	[[[["LIB_US_sniper_w","LIB_US_sniper_w"],[[0,5,0],[3,0,0]],["SERGEANT","PRIVATE"]]],0.4],
+	// LIB_US_scout_squad
+	[[[["LIB_US_smgunner_w","LIB_US_mgunner_w","LIB_US_sniper_w","LIB_US_medic_w","LIB_US_mgunner_w","LIB_US_FC_rifleman_w","LIB_US_FC_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// LIB_Mechanized_Infantry_Squad
+	[[[["LIB_US_M3_Halftrack_w","LIB_US_Smgunner_w","LIB_US_Mgunner_w","LIB_US_Medic_w","LIB_US_Corporal_w","LIB_US_Mgunner_w","LIB_US_FC_rifleman_w","LIB_US_FC_rifleman_w","LIB_US_Rifleman_w","LIB_US_Rifleman_w","LIB_US_Rifleman_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_M4A3_75_Platoon
+	[[[["LIB_M4A3_75_w","LIB_M4A3_75_w","LIB_M4A3_75_w","LIB_M4A3_75_w"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","PRIVATE"]]],0.3]
+];
+[_groups_map, resistance, "LIB_US_ARMY", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[1900,1950], [-999,159],
+[]
+] call gosa_fnc_map_groups_add;
 
 // LIB_UK_ARMY
 _arr = [
@@ -153,5 +264,26 @@ _arr = [
 ];
 [_groups_map, resistance, "LIB_UK_ARMY", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1900,1950], [160,999],
+[]
+] call gosa_fnc_map_groups_add;
+// LIB_UK_ARMY_w
+_arr = [
+	// LIB_UK_machine_gun_team_w
+	[[[["LIB_UK_Sergeant_w","LIB_UK_LanceCorporal_w","LIB_UK_Corporal_w","LIB_UK_Rifleman_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
+	// LIB_UK_infantry_squad_w
+	[[[["LIB_UK_Sergeant_w","LIB_UK_LanceCorporal_w","LIB_UK_Corporal_w","LIB_UK_Corporal_w","LIB_UK_Grenadier_w","LIB_UK_Rifleman_w","LIB_UK_Rifleman_w","LIB_UK_Rifleman_w","LIB_UK_Rifleman_w","LIB_UK_Medic_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
+	// LIB_UK_Sentry_Squad_3_w
+	[[[["LIB_UK_Rifleman_w","LIB_UK_Rifleman_w","LIB_UK_Rifleman_w"],[[0,5,0],[3,0,0],[5,0,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_UK_Sentry_Squad_2_w
+	[[[["LIB_UK_Sergeant_w","LIB_UK_Rifleman_w"],[[0,5,0],[3,0,0]],["SERGEANT","PRIVATE"]]],0.5],
+	// LIB_UK_AT_squad_w
+	[[[["LIB_UK_Sergeant_w","LIB_UK_AT_Soldier_w","LIB_UK_AT_Soldier","LIB_UK_AT_Soldier_w","LIB_UK_AT_Soldier_w","LIB_UK_Rifleman_w","LIB_UK_Rifleman_w","LIB_UK_Corporal_w","LIB_UK_Rifleman_w","LIB_UK_Rifleman_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.2],
+	// LIB_Mechanized_Infantry_Squad
+	[[[["LIB_UniversalCarrier_w","LIB_UK_Sergeant_w","LIB_UK_Rifleman_w","LIB_UK_LanceCorporal_w","LIB_UK_Corporal_w","LIB_UK_Corporal_w","LIB_UK_Grenadier_w","LIB_UK_Rifleman_w","LIB_UK_Rifleman_w","LIB_UK_Rifleman_w","LIB_UK_Rifleman_w","LIB_UK_Medic_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// LIB_Cromwell_Mk4_Platoon
+	[[[["LIB_Cromwell_Mk4_w","LIB_Cromwell_Mk4_w"],[[0,10,0],[10,0,0]],["LIEUTENANT","SERGEANT"]]],0.3]
+];
+[_groups_map, resistance, "LIB_UK_ARMY", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[1900,1950], [-999,159],
 []
 ] call gosa_fnc_map_groups_add;

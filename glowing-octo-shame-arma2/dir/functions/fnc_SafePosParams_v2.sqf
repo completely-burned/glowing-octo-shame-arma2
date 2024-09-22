@@ -90,6 +90,8 @@ if ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray) then{
 	_waterMode = 0;
 	_objDist = 30;
 	_preferRoads = false;
+	_blacklist = [];
+	_island_isolate = false;
 };
 
 _roles = _types call gosa_fnc_getGroupType;

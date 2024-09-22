@@ -6,7 +6,7 @@
 diag_log format ["Log: [gosa_fnc_spawnGroup] %1", _this];
 private ["_pos","_side","_groups","_vehicles","_roads","_z","_for",
 	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
-	"_relPos",
+	"_relPos","_positions_static","_positions_used","_best",
 	"_unit", "_type","_itemPos","_rank","_cfgVeh","_str","_entry","_n"];
 
 _side = _this select 1;
@@ -16,6 +16,7 @@ _pos = (_this select 0 select 0);
 _groups = [];
 _vehicles = [];
 _cfgVeh = LIB_cfgVeh;
+_positions_used = [];
 
 // Выбирается одна группа если десант отключен.
 // FIXME: Можел лучше вынести участок кода за файл.
@@ -23,6 +24,12 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 	_for = _this select 2;
 }else{
 	_for = [(_this select 2) select 0];
+};
+
+if (count _this > 3) then {
+	_positions_static = _this select 3;
+}else{
+	_positions_static = [];
 };
 
 {
@@ -67,6 +74,31 @@ if (missionNamespace getVariable "gosa_landing" > 0) then {
 					];
 				} else {
 					_itemPos = _pos;
+				};
+				
+				if (count _positions_static > 0) then {
+					_arr = _positions_static select _i;
+					if (count _arr > 0) then {
+						for "_i0" from 0 to (count _arr -1) do {
+							// FIXME: Эта проверка не работает.
+							if ({_arr select _i0 distance _x < 5} count _positions_used <= 0) then {
+								if (isNil "_best") then {
+									_best = _arr select _i0;
+								}else{
+									if (_arr select _i0 distance _pos < _best distance _pos) then {
+										_best = _arr select _i0;
+									};
+								};
+							};
+						};
+						if (isNil "_best") then {
+							diag_log format ["Log: [fnc_spawnGroup] %1 _i %2 позиция недоступна", _grp, _i];
+						}else{
+							_itemPos = _best;
+							_positions_used set [count _positions_used, _itemPos];
+							_best = nil;
+						};
+					};
 				};
 
 				if (count _ranks > 0) then {
