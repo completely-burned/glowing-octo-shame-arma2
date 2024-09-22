@@ -5,11 +5,16 @@
 private ["_str","_n","_arr","_player","_side"];
 
 // playerSide не меняется самостоятельно.
+if (isMultiplayer) then {
 _side = side player;
 while {sleep 0.01; _side == sideUnknown} do {
 	_side = side player;
 };
 gosa_playerSide = _side;
+}else{
+	waitUntil {!isNil "gosa_friendlyside"};
+	gosa_playerside = gosa_friendlyside select 0;
+};
 
 // Ошибки настроек.
 [] execVM "dir\client\init_gameMode.sqf";
