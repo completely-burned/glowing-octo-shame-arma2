@@ -207,7 +207,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="SPE CO 00 gosa tem_summa Multi v0.0.5.970 DEBUG";
+		briefingName="WW2 CO 00 gosa tem_summawcup Multi v0.0.5.970 DEBUG";
 		startWeather=0.2;
 		startWind=0.1000001;
 		startWaves=0.1;
@@ -232,7 +232,6 @@ class Mission
 			name="gosa_worldSize";
 			type="Empty";
 			id=1;
-			atlOffset=-52.220001;
 		};
 		class Item1
 		{
@@ -265,7 +264,6 @@ class Mission
 			isPlayable=1;
 			id=63;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -341,7 +339,6 @@ class Mission
 			isPlayable=1;
 			id=64;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -417,7 +414,6 @@ class Mission
 			isPlayable=1;
 			id=65;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -493,7 +489,6 @@ class Mission
 			isPlayable=1;
 			id=66;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -569,7 +564,6 @@ class Mission
 			isPlayable=1;
 			id=67;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -645,7 +639,6 @@ class Mission
 			isPlayable=1;
 			id=68;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -721,7 +714,6 @@ class Mission
 			isPlayable=1;
 			id=69;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -797,7 +789,6 @@ class Mission
 			isPlayable=1;
 			id=70;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -873,7 +864,6 @@ class Mission
 			isPlayable=1;
 			id=71;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -949,7 +939,6 @@ class Mission
 			isPlayable=1;
 			id=72;
 			type="VirtualSpectator_F";
-			atlOffset=-15.9;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -1026,7 +1015,6 @@ class Mission
 			isPlayable=1;
 			id=73;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item14
 		{
@@ -1035,7 +1023,6 @@ class Mission
 			isPlayable=1;
 			id=74;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item15
 		{
@@ -1044,7 +1031,6 @@ class Mission
 			isPlayable=1;
 			id=75;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item16
 		{
@@ -1053,7 +1039,6 @@ class Mission
 			isPlayable=1;
 			id=76;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item17
 		{
@@ -1062,7 +1047,6 @@ class Mission
 			isPlayable=1;
 			id=77;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item18
 		{
@@ -1071,7 +1055,6 @@ class Mission
 			isPlayable=1;
 			id=78;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item19
 		{
@@ -1080,7 +1063,6 @@ class Mission
 			isPlayable=1;
 			id=79;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item20
 		{
@@ -1089,7 +1071,6 @@ class Mission
 			isPlayable=1;
 			id=80;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item21
 		{
@@ -1098,7 +1079,6 @@ class Mission
 			isPlayable=1;
 			id=81;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item22
 		{
@@ -1107,7 +1087,6 @@ class Mission
 			isPlayable=1;
 			id=82;
 			type="HeadlessClient_F";
-			atlOffset=-15.9;
 		};
 		class Item23
 		{
