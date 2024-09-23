@@ -216,7 +216,7 @@ _arr = [
 []
 ] call gosa_fnc_map_groups_add;
 // LIB_US_ARMY_w
-[
+_arr = [
 	// LIB_Motorized_Infantry_Squad
 	[[[["LIB_US_smgunner_w","LIB_US_GMC_Open_w","LIB_US_mgunner_w","LIB_US_medic_w","LIB_US_Corporal_w","LIB_US_mgunner_w","LIB_US_FC_rifleman_w","LIB_US_FC_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w","LIB_US_rifleman_w"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 	// LIB_US_infantry_sentry_3
