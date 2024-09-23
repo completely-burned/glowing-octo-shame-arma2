@@ -35,7 +35,7 @@ class Mission
 	randomSeed=7907905;
 	class Intel
 	{
-		briefingName="FDF CO 00 gosa FDF_Isle1_a guer v0.0.5.970 DEBUG";
+		briefingName="FDF CO 00 gosa FDF_Isle1_a guer v0.0.5.971 DEBUG";
 		resistanceWest=0;
 		startWeather=0;
 		forecastWeather=0.25;

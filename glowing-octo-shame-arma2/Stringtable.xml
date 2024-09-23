@@ -3,7 +3,7 @@
 	<Package name="gosaPackage">
 		<Container name="gosaContainer">
 			<Key ID="STR_gosa_version">
-				<Original>v0.0.5.970</Original>
+				<Original>v0.0.5.971</Original>
 			</Key>
 			<Key ID="STR_ACT_Crew">
 				<Original>Crew</Original>
