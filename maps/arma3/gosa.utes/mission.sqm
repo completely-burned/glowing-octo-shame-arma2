@@ -267,7 +267,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa utes Multi v0.0.5.970 DEBUG";
+		briefingName="CO 00 gosa utes Multi v0.0.5.971 DEBUG";
 		startWeather=0.40000001;
 		startWind=0.1;
 		startWaves=0.1;
@@ -478,9 +478,9 @@ class Mission
 			class PositionInfo
 			{
 				position[]={1391.282,15.885002,919.35199};
-				angles[]={0,4.722826,0};
+				angles[]={0,4.712389,0};
 			};
-			init="this setVariable [""gosa_respawn_type"", 3];";
+			init="this setVariable [""gosa_respawn_type"", 20];";
 			id=28;
 			type="LocationArea_F";
 			atlOffset=114.885;
@@ -490,10 +490,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={1345.043,15.885002,968.96301};
-				angles[]={0,1.5908327,0};
+				position[]={1345,15.885002,969};
+				angles[]={0,1.5707964,0};
 			};
-			init="this setVariable [""gosa_respawn_type"", 3];";
+			init="this setVariable [""gosa_respawn_type"", 20];";
 			id=29;
 			type="LocationArea_F";
 			atlOffset=114.885;
@@ -4516,11 +4516,11 @@ class Mission
 	{
 		class LinkIDProvider
 		{
-			nextID=8;
+			nextID=6;
 		};
 		class Links
 		{
-			items=8;
+			items=6;
 			class Item0
 			{
 				linkID=0;
@@ -4574,26 +4574,6 @@ class Mission
 			class Item5
 			{
 				linkID=5;
-				item0=23;
-				item1=28;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item6
-			{
-				linkID=6;
-				item0=23;
-				item1=29;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item7
-			{
-				linkID=7;
 				item0=11;
 				item1=244;
 				class CustomData
