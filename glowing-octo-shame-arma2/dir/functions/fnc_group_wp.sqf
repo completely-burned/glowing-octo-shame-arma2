@@ -112,29 +112,9 @@ if({alive _x} count _units > 0)then{
 
 
 	_leader = leader _grp;
-
 	_leaderPos = getPos vehicle _leader;
-
-	_currentWP = currentWaypoint _grp;
-
-	// Индекс +1 от завершенного маршрута.
-	// a3: Индекс будет 0
-	// если удалить маршруты.
-	// a3: Индекс будет 0
-	// если удалить все маршруты и один создать в далеке.
-	// a3: Индекс будет 2
-	// если удалить все маршруты и создать у игрока два и еще два в далеке.
-	// a3: Индекс будет 1
-	// если удалить все маршруты и один создать у игрока.
-	// FIXME: не правильный текущий номер маршрута
-	_z = count waypoints _grp;
-	if (_z > 0 && _currentWP > (_z+1)) then {
-		diag_log format ["Log: [fnc_group_wp] %1, %2, %3, currentWaypoint fix", _grp, waypoints _grp, _currentWP];
-		_grp setCurrentWaypoint [_grp, _z -1];
-		_currentWP = currentWaypoint _grp;
-	};
-
-	_wp = [_grp,_currentWP];
+	_wp = [_grp] call gosa_fnc_wp_currentWaypoint;
+	_currentWP = _wp select 1;;
 	_typeWP = waypointType _wp;
 
 	//--- специальные маршрутны
@@ -191,7 +171,7 @@ if({alive _x} count _units > 0)then{
 	_grp_type = _units+_vehicles+_assignedVehicles call gosa_fnc_getGroupType;
 		_z = "SUPPORT";
 		if !(_z in _grp_type) then {
-			if(waypointType [_grp, currentwaypoint _grp] == _z)then{
+			if(waypointType _wp == _z)then{
 				if({count assignedVehicleRole _x > 0} count _units > 0)then{
 					_grp_type set [count _grp_type, _z];
 				};
@@ -231,7 +211,7 @@ if({alive _x} count _units > 0)then{
 	if ("StaticWeapon" in _grp_type) then {
 		if ( count waypoints _grp > 0 ) then{
 			diag_log format ["Log: [gosa_fnc_group_wp.sqf] удалить StaticWeapon %1 маршруты", _grp];
-			[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
+			_wp setWaypointPosition [getPosASL _leader, -1];
 			sleep 1;
 			for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 				deleteWaypoint [_grp, _i];
@@ -468,9 +448,9 @@ if({alive _x} count _units > 0)then{
 
 		// если отряд у цели установить переменную _grp_wp_completed если она не установлена
 		if (isNil "_grp_wp_completed") then {
-			// TODO: для авиации не подходит такая проверка
 			if ("Plane" in _grp_type) then {
-				_n = 2000;
+				// FIXME: Авиация IFA3 еле-еле подлетпет на 5000м к маршруту.
+				_n = 1500;
 			}else{
 				if ("Helicopter" in _grp_type) then {
 					_n = 500;
@@ -478,7 +458,7 @@ if({alive _x} count _units > 0)then{
 					_n = 5;
 				};
 			};
-			if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < _n )then{
+			if ([waypointPosition _wp, _leaderPos] call BIS_fnc_distance2D < _n)then {
 				_grp_wp_completed = time;
 					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _grp_wp_completed = %2", _grp, _grp_wp_completed];
 			};
@@ -488,7 +468,7 @@ if({alive _x} count _units > 0)then{
 		if(_leader call gosa_fnc_isPlayer)then{
 			if ( count waypoints _grp > 0 ) then{
 				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 isPlayer _leader deleteWaypoints", _grp ];
-				[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
+				_wp setWaypointPosition [getPosASL _leader, -1];
 				sleep 0.1;
 				for "_i" from count waypoints _grp - 1 to 0 step -1 do {
 					deleteWaypoint [_grp, _i];
@@ -548,7 +528,7 @@ if({alive _x} count _units > 0)then{
 					if (!_StopWP) then {
 						if (_NoCreateWP or !_CreateWP or !_DeleteWP) then {
 							if (isNil {_grp getVariable "patrol"}) then {
-								if (waypointPosition [_grp, currentWaypoint _grp] distance civilianBasePos > gosa_locationSize) then {
+								if (waypointPosition _wp distance civilianBasePos > gosa_locationSize) then {
 									diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 маршрут не на точке", _grp];
 									_NoCreateWP = false;
 									_CreateWP = true;
@@ -581,7 +561,6 @@ if({alive _x} count _units > 0)then{
 			// Frigate
 			if ("Frigate" in _grp_type) then {
 				diag_log format ["Log: [gosa_fnc_group_wp] %1, if Frigate", _grp];
-				_wp = [_grp,_currentWP];
 				_arr = waypointPosition _wp;
 				if (_leaderPos distance _arr < 1000) then {
 					_NoCreateWP = false;
@@ -598,6 +577,12 @@ if({alive _x} count _units > 0)then{
 					_NoCreateWP = false;
 					_CreateWP = true;
 					_StopWP = false;
+					_DeleteWP = true;
+				};
+				if ({[_x] call gosa_fnc_unit_isAttacker} count _units > 0) then {
+					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1, авиация атакует", _grp];
+					_NoCreateWP = true;
+					_CreateWP = false;
 					_DeleteWP = true;
 				};
 			};
@@ -628,11 +613,7 @@ if({alive _x} count _units > 0)then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 gosa_fnc_group_cleanup AA %2 new", _grp, _cleanup];
 					};
 				}else{
-
-					private["_wp"];
-
 					if (count waypoints _grp > 0) then {
-						_wp = [_grp, currentWaypoint _grp];
 						_cost = ([side _grp, getWPPos _wp, 500] call gosa_fnc_find_AA_pos);
 						if (_cost > 2) then {
 							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA оптимальный варшрут уже выбран ранее %2", _grp, _wp];
@@ -701,7 +682,6 @@ if({alive _x} count _units > 0)then{
 			// грузовики поддержки
 			if (count waypoints _grp > 0) then {
 				_z = "SUPPORT";
-				_wp = [_grp, currentWaypoint _grp];
 				if(waypointType _wp == _z)then{
 					if({count assignedVehicleRole _x > 0} count _units > 0)then{
 						_DeleteWP = false;
@@ -748,7 +728,7 @@ if({alive _x} count _units > 0)then{
 			if(_StopWP or (_NoCreateWP && _DeleteWP))then{
 				if ( count waypoints _grp > 0 ) then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] остановка группы %1, currentCommand leader %2, count waypoints %3", _grp, currentCommand _leader, count waypoints _grp ];
-					[_grp,(currentWaypoint _grp)] setWaypointPosition [getPosASL _leader, -1];
+					_wp setWaypointPosition [getPosASL _leader, -1];
 					// [_grp, currentWaypoint _grp] setWaypointType "HOLD";
 					sleep 0.1;
 				};
@@ -859,10 +839,9 @@ if({alive _x} count _units > 0)then{
 
 			// wpStatements
 			if (count waypoints _grp > 0) then {
-				_z = [_grp,_currentWP];
 				private["_wpStatements"];
 				_wpStatements = "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}";
-				if!(waypointStatements _z select 1 in [
+				if!(waypointStatements _wp select 1 in [
 					_wpStatements,
 					"vehicle this land 'GET IN'",
 					"vehicle this land 'GET OUT'",
@@ -872,7 +851,7 @@ if({alive _x} count _units > 0)then{
 					"this land 'LAND'"
 				])then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _wpStatements %2", _grp, _wpStatements ];
-					_z setWaypointStatements ["true", _wpStatements];
+					_wp setWaypointStatements ["true", _wpStatements];
 				};
 			};
 
