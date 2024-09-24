@@ -467,9 +467,18 @@ if({alive _x} count _units > 0)then{
 		_createWP = false;
 
 		// если отряд у цели установить переменную _grp_wp_completed если она не установлена
-		if (isNil{_grp_wp_completed}) then {
+		if (isNil "_grp_wp_completed") then {
 			// TODO: для авиации не подходит такая проверка
-			if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < 5 )then{
+			if ("Plane" in _grp_type) then {
+				_n = 2000;
+			}else{
+				if ("Helicopter" in _grp_type) then {
+					_n = 500;
+				}else{
+					_n = 5;
+				};
+			};
+			if([waypointPosition [_grp,_currentWP], _leaderPos] call BIS_fnc_distance2D < _n )then{
 				_grp_wp_completed = time;
 					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 _grp_wp_completed = %2", _grp, _grp_wp_completed];
 			};

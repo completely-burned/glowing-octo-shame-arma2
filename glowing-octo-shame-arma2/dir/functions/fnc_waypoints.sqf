@@ -137,7 +137,7 @@ if(!isNil "_leader")then{
 			// _WaypointBehaviour = "CARELESS";
 		};
 		if("Air" in _grp_type)then{
-			_maxDist = 4000;
+			_maxDist = 6000;
 			_WaypointCompletionRadius = 500;
 			// _SpeedMode = "FULL";
 			// _WaypointCombatMode = "RED";
