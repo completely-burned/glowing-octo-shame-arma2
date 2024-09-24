@@ -1181,6 +1181,10 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class wp_currentWaypoint
+			{
+				file = "dir\functions\fnc_wp_currentWaypoint.sqf";
+			};
 			class find_pos_static
 			{
 				file = "dir\functions\fnc_find_pos_static.sqf";
