@@ -6,6 +6,7 @@
  * TODO: Заменить глобальные переменные на локальные.
  * TODO: Нужна проверка и ревизия, код древний и вероятно с ошибками.
  * TODO: Палатка возрождения.
+ * TODO: Удалять десантный транспорт.
  */
 
 //--- gc
@@ -16,7 +17,7 @@ private["_min_dist","_min_vehicles_count","_min_dist2","_tmp","_sleep","_arr",
 	"_timerAttack","_time","_timeNew","_mining","_mining_factor","_types_pilot",
 	"_dist_max_patrol_fail","_t_Delete","_twn","_t_twn","_t_new","_t",
 	"_mining_list","_types_crew_and_pilot","_twnPos","_twnSize","_arr0",
-	"_commands_attack"];
+	"_commands_attack","_b","_var_needs_cleanup"];
 _min_dist			= missionNamespace getVariable "gc_dist";
 _min_vehicles_count = missionNamespace getVariable "gc_count";
 
@@ -28,6 +29,7 @@ _types_crew = gosa_crewL;
 _types_pilot = gosa_pilotL;
 _types_crew_and_pilot = (_types_crew + _types_pilot);
 _commands_attack = ["ATTACK","FIRE","ATTACKFIRE"];
+_var_needs_cleanup = "gosa_needs_cleanup";
 
 // Растояние до проблемного патруля.
 _dist_max_patrol_fail = 2500;
@@ -231,9 +233,11 @@ while {sleep 5; true} do {
 	_s = (_sleep/_c);
 	for "_i" from 0 to (_c -1) do {
 		_x_veh = (_arr select _i);
-		_delete = false;
 		sleep _s;
 
+		_delete = _x_veh getVariable _var_needs_cleanup;
+		if (isNil "_b") then {
+			_delete = false;
 		// TODO: Нужна функция.
 		_time = (_x_veh getVariable "gosa_timeDeleteVehicle");
 		if (isNil "_time") then {
@@ -260,6 +264,7 @@ while {sleep 5; true} do {
 				_timeNew = (_time max (time + _timerDelete));
 				diag_log format ["Log: [GC2] %1 %2+ MHQ", _x_veh, _timeNew];
 			};
+		};
 		};
 
 		if (_delete) then {
