@@ -1,18 +1,23 @@
 /*
 Конвертирует CfgGroups в формат этого сценария.
 Примеры:
-copyToClipboard str ([["East"],["CUP_O_RUS_M"],["Infantry_VKPO_Desert]] call gosa_fnc_returnGroups);
-copyToClipboard str ([["East"],["INS","RU"],[]] call gosa_fnc_returnGroups);
-copyToClipboard str ([["I44_A"],[],[]] call gosa_fnc_returnGroups);
-copyToClipboard str ([["West"],["BLU_F"],[]] call gosa_fnc_returnGroups);
-copyToClipboard str ([["Indep"],["IND_F"],[]] call gosa_fnc_returnGroups);
-copyToClipboard str ([["Guerrila"],["FDF"],[]] call gosa_fnc_returnGroups);
-copyToClipboard str ([["West"],["CUP_B_US_Army"],[]] call gosa_fnc_returnGroups);
+copyToClipboard ([["East"],["CUP_O_RUS_M"],["Infantry_VKPO_Desert]] call gosa_fnc_returnGroups select 1);
+copyToClipboard ([["East"],["INS","RU"],[]] call gosa_fnc_returnGroups select 1);
+copyToClipboard ([["I44_A"],[],[]] call gosa_fnc_returnGroups select 1);
+copyToClipboard ([["West"],["BLU_F"],[]] call gosa_fnc_returnGroups select 1);
+copyToClipboard ([["Indep"],["IND_F"],[]] call gosa_fnc_returnGroups select 1);
+copyToClipboard ([["Guerrila"],["FDF"],[]] call gosa_fnc_returnGroups select 1);
+copyToClipboard ([["West"],["CUP_B_US_Army"],[]] call gosa_fnc_returnGroups select 1);
+copyToClipboard ([["Indep"],["LIB_UK_DR"],[]] call gosa_fnc_returnGroups select 1) ;
 */
 
 
-private ["_cfgGroups","_Blacklist","_args","_side", "_type", "_cfgFaction"];
+private ["_cfgGroups","_Blacklist","_args","_side", "_type", "_cfgFaction",
+	"_str"];
+
 _args = _this;
+_br = toString [13,10];
+_str = "[" + _br;
 
 _cfgGroups = configFile >> "CfgGroups";
 _Blacklist=[
@@ -96,7 +101,13 @@ _groups = [];
 						};
 					};
 
-					_groups = (_groups + ["// configName " + configName _item]);
+					_str = _str + "// " + configName _item + _br + str [[[_types,_positions,_ranks]],_weight];
+					// FIXME: Зяпятая не всегда устанавливается.
+					if (_i+1 < count (_cfgGroups >> _side_x >> _cfgFaction_x >> _x)) then {
+						_str = _str + "," + _br;
+					}else{
+						_str = _str + _br;
+					};
 					_groups = (_groups + [[[[_types,_positions,_ranks]],_weight]]);
 				};
 			};
@@ -104,4 +115,6 @@ _groups = [];
 	} forEach _cfgFaction;
 } forEach _side;
 
-_groups;
+_str = _str + "];" + _br;
+
+[_groups, _str];
