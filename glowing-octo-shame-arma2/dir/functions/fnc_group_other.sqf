@@ -108,6 +108,20 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 	};
 	#endif
 
+	// Некоторые ТС не открывают огонь сами (IFA3: "LIB_Cromwell_Mk4_w").
+	for "_i" from 0 to ((count _vehicles) - 1) do {
+		if (canFire (_vehicles select _i)) then {
+			_obj = assignedTarget (_vehicles select _i);
+			if !(isNull _obj) then {
+				_n = _vehicles select _i aimedAtTarget [_obj];
+				if ((_n > 0 && _n < 1) or (random 100 < 1 && !(_vehicles select _i isKindOf "Air"))) then {
+					diag_log format ["Log: [fnc_group_other] %1, %2 fireAtTarget %2", _grp, _vehicles select _i, [_obj, _n]];
+					_vehicles select _i fireAtTarget [_obj];
+				};
+			};
+		};
+	};
+
 	// Движение лидера ближе к атакующим юнитам отряда.
 	if (_leader == Vehicle _leader) then {
 		_diag_log = "";
