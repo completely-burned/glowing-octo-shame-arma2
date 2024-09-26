@@ -111,11 +111,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 				//_turretLimits = _veh getTurretLimits _turret;
 
 					_dir = getDir _veh;
-					#ifdef __ARMA3__
-						_target = getAttackTarget _veh;
-					#else
 						_target = assignedTarget _veh;
-					#endif
 					_dir = _dir - ([_veh, _target] call BIS_fnc_dirTo);
 
 					if !(isNull _target) then {
