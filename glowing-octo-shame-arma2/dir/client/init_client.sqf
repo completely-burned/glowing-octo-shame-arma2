@@ -100,27 +100,28 @@ waitUntil{!isNil "gosa_MapPlayers"};
 diag_log format ["Log: [init_client] post waitUntil gosa_MapPlayers", nil];
 #endif
 
+// TODO: Компилировать все execVM заранее.
 [] execVM "dir\client\while_debug_notice.sqf";
+[] execVM "dir\client\while_respawnRandom.sqf";
+[] execVM "dir\common\while_reinforcement_v2.sqf";
+if !(isServer) then {
+	// FIXME: Сервер не может считать obj assignedVehicle для не серверных ИИ?
+	[] execVM "dir\client\while_groups_other.sqf";
+};
+if (gosa_playerSide == sideLogic) exitWith {
+	diag_log format ["Log: [init_client] %1, %2, exitWith", time, sideLogic];
+};
 [] execVM "dir\client\while_sp_rating.sqf";
 [] execVM "dir\client\clientMenu.sqf";
 [] execVM "dir\client\while_localGroup.sqf";
 [] execVM "dir\client\while_act_BuyMenu.sqf";
 [] execVM ("dir\client\while_aa_hidden.sqf");
 [] execVM ("dir\client\while_keyEH_smoke.sqf");
-[] execVM ("dir\client\while_respawnRandom.sqf");
-[] execVM ("dir\common\while_reinforcement_v2.sqf");
 [] execVM ("dir\client\while_assignedVehicle.sqf");
 [] execVM ("dir\ban\while_ban.sqf");
 [] execVM "dir\testing\while_act_laserBomb.sqf";
 [] execVM "dir\functions\fnc_SSM_updateMenu.sqf";
 [] execVM "dir\client\while_survival.sqf";
-
-
-if(!isServer)then{
-	// FIXME: Сервер не может считать obj assignedVehicle для не серверных ИИ?
-	[] execVM ("dir\client\while_groups_other.sqf");
-};
-
 
 /*
 // TODO: Нужна функция.
