@@ -560,7 +560,11 @@ gosa_flare_blacklist = [
 	// Модификации могут изменить яркость, поэтому нет смысла в этом массиве.
 ];
 
+// TODO: Нужно искать по отличиям в configFile.
 _arr = [
+	"SPE_GER_oberst","SPE_sturmtrooper_standartenfuhrer",
+	"SPE_Milice_FG_Regional_Commander","SPE_FFI_CellLeader",
+
 	"RU_Commander","RU_Soldier_Officer",
 	"Ins_Commander","TK_INS_Warlord_EP1",
 	"USMC_Soldier_Officer",
