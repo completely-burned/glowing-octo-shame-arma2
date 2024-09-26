@@ -93,6 +93,8 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 					diag_log format ["Log: [vehicles_other] %1 refueling", _veh];
 				};
 			};
+
+			// FIXME: IFA3: Повреждения мотора отображаются визуально и такой скрытый ремонт не подходит.
 			#ifdef __ARMA3__
 				_str = "hitEngine";
 				_n = _veh getHitPointDamage _str;
