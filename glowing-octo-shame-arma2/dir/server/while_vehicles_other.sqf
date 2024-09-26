@@ -4,8 +4,11 @@
 	// TODO: Совместимость с GC2.
 */
 
-private ["_countMHQ","_count_transportammo","_count_transportrepair","_count_transportfuel","_timeNew","_timerDelete","_shop",
+private ["_countMHQ","_count_transportammo","_count_transportrepair","_b",
+	"_count_transportfuel","_timeNew","_timerDelete","_shop","_pos","_dir",
 	"_obj","_cfgVeh","_side","_entry","_sides_friendly_num",
+	"_turretLimits","_turret","_minTurn","_maxTurn","_minElev","_target",
+	"_maxElev","_overridden","_need_dir",
 	"_delete","_time","_veh","_type","_n","_str","_arr"];
 
 _cfgVeh = LIB_cfgVeh;
@@ -100,6 +103,56 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 					diag_log format ["Log: [vehicles_other] %1 setHitPointDamage %2", _veh, _arr];
 				};
 			#endif
+
+			//- Разворачивает танк.
+			if (_veh isKindOf "Tank") then {
+				// TODO: Учитывать ограничения поворота пушки.
+				//_turret = [0];
+				//_turretLimits = _veh getTurretLimits _turret;
+
+					_dir = getDir _veh;
+					#ifdef __ARMA3__
+						_target = getAttackTarget _veh;
+					#else
+						_target = assignedTarget _veh;
+					#endif
+					_dir = _dir - ([_veh, _target] call BIS_fnc_dirTo);
+
+					if !(isNull _target) then {
+						if (_dir < 0) then {
+							_dir = _dir + 360;
+						};
+
+						_arr = vehicleMoveInfo _veh;
+						if (_dir >= 345 or _dir <= 15) then {
+							if ("RIGHT" in _arr or "LEFT" in _arr) then {
+								_veh sendSimpleCommand "STOPTURNING";
+							};
+						}else{
+							/*
+							if (_dir >= 270 or _dir <= 90) then {
+								_pos = getPos _veh;
+								_pos = [_pos, 10, 180] call BIS_fnc_relPos;
+								_veh commandMove _pos;
+							}else{
+							*/
+								if ((_arr select 0 == "STOP" or speed _veh < 1) && !("RIGHT" in _arr or "LEFT" in _arr)) then {
+									if (_dir < 350 && _dir > 180) then {
+										_veh sendSimpleCommand "RIGHT";
+										// FIXME: Инерция.
+										_veh sendSimpleCommand "STOPTURNING";
+									};
+									if (_dir > 10 && _dir <= 180) then {
+										_veh sendSimpleCommand "LEFT";
+										// FIXME: Инерция.
+										_veh sendSimpleCommand "STOPTURNING";
+									};
+								};
+							//};
+						};
+					};
+			};
+
 			if (isEngineOn _veh) then {
 				if (speed _veh == 0) then {
 					_obj = driver _veh;
