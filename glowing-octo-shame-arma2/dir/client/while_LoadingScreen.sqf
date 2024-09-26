@@ -2,7 +2,8 @@
 /*
  * Отображение процесса загрузки.
  */
-private ["_timeOut","_script"];
+private ["_timeOut","_resource","_script"];
+_resource = _this select 0;
 _timeOut = ((_this select 2) +time);
 //waitUntil {time > 0};
 
@@ -22,7 +23,11 @@ _script = _this spawn {
 		// Брифинг уже должен быть закрыт.
 		waitUntil {time > 0};
 
+		if (isNil "BIS_fnc_startLoadingScreen") then {
 		startLoadingScreen _resource;
+		}else{
+			[_resource select 1] call BIS_fnc_startLoadingScreen;
+		};
 		diag_log format ["Log: [LoadingScreen] %1, startLoadingScreen %2", time, _this];
 		_progress = 0;
 
@@ -64,4 +69,8 @@ _script = _this spawn {
 
 waitUntil {scriptDone _script or time >= _timeOut};
 diag_log format ["Log: [LoadingScreen] %1, endLoadingScreen", time];
+if (isNil "BIS_fnc_endLoadingScreen") then {
 endLoadingScreen;
+}else{
+	_resource select 1 call BIS_fnc_endLoadingScreen;
+};
