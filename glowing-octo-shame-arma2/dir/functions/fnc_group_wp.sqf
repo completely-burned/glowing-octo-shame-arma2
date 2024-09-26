@@ -114,7 +114,7 @@ if({alive _x} count _units > 0)then{
 	_leader = leader _grp;
 	_leaderPos = getPos vehicle _leader;
 	_wp = [_grp] call gosa_fnc_wp_currentWaypoint;
-	_currentWP = _wp select 1;;
+	_currentWP = _wp select 1;
 	_typeWP = waypointType _wp;
 
 	//--- специальные маршрутны

@@ -9,18 +9,29 @@
 // если удалить все маршруты и один создать у игрока.
 // FIXME: не правильный текущий номер маршрута
 
-private ["_grp","_n","_currentWP"];
+private ["_grp","_n","_currentWP","_return","_fix"];
 _grp = _this select 0;
 
+_fix = true;
 _currentWP = currentWaypoint _grp;
-_n = count waypoints _grp;
-if (_n > 0) then {
-	if (_currentWP > _n) then {
-		diag_log format ["Log: [fnc_wp_currentWaypoint] %1, %2, %3, currentWaypoint fix %4", _grp, waypoints _grp, _currentWP, _n -1];
-		_currentWP = _n -1;
-		_grp setCurrentWaypoint [_grp, _currentWP];
-		_currentWP = currentWaypoint _grp;
+{
+	if (_x select 1 == _currentWP) exitWith {
+		_fix = false;
+		_return = _x;
+		diag_log format ["Log: [fnc_wp_currentWaypoint] %1, %2, _return %3", _grp, waypoints _grp, _return];
 	};
+} forEach waypoints _grp;
+
+if (_fix) then {
+	//_return = [_grp, _currentWP];
+	_return = [_grp, 0];
+	{
+		if (waypointType _x != "") exitWith {
+			_return = _x;
+			_grp setCurrentWaypoint _x;
+			diag_log format ["Log: [fnc_wp_currentWaypoint] %1, %2, %3, currentWaypoint fix %4", _grp, waypoints _grp, [_grp, _currentWP], _return];
+		};
+	} forEach waypoints _grp;
 };
 
-[_grp, _currentWP];
+_return;
