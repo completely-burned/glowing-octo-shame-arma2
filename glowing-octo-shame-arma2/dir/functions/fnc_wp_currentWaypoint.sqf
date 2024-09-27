@@ -23,6 +23,16 @@ _currentWP = currentWaypoint _grp;
 } forEach waypoints _grp;
 
 if (_fix) then {
+	{
+		if (_x select 1 == (_currentWP -1)) exitWith {
+			_fix = false;
+			_return = _x;
+			diag_log format ["Log: [fnc_wp_currentWaypoint] %1, %2, _return %3", _grp, waypoints _grp, _return];
+		};
+	} forEach waypoints _grp;
+};
+
+if (_fix) then {
 	//_return = [_grp, _currentWP];
 	_return = [_grp, 0];
 	{
