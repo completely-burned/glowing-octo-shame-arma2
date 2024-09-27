@@ -1052,6 +1052,7 @@ class Mission
 				position[]={3667.2561,52.457352,2604.207};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
+			presenceCondition="false";
 			id=146;
 			type="LocationRespawnPoint_F";
 			atlOffset=3.2369995;
@@ -1064,6 +1065,7 @@ class Mission
 				position[]={3754.8269,54.005436,2700.2759};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
+			presenceCondition="false";
 			id=147;
 			type="LocationRespawnPoint_F";
 			atlOffset=3.0359993;
@@ -1076,6 +1078,7 @@ class Mission
 				position[]={3648.738,54.306129,2730.771};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
+			presenceCondition="false";
 			id=148;
 			type="LocationRespawnPoint_F";
 			atlOffset=6.4849854e-005;
@@ -1088,6 +1091,7 @@ class Mission
 				position[]={3600.446,51.270153,2655.738};
 			};
 			init="this setVariable [""gosa_respawn_type"", 0];";
+			presenceCondition="false";
 			id=149;
 			type="LocationRespawnPoint_F";
 			atlOffset=2.9949989;
@@ -1814,7 +1818,6 @@ class Mission
 					};
 					id=321;
 					type="vn_i_men_army_08";
-					atlOffset=-7.6293945e-006;
 				};
 				class Item3
 				{
@@ -1831,7 +1834,6 @@ class Mission
 					};
 					id=322;
 					type="vn_i_men_army_13";
-					atlOffset=-7.6293945e-006;
 				};
 				class Item4
 				{
@@ -2043,7 +2045,6 @@ class Mission
 					};
 					id=335;
 					type="vn_i_men_army_10";
-					atlOffset=7.6293945e-006;
 				};
 				class Item10
 				{
@@ -2076,7 +2077,6 @@ class Mission
 					};
 					id=337;
 					type="vn_i_men_army_11";
-					atlOffset=7.6293945e-006;
 				};
 				class Item12
 				{
@@ -2662,10 +2662,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={3720,44.932549,2645};
-			};
 			isPlayable=1;
 			id=373;
 			type="VirtualSpectator_F";
@@ -2742,10 +2738,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={3716,44.919476,2641};
-			};
 			isPlayable=1;
 			id=374;
 			type="VirtualSpectator_F";
@@ -2822,10 +2814,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={3713,44.843513,2637};
-			};
 			isPlayable=1;
 			id=375;
 			type="VirtualSpectator_F";
@@ -2902,10 +2890,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={3723,44.859367,2636};
-			};
 			isPlayable=1;
 			id=376;
 			type="VirtualSpectator_F";
@@ -2982,10 +2966,6 @@ class Mission
 		{
 			dataType="Logic";
 			init="[this] call gosa_fnc_spectator_init_unit";
-			class PositionInfo
-			{
-				position[]={3725,44.343895,2640};
-			};
 			isPlayable=1;
 			id=377;
 			type="VirtualSpectator_F";
