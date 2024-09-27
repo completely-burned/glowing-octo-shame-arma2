@@ -50,6 +50,10 @@ cameraOn sendSimpleCommand "STOPTURNING";
 	_x action ["TurnOut", cameraon];
 } forEach (crew cameraon - [driver cameraon]);
 
+{
+	_x allowDamage false;
+} forEach crew this + [this];
+
 setAccTime 1;
 
 player allowDamage false;

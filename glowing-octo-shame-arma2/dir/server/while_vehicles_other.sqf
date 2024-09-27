@@ -113,6 +113,8 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 			#endif
 
 			//- Разворачивает танк.
+			// В A2 отсутсвуют vehicleMoveInfo и sendSimpleCommand "STOPTURNING";
+			#ifdef __ARMA3__
 			if (_veh isKindOf "Tank") then {
 				// TODO: Учитывать ограничения поворота пушки.
 				//_turret = [0];
@@ -156,6 +158,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 						};
 					};
 			};
+			#endif
 
 			if (isEngineOn _veh) then {
 				if (speed _veh == 0) then {
