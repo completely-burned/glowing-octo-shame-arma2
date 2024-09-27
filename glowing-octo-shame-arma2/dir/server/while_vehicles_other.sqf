@@ -6,7 +6,7 @@
 
 private ["_countMHQ","_count_transportammo","_count_transportrepair","_b",
 	"_count_transportfuel","_timeNew","_timerDelete","_shop","_pos","_dir",
-	"_obj","_cfgVeh","_side","_entry","_sides_friendly_num",
+	"_obj","_cfgVeh","_side","_entry","_sides_friendly_num","_vehicles","_c",
 	"_turretLimits","_turret","_minTurn","_maxTurn","_minElev","_target",
 	"_maxElev","_overridden","_need_dir",
 	"_delete","_time","_veh","_type","_n","_str","_arr"];
@@ -25,9 +25,15 @@ _timerDelete = 60 * 2.5;
 while{true}do{
 _countMHQ = 0;
 _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
-{
+	_vehicles = vehicles;
+	sleep 3;
+	_c = count _vehicles;
+	if (_c > 0) then {
+		_s = 60/_c;
+		for "_i" from 0 to (_c -1) do {
+			_veh = _vehicles select _i;
+			sleep (_s call gosa_fnc_dynSleep);
 	_delete = false;
-	_veh=_x;
 	_type = typeOf _veh;
 
 	_time = (_veh getVariable "gosa_timeDeleteVehicle");
@@ -177,10 +183,8 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 				diag_log format ["Log: [vehicles_other] %1 time %2, new %3", _veh, _time, _timeNew];
 			};
 		};
-
-		_timeNew = nil;
+				_timeNew = nil;
+			};
+		};
 	};
-} forEach vehicles;
-
-	sleep 10;
 };
