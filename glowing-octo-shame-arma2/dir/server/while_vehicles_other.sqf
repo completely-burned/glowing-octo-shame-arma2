@@ -5,11 +5,12 @@
 */
 
 private ["_countMHQ","_count_transportammo","_count_transportrepair","_b",
+	"_isPlayer",
 	"_count_transportfuel","_timeNew","_timerDelete","_shop","_pos","_dir",
 	"_obj","_cfgVeh","_side","_entry","_sides_friendly_num","_vehicles","_c",
 	"_turretLimits","_turret","_minTurn","_maxTurn","_minElev","_target",
-	"_maxElev","_overridden","_need_dir",
-	"_delete","_time","_veh","_type","_n","_str","_arr"];
+	"_maxElev","_overridden","_need_dir","_crew","_arrOff","_arrOn","_isNight",
+	"_delete","_time","_veh","_type","_n","_str","_arr","_SearchLight_dist"];
 
 _cfgVeh = LIB_cfgVeh;
 _sides_friendly_num = gosa_sides_friendly_num;
@@ -21,11 +22,17 @@ if (missionNamespace getVariable "gosa_shop" == 1) then {
 };
 
 _timerDelete = 60 * 2.5;
+// Обычные фары <150m, инфракрасные >500m
+_SearchLight_dist = 250;
+
+_arrOff = [];
+_arrOn = [];
 
 while{true}do{
 _countMHQ = 0;
 _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 	_vehicles = vehicles;
+	_isNight = [daytime] call gosa_fnc_isNight;
 	sleep 3;
 	_c = count _vehicles;
 	if (_c > 0) then {
@@ -93,24 +100,106 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 		};
 
 		if (_veh call gosa_fnc_isCrewAlive) then{
-			if (fuel _veh < 0.01) then {
-				if ({_x call gosa_fnc_isPlayer} count crew _veh <= 0) then {
-					_veh setFuel 0.2;
-					diag_log format ["Log: [vehicles_other] %1 refueling", _veh];
-				};
-			};
+					_crew = crew _veh;
+					if ({_x call gosa_fnc_isPlayer} count _crew > 0) then {_isPlayer = true} else {_isPlayer = false};
 
-			// FIXME: IFA3: Повреждения мотора отображаются визуально и такой скрытый ремонт не подходит.
-			#ifdef __ARMA3__
-				_str = "hitEngine";
-				_n = _veh getHitPointDamage _str;
-				if (_n >= 0.9) then {
-					_n = 0.7;
-					_arr = [_str, _n];
-					_veh setHitPointDamage _arr;
-					diag_log format ["Log: [vehicles_other] %1 setHitPointDamage %2", _veh, _arr];
-				};
-			#endif
+					if !(_isPlayer) then {
+						if (fuel _veh < 0.01) then {
+							_veh setFuel 0.2;
+							diag_log format ["Log: [vehicles_other] %1 refueling", _veh];
+						};
+
+						// FIXME: IFA3: Повреждения мотора отображаются визуально и такой скрытый ремонт не подходит.
+						#ifdef __ARMA3__
+							_str = "hitEngine";
+							_n = _veh getHitPointDamage _str;
+							if (_n >= 0.9) then {
+								_n = 0.7;
+								_arr = [_str, _n];
+								_veh setHitPointDamage _arr;
+								diag_log format ["Log: [vehicles_other] %1 setHitPointDamage %2", _veh, _arr];
+							};
+						#endif
+
+						//- Включает фары и прожекторы.
+						// TODO: Патрульные машины которые светят вокруг, но при угрозе прячутся.
+						#ifdef __ARMA3__
+						if (_isNight) then {
+							_b = false;
+							_arrOff resize 0;
+							_arrOn resize 0;
+							for "_i0" from 0 to (count _crew -1) do {
+								_obj = _crew select _i0;
+								if (isNull assignedTarget _obj && getSuppression _obj <= 0) then {
+									_arrOff set [count _arrOff, _obj];
+								}else{
+									_arr = _veh unitTurret _obj;
+									if !(isLightOn [_veh, _arr]) then {
+										diag_log format ["Log: [vehicles_other] %1 SearchLightOn %2 %3", _veh, _obj, _arr];
+										_obj action ["SearchLightOn", _veh];
+									};
+									_arrOn set [count _arrOn, _obj];
+									_b = true;
+								};
+							};
+
+							_obj = assignedTarget _veh;
+							if (isNull _obj && getSuppression _obj <= 0) then {
+								for "_i0" from 0 to (count _arrOff -1) do {
+									_arr = _veh unitTurret (_arrOff select _i0);
+									if (isLightOn [_veh, _arr]) then {
+										diag_log format ["Log: [vehicles_other] %1 SearchLightOff %2 %3", _veh, _arrOff select _i0, _arr];
+										_arrOff select _i0 action ["SearchLightOff", _veh];
+									};
+								};
+								_b = false;
+							}else{
+								_b = true;
+								_n = _obj distance _veh;
+								if (_n > _SearchLight_dist) then {
+									_b = false;
+								};
+								if (_b) then {
+									for "_i0" from 0 to (count _arrOff -1) do {
+										_arr = _veh unitTurret (_arrOff select _i0);
+										if !(isLightOn [_veh, _arr]) then {
+											diag_log format ["Log: [vehicles_other] %1 SearchLightOn %2 %3", _veh, _arrOff select _i0, _arr];
+											_arrOff select _i0 action ["SearchLightOn", _veh];
+										};
+									};
+								};
+							};
+
+							if (_b) then {
+								if (_veh checkAIFeature "LIGHTS") then {
+									diag_log format ["Log: [vehicles_other] %1 disableAI %2", _veh, "LIGHTS"];
+									_veh disableAI "LIGHTS";
+								};
+								_veh setPilotLight true;
+								//_veh enableGunLights "ForceOn";
+							}else{
+								if !(_veh checkAIFeature "LIGHTS") then {
+									diag_log format ["Log: [vehicles_other] %1 enableAI %2", _veh, "LIGHTS"];
+									_veh enableAI "LIGHTS";
+								};
+								//_veh setPilotLight false;
+								//_veh enableGunLights "Auto";
+							};
+						} else {
+							if !(_veh checkAIFeature "LIGHTS") then {
+								diag_log format ["Log: [vehicles_other] %1 enableAI %2", _veh, "LIGHTS"];
+								_veh enableAI "LIGHTS";
+							};
+							for "_i0" from 0 to (count _arrOff -1) do {
+								_arr = _veh unitTurret (_arrOff select _i0);
+								if (isLightOn [_veh, _arr]) then {
+									diag_log format ["Log: [vehicles_other] %1 SearchLightOff %2 %3", _veh, _arrOff select _i0, _arr];
+									_arrOff select _i0 action ["SearchLightOff", _veh];
+								};
+							};
+						};
+						#endif
+					};
 
 			//- Разворачивает танк.
 			// В A2 отсутсвуют vehicleMoveInfo и sendSimpleCommand "STOPTURNING";
