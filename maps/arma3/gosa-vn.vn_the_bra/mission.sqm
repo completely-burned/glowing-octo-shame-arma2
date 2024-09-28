@@ -8,7 +8,7 @@ class EditorData
 	toggles=617;
 	class ItemIDProvider
 	{
-		nextID=254;
+		nextID=256;
 	};
 	class MarkerIDProvider
 	{
@@ -2665,7 +2665,6 @@ class Mission
 			};
 			class Attributes
 			{
-				presenceCondition="!isMultiplayer";
 				placementRadius=25;
 			};
 			id=181;
@@ -3760,16 +3759,38 @@ class Mission
 			};
 			id=249;
 		};
+		class Item94
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2520,49.788944,845};
+			};
+			init="this setVariable [""gosa_respawn_type"", 0];";
+			id=254;
+			type="LocationRespawnPoint_F";
+		};
+		class Item95
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2506,49.673512,884};
+			};
+			init="this setVariable [""gosa_Location_type"", 0];";
+			id=255;
+			type="LocationBase_F";
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=7;
+			nextID=8;
 		};
 		class Links
 		{
-			items=7;
+			items=8;
 			class Item0
 			{
 				linkID=0;
@@ -3835,6 +3856,16 @@ class Mission
 				linkID=6;
 				item0=54;
 				item1=19;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item7
+			{
+				linkID=7;
+				item0=254;
+				item1=255;
 				class CustomData
 				{
 					type="Sync";
