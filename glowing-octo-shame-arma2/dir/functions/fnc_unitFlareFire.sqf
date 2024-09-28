@@ -191,7 +191,7 @@ if (isNil "_obj") then {
 		_arr set [1, (_arr select 1) - _n + random _n0];
 
 		_n = _ammo call gosa_fnc_fnc_flareHeight;
-		_arr set [2, _n + random (_n/3)];
+		_arr set [2, _n - (_n/4) + random (_n/2)];
 			/*
 			private _sound = "SN_Flare_Fired_4";
 			private _soundSourceClass = "SoundFlareLoop_F";
