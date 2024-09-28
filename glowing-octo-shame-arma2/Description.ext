@@ -990,6 +990,13 @@ class Params {
 		texts[] = {STR_ENABLED,STR_DISABLED};
 		default = 1;
 	};
+	// Фары
+	class gosa_Lights {
+		title="MODULE: Lights";
+		values[] = {1,0};
+		texts[] = {STR_ENABLED,STR_DISABLED};
+		default = 1;
+	};
 
 	// Респавн техники.
 	class gosa_respawnVehicles {

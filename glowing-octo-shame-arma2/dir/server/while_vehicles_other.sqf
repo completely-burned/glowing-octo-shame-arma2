@@ -5,7 +5,7 @@
 */
 
 private ["_countMHQ","_count_transportammo","_count_transportrepair","_b",
-	"_isPlayer","_lights",
+	"_isPlayer","_lights","_param_Lights",
 	"_count_transportfuel","_timeNew","_timerDelete","_shop","_pos","_dir",
 	"_obj","_cfgVeh","_side","_entry","_sides_friendly_num","_vehicles","_c",
 	"_turretLimits","_turret","_minTurn","_maxTurn","_minElev","_target",
@@ -19,6 +19,11 @@ if (missionNamespace getVariable "gosa_shop" == 1) then {
 	_shop = true;
 }else{
 	_shop = false;
+};
+if (missionNamespace getVariable "gosa_Lights" > 0) then {
+	_param_Lights = true;
+}else{
+	_param_Lights = false;
 };
 
 _timerDelete = 60 * 2.5;
@@ -124,14 +129,49 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 						//- Включает фары и прожекторы.
 						// FIXME: Прожектор не отключается сам после уничтожения ТС.
 						// TODO: Патрульные машины которые светят вокруг, но при угрозе прячутся.
+						// FIXME: Фары ТС из SPE слабые, приводят к разоблачению, нужно включать лишь при очень близком лобовом контакте или во время быстрой езды (не видно же).
 						#ifdef __ARMA3__
-						if (_isNight) then {
-							_lights = false;
-							_arrOff resize 0;
-							_arrOn resize 0;
-							for "_i0" from 0 to (count _crew -1) do {
-								_obj = _crew select _i0;
-								_target = assignedTarget _obj;
+						if (_param_Lights) then {
+							if (_isNight) then {
+								_lights = false;
+								_arrOff resize 0;
+								_arrOn resize 0;
+								for "_i0" from 0 to (count _crew -1) do {
+									_obj = _crew select _i0;
+									_target = assignedTarget _obj;
+									if (isNull _target && getSuppression _obj <= 0) then {
+										_b = false;
+									}else{
+										if (_target isKindOf "Air") then {
+											_b = false;
+										}else{
+											_b = true;
+										}
+									};
+									if (_b) then {
+										_arr = _veh unitTurret _obj;
+										if (_arr select 0 >= 0) then {
+											if !(isLightOn [_veh, _arr]) then {
+												diag_log format ["Log: [vehicles_other] %1 SearchLightOn %2 %3, %4, %5", _veh, _obj, getSuppression _obj, typeOf _veh];
+												_obj action ["SearchLightOn", _veh];
+											};
+										};
+										_arrOn set [count _arrOn, _obj];
+										_lights = true;
+									}else{
+										_arrOff set [count _arrOff, _obj];
+									};
+								};
+
+								_target = assignedTarget _veh;
+								if (isNull _target) then {
+									_arr = _veh targets [true, _SearchLight_dist];
+									for "_i0" from 0 to (count _arr -1) do {
+										if (_veh knowsAbout (_arr select _i0) > 0) exitWith {
+											_target = _arr select _i0;
+										};
+									};
+								};
 								if (isNull _target && getSuppression _obj <= 0) then {
 									_b = false;
 								}else{
@@ -142,98 +182,66 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 									}
 								};
 								if (_b) then {
-									_arr = _veh unitTurret _obj;
-									if (_arr select 0 >= 0) then {
-										if !(isLightOn [_veh, _arr]) then {
-											diag_log format ["Log: [vehicles_other] %1 SearchLightOn %2 %3, %4, %5", _veh, _obj, getSuppression _obj, typeOf _veh];
-											_obj action ["SearchLightOn", _veh];
-										};
-									};
-									_arrOn set [count _arrOn, _obj];
 									_lights = true;
-								}else{
-									_arrOff set [count _arrOff, _obj];
-								};
-							};
-
-							_target = assignedTarget _veh;
-							if (isNull _target) then {
-								_arr = _veh targets [true, _SearchLight_dist];
-								for "_i0" from 0 to (count _arr -1) do {
-									if (_veh knowsAbout (_arr select _i0) > 0) exitWith {
-										_target = _arr select _i0;
+									_n = _target distance _veh;
+									if (_n > _SearchLight_dist) then {
+										_lights = false;
 									};
-								};
-							};
-							if (isNull _target && getSuppression _obj <= 0) then {
-								_b = false;
-							}else{
-								if (_target isKindOf "Air") then {
-									_b = false;
-								}else{
-									_b = true;
-								}
-							};
-							if (_b) then {
-								_lights = true;
-								_n = _target distance _veh;
-								if (_n > _SearchLight_dist) then {
-									_lights = false;
-								};
-								if (_lights) then {
-									for "_i0" from 0 to (count _arrOff -1) do {
-										_arr = _veh unitTurret (_arrOff select _i0);
-										if (_arr select 0 >= 0) then {
-											if !(isLightOn [_veh, _arr]) then {
-												diag_log format ["Log: [vehicles_other] %1 SearchLightOn %2 %3, %4, %5", _veh, _arrOff select _i0, getSuppression _obj, typeOf _veh];
-												_arrOff select _i0 action ["SearchLightOn", _veh];
+									if (_lights) then {
+										for "_i0" from 0 to (count _arrOff -1) do {
+											_arr = _veh unitTurret (_arrOff select _i0);
+											if (_arr select 0 >= 0) then {
+												if !(isLightOn [_veh, _arr]) then {
+													diag_log format ["Log: [vehicles_other] %1 SearchLightOn %2 %3, %4, %5", _veh, _arrOff select _i0, getSuppression _obj, typeOf _veh];
+													_arrOff select _i0 action ["SearchLightOn", _veh];
+												};
 											};
 										};
 									};
-								};
-							}else{
-								for "_i0" from 0 to (count _arrOff -1) do {
-									_arr = _veh unitTurret (_arrOff select _i0);
-									if (_arr select 0 >= 0) then {
-										if (isLightOn [_veh, _arr]) then {
-											diag_log format ["Log: [vehicles_other] %1 SearchLightOff %2 %3, %4, %5", _veh, _arrOff select _i0, getSuppression _obj, typeOf _veh];
-											_arrOff select _i0 action ["SearchLightOff", _veh];
+								}else{
+									for "_i0" from 0 to (count _arrOff -1) do {
+										_arr = _veh unitTurret (_arrOff select _i0);
+										if (_arr select 0 >= 0) then {
+											if (isLightOn [_veh, _arr]) then {
+												diag_log format ["Log: [vehicles_other] %1 SearchLightOff %2 %3, %4, %5", _veh, _arrOff select _i0, getSuppression _obj, typeOf _veh];
+												_arrOff select _i0 action ["SearchLightOff", _veh];
+											};
 										};
 									};
+									_lights = false;
 								};
-								_lights = false;
-							};
 
-							if (_lights) then {
-								if (_veh checkAIFeature "LIGHTS") then {
-									diag_log format ["Log: [vehicles_other] %1 disableAI %2", _veh, "LIGHTS"];
-									_veh disableAI "LIGHTS";
+								if (_lights) then {
+									if (_veh checkAIFeature "LIGHTS") then {
+										diag_log format ["Log: [vehicles_other] %1 disableAI %2", _veh, "LIGHTS"];
+										_veh disableAI "LIGHTS";
+									};
+									if !(isLightOn _veh) then {
+										diag_log format ["Log: [vehicles_other] %1 setPilotLight true", _veh, "LIGHTS"];
+										// FIXME: Фары демаскируют больше чем прожекторы.
+										_veh setPilotLight true;
+									};
+									//_veh enableGunLights "ForceOn";
+								}else{
+									if !(_veh checkAIFeature "LIGHTS") then {
+										diag_log format ["Log: [vehicles_other] %1 enableAI %2", _veh, "LIGHTS"];
+										_veh enableAI "LIGHTS";
+									};
+									//_veh setPilotLight false;
+									//_veh enableGunLights "Auto";
 								};
-								if !(isLightOn _veh) then {
-									diag_log format ["Log: [vehicles_other] %1 setPilotLight true", _veh, "LIGHTS"];
-									// FIXME: Фары демаскируют больше чем прожекторы.
-									_veh setPilotLight true;
-								};
-								//_veh enableGunLights "ForceOn";
-							}else{
+							} else {
 								if !(_veh checkAIFeature "LIGHTS") then {
 									diag_log format ["Log: [vehicles_other] %1 enableAI %2", _veh, "LIGHTS"];
 									_veh enableAI "LIGHTS";
 								};
-								//_veh setPilotLight false;
-								//_veh enableGunLights "Auto";
-							};
-						} else {
-							if !(_veh checkAIFeature "LIGHTS") then {
-								diag_log format ["Log: [vehicles_other] %1 enableAI %2", _veh, "LIGHTS"];
-								_veh enableAI "LIGHTS";
-							};
-							for "_i0" from 0 to (count _arrOff -1) do {
-								_arr = _veh unitTurret (_arrOff select _i0);
-								if (_arr select 0 >= 0) then {
-									if (isLightOn [_veh, _arr]) then {
-										diag_log format ["Log: [vehicles_other] %1 SearchLightOff %2 %3", _veh, _arrOff select _i0];
-										_arrOff select _i0 action ["SearchLightOff", _veh];
+								for "_i0" from 0 to (count _arrOff -1) do {
+									_arr = _veh unitTurret (_arrOff select _i0);
+									if (_arr select 0 >= 0) then {
+										if (isLightOn [_veh, _arr]) then {
+											diag_log format ["Log: [vehicles_other] %1 SearchLightOff %2 %3", _veh, _arrOff select _i0];
+											_arrOff select _i0 action ["SearchLightOff", _veh];
+										};
 									};
 								};
 							};
