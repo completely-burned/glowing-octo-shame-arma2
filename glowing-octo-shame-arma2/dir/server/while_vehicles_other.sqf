@@ -146,7 +146,12 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 										if (_target isKindOf "Air") then {
 											_b = false;
 										}else{
-											_b = true;
+											_n = _target distance _veh;
+											if (_n > _SearchLight_dist) then {
+												_b = false;
+											}else{
+												_b = true;
+											};
 										}
 									};
 									if (_b) then {
