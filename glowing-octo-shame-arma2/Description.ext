@@ -1188,6 +1188,10 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class eh_HandleDamage
+			{
+				file = "dir\functions\fnc_eh_HandleDamage.sqf";
+			};
 			class wp_currentWaypoint
 			{
 				file = "dir\functions\fnc_wp_currentWaypoint.sqf";

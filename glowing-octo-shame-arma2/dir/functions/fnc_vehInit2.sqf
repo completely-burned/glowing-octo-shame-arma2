@@ -15,7 +15,9 @@ if (isNil "_gosa_init") then {
 
 	if (getNumber(configFile >> "CfgVehicles" >> typeOf _o >> "isMan") == 1) then {
 
-		#ifndef __ARMA3__
+		#ifdef __ARMA3__
+			_o addEventHandler ["HandleDamage", {call gosa_fnc_eh_HandleDamage}];
+		#else
 			if (isNil {_o getVariable "BIS_BC_carrier"}) then {_o setVariable ["BIS_BC_carrier",false];};
 			if (isNil {_o getVariable "BIS_BC_dragger"}) then {_o setVariable ["BIS_BC_dragger",false];};
 			if (isNil {_o getVariable "BIS_IS_inAgony"}) then {_o setVariable ["BIS_IS_inAgony",false];};
