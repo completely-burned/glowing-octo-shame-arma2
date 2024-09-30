@@ -215,7 +215,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa iron_excelsior_Tobruk Multi v0.0.5.973 DEBUG";
+		briefingName="WW2 CO 00 gosa iron_excelsior_Tobruk Multi v0.0.5.974 DEBUG";
 		startWeather=0.30000001;
 		startFog=0.050000001;
 		startWind=0.1;

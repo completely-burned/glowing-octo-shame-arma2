@@ -157,7 +157,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa cup_chernarus_A3 East v0.0.5.973 DEBUG";
+		briefingName="CO 00 gosa cup_chernarus_A3 East v0.0.5.974 DEBUG";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
