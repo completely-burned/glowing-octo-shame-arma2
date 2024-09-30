@@ -170,7 +170,7 @@ class CustomAttributes
 				class data
 				{
 					singleType="STRING";
-					value="gosa_IslandType = [280,1986,100];";
+					value="gosa_IslandType_replace = [nil,1986];";
 				};
 			};
 		};

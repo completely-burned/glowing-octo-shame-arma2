@@ -195,7 +195,7 @@ class CustomAttributes
 				class data
 				{
 					singleType="STRING";
-					value="gosa_IslandType = [100,1983,100];";
+					value="gosa_IslandType_replace = [nil,1983];";
 				};
 			};
 		};
@@ -230,7 +230,7 @@ class Mission
 		forecastWind=0.1;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
-		year=2014;
+		year=1983;
 		month=7;
 		day=1;
 		hour=8;

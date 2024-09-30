@@ -18,7 +18,7 @@
 
 if !(isNil "gosa_IslandType") exitWith {gosa_IslandType};
 
-private ["_w","_r"];
+private ["_w","_r","_arr"];
 _w = toLower worldName;
 _r = [250,2012,100];
 
@@ -136,6 +136,15 @@ if (_w in ["altis","tanoa","enoch","vr","stratis","sefrouramal"]) then
 if (_w in ["stratis","Malden","takistan"]) then
 {
 	_r set [2,1000];
+};
+
+if !(isNil "gosa_IslandType_replace") then {
+	_arr = gosa_IslandType_replace;
+	for "_i" from 0 to (count _arr -1) do {
+		if !(isNil {_arr select _i}) then {
+			_r set [_i, _arr select _i];
+		};
+	};
 };
 
 _r;
