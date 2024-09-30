@@ -278,8 +278,8 @@ then
 		var_parallel+=("7z a -mmt -snh ${PRE}/${FINITENAME}-${VERSION}-workshop.7z ${PRE}/*arma3*workshop*")
 		parallel ::: "${var_parallel[@]}"
 	else
-		7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-${VERSION}.7z ${PRE}/*rsync*
-		7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-${VERSION}.7z ${PRE}/*arma3*workshop*
+		7z a -mmt -snh ${PRE}/${FINITENAME}-${VERSION}-rsync.7z ${PRE}/*rsync*
+		7z a -mmt -snh ${PRE}/${FINITENAME}-${VERSION}-workshop.7z ${PRE}/*arma3*workshop*
 	fi
 fi
 
