@@ -35,7 +35,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=21;
+		items=22;
 		class Item0
 		{
 			side="LOGIC";
@@ -48,7 +48,7 @@ class Mission
 					id=0;
 					side="LOGIC";
 					vehicle="LocationLogicCity";
-					synchronizations[]={1};
+					synchronizations[]={1,30};
 				};
 			};
 		};
@@ -396,14 +396,14 @@ class Mission
 				items=2;
 				class Item0
 				{
-					position[]={600,36,491};
+					position[]={737.02319,35.380001,401.95532};
 					id=30;
 					side="LOGIC";
 					vehicle="LocationLogicAirport";
 					leader=1;
 					text="gosa_LogicLocationBase";
 					init="this setVariable [""gosa_Location_type"", 1];";
-					synchronizations[]={8,7,58};
+					synchronizations[]={8,7,58,0};
 				};
 				class Item1
 				{
@@ -688,7 +688,7 @@ class Mission
 					id=56;
 					side="WEST";
 					vehicle="BAF_Soldier_Officer_MTP";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					rank="MAJOR";
 				};
@@ -700,6 +700,63 @@ class Mission
 					vehicle="BAF_Soldier_L_MTP";
 					player="PLAY CDG";
 					rank="CORPORAL";
+				};
+			};
+		};
+		class Item21
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={621.98956,34.553757,522.50415};
+					id=59;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+				};
+				class Item1
+				{
+					position[]={624.98956,34.546131,517.50415};
+					id=60;
+					side="CIV";
+					vehicle="TK_CIV_Takistani02_EP1";
+					player="PLAY CDG";
+				};
+				class Item2
+				{
+					position[]={626.98956,34.572365,517.50415};
+					id=61;
+					side="CIV";
+					vehicle="TK_CIV_Takistani03_EP1";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={628.98956,34.609783,517.50415};
+					id=62;
+					side="CIV";
+					vehicle="TK_CIV_Takistani05_EP1";
+					player="PLAY CDG";
+				};
+				class Item4
+				{
+					position[]={630.98956,34.654785,517.50415};
+					id=63;
+					side="CIV";
+					vehicle="TK_CIV_Woman01_EP1";
+					player="PLAY CDG";
+				};
+				class Item5
+				{
+					position[]={632.98956,34.699787,517.50415};
+					id=64;
+					side="CIV";
+					vehicle="TK_CIV_Takistani06_EP1";
+					player="PLAY CDG";
 				};
 			};
 		};
