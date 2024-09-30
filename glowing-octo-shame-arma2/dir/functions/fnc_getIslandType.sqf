@@ -18,7 +18,7 @@
 
 if !(isNil "gosa_IslandType") exitWith {gosa_IslandType};
 
-private ["_w","_r","_arr"];
+private ["_w","_r","_arr","_n"];
 _w = toLower worldName;
 _r = [250,2012,100];
 
@@ -145,6 +145,11 @@ if !(isNil "gosa_IslandType_replace") then {
 			_r set [_i, _arr select _i];
 		};
 	};
+};
+
+_n = missionNamespace getVariable "gosa_StartYear";
+if (_n > 0) then {
+	_r set [1, _n];
 };
 
 _r;
