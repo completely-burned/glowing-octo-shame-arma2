@@ -78,6 +78,13 @@ mkdir -p $PRE
 # OUT=/куда/поместить/собранные/pbo/ ./tools/build_pbo_linux.sh
 OUT="${OUT:-$DIR/${FINITENAME}}"
 
+if [[ -z "$GITHUB_REF_NAME" ]]
+then
+	VERSION="${VERSION:-latest}"
+else
+	VERSION=$GITHUB_REF_NAME
+fi
+
 if [[ ! -d ${OUT} ]]
 then
 	mkdir -p ${OUT}
@@ -152,13 +159,13 @@ do
 
 		MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
 		TMP=$(grep briefingName ${DIR}/mission.sqm)
-		VERSION=$(echo ${TMP} | sed -e 's/.*".*gosa.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
+		pbo_VERSION=$(echo ${TMP} | sed -e 's/.*".*gosa.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
 		SIDE=$(echo ${TMP} | sed -e 's/.*".*gosa.* .* \(.*\) v.*".*/\1/')
 		DLC2=$(echo ${TMP} | sed -e 's/.*"\(.*\)CO.*".*/\1/')
 		DLC=$(echo "${DLC2}" | sed -e 's/\ /_/gi')
 
 		# Место подготовки файлов перед архивацией.
-		TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
+		TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${pbo_VERSION,,}.${MAP,,}"
 		echo "Name ${TMPDIRNAME}"
 		MISSION=$TMPDIR/.build.tmp/$TMPDIRNAME
 		mkdir -p $MISSION
@@ -191,7 +198,7 @@ do
 			briefingNameWORKSHOP="${DLC2}COOP gosa ${MAP}"
 			echo "WORKSHOP: briefingName '${briefingNameWORKSHOP}'"
 
-			WORKSHOPTMPDIRNAME="workshop_${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${VERSION,,}.${MAP,,}"
+			WORKSHOPTMPDIRNAME="workshop_${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${pbo_VERSION,,}.${MAP,,}"
 			echo "WORKSHOP: Name ${WORKSHOPTMPDIRNAME}"
 			WORKSHOPMISSION=${TMPDIR}/.build.tmp/${WORKSHOPTMPDIRNAME}
 
@@ -202,7 +209,7 @@ do
 			sed -i 's/\(.*briefingName.*=\).*/\1"'"${briefingNameWORKSHOP}"'";/' ${WORKSHOPMISSION}/mission.sqm
 		fi
 
-		filename_prefix="${PRE}/${DLC,,}co_00_${NAME_SHORT,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${VERSION,,}"
+		filename_prefix="${PRE}/${DLC,,}co_00_${NAME_SHORT,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${pbo_VERSION,,}"
 
 			# Если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив.
 			if [[ -x "$(command -v parallel)" ]]
@@ -267,12 +274,12 @@ then
 	echo "7z file create"
 	if [[ -x "$(command -v parallel)" ]]
 	then
-		var_parallel=("7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-latest ${PRE}/*rsync*")
-		var_parallel+=("7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-latest ${PRE}/*arma3*workshop*")
+		var_parallel=("7z a -mmt -snh ${PRE}/${FINITENAME}-${VERSION}-rsync.7z ${PRE}/*rsync*")
+		var_parallel+=("7z a -mmt -snh ${PRE}/${FINITENAME}-${VERSION}-workshop.7z ${PRE}/*arma3*workshop*")
 		parallel ::: "${var_parallel[@]}"
 	else
-		7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-latest ${PRE}/*rsync*
-		7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-latest ${PRE}/*arma3*workshop*
+		7z a -mmt -snh ${PRE}/${FINITENAME}-rsync-${VERSION}.7z ${PRE}/*rsync*
+		7z a -mmt -snh ${PRE}/${FINITENAME}-workshop-${VERSION}.7z ${PRE}/*arma3*workshop*
 	fi
 fi
 
@@ -292,11 +299,11 @@ then
 	torrent_parallel+=( "transmission-create \
 		-t ${tracker} -c ${COMMENT} \
 		-w 'http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/' \
-		-o '${PRE}/${FINITENAME}-transmission.torrent' \
+		-o '${PRE}/${FINITENAME}-${VERSION}-transmission.torrent' \
 		${TORRENT_TMPDIR}" )
 	torrent_parallel+=( "ctorrent -t \
 		-u ${tracker} -c ${COMMENT} \
-		-s '${PRE}/${FINITENAME}-ctorrent.torrent' \
+		-s '${PRE}/${FINITENAME}-${VERSION}-ctorrent.torrent' \
 		${TORRENT_TMPDIR}" )
 
 	if [[ ! -z "$torrent_parallel" ]]
