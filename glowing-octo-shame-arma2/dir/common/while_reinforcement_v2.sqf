@@ -265,8 +265,6 @@ while{_run}do{
 			};
 	}else{
 		if !(isNil "gosa_respawnRandom") then {
-			// TODO: Совместимость с PvP.
-			if !(_mode_pvp) then {
 		if (_deviceT2 or _deviceType in [1,2]) then {
 			//--- Аварийная группа возрождения.
 			// FIXME: Не проверенно в одиночной игре.
@@ -321,7 +319,6 @@ while{_run}do{
 					];
 				};
 			};
-		};
 			};
 		};
 
