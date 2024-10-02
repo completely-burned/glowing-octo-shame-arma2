@@ -1,11 +1,11 @@
 /*
 	Скрипт отвечает за смену локаций и ее размер.
 */
-
+private["_east1","_west1","_resistance1","_listPlayers","_s_1g","_veh","_next",
+	"_sizeLocation","_objects","_west","_east","_resistance","_westPlayers",
+	"_eastPlayers","_resistancePlayers"];
 
 waitUntil {sleep 5; !isNil "locationStarted"};
-
-private["_east1","_west1","_resistance1","_listPlayers","_s_1g"];
 _east1 = 0;_west1 = 0;_resistance1 = 0;
 
 //-- Пространство на отряд.
@@ -27,18 +27,14 @@ while{true}do{
 	_time = time;
 
 	if !(isNil "CivilianLocation") then {
-		private["_sizeLocation"];
 		_sizeLocation = sqrt((_s_1g * ({{alive _x && !(_x call gosa_fnc_isPlayer)} count units _x > 0} count allGroups))/pi) max 100;
 		if(gosa_locationSize != _sizeLocation)then{
 			gosa_locationSize = +_sizeLocation;
 			publicVariable "gosa_locationSize";
 		};
 
-		Private["_objects"];
 		_objects = (civilianBasePos nearEntities [["AllVehicles"], gosa_locationSize]);
 
-		Private["_west","_east","_resistance"];
-		Private["_westPlayers","_eastPlayers","_resistancePlayers"];
 
 		_west = West CountSide _objects;
 		_east = East CountSide _objects;
@@ -48,9 +44,8 @@ while{true}do{
 		_eastPlayers = 0;
 		_resistancePlayers = 0;
 
-		{
-			private["_veh"];
-			_veh = effectiveCommander _x;
+		for "_i" from 0 to (count _objects -1) do {
+			_veh = effectiveCommander _objects select _i;
 			if(_veh call gosa_fnc_isPlayer)then{
 				switch (side _veh) do {
 					case (west):
@@ -68,7 +63,7 @@ while{true}do{
 					default {};
 				};
 			};
-		}forEach _objects;
+		};
 
 		if (missionNamespace getVariable "respawn" == 0) then {
 			// FIXME: не понимаю, зачем это вообще нужно, возможно в режиме возрождения база слишком медленный захват
@@ -139,7 +134,6 @@ while{true}do{
 
 		_listPlayers = ([] call gosa_fnc_listPlayers);
 
-		private["_next"];
 		_next = false;
 		if(isMultiplayer)then{
 			if (((_east1 >=  50000 && east CountSide _listPlayers > 0 && _eastEnemies * 3 < _east) || (_west1 >=  50000 && west CountSide _listPlayers > 0 && _westEnemies * 3 < _west) || (_resistance1 >=  50000 && resistance CountSide _listPlayers > 0 && _resistanceEnemies * 3 < _resistance))) then {
@@ -154,7 +148,7 @@ while{true}do{
 			if (missionNamespace getVariable "gosa_mission" == 2) then {
 				[] call gosa_fnc_mission_capture_location;
 			}else{
-			[] call locationNext;
+				[] call locationNext;
 			};
 			_east1 = 0;
 			_west1 = 0;
