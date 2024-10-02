@@ -265,60 +265,60 @@ while{_run}do{
 			};
 	}else{
 		if !(isNil "gosa_respawnRandom") then {
-		if (_deviceT2 or _deviceType in [1,2]) then {
-			//--- Аварийная группа возрождения.
-			// FIXME: Не проверенно в одиночной игре.
-			// Чтобы не закончились юниты для перерождения.
-			// Переменная на стороне клиента.
-			// TODO: Устранить конфликт с HC.
-			_b = isNil "gosa_player_needs_revival";
-			if (_b) then {
-				_n = {local _x} count units player;
-				diag_log format ["Log: [reinforcements] %1 local units %2", _n, units player];
-				if (_n < 3) then {
-						if (east getFriend gosa_playerSide >= 0.6) then {
-							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
-							diag_log format ["Log: [reinforcements] %1 east grp %2", _n];
-						}else{
-							_n = 0;
+			if (_deviceT2 or _deviceType in [1,2]) then {
+				//--- Аварийная группа возрождения.
+				// FIXME: Не проверенно в одиночной игре.
+				// Чтобы не закончились юниты для перерождения.
+				// Переменная на стороне клиента.
+				// TODO: Устранить конфликт с HC.
+				_b = isNil "gosa_player_needs_revival";
+				if (_b) then {
+					_n = {local _x} count units player;
+					diag_log format ["Log: [reinforcements] %1 local units %2", _n, units player];
+					if (_n < 3) then {
+							if (east getFriend gosa_playerSide >= 0.6) then {
+								_n = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
+								diag_log format ["Log: [reinforcements] %1 east grp %2", _n];
+							}else{
+								_n = 0;
+							};
+
+						if (_n < 1) then {
+							if (west getFriend gosa_playerSide >= 0.6) then {
+								_n = {isNil {_x getVariable "patrol"}} count (((_grp select 1)+(_grp select 4))-[group player]);
+								diag_log format ["Log: [reinforcements] %1 west grp %2", _n];
+							};
 						};
 
-					if (_n < 1) then {
-						if (west getFriend gosa_playerSide >= 0.6) then {
-							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 1)+(_grp select 4))-[group player]);
-							diag_log format ["Log: [reinforcements] %1 west grp %2", _n];
+						if (_n < 1) then {
+							if (resistance getFriend gosa_playerSide >= 0.6) then {
+								_n = {isNil {_x getVariable "patrol"}} count (((_grp select 2)+(_grp select 5))-[group player]);
+								diag_log format ["Log: [reinforcements] %1 guer grp %2", _n];
+							};
 						};
-					};
 
-					if (_n < 1) then {
-						if (resistance getFriend gosa_playerSide >= 0.6) then {
-							_n = {isNil {_x getVariable "patrol"}} count (((_grp select 2)+(_grp select 5))-[group player]);
-							diag_log format ["Log: [reinforcements] %1 guer grp %2", _n];
+						if (_n > 0) then {
+							// Количество отрядов > 0.
+							_b = false;
 						};
-					};
-
-					if (_n > 0) then {
-						// Количество отрядов > 0.
+					}else{
+						// Количество юнитов в группе >= 3.
 						_b = false;
 					};
 				}else{
-					// Количество юнитов в группе >= 3.
-					_b = false;
+					// Необходимо генерировать отряд если переменная установлена.
+					_b = true;
+					diag_log format ["Log: [reinforcements] _player_needs_revival %1 %2", _b, gosa_player_needs_revival];
 				};
-			}else{
-				// Необходимо генерировать отряд если переменная установлена.
-				_b = true;
-				diag_log format ["Log: [reinforcements] _player_needs_revival %1 %2", _b, gosa_player_needs_revival];
-			};
-			if (_b) then {
-				if ({_x select 1 == 8} count _conveyer < 1) then {
-					_n = floor random count _sides_friendly;
-					_conveyer set [count _conveyer,
-						[[_sides_friendly select _n, _friendlySide select _n, _locationPos]
-							spawn gosa_fnc_failoverGroup, 8]
-					];
+				if (_b) then {
+					if ({_x select 1 == 8} count _conveyer < 1) then {
+						_n = floor random count _sides_friendly;
+						_conveyer set [count _conveyer,
+							[[_sides_friendly select _n, _friendlySide select _n, _locationPos]
+								spawn gosa_fnc_failoverGroup, 8]
+						];
+					};
 				};
-			};
 			};
 		};
 
