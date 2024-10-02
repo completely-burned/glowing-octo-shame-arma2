@@ -45,7 +45,7 @@ while{true}do{
 		_resistancePlayers = 0;
 
 		for "_i" from 0 to (count _objects -1) do {
-			_veh = effectiveCommander _objects select _i;
+			_veh = effectiveCommander (_objects select _i);
 			if(_veh call gosa_fnc_isPlayer)then{
 				switch (side _veh) do {
 					case (west):
