@@ -22,7 +22,7 @@ class Mission
 	randomSeed=6245650;
 	class Intel
 	{
-		briefingName="CO 00 gosa Woodland_ACR east v0.0.5.977 DEBUG";
+		briefingName="CO 00 gosa Woodland_ACR east v0.0.5.978 DEBUG";
 		startWeather=0.15;
 		forecastWeather=0.15;
 		year=2010;
