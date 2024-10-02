@@ -18,10 +18,11 @@ private["_u"];
 _u = units _this;
 
 // специальные группы удалять не нужно
-if (_this != deadGroup && {_x call gosa_fnc_isPlayer} count _u == 0) then {
+if (_this != deadGroup && {_x call gosa_fnc_isPlayer} count _u <= 0) then {
 
 	diag_log format ["Log: [fnc_deleteGroup.sqf] deleteGroup %1, units %2", _this, _u];
 
+	#ifndef __ARMA3__
 	// иногда специальная группа удаляется по неизвестной причине
 	if (isNull deadGroup) then {
 		deadGroup = createGroup civilian;
@@ -29,6 +30,7 @@ if (_this != deadGroup && {_x call gosa_fnc_isPlayer} count _u == 0) then {
 
 	// перемещаем уничтоженных юнитов этой группы в специальную группу
 	_u joinSilent deadGroup;
+	#endif
 
 	// юниты перемещаются не сразу, и группа скорее всего не удалиться первой попытки, если не пуста
 	deleteGroup _this;
