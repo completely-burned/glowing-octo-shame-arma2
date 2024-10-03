@@ -10,13 +10,15 @@ for "_i" from 0 to (count _vehicles -1) do {
 	for "_i0" from _n to (_t -1) do {
 		_unit = _cargo select _i0;
 		diag_log format ["Log: [fnc_MoveInCargo] %1 moveInCargo < %2", _veh, _unit];
-		_unit assignAsCargo _veh;
-		_unit moveInCargo _veh;
 		#ifdef __ARMA3__
+			_unit moveInAny _veh;
 			if (leader _veh == _unit) then {
 				diag_log format ["Log: [fnc_MoveInCargo] %1 setEffectiveCommander %2", _veh, _unit];
 				_veh setEffectiveCommander _unit;
 			};
+		#else
+			_unit assignAsCargo _veh;
+			_unit moveInCargo _veh;
 		#endif
 	};
 	_n = _n + _ep;
