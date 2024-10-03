@@ -16,12 +16,14 @@ for "_i" from 0 to (count _arr -1) do {
 	//_l = leader _g;
 
 	_u = units _g;
+	// TODO: Нужно больше проверок для стабильности.
+	if ((alive (_u select 0) && damage (_u select 0) < 1) or 
 	#ifdef __A2OA__
-	if (alive (_u select 0) or {{alive _x} count _u > 0}) then
+		{{alive _x && damage _x < 1} count _u > 0}
 	#else
-	if (alive (_u select 0) or ({alive _x} count _u > 0)) then
+		({alive _x && damage _x < 1} count _u > 0)
 	#endif
-	{
+	) then {
 		// FIXME: Не работает должным образом.
 		// У игроков отряд может зависнуть и приводить к проблемам.
 		#ifdef __A2OA__
@@ -29,7 +31,6 @@ for "_i" from 0 to (count _arr -1) do {
 		#else
 		if (_u select 0 call gosa_fnc_isPlayer or ({_x call gosa_fnc_isPlayer} count _u <= 0)) then
 		#endif
-		// TODO: Нужно больше проверок для стабильности.
 		{
 			_s = side _g;
 			#ifdef __ARMA3__
