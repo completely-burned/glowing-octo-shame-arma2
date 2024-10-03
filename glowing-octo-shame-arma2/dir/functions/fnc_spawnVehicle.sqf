@@ -53,7 +53,7 @@ if (_air) then {
 		// Высота не должна быть большой или малой.
 		private _box = boundingBoxReal _veh;
 		diag_log format ["Log: [fnc_spawnVehicle] %1, boundingBox %2", _this, _box];
-		_pos set [2, (_box select 1 select 2) min 0.1];
+		_pos set [2, (_box select 1 select 2) min 2];
 		// FIXME: setPos не прекращает инерцию.
 		_veh setVelocity [0,0,0];
 		_veh setPos _pos;
