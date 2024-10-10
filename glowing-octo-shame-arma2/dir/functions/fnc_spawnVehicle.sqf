@@ -98,4 +98,11 @@ _crew = [_veh,
 	};
 #endif
 
+if !(alive _veh) then {
+	for "_i" from 0 to (count _crew -1) do {
+		diag_log format ["Log: [fnc_spawnVehicle] %1, not alive %2, delete %3", _this, _veh, _crew select _i];
+		deleteVehicle (_crew select _i);
+	};
+};
+
 [_veh, _crew, _grp];
