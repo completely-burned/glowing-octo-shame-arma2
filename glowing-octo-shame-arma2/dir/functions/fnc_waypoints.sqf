@@ -6,7 +6,7 @@
 
 	diag_log format ["Log: [fnc_waypoints] start %1", _this];
 private ["_wpType_TrUNLOAD","_leader","_cfgWea","_b",
-	"_minDist","_minDeep","_arr","_worldSize","_n",
+	"_minDist","_minDeep","_arr","_worldSize","_n","_wpType_VehInVehUNLOAD",
 	"_wpType_TrUNLOAD_Plane","_wpDistZero","_zone_limit_berthing",
 	"_island","_allowPos","_obj","_missions_pos",
 	"_true","_dir","_dist2","_testPos","_limit"];
@@ -19,6 +19,7 @@ _missions_pos = [civilianBasePos];
 _zone_limit_berthing = gosa_zone_limit_berthing;
 
 _wpType_TrUNLOAD = "TR UNLOAD";
+_wpType_VehInVehUNLOAD = "VEHICLEINVEHICLEUNLOAD";
 #ifdef __ARMA3__
 	// Тип маршрута "сброс груза" не сажает самолёт.
 	_wpType_TrUNLOAD_Plane = "UNHOOK";
@@ -307,18 +308,9 @@ if(!isNil "_leader")then{
 						_limit = _limit -1;
 						_dir = random 360;
 						_dist2 = random _maxDist;
-						_arr = ([(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]
+						_testPos = ([(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]
 							isFlatEmpty [-1, -1, -1, -1, 0, true]);
-						if (count _arr > 0) then {
 							// FIXME: VehicleInVehicleUnload не работает если маршрутная точка на земле.
-							_n = 50;
-							while {_n > 0 && ({alive _x} count _units > 0)} do {
-								_n = _n -1;
-								_dir = random 360;
-								// isFlatEmpty position is over shoreline (< ~25 m from water)
-								_dist2 = random 50;
-								_testPos = ([(_arr select 0) + _dist2*sin _dir, (_arr select 1) + _dist2*cos _dir]
-									isFlatEmpty [-1, -1, -1, -1, 2, false]);
 								if (count _testPos > 0) then {
 									if ({[_x, _testPos] call BIS_fnc_inTrigger} count _zone_limit_berthing > 0) then {
 										diag_log format ["Log: [fnc_waypoints] %1, %2 in %3 _zone_limit_berthing", _grp, _testPos, _zone_limit_berthing];
@@ -326,11 +318,8 @@ if(!isNil "_leader")then{
 									};
 								};
 								if (count _testPos > 0) then {
-									_n = -1;
 									_limit = -1;
 								};
-							};
-						};
 					};
 				}else{
 					while {_limit > 0 && ({alive _x} count _units > 0)} do {
@@ -377,6 +366,18 @@ if(!isNil "_leader")then{
 				_WaypointType = _wpType_TrUNLOAD;
 			};
 		};
+
+		_arr = [];
+		// Vehicle_in_Vehicle_Transport
+		#ifdef __ARMA3__
+			for "_i" from 0 to (count _vehicles -1) do {
+				_arr append getVehicleCargo (_vehicles select _i);
+			};
+			if (count _arr > 0) then {
+				diag_log format ["Log: [fnc_waypoints] %1 Vehicle_in_Vehicle_Transport %2", _grp, _arr];
+				_WaypointType = _wpType_VehInVehUNLOAD;
+			};
+		#endif
 
 		if(_WaypointType in ["UNLOAD","GETOUT"])then{
 			// _WaypointCombatMode = "GREEN";

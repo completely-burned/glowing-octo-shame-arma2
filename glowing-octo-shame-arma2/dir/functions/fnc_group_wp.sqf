@@ -66,13 +66,14 @@ private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_vehicles","_types","_cargo","_assignedVehicles","_grp_type","_survival",
 	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr","_wpType_GETOUT",
 	"_waypoints","_createWP","_NoCreateWP","_DeleteWP","_StopWP","_pvp",
-	"_wpType_TrUNLOAD_Plane","_veh",
+	"_wpType_TrUNLOAD_Plane","_veh","_obj","_pos","_wpType_VehInVehUNLOAD",
 	"_isUAVConnected","_side","_sides_friendly",
 	"_grp_wp_completed","_g2","_z","_v","_b"];
 _grp=_this;
 
 
 _wpType_TrUNLOAD = "TR UNLOAD";
+_wpType_VehInVehUNLOAD = "VEHICLEINVEHICLEUNLOAD";
 #ifdef __ARMA3__
 	// Тип маршрута "сброс груза" не сажает самолёт.
 	_wpType_TrUNLOAD_Plane = "UNHOOK";
@@ -92,6 +93,7 @@ _units = units _grp;
 
 // выполнять только есть в группе есть юниты
 if({alive _x} count _units > 0)then{
+	scopeName "scope1";
 	_side = side _grp;
 	_pvp = gosa_pvp;
 	if (!_pvp) then {
@@ -408,6 +410,35 @@ if({alive _x} count _units > 0)then{
 	// Лодки.
 	if ("Ship" in _grp_type && !("Frigate" in _grp_type)) then {
 		diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1, %2, %3", _grp, [_leaderPos, waypointPosition _wp], _typeWP];
+		_arr = [];
+		// Vehicle_in_Vehicle_Transport
+		#ifdef __ARMA3__
+			for "_i" from 0 to (count _vehicles -1) do {
+				_arr append getVehicleCargo (_vehicles select _i);
+			};
+			if (count _arr > 0) then {
+				_pos = waypointPosition _wp;
+				// TODO: Сразу переходить к дисантированию пехоты.
+				// Необходимо учитывать габариты корабля и его виляющий характер.
+				if ((_leaderPos distance _pos < 150) or !isNil "_grp_wp_completed") then {
+					if (_typeWP in [_wpType_VehInVehUNLOAD]) then {
+							_obj = vehicle _leader;
+							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1, VehInVehUNLOAD %2 Attach %3", _grp, _wp, _obj];
+							_wp waypointAttachVehicle _obj;
+							breakTo "scope1";
+					}else{
+						if (_typeWP in [_wpType_TrUNLOAD, _wpType_GETOUT, _wpType_UNLOAD]) then {
+							_obj = vehicle _leader;
+							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1, VehInVehUNLOAD %2 Attach %3", _grp, _wp, _obj];
+							_wp setWaypointType _wpType_VehInVehUNLOAD;
+							_wp waypointAttachVehicle _obj;
+							breakTo "scope1";
+						};
+					};
+				};
+			};
+		#endif
+
 		if (_typeWP == _wpType_GETOUT) then {_b = true} else {_b = false};
 
 		if (_b or _typeWP in [_wpType_UNLOAD]) then {
@@ -422,7 +453,7 @@ if({alive _x} count _units > 0)then{
 			//_crew = [];
 			for "_i" from 0 to (count _vehicles -1) do {
 				_veh = _vehicles select _i;
-				// На такой или меньшей дистанции лодка уже ищет береговую линию для десантирования.
+				// На дистанции <=400 лодка уже ищет береговую линию для десантирования.
 				if ((_veh distance _arr < 400) or !isNil "_grp_wp_completed") then {
 					{
 						if (_b or group _x != _grp) then {
