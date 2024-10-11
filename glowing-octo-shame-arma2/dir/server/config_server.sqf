@@ -113,6 +113,21 @@ _arr = [] call gosa_fnc_zone_init;
 gosa_zone_islands = _arr select 0;
 publicVariable "gosa_zone_islands";
 
+// Зоны запрещающие швартовку.
+_arr = [];
+_str = "gosa_limit_berthing";
+if !(isNil _str) then {
+	_arr set [count _arr, call compile _str];
+};
+for "_i" from 0 to 999 do {
+	_str = format["gosa_limit_berthing_%1", _i];
+	if !(isNil _str) then {
+		_arr set [count _arr, call compile _str];
+	};
+};
+gosa_zone_limit_berthing = _arr;
+publicVariable "gosa_zone_limit_berthing";
+
 _woodland=false; _deserted=false;
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
 if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{_woodland=true};
