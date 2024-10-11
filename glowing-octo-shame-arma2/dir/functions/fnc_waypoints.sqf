@@ -1,12 +1,13 @@
 #define __A2OA__
 /*
  * TODO: Рефакторинг.
+ * "TR UNLOAD" == TransportUnload, не выгружает ТС.
  */
 
 	diag_log format ["Log: [fnc_waypoints] start %1", _this];
 private ["_wpType_TrUNLOAD","_leader","_cfgWea","_b",
 	"_minDist","_minDeep","_arr","_worldSize","_n",
-	"_wpType_TrUNLOAD_Plane","_wpDistZero",
+	"_wpType_TrUNLOAD_Plane","_wpDistZero","_zone_limit_berthing",
 	"_island","_allowPos","_obj","_missions_pos",
 	"_true","_dir","_dist2","_testPos","_limit"];
 
@@ -15,6 +16,7 @@ _cfgWea = LIB_cfgWea;
 _worldSize = gosa_worldSize;
 _minDeep = gosa_minDeepFrigate;
 _missions_pos = [civilianBasePos];
+_zone_limit_berthing = gosa_zone_limit_berthing;
 
 _wpType_TrUNLOAD = "TR UNLOAD";
 #ifdef __ARMA3__
@@ -197,7 +199,6 @@ if(!isNil "_leader")then{
 
 		if("Air" in _grp_type)then{
 			// FIXME: _g addWaypoint [_p, не работает должным образом];
-			private["_dir","_dist2"];
 			_dir = random 360;
 			_dist2 = random _maxDist;
 			_pos = [(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir];
@@ -231,10 +232,13 @@ if(!isNil "_leader")then{
 		};
 
 		// лодки та точке
+		// TODO: Выгрузка должна быть в любом случае.
 		if(_landing && "Ship" in _grp_type)then{
 			_pos = _missions_pos call BIS_fnc_selectRandom;
 			_maxDist = gosa_locationSize*2;
-			_WaypointCompletionRadius = 400;
+			// isFlatEmpty position is over shoreline (< ~25 m from water)
+			// 25 * sqrt 2 =~35,355
+			_WaypointCompletionRadius = 50;
 			// _SpeedMode = "NORMAL";
 		};
 
@@ -306,8 +310,8 @@ if(!isNil "_leader")then{
 						_arr = ([(_pos select 0) + _dist2*sin _dir, (_pos select 1) + _dist2*cos _dir]
 							isFlatEmpty [-1, -1, -1, -1, 0, true]);
 						if (count _arr > 0) then {
-							// FIXME: Должно быть над водой?
-							_n = 1000;
+							// FIXME: VehicleInVehicleUnload не работает если маршрутная точка на земле.
+							_n = 50;
 							while {_n > 0 && ({alive _x} count _units > 0)} do {
 								_n = _n -1;
 								_dir = random 360;
@@ -315,7 +319,13 @@ if(!isNil "_leader")then{
 								_dist2 = random 50;
 								_testPos = ([(_arr select 0) + _dist2*sin _dir, (_arr select 1) + _dist2*cos _dir]
 									isFlatEmpty [-1, -1, -1, -1, 2, false]);
-								if (count _testPos > 0 or (({alive _x} count _units) <= 0)) then {
+								if (count _testPos > 0) then {
+									if ({[_x, _testPos] call BIS_fnc_inTrigger} count _zone_limit_berthing > 0) then {
+										diag_log format ["Log: [fnc_waypoints] %1, %2 in %3 _zone_limit_berthing", _grp, _testPos, _zone_limit_berthing];
+										_testPos resize 0;
+									};
+								};
+								if (count _testPos > 0) then {
 									_n = -1;
 									_limit = -1;
 								};
