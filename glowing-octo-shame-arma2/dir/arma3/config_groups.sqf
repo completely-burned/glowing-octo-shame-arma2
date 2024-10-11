@@ -22,7 +22,7 @@
 // define ранга.
 #include "..\include\ranks.sqf"
 
-private ["_west","_east","_guer","_groups_map","_n","_d","_pvp",
+private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked",
 	"_grp","_groups_failover","_factions_used","_climate","_date",
@@ -34,6 +34,7 @@ private ["_west","_east","_guer","_groups_map","_n","_d","_pvp",
 	"_default_east","_default_west","_default_guer"];
 
 _pvp = gosa_pvp;
+_landing = missionNamespace getVariable "gosa_landing";
 
 waitUntil{!isNil "availableVehicles"};
 _copyRef = availableVehicles;

@@ -7,7 +7,7 @@
 
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
-private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams",
+private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams","_obj",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
 	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat",
 	"_positions_static",
@@ -196,6 +196,19 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 	if (count _vehicles > 0) then {
 		// посадить в багажное отделение
 		[_vehicles, _cargo] call gosa_fnc_MoveInCargo;
+
+		// Vehicle in Vehicle Transport.
+		#ifdef __ARMA3__
+			{
+				_obj = _x;
+				{
+					if (_obj canVehicleCargo _x select 0 && _obj != _x && isNull isVehicleCargo _obj) then {
+						diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1 setVehicleCargo %2", _obj, _x];
+						_obj setVehicleCargo _x;
+					};
+				} forEach _vehicles;
+			} forEach _vehicles;
+		#endif
 	};
 
 	// Чтобы отличать от чужого контента.
