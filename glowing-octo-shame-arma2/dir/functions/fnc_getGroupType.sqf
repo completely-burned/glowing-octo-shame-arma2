@@ -69,8 +69,13 @@ _t = [];
 
 	_z = "Frigate";
 	if !(_z in _t) then {
-		if(_x isKindOf "CUP_B_Frigate_ANZAC") then {
+		if (_x isKindOf "CUP_ZUBR_Base") then {
 			_t set [count _t, _z];
+			breakOut "scope1";
+		};
+		if (_x isKindOf "CUP_Frigate_Base") then {
+			_t set [count _t, _z];
+			breakOut "scope1";
 		};
 	};
 
