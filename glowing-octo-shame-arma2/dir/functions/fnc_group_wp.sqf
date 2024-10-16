@@ -454,7 +454,7 @@ if({alive _x} count _units > 0)then{
 			for "_i" from 0 to (count _vehicles -1) do {
 				_veh = _vehicles select _i;
 				// На дистанции <=400 лодка уже ищет береговую линию для десантирования.
-				if ((_veh distance _arr < 400) or !isNil "_grp_wp_completed") then {
+				if ((_veh distance _arr < 100) or !isNil "_grp_wp_completed") then {
 					{
 						if (_b or group _x != _grp) then {
 							//_crew set [count _crew, _x];
