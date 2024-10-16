@@ -270,10 +270,12 @@ if(!isNil "_leader")then{
 					*/
 					//_testPos = ([] call gosa_fnc_getRandomWorldPos);
 					//_testPos set [2, 0];
+
+					// FIXME: Очень болшые дистанции приводят к остановке корабля.
 					// Площадь локации в 2 раза больше из-за воды.
 					_testPos = [
-						((_worldSize select 0) * -2) + random ((_worldSize select 0)*4),
-						((_worldSize select 1) * -2) + random ((_worldSize select 1)*4),
+						((_worldSize select 0)/2) + ((-(_worldSize select 0)) + random ((_worldSize select 0)*2)),
+						((_worldSize select 1)/2) + ((-(_worldSize select 1)) + random ((_worldSize select 1)*2)),
 						0
 					];
 
