@@ -8,8 +8,8 @@ diag_log format ["Log: [fnc_getGroupType] %1", _this];
 	#define ADD if (!(_z in _t) && (_x isKindOf _z)) then {_t set [count _t, _z]};
 #endif
 
-private["_t","_z","_str"];
-
+private["_t","_z","_str","_cfgVeh","_entry"];
+_cfgVeh = LIB_cfgVeh;
 _t = [];
 
 {
@@ -18,6 +18,7 @@ _t = [];
 	}else{
 		_str = _x;
 	};
+	_entry = _cfgVeh >> _str;
 
 	scopeName "scope1";
 
@@ -60,7 +61,7 @@ _t = [];
 		if(_x isKindOf _z) then {
 			_t set [count _t, _z];
 		}else{
-			if(getNumber (LIB_cfgVeh >> _str >> "isUav") == 1)then{
+			if (getNumber (_entry >> "isUav") > 0) then {
 				_t set [count _t, _z];
 			};
 		};
@@ -75,19 +76,19 @@ _t = [];
 
 	_z = "SUPPORT";
 	if (!(_z in _t) && !("Frigate" in _t)) then {
-		if(getNumber(LIB_cfgVeh >> _str >> "attendant") > 0 && _x isKindOf "LandVehicle")then{
+		if (getNumber(_entry >> "attendant") > 0 && _x isKindOf "LandVehicle") then {
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if(getNumber(LIB_cfgVeh >> _str >> "transportfuel") > 0)then{
+		if (getNumber(_entry >> "transportfuel") > 0) then {
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if(getNumber(LIB_cfgVeh >> _str >> "transportammo") > 0)then{
+		if (getNumber(_entry >> "transportammo") > 0) then {
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if(getNumber(LIB_cfgVeh >> _str >> "transportrepair") > 0)then{
+		if (getNumber(_entry >> "transportrepair") > 0) then {
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
@@ -96,6 +97,15 @@ _t = [];
 	// TODO: нужно проверять по типу боеприпаса
 	_z = "AA";
 	if !(_z in _t) then {
+		#ifdef __ARMA3__
+			if (toLowerANSI getText(_entry >> "editorSubcategory") isEqualTo
+				toLowerANSI getText(configfile >> "CfgVehicles" >> "B_APC_Tracked_01_AA_F" >> "editorSubcategory")) then
+			{
+				_t set [count _t, _z];
+				breakOut "scope1";
+			};
+		#endif
+
 		if(_x isKindOf "ZSU_Base") then {
 			_t set [count _t, _z];
 			breakOut "scope1";
@@ -116,7 +126,7 @@ _t = [];
 
 	_z = "Artillery";
 	if !(_z in _t) then {
-		if(getNumber(LIB_cfgVeh >> _str >> "artilleryScanner") == 1)then{
+		if (getNumber(_entry >> "artilleryScanner") > 0) then {
 			_t set [count _t, _z];
 		};
 	};
@@ -124,7 +134,7 @@ _t = [];
 	#ifdef __ARMA3__
 		_z = "MenDiver";
 		if !(_z in _t) then {
-			if (toLowerANSI getText(LIB_cfgVeh >> _str >> "vehicleClass") isEqualTo toLowerANSI _z) then {
+			if (toLowerANSI getText(_entry >> "vehicleClass") isEqualTo toLowerANSI _z) then {
 				_t set [count _t, _z];
 			};
 		};
