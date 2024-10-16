@@ -599,6 +599,24 @@ if({alive _x} count _units > 0)then{
 					_StopWP = false;
 					_DeleteWP = true;
 				};
+				// Опасная зона.
+				if (count waypoints _grp > 0) then {
+					_arr = gosa_zone_lighthouse;
+					for "_i" from 0 to (count _arr -1) do {
+						_obj = _arr select _i;
+						if ([_obj, _leaderPos] call BIS_fnc_inTrigger) then {
+							//_arr0 set [count _arr0, getPos _obj];
+							_n = [ _obj, _leaderPos] call BIS_fnc_dirTo;
+							_pos = [_leaderPos, 100, _n] call BIS_fnc_relPos;
+							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1, Frigate lighthouse, %2", _grp, [_leaderPos, _obj, _pos]];
+							_wp setWaypointPosition [_pos, 0];
+							_NoCreateWP = true;
+							_CreateWP = false;
+							_StopWP = false;
+							_DeleteWP = false;
+						};
+					};
+				};
 			};
 
 			// авиация не должна зависать на месте

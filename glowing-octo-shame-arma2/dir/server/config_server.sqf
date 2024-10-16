@@ -128,6 +128,21 @@ for "_i" from 0 to 999 do {
 gosa_zone_limit_berthing = _arr;
 publicVariable "gosa_zone_limit_berthing";
 
+// Зоны опасные для кораблей.
+_arr = [];
+_str = "gosa_lighthouse";
+if !(isNil _str) then {
+	_arr set [count _arr, call compile _str];
+};
+for "_i" from 0 to 999 do {
+	_str = format["gosa_lighthouse_%1", _i];
+	if !(isNil _str) then {
+		_arr set [count _arr, call compile _str];
+	};
+};
+gosa_zone_lighthouse = _arr;
+publicVariable "gosa_zone_lighthouse";
+
 _woodland=false; _deserted=false;
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
 if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{_woodland=true};

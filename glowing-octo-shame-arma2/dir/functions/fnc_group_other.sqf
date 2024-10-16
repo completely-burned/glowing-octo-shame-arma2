@@ -319,7 +319,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_arr = getPos _veh;
 			_arr = ASLToATL [(_arr select 0) + 5*sin _n, (_arr select 1) + 5*cos _n, 0];
 			_deep = ((_arr select 2) max 0);
-			_limit = (((_deep - _minDeep) * 0.5) max 0.05);
+			_limit = (((_deep - _minDeep) * 0.5) max 5);
 			_limit_old = _veh getVariable ["gosa_forceSpeed", -1];
 			if (abs (_limit_old - _limit) > 0.05) then {
 				diag_log format ["Log: [fnc_group_other] %1, if Frigate, %2 forceSpeed %3, _deep %4, %5", _grp, _veh, _limit, _deep, _arr];
@@ -331,7 +331,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			// "CUP_B_Frigate_ANZAC" не может сдвинуться с места самостоятельно.
 			if (count waypoints _grp > 0) then {
 				_speed = speed _veh;
-				if (_speed < 0.5 && _deep > _minDeep) then {
+				if (_speed < 1) then {
 					_veh setVelocity [1 * (sin _n), 1 * (cos _n), 0];
 				};
 			};
