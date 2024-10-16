@@ -47,6 +47,8 @@ if (_air) then {
 	_veh = createVehicle [_type, _pos, [], 0, _str];
 	_veh setDir _azi;
 	#ifdef __ARMA3__
+		// Должно отключаться после.
+		_veh allowDamage false;
 		// a3, тс на некоторых позициях взрываются из-за наклона поверхности.
 		_veh setVectorUp surfaceNormal _pos;
 		// a3, ии покидают тс после ранения от столкновения.

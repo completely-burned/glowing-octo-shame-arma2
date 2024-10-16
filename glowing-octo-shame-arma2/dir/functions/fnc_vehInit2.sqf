@@ -44,4 +44,9 @@ if (isNil "_gosa_init") then {
 	};
 	_o setVehicleLock "UNLOCKED";
 	_o setVariable ["_gosa_init",true,false];
+	_o allowDamage true;
+	// Отказоустойчивость
+	#ifdef __ARMA3__
+		[_o, true] remoteExec ["allowDamage"];
+	#endif
 };
