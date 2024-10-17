@@ -67,7 +67,7 @@ private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr","_wpType_GETOUT",
 	"_waypoints","_createWP","_NoCreateWP","_DeleteWP","_StopWP","_pvp",
 	"_wpType_TrUNLOAD_Plane","_veh","_obj","_pos","_wpType_VehInVehUNLOAD",
-	"_isUAVConnected","_side","_sides_friendly",
+	"_isUAVConnected","_side","_sides_friendly","_arr0",
 	"_grp_wp_completed","_g2","_z","_v","_b"];
 _grp=_this;
 
@@ -601,12 +601,16 @@ if({alive _x} count _units > 0)then{
 				};
 				// Опасная зона.
 				if (count waypoints _grp > 0) then {
+					_arr0 = [];
 					_arr = gosa_zone_lighthouse;
 					for "_i" from 0 to (count _arr -1) do {
 						_obj = _arr select _i;
 						if ([_obj, _leaderPos] call BIS_fnc_inTrigger) then {
-							//_arr0 set [count _arr0, getPos _obj];
-							_n = [ _obj, _leaderPos] call BIS_fnc_dirTo;
+							_arr0 set [count _arr0, getPos _obj];
+						};
+					};
+					if (count _arr0 > 0) then {
+						_n = [_arr0 call gosa_fnc_centerOfImpact, _leaderPos] call BIS_fnc_dirTo;
 							_pos = [_leaderPos, 100, _n] call BIS_fnc_relPos;
 							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1, Frigate lighthouse, %2", _grp, [_leaderPos, _obj, _pos]];
 							_wp setWaypointPosition [_pos, 0];
@@ -614,7 +618,6 @@ if({alive _x} count _units > 0)then{
 							_CreateWP = false;
 							_StopWP = false;
 							_DeleteWP = false;
-						};
 					};
 				};
 			};
