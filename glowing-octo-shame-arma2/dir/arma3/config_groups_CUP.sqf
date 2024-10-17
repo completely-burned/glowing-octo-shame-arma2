@@ -82,6 +82,9 @@
 			// configName O_InfTeam_AT_Heavy
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_HAT_Ratnik_Summer","CUP_O_RU_Soldier_HAT_Ratnik_Summer","CUP_O_RU_Soldier_AHAT_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1]
 	];
+	_arr append [
+		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
+	];
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [160,249],
 		["CUP_O_RU"]
@@ -212,6 +215,9 @@
 		// O_InfTeam_AT_Heavy
 		[[[["CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_HAT_VKPO_Desert","CUP_O_RUS_M_Soldier_HAT_VKPO_Desert","CUP_O_RUS_M_Soldier_AHAT_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1]
 	];
+	_arr append [
+		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
+	];
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [275,299],
 		["CUP_O_RU"]
@@ -281,6 +287,9 @@
 			"CUP_O_RU_Soldier_Medic_Ratnik_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
 			// configName O_InfTeam_AT_Heavy
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Desert","CUP_O_RU_Soldier_HAT_Ratnik_Desert","CUP_O_RU_Soldier_HAT_Ratnik_Desert","CUP_O_RU_Soldier_AHAT_Ratnik_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5]
+	];
+	_arr append [
+		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [300,999],
@@ -421,6 +430,9 @@
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Winter","CUP_O_RU_Soldier_HAT_Ratnik_Winter","CUP_O_RU_Soldier_HAT_Ratnik_Winter","CUP_O_RU_Soldier_AHAT_Ratnik_Winter"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],
 			0.15]
 	];
+	_arr append [
+		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
+	];
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [-999,159],
 		["CUP_O_RU"]
@@ -511,6 +523,9 @@
 		"CUP_O_MVD_Soldier_MG","CUP_O_MVD_Soldier_AT",
 		"CUP_O_MVD_Soldier_GL","CUP_O_MVD_Sniper",
 		"CUP_O_MVD_Soldier_Marksman","CUP_O_MVD_Soldier_GL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.02]
+	];
+	_arr append [
+		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
 	[_groups_map, east, "CUP_O_RU", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [160,274],
@@ -1262,7 +1277,8 @@
 		] call gosa_fnc_map_groups_add;
 
 //-- CUP_B_CDF
-		[_groups_map, west, "CUP_B_CDF", [[
+	// winter
+	_arr = [
 			// CUP_B_MTLB_pk_Winter_CDF
 			[[[["CUP_B_CDF_Soldier_TL_SNW","CUP_B_MTLB_pk_Winter_CDF",
 				"CUP_B_CDF_Medic_SNW","CUP_B_CDF_Soldier_LAT_SNW",
@@ -1289,12 +1305,22 @@
 			[[[["CUP_B_CDF_Militia_SNW","CUP_B_CDF_Militia_SNW","CUP_B_CDF_Militia_SNW","CUP_B_CDF_Militia_SNW"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
 			// configName CUP_B_CDFSniperTeam_SNW
 			[[[["CUP_B_CDF_Sniper_SNW","CUP_B_CDF_Sniper_SNW"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.05]
-		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		];
+	_arr append [
+		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
+	];
+	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+		_arr append [
+			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
+		];
+	};
+	[_groups_map, west, "CUP_B_CDF", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [-999,159],
 		["CUP_I_UN","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
-		[_groups_map, west, "CUP_B_CDF", [[
+	// wdl
+	_arr = [
 			// configName CUP_B_CDFInfSquad_MNT
 			[[[["CUP_B_CDF_Soldier_TL_MNT","CUP_B_CDF_Soldier_MG_MNT","CUP_B_CDF_Soldier_LAT_MNT","CUP_B_CDF_Soldier_GL_MNT","CUP_B_CDF_Soldier_MNT","CUP_B_CDF_Soldier_MG_MNT","CUP_B_CDF_Soldier_GL_MNT","CUP_B_CDF_Soldier_LAT_MNT","CUP_B_CDF_Soldier_MNT","CUP_B_CDF_Medic_MNT"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 			// configName CUP_B_CDFInfSquad_Weapons_MNT
@@ -1342,12 +1368,22 @@
 			[[[["CUP_B_CDF_Soldier_TL","CUP_B_BRDM2_ATGM_CDF","CUP_B_CDF_Soldier_MG","CUP_B_CDF_Soldier_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["SERGEANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
 			// configName CUP_B_CDFTankPlatoon
 			[[[["CUP_B_T72_CDF","CUP_B_T72_CDF","CUP_B_T72_CDF"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.25]
-		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		];
+	_arr append [
+		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
+	];
+	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+		_arr append [
+			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
+		];
+	};
+	[_groups_map, west, "CUP_B_CDF", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [160,250],
 		["CUP_I_UN","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 		] call gosa_fnc_map_groups_add;
 
-		[_groups_map, west, "CUP_B_CDF", [[
+	// _DST
+	_arr = [
 			// configName CUP_B_CDFInfSquad_DST
 			[[[["CUP_B_CDF_Soldier_TL_DST","CUP_B_CDF_Soldier_MG_DST","CUP_B_CDF_Soldier_LAT_DST","CUP_B_CDF_Soldier_GL_DST","CUP_B_CDF_Soldier_DST","CUP_B_CDF_Soldier_MG_DST","CUP_B_CDF_Soldier_GL_DST","CUP_B_CDF_Soldier_LAT_DST","CUP_B_CDF_Soldier_DST","CUP_B_CDF_Medic_DST"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 			// configName CUP_B_CDFInfSquad_Weapons_DST
@@ -1362,20 +1398,19 @@
 			[[[["CUP_B_CDF_Militia_DST","CUP_B_CDF_Militia_DST","CUP_B_CDF_Militia_DST","CUP_B_CDF_Militia_DST"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
 			// configName CUP_B_CDFSniperTeam_DST
 			[[[["CUP_B_CDF_Sniper_DST","CUP_B_CDF_Sniper_DST"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.05]
-		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		];
+	_arr append [
+		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
+	];
+	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+		_arr append [
+			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
+		];
+	};
+	[_groups_map, west, "CUP_B_CDF", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [251,999],
 		["CUP_I_UN","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
-		] call gosa_fnc_map_groups_add;
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
-	_arr = [
-		[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
-	];
-	[_groups_map, west, "CUP_B_CDF",
-		[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1990,2100], [-999,999],
-		["CUP_I_UN","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
-};
 
 //-- CUP_B_HIL
 // FIXME: _Res - зеленый.
