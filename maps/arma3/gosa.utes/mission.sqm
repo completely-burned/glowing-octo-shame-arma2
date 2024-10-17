@@ -8,7 +8,7 @@ class EditorData
 	toggles=514;
 	class ItemIDProvider
 	{
-		nextID=284;
+		nextID=286;
 	};
 	class MarkerIDProvider
 	{
@@ -313,7 +313,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=95;
+		items=97;
 		class Item0
 		{
 			dataType="Marker";
@@ -4538,8 +4538,8 @@ class Mission
 			class Attributes
 			{
 				name="gosa_lighthouse";
-				sizeA=2000;
-				sizeB=2000;
+				sizeA=1000;
+				sizeB=1000;
 			};
 			id=281;
 			type="EmptyDetectorAreaR250";
@@ -4548,7 +4548,7 @@ class Mission
 		class Item93
 		{
 			dataType="Trigger";
-			position[]={4348.5532,0,2414.854};
+			position[]={3873.1663,8.913208,3457.5244};
 			class Attributes
 			{
 				name="gosa_lighthouse_1";
@@ -4557,7 +4557,7 @@ class Mission
 			};
 			id=282;
 			type="EmptyDetectorAreaR250";
-			atlOffset=-9.5113735;
+			atlOffset=-13.085032;
 		};
 		class Item94
 		{
@@ -4572,6 +4572,32 @@ class Mission
 			id=283;
 			type="EmptyDetectorAreaR250";
 			atlOffset=12.602729;
+		};
+		class Item95
+		{
+			dataType="Trigger";
+			position[]={2882.7358,5.0423431,4209.8149};
+			class Attributes
+			{
+				name="gosa_lighthouse_4";
+				sizeA=1000;
+				sizeB=1000;
+			};
+			id=284;
+			type="EmptyDetectorAreaR250";
+		};
+		class Item96
+		{
+			dataType="Trigger";
+			position[]={4276.1094,13.570856,2784.0723};
+			class Attributes
+			{
+				name="gosa_lighthouse_5";
+				sizeA=1000;
+				sizeB=1000;
+			};
+			id=285;
+			type="EmptyDetectorAreaR250";
 		};
 	};
 	class Connections
