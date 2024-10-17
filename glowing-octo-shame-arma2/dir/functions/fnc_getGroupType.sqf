@@ -89,7 +89,8 @@ _t = [];
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
-		if (getNumber(_entry >> "transportammo") > 0) then {
+		// "CUP_B_LAV25_USMC" >> "transportAmmo" == 100
+		if (getNumber(_entry >> "transportAmmo") > 100) then {
 			_t set [count _t, _z];
 			breakOut "scope1";
 		};
