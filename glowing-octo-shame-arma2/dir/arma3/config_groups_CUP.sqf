@@ -2,6 +2,7 @@
  * Отряды из CUP
  * TODO: Назначить командира.
  * TODO: Из MTLB плохой боец, его нужно попробовать разместить в конце отряда чтобы он не бросался в атаку первым.
+ * TODO: SLA
  */
 
 #include "..\include\ranks.sqf"
@@ -1422,6 +1423,12 @@ _arr = [
 	// CUP_B_HIL_DiverSection
 	[[[["CUP_B_HIL_Diver_MP5_SF","CUP_B_HIL_Diver_MP7_SF","CUP_B_HIL_Diver_MP5_SF","CUP_B_HIL_Diver_MP7_SF"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.01]
 ];
+if (_landing in [1,4,24,34]) then {
+	_arr append [
+		[[[["CUP_B_LCU1600_HIL"],[],[]],[["CUP_B_Leopard2A6_HIL","CUP_B_Leopard2A6_HIL","CUP_B_Leopard2A6_HIL"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.1],
+		[[[["CUP_B_LCU1600_HIL"],[],[]],[["CUP_B_Boxer_GMG_HIL","CUP_B_Boxer_GMG_HIL","CUP_B_Boxer_GMG_HIL"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.1]
+	];
+};
 [_groups_map, west, "CUP_B_HIL",
 	[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [225,999],
