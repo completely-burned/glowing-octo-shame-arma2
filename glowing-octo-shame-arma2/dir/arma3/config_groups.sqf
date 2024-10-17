@@ -287,7 +287,7 @@ _default_west=[
 ];
 _arr = _default_west;
 	_arr append [
-		//[[[["CUP_B_Frigate_ANZAC"],[],["CAPTAIN"]]], _depth min 0.5],
+		[[[["CUP_B_Frigate_ANZAC"],[],["CAPTAIN"]]], _depth min 0.5],
 		[[[["B_Soldier_TL_F","B_soldier_GL_F","B_soldier_AR_F","B_soldier_F","B_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
 			["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.1],
@@ -719,6 +719,7 @@ _default_east=[
 _arr = _default_east;
 	// boat
 	_arr append [
+		[[[["CUP_O_ZUBR_CSAT_T"],[],["CAPTAIN"]]], _depth min 0.5],
 		[[[["O_Soldier_TL_F","O_soldier_GL_F","O_soldier_AR_F","O_soldier_F","O_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
 			["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
 		],0.1],
@@ -989,7 +990,7 @@ _default_guer=[
 _arr = _default_guer;
 		// boat
 		_arr append [
-			//[[[["CUP_I_Frigate_AAF"],[],["CAPTAIN"]]], _depth min 0.5],
+			[[[["CUP_I_Frigate_AAF"],[],["CAPTAIN"]]], _depth min 0.5],
 			[[[["I_Soldier_TL_F","I_soldier_GL_F","I_soldier_AR_F","I_soldier_F","I_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
 				["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]
 			],0.1],
