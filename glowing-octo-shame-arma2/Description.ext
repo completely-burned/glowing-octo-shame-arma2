@@ -108,10 +108,11 @@ class Params {
 
 	// Множитель статичных установок.
 	class StaticWeapon {
-		title="UNITS: Multiplier StaticWeapon [gp]";
+		title="UNITS: Multiplier StaticWeapon(not completed) [gp]";
 		values[] = {0.00,	0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
 		texts[] = {STR_DISABLED,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
-		default=1;
+		// Не протестировано
+		default = 0;
 	};
 
 	// Десант. Воздушный, морской.
