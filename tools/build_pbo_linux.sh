@@ -193,22 +193,6 @@ do
 			binarize=0
 		fi
 
-		if [[ ${DIAG_LOG} -le 0 ]]
-		then
-			briefingNameWORKSHOP="${DLC2}COOP gosa ${MAP}"
-			echo "WORKSHOP: briefingName '${briefingNameWORKSHOP}'"
-
-			WORKSHOPTMPDIRNAME="workshop_${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${pbo_VERSION,,}.${MAP,,}"
-			echo "WORKSHOP: Name ${WORKSHOPTMPDIRNAME}"
-			WORKSHOPMISSION=${TMPDIR}/.build.tmp/${WORKSHOPTMPDIRNAME}
-
-			echo "WORKSHOP: Copying files ${WORKSHOPMISSION}"
-			mkdir -p ${WORKSHOPMISSION}
-			rsync --recursive --no-perms ${MISSION}/ ${WORKSHOPMISSION}
-
-			sed -i 's/\(.*briefingName.*=\).*/\1"'"${briefingNameWORKSHOP}"'";/' ${WORKSHOPMISSION}/mission.sqm
-		fi
-
 		filename_prefix="${PRE}/${DLC,,}co_00_${NAME_SHORT,,}-${game,,}${DEBUGPOSTFIX}-${SIDE,,}-${pbo_VERSION,,}"
 
 			# Если установлен gnu parallel можно запустить несколько комманд паралельно, предварительно их подготовив.
@@ -227,10 +211,6 @@ do
 					var_parallel+=("armake binarize --force ${MISSION} 	${filename_prefix}-armake-bin.${MAP,,}.pbo")
 					var_parallel+=("armake2 build -v ${MISSION} 	${filename_prefix}-armake2-bin.${MAP,,}.pbo")
 					var_parallel+=("rsync -rLK --delete --no-perms ${MISSION}/ ${filename_prefix}-rsync.${MAP,,}")
-					if [[ ${DIAG_LOG} -le 0 && ${SIDE,,} == "multi" ]]
-					then
-						var_parallel+=("rsync -rLK --delete --no-perms ${WORKSHOPMISSION}/ ${filename_prefix}-workshop.${MAP,,}")
-					fi
 			else
 				echo "Pack ${TMPDIRNAME}"
 				if [[ $WINDOWS -le 0 ]]
@@ -246,10 +226,6 @@ do
 					armake binarize --force ${MISSION} 	${filename_prefix}-armake-bin.${MAP,,}.pbo
 					armake2 build -v ${MISSION} 	${filename_prefix}-armake2-bin.${MAP,,}.pbo
 					rsync -rLK --delete --no-perms ${MISSION}/ ${filename_prefix}-rsync.${MAP,,}
-					if [[ ${DIAG_LOG} -le 0 && ${SIDE,,} == "multi" ]]
-					then
-						rsync -rLK --delete --no-perms ${WORKSHOPMISSION}/ ${filename_prefix}-workshop.${MAP,,}
-					fi
 			fi
 	fi
 done
@@ -272,15 +248,7 @@ rdfind -makehardlinks true ${PRE}
 if [[ $ARCHIVE -gt 0 ]]
 then
 	echo "7z file create"
-	if [[ -x "$(command -v parallel)" ]]
-	then
-		var_parallel=("7z a -mmt -snh ${PRE}/${FINITENAME}-${VERSION}-rsync.7z ${PRE}/*rsync*")
-		var_parallel+=("7z a -mmt -snh ${PRE}/${FINITENAME}-${VERSION}-workshop.7z ${PRE}/*arma3*workshop*")
-		parallel ::: "${var_parallel[@]}"
-	else
 		7z a -mmt -snh ${PRE}/${FINITENAME}-${VERSION}-rsync.7z ${PRE}/*rsync*
-		7z a -mmt -snh ${PRE}/${FINITENAME}-${VERSION}-workshop.7z ${PRE}/*arma3*workshop*
-	fi
 fi
 
 # Torrent файл.
