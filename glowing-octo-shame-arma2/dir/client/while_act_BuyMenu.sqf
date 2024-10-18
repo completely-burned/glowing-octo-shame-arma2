@@ -230,14 +230,7 @@ while {sleep 0.5; true} do {
 						_b = true;
 					};
 					if (_b) then {
-						_num = _logic getVariable "gosa_respawn_type";
-						if (isNil "_num") then {
-							if (_logic isKindOf "LocationRespawnPoint_F") then {
-								_num = _respawn_type_All;
-							}else{
-								_num = -1;
-							};
-						};
+						_num = [_logic] call gosa_fnc_respawn_get_type;
 						switch (_num) do {
 							case _respawn_type_Pilot: {
 								if (_startingClass != 1) then {
@@ -335,14 +328,7 @@ while {sleep 0.5; true} do {
 						_b = true;
 					};
 					if (_b) then {
-						_num = _logic getVariable "gosa_respawn_type";
-						if (isNil "_num") then {
-							if (_logic isKindOf "LocationRespawnPoint_F") then {
-								_num = _respawn_type_All;
-							}else{
-								_num = -1;
-							};
-						};
+						_num = [_logic] call gosa_fnc_respawn_get_type;
 						switch (_num) do {
 							case _respawn_type_Pilot: {
 								if (_startingClass != 1) then {
