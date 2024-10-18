@@ -167,6 +167,11 @@ if (group _this != group player) then {
 	if (vehicle _this isKindOf "Ship") exitWith {
 		_b = true;
 	};
+	#ifdef __ARMA3__
+		if (isVehicleCargo vehicle _this) exitWith {
+			_b = true;
+		};		 
+	#endif
 };
 
 if (_b) exitWith {
