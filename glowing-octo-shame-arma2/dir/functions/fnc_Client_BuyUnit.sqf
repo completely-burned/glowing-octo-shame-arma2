@@ -68,12 +68,13 @@ if ([_type_Lower, 0] call gosa_fnc_isHQ) exitWith {
 	_str = _type_Lower call gosa_fnc_fixType;
 	_pos = ([_pos, 0, 1 max sizeOf _type, false, _timeOut] call gosa_fnc_getSafePos);
 	if (count _pos > 0) then {
-	_arr = [_pos, _type_Lower, _status, gosa_playerSide, player, _player_dir, _str];
-	#ifdef __ARMA3__
-		_arr remoteExec ["gosa_fnc_createHQ", 2];
-	#else
-		[nil, _arr, rgosa_fnc_createHQ] call RE;
-	#endif
+		_arr = [_pos, _type_Lower, _status, gosa_playerSide, player, _player_dir, _str];
+		#ifdef __ARMA3__
+			_arr remoteExec ["gosa_fnc_createHQ", 2];
+		#else
+			[nil, _arr, rgosa_fnc_createHQ] call RE;
+		#endif
+		[_pos, _name] call gosa_fnc_hint_layout_completed;
 	}else{
 		[_name] call gosa_fnc_hint_layout_timeOut;
 	};
