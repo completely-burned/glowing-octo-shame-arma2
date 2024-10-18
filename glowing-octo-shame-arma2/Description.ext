@@ -1208,6 +1208,10 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class respawn_get_type
+			{
+				file = "dir\functions\fnc_respawn_get_type.sqf";
+			};
 			class eh_HandleDamage
 			{
 				file = "dir\functions\fnc_eh_HandleDamage.sqf";

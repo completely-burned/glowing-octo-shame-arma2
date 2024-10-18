@@ -131,8 +131,7 @@ if (true) then {
 					diag_log format ["Log: [while_markers] %1, %2 _blacklist", _logic, typeOf _logic];
 				}else{
 					// тип возрождения.
-					_num = _logic getVariable "gosa_respawn_type";
-					if (isNil "_num") then {_num = _respawn_type_All};
+					_num = [_logic, _respawn_type_All] call gosa_fnc_respawn_get_type;
 					diag_log format ["Log: [while_markers] %1, respawn_type %2", _logic, _num];
 					switch (_num) do {
 						case _respawn_type_Pilot: {
@@ -249,8 +248,7 @@ if (true) then {
 				}else{
 
 					// тип возрождения.
-					_num = _logic getVariable "gosa_respawn_type";
-					if (isNil "_num") then {_num = _respawn_type_All};
+					_num = [_logic, _respawn_type_All] call gosa_fnc_respawn_get_type;
 					diag_log format ["Log: [while_markers] %1, respawn_type %2", _logic, _num];
 					switch (_num) do {
 						case _respawn_type_Pilot: {

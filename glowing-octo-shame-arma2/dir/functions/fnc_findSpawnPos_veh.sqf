@@ -14,7 +14,7 @@ _arr = nearestObjects [_center, ["Logic"], _dist_max];
 _return = [];
 for "_i" from 0 to (count _arr -1) do {
 	_obj = _arr select _i;
-	_var = _obj getVariable "gosa_respawn_type";
+	_var = [_obj] call gosa_fnc_respawn_get_type;
 	if !(isNil "_var") then {
 		if (_var in _types) then {
 			_return set [count _return, _obj];
