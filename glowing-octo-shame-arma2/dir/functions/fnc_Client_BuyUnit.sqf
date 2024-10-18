@@ -6,7 +6,7 @@
  * TODO: Использовать позицию под курсором.
  */
 diag_log format ["Log: [fnc_Client_BuyUnit]: _this %1", _this];
-private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
+private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj","_timeOut",
 	"_str","_type_Lower","_Objects","_veh","_num","_b","_asl",
 	"_factory_obj","_buy_dist_max","_player_pos","_player_veh",
 	"_factory_dir","_factory_pos","_name","_alive","_arr0","_obj0",
@@ -17,6 +17,7 @@ private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj",
 _cfgVeh = LIB_cfgVeh;
 _crew = [];
 _asl = false;
+_timeOut = 30;
 
 _type = _this Select 0;
 
@@ -65,13 +66,17 @@ if (missionNamespace getVariable "gosa_shop" == 2) then {
 if ([_type_Lower, 0] call gosa_fnc_isHQ) exitWith {
 	_status = 2;
 	_str = _type_Lower call gosa_fnc_fixType;
-	_pos = ([_pos, 0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+	_pos = ([_pos, 0, 1 max sizeOf _type, false, _timeOut] call gosa_fnc_getSafePos);
+	if (count _pos > 0) then {
 	_arr = [_pos, _type_Lower, _status, gosa_playerSide, player, _player_dir, _str];
 	#ifdef __ARMA3__
 		_arr remoteExec ["gosa_fnc_createHQ", 2];
 	#else
 		[nil, _arr, rgosa_fnc_createHQ] call RE;
 	#endif
+	}else{
+		[_name] call gosa_fnc_hint_layout_timeOut;
+	};
 };
 
 // Для совместимости.
@@ -266,10 +271,14 @@ if (true) then {
 		};
 
 		if !(isNil "_factory_obj") then {
-			_pos = ([_pos, 0, 10 max sizeOf _type] call gosa_fnc_getSafePos);
+			_pos = ([_pos, 0, 10 max sizeOf _type, false, _timeOut] call gosa_fnc_getSafePos);
+			if (count _pos > 0) then {
 			_veh = (createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"]);
 			_veh call _fnc_1;
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
+			}else{
+				[_name] call gosa_fnc_hint_layout_timeOut;
+			};
 		};
 	};
 
@@ -356,8 +365,9 @@ if (true) then {
 				};
 			};
 			if (_b) then {
-				_arr = ([_pos, 0, 15 max _sizeOf] call gosa_fnc_getSafePos);
+				_arr = ([_pos, 0, 15 max _sizeOf, false, _timeOut] call gosa_fnc_getSafePos);
 			};
+			if (count _arr > 0) then {
 			_veh call _fnc_1;
 			if !(_b) then {
 				_veh setDir _num;
@@ -371,6 +381,9 @@ if (true) then {
 			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] Created %1", [_veh, _arr, _isUAV, _crew, _sizeOf]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
+			}else{
+				[_name] call gosa_fnc_hint_layout_timeOut;
+			};
 		};
 	};
 
@@ -463,8 +476,9 @@ if (true) then {
 			};
 			if (_b) then {
 				if(_isUAV)then{_num = 35}else{_num = 25};
-				_arr = ([_pos, 0, _num max _sizeOf] call gosa_fnc_getSafePos);
+				_arr = ([_pos, 0, _num max _sizeOf, false, _timeOut] call gosa_fnc_getSafePos);
 			};
+			if (count _arr > 0) then {
 			_veh call _fnc_1;
 			if !(_b) then {
 				_veh setDir _num;
@@ -479,6 +493,9 @@ if (true) then {
 			};
 			diag_log format ["Log: [fnc_Client_BuyUnit] Created %1", [_veh, _arr, _isUAV, _crew, _sizeOf]];
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
+			}else{
+				[_name] call gosa_fnc_hint_layout_timeOut;
+			};
 		};
 	};
 
@@ -508,10 +525,14 @@ if (true) then {
 	if (_type isKindOf "StaticWeapon") then {
 		_Objects = (nearestObjects [vehicle player, ["Base_WarfareBBarracks"]+_HQ+Airport+["WarfareBDepot","WarfareBCamp"], gosa_distanceCoinBase]);
 		if ( (count _Objects > 0) or (missionNamespace getVariable "gosa_shop" == 2)) then {
-			_z = ([player,0, 1 max sizeOf _type] call gosa_fnc_getSafePos);
+			_z = ([player,0, 1 max sizeOf _type, false, _timeOut] call gosa_fnc_getSafePos);
+			if (count _z > 0) then {
 			_veh = (createVehicle [_type, _z, [], 20, "FORM"]);
 			_veh call _fnc_1;
 			[_veh, _name] call gosa_fnc_hint_layout_completed;
+			}else{
+				[_name] call gosa_fnc_hint_layout_timeOut;
+			};
 		};
 	};
 	// [_type] call gosa_fnc_setTimeAvailableVehiclesBuyMenu;

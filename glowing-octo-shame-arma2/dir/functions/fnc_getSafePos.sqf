@@ -4,6 +4,7 @@ diag_log format ["Log: [fnc_getSafePos] %1", _this];
 private ["_return_pos","_position","_safeRadius","_radiusMax","_dir",
 	"_type","_num","_arr","_obj","_maxGradient","_Water","_gradientRadius",
 	"_waterMode","_shoreMode","_objectProximity","_attempt_radius_up",
+	"_timeOut",
 	"_dist2","_testPos","_posX","_posY","_attempt_radius","_radius"];
 
 ScopeName "PlaceSafe";
@@ -19,6 +20,10 @@ if (Count _this > 2) then {_safeRadius = _this Select 2};
 
 _Water=false;
 if (Count _this > 3) then {_Water = _this select 3};
+if (Count _this > 4) then {
+	_timeOut = _this select 4;
+	_timeOut = _timeOut + time;
+};
 
 
 if (TypeName _position != "ARRAY") then {
@@ -107,6 +112,13 @@ while {isNil "_return_pos"} do
 		diag_log format ["Log: [fnc_getSafePos] _r %1", _this];
 		_return_pos = _this;
 		BreakTo "PlaceSafe";
+	};
+
+	if !(isNil "_timeOut") then {
+		if (_timeOut < time) then {
+			_return_pos = [];
+			BreakTo "PlaceSafe";
+		};
 	};
 
 

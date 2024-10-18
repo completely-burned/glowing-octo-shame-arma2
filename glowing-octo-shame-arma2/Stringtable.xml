@@ -2,6 +2,10 @@
 <Project name="gosaProject">
 	<Package name="gosaPackage">
 		<Container name="gosaContainer">
+			<Key ID="STR_gosa_placing_pos_not_found">
+				<Original>Позиция для размещения объекта не найдена.</Original>
+				<English>Position for placing object not found.</English>
+			</Key>
 			<Key ID="STR_gosa_version">
 				<Original>v0.0.5.979</Original>
 			</Key>
