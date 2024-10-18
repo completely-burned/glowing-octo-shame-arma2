@@ -1055,11 +1055,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={7885.8604,64.743561,2110.5361};
+				position[]={7886,64.63369,2141};
 			};
+			init="this setVariable ['gosa_townSize', 200];";
 			id=93;
 			type="LocationVillage_F";
-			atlOffset=0.10987091;
 		};
 		class Item71
 		{
