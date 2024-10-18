@@ -168,7 +168,7 @@ if (group _this != group player) then {
 		_b = true;
 	};
 	#ifdef __ARMA3__
-		if (isVehicleCargo vehicle _this) exitWith {
+		if !(isNull isVehicleCargo vehicle _this) exitWith {
 			_b = true;
 		};		 
 	#endif
