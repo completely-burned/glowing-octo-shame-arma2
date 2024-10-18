@@ -295,7 +295,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa utes Multi v0.0.5.979 DEBUG";
+		briefingName="CO 00 gosa utes Multi v0.0.5.980 DEBUG";
 		startWeather=0.40000001;
 		startWind=0.1;
 		startWaves=0.1;

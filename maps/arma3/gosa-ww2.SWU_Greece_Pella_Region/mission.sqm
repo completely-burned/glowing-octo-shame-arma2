@@ -207,7 +207,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa SWU_Greece_Pella_Region Multi v0.0.5.979 DEBUG";
+		briefingName="WW2 CO 00 gosa SWU_Greece_Pella_Region Multi v0.0.5.980 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.3;
