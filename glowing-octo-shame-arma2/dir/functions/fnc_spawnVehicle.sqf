@@ -3,7 +3,7 @@ diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
 	#define toLower toLowerANSI
 #endif
 
-private ["_pos","_azi","_type","_grp","_side","_str","_entry",
+private ["_pos","_azi","_type","_grp","_side","_str","_entry","_box",
 	"_crew_types","_isUAV","_rank",
 	"_sim","_veh","_crew","_air"];
 
@@ -53,9 +53,9 @@ if (_air) then {
 		_veh setVectorUp surfaceNormal _pos;
 		// a3, ии покидают тс после ранения от столкновения.
 		// Высота не должна быть большой или малой.
-		private _box = boundingBoxReal _veh;
+		_box = boundingBox _veh;
 		diag_log format ["Log: [fnc_spawnVehicle] %1, boundingBox %2", _this, _box];
-		_pos set [2, ((_box select 1 select 2) min 2) max 0.1];
+		_pos set [2, ((_box select 1 select 2) min 2) max 0.2];
 		// FIXME: setPos не прекращает инерцию.
 		_veh setVelocity [0,0,0];
 		_veh setPos _pos;
