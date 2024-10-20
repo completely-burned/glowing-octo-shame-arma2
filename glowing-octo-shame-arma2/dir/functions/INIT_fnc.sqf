@@ -74,6 +74,7 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 
 //--- общие
 _arr = [
+	"fnc_loop_base",
 	"fnc_obj_isRespawnPoint",
 	"fnc_base_get_type",
 	"fnc_base_get_locations",

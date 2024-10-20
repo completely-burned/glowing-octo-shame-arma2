@@ -1960,7 +1960,7 @@ class CfgFunctions
 		{
 			class loop_base
 			{
-				file = "dir\server\loop_base.sqf";
+				file = "dir\functions\fnc_loop_base.sqf";
 			};
 		};
 
