@@ -5,9 +5,12 @@ private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_markers_airport","_respawn_type_Pilot","_respawn_type_All","_markers_alive",
 	"_list","_arr","_b","_marker_type","_marker_type_respawn_unknown",
 	"_marker_type_respawn_plane","_fnc_update_LocationAirport","_grp",
-	"_var_synchronizedObjects","_side","_arr0","_respawn_type_carrier",
+	"_base_array","_RespawnPositionActive",
+	"_var_synchronizedObjects","_side","_arr0","_respawn_type_carrier","_arr1",
 	"_markers_LocationBase","_fnc_update_LocationBase","_types_respawn_blacklist",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
+
+_base_array = _this select 0;
 
 _marker_type_respawn_unknown = "Start";
 _marker_type_respawn_plane = "Airport";
@@ -19,6 +22,26 @@ _respawn_type_Pilot = 1;
 _respawn_type_carrier = 2;
 _respawn_type_All = 0;
 
+// Удаление отключенных позиций.
+_RespawnPositionActive = [];
+if (isMultiplayer) then {
+	_arr = _base_array select 0;
+	for "_i" from (count _arr -1) to 0 step -1 do {
+		_arr0 = _arr select _i;
+		if (count _arr0 > 1) then {
+			// TODO: Учёт разрушений здания.
+			if (damage (_arr0 select 0) >= 0.9) then {
+				diag_log format ["Log: [fnc_base_update] delete %1", _arr0];
+				_arr0 select 1 call BIS_fnc_removeRespawnPosition;
+				_arr deleteAt _i;
+			}else{
+				_RespawnPositionActive pushBack (_arr0 select 0);
+			};
+		};
+	};
+};
+//diag_log format ["Log: [fnc_base_update] _RespawnPositionActive %1", _RespawnPositionActive];
+
 _list = call gosa_fnc_base_get_locations;
 _list = _list select 0;
 
@@ -28,10 +51,9 @@ for "_i" from 0 to (count _list -1) do {
 	_grp = group _logic;
 	_side = _logic getVariable "side";
 	if (isNil "_side") then {
-		_side = civilian;
+		_side = sideUnknown;
 	};
 
-	// объекты аэропорта.
 	_arr0 = [_logic, [_respawn_type_Pilot, _respawn_type_carrier, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
 	_arr = [];
 	for "_i0" from 0 to (count _arr0 -1) do {
@@ -76,11 +98,20 @@ for "_i" from 0 to (count _list -1) do {
 				};
 			};
 
+			if (_logic in _RespawnPositionActive) then {
+				_b = false;
+			};
+
 			if (_b) then {
 				#ifdef __ARMA3__
-					if (isNil "_obj") then {
-						_str = [_side] call gosa_fnc_respawn_get_type_point;
-						//_obj = createVehicle [_str, getPosATL _logic, [], 0, "CAN_COLLIDE"];
+					if (_side isEqualTo sideunknown) then {
+						_arr0 = [east,west,resistance,civilian];
+					}else{
+						_arr0 = [_side];
+					};
+					for "_i1" from 0 to (count _arr0 -1) do {
+						/*
+						_str = [_arr0 select _i1] call gosa_fnc_respawn_get_type_point;
 						_obj = _grp createUnit [_str, getPos _logic, [], 0, "CAN_COLLIDE"];
 						_pos = getPosASL _logic;
 						_obj setPosASL _pos;
@@ -91,6 +122,12 @@ for "_i" from 0 to (count _list -1) do {
 						_obj setVariable ["gosa_RespawnPoint", _logic];
 						_logic synchronizeObjectsAdd [_obj];
 						_obj synchronizeObjectsAdd [_logic];
+						_base_array select 1 pushBack [_logic, _obj];
+						*/
+
+							diag_log format ["Log: [fnc_base_update] %1 addRespawnPosition %2", _logic, _arr0 select _i1];
+							_arr1 = [_arr0 select _i1, _logic] call BIS_fnc_addRespawnPosition;
+							_base_array select 0 pushBack [_logic, _arr1];
 					};
 				#endif
 			};

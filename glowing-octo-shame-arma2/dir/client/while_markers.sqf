@@ -200,8 +200,6 @@ if (true) then {
 	};
 
 
-	waitUntil {!isNil "gosa_list_LocationAirport"};
-	[] call _fnc_update_LocationAirport;
 };
 diag_log format ["Log: [while_markers] _markers_airport %1", _markers_airport];
 
@@ -504,8 +502,6 @@ if(true)then{
 		};
 
 		// TODO: Перенести в скрипт обновления локаций.
-		[] call _fnc_update_LocationAirport;
-
 
 		if (visibleMap) then {
 

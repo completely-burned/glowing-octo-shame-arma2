@@ -1956,6 +1956,14 @@ class CfgFunctions
 			};
 		};
 
+		class loops
+		{
+			class loop_base
+			{
+				file = "dir\server\loop_base.sqf";
+			};
+		};
+
 		class compile
 		{
 			class config_groups
