@@ -41,7 +41,7 @@ if (isMultiplayer) then {
 			_logic_base = _arr0 select 2;
 			_var = _logic_base getVariable "side";
 			if !(isNil "_var") then {
-				if (_var != sideUnknown) then {
+				if !(_var in [sideunknown, civilian]) then {
 					_side = _arr0 select 1 select 0;
 					if (_side != _var) then {
 						diag_log format ["Log: [fnc_base_update] delete %1, %2", _arr0, _side];
@@ -123,10 +123,10 @@ for "_i" from 0 to (count _list -1) do {
 
 			if (_b) then {
 				#ifdef __ARMA3__
-					if (_side isEqualTo sideunknown) then {
+					if (_side in [sideunknown, civilian]) then {
 						_arr0 = [east,west,resistance,civilian];
 					}else{
-						_arr0 = [_side];
+						_arr0 = [_side, civilian];
 					};
 					for "_i1" from 0 to (count _arr0 -1) do {
 						/*
