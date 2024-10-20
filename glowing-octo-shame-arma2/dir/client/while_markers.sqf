@@ -315,14 +315,13 @@ if (true) then {
 	};
 
 
-	waitUntil {!isNil "gosa_list_LocationBase"};
-	[] call _fnc_update_LocationBase;
 };
 diag_log format ["Log: [while_markers] _markers_LocationBase %1", _markers_LocationBase];
 
 // Для совместимости.
 _respawnMarkers = [];
 _objects = [];
+#ifndef __ARMA3__
 if ((count _markers_airport
 	+ count _markers_LocationBase) < 1) then
 {
@@ -359,6 +358,7 @@ if ((count _markers_airport
 		_respawnMarkers set [count _respawnMarkers, _marker];
 	};
 };
+#endif
 
 
 	_markersHQ = [];
@@ -456,6 +456,7 @@ if ((count _markers_airport
 
 //-- Отказоустойчивый маркер возрождения если нет базы.
 // TODO: Сделать должным образом, для совместимости с pvp.
+#ifndef __ARMA3__
 if ((count _respawnMarkers
 	+ count _markers_airport
 	+ count _markers_LocationBase
@@ -467,6 +468,7 @@ if ((count _respawnMarkers
 	_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
 	_respawnMarkers = [_marker];
 };
+#endif
 diag_log format ["Log: [while_markers] Markers static %1", _respawnMarkers];
 
 // FIXME: Имя переменной сбивает с толку.
