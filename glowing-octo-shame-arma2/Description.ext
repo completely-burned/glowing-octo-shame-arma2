@@ -1208,6 +1208,14 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class base_update
+			{
+				file = "dir\functions\fnc_base_update.sqf";
+			};
+			class respawn_get_type_point
+			{
+				file = "dir\functions\fnc_respawn_get_type_point.sqf";
+			};
 			class curators
 			{
 				file = "dir\functions\fnc_curators.sqf";

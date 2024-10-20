@@ -11,4 +11,5 @@ if (isNil "_n") then {
 		};
 	};
 };
+diag_log format ["Log: [fnc_respawn_get_type] %1 respawn_type %2", _this, _n];
 _n;
