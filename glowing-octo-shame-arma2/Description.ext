@@ -1208,6 +1208,26 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class curators
+			{
+				file = "dir\functions\fnc_curators.sqf";
+			};
+			class eh_CuratorObjectPlaced
+			{
+				file = "dir\functions\fnc_eh_CuratorObjectPlaced.sqf";
+			};
+			class obj_isRespawnPoint
+			{
+				file = "dir\functions\fnc_obj_isRespawnPoint.sqf";
+			};
+			class base_get_type
+			{
+				file = "dir\functions\fnc_base_get_type.sqf";
+			};
+			class base_get_locations
+			{
+				file = "dir\functions\fnc_base_get_locations.sqf";
+			};
 			class hint_layout_timeOut
 			{
 				file = "dir\functions\fnc_hint_layout_timeOut.sqf";
