@@ -42,20 +42,23 @@ _RespawnPositionActive = [];
 				_delete = true;
 			};
 		};
-		if (!_delete && count _arr0 > 2) then {
+		if !(_delete) then {
 			//- Смена стороны.
-			// TODO: Союзы.
-			_logic_base = _arr0 select 2;
-			_var = _logic_base getVariable "side";
-			if !(isNil "_var") then {
-				if !(_var in [sideunknown, civilian]) then {
+			_var = (_arr0 select 0) getVariable "side";
+			if (isNil "_var" && count _arr0 > 2) then {
+				_var = (_arr0 select 2) getVariable "side";
+			};
+			if (isNil "_var") then {
+				_var = sideUnknown;
+			};
+			//if !(isNil "_var") then {
+				if (_var in [east,west,resistance]) then {
 					_side = _arr0 select 1 select 0;
-					if (_side != _var) then {
-						diag_log format ["Log: [fnc_base_update] delete %1, %2", _arr0, _side];
+					if (_side getFriend _var < 0.6) then {
 						_delete = true;
 					};
 				};
-			};
+			//};
 		};
 		if (_delete) then {
 			diag_log format ["Log: [fnc_base_update] delete %1", _arr0];
