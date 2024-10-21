@@ -36,12 +36,16 @@ for "_i" from -1 to 99 do {
 	};
 #endif
 
+_arr1 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_logic = _arr select _i;
-	_type = [_logic] call gosa_fnc_base_get_type;
-	if (_type >= 0) then {
-		_return select 0 set [count (_return select 0), _logic];
-		_return select 1 set [count (_return select 1), _type];
+	if !(_logic in _arr1) then {
+		_arr1 set [count _arr1, _logic];
+		_type = [_logic] call gosa_fnc_base_get_type;
+		if (_type >= 0) then {
+			_return select 0 set [count (_return select 0), _logic];
+			_return select 1 set [count (_return select 1), _type];
+		};
 	};
 };
 
