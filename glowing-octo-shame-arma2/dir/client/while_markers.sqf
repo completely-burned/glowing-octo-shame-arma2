@@ -192,7 +192,14 @@ if (true) then {
 						// No respawn.
 						_prefix = "gosa_baserespawn_";
 					#else
-						_pos = [_logic, getPos _logic, getDir _logic] call gosa_fnc_getSafePosForObject;
+						_obj = _logic getVariable "gosa_building";
+						if (isNil "_obj") then {_obj = _logic};
+						_pos = getPos _obj;
+						_num = getDir _obj;
+						if !(isNull _obj) then {
+							_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
+						};
+
 						_prefix = "respawn_";
 					#endif
 
