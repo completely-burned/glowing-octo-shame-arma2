@@ -100,6 +100,7 @@ _types_pilot = gosa_pilotL;
 if (_mode_pvp) then {
 	// TODO: Учесть то что количество сторон может быть другим.
 	_sides = [west,east,resistance];
+	_sides_friendly = [gosa_playerside];
 }else{
 _sides_friendly = gosa_friendlyside - [civilian];
 _sides_enemy = [west,east,resistance] - gosa_friendlyside;
