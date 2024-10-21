@@ -121,31 +121,31 @@ for "_i" from 0 to (count _list -1) do {
 				_eastEnemies = 0;
 				_westEnemies = 0;
 				_resistanceEnemies = 0;
-				_diff_east = 0;
-				_diff_west = 0;
-				_diff_resistance = 0;
+				_diff_east = _east;
+				_diff_west = _west;
+				_diff_resistance = _resistance;
 				if (east getFriend west < 0.6) then {
-					_diff_east = (_east - _west);
+					_diff_east = (_diff_east - _west);
 					_eastEnemies = _eastEnemies + _west;
 				};
 				if (east getFriend resistance < 0.6) then {
-					_diff_east = (_east - _resistance);
+					_diff_east = (_diff_east - _resistance);
 					_eastEnemies = _eastEnemies + _resistance;
 				};
 				if (west getFriend east < 0.6) then {
-					_diff_west = (_west - _east);
+					_diff_west = (_diff_west - _east);
 					_westEnemies = _westEnemies + _east;
 				};
 				if (west getFriend resistance < 0.6) then {
-					_diff_west = (_west - _resistance);
+					_diff_west = (_diff_west - _resistance);
 					_westEnemies = _westEnemies + _resistance;
 				};
 				if (resistance getFriend west < 0.6) then {
-					_diff_resistance = (_resistance - _west);
+					_diff_resistance = (_diff_resistance - _west);
 					_resistanceEnemies = _resistanceEnemies + _west;
 				};
 				if (resistance getFriend east < 0.6) then {
-					_diff_resistance = (_resistance - _east);
+					_diff_resistance = (_diff_resistance - _east);
 					_resistanceEnemies = _resistanceEnemies + _east;
 				};
 				diag_log format ["Log: [fnc_base_update] %1, _diff %2", _logic, [_diff_east, _diff_west, _diff_resistance]];
