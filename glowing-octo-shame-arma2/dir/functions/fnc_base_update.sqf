@@ -30,7 +30,6 @@ _cpoints_needed_RespawnPoint = 15;
 _size_RespawnPoint = 20;
 
 _RespawnPositionActive = [];
-if (isMultiplayer) then {
 	_arr = _base_array select 0;
 	for "_i" from (count _arr -1) to 0 step -1 do {
 		_arr0 = _arr select _i;
@@ -60,12 +59,22 @@ if (isMultiplayer) then {
 		if (_delete) then {
 			diag_log format ["Log: [fnc_base_update] delete %1", _arr0];
 			_arr0 select 1 call BIS_fnc_removeRespawnPosition;
-			_arr deleteAt _i;
+			#ifdef __ARMA3__
+				_arr deleteAt _i;
+			#else
+				_arr set [_i, -1];
+			#endif
 		}else{
-			_RespawnPositionActive pushBack (_arr0 select 0);
+			#ifdef __ARMA3__
+				_RespawnPositionActive pushBack (_arr0 select 0);
+			#else
+				_RespawnPositionActive set [count _RespawnPositionActive, _arr0 select 0];
+			#endif
 		};
 	};
-};
+	#ifndef __ARMA3__
+		_base_array set [0, _arr -[-1]];
+	#endif
 //diag_log format ["Log: [fnc_base_update] _RespawnPositionActive %1", _RespawnPositionActive];
 
 _list = call gosa_fnc_base_get_locations;
@@ -183,8 +192,11 @@ for "_i" from 0 to (count _list -1) do {
 						_logic setVariable ["side", _side];
 					};
 				};
-				if (_arr0 isNotEqualTo _arr1) then {
-					_logic setVariable ["gosa_capture_points", _arr1];
+
+				for "_i1" from 0 to (count _arr0 -1) do {
+					if (_arr0 select _i1 != (_arr1 select _i1)) exitWith {
+						_logic setVariable ["gosa_capture_points", _arr1];
+					};
 				};
 			};
 

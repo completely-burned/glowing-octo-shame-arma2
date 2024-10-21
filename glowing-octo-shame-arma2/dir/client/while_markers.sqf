@@ -525,11 +525,22 @@ if(true)then{
 			if (_delete) then {
 				deleteMarkerLocal (_arr0 select 1);
 				diag_log format ["Log: [while_markers] %1 deleted", _arr0];
-				_markers_active deleteAt _i;
+				#ifdef __ARMA3__
+					_markers_active deleteAt _i;
+				#else
+					_markers_active set [_i, -1];
+				#endif
 			}else{
-				_markers_alive pushBack (_arr0 select 0);
+				#ifdef __ARMA3__
+					_markers_alive pushBack (_arr0 select 0);
+				#else
+					_markers_alive set [count _markers_alive, _arr0 select 0];
+				#endif
 			};
 		};
+		#ifndef __ARMA3__
+			_markers_active = _markers_active -[-1];
+		#endif
 
 		_list = call gosa_fnc_base_get_locations;
 		for "_i" from 0 to (count (_list select 0) -1) do {
