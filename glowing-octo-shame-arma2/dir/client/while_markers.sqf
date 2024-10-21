@@ -233,6 +233,7 @@ if (true) then {
 				#ifdef __ARMA3__
 					_markers_active deleteAt _i;
 				#else
+					_markers_LocationBase = _markers_LocationBase -[_arr0 select 1];
 					_markers_active set [_i, -1];
 				#endif
 			}else{
@@ -314,6 +315,9 @@ if (true) then {
 					if !(_logic in _markers_alive) then {
 						_marker = createMarkerLocal [_marker, _pos];
 						_markers_active set [count _markers_active, [_logic, _marker]];
+						#ifndef __ARMA3__
+							_markers_LocationBase set [count _markers_LocationBase, _marker];
+						#endif
 						diag_log format ["Log: [while_markers] %1 created %2", _marker, _pos];
 						// FOB, без базы, подсвеченный, и не игровой, сбивает игроков с толку.
 						if (true) then {
