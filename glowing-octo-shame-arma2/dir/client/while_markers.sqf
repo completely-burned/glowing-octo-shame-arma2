@@ -18,7 +18,7 @@ private ["_side_str","_markerColor","_rBase","_objects","_respawnMarkers",
 	"_list","_arr","_b","_marker_type","_marker_type_respawn_unknown",
 	"_marker_type_respawn_plane","_fnc_update_LocationAirport",
 	"_var_synchronizedObjects",
-	"_arr0","_arr1","_side","_markers_active","_delete",
+	"_arr0","_arr1","_side","_markers_active","_delete","_playerSide",
 	"_n","_logic_base","_prefix","_respawn_type_carrier","_side_base","_grp",
 	"_markers_LocationBase","_fnc_update_LocationBase","_types_respawn_blacklist",
 	"_markerMHQ","_markerMHQtype","_dynamicMarkers","_hq","_pos","_marker"];
@@ -58,6 +58,7 @@ waitUntil{!isNil "bis_fnc_init"};
 waitUntil{!isNil "gosa_fnc_init"};
 
 // Имена маркеров, маркеры локальные и не должны конфликтовать в pvp.
+_playerSide = gosa_playerSide;
 _tmp_arr = [] call gosa_fnc_getPlayerParam;
 _side_str = _tmp_arr select 0;
 _markerColor = _tmp_arr select 1;
@@ -184,6 +185,12 @@ if (true) then {
 
 				if (damage _logic >= 0.9) then {
 					_b = false;
+				};
+
+				if (_playerSide getFriend _side < 0.6) then {
+					if (_side in [east,west,resistance]) then {
+						_b = false;
+					};
 				};
 
 				if (_b) then {
