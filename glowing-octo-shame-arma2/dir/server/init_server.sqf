@@ -55,6 +55,7 @@ _arr = [] call gosa_fnc_availableBackpacks;
 availableBackpacks = _arr; publicVariable "availableBackpacks";
 diag_log format ["Log: [init_server] Создан белый список объектов. %1", [count availableVehicles, count availableWeapons, count availableMagazines, count availableBackpacks]];
 
+[] call compile preprocessFileLineNumbers "dir\server\config_groups_pre.sqf";
 [] call compile preprocessFileLineNumbers "dir\server\init_groups.sqf";
 [] call compile preprocessFileLineNumbers "dir\server\config_server.sqf";
 
