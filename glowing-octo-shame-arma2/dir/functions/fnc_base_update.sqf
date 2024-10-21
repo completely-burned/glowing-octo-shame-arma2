@@ -44,6 +44,7 @@ _RespawnPositionActive = [];
 		};
 		if (!_delete && count _arr0 > 2) then {
 			//- Смена стороны.
+			// TODO: Союзы.
 			_logic_base = _arr0 select 2;
 			_var = _logic_base getVariable "side";
 			if !(isNil "_var") then {
