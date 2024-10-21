@@ -220,10 +220,18 @@ for "_i" from 0 to (count _list -1) do {
 
 			if (_b) then {
 				#ifdef __ARMA3__
-					if (_side in [sideUnknown, civilian]) then {
+					if (_side in [sideFriendly, sideUnknown, civilian]) then {
 						_arr0 = [east,west,resistance,civilian];
 					}else{
-						_arr0 = [_side, civilian];
+						_arr0 = [_side];
+						_arr1 = [east,west,resistance,civilian];
+						for "_i1" from 0 to (count _arr1 -1) do {
+							if (_arr1 select _i1 != _side) then {
+								if (_arr1 select _i1 getFriend _side >= 0.6) then {
+									_arr0 set [count _arr0, _arr1 select _i1];
+								};
+							};
+						};
 					};
 					for "_i1" from 0 to (count _arr0 -1) do {
 						/*
