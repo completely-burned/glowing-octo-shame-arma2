@@ -3,6 +3,8 @@
  * TODO: Назначить командира.
  * TODO: Из MTLB плохой боец, его нужно попробовать разместить в конце отряда чтобы он не бросался в атаку первым.
  * TODO: SLA
+	//CUP_B_LCU1600_USMC
+	//CUP_B_MK10_GB
  */
 
 #include "..\include\ranks.sqf"
@@ -82,9 +84,11 @@
 			// configName O_InfTeam_AT_Heavy
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Summer","CUP_O_RU_Soldier_HAT_Ratnik_Summer","CUP_O_RU_Soldier_HAT_Ratnik_Summer","CUP_O_RU_Soldier_AHAT_Ratnik_Summer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1]
 	];
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [160,249],
 		["CUP_O_RU"]
@@ -215,9 +219,11 @@
 		// O_InfTeam_AT_Heavy
 		[[[["CUP_O_RUS_M_Soldier_TL_VKPO_Desert","CUP_O_RUS_M_Soldier_HAT_VKPO_Desert","CUP_O_RUS_M_Soldier_HAT_VKPO_Desert","CUP_O_RUS_M_Soldier_AHAT_VKPO_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1]
 	];
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [275,299],
 		["CUP_O_RU"]
@@ -288,9 +294,11 @@
 			// configName O_InfTeam_AT_Heavy
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Desert","CUP_O_RU_Soldier_HAT_Ratnik_Desert","CUP_O_RU_Soldier_HAT_Ratnik_Desert","CUP_O_RU_Soldier_AHAT_Ratnik_Desert"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5]
 	];
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [300,999],
 		["CUP_O_RU"]
@@ -430,9 +438,12 @@
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_Winter","CUP_O_RU_Soldier_HAT_Ratnik_Winter","CUP_O_RU_Soldier_HAT_Ratnik_Winter","CUP_O_RU_Soldier_AHAT_Ratnik_Winter"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],
 			0.15]
 	];
+	
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [-999,159],
 		["CUP_O_RU"]
@@ -524,9 +535,11 @@
 		"CUP_O_MVD_Soldier_GL","CUP_O_MVD_Sniper",
 		"CUP_O_MVD_Soldier_Marksman","CUP_O_MVD_Soldier_GL"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.02]
 	];
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_O_ZUBR_RU"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	[_groups_map, east, "CUP_O_RU", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		[1990,2100], [160,274],
 		["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS","CUP_O_RUS_M"]
@@ -1306,9 +1319,11 @@
 			// configName CUP_B_CDFSniperTeam_SNW
 			[[[["CUP_B_CDF_Sniper_SNW","CUP_B_CDF_Sniper_SNW"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.05]
 		];
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		_arr append [
 			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
@@ -1369,9 +1384,11 @@
 			// configName CUP_B_CDFTankPlatoon
 			[[[["CUP_B_T72_CDF","CUP_B_T72_CDF","CUP_B_T72_CDF"],[[0,10,0],[5,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.25]
 		];
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		_arr append [
 			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
@@ -1399,9 +1416,11 @@
 			// configName CUP_B_CDFSniperTeam_DST
 			[[[["CUP_B_CDF_Sniper_DST","CUP_B_CDF_Sniper_DST"],[[0,5,0],[3,0,0]],["SERGEANT","CORPORAL"]]],0.05]
 		];
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		_arr append [
 			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
@@ -1759,9 +1778,11 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 			// configName CUP_I_UN_Patrol_FST
 			[[[["CUP_I_UN_CDF_Officer_FST","CUP_I_UN_CDF_Soldier_FST","CUP_I_UN_CDF_Soldier_AT_FST","CUP_I_UN_CDF_Soldier_MG_FST"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5]
 	];
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_I_ZUBR_UN"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	[_groups_map, resistance, "CUP_I_UN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [160,250],
 	["CUP_B_CDF","BLU_UN_lxWS"]
@@ -1776,9 +1797,11 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 			// configName CUP_I_UN_Patrol_DST
 			[[[["CUP_I_UN_CDF_Officer_DST","CUP_I_UN_CDF_Soldier_DST","CUP_I_UN_CDF_Soldier_AT_DST","CUP_I_UN_CDF_Soldier_MG_DST"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.5]
 	];
+	if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
 		[[[["CUP_I_ZUBR_UN"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
+	};
 	[_groups_map, resistance, "CUP_I_UN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1990,2100], [251,999,1],
 	["CUP_B_CDF","BLU_UN_lxWS"]
