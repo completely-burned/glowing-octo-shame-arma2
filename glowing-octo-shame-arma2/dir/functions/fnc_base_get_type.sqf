@@ -5,7 +5,7 @@
 
 private ["_logic","_n"];
 _logic = _this select 0;
-_logic getVariable "gosa_Location_type";
+_n = _logic getVariable "gosa_Location_type";
 scopeName "root";
 
 if (isNil "_n") then {
@@ -24,4 +24,5 @@ if (isNil "_n") then {
 		_n = -1;
 	};
 };
+diag_log format ["Log: [fnc_base_get_type] %1, %2", _logic, _n];
 _n;
