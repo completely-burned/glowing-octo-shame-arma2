@@ -97,15 +97,24 @@ _frontLine_guer = missionNamespace getVariable "gosa_frontLine_guer";
 _mode_pvp = gosa_pvp;
 _types_pilot = gosa_pilotL;
 
+_friendlySide = [];
 if (_mode_pvp) then {
 	// TODO: Учесть то что количество сторон может быть другим.
 	_sides = [west,east,resistance];
 	_sides_friendly = [gosa_playerside];
+	for "_i" from 0 to (count _sides_friendly -1) do {
+		switch (_sides_friendly select _i) do {
+			case EAST:		{_friendlySide set [_i, 0]};
+			case WEST:		{_friendlySide set [_i, 1]};
+			case RESISTANCE:{_friendlySide set [_i, 2]};
+			case CIVILIAN:	{_friendlySide set [_i, 3]};
+			default {};
+		};
+	};
 }else{
 _sides_friendly = gosa_friendlyside - [civilian];
 _sides_enemy = [west,east,resistance] - gosa_friendlyside;
 	_sides = _sides_friendly+_sides_enemy;
-_friendlySide = [];
 _enemySide = [];
 	for "_i" from 0 to (count _sides_enemy -1) do {
 		switch (_sides_enemy select _i) do {
