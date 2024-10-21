@@ -112,6 +112,16 @@ if (true) then {
 				};
 			};
 
+			_side = (_arr0 select 0) getVariable "side";
+			if (isNil "_side") then {
+				_side = sideUnknown;
+			};
+			if (_playerSide getFriend _side < 0.6) then {
+				if (_side in [east,west,resistance]) then {
+					_delete = true;
+				};
+			};
+
 			// TODO: Смена стороны.
 			if (_delete) then {
 				deleteMarkerLocal (_arr0 select 1);
