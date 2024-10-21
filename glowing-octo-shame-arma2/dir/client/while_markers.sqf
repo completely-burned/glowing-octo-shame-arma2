@@ -221,7 +221,12 @@ diag_log format ["Log: [while_markers] _markers_LocationBase %1", _markers_Locat
 // Для совместимости.
 _respawnMarkers = [];
 _objects = [];
-#ifndef __ARMA3__
+#ifdef __ARMA3__
+	_b = false;
+#else
+	_b = true;
+#endif
+if (_b) then {
 if ((count _markers_airport
 	+ count _markers_LocationBase) < 1) then
 {
@@ -258,7 +263,7 @@ if ((count _markers_airport
 		_respawnMarkers set [count _respawnMarkers, _marker];
 	};
 };
-#endif
+};
 
 
 	_markersHQ = [];
