@@ -212,113 +212,120 @@ _markers_LocationBase = [];
 if (true) then {
 
 	_fnc_update_LocationBase = {
-		if !(isNil "gosa_list_LocationBase") then {
-
+		//- Маркеры баз.
 		_markers_alive = [];
-		_list = gosa_list_LocationBase;
-		for "_i" from 0 to (count _list -1) do {
-			scopeName "for_b";
-			_logic = _list select _i;
-			// TODO: Side.
+		for "_i" from (count _markers_active -1) to 0 step -1 do {
+			_arr0 = _markers_active select _i;
+			_delete = false;
+			// TODO: Учёт разрушений здания.
 
-			// объекты аэропорта.
-			_arr = [_logic, [_respawn_type_Pilot, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
-			_arr = (_arr select 0) + (_arr select 1);
-
-			// Для совместимости.
-			// Дедупликация.
-			_b = true;
-			for "_iS" from 0 to (count _arr -1) do {
-				_obj = _arr select _iS;
-				_num = _obj getVariable "gosa_Location_type";
-				if !(isNil "_num") then {
-					if (_num in [_respawn_type_Pilot, _respawn_type_All]) then {
-						_b = false;
-						breakTo "for_b";
-					};
+			if (count _arr0 > 1) then {
+				//- Удаление отключенных позиций.
+				if (damage (_arr0 select 0) >= 0.9) then {
+					_delete = true;
 				};
 			};
-			if (_b) then {
-			if (count _arr <= 0) then {
-				_arr = [_logic];
+
+			// TODO: Смена стороны.
+			if (_delete) then {
+				deleteMarkerLocal (_arr0 select 1);
+				diag_log format ["Log: [while_markers] %1 deleted", _arr0];
+				#ifdef __ARMA3__
+					_markers_active deleteAt _i;
+				#else
+					_markers_active set [_i, -1];
+				#endif
+			}else{
+				#ifdef __ARMA3__
+					_markers_alive pushBack (_arr0 select 0);
+				#else
+					_markers_alive set [count _markers_alive, _arr0 select 0];
+				#endif
+			};
+		};
+		#ifndef __ARMA3__
+			_markers_active = _markers_active -[-1];
+		#endif
+
+		_list = call gosa_fnc_base_get_locations;
+		for "_i" from 0 to (count (_list select 0) -1) do {
+			_logic_base = (_list select 0) select _i;
+
+			//_grp = group _logic_base;
+			_side_base = _logic_base getVariable "side";
+			if (isNil "_side_base") then {
+				_side_base = sideUnknown;
 			};
 
+			_arr = [_logic_base, [_respawn_type_Pilot, _respawn_type_carrier, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
+			_arr0 = [];
 			for "_i0" from 0 to (count _arr -1) do {
-				_logic = _arr select _i0;
-				if (toLower typeOf _logic in _types_respawn_blacklist) then {
-					diag_log format ["Log: [while_markers] %1, %2 _blacklist", _logic, typeOf _logic];
-				}else{
+				#ifdef __ARMA3__
+					_arr0 append (_arr select _i0);
+				#else
+					_arr0 = _arr0 + (_arr select _i0);
+				#endif
+			};
 
-					// тип возрождения.
-					_num = [_logic, _respawn_type_All] call gosa_fnc_respawn_get_type;
-					diag_log format ["Log: [while_markers] %1, respawn_type %2", _logic, _num];
-					switch (_num) do {
-						case _respawn_type_Pilot: {
-							if (_startingClass == 1) then {
-								_b = true;
-								_marker_type = _marker_type_respawn_plane;
-							}else{
-								_b = false;
-							};
-						};
-						case _respawn_type_All: {
+			if (count _arr0 <= 0) then {
+				_arr0 = [_logic_base];
+			};
+
+			for "_i0" from 0 to (count _arr0 -1) do {
+				_logic = _arr0 select _i0;
+
+				_side = _logic getVariable "side";
+				if (isNil "_side") then {
+					_side = _side_base;
+				};
+
+				_b = true;
+				_n = [_logic, _respawn_type_All] call gosa_fnc_respawn_get_type;
+				switch (_n) do {
+					case _respawn_type_carrier;
+					case _respawn_type_Pilot: {
 							_b = true;
-							_marker_type = _marker_type_respawn_unknown;
-						};
-						default {
-							_b = false;
-						};
+							_marker_type = _marker_type_respawn_plane;
 					};
+					case _respawn_type_All: {
+						_b = true;
+						_marker_type = _marker_type_respawn_unknown;
+					};
+					default {
+						_b = false;
+					};
+				};
 
-					if (_b) then {
-						_marker = format["respawn_%1_%2", _side_str, _logic];
-						_markers_alive set [count _markers_alive, _marker];
-						if !(_marker in _markers_LocationBase) then {
-							_obj = _logic getVariable "gosa_building";
-							if (isNil "_obj") then {_obj = _logic};
-							_pos = getPos _obj;
-							_num = getDir _obj;
+				if (damage _logic >= 0.9) then {
+					_b = false;
+				};
 
-							if !(isNull _obj) then {
-								_pos = [_obj, _pos, _num] call gosa_fnc_getSafePosForObject;
-							};
+				if (_b) then {
+					#ifdef __ARMA3__
+						_pos = getPosASL _logic;
+						// No respawn.
+						_prefix = "gosa_baserespawn_";
+					#else
+						_pos = [_logic, getPos _logic, getDir _logic] call gosa_fnc_getSafePosForObject;
+						_prefix = "respawn_";
+					#endif
 
-							createMarkerLocal [_marker, _pos];
-							diag_log format ["Log: [while_markers] %1 createMarker %2, %3", _marker, _pos, _obj];
-
+					_marker = format["%1%2_%3",_prefix,_side_str,_logic];
+					if !(_logic in _markers_alive) then {
+						_marker = createMarkerLocal [_marker, _pos];
+						_markers_active set [count _markers_active, [_logic, _marker]];
+						diag_log format ["Log: [while_markers] %1 created %2", _marker, _pos];
+						// FOB, без базы, подсвеченный, и не игровой, сбивает игроков с толку.
+						if (true) then {
 							_marker setMarkerTypeLocal _marker_type;
-
-							// A3 устанавливает цвет самостоятельно.
-							#ifdef __ARMA3__
-							if !(gosa_playerSide in [east,west,resistance]) then {
-							#endif
-								_marker setMarkerColorLocal _markerColor;
-							#ifdef __ARMA3__
-							};
-							#endif
-							_markers_LocationBase set [count _markers_LocationBase, _marker];
+							_marker setMarkerColorLocal _markerColor;
 						};
 					};
 				};
 			};
-			};
-		};
-
-		for "_i" from 0 to (count _markers_LocationBase -1) do {
-			_marker = _markers_LocationBase select _i;
-			// Airport: Удаление маркеров.
-			if !(_marker in _markers_alive) then {
-				diag_log format ["Log: [while_markers] %1 deleteMarker", _marker];
-				deleteMarkerLocal _marker;
-				_markers_LocationBase set [_i, -1];
-			};
-		};
-		_markers_LocationBase = _markers_LocationBase -[-1];
-
 		};
 	};
-
-
+	[] call _fnc_update_LocationBase;
 };
 diag_log format ["Log: [while_markers] _markers_LocationBase %1", _markers_LocationBase];
 
@@ -507,119 +514,7 @@ if(true)then{
 			[] call _fnc_update_HQ;
 		};
 
-		//- Маркеры баз.
-		_markers_alive = [];
-		for "_i" from (count _markers_active -1) to 0 step -1 do {
-			_arr0 = _markers_active select _i;
-			_delete = false;
-			// TODO: Учёт разрушений здания.
-
-			if (count _arr0 > 1) then {
-				//- Удаление отключенных позиций.
-				if (damage (_arr0 select 0) >= 0.9) then {
-					_delete = true;
-				};
-			};
-
-			// TODO: Смена стороны.
-			if (_delete) then {
-				deleteMarkerLocal (_arr0 select 1);
-				diag_log format ["Log: [while_markers] %1 deleted", _arr0];
-				#ifdef __ARMA3__
-					_markers_active deleteAt _i;
-				#else
-					_markers_active set [_i, -1];
-				#endif
-			}else{
-				#ifdef __ARMA3__
-					_markers_alive pushBack (_arr0 select 0);
-				#else
-					_markers_alive set [count _markers_alive, _arr0 select 0];
-				#endif
-			};
-		};
-		#ifndef __ARMA3__
-			_markers_active = _markers_active -[-1];
-		#endif
-
-		_list = call gosa_fnc_base_get_locations;
-		for "_i" from 0 to (count (_list select 0) -1) do {
-			_logic_base = (_list select 0) select _i;
-
-			//_grp = group _logic_base;
-			_side_base = _logic_base getVariable "side";
-			if (isNil "_side_base") then {
-				_side_base = sideUnknown;
-			};
-
-			_arr = [_logic_base, [_respawn_type_Pilot, _respawn_type_carrier, _respawn_type_All], -1] call gosa_fnc_base_getRespawn;
-			_arr0 = [];
-			for "_i0" from 0 to (count _arr -1) do {
-				#ifdef __ARMA3__
-					_arr0 append (_arr select _i0);
-				#else
-					_arr0 = _arr0 + (_arr select _i0);
-				#endif
-			};
-
-			if (count _arr0 <= 0) then {
-				_arr0 = [_logic_base];
-			};
-
-			for "_i0" from 0 to (count _arr0 -1) do {
-				_logic = _arr0 select _i0;
-
-				_side = _logic getVariable "side";
-				if (isNil "_side") then {
-					_side = _side_base;
-				};
-
-				_b = true;
-				_n = [_logic, _respawn_type_All] call gosa_fnc_respawn_get_type;
-				switch (_n) do {
-					case _respawn_type_carrier;
-					case _respawn_type_Pilot: {
-							_b = true;
-							_marker_type = _marker_type_respawn_plane;
-					};
-					case _respawn_type_All: {
-						_b = true;
-						_marker_type = _marker_type_respawn_unknown;
-					};
-					default {
-						_b = false;
-					};
-				};
-
-				if (damage _logic >= 0.9) then {
-					_b = false;
-				};
-
-				if (_b) then {
-					#ifdef __ARMA3__
-						_pos = getPosASL _logic;
-						// No respawn.
-						_prefix = "gosa_baserespawn_";
-					#else
-						_pos = [_logic, getPos _logic, getDir _logic] call gosa_fnc_getSafePosForObject;
-						_prefix = "respawn_";
-					#endif
-
-					_marker = format["%1%2_%3",_prefix,_side_str,_logic];
-					if !(_logic in _markers_alive) then {
-						_marker = createMarkerLocal [_marker, _pos];
-						_markers_active set [count _markers_active, [_logic, _marker]];
-						diag_log format ["Log: [while_markers] %1 created %2", _marker, _pos];
-						// FOB, без базы, подсвеченный, и не игровой, сбивает игроков с толку.
-						if (true) then {
-							_marker setMarkerTypeLocal _marker_type;
-							_marker setMarkerColorLocal _markerColor;
-						};
-					};
-				};
-			};
-		};
-
+		[] call _fnc_update_LocationBase;
 
 		if (visibleMap) then {
 
