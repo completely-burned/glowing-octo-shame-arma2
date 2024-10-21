@@ -348,6 +348,9 @@ _arr = [
 	[[[["SPE_P47","SPE_P47","SPE_P47"],[[0,20,0],[-10,-10,0],[-20,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.5]
 ];
 _arr append [
+	[[[["MWB_M24Chaffee","MWB_M24Chaffee"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
+	[[[["MWB_M36B2","MWB_M36B2","MWB_M36B2","MWB_M36B2"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
+	[[[["MWB_M36","MWB_M36","MWB_M36","MWB_M36"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
 	[[[["SPE_US_M3_Halftrack_Repair","SPE_US_M3_Halftrack_Ammo","SPE_US_M3_Halftrack_Fuel"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.025],
 	[[[["SPE_CCKW_353_Repair","SPE_CCKW_353_Ammo","SPE_CCKW_353_Fuel"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.025],
 	[[[["SPE_US_M3_Halftrack_Ambulance"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.017],
