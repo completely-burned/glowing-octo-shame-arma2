@@ -72,6 +72,8 @@ _param_default = -1;
 _cfg_factions_def = [["OPF_F"],["BLU_F"],["IND_F"]];
 
 
+#include "config_groups_LS.sqf"
+
 #include "config_groups_SPE.sqf"
 #include "config_groups_WW2.sqf"
 

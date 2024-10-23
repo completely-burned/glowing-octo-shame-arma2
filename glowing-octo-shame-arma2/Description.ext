@@ -541,6 +541,26 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+
+		// LS
+			class gosa_faction_multiplier_ls_groups_cis {
+				title = "FACTION: ls_groups_cis";
+				values[] = {-1,1,0};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = -1;
+			};
+			class gosa_faction_multiplier_SWLB_group_GAR {
+				title = "FACTION: SWLB_group_GAR";
+				values[] = {-1,1,0};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = -1;
+			};
+			class gosa_faction_multiplier_ls_groups_greenfor_mandalorians {
+				title = "FACTION: ls_groups_greenfor_mandalorians";
+				values[] = {-1,1,0};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = -1;
+			};
 	#else
 		class gosa_faction_multiplier_INS {
 			title="FACTION: BIS_INS";

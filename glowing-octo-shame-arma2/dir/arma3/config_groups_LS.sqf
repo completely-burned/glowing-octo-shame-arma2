@@ -1,5 +1,5 @@
 //--- East
-_east = [
+_arr = [
 	// base_b1_fireteam
 	[[[["lsd_cis_b1SquadLead_standard","lsd_cis_b1_standard","lsd_cis_b1Heavy_standard","lsd_cis_b1_standard"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
 	// base_security_team
@@ -15,7 +15,19 @@ _east = [
 	// base_b1_marksmanPair
 	[[[["lsd_cis_b1Marksman_standard","lsd_cis_b1Marksman_standard"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.1],
 	// base_b1_mgTeam
-	[[[["lsd_cis_b1SquadLead_standard","lsd_cis_b1Heavy_standard","lsd_cis_b1Heavy_standard"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.3],
+	[[[["lsd_cis_b1SquadLead_standard","lsd_cis_b1Heavy_standard","lsd_cis_b1Heavy_standard"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.3]
+];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, east, "ls_groups_cis", _arr,
+	[3000,9999999], [-999,224],
+	[]
+] call gosa_fnc_map_groups_add;
+[_groups_map, east, "ls_groups_cis", _arr,
+	[3000,9999999], [250,299],
+	[]
+] call gosa_fnc_map_groups_add;
+
+_arr = [
 	// geonosis_b1_fireteam
 	[[[["lsd_cis_b1SquadLead_geonosis","lsd_cis_b1_geonosis","lsd_cis_b1Heavy_geonosis","lsd_cis_b1_geonosis"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
 	// geonosis_b1_squad
@@ -29,7 +41,20 @@ _east = [
 	// geonosis_b1_marksmanPair
 	[[[["lsd_cis_b1Marksman_geonosis","lsd_cis_b1Marksman_geonosis"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.1],
 	// geonosis_b1_mgTeam
-	[[[["lsd_cis_b1SquadLead_geonosis","lsd_cis_b1Heavy_geonosis","lsd_cis_b1Heavy_geonosis"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.3],
+	[[[["lsd_cis_b1SquadLead_geonosis","lsd_cis_b1Heavy_geonosis","lsd_cis_b1Heavy_geonosis"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.3]
+];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, east, "ls_groups_cis", _arr,
+	[3000,9999999], [225,249],
+	[]
+] call gosa_fnc_map_groups_add;
+[_groups_map, east, "ls_groups_cis", _arr,
+	[3000,9999999], [300,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
+_arr = [
+	/*
 	// training_b1_fireteam
 	[[[["lsd_cis_b1SquadLead_training","lsd_cis_b1_training","lsd_cis_b1Heavy_training","lsd_cis_b1_training"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
 	// training_b1_squad
@@ -44,6 +69,7 @@ _east = [
 	[[[["lsd_cis_b1Marksman_training","lsd_cis_b1Marksman_training"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.1],
 	// training_b1_mgTeam
 	[[[["lsd_cis_b1SquadLead_training","lsd_cis_b1Heavy_training","lsd_cis_b1Heavy_training"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.3],
+	*/
 	// deathwatch_infantry_squad
 	[[[["ls_mandalorian_sergeant_deathwatch","ls_mandalorian_at_deathwatch","ls_mandalorian_assault_deathwatch","ls_mandalorian_assault_deathwatch","ls_mandalorian_sergeant_deathwatch","ls_mandalorian_assault_deathwatch","ls_mandalorian_rto_deathwatch","ls_mandalorian_medic_deathwatch"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 	// deathwatch_weapons_squad
@@ -67,9 +93,15 @@ _east = [
 	// cis_mechanized_raptorPack
 	[[[["lsd_ground_agtRaptor","lsd_ground_agtRaptor","lsd_ground_agtRaptor","lsd_ground_agtRaptor"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5]
 ];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, east, "ls_groups_cis", _arr,
+	[3000,9999999], [-999,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
 
 //--- West
-_west = [
+_arr = [
 	// saber_plt
 	[[[["SWLG_tanks_tx130","SWLG_tanks_tx130","SWLG_tanks_tx130","SWLG_tanks_tx130"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
 	// Clone_SaberSection
@@ -213,9 +245,43 @@ _west = [
 	// Clone2_MechInf_Support
 	[[[["SWLG_tanks_tx130","SWLB_clone_base_P2","SWLB_clone_assault_base_P2","SWLB_clone_RTO_base_P2","SWLB_clone_engineer_base_P2","SWLB_clone_medic_base_P2","SWLB_clone_base_P2","SWLB_clone_assault_base_P2","SWLB_clone_sg_base_P2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.05]
 ];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, west, "SWLB_group_GAR", _arr,
+	[3000,9999999], [-999,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
 
 //--- Guer
-_guer = [
+_arr = [
+	// saxon_infantry_squad
+	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_at_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_heavy_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_rto_saxon","ls_mandalorian_medic_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
+	// saxon_weapons_squad
+	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_support_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_aa_saxon","ls_mandalorian_heavy_saxon","ls_mandalorian_heavyAT_saxon","ls_mandalorian_rto_saxon","ls_mandalorian_medic_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
+	// saxon_infantry_team
+	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_at_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_assault_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
+	// saxon_at_team
+	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_heavyAT_saxon","ls_mandalorian_at_saxon","ls_mandalorian_at_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
+	// saxon_aa_team
+	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_at_saxon","ls_mandalorian_aa_saxon","ls_mandalorian_aa_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+	// saxon_support_team
+	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_medic_saxon","ls_mandalorian_medic_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+	// saxon_eod_team
+	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_demo_saxon","ls_mandalorian_demo_saxon","ls_mandalorian_demo_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+	// saxon_mg_team
+	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_support_saxon","ls_mandalorian_support_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.2],
+	// saxon_infantry_sentry
+	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_assault_saxon"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
+	// saxon_sniper_team
+	[[[["ls_mandalorian_marksman_saxon","ls_mandalorian_heavy_saxon"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.1]
+];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, resistance, "ls_groups_greenfor_mandalorians", _arr,
+	[3000,9999999], [-999,159],
+	[]
+] call gosa_fnc_map_groups_add;
+
+_arr = [
 	// traditional_infantry_squad
 	[[[["ls_mandalorian_heavy_traditional","ls_mandalorian_at_traditional","ls_mandalorian_assault_traditional","ls_mandalorian_assault_traditional","ls_mandalorian_heavy_traditional","ls_mandalorian_assault_traditional","ls_mandalorian_rto_traditional","ls_mandalorian_medic_traditional"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
 	// traditional_weapons_squad
@@ -236,27 +302,6 @@ _guer = [
 	[[[["ls_mandalorian_heavy_traditional","ls_mandalorian_assault_traditional"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
 	// traditional_sniper_team
 	[[[["ls_mandalorian_marksman_traditional","ls_mandalorian_heavy_traditional"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.1],
-
-	// saxon_infantry_squad
-	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_at_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_heavy_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_rto_saxon","ls_mandalorian_medic_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
-	// saxon_weapons_squad
-	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_support_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_aa_saxon","ls_mandalorian_heavy_saxon","ls_mandalorian_heavyAT_saxon","ls_mandalorian_rto_saxon","ls_mandalorian_medic_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
-	// saxon_infantry_team
-	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_at_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_assault_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
-	// saxon_at_team
-	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_heavyAT_saxon","ls_mandalorian_at_saxon","ls_mandalorian_at_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-	// saxon_aa_team
-	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_at_saxon","ls_mandalorian_aa_saxon","ls_mandalorian_aa_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
-	// saxon_support_team
-	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_assault_saxon","ls_mandalorian_medic_saxon","ls_mandalorian_medic_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
-	// saxon_eod_team
-	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_demo_saxon","ls_mandalorian_demo_saxon","ls_mandalorian_demo_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
-	// saxon_mg_team
-	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_support_saxon","ls_mandalorian_support_saxon"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.2],
-	// saxon_infantry_sentry
-	[[[["ls_mandalorian_sergeant_saxon","ls_mandalorian_assault_saxon"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1],
-	// saxon_sniper_team
-	[[[["ls_mandalorian_marksman_saxon","ls_mandalorian_heavy_saxon"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.1],
 
 	// ordo_infantry_squad
 	[[[["ls_mandalorian_sergeant_ordo","ls_mandalorian_at_ordo","ls_mandalorian_assault_ordo","ls_mandalorian_assault_ordo","ls_mandalorian_heavy_ordo","ls_mandalorian_assault_ordo","ls_mandalorian_rto_ordo","ls_mandalorian_medic_ordo"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1],
@@ -321,3 +366,8 @@ _guer = [
 	// vizsla_sniper_team
 	[[[["ls_mandalorian_marksman_vizsla","ls_mandalorian_heavy_vizsla"],[[0,0,0],[5,-5,0]],["SERGEANT","CORPORAL"]]],0.1]
 ];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, resistance, "ls_groups_greenfor_mandalorians", _arr,
+	[3000,9999999], [160,999],
+	[]
+] call gosa_fnc_map_groups_add;
