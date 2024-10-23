@@ -13,10 +13,11 @@ copyToClipboard ([["Indep"],["LIB_UK_DR"],[]] call gosa_fnc_returnGroups select 
 
 
 private ["_cfgGroups","_Blacklist","_args","_side", "_type", "_cfgFaction",
-	"_str"];
+	"_str","_comma"];
 
 _args = _this;
 _br = toString [13,10];
+_comma = false;
 _str = "[" + _br;
 
 _cfgGroups = configFile >> "CfgGroups";
@@ -101,13 +102,13 @@ _groups = [];
 						};
 					};
 
-					_str = _str + "// " + configName _item + _br + str [[[_types,_positions,_ranks]],_weight];
-					// FIXME: Зяпятая не всегда устанавливается.
-					if (_i+1 < count (_cfgGroups >> _side_x >> _cfgFaction_x >> _x)) then {
+					if (_comma) then {
 						_str = _str + "," + _br;
 					}else{
-						_str = _str + _br;
+						_comma = true;
 					};
+					_str = _str + "// " + configName _item + _br + str [[[_types,_positions,_ranks]],_weight];
+					// FIXME: Зяпятая не всегда устанавливается.
 					_groups = (_groups + [[[[_types,_positions,_ranks]],_weight]]);
 				};
 			};
@@ -115,6 +116,6 @@ _groups = [];
 	} forEach _cfgFaction;
 } forEach _side;
 
-_str = _str + "];" + _br;
+_str = _str + _br + "];" + _br;
 
 [_groups, _str];
