@@ -245,6 +245,11 @@ _arr = [
 	// Clone2_MechInf_Support
 	[[[["SWLG_tanks_tx130","SWLB_clone_base_P2","SWLB_clone_assault_base_P2","SWLB_clone_RTO_base_P2","SWLB_clone_engineer_base_P2","SWLB_clone_medic_base_P2","SWLB_clone_base_P2","SWLB_clone_assault_base_P2","SWLB_clone_sg_base_P2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.05]
 ];
+_arr = [
+	//[[[["ls_cis_hmp","ls_cis_hmp"],[[0,0,0],[20,-20,0]],["CAPTAIN","LIEUTENANT"]]],0.5],
+	[[[["ls_ground_aat","ls_ground_aat","ls_ground_aat","ls_ground_aat"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL"]]],0.5],
+	[[[["ls_ground_aat","ls_ground_aat"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5]
+];
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "SWLB_group_GAR", _arr,
 	[3000,9999999], [-999,999],
