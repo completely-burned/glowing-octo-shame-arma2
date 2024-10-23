@@ -35,7 +35,7 @@ if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 	"swu_ardennes_1940",
 	"spe_normandy","spe_mortain","spex_utah_beach"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl","vn_khe_sanh","vn_the_bra","cam_lao_nam",
-	"egl_laghisola"]) then {_r set [0,225]};
+	"egl_laghisola","lsb_terrain_endor"]) then {_r set [0,225]};
 if (_w in ["altis","vr","stratis","porto","cain","swu_greece_pella_region"]) then {_r set [0,250]};
 if (_w in ["kunduz"]) then {_r set [0,275]};
 if (_w in ["zargabad","takistan","shapur_baf","mountains_acr","fallujah","tem_anizay","iron_excelsior_tobruk"]) then {_r set [0,280]};
@@ -133,6 +133,10 @@ if (_w in ["egl_laghisola"]) then
 if (_w in ["altis","tanoa","enoch","vr","stratis","sefrouramal"]) then
 {
 	_r set [1,2035];
+};
+if (_w in ["lsb_terrain_endor"]) then
+{
+	_r set [1,3000];
 };
 
 
