@@ -542,7 +542,7 @@ class Params {
 			default=-1;
 		};
 
-		// LS
+		// Legion Studios
 			class gosa_faction_multiplier_ls_groups_cis {
 				title = "FACTION: ls_groups_cis";
 				values[] = {-1,1,0};
