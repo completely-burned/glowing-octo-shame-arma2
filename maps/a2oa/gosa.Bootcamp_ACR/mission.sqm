@@ -47,7 +47,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=41;
+		items=45;
 		class Item0
 		{
 			side="LOGIC";
@@ -1789,7 +1789,7 @@ class Mission
 					id=185;
 					side="EAST";
 					vehicle="RU_Soldier_Officer";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					rank="MAJOR";
 				};
@@ -3181,7 +3181,7 @@ class Mission
 			side="LOGIC";
 			class Vehicles
 			{
-				items=4;
+				items=6;
 				class Item0
 				{
 					position[]={1741.2705,339.0921,1726.4694};
@@ -3191,7 +3191,7 @@ class Mission
 					leader=1;
 					text="gosa_LogicLocationBase";
 					init="this setVariable [""gosa_Location_type"", 1];";
-					synchronizations[]={0,1,411,410};
+					synchronizations[]={0,1,411,410,443,444};
 				};
 				class Item1
 				{
@@ -3205,7 +3205,7 @@ class Mission
 				};
 				class Item2
 				{
-					position[]={1835.566,342.81848,1757.3456};
+					position[]={1792.427,348,1752.7352};
 					special="NONE";
 					id=411;
 					side="LOGIC";
@@ -3222,6 +3222,27 @@ class Mission
 					vehicle="Logic";
 					init="this setVariable [""gosa_respawn_type"", 1];";
 					synchronizations[]={354};
+				};
+				class Item4
+				{
+					position[]={1628.9152,342.24704,1988.0443};
+					special="NONE";
+					id=443;
+					side="LOGIC";
+					vehicle="Logic";
+					init="this setVariable [""gosa_respawn_type"", 0];";
+					synchronizations[]={354};
+				};
+				class Item5
+				{
+					position[]={1659.8347,342.18973,1095.7421};
+					special="NONE";
+					id=444;
+					side="LOGIC";
+					vehicle="Logic";
+					health=0.5;
+					init="this setVariable [""gosa_respawn_type"", 0];";
+					synchronizations[]={444,354};
 				};
 			};
 		};
@@ -3943,6 +3964,230 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					init="this setVariable [""gosa_respawn_type"", 21];";
+				};
+			};
+		};
+		class Item41
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={1794.5483,339,1798.5819};
+					id=421;
+					side="CIV";
+					vehicle="Profiteer4";
+					player="PLAYER COMMANDER";
+					leader=1;
+				};
+				class Item1
+				{
+					position[]={1797.5483,339,1793.5819};
+					id=422;
+					side="CIV";
+					vehicle="Worker2";
+					player="PLAY CDG";
+				};
+				class Item2
+				{
+					position[]={1799.5483,339,1793.5819};
+					id=423;
+					side="CIV";
+					vehicle="Functionary1";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={1801.5483,339,1793.5819};
+					id=424;
+					side="CIV";
+					vehicle="Woodlander4";
+					player="PLAY CDG";
+				};
+				class Item4
+				{
+					position[]={1803.5483,339,1793.5819};
+					id=425;
+					side="CIV";
+					vehicle="Rocker1";
+					player="PLAY CDG";
+				};
+				class Item5
+				{
+					position[]={1805.5483,339,1793.5819};
+					id=426;
+					side="CIV";
+					vehicle="Worker3";
+					player="PLAY CDG";
+				};
+				class Item6
+				{
+					position[]={1807.5483,339,1793.5819};
+					id=427;
+					side="CIV";
+					vehicle="Profiteer3";
+					player="PLAY CDG";
+				};
+				class Item7
+				{
+					position[]={1809.5483,339,1793.5819};
+					id=428;
+					side="CIV";
+					vehicle="Profiteer2";
+					player="PLAY CDG";
+				};
+				class Item8
+				{
+					position[]={1809.5483,339,1793.5819};
+					id=429;
+					side="CIV";
+					vehicle="Worker4";
+					player="PLAY CDG";
+				};
+				class Item9
+				{
+					position[]={1809.5483,339,1793.5819};
+					id=430;
+					side="CIV";
+					vehicle="Profiteer1";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item42
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={1850.0125,339,1691.6265};
+					id=431;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={1855.2106,339,1694.2257};
+					id=432;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item2
+				{
+					position[]={1860.7799,339,1697.9386};
+					id=433;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item3
+				{
+					position[]={1866.5348,339,1700.3519};
+					id=434;
+					side="EAST";
+					vehicle="RU_Soldier_Pilot";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item43
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={1868.3915,338.99118,1646.8861};
+					id=435;
+					side="WEST";
+					vehicle="CZ_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={1874.7034,338.9996,1648.5571};
+					id=436;
+					side="WEST";
+					vehicle="CZ_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item2
+				{
+					position[]={1880.0872,339,1652.8267};
+					id=437;
+					side="WEST";
+					vehicle="CZ_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item3
+				{
+					position[]={1886.3992,339,1656.7255};
+					id=438;
+					side="WEST";
+					vehicle="CZ_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item44
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={1892.5253,338.99335,1605.1162};
+					id=439;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={1899.2086,339,1607.9011};
+					id=440;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item2
+				{
+					position[]={1905.7061,339,1612.1707};
+					id=441;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item3
+				{
+					position[]={1915.174,339,1617.1831};
+					id=442;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
 				};
 			};
 		};
