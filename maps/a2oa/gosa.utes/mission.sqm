@@ -978,13 +978,13 @@ class Mission
 				};
 				class Item3
 				{
-					position[]={3568.3928,22.017809,3729.5364};
+					position[]={3566.353,21.98135,3721.7983};
 					azimut=190;
 					special="NONE";
 					id=88;
 					side="LOGIC";
 					vehicle="Logic";
-					init="this setVariable [""gosa_respawn_type"", 0];";
+					init="tmp_arr = getPosATL this; tmp_arr set [2, 0.1]; this setPosATL tmp_arr; this setVariable ['gosa_respawn_type', 0];";
 					synchronizations[]={85};
 				};
 			};
