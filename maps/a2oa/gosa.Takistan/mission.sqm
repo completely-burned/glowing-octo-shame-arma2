@@ -12,12 +12,14 @@ class Mission
 		"camisc_e",
 		"CAWheeled_E_Old_bike",
 		"caair_e_mi8",
-		"ca_modules_functions"
+		"ca_modules_functions",
+		"cacharacters_pmc"
 	};
 	addOnsAuto[]=
 	{
 		"cacharacters_e",
 		"ca_modules_functions",
+		"cacharacters_pmc",
 		"warfarebuildings",
 		"camisc_e",
 		"caweapons_e_ammoboxes",
@@ -39,7 +41,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=17;
+		items=19;
 		class Item0
 		{
 			side="EAST";
@@ -1264,6 +1266,96 @@ class Mission
 					side="CIV";
 					vehicle="TK_CIV_Takistani06_EP1";
 					player="PLAY CDG";
+				};
+			};
+		};
+		class Item17
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={8159.3726,296.04001,2069.4893};
+					id=139;
+					side="WEST";
+					vehicle="US_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={8163.1553,296.04001,2063.6047};
+					id=140;
+					side="WEST";
+					vehicle="US_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item2
+				{
+					position[]={8166.0981,296.04001,2058.9822};
+					id=141;
+					side="WEST";
+					vehicle="US_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item3
+				{
+					position[]={8170.0903,296.04001,2053.7278};
+					id=142;
+					side="WEST";
+					vehicle="US_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item18
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={8175.4897,296.13214,2078.0984};
+					id=143;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={8177.8237,296.13214,2076.0056};
+					id=144;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item2
+				{
+					position[]={8179.835,296.13214,2072.3044};
+					id=145;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item3
+				{
+					position[]={8176.6157,296.13214,2073.0286};
+					id=146;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
 				};
 			};
 		};
