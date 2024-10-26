@@ -3230,7 +3230,7 @@ class Mission
 					id=443;
 					side="LOGIC";
 					vehicle="Logic";
-					init="this setVariable [""gosa_respawn_type"", 0];";
+					init="tmp_arr = getPosATL this; tmp_arr set [2, 0.1]; this setPosATL tmp_arr; this setVariable [""gosa_respawn_type"", 0];";
 					synchronizations[]={354};
 				};
 				class Item5
@@ -3241,7 +3241,7 @@ class Mission
 					side="LOGIC";
 					vehicle="Logic";
 					health=0.5;
-					init="this setVariable [""gosa_respawn_type"", 0];";
+					init="tmp_arr = getPosATL this; tmp_arr set [2, 0.1]; this setPosATL tmp_arr; this setVariable ['gosa_respawn_type', 0];";
 					synchronizations[]={444,354};
 				};
 			};
