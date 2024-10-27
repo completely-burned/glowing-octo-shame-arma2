@@ -21,15 +21,15 @@ class Mission
 	class Intel
 	{
 		briefingName="CO 00 gosa Desert_E east v0.0.5.981 DEBUG";
-		startWeather=0.3;
-		forecastWeather=0.3;
+		startWeather=0.30000001;
+		forecastWeather=0.30000001;
 		year=2012;
 		month=6;
 		day=24;
 	};
 	class Groups
 	{
-		items=9;
+		items=12;
 		class Item0
 		{
 			side="EAST";
@@ -42,7 +42,7 @@ class Mission
 					id=0;
 					side="EAST";
 					vehicle="TK_Soldier_SL_EP1";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					rank="LIEUTENANT";
 				};
@@ -322,6 +322,245 @@ class Mission
 				};
 			};
 		};
+		class Item9
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={1386.9182,41.27367,1446.1877};
+					id=28;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+				};
+				class Item1
+				{
+					position[]={1389.9182,41.423519,1441.1877};
+					id=29;
+					side="CIV";
+					vehicle="TK_CIV_Takistani02_EP1";
+					player="PLAY CDG";
+				};
+				class Item2
+				{
+					position[]={1391.9182,41.457985,1441.1877};
+					id=30;
+					side="CIV";
+					vehicle="TK_CIV_Takistani03_EP1";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={1393.9182,41.459213,1441.1877};
+					id=31;
+					side="CIV";
+					vehicle="TK_CIV_Takistani05_EP1";
+					player="PLAY CDG";
+				};
+				class Item4
+				{
+					position[]={1395.9182,41.45092,1441.1877};
+					id=32;
+					side="CIV";
+					vehicle="TK_CIV_Woman01_EP1";
+					player="PLAY CDG";
+				};
+				class Item5
+				{
+					position[]={1397.9182,41.421532,1441.1877};
+					id=33;
+					side="CIV";
+					vehicle="TK_CIV_Takistani06_EP1";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item10
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=9;
+				class Item0
+				{
+					position[]={1406.7689,41.247688,1448.7921};
+					id=34;
+					side="WEST";
+					vehicle="US_Soldier_SL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="LIEUTENANT";
+				};
+				class Item1
+				{
+					position[]={1409.7689,41.288727,1443.7921};
+					id=35;
+					side="WEST";
+					vehicle="US_Soldier_TL_EP1";
+					player="PLAY CDG";
+					rank="SERGEANT";
+				};
+				class Item2
+				{
+					position[]={1411.7689,41.308727,1443.7921};
+					id=36;
+					side="WEST";
+					vehicle="US_Soldier_GL_EP1";
+					player="PLAY CDG";
+					rank="SERGEANT";
+				};
+				class Item3
+				{
+					position[]={1413.7689,41.331074,1443.7921};
+					id=37;
+					side="WEST";
+					vehicle="US_Soldier_AR_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item4
+				{
+					position[]={1415.7689,41.356075,1443.7921};
+					id=38;
+					side="WEST";
+					vehicle="US_Soldier_AT_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item5
+				{
+					position[]={1417.7689,41.37067,1443.7921};
+					id=39;
+					side="WEST";
+					vehicle="US_Soldier_TL_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item6
+				{
+					position[]={1419.7689,41.38567,1443.7921};
+					id=40;
+					side="WEST";
+					vehicle="US_Soldier_GL_EP1";
+					player="PLAY CDG";
+				};
+				class Item7
+				{
+					position[]={1421.7689,41.40015,1443.7921};
+					id=41;
+					side="WEST";
+					vehicle="US_Soldier_AR_EP1";
+					player="PLAY CDG";
+				};
+				class Item8
+				{
+					position[]={1423.7689,41.41515,1443.7921};
+					id=42;
+					side="WEST";
+					vehicle="US_Soldier_AAR_EP1";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item11
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=10;
+				class Item0
+				{
+					position[]={1408.1115,41.279831,1443.4224};
+					id=43;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_TL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="SERGEANT";
+				};
+				class Item1
+				{
+					position[]={1411.1115,41.347996,1438.4224};
+					id=44;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_MG_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item2
+				{
+					position[]={1413.1115,41.340218,1438.4224};
+					id=45;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_4_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item3
+				{
+					position[]={1415.1115,41.341724,1438.4224};
+					id=46;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_Sniper_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item4
+				{
+					position[]={1417.1115,41.338387,1438.4224};
+					id=47;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_5_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item5
+				{
+					position[]={1419.1115,41.336056,1438.4224};
+					id=48;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_AT_EP1";
+					player="PLAY CDG";
+					rank="CORPORAL";
+				};
+				class Item6
+				{
+					position[]={1421.1115,41.336056,1438.4224};
+					id=49;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_MG_EP1";
+					player="PLAY CDG";
+				};
+				class Item7
+				{
+					position[]={1423.1115,41.343723,1438.4224};
+					id=50;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_4_EP1";
+					player="PLAY CDG";
+				};
+				class Item8
+				{
+					position[]={1425.1115,41.353725,1438.4224};
+					id=51;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_2_EP1";
+					player="PLAY CDG";
+				};
+				class Item9
+				{
+					position[]={1427.1115,41.363724,1438.4224};
+					id=52;
+					side="GUER";
+					vehicle="TK_GUE_Soldier_5_EP1";
+					player="PLAY CDG";
+				};
+			};
+		};
 	};
 	class Vehicles
 	{
@@ -357,6 +596,14 @@ class Mission
 };
 class Intro
 {
+	addOns[]=
+	{
+		"desert_e"
+	};
+	addOnsAuto[]=
+	{
+		"desert_e"
+	};
 	randomSeed=469014;
 	class Intel
 	{
@@ -367,6 +614,14 @@ class Intro
 };
 class OutroWin
 {
+	addOns[]=
+	{
+		"desert_e"
+	};
+	addOnsAuto[]=
+	{
+		"desert_e"
+	};
 	randomSeed=8508157;
 	class Intel
 	{
@@ -377,6 +632,14 @@ class OutroWin
 };
 class OutroLoose
 {
+	addOns[]=
+	{
+		"desert_e"
+	};
+	addOnsAuto[]=
+	{
+		"desert_e"
+	};
 	randomSeed=9135676;
 	class Intel
 	{
