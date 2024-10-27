@@ -3,9 +3,23 @@ class Mission
 {
 	addOns[]=
 	{
+		"cacharacters_e",
+		"ca_modules_functions",
+		"cacharacters_acr",
+		"cacharacters_pmc",
+		"warfarebuildings",
+		"camisc_e",
+		"provinggrounds_pmc"
 	};
 	addOnsAuto[]=
 	{
+		"cacharacters_e",
+		"ca_modules_functions",
+		"cacharacters_acr",
+		"cacharacters_pmc",
+		"warfarebuildings",
+		"camisc_e",
+		"provinggrounds_pmc"
 	};
 	randomSeed=12923257;
 	class Intel
@@ -21,7 +35,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=5;
+		items=9;
 		class Item0
 		{
 			side="EAST";
@@ -324,7 +338,7 @@ class Mission
 					id=30;
 					side="GUER";
 					vehicle="Soldier_TL_PMC";
-					player="PLAYER COMMANDER";
+					player="PLAY CDG";
 					leader=1;
 					rank="LIEUTENANT";
 				};
@@ -405,6 +419,198 @@ class Mission
 					side="GUER";
 					vehicle="Soldier_PMC";
 					player="PLAY CDG";
+				};
+			};
+		};
+		class Item5
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=6;
+				class Item0
+				{
+					position[]={782.86823,50.728683,1253.6512};
+					id=40;
+					side="CIV";
+					vehicle="TK_CIV_Takistani01_EP1";
+					player="PLAYER COMMANDER";
+					leader=1;
+				};
+				class Item1
+				{
+					position[]={785.86823,50.892578,1248.6512};
+					id=41;
+					side="CIV";
+					vehicle="TK_CIV_Takistani02_EP1";
+					player="PLAY CDG";
+				};
+				class Item2
+				{
+					position[]={787.86823,50.95628,1248.6512};
+					id=42;
+					side="CIV";
+					vehicle="TK_CIV_Takistani03_EP1";
+					player="PLAY CDG";
+				};
+				class Item3
+				{
+					position[]={789.86823,51.020947,1248.6512};
+					id=43;
+					side="CIV";
+					vehicle="TK_CIV_Takistani05_EP1";
+					player="PLAY CDG";
+				};
+				class Item4
+				{
+					position[]={791.86823,51.080753,1248.6512};
+					id=44;
+					side="CIV";
+					vehicle="TK_CIV_Woman01_EP1";
+					player="PLAY CDG";
+				};
+				class Item5
+				{
+					position[]={793.86823,51.158447,1248.6512};
+					id=45;
+					side="CIV";
+					vehicle="TK_CIV_Takistani06_EP1";
+					player="PLAY CDG";
+				};
+			};
+		};
+		class Item6
+		{
+			side="EAST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={732.02295,51.720001,1162.314};
+					id=46;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={728.91327,51.720001,1162.9685};
+					id=47;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item2
+				{
+					position[]={729.48157,51.720001,1164.3676};
+					id=48;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item3
+				{
+					position[]={731.23035,51.720001,1164.8485};
+					id=49;
+					side="EAST";
+					vehicle="TK_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item7
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={725.39203,51.720001,1191.783};
+					id=50;
+					side="WEST";
+					vehicle="CZ_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={723.565,51.720001,1188.9283};
+					id=51;
+					side="WEST";
+					vehicle="CZ_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item2
+				{
+					position[]={726.02039,51.720001,1189.5278};
+					id=52;
+					side="WEST";
+					vehicle="CZ_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item3
+				{
+					position[]={723.51917,51.720001,1190.5345};
+					id=53;
+					side="WEST";
+					vehicle="CZ_Soldier_Pilot_EP1";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+			};
+		};
+		class Item8
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=4;
+				class Item0
+				{
+					position[]={751.68518,51.720001,1190.4155};
+					id=54;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					leader=1;
+					rank="CAPTAIN";
+				};
+				class Item1
+				{
+					position[]={753.91577,51.720001,1188.5833};
+					id=55;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item2
+				{
+					position[]={751.69391,51.720001,1188.2412};
+					id=56;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
+				};
+				class Item3
+				{
+					position[]={754.14227,51.720001,1190.9518};
+					id=57;
+					side="GUER";
+					vehicle="Soldier_Pilot_PMC";
+					player="PLAY CDG";
+					rank="LIEUTENANT";
 				};
 			};
 		};
