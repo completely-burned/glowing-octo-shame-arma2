@@ -13,7 +13,8 @@ if(!isMultiplayer)exitWith{
 	} forEach (player nearObjects 100);
 };
 
-_code = {!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "gosa_respawnRandom")};
+_code = {(!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "gosa_respawnRandom")) or
+	!isNil "gosa_init_gameMode_fail"};
 //waitUntil {time > 0};
 	// LoadingScreen
 	if (gosa_loglevel > 0) then {
@@ -28,6 +29,7 @@ _code = {!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "g
 	waitUntil {!isNil "gosa_playerSide"};
 	// FIXME: Можно не запускать при возрождении на базе.
 	[["Loading My Mission","RscDisplayLoadMission"], _code, _n, [
+		{!isNil "gosa_init_gameMode_done"},
 		{!isNil format["gosa_listHQ_%1", gosa_playerSide]},
 		{!isNil "gosa_list_LocationAirport"},
 		{!isNil "gosa_list_LocationBase"},
