@@ -177,7 +177,7 @@ if (true) then {
 				};
 
 				_b = true;
-				_n = [_logic, _respawn_type_All] call gosa_fnc_respawn_get_type;
+				_n = [_logic] call gosa_fnc_respawn_get_type;
 				switch (_n) do {
 					case _respawn_type_carrier;
 					case _respawn_type_Pilot: {
