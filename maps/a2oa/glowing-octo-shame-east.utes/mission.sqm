@@ -29,7 +29,7 @@ class Mission
 	randomSeed=7310001;
 	class Intel
 	{
-		briefingName="CO 00 gosa utes east v0.0.5.981 DEBUG";
+		briefingName="CO 00 gosa utes east v0.0.5.982 DEBUG";
 		startWeather=0.4;
 		forecastWeather=0.25;
 		year=2008;
