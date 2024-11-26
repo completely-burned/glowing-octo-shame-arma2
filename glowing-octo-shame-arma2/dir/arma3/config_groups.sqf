@@ -86,6 +86,7 @@ _cfg_factions_def = [["OPF_F"],["BLU_F"],["IND_F"]];
 #include "config_groups_RHS.sqf"
 #include "config_groups_CUP.sqf"
 
+#include "config_groups_EF.sqf"
 #include "config_groups_lxWS.sqf"
 
 #include "config_groups_Enoch.sqf"
