@@ -225,7 +225,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=554;
+		items=601;
 		class Item0
 		{
 			dataType="Group";
@@ -9403,6 +9403,621 @@ class Mission
 			};
 			id=1432;
 			type="EmptyDetectorArea10x10";
+		};
+		class Item554
+		{
+			dataType="Trigger";
+			position[]={10887,96.362122,8331};
+			class Attributes
+			{
+				name="gosa_lighthouse";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1433;
+			type="EmptyDetector";
+		};
+		class Item555
+		{
+			dataType="Trigger";
+			position[]={21101,27.137987,7041};
+			class Attributes
+			{
+				name="gosa_lighthouse_1";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1434;
+			type="EmptyDetector";
+		};
+		class Item556
+		{
+			dataType="Trigger";
+			position[]={19796,52.217354,7951};
+			class Attributes
+			{
+				name="gosa_lighthouse_2";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1435;
+			type="EmptyDetector";
+		};
+		class Item557
+		{
+			dataType="Trigger";
+			position[]={18627,121.34287,9893};
+			class Attributes
+			{
+				name="gosa_lighthouse_3";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1436;
+			type="EmptyDetector";
+		};
+		class Item558
+		{
+			dataType="Trigger";
+			position[]={19664,74.420837,11220};
+			class Attributes
+			{
+				name="gosa_lighthouse_4";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1437;
+			type="EmptyDetector";
+		};
+		class Item559
+		{
+			dataType="Trigger";
+			position[]={20733,18.518745,13670};
+			class Attributes
+			{
+				name="gosa_lighthouse_5";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1438;
+			type="EmptyDetector";
+		};
+		class Item560
+		{
+			dataType="Trigger";
+			position[]={22456,14.34072,16893};
+			class Attributes
+			{
+				name="gosa_lighthouse_6";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1439;
+			type="EmptyDetector";
+		};
+		class Item561
+		{
+			dataType="Trigger";
+			position[]={24268,22.826021,20442};
+			class Attributes
+			{
+				name="gosa_lighthouse_7";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1440;
+			type="EmptyDetector";
+		};
+		class Item562
+		{
+			dataType="Trigger";
+			position[]={26273,64.553291,22135};
+			class Attributes
+			{
+				name="gosa_lighthouse_8";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1441;
+			type="EmptyDetector";
+		};
+		class Item563
+		{
+			dataType="Trigger";
+			position[]={26941,17.823948,24215};
+			class Attributes
+			{
+				name="gosa_lighthouse_9";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1442;
+			type="EmptyDetector";
+		};
+		class Item564
+		{
+			dataType="Trigger";
+			position[]={24966,10.32948,23190};
+			class Attributes
+			{
+				name="gosa_lighthouse_10";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1443;
+			type="EmptyDetector";
+		};
+		class Item565
+		{
+			dataType="Trigger";
+			position[]={23421,27.367386,20591};
+			class Attributes
+			{
+				name="gosa_lighthouse_11";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1444;
+			type="EmptyDetector";
+		};
+		class Item566
+		{
+			dataType="Trigger";
+			position[]={20659,43.186584,18109};
+			class Attributes
+			{
+				name="gosa_lighthouse_12";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1445;
+			type="EmptyDetector";
+		};
+		class Item567
+		{
+			dataType="Trigger";
+			position[]={16753,41.977997,17426};
+			class Attributes
+			{
+				name="gosa_lighthouse_13";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1446;
+			type="EmptyDetector";
+		};
+		class Item568
+		{
+			dataType="Trigger";
+			position[]={15179,58.178902,21347};
+			class Attributes
+			{
+				name="gosa_lighthouse_14";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1447;
+			type="EmptyDetector";
+			atlOffset=3.8146973e-06;
+		};
+		class Item569
+		{
+			dataType="Trigger";
+			position[]={12535,121.76994,21020};
+			class Attributes
+			{
+				name="gosa_lighthouse_15";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1448;
+			type="EmptyDetector";
+			atlOffset=7.6293945e-06;
+		};
+		class Item570
+		{
+			dataType="Trigger";
+			position[]={8584,57.82415,21495};
+			class Attributes
+			{
+				name="gosa_lighthouse_16";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1449;
+			type="EmptyDetector";
+		};
+		class Item571
+		{
+			dataType="Trigger";
+			position[]={9624.0635,-21.777452,22846.82};
+			class Attributes
+			{
+				name="gosa_lighthouse_17";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1450;
+			type="EmptyDetector";
+		};
+		class Item572
+		{
+			dataType="Trigger";
+			position[]={7277.5098,82.524773,22861.67};
+			class Attributes
+			{
+				name="gosa_lighthouse_18";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1451;
+			type="EmptyDetector";
+		};
+		class Item573
+		{
+			dataType="Trigger";
+			position[]={8435.9336,-28.94216,23916.135};
+			class Attributes
+			{
+				name="gosa_lighthouse_19";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1452;
+			type="EmptyDetector";
+		};
+		class Item574
+		{
+			dataType="Trigger";
+			position[]={4628,265.29312,20767};
+			class Attributes
+			{
+				name="gosa_lighthouse_20";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1453;
+			type="EmptyDetector";
+			atlOffset=3.0517578e-05;
+		};
+		class Item575
+		{
+			dataType="Trigger";
+			position[]={3916.2031,157.56386,21162.271};
+			class Attributes
+			{
+				name="gosa_lighthouse_21";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1454;
+			type="EmptyDetector";
+		};
+		class Item576
+		{
+			dataType="Trigger";
+			position[]={4140,302.72339,19424};
+			class Attributes
+			{
+				name="gosa_lighthouse_22";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1455;
+			type="EmptyDetector";
+		};
+		class Item577
+		{
+			dataType="Trigger";
+			position[]={5444,42.692627,14234};
+			class Attributes
+			{
+				name="gosa_lighthouse_23";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1456;
+			type="EmptyDetector";
+		};
+		class Item578
+		{
+			dataType="Trigger";
+			position[]={5405,129.52422,16881};
+			class Attributes
+			{
+				name="gosa_lighthouse_24";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1457;
+			type="EmptyDetector";
+		};
+		class Item579
+		{
+			dataType="Trigger";
+			position[]={4496,101.05208,12205};
+			class Attributes
+			{
+				name="gosa_lighthouse_25";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1458;
+			type="EmptyDetector";
+		};
+		class Item580
+		{
+			dataType="Trigger";
+			position[]={3956,56.124718,10704};
+			class Attributes
+			{
+				name="gosa_lighthouse_26";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1459;
+			type="EmptyDetector";
+		};
+		class Item581
+		{
+			dataType="Trigger";
+			position[]={6419,58.326344,11375};
+			class Attributes
+			{
+				name="gosa_lighthouse_27";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1460;
+			type="EmptyDetector";
+		};
+		class Item582
+		{
+			dataType="Trigger";
+			position[]={8724,49.827988,11046};
+			class Attributes
+			{
+				name="gosa_lighthouse_28";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1461;
+			type="EmptyDetector";
+		};
+		class Item583
+		{
+			dataType="Trigger";
+			position[]={10023,24.142616,8648};
+			class Attributes
+			{
+				name="gosa_lighthouse_29";
+				sizeA=3000;
+				sizeB=3000;
+			};
+			id=1462;
+			type="EmptyDetector";
+		};
+		class Item584
+		{
+			dataType="Trigger";
+			position[]={13948,14.16795,6292};
+			class Attributes
+			{
+				name="gosa_lighthouse_30";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1463;
+			type="EmptyDetector";
+		};
+		class Item585
+		{
+			dataType="Trigger";
+			position[]={12959.865,84.00148,6898.3486};
+			class Attributes
+			{
+				name="gosa_lighthouse_31";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1464;
+			type="EmptyDetector";
+		};
+		class Item586
+		{
+			dataType="Trigger";
+			position[]={17385.723,4.859436,13892.785};
+			class Attributes
+			{
+				name="gosa_lighthouse_32";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1465;
+			type="EmptyDetector";
+		};
+		class Item587
+		{
+			dataType="Trigger";
+			position[]={16911.523,14.677505,15420.758};
+			class Attributes
+			{
+				name="gosa_lighthouse_33";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1466;
+			type="EmptyDetector";
+		};
+		class Item588
+		{
+			dataType="Trigger";
+			position[]={16160.707,10.354885,16026.68};
+			class Attributes
+			{
+				name="gosa_lighthouse_34";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1467;
+			type="EmptyDetector";
+		};
+		class Item589
+		{
+			dataType="Trigger";
+			position[]={15080.588,14.959101,16197.92};
+			class Attributes
+			{
+				name="gosa_lighthouse_35";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1468;
+			type="EmptyDetector";
+		};
+		class Item590
+		{
+			dataType="Trigger";
+			position[]={13947.781,16.410929,15842.271};
+			class Attributes
+			{
+				name="gosa_lighthouse_36";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1469;
+			type="EmptyDetector";
+		};
+		class Item591
+		{
+			dataType="Trigger";
+			position[]={13012.555,23.643917,14959.731};
+			class Attributes
+			{
+				name="gosa_lighthouse_37";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1470;
+			type="EmptyDetector";
+		};
+		class Item592
+		{
+			dataType="Trigger";
+			position[]={12327.601,3.1215382,14064.021};
+			class Attributes
+			{
+				name="gosa_lighthouse_38";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1471;
+			type="EmptyDetector";
+		};
+		class Item593
+		{
+			dataType="Trigger";
+			position[]={13302.344,13.176854,13523.961};
+			class Attributes
+			{
+				name="gosa_lighthouse_39";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1472;
+			type="EmptyDetector";
+		};
+		class Item594
+		{
+			dataType="Trigger";
+			position[]={12090.502,17.560768,12562.394};
+			class Attributes
+			{
+				name="gosa_lighthouse_40";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1473;
+			type="EmptyDetector";
+		};
+		class Item595
+		{
+			dataType="Trigger";
+			position[]={11484.581,21.672735,11508.616};
+			class Attributes
+			{
+				name="gosa_lighthouse_41";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1474;
+			type="EmptyDetector";
+		};
+		class Item596
+		{
+			dataType="Trigger";
+			position[]={12775,-5,12417};
+			class Attributes
+			{
+				name="gosa_lighthouse_42";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1475;
+			type="EmptyDetector";
+			atlOffset=31.897232;
+		};
+		class Item597
+		{
+			dataType="Trigger";
+			position[]={11929.756,9.7059469,10194.325};
+			class Attributes
+			{
+				name="gosa_lighthouse_43";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1476;
+			type="EmptyDetector";
+		};
+		class Item598
+		{
+			dataType="Trigger";
+			position[]={16517.965,97.530457,10946.972};
+			class Attributes
+			{
+				name="gosa_lighthouse_44";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1477;
+			type="EmptyDetector";
+		};
+		class Item599
+		{
+			dataType="Trigger";
+			position[]={15879,36.28635,10917};
+			class Attributes
+			{
+				name="gosa_lighthouse_45";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1478;
+			type="EmptyDetector";
+		};
+		class Item600
+		{
+			dataType="Trigger";
+			position[]={16874.402,16.306393,12372.728};
+			class Attributes
+			{
+				name="gosa_lighthouse_46";
+				sizeA=1500;
+				sizeB=1500;
+			};
+			id=1479;
+			type="EmptyDetector";
 		};
 	};
 	class Connections
