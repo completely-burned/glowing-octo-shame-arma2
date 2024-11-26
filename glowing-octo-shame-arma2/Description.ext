@@ -361,6 +361,14 @@ class Params {
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 				default = -1;
 			};
+		
+		// EF
+			class gosa_faction_multiplier_EF_B_MJTF {
+				title="FACTION: EF_B_MJTF";
+				values[] = {-1,1,0};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = -1;
+			};
 
 		// TODO: Убрать конфликты [SPE, WW2, LIB, IFA, I44]
 		// SPE
