@@ -6,7 +6,7 @@
 diag_log format ["Log: [gosa_fnc_spawnGroup] %1", _this];
 private ["_pos","_side","_groups","_vehicles","_roads","_z","_for",
 	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
-	"_relPos","_positions_static","_positions_used","_best",
+	"_relPos","_positions_static","_positions_used","_best","_vr","_arr0",
 	"_unit", "_type","_itemPos","_rank","_cfgVeh","_str","_entry","_n"];
 
 _side = _this select 1;
@@ -31,6 +31,8 @@ if (count _this > 3) then {
 }else{
 	_positions_static = [];
 };
+
+if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else {_vr = false};
 
 {
 	_grp = createGroup _side;
@@ -130,7 +132,7 @@ if (count _this > 3) then {
 				if (getNumber(_entry >> "isMan") > 0) then {
 					#undef true
 					#undef false
-					_unit = _grp createUnit [_type, _itemPos, [], 0, "NONE"];
+					_unit = [_grp, [_type, _itemPos, [], 0, "NONE"], _vr, [_side, _type]] call gosa_fnc_createUnit;
 
 					#ifdef __A2OA__
 						_str = getText (_entry >> "backpack");

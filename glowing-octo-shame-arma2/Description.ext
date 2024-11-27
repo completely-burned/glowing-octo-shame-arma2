@@ -125,6 +125,12 @@ class Params {
 		default = 0;
 	};
 
+	class gosa_gamemode_vr {
+		title="UNITS: VR";
+		values[] = {1,0};
+		texts[] = {STR_ENABLED,STR_DISABLED};
+		default = 1;
+	};
 
 	// Множители фракций.
 	// FIXME: При одновременном использовании множества фракций увеличивается потребление оперативной памяти и снижается общая производительность.
@@ -1236,6 +1242,18 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class vr_type
+			{
+				file = "dir\functions\fnc_vr_type.sqf";
+			};
+			class createUnit
+			{
+				file = "dir\functions\fnc_createUnit.sqf";
+			};
+			class obj_getType
+			{
+				file = "dir\functions\fnc_obj_getType.sqf";
+			};
 			class base_update
 			{
 				file = "dir\functions\fnc_base_update.sqf";

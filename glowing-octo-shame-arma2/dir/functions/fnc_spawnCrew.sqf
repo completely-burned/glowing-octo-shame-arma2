@@ -16,7 +16,7 @@ diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
 private ["_type","_crewType","_typicalCargo","_unit","_crew","_vehicle",
 	"_grp","_entry","_hasDriver","_turrets","_rank","_cfg_turret","_t",
 	"_commanding","_uav","_side","_createSpecial","_dontCreateAI",
-	"_rank_next","_arr",
+	"_rank_next","_arr","_vr",
 	"_bestCommander","_commandings","_commanding_max","_rankId",
 	"_LandVehicle","_sorted","_typicalCargo2","_tmpPosSafe","_item"];
 
@@ -47,6 +47,8 @@ _tmpPosSafe set [2, 2000];
 // Под землей они умирают в a2.
 //_tmpPosSafe set [2, (_tmpPosSafe select 2) - 200];
 _uav = _vehicle call gosa_fnc_isUAV;
+
+if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else {_vr = false};
 
 _crew = [];
 _createSpecial = "CAN_COLLIDE";
@@ -147,7 +149,7 @@ _LandVehicle = _type isKindOf "LandVehicle";
 		//--- Пилот командир, поэтому перед стрелками.
 		if (_hasDriver > 0) then {
 			if (isNull driver _vehicle) then {
-				_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
+				_unit = [_grp, [_crewType, _tmpPosSafe, [], 0, _createSpecial], _vr, [_side, _crewType]] call gosa_fnc_createUnit;
 				_crew set [count _crew, _unit];
 
 				if (isNil "_rank") then {
@@ -204,9 +206,9 @@ _LandVehicle = _type isKindOf "LandVehicle";
 			if (_dontCreateAI <= 0 && isNull (_vehicle turretUnit (_sorted select _i select 1))) then {
 
 				if(!isNil {_typicalCargo2})then{
-					_unit = _grp createUnit [(_typicalCargo2 select _i), _tmpPosSafe, [], 0, _createSpecial];
+					_unit = [_grp, [(_typicalCargo2 select _i), _tmpPosSafe, [], 0, _createSpecial], _vr, [_side, (_typicalCargo2 select _i)]] call gosa_fnc_createUnit;
 				}else{
-					_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
+					_unit = [_grp, [_crewType, _tmpPosSafe, [], 0, _createSpecial], _vr, [_side, _crewType]] call gosa_fnc_createUnit;
 				};
 				#ifndef __A2OA__
 					_unit addEventHandler ["killed", {[_this select 0] call BIS_GC_trashItFunc}];
@@ -261,7 +263,7 @@ _LandVehicle = _type isKindOf "LandVehicle";
 //--- creating driver unit for land
 if (_LandVehicle) then {
 	if ((_hasDriver > 0) && (isNull (driver _vehicle))) then {
-			_unit = _grp createUnit [_crewType, _tmpPosSafe, [], 0, _createSpecial];
+			_unit = [_grp, [_crewType, _tmpPosSafe, [], 0, _createSpecial], _vr, [_side, _crewType]] call gosa_fnc_createUnit;
 			_crew set [count _crew, _unit];
 			_unit moveInDriver _vehicle;
 			diag_log format ["Log: [fnc_spawnCrew.sqf] %1 assignAsDriver %2", _unit, _vehicle];
