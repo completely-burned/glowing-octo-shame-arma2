@@ -54,12 +54,6 @@ if (count _role >= 2) then {
 	};
 	if (_role select 0 == "Cargo") then {
 		#ifdef __ARMA3__
-			if (_type isKindOf "LSV_02_armed_base_F") then {
-				if (_role select 1 isEqualTo [0]) then {
-					_role set [0, "Turret"];
-					breakTo "root";
-				};
-			};
 		#endif
 	};
 };
