@@ -2,7 +2,7 @@
 /*
  * TODO: Рефакторинг.
  */
-private ["_str","_n","_arr","_player","_side"];
+private ["_str","_n","_arr","_arr0","_player","_side"];
 
 // playerSide не меняется самостоятельно.
 if (isMultiplayer) then {
@@ -186,6 +186,15 @@ if (isMultiplayer) then {
 	};
 	#endif
 
+	_arr0 = units group player;
+	for "_i" from 0 to (count _arr0 -1) do {
+		_str = _arr0 select _i getVariable "type";
+		// TODO: Не перезаписывать изменения инвентаря пользователем.
+		if !(isNil "_str") then {
+			[_arr0 select _i, _str] call gosa_fnc_unit_loadout;
+		};
+	};
+
 	_arr = [];
 	{
 		if (side _x in [sideLogic]) then {
@@ -194,7 +203,7 @@ if (isMultiplayer) then {
 			diag_log format ["Log: [init_client] delete switchableUnit %1", _x];
 			deleteVehicle _x;
 		};
-	} forEach switchableUnits - units group player;
+	} forEach switchableUnits - _arr0;
 	// Один слот остаётся для совместимости.
 	for "_i" from 0 to (count _arr -2) do {
 		diag_log format ["Log: [init_client] delete switchableUnit %1", _arr select _i];

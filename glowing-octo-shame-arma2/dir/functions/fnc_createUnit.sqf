@@ -14,11 +14,7 @@ if (_vr) then {
 	_params set [0, _side call gosa_fnc_vr_type];
 	_obj = _grp createUnit _params;
 	_obj setVariable ["type", _str];
-
-	_arr = getUnitLoadout _str;
-	(_arr select 4 select 1) append (_arr select 3 select 1);
-	_arr set [3, nil];
-	_obj setUnitLoadout _arr;
+	[_obj, _str] call gosa_fnc_unit_loadout;
 }else{
 #endif
 	_obj = _grp createUnit _params;

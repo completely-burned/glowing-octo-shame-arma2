@@ -1201,6 +1201,10 @@ class CfgFunctions
 		};
 		class Spawning
 		{
+			class unit_loadout
+			{
+				file = "dir\functions\fnc_unit_loadout.sqf";
+			};
 			class vehInit2
 			{
 				file = "dir\functions\fnc_vehInit2.sqf";
