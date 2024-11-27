@@ -3,6 +3,9 @@ _role = _this select 0;
 
 #define "turret" "Turret"
 #define "TURRET" "Turret"
+#define "cargo" "Cargo"
+#define "CARGO" "Cargo"
+
 
 scopeName "root";
 
@@ -47,6 +50,16 @@ if (count _role >= 2) then {
 				_role set [0, "FFV"];
 			};
 		};
+		#endif
+	};
+	if (_role select 0 == "Cargo") then {
+		#ifdef __ARMA3__
+			if (_type isKindOf "LSV_02_armed_base_F") then {
+				if (_role select 1 isEqualTo [0]) then {
+					_role set [0, "Turret"];
+					breakTo "root";
+				};
+			};
 		#endif
 	};
 };
