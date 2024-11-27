@@ -35,6 +35,12 @@ if (count _role >= 2) then {
 					breakTo "root";
 				};
 			};
+			if (_type isKindOf "EF_AAV9_Base") then {
+				if (_role select 1 select 0 >= 1 or _role select 1 isEqualTo [0,1]) then {
+					_role set [0, "FFV"];
+					breakTo "root";
+				};
+			};
 		#else
 		if (_type isKindOf "BMP3") then {
 			if ((_role select 1 select 0) in [1,2]) then {
