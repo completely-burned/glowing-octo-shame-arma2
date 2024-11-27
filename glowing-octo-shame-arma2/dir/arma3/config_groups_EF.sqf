@@ -5,6 +5,7 @@ _arr = [
 	[[[["EF_B_MRAP_01_LAAD_MJTF_Wdl","EF_B_MRAP_01_LAAD_MJTF_Wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1],
 	[[[["EF_B_MRAP_01_FSV_MJTF_Wdl","EF_B_MRAP_01_FSV_MJTF_Wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1],
 	[[[["EF_B_AH99J_MJTF_Wdl","EF_B_AH99J_MJTF_Wdl"],[[0,0,0],[20,-20,0]],["CAPTAIN","LIEUTENANT"]]],0.1],
+	[[[["EF_B_CombatBoat_HMG_MJTF_Wdl","EF_B_CombatBoat_AT_MJTF_Wdl"],[[0,0,0],[20,-20,0]],["CAPTAIN","CAPTAIN"]]], _depth min 0.5],
 
 	// EF_B_MJTF_Wdl_InfSquad
 	[[[["EF_B_Marine_SL_Wdl","EF_B_Marine_Medic_Wdl","EF_B_Marine_UAV_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0],[-30,-30,0],[35,-35,0],[-35,-35,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE"]]],1],
@@ -69,21 +70,21 @@ _arr = [
 	// EF_B_MJTF_Wdl_MotInf_AA
 	[[[["EF_B_MRAP_01_MJTF_Wdl","EF_B_Marine_AA_Wdl","EF_B_Marine_AA_Wdl","EF_B_Marine_AAA_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.1],
 	// EF_B_MJTF_Wdl_MotInf_MGTeam
-	[[[["EF_B_MRAP_01_MJTF_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_HMG_Wdl","EF_B_Marine_AMG_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"]]],0.1],
+	[[[["EF_B_MRAP_01_MJTF_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_HMG_Wdl","EF_B_Marine_AMG_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Wdl_MotInf_GMGTeam
-	[[[["EF_B_MRAP_01_MJTF_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_GMG_Wdl","EF_B_Marine_AMG_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"]]],0.1],
+	[[[["EF_B_MRAP_01_MJTF_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_GMG_Wdl","EF_B_Marine_AMG_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Wdl_MotInf_MortTeam
-	[[[["EF_B_MRAP_01_MJTF_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_Mort_Wdl","EF_B_Marine_AMort_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"]]],0],
+	[[[["EF_B_MRAP_01_MJTF_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_Mort_Wdl","EF_B_Marine_AMort_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"],[],1]],0],
 	// EF_B_MJTF_Wdl_MotInf_Reinforce
-	[[[["EF_B_Truck_01_transport_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_R_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_Mark_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_Medic_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_R_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_Mark_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_Medic_Wdl"],[[0,0,0],[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+	[[[["EF_B_Truck_01_transport_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_R_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_Mark_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_Medic_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_R_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_Mark_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_Medic_Wdl"],[[0,0,0],[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Wdl_MechInfSquad
-	[[[["EF_B_AAV9_50mm_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_Medic_Wdl","EF_B_Marine_UAV_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_Mark_Wdl","EF_B_Marine_AT_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0],[-30,-30,0],[35,-35,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL"]]],1],
+	[[[["EF_B_AAV9_50mm_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_Medic_Wdl","EF_B_Marine_UAV_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_Mark_Wdl","EF_B_Marine_AT_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0],[-30,-30,0],[35,-35,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL"],[],1]],1],
 	// EF_B_MJTF_Wdl_MechInf_AT
-	[[[["EF_B_AAV9_50mm_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_AT_Wdl","EF_B_Marine_AT_Wdl","EF_B_Marine_AT_Wdl","EF_B_Marine_AAT_Wdl","EF_B_Marine_AAT_Wdl","EF_B_Marine_AAT_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
+	[[[["EF_B_AAV9_50mm_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_AT_Wdl","EF_B_Marine_AT_Wdl","EF_B_Marine_AT_Wdl","EF_B_Marine_AAT_Wdl","EF_B_Marine_AAT_Wdl","EF_B_Marine_AAT_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.3],
 	// EF_B_MJTF_Wdl_MechInf_AA
-	[[[["EF_B_AAV9_50mm_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_AA_Wdl","EF_B_Marine_AA_Wdl","EF_B_Marine_AA_Wdl","EF_B_Marine_AAA_Wdl","EF_B_Marine_AAA_Wdl","EF_B_Marine_AAA_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.3],
+	[[[["EF_B_AAV9_50mm_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_AA_Wdl","EF_B_Marine_AA_Wdl","EF_B_Marine_AA_Wdl","EF_B_Marine_AAA_Wdl","EF_B_Marine_AAA_Wdl","EF_B_Marine_AAA_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.3],
 	// EF_B_MJTF_Wdl_MechInf_Support
-	[[[["EF_B_AAV9_50mm_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_Repair_Wdl","EF_B_Marine_Eng_Wdl","EF_B_Marine_Medic_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_Exp_Wdl","EF_B_Marine_AR_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+	[[[["EF_B_AAV9_50mm_MJTF_Wdl","EF_B_Marine_SL_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_Repair_Wdl","EF_B_Marine_Eng_Wdl","EF_B_Marine_Medic_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_Exp_Wdl","EF_B_Marine_AR_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Wdl_TankPlatoon
 	[[[["EF_B_MBT_01_cannon_MJTF_Wdl","EF_B_MBT_01_cannon_MJTF_Wdl","EF_B_MBT_01_cannon_MJTF_Wdl","EF_B_MBT_01_cannon_MJTF_Wdl"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.2],
 	// EF_B_MJTF_Wdl_TankPlatoon_AA
@@ -103,7 +104,6 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 };
 if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
-		[[[["EF_B_CombatBoat_HMG_MJTF_Wdl","EF_B_CombatBoat_AT_MJTF_Wdl"],[[0,0,0],[20,-20,0]],["CAPTAIN","CAPTAIN"]]], _depth min 0.5]
 	];
 };
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
@@ -117,6 +117,7 @@ _arr = [
 	[[[["EF_B_MRAP_01_LAAD_MJTF_Des","EF_B_MRAP_01_LAAD_MJTF_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1],
 	[[[["EF_B_MRAP_01_FSV_MJTF_Des","EF_B_MRAP_01_FSV_MJTF_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1],
 	[[[["EF_B_AH99J_MJTF_Des","EF_B_AH99J_MJTF_Des"],[[0,0,0],[20,-20,0]],["CAPTAIN","LIEUTENANT"]]],0.1],
+	[[[["EF_B_CombatBoat_HMG_MJTF_Des","EF_B_CombatBoat_AT_MJTF_Des"],[[0,0,0],[20,-20,0]],["CAPTAIN","CAPTAIN"]]], _depth min 0.5],
 
 	// EF_B_MJTF_Des_InfSquad
 	[[[["EF_B_Marine_SL_Des","EF_B_Marine_Medic_Des","EF_B_Marine_UAV_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0],[-30,-30,0],[35,-35,0],[-35,-35,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE"]]],1],
@@ -181,21 +182,21 @@ _arr = [
 	// EF_B_MJTF_Des_MotInf_AA
 	[[[["EF_B_MRAP_01_MJTF_Des","EF_B_Marine_AA_Des","EF_B_Marine_AA_Des","EF_B_Marine_AAA_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0.1],
 	// EF_B_MJTF_Des_MotInf_MGTeam
-	[[[["EF_B_MRAP_01_MJTF_Des","EF_B_Marine_TL_Des","EF_B_Marine_HMG_Des","EF_B_Marine_AMG_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"]]],0.1],
+	[[[["EF_B_MRAP_01_MJTF_Des","EF_B_Marine_TL_Des","EF_B_Marine_HMG_Des","EF_B_Marine_AMG_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Des_MotInf_GMGTeam
-	[[[["EF_B_MRAP_01_MJTF_Des","EF_B_Marine_TL_Des","EF_B_Marine_GMG_Des","EF_B_Marine_AMG_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"]]],0.1],
+	[[[["EF_B_MRAP_01_MJTF_Des","EF_B_Marine_TL_Des","EF_B_Marine_GMG_Des","EF_B_Marine_AMG_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Des_MotInf_MortTeam
-	[[[["EF_B_MRAP_01_MJTF_Des","EF_B_Marine_TL_Des","EF_B_Marine_Mort_Des","EF_B_Marine_AMort_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"]]],0.1],
+	[[[["EF_B_MRAP_01_MJTF_Des","EF_B_Marine_TL_Des","EF_B_Marine_Mort_Des","EF_B_Marine_AMort_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[0,-10,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Des_MotInf_Reinforce
-	[[[["EF_B_Truck_01_transport_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_R_Des","EF_B_Marine_LAT_Des","EF_B_Marine_Mark_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_AR_Des","EF_B_Marine_Medic_Des","EF_B_Marine_SL_Des","EF_B_Marine_R_Des","EF_B_Marine_LAT_Des","EF_B_Marine_Mark_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_AR_Des","EF_B_Marine_Medic_Des"],[[0,0,0],[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+	[[[["EF_B_Truck_01_transport_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_R_Des","EF_B_Marine_LAT_Des","EF_B_Marine_Mark_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_AR_Des","EF_B_Marine_Medic_Des","EF_B_Marine_SL_Des","EF_B_Marine_R_Des","EF_B_Marine_LAT_Des","EF_B_Marine_Mark_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_AR_Des","EF_B_Marine_Medic_Des"],[[0,0,0],[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Des_MechInfSquad
-	[[[["EF_B_AAV9_50mm_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_Medic_Des","EF_B_Marine_UAV_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des","EF_B_Marine_Mark_Des","EF_B_Marine_AT_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0],[-30,-30,0],[35,-35,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL"]]],1],
+	[[[["EF_B_AAV9_50mm_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_Medic_Des","EF_B_Marine_UAV_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des","EF_B_Marine_Mark_Des","EF_B_Marine_AT_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0],[-30,-30,0],[35,-35,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL"],[],1]],1],
 	// EF_B_MJTF_Des_MechInf_AT
-	[[[["EF_B_AAV9_50mm_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_AR_Des","EF_B_Marine_AT_Des","EF_B_Marine_AT_Des","EF_B_Marine_AT_Des","EF_B_Marine_AAT_Des","EF_B_Marine_AAT_Des","EF_B_Marine_AAT_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
+	[[[["EF_B_AAV9_50mm_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_AR_Des","EF_B_Marine_AT_Des","EF_B_Marine_AT_Des","EF_B_Marine_AT_Des","EF_B_Marine_AAT_Des","EF_B_Marine_AAT_Des","EF_B_Marine_AAT_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.4],
 	// EF_B_MJTF_Des_MechInf_AA
-	[[[["EF_B_AAV9_50mm_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_AR_Des","EF_B_Marine_AA_Des","EF_B_Marine_AA_Des","EF_B_Marine_AA_Des","EF_B_Marine_AAA_Des","EF_B_Marine_AAA_Des","EF_B_Marine_AAA_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+	[[[["EF_B_AAV9_50mm_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_AR_Des","EF_B_Marine_AA_Des","EF_B_Marine_AA_Des","EF_B_Marine_AA_Des","EF_B_Marine_AAA_Des","EF_B_Marine_AAA_Des","EF_B_Marine_AAA_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Des_MechInf_Support
-	[[[["EF_B_AAV9_50mm_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_TL_Des","EF_B_Marine_Repair_Des","EF_B_Marine_Eng_Des","EF_B_Marine_Medic_Des","EF_B_Marine_AR_Des","EF_B_Marine_Exp_Des","EF_B_Marine_AR_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0.1],
+	[[[["EF_B_AAV9_50mm_MJTF_Des","EF_B_Marine_SL_Des","EF_B_Marine_TL_Des","EF_B_Marine_Repair_Des","EF_B_Marine_Eng_Des","EF_B_Marine_Medic_Des","EF_B_Marine_AR_Des","EF_B_Marine_Exp_Des","EF_B_Marine_AR_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.1],
 	// EF_B_MJTF_Des_TankPlatoon
 	[[[["EF_B_MBT_01_cannon_MJTF_Des","EF_B_MBT_01_cannon_MJTF_Des","EF_B_MBT_01_cannon_MJTF_Des","EF_B_MBT_01_cannon_MJTF_Des"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.5],
 	// EF_B_MJTF_Des_TankPlatoon_AA
@@ -215,7 +216,6 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 };
 if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
-		[[[["EF_B_CombatBoat_HMG_MJTF_Des","EF_B_CombatBoat_AT_MJTF_Des"],[[0,0,0],[20,-20,0]],["CAPTAIN","CAPTAIN"]]], _depth min 0.5]
 	];
 };
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
