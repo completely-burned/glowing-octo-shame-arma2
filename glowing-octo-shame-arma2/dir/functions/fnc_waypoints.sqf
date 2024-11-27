@@ -298,9 +298,12 @@ if(!isNil "_leader")then{
 
 				diag_log format ["Log: [fnc_waypoints] Ship %1", _this];
 
+				// TODO: Нужна функция.
+				if !([_vehicles, ["RHIB","SPEX_LCVP","EF_LCC_Base","EF_CombatBoat_Base"]] call gosa_fnc_CheckIsKindOfArray) then {
 					if ({getNumber (_cfgWea >> currentWeapon _x >> "enableAttack") <= 0} count _vehicles > 0) then {
 						_landing = true;
 					};
+				};
 
 				_testPos = [];
 				_limit = 1000;
@@ -358,7 +361,7 @@ if(!isNil "_leader")then{
 						(getNumber (_cfgWea >> currentWeapon (_vehicles select 0) >> "enableAttack") <= 0)
 					#endif
 					&&
-					!([_vehicles, ["RHIB"]] call gosa_fnc_CheckIsKindOfArray)
+					!([_vehicles, ["RHIB","SPEX_LCVP","EF_LCC_Base","EF_CombatBoat_Base"]] call gosa_fnc_CheckIsKindOfArray)
 				)
 				or
 				([_vehicles, ["RubberBoat"]] call gosa_fnc_CheckIsKindOfArray)
