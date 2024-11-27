@@ -129,7 +129,7 @@ class Params {
 		title="UNITS: VR";
 		values[] = {1,0};
 		texts[] = {STR_ENABLED,STR_DISABLED};
-		default = 1;
+		default = 0;
 	};
 
 	// Множители фракций.
