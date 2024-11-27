@@ -10,8 +10,8 @@ _role = _this select 0;
 scopeName "root";
 
 if (count _role >= 2) then {
+	_type = _this select 1;
 	if (_role select 0 == "Turret") then {
-		_type = _this select 1;
 		// TODO: Проверять по configFile.
 		#ifdef __ARMA3__
 			if (_type isKindOf "MRAP_03_base_F") then {
