@@ -12,12 +12,13 @@ private ["_type","_HQ","_fnc_1","_isUAV","_z","_player_dir","_obj","_timeOut",
 	"_factory_dir","_factory_pos","_name","_alive","_arr0","_obj0",
 	"_cfgVeh","_entry","_crew","_sizeOf","_sizeAllowed","_box",
 	"_side","_listHQ_str","_class","_fnc_factory_HQ","_factory_HQ",
-	"_factory","_pos","_logic","_arr","_status"];
+	"_factory","_pos","_logic","_arr","_status","_vr"];
 
 _cfgVeh = LIB_cfgVeh;
 _crew = [];
 _asl = false;
 _timeOut = 30;
+if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else {_vr = false};
 
 _type = _this Select 0;
 
@@ -208,7 +209,7 @@ if (true) then {
 		if !(isNil "_factory_obj") then {
 			if ((count units player) < 10 or true)then{
 				// _pos = ([_pos, (sizeOf typeOf (_Objects select 0)) / 2 + (sizeOf _type) / 2, random 360] call BIS_fnc_relPos);
-					_veh = (group player createUnit [_type, _pos, [], 0.2, "FORM"]);
+					_veh = [group player, [_type, _pos, [], 0.2, "FORM"], _vr, [_side, _type]] call gosa_fnc_createUnit;
 
 					if !(isMultiplayer) then {
 						addSwitchableUnit _veh;
