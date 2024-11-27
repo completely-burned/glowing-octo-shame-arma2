@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=1;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=129;
+	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=96;
+		nextID=123;
 	};
 	class MarkerIDProvider
 	{
@@ -33,7 +33,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=8;
+		items=6;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -43,43 +43,33 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="WW2_Core_c_IF_Gui_c";
-			name="WW2_Core_c_IF_Gui_c";
-		};
-		class Item2
-		{
-			className="WW2_SPE_Core_c_UI_Gui_c";
-			name="WW2_SPE_Core_c_UI_Gui_c";
-		};
-		class Item3
-		{
 			className="A3_Characters_F";
 			name="Arma 3 Alpha - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item4
+		class Item2
 		{
 			className="A3_Structures_F_Mil";
 			name="Arma 3 - Military Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item5
+		class Item3
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item6
+		class Item4
 		{
 			className="A3_Structures_F_Ind";
 			name="Arma 3 - Industrial Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item7
+		class Item5
 		{
 			className="A3_Data_F_Exp_A";
 			name="Arma 3 Nexus Update - Main Configuration";
@@ -195,7 +185,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=32;
+		items=35;
 		class Item0
 		{
 			dataType="Marker";
@@ -320,10 +310,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'B_Pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=75;
-					type="B_Pilot_F";
+					type="B_Soldier_VR_F";
 				};
 				class Item7
 				{
@@ -336,10 +328,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'B_Pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=77;
-					type="B_Pilot_F";
+					type="B_Soldier_VR_F";
 				};
 				class Item8
 				{
@@ -352,10 +346,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'B_Pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=79;
-					type="B_Pilot_F";
+					type="B_Soldier_VR_F";
 				};
 				class Item9
 				{
@@ -368,10 +364,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'B_Pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=81;
-					type="B_Pilot_F";
+					type="B_Soldier_VR_F";
 				};
 			};
 			class Attributes
@@ -649,10 +647,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'O_Pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=82;
-					type="O_Pilot_F";
+					type="O_Soldier_VR_F";
 				};
 				class Item7
 				{
@@ -665,10 +665,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'O_Pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=84;
-					type="O_Pilot_F";
+					type="O_Soldier_VR_F";
 				};
 				class Item8
 				{
@@ -681,10 +683,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'O_Pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=86;
-					type="O_Pilot_F";
+					type="O_Soldier_VR_F";
 				};
 				class Item9
 				{
@@ -697,10 +701,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'O_Pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=88;
-					type="O_Pilot_F";
+					type="O_Soldier_VR_F";
 				};
 			};
 			class Attributes
@@ -822,10 +828,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'I_pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=89;
-					type="I_pilot_F";
+					type="I_Soldier_VR_F";
 				};
 				class Item7
 				{
@@ -838,10 +846,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'I_pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=91;
-					type="I_pilot_F";
+					type="I_Soldier_VR_F";
 				};
 				class Item8
 				{
@@ -854,10 +864,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'I_pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=93;
-					type="I_pilot_F";
+					type="I_Soldier_VR_F";
 				};
 				class Item9
 				{
@@ -870,10 +882,12 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						init="this setVariable ['type', 'I_pilot_F'];";
+						description="Pilot";
 						isPlayable=1;
 					};
 					id=95;
-					type="I_pilot_F";
+					type="I_Soldier_VR_F";
 				};
 			};
 			class Attributes
@@ -1852,6 +1866,489 @@ class Mission
 				};
 				nAttributes=5;
 			};
+		};
+		class Item32
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3799.3577,5.0014391,3686.7483};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="this setVariable ['type', 'I_Soldier_SL_F'];";
+						description="SL";
+						isPlayable=1;
+					};
+					id=97;
+					type="I_Soldier_VR_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3804.3579,5.0014391,3681.748};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'I_soldier_F'];";
+						description="Soldier";
+						isPlayable=1;
+					};
+					id=98;
+					type="I_Soldier_VR_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3794.3579,5.0014391,3681.748};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						init="this setVariable ['type', 'I_Soldier_LAT_F'];";
+						description="LAT";
+						isPlayable=1;
+					};
+					id=99;
+					type="I_Soldier_VR_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3809.3579,5.0014391,3676.748};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'I_Soldier_M_F'];";
+						description="M";
+						isPlayable=1;
+					};
+					id=100;
+					type="I_Soldier_VR_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3789.3579,5.0014391,3676.748};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="this setVariable ['type', 'I_Soldier_TL_F'];";
+						description="TL";
+						isPlayable=1;
+					};
+					id=101;
+					type="I_Soldier_VR_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3814.3579,5.0014391,3671.748};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						init="this setVariable ['type', 'I_Soldier_AR_F'];";
+						description="AR";
+						isPlayable=1;
+					};
+					id=102;
+					type="I_Soldier_VR_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3784.3579,5.0014391,3671.748};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'I_Soldier_A_F'];";
+						description="A";
+						isPlayable=1;
+					};
+					id=103;
+					type="I_Soldier_VR_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3819.3579,5.0014391,3666.748};
+					};
+					side="Independent";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'I_medic_F'];";
+						description="Medic";
+						isPlayable=1;
+					};
+					id=104;
+					type="I_Soldier_VR_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=96;
+		};
+		class Item33
+		{
+			dataType="Group";
+			side="East";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3847.2766,5.0014391,3626.4553};
+					};
+					side="East";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="this setVariable ['type', 'O_Soldier_SL_F'];";
+						description="SL";
+						isPlayable=1;
+					};
+					id=106;
+					type="O_Soldier_VR_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3852.2764,5.0014391,3621.4553};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'O_Soldier_F'];";
+						description="Soldier";
+						isPlayable=1;
+					};
+					id=107;
+					type="O_Soldier_VR_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3842.2764,5.0014391,3621.4553};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						init="this setVariable ['type', 'O_Soldier_LAT_F'];";
+						description="LAT";
+						isPlayable=1;
+					};
+					id=108;
+					type="O_Soldier_VR_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3857.2764,5.0014391,3616.4553};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'O_soldier_M_F'];";
+						description="M";
+						isPlayable=1;
+					};
+					id=109;
+					type="O_Soldier_VR_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3837.2764,5.0014391,3616.4553};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="this setVariable ['type', 'O_Soldier_TL_F'];";
+						description="TL";
+						isPlayable=1;
+					};
+					id=110;
+					type="O_Soldier_VR_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3862.2764,5.0014391,3611.4553};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						init="this setVariable ['type', 'O_Soldier_AR_F'];";
+						description="AR";
+						isPlayable=1;
+					};
+					id=111;
+					type="O_Soldier_VR_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3832.2764,5.0014391,3611.4553};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'O_Soldier_A_F'];";
+						description="A";
+						isPlayable=1;
+					};
+					id=112;
+					type="O_Soldier_VR_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3867.2764,5.0014391,3606.4553};
+					};
+					side="East";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'O_medic_F'];";
+						description="Medic";
+						isPlayable=1;
+					};
+					id=113;
+					type="O_Soldier_VR_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=105;
+		};
+		class Item34
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=8;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3762.9551,5.0014391,3625.8188};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="this setVariable ['type', 'B_Soldier_SL_F'];";
+						description="SL";
+						isPlayable=1;
+					};
+					id=115;
+					type="B_Soldier_VR_F";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3767.9551,5.0014391,3620.8188};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'B_Soldier_F'];";
+						description="Soldier";
+						isPlayable=1;
+					};
+					id=116;
+					type="B_Soldier_VR_F";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3757.9551,5.0014391,3620.8188};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						init="this setVariable ['type', 'B_soldier_LAT_F'];";
+						description="LAT";
+						isPlayable=1;
+					};
+					id=117;
+					type="B_Soldier_VR_F";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3772.9551,5.0014391,3615.8188};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'B_soldier_M_F'];";
+						description="M";
+						isPlayable=1;
+					};
+					id=118;
+					type="B_Soldier_VR_F";
+				};
+				class Item4
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3752.9551,5.0014391,3615.8188};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="SERGEANT";
+						init="this setVariable ['type', 'B_Soldier_TL_F'];";
+						description="TL";
+						isPlayable=1;
+					};
+					id=119;
+					type="B_Soldier_VR_F";
+				};
+				class Item5
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3777.9551,5.0014391,3610.8188};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						rank="CORPORAL";
+						init="this setVariable ['type', 'B_soldier_AR_F'];";
+						description="AR";
+						isPlayable=1;
+					};
+					id=120;
+					type="B_Soldier_VR_F";
+				};
+				class Item6
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3747.9551,5.0014391,3610.8188};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'B_Soldier_A_F'];";
+						description="A";
+						isPlayable=1;
+					};
+					id=121;
+					type="B_Soldier_VR_F";
+				};
+				class Item7
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={3782.9551,5.0014391,3605.8188};
+					};
+					side="West";
+					flags=5;
+					class Attributes
+					{
+						init="this setVariable ['type', 'B_medic_F'];";
+						description="Medic";
+						isPlayable=1;
+					};
+					id=122;
+					type="B_Soldier_VR_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=114;
 		};
 	};
 	class Connections
