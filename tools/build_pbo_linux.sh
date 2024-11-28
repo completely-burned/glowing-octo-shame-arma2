@@ -254,19 +254,36 @@ fi
 # Torrent файл.
 if [[ $TORRENTFILE -gt 0 ]]
 then
-	echo "Torrent file create"
-	TORRENT_TMPDIR=$(mktemp -td ${NAME}-TORRENT_TMPDIR.XXXXX)
-	TORRENT_TMPDIR=${TORRENT_TMPDIR}/${FINITENAME}
+	echo "p2p files create"
+	p2p_dir=$(mktemp -td ${NAME}-p2p.XXXXX)
+	ipfs_dir=${p2p_dir}
+	TORRENT_TMPDIR=${p2p_dir}/${FINITENAME}
+
 	mkdir ${TORRENT_TMPDIR}
 	echo "Torrent directory ${TORRENT_TMPDIR}"
 	find ${PRE} -maxdepth 1 -type f -iname "*.pbo" -print -exec cp {} ${TORRENT_TMPDIR}/ \;
+	find ${PRE} -maxdepth 1 -type f -iname "*.7z" -print -exec cp {} ${TORRENT_TMPDIR}/ \;
+
+	if [[ -x "$(command -v ipfs)" ]]
+	then
+		if ! ipfs id
+		then
+			ipfs init
+		fi
+		ipfs_hash="$(ipfs add --recursive=true --quieter=true ${ipfs_dir})"
+		if [[ ${ipfs_hash} ]]
+		then
+			ipfs_url_transmission="-w http://localhost:8080/ipfs/${ipfs_hash} -w https://ipfs.io/ipfs/${ipfs_hash}"
+		fi
+	fi
 
 	COMMENT='https://github.com/completely-burned/glowing-octo-shame-arma2'
 	tracker='udp://retracker.local/announce'
 
 	torrent_parallel+=( "transmission-create \
 		-t ${tracker} -c ${COMMENT} \
-		-w 'http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/' \
+		${ipfs_url_transmission} \
+		-w 'http://rvtbn5rfvgyhhbyjuh.dynv6.net/torrent/' \
 		-o '${PRE}/${FINITENAME}-${VERSION}-transmission.torrent' \
 		${TORRENT_TMPDIR}" )
 	torrent_parallel+=( "ctorrent -t \
