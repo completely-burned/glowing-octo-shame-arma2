@@ -1,3 +1,4 @@
+#ifdef __ARMA3__
 private ["_type", "_obj", "_arr"];
 
 _obj = _this select 0;
@@ -14,3 +15,4 @@ if (toLower _type != toLower typeOf _obj) then {
 	_arr set [3, nil];
 	_obj setUnitLoadout _arr;
 };
+#endif
