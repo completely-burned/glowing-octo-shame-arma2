@@ -127,9 +127,9 @@ class Params {
 
 	class gosa_gamemode_vr {
 		title="UNITS: VR";
-		values[] = {1,0};
-		texts[] = {STR_ENABLED,STR_DISABLED};
-		default = 0;
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default = -1;
 	};
 
 	// Множители фракций.
