@@ -283,7 +283,7 @@ then
 	torrent_parallel+=( "transmission-create \
 		-t ${tracker} -c ${COMMENT} \
 		${ipfs_url_transmission} \
-		-w 'http://rvtbn5rfvgyhhbyjuh.dynv6.net/torrent/' \
+		-w 'http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/' \
 		-o '${PRE}/${FINITENAME}-${VERSION}-transmission.torrent' \
 		${TORRENT_TMPDIR}" )
 	torrent_parallel+=( "ctorrent -t \
