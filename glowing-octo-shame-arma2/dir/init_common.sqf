@@ -514,7 +514,7 @@ gosa_posDefaultHidenRandom = 1000;
 gosa_server_diag_fps_interval = 600;
 
 // Осветительные ракеты.
-_n = 100000;
+_n = 100000 min getNumber(configfile >> "CfgAmmo" >> "F_40mm_White" >> "intensity");
 gosa_flare_intensity_required = _n;
 _arr = [
 	"F_40mm_White","ACE_40mm_Flare_white",
