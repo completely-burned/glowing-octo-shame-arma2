@@ -35,10 +35,10 @@ if (count _this > 1) then {
 if (count _this > 2) then {
 	_flare_failover = _this select 2;
 }else{
-	if (isNil "gosa_flare") then {
+	if (isNil "gosa_flare_Weighted") then {
 		_flare_failover = [];
 	}else{
-		_flare_failover = gosa_flare;
+		_flare_failover = gosa_flare_Weighted;
 	};
 };
 
@@ -178,7 +178,13 @@ if (isNil "_obj") then {
 	if !(isNull _u) then {
 		// TODO: Учитывать яркость свечения.
 		if (count _flare_failover > 0) then {
-		_ammo = _flare_failover call BIS_fnc_selectRandom;
+			_ammo = _flare_failover call BIS_fnc_selectRandom;
+			if (typeName (_flare_failover select 0) == typeName []) then {	
+				if (count (_flare_failover select 0) > 0) then {
+					_ammo = _flare_failover call gosa_fnc_selectRandomWeighted;
+				};
+			};
+
 		_n = _ammo call gosa_fnc_flareDist;
 					if (_ammo in ["gm_shell_122x447mm_illum_s463","gm_shell_155mm_illum_m485","gm_rocket_84x245mm_illum_dm16","gm_flare_illum_wht"]) then {
 						// Светят очень ярко.

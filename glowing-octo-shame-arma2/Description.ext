@@ -1184,6 +1184,13 @@ class CfgFunctions
 {
 	class gosa
 	{
+		class cfg
+		{
+			class flare_Weighted
+			{
+				file = "dir\functions\fnc_flare_Weighted.sqf";
+			};
+		}
 		class Actions
 		{
 			class menu_factory

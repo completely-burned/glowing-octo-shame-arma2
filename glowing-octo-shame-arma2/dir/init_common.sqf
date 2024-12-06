@@ -514,15 +514,19 @@ gosa_posDefaultHidenRandom = 1000;
 gosa_server_diag_fps_interval = 600;
 
 // Осветительные ракеты.
-_n = 100000 min getNumber(configfile >> "CfgAmmo" >> "F_40mm_White" >> "intensity");
+_n = 1000000;
+gosa_flare_intensity_best = _n;
+_arr = [_n] call gosa_fnc_flare_Weighted;
+gosa_flare_Weighted = _arr;
+diag_log format ["Log: [init_common]: gosa_flare_Weighted %1", _arr];
+
+// Устарело.
+_n = 100000;
+#ifdef __ARMA3__
+	_n = _n min getNumber(configfile >> "CfgAmmo" >> "F_40mm_White" >> "intensity");
+#endif
 gosa_flare_intensity_required = _n;
-_arr = [
-	"F_40mm_White","ACE_40mm_Flare_white",
-	"SPE_40mm_White","gm_flare_illum_wht",
-	"vn_22mm_lume_ammo","vn_40mm_m583_flare_w_ammo",
-	//"CSLA_26_5SigB1a_Ammo","US85_G_40mm_FW",
-	"LIB_40mm_White"
-];
+_arr = _arr select 0;
 _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_str = toLower configName (_cfgAmm >> (_arr select _i));

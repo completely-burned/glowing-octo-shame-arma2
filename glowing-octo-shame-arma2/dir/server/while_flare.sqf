@@ -23,7 +23,7 @@ private [ "_flare_dist","_players","_player","_types_flare",
 	"gm_flareBullet_base"
 ];
 _blacklist = gosa_flare_blacklist;
-_flare_failover = gosa_flare;
+_flare_failover = gosa_flare_Weighted;
 
 _arr = [];
 
