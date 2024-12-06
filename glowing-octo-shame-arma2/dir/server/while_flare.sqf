@@ -5,8 +5,10 @@
  * TODO: Оптимизация.
  */
 private [ "_flare_dist","_players","_player","_types_flare",
+	"_flare_dist_player",
 	"_item","_arr","_b","_blacklist","_flare_failover","_n"];
 
+_flare_dist_player = 750;
 #ifdef __ARMA3__
 	_flare_dist = 75;
 #else
@@ -62,7 +64,7 @@ while {sleep 15 + random 15; true} do {
 				_n = ((_n / 7) * (_player call gosa_fnc_canSee));
 				sleep (_n + random (_n/2));
 				//- Запуск ракеты.
-				_arr = _player nearEntities [["Man"], _flare_dist];
+				_arr = _player nearEntities [["Man"], _flare_dist_player];
 				_arr = _arr - units _player;
 				[_arr, _blacklist, _flare_failover] call gosa_fnc_unitFlareFire;
 			};
