@@ -1253,6 +1253,10 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class getGroupTypeCount
+			{
+				file = "dir\functions\fnc_getGroupTypeCount.sqf";
+			};
 			class vr_type
 			{
 				file = "dir\functions\fnc_vr_type.sqf";
