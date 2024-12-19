@@ -1,6 +1,6 @@
 private ["_cfgVeh","_type","_entry","_model","_item","_types","_camo","_str",
 	"_uniform",
-	"_TextureSources","_alternatives","_role","_name","_b","_vehicles"];
+	"_TextureSources","_camouflages","_role","_name","_b","_vehicles"];
 _type = _this select 0;
 
 _cfgVeh = LIB_cfgVeh;
@@ -13,7 +13,7 @@ if (getNumber(_entry >> "isMan") > 0) then {
 };
 _types = [];
 _TextureSources = [];
-_alternatives = [];
+_camouflages = [];
 _vehicles = availableVehicles;
 
 if (_model != "") then {
@@ -48,12 +48,12 @@ if (_model != "") then {
 				};
 				if (_b) then {
 					_camo = [_str] call gosa_fnc_type_camoClass;
-					_alternatives set [count _alternatives, _camo];
+					_camouflages set [count _camouflages, _camo];
 				};
 			};
 		};
 	};
 };
 
-[_types, _alternatives];
+[_types, _camouflages];
 
