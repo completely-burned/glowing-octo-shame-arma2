@@ -1,4 +1,5 @@
 private ["_cfgVeh","_type","_entry","_model","_item","_types","_camo","_str",
+	"_uniform",
 	"_TextureSources","_alternatives","_role","_name","_b","_vehicles"];
 _type = _this select 0;
 
@@ -8,6 +9,7 @@ _model = getText(_entry >> "model");
 if (getNumber(_entry >> "isMan") > 0) then {
 	_role = getText(_entry >> "role");
 	_name = getTextRaw(_entry >> "displayName");
+	_uniform = getText(_entry >> "uniformClass");
 };
 _types = [];
 _TextureSources = [];
@@ -23,14 +25,16 @@ if (_model != "") then {
 		if (isClass _item) then {
 			if ((getNumber(_item >> "scope")) in [1,2]) then {
 				if (getNumber(_item >> "isMan") > 0) then {
-					_b = false;
-					if (getText(_item >> "role") == _role) then {
-						if (getTextRaw(_item >> "displayName") == _name) then {
+					if (getText(_item >> "role") == _role &&
+						//getText(_item >> "uniformClass") == _uniform &&
+						getTextRaw(_item >> "displayName") == _name) then
+					{
 							_b = true;
 							//_str = configName _item;
 							_str = _vehicles select _i;
 							_types set [count _types, _str];
-						};
+					}else{
+						_b = false;
 					};
 				}else{
 					if (getText(_item >> "model") == _model) then {

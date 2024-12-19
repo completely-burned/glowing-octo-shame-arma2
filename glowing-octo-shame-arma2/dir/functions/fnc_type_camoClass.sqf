@@ -1,66 +1,34 @@
-private ["_str","_faction","_cfgVeh","_islands","_side"];
+private ["_str","_faction","_cfgVeh","_islands","_side","_camouflages",
+	"_uniform","_d","_entry"];
 _str = _this select 0;
 _cfgVeh = LIB_cfgVeh;
+_entry = _cfgVeh >> _str;
 
-_faction = toUpper getText(_cfgVeh >> _str >> "faction");
-_side = getNumber(_cfgVeh >> _str >> "side") call gosa_fnc_getSide;
+_faction = toUpper getText(_entry >> "faction");
+_side = getNumber(_entry >> "side") call gosa_fnc_getSide;
+_uniform = toLower getText(_entry >> "uniformClass");
 _islands = [];
 _t = [];
+_d = [];
 
 
-// TODO: Нужна таблица и функция сопоставления.
-//-- East.
-//- DLC.
-if (_faction in ["OPF_T_F"]) then {
-	_islands = _islands + ["tanoa"];
-	_t = _t + [[160,249]];
-};
-//- CDLC.
-if (_faction IN ["OPF_SFIA_LXWS","IND_SFIA_LXWS"]) then {
-	_islands = _islands + ["sefrouramal"];
-	_t = _t + [[275,999]];
-};
-if (_faction IN ["OPF_TURA_LXWS","BLU_TURA_LXWS","IND_TURA_LXWS"]) then {
-	_islands = _islands + ["sefrouramal"];
-	_t = _t + [[300,999]];
-};
-//- Vanilla.
-if (_faction in ["OPF_F"]) then {
-	_islands = _islands + ["altis"];
-	if (count _t > 0) then {
-		_t = _t + [[250,274]];
-	}else{
-		//_t = t + [[-999,159],[250,999]];
-		_t = _t + [[250,999]];
+_camouflages = gosa_camouflages;
+for "_i" from 0 to (count _camouflages -1) do {
+	if ((count (_camouflages select _i select 0 select 0) <= 0 or 
+		_faction in (_camouflages select _i select 0 select 0)) &&
+		(count (_camouflages select _i select 0 select 2) <= 0 or 
+		_uniform in (_camouflages select _i select 0 select 2))) then
+	{
+		#ifdef __ARMA3__
+			_islands append (_camouflages select _i select 1);
+			_d append (_camouflages select _i select 2);
+			_t append (_camouflages select _i select 3);
+		#else
+			_islands = _islands + (_camouflages select _i select 1);
+			_d = _d + (_camouflages select _i select 2);
+			_t = _t + (_camouflages select _i select 3);
+		#endif
 	};
 };
 
-//-- West.
-//- DLC.
-if (_faction in ["BLU_W_F"]) then {
-	_islands = _islands + ["enoch"];
-	_t = _t + [[160,224]];
-};
-if (_faction in ["BLU_T_F"]) then {
-	_islands = _islands + ["tanoa"];
-	_t = _t + [[225,249]];
-};
-//- CDLC.
-if (_faction IN ["BLU_NATO_LXWS"]) then {
-	_islands = _islands + ["sefrouramal"];
-	_t = _t + [[300,999]];
-};
-//- Vanilla.
-if (_faction in ["BLU_F"]) then {
-	_islands = _islands + ["altis"];
-	if (count _t > 0) then {
-		_t = _t + [[250,299]];
-	}else{
-		//_t = t + [[-999,159],[250,999]];
-		_t = _t + [[250,999]];
-	};
-};
-
-//-- Guer.
-
-[_faction, _side, _islands, _t];
+[_faction, _side, _islands, _t, _d];
