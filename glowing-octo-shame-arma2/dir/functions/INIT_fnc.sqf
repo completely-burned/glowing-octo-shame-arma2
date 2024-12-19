@@ -74,6 +74,8 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 
 //--- общие
 _arr = [
+	"fnc_type_camoClass",
+	"fnc_type_alternatives",
 	"fnc_getGroupTypeCount",
 	"fnc_flare_Weighted",
 	"fnc_unit_loadout",
