@@ -16,10 +16,6 @@ PVE бой с ботами сконцентрированный в одной т
 
 ## Download
  - [releases](../../releases)
- - https://ipfs.io/ipns/k51qzi5uqu5dmeusj626elcyuraqirrdzjjibsb0cwkqnyjcz7hf1qyj5mlfgd
- - https://mega.nz/folder/iJxzRYoI#YIX67tCWRUtDkO1V0w5E8Q
- - http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/files/games/arma3server/mpmissions/
- - http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/arma-glowing-octo-shame/
 
 
 ## Build
