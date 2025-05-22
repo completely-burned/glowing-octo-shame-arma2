@@ -85,6 +85,11 @@
 				<Original>You have chosen a conflict side that is incompatible with PvE, please choose an allied side or observer mode.</Original>
 				<Russian>Вы выбрали несовместимую с PvE сторону конфликта, пожалуйста выберите союзную сторону или режим наблюдателя.</Russian>
 			</Key>
+			<Key ID="STR_gosa_error_No_groups">
+				<Original>Error: Mission initialization error. No group units found, so the mission will be ended immediately.</Original>
+				<Russian>Error: Ошибка инициализации  миссии. Отряды юнитов не найдены, поэтому миссия будет немедленно завершена.</Russian>
+				<English>Error: Mission initialization error. No group units found, so the mission will be ended immediately.</English>
+			</Key>
 			<Key ID="STR_gosa_Situation">
 				<Original>Ситуация</Original>
 			</Key>

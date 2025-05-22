@@ -90,7 +90,7 @@
 	];
 	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1990,2100], [160,249],
+		[2020,2100], [160,249],
 		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
@@ -225,7 +225,7 @@
 	];
 	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1990,2100], [275,299],
+		[2020,2100], [275,299],
 		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
@@ -300,7 +300,7 @@
 	];
 	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1990,2100], [300,999],
+		[2020,2100], [300,999],
 		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
@@ -445,7 +445,7 @@
 	];
 	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1990,2100], [-999,159],
+		[2020,2100], [-999,159],
 		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
@@ -631,7 +631,7 @@
 		] call gosa_fnc_map_groups_add;
 		[_groups_map, east, "CUP_O_RUS_M",
 			[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-			[1990,2100], [-999,999],
+			[2020,2100], [-999,999],
 			["CUP_O_RU"]
 		] call gosa_fnc_map_groups_add;
 	};

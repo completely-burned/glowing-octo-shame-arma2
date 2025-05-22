@@ -1261,6 +1261,10 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class map_groups_filtering
+			{
+				file = "dir\functions\fnc_map_groups_filtering.sqf";
+			};
 			class getGroupTypeCount
 			{
 				file = "dir\functions\fnc_getGroupTypeCount.sqf";
@@ -2085,5 +2089,10 @@ class CfgDebriefing
 	{
 		title = "Wrong side";
 		description = "$STR_gosa_player_wrong_side";
+	};
+	class wrong_groups
+	{
+		title = "Wrong groups";
+		description = "$STR_gosa_error_No_groups";
 	};
 };

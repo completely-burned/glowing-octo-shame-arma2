@@ -74,6 +74,7 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 
 //--- общие
 _arr = [
+	"fnc_map_groups_filtering",
 	"fnc_type_camoClass",
 	"fnc_type_alternatives",
 	"fnc_getGroupTypeCount",

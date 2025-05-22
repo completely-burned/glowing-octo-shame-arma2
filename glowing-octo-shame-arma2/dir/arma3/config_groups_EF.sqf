@@ -117,7 +117,7 @@ if (count gosa_zone_lighthouse > 0) then {
 };
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "EF_B_MJTF", _arr,
-	[1990,2100], [150,249],
+	[2020,2100], [150,249],
 	[]
 ] call gosa_fnc_map_groups_add;
 
@@ -238,6 +238,6 @@ if (count gosa_zone_lighthouse > 0) then {
 };
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "EF_B_MJTF", _arr,
-	[1990,2100], [250,999],
+	[2020,2100], [250,999],
 	[]
 ] call gosa_fnc_map_groups_add;

@@ -37,7 +37,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	];
 };
 	[_groups_map, east, "OPF_SFIA_lxWS", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [275,999],
+	[2020,2100], [275,999],
 	["IND_SFIA_lxWS", "OPF_F"]
 	] call gosa_fnc_map_groups_add;
 
@@ -134,7 +134,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 };
 
 	[_groups_map, west, "BLU_NATO_lxWS", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[2020,2100], [300,999],
 	["BLU_T_F", "BLU_F","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
 
@@ -151,7 +151,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		// configName B_ION_InfTeam_lxWS
 		[[[["B_ION_TL_lxWS","B_ION_soldier_AR_lxWS","B_ION_Soldier_GL_lxWS","B_ION_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [275,999],
+	[2020,2100], [275,999],
 	["CUP_I_PMC_ION"]
 	] call gosa_fnc_map_groups_add;
 
@@ -175,7 +175,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		// configName BUNA_InfSentry_lxWS
 		[[[["B_UN_Soldier_lxWS","B_UN_Soldier_lxWS"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [275,999],
+	[2020,2100], [275,999],
 	["CUP_I_UN"]
 	] call gosa_fnc_map_groups_add;
 
@@ -214,7 +214,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		// configName ISFIA_InfSquad_Weapons_lxWS
 		[[[["I_SFIA_Soldier_TL_lxWS","I_SFIA_Soldier_AR_lxWS","I_SFIA_Soldier_GL_lxWS","I_SFIA_sharpshooter_lxWS","I_SFIA_soldier_at_lxWS","I_SFIA_soldier_lxWS","I_SFIA_Soldier_AAT_lxWS","I_SFIA_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [275,999],
+	[2020,2100], [275,999],
 	["OPF_SFIA_lxWS", "IND_F"]
 	] call gosa_fnc_map_groups_add;
 
@@ -232,7 +232,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		// configName I_Tura_InfTeam_lxWS
 		[[[["I_SFIA_enforcer_lxWS","I_SFIA_hireling_lxWS","I_SFIA_watcher_lxWS","I_SFIA_deserter_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[2020,2100], [300,999],
 	["OPF_TURA_lxWS", "BLU_TURA_lxWS", "IND_F"]
 	] call gosa_fnc_map_groups_add;
 
@@ -250,7 +250,7 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		// configName O_Tura_InfTeam_lxWS
 		[[[["O_Tura_enforcer_lxWS","O_Tura_hireling_lxWS","O_Tura_watcher_lxWS","O_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[2020,2100], [300,999],
 	["BLU_TURA_lxWS", "IND_TURA_lxWS", "OPF_F"]
 	] call gosa_fnc_map_groups_add;
 
@@ -268,6 +268,6 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 		// configName B_Tura_InfTeam_lxWS
 		[[[["B_Tura_enforcer_lxWS","B_Tura_hireling_lxWS","B_Tura_watcher_lxWS","B_Tura_deserter_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[2020,2100], [300,999],
 	["OPF_TURA_lxWS", "IND_TURA_lxWS", "BLU_F","BLU_W_F"]
 	] call gosa_fnc_map_groups_add;

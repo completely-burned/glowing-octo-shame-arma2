@@ -17,7 +17,7 @@
 
 		//[[[["B_G_Mortar_01_F"],[],["PRIVATE"]]],0.05]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[2020,2100], [300,999],
 	["OPF_G_F", "IND_G_F"]
 	] call gosa_fnc_map_groups_add;
 
@@ -27,7 +27,7 @@
 		], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 		[
 			_groups_map, west, "BLU_G_F", _arr,
-			[1990,2100], [250,299],
+			[2020,2100], [250,299],
 			["OPF_G_F","IND_G_F"]
 		] call gosa_fnc_map_groups_add;
 
@@ -47,7 +47,7 @@
 
 		//[[[["O_G_Mortar_01_F"],[],["PRIVATE"]]],0.05]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[2020,2100], [300,999],
 	["BLU_G_F", "IND_G_F"]
 	] call gosa_fnc_map_groups_add;
 
@@ -62,6 +62,6 @@
 		[[[["I_G_Van_01_fuel_F"],[],["PRIVATE"]]],0.01]
 		//[[[["I_G_Mortar_01_F"],[],["PRIVATE"]]],0.05]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [300,999],
+	[2020,2100], [300,999],
 	["OPF_G_F", "BLU_G_F"]
 	] call gosa_fnc_map_groups_add;
