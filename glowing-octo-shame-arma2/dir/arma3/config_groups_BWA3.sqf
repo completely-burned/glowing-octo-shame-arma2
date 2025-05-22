@@ -53,6 +53,7 @@ _arr = [
 	// BWA3_ArtillerySection
 	//[[[["BWA3_Panzerhaubitze2000_Tropen","BWA3_Panzerhaubitze2000_Tropen"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0]
 ];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "BWA3", _arr,
 [1990,2100], [250,299],
 ["CUP_B_GER"]
@@ -113,6 +114,7 @@ _arr = [
 	// BWA3_ArtillerySection
 	//[[[["BWA3_Panzerhaubitze2000_Fleck","BWA3_Panzerhaubitze2000_Fleck"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0]
 ];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "BWA3", _arr,
 [1990,2100], [150,249],
 ["CUP_B_GER"]
@@ -173,6 +175,7 @@ _arr = [
 	// BWA3_ArtillerySection
 	//[[[["BWA3_Panzerhaubitze2000_Tropen","BWA3_Panzerhaubitze2000_Tropen"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0]
 ];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "BWA3", _arr,
 [1990,2100], [300,999],
 ["CUP_B_GER"]
