@@ -224,7 +224,7 @@ class Mission
 	appId=1175380;
 	class Intel
 	{
-		briefingName="SPE CO 00 gosa SPE_Normandy Multi v0.0.5.984 DEBUG";
+		briefingName="SPE CO 00 gosa SPE_Normandy Multi v0.0.5.985 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.3;

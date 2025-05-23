@@ -195,7 +195,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="SPE CO 00 gosa tem_summa Multi v0.0.5.984 DEBUG";
+		briefingName="SPE CO 00 gosa tem_summa Multi v0.0.5.985 DEBUG";
 		startWeather=0.2;
 		startWind=0.1000001;
 		startWaves=0.1;
