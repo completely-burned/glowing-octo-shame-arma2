@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=318;
+		nextID=320;
 	};
 	class MarkerIDProvider
 	{
@@ -228,7 +228,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=114;
+		items=116;
 		class Item0
 		{
 			dataType="Logic";
@@ -5893,16 +5893,38 @@ class Mission
 			};
 			id=315;
 		};
+		class Item114
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={5626.4609,2.2996356,1061.7052};
+			};
+			id=318;
+			type="LocationRespawnPoint_F";
+			atlOffset=-4.7683716e-07;
+		};
+		class Item115
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={980.53589,0.67096329,3843.8606};
+			};
+			id=319;
+			type="LocationRespawnPoint_F";
+			atlOffset=1.5974045e-05;
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=4;
+			nextID=6;
 		};
 		class Links
 		{
-			items=4;
+			items=6;
 			class Item0
 			{
 				linkID=0;
@@ -5938,6 +5960,26 @@ class Mission
 				linkID=3;
 				item0=56;
 				item1=52;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item4
+			{
+				linkID=4;
+				item0=318;
+				item1=51;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item5
+			{
+				linkID=5;
+				item0=319;
+				item1=61;
 				class CustomData
 				{
 					type="Sync";
