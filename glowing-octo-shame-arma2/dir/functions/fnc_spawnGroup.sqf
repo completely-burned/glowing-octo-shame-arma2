@@ -264,7 +264,7 @@ if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else 
 		// ТС не начинают движение.
 		// FIXME: Помогает только частично.
 		units _grp spawn {
-			sleep 2;
+			sleep 5;
 			{_x doFollow _x} forEach _this;
 		};
 	#endif
