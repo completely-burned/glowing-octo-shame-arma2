@@ -192,6 +192,21 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		};
 	};
 
+	#ifdef __ARMA3__
+		//--- Возвращение в строй ТС A3.
+		for "_i" from 0 to (count _units -1) do {
+			if (alive (_units select _i)) then {
+				_obj = vehicle (_units select _i);
+				if (_units select _i isNotEqualTo _obj) then {
+					if (_leaderPos distance2D _obj > 300) then {
+						diag_log format ["Log: [fnc_group_other] %1, %2 commandFollow %2", _grp, _obj];
+						_obj commandFollow _obj;
+					};
+				};
+			};
+		};
+	#endif
+
 
 	//--- ограничение скорости транспорта
 	// https://github.com/completely-burned/glowing-octo-shame-arma2/issues/76
