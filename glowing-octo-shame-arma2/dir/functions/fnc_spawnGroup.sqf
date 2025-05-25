@@ -260,11 +260,13 @@ if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else 
 		};
 	};
 
-	// ТС не начинают движение.
 	#ifdef __ARMA3__
-		{
-			_x doFollow _x;
-		} forEach units _grp;
+		// ТС не начинают движение.
+		// FIXME: Помогает только частично.
+		units _grp spawn {
+			sleep 2;
+			{_x doFollow _x} forEach _this;
+		};
 	#endif
 } forEach _for;
 
