@@ -200,7 +200,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 				if (_units select _i isNotEqualTo _obj) then {
 					if (_leaderPos distance2D _obj > 300) then {
 						diag_log format ["Log: [fnc_group_other] %1, %2 commandFollow %2", _grp, _obj];
-						_obj commandFollow _obj;
+						_obj doFollow _obj;
 					};
 				};
 			};
