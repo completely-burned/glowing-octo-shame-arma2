@@ -235,7 +235,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="SPE CO 00 gosa spex_utah_beach Multi v0.0.5.986 DEBUG";
+		briefingName="SPE CO 00 gosa spex_utah_beach Multi v0.0.5.987 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.3;

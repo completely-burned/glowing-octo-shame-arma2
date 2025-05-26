@@ -192,7 +192,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="SPE CO 00 gosa WW2_Omaha_Beach Multi v0.0.5.986 DEBUG";
+		briefingName="SPE CO 00 gosa WW2_Omaha_Beach Multi v0.0.5.987 DEBUG";
 		startWeather=0.3;
 		startFog=0.02;
 		startWind=0.1;
