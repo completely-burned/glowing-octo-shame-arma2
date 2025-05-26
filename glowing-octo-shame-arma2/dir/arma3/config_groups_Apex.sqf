@@ -107,7 +107,7 @@ _arr = [
 		];
 	};
 	[_groups_map, west, "BLU_T_F", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [225,249],
+	[2020,2100], [225,249],
 	["BLU_F", "CUP_B_US_Army", "CUP_B_USMC", "BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
 
@@ -215,6 +215,6 @@ _arr = [
 			[[[["I_C_Soldier_Para_6_F","I_C_Soldier_Para_5_F","I_C_Soldier_Para_7_F","I_C_Soldier_Para_8_F","I_C_Soldier_Para_3_F","I_C_Offroad_02_LMG_F","I_C_Offroad_02_AT_F","I_C_Offroad_02_unarmed_F"],[[15,0,0],[0,15,0],[15,15,0],[-15,0,0],[0,-15,0],[0,10,0],[10,0,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.05],
 			[[[["I_C_Soldier_Para_2_F","I_C_Soldier_Para_4_F","I_C_Soldier_Para_1_F","I_C_Offroad_02_unarmed_F"],[[5,-5,0],[-5,-5,0],[0,-10,0],[0,0,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE"]]],0.05]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [160,999],
+	[2020,2100], [160,999],
 	["CUP_I_NAPA"]
 	] call gosa_fnc_map_groups_add;

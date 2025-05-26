@@ -29,7 +29,7 @@ private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
 	"_groups_failover_map","_sides_friendly","_copyRef",
 	"_groups_enabled","_factions_enabled","_groups_enabled_map",
 	"_groups_pending_map","_str","_param_default","_side",
-	"_sl","_tl",
+	"_sl","_tl","_steep_date","_steep_climate","_arr1","_n0",
 	"_alliances","_alliances_enabled","_alliance","_sides",
 	"_default_east","_default_west","_default_guer"];
 
@@ -70,6 +70,9 @@ _alliances_enabled = [];
 _param_default = -1;
 // O,B,R,C
 _cfg_factions_def = [["OPF_F"],["BLU_F"],["IND_F"]];
+
+_steep_date = 10;
+_steep_climate = 10;
 
 
 #include "config_groups_LS.sqf"
@@ -317,7 +320,7 @@ _arr = _default_west;
 		];
 	};
 [_groups_map, west, "BLU_F", _arr,
-[1990,2100], [250,999],
+[2020,2100], [250,999],
 ["BLU_NATO_lxWS","BLU_T_F","CUP_B_US_Army","CUP_B_USMC","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
@@ -337,19 +340,19 @@ _arr append [
 	//[[[["B_Radar_System_01_F","B_SAM_System_03_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 ];
 [_groups_map, west, "BLU_NATO_lxWS", _arr,
-[1990,2100], [300,999],
+[2020,2100], [300,999],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_W_F", _arr,
-[1990,2100], [160,224],
+[2020,2100], [160,224],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_T_F", _arr,
-[1990,2100], [225,249],
+[2020,2100], [225,249],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_F", _arr,
-[1990,2100], [250,299],
+[2020,2100], [250,299],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 
@@ -367,15 +370,15 @@ _arr append [
 		[[[["B_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
 	[_groups_map, west, "BLU_NATO_lxWS", _arr,
-	[1990,2100], [300,999],
+	[2020,2100], [300,999],
 	[]
 	] call gosa_fnc_map_groups_add;
 	[_groups_map, west, "BLU_T_F", _arr,
-	[1990,2100], [-999,249],
+	[2020,2100], [-999,249],
 	[]
 	] call gosa_fnc_map_groups_add;
 	[_groups_map, west, "BLU_F", _arr,
-	[1990,2100], [250,299],
+	[2020,2100], [250,299],
 	[]
 	] call gosa_fnc_map_groups_add;
 
@@ -782,7 +785,7 @@ _arr = _default_east;
 		[[[["CUP_O_SU34_CSAT","CUP_O_SU34_CSAT"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.1]
 	];
 [_groups_map, east, "OPF_F", _arr,
-[1990,2100], [250,999],
+[2020,2100], [250,999],
 []
 ] call gosa_fnc_map_groups_add;
 
@@ -797,11 +800,11 @@ _arr = _default_east;
 		[[[["O_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
 	[_groups_map, east, "OPF_F", _arr,
-	[1990,2100], [250,999],
+	[2020,2100], [250,999],
 	[]
 	] call gosa_fnc_map_groups_add;
 	[_groups_map, east, "OPF_T_F", _arr,
-	[1990,2100], [-999,249],
+	[2020,2100], [-999,249],
 	[]
 	] call gosa_fnc_map_groups_add;
 
@@ -1035,7 +1038,7 @@ _arr = _default_guer;
 			];
 		};
 [_groups_map, resistance, "IND_F", _arr,
-[1990,2100], [250,999],
+[2020,2100], [250,999],
 []
 ] call gosa_fnc_map_groups_add;
 
@@ -1051,97 +1054,64 @@ _arr = _default_guer;
 		[[[["I_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
 	[_groups_map, resistance, "IND_F", _arr,
-	[1990,2100], [-999,999],
+	[2020,2100], [-999,999],
 	[]
 	] call gosa_fnc_map_groups_add;
 
 
 //////////////////////////////
 
-//-- Включены по стартовым параметрам.
-for "_i" from 0 to (count _groups_map -1) do {
-	// [_side,_name,_groups,_date,_climate,_blacklist,_failover_prio]
-	_arr = _groups_map select _i;
-	if (count (_arr select 2) > 0) then {
-		_str = _arr select 1;
-		_b = true;
-		//- Проверка даты.
-		if ((_arr select 3 select 0) > _date or (_arr select 3 select 1) < _date) then {
-			diag_log format ["Log: [fnc_map_groups] %1 исключена, дата %2", _str, [_date, _arr select 3]];
-			_b = false;
-		};
-		//- Климат.
-		if ((_arr select 4 select 0) > _climate or (_arr select 4 select 1) < _climate) then {
-			diag_log format ["Log: [fnc_map_groups] %1 исключена, климат %2", _str, [_climate, _arr select 4]];
-			_b = false;
-		};
+{
+	_side = _x;
+	_n = 0; _n0 = 0;
+	_b = true;
+	while {_b} do {
+		diag_log format ["Log: [config_groups.sqf] Формирование списка отрядов для %1, допустимое отклонение %2", _side, [_n, _n0]];
+		_arr1 = [_groups_map, [_side], [_date, _climate], 
+			[[-_n, _n], [-_n0, _n0]]
+		] call gosa_fnc_map_groups_filtering;
 
-		_n = missionNamespace getVariable ("gosa_faction_multiplier_" + _str);
-		if (_n > 0) then {
-			if (_b) then {
-				_groups_enabled set [count _groups_enabled, _i];
-				_groups_enabled_map set [count _groups_enabled_map, _arr];
-				diag_log format ["Log: [fnc_map_groups] %1, enabled", _str];
-			}else{
-				diag_log format ["Log: [fnc_map_groups] %1, failover", _str];
-				//- Если группа включена в настройках, но нет подходящей.
-				_n = _groups_failover find _str;
-				if (_n >= 0) then {
-					if (_arr select 6 > (_groups_failover_map select _n select 6)) then {
-						_groups_failover_map set [_n, _arr];
-					};
-				}else{
-					_groups_failover set [count _groups_failover, _str];
-					_groups_failover_map set [count _groups_failover, _arr];
-				};
+		_arr = [];
+		for "_i" from 0 to (count _arr1 -1) do {
+			_arr0 = _arr1 select _i;
+			if (_arr0 select 0 isEqualTo _side) then {
+				_arr append (_arr0 select 2);
 			};
-			//- 
-			{
-				if !(_x in _factions_blocked) then {
-					_factions_blocked set [count _factions_blocked, _x];
-					diag_log format ["Log: [fnc_map_groups] %1, blocked", _x];
-				};
-			} forEach (_arr select 5);
-			if !(_str in _factions_enabled) then {
-				_factions_enabled set [count _factions_enabled, _str];
-			};
+		};
+		if (count _arr > 0 or _n > 999 or _n0 > 999) then {
+			_b = false;
 		}else{
-			if (_n == _param_default && _b) then {
-				if !(_i in _groups_pending_map) then {
-					_groups_pending_map set [count _groups_pending_map, _i];
-					diag_log format ["Log: [fnc_map_groups] %1, pending", _str];
-				};
+			_n = _n + _steep_date;
+			_n0 = _n0 + _steep_climate;
+		};
+	};
+
+	switch (_side) do {
+		case east: {
+			_groups_enabled_map_east = _arr1;
+		};
+		case west: {
+			_groups_enabled_map_west = _arr1;
+		};
+		case resistance: {
+			_groups_enabled_map_guer = _arr1;
+		};
+		default {};
+	};
+
+	for "_i" from 0 to (count _arr1 -1) do {
+		_arr = _arr1 select _i;
+		if (_arr1 select _i select 0 isEqualTo _side) then {
+			_groups_enabled_map pushBack _arr;
+			switch (_arr select 0) do {
+				case east: {_east append (_arr select 2)};
+				case west: {_west append (_arr select 2)};
+				case resistance: {_guer append (_arr select 2)};
+				default {};
 			};
 		};
 	};
-};
-
-//-- failover
-#ifdef __ARMA3__
-	_groups_enabled_map append _groups_failover_map;
-#else
-	_groups_enabled_map = _groups_enabled_map + _groups_failover_map;
-#endif
-
-//- Автомат.
-for "_i" from 0 to (count _groups_pending_map -1) do {
-	_n = _groups_pending_map select _i;
-	_arr = _groups_map select _n;
-	_str = _arr select 1;
-	//- Первые по списку вытесняют последних.
-	// TODO: Нужна рандомизация.
-	if !(_str in _factions_blocked) then {
-		_groups_use set [count _groups_use, _n];
-		_groups_enabled_map set [count _groups_enabled_map, _arr];
-		diag_log format ["Log: [fnc_map_groups] %1, enabled, pending", _str];
-		{
-			if !(_x in _factions_blocked) then {
-				_factions_blocked set [count _factions_blocked, _x];
-				diag_log format ["Log: [fnc_map_groups] %1, blocked", _x];
-			};
-		} forEach (_arr select 5);
-	};
-};
+} forEach [east, west, resistance];
 
 //- Союзы.
 // TODO: Баланс PvP.
@@ -1170,18 +1140,44 @@ if !(_pvp) then {
 diag_log format ["Log: [config_groups.sqf] alliances %1", _alliances_enabled];
 gosa_Groups_alliances = _alliances_enabled;
 
-// Включение.
-for "_i" from 0 to (count _groups_enabled_map -1) do {
-	_arr = _groups_enabled_map select _i;
-	_grp = _arr select 2;
-	switch (_arr select 0) do {
-		case east: {_east append _grp};
-		case west: {_west append _grp};
-		case resistance: {_guer append _grp};
-		default {};
-	};
-};
 
+if (count _east <= 0) then {
+	diag_log format ["Log: [config_groups.sqf] count _east %1", count _east];
+	_east = [_default_east select 2];
+	/*
+	#ifdef __ARMA3__
+		["wrong_groups", false] call BIS_fnc_endMission;
+	#else
+		failMission "LOSER";
+	#endif
+	// После BIS_fnc_endMission скрипт должен быть завершен.
+	waitUntil {time > 60};
+	*/
+};
+if (count _west <= 0) then {
+	diag_log format ["Log: [config_groups.sqf] count _west %1", count _west];
+	_west = [_default_west select 2];
+	/*
+	#ifdef __ARMA3__
+		["wrong_groups", false] call BIS_fnc_endMission;
+	#else
+		failMission "LOSER";
+	#endif
+	waitUntil {time > 60};
+	*/
+};
+if (count _guer <= 0) then {
+	diag_log format ["Log: [config_groups.sqf] count _guer %1", count _guer];
+	_guer = [_default_guer select 2];
+	/*
+	#ifdef __ARMA3__
+		["wrong_groups", false] call BIS_fnc_endMission;
+	#else
+		failMission "LOSER";
+	#endif
+	waitUntil {time > 60};
+	*/
+};
 
 //////////////////////////////
 

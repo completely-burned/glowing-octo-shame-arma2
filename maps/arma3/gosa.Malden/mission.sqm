@@ -185,7 +185,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa Malden Multi v0.0.5.984 DEBUG";
+		briefingName="CO 00 gosa Malden Multi v0.0.5.986 DEBUG";
 		startWeather=0.3;
 		startWind=0.1;
 		startWaves=0.1;

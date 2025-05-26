@@ -7,7 +7,7 @@
 				<English>Position for placing object not found.</English>
 			</Key>
 			<Key ID="STR_gosa_version">
-				<Original>v0.0.5.984</Original>
+				<Original>v0.0.5.986</Original>
 			</Key>
 			<Key ID="STR_ACT_Crew">
 				<Original>Crew</Original>
@@ -84,6 +84,11 @@
 			<Key ID="STR_gosa_player_wrong_side">
 				<Original>You have chosen a conflict side that is incompatible with PvE, please choose an allied side or observer mode.</Original>
 				<Russian>Вы выбрали несовместимую с PvE сторону конфликта, пожалуйста выберите союзную сторону или режим наблюдателя.</Russian>
+			</Key>
+			<Key ID="STR_gosa_error_No_groups">
+				<Original>Error: Mission initialization error. No group units found, so the mission will be ended immediately.</Original>
+				<Russian>Error: Ошибка инициализации  миссии. Отряды юнитов не найдены, поэтому миссия будет немедленно завершена.</Russian>
+				<English>Error: Mission initialization error. No group units found, so the mission will be ended immediately.</English>
 			</Key>
 			<Key ID="STR_gosa_Situation">
 				<Original>Ситуация</Original>

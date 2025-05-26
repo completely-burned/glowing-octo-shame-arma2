@@ -259,7 +259,6 @@ if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else 
 			};
 		};
 	};
-
 } forEach _for;
 
 _groups;
