@@ -43,7 +43,6 @@ if !(isNil "_intensity_max") then {
 	if (_intensity_max > (_intensity_best*2)) then {
 		// FIXME: Не должно быть линейным, значение _intensity_max может оказаться неадекватно большим.
 		_n = (_intensity_best*2/(_intensity_max+1));
-		hint str _n;
 		for "_i" from 0 to (count _arr -1) do {
 			if (_arr select _i > _intensity_best) then {
 				_arr set [_i,

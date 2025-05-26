@@ -1,6 +1,7 @@
 EnableTeamSwitch false;
 
-private["_list","_tmp","_str","_cfgVeh","_cfgAmm","_arr","_arr0","_n","_arr1"];
+private["_list","_tmp","_str","_cfgVeh","_cfgAmm","_arr","_arr0","_n","_arr1",
+	"_date_default","_date_a2"];
 
 BIS_WFdPath = "\CA\Warfare2\";
 
@@ -38,6 +39,82 @@ gosa_minDeepFrigate = 25;
 gosa_deviceType = ([] call gosa_fnc_getDeviceType);
 diag_log format ["Log: [init_common] gosa_deviceType %1", gosa_deviceType];
 gosa_IslandType = ([] call gosa_fnc_getIslandType);
+
+// Взаимоисключения фракций.
+gosa_faction_mutual_exclusions = [
+	["IND_UN_LXWS","BLU_UN_LXWS","CUP_I_UN"],
+	["IND_ION_LXWS","OPF_ION_LXWS","BLU_ION_LXWS","CUP_I_PMC_ION"],
+	["CUP_O_RUS_M","CUP_O_RU"],
+	["EF_B_MJTF_DES","EF_B_MJTF_WDL"],
+	["OPF_F","OPF_T_F"],
+	["IND_G_F","BLU_G_F","OPF_G_F"],
+	["OPF_SFIA_LXWS","IND_SFIA_LXWS"],
+	["IND_TURA_LXWS","OPF_TURA_LXWS","BLU_TURA_LXWS"],
+	["BLU_NATO_LXWS","BLU_F","BLU_T_F","BLU_W_F"]
+];
+
+// Камуфляжи.
+_date_default = [1995,2100];
+_date_a2 = [1970, (_date_default select 0) -1];
+gosa_camouflages = [
+	// [[factions, textures, [uniformClass]], islands, dates, temperatures]
+	[[["CUP_O_RUS_M"],[],[]],
+		[], [_date_default], []],
+	[[["CUP_O_RU"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_B_GB"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_B_US_ARMY"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_B_USMC"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_O_CHDKZ"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_B_GER"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_B_CZ"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_B_CDF"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_I_RACS"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_B_HIL"],[],[]],
+		[], [_date_a2], []],
+	[[["CUP_I_UN"],[],[]],
+		[], [_date_a2], []],
+
+	[[["EF_B_MJTF_WDL"],[],[]],
+		[], [_date_default], [[150,249]]],
+	[[["EF_B_MJTF_DES"],[],[]],
+		[], [_date_default], [[250,999]]],
+
+	[[["IND_UN_LXWS","BLU_UN_LXWS"],[],[]],
+		["sefrouramal"], [_date_default], [[275,999]]],
+	[[["IND_ION_LXWS","OPF_ION_LXWS","BLU_ION_LXWS"],[],[]],
+		["sefrouramal"], [_date_default], [[275,999]]],
+	[[["BLU_NATO_LXWS"],[],[]],
+		["sefrouramal"], [_date_default], [[300,999]]],
+	[[["OPF_SFIA_LXWS","IND_SFIA_LXWS"],[],[]],
+		["sefrouramal"], [_date_default], [[275,999]]],
+	[[["OPF_TURA_LXWS","BLU_TURA_LXWS","IND_TURA_LXWS"],[],[]],
+		["sefrouramal"], [_date_default], [[300,999]]],
+
+	[[["IND_E_F","OPF_R_F"],[],[]],
+		["enoch"], [_date_default], [[160,249]]],
+
+	[[["OPF_T_F"],[],[]],
+		["tanoa"], [_date_default], [[160,249]]],
+	[[["OPF_F"],[],[]],
+		["altis"], [_date_default], [[250,274]]],
+	[[["BLU_W_F"],[],[]],
+		["enoch"], [_date_default], [[160,224]]],
+	[[["BLU_T_F"],[],[]],
+		["tanoa"], [_date_default], [[225,249]]],
+	[[["BLU_F"],[],[]],
+		["altis"], [_date_default], [[250,299]]],
+	[[["IND_F"],[],[]],
+		["altis"], [_date_default], [[250,299]]]
+];
 
 _arr = [
 	"WarfareSalvageTruck_RU",

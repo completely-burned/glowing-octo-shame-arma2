@@ -31,7 +31,7 @@ class Mission
 	randomSeed=10465836;
 	class Intel
 	{
-		briefingName="CO 00 gosa Takistan east v0.0.5.984 DEBUG";
+		briefingName="CO 00 gosa Takistan east v0.0.5.986 DEBUG";
 		startWeather=0.4;
 		forecastWeather=0.4;
 		year=2009;

@@ -74,6 +74,9 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 
 //--- общие
 _arr = [
+	"fnc_map_groups_filtering",
+	"fnc_type_camoClass",
+	"fnc_getGroupTypeCount",
 	"fnc_flare_Weighted",
 	"fnc_unit_loadout",
 	"fnc_createUnit",
@@ -219,6 +222,7 @@ _arr = [
 	"fnc_createmenu",
 	"fnc_vehicleHandleDamage",
 	#ifdef __ARMA3__
+		"fnc_type_alternatives",
 		"fnc_eh_HandleDamage",
 		"fnc_unit_addParachute",
 	#else

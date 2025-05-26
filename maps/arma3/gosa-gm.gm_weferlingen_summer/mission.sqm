@@ -214,7 +214,7 @@ class Mission
 	appId=1042220;
 	class Intel
 	{
-		briefingName="GM CO 00 gosa gm_weferlingen_summer Multi v0.0.5.984 DEBUG";
+		briefingName="GM CO 00 gosa gm_weferlingen_summer Multi v0.0.5.986 DEBUG";
 		startWeather=0.35;
 		startWind=0.1;
 		startWaves=0.1;

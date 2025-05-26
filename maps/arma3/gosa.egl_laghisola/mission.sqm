@@ -182,7 +182,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa egl_laghisola Multi v0.0.5.984 DEBUG";
+		briefingName="CO 00 gosa egl_laghisola Multi v0.0.5.986 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.16;
 		startWind=0.1;

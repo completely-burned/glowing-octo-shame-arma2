@@ -45,8 +45,12 @@ if (isNil "_gosa_init") then {
 	_o setVehicleLock "UNLOCKED";
 	_o setVariable ["_gosa_init",true,false];
 	_o allowDamage true;
-	// Отказоустойчивость
+	_o enableSimulation true;
 	#ifdef __ARMA3__
+		_o setObjectScale 1;
+		// Отказоустойчивость
 		[_o, true] remoteExec ["allowDamage"];
+		[_o, 1] remoteExec ["setObjectScale"];
+		[_o, true] remoteExec ["enableSimulation"];
 	#endif
 };

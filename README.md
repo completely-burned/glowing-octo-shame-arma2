@@ -39,11 +39,8 @@ PVE бой с ботами сконцентрированный в одной т
       # Не glowing-octo-shame-arma2/glowing-octo-shame-arma2/
       cd ./glowing-octo-shame-arma2/
 
-      # Нужны права на запуск скрипта сборки
-      chmod +x ./tools/build_pbo_linux.sh
-
       # Собрать
-      ./tools/build_pbo_linux.sh
+      bash ./tools/build_pbo_linux.sh
       exit 0 # готово, это выход
       # или
       OUT="/куда/поместитьPBOs/" ./tools/build_pbo_linux.sh

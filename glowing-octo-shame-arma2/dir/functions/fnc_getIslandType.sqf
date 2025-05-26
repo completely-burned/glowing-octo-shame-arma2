@@ -28,7 +28,7 @@ if (_w in ["plr_bulge","mcn_neaville_winter","i44_merderet_winter","chernarus_wi
 if (_w in ["namalsk","abramia"]) then {_r set [0,160]};
 if (_w in ["utes","i44_omaha","sara","tem_summa"]) then {_r set [0,180]};
 if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
-	"noe","thirsk","vt7","ww2_omaha_beach"]) then {_r set [0,190]};
+	"noe","thirsk","vt7","ww2_omaha_beach","spex_carentan"]) then {_r set [0,190]};
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 	"gm_weferlingen_summer","beketov","zdanice","stozec","teregova",
 	"mcn_neaville","i44_merderet_v2","i44_merderet","hyde_sark",
@@ -38,7 +38,7 @@ if (_w in ["tanoa","rhspkl","vn_khe_sanh","vn_the_bra","cam_lao_nam",
 	"egl_laghisola","lsb_terrain_endor"]) then {_r set [0,225]};
 if (_w in ["altis","vr","stratis","porto","cain","swu_greece_pella_region",
 	"lsb_terrain_scarif"]) then {_r set [0,250]};
-if (_w in ["kunduz"]) then {_r set [0,275]};
+if (_w in ["kunduz","lythium"]) then {_r set [0,275]};
 if (_w in ["zargabad","takistan","shapur_baf","mountains_acr","fallujah","tem_anizay","iron_excelsior_tobruk"]) then {_r set [0,280]};
 if (_w in ["desert_e","sefrouramal"]) then {_r set [0,300]};
 
@@ -57,7 +57,7 @@ if (_w in ["iron_excelsior_tobruk"]) then
 };
 if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter",
 	"plr_bulge","mcn_neaville_winter","i44_merderet","i44_merderet_v2",
-	"tem_summa","tem_summawcup","ww2_omaha_beach",
+	"tem_summa","tem_summawcup","ww2_omaha_beach","spex_carentan",
 	"spe_normandy","spe_mortain","spex_utah_beach"]) then
 {
 	_r set [1,1944];
@@ -102,6 +102,10 @@ if (_w in ["zargabad","takistan","desert_e"]) then
 if (_w in ["thirsk"]) then
 {
 	_r set [1,2014];
+};
+if (_w in ["lythium"]) then
+{
+	_r set [1,2015];
 };
 if (_w in ["abramia"]) then
 {
