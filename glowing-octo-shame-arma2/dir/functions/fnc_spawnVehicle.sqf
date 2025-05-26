@@ -3,7 +3,7 @@ diag_log format ["Log: [fnc_spawnVehicle] %1", _this];
 	#define toLower toLowerANSI
 #endif
 
-private ["_pos","_azi","_type","_grp","_side","_str","_entry","_box",
+private ["_pos","_azi","_type","_grp","_side","_str","_entry","_box","_box2",
 	"_crew_types","_isUAV","_rank",
 	"_sim","_veh","_crew","_air"];
 
@@ -45,27 +45,20 @@ if (_air) then {
 		_str = "FORM";
 	#endif
 	_veh = createVehicle [_type, _pos, [], 0, _str];
-	#ifdef __ARMA3__
-		// Должно отключаться после.
-		_veh allowDamage false;
-		_veh enableSimulation false;
-	#endif
 	_veh setDir _azi;
 	#ifdef __ARMA3__
 		// a3, тс на некоторых позициях взрываются из-за наклона поверхности.
 		_veh setVectorUp surfaceNormal _pos;
-		_veh setVelocity [0,0,0];
-
-		// FIXME: ТС всё ещё взрываются, но вероятно не из-за земли, а потому что близко друг к другу.
-		_veh setObjectScale 0.1;
 
 		// a3, ии покидают тс после ранения от столкновения.
 		// Высота не должна быть большой или малой.
-		//_box = boundingBox _veh;
+		_box = boundingBox _veh;
+		_box2 = boundingBoxReal _veh;
 		//diag_log format ["Log: [fnc_spawnVehicle] %1, boundingBox %2", _this, _box];
-		//_pos set [2, ((_box select 1 select 2) min 2) max 0.2];
+		_pos set [2, (((_box select 1 select 2) min 2) max 0.2) max (_box2 select 1 select 2)];
 		// FIXME: setPos не прекращает инерцию.
-		_pos resize 2;
+		_veh setVelocity [0,0,0];
+
 		_veh setPos _pos;
 	#else
 	// FIXME: Почему здесь -1?
