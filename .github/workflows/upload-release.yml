@@ -17,7 +17,7 @@ jobs:
       - name: gosa checkout
         uses: actions/checkout@v4
       - name: gosa build
-        run: ./tools/build_pbo_linux.sh -ltza
+        run: bash ./tools/build_pbo_linux.sh -ltza
       - name: gosa clean
         run: rm -rf arma-glowing-octo-shame/*workshop*
 
