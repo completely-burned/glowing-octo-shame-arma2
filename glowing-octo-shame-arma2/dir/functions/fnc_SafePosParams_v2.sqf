@@ -7,7 +7,7 @@ diag_log format ["Log: [fnc_SafePosParams_v2] %1", _this];
 
 private["_types","_playerDist", "_searchDistMax", "_objDist", "_waterMode",
 	"_maxGradient", "_shoreMode", "_defaultPos", "_blacklist","_distances",
-	"_island_isolate",
+	"_island_isolate","_withinMap",
 	"_safePositionRadius","_preferRoads","_roadSize","_roles","_arr"];
 _types = _this select 0;
 _objDist = 2;
@@ -16,6 +16,7 @@ _maxGradient = -1;
 _shoreMode = 0;
 _defaultPos=[];
 _island_isolate = true;
+_withinMap = true;
 
 if (isNil {PosBlacklist}) then {
 	_blacklist=[];
@@ -52,6 +53,7 @@ if ([_types, ["Air"]] call gosa_fnc_CheckIsKindOfArray) then{
 	if ([_types, ["Plane"]] call gosa_fnc_CheckIsKindOfArray) then{
 		_maxGradient= (100 * (pi / 180));
 	};
+	_withinMap = false;
 }else{
 	// TODO: Переместить к глобальным параметрам.
 	if(worldname in ["utes"])then {
@@ -114,6 +116,6 @@ if ("Artillery" in _roles) then {
 
 _roadSize = ({_x isKindOf "LandVehicle"} count _types);
 
-_arr = [_playerDist,_searchDistMax, _objDist, _waterMode, _maxGradient, _shoreMode, _blacklist, _defaultPos, [_preferRoads, _roadSize], _island_isolate];
+_arr = [_playerDist,_searchDistMax, _objDist, _waterMode, _maxGradient, _shoreMode, _blacklist, _defaultPos, [_preferRoads, _roadSize], _island_isolate, _withinMap];
 diag_log format ["Log: [fnc_SafePosParams_v2] return %1", _arr];
 _arr;

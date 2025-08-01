@@ -116,8 +116,6 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 	_reweapon = false;
 };
 
-_withinMap = if (missionNamespace getVariable "gosa_aiSpawnInMap" > 0) then {true} else {false};
-
 	#ifndef __ARMA3__
 	if (_reweapon) then {
 		// Замена типа некоторых юнитов.
@@ -127,6 +125,7 @@ _withinMap = if (missionNamespace getVariable "gosa_aiSpawnInMap" > 0) then {tru
 	#endif
 
 	_SafePosParams = ([_types] call gosa_fnc_SafePosParams_v2);
+	_withinMap = if (_SafePosParams select 10 && (missionNamespace getVariable "gosa_aiSpawnInMap" > 0)) then {true} else {false};
 	_arr = [
 		_pos,
 		_SafePosParams select 0,
