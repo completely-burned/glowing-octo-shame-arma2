@@ -211,7 +211,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="SPE CO 00 gosa SPEX_carentan Multi v0.0.5.988 DEBUG";
+		briefingName="SPE CO 00 gosa SPEX_carentan Multi v0.0.5.989 DEBUG";
 		startWeather=0.30000001;
 		startWind=0.1;
 		startWaves=0.1;
