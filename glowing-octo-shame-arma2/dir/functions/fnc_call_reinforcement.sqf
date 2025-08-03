@@ -10,7 +10,7 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams","_obj",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
 	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat",
-	"_positions_static",
+	"_positions_static","_withinMap",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 
 _side = _this select 0;
@@ -125,6 +125,7 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 	#endif
 
 	_SafePosParams = ([_types] call gosa_fnc_SafePosParams_v2);
+	_withinMap = if (_SafePosParams select 10 && (missionNamespace getVariable "gosa_aiSpawnInMap" > 0)) then {true} else {false};
 	_arr = [
 		_pos,
 		_SafePosParams select 0,
@@ -138,7 +139,7 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 		_SafePosParams select 8,
 		_side,
 		_dir,
-		false,
+		_withinMap,
 		_SafePosParams select 9
 	];
 	if (_patrol)then{

@@ -1,0 +1,17 @@
+{
+  "inputDirs": [
+    "P:/"
+  ],
+  "includePaths": [
+  ],
+  "excludeList": [
+  ],
+  "outputDir": "P:/sqfc/",
+  "workerThreads": 8,
+  "rootPathMappings": [
+    ["P:/", "\\"]
+  ],
+  "logging": {
+    "verbose": false
+  }
+}

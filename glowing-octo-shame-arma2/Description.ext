@@ -865,6 +865,17 @@ class Params {
 		};
 	#endif
 
+	class gosa_aiSpawnInMap {
+		title = "AI: Spawn only within the map";
+		values[] = {1, 0};
+		texts[] = {STR_ENABLED, STR_DISABLED};
+		#ifdef __ARMA3__
+			default = 1;
+		#else
+			default = 0;
+		#endif
+	};
+
 	// Принудительное обнаружение игрока.
 	// FIXME: Возможно бесполезно.
 	class gosa_reveal {

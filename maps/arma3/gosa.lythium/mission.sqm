@@ -204,7 +204,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa lythium Multi v0.0.5.987 DEBUG";
+		briefingName="CO 00 gosa lythium Multi v0.0.5.989 DEBUG";
 		startWeather=0.30000001;
 		startWind=0.1;
 		startWaves=0.1;

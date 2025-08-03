@@ -25,14 +25,22 @@ _sim = toLower getText(_entry >> "simulation");
 _air = if (_sim in ["airplane","helicopter","airplanex","helicopterrtd","helicopterx"]) then {true} else {false};
 
 if (_air) then {
-	_pos set [2,200];
-
+	_pos set [2, 200];
 	_veh = createVehicle [_type, _pos, [], 0, "FLY"];
-
 	_veh setDir _azi;
-	if (_sim in ["airplane","airplanex"]) then
-	{
-		_veh setVelocity [50 * (sin _azi), 50 * (cos _azi), 60];
+	if (_sim in ["airplane","airplanex"]) then {
+		// Другая высота, чтобы избежать столкновений.
+		_pos set [2, 300];
+		//_veh setVehiclePosition [_pos, [], 0, "FLY"];
+		_veh setPos _pos;
+		#ifdef __ARMA3__
+			[_veh, _azi] spawn {
+				sleep 0.1;
+				_this select 0 setVelocity [50 * (sin (_this select 1)), 50 * (cos (_this select 1)), 0];
+			};
+		#else
+			_veh setVelocity [50 * (sin _azi), 50 * (cos _azi), 0];
+		#endif
 	};
 
 }else{
@@ -59,7 +67,9 @@ if (_air) then {
 		// FIXME: setPos не прекращает инерцию.
 		_veh setVelocity [0,0,0];
 
-		_veh setPos _pos;
+		if !(_veh setVehiclePosition [_pos, [], 0, "NONE"]) then {
+			_veh setPos _pos;
+		};
 	#else
 	// FIXME: Почему здесь -1?
 	_veh setVelocity [0,0,-1];
