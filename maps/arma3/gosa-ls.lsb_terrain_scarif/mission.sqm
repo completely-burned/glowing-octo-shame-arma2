@@ -199,7 +199,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="LS CO 00 gosa lsb_terrain_scarif Multi v0.0.5.989 DEBUG";
+		briefingName="LS CO 00 gosa lsb_terrain_scarif Multi v0.0.5.990 DEBUG";
 		startWeather=0.30000001;
 		startWind=0.1;
 		startWaves=0.1;

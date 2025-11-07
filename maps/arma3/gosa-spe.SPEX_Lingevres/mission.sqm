@@ -210,7 +210,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="SPE CO 00 gosa SPEX_Lingevres Multi v0.0.5.989 DEBUG";
+		briefingName="SPE CO 00 gosa SPEX_Lingevres Multi v0.0.5.990 DEBUG";
 		resistanceWest=0;
 		resistanceEast=1;
 		timeOfChanges=1800.0002;
