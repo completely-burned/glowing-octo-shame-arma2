@@ -32,7 +32,7 @@ if (_w in ["fdf_isle1_a","chernarus","i44_omaha_v2","cup_chernarus_a3",
 if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 	"gm_weferlingen_summer","beketov","zdanice","stozec","teregova",
 	"mcn_neaville","i44_merderet_v2","i44_merderet","hyde_sark",
-	"swu_ardennes_1940",
+	"swu_ardennes_1940","juju_javory",
 	"spe_normandy","spe_mortain","spex_utah_beach","spex_lingevres"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl","vn_khe_sanh","vn_the_bra","cam_lao_nam",
 	"egl_laghisola","lsb_terrain_endor"]) then {_r set [0,225]};
@@ -77,6 +77,10 @@ if (_w in ["noe"]) then
 if (_w in ["zdanice","stozec","cain","teregova","eden"]) then
 {
 	_r set [1,1986];
+};
+if (_w in ["juju_javory"]) then
+{
+	_r set [1,1991];
 };
 if (_w in ["sara"]) then
 {
