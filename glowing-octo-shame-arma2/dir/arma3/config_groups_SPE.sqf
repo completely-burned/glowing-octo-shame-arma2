@@ -13,7 +13,7 @@ _arr = [
 	// SPEX_FSJ_DAK_Infantry_Assault_squad
 	[[[["SPEX_FSJ_DAK_SquadLead","SPEX_FSJ_DAK_Mgunner","SPEX_FSJ_DAK_amgunner","SPEX_FSJ_DAK_Assist_SquadLead","SPEX_FSJ_DAK_Soldier_STG44","SPEX_FSJ_DAK_Soldier_STG44","SPEX_FSJ_DAK_Sniper_FG42","SPEX_FSJ_DAK_Soldier_FG42","SPEX_FSJ_DAK_grenadier","SPEX_FSJ_DAK_LAT_Soldier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
 	// SPEX_FSJ_DAK_Infantry_Panzerjaeger
-	[[[["SPEX_FSJ_DAK_AT_Soldier_SquadLead","SPEX_FSJ_DAK_AT_soldier","SPEX_FSJ_DAK_AT_Soldier_Assistant","SPEX_FSJ_DAK_AT_soldier","SPEX_FSJ_DAK_AT_Soldier_Assistant"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0]
+	[[[["SPEX_FSJ_DAK_AT_Soldier_SquadLead","SPEX_FSJ_DAK_AT_soldier","SPEX_FSJ_DAK_AT_Soldier_Assistant","SPEX_FSJ_DAK_AT_soldier","SPEX_FSJ_DAK_AT_Soldier_Assistant"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
 
 	// SPEX_FSJ_DAK_HMG_team
 	[[[["SPEX_FSJ_DAK_SquadLead","SPEX_FSJ_DAK_hmgunner","SPEX_FSJ_DAK_ahmgunner","SPEX_FSJ_DAK_HMG_AmmoBearer","SPEX_FSJ_DAK_Soldier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
