@@ -359,7 +359,7 @@ _arr = [
 ];
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, resistance, "SPEX_CW_Army", _arr,
-[1900,1950], [160,225],
+[1900,1950], [160,225-1],
 []
 ] call gosa_fnc_map_groups_add;
 
