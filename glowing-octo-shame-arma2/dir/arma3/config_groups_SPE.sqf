@@ -47,6 +47,14 @@ _arr append [
 	// SPEX_GER_DAK_81_Mortar_Team
 	[[[["SPEX_GER_DAK_SquadLead","SPEX_GER_DAK_Mortar_Gunner","SPEX_GER_DAK_Mortar_AGunner","SPEX_GER_DAK_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4]
 ];
+_arr append [
+	// SPE_Motorized_Infantry_Squad
+	[[[["SPEX_GER_DAK_SquadLead","SPE_OpelBlitz_Open","SPEX_GER_DAK_mgunner","SPEX_GER_DAK_medic","SPEX_GER_DAK_Assist_SquadLead","SPEX_GER_DAK_rifleman","SPEX_GER_DAK_amgunner","SPEX_GER_DAK_LAT_Rifleman","SPEX_GER_DAK_ober_grenadier","SPEX_GER_DAK_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// SPE_Command_Section
+	[[[["SPEX_GER_DAK_lieutenant","SPE_GER_R200_Unarmed","SPEX_GER_DAK_medic","SPEX_GER_DAK_radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
+	// SPE_GER_Scout_250_Recon_Team
+	[[[["SPEX_GER_DAK_scout_SquadLead","SPE_SdKfz250_1","SPEX_GER_DAK_scout_mgunner","SPEX_GER_DAK_scout_amgunner","SPEX_GER_DAK_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6]
+];
 _n = count _arr;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 diag_log format ["Log: [config_groups_SPE] count SPEX_GER_DAK %1", [count _arr, _n]];
@@ -131,19 +139,19 @@ _arr = [
 	// SPE_GER_HMG_team
 	[[[["SPE_GER_SquadLead","SPE_GER_hmgunner","SPE_GER_ahmgunner","SPE_GER_HMG_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// SPE_GER_81_Mortar_Team
-	[[[["SPE_GER_SquadLead","SPE_GER_Mortar_Gunner","SPE_GER_Mortar_AGunner","SPE_GER_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4]
+	[[[["SPE_GER_SquadLead","SPE_GER_Mortar_Gunner","SPE_GER_Mortar_AGunner","SPE_GER_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
+	// SPE_Motorized_Infantry_Squad
+	[[[["SPE_GER_SquadLead","SPE_OpelBlitz_Open","SPE_GER_mgunner","SPE_GER_medic","SPE_GER_Assist_SquadLead","SPE_GER_rifleman","SPE_GER_amgunner","SPE_GER_LAT_Rifleman","SPE_GER_ober_grenadier","SPE_GER_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	// SPE_Command_Section
+	[[[["SPE_GER_lieutenant","SPE_GER_R200_Unarmed","SPE_GER_medic","SPE_GER_radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
+	// SPE_GER_Scout_250_Recon_Team
+	[[[["SPE_GER_scout_SquadLead","SPE_SdKfz250_1","SPE_GER_scout_mgunner","SPE_GER_scout_amgunner","SPE_GER_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6]
 ];
 [_groups_map, west, "SPE_WEHRMACHT", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1900,1950], [160, _n-1],
 	[]
 ] call gosa_fnc_map_groups_add;
 _arr = [
-	// SPE_Motorized_Infantry_Squad
-	[[[["SPE_GER_SquadLead","SPE_OpelBlitz_Open","SPE_GER_mgunner","SPE_GER_medic","SPE_GER_Assist_SquadLead","SPE_GER_rifleman","SPE_GER_amgunner","SPE_GER_LAT_Rifleman","SPE_GER_ober_grenadier","SPE_GER_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_Command_Section
-	[[[["SPE_GER_lieutenant","SPE_GER_R200_Unarmed","SPE_GER_medic","SPE_GER_radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_GER_Scout_250_Recon_Team
-	[[[["SPE_GER_scout_SquadLead","SPE_SdKfz250_1","SPE_GER_scout_mgunner","SPE_GER_scout_amgunner","SPE_GER_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 	// SPE_GER_PzKpfwIV_G_Platoon
 	[[[["SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
 	// SPE_GER_PzKpfwIII_M_Platoon
@@ -257,7 +265,7 @@ _arr = [
 	[[[["SPE_ST_Jagdpanther_G1","SPE_ST_Jagdpanther_G1"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25]
 ];
 [_groups_map, west, "SPE_STURM", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1900,1950], [160,999],
+	[1900,1950], [160, 225-1],
 	["BLU_NATO_lxWS","BLU_F","BLU_T_F","CUP_B_US_Army","CUP_B_USMC","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
