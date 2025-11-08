@@ -15,6 +15,8 @@ _n = [];
 
 //--- тип оружия
 _z = [
+	"Subordinate",
+	1001,
 	"Rifles",
 	7, // Rifles
 	"Sidearms",

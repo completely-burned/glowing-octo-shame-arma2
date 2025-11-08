@@ -98,26 +98,46 @@ if (true) then {
 	_sorted = ([allGroups, _sides_friendly] call gosa_fnc_sortGroups);
 	_count = count _sorted;
 
-	// Ищем новое тело среди лидеров групп т.к. игроки лучше командуют отрядом.
-	_arr resize 0;
-	for "_i" from 0 to (_count -1) do {
-		_grp = (_sorted select _i select 0);
-		diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _grp];
-		_obj = leader _grp;
-		if (_obj call gosa_fnc_selectPlayer_isFit) then {
-			_arr set [count _arr, _obj];
+	// Игрок не хочет командовать.
+	// TODO: Использовать приватные переменные.
+	if (1001 in gosa_squadOnW) then {
+		for "_i1" from 0 to (_count -1) do {
+			_arr = _sorted select _i1;
+			diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _arr];
+			for "_i0" from 2 to 4 do {
+				_units = ([_arr select _i0] call gosa_fnc_sortUnits_onRank);
+				for "_i" from (count _units -1) to 0 step -1 do {
+					_obj = _units select _i;
+					if (_obj call gosa_fnc_selectPlayer_isFit) then {
+						_bestCandidate = _obj;
+						breakTo "root";
+					};
+				};
+			};
 		};
-	};
-	_units = ([_arr, _pos] call gosa_fnc_sortObjects_onDist);
-	for "_i" from 0 to (count _units -1) do {
-		_obj = (_units select _i);
-		if (_obj call gosa_fnc_selectPlayer_isFit) then {
-			_bestCandidate = _obj;
-			breakTo "root";
-		};			
+	}else{
+		_arr resize 0;
+		// Игрокам лучше дать контроль над отрядом.
+		for "_i" from 0 to (_count -1) do {
+			_grp = (_sorted select _i select 0);
+			diag_log format ["Log: [respawnRandom] Ищем подчинённых среди групп %1", _grp];
+			_obj = leader _grp;
+			if (_obj call gosa_fnc_selectPlayer_isFit) then {
+				_arr set [count _arr, _obj];
+			};
+		};
+		_units = ([_arr, _pos] call gosa_fnc_sortObjects_onDist);
+		for "_i" from 0 to (count _units -1) do {
+			_obj = (_units select _i);
+			if (_obj call gosa_fnc_selectPlayer_isFit) then {
+				_bestCandidate = _obj;
+				breakTo "root";
+			};			
+		};
 	};
 
 	// Ищем тело среди всех юнитов.
+	// FIXME: Возможно следует выбирать тело случайным образом?
 	for "_i1" from 0 to (_count -1) do {
 		_arr = _sorted select _i1;
 		for "_i0" from 2 to 4 do {
