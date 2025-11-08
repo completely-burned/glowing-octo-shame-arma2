@@ -103,7 +103,7 @@ if (true) then {
 	if (_subordinate) then {
 		for "_i1" from 0 to (_count -1) do {
 			_arr = _sorted select _i1;
-			diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _arr];
+			diag_log format ["Log: [respawnRandom] Ищем подчинённых среди групп %1", _arr];
 			for "_i0" from 2 to 4 do {
 				_units = ([_arr select _i0] call gosa_fnc_sortUnits_onRank);
 				for "_i" from (count _units -1) to 0 step -1 do {
@@ -120,7 +120,7 @@ if (true) then {
 		// Игрокам лучше дать контроль над отрядом.
 		for "_i" from 0 to (_count -1) do {
 			_grp = (_sorted select _i select 0);
-			diag_log format ["Log: [respawnRandom] Ищем подчинённых среди групп %1", _grp];
+			diag_log format ["Log: [respawnRandom] Ищем среди остальных групп %1", _grp];
 			_obj = leader _grp;
 			if (_obj call gosa_fnc_selectPlayer_isFit) then {
 				_arr set [count _arr, _obj];
