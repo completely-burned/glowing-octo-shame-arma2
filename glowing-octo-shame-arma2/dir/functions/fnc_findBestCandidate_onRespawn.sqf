@@ -1,12 +1,13 @@
 
 private ["_bestCandidate","_grp","_sides_friendly","_pos",
-	"_sorted",
+	"_sorted","_subordinate",
 	"_obj","_arr","_units","_listPlayers","_b","_count"];
 
 _grp = _this select 0;
 _sides_friendly = _this select 1;
 _pos = _this select 2;
 
+_subordinate = if (1001 in gosa_squadOnW) then {true} else {false};
 
 scopename "root";
 if (true) then {
@@ -16,7 +17,7 @@ if (true) then {
 	// Ищем новое тело из юнитов группы игрока т.к. они находятся рядом.
 	diag_log format ["Log: [respawnRandom] поиск среди юнитов группы игрока %1", _grp];
 	_obj = leader _grp;
-	if (_obj call gosa_fnc_isPlayer && _obj != player) then {
+	if (_subordinate or (_obj call gosa_fnc_isPlayer && _obj != player)) then {
 		_arr = ([units _grp] call gosa_fnc_sortUnits_onWeapon);
 		for "_i0" from 0 to 2 do {
 			_units = ([_arr select _i0] call gosa_fnc_sortUnits_onRank);
@@ -99,8 +100,7 @@ if (true) then {
 	_count = count _sorted;
 
 	// Игрок не хочет командовать.
-	// TODO: Использовать приватные переменные.
-	if (1001 in gosa_squadOnW) then {
+	if (_subordinate) then {
 		for "_i1" from 0 to (_count -1) do {
 			_arr = _sorted select _i1;
 			diag_log format ["Log: [respawnRandom] ищем среди остальных групп %1", _arr];
