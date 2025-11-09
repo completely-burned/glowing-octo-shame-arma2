@@ -69,6 +69,7 @@ if (_air) then {
 
 		if !(_veh setVehiclePosition [_pos, [], 0, "NONE"]) then {
 			_veh setPos _pos;
+			diag_log format ["Log: [fnc_spawnVehicle] %1, command setVehiclePosition failed, setPos used", _this];
 		};
 	#else
 	// FIXME: Почему здесь -1?
