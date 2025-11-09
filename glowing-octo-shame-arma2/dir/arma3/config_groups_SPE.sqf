@@ -48,6 +48,11 @@ _arr append [
 	[[[["SPEX_GER_DAK_SquadLead","SPEX_GER_DAK_Mortar_Gunner","SPEX_GER_DAK_Mortar_AGunner","SPEX_GER_DAK_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4]
 ];
 _arr append [
+	// SPEX_DAK_Bedford_MWD_Open, SPEX_GER_DAK_MG_team
+	[[[["SPEX_GER_DAK_SquadLead","SPEX_DAK_Bedford_MWD_Open","SPEX_GER_DAK_mgunner2","SPEX_GER_DAK_rifleman","SPEX_GER_DAK_amgunner"],[[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// SPEX_DAK_Bedford_MWD_Open, SPEX_GER_DAK_Panzerjaeger_squad
+	[[[["SPEX_GER_DAK_AT_Soldier_SquadLead","SPEX_DAK_Bedford_MWD_Open","SPEX_GER_DAK_AT_Soldier","SPEX_GER_DAK_AT_Soldier","SPEX_GER_DAK_AT_Soldier_Assistant","SPEX_GER_DAK_AT_Soldier_Assistant"],[[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+
 	// SPE_Motorized_Infantry_Squad
 	[[[["SPEX_GER_DAK_SquadLead","SPEX_DAK_OpelBlitz_Open","SPEX_GER_DAK_mgunner","SPEX_GER_DAK_medic","SPEX_GER_DAK_Assist_SquadLead","SPEX_GER_DAK_rifleman","SPEX_GER_DAK_amgunner","SPEX_GER_DAK_LAT_Rifleman","SPEX_GER_DAK_ober_grenadier","SPEX_GER_DAK_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 	// SPE_Command_Section
@@ -108,6 +113,7 @@ _arr = [
 	[[[["SPE_OST_SquadLead","SPE_OST_hmgunner","SPE_OST_ahmgunner","SPE_OST_HMG_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// SPE_OST_81_Mortar_Team
 	[[[["SPE_OST_SquadLead","SPE_OST_Mortar_Gunner","SPE_OST_Mortar_AGunner","SPE_OST_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
+
 	// SPE_GER_fw190f8_Group
 	[[[["SPE_fw190f8","SPE_fw190f8"],[[0,20,0],[-10,-10,0]],["CAPTAIN","LIEUTENANT"]]],0.5],
 	// SPE_GER_Lehr_Panzergrenadier_Squad
@@ -140,6 +146,7 @@ _arr = [
 	[[[["SPE_GER_SquadLead","SPE_GER_hmgunner","SPE_GER_ahmgunner","SPE_GER_HMG_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// SPE_GER_81_Mortar_Team
 	[[[["SPE_GER_SquadLead","SPE_GER_Mortar_Gunner","SPE_GER_Mortar_AGunner","SPE_GER_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
+
 	// SPE_Motorized_Infantry_Squad
 	[[[["SPE_GER_SquadLead","SPE_OpelBlitz_Open","SPE_GER_mgunner","SPE_GER_medic","SPE_GER_Assist_SquadLead","SPE_GER_rifleman","SPE_GER_amgunner","SPE_GER_LAT_Rifleman","SPE_GER_ober_grenadier","SPE_GER_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 	// SPE_Command_Section
@@ -152,6 +159,11 @@ _arr = [
 	[]
 ] call gosa_fnc_map_groups_add;
 _arr = [
+	// SPEX_GER_Bedford_MWD_Open, SPE_GER_MG_team
+	[[[["SPE_GER_SquadLead","SPEX_GER_Bedford_MWD_Open","SPE_GER_mgunner","SPE_GER_rifleman","SPE_GER_amgunner"],[[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// SPEX_GER_Bedford_MWD_Open, SPE_GER_Panzerjaeger_squad
+	[[[["SPE_GER_AT_Soldier_SquadLead","SPEX_GER_Bedford_MWD_Open","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier_Assistant","SPE_GER_AT_Soldier_Assistant"],[[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+
 	// SPE_GER_PzKpfwIV_G_Platoon
 	[[[["SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
 	// SPE_GER_PzKpfwIII_M_Platoon
