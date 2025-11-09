@@ -402,6 +402,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
+		class gosa_faction_multiplier_SPEX_CW_Army {
+			title="FACTION: SPEX_CW_Army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 
 		// WW2
 		class gosa_faction_multiplier_LIB_RKKA {
