@@ -49,11 +49,11 @@ _arr append [
 ];
 _arr append [
 	// SPE_Motorized_Infantry_Squad
-	[[[["SPEX_GER_DAK_SquadLead","SPE_OpelBlitz_Open","SPEX_GER_DAK_mgunner","SPEX_GER_DAK_medic","SPEX_GER_DAK_Assist_SquadLead","SPEX_GER_DAK_rifleman","SPEX_GER_DAK_amgunner","SPEX_GER_DAK_LAT_Rifleman","SPEX_GER_DAK_ober_grenadier","SPEX_GER_DAK_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+	[[[["SPEX_GER_DAK_SquadLead","SPEX_DAK_OpelBlitz_Open","SPEX_GER_DAK_mgunner","SPEX_GER_DAK_medic","SPEX_GER_DAK_Assist_SquadLead","SPEX_GER_DAK_rifleman","SPEX_GER_DAK_amgunner","SPEX_GER_DAK_LAT_Rifleman","SPEX_GER_DAK_ober_grenadier","SPEX_GER_DAK_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 	// SPE_Command_Section
-	[[[["SPEX_GER_DAK_lieutenant","SPE_GER_R200_Unarmed","SPEX_GER_DAK_medic","SPEX_GER_DAK_radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
+	[[[["SPEX_GER_DAK_lieutenant","SPEX_DAK_R200_Unarmed","SPEX_GER_DAK_medic","SPEX_GER_DAK_radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
 	// SPE_GER_Scout_250_Recon_Team
-	[[[["SPEX_GER_DAK_scout_SquadLead","SPE_SdKfz250_1","SPEX_GER_DAK_scout_mgunner","SPEX_GER_DAK_scout_amgunner","SPEX_GER_DAK_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6]
+	[[[["SPEX_GER_DAK_scout_SquadLead","SPEX_DAK_SdKfz250_1","SPEX_GER_DAK_scout_mgunner","SPEX_GER_DAK_scout_amgunner","SPEX_GER_DAK_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6]
 ];
 _n = count _arr;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
