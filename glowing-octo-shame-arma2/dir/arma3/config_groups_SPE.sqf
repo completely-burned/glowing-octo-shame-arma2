@@ -58,7 +58,20 @@ _arr append [
 	// SPE_Command_Section
 	[[[["SPEX_GER_DAK_lieutenant","SPEX_DAK_R200_Unarmed","SPEX_GER_DAK_medic","SPEX_GER_DAK_radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
 	// SPE_GER_Scout_250_Recon_Team
-	[[[["SPEX_GER_DAK_scout_SquadLead","SPEX_DAK_SdKfz250_1","SPEX_GER_DAK_scout_mgunner","SPEX_GER_DAK_scout_amgunner","SPEX_GER_DAK_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6]
+	[[[["SPEX_GER_DAK_scout_SquadLead","SPEX_DAK_SdKfz250_1","SPEX_GER_DAK_scout_mgunner","SPEX_GER_DAK_scout_amgunner","SPEX_GER_DAK_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+
+	// SPE_GER_PzKpfwIV_G_Platoon
+	[[[["SPEX_DAK_PzKpfwIV_G","SPEX_DAK_PzKpfwIV_G","SPEX_DAK_PzKpfwIV_G","SPEX_DAK_PzKpfwIV_G"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_PzKpfwIII_L_Platoon
+	[[[["SPEX_DAK_PzKpfwIII_L","SPEX_DAK_PzKpfwIII_L","SPEX_DAK_PzKpfwIII_L","SPEX_DAK_PzKpfwIII_L"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_PzKpfwIII_J_Platoon
+	[[[["SPEX_DAK_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_PzKpfwVI_H1_Platoon
+	[[[["SPEX_DAK_PzKpfwVI_H1","SPEX_DAK_PzKpfwVI_H1","SPEX_DAK_PzKpfwVI_H1","SPEX_DAK_PzKpfwVI_H1"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_STUG_G_Early_Section
+	[[[["SPEX_DAK_StuG_III_G_Early","SPEX_DAK_StuG_III_G_Early"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_STUH_42_Section
+	[[[["SPEX_DAK_StuH_42","SPEX_DAK_StuH_42"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25]
 ];
 _n = count _arr;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
@@ -152,7 +165,20 @@ _arr = [
 	// SPE_Command_Section
 	[[[["SPE_GER_lieutenant","SPE_GER_R200_Unarmed","SPE_GER_medic","SPE_GER_radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
 	// SPE_GER_Scout_250_Recon_Team
-	[[[["SPE_GER_scout_SquadLead","SPE_SdKfz250_1","SPE_GER_scout_mgunner","SPE_GER_scout_amgunner","SPE_GER_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6]
+	[[[["SPE_GER_scout_SquadLead","SPE_SdKfz250_1","SPE_GER_scout_mgunner","SPE_GER_scout_amgunner","SPE_GER_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
+
+	// SPE_GER_PzKpfwIV_G_Platoon
+	[[[["SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_PzKpfwIII_L_Platoon
+	[[[["SPE_PzKpfwIII_L","SPE_PzKpfwIII_L","SPE_PzKpfwIII_L","SPE_PzKpfwIII_L"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_PzKpfwIII_J_Platoon
+	[[[["SPE_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_PzKpfwVI_H1_Platoon
+	[[[["SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_STUG_G_Early_Section
+	[[[["SPE_StuG_III_G_Early","SPE_StuG_III_G_Early"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
+	// SPE_GER_STUH_42_Section
+	[[[["SPE_StuH_42","SPE_StuH_42"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25]
 ];
 [_groups_map, west, "SPE_WEHRMACHT", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1900,1950], [160, _n-1],
@@ -164,26 +190,14 @@ _arr = [
 	// SPEX_GER_Bedford_MWD_Open, SPE_GER_Panzerjaeger_squad
 	[[[["SPE_GER_AT_Soldier_SquadLead","SPEX_GER_Bedford_MWD_Open","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier_Assistant","SPE_GER_AT_Soldier_Assistant"],[[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
 
-	// SPE_GER_PzKpfwIV_G_Platoon
-	[[[["SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
 	// SPE_GER_PzKpfwIII_M_Platoon
 	[[[["SPE_PzKpfwIII_M","SPE_PzKpfwIII_M","SPE_PzKpfwIII_M","SPE_PzKpfwIII_M"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
 	// SPE_GER_PzKpfwIII_N_Platoon
 	[[[["SPE_PzKpfwIII_N","SPE_PzKpfwIII_N","SPE_PzKpfwIII_N","SPE_PzKpfwIII_N"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_PzKpfwIII_L_Platoon
-	[[[["SPE_PzKpfwIII_L","SPE_PzKpfwIII_L","SPE_PzKpfwIII_L","SPE_PzKpfwIII_L"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_PzKpfwIII_J_Platoon
-	[[[["SPE_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_PzKpfwVI_H1_Platoon
-	[[[["SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
 	// SPE_GER_PzKpfwV_G_Platoon
 	[[[["SPE_PzKpfwV_G","SPE_PzKpfwV_G","SPE_PzKpfwV_G","SPE_PzKpfwV_G"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
 	// SPE_GER_STUG_G_Late_Section
 	[[[["SPE_StuG_III_G_Late","SPE_StuG_III_G_SKB"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_STUG_G_Early_Section
-	[[[["SPE_StuG_III_G_Early","SPE_StuG_III_G_Early"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_STUH_42_Section
-	[[[["SPE_StuH_42","SPE_StuH_42"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
 	// SPE_GER_Jagdpanther_Section
 	[[[["SPE_Jagdpanther_G1","SPE_Jagdpanther_G1"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25]
 ];
