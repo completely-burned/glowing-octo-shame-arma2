@@ -70,6 +70,10 @@ if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else 
 
 				if ((count _positions) > 0) then {
 					_relPos = _positions select _i;
+					if (isNil "_relPos") then {
+						diag_log format ["Log: [fnc_spawnGroup] %1, нет позиции для %2 %3", _grp, _i, _x];
+						_relPos = [-25 + random 50, -25 + random 50];
+					};
 					_itemPos = [
 						(_pos select 0) + (_relPos select 0),
 						(_pos select 1) + (_relPos select 1)
