@@ -49,9 +49,9 @@ _arr append [
 ];
 _arr append [
 	// SPEX_DAK_Bedford_MWD_Open, SPEX_GER_DAK_MG_team
-	[[[["SPEX_GER_DAK_SquadLead","SPEX_DAK_Bedford_MWD_Open","SPEX_GER_DAK_mgunner2","SPEX_GER_DAK_rifleman","SPEX_GER_DAK_amgunner"],[[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	[[[["SPEX_GER_DAK_SquadLead","SPEX_DAK_Bedford_MWD_Open","SPEX_GER_DAK_mgunner2","SPEX_GER_DAK_rifleman","SPEX_GER_DAK_amgunner"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
 	// SPEX_DAK_Bedford_MWD_Open, SPEX_GER_DAK_Panzerjaeger_squad
-	[[[["SPEX_GER_DAK_AT_Soldier_SquadLead","SPEX_DAK_Bedford_MWD_Open","SPEX_GER_DAK_AT_Soldier","SPEX_GER_DAK_AT_Soldier","SPEX_GER_DAK_AT_Soldier_Assistant","SPEX_GER_DAK_AT_Soldier_Assistant"],[[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	[[[["SPEX_GER_DAK_AT_Soldier_SquadLead","SPEX_DAK_Bedford_MWD_Open","SPEX_GER_DAK_AT_Soldier","SPEX_GER_DAK_AT_Soldier","SPEX_GER_DAK_AT_Soldier_Assistant","SPEX_GER_DAK_AT_Soldier_Assistant"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
 
 	// SPE_Motorized_Infantry_Squad
 	[[[["SPEX_GER_DAK_SquadLead","SPEX_DAK_OpelBlitz_Open","SPEX_GER_DAK_mgunner","SPEX_GER_DAK_medic","SPEX_GER_DAK_Assist_SquadLead","SPEX_GER_DAK_rifleman","SPEX_GER_DAK_amgunner","SPEX_GER_DAK_LAT_Rifleman","SPEX_GER_DAK_ober_grenadier","SPEX_GER_DAK_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
@@ -188,9 +188,9 @@ _arr = [
 ] call gosa_fnc_map_groups_add;
 _arr = [
 	// SPEX_GER_Bedford_MWD_Open, SPE_GER_MG_team
-	[[[["SPE_GER_SquadLead","SPEX_GER_Bedford_MWD_Open","SPE_GER_mgunner","SPE_GER_rifleman","SPE_GER_amgunner"],[[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	[[[["SPE_GER_SquadLead","SPEX_GER_Bedford_MWD_Open","SPE_GER_mgunner","SPE_GER_rifleman","SPE_GER_amgunner"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
 	// SPEX_GER_Bedford_MWD_Open, SPE_GER_Panzerjaeger_squad
-	[[[["SPE_GER_AT_Soldier_SquadLead","SPEX_GER_Bedford_MWD_Open","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier_Assistant","SPE_GER_AT_Soldier_Assistant"],[[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	[[[["SPE_GER_AT_Soldier_SquadLead","SPEX_GER_Bedford_MWD_Open","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier_Assistant","SPE_GER_AT_Soldier_Assistant"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
 
 	// SPE_GER_PzKpfwIII_M_Platoon
 	[[[["SPE_PzKpfwIII_M","SPE_PzKpfwIII_M","SPE_PzKpfwIII_M","SPE_PzKpfwIII_M"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
