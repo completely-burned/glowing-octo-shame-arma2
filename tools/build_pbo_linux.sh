@@ -63,17 +63,43 @@ echo "Copying files to a temporary directory"
 # Файл лицензии.
 if [[ $LICENSE -gt 0 ]]
 then
-	rsync --recursive --no-perms $DIR/*LICENSE* $TMPDIR/
-	rsync --recursive --no-perms $DIR/*authors* $TMPDIR/
+	if ! cp -vlP "${DIR}"/*LICENSE* "${TMPDIR}"/
+	then
+		cp -v "${DIR}"/*LICENSE* "${TMPDIR}"/
+	fi
+	if ! cp -vlP "${DIR}"/*authors* "${TMPDIR}"/
+	then
+		cp -v "${DIR}"/*authors* "${TMPDIR}"/
+	fi
 fi
 # Основные файлы.
-rsync --recursive --no-perms $DIR/glowing-octo-shame* $TMPDIR/
-rsync --recursive --no-perms $DIR/maps $TMPDIR/
-echo $(ls $TMPDIR)
+coredirs=(  $(cd "${DIR}"; find -L -mindepth 1 -type d \( -path "./glowing-octo-shame*" -or -path "./maps*" \) -print) )
+corefiles=( $(cd "${DIR}"; find -L -mindepth 1 -type f \( -path "./glowing-octo-shame*" -or -path "./maps*" \) -print) )
+# FIXME: Очень медленный код.
+for i in "${coredirs[@]}"
+do
+	f="${TMPDIR}/${i,,}"
+	if [ ! -d "${f}" ]
+	then
+		mkdir "${f}"
+	fi
+done
+for i in "${corefiles[@]}"
+do
+	f="${TMPDIR}/${i,,}"
+	if [ ! -f "${f}" ] && [ ! -L "${f}" ]
+	then
+		if ! cp -vlP "${DIR}/${i}" "${f}"
+		then
+			cp -v "${DIR}/${i}" "${f}"
+		fi
+	fi
+done
+echo $(ls "${TMPDIR}")
 
 
-PRE=$TMPDIR/out
-mkdir -p $PRE
+PRE="${TMPDIR}/out"
+mkdir "${PRE}"
 
 # OUT=/куда/поместить/собранные/pbo/ ./tools/build_pbo_linux.sh
 OUT="${OUT:-$DIR/${FINITENAME}}"
@@ -85,9 +111,9 @@ else
 	VERSION=$GITHUB_REF_NAME
 fi
 
-if [[ ! -d ${OUT} ]]
+if [[ ! -d "${OUT}" ]]
 then
-	mkdir -p ${OUT}
+	mkdir -p "${OUT}"
 fi
 
 if [[ $DIAG_LOG -gt 0 ]]
@@ -114,12 +140,16 @@ fi
 # Перевод кириллицы в транслит.
 if [[ -x "$(command -v translit)" && -x "$(command -v iconv)" ]]
 then
-	find $TMPDIR -type f ! -iname 'stringtable*' -exec translit -i {} -o {}.translit -t "ISO 9" \; -exec iconv -f UTF8 -t US-ASCII//TRANSLIT -o {} {}.translit \; -exec rm {}.translit \;
+	find "${TMPDIR}" -type f ! -iname 'stringtable*' ! -iname '*authors*' ! -iname '*LICENSE*'  -exec translit -i {} -o {}.translit -t "ISO 9" \; -exec iconv -f UTF8 -t US-ASCII//TRANSLIT -o {} {}.translit \; -exec rm {}.translit \;
 fi
 
-if [[ ! -d $TMPDIR/.build.out ]]
+if [[ ! -d "${TMPDIR}/.build.out" ]]
 then
-	mkdir $TMPDIR/.build.out
+	mkdir "${TMPDIR}/.build.out"
+fi
+if [[ ! -d "${TMPDIR}/.build.tmp" ]]
+then
+	mkdir "${TMPDIR}/.build.tmp"
 fi
 
 # "FDF CTF@ 24 Flag Rambos v1 beta"
@@ -128,8 +158,12 @@ fi
 for game in ${GAMES}
 do
 	tmp_game=${TMPDIR}/core_${game}
+	mkdir "${tmp_game}"
 	echo "Copying core files ${game}"
-	rsync --recursive --no-perms ${TMPDIR}/glowing-octo-shame-arma2/* ${tmp_game}
+	if ! cp -rlP "${TMPDIR}"/glowing-octo-shame-arma2/* "${tmp_game}"/
+	then
+		cp -r "${TMPDIR}"/glowing-octo-shame-arma2/* "${tmp_game}"/
+	fi
 	# cpmpat для a2 v1.11
 	if [[ ${game} == "a2" ]]
 	then
@@ -138,8 +172,14 @@ do
 
 	if [[ ${LICENSE} -gt 0 ]]
 	then
-		rsync --recursive --no-perms $TMPDIR/*LICENSE* ${tmp_game}
-		rsync --recursive --no-perms $TMPDIR/*authors* ${tmp_game}
+		if ! cp -rlP "${TMPDIR}"/*LICENSE* "${tmp_game}"/
+		then
+			cp -r "${TMPDIR}"/*LICENSE* "${tmp_game}"/
+		fi
+		if ! cp -rlP "${TMPDIR}"/*authors* "${tmp_game}"/
+		then
+			cp -r "${TMPDIR}"/*authors* "${tmp_game}"/
+		fi
 	fi
 
 for DIR in $(find ${TMPDIR}/maps/${game} -maxdepth 1 -type d)
@@ -167,28 +207,34 @@ do
 		# Место подготовки файлов перед архивацией.
 		TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${pbo_VERSION,,}.${MAP,,}"
 		echo "Name ${TMPDIRNAME}"
-		MISSION=$TMPDIR/.build.tmp/$TMPDIRNAME
-		mkdir -p $MISSION
-		echo $MISSION
+		MISSION="${TMPDIR}/.build.tmp/${TMPDIRNAME}"
+		mkdir "${MISSION}"
+		echo "${MISSION}"
 
 		echo "Copying files ${MISSION}"
 		#find ${tmp_game}/ -mindepth 1 -maxdepth 1 -exec ln -sn {} ${MISSION} \;
 		#find ${DIR} -mindepth 1 -maxdepth 1 -exec ln -sn {} ${MISSION} \;
-		rsync --recursive --no-perms ${tmp_game}/* ${MISSION}
-		rsync --recursive --no-perms ${DIR}/* ${MISSION}
+		if ! cp -rlP "${tmp_game}"/* "${MISSION}"/
+		then
+			cp -r "${tmp_game}"/* "${MISSION}"/
+		fi
+		if ! cp -rlP "${DIR}"/* "${MISSION}"/
+		then
+			cp -r "${DIR}"/* "${MISSION}"/
+		fi
 
 		if [[ $DIAG_LOG -le 0 ]]
 		then
 			echo "Removing DEBUG from briefingName ${TMPDIRNAME}"
 			# Приставка DEBUG во внутриигровом меню.
-			sed -i "s/\(.*briefingName.*\) DEBUG\(.*\)/\1\2/" $MISSION/mission.sqm
+			sed -i "s/\(.*briefingName.*\) DEBUG\(.*\)/\1\2/" "${MISSION}"/mission.sqm
 		fi
 
 		if [[ ${SIDE,,} == "multi" ]]
 		then
 			binarize=1
 			echo "Removing #include 'mission.sqm' from Description.ext ${MISSION}"
-			find ${MISSION} -type f -iname 'Description.ext' -exec sed -i "/^.*#include.*mission.sqm.*$/d" {} \;
+			find "${MISSION}" -type f -iname 'Description.ext' -exec sed -i "/^.*#include.*mission.sqm.*$/d" {} \;
 		else
 			binarize=0
 		fi
@@ -303,8 +349,8 @@ echo "Move files to destination"
 rsync --recursive --no-perms --checksum $PRE/ $OUT/
 
 echo "Deleting temp directories"
-rm -rf ${TORRENT_TMPDIR}
-rm -rf $TMPDIR
+rm -rf "${TORRENT_TMPDIR}"
+rm -rf "${TMPDIR}"
 
 # find $OUT -size 0 -delete
 
