@@ -632,6 +632,18 @@ if (_landing in [1,4,24,34]) then {
 		],0.1]
 	];
 };
+if (_landing in [1,2,23,24]) then {
+	_arr append [
+		// SPE_US_101AB_Infantry_squad
+		[[[["SPEX_C47_Skytrain"],[],[]],
+			[["SPE_US_101AB_SquadLead","SPE_US_101AB_mgunner","SPE_US_101AB_mgunner_assistant","SPE_US_101AB_Rifleman_AmmoBearer","SPE_US_101AB_rifleman","SPE_US_101AB_rifleman","SPE_US_101AB_Assist_SquadLead","SPE_US_101AB_grenadier","SPE_US_101AB_smgunner","SPE_US_101AB_rifleman","SPE_US_101AB_rifleman","SPE_US_101AB_medic"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.1],
+		// SPE_US_82AB_Infantry_squad
+		[[[["SPEX_C47_Skytrain"],[],[]],
+			[["SPE_US_82AB_SquadLead","SPE_US_82AB_mgunner","SPE_US_82AB_mgunner_assistant","SPE_US_82AB_Rifleman_AmmoBearer","SPE_US_82AB_rifleman","SPE_US_82AB_rifleman","SPE_US_82AB_Assist_SquadLead","SPE_US_82AB_grenadier","SPE_US_82AB_smgunner","SPE_US_82AB_rifleman","SPE_US_82AB_rifleman","SPE_US_82AB_medic"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+		],0.1]
+	];
+};
 if (isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	_arr append [
 		[[[["SPE_M4A3_T34_Calliope_Direct","SPE_M4A3_T34_Calliope_Direct"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.03]
