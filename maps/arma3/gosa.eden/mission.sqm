@@ -202,7 +202,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa eden Multi v0.0.5.990 DEBUG";
+		briefingName="CO 00 gosa eden Multi v0.0.5.991 DEBUG";
 		timeOfChanges=1800;
 		startWeather=0.35;
 		startWind=0.1;

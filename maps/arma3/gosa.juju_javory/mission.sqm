@@ -200,7 +200,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CO 00 gosa juju_javory Multi v0.0.5.990 DEBUG";
+		briefingName="CO 00 gosa juju_javory Multi v0.0.5.991 DEBUG";
 		startWeather=0.28999999;
 		startFog=0.28;
 		startWind=0.60000002;
