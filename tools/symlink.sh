@@ -18,10 +18,9 @@ GAMES="${GAMES:- arma3 a2oa a2}"
 coredir="${IN}/glowing-octo-shame-arma2"
 
 mkdir "${OUT}"
-mkdir "${OUT}/.tmp"
 
-coredirs=( $(cd ${coredir}; find -L -mindepth 1 -type d) )
-corefiles=( $(cd ${coredir}; find -L -mindepth 1 -type f) )
+coredirs=( $(cd "${coredir}"; find -L -mindepth 1 -type d) )
+corefiles=( $(cd "${coredir}"; find -L -mindepth 1 -type f) )
 
 for game in ${GAMES}; do
 	for DIR in $(find "${IN}"/maps/${game} -maxdepth 1 -type d); do
@@ -45,23 +44,23 @@ for game in ${GAMES}; do
 				dir_mission="${OUT}"/$dir_name
 
 				mkdir "${dir_mission}"
-				ln -s ${DIR}/mission.sqm ${dir_mission}/mission.sqm
+				ln -s "${DIR}/mission.sqm" "${dir_mission}/mission.sqm"
 
 				# FIXME: Очень медленный код.
 				for i in "${coredirs[@]}"
 				do
-					f=${dir_mission}/${i,,}
-					if [ ! -d ${f} ]
+					f="${dir_mission}/${i,,}"
+					if [ ! -d "${f}" ]
 					then
-						mkdir ${f}
+						mkdir "${f}"
 					fi
 				done
 				for i in "${corefiles[@]}"
 				do
-					f=${dir_mission}/${i,,}
-					if [ ! -f ${f} ] && [ ! -L ${f} ]
+					f="${dir_mission}/${i,,}"
+					if [ ! -f "${f}" ] && [ ! -L "${f}" ]
 					then
-						ln -s ${coredir}/${i} ${f}
+						ln -s "${coredir}/${i}" "${f}"
 					fi
 				done
 			fi
