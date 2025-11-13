@@ -15,9 +15,14 @@ IN="${IN:-/git/glowing-octo-shame-arma2}"
 OUT="${OUT:-$IN/.build.out/symlink}"
 
 GAMES="${GAMES:- arma3 a2oa a2}"
+coredir="${IN}/glowing-octo-shame-arma2"
 
-corefiles=$(find "${IN}"/glowing-octo-shame-arma2 -mindepth 1 -maxdepth 1)
-#for DIR in $(find $DIR -maxdepth 1 -type d); do
+mkdir "${OUT}"
+mkdir "${OUT}/.tmp"
+
+coredirs=( $(cd ${coredir}; find -L -mindepth 1 -type d) )
+corefiles=( $(cd ${coredir}; find -L -mindepth 1 -type f) )
+
 for game in ${GAMES}; do
 	for DIR in $(find "${IN}"/maps/${game} -maxdepth 1 -type d); do
 		if [ -f "${DIR}/mission.sqm" ]; then
@@ -38,10 +43,26 @@ for game in ${GAMES}; do
 			then
 				dir_name="${PRE}/${DLC,,}${NAME_SHORT,,}-${game,,}-debug-SM.${MAP,,}"
 				dir_mission="${OUT}"/$dir_name
-				mkdir -p "${dir_mission}"
-				find $DIR -mindepth 1 -maxdepth 1 -exec ${LN} {} "${dir_mission}" \;
-				for f in ${corefiles}; do
-					${LN} "${f}" "${dir_mission}"
+
+				mkdir "${dir_mission}"
+				ln -s ${DIR}/mission.sqm ${dir_mission}/mission.sqm
+
+				# FIXME: Очень медленный код.
+				for i in "${coredirs[@]}"
+				do
+					f=${dir_mission}/${i,,}
+					if [ ! -d ${f} ]
+					then
+						mkdir ${f}
+					fi
+				done
+				for i in "${corefiles[@]}"
+				do
+					f=${dir_mission}/${i,,}
+					if [ ! -f ${f} ] && [ ! -L ${f} ]
+					then
+						ln -s ${coredir}/${i} ${f}
+					fi
 				done
 			fi
 		fi
