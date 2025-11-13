@@ -12,7 +12,7 @@ jobs:
       - name: Dependencies
         uses: daaku/gh-action-apt-install@v4
         with:
-          packages: rsync sed rdfind liblingua-translit-perl
+          packages: rsync sed rdfind liblingua-translit-perl transmission-cli ctorrent
 
       - name: gosa checkout
         uses: actions/checkout@v4
