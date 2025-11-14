@@ -503,7 +503,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=22;
-					type="lsd_cis_b1At_standard";
+					type="ls_droid_b1_geonosisHeavyAT";
 				};
 				class Item4
 				{
@@ -520,7 +520,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=23;
-					type="lsd_cis_b1Marksman_standard";
+					type="ls_droid_b1_geonosisMarksman";
 				};
 				class Item5
 				{
@@ -599,7 +599,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=28;
-					type="SWLB_clone_base_P2";
+					type="ls_orsf_trooper_Heavy";
 				};
 				class Item1
 				{
@@ -615,7 +615,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=29;
-					type="SWLB_clone_sg_base_P2";
+					type="ls_orsf_trooper_Shotgun";
 				};
 				class Item2
 				{
@@ -631,7 +631,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=30;
-					type="SWLB_clone_engineer_base_P2";
+					type="ls_orsf_trooper_Demo";
 				};
 				class Item3
 				{
@@ -647,7 +647,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=31;
-					type="SWLB_clone_at_base_P2";
+					type="ls_orsf_trooper_heavyAT";
 				};
 				class Item4
 				{
@@ -663,7 +663,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=32;
-					type="SWLB_clone_medic_base_P2";
+					type="ls_orsf_trooper_light";
 				};
 				class Item5
 				{
@@ -679,7 +679,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=33;
-					type="SWLB_clone_sg_base_P2";
+					type="ls_orsf_trooper_Shotgun";
 				};
 				class Item6
 				{
@@ -695,7 +695,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=34;
-					type="SWLB_clone_assault_base_P2";
+					type="ls_orsf_trooper";
 				};
 				class Item7
 				{
@@ -711,7 +711,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=35;
-					type="SWLB_clone_assault_base_P2";
+					type="ls_orsf_trooper";
 				};
 				class Item8
 				{
@@ -727,7 +727,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=36;
-					type="SWLB_clone_base_P2";
+					type="ls_orsf_trooper_Heavy";
 				};
 			};
 			class Attributes
@@ -757,7 +757,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=38;
-					type="SWLB_clone_arc_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 				class Item1
 				{
@@ -773,7 +773,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=39;
-					type="SWLB_clone_arc_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 				class Item2
 				{
@@ -789,7 +789,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=40;
-					type="SWLB_clone_arc_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 				class Item3
 				{
@@ -805,7 +805,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=41;
-					type="SWLB_clone_arc_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 				class Item4
 				{
@@ -821,7 +821,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=42;
-					type="SWLB_clone_arc_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 				class Item5
 				{
@@ -837,7 +837,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=43;
-					type="SWLB_clone_arc_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 				class Item6
 				{
@@ -853,7 +853,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=44;
-					type="SWLB_clone_arc_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 			};
 			class Attributes
@@ -1173,7 +1173,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=64;
-					type="ls_civ_randomNearHuman_m_polo1";
+					type="ls_civilian_randomSpecies_polo1";
 				};
 				class Item1
 				{
@@ -1189,7 +1189,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=93;
-					type="ls_civ_randomNearHuman_m_polo2";
+					type="ls_civilian_randomSpecies_polo2";
 				};
 				class Item2
 				{
@@ -1205,7 +1205,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=94;
-					type="ls_civ_randomNearHuman_m_polo3";
+					type="ls_civilian_randomSpecies_polo3";
 				};
 				class Item3
 				{
@@ -1221,7 +1221,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=95;
-					type="ls_civ_randomNearHuman_m_polo4";
+					type="ls_civilian_randomSpecies_polo4";
 				};
 				class Item4
 				{
@@ -1237,7 +1237,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=96;
-					type="ls_civ_randomNearHuman_m_polo5";
+					type="ls_civilian_randomSpecies_polo5";
 				};
 			};
 			class Attributes
