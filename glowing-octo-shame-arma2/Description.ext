@@ -1203,6 +1203,10 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class groups_convNormal
+			{
+				file = "dir\functions\fnc_groups_convNormal.sqf";
+			};
 			class group_cfg_to_array
 			{
 				file = "dir\functions\fnc_group_cfg_to_array.sqf";
