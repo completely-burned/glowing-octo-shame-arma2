@@ -306,7 +306,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=39;
-					type="ls_mandalorian_sergeant_deathwatch";
+					type="ls_mandalorian_deathwatchHeavy";
 				};
 				class Item1
 				{
@@ -323,7 +323,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=40;
-					type="ls_mandalorian_at_deathwatch";
+					type="ls_mandalorian_deathwatchAT";
 				};
 				class Item2
 				{
@@ -339,7 +339,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=41;
-					type="ls_mandalorian_assault_deathwatch";
+					type="ls_mandalorian_deathwatchWarrior";
 				};
 				class Item3
 				{
@@ -355,7 +355,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=42;
-					type="ls_mandalorian_assault_deathwatch";
+					type="ls_mandalorian_deathwatchWarrior";
 				};
 				class Item4
 				{
@@ -372,7 +372,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=43;
-					type="ls_mandalorian_sergeant_deathwatch";
+					type="ls_mandalorian_deathwatchHeavy";
 				};
 				class Item5
 				{
@@ -389,7 +389,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=44;
-					type="ls_mandalorian_assault_deathwatch";
+					type="ls_mandalorian_deathwatchWarrior";
 				};
 				class Item6
 				{
@@ -405,7 +405,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=45;
-					type="ls_mandalorian_rto_deathwatch";
+					type="ls_mandalorian_deathwatchRTO";
 				};
 				class Item7
 				{
@@ -421,7 +421,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=46;
-					type="ls_mandalorian_medic_deathwatch";
+					type="ls_mandalorian_deathwatchMedic";
 				};
 			};
 			class Attributes
@@ -609,7 +609,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=104;
-					type="ls_mandalorian_heavy_traditional";
+					type="ls_mandalorian_traditionalHeavy";
 				};
 				class Item1
 				{
@@ -626,7 +626,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=105;
-					type="ls_mandalorian_at_traditional";
+					type="ls_mandalorian_traditionalAT";
 				};
 				class Item2
 				{
@@ -642,7 +642,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=106;
-					type="ls_mandalorian_assault_traditional";
+					type="ls_mandalorian_traditionalWarrior";
 				};
 				class Item3
 				{
@@ -658,7 +658,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=107;
-					type="ls_mandalorian_assault_traditional";
+					type="ls_mandalorian_traditionalWarrior";
 				};
 				class Item4
 				{
@@ -675,7 +675,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=108;
-					type="ls_mandalorian_heavy_traditional";
+					type="ls_mandalorian_traditionalHeavy";
 				};
 				class Item5
 				{
@@ -692,7 +692,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=109;
-					type="ls_mandalorian_assault_traditional";
+					type="ls_mandalorian_traditionalWarrior";
 				};
 				class Item6
 				{
@@ -708,7 +708,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=110;
-					type="ls_mandalorian_rto_traditional";
+					type="ls_mandalorian_traditionalRTO";
 				};
 				class Item7
 				{
@@ -724,7 +724,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=111;
-					type="ls_mandalorian_medic_traditional";
+					type="ls_mandalorian_traditionalMedic";
 				};
 			};
 			class Attributes
