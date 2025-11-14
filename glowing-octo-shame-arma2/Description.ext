@@ -1203,6 +1203,10 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class group_cfg_to_array
+			{
+				file = "dir\functions\fnc_group_cfg_to_array.sqf";
+			};
 			class type_camoClass
 			{
 				file = "dir\functions\fnc_type_camoClass.sqf";
