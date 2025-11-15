@@ -72,6 +72,7 @@ gosa_lastSwitchBodyTime = -99999;
 _arr = [];
 
 _pvp = gosa_pvp;
+/*
 if (_pvp) then {
 	_sides_friendly = [gosa_playerSide];
 }else{
@@ -82,6 +83,10 @@ if (_pvp) then {
 		diag_log format ["Log: [respawnRandom] gosa_playerSide %1 out %2 _sides_friendly, exitWith", gosa_playerSide, _sides_friendly];
 	};
 };
+*/
+// Смена стороны приводит к конфликтам.
+_sides_friendly = [gosa_playerSide];
+
 if !(isNil "gosa_respawnDone") exitWith {};
 
 [player, objNull] call gosa_fnc_eh_playerSelected;
