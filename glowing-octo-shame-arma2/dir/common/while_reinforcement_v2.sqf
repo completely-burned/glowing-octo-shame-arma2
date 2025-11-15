@@ -15,6 +15,7 @@ private["_minGroups","_e_cfi","_playerCoefficient","_center_e_dir","_players",
 	"_frontLine_east","_frontLine_west","_frontLine_guer","_deviceT2",
 	"_lg","_enemySide","_friendlySide","_sleep","_obj","_side",
 	"_remote_miltipler","_cfi_sides_friendly","_cfi_sides_enemy","_deviceType",
+	"_playerSideNum","_playerSide",
 	"_types_pilot","_sides_friendly","_sides_enemy","_mode_pvp"];
 
 diag_log format ["Log: [reinforcements] started %1", time ];
@@ -97,11 +98,14 @@ _frontLine_guer = missionNamespace getVariable "gosa_frontLine_guer";
 _mode_pvp = gosa_pvp;
 _types_pilot = gosa_pilotL;
 
+	_playerSide = gosa_playerside;
+	_playerSideNum = _playerSide call gosa_fnc_getSideNum;
+
 _friendlySide = [];
 if (_mode_pvp) then {
 	// TODO: Учесть то что количество сторон может быть другим.
 	_sides = [west,east,resistance];
-	_sides_friendly = [gosa_playerside];
+	_sides_friendly = [_playerside];
 	for "_i" from 0 to (count _sides_friendly -1) do {
 		switch (_sides_friendly select _i) do {
 			case EAST:		{_friendlySide set [_i, 0]};
@@ -285,23 +289,23 @@ while{_run}do{
 				if (_b) then {
 					_n = {local _x} count units player;
 					diag_log format ["Log: [reinforcements] %1 local units %2", _n, units player];
-					if (_n < 3) then {
-							if (east getFriend gosa_playerSide >= 0.6) then {
+					if (_n < 3 or _playerSide != side player) then {
+							if (east == _playerSide) then {
 								_n = {isNil {_x getVariable "patrol"}} count (((_grp select 0)+(_grp select 3))-[group player]);
 								diag_log format ["Log: [reinforcements] %1 east grp %2", _n];
 							}else{
 								_n = 0;
 							};
 
-						if (_n < 1) then {
-							if (west getFriend gosa_playerSide >= 0.6) then {
+						if (_n <= 0) then {
+							if (west == _playerSide) then {
 								_n = {isNil {_x getVariable "patrol"}} count (((_grp select 1)+(_grp select 4))-[group player]);
 								diag_log format ["Log: [reinforcements] %1 west grp %2", _n];
 							};
 						};
 
-						if (_n < 1) then {
-							if (resistance getFriend gosa_playerSide >= 0.6) then {
+						if (_n <= 0) then {
+							if (resistance == _playerSide) then {
 								_n = {isNil {_x getVariable "patrol"}} count (((_grp select 2)+(_grp select 5))-[group player]);
 								diag_log format ["Log: [reinforcements] %1 guer grp %2", _n];
 							};
@@ -322,9 +326,8 @@ while{_run}do{
 				};
 				if (_b) then {
 					if ({_x select 1 == 8} count _conveyer < 1) then {
-						_n = floor random count _sides_friendly;
 						_conveyer set [count _conveyer,
-							[[_sides_friendly select _n, _friendlySide select _n, _locationPos]
+							[[_playerSideNum, _playerSide, _locationPos]
 								spawn gosa_fnc_failoverGroup, 8]
 						];
 					};
