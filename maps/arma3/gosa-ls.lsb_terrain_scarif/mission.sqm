@@ -1267,7 +1267,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=75;
-					type="lsd_cis_oomPilot_standard";
+					type="ls_droid_b1_pilot";
 				};
 				class Item1
 				{
@@ -1284,7 +1284,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=77;
-					type="lsd_cis_oomPilot_standard";
+					type="ls_droid_b1_pilot";
 				};
 				class Item2
 				{
@@ -1301,7 +1301,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=79;
-					type="lsd_cis_oomPilot_standard";
+					type="ls_droid_b1_pilot";
 				};
 				class Item3
 				{
@@ -1318,7 +1318,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=81;
-					type="lsd_cis_oomPilot_standard";
+					type="ls_droid_b1_pilot";
 				};
 			};
 			class Attributes
@@ -1348,7 +1348,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=84;
-					type="SWLB_clone_pilot_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 				class Item1
 				{
@@ -1365,7 +1365,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=86;
-					type="SWLB_clone_pilot_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 				class Item2
 				{
@@ -1382,7 +1382,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=88;
-					type="SWLB_clone_pilot_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 				class Item3
 				{
@@ -1399,7 +1399,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=90;
-					type="SWLB_clone_pilot_base_P2";
+					type="ls_clone_phase2_pilot";
 				};
 			};
 			class Attributes
