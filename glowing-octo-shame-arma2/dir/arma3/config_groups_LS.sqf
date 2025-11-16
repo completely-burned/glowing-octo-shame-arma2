@@ -137,6 +137,21 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 	[]
 ] call gosa_fnc_map_groups_add;
 
+_arr = [
+	[[[["ls_vehicle_ast","ls_vehicle_ast"],[[0,0,0],[0,-20,0]],["CORPORAL","PRIVATE"]]],0.1],
+
+	[[[["ls_vehicle_aat_cis","ls_vehicle_aat_cis"],[[0,0,0],[0,-20,0]],["LIEUTENANT","SERGEANT"]]],0.1],
+	[[[["ls_vehicle_bawhag","ls_vehicle_bawhag"],[[0,0,0],[0,-20,0]],["LIEUTENANT","SERGEANT"]]],0.1],
+	[[[["ls_vehicle_mtt_cis"],[[0,0,0],[0,-20,0]],["SERGEANT"]]],1],
+
+	[[[["ls_vehicle_hmp","ls_vehicle_hmp"],[[0,0,0],[0,-20,0]],["CAPTAIN","LIEUTENANT"]]],0.1]
+];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, east, "ls_groups_cis", _arr,
+	[3000,9999999], [-999,999 ],
+	[]
+] call gosa_fnc_map_groups_add;
+
 
 //--- West
 _arr = [
@@ -297,9 +312,17 @@ _arr = [
 	[[[_cfg >> "ORSF_sniper_team"]], -1, 0.3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 _arr append [
-	//[[[["ls_cis_hmp","ls_cis_hmp"],[[0,0,0],[20,-20,0]],["CAPTAIN","LIEUTENANT"]]],0.5],
-	[[[["ls_ground_aat","ls_ground_aat","ls_ground_aat","ls_ground_aat"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL"]]],0.5],
-	[[[["ls_ground_aat","ls_ground_aat"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.5]
+	[[[["ls_vehicle_105kLancer","ls_vehicle_105kLancer"],[[0,0,0],[0,-20,0]],["CORPORAL","PRIVATE"]]],0.1],
+	[[[["ls_vehicle_barc","ls_vehicle_barc"],[[0,0,0],[0,-20,0]],["CORPORAL","PRIVATE"]]],0.1],
+	
+	[[[["ls_vehicle_tx130","ls_vehicle_tx130","ls_vehicle_tx130","ls_vehicle_tx130"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL"]]],0.1],
+	[[[["ls_vehicle_tx130","ls_vehicle_tx130"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1],
+	
+	[[[["ls_vehicle_z95","ls_vehicle_z95"],[[0,0,0],[10,-10,0]],["CAPTAIN","LIEUTENANT"]]],0.1],
+	[[[["ls_vehicle_laati","ls_vehicle_laati"],[[0,0,0],[10,-10,0]],["CAPTAIN","LIEUTENANT"]]],0.1],
+	[[[["ls_vehicle_laatle","ls_vehicle_laatle"],[[0,0,0],[0,-20,0]],["CAPTAIN","LIEUTENANT"]]],0.1],
+	// jedi
+	[[[["ls_vehicle_starsaber","ls_vehicle_starsaber"],[[0,0,0],[10,-10,0]],["CAPTAIN","LIEUTENANT"]]],0.1]
 ];
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "ls_orsf", _arr,
@@ -384,5 +407,14 @@ _arr append ([[
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, resistance, "ls_groups_greenfor_mandalorians", _arr,
 	[3000,9999999], [160,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
+_arr = [
+	[[[["ls_vehicle_z98","ls_vehicle_z98"],[[0,0,0],[0,-20,0]],["CAPTAIN","LIEUTENANT"]]],0.1]
+];
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, resistance, "ls_groups_greenfor_mandalorians", _arr,
+	[3000,9999999], [-999,999],
 	[]
 ] call gosa_fnc_map_groups_add;
