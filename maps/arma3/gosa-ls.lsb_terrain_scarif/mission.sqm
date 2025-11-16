@@ -1045,7 +1045,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=56;
-					type="ls_mandalorian_support_traditional";
+					type="ls_mandalorian_traditionalSupportGunner";
 				};
 				class Item2
 				{
@@ -1077,7 +1077,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=58;
-					type="ls_mandalorian_aa_traditional";
+					type="ls_mandalorian_traditionalHeavyAA";
 				};
 				class Item4
 				{
@@ -1111,7 +1111,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=60;
-					type="ls_mandalorian_heavyAT_traditional";
+					type="ls_mandalorian_traditionalHeavyAT";
 				};
 				class Item6
 				{
