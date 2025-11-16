@@ -35,7 +35,7 @@ if (_w in ["enoch","woodland_acr","bootcamp_acr","dogechnya",
 	"swu_ardennes_1940","juju_javory",
 	"spe_normandy","spe_mortain","spex_utah_beach","spex_lingevres"]) then {_r set [0,200]};
 if (_w in ["tanoa","rhspkl","vn_khe_sanh","vn_the_bra","cam_lao_nam",
-	"egl_laghisola","lsb_terrain_endor"]) then {_r set [0,225]};
+	"egl_laghisola","lsb_terrain_endor","dong_giang"]) then {_r set [0,225]};
 if (_w in ["altis","vr","stratis","porto","cain","swu_greece_pella_region",
 	"lsb_terrain_scarif"]) then {_r set [0,250]};
 if (_w in ["kunduz","lythium"]) then {_r set [0,275]};
@@ -62,7 +62,7 @@ if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter",
 {
 	_r set [1,1944];
 };
-if (_w in ["vn_khe_sanh","vn_the_bra","cam_lao_nam"]) then
+if (_w in ["vn_khe_sanh","vn_the_bra","cam_lao_nam","dong_giang"]) then
 {
 	_r set [1,1968];
 };
