@@ -82,7 +82,7 @@ if (_deviceT2) then {
 // FIXME: =+? При записи в _dyn_limit возможно перезаписывается _minGroups.
 _dyn_limit = _minGroups;
 _cfg_cfi = missionNamespace getVariable "enemyCoefficient";
-diag_log format ["Log: [reinforcements] _cfg_cfi= %1 max 0.1", nil];
+diag_log format ["Log: [reinforcements] _cfg_cfi= %1 max 0.1", _cfg_cfi];
 // Значения _cfg_cfi меньше одного нуждаются в проверке.
 _cfg_cfi = _cfg_cfi max 0.1;
 // TODO: количество игроков не учитывается
