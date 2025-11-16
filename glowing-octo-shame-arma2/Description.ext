@@ -569,6 +569,12 @@ class Params {
 				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 				default = -1;
 			};
+			class gosa_faction_multiplier_ls_imperial {
+				title = "FACTION: ls_imperial";
+				values[] = {-1,1,0};
+				texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+				default = -1;
+			};
 			class gosa_faction_multiplier_ls_orsf {
 				title = "FACTION: ls_orsf";
 				values[] = {-1,1,0};

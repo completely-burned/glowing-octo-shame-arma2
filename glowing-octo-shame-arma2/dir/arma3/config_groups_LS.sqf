@@ -1,4 +1,65 @@
 //--- East
+_cfg = (configfile >> "CfgGroups" >> "East" >> "ls_imperial" >> "imperial_baseInfantry_ISB");
+_arr = [
+	[[[_cfg >> "base_imperial_mudtroopers_fireteam"]], -1, 0.3],
+	[[[_cfg >> "base_imperial_mudtroopers_sentry"]], -1, 0.2],
+	[[[_cfg >> "base_imperial_mudtroopers_squad"]], 1],
+	[[[_cfg >> "base_imperial_mudtroopers_at"]], -1, 0.4],
+	[[[_cfg >> "base_imperial_mudtroopers_aa"]], -1, 0.2],
+	[[[_cfg >> "base_imperial_mudtroopers_marksmanPair"]], -1, 0.1],
+	[[[_cfg >> "base_imperial_mudtroopers_mgTeam"]], -1, 0.3]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, east, "ls_imperial", _arr,
+	[3000,9999999], [-999,150-1],
+	[]
+] call gosa_fnc_map_groups_add;
+_cfg = (configfile >> "CfgGroups" >> "East" >> "ls_imperial" >> "imperial_baseInfantry_mudtroopers");
+_arr = [
+	[[[_cfg >> "base_imperial_mudtroopers_fireteam"]], -1, 0.3],
+	[[[_cfg >> "base_imperial_mudtroopers_sentry"]], -1, 0.2],
+	[[[_cfg >> "base_imperial_mudtroopers_squad"]], 1],
+	[[[_cfg >> "base_imperial_mudtroopers_at"]], -1, 0.4],
+	[[[_cfg >> "base_imperial_mudtroopers_aa"]], -1, 0.2],
+	[[[_cfg >> "base_imperial_mudtroopers_marksmanPair"]], -1, 0.1],
+	[[[_cfg >> "base_imperial_mudtroopers_mgTeam"]], -1, 0.3]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, east, "ls_imperial", _arr,
+	[3000,9999999], [150,250-1],
+	[]
+] call gosa_fnc_map_groups_add;
+_cfg = (configfile >> "CfgGroups" >> "East" >> "ls_imperial" >> "imperial_baseInfantry");
+_arr = [
+	[[[_cfg >> "base_imperial_fireteam"]], -1, 0.3],
+	[[[_cfg >> "base_imperial_sentry"]], -1, 0.2],
+	[[[_cfg >> "base_imperial_squad"]], 1],
+	[[[_cfg >> "base_imperial_at"]], -1, 0.4],
+	[[[_cfg >> "base_imperial_aa"]], -1, 0.2],
+	[[[_cfg >> "base_imperial_marksmanPair"]], -1, 0.1],
+	[[[_cfg >> "base_imperial_mgTeam"]], -1, 0.3]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, east, "ls_imperial", _arr,
+	[3000,9999999], [250,275-1],
+	[]
+] call gosa_fnc_map_groups_add;
+_cfg = (configfile >> "CfgGroups" >> "East" >> "ls_imperial" >> "imperial_baseInfantry_blackcamo");
+_arr = [
+	[[[_cfg >> "base_imperial_blackcamo_fireteam"]], -1, 0.3],
+	[[[_cfg >> "base_imperial_blackcamo_sentry"]], -1, 0.2],
+	[[[_cfg >> "base_imperial_blackcamo_squad"]], 1],
+	[[[_cfg >> "base_imperial_blackcamo_at"]], -1, 0.4],
+	[[[_cfg >> "base_imperial_blackcamo_aa"]], -1, 0.2],
+	[[[_cfg >> "base_imperial_blackcamo_marksmanPair"]], -1, 0.1],
+	[[[_cfg >> "base_imperial_blackcamo_mgTeam"]], -1, 0.3]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, east, "ls_imperial", _arr,
+	[3000,9999999], [275,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
 _cfg = (configfile >> "CfgGroups" >> "East" >> "ls_cis" >> "cis_baseInfantry");
 _arr = [
 	[[[_cfg >> "base_b1_fireteam"]], -1, 0.3],
