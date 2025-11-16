@@ -3507,7 +3507,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6681.3677,4.0411463,3680.3564};
+						position[]={6681.3677,4.0411458,3680.3564};
 					};
 					side="East";
 					flags=5;
@@ -3543,6 +3543,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=253;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -3559,6 +3560,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=254;
 					type="ls_jabiim_nimbusCommando_AT";
@@ -3574,6 +3576,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=255;
 					type="ls_jabiim_nimbusCommando";
@@ -3589,6 +3592,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=256;
 					type="ls_jabiim_nimbusCommando";
@@ -3605,6 +3609,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=257;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -3614,13 +3619,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6862.041,4.5920229,3379.8796};
+						position[]={6862.041,4.5920224,3379.8796};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=258;
 					type="ls_jabiim_nimbusCommando";
@@ -3636,6 +3642,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=259;
 					type="ls_jabiim_nimbusCommando";
@@ -3645,12 +3652,13 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6867.041,4.6347961,3374.8796};
+						position[]={6867.041,4.6347957,3374.8796};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=260;
 					type="ls_jabiim_nimbusCommando";
@@ -3680,6 +3688,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=262;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -3689,13 +3698,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6852.9585,4.1711941,3385.5962};
+						position[]={6852.9585,4.1711936,3385.5962};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=263;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -3711,6 +3721,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=264;
 					type="ls_jabiim_nimbusCommando";
@@ -3720,12 +3731,13 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6857.9585,4.4444323,3380.5962};
+						position[]={6857.9585,4.4444318,3380.5962};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=265;
 					type="ls_jabiim_nimbusCommando_heavyAA";
@@ -3742,6 +3754,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=266;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -3751,13 +3764,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6862.9585,4.5345631,3375.5962};
+						position[]={6862.9585,4.5345626,3375.5962};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=267;
 					type="ls_jabiim_nimbusCommando_heavyAT";
@@ -3767,12 +3781,13 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6832.9585,4.1972828,3375.5962};
+						position[]={6832.9585,4.1972823,3375.5962};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=268;
 					type="ls_jabiim_nimbusCommando";
@@ -3788,6 +3803,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=269;
 					type="ls_jabiim_nimbusCommando";
@@ -3810,13 +3826,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6848.436,4.2506752,3379.9729};
+						position[]={6848.436,4.2506747,3379.9729};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=271;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -3826,13 +3843,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6853.436,4.3324594,3374.9729};
+						position[]={6853.436,4.3324599,3374.9729};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=272;
 					type="ls_jabiim_nimbusCommando_AT";
@@ -3848,6 +3866,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=273;
 					type="ls_jabiim_nimbusCommando";
@@ -3863,6 +3882,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=274;
 					type="ls_jabiim_nimbusCommando";
@@ -3892,6 +3912,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=276;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -3908,6 +3929,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=277;
 					type="ls_jabiim_nimbusCommando_heavyAT";
@@ -3917,12 +3939,13 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6843.3418,4.0731936,3367.0156};
+						position[]={6843.3418,4.0731931,3367.0156};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=278;
 					type="ls_jabiim_nimbusCommando_AT";
@@ -3938,6 +3961,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=279;
 					type="ls_jabiim_nimbusCommando_AT";
@@ -3967,6 +3991,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=281;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -3983,6 +4008,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=282;
 					type="ls_jabiim_nimbusCommando_AT";
@@ -3998,6 +4024,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=283;
 					type="ls_jabiim_nimbusCommando_heavyAA";
@@ -4013,6 +4040,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=284;
 					type="ls_jabiim_nimbusCommando_heavyAA";
@@ -4035,13 +4063,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6843.9326,4.4123373,3423.5725};
+						position[]={6843.9326,4.4123368,3423.5725};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=286;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -4058,6 +4087,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=287;
 					type="ls_jabiim_nimbusCommando_Demo";
@@ -4073,6 +4103,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=288;
 					type="ls_jabiim_nimbusCommando_Demo";
@@ -4088,6 +4119,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=289;
 					type="ls_jabiim_nimbusCommando_Demo";
@@ -4117,6 +4149,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=291;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -4126,12 +4159,13 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6842.8828,4.0479794,3370.6531};
+						position[]={6842.8828,4.0479798,3370.6531};
 					};
 					side="Independent";
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=292;
 					type="ls_jabiim_nimbusCommando";
@@ -4161,6 +4195,7 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=294;
 					type="ls_jabiim_nimbusCommando_Sniper";
@@ -4177,6 +4212,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=295;
 					type="ls_jabiim_nimbusCommando_Sniper";
@@ -4199,13 +4235,14 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={6841.4595,4.5238752,3409.6448};
+						position[]={6841.4595,4.5238748,3409.6448};
 					};
 					side="Independent";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
+						isPlayable=1;
 					};
 					id=297;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -4222,6 +4259,7 @@ class Mission
 					class Attributes
 					{
 						rank="CORPORAL";
+						isPlayable=1;
 					};
 					id=298;
 					type="ls_jabiim_nimbusCommando_Heavy";
@@ -4237,6 +4275,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						isPlayable=1;
 					};
 					id=299;
 					type="ls_jabiim_nimbusCommando_Heavy";
