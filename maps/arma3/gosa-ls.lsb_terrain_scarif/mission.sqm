@@ -583,7 +583,7 @@ class Mission
 			side="West";
 			class Entities
 			{
-				items=9;
+				items=8;
 				class Item0
 				{
 					dataType="Object";
@@ -612,10 +612,11 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						isPlayable=1;
 					};
 					id=29;
-					type="ls_orsf_trooper_Shotgun";
+					type="ls_orsf_trooper_Demo";
 				};
 				class Item2
 				{
@@ -631,7 +632,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=30;
-					type="ls_orsf_trooper_Demo";
+					type="ls_orsf_trooper";
 				};
 				class Item3
 				{
@@ -647,7 +648,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=31;
-					type="ls_orsf_trooper_heavyAT";
+					type="ls_orsf_trooper_heavyAA";
 				};
 				class Item4
 				{
@@ -660,10 +661,11 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="SERGEANT";
 						isPlayable=1;
 					};
 					id=32;
-					type="ls_orsf_trooper_light";
+					type="ls_orsf_trooper_Heavy";
 				};
 				class Item5
 				{
@@ -676,10 +678,11 @@ class Mission
 					flags=5;
 					class Attributes
 					{
+						rank="CORPORAL";
 						isPlayable=1;
 					};
 					id=33;
-					type="ls_orsf_trooper_Shotgun";
+					type="ls_orsf_trooper_heavyAT";
 				};
 				class Item6
 				{
@@ -695,7 +698,7 @@ class Mission
 						isPlayable=1;
 					};
 					id=34;
-					type="ls_orsf_trooper";
+					type="ls_orsf_trooper_RTO";
 				};
 				class Item7
 				{
@@ -727,12 +730,12 @@ class Mission
 						isPlayable=1;
 					};
 					id=36;
-					type="ls_orsf_trooper_Heavy";
+					type="ls_orsf_trooper";
 				};
 			};
-			class Attributes
-			{
-			};
+					class Attributes
+					{
+					};
 			id=27;
 		};
 		class Item10
