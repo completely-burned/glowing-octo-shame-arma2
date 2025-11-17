@@ -8,7 +8,7 @@ class EditorData
 	toggles=522;
 	class ItemIDProvider
 	{
-		nextID=448;
+		nextID=482;
 	};
 	class MarkerIDProvider
 	{
@@ -233,7 +233,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=101;
+		items=102;
 		class Item0
 		{
 			dataType="Marker";
@@ -828,23 +828,22 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-656.84802,1396.5385,227.37};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient";
-			isPlayer=1;
+			isPlayable=1;
 			id=60;
 			type="HeadlessClient_F";
-			atlOffset=-0.00012207031;
 		};
 		class Item51
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-1077.0505,1392.4686,210.56128};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient_1";
-			isPlayer=1;
+			isPlayable=1;
 			id=61;
 			type="HeadlessClient_F";
 		};
@@ -853,10 +852,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-1345.98,1392.4686,210.56128};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient_2";
-			isPlayer=1;
+			isPlayable=1;
 			id=62;
 			type="HeadlessClient_F";
 		};
@@ -865,10 +864,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-1614.9088,1393.5297,160.13788};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient_3";
-			isPlayer=1;
+			isPlayable=1;
 			id=63;
 			type="HeadlessClient_F";
 		};
@@ -877,10 +876,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-1850.2219,1397.5021,143.32849};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient_4";
-			isPlayer=1;
+			isPlayable=1;
 			id=64;
 			type="HeadlessClient_F";
 		};
@@ -889,10 +888,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-1631.7166,1538.4884,529.91504};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient_5";
-			isPlayer=1;
+			isPlayable=1;
 			id=65;
 			type="HeadlessClient_F";
 		};
@@ -901,10 +900,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-1951.0703,1543.6172,546.72363};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient_6";
-			isPlayer=1;
+			isPlayable=1;
 			id=66;
 			type="HeadlessClient_F";
 		};
@@ -913,10 +912,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-1194.7067,1549.5972,563.53064};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient_7";
-			isPlayer=1;
+			isPlayable=1;
 			id=67;
 			type="HeadlessClient_F";
 		};
@@ -925,10 +924,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-774.50531,1583.4058,714.80322};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient_8";
-			isPlayer=1;
+			isPlayable=1;
 			id=68;
 			type="HeadlessClient_F";
 		};
@@ -937,10 +936,10 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={-387.91956,1562.3896,597.14783};
+				position[]={0,1410.3,0};
 			};
 			name="HeadlessClient_9";
-			isPlayer=1;
+			isPlayable=1;
 			id=69;
 			type="HeadlessClient_F";
 		};
@@ -5930,6 +5929,85 @@ class Mission
 			{
 			};
 			id=445;
+		};
+		class Item101
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=4;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9344,538.48145,3937.05};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						rank="CORPORAL";
+						isPlayer=1;
+						isPlayable=1;
+					};
+					id=465;
+					type="vn_c_men_01";
+				};
+				class Item1
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9345.5459,538.48145,3936.4849};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=467;
+					type="vn_c_men_05";
+				};
+				class Item2
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9342.2393,538.48145,3935.6382};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=469;
+					type="vn_c_men_09";
+				};
+				class Item3
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={9342.8389,538.48145,3933.5894};
+					};
+					side="Civilian";
+					flags=5;
+					class Attributes
+					{
+						isPlayable=1;
+					};
+					id=481;
+					type="vn_c_men_13";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=464;
 		};
 	};
 	class Connections
