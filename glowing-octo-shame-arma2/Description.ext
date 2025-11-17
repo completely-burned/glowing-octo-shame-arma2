@@ -1209,6 +1209,18 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class veh_getInfo
+			{
+				file = "dir\functions\fnc_veh_getInfo.sqf";
+			};
+			class faction_getInfo
+			{
+				file = "dir\functions\fnc_faction_getInfo.sqf";
+			};
+			class getInfo
+			{
+				file = "dir\functions\fnc_getInfo.sqf";
+			};
 			class groups_convNormal
 			{
 				file = "dir\functions\fnc_groups_convNormal.sqf";
