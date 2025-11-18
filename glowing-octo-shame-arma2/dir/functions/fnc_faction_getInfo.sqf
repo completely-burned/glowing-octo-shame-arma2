@@ -59,6 +59,24 @@ switch (true) do {
 		"fia_des","csla_civ"]): {
 			_date = [1980,1990];
 	};
+	// RHS >VN >WW2
+	case (_f in ["rhs_faction_msv","rhs_faction_vdv","rhs_faction_vdv_45",
+		"rhs_faction_vmf","rhs_faction_vv","rhs_faction_tv","rhs_faction_vpvo",
+		"rhs_faction_vvs","rhs_faction_vvs_c","rhs_faction_rva",
+		"rhs_faction_usarmy","rhs_faction_usmc","rhs_faction_usarmy_wd",
+		"rhs_faction_usarmy_d","rhs_faction_usmc_wd","rhs_faction_usmc_d",
+		"rhs_faction_usaf","rhs_faction_usn","rhs_faction_socom",
+		"rhs_faction_insurgents","rhsgref_faction_cdf_ground",
+		"rhsgref_faction_cdf_ground_b","rhsgref_faction_cdf_air",
+		"rhsgref_faction_cdf_air_b","rhsgref_faction_cdf_ng",
+		"rhsgref_faction_cdf_ng_b","rhsgref_faction_un",
+		"rhsgref_faction_nationalist","rhsgref_faction_chdkz",
+		"rhsgref_faction_chdkz_g","rhsgref_faction_hidf","rhsgref_faction_tla",
+		"rhsgref_faction_tla_g","rhssaf_faction_army",
+		"rhssaf_faction_army_opfor","rhssaf_faction_airforce",
+		"rhssaf_faction_airforce_opfor","rhssaf_faction_un"]): {
+			_date = [1970,2020];
+	};
 	// A2 2008
 	// A2OA 2012
 	// A3 2035
