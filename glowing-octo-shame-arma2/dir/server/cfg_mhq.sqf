@@ -73,6 +73,14 @@ _arr = [
 	[west,	"gm_ge_army_m113a1g_command",	nil],
 	[west,	"gm_dk_army_m113a1dk_command",	nil],
 
+	[east,	"CSLA_AZU_R2",	nil],
+	[east,	"CSLA_AZU_R2_des",	nil],
+	[west,	"AFMC_M1008_S250",	nil],
+	[west,	"US85_M1008_S250",	nil],
+	[west,	"US85_M923a1_s280",	nil],
+	[west,	"US85_M1008_S250_DES",	nil],
+	[west,	"US85_M923a1_s280_DES",	nil],
+
 	[east,			"rhs_gaz66_r142_msv",	nil],
 	[east,			"rhs_gaz66_r142_vmf",	nil],
 	[east,			"rhs_gaz66_r142_vdv",	nil],
