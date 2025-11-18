@@ -256,6 +256,12 @@ if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else 
 					{
 						if ((rankId _x) > (rankId _bestCandidate)) then {
 							_bestCandidate = _x;
+						}else{
+							if (rankId _x >= rankId _bestCandidate) then {
+								if (_x skill "commanding" > _bestCandidate skill "commanding") then {
+									_bestCandidate = _x;
+								};
+							};
 						};
 					}forEach _tmpArr;
 				};
