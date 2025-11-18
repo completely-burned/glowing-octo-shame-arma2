@@ -6,6 +6,13 @@ _cfgveh = LIB_cfgVeh;
 _arr = [
 	// [side, реальный тип, виртуальный тип].
 	
+	[west,			"SPE_OpelBlitz",		"SPE_OpelBlitz_Command"],
+	[west,			"SPE_ST_OpelBlitz",		"SPE_ST_OpelBlitz_Command"],
+	[west,			"SPEX_DAK_OpelBlitz",	"SPEX_DAK_OpelBlitz_Command"],
+	[resistance,	"SPE_CCKW_353",			"SPE_CCKW_353_Command"],
+	[resistance,	"SPE_FR_CCKW_353",		"SPE_FR_CCKW_353_Command"],
+	[resistance,	"SPEX_PL_CCKW_353",		"SPEX_PL_CCKW_353_Command"],
+
 	[west,	"gm_ge_army_kat1_454_cargo"],
 	[west,	"gm_dk_army_u1300l_container"],
 	[east,	"gm_gc_army_2p16"],
@@ -28,8 +35,11 @@ for "_i" from 0 to (count _arr -1) do {
 	_item = _arr select _i;
 	_str = configName (_cfgVeh >> (_item select 1));
 	if (_str != "") then {
+		_item set [1, toLower (_item select 1)];
 		if (count _item <= 2) then {
-			_item set [2, _str + "_command_gosa"];
+			_item set [2, (_item select 1 + "_command_gosa")];
+		}else{
+			_item set [2, toLower (_item select 2)];
 		};
 		_arr0 set [count _arr0, _item];
 	};
@@ -158,8 +168,13 @@ _arr = [
 _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_str = configName (_cfgVeh >> ((_arr select _i select 1) call gosa_fnc_fixType));
-	if (_str != "") then {
-		_arr select _i set [1, toLower (_arr select _i select 1)];
+	_arr select _i set [1, toLower (_arr select _i select 1)];
+	_arr select _i set [2, toLower (_arr select _i select 2)];
+	if (_str == "") then {
+		if (_arr select _i select 1 in (gosa_types_mhq_virt select 1) or _str in (gosa_types_mhq_virt select 2)) then {
+			_arr0 set [count _arr0, _arr select _i];
+		};
+	}else{
 		_arr0 set [count _arr0, _arr select _i];
 	};
 };
