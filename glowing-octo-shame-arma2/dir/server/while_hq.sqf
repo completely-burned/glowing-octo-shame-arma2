@@ -10,7 +10,7 @@ if (missionNamespace getVariable "gosa_MHQ" < 1) exitWith {
 
 private ["_side","_arr","_type_Lower","_str","_status","_dir",
 	"_testPosCount","_sideUsed","_posUsed","_pos","_b","_n",
-	"_arr0","_str0",
+	"_arr0","_str0","_IslandType","_t","_d","_arr1","_arr2","_arr3",
 	"_startingPositions","_minDist","_sidePlayable","_worldSize"];
 scopeName "root";
 
@@ -59,6 +59,9 @@ diag_log format ["Log: [while_hq]: %1, %2", _sideUsed, _posUsed];
 
 waitUntil {!isNil "gosa_types_mhq"};
 _arr = gosa_types_mhq;
+_IslandType = gosa_IslandType;
+_t = (_IslandType select 0);
+_d = (_IslandType select 1);
 waitUntil {!isNil "gosa_listHQ_init_done"};
 
 for "_i" from 0 to (count _sideUsed -1) do {
@@ -66,15 +69,34 @@ for "_i" from 0 to (count _sideUsed -1) do {
 	_pos = _posUsed select _i;
 
 	// TODO: Виртуальные типы.
-	_arr0 = [[],[]];
-	for "_i0" from 0 to ((count ((_arr select 0)) -1)) do {
-		_arr0 select 0 set [_i0, _i0];
-		if (((_arr select 0) select _i0) == _side) then {_n = 1} else {_n = 0};
-		_arr0 select 1 set [_i0, _n];
+	_arr0 = [];
+	_arr1 = [];
+	_arr2 = [];
+	_b = true;
+	for "_i0" from 0 to (count (_arr select 0) -1) do {
+		_arr0 set [_i0, _i0];
+		if (((_arr select 0) select _i0) == _side) then {
+			_arr1 set [_i0, 0];
+			_arr3 = [_arr select 1 select _i0] call gosa_fnc_veh_getInfo;
+			if (count (_arr3 select 0) > 0) then {
+				if (_arr3 select 0 select 0 <= _d &&
+					_arr3 select 0 select 1 > _d) then
+				{
+					_arr1 set [_i0, 1];
+					_b = false;
+				};
+			};
+			_arr2 set [_i0, 1];
+		} else {
+			_arr2 set [_i0, 0];
+		};
+	};
+	if (_b) then {
+		_arr1 = _arr2;
 	};
 
-	diag_log format ["Log: [while_hq]: _arr0_Weighted %1", _arr0];
-	_n = (_arr0 call BIS_fnc_selectRandomWeighted);
+	diag_log format ["Log: [while_hq]: _arr0_Weighted %1", [_arr0, _arr1]];
+	_n = [_arr0, _arr1] call BIS_fnc_selectRandomWeighted;
 	_type_Lower = (_arr select 1 select _n);
 	_dir = random 360;
 	_status = 2;
