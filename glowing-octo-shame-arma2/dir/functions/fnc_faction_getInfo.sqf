@@ -55,6 +55,10 @@ switch (true) do {
 			_date = [1980,2000];
 	};
 	// CSLA 1986
+	case (_f in ["csla","csla_des","us85","us85_des","afmc","fia_civ",
+		"fia_des","csla_civ"]): {
+			_date = [1980,1990];
+	};
 	// A2 2008
 	// A2OA 2012
 	// A3 2035
