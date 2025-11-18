@@ -95,6 +95,13 @@ _arr = [
 	[east,			"rhsgref_BRDM2_HQ_vdv",	nil],
 	[east,			"rhsgref_BRDM2_HQ_vmf",	nil],
 
+	[west,			"rhsusf_M1078A1P2_B_D_CP_fmtv_usarmy",	nil],
+	[west,			"rhsusf_M1078A1P2_B_WD_CP_fmtv_usarmy",	nil],
+	[west,			"rhsusf_m1152_sicps_usarmy_d",	nil],
+	[west,			"rhsusf_m1152_sicps_usarmy_wd",	nil],
+	[west,			"rhsgref_BRDM2UM_b",	nil],
+	[west,			"rhsgref_BRDM2_HQ_b",	nil],
+
 	[resistance,	"rhsgref_ins_g_gaz66_r142",	nil],
 	[resistance,	"rhsgref_cdf_gaz66_r142",	nil],
 	[resistance,	"rhsgref_BRDM2UM_ins_g",	nil],
@@ -152,6 +159,7 @@ _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_str = configName (_cfgVeh >> ((_arr select _i select 1) call gosa_fnc_fixType));
 	if (_str != "") then {
+		_arr select _i set [1, toLower (_arr select _i select 1)];
 		_arr0 set [count _arr0, _arr select _i];
 	};
 };
