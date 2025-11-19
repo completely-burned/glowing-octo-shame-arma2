@@ -247,6 +247,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
+		class gosa_faction_multiplier_VN_PL {
+			title="FACTION: VN_PL";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_VN_VC {
 			title="FACTION: VN_VC";
 			values[] = {-1,1,0};

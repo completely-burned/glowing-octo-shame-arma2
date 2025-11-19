@@ -600,6 +600,95 @@ _arr = [
 	[]
 ] call gosa_fnc_map_groups_add;
 
+#define __cfg configFile >> "CfgGroups" >> "East" >> "VN_PL"
+_arr = [
+	// Люди (ПЛ)
+	// Стрелковый отряд 1
+	[[[__cfg >> "vn_o_group_men_pl" >> "vn_o_group_men_pl_01"]],0.5],
+	// Стрелковый отряд 2
+	[[[__cfg >> "vn_o_group_men_pl" >> "vn_o_group_men_pl_02"]],0.5],
+	// Отряд саперов
+	[[[__cfg >> "vn_o_group_men_pl" >> "vn_o_group_men_pl_03"]],0.5],
+	// Разведывательный отряд
+	[[[__cfg >> "vn_o_group_men_pl" >> "vn_o_group_men_pl_04"]],0.5],
+	// Мотопехота (ПЛ)
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_01"]],0.5],
+	// Патрульный автомобиль БТР-40 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_02"]],0.5],
+	// Патрульный автомобиль БТР-40 (с пулеметом)
+	[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_03"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_04"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_05"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 с пулеметом
+	[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_06"]],0.5],
+	// Подкрепления ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_07"]],0.5],
+	// Грузовой конвой (велосипед)
+	//[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_08"]],0.5],
+	// Разведывательный конвой (велосипед)
+	//[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_09"]],0.5],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_motor_pl" >> "vn_o_group_motor_pl_10"]],0,0.05],
+	// Механизированная пехота (ПЛ)
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_mech_pl" >> "vn_o_group_mech_pl_01"]],0.5],
+	// ЗиЛ-157 конвой (вооруженный)
+	[[[__cfg >> "vn_o_group_mech_pl" >> "vn_o_group_mech_pl_02"]],0,0.05],
+	// ЗиЛ-157 конвой (снабжение)
+	[[[__cfg >> "vn_o_group_mech_pl" >> "vn_o_group_mech_pl_03"]],0,0.05],
+	// ЗиЛ-157 конвой
+	[[[__cfg >> "vn_o_group_mech_pl" >> "vn_o_group_mech_pl_04"]],0,0.05],
+	// ЗиЛ-157 конвой (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_pl" >> "vn_o_group_mech_pl_05"]],0,0.05],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_mech_pl" >> "vn_o_group_mech_pl_12"]],0,0.05],
+	// Бронированный отряд (ПЛ)
+	// Взвод ПТ-76
+	[[[__cfg >> "vn_o_group_armor_pl" >> "vn_o_group_armor_pl_01"]],0.5],
+	// Расчет ПТ-76
+	[[[__cfg >> "vn_o_group_armor_pl" >> "vn_o_group_armor_pl_02"]],0.5],
+	// Зенитный взвод ПТ-76
+	[[[__cfg >> "vn_o_group_armor_pl" >> "vn_o_group_armor_pl_03"]],0.5],
+	// Морские силы (ПЛ)
+	// Бронированные лодки (патруль)
+	[[[__cfg >> "vn_o_group_boats_pl" >> "vn_o_group_boat_pl_01"]],0,0.05],
+	// Бронированные лодки (эскадрон)
+	[[[__cfg >> "vn_o_group_boats_pl" >> "vn_o_group_boat_pl_02"]],0,0.05]
+	// Лодки (транспорт)
+	//[[[__cfg >> "vn_o_group_boats_pl" >> "vn_o_group_boat_pl_03"]],0.5],
+	// Лодки (снабжение)
+	//[[[__cfg >> "vn_o_group_boats_pl" >> "vn_o_group_boat_pl_04"]],0.5],
+	/*
+	// Турели (ПЛ)
+	// Пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_01"]],0.5],
+	// Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_02"]],0.5],
+	// Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_03"]],0.5],
+	// Минометная батарея
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_04"]],0.5],
+	// Гаубичная батарея
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_05"]],0.5],
+	// Батарея ПВО
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_06"]],0.5],
+	// Расчет ПТО
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_07"]],0.5],
+	// Расчет безоткатного орудия
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_08"]],0.5],
+	// Батарея ПВО 2
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_09"]],0.5],
+	// Крупнокалиберный пулеметный расчет 3
+	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_10"]],0.5]
+	*/
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "VN_PL", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [160,999],
+	[]
+] call gosa_fnc_map_groups_add;
 
 
 // west
