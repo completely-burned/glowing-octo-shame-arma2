@@ -10,6 +10,9 @@ if (getNumber (LIB_cfgWea >> currentWeapon _veh >> "enableAttack") <= 0) exitWit
 	if([[_veh], ["gm_wheeled_APC_base"]] call gosa_fnc_CheckIsKindOfArray) exitWith {
 		true;
 	};
+	if([[_veh], ["vn_armor_btr50pk_base"]] call gosa_fnc_CheckIsKindOfArray) exitWith {
+		true;
+	};
 #endif
 
 if([[_veh], ["M1128_MGS_EP1", "Pandur2_ACR"]] call gosa_fnc_CheckIsKindOfArray) exitWith {
