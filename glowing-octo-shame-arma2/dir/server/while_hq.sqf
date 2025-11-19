@@ -77,7 +77,7 @@ for "_i" from 0 to (count _sideUsed -1) do {
 		_arr0 set [_i0, _i0];
 		if (((_arr select 0) select _i0) == _side) then {
 			_arr1 set [_i0, 0];
-			_arr3 = [_arr select 1 select _i0] call gosa_fnc_veh_getInfo;
+			_arr3 = [_arr select 1 select _i0] call gosa_fnc_getInfo;
 			if (count (_arr3 select 0) > 0) then {
 				if (_arr3 select 0 select 0 <= _d &&
 					_arr3 select 0 select 1 > _d) then
