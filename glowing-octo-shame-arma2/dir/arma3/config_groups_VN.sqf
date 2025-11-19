@@ -1,350 +1,605 @@
 // east
+#define __cfg configFile >> "CfgGroups" >> "East" >> "VN_PAVN"
 _arr = [
-	// vn_o_group_men_nva_01
-	[[[["vn_o_men_nva_01","vn_o_men_nva_02","vn_o_men_nva_03","vn_o_men_nva_04","vn_o_men_nva_05","vn_o_men_nva_06","vn_o_men_nva_07","vn_o_men_nva_08","vn_o_men_nva_09","vn_o_men_nva_10","vn_o_men_nva_11","vn_o_men_nva_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-65,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_02
-	[[[["vn_o_men_nva_01","vn_o_men_nva_02","vn_o_men_nva_03","vn_o_men_nva_04","vn_o_men_nva_05","vn_o_men_nva_06","vn_o_men_nva_07","vn_o_men_nva_08","vn_o_men_nva_09","vn_o_men_nva_10","vn_o_men_nva_11","vn_o_men_nva_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-65,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-70,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_03
-	[[[["vn_o_men_nva_01","vn_o_men_nva_02","vn_o_men_nva_03","vn_o_men_nva_04","vn_o_men_nva_05","vn_o_men_nva_06","vn_o_men_nva_07","vn_o_men_nva_08","vn_o_men_nva_09","vn_o_men_nva_10","vn_o_men_nva_11","vn_o_men_nva_10","vn_o_men_nva_13","vn_o_men_nva_14","vn_o_men_nva_08","vn_o_men_nva_11","vn_o_men_nva_14","vn_o_men_nva_03","vn_o_men_nva_04","vn_o_men_nva_05","vn_o_men_nva_06","vn_o_men_nva_07","vn_o_men_nva_08"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0],[0,-75,0],[0,-80,0],[0,-85,0],[0,-90,0],[0,-95,0],[0,-100,0],[0,-105,0],[0,-110,0],[0,-115,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_04
-	[[[["vn_o_men_nva_02","vn_o_men_nva_05","vn_o_men_nva_09","vn_o_men_nva_10"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_06
-	[[[["vn_o_men_nva_01","vn_o_men_nva_02","vn_o_men_nva_12","vn_o_men_nva_12","vn_o_men_nva_13","vn_o_men_nva_08"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["MAJOR","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_07
-	[[[["vn_o_men_nva_29","vn_o_men_nva_30","vn_o_men_nva_31"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_08
-	[[[["vn_o_men_nva_12","vn_o_men_nva_02"],[[0,-5,0],[0,-10,0]],["PRIVATE","SERGEANT"]]],0.5],
-	// vn_o_group_men_nva_field_01
-	[[[["vn_o_men_nva_15","vn_o_men_nva_16","vn_o_men_nva_17","vn_o_men_nva_18","vn_o_men_nva_19","vn_o_men_nva_20","vn_o_men_nva_21","vn_o_men_nva_22","vn_o_men_nva_23","vn_o_men_nva_24","vn_o_men_nva_25","vn_o_men_nva_28"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-65,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_field_02
-	[[[["vn_o_men_nva_15","vn_o_men_nva_16","vn_o_men_nva_17","vn_o_men_nva_18","vn_o_men_nva_19","vn_o_men_nva_20","vn_o_men_nva_21","vn_o_men_nva_22","vn_o_men_nva_23","vn_o_men_nva_24","vn_o_men_nva_27","vn_o_men_nva_28"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-65,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-70,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_field_03
-	[[[["vn_o_men_nva_15","vn_o_men_nva_15","vn_o_men_nva_16","vn_o_men_nva_17","vn_o_men_nva_18","vn_o_men_nva_19","vn_o_men_nva_20","vn_o_men_nva_21","vn_o_men_nva_22","vn_o_men_nva_23","vn_o_men_nva_24","vn_o_men_nva_25","vn_o_men_nva_26","vn_o_men_nva_28","vn_o_men_nva_22","vn_o_men_nva_25","vn_o_men_nva_28","vn_o_men_nva_17","vn_o_men_nva_18","vn_o_men_nva_19","vn_o_men_nva_20","vn_o_men_nva_21","vn_o_men_nva_22"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0],[0,-75,0],[0,-80,0],[0,-85,0],[0,-90,0],[0,-95,0],[0,-100,0],[0,-105,0],[0,-110,0],[0,-115,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_field_04
-	[[[["vn_o_men_nva_16","vn_o_men_nva_19","vn_o_men_nva_23","vn_o_men_nva_24"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_field_06
-	[[[["vn_o_men_nva_15","vn_o_men_nva_16","vn_o_men_nva_26","vn_o_men_nva_26","vn_o_men_nva_27","vn_o_men_nva_22"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["MAJOR","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_field_07
-	[[[["vn_o_men_nva_33","vn_o_men_nva_34","vn_o_men_nva_35"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_field_08
-	[[[["vn_o_men_nva_26","vn_o_men_nva_16"],[[0,-5,0],[0,-10,0]],["PRIVATE","SERGEANT"]]],0.5],
+	// Стрелковый отряд 1
+	[[[__cfg >> "vn_o_group_men_nva" >> "vn_o_group_men_nva_01"]],0.5],
+	// Стрелковый отряд 2
+	[[[__cfg >> "vn_o_group_men_nva" >> "vn_o_group_men_nva_02"]],0.5],
+	// Стрелковый взвод
+	[[[__cfg >> "vn_o_group_men_nva" >> "vn_o_group_men_nva_03"]],0.5],
+	// Разведгруппа
+	[[[__cfg >> "vn_o_group_men_nva" >> "vn_o_group_men_nva_04"]],0.5],
+	// Экипаж танка
+	[[[__cfg >> "vn_o_group_men_nva" >> "vn_o_group_men_nva_05"]],0.5],
+	// Отряд штаба
+	[[[__cfg >> "vn_o_group_men_nva" >> "vn_o_group_men_nva_06"]],0,0.1],
+	// Минометный расчет
+	[[[__cfg >> "vn_o_group_men_nva" >> "vn_o_group_men_nva_07"]],0,0.1],
+	// Экипаж техники
+	//[[[__cfg >> "vn_o_group_men_nva" >> "vn_o_group_men_nva_08"]],0.5],
+	// Стрелковый отряд 1
+	[[[__cfg >> "vn_o_group_men_nva_field" >> "vn_o_group_men_nva_field_01"]],0.5],
+	// Стрелковый отряд 2
+	[[[__cfg >> "vn_o_group_men_nva_field" >> "vn_o_group_men_nva_field_02"]],0.5],
+	// Стрелковый взвод
+	[[[__cfg >> "vn_o_group_men_nva_field" >> "vn_o_group_men_nva_field_03"]],0.5],
+	// Разведгруппа
+	[[[__cfg >> "vn_o_group_men_nva_field" >> "vn_o_group_men_nva_field_04"]],0.5],
+	// Экипаж танка
+	[[[__cfg >> "vn_o_group_men_nva_field" >> "vn_o_group_men_nva_field_05"]],0.5],
+	// Отряд штаба
+	[[[__cfg >> "vn_o_group_men_nva_field" >> "vn_o_group_men_nva_field_06"]],0,0.1],
+	// Минометный расчет
+	[[[__cfg >> "vn_o_group_men_nva_field" >> "vn_o_group_men_nva_field_07"]],0,0.1],
+	// Экипаж техники
+	//[[[__cfg >> "vn_o_group_men_nva_field" >> "vn_o_group_men_nva_field_08"]],0.5],
+	// Стрелковый отряд 1
+	[[[__cfg >> "vn_o_group_men_nva_65" >> "vn_o_group_men_nva_65_01"]],0.5],
+	// Стрелковый отряд 2
+	[[[__cfg >> "vn_o_group_men_nva_65" >> "vn_o_group_men_nva_65_02"]],0.5],
+	// Стрелковый взвод
+	[[[__cfg >> "vn_o_group_men_nva_65" >> "vn_o_group_men_nva_65_03"]],0.5],
+	// Разведгруппа
+	[[[__cfg >> "vn_o_group_men_nva_65" >> "vn_o_group_men_nva_65_04"]],0.5],
+	// Экипаж танка
+	//[[[__cfg >> "vn_o_group_men_nva_65" >> "vn_o_group_men_nva_65_05"]],0.5],
+	// Отряд штаба
+	[[[__cfg >> "vn_o_group_men_nva_65" >> "vn_o_group_men_nva_65_06"]],0,0.1],
+	// Минометный расчет
+	[[[__cfg >> "vn_o_group_men_nva_65" >> "vn_o_group_men_nva_65_07"]],0,0.1],
+	// Экипаж техники
+	//[[[__cfg >> "vn_o_group_men_nva_65" >> "vn_o_group_men_nva_65_08"]],0.5],
+	// Стрелковый отряд 1
+	[[[__cfg >> "vn_o_group_men_nva_65_field" >> "vn_o_group_men_nva_65_field_01"]],0.5],
+	// Стрелковый отряд 2
+	[[[__cfg >> "vn_o_group_men_nva_65_field" >> "vn_o_group_men_nva_65_field_02"]],0.5],
+	// Стрелковый взвод
+	[[[__cfg >> "vn_o_group_men_nva_65_field" >> "vn_o_group_men_nva_65_field_03"]],0.5],
+	// Разведгруппа
+	[[[__cfg >> "vn_o_group_men_nva_65_field" >> "vn_o_group_men_nva_65_field_04"]],0.5],
+	// Экипаж танка
+	//[[[__cfg >> "vn_o_group_men_nva_65_field" >> "vn_o_group_men_nva_65_field_05"]],0.5],
+	// Отряд штаба
+	[[[__cfg >> "vn_o_group_men_nva_65_field" >> "vn_o_group_men_nva_65_field_06"]],0,0.1],
+	// Минометный расчет
+	[[[__cfg >> "vn_o_group_men_nva_65_field" >> "vn_o_group_men_nva_65_field_07"]],0,0.1],
+	// Экипаж техники
+	//[[[__cfg >> "vn_o_group_men_nva_65_field" >> "vn_o_group_men_nva_65_field_08"]],0.5],
+	// Дак Конг отряд 1
+	[[[__cfg >> "vn_o_group_men_nva_dc" >> "vn_o_group_men_nva_dc_01"]],0.5],
+	// Дак Конг отряд 2
+	[[[__cfg >> "vn_o_group_men_nva_dc" >> "vn_o_group_men_nva_dc_02"]],0.5],
+	// Отряд военно-морских сил 1
+	[[[__cfg >> "vn_o_group_men_nva_navy" >> "vn_o_group_men_nva_navy_01"]],0.5],
+	// Экипаж катера (Shantou)
+	//[[[__cfg >> "vn_o_group_men_nva_navy" >> "vn_o_group_men_nva_navy_02"]],0.5],
+	// Отряд морской пехоты 1
+	[[[__cfg >> "vn_o_group_men_nva_marine" >> "vn_o_group_men_nva_marine_01"]],0.5],
+	// Экипаж самолета
+	//[[[__cfg >> "vn_o_group_men_vpaf" >> "vn_o_group_men_vpaf_01"]],0.5],
+	// Экипаж МиГ
+	//[[[__cfg >> "vn_o_group_men_vpaf" >> "vn_o_group_men_vpaf_02"]],0.5],
+	// Экипаж Ми-2
+	//[[[__cfg >> "vn_o_group_men_vpaf" >> "vn_o_group_men_vpaf_03"]],0.5],
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_01"]],0.5],
+	// Патрульный автомобиль БТР-40 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_02"]],0.5],
+	// Патрульный автомобиль БТР-40 (с пулеметом)
+	[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_03"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_04"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_05"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 с пулеметом
+	[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_06"]],0.5],
+	// Подкрепления ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_07"]],0.5],
+	// Грузовой конвой (велосипед)
+	//[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_08"]],0.5],
+	// Разведывательный конвой (велосипед)
+	//[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_09"]],0.5],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_motor_nva" >> "vn_o_group_motor_nva_10"]],0,0.05],
 
-	// vn_o_group_men_nva_65_01
-	[[[["vn_o_men_nva_65_01","vn_o_men_nva_65_02","vn_o_men_nva_65_03","vn_o_men_nva_65_04","vn_o_men_nva_65_05","vn_o_men_nva_65_06","vn_o_men_nva_65_07","vn_o_men_nva_65_08","vn_o_men_nva_65_09","vn_o_men_nva_65_10","vn_o_men_nva_65_11","vn_o_men_nva_65_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-65,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_02
-	[[[["vn_o_men_nva_65_01","vn_o_men_nva_65_02","vn_o_men_nva_65_03","vn_o_men_nva_65_04","vn_o_men_nva_65_05","vn_o_men_nva_65_06","vn_o_men_nva_65_07","vn_o_men_nva_65_08","vn_o_men_nva_65_09","vn_o_men_nva_65_10","vn_o_men_nva_65_11","vn_o_men_nva_65_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-65,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-70,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_03
-	[[[["vn_o_men_nva_65_01","vn_o_men_nva_65_02","vn_o_men_nva_65_03","vn_o_men_nva_65_04","vn_o_men_nva_65_05","vn_o_men_nva_65_06","vn_o_men_nva_65_07","vn_o_men_nva_65_08","vn_o_men_nva_65_09","vn_o_men_nva_65_10","vn_o_men_nva_65_11","vn_o_men_nva_65_10","vn_o_men_nva_65_13","vn_o_men_nva_65_14","vn_o_men_nva_65_08","vn_o_men_nva_65_11","vn_o_men_nva_65_14","vn_o_men_nva_65_03","vn_o_men_nva_65_04","vn_o_men_nva_65_05","vn_o_men_nva_65_06","vn_o_men_nva_65_07","vn_o_men_nva_65_08"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0],[0,-75,0],[0,-80,0],[0,-85,0],[0,-90,0],[0,-95,0],[0,-100,0],[0,-105,0],[0,-110,0],[0,-115,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_04
-	[[[["vn_o_men_nva_65_02","vn_o_men_nva_65_05","vn_o_men_nva_65_09","vn_o_men_nva_65_10"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_06
-	[[[["vn_o_men_nva_65_01","vn_o_men_nva_65_02","vn_o_men_nva_65_12","vn_o_men_nva_65_12","vn_o_men_nva_65_13","vn_o_men_nva_65_08"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["MAJOR","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_07
-	[[[["vn_o_men_nva_65_29","vn_o_men_nva_65_30","vn_o_men_nva_65_31"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_08
-	[[[["vn_o_men_nva_65_12","vn_o_men_nva_65_02"],[[0,-5,0],[0,-10,0]],["PRIVATE","SERGEANT"]]],0.5],
-	// vn_o_group_men_nva_65_field_01
-	[[[["vn_o_men_nva_65_15","vn_o_men_nva_65_16","vn_o_men_nva_65_17","vn_o_men_nva_65_18","vn_o_men_nva_65_19","vn_o_men_nva_65_20","vn_o_men_nva_65_21","vn_o_men_nva_65_22","vn_o_men_nva_65_23","vn_o_men_nva_65_24","vn_o_men_nva_65_25","vn_o_men_nva_65_28"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-65,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_field_02
-	[[[["vn_o_men_nva_65_15","vn_o_men_nva_65_16","vn_o_men_nva_65_17","vn_o_men_nva_65_18","vn_o_men_nva_65_19","vn_o_men_nva_65_20","vn_o_men_nva_65_21","vn_o_men_nva_65_22","vn_o_men_nva_65_23","vn_o_men_nva_65_24","vn_o_men_nva_65_27","vn_o_men_nva_65_28"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-65,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-70,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_field_03
-	[[[["vn_o_men_nva_65_15","vn_o_men_nva_65_15","vn_o_men_nva_65_16","vn_o_men_nva_65_17","vn_o_men_nva_65_18","vn_o_men_nva_65_19","vn_o_men_nva_65_20","vn_o_men_nva_65_21","vn_o_men_nva_65_22","vn_o_men_nva_65_23","vn_o_men_nva_65_24","vn_o_men_nva_65_25","vn_o_men_nva_65_26","vn_o_men_nva_65_28","vn_o_men_nva_65_22","vn_o_men_nva_65_25","vn_o_men_nva_65_28","vn_o_men_nva_65_17","vn_o_men_nva_65_18","vn_o_men_nva_65_19","vn_o_men_nva_65_20","vn_o_men_nva_65_21","vn_o_men_nva_65_22"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0],[0,-75,0],[0,-80,0],[0,-85,0],[0,-90,0],[0,-95,0],[0,-100,0],[0,-105,0],[0,-110,0],[0,-115,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_field_04
-	[[[["vn_o_men_nva_65_16","vn_o_men_nva_65_19","vn_o_men_nva_65_23","vn_o_men_nva_65_24"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_field_06
-	[[[["vn_o_men_nva_65_15","vn_o_men_nva_65_16","vn_o_men_nva_65_26","vn_o_men_nva_65_26","vn_o_men_nva_65_27","vn_o_men_nva_65_22"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["MAJOR","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_field_07
-	[[[["vn_o_men_nva_65_32","vn_o_men_nva_65_33","vn_o_men_nva_65_34"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_65_field_08
-	[[[["vn_o_men_nva_65_26","vn_o_men_nva_65_16"],[[0,-5,0],[0,-10,0]],["PRIVATE","SERGEANT"]]],0.5],
-
-	// vn_o_group_men_nva_dc_01
-	[[[["vn_o_men_nva_dc_01","vn_o_men_nva_dc_02","vn_o_men_nva_dc_03","vn_o_men_nva_dc_04","vn_o_men_nva_dc_05","vn_o_men_nva_dc_06","vn_o_men_nva_dc_07","vn_o_men_nva_dc_08","vn_o_men_nva_dc_09","vn_o_men_nva_dc_10","vn_o_men_nva_dc_11","vn_o_men_nva_dc_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_dc_02
-	[[[["vn_o_men_nva_dc_01","vn_o_men_nva_dc_02","vn_o_men_nva_dc_03","vn_o_men_nva_dc_04","vn_o_men_nva_dc_05","vn_o_men_nva_dc_06","vn_o_men_nva_dc_07","vn_o_men_nva_dc_08","vn_o_men_nva_dc_09","vn_o_men_nva_dc_10","vn_o_men_nva_dc_11","vn_o_men_nva_dc_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-
-	// vn_o_group_men_nva_navy_01
-	[[[["vn_o_men_nva_navy_01","vn_o_men_nva_navy_02","vn_o_men_nva_navy_03","vn_o_men_nva_navy_04","vn_o_men_nva_navy_05","vn_o_men_nva_navy_06","vn_o_men_nva_navy_07","vn_o_men_nva_navy_08","vn_o_men_nva_navy_09","vn_o_men_nva_navy_10","vn_o_men_nva_navy_11","vn_o_men_nva_navy_12","vn_o_men_nva_navy_13","vn_o_men_nva_navy_14"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_navy_02
-	[[[["vn_o_men_nva_navy_01","vn_o_men_nva_navy_02","vn_o_men_nva_navy_03","vn_o_men_nva_navy_04","vn_o_men_nva_navy_05","vn_o_men_nva_navy_06","vn_o_men_nva_navy_07","vn_o_men_nva_navy_08"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_nva_marine_01
-	[[[["vn_o_men_nva_marine_01","vn_o_men_nva_marine_02","vn_o_men_nva_marine_03","vn_o_men_nva_marine_04","vn_o_men_nva_marine_05","vn_o_men_nva_marine_06","vn_o_men_nva_marine_07","vn_o_men_nva_marine_08","vn_o_men_nva_marine_09","vn_o_men_nva_marine_10","vn_o_men_nva_marine_11","vn_o_men_nva_marine_12","vn_o_men_nva_marine_13","vn_o_men_nva_marine_14"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-
-	// vn_o_group_motor_nva_01
-	[[[["vn_o_wheeled_btr40_mg_01","vn_o_men_nva_16","vn_o_men_nva_20","vn_o_men_nva_18"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_02
-	[[[["vn_o_wheeled_btr40_mg_02","vn_o_men_nva_27","vn_o_men_nva_28","vn_o_men_nva_28"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_03
-	[[[["vn_o_wheeled_btr40_mg_03","vn_o_men_nva_22","vn_o_men_nva_25","vn_o_men_nva_25"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_04
-	[[[["vn_o_wheeled_z157_mg_01","vn_o_men_nva_16","vn_o_men_nva_20","vn_o_men_nva_18"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_05
-	[[[["vn_o_wheeled_z157_mg_01","vn_o_men_nva_27","vn_o_men_nva_28","vn_o_men_nva_28"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_06
-	[[[["vn_o_wheeled_z157_mg_02","vn_o_men_nva_22","vn_o_men_nva_25","vn_o_men_nva_25"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_07
-	[[[["vn_o_wheeled_z157_01","vn_o_men_nva_15","vn_o_men_nva_16","vn_o_men_nva_17","vn_o_men_nva_18","vn_o_men_nva_19","vn_o_men_nva_20","vn_o_men_nva_21","vn_o_men_nva_22","vn_o_men_nva_23","vn_o_men_nva_24","vn_o_men_nva_25","vn_o_men_nva_26","vn_o_men_nva_27","vn_o_men_nva_28","vn_o_men_nva_28","vn_o_men_nva_16"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE"],[],1]],0.5],
-	// vn_o_group_motor_nva_10
-	[[[["vn_o_wheeled_btr40_mg_06","vn_o_men_nva_16","vn_o_men_nva_20","vn_o_men_nva_18"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nva_07
-	[[[["vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_01"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.05],
-	// vn_o_group_mech_nva_08
-	[[[["vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05],
-	// vn_o_group_mech_nva_09
-	[[[["vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05],
-	// vn_o_group_mech_nva_10
-	[[[["vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_02","vn_o_armor_btr50pk_02","vn_o_armor_btr50pk_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05],
-	// vn_o_group_mech_nva_12
-	[[[["vn_o_wheeled_btr40_mg_04","vn_o_wheeled_btr40_mg_05","vn_o_wheeled_btr40_mg_06","vn_o_wheeled_btr40_mg_06"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// Arty "vn_o_armor_m125_01"
-	// vn_o_group_mech_nva_14
-	[[[["vn_o_armor_m113_01","vn_o_armor_m125_01","vn_o_armor_m125_01","vn_o_armor_m113_acav_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_01
-	[[[["vn_o_armor_type63_01","vn_o_armor_type63_01","vn_o_armor_type63_01","vn_o_armor_type63_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_02
-	[[[["vn_o_armor_type63_01","vn_o_armor_type63_01"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-	// vn_o_group_armor_nva_03
-	[[[["vn_o_armor_type63_01","vn_o_armor_type63_01","vn_o_wheeled_btr40_mg_03","vn_o_wheeled_btr40_mg_03","vn_o_wheeled_z157_mg_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_04
-	[[[["vn_o_armor_m41_01","vn_o_armor_m41_01","vn_o_armor_m41_01","vn_o_armor_m41_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_05
-	[[[["vn_o_armor_m41_01","vn_o_armor_m41_01"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-	// vn_o_group_armor_nva_07
-	[[[["vn_o_armor_pt76b_01","vn_o_armor_pt76b_01","vn_o_armor_pt76b_01","vn_o_armor_pt76a_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_08
-	[[[["vn_o_armor_pt76a_01","vn_o_armor_pt76b_01"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-	// vn_o_group_armor_nva_09
-	[[[["vn_o_armor_pt76b_01","vn_o_armor_pt76a_01","vn_o_wheeled_btr40_mg_03","vn_o_wheeled_btr40_mg_03","vn_o_wheeled_z157_mg_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_10
-	[[[["vn_o_armor_t54b_01","vn_o_armor_t54b_01"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-	// vn_o_group_armor_nva_11
-	[[[["vn_o_armor_t54b_01","vn_o_armor_t54b_01","vn_o_armor_t54b_01","vn_o_armor_t54b_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_12
-	[[[["vn_o_armor_t54b_01","vn_o_armor_t54b_01","vn_o_wheeled_btr40_mg_03","vn_o_armor_btr50pk_02","vn_o_wheeled_z157_mg_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_13
-	[[[["vn_o_armor_t54b_01","vn_o_armor_ot54_01","vn_o_armor_ot54_01","vn_o_armor_t54b_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_65_01
-	[[[["vn_o_wheeled_btr40_mg_01_nva65","vn_o_men_nva_65_16","vn_o_men_nva_65_20","vn_o_men_nva_65_18"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_65_02
-	[[[["vn_o_wheeled_btr40_mg_02_nva65","vn_o_men_nva_65_27","vn_o_men_nva_65_28","vn_o_men_nva_65_28"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_65_03
-	[[[["vn_o_wheeled_btr40_mg_03_nva65","vn_o_men_nva_65_22","vn_o_men_nva_65_25","vn_o_men_nva_65_25"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_65_04
-	[[[["vn_o_wheeled_z157_mg_01_nva65","vn_o_men_nva_65_16","vn_o_men_nva_65_20","vn_o_men_nva_65_18"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_65_05
-	[[[["vn_o_wheeled_z157_mg_01_nva65","vn_o_men_nva_65_27","vn_o_men_nva_65_28","vn_o_men_nva_65_28"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nva_65_06
-	[[[["vn_o_wheeled_z157_mg_02_nva65","vn_o_men_nva_65_22","vn_o_men_nva_65_25","vn_o_men_nva_65_25"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-
-	// vn_o_group_motor_nva_65_07
-	[[[["vn_o_wheeled_z157_01_nva65","vn_o_men_nva_65_15","vn_o_men_nva_65_16","vn_o_men_nva_65_17","vn_o_men_nva_65_18","vn_o_men_nva_65_19","vn_o_men_nva_65_20","vn_o_men_nva_65_21","vn_o_men_nva_65_22","vn_o_men_nva_65_23","vn_o_men_nva_65_24","vn_o_men_nva_65_25","vn_o_men_nva_65_26","vn_o_men_nva_65_27","vn_o_men_nva_65_28","vn_o_men_nva_65_28","vn_o_men_nva_65_16"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE"],[],1]],0.5],
-	// vn_o_group_motor_nva_65_10
-	[[[["vn_o_wheeled_btr40_mg_06_nva65","vn_o_men_nva_65_16","vn_o_men_nva_65_20","vn_o_men_nva_65_18"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nva_65_07
-	[[[["vn_o_armor_btr50pk_01_nva65","vn_o_armor_btr50pk_01_nva65"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.05],
-	// vn_o_group_mech_nva_65_08
-	[[[["vn_o_armor_btr50pk_01_nva65","vn_o_armor_btr50pk_01_nva65","vn_o_armor_btr50pk_01_nva65","vn_o_armor_btr50pk_02_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05],
-	// vn_o_group_mech_nva_65_09
-	[[[["vn_o_armor_btr50pk_01_nva65","vn_o_armor_btr50pk_01_nva65","vn_o_armor_btr50pk_01_nva65","vn_o_armor_btr50pk_01_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05],
-	// vn_o_group_mech_nva_65_10
-	[[[["vn_o_armor_btr50pk_01_nva65","vn_o_armor_btr50pk_02_nva65","vn_o_armor_btr50pk_02_nva65","vn_o_armor_btr50pk_02_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05],
-	// vn_o_group_mech_nva_65_12
-	[[[["vn_o_wheeled_btr40_mg_04_nva65","vn_o_wheeled_btr40_mg_05_nva65","vn_o_wheeled_btr40_mg_06_nva65","vn_o_wheeled_btr40_mg_06_nva65"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_65_01
-	[[[["vn_o_armor_type63_01_nva65","vn_o_armor_type63_01_nva65","vn_o_armor_type63_01_nva65","vn_o_armor_type63_01_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_65_02
-	[[[["vn_o_armor_type63_01_nva65","vn_o_armor_type63_01_nva65"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-	// vn_o_group_armor_nva_65_03
-	[[[["vn_o_armor_type63_01_nva65","vn_o_armor_type63_01_nva65","vn_o_wheeled_btr40_mg_03_nva65","vn_o_wheeled_btr40_mg_03_nva65","vn_o_wheeled_z157_mg_02_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_65_04
-	[[[["vn_o_armor_pt76b_01_nva65","vn_o_armor_pt76b_01_nva65","vn_o_armor_pt76a_01_nva65","vn_o_armor_pt76a_01_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_65_05
-	[[[["vn_o_armor_pt76a_01_nva65","vn_o_armor_pt76a_01_nva65"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-	// vn_o_group_armor_nva_65_06
-	[[[["vn_o_armor_pt76a_01_nva65","vn_o_armor_pt76b_01_nva65","vn_o_wheeled_btr40_mg_03_nva65","vn_o_wheeled_btr40_mg_03_nva65","vn_o_wheeled_z157_mg_02_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_65_10
-	[[[["vn_o_armor_t54b_01_nva65","vn_o_armor_t54b_01_nva65"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-	// vn_o_group_armor_nva_65_11
-	[[[["vn_o_armor_t54b_01_nva65","vn_o_armor_t54b_01_nva65","vn_o_armor_t54b_01_nva65","vn_o_armor_t54b_01_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_65_12
-	[[[["vn_o_armor_t54b_01_nva65","vn_o_armor_t54b_01_nva65","vn_o_wheeled_btr40_mg_03_nva65","vn_o_armor_btr50pk_02_nva65","vn_o_wheeled_z157_mg_02_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_armor_nva_65_13
-	[[[["vn_o_armor_t54b_01_nva65","vn_o_armor_ot54_01_nva65","vn_o_armor_ot54_01_nva65","vn_o_armor_t54b_01_nva65"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nvam_01
-	[[[["vn_o_wheeled_btr40_mg_01_nvam","vn_o_men_nva_marine_02","vn_o_men_nva_marine_06","vn_o_men_nva_marine_04"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nvam_02
-	[[[["vn_o_wheeled_btr40_mg_02_nvam","vn_o_men_nva_marine_13","vn_o_men_nva_marine_14","vn_o_men_nva_marine_14"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nvam_03
-	[[[["vn_o_wheeled_btr40_mg_03_nvam","vn_o_men_nva_marine_08","vn_o_men_nva_marine_11","vn_o_men_nva_marine_11"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nvam_04
-	[[[["vn_o_wheeled_z157_mg_01_nvam","vn_o_men_nva_marine_02","vn_o_men_nva_marine_06","vn_o_men_nva_marine_04"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nvam_05
-	[[[["vn_o_wheeled_z157_mg_01_nvam","vn_o_men_nva_marine_13","vn_o_men_nva_marine_14","vn_o_men_nva_marine_14"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_nvam_06
-	[[[["vn_o_wheeled_z157_mg_02_nvam","vn_o_men_nva_marine_08","vn_o_men_nva_marine_11","vn_o_men_nva_marine_11"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-
-	// vn_o_group_motor_nvam_07
-	[[[["vn_o_wheeled_z157_01_nvam","vn_o_men_nva_marine_01","vn_o_men_nva_marine_02","vn_o_men_nva_marine_03","vn_o_men_nva_marine_04","vn_o_men_nva_marine_05","vn_o_men_nva_marine_06","vn_o_men_nva_marine_07","vn_o_men_nva_marine_08","vn_o_men_nva_marine_09","vn_o_men_nva_marine_10","vn_o_men_nva_marine_11","vn_o_men_nva_marine_12","vn_o_men_nva_marine_13","vn_o_men_nva_marine_14","vn_o_men_nva_marine_14","vn_o_men_nva_marine_03"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE"],[],1]],0.5],
-	// Arty "vn_o_wheeled_btr40_mg_06_nvam"
-	// vn_o_group_motor_nvam_10
-	[[[["vn_o_wheeled_btr40_mg_06_nvam","vn_o_men_nva_marine_02","vn_o_men_nva_marine_06","vn_o_men_nva_marine_04"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_mech_nvam_07
-	[[[["vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_01_nvam"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.05],
-	// vn_o_group_mech_nvam_08
-	[[[["vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_02_nvam"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05],
-	// vn_o_group_mech_nvam_09
-	[[[["vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_01_nvam"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05],
-	// vn_o_group_mech_nvam_10
-	[[[["vn_o_armor_btr50pk_01_nvam","vn_o_armor_btr50pk_02_nvam","vn_o_armor_btr50pk_02_nvam","vn_o_armor_btr50pk_02_nvam"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05],
-	// Arty "vn_o_wheeled_btr40_mg_06_nvam"
-	// vn_o_group_mech_nvam_12
-	[[[["vn_o_wheeled_btr40_mg_04_nvam","vn_o_wheeled_btr40_mg_05_nvam","vn_o_wheeled_btr40_mg_06_nvam","vn_o_wheeled_btr40_mg_06_nvam"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-
-	// vn_o_group_air_01
-	[[[["vn_o_air_mi2_03_02","vn_o_air_mi2_03_03"],[[0,-23,0],[0,-46,0]],["CAPTAIN","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_02
-	[[[["vn_o_air_mi2_01_01","vn_o_air_mi2_01_02"],[[0,-23,0],[0,-46,0]],["CAPTAIN","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_04
-	[[[["vn_o_air_mi2_03_01","vn_o_air_mi2_04_01","vn_o_air_mi2_01_02","vn_o_air_mi2_01_03","vn_o_air_mi2_01_01","vn_o_air_mi2_01_03"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0],[0,-115,0],[0,-138,0]],["CAPTAIN","LIEUTENANT","CAPTAIN","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_05
-	[[[["vn_o_air_mi2_04_02","vn_o_air_mi2_04_04"],[[0,-23,0],[0,-46,0]],["CAPTAIN","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_06
-	[[[["vn_o_air_mi2_05_05","vn_o_air_mi2_05_05"],[[0,-23,0],[0,-46,0]],["CAPTAIN","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_07
-	[[[["vn_o_air_mi2_05_02","vn_o_air_mi2_05_03","vn_o_air_mi2_04_05"],[[0,-23,0],[0,-46,0],[0,-69,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_08
-	[[[["vn_o_air_mig19_cas","vn_o_air_mig19_cas","vn_o_air_mig19_mr","vn_o_air_mig19_mr"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_09
-	[[[["vn_o_air_mig19_gun","vn_o_air_mig19_gun","vn_o_air_mig19_hbmb","vn_o_air_mig19_hbmb"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_10
-	[[[["vn_o_air_mig19_at","vn_o_air_mig19_at","vn_o_air_mig19_bmb","vn_o_air_mig19_bmb"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_11
-	[[[["vn_o_air_mig19_gun","vn_o_air_mig19_gun","vn_o_air_mig19_cap","vn_o_air_mig19_cap"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_12
-	[[[["vn_o_air_mig21_cas","vn_o_air_mig21_cas","vn_o_air_mig21_mr","vn_o_air_mig21_mr"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_13
-	[[[["vn_o_air_mig21_gun","vn_o_air_mig21_gun","vn_o_air_mig21_hbmb","vn_o_air_mig21_hbmb"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_14
-	[[[["vn_o_air_mig21_at","vn_o_air_mig21_at","vn_o_air_mig21_bmb","vn_o_air_mig21_bmb"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.01],
-	// vn_o_group_air_15
-	[[[["vn_o_air_mig21_gun","vn_o_air_mig21_gun","vn_o_air_mig21_cap","vn_o_air_mig21_cap"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.01],
-
-	// vn_o_group_boat_01
-	[[[["vn_o_boat_03_01","vn_o_boat_03_02"],[[0,-30,0],[0,-60,0]],["CAPTAIN","LIEUTENANT"]]],0.05],
-	// vn_o_group_boat_02
-	[[[["vn_o_boat_03_01","vn_o_boat_03_02","vn_o_boat_04_01","vn_o_boat_04_02"],[[0,-30,0],[0,-60,0],[0,-90,0],[0,-120,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.05]
-];
-// Support.
-_arr append [
-	// vn_o_group_mech_nva_03
-	[[[["vn_o_wheeled_btr40_mg_01","vn_o_wheeled_z157_ammo","vn_o_wheeled_z157_fuel","vn_o_wheeled_z157_repair","vn_o_wheeled_z157_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.05],
-	// vn_o_group_mech_nva_11
-	[[[["vn_o_armor_btr50pk_01","vn_o_armor_btr50pk_03","vn_o_armor_btr50pk_03","vn_o_armor_btr50pk_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05]
-];
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_01"]],0.5],
+	// ЗиЛ-157 конвой (С-75)
+	//[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_02"]],0,0.05],
+	// ЗиЛ-157 конвой (снабжение)
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_03"]],0,0.05],
+	// ЗиЛ-157 конвой
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_04"]],0,0.05],
+	// ЗиЛ-157 конвой (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_05"]],0,0.05],
+	// Патрульный БТР-50
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_07"]],0,0.05],
+	// Патрульный БТР-50 (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_08"]],0,0.05],
+	// Патрульный БТР-50 (с пулеметом)
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_09"]],0,0.05],
+	// Патрульный БТР-50 (ПВО)
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_10"]],0,0.05],
+	// Патрульный БТР-50 (штаба)
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_11"]],0,0.05],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_12"]],0,0.05],
+	// Патрульный M113A1 (штаба)
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_13"]],0,0.05],
+	// Патрульный M113A1 (артиллерии)
+	[[[__cfg >> "vn_o_group_mech_nva" >> "vn_o_group_mech_nva_14"]],0,0.05],
+	// Взвод тип 63
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_01"]],0.5],
+	// Расчет тип 63
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_02"]],0.5],
+	// Взвод тип 63 AA
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_03"]],0.5],
+	// Взвод M41
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_04"]],0.5],
+	// Расчет M41
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_05"]],0.5],
+	// Взвод ПТ-76
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_07"]],0.5],
+	// Расчет ПТ-76
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_08"]],0.5],
+	// Зенитный взвод ПТ-76
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_09"]],0.5],
+	// Расчет T-54
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_10"]],0.5],
+	// Взвод T-54
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_11"]],0.5],
+	// Взвод T-54 AA
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_12"]],0.5],
+	// Штурмовой взвод T-54
+	[[[__cfg >> "vn_o_group_armor_nva" >> "vn_o_group_armor_nva_13"]],0.5],
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_01"]],0.5],
+	// Патрульный автомобиль БТР-40 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_02"]],0.5],
+	// Патрульный автомобиль БТР-40 (с пулеметом)
+	[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_03"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_04"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_05"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 с пулеметом
+	[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_06"]],0.5],
+	// Подкрепления ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_07"]],0.5],
+	// Грузовой конвой (велосипед)
+	//[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_08"]],0.5],
+	// Разведывательный конвой (велосипед)
+	//[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_09"]],0.5],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_motor_nva_65" >> "vn_o_group_motor_nva_65_10"]],0,0.05],
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_01"]],0.5],
+	// ЗиЛ-157 конвой (С-75)
+	//[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_02"]],0,0.05],
+	// ЗиЛ-157 конвой (снабжение)
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_03"]],0,0.05],
+	// ЗиЛ-157 конвой
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_04"]],0,0.05],
+	// ЗиЛ-157 конвой (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_05"]],0,0.05],
+	// Патрульный БТР-50
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_07"]],0,0.05],
+	// Патрульный БТР-50 (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_08"]],0,0.05],
+	// Патрульный БТР-50 (с пулеметом)
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_09"]],0,0.05],
+	// Патрульный БТР-50 (ПВО)
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_10"]],0,0.05],
+	// Патрульный БТР-50 (штаба)
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_11"]],0,0.05],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_mech_nva_65" >> "vn_o_group_mech_nva_65_12"]],0,0.05],
+	// Взвод тип 63
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_01"]],0.5],
+	// Расчет тип 63
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_02"]],0.5],
+	// Взвод тип 63 AA
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_03"]],0.5],
+	// Взвод ПТ-76
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_04"]],0.5],
+	// Расчет ПТ-76
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_05"]],0.5],
+	// Зенитный взвод ПТ-76
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_06"]],0.5],
+	// Расчет T-54
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_10"]],0.5],
+	// Взвод T-54
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_11"]],0.5],
+	// Взвод T-54 AA
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_12"]],0.5],
+	// Штурмовой взвод T-54
+	[[[__cfg >> "vn_o_group_armor_nva_65" >> "vn_o_group_armor_nva_65_13"]],0.5],
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_motor_nvam" >> "vn_o_group_motor_nvam_01"]],0.5],
+	// Патрульный автомобиль БТР-40 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_nvam" >> "vn_o_group_motor_nvam_02"]],0.5],
+	// Патрульный автомобиль БТР-40 (с пулеметом)
+	[[[__cfg >> "vn_o_group_motor_nvam" >> "vn_o_group_motor_nvam_03"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_nvam" >> "vn_o_group_motor_nvam_04"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_nvam" >> "vn_o_group_motor_nvam_05"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 с пулеметом
+	[[[__cfg >> "vn_o_group_motor_nvam" >> "vn_o_group_motor_nvam_06"]],0.5],
+	// Подкрепления ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_nvam" >> "vn_o_group_motor_nvam_07"]],0.5],
+	// Разведывательный конвой (велосипед)
+	//[[[__cfg >> "vn_o_group_motor_nvam" >> "vn_o_group_motor_nvam_08"]],0.5],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_motor_nvam" >> "vn_o_group_motor_nvam_10"]],0,0.05],
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_01"]],0.5],
+	// ЗиЛ-157 конвой (С-75)
+	//[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_02"]],0,0.05],
+	// ЗиЛ-157 конвой (снабжение)
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_03"]],0,0.05],
+	// ЗиЛ-157 конвой
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_04"]],0,0.05],
+	// ЗиЛ-157 конвой (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_05"]],0,0.05],
+	// Патрульный БТР-50
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_07"]],0,0.05],
+	// Патрульный БТР-50 (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_08"]],0,0.05],
+	// Патрульный БТР-50 (с пулеметом)
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_09"]],0,0.05],
+	// Патрульный БТР-50 (ПВО)
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_10"]],0,0.05],
+	// Патрульный БТР-50 (штаба)
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_11"]],0,0.05],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_mech_nvam" >> "vn_o_group_mech_nvam_12"]],0,0.05],
+	// Ми-2 (боевой вертолет)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_01"]],0.5],
+	// Ми-2 (транспорт)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_02"]],0.5],
+	// Ми-2 (медэвакуация)
+	//[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_03"]],0.5],
+	// Ми-2 (для высадки)
+	//[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_04"]],0.5],
+	// Ми-2 (авиаподдержка)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_05"]],0.5],
+	// Ми-2 (воздушный патруль)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_06"]],0.5],
+	// Ми-2 (ударный)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_07"]],0.5],
+	// МиГ-19 (поддержка с воздуха)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_08"]],0.5],
+	// МиГ-19 (бомбардировщик)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_09"]],0.5],
+	// МиГ-19 (ударный)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_10"]],0.5],
+	// МиГ-19 (воздушный патруль)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_11"]],0.5],
+	// МиГ-21 (поддержка с воздуха)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_12"]],0.5],
+	// МиГ-21 (бомбардировщик)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_13"]],0.5],
+	// МиГ-21 (ударный)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_14"]],0.5],
+	// МиГ-21 (воздушный патруль)
+	[[[__cfg >> "vn_o_group_air_army" >> "vn_o_group_air_15"]],0.5],
+	// Катера Shantou (патруль)
+	[[[__cfg >> "vn_o_group_boats" >> "vn_o_group_boat_01"]],0,0.05],
+	// Катера Shantou (эскадрон)
+	[[[__cfg >> "vn_o_group_boats" >> "vn_o_group_boat_02"]],0,0.05]
+	/*
+	// Пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_01"]],0.5],
+	// Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_02"]],0.5],
+	// Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_03"]],0.5],
+	// Минометная батарея
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_04"]],0.5],
+	// Гаубичная батарея
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_05"]],0.5],
+	// Батарея ПВО
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_06"]],0.5],
+	// Расчет ПТО
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_07"]],0.5],
+	// Расчет ПТ ракет
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_08"]],0.5],
+	// ПЗРК
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_09"]],0.5],
+	// Батарея радар/ЗРК
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_10"]],0.5],
+	// Батарея ЗРК
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_11"]],0.5],
+	// Пулеметный расчет 2
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_12"]],0.5],
+	// Ракетная батарея
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_13"]],0.5],
+	// Крупнокалиберная ракетная батарея
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_14"]],0.5],
+	// Расчет безоткатного орудия
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_15"]],0.5],
+	// Батарея ПВО 2
+	[[[__cfg >> "vn_o_group_static_nva" >> "vn_o_group_static_nva_16"]],0.5],
+	// Пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_01"]],0.5],
+	// Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_02"]],0.5],
+	// Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_03"]],0.5],
+	// Минометная батарея
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_04"]],0.5],
+	// Гаубичная батарея
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_05"]],0.5],
+	// Батарея ПВО
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_06"]],0.5],
+	// Расчет ПТО
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_07"]],0.5],
+	// Пулеметный расчет 2
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_08"]],0.5],
+	// Ракетная батарея
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_09"]],0.5],
+	// Крупнокалиберная ракетная батарея
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_10"]],0.5],
+	// Расчет безоткатного орудия
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_65_11"]],0.5],
+	// Батарея ПВО 2
+	[[[__cfg >> "vn_o_group_static_nva_65" >> "vn_o_group_static_nva_12"]],0.5],
+	// Пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_01"]],0.5],
+	// Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_02"]],0.5],
+	// Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_03"]],0.5],
+	// Минометная батарея
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_04"]],0.5],
+	// Гаубичная батарея
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_05"]],0.5],
+	// Батарея ПВО
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_06"]],0.5],
+	// Расчет ПТО
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_07"]],0.5],
+	// Пулеметный расчет 2
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_08"]],0.5],
+	// Расчет безоткатного орудия
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_09"]],0.5],
+	// Батарея ПВО 2
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_10"]],0.5],
+	// Батарея ПВО 3
+	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_11"]],0.5]
+	*/
+]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "VN_PAVN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
 ] call gosa_fnc_map_groups_add;
 
 // VN_KR
+#define __cfg configFile >> "CfgGroups" >> "East" >> "VN_KR"
 _arr = [
-	// vn_o_group_men_kr_70_01
-	[[[["vn_o_men_kr_70_22","vn_o_men_kr_70_11","vn_o_men_kr_70_12","vn_o_men_kr_70_21","vn_o_men_kr_70_08","vn_o_men_kr_70_03","vn_o_men_kr_70_21","vn_o_men_kr_70_07","vn_o_men_kr_70_06","vn_o_men_kr_70_23"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_70_02
-	[[[["vn_o_men_kr_70_21","vn_o_men_kr_70_02","vn_o_men_kr_70_03","vn_o_men_kr_70_04","vn_o_men_kr_70_05","vn_o_men_kr_70_14","vn_o_men_kr_70_12","vn_o_men_kr_70_11","vn_o_men_kr_70_07","vn_o_men_kr_70_23"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0]],["CAPTAIN","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_70_03
-	[[[["vn_o_men_kr_70_21","vn_o_men_kr_70_22","vn_o_men_kr_70_09","vn_o_men_kr_70_09","vn_o_men_kr_70_14","vn_o_men_kr_70_04"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_70_04
-	[[[["vn_o_men_kr_70_22","vn_o_men_kr_70_10","vn_o_men_kr_70_10","vn_o_men_kr_70_13","vn_o_men_kr_70_07"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_70_05
-	//[[[["vn_o_men_kr_70_21","vn_o_men_kr_70_15","vn_o_men_kr_70_16","vn_o_men_kr_70_17","vn_o_men_kr_70_09"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_70_06
-	[[[["vn_o_men_kr_70_22","vn_o_men_kr_70_11","vn_o_men_kr_70_11","vn_o_men_kr_70_10","vn_o_men_kr_70_07"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_70_07
-	[[[["vn_o_men_kr_70_01","vn_o_men_kr_70_21","vn_o_men_kr_70_13","vn_o_men_kr_70_08","vn_o_men_kr_70_07"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-
-	// vn_o_group_men_kr_75_01
-	[[[["vn_o_men_kr_75_22","vn_o_men_kr_75_11","vn_o_men_kr_75_12","vn_o_men_kr_75_21","vn_o_men_kr_75_08","vn_o_men_kr_75_03","vn_o_men_kr_75_21","vn_o_men_kr_75_07","vn_o_men_kr_75_06","vn_o_men_kr_75_23"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0]],["SERGEANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_75_02
-	[[[["vn_o_men_kr_75_21","vn_o_men_kr_75_02","vn_o_men_kr_75_03","vn_o_men_kr_75_04","vn_o_men_kr_75_05","vn_o_men_kr_75_14","vn_o_men_kr_75_12","vn_o_men_kr_75_11","vn_o_men_kr_75_07","vn_o_men_kr_75_23"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0]],["CAPTAIN","SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_75_03
-	[[[["vn_o_men_kr_75_21","vn_o_men_kr_75_22","vn_o_men_kr_75_09","vn_o_men_kr_75_09","vn_o_men_kr_75_14","vn_o_men_kr_75_04"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_75_04
-	[[[["vn_o_men_kr_75_22","vn_o_men_kr_75_10","vn_o_men_kr_75_10","vn_o_men_kr_75_13","vn_o_men_kr_75_07"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_75_05
-	//[[[["vn_o_men_kr_75_21","vn_o_men_kr_75_15","vn_o_men_kr_75_16","vn_o_men_kr_75_17","vn_o_men_kr_75_09"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_75_06
-	[[[["vn_o_men_kr_75_22","vn_o_men_kr_75_11","vn_o_men_kr_75_11","vn_o_men_kr_75_10","vn_o_men_kr_75_07"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_men_kr_75_07
-	[[[["vn_o_men_kr_75_01","vn_o_men_kr_75_21","vn_o_men_kr_75_13","vn_o_men_kr_75_08","vn_o_men_kr_75_07"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+	// Стрелковый отряд 1
+	[[[__cfg >> "vn_o_group_men_kr_70" >> "vn_o_group_men_kr_70_01"]],0.5],
+	// Стрелковый отряд 2
+	[[[__cfg >> "vn_o_group_men_kr_70" >> "vn_o_group_men_kr_70_02"]],0.5],
+	// Отряд саперов
+	[[[__cfg >> "vn_o_group_men_kr_70" >> "vn_o_group_men_kr_70_03"]],0.5],
+	// Разведывательный отряд
+	[[[__cfg >> "vn_o_group_men_kr_70" >> "vn_o_group_men_kr_70_04"]],0.5],
+	// Расчет артиллерийского орудия
+	[[[__cfg >> "vn_o_group_men_kr_70" >> "vn_o_group_men_kr_70_05"]],0.5],
+	// Отряд оружия
+	[[[__cfg >> "vn_o_group_men_kr_70" >> "vn_o_group_men_kr_70_06"]],0.5],
+	// Отряд штаба
+	[[[__cfg >> "vn_o_group_men_kr_70" >> "vn_o_group_men_kr_70_07"]],0,0.1],
+	// Стрелковый отряд 1
+	[[[__cfg >> "vn_o_group_men_kr_75" >> "vn_o_group_men_kr_75_01"]],0.5],
+	// Стрелковый отряд 2
+	[[[__cfg >> "vn_o_group_men_kr_75" >> "vn_o_group_men_kr_75_02"]],0.5],
+	// Отряд саперов
+	[[[__cfg >> "vn_o_group_men_kr_75" >> "vn_o_group_men_kr_75_03"]],0.5],
+	// Разведывательный отряд
+	[[[__cfg >> "vn_o_group_men_kr_75" >> "vn_o_group_men_kr_75_04"]],0.5],
+	// Расчет артиллерийского орудия
+	[[[__cfg >> "vn_o_group_men_kr_75" >> "vn_o_group_men_kr_75_05"]],0.5],
+	// Отряд оружия
+	[[[__cfg >> "vn_o_group_men_kr_75" >> "vn_o_group_men_kr_75_06"]],0.5],
+	// Отряд штаба
+	[[[__cfg >> "vn_o_group_men_kr_75" >> "vn_o_group_men_kr_75_07"]],0,0.1],
 	/*
-	// vn_o_group_static_kr_70_01
-	[[[["vn_o_kr_static_rpd_high","vn_o_kr_static_m1910_high_01","vn_o_kr_static_sgm_low_01","vn_o_kr_static_sgm_low_02"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_static_kr_70_02
-	[[[["vn_o_kr_static_dshkm_high_01","vn_o_kr_static_sgm_high_01","vn_o_kr_static_dshkm_low_01","vn_o_kr_static_m1910_low_02"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_static_kr_70_03
-	[[[["vn_o_kr_static_mortar_type53","vn_o_kr_static_mortar_type53","vn_o_kr_static_mortar_type53"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_static_kr_70_04
-	[[[["vn_o_kr_static_mortar_type63","vn_o_kr_static_mortar_type63","vn_o_kr_static_mortar_type63","vn_o_kr_static_mortar_type63"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_static_kr_70_05
-	[[[["vn_o_kr_static_zgu1_01","vn_o_kr_static_zgu1_01","vn_o_kr_static_zgu1_01","vn_o_kr_static_m1910_high_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_static_kr_70_06
-	[[[["vn_o_kr_static_dshkm_high_02","vn_o_kr_static_dshkm_high_02","vn_o_kr_static_dshkm_high_02","vn_o_kr_static_m1910_high_01"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_static_kr_70_07
-	[[[["vn_o_kr_static_h12","vn_o_kr_static_h12","vn_o_kr_static_rpd_high"],[[0,-5,0],[0,-10,0],[0,-15,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_static_kr_70_08
-	[[[["vn_o_kr_static_type56rr","vn_o_kr_static_type56rr","vn_o_kr_static_type56rr","vn_o_kr_static_sgm_low_02"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
+	// Пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_kr_70" >> "vn_o_group_static_kr_70_01"]],0.5],
+	// Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_kr_70" >> "vn_o_group_static_kr_70_02"]],0.5],
+	// Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_o_group_static_kr_70" >> "vn_o_group_static_kr_70_03"]],0.5],
+	// Минометная батарея
+	[[[__cfg >> "vn_o_group_static_kr_70" >> "vn_o_group_static_kr_70_04"]],0.5],
+	// Батарея ПВО 2
+	[[[__cfg >> "vn_o_group_static_kr_70" >> "vn_o_group_static_kr_70_05"]],0.5],
+	// Батарея ПВО
+	[[[__cfg >> "vn_o_group_static_kr_70" >> "vn_o_group_static_kr_70_06"]],0.5],
+	// Ракетная батарея
+	[[[__cfg >> "vn_o_group_static_kr_70" >> "vn_o_group_static_kr_70_07"]],0.5],
+	// Расчет безоткатного орудия
+	[[[__cfg >> "vn_o_group_static_kr_70" >> "vn_o_group_static_kr_70_08"]],0.5],
 	*/
-	// vn_o_group_motor_kr_75_01
-	[[[["vn_o_wheeled_btr40_mg_01_kr","vn_o_men_kr_75_06","vn_o_men_kr_75_02","vn_o_men_kr_75_03"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_kr_75_02
-	[[[["vn_o_wheeled_btr40_mg_02_kr","vn_o_men_kr_75_22","vn_o_men_kr_75_07","vn_o_men_kr_75_14"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_kr_75_03
-	[[[["vn_o_wheeled_btr40_mg_04_kr","vn_o_men_kr_75_21","vn_o_men_kr_75_11","vn_o_men_kr_75_11"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_kr_75_04
-	[[[["vn_o_wheeled_z157_mg_01_kr","vn_o_men_kr_75_06","vn_o_men_kr_75_02","vn_o_men_kr_75_03"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_kr_75_05
-	[[[["vn_o_wheeled_z157_mg_01_kr","vn_o_men_kr_75_22","vn_o_men_kr_75_07","vn_o_men_kr_75_14"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_kr_75_06
-	[[[["vn_o_wheeled_z157_mg_01_kr","vn_o_men_kr_75_21","vn_o_men_kr_75_11","vn_o_men_kr_75_11"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_kr_75_07
-	[[[["vn_o_wheeled_z157_01_kr","vn_o_men_kr_75_01","vn_o_men_kr_75_22","vn_o_men_kr_75_03","vn_o_men_kr_75_04","vn_o_men_kr_75_05","vn_o_men_kr_75_06","vn_o_men_kr_75_07","vn_o_men_kr_75_08","vn_o_men_kr_75_09","vn_o_men_kr_75_10","vn_o_men_kr_75_11","vn_o_men_kr_75_12","vn_o_men_kr_75_13","vn_o_men_kr_75_14","vn_o_men_kr_75_02","vn_o_men_kr_75_23"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_motor_kr_75_08
-	[[[["vn_o_car_04_mg_01_kr","vn_o_men_kr_75_06","vn_o_men_kr_75_02","vn_o_men_kr_75_03"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_motor_kr_75" >> "vn_o_group_motor_kr_75_01"]],0.5],
+	// Патрульный автомобиль БТР-40 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_kr_75" >> "vn_o_group_motor_kr_75_02"]],0.5],
+	// Патрульный автомобиль БТР-40 (с пулеметом)
+	[[[__cfg >> "vn_o_group_motor_kr_75" >> "vn_o_group_motor_kr_75_03"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_kr_75" >> "vn_o_group_motor_kr_75_04"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_kr_75" >> "vn_o_group_motor_kr_75_05"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 с пулеметом
+	[[[__cfg >> "vn_o_group_motor_kr_75" >> "vn_o_group_motor_kr_75_06"]],0.5],
+	// Подкрепления ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_kr_75" >> "vn_o_group_motor_kr_75_07"]],0.5],
+	// Патрульный автомобиль Мотопехота
+	[[[__cfg >> "vn_o_group_motor_kr_75" >> "vn_o_group_motor_kr_75_08"]],0.5],
 
-	// vn_o_group_mech_kr_75_01
-	[[[["vn_o_wheeled_btr40_mg_01_kr","vn_o_wheeled_btr40_01_kr","vn_o_wheeled_btr40_02_kr","vn_o_car_04_mg_01_kr"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_mech_kr_75_02
-	[[[["vn_o_wheeled_btr40_mg_01_kr","vn_o_car_03_01_kr","vn_o_wheeled_z157_ammo_kr","vn_o_wheeled_z157_ammo_kr"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_o_group_mech_kr_75_03
-	[[[["vn_o_wheeled_btr40_mg_01_kr","vn_o_wheeled_z157_ammo_kr","vn_o_wheeled_z157_fuel_kr","vn_o_wheeled_z157_repair_kr","vn_o_wheeled_z157_02_kr"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_mech_kr_75_04
-	[[[["vn_o_wheeled_btr40_mg_02_kr","vn_o_wheeled_z157_02_kr","vn_o_wheeled_z157_fuel_kr","vn_o_car_01_01_kr","vn_o_wheeled_btr40_02_kr"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_o_group_mech_kr_75_05
-	[[[["vn_o_car_04_mg_01_kr","vn_o_wheeled_z157_mg_01_kr","vn_o_wheeled_z157_fuel_kr","vn_o_car_03_01_kr","vn_o_wheeled_z157_ammo_kr","vn_o_wheeled_z157_01_kr","vn_o_wheeled_btr40_mg_04_kr"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0],[0,-72,0],[0,-84,0]],["LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","CORPORAL"]]],0.5],
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_mech_kr_75" >> "vn_o_group_mech_kr_75_01"]],0,0.05],
+	// ЗиЛ-157 конвой (вооруженный)
+	[[[__cfg >> "vn_o_group_mech_kr_75" >> "vn_o_group_mech_kr_75_02"]],0,0.05],
+	// ЗиЛ-157 конвой (снабжение)
+	[[[__cfg >> "vn_o_group_mech_kr_75" >> "vn_o_group_mech_kr_75_03"]],0,0.05],
+	// ЗиЛ-157 конвой
+	[[[__cfg >> "vn_o_group_mech_kr_75" >> "vn_o_group_mech_kr_75_04"]],0,0.05],
+	// ЗиЛ-157 конвой (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_kr_75" >> "vn_o_group_mech_kr_75_05"]],0,0.05],
+	// Патрульный M113A1
+	[[[__cfg >> "vn_o_group_mech_kr_75" >> "vn_o_group_mech_kr_75_06"]],0,0.05],
+	// Патрульный M113A1 (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_kr_75" >> "vn_o_group_mech_kr_75_07"]],0,0.05],
 
-	// vn_o_group_mech_kr_75_06
-	[[[["vn_o_armor_m113_01_kr","vn_o_armor_m113_acav_03_kr","vn_o_armor_m113_acav_02_kr"],[[0,-12,0],[0,-24,0],[0,-36,0]],["LIEUTENANT","SERGEANT","CORPORAL"]]],0.5],
-	// vn_o_group_mech_kr_75_07
-	[[[["vn_o_armor_m113_acav_01_kr","vn_o_armor_m113_acav_02_kr","vn_o_armor_m113_acav_03_kr","vn_o_armor_m113_acav_06_kr"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-
-	// vn_o_group_boat_kr_70_01
-	[[[["vn_o_boat_01_mg_00_kr","vn_o_boat_02_mg_00_kr"],[[0,-12,0],[0,-24,0]],["CAPTAIN","LIEUTENANT"]]],0.05],
-	// vn_o_group_boat_kr_70_02
-	[[[["vn_o_boat_01_mg_00_kr","vn_o_boat_02_mg_00_kr","vn_o_boat_01_mg_00_kr","vn_o_boat_02_mg_00_kr"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.05],
-	// vn_o_group_boat_kr_70_03
-	[[[["vn_o_boat_01_mg_00_kr","vn_o_boat_01_00_kr","vn_o_boat_02_00_kr","vn_o_boat_02_00_kr"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.05],
-	// vn_o_group_boat_kr_70_04
-	[[[["vn_o_boat_02_mg_00_kr","vn_o_boat_01_03_kr","vn_o_boat_02_04_kr","vn_o_boat_02_03_kr"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.05],
-	// vn_o_group_boat_kr_75_05
-	[[[["vn_o_boat_01_mg_00_kr","vn_o_boat_07_01_kr","vn_o_boat_08_01_kr","vn_o_boat_08_01_kr"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.05],
-	// vn_o_group_boat_kr_75_06
-	[[[["vn_o_boat_02_mg_00_kr","vn_o_boat_08_02_kr","vn_o_boat_07_02_kr","vn_o_boat_08_02_kr"],[[0,-23,0],[0,-46,0],[0,-69,0],[0,-92,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.05]
-];
+	// Бронированные лодки (патруль)
+	[[[__cfg >> "vn_o_group_boats_kr_70" >> "vn_o_group_boat_kr_70_01"]],0,0.05],
+	// Бронированные лодки (эскадрон)
+	[[[__cfg >> "vn_o_group_boats_kr_70" >> "vn_o_group_boat_kr_70_02"]],0,0.05]
+	// Лодки (транспорт)
+	//[[[__cfg >> "vn_o_group_boats_kr_70" >> "vn_o_group_boat_kr_70_03"]],0.5],
+	// Лодки (снабжение)
+	//[[[__cfg >> "vn_o_group_boats_kr_70" >> "vn_o_group_boat_kr_70_04"]],0.5],
+	// Сампаны (транспорт)
+	//[[[__cfg >> "vn_o_group_boats_kr_70" >> "vn_o_group_boat_kr_75_05"]],0.5],
+	// Сампаны (снабжение)
+	//[[[__cfg >> "vn_o_group_boats_kr_70" >> "vn_o_group_boat_kr_75_06"]],0.5]
+]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "VN_KR", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1960,1990], [160,999],
 	[]
 ] call gosa_fnc_map_groups_add;
+
+// VN_VC
+#define __cfg configFile >> "CfgGroups" >> "East" >> "VN_VC"
+_arr = [
+	// Стрелковый отряд 1
+	[[[__cfg >> "vn_o_group_men_vc" >> "vn_o_group_men_vc_01"]],0.5],
+	// Стрелковый отряд 2
+	[[[__cfg >> "vn_o_group_men_vc" >> "vn_o_group_men_vc_02"]],0.5],
+	// Отряд саперов
+	[[[__cfg >> "vn_o_group_men_vc" >> "vn_o_group_men_vc_03"]],0.5],
+	// Разведывательный отряд
+	[[[__cfg >> "vn_o_group_men_vc" >> "vn_o_group_men_vc_04"]],0.5],
+	// Стрелковый отряд 1
+	[[[__cfg >> "vn_o_group_men_vc_regional" >> "vn_o_group_men_vc_regional_01"]],0.5],
+	// Стрелковый отряд 2
+	[[[__cfg >> "vn_o_group_men_vc_regional" >> "vn_o_group_men_vc_regional_02"]],0.5],
+	// Отряд саперов
+	[[[__cfg >> "vn_o_group_men_vc_regional" >> "vn_o_group_men_vc_regional_03"]],0.5],
+	// Разведывательный отряд
+	[[[__cfg >> "vn_o_group_men_vc_regional" >> "vn_o_group_men_vc_regional_04"]],0.5],
+	// Группа партизан 1
+	[[[__cfg >> "vn_o_group_men_vc_local" >> "vn_o_group_men_vc_local_01"]],0.5],
+	// Группа партизан 2
+	[[[__cfg >> "vn_o_group_men_vc_local" >> "vn_o_group_men_vc_local_02"]],0.5],
+	// Засадный отряд
+	[[[__cfg >> "vn_o_group_men_vc_local" >> "vn_o_group_men_vc_local_03"]],0.5],
+	// Группа разведчиков
+	[[[__cfg >> "vn_o_group_men_vc_local" >> "vn_o_group_men_vc_local_04"]],0.5],
+
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_01"]],0.5],
+	// Патрульный автомобиль БТР-40 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_02"]],0.5],
+	// Патрульный автомобиль БТР-40 (с пулеметом)
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_03"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_04"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 (ПТ)
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_05"]],0.5],
+	// Патрульный автомобиль ЗиЛ-157 с пулеметом
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_06"]],0.5],
+	// Подкрепления ЗиЛ-157
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_07"]],0.5],
+	// Грузовой конвой (велосипед)
+	//[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_08"]],0.5],
+	// Разведывательный конвой (велосипед)
+	//[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_09"]],0.5],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_10"]],0,0.05],
+	// Автомобильный конвой
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_11"]],0,0.05],
+	// Автомобильный конвой (большой)
+	[[[__cfg >> "vn_o_group_motor_vcmf" >> "vn_o_group_motor_vcmf_12"]],0,0.05],
+
+	// Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_o_group_mech_vcmf" >> "vn_o_group_mech_vcmf_01"]],0.5],
+	// ЗиЛ-157 конвой (вооруженный)
+	[[[__cfg >> "vn_o_group_mech_vcmf" >> "vn_o_group_mech_vcmf_02"]],0,0.05],
+	// ЗиЛ-157 конвой (снабжение)
+	[[[__cfg >> "vn_o_group_mech_vcmf" >> "vn_o_group_mech_vcmf_03"]],0,0.05],
+	// ЗиЛ-157 конвой
+	[[[__cfg >> "vn_o_group_mech_vcmf" >> "vn_o_group_mech_vcmf_04"]],0,0.05],
+	// ЗиЛ-157 конвой (тяжелый)
+	[[[__cfg >> "vn_o_group_mech_vcmf" >> "vn_o_group_mech_vcmf_05"]],0,0.05],
+	// Патрульный автомобиль БТР-40 (артиллерии)
+	[[[__cfg >> "vn_o_group_mech_vcmf" >> "vn_o_group_mech_vcmf_12"]],0,0.05],
+
+	// Взвод M41
+	[[[__cfg >> "vn_o_group_armor_vcmf" >> "vn_o_group_armor_vcmf_01"]],0.5],
+	// Расчет M41
+	[[[__cfg >> "vn_o_group_armor_vcmf" >> "vn_o_group_armor_vcmf_02"]],0.5],
+	// Взвод M41 AA
+	[[[__cfg >> "vn_o_group_armor_vcmf" >> "vn_o_group_armor_vcmf_03"]],0.5],
+	// Расчет T-54
+	[[[__cfg >> "vn_o_group_armor_vcmf" >> "vn_o_group_armor_vcmf_04"]],0.5],
+	// Взвод T-54
+	[[[__cfg >> "vn_o_group_armor_vcmf" >> "vn_o_group_armor_vcmf_05"]],0.5],
+	// Взвод T-54 AA
+	[[[__cfg >> "vn_o_group_armor_vcmf" >> "vn_o_group_armor_vcmf_06"]],0.5],
+	// Штурмовой взвод T-54
+	[[[__cfg >> "vn_o_group_armor_vcmf" >> "vn_o_group_armor_vcmf_07"]],0.5],
+
+	// Бронированные лодки (патруль)
+	[[[__cfg >> "vn_o_group_boats_vcmf" >> "vn_o_group_boat_vcmf_01"]],0,0.05],
+	// Бронированные лодки (эскадрон)
+	[[[__cfg >> "vn_o_group_boats_vcmf" >> "vn_o_group_boat_vcmf_02"]],0,0.05]
+	// Лодки (транспорт)
+	//[[[__cfg >> "vn_o_group_boats_vcmf" >> "vn_o_group_boat_vcmf_03"]],0.5],
+	// Лодки (снабжение)
+	//[[[__cfg >> "vn_o_group_boats_vcmf" >> "vn_o_group_boat_vcmf_04"]],0.5],
+	// Сампаны (транспорт)
+	//[[[__cfg >> "vn_o_group_boats_vcmf" >> "vn_o_group_boat_vcmf_05"]],0.5],
+	// Сампаны (снабжение)
+	//[[[__cfg >> "vn_o_group_boats_vcmf" >> "vn_o_group_boat_vcmf_06"]],0.5],
+	/*
+	// Пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_01"]],0.5],
+	// Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_02"]],0.5],
+	// Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_03"]],0.5],
+	// Минометная батарея
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_04"]],0.5],
+	// Гаубичная батарея
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_05"]],0.5],
+	// Батарея ПВО
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_06"]],0.5],
+	// Расчет ПТО
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_07"]],0.5],
+	// Пулеметный расчет 2
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_08"]],0.5],
+	// Крупнокалиберный пулеметный расчет 2
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_09"]],0.5],
+	// Ракетная батарея
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_10"]],0.5],
+	// Расчет безоткатного орудия
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_11"]],0.5],
+	// Батарея ПВО 3
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_16"]],0.5],
+	// Крупнокалиберный пулеметный расчет 3
+	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_17"]],0.5]
+	*/
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "VN_VC", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1960,1990], [160,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
 
 
 // west
