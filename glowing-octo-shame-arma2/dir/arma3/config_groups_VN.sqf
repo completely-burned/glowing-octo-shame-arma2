@@ -1300,6 +1300,107 @@ _arr = [
 []
 ] call gosa_fnc_map_groups_add;
 
+#define __cfg configFile >> "CfgGroups" >> "West" >> "VN_NZ"
+_arr = [
+	// vn_b_group_men_nz_sas_66 Люди (форма САС обр. 1966 г.)
+	// vn_b_group_men_nz_sas_66_01 1-й эскадрон
+	[[[__cfg >> "vn_b_group_men_nz_sas_66" >> "vn_b_group_men_nz_sas_66_01"]],0.5],
+
+	// vn_b_group_men_nz_sas_70 Люди (форма САС обр. 1970 г.)
+	// vn_b_group_men_nz_sas_70_01 1-й эскадрон
+	[[[__cfg >> "vn_b_group_men_nz_sas_70" >> "vn_b_group_men_nz_sas_70_01"]],0.5],
+
+	// vn_b_group_men_nz_army_66 Люди (армейск. форма обр. 1966 г.)
+	// vn_b_group_men_nz_army_66_01 Пехотное отделение 1
+	[[[__cfg >> "vn_b_group_men_nz_army_66" >> "vn_b_group_men_nz_army_66_01"]],0.5],
+	// vn_b_group_men_nz_army_66_02 Пехотный отделение 2
+	[[[__cfg >> "vn_b_group_men_nz_army_66" >> "vn_b_group_men_nz_army_66_02"]],0.5],
+	// vn_b_group_men_nz_army_66_03 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_men_nz_army_66" >> "vn_b_group_men_nz_army_66_03"]],0.5],
+	// vn_b_group_men_nz_army_66_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_nz_army_66" >> "vn_b_group_men_nz_army_66_04"]],0,0.05],
+	// vn_b_group_men_nz_army_66_06 Отряд артиллерии
+	[[[__cfg >> "vn_b_group_men_nz_army_66" >> "vn_b_group_men_nz_army_66_06"]],0.5],
+
+	// vn_b_group_men_nz_army_68 Люди (армейск. форма обр. 1968 г.)
+	// vn_b_group_men_nz_army_68_01 Пехотное отделение 1
+	[[[__cfg >> "vn_b_group_men_nz_army_68" >> "vn_b_group_men_nz_army_68_01"]],0.5],
+	// vn_b_group_men_nz_army_68_02 Пехотный отделение 2
+	[[[__cfg >> "vn_b_group_men_nz_army_68" >> "vn_b_group_men_nz_army_68_02"]],0.5],
+	// vn_b_group_men_nz_army_68_03 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_men_nz_army_68" >> "vn_b_group_men_nz_army_68_03"]],0.5],
+	// vn_b_group_men_nz_army_68_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_nz_army_68" >> "vn_b_group_men_nz_army_68_04"]],0,0.05],
+
+	// vn_b_group_men_nz_army_70 Люди (армейск. форма обр. 1970 г.)
+	// vn_b_group_men_nz_army_70_01 Пехотное отделение 1
+	[[[__cfg >> "vn_b_group_men_nz_army_70" >> "vn_b_group_men_nz_army_70_01"]],0.5],
+	// vn_b_group_men_nz_army_70_02 Пехотный отделение 2
+	[[[__cfg >> "vn_b_group_men_nz_army_70" >> "vn_b_group_men_nz_army_70_02"]],0.5],
+	// vn_b_group_men_nz_army_70_03 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_men_nz_army_70" >> "vn_b_group_men_nz_army_70_03"]],0.5],
+	// vn_b_group_men_nz_army_70_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_nz_army_70" >> "vn_b_group_men_nz_army_70_04"]],0,0.05],
+
+	// vn_b_group_motor_nz_army Мотопехота (армия)
+	// vn_b_group_motor_nz_army_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_b_group_motor_nz_army" >> "vn_b_group_motor_nz_army_01"]],0.5],
+	// vn_b_group_motor_nz_army_02 Патрульный автомобиль M151 (ПТ)
+	[[[__cfg >> "vn_b_group_motor_nz_army" >> "vn_b_group_motor_nz_army_02"]],0.5],
+	// vn_b_group_motor_nz_army_03 Патрульный автомобиль M54
+	[[[__cfg >> "vn_b_group_motor_nz_army" >> "vn_b_group_motor_nz_army_03"]],0.5],
+	// vn_b_group_motor_nz_army_04 Подкрепления M54
+	[[[__cfg >> "vn_b_group_motor_nz_army" >> "vn_b_group_motor_nz_army_04"]],0.5],
+	// vn_b_group_motor_nz_army_05 Патрульный Dirt Ranger
+	[[[__cfg >> "vn_b_group_motor_nz_army" >> "vn_b_group_motor_nz_army_05"]],0.5],
+	// vn_b_group_motor_nz_army_06 Патрульный Dirt Ranger (ПТ)
+	[[[__cfg >> "vn_b_group_motor_nz_army" >> "vn_b_group_motor_nz_army_06"]],0.5],
+	// vn_b_group_motor_nz_army_07 Патрульный Dirt Ranger (с пулеметом)
+	[[[__cfg >> "vn_b_group_motor_nz_army" >> "vn_b_group_motor_nz_army_07"]],0.5],
+	// vn_b_group_motor_nz_army_08 Патрульный Dirt Ranger (эвакуация раненых)
+	[[[__cfg >> "vn_b_group_motor_nz_army" >> "vn_b_group_motor_nz_army_08"]],0.5],
+
+	// vn_b_group_mech_nz_army Механизированная пехота (армия)
+	// vn_b_group_mech_nz_army_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_b_group_mech_nz_army" >> "vn_b_group_mech_nz_army_01"]],0.5],
+	// vn_b_group_mech_nz_army_02 Конвой M54
+	[[[__cfg >> "vn_b_group_mech_nz_army" >> "vn_b_group_mech_nz_army_02"]],0,0.05],
+	// vn_b_group_mech_nz_army_03 Конвой M54 (снабжение)
+	[[[__cfg >> "vn_b_group_mech_nz_army" >> "vn_b_group_mech_nz_army_03"]],0,0.05],
+	// vn_b_group_mech_nz_army_04 Патрульный Dirt Ranger
+	[[[__cfg >> "vn_b_group_mech_nz_army" >> "vn_b_group_mech_nz_army_04"]],0.5],
+	// vn_b_group_mech_nz_army_05 Патрульный Dirt Ranger (ПТ)
+	[[[__cfg >> "vn_b_group_mech_nz_army" >> "vn_b_group_mech_nz_army_05"]],0.5],
+	// vn_b_group_mech_nz_army_06 Патрульный Dirt Ranger (с пулеметом)
+	[[[__cfg >> "vn_b_group_mech_nz_army" >> "vn_b_group_mech_nz_army_06"]],0.5],
+	// vn_b_group_mech_nz_army_07 Патрульный Dirt Ranger (эвакуация раненых)
+	[[[__cfg >> "vn_b_group_mech_nz_army" >> "vn_b_group_mech_nz_army_07"]],0,0.05]
+
+	/*
+	// vn_b_group_static_nz_army Турели (армия)
+	// vn_b_group_static_nz_army_01 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_static_nz_army" >> "vn_b_group_static_nz_army_01"]],0.5],
+	// vn_b_group_static_nz_army_02 Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_b_group_static_nz_army" >> "vn_b_group_static_nz_army_02"]],0.5],
+	// vn_b_group_static_nz_army_03 Минометная батарея
+	[[[__cfg >> "vn_b_group_static_nz_army" >> "vn_b_group_static_nz_army_03"]],0.5],
+	// vn_b_group_static_nz_army_04 Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_b_group_static_nz_army" >> "vn_b_group_static_nz_army_04"]],0.5],
+	// vn_b_group_static_nz_army_05 Гаубичная батарея
+	[[[__cfg >> "vn_b_group_static_nz_army" >> "vn_b_group_static_nz_army_05"]],0.5],
+	// vn_b_group_static_nz_army_06 Батарея ПВО
+	[[[__cfg >> "vn_b_group_static_nz_army" >> "vn_b_group_static_nz_army_06"]],0.5],
+	// vn_b_group_static_nz_army_07 Расчет ПТО
+	[[[__cfg >> "vn_b_group_static_nz_army" >> "vn_b_group_static_nz_army_07"]],0.5],
+	// vn_b_group_static_nz_army_08 Расчет безоткатного орудия
+	[[[__cfg >> "vn_b_group_static_nz_army" >> "vn_b_group_static_nz_army_08"]],0.5]
+	*/
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "VN_NZ", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[1960,1990], [160,999],
+[]
+] call gosa_fnc_map_groups_add;
+
 
 // resistance
 _arr = [
