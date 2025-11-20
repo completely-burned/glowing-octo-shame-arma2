@@ -271,6 +271,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
+		class gosa_faction_multiplier_VN_NZ {
+			title="FACTION: VN_NZ";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_VN_ARVN {
 			title="FACTION: VN_ARVN";
 			values[] = {-1,1,0};
