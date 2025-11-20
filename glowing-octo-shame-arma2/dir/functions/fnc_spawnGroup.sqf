@@ -211,8 +211,11 @@ if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else 
 						if !(isNil "_n") then {_itemPos set [2, _n]};
 						diag_log format ["Log: [fnc_spawnGroup] %1, %2, pos %3", _grp, _unit, [_itemPos, _azimuth]];
 
-						_unit setPos _itemPos;
 						_unit setDir _azimuth;
+						if !(_unit setVehiclePosition [_itemPos, [], 0, "NONE"]) then {
+							_unit setPos _itemPos;
+							diag_log format ["Log: [fnc_spawnGroup] %1, command setVehiclePosition failed, setPos used", _this];
+						};
 						#ifdef __ARMA3__
 							_roads deleteAt 0;
 						#else
