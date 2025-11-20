@@ -1401,6 +1401,159 @@ _arr = [
 []
 ] call gosa_fnc_map_groups_add;
 
+#define __cfg configFile >> "CfgGroups" >> "West" >> "VN_ROK"
+_arr = [
+	// vn_b_group_men_rok_army_65 Люди (армейск. форма обр. 1965 г.)
+	// vn_b_group_men_rok_army_65_01 Стрелковый отряд 1
+	[[[__cfg >> "vn_b_group_men_rok_army_65" >> "vn_b_group_men_rok_army_65_01"]],0.5],
+	// vn_b_group_men_rok_army_65_02 Стрелковый отряд 2
+	[[[__cfg >> "vn_b_group_men_rok_army_65" >> "vn_b_group_men_rok_army_65_02"]],0.5],
+	// vn_b_group_men_rok_army_65_03 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_men_rok_army_65" >> "vn_b_group_men_rok_army_65_03"]],0.5],
+	// vn_b_group_men_rok_army_65_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_rok_army_65" >> "vn_b_group_men_rok_army_65_04"]],0,0.05],
+	// vn_b_group_men_rok_army_65_05 Инженерное отделение
+	[[[__cfg >> "vn_b_group_men_rok_army_65" >> "vn_b_group_men_rok_army_65_05"]],0.5],
+	// vn_b_group_men_rok_army_65_06 Отряд артиллерии
+	[[[__cfg >> "vn_b_group_men_rok_army_65" >> "vn_b_group_men_rok_army_65_06"]],0.5],
+
+	// vn_b_group_men_rok_army_68 Люди (армейск. форма обр. 1968 г.)
+	// vn_b_group_men_rok_army_68_01 Стрелковый отряд 1
+	[[[__cfg >> "vn_b_group_men_rok_army_68" >> "vn_b_group_men_rok_army_68_01"]],0.5],
+	// vn_b_group_men_rok_army_68_02 Стрелковый отряд 2
+	[[[__cfg >> "vn_b_group_men_rok_army_68" >> "vn_b_group_men_rok_army_68_02"]],0.5],
+	// vn_b_group_men_rok_army_68_03 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_men_rok_army_68" >> "vn_b_group_men_rok_army_68_03"]],0.5],
+	// vn_b_group_men_rok_army_68_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_rok_army_68" >> "vn_b_group_men_rok_army_68_04"]],0,0.05],
+	// vn_b_group_men_rok_army_68_05 Инженерное отделение
+	[[[__cfg >> "vn_b_group_men_rok_army_68" >> "vn_b_group_men_rok_army_68_05"]],0.5],
+	// vn_b_group_men_rok_army_68_06 Отряд артиллерии
+	[[[__cfg >> "vn_b_group_men_rok_army_68" >> "vn_b_group_men_rok_army_68_06"]],0.5],
+	// vn_b_group_men_rok_army_68_07 Экипаж БТР
+	//[[[__cfg >> "vn_b_group_men_rok_army_68" >> "vn_b_group_men_rok_army_68_07"]],0.5],
+
+	// vn_b_group_men_rok_marines_65 Люди (форма морск. пехоты обр. 1965 г.)
+	// vn_b_group_men_rok_marines_65_01 Огневая группа 1
+	[[[__cfg >> "vn_b_group_men_rok_marines_65" >> "vn_b_group_men_rok_marines_65_01"]],0.5],
+	// vn_b_group_men_rok_marines_65_02 Огневая группа 2
+	[[[__cfg >> "vn_b_group_men_rok_marines_65" >> "vn_b_group_men_rok_marines_65_02"]],0.5],
+	// vn_b_group_men_rok_marines_65_03 Огневая группа 3
+	[[[__cfg >> "vn_b_group_men_rok_marines_65" >> "vn_b_group_men_rok_marines_65_03"]],0.5],
+	// vn_b_group_men_rok_marines_65_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_rok_marines_65" >> "vn_b_group_men_rok_marines_65_04"]],0,0.05],
+	// vn_b_group_men_rok_marines_65_05 Инженерное отделение
+	[[[__cfg >> "vn_b_group_men_rok_marines_65" >> "vn_b_group_men_rok_marines_65_05"]],0.5],
+	// vn_b_group_men_rok_marines_65_06 Отряд артиллерии
+	[[[__cfg >> "vn_b_group_men_rok_marines_65" >> "vn_b_group_men_rok_marines_65_06"]],0.5],
+	// vn_b_group_men_rok_marines_65_07 Стрелковый отряд 1
+	[[[__cfg >> "vn_b_group_men_rok_marines_65" >> "vn_b_group_men_rok_marines_65_07"]],0.5],
+
+	// vn_b_group_men_rok_marines_68 Люди (форма морск. пехоты обр. 1968 г.)
+	// vn_b_group_men_rok_marines_68_01 Огневая группа 1
+	[[[__cfg >> "vn_b_group_men_rok_marines_68" >> "vn_b_group_men_rok_marines_68_01"]],0.5],
+	// vn_b_group_men_rok_marines_68_02 Огневая группа 2
+	[[[__cfg >> "vn_b_group_men_rok_marines_68" >> "vn_b_group_men_rok_marines_68_02"]],0.5],
+	// vn_b_group_men_rok_marines_68_03 Огневая группа 3
+	[[[__cfg >> "vn_b_group_men_rok_marines_68" >> "vn_b_group_men_rok_marines_68_03"]],0.5],
+	// vn_b_group_men_rok_marines_68_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_rok_marines_68" >> "vn_b_group_men_rok_marines_68_04"]],0,0.05],
+	// vn_b_group_men_rok_marines_68_05 Инженерное отделение
+	[[[__cfg >> "vn_b_group_men_rok_marines_68" >> "vn_b_group_men_rok_marines_68_05"]],0.5],
+	// vn_b_group_men_rok_marines_68_06 Отряд артиллерии
+	[[[__cfg >> "vn_b_group_men_rok_marines_68" >> "vn_b_group_men_rok_marines_68_06"]],0.5],
+	// vn_b_group_men_rok_marines_68_07 Стрелковый отряд 1
+	[[[__cfg >> "vn_b_group_men_rok_marines_68" >> "vn_b_group_men_rok_marines_68_07"]],0.5],
+
+	// vn_b_group_motor_rok_army Мотопехота (армия)
+	// vn_b_group_motor_rok_army_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_b_group_motor_rok_army" >> "vn_b_group_motor_rok_army_01"]],0.5],
+	// vn_b_group_motor_rok_army_02 Патрульный автомобиль M151 (ПТ)
+	[[[__cfg >> "vn_b_group_motor_rok_army" >> "vn_b_group_motor_rok_army_02"]],0.5],
+	// vn_b_group_motor_rok_army_03 Патрульный автомобиль M54
+	[[[__cfg >> "vn_b_group_motor_rok_army" >> "vn_b_group_motor_rok_army_03"]],0.5],
+	// vn_b_group_motor_rok_army_04 Подкрепления M54
+	[[[__cfg >> "vn_b_group_motor_rok_army" >> "vn_b_group_motor_rok_army_04"]],0.5],
+
+	// vn_b_group_mech_rok_army Механизированная пехота (армия)
+	// vn_b_group_mech_rok_army_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_b_group_mech_rok_army" >> "vn_b_group_mech_rok_army_01"]],0.5],
+	// vn_b_group_mech_rok_army_02 Конвой M54
+	[[[__cfg >> "vn_b_group_mech_rok_army" >> "vn_b_group_mech_rok_army_02"]],0,0.05],
+	// vn_b_group_mech_rok_army_03 Конвой M54 (снабжение)
+	[[[__cfg >> "vn_b_group_mech_rok_army" >> "vn_b_group_mech_rok_army_03"]],0,0.05],
+	// vn_b_group_mech_rok_army_04 Патрульный M113A1
+	[[[__cfg >> "vn_b_group_mech_rok_army" >> "vn_b_group_mech_rok_army_04"]],0.5],
+	// vn_b_group_mech_rok_army_05 Патрульный M113A1 (тяжелый)
+	[[[__cfg >> "vn_b_group_mech_rok_army" >> "vn_b_group_mech_rok_army_05"]],0.5],
+	// vn_b_group_mech_rok_army_06 Патрульный M113A1 (штаба)
+	[[[__cfg >> "vn_b_group_mech_rok_army" >> "vn_b_group_mech_rok_army_06"]],0,0.05],
+	// vn_b_group_mech_rok_army_07 Патрульный M113A1 (артиллерии)
+	[[[__cfg >> "vn_b_group_mech_rok_army" >> "vn_b_group_mech_rok_army_07"]],0.5],
+
+	/*
+	// vn_b_group_static_rok_army Турели (армия)
+	// vn_b_group_static_rok_army_01 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_static_rok_army" >> "vn_b_group_static_rok_army_01"]],0.5],
+	// vn_b_group_static_rok_army_02 Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_b_group_static_rok_army" >> "vn_b_group_static_rok_army_02"]],0.5],
+	// vn_b_group_static_rok_army_03 Минометная батарея
+	[[[__cfg >> "vn_b_group_static_rok_army" >> "vn_b_group_static_rok_army_03"]],0.5],
+	// vn_b_group_static_rok_army_04 Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_b_group_static_rok_army" >> "vn_b_group_static_rok_army_04"]],0.5],
+	// vn_b_group_static_rok_army_05 Гаубичная батарея
+	[[[__cfg >> "vn_b_group_static_rok_army" >> "vn_b_group_static_rok_army_05"]],0.5],
+	// vn_b_group_static_rok_army_06 Батарея ПВО
+	[[[__cfg >> "vn_b_group_static_rok_army" >> "vn_b_group_static_rok_army_06"]],0.5],
+	// vn_b_group_static_rok_army_07 Расчет ПТО
+	[[[__cfg >> "vn_b_group_static_rok_army" >> "vn_b_group_static_rok_army_07"]],0.5],
+	// vn_b_group_static_rok_army_08 Расчет безоткатного орудия
+	[[[__cfg >> "vn_b_group_static_rok_army" >> "vn_b_group_static_rok_army_08"]],0.5],
+	*/
+
+	// vn_b_group_motor_rok_marines Мотопехота (морская пехота в форме)
+	// vn_b_group_motor_rok_marines_01 Патрульный M151 (морская пехота)
+	[[[__cfg >> "vn_b_group_motor_rok_marines" >> "vn_b_group_motor_rok_marines_01"]],0.5],
+	// vn_b_group_motor_rok_marines_02 Патрульный M151 (ПТ/морская пехота)
+	[[[__cfg >> "vn_b_group_motor_rok_marines" >> "vn_b_group_motor_rok_marines_02"]],0.5],
+	// vn_b_group_motor_rok_marines_03 Патрульный M54 (морская пехота)
+	[[[__cfg >> "vn_b_group_motor_rok_marines" >> "vn_b_group_motor_rok_marines_03"]],0.5],
+	// vn_b_group_motor_rok_marines_04 Подкрепления M54 (морская пехота)
+	[[[__cfg >> "vn_b_group_motor_rok_marines" >> "vn_b_group_motor_rok_marines_04"]],0.5],
+
+	// vn_b_group_mech_rok_marines Механизированная пехота (морская пехота в форме)
+	// vn_b_group_mech_rok_marines_01 Патрульный M151 (морская пехота)
+	[[[__cfg >> "vn_b_group_mech_rok_marines" >> "vn_b_group_mech_rok_marines_01"]],0.5],
+	// vn_b_group_mech_rok_marines_02 Конвойный M54 (морская пехота)
+	[[[__cfg >> "vn_b_group_mech_rok_marines" >> "vn_b_group_mech_rok_marines_02"]],0,0.05],
+	// vn_b_group_mech_rok_marines_03 Конвойный M151 (снабжение/морская пехота)
+	[[[__cfg >> "vn_b_group_mech_rok_marines" >> "vn_b_group_mech_rok_marines_03"]],0,0.05]
+
+	/*
+	// vn_b_group_static_rok_marines Турели (морская пехота)
+	// vn_b_group_static_rok_marines_01 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_static_rok_marines" >> "vn_b_group_static_rok_marines_01"]],0.5],
+	// vn_b_group_static_rok_marines_02 Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_b_group_static_rok_marines" >> "vn_b_group_static_rok_marines_02"]],0.5],
+	// vn_b_group_static_rok_marines_03 Минометная батарея
+	[[[__cfg >> "vn_b_group_static_rok_marines" >> "vn_b_group_static_rok_marines_03"]],0.5],
+	// vn_b_group_static_rok_marines_04 Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_b_group_static_rok_marines" >> "vn_b_group_static_rok_marines_04"]],0.5],
+	// vn_b_group_static_rok_marines_05 Гаубичная батарея
+	[[[__cfg >> "vn_b_group_static_rok_marines" >> "vn_b_group_static_rok_marines_05"]],0.5],
+	// vn_b_group_static_rok_marines_06 Батарея ПВО
+	[[[__cfg >> "vn_b_group_static_rok_marines" >> "vn_b_group_static_rok_marines_06"]],0.5],
+	// vn_b_group_static_rok_marines_07 Расчет ПТО
+	[[[__cfg >> "vn_b_group_static_rok_marines" >> "vn_b_group_static_rok_marines_07"]],0.5],
+	// vn_b_group_static_rok_marines_08 Расчет безоткатного орудия
+	[[[__cfg >> "vn_b_group_static_rok_marines" >> "vn_b_group_static_rok_marines_08"]],0.5]
+	*/
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "VN_ROK", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[1960,1990], [160,999],
+[]
+] call gosa_fnc_map_groups_add;
+
 
 // resistance
 _arr = [
