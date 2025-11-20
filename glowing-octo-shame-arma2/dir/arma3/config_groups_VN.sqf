@@ -1695,6 +1695,7 @@ _arr = [
 []
 ] call gosa_fnc_map_groups_add;
 
+
 // resistance
 #define __cfg configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN"
 _arr = [
@@ -1894,6 +1895,160 @@ _arr = [
 ];
 [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, resistance, "VN_ARVN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[1960,1990], [160,999],
+[]
+] call gosa_fnc_map_groups_add;
+
+#define __cfg configFile >> "CfgGroups" >> "Indep" >> "VN_FANK"
+_arr = [
+	// vn_i_group_men_fank_70 Люди (армия 70)
+	// vn_i_group_men_fank_70_01 Стрелковый отряд (1)
+	[[[__cfg >> "vn_i_group_men_fank_70" >> "vn_i_group_men_fank_70_01"]],0.5],
+	// vn_i_group_men_fank_70_02 Стрелковый отряд (2)
+	[[[__cfg >> "vn_i_group_men_fank_70" >> "vn_i_group_men_fank_70_02"]],0.5],
+	// vn_i_group_men_fank_70_03 Стрелковый взвод (1)
+	[[[__cfg >> "vn_i_group_men_fank_70" >> "vn_i_group_men_fank_70_03"]],0.5],
+	// vn_i_group_men_fank_70_04 Команда инженеров
+	[[[__cfg >> "vn_i_group_men_fank_70" >> "vn_i_group_men_fank_70_04"]],0.5],
+	// vn_i_group_men_fank_70_05 Отряд оружия
+	[[[__cfg >> "vn_i_group_men_fank_70" >> "vn_i_group_men_fank_70_05"]],0.5],
+	// vn_i_group_men_fank_70_06 Отряд штаба
+	[[[__cfg >> "vn_i_group_men_fank_70" >> "vn_i_group_men_fank_70_06"]],0,0.05],
+	// vn_i_group_men_fank_70_07 Экипаж техники
+	//[[[__cfg >> "vn_i_group_men_fank_70" >> "vn_i_group_men_fank_70_07"]],0.5],
+
+	// vn_i_group_men_fank_71 Люди (армия 71)
+	// vn_i_group_men_fank_71_01 Стрелковый отряд (1)
+	[[[__cfg >> "vn_i_group_men_fank_71" >> "vn_i_group_men_fank_71_01"]],0.5],
+	// vn_i_group_men_fank_71_02 Стрелковый отряд (2)
+	[[[__cfg >> "vn_i_group_men_fank_71" >> "vn_i_group_men_fank_71_02"]],0.5],
+	// vn_i_group_men_fank_71_03 Стрелковый взвод (1)
+	[[[__cfg >> "vn_i_group_men_fank_71" >> "vn_i_group_men_fank_71_03"]],0.5],
+	// vn_i_group_men_fank_71_04 Команда инженеров
+	[[[__cfg >> "vn_i_group_men_fank_71" >> "vn_i_group_men_fank_71_04"]],0.5],
+	// vn_i_group_men_fank_71_05 Отряд оружия
+	[[[__cfg >> "vn_i_group_men_fank_71" >> "vn_i_group_men_fank_71_05"]],0.5],
+	// vn_i_group_men_fank_71_06 Отряд штаба
+	[[[__cfg >> "vn_i_group_men_fank_71" >> "vn_i_group_men_fank_71_06"]],0,0.05],
+	/*
+	// vn_i_group_men_fank_71_07 Экипаж техники
+	[[[__cfg >> "vn_i_group_men_fank_71" >> "vn_i_group_men_fank_71_07"]],0.5],
+
+	// vn_i_group_men_aircrew Люди (экипаж воздушного судна)
+	// vn_i_group_men_fank_71_uh1_01 Экипаж UH-1 (армия)
+	[[[__cfg >> "vn_i_group_men_aircrew" >> "vn_i_group_men_fank_71_uh1_01"]],0.5],
+
+	// vn_i_group_static_fank_70 Турели (армия 70)
+	// vn_i_group_static_fank_70_01 Пулеметный расчет
+	[[[__cfg >> "vn_i_group_static_fank_70" >> "vn_i_group_static_fank_70_01"]],0.5],
+	// vn_i_group_static_fank_70_02 Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_i_group_static_fank_70" >> "vn_i_group_static_fank_70_02"]],0.5],
+	// vn_i_group_static_fank_70_03 Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_i_group_static_fank_70" >> "vn_i_group_static_fank_70_03"]],0.5],
+	// vn_i_group_static_fank_70_04 Минометная батарея
+	[[[__cfg >> "vn_i_group_static_fank_70" >> "vn_i_group_static_fank_70_04"]],0.5],
+	// vn_i_group_static_fank_70_05 Батарея ПВО 2
+	[[[__cfg >> "vn_i_group_static_fank_70" >> "vn_i_group_static_fank_70_05"]],0.5],
+	// vn_i_group_static_fank_70_06 Батарея ПВО
+	[[[__cfg >> "vn_i_group_static_fank_70" >> "vn_i_group_static_fank_70_06"]],0.5],
+	// vn_i_group_static_fank_70_07 Батарея ПВО 3
+	[[[__cfg >> "vn_i_group_static_fank_70" >> "vn_i_group_static_fank_70_07"]],0.5],
+	// vn_i_group_static_fank_70_08 Расчет безоткатного орудия
+	[[[__cfg >> "vn_i_group_static_fank_70" >> "vn_i_group_static_fank_70_08"]],0.5],
+	// vn_i_group_static_fank_71 Турели (армия 71)
+	// vn_i_group_static_fank_71_01 Пулеметный расчет
+	[[[__cfg >> "vn_i_group_static_fank_71" >> "vn_i_group_static_fank_71_01"]],0.5],
+	// vn_i_group_static_fank_71_02 Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_i_group_static_fank_71" >> "vn_i_group_static_fank_71_02"]],0.5],
+	// vn_i_group_static_fank_71_03 Минометная батарея
+	[[[__cfg >> "vn_i_group_static_fank_71" >> "vn_i_group_static_fank_71_03"]],0.5],
+	// vn_i_group_static_fank_71_04 Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_i_group_static_fank_71" >> "vn_i_group_static_fank_71_04"]],0.5],
+	// vn_i_group_static_fank_71_05 Расчет Снайпер
+	[[[__cfg >> "vn_i_group_static_fank_71" >> "vn_i_group_static_fank_71_05"]],0.5],
+	// vn_i_group_static_fank_71_06 Батарея ПВО
+	[[[__cfg >> "vn_i_group_static_fank_71" >> "vn_i_group_static_fank_71_06"]],0.5],
+	// vn_i_group_static_fank_71_08 Расчет безоткатного орудия
+	[[[__cfg >> "vn_i_group_static_fank_71" >> "vn_i_group_static_fank_71_08"]],0.5],
+	*/
+
+	// vn_i_group_motor_fank_70 Мотопехота (армия 70)
+	// vn_i_group_motor_fank_70_01 Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_i_group_motor_fank_70" >> "vn_i_group_motor_fank_70_01"]],0.5],
+	// vn_i_group_motor_fank_70_02 Патрульный автомобиль БТР-40 (ПТ)
+	[[[__cfg >> "vn_i_group_motor_fank_70" >> "vn_i_group_motor_fank_70_02"]],0.5],
+	// vn_i_group_motor_fank_70_03 Патрульный автомобиль БТР-40 (с пулеметом)
+	[[[__cfg >> "vn_i_group_motor_fank_70" >> "vn_i_group_motor_fank_70_03"]],0.5],
+	// vn_i_group_motor_fank_70_04 Патрульный автомобиль ЗиЛ-157
+	[[[__cfg >> "vn_i_group_motor_fank_70" >> "vn_i_group_motor_fank_70_04"]],0.5],
+	// vn_i_group_motor_fank_70_05 Патрульный автомобиль ЗиЛ-157 (ПТ)
+	[[[__cfg >> "vn_i_group_motor_fank_70" >> "vn_i_group_motor_fank_70_05"]],0.5],
+	// vn_i_group_motor_fank_70_06 Патрульный автомобиль ЗиЛ-157 с пулеметом
+	[[[__cfg >> "vn_i_group_motor_fank_70" >> "vn_i_group_motor_fank_70_06"]],0.5],
+	// vn_i_group_motor_fank_70_07 Подкрепления ЗиЛ-157
+	[[[__cfg >> "vn_i_group_motor_fank_70" >> "vn_i_group_motor_fank_70_07"]],0.5],
+
+	// vn_i_group_mech_fank_70 Механизированная пехота (армия 70)
+	// vn_i_group_mech_fank_70_01 Патрульный автомобиль БТР-40
+	[[[__cfg >> "vn_i_group_mech_fank_70" >> "vn_i_group_mech_fank_70_01"]],0.5],
+	// vn_i_group_mech_fank_70_02 ЗиЛ-157 конвой (вооруженный)
+	[[[__cfg >> "vn_i_group_mech_fank_70" >> "vn_i_group_mech_fank_70_02"]],0,0.05],
+	// vn_i_group_mech_fank_70_03 ЗиЛ-157 конвой (снабжение)
+	[[[__cfg >> "vn_i_group_mech_fank_70" >> "vn_i_group_mech_fank_70_03"]],0,0.05],
+	// vn_i_group_mech_fank_70_04 ЗиЛ-157 конвой
+	[[[__cfg >> "vn_i_group_mech_fank_70" >> "vn_i_group_mech_fank_70_04"]],0,0.05],
+	// vn_i_group_mech_fank_70_05 ЗиЛ-157 конвой (тяжелый)
+	[[[__cfg >> "vn_i_group_mech_fank_70" >> "vn_i_group_mech_fank_70_05"]],0,0.05],
+
+	// vn_i_group_motor_fank_71 Мотопехота (армия 71)
+	// vn_i_group_motor_fank_71_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_i_group_motor_fank_71" >> "vn_i_group_motor_fank_71_01"]],0.5],
+	// vn_i_group_motor_fank_71_02 Патрульный автомобиль M151 (ПТ)
+	[[[__cfg >> "vn_i_group_motor_fank_71" >> "vn_i_group_motor_fank_71_02"]],0.5],
+	// vn_i_group_motor_fank_71_03 Патрульный автомобиль M151 с пулеметом
+	[[[__cfg >> "vn_i_group_motor_fank_71" >> "vn_i_group_motor_fank_71_03"]],0.5],
+	// vn_i_group_motor_fank_71_04 Патрульный автомобиль ЗиЛ-157
+	[[[__cfg >> "vn_i_group_motor_fank_71" >> "vn_i_group_motor_fank_71_04"]],0.5],
+	// vn_i_group_motor_fank_71_05 Патрульный автомобиль ЗиЛ-157 (ПТ)
+	[[[__cfg >> "vn_i_group_motor_fank_71" >> "vn_i_group_motor_fank_71_05"]],0.5],
+	// vn_i_group_motor_fank_71_06 Патрульный автомобиль ЗиЛ-157 с пулеметом
+	[[[__cfg >> "vn_i_group_motor_fank_71" >> "vn_i_group_motor_fank_71_06"]],0.5],
+	// vn_i_group_motor_fank_71_07 Подкрепления ЗиЛ-157
+	[[[__cfg >> "vn_i_group_motor_fank_71" >> "vn_i_group_motor_fank_71_07"]],0.5],
+
+	// vn_i_group_mech_fank_71 Механизированная пехота (армия 71)
+	// vn_i_group_mech_fank_71_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_i_group_mech_fank_71" >> "vn_i_group_mech_fank_71_01"]],0.5],
+	// vn_i_group_mech_fank_71_02 ЗиЛ-157 конвой
+	[[[__cfg >> "vn_i_group_mech_fank_71" >> "vn_i_group_mech_fank_71_02"]],0,0.05],
+	// vn_i_group_mech_fank_71_03 ЗиЛ-157 конвой (снабжение)
+	[[[__cfg >> "vn_i_group_mech_fank_71" >> "vn_i_group_mech_fank_71_03"]],0,0.05],
+	// vn_i_group_mech_fank_71_04 Патрульный M113A1
+	[[[__cfg >> "vn_i_group_mech_fank_71" >> "vn_i_group_mech_fank_71_04"]],0.5],
+	// vn_i_group_mech_fank_71_05 Патрульный M113A1 (тяжелый)
+	[[[__cfg >> "vn_i_group_mech_fank_71" >> "vn_i_group_mech_fank_71_05"]],0.5],
+
+	// vn_i_group_air_fank_71 Авиация (армия 71)
+	// vn_i_group_air_fank_71_01 UH1 (транспорт)
+	[[[__cfg >> "vn_i_group_air_fank_71" >> "vn_i_group_air_fank_71_01"]],0.5],
+	// vn_i_group_boats_fank_71 Морские силы (ВМС)
+	// vn_i_group_boat_fank_71_01 Катеры PBR Mk II (патруль)
+	[[[__cfg >> "vn_i_group_boats_fank_71" >> "vn_i_group_boat_fank_71_01"]],0,0.05],
+	// vn_i_group_boat_fank_71_02 Катеры PBR Mk II (отряд)
+	[[[__cfg >> "vn_i_group_boats_fank_71" >> "vn_i_group_boat_fank_71_02"]],0,0.05],
+	// vn_i_group_boat_fank_70_03 Бронированные лодки (патруль)
+	[[[__cfg >> "vn_i_group_boats_fank_71" >> "vn_i_group_boat_fank_70_03"]],0,0.05],
+	// vn_i_group_boat_fank_70_04 Бронированные лодки (эскадрон)
+	[[[__cfg >> "vn_i_group_boats_fank_71" >> "vn_i_group_boat_fank_70_04"]],0,0.05]
+	/*
+	// vn_i_group_boat_fank_70_05 Лодки (транспорт)
+	[[[__cfg >> "vn_i_group_boats_fank_71" >> "vn_i_group_boat_fank_70_05"]],0.5],
+	// vn_i_group_boat_fank_70_06 Лодки (снабжение)
+	[[[__cfg >> "vn_i_group_boats_fank_71" >> "vn_i_group_boat_fank_70_06"]],0.5]
+	*/
+];
+[_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, resistance, "VN_FANK", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
 ] call gosa_fnc_map_groups_add;
