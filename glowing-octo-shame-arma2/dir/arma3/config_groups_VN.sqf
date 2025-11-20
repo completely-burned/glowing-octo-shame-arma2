@@ -1697,103 +1697,201 @@ _arr = [
 
 // resistance
 _arr = [
-	// vn_i_group_men_army_01
-	[[[["vn_i_men_army_01","vn_i_men_army_02","vn_i_men_army_03","vn_i_men_army_04","vn_i_men_army_05","vn_i_men_army_06","vn_i_men_army_07","vn_i_men_army_08","vn_i_men_army_09","vn_i_men_army_10","vn_i_men_army_11","vn_i_men_army_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_army_03
-	[[[["vn_i_men_army_01","vn_i_men_army_14","vn_i_men_army_03","vn_i_men_army_04","vn_i_men_army_05","vn_i_men_army_06","vn_i_men_army_07","vn_i_men_army_08","vn_i_men_army_09","vn_i_men_army_10","vn_i_men_army_11","vn_i_men_army_11","vn_i_men_army_12","vn_i_men_army_16","vn_i_men_army_17","vn_i_men_army_18","vn_i_men_army_07","vn_i_men_army_19","vn_i_men_army_20","vn_i_men_army_10","vn_i_men_army_21","vn_i_men_army_12","vn_i_men_army_11"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0],[0,-75,0],[0,-80,0],[0,-85,0],[0,-90,0],[0,-95,0],[0,-100,0],[0,-105,0],[0,-110,0],[0,-115,0]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_army_04
-	[[[["vn_i_men_army_01","vn_i_men_army_22","vn_i_men_army_22","vn_i_men_army_22"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_ranger_01
-	[[[["vn_i_men_ranger_01","vn_i_men_ranger_02","vn_i_men_ranger_03","vn_i_men_ranger_04","vn_i_men_ranger_05","vn_i_men_ranger_06","vn_i_men_ranger_07","vn_i_men_ranger_08","vn_i_men_ranger_09","vn_i_men_ranger_10","vn_i_men_ranger_11","vn_i_men_ranger_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0]],["SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_ranger_05
-	[[[["vn_i_men_ranger_22","vn_i_men_ranger_01","vn_i_men_ranger_02","vn_i_men_ranger_03","vn_i_men_ranger_06","vn_i_men_ranger_05"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["CAPTAIN","LIEUTENANT","SERGEANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_sf_01
-	[[[["vn_i_men_sf_01","vn_i_men_sf_02","vn_i_men_sf_03","vn_i_men_sf_04","vn_i_men_sf_05","vn_i_men_sf_06","vn_i_men_sf_07","vn_i_men_sf_08","vn_i_men_sf_09","vn_i_men_sf_10","vn_i_men_sf_11","vn_i_men_sf_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0]],["SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_sf_02
-	[[[["vn_i_men_sf_09","vn_i_men_sf_07","vn_i_men_sf_10","vn_i_men_sf_13","vn_i_men_sf_11","vn_i_men_sf_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["SERGEANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_sf_03
-	[[[["vn_i_men_sf_13","vn_i_men_sf_01","vn_i_men_sf_02","vn_i_men_sf_03","vn_i_men_sf_04","vn_i_men_sf_08"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["CAPTAIN","LIEUTENANT","SERGEANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
+	// vn_i_group_men_army Люди (АРВ)
+	// vn_i_group_men_army_01 Стрелковый отряд (1)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_01"]],0.5],
+	// vn_i_group_men_army_02 Стрелковый отряд (2)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_02"]],0.5],
+	// vn_i_group_men_army_03 Стрелковый взвод (1)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_03"]],0.5],
+	// vn_i_group_men_army_04 Полиция Quan Canh
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_04"]],0,0.05],
+	// vn_i_group_men_army_05 Экипаж танка
+	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_05"]],0.5],
+	// vn_i_group_men_army_08 Отряд штаба
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_08"]],0,0.05],
+	// vn_i_group_men_army_09 Экипаж техники
+	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_09"]],0.5],
 
-	// vn_i_group_motor_army_01
-	[[[["vn_i_wheeled_m151_mg_01","vn_i_men_army_02","vn_i_men_army_03","vn_i_men_army_04"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_army_02
-	[[[["vn_i_wheeled_m151_mg_01","vn_i_men_army_02","vn_i_men_army_12","vn_i_men_army_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_army_03
-	[[[["vn_i_wheeled_m151_mg_01","vn_i_men_army_02","vn_i_men_army_06","vn_i_men_army_11"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_army_04
-	[[[["vn_i_wheeled_m54_01","vn_i_men_army_02","vn_i_men_army_03","vn_i_men_army_04"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_army_05
-	[[[["vn_i_wheeled_m54_01","vn_i_men_army_02","vn_i_men_army_12","vn_i_men_army_12"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_army_06
-	[[[["vn_i_wheeled_m54_01","vn_i_men_army_02","vn_i_men_army_06","vn_i_men_army_11"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_army_07
-	[[[["vn_i_wheeled_m54_01","vn_i_men_army_14","vn_i_men_army_03","vn_i_men_army_04","vn_i_men_army_05","vn_i_men_army_06","vn_i_men_army_07","vn_i_men_army_08","vn_i_men_army_09","vn_i_men_army_10","vn_i_men_army_11","vn_i_men_army_11","vn_i_men_army_12","vn_i_men_army_16","vn_i_men_army_17","vn_i_men_army_18","vn_i_men_army_07"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.5],
+	// vn_i_group_men_ranger Люди (рейнджеры АРВ)
+	// vn_i_group_men_ranger_01 Стрелковый отряд (1)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_01"]],0.5],
+	// vn_i_group_men_ranger_02 Стрелковый отряд (2)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_02"]],0.5],
+	// vn_i_group_men_ranger_03 Стрелковый взвод (1)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_03"]],0.5],
+	// vn_i_group_men_ranger_04 Разведгруппа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_04"]],0.5],
+	// vn_i_group_men_ranger_05 Отряд штаба
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_05"]],0,0.05],
 
-	// vn_i_group_mech_army_01
-	[[[["vn_i_wheeled_m151_mg_01","vn_i_wheeled_m151_01","vn_i_wheeled_m151_02","vn_i_wheeled_m151_mg_01"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_mech_army_02
-	[[[["vn_i_wheeled_m151_mg_01_mp","vn_i_wheeled_m151_01_mp","vn_i_wheeled_m151_02_mp","vn_i_wheeled_m151_mg_01_mp"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_mech_army_05
-	[[[["vn_i_armor_m113_acav_01","vn_i_armor_m113_acav_01","vn_i_armor_m113_acav_01"],[[0,-12,0],[0,-24,0],[0,-36,0]],["LIEUTENANT","SERGEANT","CORPORAL"]]],0.5],
-	// vn_i_group_mech_army_06
-	[[[["vn_i_armor_m113_acav_01","vn_i_armor_m113_acav_01","vn_i_armor_m113_acav_03","vn_i_armor_m113_acav_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_mech_army_07
-	[[[["vn_i_armor_m132_01","vn_i_armor_m113_acav_01","vn_i_armor_m113_acav_03","vn_i_armor_m132_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_mech_army_09
-	[[[["vn_i_armor_m113_01","vn_i_armor_m125_01","vn_i_armor_m125_01","vn_i_armor_m113_acav_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// vn_i_group_men_sf Люди (спецподразделения LLDB)
+	// vn_i_group_men_sf_01 Штурмовая группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_sf" >> "vn_i_group_men_sf_01"]],0.5],
+	// vn_i_group_men_sf_02 Разведгруппа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_sf" >> "vn_i_group_men_sf_02"]],0.5],
+	// vn_i_group_men_sf_03 Отряд штаба
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_sf" >> "vn_i_group_men_sf_03"]],0,0.05],
 
-	// vn_i_group_armor_army_01
-	[[[["vn_i_armor_m41_01","vn_i_armor_m41_01","vn_i_armor_m41_01","vn_i_armor_m41_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_armor_army_02
-	[[[["vn_i_armor_m41_01","vn_i_armor_m41_01"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-	// vn_i_group_armor_army_03
-	[[[["vn_i_armor_type63_01","vn_i_armor_type63_01","vn_i_armor_type63_01"],[[0,-12,0],[0,-24,0],[0,-36,0]],["LIEUTENANT","SERGEANT","CORPORAL"]]],0.5],
-	// vn_i_group_armor_army_04
-	[[[["vn_i_armor_m48_01_01","vn_i_armor_m48_01_01"],[[0,-12,0],[0,-24,0]],["LIEUTENANT","SERGEANT"]]],0.5],
-	// vn_i_group_armor_army_05
-	[[[["vn_i_armor_m48_01_01","vn_i_armor_m48_01_01","vn_i_armor_m48_01_01","vn_i_armor_m48_01_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_armor_army_06
-	[[[["vn_i_armor_m48_01_01","vn_i_armor_m48_01_01","vn_i_armor_m113_acav_04","vn_i_armor_m113_acav_01","vn_i_armor_m113_acav_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_armor_army_07
-	[[[["vn_i_armor_m48_01_01","vn_i_armor_m67_01_01","vn_i_armor_m67_01_01","vn_i_armor_m48_01_01"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
+	// vn_i_group_motor_army Мотопехота (армия)
+	// vn_i_group_motor_army_01 Патрульный автомобиль M151
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_01"]],0.5],
+	// vn_i_group_motor_army_02 Патрульный автомобиль M151 (ПТ)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_02"]],0.5],
+	// vn_i_group_motor_army_03 Патрульный автомобиль M151 с пулеметом
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_03"]],0.5],
+	// vn_i_group_motor_army_04 Патрульный автомобиль M54
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_04"]],0.5],
+	// vn_i_group_motor_army_05 Патрульный автомобиль M54 (ПТ)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_05"]],0.5],
+	// vn_i_group_motor_army_06 Патрульный автомобиль M54 с пулеметом
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_06"]],0.5],
+	// vn_i_group_motor_army_07 Подкрепления M54
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_07"]],0.5],
 
-	// vn_i_group_men_marines_01
-	[[[["vn_i_men_marine_09","vn_i_men_marine_15","vn_i_men_marine_02","vn_i_men_marine_11","vn_i_men_marine_03","vn_i_men_marine_10","vn_i_men_marine_06","vn_i_men_marine_07","vn_i_men_marine_16","vn_i_men_marine_18"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0]],["PRIVATE","CORPORAL","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_marines_02
-	[[[["vn_i_men_marine_09","vn_i_men_marine_19","vn_i_men_marine_02","vn_i_men_marine_11","vn_i_men_marine_03","vn_i_men_marine_10","vn_i_men_marine_06","vn_i_men_marine_17","vn_i_men_marine_20","vn_i_men_marine_21"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0]],["PRIVATE","CORPORAL","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_marines_03
-	[[[["vn_i_men_marine_09","vn_i_men_marine_05","vn_i_men_marine_02","vn_i_men_marine_08","vn_i_men_marine_03","vn_i_men_marine_15","vn_i_men_marine_16","vn_i_men_marine_18","vn_i_men_marine_11","vn_i_men_marine_06","vn_i_men_marine_07","vn_i_men_marine_17","vn_i_men_marine_20","vn_i_men_marine_10","vn_i_men_marine_04","vn_i_men_marine_21"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[0,-65,0],[0,-70,0],[0,-75,0],[0,-80,0]],["PRIVATE","CORPORAL","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_men_marines_04
-	[[[["vn_i_men_marine_01","vn_i_men_marine_02","vn_i_men_marine_08","vn_i_men_marine_03"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_marines_05
-	[[[["vn_i_men_marine_02","vn_i_men_marine_04","vn_i_men_marine_05","vn_i_men_marine_21"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	// vn_i_group_men_marines_08
-	[[[["vn_i_men_marine_02","vn_i_men_marine_11","vn_i_men_marine_06","vn_i_men_marine_17","vn_i_men_marine_06","vn_i_men_marine_20"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+	// vn_i_group_mech_army Механизированная пехота (армия)
+	// vn_i_group_mech_army_01 Патрульный автомобиль M151
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_01"]],0.5],
+	// vn_i_group_mech_army_02 Патрульный автомобиль M151 (ВП)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_02"]],0,0.05],
+	// vn_i_group_mech_army_03 Конвой M54
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_03"]],0,0.05],
+	// vn_i_group_mech_army_04 Конвой M54 (снабжение)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_04"]],0,0.05],
+	// vn_i_group_mech_army_05 Патрульный M113A1
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_05"]],0.5],
+	// vn_i_group_mech_army_06 Патрульный M113A1 (тяжелый)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_06"]],0.5],
+	// vn_i_group_mech_army_07 Патрульный M113A1 (штурмовой)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_07"]],0.5],
+	// vn_i_group_mech_army_08 Патрульный M113A1 (штаба)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_08"]],0,0.05],
+	// vn_i_group_mech_army_09 Патрульный M113A1 (артиллерии)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_09"]],0.5],
 
-	// vn_i_group_motor_marines_01
-	[[[["vn_i_wheeled_m151_mg_01_marines","vn_i_men_marine_02","vn_i_men_marine_03","vn_i_men_marine_04"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_marines_02
-	[[[["vn_i_wheeled_m151_mg_01_marines","vn_i_men_marine_02","vn_i_men_marine_12","vn_i_men_marine_12"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_marines_03
-	[[[["vn_i_wheeled_m151_mg_01_marines","vn_i_men_marine_02","vn_i_men_marine_06","vn_i_men_marine_11"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_marines_04
-	[[[["vn_i_wheeled_m54_01_marines","vn_i_men_marine_02","vn_i_men_marine_03","vn_i_men_marine_04"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_marines_05
-	[[[["vn_i_wheeled_m54_01_marines","vn_i_men_marine_02","vn_i_men_marine_12","vn_i_men_marine_12"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_marines_06
-	[[[["vn_i_wheeled_m54_01_marines","vn_i_men_marine_02","vn_i_men_marine_06","vn_i_men_marine_11"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5],
-	// vn_i_group_motor_marines_07
-	[[[["vn_i_wheeled_m54_01_marines","vn_i_men_marine_14","vn_i_men_marine_03","vn_i_men_marine_04","vn_i_men_marine_05","vn_i_men_marine_06","vn_i_men_marine_07","vn_i_men_marine_08","vn_i_men_marine_09","vn_i_men_marine_10","vn_i_men_marine_11","vn_i_men_marine_11","vn_i_men_marine_12","vn_i_men_marine_16","vn_i_men_marine_17","vn_i_men_marine_18","vn_i_men_marine_07"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0],[0,-40,0],[0,-48,0],[0,-56,0],[0,-64,0],[0,-72,0],[0,-80,0],[0,-88,0],[0,-96,0],[0,-104,0],[0,-112,0],[0,-120,0],[0,-128,0],[0,-136,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","SERGEANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL"]]],0.5],
-	// vn_i_group_mech_marines_01
-	[[[["vn_i_wheeled_m151_mg_01_marines","vn_i_wheeled_m151_01_marines","vn_i_wheeled_m151_02_marines","vn_i_wheeled_m151_mg_01_marines"],[[0,-8,0],[0,-16,0],[0,-24,0],[0,-32,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.5]
+	// vn_i_group_armor_army Бронированный отряд (АРВ)
+	// vn_i_group_armor_army_01 Взвод M41
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_01"]],0.5],
+	// vn_i_group_armor_army_02 Расчет M41
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_02"]],0.5],
+	// vn_i_group_armor_army_03 Расчет тип 63
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_03"]],0.5],
+	// vn_i_group_armor_army_04 Расчет M48
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_04"]],0.5],
+	// vn_i_group_armor_army_05 Взвод M48
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_05"]],0.5],
+	// vn_i_group_armor_army_06 Взвод M48 AA
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_06"]],0.5],
+	// vn_i_group_armor_army_07 Штурмовой взвод M48
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_07"]],0.5],
+
+	// vn_i_group_air_army Авиация (вьетнамские ВВС)
+	// vn_i_group_air_army_01 UH1 (боевой вертолет)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_01"]],0.5],
+	// vn_i_group_air_army_02 UH1 (транспорт)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_02"]],0.5],
+	// vn_i_group_air_army_03 UH1 (медэвакуация)
+	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_03"]],0.5],
+	// vn_i_group_air_army_04 UH1 (для высадки)
+	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_04"]],0.5],
+	// vn_i_group_air_army_05 CH34 (транспорт)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_05"]],0.5],
+	// vn_i_group_air_army_06 H34 (транспорт)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_06"]],0.5],
+	// vn_i_group_air_army_07 H34 (Кингби)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_07"]],0.5],
+
+	/*
+	// vn_i_group_static_army Турели (армия)
+	// vn_i_group_static_army_01 Пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_01"]],0.5],
+	// vn_i_group_static_army_02 Крупнокалиберный пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_02"]],0.5],
+	// vn_i_group_static_army_03 Минометная батарея
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_03"]],0.5],
+	// vn_i_group_static_army_04 Крупнокалиберная минометная батарея
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_04"]],0.5],
+	// vn_i_group_static_army_05 Гаубичная батарея
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_05"]],0.5],
+	// vn_i_group_static_army_06 Батарея ПВО
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_06"]],0.5],
+	// vn_i_group_static_army_07 Расчет ПТО
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_07"]],0.5],
+	// vn_i_group_static_army_08 Расчет ПТ ракет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_08"]],0.5],
+	// vn_i_group_static_army_09 Расчет безоткатного орудия
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_09"]],0.5],
+	*/
+
+	// vn_i_group_men_marines Люди (морская пехота TQLC)
+	// vn_i_group_men_marines_01 Стрелковый отряд (1)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_01"]],0.5],
+	// vn_i_group_men_marines_02 Стрелковый отряд (2)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_02"]],0.5],
+	// vn_i_group_men_marines_03 Стрелковый взвод (1)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_03"]],0.5],
+	// vn_i_group_men_marines_04 Отряд штаба
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_04"]],0,0.05],
+	// vn_i_group_men_marines_05 Отряд инженеров
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_05"]],0.5],
+	// vn_i_group_men_marines_08 Отряд пулеметчиков
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_08"]],0.5],
+	// vn_i_group_men_marines_09 Экипаж техники
+	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_09"]],0.5],
+	// vn_i_group_men_marines_10 Отряд артиллерии
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_10"]],0.5],
+
+	// vn_i_group_motor_marines Мотопехота (TQLC)
+	// vn_i_group_motor_marines_01 Патрульный M151 (морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_01"]],0.5],
+	// vn_i_group_motor_marines_02 Патрульный M151 (ПТ/морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_02"]],0.5],
+	// vn_i_group_motor_marines_03 Патрульный M151 (с пулеметом/морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_03"]],0.5],
+	// vn_i_group_motor_marines_04 Патрульный M54 (морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_04"]],0.5],
+	// vn_i_group_motor_marines_05 Патрульный M54 (ПТ/морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_05"]],0.5],
+	// vn_i_group_motor_marines_06 Патрульный M54 (с пулеметом/морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_06"]],0.5],
+	// vn_i_group_motor_marines_07 Подкрепления M54 (морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_07"]],0.5],
+
+	// vn_i_group_mech_marines Механизированная пехота (TQLC)
+	// vn_i_group_mech_marines_01 Патрульный M151 (морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_marines" >> "vn_i_group_mech_marines_01"]],0.5],
+	// vn_i_group_mech_marines_02 Конвойный M54 (морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_marines" >> "vn_i_group_mech_marines_02"]],0,0.05],
+	// vn_i_group_mech_marines_03 Конвойный M151 (снабжение/морская пехота)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_marines" >> "vn_i_group_mech_marines_03"]],0,0.05]
+
+	/*
+	// vn_i_group_static_marines Турели (TQLC)
+	// vn_i_group_static_marines_01 Пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_01"]],0.5],
+	// vn_i_group_static_marines_02 Крупнокалиберный пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_02"]],0.5],
+	// vn_i_group_static_marines_03 Минометная батарея
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_03"]],0.5],
+	// vn_i_group_static_marines_04 Крупнокалиберная минометная батарея
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_04"]],0.5],
+	// vn_i_group_static_marines_05 Гаубичная батарея
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_05"]],0.5],
+	// vn_i_group_static_marines_06 Расчет ПТО
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_06"]],0.5],
+	// vn_b_group_static_marines_07 Расчет безоткатного орудия
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_b_group_static_marines_07"]],0.5],
+
+	// vn_i_group_men_aircrew Люди (экипаж воздушного судна)
+	// vn_i_group_men_plane_01 Экипаж самолета (АРВ)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_aircrew" >> "vn_i_group_men_plane_01"]],0.5],
+	// vn_i_group_men_uh1_01 Экипаж UH-1 (АРВ)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_aircrew" >> "vn_i_group_men_uh1_01"]],0.5],
+	// vn_i_group_men_ch34_01 Экипаж CH-34 (АРВ)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_aircrew" >> "vn_i_group_men_ch34_01"]],0.5]
+	*/
 ];
-// Support.
-_arr append [
-	// vn_i_group_mech_army_04
-	[[[["vn_i_wheeled_m151_mg_01","vn_i_wheeled_m54_ammo","vn_i_wheeled_m54_fuel","vn_i_wheeled_m54_repair","vn_i_wheeled_m151_02"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.05],
-	// vn_i_group_mech_army_08
-	[[[["vn_i_armor_m577_01","vn_i_armor_m113_01","vn_i_armor_m577_02","vn_i_armor_m113_acav_03"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE"]]],0.05]
-];
+[_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, resistance, "VN_ARVN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
