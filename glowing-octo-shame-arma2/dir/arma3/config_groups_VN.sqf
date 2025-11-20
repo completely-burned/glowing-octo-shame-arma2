@@ -1554,6 +1554,141 @@ _arr = [
 []
 ] call gosa_fnc_map_groups_add;
 
+#define __cfg configFile >> "CfgGroups" >> "West" >> "VN_AUS"
+_arr = [
+	// vn_b_group_men_aus_sas_66 Люди (форма САС обр. 1966 г.)
+	// vn_b_group_men_aus_sas_66_01 1-й эскадрон
+	[[[__cfg >> "vn_b_group_men_aus_sas_66" >> "vn_b_group_men_aus_sas_66_01"]],0.5],
+	// vn_b_group_men_aus_sas_66_02 2-й эскадрон
+	[[[__cfg >> "vn_b_group_men_aus_sas_66" >> "vn_b_group_men_aus_sas_66_02"]],0.5],
+	// vn_b_group_men_aus_sas_70 Люди (форма САС обр. 1970 г.)
+	// vn_b_group_men_aus_sas_70_01 1-й эскадрон
+	[[[__cfg >> "vn_b_group_men_aus_sas_70" >> "vn_b_group_men_aus_sas_70_01"]],0.5],
+	// vn_b_group_men_aus_sas_70_03 3-й эскадрон
+	[[[__cfg >> "vn_b_group_men_aus_sas_70" >> "vn_b_group_men_aus_sas_70_03"]],0.5],
+	// vn_b_group_men_aus_army_66 Люди (армейск. форма обр. 1966 г.)
+	// vn_b_group_men_aus_army_66_01 Пехотное отделение 1
+	[[[__cfg >> "vn_b_group_men_aus_army_66" >> "vn_b_group_men_aus_army_66_01"]],0.5],
+	// vn_b_group_men_aus_army_66_02 Пехотный отделение 2
+	[[[__cfg >> "vn_b_group_men_aus_army_66" >> "vn_b_group_men_aus_army_66_02"]],0.5],
+	// vn_b_group_men_aus_army_66_03 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_men_aus_army_66" >> "vn_b_group_men_aus_army_66_03"]],0.5],
+	// vn_b_group_men_aus_army_66_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_aus_army_66" >> "vn_b_group_men_aus_army_66_04"]],0,0.05],
+	// vn_b_group_men_aus_army_66_05 Инженерное отделение
+	[[[__cfg >> "vn_b_group_men_aus_army_66" >> "vn_b_group_men_aus_army_66_05"]],0.5],
+	// vn_b_group_men_aus_army_66_06 Отряд артиллерии
+	[[[__cfg >> "vn_b_group_men_aus_army_66" >> "vn_b_group_men_aus_army_66_06"]],0.5],
+	// vn_b_group_men_aus_army_66_07 Экипаж БТР (3-й бронекавал. полк)
+	//[[[__cfg >> "vn_b_group_men_aus_army_66" >> "vn_b_group_men_aus_army_66_07"]],0.5],
+
+	// vn_b_group_men_aus_army_68 Люди (армейск. форма обр. 1968 г.)
+	// vn_b_group_men_aus_army_68_01 Пехотное отделение 1
+	[[[__cfg >> "vn_b_group_men_aus_army_68" >> "vn_b_group_men_aus_army_68_01"]],0.5],
+	// vn_b_group_men_aus_army_68_02 Пехотный отделение 2
+	[[[__cfg >> "vn_b_group_men_aus_army_68" >> "vn_b_group_men_aus_army_68_02"]],0.5],
+	// vn_b_group_men_aus_army_68_03 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_men_aus_army_68" >> "vn_b_group_men_aus_army_68_03"]],0.5],
+	// vn_b_group_men_aus_army_68_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_aus_army_68" >> "vn_b_group_men_aus_army_68_04"]],0.5],
+	// vn_b_group_men_aus_army_68_05 Инженерное отделение
+	[[[__cfg >> "vn_b_group_men_aus_army_68" >> "vn_b_group_men_aus_army_68_05"]],0.5],
+
+	// vn_b_group_men_aus_army_70 Люди (армейск. форма обр. 1970 г.)
+	// vn_b_group_men_aus_army_70_01 Пехотное отделение 1
+	[[[__cfg >> "vn_b_group_men_aus_army_70" >> "vn_b_group_men_aus_army_70_01"]],0.5],
+	// vn_b_group_men_aus_army_70_02 Пехотный отделение 2
+	[[[__cfg >> "vn_b_group_men_aus_army_70" >> "vn_b_group_men_aus_army_70_02"]],0.5],
+	// vn_b_group_men_aus_army_70_03 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_men_aus_army_70" >> "vn_b_group_men_aus_army_70_03"]],0.5],
+	// vn_b_group_men_aus_army_70_04 Боевой расчет штаба
+	[[[__cfg >> "vn_b_group_men_aus_army_70" >> "vn_b_group_men_aus_army_70_04"]],0,0.05],
+	// vn_b_group_men_aus_army_70_05 Инженерное отделение
+	[[[__cfg >> "vn_b_group_men_aus_army_70" >> "vn_b_group_men_aus_army_70_05"]],0.5],
+
+	// vn_b_group_men_aus_raaf Люди (Королевские ВВС Австралии)
+	// vn_b_group_men_aus_raaf_01 Экипаж UH-1 (Эскадрон № 9 )
+	[[[__cfg >> "vn_b_group_men_aus_raaf" >> "vn_b_group_men_aus_raaf_01"]],0.5],
+	// vnx_b_group_men_aus_raaf_01 OV-10A (Вооруженная разведка)
+	[[[__cfg >> "vn_b_group_men_aus_raaf" >> "vnx_b_group_men_aus_raaf_01"]],0.5],
+	// vn_b_group_men_aus_ran Люди (Королевский ВМФ Австралии)
+	// vn_b_group_men_aus_ran_01 Экипаж UH-1(Эму Флайт, 135-я AHC)
+	//[[[__cfg >> "vn_b_group_men_aus_ran" >> "vn_b_group_men_aus_ran_01"]],0.5],
+
+	// vn_b_group_motor_aus_army Мотопехота (армия)
+	// vn_b_group_motor_aus_army_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_b_group_motor_aus_army" >> "vn_b_group_motor_aus_army_01"]],0.5],
+	// vn_b_group_motor_aus_army_02 Патрульный автомобиль M151 (ПТ)
+	[[[__cfg >> "vn_b_group_motor_aus_army" >> "vn_b_group_motor_aus_army_02"]],0.5],
+	// vn_b_group_motor_aus_army_03 Патрульный автомобиль M54
+	[[[__cfg >> "vn_b_group_motor_aus_army" >> "vn_b_group_motor_aus_army_03"]],0.5],
+	// vn_b_group_motor_aus_army_04 Подкрепления M54
+	[[[__cfg >> "vn_b_group_motor_aus_army" >> "vn_b_group_motor_aus_army_04"]],0.5],
+	// vn_b_group_motor_aus_army_05 Патрульный Dirt Ranger
+	[[[__cfg >> "vn_b_group_motor_aus_army" >> "vn_b_group_motor_aus_army_05"]],0.5],
+	// vn_b_group_motor_aus_army_06 Патрульный Dirt Ranger (ПТ)
+	[[[__cfg >> "vn_b_group_motor_aus_army" >> "vn_b_group_motor_aus_army_06"]],0.5],
+	// vn_b_group_motor_aus_army_07 Патрульный Dirt Ranger (с пулеметом)
+	[[[__cfg >> "vn_b_group_motor_aus_army" >> "vn_b_group_motor_aus_army_07"]],0.5],
+	// vn_b_group_motor_aus_army_08 Патрульный Dirt Ranger (эвакуация раненых)
+	[[[__cfg >> "vn_b_group_motor_aus_army" >> "vn_b_group_motor_aus_army_08"]],0,0.05],
+
+	// vn_b_group_mech_aus_army Механизированная пехота (армия)
+	// vn_b_group_mech_aus_army_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_01"]],0.5],
+	// vn_b_group_mech_aus_army_02 Конвой M54
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_02"]],0,0.05],
+	// vn_b_group_mech_aus_army_03 Конвой M54 (снабжение)
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_03"]],0,0.05],
+	// vn_b_group_mech_aus_army_04 Патрульный M113A1
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_04"]],0.5],
+	// vn_b_group_mech_aus_army_05 Патрульный M113A1 (тяжелый)
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_05"]],0.5],
+	// vn_b_group_mech_aus_army_06 Патрульный M113A1 (штаба)
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_06"]],0,0.05],
+	// vn_b_group_mech_aus_army_07 Патрульный M113A1 (артиллерии)
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_07"]],0.5],
+	// vn_b_group_mech_aus_army_08 Патрульный Dirt Ranger
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_08"]],0.5],
+	// vn_b_group_mech_aus_army_09 Патрульный Dirt Ranger (ПТ)
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_09"]],0.5],
+	// vn_b_group_mech_aus_army_10 Патрульный Dirt Ranger (с пулеметом)
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_10"]],0.5],
+	// vn_b_group_mech_aus_army_11 Патрульный Dirt Ranger (эвакуация раненых)
+	[[[__cfg >> "vn_b_group_mech_aus_army" >> "vn_b_group_mech_aus_army_11"]],0,0.05],
+
+	// vn_b_group_air_aus_army Воздушные суда (армия)
+	// vn_b_group_air_aus_army_01 UH1 (боевой вертолет)
+	[[[__cfg >> "vn_b_group_air_aus_army" >> "vn_b_group_air_aus_army_01"]],0.5],
+	// vn_b_group_air_aus_army_02 UH1 (транспорт)
+	[[[__cfg >> "vn_b_group_air_aus_army" >> "vn_b_group_air_aus_army_02"]],0.5],
+	// vn_b_group_air_aus_army_03 UH1 (медэвакуация)
+	//[[[__cfg >> "vn_b_group_air_aus_army" >> "vn_b_group_air_aus_army_03"]],0.5],
+
+	/*
+	// vn_b_group_static_aus_army Турели (армия)
+	// vn_b_group_static_aus_army_01 Пулеметный расчет
+	[[[__cfg >> "vn_b_group_static_aus_army" >> "vn_b_group_static_aus_army_01"]],0.5],
+	// vn_b_group_static_aus_army_02 Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_b_group_static_aus_army" >> "vn_b_group_static_aus_army_02"]],0.5],
+	// vn_b_group_static_aus_army_03 Минометная батарея
+	[[[__cfg >> "vn_b_group_static_aus_army" >> "vn_b_group_static_aus_army_03"]],0.5],
+	// vn_b_group_static_aus_army_04 Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_b_group_static_aus_army" >> "vn_b_group_static_aus_army_04"]],0.5],
+	// vn_b_group_static_aus_army_05 Гаубичная батарея
+	[[[__cfg >> "vn_b_group_static_aus_army" >> "vn_b_group_static_aus_army_05"]],0.5],
+	// vn_b_group_static_aus_army_06 Батарея ПВО
+	[[[__cfg >> "vn_b_group_static_aus_army" >> "vn_b_group_static_aus_army_06"]],0.5],
+	// vn_b_group_static_aus_army_07 Расчет ПТО
+	[[[__cfg >> "vn_b_group_static_aus_army" >> "vn_b_group_static_aus_army_07"]],0.5],
+	// vn_b_group_static_aus_army_08 Расчет безоткатного орудия
+	[[[__cfg >> "vn_b_group_static_aus_army" >> "vn_b_group_static_aus_army_08"]],0.5],
+	*/
+
+	// vn_b_group_air_raaf Авиация (КВВС Австралии)
+	// vnx_b_group_air_aus_army_01 OV-10A (Вооруженная разведка)
+	[[[__cfg >> "vn_b_group_air_raaf" >> "vnx_b_group_air_aus_army_01"]],0.5]
+];
 
 // resistance
 _arr = [
