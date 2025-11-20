@@ -1689,6 +1689,11 @@ _arr = [
 	// vnx_b_group_air_aus_army_01 OV-10A (Вооруженная разведка)
 	[[[__cfg >> "vn_b_group_air_raaf" >> "vnx_b_group_air_aus_army_01"]],0.5]
 ];
+[_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "VN_AUS", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[1960,1990], [160,999],
+[]
+] call gosa_fnc_map_groups_add;
 
 // resistance
 _arr = [
