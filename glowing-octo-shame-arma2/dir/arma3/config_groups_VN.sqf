@@ -369,6 +369,16 @@ _arr = [
 	[[[__cfg >> "vn_o_group_static_nvam" >> "vn_o_group_static_nvam_11"]],0.5]
 	*/
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_arr append [
+	// vn_o_group_men_nva_01 + vn_o_armor_btr50pk_01
+	[[[["vn_o_men_nva_01","vn_o_men_nva_02","vn_o_men_nva_03","vn_o_men_nva_04","vn_o_men_nva_05","vn_o_men_nva_06","vn_o_men_nva_07","vn_o_men_nva_08","vn_o_men_nva_09","vn_o_men_nva_10","vn_o_men_nva_11","vn_o_men_nva_12",
+		"vn_o_armor_btr50pk_01"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-65,0],[10,10]],["CAPTAIN","LIEUTENANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],
+		0.5],
+	// vn_o_group_men_nva_02 + vn_o_armor_btr50pk_01
+	[[[["vn_o_men_nva_01","vn_o_men_nva_02","vn_o_men_nva_03","vn_o_men_nva_04","vn_o_men_nva_05","vn_o_men_nva_06","vn_o_men_nva_07","vn_o_men_nva_08","vn_o_men_nva_09","vn_o_men_nva_10","vn_o_men_nva_11","vn_o_men_nva_12",
+		"vn_o_armor_btr50pk_01"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-65,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-70,0],[10,10]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],
+		0.5]
+];
 [_groups_map, east, "VN_PAVN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
@@ -1295,6 +1305,16 @@ _arr = [
 	// vnx_b_group_men_usaf_04 Военная полиция ВВС США (Thai Tiger)
 	[[[__cfg >>"vnx_b_group_men_usaf" >> "vnx_b_group_men_usaf_04"]],0,0.05]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_arr append [
+	// vn_b_group_men_army_01 + vn_b_armor_m113_01
+	[[[["vn_b_men_army_01","vn_b_men_army_02","vn_b_men_army_03","vn_b_men_army_04","vn_b_men_army_05","vn_b_men_army_06","vn_b_men_army_07","vn_b_men_army_08","vn_b_men_army_09","vn_b_men_army_10","vn_b_men_army_11","vn_b_men_army_12",
+		"vn_b_armor_m113_01"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[10,10]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],
+		0.5],
+	// vn_b_group_men_army_02 + vn_b_armor_m113_01
+	[[[["vn_b_men_army_02","vn_b_men_army_27","vn_b_men_army_15","vn_b_men_army_16","vn_b_men_army_17","vn_b_men_army_18","vn_b_men_army_07","vn_b_men_army_19","vn_b_men_army_20","vn_b_men_army_10","vn_b_men_army_21","vn_b_men_army_12",
+		"vn_b_armor_m113_01"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[10,10]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],
+		0.5]
+];
 [_groups_map, west, "VN_MACV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []
