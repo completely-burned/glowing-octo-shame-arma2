@@ -2052,3 +2052,69 @@ _arr = [
 [1960,1990], [160,999],
 []
 ] call gosa_fnc_map_groups_add;
+
+#define __cfg configFile >> "CfgGroups" >> "Indep" >> "VN_RLA"
+_arr = [
+	// vn_i_group_men_rla Люди (Королевская лаосская армия)
+	// vn_i_group_men_rla_01 Стрелковый отряд (1)
+	[[[__cfg >> "vn_i_group_men_rla" >> "vn_i_group_men_rla_01"]],0.5],
+	// vn_i_group_men_rla_02 Стрелковый отряд (2)
+	[[[__cfg >> "vn_i_group_men_rla" >> "vn_i_group_men_rla_02"]],0.5],
+	// vn_i_group_men_rla_03 Стрелковый взвод (1)
+	[[[__cfg >> "vn_i_group_men_rla" >> "vn_i_group_men_rla_03"]],0.5],
+	// vn_i_group_men_rla_04 Отряд штаба
+	[[[__cfg >> "vn_i_group_men_rla" >> "vn_i_group_men_rla_04"]],0,0.05],
+	// vn_i_group_men_rla_05 Экипаж техники
+	//[[[__cfg >> "vn_i_group_men_rla" >> "vn_i_group_men_rla_05"]],0.5],
+	// vn_i_group_men_rla_08 Отряд инженеров
+	[[[__cfg >> "vn_i_group_men_rla" >> "vn_i_group_men_rla_08"]],0.5],
+	// vn_i_group_men_rla_09 Отряд пулеметчиков
+	[[[__cfg >> "vn_i_group_men_rla" >> "vn_i_group_men_rla_09"]],0.5],
+
+	// vn_i_group_motor_rla Мотопехота
+	// vn_i_group_motor_rla_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_i_group_motor_rla" >> "vn_i_group_motor_rla_01"]],0.5],
+	// vn_i_group_motor_rla_02 Патрульный автомобиль M151 (ПТ)
+	[[[__cfg >> "vn_i_group_motor_rla" >> "vn_i_group_motor_rla_02"]],0.5],
+	// vn_i_group_motor_rla_03 Патрульный автомобиль M151 с пулеметом
+	[[[__cfg >> "vn_i_group_motor_rla" >> "vn_i_group_motor_rla_03"]],0.5],
+	// vn_i_group_motor_rla_04 Патрульный автомобиль M54
+	[[[__cfg >> "vn_i_group_motor_rla" >> "vn_i_group_motor_rla_04"]],0.5],
+	// vn_i_group_motor_rla_05 Патрульный автомобиль M54 (ПТ)
+	[[[__cfg >> "vn_i_group_motor_rla" >> "vn_i_group_motor_rla_05"]],0.5],
+	// vn_i_group_motor_rla_06 Патрульный автомобиль M54 с пулеметом
+	[[[__cfg >> "vn_i_group_motor_rla" >> "vn_i_group_motor_rla_06"]],0.5],
+	// vn_i_group_motor_rla_07 Подкрепления M54
+	[[[__cfg >> "vn_i_group_motor_rla" >> "vn_i_group_motor_rla_07"]],0.5],
+
+	// vn_i_group_mech_rla Механизированная пехота (армия)
+	// vn_i_group_mech_rla_01 Патрульный автомобиль M151
+	[[[__cfg >> "vn_i_group_mech_rla" >> "vn_i_group_mech_rla_01"]],0.5],
+	// vn_i_group_mech_rla_02 Конвой M54
+	[[[__cfg >> "vn_i_group_mech_rla" >> "vn_i_group_mech_rla_02"]],0,0.05],
+	// vn_i_group_mech_rla_03 Конвой M54 (снабжение)
+	[[[__cfg >> "vn_i_group_mech_rla" >> "vn_i_group_mech_rla_03"]],0,0.05]
+
+	/*
+	// vn_i_group_static_rla Турели (армия)
+	// vn_i_group_static_rla_01 Пулеметный расчет
+	[[[__cfg >> "vn_i_group_static_rla" >> "vn_i_group_static_rla_01"]],0.5],
+	// vn_i_group_static_rla_02 Крупнокалиберный пулеметный расчет
+	[[[__cfg >> "vn_i_group_static_rla" >> "vn_i_group_static_rla_02"]],0.5],
+	// vn_i_group_static_rla_03 Минометная батарея
+	[[[__cfg >> "vn_i_group_static_rla" >> "vn_i_group_static_rla_03"]],0.5],
+	// vn_i_group_static_rla_04 Крупнокалиберная минометная батарея
+	[[[__cfg >> "vn_i_group_static_rla" >> "vn_i_group_static_rla_04"]],0.5],
+	// vn_i_group_static_rla_05 Гаубичная батарея
+	[[[__cfg >> "vn_i_group_static_rla" >> "vn_i_group_static_rla_05"]],0.5],
+	// vn_i_group_static_rla_06 Расчет ПТО
+	[[[__cfg >> "vn_i_group_static_rla" >> "vn_i_group_static_rla_06"]],0.5],
+	// vn_b_group_static_aus_army_07 Расчет безоткатного орудия
+	[[[__cfg >> "vn_i_group_static_rla" >> "vn_b_group_static_aus_army_07"]],0.5]
+	*/
+];
+[_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, resistance, "VN_RLA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[1960,1990], [160,999],
+[]
+] call gosa_fnc_map_groups_add;
