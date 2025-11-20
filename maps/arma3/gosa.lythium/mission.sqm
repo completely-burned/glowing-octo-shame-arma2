@@ -25,13 +25,9 @@ addons[]=
 	"A3_Ui_F",
 	"A3_Modules_F",
 	"A3_Characters_F",
-	"ace_explosives",
 	"A3_Characters_F_Mark",
 	"A3_Characters_F_Orange",
-	"cba_xeh",
 	"A3_Data_F_Exp_A_Virtual",
-	"ace_gforces",
-	"ace_parachute",
 	"A3_Characters_F_Jets",
 	"A3_Characters_F_Tank"
 };
