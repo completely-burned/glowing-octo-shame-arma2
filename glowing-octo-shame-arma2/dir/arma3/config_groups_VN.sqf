@@ -847,12 +847,14 @@ _arr = [
 	[[[__cfg >>"vn_b_group_motor_army" >> "vn_b_group_motor_army_07"]],0.5],
 	// vn_b_group_motor_army_08 Патрульный M151 (артиллерия)
 	[[[__cfg >>"vn_b_group_motor_army" >> "vn_b_group_motor_army_08"]],0,0.05],
+	/*
 	// vn_b_group_motor_army_09 Патрульный автомобиль M274
 	[[[__cfg >>"vn_b_group_motor_army" >> "vn_b_group_motor_army_09"]],0.5],
 	// vn_b_group_motor_army_10 Патрульный автомобиль M274 (ПТ)
 	[[[__cfg >>"vn_b_group_motor_army" >> "vn_b_group_motor_army_10"]],0.5],
 	// vn_b_group_motor_army_11 Патрульный автомобиль M274 с пулеметом
 	[[[__cfg >>"vn_b_group_motor_army" >> "vn_b_group_motor_army_11"]],0.5],
+	*/
 
 	// vn_b_group_mech_army Механизированная пехота (армия США)
 	// vn_b_group_mech_army_01 Патрульный автомобиль M151
@@ -883,12 +885,14 @@ _arr = [
 	[[[__cfg >>"vn_b_group_mech_army" >> "vn_b_group_mech_army_13"]],0,0.05],
 	// vn_b_group_mech_army_14 Патрульный M113A1 (артиллерии)
 	[[[__cfg >>"vn_b_group_mech_army" >> "vn_b_group_mech_army_14"]],0.5],
+	/*
 	// vn_b_group_mech_army_15 Патрульный автомобиль M274
 	[[[__cfg >>"vn_b_group_mech_army" >> "vn_b_group_mech_army_15"]],0.5],
 	// vn_b_group_mech_army_16 Патрульный автомобиль M274 (ПТ)
 	[[[__cfg >>"vn_b_group_mech_army" >> "vn_b_group_mech_army_16"]],0.5],
 	// vn_b_group_mech_army_17 Патрульный автомобиль M274 с пулеметом
 	[[[__cfg >>"vn_b_group_mech_army" >> "vn_b_group_mech_army_17"]],0.5],
+	*/
 	// vnx_b_group_mech_army_01 $"M163 VADS Section"
 	[[[__cfg >>"vn_b_group_mech_army" >> "vnx_b_group_mech_army_01"]],0.5],
 	// vnx_b_group_mech_army_02 $"M163 VADS Platoon"
@@ -1232,12 +1236,14 @@ _arr = [
 	[[[__cfg >>"vn_b_group_motor_usmc" >> "vn_b_group_motor_usmc_06"]],0.5],
 	// vn_b_group_motor_usmc_07 Подкрепления M54
 	[[[__cfg >>"vn_b_group_motor_usmc" >> "vn_b_group_motor_usmc_07"]],0.5],
+	/*
 	// vn_b_group_motor_usmc_08 Патрульный автомобиль M274
 	[[[__cfg >>"vn_b_group_motor_usmc" >> "vn_b_group_motor_usmc_08"]],0.5],
 	// vn_b_group_motor_usmc_09 Патрульный автомобиль M274 (ПТ)
 	[[[__cfg >>"vn_b_group_motor_usmc" >> "vn_b_group_motor_usmc_09"]],0.5],
 	// vn_b_group_motor_usmc_10 Патрульный автомобиль M274 с пулеметом
 	[[[__cfg >>"vn_b_group_motor_usmc" >> "vn_b_group_motor_usmc_10"]],0.5],
+	*/
 
 	// vn_b_group_mech_usmc Механизированная пехота (КМП США)
 	// vn_b_group_mech_usmc_01 Патрульный автомобиль M151
@@ -1248,12 +1254,14 @@ _arr = [
 	[[[__cfg >>"vn_b_group_mech_usmc" >> "vn_b_group_mech_usmc_05"]],0,0.05],
 	// vn_b_group_mech_usmc_06 Конвой M54 (снабжение)
 	[[[__cfg >>"vn_b_group_mech_usmc" >> "vn_b_group_mech_usmc_06"]],0,0.05],
+	/*
 	// vn_b_group_mech_usmc_07 Патрульный автомобиль M274
 	[[[__cfg >>"vn_b_group_mech_usmc" >> "vn_b_group_mech_usmc_07"]],0.5],
 	// vn_b_group_mech_usmc_08 Патрульный автомобиль M274 (ПТ)
 	[[[__cfg >>"vn_b_group_mech_usmc" >> "vn_b_group_mech_usmc_08"]],0.5],
 	// vn_b_group_mech_usmc_09 Патрульный автомобиль M274 с пулеметом
 	[[[__cfg >>"vn_b_group_mech_usmc" >> "vn_b_group_mech_usmc_09"]],0.5],
+	*/
 	// vnx_b_group_mech_usmc_01 LVTP-5 Патруль
 	[[[__cfg >>"vn_b_group_mech_usmc" >> "vnx_b_group_mech_usmc_01"]],0.5],
 
