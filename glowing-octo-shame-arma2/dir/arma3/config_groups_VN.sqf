@@ -1696,199 +1696,200 @@ _arr = [
 ] call gosa_fnc_map_groups_add;
 
 // resistance
+#define __cfg configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN"
 _arr = [
 	// vn_i_group_men_army Люди (АРВ)
 	// vn_i_group_men_army_01 Стрелковый отряд (1)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_01"]],0.5],
+	[[[__cfg >> "vn_i_group_men_army" >> "vn_i_group_men_army_01"]],0.5],
 	// vn_i_group_men_army_02 Стрелковый отряд (2)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_02"]],0.5],
+	[[[__cfg >> "vn_i_group_men_army" >> "vn_i_group_men_army_02"]],0.5],
 	// vn_i_group_men_army_03 Стрелковый взвод (1)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_03"]],0.5],
+	[[[__cfg >> "vn_i_group_men_army" >> "vn_i_group_men_army_03"]],0.5],
 	// vn_i_group_men_army_04 Полиция Quan Canh
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_04"]],0,0.05],
+	[[[__cfg >> "vn_i_group_men_army" >> "vn_i_group_men_army_04"]],0,0.05],
 	// vn_i_group_men_army_05 Экипаж танка
-	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_05"]],0.5],
+	//[[[__cfg >> "vn_i_group_men_army" >> "vn_i_group_men_army_05"]],0.5],
 	// vn_i_group_men_army_08 Отряд штаба
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_08"]],0,0.05],
+	[[[__cfg >> "vn_i_group_men_army" >> "vn_i_group_men_army_08"]],0,0.05],
 	// vn_i_group_men_army_09 Экипаж техники
-	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_army" >> "vn_i_group_men_army_09"]],0.5],
+	//[[[__cfg >> "vn_i_group_men_army" >> "vn_i_group_men_army_09"]],0.5],
 
 	// vn_i_group_men_ranger Люди (рейнджеры АРВ)
 	// vn_i_group_men_ranger_01 Стрелковый отряд (1)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_01"]],0.5],
+	[[[__cfg >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_01"]],0.5],
 	// vn_i_group_men_ranger_02 Стрелковый отряд (2)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_02"]],0.5],
+	[[[__cfg >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_02"]],0.5],
 	// vn_i_group_men_ranger_03 Стрелковый взвод (1)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_03"]],0.5],
+	[[[__cfg >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_03"]],0.5],
 	// vn_i_group_men_ranger_04 Разведгруппа
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_04"]],0.5],
+	[[[__cfg >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_04"]],0.5],
 	// vn_i_group_men_ranger_05 Отряд штаба
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_05"]],0,0.05],
+	[[[__cfg >> "vn_i_group_men_ranger" >> "vn_i_group_men_ranger_05"]],0,0.05],
 
 	// vn_i_group_men_sf Люди (спецподразделения LLDB)
 	// vn_i_group_men_sf_01 Штурмовая группа
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_sf" >> "vn_i_group_men_sf_01"]],0.5],
+	[[[__cfg >> "vn_i_group_men_sf" >> "vn_i_group_men_sf_01"]],0.5],
 	// vn_i_group_men_sf_02 Разведгруппа
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_sf" >> "vn_i_group_men_sf_02"]],0.5],
+	[[[__cfg >> "vn_i_group_men_sf" >> "vn_i_group_men_sf_02"]],0.5],
 	// vn_i_group_men_sf_03 Отряд штаба
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_sf" >> "vn_i_group_men_sf_03"]],0,0.05],
+	[[[__cfg >> "vn_i_group_men_sf" >> "vn_i_group_men_sf_03"]],0,0.05],
 
 	// vn_i_group_motor_army Мотопехота (армия)
 	// vn_i_group_motor_army_01 Патрульный автомобиль M151
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_01"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_01"]],0.5],
 	// vn_i_group_motor_army_02 Патрульный автомобиль M151 (ПТ)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_02"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_02"]],0.5],
 	// vn_i_group_motor_army_03 Патрульный автомобиль M151 с пулеметом
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_03"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_03"]],0.5],
 	// vn_i_group_motor_army_04 Патрульный автомобиль M54
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_04"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_04"]],0.5],
 	// vn_i_group_motor_army_05 Патрульный автомобиль M54 (ПТ)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_05"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_05"]],0.5],
 	// vn_i_group_motor_army_06 Патрульный автомобиль M54 с пулеметом
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_06"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_06"]],0.5],
 	// vn_i_group_motor_army_07 Подкрепления M54
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_07"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_army" >> "vn_i_group_motor_army_07"]],0.5],
 
 	// vn_i_group_mech_army Механизированная пехота (армия)
 	// vn_i_group_mech_army_01 Патрульный автомобиль M151
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_01"]],0.5],
+	[[[__cfg >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_01"]],0.5],
 	// vn_i_group_mech_army_02 Патрульный автомобиль M151 (ВП)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_02"]],0,0.05],
+	[[[__cfg >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_02"]],0,0.05],
 	// vn_i_group_mech_army_03 Конвой M54
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_03"]],0,0.05],
+	[[[__cfg >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_03"]],0,0.05],
 	// vn_i_group_mech_army_04 Конвой M54 (снабжение)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_04"]],0,0.05],
+	[[[__cfg >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_04"]],0,0.05],
 	// vn_i_group_mech_army_05 Патрульный M113A1
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_05"]],0.5],
+	[[[__cfg >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_05"]],0.5],
 	// vn_i_group_mech_army_06 Патрульный M113A1 (тяжелый)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_06"]],0.5],
+	[[[__cfg >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_06"]],0.5],
 	// vn_i_group_mech_army_07 Патрульный M113A1 (штурмовой)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_07"]],0.5],
+	[[[__cfg >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_07"]],0.5],
 	// vn_i_group_mech_army_08 Патрульный M113A1 (штаба)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_08"]],0,0.05],
+	[[[__cfg >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_08"]],0,0.05],
 	// vn_i_group_mech_army_09 Патрульный M113A1 (артиллерии)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_09"]],0.5],
+	[[[__cfg >> "vn_i_group_mech_army" >> "vn_i_group_mech_army_09"]],0.5],
 
 	// vn_i_group_armor_army Бронированный отряд (АРВ)
 	// vn_i_group_armor_army_01 Взвод M41
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_01"]],0.5],
+	[[[__cfg >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_01"]],0.5],
 	// vn_i_group_armor_army_02 Расчет M41
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_02"]],0.5],
+	[[[__cfg >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_02"]],0.5],
 	// vn_i_group_armor_army_03 Расчет тип 63
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_03"]],0.5],
+	[[[__cfg >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_03"]],0.5],
 	// vn_i_group_armor_army_04 Расчет M48
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_04"]],0.5],
+	[[[__cfg >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_04"]],0.5],
 	// vn_i_group_armor_army_05 Взвод M48
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_05"]],0.5],
+	[[[__cfg >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_05"]],0.5],
 	// vn_i_group_armor_army_06 Взвод M48 AA
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_06"]],0.5],
+	[[[__cfg >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_06"]],0.5],
 	// vn_i_group_armor_army_07 Штурмовой взвод M48
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_07"]],0.5],
+	[[[__cfg >> "vn_i_group_armor_army" >> "vn_i_group_armor_army_07"]],0.5],
 
 	// vn_i_group_air_army Авиация (вьетнамские ВВС)
 	// vn_i_group_air_army_01 UH1 (боевой вертолет)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_01"]],0.5],
+	[[[__cfg >> "vn_i_group_air_army" >> "vn_i_group_air_army_01"]],0.5],
 	// vn_i_group_air_army_02 UH1 (транспорт)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_02"]],0.5],
+	[[[__cfg >> "vn_i_group_air_army" >> "vn_i_group_air_army_02"]],0.5],
 	// vn_i_group_air_army_03 UH1 (медэвакуация)
-	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_03"]],0.5],
+	//[[[__cfg >> "vn_i_group_air_army" >> "vn_i_group_air_army_03"]],0.5],
 	// vn_i_group_air_army_04 UH1 (для высадки)
-	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_04"]],0.5],
+	//[[[__cfg >> "vn_i_group_air_army" >> "vn_i_group_air_army_04"]],0.5],
 	// vn_i_group_air_army_05 CH34 (транспорт)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_05"]],0.5],
+	[[[__cfg >> "vn_i_group_air_army" >> "vn_i_group_air_army_05"]],0.5],
 	// vn_i_group_air_army_06 H34 (транспорт)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_06"]],0.5],
+	[[[__cfg >> "vn_i_group_air_army" >> "vn_i_group_air_army_06"]],0.5],
 	// vn_i_group_air_army_07 H34 (Кингби)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_air_army" >> "vn_i_group_air_army_07"]],0.5],
+	[[[__cfg >> "vn_i_group_air_army" >> "vn_i_group_air_army_07"]],0.5],
 
 	/*
 	// vn_i_group_static_army Турели (армия)
 	// vn_i_group_static_army_01 Пулеметный расчет
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_01"]],0.5],
+	[[[__cfg >> "vn_i_group_static_army" >> "vn_i_group_static_army_01"]],0.5],
 	// vn_i_group_static_army_02 Крупнокалиберный пулеметный расчет
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_02"]],0.5],
+	[[[__cfg >> "vn_i_group_static_army" >> "vn_i_group_static_army_02"]],0.5],
 	// vn_i_group_static_army_03 Минометная батарея
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_03"]],0.5],
+	[[[__cfg >> "vn_i_group_static_army" >> "vn_i_group_static_army_03"]],0.5],
 	// vn_i_group_static_army_04 Крупнокалиберная минометная батарея
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_04"]],0.5],
+	[[[__cfg >> "vn_i_group_static_army" >> "vn_i_group_static_army_04"]],0.5],
 	// vn_i_group_static_army_05 Гаубичная батарея
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_05"]],0.5],
+	[[[__cfg >> "vn_i_group_static_army" >> "vn_i_group_static_army_05"]],0.5],
 	// vn_i_group_static_army_06 Батарея ПВО
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_06"]],0.5],
+	[[[__cfg >> "vn_i_group_static_army" >> "vn_i_group_static_army_06"]],0.5],
 	// vn_i_group_static_army_07 Расчет ПТО
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_07"]],0.5],
+	[[[__cfg >> "vn_i_group_static_army" >> "vn_i_group_static_army_07"]],0.5],
 	// vn_i_group_static_army_08 Расчет ПТ ракет
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_08"]],0.5],
+	[[[__cfg >> "vn_i_group_static_army" >> "vn_i_group_static_army_08"]],0.5],
 	// vn_i_group_static_army_09 Расчет безоткатного орудия
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_army" >> "vn_i_group_static_army_09"]],0.5],
+	[[[__cfg >> "vn_i_group_static_army" >> "vn_i_group_static_army_09"]],0.5],
 	*/
 
 	// vn_i_group_men_marines Люди (морская пехота TQLC)
 	// vn_i_group_men_marines_01 Стрелковый отряд (1)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_01"]],0.5],
+	[[[__cfg >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_01"]],0.5],
 	// vn_i_group_men_marines_02 Стрелковый отряд (2)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_02"]],0.5],
+	[[[__cfg >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_02"]],0.5],
 	// vn_i_group_men_marines_03 Стрелковый взвод (1)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_03"]],0.5],
+	[[[__cfg >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_03"]],0.5],
 	// vn_i_group_men_marines_04 Отряд штаба
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_04"]],0,0.05],
+	[[[__cfg >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_04"]],0,0.05],
 	// vn_i_group_men_marines_05 Отряд инженеров
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_05"]],0.5],
+	[[[__cfg >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_05"]],0.5],
 	// vn_i_group_men_marines_08 Отряд пулеметчиков
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_08"]],0.5],
+	[[[__cfg >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_08"]],0.5],
 	// vn_i_group_men_marines_09 Экипаж техники
-	//[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_09"]],0.5],
+	//[[[__cfg >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_09"]],0.5],
 	// vn_i_group_men_marines_10 Отряд артиллерии
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_10"]],0.5],
+	[[[__cfg >> "vn_i_group_men_marines" >> "vn_i_group_men_marines_10"]],0.5],
 
 	// vn_i_group_motor_marines Мотопехота (TQLC)
 	// vn_i_group_motor_marines_01 Патрульный M151 (морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_01"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_01"]],0.5],
 	// vn_i_group_motor_marines_02 Патрульный M151 (ПТ/морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_02"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_02"]],0.5],
 	// vn_i_group_motor_marines_03 Патрульный M151 (с пулеметом/морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_03"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_03"]],0.5],
 	// vn_i_group_motor_marines_04 Патрульный M54 (морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_04"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_04"]],0.5],
 	// vn_i_group_motor_marines_05 Патрульный M54 (ПТ/морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_05"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_05"]],0.5],
 	// vn_i_group_motor_marines_06 Патрульный M54 (с пулеметом/морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_06"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_06"]],0.5],
 	// vn_i_group_motor_marines_07 Подкрепления M54 (морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_07"]],0.5],
+	[[[__cfg >> "vn_i_group_motor_marines" >> "vn_i_group_motor_marines_07"]],0.5],
 
 	// vn_i_group_mech_marines Механизированная пехота (TQLC)
 	// vn_i_group_mech_marines_01 Патрульный M151 (морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_marines" >> "vn_i_group_mech_marines_01"]],0.5],
+	[[[__cfg >> "vn_i_group_mech_marines" >> "vn_i_group_mech_marines_01"]],0.5],
 	// vn_i_group_mech_marines_02 Конвойный M54 (морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_marines" >> "vn_i_group_mech_marines_02"]],0,0.05],
+	[[[__cfg >> "vn_i_group_mech_marines" >> "vn_i_group_mech_marines_02"]],0,0.05],
 	// vn_i_group_mech_marines_03 Конвойный M151 (снабжение/морская пехота)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_mech_marines" >> "vn_i_group_mech_marines_03"]],0,0.05]
+	[[[__cfg >> "vn_i_group_mech_marines" >> "vn_i_group_mech_marines_03"]],0,0.05]
 
 	/*
 	// vn_i_group_static_marines Турели (TQLC)
 	// vn_i_group_static_marines_01 Пулеметный расчет
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_01"]],0.5],
+	[[[__cfg >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_01"]],0.5],
 	// vn_i_group_static_marines_02 Крупнокалиберный пулеметный расчет
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_02"]],0.5],
+	[[[__cfg >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_02"]],0.5],
 	// vn_i_group_static_marines_03 Минометная батарея
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_03"]],0.5],
+	[[[__cfg >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_03"]],0.5],
 	// vn_i_group_static_marines_04 Крупнокалиберная минометная батарея
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_04"]],0.5],
+	[[[__cfg >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_04"]],0.5],
 	// vn_i_group_static_marines_05 Гаубичная батарея
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_05"]],0.5],
+	[[[__cfg >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_05"]],0.5],
 	// vn_i_group_static_marines_06 Расчет ПТО
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_06"]],0.5],
+	[[[__cfg >> "vn_i_group_static_marines" >> "vn_i_group_static_marines_06"]],0.5],
 	// vn_b_group_static_marines_07 Расчет безоткатного орудия
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_static_marines" >> "vn_b_group_static_marines_07"]],0.5],
+	[[[__cfg >> "vn_i_group_static_marines" >> "vn_b_group_static_marines_07"]],0.5],
 
 	// vn_i_group_men_aircrew Люди (экипаж воздушного судна)
 	// vn_i_group_men_plane_01 Экипаж самолета (АРВ)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_aircrew" >> "vn_i_group_men_plane_01"]],0.5],
+	[[[__cfg >> "vn_i_group_men_aircrew" >> "vn_i_group_men_plane_01"]],0.5],
 	// vn_i_group_men_uh1_01 Экипаж UH-1 (АРВ)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_aircrew" >> "vn_i_group_men_uh1_01"]],0.5],
+	[[[__cfg >> "vn_i_group_men_aircrew" >> "vn_i_group_men_uh1_01"]],0.5],
 	// vn_i_group_men_ch34_01 Экипаж CH-34 (АРВ)
-	[[[configFile >> "CfgGroups" >> "Indep" >> "VN_ARVN" >> "vn_i_group_men_aircrew" >> "vn_i_group_men_ch34_01"]],0.5]
+	[[[__cfg >> "vn_i_group_men_aircrew" >> "vn_i_group_men_ch34_01"]],0.5]
 	*/
 ];
 [_arr] call gosa_fnc_groups_convNormal;
