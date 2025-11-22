@@ -6,6 +6,13 @@ _cfgveh = LIB_cfgVeh;
 _arr = [
 	// [side, реальный тип, виртуальный тип].
 	
+	[west,			"SPE_OpelBlitz",		"SPE_OpelBlitz_Command"],
+	[west,			"SPE_ST_OpelBlitz",		"SPE_ST_OpelBlitz_Command"],
+	[west,			"SPEX_DAK_OpelBlitz",	"SPEX_DAK_OpelBlitz_Command"],
+	[resistance,	"SPE_CCKW_353",			"SPE_CCKW_353_Command"],
+	[resistance,	"SPE_FR_CCKW_353",		"SPE_FR_CCKW_353_Command"],
+	[resistance,	"SPEX_PL_CCKW_353",		"SPEX_PL_CCKW_353_Command"],
+
 	[west,	"gm_ge_army_kat1_454_cargo"],
 	[west,	"gm_dk_army_u1300l_container"],
 	[east,	"gm_gc_army_2p16"],
@@ -28,8 +35,11 @@ for "_i" from 0 to (count _arr -1) do {
 	_item = _arr select _i;
 	_str = configName (_cfgVeh >> (_item select 1));
 	if (_str != "") then {
+		_item set [1, toLower (_item select 1)];
 		if (count _item <= 2) then {
-			_item set [2, _str + "_command_gosa"];
+			_item set [2, (_item select 1 + "_command_gosa")];
+		}else{
+			_item set [2, toLower (_item select 2)];
 		};
 		_arr0 set [count _arr0, _item];
 	};
@@ -68,10 +78,33 @@ _arr = [
 	[resistance,	"i_truck_02_command_f",	nil],
 	[civilian,		"c_truck_02_command_f",	nil],
 
+	[east,			"vn_o_armor_m577_01",	nil],
+	[west,			"vn_b_armor_m577_01_aus_army",	nil],
+	[west,			"vn_b_wheeled_m54_03_aus_army",	nil],
+	[west,			"vn_b_wheeled_m54_03_nz_army",	nil],
+	[west,			"vn_b_armor_m577_01_rok_army",	nil],
+	[west,			"vn_b_wheeled_m54_03_rok_army",	nil],
+	[west,			"vn_b_wheeled_m54_03_rok_marines",	nil],
+	[west,			"vn_b_armor_m577_01",	nil],
+	[west,			"vn_b_wheeled_m54_03_usmc",	nil],
+	[west,			"vn_b_wheeled_m54_03",	nil],
+	[resistance,	"vn_i_armor_m577_01",	nil],
+	[resistance,	"vn_i_wheeled_m54_03",	nil],
+	[resistance,	"vn_i_wheeled_m54_03_marines",	nil],
+	[resistance,	"vn_i_wheeled_m54_03_rla",	nil],
+
 	[east,	"gm_gc_army_brdm2um",	nil],
 	[west,	"gm_ge_army_fuchsa0_command",	nil],
 	[west,	"gm_ge_army_m113a1g_command",	nil],
 	[west,	"gm_dk_army_m113a1dk_command",	nil],
+
+	[east,	"CSLA_AZU_R2",	nil],
+	[east,	"CSLA_AZU_R2_des",	nil],
+	[west,	"AFMC_M1008_S250",	nil],
+	[west,	"US85_M1008_S250",	nil],
+	[west,	"US85_M923a1_s280",	nil],
+	[west,	"US85_M1008_S250_DES",	nil],
+	[west,	"US85_M923a1_s280_DES",	nil],
 
 	[east,			"rhs_gaz66_r142_msv",	nil],
 	[east,			"rhs_gaz66_r142_vmf",	nil],
@@ -86,6 +119,13 @@ _arr = [
 	[east,			"rhsgref_BRDM2_HQ_ins",	nil],
 	[east,			"rhsgref_BRDM2_HQ_vdv",	nil],
 	[east,			"rhsgref_BRDM2_HQ_vmf",	nil],
+
+	[west,			"rhsusf_M1078A1P2_B_D_CP_fmtv_usarmy",	nil],
+	[west,			"rhsusf_M1078A1P2_B_WD_CP_fmtv_usarmy",	nil],
+	[west,			"rhsusf_m1152_sicps_usarmy_d",	nil],
+	[west,			"rhsusf_m1152_sicps_usarmy_wd",	nil],
+	[west,			"rhsgref_BRDM2UM_b",	nil],
+	[west,			"rhsgref_BRDM2_HQ_b",	nil],
 
 	[resistance,	"rhsgref_ins_g_gaz66_r142",	nil],
 	[resistance,	"rhsgref_cdf_gaz66_r142",	nil],
@@ -143,7 +183,13 @@ _arr = [
 _arr0 = [];
 for "_i" from 0 to (count _arr -1) do {
 	_str = configName (_cfgVeh >> ((_arr select _i select 1) call gosa_fnc_fixType));
-	if (_str != "") then {
+	_arr select _i set [1, toLower (_arr select _i select 1)];
+	_arr select _i set [2, toLower (_arr select _i select 2)];
+	if (_str == "") then {
+		if (_arr select _i select 1 in (gosa_types_mhq_virt select 1) or _str in (gosa_types_mhq_virt select 2)) then {
+			_arr0 set [count _arr0, _arr select _i];
+		};
+	}else{
 		_arr0 set [count _arr0, _arr select _i];
 	};
 };

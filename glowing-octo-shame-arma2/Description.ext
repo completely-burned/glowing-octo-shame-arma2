@@ -247,6 +247,18 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
+		class gosa_faction_multiplier_VN_PL {
+			title="FACTION: VN_PL";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_VN_VC {
+			title="FACTION: VN_VC";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_VN_KR {
 			title="FACTION: VN_KR";
 			values[] = {-1,1,0};
@@ -259,8 +271,38 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
+		class gosa_faction_multiplier_VN_NZ {
+			title="FACTION: VN_NZ";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_VN_ROK {
+			title="FACTION: VN_ROK";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_VN_AUS {
+			title="FACTION: VN_AUS";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_VN_ARVN {
 			title="FACTION: VN_ARVN";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_VN_FANK {
+			title="FACTION: VN_FANK";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_VN_RLA {
+			title="FACTION: VN_RLA";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
@@ -1209,6 +1251,18 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class veh_getInfo
+			{
+				file = "dir\functions\fnc_veh_getInfo.sqf";
+			};
+			class faction_getInfo
+			{
+				file = "dir\functions\fnc_faction_getInfo.sqf";
+			};
+			class getInfo
+			{
+				file = "dir\functions\fnc_getInfo.sqf";
+			};
 			class groups_convNormal
 			{
 				file = "dir\functions\fnc_groups_convNormal.sqf";
