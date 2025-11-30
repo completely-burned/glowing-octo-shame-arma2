@@ -33,7 +33,9 @@ _arr = [];
 _list = _pos nearEntities [["Land"],_radius];
 for "_i" from 0 to (count _list - 1) do {
 	// подсчитывать нужно союзников
-	if (_side getFriend side (_list select _i) >= 0.6) then {
+	if (_side getFriend side (_list select _i) >= 0.6 && 
+		_side in [east,west,resistance]) then
+	{
 		// затрагиваем только технику, боты вне техники не нуждается в особом подсчёте
 		if (getNumber(configFile >> "CfgVehicles" >> typeOf (_list select _i) >> "isMan") != 1) then {
 			if (alive effectiveCommander (_list select _i)) then {
