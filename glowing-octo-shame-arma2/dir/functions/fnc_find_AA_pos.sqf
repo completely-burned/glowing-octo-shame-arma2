@@ -7,7 +7,7 @@
 
 diag_log format ["Log: [fnc_find_AA_pos] #AA %1", _this];
 
-private["_side","_pos","_list","_cost","_radius","_arr"];
+private["_side","_pos","_list","_cost","_radius","_arr","_n"];
 _side = _this select 0;
 _pos = _this select 1;
 if (typeName _pos == typeName objNull) then {
@@ -63,20 +63,38 @@ _list = _arr;
 _list = (_list - [-1]);
 #endif
 
-// TODO: Использовать внешний глобальный список типов.
+// TODO: Множители как глобальные константы.
 //--- приоритеты
 _cost = 0;
-{
-	if ([[_x], ["Tank","Wheeled_APC"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call gosa_fnc_CheckIsKindOfArray) then {
-		_cost = _cost + 2;
+_arr = [_list] call gosa_fnc_getGroupTypeCount;
+if (count (_arr select 0) > 0) then {
+	_n = (_arr select 0 find "AA");
+	if (_n >= 0) then {
+		_cost = _cost - 5;
 	};
-	if ([[_x], ["LandVehicle"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call gosa_fnc_CheckIsKindOfArray) then {
-		_cost = _cost + 1;
+	_n = (_arr select 0 find "Tank");
+	if (_n >= 0) then {
+		_cost = _cost + ((_arr select 1 select _n)*2);
+	}else{
+		_n = (_arr select 0 find "Tracked_APC");
+		if (_n >= 0) then {
+			_cost = _cost + ((_arr select 1 select _n)*2);
+		};
 	};
-	if ([[_x], ["Land","Man"], ["ZSU_Base","2S6M_Tunguska","HMMWV_Avenger","M6_EP1","Ural_ZU23_Base"]] call gosa_fnc_CheckIsKindOfArray) then {
-		_cost = _cost + 0.25;
+	_n = (_arr select 0 find "Wheeled_APC");
+	if (_n >= 0) then {
+		_cost = _cost + ((_arr select 1 select _n)*2);
+	}else{
+		_n = (_arr select 0 find "LandLehicle");
+		if (_n >= 0) then {
+			_cost = _cost + (_arr select 1 select _n);
+		};
 	};
-} forEach _list;
+	_n = (_arr select 0 find "Man");
+	if (_n >= 0) then {
+		_cost = _cost + ((_arr select 1 select _n)*0.75);
+	};
+};
 
 diag_log format ["Log: [fnc_find_AA_pos] #AA cost %1 %2", _cost, _list];
 
