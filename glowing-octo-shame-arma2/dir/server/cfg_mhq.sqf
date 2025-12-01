@@ -37,7 +37,7 @@ for "_i" from 0 to (count _arr -1) do {
 	if (_str != "") then {
 		_item set [1, toLower (_item select 1)];
 		if (count _item <= 2) then {
-			_item set [2, (_item select 1 + "_command_gosa")];
+			_item set [2, ((_item select 1) + "_command_gosa")];
 		}else{
 			_item set [2, toLower (_item select 2)];
 		};
