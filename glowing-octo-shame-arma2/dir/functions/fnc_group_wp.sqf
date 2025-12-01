@@ -67,7 +67,7 @@ private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_wpType_TrUNLOAD","_wpType_UNLOAD","_n","_str","_arr","_wpType_GETOUT",
 	"_waypoints","_createWP","_NoCreateWP","_DeleteWP","_StopWP","_pvp",
 	"_wpType_TrUNLOAD_Plane","_veh","_obj","_pos","_wpType_VehInVehUNLOAD",
-	"_isUAVConnected","_side","_sides_friendly","_arr0",
+	"_isUAVConnected","_side","_sides_friendly","_arr0","_vehicles_all",
 	"_grp_wp_completed","_g2","_z","_v","_b"];
 _grp=_this;
 
@@ -137,12 +137,14 @@ if({alive _x} count _units > 0)then{
 
 	// слишком часто diag_log format ["Log: [fnc_group_wp] %1", [_leader, _wp, _typeWP]];
 
+	_vehicles_all = [];
 	_vehicles = [];
 	_types = [];
 	_cargo = [];
 	_assignedVehicles = [];
 	{
 		_types set [count _types, typeOf _x];
+		_vehicles_all set [count _vehicles_all, _x];
 		private ["_veh","_assignedVehicle"];
 		_veh = vehicle _x;
 		_assignedVehicle = _x call gosa_fnc_assignedVeh;
@@ -151,6 +153,7 @@ if({alive _x} count _units > 0)then{
 		};
 		if(_veh != _x)then{
 			if!(_veh in _vehicles)then{
+				_vehicles_all set [count _vehicles_all, _veh];
 				_vehicles set [count _vehicles, _veh];
 				_types set [count _types, typeOf _veh];
 				_cargo = _cargo + assignedCargo _veh;
@@ -647,7 +650,8 @@ if({alive _x} count _units > 0)then{
 				private["_list","_cost","_prio","_item","_wp_AA"];
 
 
-				_cost = ([side _grp, _leaderPos, 600] call gosa_fnc_find_AA_pos);
+				_cost = ([side _grp, _leaderPos, 600, 
+					_vehicles_all] call gosa_fnc_find_AA_pos);
 
 				if (_cost > 2) then {
 					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA остановка на оптимальной позиции %2", _grp, _leaderPos];
@@ -666,7 +670,8 @@ if({alive _x} count _units > 0)then{
 					};
 				}else{
 					if (count waypoints _grp > 0) then {
-						_cost = ([side _grp, getWPPos _wp, 500] call gosa_fnc_find_AA_pos);
+						_cost = ([side _grp, getWPPos _wp, 500, 
+							_vehicles_all] call gosa_fnc_find_AA_pos);
 						if (_cost > 2) then {
 							diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA оптимальный варшрут уже выбран ранее %2", _grp, _wp];
 							_StopWP = false;
@@ -685,7 +690,8 @@ if({alive _x} count _units > 0)then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #AA выбор маршрута", _grp];
 						for "_i" from 0 to count _list -1 do {
 							_item = vehicle (_list select _i);
-							_cost = ([side _grp, _item, 400] call gosa_fnc_find_AA_pos);
+							_cost = ([side _grp, _item, 400, 
+								_vehicles_all] call gosa_fnc_find_AA_pos);
 							if (_cost > 2.5) then {
 								if(isNil {_prio})then{
 									_prio = (_item distance _leaderPos) / _cost;
