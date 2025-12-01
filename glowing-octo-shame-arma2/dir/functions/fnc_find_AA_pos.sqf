@@ -7,7 +7,7 @@
 
 diag_log format ["Log: [fnc_find_AA_pos] #AA %1", _this];
 
-private["_side","_pos","_list","_cost","_radius","_arr","_n"];
+private["_side","_pos","_list","_cost","_radius","_arr","_n","_obj_ignore"];
 _side = _this select 0;
 _pos = _this select 1;
 if (typeName _pos == typeName objNull) then {
@@ -25,12 +25,18 @@ if (_pos select 0 == 0 && _pos select 1 == 0) exitWith {
 // сфера
 _pos resize 2; 
 _radius = _this select 2;
+if (count _this > 3) then {
+	_obj_ignore = _this select 3;
+}else{
+	_obj_ignore = [];
+};
 
 //--- ищем союзные наземные юниты находящиеся рядом с предполагаемой позицией
 #ifdef __ARMA3__
 _arr = [];
 #endif
 _list = _pos nearEntities [["Land"],_radius];
+if (count _obj_ignore > 0) then {_list = _list - _obj_ignore};
 for "_i" from 0 to (count _list - 1) do {
 	// подсчитывать нужно союзников
 	if (_side getFriend side (_list select _i) >= 0.6 && 
@@ -74,6 +80,7 @@ if (count (_arr select 0) > 0) then {
 	if (_n >= 0) then {
 		_cost = _cost - 5;
 	};
+	// 1*2 танк + 3*0.75 человека внутри = 4.25 за танк.
 	_n = (_arr select 0 find "Tank");
 	if (_n >= 0) then {
 		_cost = _cost + ((_arr select 1 select _n)*2);
