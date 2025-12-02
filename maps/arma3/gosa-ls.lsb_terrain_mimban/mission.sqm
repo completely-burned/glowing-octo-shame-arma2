@@ -177,7 +177,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="LS CO 00 gosa lsb_terrain_mimban Multi v0.0.5.993 DEBUG";
+		briefingName="LS CO 00 gosa lsb_terrain_mimban Multi v0.0.5.994 DEBUG";
 		startWeather=1;
 		startFog=0.12;
 		startWind=0.1;
