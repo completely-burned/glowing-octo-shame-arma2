@@ -18,6 +18,7 @@ for "_i" from 0 to (count _arr -1) do {
 	_b = true;
 	for "_i0" from 0 to (count _item -1) do {
 		_types = (_item select _i0 select 0);
+		if (count _types > 0) then {
 		for "_iT" from 0 to (count _types -1) do {
 			_type = configName (_cfgVeh >> (_types select _iT));
 			if (_type == "")  then {
@@ -35,6 +36,10 @@ for "_i" from 0 to (count _arr -1) do {
 				//diag_log format ["Log: [fnc_filtering_squads_byAvail_v2] %1, configName isEqualRef %2, _copyRef isEqualRef %3", _type, (_copyRef select _n) isEqualRef _type, (_copyRef select _n) isEqualRef (_types select _iT)];
 				#endif
 			};
+		};
+		}else{
+			_b = false;
+			BreakTo "_arr_item";
 		};
 	};
 
