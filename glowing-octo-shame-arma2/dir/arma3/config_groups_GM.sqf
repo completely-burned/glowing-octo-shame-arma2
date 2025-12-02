@@ -934,6 +934,77 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	["CUP_B_CDF"]
 ] call gosa_fnc_map_groups_add;
 
+// gmx_cdf2022
+_cfg = (configFile >> "CfgGroups" >> "West" >> "gmx_cdf2022");
+_arr = [
+	// gm_motorizedinfantry Motorized Infantry
+	// gmx_cdf2022_squad_ural4320_cargo_wdl Squad (Truck gel. 5 Transport)
+	[[[_cfg >> "gm_motorizedinfantry" >> "gmx_cdf2022_squad_ural4320_cargo_wdl"]],0.1],
+	// gmx_cdf2022_squad_bmp1sp2_wdl Squad (BMP-1 SP-2)
+	[[[_cfg >> "gm_motorizedinfantry" >> "gmx_cdf2022_squad_bmp1sp2_wdl"]],1],
+	// gmx_cdf2022_squad_marder1a2_wdl Squad (SPz 1A2)
+	[[[_cfg >> "gm_motorizedinfantry" >> "gmx_cdf2022_squad_marder1a2_wdl"]],0.5],
+	// gmx_cdf2022_squad_btr60pb_wdl Squad (SPW-60PB)
+	[[[_cfg >> "gm_motorizedinfantry" >> "gmx_cdf2022_squad_btr60pb_wdl"]],0.5],
+	// gmx_cdf2022_squad_btr60pa_dshkm_wdl 
+	[[[_cfg >> "gm_motorizedinfantry" >> "gmx_cdf2022_squad_btr60pa_dshkm_wdl"]],0.1],
+	// gmx_cdf2022_squad_btr60pa_wdl Squad (SPW-60PA)
+	[[[_cfg >> "gm_motorizedinfantry" >> "gmx_cdf2022_squad_btr60pa_wdl"]],0.1],
+	// gmx_cdf2022_artillery Artillery
+	// gmx_cdf2022_platoon_2p16_wdl Battery (2P16)
+	[[[_cfg >> "gmx_cdf2022_artillery" >> "gmx_cdf2022_platoon_2p16_wdl"]],0],
+	// gmx_cdf2022_platoon_2s1_wdl Platoon (2S1)
+	[[[_cfg >> "gmx_cdf2022_artillery" >> "gmx_cdf2022_platoon_2s1_wdl"]],0],
+	// gmx_cdf2022_armored Armored
+	// gmx_cdf2022_platoon_gmx_cdf2022_kpz1a5_wdl Platoon (KPz 1A5)
+	[[[_cfg >> "gmx_cdf2022_armored" >> "gmx_cdf2022_platoon_gmx_cdf2022_kpz1a5_wdl"]],0.3],
+	// gmx_cdf2022_platoon_gmx_cdf2022_t55a_wdl Platoon (T-55A)
+	[[[_cfg >> "gmx_cdf2022_armored" >> "gmx_cdf2022_platoon_gmx_cdf2022_t55a_wdl"]],0.3],
+	// gmx_cdf2022_platoon_gmx_cdf2022_t55am2b_wdl Platoon (T-55AM2)
+	[[[_cfg >> "gmx_cdf2022_armored" >> "gmx_cdf2022_platoon_gmx_cdf2022_t55am2b_wdl"]],0.3],
+	// gmx_cdf2022_recon Recon
+	// gmx_cdf2022_platoon_gmx_cdf2022_pt76b_wdl Recon Patrol (PT-76B)
+	[[[_cfg >> "gmx_cdf2022_recon" >> "gmx_cdf2022_platoon_gmx_cdf2022_pt76b_wdl"]],0.1],
+	// gmx_cdf2022_platoon_gmx_cdf2022_brdm2_wdl 
+	[[[_cfg >> "gmx_cdf2022_recon" >> "gmx_cdf2022_platoon_gmx_cdf2022_brdm2_wdl"]],0.1],
+	// gmx_cdf2022_platoon_uaz469_wdl Recon Patrol (UAZ 469)
+	[[[_cfg >> "gmx_cdf2022_recon" >> "gmx_cdf2022_platoon_uaz469_wdl"]],0.1],
+	// gmx_cdf2022_antiair Air Defence
+	// gmx_cdf2022_platoon_gmx_cdf2022_btr60pu12_wdl_gmx_cdf2022_zsu234v1_wdl Battery (ZSU-23-4V1)
+	[[[_cfg >> "gmx_cdf2022_antiair" >> "gmx_cdf2022_platoon_gmx_cdf2022_btr60pu12_wdl_gmx_cdf2022_zsu234v1_wdl"]],0.1],
+	// gmx_cdf2022_platoon_gmx_cdf2022_zsu234v1_wdl Platoon (ZSU-23-4V1)
+	[[[_cfg >> "gmx_cdf2022_antiair" >> "gmx_cdf2022_platoon_gmx_cdf2022_zsu234v1_wdl"]],0.1],
+	// gmx_cdf2022_platoon_gmx_cdf2022_gepard1a1_wdl Platoon (FlakPz 1A1)
+	[[[_cfg >> "gmx_cdf2022_antiair" >> "gmx_cdf2022_platoon_gmx_cdf2022_gepard1a1_wdl"]],0.1],
+	// gmx_nationalGuard National Guard
+	// gmx_cdf_paramilitary_infantry_squad_ttsko Squad
+	[[[_cfg >> "gmx_nationalGuard" >> "gmx_cdf_paramilitary_infantry_squad_ttsko"]],1],
+	// gmx_cdf_army_infantry_mggroup_oli MG-Group
+	[[[_cfg >> "gmx_nationalGuard" >> "gmx_cdf_army_infantry_mggroup_oli"]],0.3],
+	// gmx_cdf_army_infantry_atgroup_oli AT-Group
+	[[[_cfg >> "gmx_nationalGuard" >> "gmx_cdf_army_infantry_atgroup_oli"]],0.4],
+	// gmx_riotPolice OREL
+	// gmx_cdf_orel_infantry_squad_blu Squad
+	[[[_cfg >> "gmx_riotPolice" >> "gmx_cdf_orel_infantry_squad_blu"]],0.05],
+	// gm_supply Supply
+	// gm_ge_army_supply_team_01 Supply Convoy
+	[[[_cfg >> "gm_supply" >> "gm_ge_army_supply_team_01"]],0.05],
+	// gm_infantry Infantry
+	// gmx_cdf2022_army_infantry_squad_digittsko Squad
+	[[[_cfg >> "gm_infantry" >> "gmx_cdf2022_army_infantry_squad_digittsko"]],1],
+	// gmx_cdf2022_army_infantry_mggroup_oli MG-Group
+	[[[_cfg >> "gm_infantry" >> "gmx_cdf2022_army_infantry_mggroup_oli"]],0.3],
+	// gmx_cdf2022_army_infantry_atgroup_oli AT-Group
+	[[[_cfg >> "gm_infantry" >> "gmx_cdf2022_army_infantry_atgroup_oli"]],0.4],
+	// gmx_cdf2022_army_infantry_specops_mcam Special Force
+	[[[_cfg >> "gm_infantry" >> "gmx_cdf2022_army_infantry_specops_mcam"]],0.1]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, west, "gmx_cdf2022", _arr,
+	[2020,2100], [160,300-1],
+	[]
+] call gosa_fnc_map_groups_add;
+
 
 // guer
 [_groups_map, resistance, "gm_xx_army", [[
