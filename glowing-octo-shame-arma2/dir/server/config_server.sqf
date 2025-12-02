@@ -1,7 +1,6 @@
 private ["_i","_ii","_E","_players","_side","_arr","_n"];
 
-
-[] call compile preprocessFileLineNumbers "dir\server\init_side_balance.sqf";
+_arr = [] call gosa_fnc_init_side_balance;
 
 [] call compile preprocessFileLineNumbers "dir\server\cfg_mhq.sqf";
 

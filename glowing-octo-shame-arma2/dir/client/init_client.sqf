@@ -12,8 +12,8 @@ while {sleep 0.01; _side == sideUnknown} do {
 };
 gosa_playerSide = _side;
 }else{
-	waitUntil {!isNil "gosa_friendlyside"};
-	gosa_playerside = gosa_friendlyside select 0;
+	// Инициализация в fnc_init_side_balance
+	waitUntil {!isNil "gosa_playerside"};
 };
 
 // Ошибки настроек.

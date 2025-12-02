@@ -3,7 +3,7 @@
  * TODO: Должен быть динамичным, с возможностью вкл/выключать стороны после старта.
  */
 
-private ["_alliances","_alliance","_side",
+private ["_alliances","_alliance","_side","_arr0",
 	"_count","_spectator",
 	"_allDead",
 	"_cfgVeh",
@@ -220,7 +220,21 @@ publicVariable "gosa_sides_friendly_num";
 	publicVariable "gosa_friendlyside";
 };
 
-_arr = [_sides, _sides_cfi, _superpowers_rating, [_problems, _problems_num], [_players_cfi, _allDead, _players]];
+_arr0 = [[],[]];
+if !(isMultiplayer) then {
+	for "_i" from 0 to (count (_problems_num select 1) -1) do {
+		_n = _problems_num select 1 select _i;
+		if (_sides_cfi select _n > 0) then {
+			_arr0 select 0 set [
+				count (_arr0 select 0), _problems select 1 select _i];
+			_arr0 select 1 set [count (_arr0 select 1), _sides_cfi select _n];
+		};
+	};
+	gosa_playerside = _arr0 call BIS_fnc_selectRandomWeighted;
+	diag_log format ["Log: [init_side_balance] _playerside %1, _arr0 %2", gosa_playerside, _arr0];
+};
+
+_arr = [_sides, _sides_cfi, _superpowers_rating, [_problems, _problems_num], [_players_cfi, _allDead, _players], _arr0];
 diag_log format ["Log: [init_side_balance] %1", _arr];
 
 _arr;

@@ -1257,6 +1257,10 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class init_side_balance
+			{
+				file = "dir\functions\fnc_init_side_balance.sqf";
+			};
 			class veh_getInfo
 			{
 				file = "dir\functions\fnc_veh_getInfo.sqf";
