@@ -200,7 +200,7 @@ class Mission
 	appId=1681170;
 	class Intel
 	{
-		briefingName="WS CO 00 gosa SefrouRamal Multi v0.0.5.994 DEBUG";
+		briefingName="WS CO 00 gosa SefrouRamal Multi v0.0.5.995 DEBUG";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;

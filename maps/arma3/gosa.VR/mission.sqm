@@ -168,7 +168,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CO 00 gosa VR Multi v0.0.5.994 DEBUG";
+		briefingName="CO 00 gosa VR Multi v0.0.5.995 DEBUG";
 		startWeather=0;
 		startWind=0.1;
 		startWaves=0.1;

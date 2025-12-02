@@ -209,7 +209,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="CUP CO 00 gosa Chernarus_Winter Multi v0.0.5.994 DEBUG";
+		briefingName="CUP CO 00 gosa Chernarus_Winter Multi v0.0.5.995 DEBUG";
 		startWeather=0.25;
 		startWind=0.1;
 		startWaves=0.1;
