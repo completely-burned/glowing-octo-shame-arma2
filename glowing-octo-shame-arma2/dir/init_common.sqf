@@ -53,6 +53,11 @@ gosa_faction_mutual_exclusions = [
 	["BLU_NATO_LXWS","BLU_F","BLU_T_F","BLU_W_F"]
 ];
 
+gosa_vehiclesKindOf_Loiter = [
+	"VTOL_01_armed_base_F",
+	"vnx_air_ac119k_base"
+];
+
 // Камуфляжи.
 _date_default = [1995,2100];
 _date_a2 = [1970, (_date_default select 0) -1];
