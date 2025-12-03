@@ -571,6 +571,7 @@ listMHQ = gosa_empty_arr;
 
 // Верхние перекрывают нижних.
 gosa_typesKindOf_bunker = [
+	["Land_Airport_02_controlTower_F",[[0,0,13.1]]],
 	["Land_Barracks_01_grey_F",[[0,0,4]]],
 	["Land_Cargo_HQ_V3_F",[[0,0,0.65]]],
 	["Land_Cargo_Tower_V3_F",[[0,0,15.5]]],
