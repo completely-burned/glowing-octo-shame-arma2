@@ -1353,6 +1353,27 @@ class CfgFunctions
 			};
 		};
 
+		class Base
+		{
+			
+			class base_generateRespawnsAll
+			{
+				file = "dir\functions\fnc_base_generateRespawnsAll.sqf";
+			};
+			class base_generateRespawns
+			{
+				file = "dir\functions\fnc_base_generateRespawns.sqf";
+			};
+			class base_addRespawn
+			{
+				file = "dir\functions\fnc_base_addRespawn.sqf";
+			};
+			class base_findRespawnPositions
+			{
+				file = "dir\functions\fnc_base_findRespawnPositions.sqf";
+			};
+		};
+
 		// Systems or unsorted.
 		class Systems
 		{

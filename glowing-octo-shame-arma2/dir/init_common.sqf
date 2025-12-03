@@ -569,6 +569,21 @@ HQ = gosa_empty_arr;
 Warfare_HQ = gosa_empty_arr;
 listMHQ = gosa_empty_arr;
 
+gosa_typesKindOf_bunker = [
+	"Land_vn_barracks_02_f",
+	"Land_vn_barracks_03_f",
+	"Land_vn_b_trench_bunker_01_01",
+	"Land_vn_b_trench_bunker_02_01",
+	"Land_vn_b_trench_bunker_03_01",
+	"Land_vn_b_trench_bunker_03_04",
+	"Land_vn_b_trench_bunker_04_01",
+	"Land_vn_b_trench_bunker_06_02",
+	"Land_vn_barracks_03_01",
+	"Land_vn_barracks_03_04",
+	"Land_vn_quonset_02_01",
+	"Land_vn_hootch_02_11"
+];
+
 //-- Заводы.
 gosa_type_Barracks = ["Base_WarfareBBarracks"];
 gosa_type_LightFactory = ["Base_WarfareBLightFactory"];
