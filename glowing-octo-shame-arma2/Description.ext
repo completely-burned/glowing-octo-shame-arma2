@@ -1257,6 +1257,10 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class unit_findLeaderByDisplayName
+			{
+				file = "dir\functions\fnc_unit_findLeaderByDisplayName.sqf";
+			};
 			class init_side_balance
 			{
 				file = "dir\functions\fnc_init_side_balance.sqf";
