@@ -326,7 +326,7 @@ _arr = _default_west;
 
 // Авиация
 _arr = [
-	//[[[["B_T_VTOL_01_armed_F"],[],["LIEUTENANT"]]],0.5],
+	[[[["B_T_VTOL_01_armed_F"],[],["CAPTAIN"]]],0.1],
 	[[[["B_Plane_CAS_01_F","B_Plane_CAS_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 	[[[["B_Heli_Light_01_armed_F","B_Heli_Light_01_armed_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 	[[[["B_Heli_Attack_01_F","B_Heli_Attack_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
