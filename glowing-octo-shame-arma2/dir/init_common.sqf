@@ -574,6 +574,7 @@ gosa_typesKindOf_bunker = [
 	"Land_Barracks_03_F",
 	"Land_Barracks_04_F",
 	["Land_Airport_02_controlTower_F",[[0,0,13.1]]],
+	["Land_Barracks_01_camo_F",[[0,0,4]]],
 	["Land_Barracks_01_grey_F",[[0,0,4]]],
 	["Land_Cargo_HQ_V3_F",[[0,0,0.65]]],
 	["Land_Cargo_Tower_V3_F",[[0,0,15.5]]],
