@@ -1,15 +1,35 @@
-private ["_l_base","_respawn","_type","_arr","_logic"];
+private ["_l_base","_respawn","_type","_arr","_logic","_pos","_arr0"];
+diag_log format ["Log: [fnc_base_addRespawn] _this %1", _this];
+
 _l_base = _this select 0;
 _respawn = _this select 1;
 
 _type = "LocationRespawnPoint_F";
 
-_arr = _respawn nearObjects [_type, 10];
-if (count _arr <= 0) then {
-	_logic = group _l_base createUnit [_type, getPos _respawn, [], 0, "CAN_COLLIDE"];
-	_logic setPos getPos _respawn;
-	_logic synchronizeObjectsAdd [_l_base];
-	_l_base synchronizeObjectsAdd [_logic];
-	_arr set [count _arr, _logic];
+_arr0 = [];
+for "_i" from 0 to (count (_respawn select 0) -1) do {
+	_offsets = _respawn select 1 select _i;
+	if (typeName _offsets == typeName "") then {
+		_offsets = [[0,0,0]];
+	}else{
+		_offsets = _offsets select 1;
+	};
+
+	diag_log format ["Log: [fnc_base_addRespawn] _offsets %1", _offsets];
+	for "_o" from 0 to (count _offsets -1) do {
+		_pos = getPos (_respawn select 0 select _i);
+		// TODO: Стороны.
+		_pos set [2, (_pos select 2) + (_offsets select _o select 2)];
+		_arr = _pos nearObjects [_type, 10];
+		if (count _arr <= 0) then {
+			_logic = group _l_base createUnit [_type, _pos, [], 0, "CAN_COLLIDE"];
+			//_logic setPos _pos;
+			_logic synchronizeObjectsAdd [_l_base];
+			_l_base synchronizeObjectsAdd [_logic];
+			_arr0 set [count _arr0, _logic];
+		};
+	};
 };
-[_arr];
+
+diag_log format ["Log: [fnc_base_addRespawn] _r %1", [_arr0]];
+[_arr0];

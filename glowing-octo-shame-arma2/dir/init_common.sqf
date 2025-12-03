@@ -569,7 +569,10 @@ HQ = gosa_empty_arr;
 Warfare_HQ = gosa_empty_arr;
 listMHQ = gosa_empty_arr;
 
+// Верхние перекрывают нижних.
 gosa_typesKindOf_bunker = [
+	["Land_Cargo_HQ_V3_F",[[0,0,0.2]]],
+	["Land_Cargo_Tower_V3_F",[[0,0,15.5]]],
 	"Land_vn_barracks_02_f",
 	"Land_vn_barracks_03_f",
 	"Land_vn_b_trench_bunker_01_01",
