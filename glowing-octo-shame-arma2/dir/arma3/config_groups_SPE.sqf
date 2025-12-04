@@ -448,6 +448,13 @@ _arr = [
 	// SPEX_CW_Cromwell_CS_Troop
 	[[[["SPEX_CW_Cromwell_Mk5","SPEX_CW_Cromwell_Mk6","SPEX_CW_Cromwell_Mk6"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","CORPORAL"]]],0.3]
 ];
+if (_landing in [1,2,23,24]) then {
+	_arr append [
+		// SPEX_CW_infantry_Section
+		[[[["SPEX_CW_C47_Dakota"],[],[]],
+			[["SPEX_CW_Para_Section_Lead","SPEX_CW_Para_rifleman","SPEX_CW_Para_Team_Lead","SPEX_CW_Para_mortar_gunner","SPEX_CW_Para_Bren_gunner","SPEX_CW_Para_rifleman_2","SPEX_CW_Para_Bren_asst","SPEX_CW_Para_rifleman","SPEX_CW_Para_rifleman_AmmoBearer","SPEX_CW_Para_rifleman_2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0+0.1]
+	];
+};
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, resistance, "SPEX_CW_Army", _arr,
 [1900,1950], [160,225-1],
