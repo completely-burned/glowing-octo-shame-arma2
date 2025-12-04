@@ -580,6 +580,7 @@ gosa_typesKindOf_bunker = [
 	["Land_Barracks_01_grey_F",[[0,0,4]]],
 	["Land_Cargo_HQ_V3_F",[[0,0,0.65]]],
 	["Land_Cargo_Tower_V3_F",[[0,0,15.5]]],
+	"Land_SPE_Tent_02",
 	["Land_JNS_Bunker_AA_Camo",[[-1,2.5,0.3]]],
 	["Land_JNS_Bunker_Rs65a_Omaha",[[0.9,-4.1,2.5]]],
 	["Land_JNS_LAWZ_FA_Unterstand_Omaha_Net",[[0,0,0.8]]],
@@ -604,6 +605,10 @@ gosa_typesKindOf_bunker = [
 	"Land_vn_barracks_03_04",
 	"Land_vn_quonset_02_01",
 	"Land_vn_hootch_02_11"
+];
+
+gosa_modelNames_Barracks = [
+	"spe_tent_02.p3d"
 ];
 
 //-- Заводы.
