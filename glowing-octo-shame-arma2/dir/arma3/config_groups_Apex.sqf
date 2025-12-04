@@ -107,7 +107,7 @@ _arr = [
 		];
 	};
 	[_groups_map, west, "BLU_T_F", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2020,2100], [225,249],
+	[2010,2100], [225,249],
 	["BLU_F", "CUP_B_US_Army", "CUP_B_USMC", "BLU_W_F"]
 	] call gosa_fnc_map_groups_add;
 
