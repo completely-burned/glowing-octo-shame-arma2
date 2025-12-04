@@ -18,8 +18,21 @@ for "_i" from 0 to (count (_respawn select 0) -1) do {
 	diag_log format ["Log: [fnc_base_addRespawn] _offsets %1", _offsets];
 	for "_o" from 0 to (count _offsets -1) do {
 		_pos = getPos (_respawn select 0 select _i);
-		// TODO: Стороны.
+		_dir = getDir (_respawn select 0 select _i);
+
+		// TODO: Наклон.
 		_pos set [2, (_pos select 2) + (_offsets select _o select 2)];
+		// FIXME: Возможно есть более лучшее решение.
+		_pos set [0, (_pos select 0) + 
+			((_offset select 0) * sin (_dir+90)) +
+			((_offset select 1) * sin (_dir))
+		];
+		_pos set [1, (_pos select 1) + 
+			((_offset select 0) * cos (_dir+90)) +
+			((_offset select 1) * cos (_dir))
+		];
+
+		// FIXME: Может быть другой тип объекта.
 		_arr = _pos nearObjects [_type, 10];
 		if (count _arr <= 0) then {
 			_logic = group _l_base createUnit [_type, _pos, [], 0, "CAN_COLLIDE"];
