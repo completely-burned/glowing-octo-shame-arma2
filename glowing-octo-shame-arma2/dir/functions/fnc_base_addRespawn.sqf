@@ -1,4 +1,5 @@
-private ["_l_base","_respawn","_type","_arr","_logic","_pos","_arr0"];
+private ["_l_base","_respawn","_type","_arr","_logic","_pos","_arr0",
+	"_offset"];
 diag_log format ["Log: [fnc_base_addRespawn] _this %1", _this];
 
 _l_base = _this select 0;
@@ -17,11 +18,12 @@ for "_i" from 0 to (count (_respawn select 0) -1) do {
 
 	diag_log format ["Log: [fnc_base_addRespawn] _offsets %1", _offsets];
 	for "_o" from 0 to (count _offsets -1) do {
+		_offset = _offsets select _o;
 		_pos = getPos (_respawn select 0 select _i);
 		_dir = getDir (_respawn select 0 select _i);
 
 		// TODO: Наклон.
-		_pos set [2, (_pos select 2) + (_offsets select _o select 2)];
+		_pos set [2, (_pos select 2) + (_offset select 2)];
 		// FIXME: Возможно есть более лучшее решение.
 		_pos set [0, (_pos select 0) + 
 			((_offset select 0) * sin (_dir+90)) +
