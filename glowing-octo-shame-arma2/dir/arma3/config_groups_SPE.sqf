@@ -629,8 +629,8 @@ _arr append [
 if (_landing in [1,4,24,34]) then {
 	// Застревает с убитым водителем.
 	_arr append [
-		[[[["SPEX_LCVP"],[],[]],[["SPE_M8_LAC"],[[0,-15,0]],["CORPORAL"]]],0.1],
-		[[[["SPEX_LCVP"],[],[]],[["SPE_US_G503_MB_M1919_Armoured"],[[0,-15,0]],["CORPORAL"]]],0.1],
+		[[[["jns_JNS_LCVP"],[],[]],[["SPE_M8_LAC"],[[0,-15,0]],["CORPORAL"]]],0.1],
+		[[[["jns_JNS_LCVP"],[],[]],[["SPE_US_G503_MB_M1919_Armoured"],[[0,-15,0]],["CORPORAL"]]],0.1],
 		[[[["SPE_US_SquadLead",
 			"SPE_US_Assist_SquadLead","SPE_US_AT_Soldier",
 			"SPE_US_Grenadier","I_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
