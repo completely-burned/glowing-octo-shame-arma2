@@ -34,7 +34,7 @@ _arr append [
 	// SPEX_GER_DAK_sniper_team
 	[[[["SPEX_GER_DAK_sniper","SPEX_GER_DAK_sniper"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
 	// SPEX_GER_DAK_Flamethrower_Team
-	[[[["SPEX_GER_DAK_sapper_gefr","SPEX_GER_DAK_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.4],
+	[[[["SPEX_GER_DAK_sapper_gefr","SPEX_GER_DAK_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
 	// SPEX_GER_DAK_Assault_Engineer_Squad
 	[[[["SPEX_GER_DAK_SquadLead","SPEX_GER_DAK_mgunner2","SPEX_GER_DAK_mgunner2","SPEX_GER_DAK_sapper_gefr","SPEX_GER_DAK_rifleman_2","SPEX_GER_DAK_amgunner","SPEX_GER_DAK_sapper","SPEX_GER_DAK_sapper","SPEX_GER_DAK_amgunner","SPEX_GER_DAK_Flamethrower_Operator","SPEX_GER_DAK_AT_grenadier","SPEX_GER_DAK_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// SPEX_GER_DAK_MG_team
@@ -119,7 +119,7 @@ _arr = [
 	// SPE_OST_sniper_team
 	[[[["SPE_OST_CSK_sniper","SPE_OST_CSK_sniper"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
 	// SPE_OST_Flamethrower_Team
-	[[[["SPE_OST_sapper_gefr","SPE_OST_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.4],
+	[[[["SPE_OST_sapper_gefr","SPE_OST_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
 	// SPE_OST_Assault_Engineer_Squad
 	[[[["SPE_OST_SquadLead","SPE_OST_mgunner","SPE_OST_mgunner","SPE_OST_sapper_gefr","SPE_OST_rifleman_2","SPE_OST_amgunner","SPE_OST_sapper","SPE_OST_sapper","SPE_OST_amgunner","SPE_OST_Flamethrower_Operator","SPE_OST_AT_grenadier","SPE_OST_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// SPE_OST_MG_team
@@ -150,7 +150,7 @@ _arr = [
 	// SPE_GER_sniper_team
 	[[[["SPE_GER_scout_sniper","SPE_GER_scout_sniper"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
 	// SPE_GER_Flamethrower_Team
-	[[[["SPE_GER_sapper_gefr","SPE_GER_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.4],
+	[[[["SPE_GER_sapper_gefr","SPE_GER_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
 	// SPE_GER_Assault_Engineer_Squad
 	[[[["SPE_GER_SquadLead","SPE_GER_mgunner","SPE_GER_mgunner","SPE_GER_sapper_gefr","SPE_GER_rifleman_2","SPE_GER_amgunner","SPE_GER_sapper","SPE_GER_sapper","SPE_GER_amgunner","SPE_GER_Flamethrower_Operator","SPE_GER_AT_grenadier","SPE_GER_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// SPE_GER_MG_team
@@ -248,7 +248,7 @@ _arr = [
 	// SPE_sturmtrooper_sentry_team_3
 	[[[["SPE_sturmtrooper_stggunner","SPE_sturmtrooper_rifleman","SPE_sturmtrooper_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.8],
 	// SPE_sturmtrooper_Flamethrower_Team
-	[[[["SPE_sturmtrooper_sapper_gefr","SPE_sturmtrooper_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.4],
+	[[[["SPE_sturmtrooper_sapper_gefr","SPE_sturmtrooper_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
 	// SPE_sturmtrooper_command_section
 	[[[["SPE_sturmtrooper_untersturmfuhrer","SPE_sturmtrooper_rifleman","SPE_sturmtrooper_medic","SPE_sturmtrooper_radioman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.8],
 	// SPE_sturmtrooper_infantry_squad
@@ -467,7 +467,7 @@ _arr = [
 	// SPE_US_Scout_Squad
 	[[[["SPE_US_SquadLead","SPE_US_Assist_SquadLead","SPE_US_Sniper","SPE_US_Medic","SPE_US_Autorifleman","SPE_US_Rifleman_AmmoBearer","SPE_US_Grenadier","SPE_US_Grenadier","SPE_US_Assist_Autorifleman","SPE_US_Rifleman","SPE_US_Rifleman","SPE_US_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
 	// SPE_US_Flamethrower_Team
-	[[[["SPE_US_Flamethrower_Operator","SPE_US_Rifleman"],[[0,0,0],[5,-5,0]],["Private","PRIVATE"]]],0.4],
+	[[[["SPE_US_Flamethrower_Operator","SPE_US_Rifleman"],[[0,0,0],[5,-5,0]],["Private","PRIVATE"]]],0.01],
 	// SPE_US_Sentry_Squad_2
 	[[[["SPE_US_SquadLead","SPE_US_Rifleman"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
 	// SPE_US_Sentry_Squad_3
@@ -555,7 +555,7 @@ _arr = [
 	// SPE_US_Scout_Squad
 	[[[["SPE_US_SquadLead_late","SPE_US_Assist_SquadLead_late","SPE_US_Sniper_late","SPE_US_Medic_late","SPE_US_Autorifleman_late","SPE_US_Rifleman_AmmoBearer_late","SPE_US_Grenadier_late","SPE_US_Grenadier_late","SPE_US_Assist_Autorifleman_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
 	// SPE_US_Flamethrower_Team
-	[[[["SPE_US_Flamethrower_Operator_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0]],["Private","PRIVATE"]]],0.4],
+	[[[["SPE_US_Flamethrower_Operator_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0]],["Private","PRIVATE"]]],0.01],
 	// SPE_US_Sentry_Squad_2
 	[[[["SPE_US_SquadLead_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
 	// SPE_US_Sentry_Squad_3
