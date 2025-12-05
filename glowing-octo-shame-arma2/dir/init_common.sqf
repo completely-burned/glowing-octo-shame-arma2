@@ -611,6 +611,8 @@ gosa_modelNames_Barracks = [
 	"spe_tent_02.p3d"
 ];
 
+gosa_vehiclesKindOf_LCVP = ["SPEX_LCVP","EF_LCC_Base"];
+
 //-- Заводы.
 gosa_type_Barracks = ["Base_WarfareBBarracks"];
 gosa_type_LightFactory = ["Base_WarfareBLightFactory"];

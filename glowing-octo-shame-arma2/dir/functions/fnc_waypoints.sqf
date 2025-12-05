@@ -362,6 +362,7 @@ if(!isNil "_leader")then{
 					#endif
 					&&
 					!([_vehicles, ["RHIB","SPEX_LCVP","EF_LCC_Base","EF_CombatBoat_Base"]] call gosa_fnc_CheckIsKindOfArray)
+					&& !("LCVP" in _grp_type)
 				)
 				or
 				([_vehicles, ["RubberBoat"]] call gosa_fnc_CheckIsKindOfArray)
