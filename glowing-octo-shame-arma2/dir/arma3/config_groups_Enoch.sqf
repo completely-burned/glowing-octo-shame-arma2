@@ -21,7 +21,7 @@
 			// configName O_R_reconSentry
 			[[[["O_R_recon_GL_F","O_R_recon_M_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.1]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2010,2100], [160,249],
+	gosa_date_default, [160,249],
 	["CUP_O_RU", "CUP_O_TK"]
 	] call gosa_fnc_map_groups_add;
 
@@ -71,7 +71,7 @@
 	// B_InfTeam_Light
 	[[[["B_W_soldier_TL_F","B_W_soldier_AR_F","B_W_soldier_F","B_W_soldier_LAT2_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],1]
 ], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[2010,2100], [160,224],
+gosa_date_default, [160,224],
 ["BLU_NATO_lxWS","BLU_F","BLU_T_F"]
 ] call gosa_fnc_map_groups_add;
 
@@ -124,7 +124,7 @@ _arr = [[
 ], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 if (count _arr > 0) then {
 	[_groups_map, west, "BLU_W_F", _arr,
-	[2010,2100], [160,224],
+	gosa_date_default, [160,224],
 	["BLU_NATO_lxWS","BLU_F","BLU_T_F"]
 	] call gosa_fnc_map_groups_add;
 } else {
@@ -174,7 +174,7 @@ if (count _arr > 0) then {
 		[[[["B_T_Truck_01_transport_F","B_W_soldier_SL_F","B_W_soldier_F","B_W_soldier_LAT_F","B_W_soldier_M_F","B_W_soldier_TL_F","B_W_soldier_AR_F","B_W_soldier_A_F","B_W_medic_F","B_W_soldier_SL_F","B_W_soldier_F","B_W_soldier_LAT_F","B_W_soldier_M_F","B_W_soldier_TL_F","B_W_soldier_AR_F","B_W_soldier_A_F","B_W_medic_F"],[[0,0,0],[5,0,0],[5,-2,0],[5,-4,0],[5,-6,0],[5,-8,0],[5,-10,0],[5,-12,0],[5,-14,0],[-5,0,0],[-5,-2,0],[-5,-4,0],[-5,-6,0],[-5,-8,0],[-5,-10,0],[-5,-12,0],[-5,-14,0]],["PRIVATE","LIEUTENANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","LIEUTENANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"],[],1]],0.4]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 	[_groups_map, west, "BLU_W_F", _arr,
-	[2010,2100], [160,224],
+	gosa_date_default, [160,224],
 	["BLU_NATO_lxWS","BLU_F","BLU_T_F"]
 	] call gosa_fnc_map_groups_add;
 };
@@ -254,6 +254,6 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	];
 };
 	[_groups_map, resistance, "IND_E_F", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2010,2100], [160,249],
+	gosa_date_default, [160,249],
 	["CUP_I_NAPA"]
 	] call gosa_fnc_map_groups_add;

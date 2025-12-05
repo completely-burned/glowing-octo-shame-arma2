@@ -90,7 +90,7 @@
 	];
 	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[2020,2100], [160,249],
+		gosa_date_default, [160,249],
 		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
@@ -169,7 +169,7 @@
 			[[[["CUP_O_RU_Soldier_TL_Ratnik_BeigeDigital","CUP_O_RU_Soldier_HAT_Ratnik_BeigeDigital","CUP_O_RU_Soldier_HAT_Ratnik_BeigeDigital","CUP_O_RU_Soldier_AHAT_Ratnik_BeigeDigital"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0]
 	];
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1990,2100], [160,274],
+		gosa_date_default, [160,274],
 		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 	*/
@@ -225,7 +225,7 @@
 	];
 	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[2020,2100], [275,299],
+		gosa_date_default, [275,299],
 		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
@@ -300,7 +300,7 @@
 	];
 	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[2020,2100], [300,999],
+		gosa_date_default, [300,999],
 		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
@@ -445,7 +445,7 @@
 	];
 	};
 	[_groups_map, east, "CUP_O_RUS_M", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[2020,2100], [-999,159],
+		gosa_date_default, [-999,159],
 		["CUP_O_RU"]
 	] call gosa_fnc_map_groups_add;
 
@@ -631,7 +631,7 @@
 		] call gosa_fnc_map_groups_add;
 		[_groups_map, east, "CUP_O_RUS_M",
 			[_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-			[2020,2100], [-999,999],
+			gosa_date_default, [-999,999],
 			["CUP_O_RU"]
 		] call gosa_fnc_map_groups_add;
 	};

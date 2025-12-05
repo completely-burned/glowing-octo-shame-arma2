@@ -324,7 +324,7 @@ _arr = _default_west;
 		];
 	};
 [_groups_map, west, "BLU_F", _arr,
-[2010,2100], [250,999],
+gosa_date_default, [250,999],
 ["BLU_NATO_lxWS","BLU_T_F","CUP_B_US_Army","CUP_B_USMC","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
@@ -344,19 +344,19 @@ _arr append [
 	//[[[["B_Radar_System_01_F","B_SAM_System_03_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 ];
 [_groups_map, west, "BLU_NATO_lxWS", _arr,
-[2010,2100], [300,999],
+gosa_date_default, [300,999],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_W_F", _arr,
-[2010,2100], [160,224],
+gosa_date_default, [160,224],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_T_F", _arr,
-[2010,2100], [225,249],
+gosa_date_default, [225,249],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_F", _arr,
-[2010,2100], [250,299],
+gosa_date_default, [250,299],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 
@@ -374,15 +374,15 @@ _arr append [
 		[[[["B_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
 	[_groups_map, west, "BLU_NATO_lxWS", _arr,
-	[2010,2100], [300,999],
+	gosa_date_default, [300,999],
 	[]
 	] call gosa_fnc_map_groups_add;
 	[_groups_map, west, "BLU_T_F", _arr,
-	[2010,2100], [-999,249],
+	gosa_date_default, [-999,249],
 	[]
 	] call gosa_fnc_map_groups_add;
 	[_groups_map, west, "BLU_F", _arr,
-	[2010,2100], [250,299],
+	gosa_date_default, [250,299],
 	[]
 	] call gosa_fnc_map_groups_add;
 
@@ -789,7 +789,7 @@ _arr = _default_east;
 		[[[["CUP_O_SU34_CSAT","CUP_O_SU34_CSAT"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.1]
 	];
 [_groups_map, east, "OPF_F", _arr,
-[2010,2100], [250,999],
+gosa_date_default, [250,999],
 []
 ] call gosa_fnc_map_groups_add;
 
@@ -804,11 +804,11 @@ _arr = _default_east;
 		[[[["O_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
 	[_groups_map, east, "OPF_F", _arr,
-	[2010,2100], [250,999],
+	gosa_date_default, [250,999],
 	[]
 	] call gosa_fnc_map_groups_add;
 	[_groups_map, east, "OPF_T_F", _arr,
-	[2010,2100], [-999,249],
+	gosa_date_default, [-999,249],
 	[]
 	] call gosa_fnc_map_groups_add;
 
@@ -1042,7 +1042,7 @@ _arr = _default_guer;
 			];
 		};
 [_groups_map, resistance, "IND_F", _arr,
-[2010,2100], [250,999],
+gosa_date_default, [250,999],
 []
 ] call gosa_fnc_map_groups_add;
 
@@ -1058,7 +1058,7 @@ _arr = _default_guer;
 		[[[["I_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
 	[_groups_map, resistance, "IND_F", _arr,
-	[2010,2100], [-999,999],
+	gosa_date_default, [-999,999],
 	[]
 	] call gosa_fnc_map_groups_add;
 

@@ -60,6 +60,7 @@ gosa_vehiclesKindOf_Loiter = [
 
 // Камуфляжи.
 _date_default = [1995,2100];
+gosa_date_default = _date_default;
 _date_a2 = [1970, (_date_default select 0) -1];
 gosa_camouflages = [
 	// [[factions, textures, [uniformClass]], islands, dates, temperatures]
