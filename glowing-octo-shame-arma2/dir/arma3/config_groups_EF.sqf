@@ -105,11 +105,15 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 if (_landing in [1,4,24,34]) then {
 	// Застревает с убитым водителем.
 	_arr append [
-		[[[["EF_B_LCC_MJTF_Wdl"],[],["LIEUTENANT"]],[["EF_B_AAV9_MJTF_Wdl","EF_B_AAV9_MJTF_Wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1],
 		[[[["EF_B_CombatBoat_Unarmed_MJTF_Wdl"],[],["LIEUTENANT"]],
 			[["EF_B_Marine_SL_Wdl","EF_B_Marine_Medic_Wdl","EF_B_Marine_UAV_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl","EF_B_Marine_TL_Wdl","EF_B_Marine_AR_Wdl","EF_B_Marine_GL_Wdl","EF_B_Marine_LAT_Wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0],[-30,-30,0],[35,-35,0],[-35,-35,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE"]]
 		],0.1]
 	];
+	if (_vivt) then {
+		_arr append [
+			[[[["EF_B_LCC_MJTF_Wdl"],[],["LIEUTENANT"]],[["EF_B_AAV9_MJTF_Wdl","EF_B_AAV9_MJTF_Wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1]
+		];
+	};
 };
 if (count gosa_zone_lighthouse > 0) then {
 	_arr append [
@@ -226,11 +230,15 @@ if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 if (_landing in [1,4,24,34]) then {
 	// Застревает с убитым водителем.
 	_arr append [
-		[[[["EF_B_LCC_MJTF_Des"],[],["LIEUTENANT"]],[["EF_B_AAV9_MJTF_Des","EF_B_AAV9_MJTF_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1],
 		[[[["EF_B_CombatBoat_Unarmed_MJTF_Des"],[],["LIEUTENANT"]],
 			[["EF_B_Marine_SL_Des","EF_B_Marine_Medic_Des","EF_B_Marine_UAV_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des","EF_B_Marine_TL_Des","EF_B_Marine_AR_Des","EF_B_Marine_GL_Des","EF_B_Marine_LAT_Des"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0],[-30,-30,0],[35,-35,0],[-35,-35,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","CORPORAL","PRIVATE"]]
 		],0.1]
 	];
+	if (_vivt) then {
+		_arr append [
+			[[[["EF_B_LCC_MJTF_Des"],[],["LIEUTENANT"]],[["EF_B_AAV9_MJTF_Des","EF_B_AAV9_MJTF_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1]
+		];
+	};
 };
 if (count gosa_zone_lighthouse > 0) then {
 	_arr append [

@@ -125,6 +125,13 @@ class Params {
 		default = 0;
 	};
 
+	class gosa_Vehicle_in_Vehicle {
+		title="UNITS: Vehicle in Vehicle Transport (not completed) [gp]";
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default = -1;
+	};
+
 	class gosa_gamemode_vr {
 		title="UNITS: VR";
 		values[] = {-1,1,0};

@@ -23,7 +23,7 @@
 #include "..\include\ranks.sqf"
 
 private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
-	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
+	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth","_vivt",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked",
 	"_grp","_groups_failover","_factions_used","_climate","_date",
 	"_groups_failover_map","_sides_friendly","_copyRef",
@@ -35,6 +35,10 @@ private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
 
 _pvp = gosa_pvp;
 _landing = missionNamespace getVariable "gosa_landing";
+_vivt = false;
+if (missionNamespace getVariable "gosa_Vehicle_in_Vehicle" == 1) then {
+	_vivt = true;
+};
 
 waitUntil{!isNil "availableVehicles"};
 _copyRef = availableVehicles;
