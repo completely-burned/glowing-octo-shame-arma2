@@ -55,7 +55,7 @@ _arr = [
 ];
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "BWA3", _arr,
-[1990,2100], [250,299],
+gosa_date_default, [250,299],
 ["CUP_B_GER"]
 ] call gosa_fnc_map_groups_add;
 
@@ -116,7 +116,7 @@ _arr = [
 ];
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "BWA3", _arr,
-[1990,2100], [150,249],
+gosa_date_default, [150,249],
 ["CUP_B_GER"]
 ] call gosa_fnc_map_groups_add;
 
@@ -177,6 +177,6 @@ _arr = [
 ];
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "BWA3", _arr,
-[1990,2100], [300,999],
+gosa_date_default, [300,999],
 ["CUP_B_GER"]
 ] call gosa_fnc_map_groups_add;

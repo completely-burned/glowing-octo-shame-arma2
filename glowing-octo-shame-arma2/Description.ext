@@ -125,6 +125,13 @@ class Params {
 		default = 0;
 	};
 
+	class gosa_Vehicle_in_Vehicle {
+		title="UNITS: Vehicle in Vehicle Transport (not completed) [gp]";
+		values[] = {-1,1,0};
+		texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+		default = -1;
+	};
+
 	class gosa_gamemode_vr {
 		title="UNITS: VR";
 		values[] = {-1,1,0};
@@ -1257,6 +1264,10 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class unit_findLeaderByDisplayName
+			{
+				file = "dir\functions\fnc_unit_findLeaderByDisplayName.sqf";
+			};
 			class init_side_balance
 			{
 				file = "dir\functions\fnc_init_side_balance.sqf";
@@ -1350,6 +1361,27 @@ class CfgFunctions
 			class spectator_init
 			{
 				file = "dir\functions\fnc_spectator_init.sqf";
+			};
+		};
+
+		class Base
+		{
+			
+			class base_generateRespawnsAll
+			{
+				file = "dir\functions\fnc_base_generateRespawnsAll.sqf";
+			};
+			class base_generateRespawns
+			{
+				file = "dir\functions\fnc_base_generateRespawns.sqf";
+			};
+			class base_addRespawn
+			{
+				file = "dir\functions\fnc_base_addRespawn.sqf";
+			};
+			class base_findRespawnPositions
+			{
+				file = "dir\functions\fnc_base_findRespawnPositions.sqf";
 			};
 		};
 

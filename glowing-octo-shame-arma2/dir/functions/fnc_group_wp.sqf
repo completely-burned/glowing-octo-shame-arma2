@@ -68,7 +68,7 @@ private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_waypoints","_createWP","_NoCreateWP","_DeleteWP","_StopWP","_pvp",
 	"_wpType_TrUNLOAD_Plane","_veh","_obj","_pos","_wpType_VehInVehUNLOAD",
 	"_isUAVConnected","_side","_sides_friendly","_arr0","_vehicles_all",
-	"_grp_wp_completed","_g2","_z","_v","_b"];
+	"_grp_wp_completed","_g2","_z","_v","_b","_wp_Loiter"];
 _grp=_this;
 
 
@@ -641,6 +641,98 @@ if({alive _x} count _units > 0)then{
 					_DeleteWP = true;
 				};
 			};
+
+			#ifdef __ARMA3__
+			if ("Loiter" in _grp_type) then {
+				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #Loiter", _this];
+				_list = allUnits;
+
+				//- поиск подходящего маршрута
+				diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #Loiter выбор маршрута", _grp];
+				for "_i" from 0 to (count _list -1) do {
+					_item = vehicle (_list select _i);
+					if (side _grp knowsAbout _item > 0 &&
+						side _grp getFriend side _item < 0.6
+					) then
+					{
+						_cost = ([side _grp, _item, 1000, 
+							_vehicles_all] call gosa_fnc_find_AA_pos);
+						if (_cost > 2.5) then {
+							if(isNil "_prio")then{
+								_prio = (_item distance _leaderPos) / _cost;
+								_wp_Loiter = getPosASL _item;
+							}else{
+								if ((_item distance _leaderPos) / _cost < _prio)then{
+									_wp_Loiter = getPosASL _item;
+								};
+							};
+						};
+					};
+				};
+				_prio = nil;
+
+				if !(isNil "_wp_Loiter") then {
+					// установка маршрута на позицию
+					// если маршрут отсутствует невозможно установить ему позицию
+					if (count waypoints _grp <= 0) then {
+						_wp =  _grp addWaypoint [_wp_Loiter, -1];
+						// TODO: для этого нужна функция
+						_wp setWaypointDescription "glowing-octo-shame Waypoint created dynamically";
+						// TODO: не работает должным образом
+						_wp setWaypointStatements ["true", "if(!isNil {this})then{group this setVariable ['_grp_wp_completed', time]}"];
+					}else{
+						if (WaypointPosition _wp distance2D _wp_Loiter > 75) then {
+							_wp setWaypointPosition [_wp_Loiter, -1];
+						};
+					};
+
+					// Set the waypoint type to "LOITER" and configure loiter settings
+					if (waypointType _wp != "LOITER") then {
+						_wp setWaypointType "LOITER";
+						_wp setWaypointLoiterRadius 1000;
+						_wp setWaypointLoiterType "CIRCLE_L";
+						_wp setWaypointLoiterAltitude 500;
+
+						// Disable AI sections that are not needed
+						{ _leader disableAI _x } foreach [
+								"AUTOCOMBAT",
+								"AUTOTARGET",
+								//"CHECKVISIBLE",
+								//"COVER",
+								//"FSM",
+								"MINEDETECTION",
+								//"RADIOPROTOCOL",
+								"SUPPRESSION",
+								"TARGET"
+								//"TEAMSWITCH",
+								//"WEAPONAIM"
+						];
+
+						// limit distance from terrain to prevent crashes
+						_leader flyInHeight 250;
+						// set the aircraft's target speed and height
+						_leader flyInHeightASL [500, 500, 500];
+						_leader forceSpeed 70;
+					};
+
+
+					_StopWP = false;
+					_NoCreateWP = true;
+					_DeleteWP = false;
+
+					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #Loiter установлен маршрут на позицию %2", _wp, _wp_Loiter];
+				}else{
+					if (count waypoints _grp <= 0) then {
+						_NoCreateWP = false;
+						_createWP = true;
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #Loiter выбор обычного маршрута", _grp];
+					}else{
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 #Loiter маршрут уже есть", _grp];
+					};
+
+				};
+			};
+			#endif
 
 			// ПВО
 			if ("AA" in _grp_type) then {

@@ -326,20 +326,17 @@ then
 	COMMENT='https://github.com/completely-burned/glowing-octo-shame-arma2'
 	tracker='udp://retracker.local/announce'
 
-	torrent_parallel+=( "transmission-create \
+	if ! transmission-create \
 		-t ${tracker} -c ${COMMENT} \
 		${ipfs_url_transmission} \
-		-w 'http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/' \
-		-o '${PRE}/${FINITENAME}-${VERSION}-transmission.torrent' \
-		${TORRENT_TMPDIR}" )
-	torrent_parallel+=( "ctorrent -t \
-		-u ${tracker} -c ${COMMENT} \
-		-s '${PRE}/${FINITENAME}-${VERSION}-ctorrent.torrent' \
-		${TORRENT_TMPDIR}" )
-
-	if [[ ! -z "$torrent_parallel" ]]
+		-w "http://rvtbn5rfvgyhhbyjuh.dynv6.net:8000/torrent/" \
+		-o "${PRE}/${FINITENAME}-${VERSION}-transmission.torrent" \
+		${TORRENT_TMPDIR}
 	then
-		parallel ::: "${torrent_parallel[@]}"
+		ctorrent -t \
+			-u ${tracker} -c ${COMMENT} \
+			-s "${PRE}/${FINITENAME}-${VERSION}-ctorrent.torrent" \
+			${TORRENT_TMPDIR}
 	fi
 fi
 

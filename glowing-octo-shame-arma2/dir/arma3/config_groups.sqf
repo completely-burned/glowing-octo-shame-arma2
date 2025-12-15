@@ -23,7 +23,7 @@
 #include "..\include\ranks.sqf"
 
 private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
-	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth",
+	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth","_vivt",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked",
 	"_grp","_groups_failover","_factions_used","_climate","_date",
 	"_groups_failover_map","_sides_friendly","_copyRef",
@@ -35,6 +35,10 @@ private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
 
 _pvp = gosa_pvp;
 _landing = missionNamespace getVariable "gosa_landing";
+_vivt = false;
+if (missionNamespace getVariable "gosa_Vehicle_in_Vehicle" == 1) then {
+	_vivt = true;
+};
 
 waitUntil{!isNil "availableVehicles"};
 _copyRef = availableVehicles;
@@ -320,13 +324,13 @@ _arr = _default_west;
 		];
 	};
 [_groups_map, west, "BLU_F", _arr,
-[2020,2100], [250,999],
+gosa_date_default, [250,999],
 ["BLU_NATO_lxWS","BLU_T_F","CUP_B_US_Army","CUP_B_USMC","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
 // Авиация
 _arr = [
-	//[[[["B_T_VTOL_01_armed_F"],[],["LIEUTENANT"]]],0.5],
+	[[[["B_T_VTOL_01_armed_F"],[],["CAPTAIN"]]],0.1],
 	[[[["B_Plane_CAS_01_F","B_Plane_CAS_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 	[[[["B_Heli_Light_01_armed_F","B_Heli_Light_01_armed_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
 	[[[["B_Heli_Attack_01_F","B_Heli_Attack_01_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5],
@@ -340,19 +344,19 @@ _arr append [
 	//[[[["B_Radar_System_01_F","B_SAM_System_03_F"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.5]
 ];
 [_groups_map, west, "BLU_NATO_lxWS", _arr,
-[2020,2100], [300,999],
+gosa_date_default, [300,999],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_W_F", _arr,
-[2020,2100], [160,224],
+gosa_date_default, [160,224],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_T_F", _arr,
-[2020,2100], [225,249],
+gosa_date_default, [225,249],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 [_groups_map, west, "BLU_F", _arr,
-[2020,2100], [250,299],
+gosa_date_default, [250,299],
 ["CUP_B_US_Army","CUP_B_USMC"]
 ] call gosa_fnc_map_groups_add;
 
@@ -370,15 +374,15 @@ _arr append [
 		[[[["B_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
 	[_groups_map, west, "BLU_NATO_lxWS", _arr,
-	[2020,2100], [300,999],
+	gosa_date_default, [300,999],
 	[]
 	] call gosa_fnc_map_groups_add;
 	[_groups_map, west, "BLU_T_F", _arr,
-	[2020,2100], [-999,249],
+	gosa_date_default, [-999,249],
 	[]
 	] call gosa_fnc_map_groups_add;
 	[_groups_map, west, "BLU_F", _arr,
-	[2020,2100], [250,299],
+	gosa_date_default, [250,299],
 	[]
 	] call gosa_fnc_map_groups_add;
 
@@ -785,7 +789,7 @@ _arr = _default_east;
 		[[[["CUP_O_SU34_CSAT","CUP_O_SU34_CSAT"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.1]
 	];
 [_groups_map, east, "OPF_F", _arr,
-[2020,2100], [250,999],
+gosa_date_default, [250,999],
 []
 ] call gosa_fnc_map_groups_add;
 
@@ -800,11 +804,11 @@ _arr = _default_east;
 		[[[["O_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
 	[_groups_map, east, "OPF_F", _arr,
-	[2020,2100], [250,999],
+	gosa_date_default, [250,999],
 	[]
 	] call gosa_fnc_map_groups_add;
 	[_groups_map, east, "OPF_T_F", _arr,
-	[2020,2100], [-999,249],
+	gosa_date_default, [-999,249],
 	[]
 	] call gosa_fnc_map_groups_add;
 
@@ -1038,7 +1042,7 @@ _arr = _default_guer;
 			];
 		};
 [_groups_map, resistance, "IND_F", _arr,
-[2020,2100], [250,999],
+gosa_date_default, [250,999],
 []
 ] call gosa_fnc_map_groups_add;
 
@@ -1054,7 +1058,7 @@ _arr = _default_guer;
 		[[[["I_UAV_01_F"],[],["CORPORAL"]]],0.02]
 	];
 	[_groups_map, resistance, "IND_F", _arr,
-	[2020,2100], [-999,999],
+	gosa_date_default, [-999,999],
 	[]
 	] call gosa_fnc_map_groups_add;
 

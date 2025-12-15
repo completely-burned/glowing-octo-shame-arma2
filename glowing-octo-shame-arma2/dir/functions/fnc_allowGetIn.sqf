@@ -245,8 +245,9 @@ if (isNil "lambs_danger_fnc_brainVehicle") then {
 			_u = _arr select _i;
 
 			_b = _u getVariable _var;
-			if (isNil "_b") then {_b = true};
-		
+			// Команда allowGetin может быть запущена извне и значение будет не по умолчанию.
+			if (isNil "_b") then {_b = false};
+
 			if !(_b) then {
 				_u setVariable [_var, true];
 				_Getin set [count _Getin, _u];

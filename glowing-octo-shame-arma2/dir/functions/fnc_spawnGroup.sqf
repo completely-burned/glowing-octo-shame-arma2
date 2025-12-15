@@ -7,6 +7,7 @@ diag_log format ["Log: [gosa_fnc_spawnGroup] %1", _this];
 private ["_pos","_side","_groups","_vehicles","_roads","_z","_for",
 	"_tmpArr","_grp","_types","_positions","_ranks","_crewType","_azimuth",
 	"_relPos","_positions_static","_positions_used","_best","_vr","_arr0",
+	"_friendlysides",
 	"_unit", "_type","_itemPos","_rank","_cfgVeh","_str","_entry","_n"];
 
 _side = _this select 1;
@@ -17,6 +18,9 @@ _groups = [];
 _vehicles = [];
 _cfgVeh = LIB_cfgVeh;
 _positions_used = [];
+if !(isMultiplayer) then {
+	_friendlysides = gosa_friendlyside;
+};
 
 // Выбирается одна группа если десант отключен.
 // FIXME: Можел лучше вынести участок кода за файл.
@@ -160,8 +164,7 @@ if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else 
 					if !(isMultiplayer) then {
 						//-- Баланс.
 						//if (_side getFriend playerSide >= 0.6) then
-						if (_side == gosa_friendlyside select 0) then
-						{
+						if (_side in _friendlysides) then {
 							addSwitchableUnit _unit;
 							#ifdef __ARMA3__
 								_n = [_unit, "menu"] call BIS_fnc_addCommMenuItem;
@@ -229,8 +232,7 @@ if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else 
 					//-- Одиночная игра.
 					if !(isMultiplayer) then {
 						//-- Баланс.
-						if (_side == gosa_friendlyside select 0) then
-						{
+						if (_side in _friendlysides) then {
 							{
 								addSwitchableUnit _x;
 								#ifdef __ARMA3__
@@ -263,6 +265,12 @@ if (missionNamespace getVariable "gosa_gamemode_vr" > 0) then {_vr = true} else 
 							if (rankId _x >= rankId _bestCandidate) then {
 								if (_x skill "commanding" > _bestCandidate skill "commanding") then {
 									_bestCandidate = _x;
+								}else{
+									if (_x skill "commanding" >= _bestCandidate skill "commanding") then {
+										if ([[_bestCandidate, _x]] call gosa_fnc_unit_findLeaderByDisplayName > 0) then {
+											_bestCandidate = _x;
+										};
+									};
 								};
 							};
 						};

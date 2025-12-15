@@ -1315,6 +1315,9 @@ _arr append [
 		"vn_b_armor_m113_01"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-30,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-60,0],[10,10]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],
 		0.5]
 ];
+_arr append [
+	[[[["vnx_b_air_ac119_01_01"],[],["CAPTAIN"]]],0.1]
+];
 [_groups_map, west, "VN_MACV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1960,1990], [160,999],
 []

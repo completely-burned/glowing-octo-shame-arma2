@@ -1001,7 +1001,7 @@ _arr = [
 ]; [_arr] call gosa_fnc_groups_convNormal;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "gmx_cdf2022", _arr,
-	[2020,2100], [160,300-1],
+	gosa_date_default, [160,300-1],
 	[]
 ] call gosa_fnc_map_groups_add;
 

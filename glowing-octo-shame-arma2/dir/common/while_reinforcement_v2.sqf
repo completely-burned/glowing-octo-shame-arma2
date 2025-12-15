@@ -98,8 +98,10 @@ _frontLine_guer = missionNamespace getVariable "gosa_frontLine_guer";
 _mode_pvp = gosa_pvp;
 _types_pilot = gosa_pilotL;
 
+if (_deviceType in [1,2]) then {
 	_playerSide = gosa_playerside;
 	_playerSideNum = _playerSide call gosa_fnc_getSideNum;
+};
 
 _friendlySide = [];
 if (_mode_pvp) then {
@@ -327,7 +329,7 @@ while{_run}do{
 				if (_b) then {
 					if ({_x select 1 == 8} count _conveyer < 1) then {
 						_conveyer set [count _conveyer,
-							[[_playerSideNum, _playerSide, _locationPos]
+							[[_playerSide, _playerSideNum, _locationPos]
 								spawn gosa_fnc_failoverGroup, 8]
 						];
 					};

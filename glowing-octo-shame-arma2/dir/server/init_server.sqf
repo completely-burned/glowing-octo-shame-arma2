@@ -1,5 +1,8 @@
 #define __A2OA__
 private ["_grp","_n"];
+#ifdef __ARMA3__
+	[] call gosa_fnc_base_generateRespawnsAll;
+#endif
 [] spawn gosa_fnc_loop_base;
 
 // FIXME: Возможно при использовании одной группы на все объекты,

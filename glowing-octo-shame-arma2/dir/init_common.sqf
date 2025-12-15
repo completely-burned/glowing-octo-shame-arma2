@@ -53,8 +53,14 @@ gosa_faction_mutual_exclusions = [
 	["BLU_NATO_LXWS","BLU_F","BLU_T_F","BLU_W_F"]
 ];
 
+gosa_vehiclesKindOf_Loiter = [
+	"VTOL_01_armed_base_F",
+	"vnx_air_ac119k_base"
+];
+
 // Камуфляжи.
 _date_default = [1995,2100];
+gosa_date_default = _date_default;
 _date_a2 = [1970, (_date_default select 0) -1];
 gosa_camouflages = [
 	// [[factions, textures, [uniformClass]], islands, dates, temperatures]
@@ -563,6 +569,50 @@ diag_log format ["Log: [init_common]: gosa_StealthL %1", _arr0];
 HQ = gosa_empty_arr;
 Warfare_HQ = gosa_empty_arr;
 listMHQ = gosa_empty_arr;
+
+// Верхние перекрывают нижних.
+gosa_typesKindOf_bunker = [
+	["Land_Barracks_02_F",[[0,0,0.3]]],
+	["Land_Barracks_03_F",[[0,-1,0.4]]],
+	["Land_Barracks_04_F",[[2,5,0.4]]],
+	["Land_Barracks_05_F",[[2,-2,0.2]]],
+	["Land_Airport_02_controlTower_F",[[0,0,13.1]]],
+	["Land_Barracks_01_camo_F",[[0,0,4]]],
+	["Land_Barracks_01_grey_F",[[0,0,4]]],
+	["Land_Cargo_HQ_V3_F",[[0,0,0.65]]],
+	["Land_Cargo_Tower_V3_F",[[0,0,15.5]]],
+	"Land_SPE_Tent_02",
+	["Land_JNS_Bunker_AA_Camo",[[-1,2.5,0.3]]],
+	["Land_JNS_Bunker_Rs65a_Omaha",[[0.9,-4.1,2.5]]],
+	["Land_JNS_LAWZ_FA_Unterstand_Omaha_Net",[[0,0,0.8]]],
+	["Land_i_Barracks_V1_F",[[-5,-4,4]]],
+	["Land_i_Barracks_V2_F",[[-5,-4,4]]],
+	["Land_csla_bunker_01",[[0,-2.5,0]]],
+	["Land_ControlTower_02_F",[[0,3.5,5]]],
+	["Land_Radar_01_HQ_F",[[0,0,5]]],
+	["Land_csla_Mil_Barracks_i_camo",[[0,0,0.3]]],
+	["Land_csla_Fire_Station",[[-7,-4,0]]],
+	["Land_csla_Fire_Station",[[-7,-4,0]]],
+	["Land_i_Shed_Ind_old_F",[[-8,-1,0.1]]],
+	"Land_vn_barracks_02_f",
+	"Land_vn_barracks_03_f",
+	"Land_vn_b_trench_bunker_01_01",
+	"Land_vn_b_trench_bunker_02_01",
+	"Land_vn_b_trench_bunker_03_01",
+	"Land_vn_b_trench_bunker_03_04",
+	"Land_vn_b_trench_bunker_04_01",
+	"Land_vn_b_trench_bunker_06_02",
+	"Land_vn_barracks_03_01",
+	"Land_vn_barracks_03_04",
+	"Land_vn_quonset_02_01",
+	"Land_vn_hootch_02_11"
+];
+
+gosa_modelNames_Barracks = [
+	"spe_tent_02.p3d"
+];
+
+gosa_vehiclesKindOf_LCVP = ["SPEX_LCVP","EF_LCC_Base"];
 
 //-- Заводы.
 gosa_type_Barracks = ["Base_WarfareBBarracks"];
