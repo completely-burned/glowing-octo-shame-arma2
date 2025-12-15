@@ -207,7 +207,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="WW2 CO 00 gosa tem_summawcup Multi v0.0.5.995 DEBUG";
+		briefingName="WW2 CO 00 gosa tem_summawcup Multi v0.0.5.996 DEBUG";
 		startWeather=0.2;
 		startWind=0.1000001;
 		startWaves=0.1;

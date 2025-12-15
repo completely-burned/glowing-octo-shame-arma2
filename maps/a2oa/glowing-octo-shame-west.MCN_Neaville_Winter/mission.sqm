@@ -14,7 +14,7 @@ class Mission
 	randomSeed=8687254;
 	class Intel
 	{
-		briefingName="I44 CO 00 gosa MCN_Neaville_Winter west v0.0.5.995 DEBUG";
+		briefingName="I44 CO 00 gosa MCN_Neaville_Winter west v0.0.5.996 DEBUG";
 		startWeather=0.25;
 		forecastWeather=0.25;
 		year=1939;
