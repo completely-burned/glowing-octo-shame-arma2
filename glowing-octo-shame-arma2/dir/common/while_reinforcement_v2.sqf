@@ -98,8 +98,10 @@ _frontLine_guer = missionNamespace getVariable "gosa_frontLine_guer";
 _mode_pvp = gosa_pvp;
 _types_pilot = gosa_pilotL;
 
+if (_deviceType in [1,2]) then {
 	_playerSide = gosa_playerside;
 	_playerSideNum = _playerSide call gosa_fnc_getSideNum;
+};
 
 _friendlySide = [];
 if (_mode_pvp) then {
