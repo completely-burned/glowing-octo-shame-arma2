@@ -194,7 +194,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="CSLA CO 00 gosa tem_anizay Multi v0.0.5.996 DEBUG";
+		briefingName="CSLA CO 00 gosa tem_anizay Multi v0.0.5.997 DEBUG";
 		startWeather=0;
 		startWind=0.1;
 		startWaves=0.1;
