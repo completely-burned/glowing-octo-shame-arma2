@@ -77,7 +77,6 @@ if ([daytime - 1] call gosa_fnc_isNight) then {
 			_arr = _arr0 select _i select 0 select _i0;
 			if ("Air" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
 				_n = (_arr0 select _i select 1 select _i0) / 20;
-				diag_log format ["Log: [while_patrols.sqf] Самолёт без ПНВ, %1, %2", [_arr0 select _i select 1 select _i0, _n], _arr select 0];
 				_arr0 select _i select 1 set [_i0, _n];
 			}
 		};
