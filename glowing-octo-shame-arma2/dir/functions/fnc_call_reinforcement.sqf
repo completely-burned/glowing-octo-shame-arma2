@@ -57,15 +57,33 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement] %2 fnc_getSideNum = %1", _n
 if (_n < 0 or _n > 2) exitWith {};
 
 //-- Типы отрядов.
-_arr = (gosa_Groups_common select _n);
+// Копия, потому что значения изменяются в дальнейшем.
+_arr = [gosa_Groups_common select _n select 0, +(gosa_Groups_common select _n select 1)];
 _arr0 = [_arr];
 _arr1 = [count (_arr select 1)];
 
+// TODO: Изменения производить в отдельной функции.
 if ([daytime - 1] call gosa_fnc_isNight) then {
-	_arr = (gosa_Groups_Night select _n);
+	_arr = [gosa_Groups_Night select _n select 0, +(gosa_Groups_Night select _n select 1)];
 	_arr0 set [count _arr0, _arr];
 	_arr1 set [count _arr1, count (_arr select 1)];
 };
+
+//-- Изменения неподходящих отрядов.
+//- Не могут действовать ночью. Например самолёты времён ww2.
+if ([daytime - 1] call gosa_fnc_isNight) then {
+	for "_i" from 0 to (count _arr0 -1) do {
+		for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
+			_arr = _arr0 select _i select 0 select _i0;
+			if ("Air" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_n = (_arr0 select _i select 1 select _i0) / 20;
+				diag_log format ["Log: [while_patrols.sqf] Самолёт без ПНВ, %1, %2", [_arr0 select _i select 1 select _i0, _n], _arr select 0];
+				_arr0 select _i select 1 set [_i0, _n];
+			}
+		};
+	};
+};
+
 
 _typeList = ([_arr0, _arr1] call gosa_fnc_selectRandomWeighted);
 
