@@ -10,7 +10,7 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams","_obj",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
 	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat",
-	"_positions_static","_withinMap",
+	"_positions_static","_withinMap","_grp_current",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 
 _side = _this select 0;
@@ -78,6 +78,57 @@ if ([daytime - 1] call gosa_fnc_isNight) then {
 			if ("Air" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
 				_n = (_arr0 select _i select 1 select _i0) / 20;
 				_arr0 select _i select 1 set [_i0, _n];
+			};
+		};
+	};
+};
+
+//- Учёт присутствующих отрядов.
+if (count _this > 3) then {
+	_grp_current = _this select 3;
+	_n = count (_grp_current select 0) + count (_grp_current select 1);
+	if (_n < 10) then {
+		for "_i" from 0 to (count _arr0 -1) do {
+			for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
+				_arr = _arr0 select _i select 0 select _i0;
+				_arr = ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
+
+				if ("SUPPORT" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Frigate" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Artillery" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Loiter" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("LCVP" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("UAV" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("StaticWeapon" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Ship" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Air" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
 			};
 		};
 	};
