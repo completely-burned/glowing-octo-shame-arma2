@@ -5178,7 +5178,7 @@ class Mission
 		class Item332
 		{
 			dataType="Trigger";
-			position[]={6785,11.832026,4798};
+			position[]={6785,11.674027,4798};
 			angle=6.0213828;
 			class Attributes
 			{
@@ -5189,7 +5189,6 @@ class Mission
 			};
 			id=461;
 			type="EmptyDetectorAreaR250";
-			atlOffset=0.15799809;
 		};
 		class Item333
 		{
@@ -5220,7 +5219,7 @@ class Mission
 		class Item335
 		{
 			dataType="Trigger";
-			position[]={10124,51.168045,4556};
+			position[]={10124,51.168049,4556};
 			class Attributes
 			{
 				name="gosa_island_3";
@@ -5229,7 +5228,6 @@ class Mission
 			};
 			id=464;
 			type="EmptyDetectorAreaR250";
-			atlOffset=-3.8146973e-006;
 		};
 		class Item336
 		{
@@ -5261,7 +5259,7 @@ class Mission
 		class Item338
 		{
 			dataType="Trigger";
-			position[]={15948,3.0689952,17510};
+			position[]={15948,3.0599952,17510};
 			class Attributes
 			{
 				name="gosa_island_15";
@@ -5270,12 +5268,11 @@ class Mission
 			};
 			id=467;
 			type="EmptyDetectorAreaR250";
-			atlOffset=0.0090000629;
 		};
 		class Item339
 		{
 			dataType="Trigger";
-			position[]={15925,30.000162,18388};
+			position[]={15925,29.936163,18388};
 			class Attributes
 			{
 				name="gosa_island_16";
@@ -5284,12 +5281,11 @@ class Mission
 			};
 			id=468;
 			type="EmptyDetectorAreaR250";
-			atlOffset=0.063999176;
 		};
 		class Item340
 		{
 			dataType="Trigger";
-			position[]={2651,51.579834,3662};
+			position[]={2651,51.561943,3662};
 			class Attributes
 			{
 				name="gosa_island_2";
@@ -5298,7 +5294,6 @@ class Mission
 			};
 			id=469;
 			type="EmptyDetectorAreaR250";
-			atlOffset=0.01789093;
 		};
 		class Item341
 		{
@@ -5318,7 +5313,7 @@ class Mission
 		class Item342
 		{
 			dataType="Trigger";
-			position[]={2542,11.000003,8091};
+			position[]={2542,10.484003,8091};
 			class Attributes
 			{
 				name="gosa_island_8";
@@ -5327,7 +5322,6 @@ class Mission
 			};
 			id=471;
 			type="EmptyDetectorAreaR250";
-			atlOffset=0.51599979;
 		};
 		class Item343
 		{
@@ -5345,7 +5339,7 @@ class Mission
 		class Item344
 		{
 			dataType="Trigger";
-			position[]={2158,13.000003,7812};
+			position[]={2158,12.866003,7812};
 			class Attributes
 			{
 				name="gosa_island_9";
@@ -5354,7 +5348,6 @@ class Mission
 			};
 			id=473;
 			type="EmptyDetectorAreaR250";
-			atlOffset=0.13399982;
 		};
 		class Item345
 		{
@@ -5372,7 +5365,7 @@ class Mission
 		class Item346
 		{
 			dataType="Trigger";
-			position[]={3031.793,2.9832108,7354.4521};
+			position[]={3031.793,2.9832106,7354.4521};
 			class Attributes
 			{
 				name="gosa_island_6";
@@ -5381,24 +5374,22 @@ class Mission
 			};
 			id=475;
 			type="EmptyDetectorAreaR50";
-			atlOffset=2.3841858e-007;
 		};
 		class Item347
 		{
 			dataType="Trigger";
-			position[]={4183.6699,1.4376855,7122.2739};
+			position[]={4183.6699,1.4376856,7122.2739};
 			class Attributes
 			{
 				name="gosa_island_10";
 			};
 			id=476;
 			type="EmptyDetectorAreaR50";
-			atlOffset=-1.1920929e-007;
 		};
 		class Item348
 		{
 			dataType="Trigger";
-			position[]={19794.266,26.833223,3672.72};
+			position[]={19794.266,26.833225,3672.72};
 			class Attributes
 			{
 				name="gosa_island_12";
@@ -5407,7 +5398,6 @@ class Mission
 			};
 			id=477;
 			type="EmptyDetectorAreaR250";
-			atlOffset=-1.9073486e-006;
 		};
 		class Item349
 		{
