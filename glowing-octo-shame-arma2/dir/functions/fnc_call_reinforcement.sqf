@@ -137,6 +137,41 @@ if (count _this > 3) then {
 				};
 			};
 		};
+		if (_n < 5) then {
+			for "_i" from 0 to (count _arr0 -1) do {
+				scopeName "scope1";
+				for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
+					_arr = _arr0 select _i select 0 select _i0;
+					_arr = ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
+
+					if ("Tank" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+					if ("Car" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+					if ("Tracked_APC" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+					if ("Wheeled_APC" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+					if ("LandLehicle" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+				};
+			};
+		};
 	};
 };
 
