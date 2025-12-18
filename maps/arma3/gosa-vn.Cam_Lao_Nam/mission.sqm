@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=1578;
+	toggles=554;
 	class ItemIDProvider
 	{
-		nextID=578;
+		nextID=583;
 	};
 	class MarkerIDProvider
 	{
@@ -28,13 +28,14 @@ addons[]=
 	"boat_f_vietnam_c",
 	"A3_Characters_F",
 	"characters_f_vietnam_c",
-	"A3_Data_F_Exp_A_Virtual"
+	"A3_Data_F_Exp_A_Virtual",
+	"A3_Structures_F_Exp_Infrastructure_Airports"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=7;
+		items=8;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -84,11 +85,19 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item7
+		{
+			className="A3_Structures_F_Exp_Infrastructure";
+			name="Arma 3 Apex - Infrastructure Objects";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
 {
-	"VN"
+	"VN",
+	"Expansion"
 };
 randomSeed=13928844;
 class ScenarioData
@@ -200,7 +209,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=389;
+		items=390;
 		class Item0
 		{
 			dataType="Marker";
@@ -6721,6 +6730,40 @@ class Mission
 				placementRadius=25;
 			};
 			id=575;
+		};
+		class Item389
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={18270,193.93704,12384};
+				angles[]={0,1.8325957,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+			};
+			id=579;
+			type="Land_AirstripPlatform_01_F";
+			atlOffset=2.9693146;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections
