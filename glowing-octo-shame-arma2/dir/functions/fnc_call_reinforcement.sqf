@@ -76,8 +76,12 @@ if ([daytime - 1] call gosa_fnc_isNight) then {
 		for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
 			_arr = _arr0 select _i select 0 select _i0;
 			if ("Air" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				if (({_x call gosa_fnc_canSee <= 5} count (_arr select 0 select 0 select 0)) >= 
+					(count (_arr select 0 select 0 select 0) * 0.9)) then
+				{
 				_n = (_arr0 select _i select 1 select _i0) / 20;
 				_arr0 select _i select 1 set [_i0, _n];
+				};
 			};
 		};
 	};
