@@ -9,7 +9,7 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams","_obj",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
-	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat",
+	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat","_n0",
 	"_positions_static","_withinMap","_grp_current",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 
@@ -90,8 +90,8 @@ if ([daytime - 1] call gosa_fnc_isNight) then {
 //- Учёт присутствующих отрядов.
 if (count _this > 3) then {
 	_grp_current = _this select 3;
-	_n = count (_grp_current select 0) + count (_grp_current select 1);
-	if (_n < 10) then {
+	_n0 = count (_grp_current select 0) + count (_grp_current select 1);
+	if (_n0 < 10) then {
 		for "_i" from 0 to (count _arr0 -1) do {
 			for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
 				_arr = _arr0 select _i select 0 select _i0;
@@ -141,7 +141,7 @@ if (count _this > 3) then {
 				};
 			};
 		};
-		if (_n < 5) then {
+		if (_n0 < 5) then {
 			for "_i" from 0 to (count _arr0 -1) do {
 				scopeName "scope1";
 				for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
