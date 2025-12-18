@@ -30,14 +30,13 @@ addons[]=
 	"characters_f_vietnam_c",
 	"A3_Data_F_Exp_A_Virtual",
 	"A3_Structures_F_Exp_Infrastructure_Airports",
-	"A3_Modules_F_Curator_Curator",
-	"A3_Data_F_Curator_Virtual"
+	"A3_Modules_F_Curator_Curator"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=10;
+		items=9;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -98,13 +97,6 @@ class AddonsMetaData
 		{
 			className="A3_Modules_F_Curator";
 			name="Arma 3 Zeus Update - Scripted Modules";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item9
-		{
-			className="A3_Data_F_Curator";
-			name="Arma 3 Zeus Update - Main Configuration";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -225,7 +217,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=400;
+		items=395;
 		class Item0
 		{
 			dataType="Marker";
@@ -6661,41 +6653,6 @@ class Mission
 		{
 			dataType="Logic";
 			isPlayable=1;
-			id=584;
-			type="VirtualCurator_F";
-		};
-		class Item392
-		{
-			dataType="Logic";
-			isPlayable=1;
-			id=585;
-			type="VirtualCurator_F";
-		};
-		class Item393
-		{
-			dataType="Logic";
-			isPlayable=1;
-			id=586;
-			type="VirtualCurator_F";
-		};
-		class Item394
-		{
-			dataType="Logic";
-			isPlayable=1;
-			id=587;
-			type="VirtualCurator_F";
-		};
-		class Item395
-		{
-			dataType="Logic";
-			isPlayable=1;
-			id=588;
-			type="VirtualCurator_F";
-		};
-		class Item396
-		{
-			dataType="Logic";
-			isPlayable=1;
 			id=589;
 			type="VirtualSpectator_F";
 			class CustomAttributes
@@ -6767,7 +6724,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item397
+		class Item392
 		{
 			dataType="Logic";
 			isPlayable=1;
@@ -6842,7 +6799,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item398
+		class Item393
 		{
 			dataType="Logic";
 			isPlayable=1;
@@ -6917,7 +6874,7 @@ class Mission
 				nAttributes=5;
 			};
 		};
-		class Item399
+		class Item394
 		{
 			dataType="Logic";
 			isPlayable=1;
@@ -6997,11 +6954,11 @@ class Mission
 	{
 		class LinkIDProvider
 		{
-			nextID=59;
+			nextID=54;
 		};
 		class Links
 		{
-			items=59;
+			items=54;
 			class Item0
 			{
 				linkID=0;
@@ -7537,56 +7494,6 @@ class Mission
 				linkID=53;
 				item0=491;
 				item1=489;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item54
-			{
-				linkID=54;
-				item0=584;
-				item1=583;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item55
-			{
-				linkID=55;
-				item0=585;
-				item1=583;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item56
-			{
-				linkID=56;
-				item0=586;
-				item1=583;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item57
-			{
-				linkID=57;
-				item0=587;
-				item1=583;
-				class CustomData
-				{
-					type="Sync";
-				};
-			};
-			class Item58
-			{
-				linkID=58;
-				item0=588;
-				item1=583;
 				class CustomData
 				{
 					type="Sync";
