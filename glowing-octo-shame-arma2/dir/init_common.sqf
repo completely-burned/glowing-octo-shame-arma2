@@ -605,6 +605,10 @@ gosa_typesKindOf_bunker = [
 	"Land_vn_barracks_03_01",
 	"Land_vn_barracks_03_04",
 	"Land_vn_quonset_02_01",
+	"Land_vn_tent_mash_01",
+	"Land_vn_hootch_01_11",
+	"Land_vn_hootch_01_12",
+	"Land_vn_hootch_02_01",
 	"Land_vn_hootch_02_11"
 ];
 
