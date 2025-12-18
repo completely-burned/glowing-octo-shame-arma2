@@ -28,7 +28,7 @@ for "_i" from 0 to (count _units -1) do {
 		_str = _obj;
 		_veh_str = _str;
 	};
-	_entry = _cfgVeh >> _str;
+	_entry = _cfgVeh >> _veh_str;
 
 	scopeName "scope1";
 
