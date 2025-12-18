@@ -62,7 +62,13 @@ if (((_arr select 0) + ((_arr select 2) * (_this select 15)) +
 	({(_x select 1) == (_this select 11)} count (_this select 0))) < (_this select 9)) then
 {
 	(_this select 0) set [count (_this select 0),
-		[[(_this select 2), objNull, _fl] spawn gosa_fnc_call_reinforcement, _this select 11]];
+		[[
+			(_this select 2),
+			objNull, _fl,
+			[_this select 7, _this select 8]
+		] spawn gosa_fnc_call_reinforcement, 
+		_this select 11
+	]];
 };
 if (((_arr select 1) + ((_arr select 3) * (_this select 15)) +
 	({(_x select 1) == (_this select 12)} count (_this select 0))) < (_this select 10)) then
