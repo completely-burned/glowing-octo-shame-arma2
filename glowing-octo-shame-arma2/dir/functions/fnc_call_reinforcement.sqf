@@ -129,6 +129,12 @@ if (count _this > 3) then {
 					_n = 0;
 					_arr0 select _i select 1 set [_i0, _n];
 				};
+				if !(_patrol) then {
+					if ("Police" in _arr) then {
+						_n = 0;
+						_arr0 select _i select 1 set [_i0, _n];
+					};
+				};
 			};
 		};
 	};

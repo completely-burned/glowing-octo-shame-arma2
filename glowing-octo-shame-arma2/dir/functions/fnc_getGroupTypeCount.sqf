@@ -8,11 +8,12 @@ diag_log format ["Log: [fnc_getGroupTypeCount] %1", _this];
 #define ADD _n = (_t find _z); if (_n >= 0) then {_c set [_n, (_c select _n) +1]}else{_t set [count _t, _z]; _c set [count _c, 1]};
 
 private["_t","_z","_str","_cfgVeh","_entry","_return","_c","_n","_units",
-	"_obj","_Loiter","_LCVP"];
+	"_obj","_Loiter","_LCVP","_Police"];
 _units = _this select 0;
 _cfgVeh = LIB_cfgVeh;
 _Loiter = gosa_vehiclesKindOf_Loiter;
 _LCVP = gosa_vehiclesKindOf_LCVP;
+_Police = gosa_vehiclesKindOf_Police;
 _t = [];
 _c = [];
 _return = [_t, _c];
@@ -173,6 +174,18 @@ for "_i" from 0 to (count _units -1) do {
 		if (_obj isKindOf (_LCVP select _i0)) then {
 			ADD
 			breakOut "scope1";
+		};
+	};
+	_z = "Police";
+	for "_i0" from 0 to (count _Police -1) do {
+		if (_obj isKindOf (_Police select _i0)) then {
+			ADD
+			breakOut "scope1";
+		}else{
+			if (_obj isKindOf getText(_cfgVeh >> (_Police select _i0) >> "crew")) then {
+				ADD
+				breakOut "scope1";
+			};
 		};
 	};
 
