@@ -74,6 +74,7 @@ diag_log format ["Log: [gosa_fnc_init] client done %1", time];
 
 //--- общие
 _arr = [
+	"fnc_menu_pre",
 	"fnc_unit_findLeaderByDisplayName",
 	"fnc_groups_convNormal",
 	"fnc_group_cfg_to_array",
