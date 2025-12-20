@@ -9,8 +9,8 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams","_obj",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
-	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat",
-	"_positions_static","_withinMap",
+	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat","_n0",
+	"_positions_static","_withinMap","_grp_current",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 
 _side = _this select 0;
@@ -57,15 +57,128 @@ diag_log format ["Log: [gosa_fnc_call_reinforcement] %2 fnc_getSideNum = %1", _n
 if (_n < 0 or _n > 2) exitWith {};
 
 //-- Типы отрядов.
-_arr = (gosa_Groups_common select _n);
+// Копия, потому что значения изменяются в дальнейшем.
+_arr = [gosa_Groups_common select _n select 0, +(gosa_Groups_common select _n select 1)];
 _arr0 = [_arr];
 _arr1 = [count (_arr select 1)];
 
+// TODO: Изменения производить в отдельной функции.
 if ([daytime - 1] call gosa_fnc_isNight) then {
-	_arr = (gosa_Groups_Night select _n);
+	_arr = [gosa_Groups_Night select _n select 0, +(gosa_Groups_Night select _n select 1)];
 	_arr0 set [count _arr0, _arr];
 	_arr1 set [count _arr1, count (_arr select 1)];
 };
+
+//-- Изменения неподходящих отрядов.
+//- Не могут действовать ночью. Например самолёты времён ww2.
+if ([daytime - 1] call gosa_fnc_isNight) then {
+	for "_i" from 0 to (count _arr0 -1) do {
+		for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
+			_arr = _arr0 select _i select 0 select _i0;
+			if ("Air" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				if (({_x call gosa_fnc_canSee <= 5} count (_arr select 0 select 0 select 0)) >= 
+					(count (_arr select 0 select 0 select 0) * 0.9)) then
+				{
+				_n = (_arr0 select _i select 1 select _i0) / 20;
+				_arr0 select _i select 1 set [_i0, _n];
+				};
+			};
+		};
+	};
+};
+
+//- Учёт присутствующих отрядов.
+if (count _this > 3) then {
+	_grp_current = _this select 3;
+	_n0 = count (_grp_current select 0) + count (_grp_current select 1);
+	if (_n0 < 10) then {
+		for "_i" from 0 to (count _arr0 -1) do {
+			for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
+				_arr = _arr0 select _i select 0 select _i0;
+				_arr = ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
+
+				if ("SUPPORT" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Frigate" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Artillery" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Loiter" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("LCVP" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("UAV" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("StaticWeapon" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Ship" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if ("Air" in _arr) then {
+					_n = 0;
+					_arr0 select _i select 1 set [_i0, _n];
+				};
+				if !(_patrol) then {
+					if ("Police" in _arr) then {
+						_n = 0;
+						_arr0 select _i select 1 set [_i0, _n];
+					};
+				};
+			};
+		};
+		if (_n0 < 5) then {
+			for "_i" from 0 to (count _arr0 -1) do {
+				scopeName "scope1";
+				for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
+					_arr = _arr0 select _i select 0 select _i0;
+					_arr = ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
+
+					if ("Tank" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+					if ("Car" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+					if ("Tracked_APC" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+					if ("Wheeled_APC" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+					if ("LandLehicle" in _arr) then {
+						_n = (_arr0 select _i select 1 select _i0) / 20;
+						_arr0 select _i select 1 set [_i0, _n];
+						breakTo "scope1";
+					};
+				};
+			};
+		};
+	};
+};
+
 
 _typeList = ([_arr0, _arr1] call gosa_fnc_selectRandomWeighted);
 

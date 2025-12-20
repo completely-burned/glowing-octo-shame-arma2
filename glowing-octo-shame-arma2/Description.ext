@@ -1264,6 +1264,10 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class menu_pre
+			{
+				file = "dir\functions\fnc_menu_pre.sqf";
+			};
 			class unit_findLeaderByDisplayName
 			{
 				file = "dir\functions\fnc_unit_findLeaderByDisplayName.sqf";

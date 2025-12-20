@@ -602,9 +602,15 @@ gosa_typesKindOf_bunker = [
 	"Land_vn_b_trench_bunker_03_04",
 	"Land_vn_b_trench_bunker_04_01",
 	"Land_vn_b_trench_bunker_06_02",
+	"Land_vn_barracks_02_01",
 	"Land_vn_barracks_03_01",
 	"Land_vn_barracks_03_04",
 	"Land_vn_quonset_02_01",
+	"Land_vn_tent_mash_01",
+	"Land_vn_army_hut3_long_int",
+	"Land_vn_hootch_01_11",
+	"Land_vn_hootch_01_12",
+	"Land_vn_hootch_02_01",
 	"Land_vn_hootch_02_11"
 ];
 
@@ -613,6 +619,15 @@ gosa_modelNames_Barracks = [
 ];
 
 gosa_vehiclesKindOf_LCVP = ["SPEX_LCVP","EF_LCC_Base"];
+gosa_vehiclesKindOf_Police = [
+	"vn_b_men_army_22",
+	"vn_b_wheeled_m151_mg_04_mp",
+	"vn_b_wheeled_m151_mg_02_mp",
+	"vn_b_wheeled_m151_mg_03_mp",
+	"vn_b_wheeled_m151_02_mp",
+	"vn_b_wheeled_m151_01_mp",
+	"vn_i_men_army_22"
+];
 
 //-- Заводы.
 gosa_type_Barracks = ["Base_WarfareBBarracks"];
