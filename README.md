@@ -43,7 +43,7 @@ PVE бой с ботами сконцентрированный в одной т
       bash ./tools/build_pbo_linux.sh
       exit 0 # готово, это выход
       # или
-      OUT="/куда/поместитьPBOs/" ./tools/build_pbo_linux.sh
+      OUT="/куда/поместитьPBOs/" bash ./tools/build_pbo_linux.sh
 
       # Файлы будут по умолчанию в arma-glowing-octo-shame
       # примерно такие...

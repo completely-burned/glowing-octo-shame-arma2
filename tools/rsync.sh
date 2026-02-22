@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # a3 proton не работают символьные ссылки
+# OUT='/SteamLibrary/steamapps/compatdata/107410/pfx/drive_c/users/steamuser/Documents/Arma 3/missions' bash ./tools/rsync.sh
 
 DIR_ROOT=$(dirname "${BASH_SOURCE[0]}")/..
 
