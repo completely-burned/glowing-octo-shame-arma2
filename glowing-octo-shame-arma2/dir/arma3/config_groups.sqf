@@ -88,6 +88,9 @@ _steep_climate = 10;
 #include "config_groups_VN.sqf"
 #include "config_groups_GM.sqf"
 
+#include "config_groups_Atlas.sqf"
+#include "config_groups_Aegis.sqf"
+
 #include "config_groups_BWA3.sqf"
 
 #include "config_groups_RHS.sqf"
