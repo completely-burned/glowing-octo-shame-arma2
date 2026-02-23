@@ -662,6 +662,19 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
+		class gosa_faction_multiplier_BLU_A_F {
+			title = "FACTION: BLU_A_F (Aegis, BAF)";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_BLU_EAF_F {
+			title = "FACTION: BLU_EAF_F (Aegis, LDF, BLU)";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		
 		// Atlas
 		class gosa_faction_multiplier_ls_zim35_o_zna_groups {
 			title = "FACTION: ls_zim35_o_zna_groups";
