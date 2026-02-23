@@ -44,6 +44,7 @@ _arr = [
 // O_A_ConscriptTeam, Conscript Team
 [[[__cfg >> "Infantry" >> "O_A_ConscriptTeam"]],0.1]
 ];
+[_arr] call gosa_fnc_groups_convNormal;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, east, "OPF_A_F", _arr,
 	gosa_date_default, [275,999],
@@ -74,6 +75,7 @@ _arr = [
 // O_CD_reconPatrol, Разведывательный патруль
 [[[__cfg >> "SpecOps" >> "O_CD_reconPatrol"]],0.1]
 ];
+[_arr] call gosa_fnc_groups_convNormal;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, east, "OPF_CD_F", _arr,
 	gosa_date_default, [275,999],
@@ -99,6 +101,7 @@ _arr = [
 // O_Raven_InfSentry, Охрана
 [[[__cfg >> "Infantry" >> "O_Raven_InfSentry"]],0.02]
 ];
+[_arr] call gosa_fnc_groups_convNormal;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, east, "OPF_Raven_F", _arr,
 	gosa_date_default, [250,999],
