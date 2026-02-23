@@ -107,7 +107,7 @@ _arr = [
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, east, "OPF_Raven_F", _arr,
 	gosa_date_default, [160,249],
-	[]
+	["IND_Raven_F"]
 ] call gosa_fnc_map_groups_add;
 
 
@@ -491,4 +491,30 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "BLU_EAF_F", _arr,
 	gosa_date_default, [160,249],
 	["IND_E_F"]
+] call gosa_fnc_map_groups_add;
+
+
+//-- IND_Raven_F, Ворон
+_arr = [
+	//- Infantry, Пехота
+	// I_Raven_InfSquad, Стрелковое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "IND_Raven_F" >> "Infantry" >> "I_Raven_InfSquad"]],1],
+	// I_Raven_InfTeam, Огневая группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "IND_Raven_F" >> "Infantry" >> "I_Raven_InfTeam"]],0.5],
+	// I_Raven_InfSentry, Охрана
+	[[[configFile >> "CfgGroups" >> "Indep" >> "IND_Raven_F" >> "Infantry" >> "I_Raven_InfSentry"]],0.01],
+	//- Motorized_MTP, Мотопехота
+	// I_Raven_MotInf_Team, Моторизованная группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "IND_Raven_F" >> "Motorized_MTP" >> "I_Raven_MotInf_Team"]],0.5],
+	// I_Raven_MotInf_Reinforcements, Моторизованные подкрепления
+	[[[configFile >> "CfgGroups" >> "Indep" >> "IND_Raven_F" >> "Motorized_MTP" >> "I_Raven_MotInf_Reinforcements"]],0.15],
+	//- Mechanized, Механизированая пехота
+	// I_Raven_MechInfSquad, Механизированное стрелковое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "IND_Raven_F" >> "Mechanized" >> "I_Raven_MechInfSquad"]],1]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, resistance, "IND_Raven_F", _arr,
+	gosa_date_default, [160,249],
+	["OPF_Raven_F"]
 ] call gosa_fnc_map_groups_add;
