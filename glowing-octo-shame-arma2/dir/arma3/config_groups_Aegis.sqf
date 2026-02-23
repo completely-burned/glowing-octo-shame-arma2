@@ -27,7 +27,7 @@ _arr = [
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, east, "OPF_CD_F", _arr,
 	gosa_date_default, [275,999],
-	["OPF_F"]
+	["OPF_F","OPF_T_F"]
 ] call gosa_fnc_map_groups_add;
 
 //-- OPF_Raven_F, Ворон
