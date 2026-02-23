@@ -644,12 +644,6 @@ class Params {
 			};
 
 		// Aegis
-		class gosa_faction_multiplier_OPF_A_F {
-			title = "FACTION: OPF_A_F";
-			values[] = {-1,1,0};
-			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-			default = -1;
-		};
 		class gosa_faction_multiplier_OPF_Raven_F {
 			title = "FACTION: OPF_Raven_F";
 			values[] = {-1,1,0};

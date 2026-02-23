@@ -24,7 +24,7 @@
 
 private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth","_vivt",
-	"_arr","_cfg_factions_def","_groups_use","_factions_blocked",
+	"_arr","_cfg_factions_def","_groups_use","_factions_blocked","_arr0",
 	"_grp","_groups_failover","_factions_used","_climate","_date",
 	"_groups_failover_map","_sides_friendly","_copyRef",
 	"_groups_enabled","_factions_enabled","_groups_enabled_map",
@@ -484,18 +484,6 @@ _default_east=[
 	[[[["O_ghillie_sard_F","O_ghillie_sard_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.025],
 	[[[["O_ghillie_lsh_F","O_ghillie_lsh_F"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.025],
 	[[[["O_V_Soldier_TL_hex_F","O_V_Soldier_JTAC_hex_F","O_V_Soldier_M_hex_F","O_V_Soldier_Exp_hex_F","O_V_Soldier_LAT_hex_F","O_V_Soldier_Medic_hex_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// A
-	[[[["O_A_Soldier_TL_lxWS",
-		"O_A_Soldier_lxWS","O_A_Soldier_LAT_lxWS",
-		"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
-		"O_A_HeavyGunner_lxWS","O_A_Soldier_LAT_lxWS",
-		"O_A_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
-	[[[["O_A_Soldier_TL_lxWS",
-		"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
-		"O_A_Soldier_LAT_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE"]]],0.5],
 	// водолазы
 	[[[["O_diver_TL_F","O_diver_exp_F","O_diver_F","O_diver_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","PRIVATE","PRIVATE","PRIVATE"]]],0.01],
 	// корабль
@@ -623,17 +611,6 @@ _default_east=[
 			"CORPORAL","PRIVATE",
 			"PRIVATE","CORPORAL",
 			"PRIVATE","PRIVATE"],[],1]],0.5],
-		// A MechInfSquad_Wheeled
-		[[[["O_APC_Wheeled_02_hmg_lxWS","O_A_Soldier_TL_lxWS",
-			"O_A_Soldier_lxWS","O_A_Soldier_LAT_lxWS",
-			"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
-			"O_A_HeavyGunner_lxWS","O_A_Soldier_LAT_lxWS",
-			"O_A_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
-			["LIEUTENANT","LIEUTENANT",
-			"PRIVATE","CORPORAL",
-			"PRIVATE","SERGEANT",
-			"CORPORAL","PRIVATE",
-			"PRIVATE"],[["O_A_crew_lxWS","O_A_crew_lxWS","O_A_crew_lxWS"]],1]],0.5],
 	// гусеничный
 		// OSFIA_MechInf_AT
 		[[[["O_APC_Tracked_02_30mm_lxWS","O_Soldier_TL_F","O_Soldier_AR_F","O_soldier_AT_F","O_soldier_AT_F","O_soldier_AT_F","O_Soldier_AAT_F","O_Soldier_AAT_F","O_Soldier_AAT_F"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
@@ -663,17 +640,6 @@ _default_east=[
 			"PRIVATE","PRIVATE",
 			"SERGEANT","CORPORAL",
 			"PRIVATE","PRIVATE"],[],1]],0.1],
-		// A MechInfSquad
-		[[[["O_APC_Tracked_02_30mm_lxWS","O_A_Soldier_TL_lxWS",
-			"O_A_Soldier_lxWS","O_A_Soldier_LAT_lxWS",
-			"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
-			"O_A_HeavyGunner_lxWS","O_A_Soldier_LAT_lxWS",
-			"O_A_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
-			["LIEUTENANT","LIEUTENANT",
-			"PRIVATE","CORPORAL",
-			"PRIVATE","SERGEANT",
-			"CORPORAL","PRIVATE",
-			"PRIVATE"],[["O_A_crew_lxWS","O_A_crew_lxWS","O_A_crew_lxWS"]],1]],0.5],
 	// танки
 		// OIA_TankPlatoon
 		[[[["O_MBT_02_cannon_F",
@@ -733,7 +699,97 @@ _default_east=[
 	[[[["O_Mortar_01_F"],[],["PRIVATE"]]],0.05],
 	*/
 ];
+_arr0 = [
+	// A
+	[[[["O_A_Soldier_TL_lxWS",
+		"O_A_Soldier_lxWS","O_A_Soldier_LAT_lxWS",
+		"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
+		"O_A_HeavyGunner_lxWS","O_A_Soldier_LAT_lxWS",
+		"O_A_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.5],
+	[[[["O_A_Soldier_TL_lxWS",
+		"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
+		"O_A_Soldier_LAT_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],
+		["SERGEANT",
+		"CORPORAL","PRIVATE",
+		"PRIVATE"]]],0.5],
+	// A MechInfSquad_Wheeled
+	[[[["O_APC_Wheeled_02_hmg_lxWS","O_A_Soldier_TL_lxWS",
+		"O_A_Soldier_lxWS","O_A_Soldier_LAT_lxWS",
+		"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
+		"O_A_HeavyGunner_lxWS","O_A_Soldier_LAT_lxWS",
+		"O_A_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+		["LIEUTENANT","LIEUTENANT",
+		"PRIVATE","CORPORAL",
+		"PRIVATE","SERGEANT",
+		"CORPORAL","PRIVATE",
+		"PRIVATE"],[["O_A_crew_lxWS","O_A_crew_lxWS","O_A_crew_lxWS"]],1]],0.5],
+	// A MechInfSquad
+	[[[["O_APC_Tracked_02_30mm_lxWS","O_A_Soldier_TL_lxWS",
+		"O_A_Soldier_lxWS","O_A_Soldier_LAT_lxWS",
+		"O_A_Soldier_AR_lxWS","O_A_Soldier_GL_lxWS",
+		"O_A_HeavyGunner_lxWS","O_A_Soldier_LAT_lxWS",
+		"O_A_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],
+		["LIEUTENANT","LIEUTENANT",
+		"PRIVATE","CORPORAL",
+		"PRIVATE","SERGEANT",
+		"CORPORAL","PRIVATE",
+		"PRIVATE"],[["O_A_crew_lxWS","O_A_crew_lxWS","O_A_crew_lxWS"]],1]],0.5]
+];
+_arr0 = [_arr0, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_default_east append _arr0;
+
+//-- OPF_A_F, Aegis, Argana
+#define __cfg configFile >> "CfgGroups" >> "East" >> "OPF_A_F"
+_arr0 = [
+	//- Motorized, Мотопехота
+	// O_A_MotInf_Team, Моторизованная группа
+	[[[__cfg >> "Motorized" >> "O_A_MotInf_Team"]],0.1],
+	// O_A_MotInf_AT, Моторизованная противотанковая группа
+	[[[__cfg >> "Motorized" >> "O_A_MotInf_AT"]],0.1],
+	// O_A_MotInf_AA, Моторизованная группа ПВО
+	[[[__cfg >> "Motorized" >> "O_A_MotInf_AA"]],0.1],
+	// O_A_MotInf_Reinforcements, Моторизованные подкрепления
+	[[[__cfg >> "Motorized" >> "O_A_MotInf_Reinforcements"]],0.1],
+	//- Armored, Бронетехника
+	// O_A_TankPlatoon, Танковый взвод
+	[[[__cfg >> "Armored" >> "O_A_TankPlatoon"]],0.1],
+	// O_A_TankSection, Танковое отделение
+	[[[__cfg >> "Armored" >> "O_A_TankSection"]],0.1],
+	//- Mechanized, Механизированая пехота
+	// O_A_MechInfSquad, Механизированное стрелковое отделение
+	[[[__cfg >> "Mechanized" >> "O_A_MechInfSquad"]],0.3],
+	// O_A_MechInf_AT, Механизированное противотанковое отделение
+	[[[__cfg >> "Mechanized" >> "O_A_MechInf_AT"]],0.4],
+	// O_A_MechInf_AA, Механизированное отделение ПВО
+	[[[__cfg >> "Mechanized" >> "O_A_MechInf_AA"]],0.2],
+	// O_A_MechConSquad_A, Mechanized Conscript Squad (Marid)
+	[[[__cfg >> "Mechanized" >> "O_A_MechConSquad_A"]],0.6],
+	// O_A_MechConSquad_B, Mechanized Conscript Squad (BTR-100A)
+	[[[__cfg >> "Mechanized" >> "O_A_MechConSquad_B"]],0.6],
+	//- Infantry, Пехота
+	// O_A_InfSquad, Стрелковое отделение
+	[[[__cfg >> "Infantry" >> "O_A_InfSquad"]],1],
+	// O_A_InfSquad_Weapons, Отделение тяж. оружия
+	[[[__cfg >> "Infantry" >> "O_A_InfSquad_Weapons"]],0.5],
+	// O_A_InfTeam, Огневая группа
+	[[[__cfg >> "Infantry" >> "O_A_InfTeam"]],0.3],
+	// O_A_InfTeam_AT, Противотанковая группа
+	[[[__cfg >> "Infantry" >> "O_A_InfTeam_AT"]],0.4],
+	// O_A_InfTeam_AA, Группа ПВО
+	[[[__cfg >> "Infantry" >> "O_A_InfTeam_AA"]],0.2],
+	// O_A_InfSentry, Охрана
+	[[[__cfg >> "Infantry" >> "O_A_InfSentry"]],0.05],
+	// O_A_ConscriptSquad, Conscript Squad
+	[[[__cfg >> "Infantry" >> "O_A_ConscriptSquad"]],0.5],
+	// O_A_ConscriptTeam, Conscript Team
+	[[[__cfg >> "Infantry" >> "O_A_ConscriptTeam"]],0.1]
+];
+[_arr0] call gosa_fnc_groups_convNormal;
+_arr0 = [_arr0, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+_default_east append _arr0;
+
 _arr = _default_east;
+
 	// boat
 	if (count gosa_zone_lighthouse > 0) then {
 		_arr append [
