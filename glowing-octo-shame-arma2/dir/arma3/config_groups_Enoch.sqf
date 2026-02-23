@@ -181,7 +181,161 @@ if (count _arr > 0) then {
 
 
 //-- ВСЛ
+//-- IND_E_ard_F, LDF (засушливая местность)
+#define __cfg configFile >> "CfgGroups" >> "Indep" >> "IND_E_ard_F"
 _arr = [
+	//- SpecOps, Спецподразделения
+	// I_E_ard_ReconTeam, Разведгруппа
+	[[[__cfg >> "SpecOps" >> "I_E_ard_ReconTeam"]],0.5],
+	// I_E_ard_ReconPatrol, Разведывательный патруль
+	[[[__cfg >> "SpecOps" >> "I_E_ard_ReconPatrol"]],0.25],
+	// I_E_ard_ReconSentry, Разведывательный дозор
+	[[[__cfg >> "SpecOps" >> "I_E_ard_ReconSentry"]],0.01],
+	//- Support, Пехота поддержки
+	// I_E_ard_Support_CLS, Группа поддержки (санитар)
+	[[[__cfg >> "Support" >> "I_E_ard_Support_CLS"]],0.01],
+	// I_E_ard_Support_EOD, Группа поддержки (сапер)
+	[[[__cfg >> "Support" >> "I_E_ard_Support_EOD"]],0.01],
+	// I_E_ard_Support_ENG, Группа поддержки (инженер)
+	[[[__cfg >> "Support" >> "I_E_ard_Support_ENG"]],0.01],
+	// I_E_ard_Support_MG, Расчет крупнокалиберного пулемета
+	[[[__cfg >> "Support" >> "I_E_ard_Support_MG"]],0.01],
+	// I_E_ard_Support_GMG, Расчет автоматического гранатомета
+	[[[__cfg >> "Support" >> "I_E_ard_Support_GMG"]],0.01],
+	// I_E_ard_Support_Mort, Минометный расчет
+	[[[__cfg >> "Support" >> "I_E_ard_Support_Mort"]],0.01],
+	// Aegis_I_E_Support_Mort_ard_RF, Расчет легкого миномета
+	[[[__cfg >> "Support" >> "Aegis_I_E_Support_Mort_ard_RF"]],0.01],
+	//- Motorized, Мотопехота
+	// I_E_ard_MotInf_Squad, Механизированное стрелковое отделение
+	[[[__cfg >> "Motorized" >> "I_E_ard_MotInf_Squad"]],0.5],
+	// I_E_ard_MotInf_Team, Моторизованная группа
+	[[[__cfg >> "Motorized" >> "I_E_ard_MotInf_Team"]],0.25],
+	// I_E_ard_MotInf_Reinforcements, Моторизованные подкрепления
+	[[[__cfg >> "Motorized" >> "I_E_ard_MotInf_Reinforcements"]],0.15],
+	// I_E_ard_MotInf_AT, Моторизованная противотанковая группа
+	[[[__cfg >> "Motorized" >> "I_E_ard_MotInf_AT"]],0.2],
+	// I_E_ard_MotInf_AA, Моторизованная группа ПВО
+	[[[__cfg >> "Motorized" >> "I_E_ard_MotInf_AA"]],0.1],
+	// I_E_ard_MotInf_MGTeam, Моторизованный расчет крупнокалиберного пулемета
+	[[[__cfg >> "Motorized" >> "I_E_ard_MotInf_MGTeam"]],0.01],
+	// I_E_ard_MotInf_GMGTeam, Моторизованный расчет автоматического гранатомета
+	[[[__cfg >> "Motorized" >> "I_E_ard_MotInf_GMGTeam"]],0.01],
+	// I_E_ard_MotInf_MortTeam, Моторизованный минометный расчет
+	[[[__cfg >> "Motorized" >> "I_E_ard_MotInf_MortTeam"]],0.01],
+	//- Armored, Бронетехника
+	// I_E_ard_TankPlatoon, Танковый взвод
+	[[[__cfg >> "Armored" >> "I_E_ard_TankPlatoon"]],0.3],
+	// I_E_ard_TankSection, Танковое отделение
+	[[[__cfg >> "Armored" >> "I_E_ard_TankSection"]],0.3],
+	// I_E_ard_TankPlatoon_AA, Танковый взвод (сводный)
+	[[[__cfg >> "Armored" >> "I_E_ard_TankPlatoon_AA"]],0.3],
+	//- Infantry, Пехота
+	// I_E_ard_InfSquad, Стрелковое отделение
+	[[[__cfg >> "Infantry" >> "I_E_ard_InfSquad"]],1],
+	// I_E_ard_InfSquad_Weapons, Отделение тяж. оружия
+	[[[__cfg >> "Infantry" >> "I_E_ard_InfSquad_Weapons"]],0.5],
+	// I_E_ard_InfTeam, Огневая группа
+	[[[__cfg >> "Infantry" >> "I_E_ard_InfTeam"]],0.3],
+	// I_E_ard_InfTeam_AT, Противотанковая группа
+	[[[__cfg >> "Infantry" >> "I_E_ard_InfTeam_AT"]],0.4],
+	// I_E_ard_InfTeam_AA, Группа ПВО
+	[[[__cfg >> "Infantry" >> "I_E_ard_InfTeam_AA"]],0.2],
+	// I_E_ard_InfSentry, Охрана
+	[[[__cfg >> "Infantry" >> "I_E_ard_InfSentry"]],0.01],
+	// I_E_ard_InfTeam_Light, Стрелки (легкие)
+	[[[__cfg >> "Infantry" >> "I_E_ard_InfTeam_Light"]],0.3],
+	//- Mechanized, Механизированая пехота
+	// I_E_ard_MechInfSquad, Механизированное стрелковое отделение
+	[[[__cfg >> "Mechanized" >> "I_E_ard_MechInfSquad"]],1],
+	// I_E_ard_MechInf_AT, Механизированное противотанковое отделение
+	[[[__cfg >> "Mechanized" >> "I_E_ard_MechInf_AT"]],0.4],
+	// I_E_ard_MechInf_AA, Механизированное отделение ПВО
+	[[[__cfg >> "Mechanized" >> "I_E_ard_MechInf_AA"]],0.2],
+	// I_E_ard_MechInf_Support, Механизированное отделение поддержки
+	[[[__cfg >> "Mechanized" >> "I_E_ard_MechInf_Support"]],0.01]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, resistance, "IND_E_F", _arr,
+	gosa_date_default, [250,999],
+	["BLU_EAF_F"]
+] call gosa_fnc_map_groups_add;
+
+//-- IND_E_F, ВСЛ
+#define __cfg configFile >> "CfgGroups" >> "Indep" >> "IND_E_F"
+_arr = [
+	//- SpecOps, Спецподразделения
+	// I_E_ReconTeam, Разведгруппа
+	[[[__cfg >> "SpecOps" >> "I_E_ReconTeam"]],0.5],
+	// I_E_ReconPatrol, Разведывательный патруль
+	[[[__cfg >> "SpecOps" >> "I_E_ReconPatrol"]],0.25],
+	// I_E_ReconSentry, Разведывательный дозор
+	[[[__cfg >> "SpecOps" >> "I_E_ReconSentry"]],0.01],
+	//- Support, Пехота поддержки
+	// IRG_Support_Mort_RF, Расчет легкого миномета
+	[[[__cfg >> "Support" >> "IRG_Support_Mort_RF"]],0.01],
+	// I_E_Support_CLS, Группа поддержки (санитар)
+	[[[__cfg >> "Support" >> "I_E_Support_CLS"]],0.01],
+	// I_E_Support_EOD, Группа поддержки (сапер)
+	[[[__cfg >> "Support" >> "I_E_Support_EOD"]],0.01],
+	// I_E_Support_ENG, Группа поддержки (инженер)
+	[[[__cfg >> "Support" >> "I_E_Support_ENG"]],0.01],
+	// I_E_Support_MG, Расчет крупнокалиберного пулемета
+	[[[__cfg >> "Support" >> "I_E_Support_MG"]],0.01],
+	// I_E_Support_GMG, Расчет автоматического гранатомета
+	[[[__cfg >> "Support" >> "I_E_Support_GMG"]],0.01],
+	// I_E_Support_Mort, Минометный расчет
+	[[[__cfg >> "Support" >> "I_E_Support_Mort"]],0.01],
+	//- Motorized, Мотопехота
+	// I_E_MotInf_Team, Моторизованная группа
+	[[[__cfg >> "Motorized" >> "I_E_MotInf_Team"]],0.5],
+	// I_E_MotInf_Squad, Моторизованный пехотный отряд
+	[[[__cfg >> "Motorized" >> "I_E_MotInf_Squad"]],0.25],
+	// I_E_MotInf_Reinforcements, Моторизованные подкрепления
+	[[[__cfg >> "Motorized" >> "I_E_MotInf_Reinforcements"]],0.15],
+	// I_E_MotInf_AT, Моторизованная противотанковая группа
+	[[[__cfg >> "Motorized" >> "I_E_MotInf_AT"]],0.2],
+	// I_E_MotInf_AA, Моторизованная группа ПВО
+	[[[__cfg >> "Motorized" >> "I_E_MotInf_AA"]],0.1],
+	// I_E_MotInf_MGTeam, Моторизованный расчет крупнокалиберного пулемета
+	[[[__cfg >> "Motorized" >> "I_E_MotInf_MGTeam"]],0.01],
+	// I_E_MotInf_GMGTeam, Моторизованный расчет автоматического гранатомета
+	[[[__cfg >> "Motorized" >> "I_E_MotInf_GMGTeam"]],0.01],
+	// I_E_MotInf_MortTeam, Моторизованный минометный расчет
+	[[[__cfg >> "Motorized" >> "I_E_MotInf_MortTeam"]],0.01],
+	//- Armored, Бронетехника
+	// Aegis_I_E_TankPlatoon, Танковый взвод
+	[[[__cfg >> "Armored" >> "Aegis_I_E_TankPlatoon"]],0.3],
+	// Aegis_I_E_TankSection, Танковое отделение
+	[[[__cfg >> "Armored" >> "Aegis_I_E_TankSection"]],0.3],
+	// Aegis_I_E_TankPlatoon_AA, Танковый взвод (сводный)
+	[[[__cfg >> "Armored" >> "Aegis_I_E_TankPlatoon_AA"]],0.3],
+	//- Infantry, Пехота
+	// I_E_InfSquad, Стрелковое отделение
+	[[[__cfg >> "Infantry" >> "I_E_InfSquad"]],1],
+	// I_E_InfSentry, Охрана
+	[[[__cfg >> "Infantry" >> "I_E_InfSentry"]],0.01],
+	// I_E_InfTeam, Огневая группа
+	[[[__cfg >> "Infantry" >> "I_E_InfTeam"]],0.3],
+	// I_E_InfSquad_Weapons, Отделение тяж. оружия
+	[[[__cfg >> "Infantry" >> "I_E_InfSquad_Weapons"]],0.5],
+	// I_E_InfTeam_AT, Противотанковая группа
+	[[[__cfg >> "Infantry" >> "I_E_InfTeam_AT"]],0.4],
+	// I_E_InfTeam_AA, Группа ПВО
+	[[[__cfg >> "Infantry" >> "I_E_InfTeam_AA"]],0.2],
+	// I_E_InfTeam_Light, Стрелки (легкие)
+	[[[__cfg >> "Infantry" >> "I_E_InfTeam_Light"]],0.3],
+	//- Mechanized, Механизированая пехота
+	// I_E_MechInfSquad, Механизированное стрелковое отделение
+	[[[__cfg >> "Mechanized" >> "I_E_MechInfSquad"]],1],
+	// I_E_MechInf_AT, Механизированное противотанковое отделение
+	[[[__cfg >> "Mechanized" >> "I_E_MechInf_AT"]],0.4],
+	// I_E_MechInf_AA, Механизированное отделение ПВО
+	[[[__cfg >> "Mechanized" >> "I_E_MechInf_AA"]],0.2],
+	// I_E_MechInf_Support, Механизированное отделение поддержки
+	[[[__cfg >> "Mechanized" >> "I_E_MechInf_Support"]],0.01]
+	/*
 			// configName I_E_MotInf_Team
 			[[[["I_E_Offroad_01_F",
 				"I_E_soldier_TL_F","I_E_RadioOperator_F",
@@ -246,14 +400,16 @@ _arr = [
 				["SERGEANT",
 				"CORPORAL","PRIVATE",
 				"PRIVATE"]]],1]
+	*/
 ];
+[_arr] call gosa_fnc_groups_convNormal;
 if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	_arr append [
 		[[[["I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.1],
 		[[[["I_E_Truck_02_MRL_F","I_E_Truck_02_MRL_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1]
 	];
 };
-	[_groups_map, resistance, "IND_E_F", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+[_groups_map, resistance, "IND_E_F", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	gosa_date_default, [160,249],
-	["CUP_I_NAPA"]
-	] call gosa_fnc_map_groups_add;
+	["CUP_I_NAPA","BLU_EAF_F"]
+] call gosa_fnc_map_groups_add;
