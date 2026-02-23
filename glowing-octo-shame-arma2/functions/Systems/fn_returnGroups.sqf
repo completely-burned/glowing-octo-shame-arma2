@@ -1,14 +1,15 @@
 /*
 Конвертирует CfgGroups в формат этого сценария.
 Примеры:
-copyToClipboard ([["East"],["CUP_O_RUS_M"],["Infantry_VKPO_Desert]] call gosa_fnc_returnGroups select 1);
 copyToClipboard ([["East"],["INS","RU"],[]] call gosa_fnc_returnGroups select 1);
 copyToClipboard ([["I44_A"],[],[]] call gosa_fnc_returnGroups select 1);
-copyToClipboard ([["West"],["BLU_F"],[]] call gosa_fnc_returnGroups select 1);
-copyToClipboard ([["Indep"],["IND_F"],[]] call gosa_fnc_returnGroups select 1);
 copyToClipboard ([["Guerrila"],["FDF"],[]] call gosa_fnc_returnGroups select 1);
-copyToClipboard ([["West"],["CUP_B_US_Army"],[]] call gosa_fnc_returnGroups select 1);
-copyToClipboard ([["Indep"],["LIB_UK_DR"],[]] call gosa_fnc_returnGroups select 1) ;
+forceUnicode 1; copyToClipboard ([["East"],["OPF_A_F","OPF_CD_F","OPF_F","OPF_R_ard_F","OPF_R_F","OPF_Raven_F"],[]] call gosa_fnc_returnGroups select 1);
+forceUnicode 1; copyToClipboard ([["East"],["CUP_O_RUS_M"],["Infantry_VKPO_Desert]] call gosa_fnc_returnGroups select 1);
+forceUnicode 1; copyToClipboard ([["West"],["BLU_F"],[]] call gosa_fnc_returnGroups select 1);
+forceUnicode 1; copyToClipboard ([["Indep"],["IND_F"],[]] call gosa_fnc_returnGroups select 1);
+forceUnicode 1; copyToClipboard ([["West"],["CUP_B_US_Army"],[]] call gosa_fnc_returnGroups select 1);
+forceUnicode 1; copyToClipboard ([["Indep"],["LIB_UK_DR"],[]] call gosa_fnc_returnGroups select 1) ;
 */
 
 
@@ -19,7 +20,7 @@ private ["_cfgGroups","_Blacklist","_args","_side", "_type", "_cfgFaction",
 _args = _this;
 _br = toString [13,10];
 _comma = false;
-_str = "[" + _br;
+_str = "";
 
 _cfgGroups = configFile >> "CfgGroups";
 _Blacklist=[
@@ -68,13 +69,16 @@ _groups0 = [];
 	_side_x = _x;
 	{
 		_cfgFaction_x = _x;
+		_str = _str + "//-- " + _cfgFaction_x + ", " + getText(_cfgGroups >> _side_x >> _cfgFaction_x >> "name") + _br;
+		_str = _str + "[" + _br;
+		_comma = false;
 		{
 			if (isClass (_cfgGroups >> _side_x >> _cfgFaction_x >> _x)) then {
 				if (_comma) then {
 					_str = _str + "," + _br;
 					_comma = false;
 				};
-				_str = _str + "// " + _x + " " + getText(_cfgGroups >> _side_x >> _cfgFaction_x >> _x >> "name") + _br;
+				_str = _str + "//- " + _x + ", " + getText(_cfgGroups >> _side_x >> _cfgFaction_x >> _x >> "name") + _br;
 			};
 			for "_i" from 0 to ((count (_cfgGroups >> _side_x >> _cfgFaction_x >> _x)) - 1) do {
 				_item = (_cfgGroups >> _side_x >> _cfgFaction_x >> _x) select _i;
@@ -100,7 +104,7 @@ _groups0 = [];
 					}else{
 						_comma = true;
 					};
-					_str = _str + "// " + configName _grp + " " + getText(_grp >> "name") + _br + '[[[configFile >> "CfgGroups" >> ' + str _side_x + " >> " + str _cfgFaction_x + " >> " + str _x + " >> " + str configName _grp + "]]," + str _weight + "]";
+					_str = _str + "// " + configName _grp + ", " + getText(_grp >> "name") + _br + '[[[configFile >> "CfgGroups" >> ' + str _side_x + " >> " + str _cfgFaction_x + " >> " + str _x + " >> " + str configName _grp + "]]," + str _weight + "]";
 					//_str = _str + "// " + configName _item + _br + str [[[_types,_positions,_ranks]],_weight];
 					// FIXME: Зяпятая не всегда устанавливается.
 					_groups = (_groups + [[[[_types,_positions,_ranks]],_weight]]);
@@ -108,9 +112,8 @@ _groups0 = [];
 				};
 			};
 		} forEach _type;
+		_str = _str + _br + "];" + _br + _br;
 	} forEach _cfgFaction;
 } forEach _side;
-
-_str = _str + _br + "];" + _br;
 
 [_groups, _str, _groups0];
