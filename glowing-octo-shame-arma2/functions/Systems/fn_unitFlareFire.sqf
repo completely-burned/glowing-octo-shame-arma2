@@ -178,10 +178,29 @@ if (isNil "_obj") then {
 	if !(isNull _u) then {
 		// TODO: Учитывать яркость свечения.
 		if (count _flare_failover > 0) then {
-			_ammo = _flare_failover call BIS_fnc_selectRandom;
-			if (typeName (_flare_failover select 0) == typeName []) then {	
+			if (typeName (_flare_failover select 0) == typeName []) then {
 				if (count (_flare_failover select 0) > 0) then {
 					_ammo = _flare_failover call gosa_fnc_selectRandomWeighted;
+				}else{
+					diag_log format["Log: [fnc_unitFlareFire] breakTo scope1, _flare_failover %1", _flare_failover];
+					breakTo "scope1";
+				};
+			}else{
+				_ammo = _flare_failover call BIS_fnc_selectRandom;
+			};
+
+			if (isNil "_ammo") then {
+				diag_log format["Log: [fnc_unitFlareFire] breakTo scope1, _ammo %1", _ammo];
+				breakTo "scope1";
+			}else{
+				if (typeName _ammo != typeName "") then {
+					diag_log format["Log: [fnc_unitFlareFire] breakTo scope1, _ammo %1", _ammo];
+					breakTo "scope1";
+				}else{
+					if (_ammo == "") then {
+						diag_log format["Log: [fnc_unitFlareFire] breakTo scope1, _ammo %1", _ammo];
+						breakTo "scope1";
+					};
 				};
 			};
 
