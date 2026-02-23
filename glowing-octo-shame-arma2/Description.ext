@@ -676,8 +676,26 @@ class Params {
 		};
 		
 		// Atlas
+		class gosa_faction_multiplier_Atlas_OPF_T_F {
+			title = "FACTION: Atlas_OPF_T_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_Atlas_OPF_W_F {
+			title = "FACTION: Atlas_OPF_W_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_ls_zim35_o_zna_groups {
 			title = "FACTION: ls_zim35_o_zna_groups";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_Atlas_BLU_A_F {
+			title = "FACTION: Atlas_BLU_A_F";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
