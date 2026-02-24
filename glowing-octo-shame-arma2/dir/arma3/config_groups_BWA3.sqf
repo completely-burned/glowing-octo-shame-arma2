@@ -178,5 +178,5 @@ _arr = [
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, west, "BWA3", _arr,
 gosa_date_default, [300,999],
-["CUP_B_GER"]
+["CUP_B_GER","Atlas_BLU_G_F"]
 ] call gosa_fnc_map_groups_add;

@@ -289,3 +289,118 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 	[]
 ] call gosa_fnc_map_groups_add;
 
+//-- Atlas_BLU_G_F, Бундесвер
+#define __cfg configFile >> "CfgGroups" >> "West" >> "Atlas_BLU_G_F"
+_arr = [
+	//- SpecOps, Спецподразделения
+	// B_G_ReconTeam, Разведгруппа
+	[[[__cfg >> "SpecOps" >> "B_G_ReconTeam"]],0.5],
+	// B_G_ReconPatrol, Разведывательный патруль
+	[[[__cfg >> "SpecOps" >> "B_G_ReconPatrol"]],0.13],
+	// B_G_ReconSentry, Разведывательный дозор
+	[[[__cfg >> "SpecOps" >> "B_G_ReconSentry"]],0.01],
+	//- Infantry, Пехота
+	// B_G_InfSquad, Стрелковое отделение
+	[[[__cfg >> "Infantry" >> "B_G_InfSquad"]],1],
+	// B_G_InfSquad_Weapons, Отделение тяж. оружия
+	[[[__cfg >> "Infantry" >> "B_G_InfSquad_Weapons"]],0.5],
+	// B_G_InfTeam, Огневая группа
+	[[[__cfg >> "Infantry" >> "B_G_InfTeam"]],0.3],
+	// B_G_InfTeam_AT, Противотанковая группа
+	[[[__cfg >> "Infantry" >> "B_G_InfTeam_AT"]],0.4],
+	// B_G_InfTeam_AA, Группа ПВО
+	[[[__cfg >> "Infantry" >> "B_G_InfTeam_AA"]],0.2],
+	// B_G_InfSentry, Охрана
+	[[[__cfg >> "Infantry" >> "B_G_InfSentry"]],0.01],
+	//- Motorized, Мотопехота
+	// B_G_MotInf_Team, Моторизованная группа
+	[[[__cfg >> "Motorized" >> "B_G_MotInf_Team"]],1],
+	// B_G_MotInf_AT, Моторизованная противотанковая группа
+	[[[__cfg >> "Motorized" >> "B_G_MotInf_AT"]],0.4],
+	// B_G_MotInf_AA, Моторизованная группа ПВО
+	[[[__cfg >> "Motorized" >> "B_G_MotInf_AA"]],0.2],
+	//- Mechanized, Механизированая пехота
+	// B_G_MechInfSquad, Механизированное стрелковое отделение
+	[[[__cfg >> "Mechanized" >> "B_G_MechInfSquad"]],1],
+	//- Armored, Бронетехника
+	// B_G_TankPlatoon, Танковый взвод
+	[[[__cfg >> "Armored" >> "B_G_TankPlatoon"]],0.5],
+	// B_G_TankSection, Танковое отделение
+	[[[__cfg >> "Armored" >> "B_G_TankSection"]],0.5],
+	// B_G_LTankSection_Assault, Десантное отделение AWC
+	[[[__cfg >> "Armored" >> "B_G_LTankSection_Assault"]],0.01],
+	// B_G_LTankSection_Recon, Отделение разведки AWC
+	[[[__cfg >> "Armored" >> "B_G_LTankSection_Recon"]],0.01],
+	// B_G_LTankSection_AA, Отделение ПВО AWC
+	[[[__cfg >> "Armored" >> "B_G_LTankSection_AA"]],0.01],
+	// B_G_LTankSection_AT, Противотанковое отделение AWC
+	[[[__cfg >> "Armored" >> "B_G_LTankSection_AT"]],0.01],
+	// B_G_LTankPlatoon_combined, Взвод AWC (сводный)
+	[[[__cfg >> "Armored" >> "B_G_LTankPlatoon_combined"]],0.01],
+	// B_G_LTankPlatoon_AA, Взвод ПВО AWC
+	[[[__cfg >> "Armored" >> "B_G_LTankPlatoon_AA"]],0.01]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, west, "Atlas_BLU_G_F", _arr,
+	gosa_date_default, [160,250-1],
+	["CUP_B_GER","BWA3"]
+] call gosa_fnc_map_groups_add;
+
+//-- Atlas_BLU_G_ard_F, Бундесвер (засушливая местность)
+#define __cfg configFile >> "CfgGroups" >> "West" >> "Atlas_BLU_G_ard_F"
+_arr = [
+	//- SpecOps, Спецподразделения
+	// B_G_ard_ReconTeam, Разведгруппа
+	[[[__cfg >> "SpecOps" >> "B_G_ard_ReconTeam"]],0.5],
+	// B_G_ard_ReconPatrol, Разведывательный патруль
+	[[[__cfg >> "SpecOps" >> "B_G_ard_ReconPatrol"]],0.15],
+	// B_G_ard_ReconSentry, Разведывательный дозор
+	[[[__cfg >> "SpecOps" >> "B_G_ard_ReconSentry"]],0.01],
+	//- Infantry, Пехота
+	// B_G_ard_InfSquad, Стрелковое отделение
+	[[[__cfg >> "Infantry" >> "B_G_ard_InfSquad"]],1],
+	// B_G_ard_InfSquad_Weapons, Отделение тяж. оружия
+	[[[__cfg >> "Infantry" >> "B_G_ard_InfSquad_Weapons"]],0.5],
+	// B_G_ard_InfTeam, Огневая группа
+	[[[__cfg >> "Infantry" >> "B_G_ard_InfTeam"]],0.3],
+	// B_G_ard_InfTeam_AT, Противотанковая группа
+	[[[__cfg >> "Infantry" >> "B_G_ard_InfTeam_AT"]],0.4],
+	// B_G_ard_InfTeam_AA, Группа ПВО
+	[[[__cfg >> "Infantry" >> "B_G_ard_InfTeam_AA"]],0.2],
+	// B_G_ard_InfSentry, Охрана
+	[[[__cfg >> "Infantry" >> "B_G_ard_InfSentry"]],0.01],
+	//- Motorized, Мотопехота
+	// B_G_ard_MotInf_Team, Моторизованная группа
+	[[[__cfg >> "Motorized" >> "B_G_ard_MotInf_Team"]],1],
+	// B_G_ard_MotInf_AT, Моторизованная противотанковая группа
+	[[[__cfg >> "Motorized" >> "B_G_ard_MotInf_AT"]],0.4],
+	// B_G_ard_MotInf_AA, Моторизованная группа ПВО
+	[[[__cfg >> "Motorized" >> "B_G_ard_MotInf_AA"]],0.2],
+	//- Mechanized, Механизированая пехота
+	// B_G_ard_MechInfSquad, Механизированное стрелковое отделение
+	[[[__cfg >> "Mechanized" >> "B_G_ard_MechInfSquad"]],1],
+	//- Armored, Бронетехника
+	// B_G_ard_TankPlatoon, Танковый взвод
+	[[[__cfg >> "Armored" >> "B_G_ard_TankPlatoon"]],0.5],
+	// B_G_ard_TankSection, Танковое отделение
+	[[[__cfg >> "Armored" >> "B_G_ard_TankSection"]],0.5],
+	// B_G_ard_LTankSection_Assault, Десантное отделение AWC
+	[[[__cfg >> "Armored" >> "B_G_ard_LTankSection_Assault"]],0.01],
+	// B_G_ard_LTankSection_Recon, Отделение разведки AWC
+	[[[__cfg >> "Armored" >> "B_G_ard_LTankSection_Recon"]],0.01],
+	// B_G_ard_LTankSection_AA, Отделение ПВО AWC
+	[[[__cfg >> "Armored" >> "B_G_ard_LTankSection_AA"]],0.01],
+	// B_G_LTankSection_AT, Противотанковое отделение AWC
+	[[[__cfg >> "Armored" >> "B_G_LTankSection_AT"]],0.01],
+	// B_G_ard_LTankPlatoon_combined, Взвод AWC (сводный)
+	[[[__cfg >> "Armored" >> "B_G_ard_LTankPlatoon_combined"]],0.01],
+	// B_G_ard_LTankPlatoon_AA, Взвод ПВО AWC
+	[[[__cfg >> "Armored" >> "B_G_ard_LTankPlatoon_AA"]],0.01]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, west, "Atlas_BLU_G_F", _arr,
+	gosa_date_default, [250,999],
+	["CUP_B_GER","BWA3"]
+] call gosa_fnc_map_groups_add;
