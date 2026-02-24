@@ -95,7 +95,7 @@ _arr = [
 [_arr] call gosa_fnc_groups_convNormal;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, east, "Atlas_OPF_W_F", _arr,
-	gosa_date_default, [160,999],
+	gosa_date_default, [160,250-1],
 	[]
 ] call gosa_fnc_map_groups_add;
 
