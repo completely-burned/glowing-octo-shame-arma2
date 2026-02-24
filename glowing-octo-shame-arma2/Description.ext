@@ -705,35 +705,48 @@ class Params {
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
-			
 		};
 		class gosa_faction_multiplier_Atlas_BLU_H_F {
 			title = "FACTION: Atlas_BLU_H_F";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
-			
 		};
 		class gosa_faction_multiplier_Atlas_BLU_K_F {
 			title = "FACTION: Atlas_BLU_K_F";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
-			
 		};
 		class gosa_faction_multiplier_Atlas_BLU_M_F {
 			title = "FACTION: Atlas_BLU_M_F";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
-			
 		};
 		class gosa_faction_multiplier_Atlas_BLU_L_F {
 			title = "FACTION: Atlas_BLU_L_F";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
-			
+		};
+		class gosa_faction_multiplier_Atlas_IND_I_F {
+			title = "FACTION: Atlas_IND_I_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_Atlas_IND_AR_F {
+			title = "FACTION: Atlas_IND_AR_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_Atlas_IND_UNO_F {
+			title = "FACTION: Atlas_IND_UNO_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
 		};
 	#else
 		class gosa_faction_multiplier_INS {

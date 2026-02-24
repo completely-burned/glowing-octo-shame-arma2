@@ -572,3 +572,175 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 	gosa_date_default, [275,999],
 	[]
 ] call gosa_fnc_map_groups_add;
+
+
+//-- Atlas_IND_AR_F, Ardistan
+#define __cfg configFile >> "CfgGroups" >> "Indep" >> "Atlas_IND_AR_F"
+_arr = [
+	//- Infantry, Пехота
+	// I_AR_InfSquad, Стрелковое отделение
+	[[[__cfg >> "Infantry" >> "I_AR_InfSquad"]],1],
+	// I_AR_InfSquad_Weapons, Отделение тяж. оружия
+	[[[__cfg >> "Infantry" >> "I_AR_InfSquad_Weapons"]],0.5],
+	// I_AR_InfTeam, Огневая группа
+	[[[__cfg >> "Infantry" >> "I_AR_InfTeam"]],0.3],
+	// I_AR_InfTeam_AT, Противотанковая группа
+	[[[__cfg >> "Infantry" >> "I_AR_InfTeam_AT"]],0.4],
+	// I_AR_InfTeam_AA, Группа ПВО
+	[[[__cfg >> "Infantry" >> "I_AR_InfTeam_AA"]],0.2],
+	// I_AR_InfSentry, Охрана
+	[[[__cfg >> "Infantry" >> "I_AR_InfSentry"]],0.01],
+	//- Support, Пехота поддержки
+	// I_AR_Support_CLS, Группа поддержки (санитар)
+	[[[__cfg >> "Support" >> "I_AR_Support_CLS"]],0.01],
+	// I_AR_Support_EOD, Группа поддержки (сапер)
+	[[[__cfg >> "Support" >> "I_AR_Support_EOD"]],0.01],
+	// I_AR_Support_ENG, Группа поддержки (инженер)
+	[[[__cfg >> "Support" >> "I_AR_Support_ENG"]],0.01],
+	//- Motorized, Мотопехота
+	// I_AR_MotInf_Team, Моторизованная группа
+	[[[__cfg >> "Motorized" >> "I_AR_MotInf_Team"]],1],
+	// I_AR_MotInf_AT, Моторизованная противотанковая группа
+	[[[__cfg >> "Motorized" >> "I_AR_MotInf_AT"]],0.4],
+	// I_AR_MotInf_AA, Моторизованная группа ПВО
+	[[[__cfg >> "Motorized" >> "I_AR_MotInf_AA"]],0.2],
+	// I_AR_MotInf_Reinforcements, Моторизованные подкрепления
+	[[[__cfg >> "Motorized" >> "I_AR_MotInf_Reinforcements"]],0.1],
+	//- Mechanized, Механизированая пехота
+	// I_AR_MechInfSquad, Механизированное стрелковое отделение
+	[[[__cfg >> "Mechanized" >> "I_AR_MechInfSquad"]],1],
+	// I_AR_MechInf_AT, Механизированное противотанковое отделение
+	[[[__cfg >> "Mechanized" >> "I_AR_MechInf_AT"]],0.4],
+	// I_AR_MechInf_AA, Механизированное отделение ПВО
+	[[[__cfg >> "Mechanized" >> "I_AR_MechInf_AA"]],0.2],
+	// I_AR_MechInf_Support, Механизированное отделение поддержки
+	[[[__cfg >> "Mechanized" >> "I_AR_MechInf_Support"]],0.01],
+	//- Armored, Бронетехника
+	// I_AR_TankPlatoon, Танковый взвод
+	[[[__cfg >> "Armored" >> "I_AR_TankPlatoon"]],0.5],
+	// I_AR_TankSection, Танковое отделение
+	[[[__cfg >> "Armored" >> "I_AR_TankSection"]],0.5],
+	// I_AR_TankDestrSection_Nosorog, Отделение истребителей танков
+	[[[__cfg >> "Armored" >> "I_AR_TankDestrSection_Nosorog"]],0.2]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, resistance, "Atlas_IND_AR_F", _arr,
+	gosa_date_default, [250,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
+//-- Atlas_IND_I_F, Israel
+#define __cfg configFile >> "CfgGroups" >> "Indep" >> "Atlas_IND_I_F"
+_arr = [
+	//- SpecOps, Спецподразделения
+	// I_I_ReconTeam, Разведгруппа
+	[[[__cfg >> "SpecOps" >> "I_I_ReconTeam"]],0.5],
+	// I_I_ReconPatrol, Разведывательный патруль
+	[[[__cfg >> "SpecOps" >> "I_I_ReconPatrol"]],0.25],
+	// I_I_ReconSentry, Разведывательный дозор
+	[[[__cfg >> "SpecOps" >> "I_I_ReconSentry"]],0.01],
+	// I_I_SniperTeam, Снайперская группа
+	[[[__cfg >> "SpecOps" >> "I_I_SniperTeam"]],0.15],
+	//- Infantry, Пехота
+	// I_I_InfSquad, Стрелковое отделение
+	[[[__cfg >> "Infantry" >> "I_I_InfSquad"]],1],
+	// I_I_InfSquad_Weapons, Отделение тяж. оружия
+	[[[__cfg >> "Infantry" >> "I_I_InfSquad_Weapons"]],0.5],
+	// I_I_InfTeam, Огневая группа
+	[[[__cfg >> "Infantry" >> "I_I_InfTeam"]],0.3],
+	// I_I_InfTeam_AT, Противотанковая группа
+	[[[__cfg >> "Infantry" >> "I_I_InfTeam_AT"]],0.4],
+	// I_I_InfTeam_AA, Группа ПВО
+	[[[__cfg >> "Infantry" >> "I_I_InfTeam_AA"]],0.2],
+	// I_I_InfSentry, Охрана
+	[[[__cfg >> "Infantry" >> "I_I_InfSentry"]],0.01],
+	//- Support, Пехота поддержки
+	// I_I_Support_CLS, Группа поддержки (санитар)
+	[[[__cfg >> "Support" >> "I_I_Support_CLS"]],0.01],
+	// I_I_Support_EOD, Группа поддержки (сапер)
+	[[[__cfg >> "Support" >> "I_I_Support_EOD"]],0.01],
+	// I_I_Support_ENG, Группа поддержки (инженер)
+	[[[__cfg >> "Support" >> "I_I_Support_ENG"]],0.01],
+	// I_I_Recon_EOD, Группа поддержки разведки (EOD)
+	[[[__cfg >> "Support" >> "I_I_Recon_EOD"]],0.01],
+	// I_I_Support_MG, Расчет крупнокалиберного пулемета
+	[[[__cfg >> "Support" >> "I_I_Support_MG"]],0.01],
+	// I_I_Support_GMG, Расчет автоматического гранатомета
+	[[[__cfg >> "Support" >> "I_I_Support_GMG"]],0.01],
+	// I_I_Support_Mort, Минометный расчет
+	[[[__cfg >> "Support" >> "I_I_Support_Mort"]],0.01],
+	//- Motorized, Мотопехота
+	// I_I_MotInf_Team, Моторизованная группа
+	[[[__cfg >> "Motorized" >> "I_I_MotInf_Team"]],1],
+	// I_I_MotInf_AT, Моторизованная противотанковая группа
+	[[[__cfg >> "Motorized" >> "I_I_MotInf_AT"]],0.4],
+	// I_I_MotInf_AA, Моторизованная группа ПВО
+	[[[__cfg >> "Motorized" >> "I_I_MotInf_AA"]],0.2],
+	// I_I_MotInf_MGTeam, Моторизованный расчет крупнокалиберного пулемета
+	[[[__cfg >> "Motorized" >> "I_I_MotInf_MGTeam"]],0.01],
+	// I_I_MotInf_GMGTeam, Моторизованный расчет автоматического гранатомета
+	[[[__cfg >> "Motorized" >> "I_I_MotInf_GMGTeam"]],0.01],
+	// I_I_MotInf_MortTeam, Моторизованный минометный расчет
+	[[[__cfg >> "Motorized" >> "I_I_MotInf_MortTeam"]],0.01],
+	// I_I_MotInf_Reinforcements, Моторизованные подкрепления
+	[[[__cfg >> "Motorized" >> "I_I_MotInf_Reinforcements"]],0.1],
+	//- Mechanized, Механизированая пехота
+	// I_I_MechInfSquad, Механизированное стрелковое отделение
+	[[[__cfg >> "Mechanized" >> "I_I_MechInfSquad"]],1],
+	// I_I_MechInf_AT, Механизированное противотанковое отделение
+	[[[__cfg >> "Mechanized" >> "I_I_MechInf_AT"]],0.4],
+	// I_I_MechInf_AA, Механизированное отделение ПВО
+	[[[__cfg >> "Mechanized" >> "I_I_MechInf_AA"]],0.2],
+	// I_I_MechInf_Support, Механизированное отделение поддержки
+	[[[__cfg >> "Mechanized" >> "I_I_MechInf_Support"]],0.01],
+	//- Armored, Бронетехника
+	// I_I_TankPlatoon, Танковый взвод
+	[[[__cfg >> "Armored" >> "I_I_TankPlatoon"]],0.5],
+	// I_I_TankPlatoon_AA, Танковый взвод (сводный)
+	[[[__cfg >> "Armored" >> "I_I_TankPlatoon_AA"]],0.1],
+	// I_I_TankSection, Танковое отделение
+	[[[__cfg >> "Armored" >> "I_I_TankSection"]],0.5]
+	/*
+	// I_I_SPGPlatoon_Scorcher, Взвод САУ Scorcher
+	[[[__cfg >> "Armored" >> "I_I_SPGPlatoon_Scorcher"]],0],
+	// I_I_SPGSection_Scorcher, Отделение САУ Scorcher
+	[[[__cfg >> "Armored" >> "I_I_SPGSection_Scorcher"]],0]
+	*/
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, resistance, "Atlas_IND_I_F", _arr,
+	gosa_date_default, [160,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
+//-- Atlas_IND_UNO_F, ООН
+_arr = [
+	//- Infantry, Пехота
+	// Atlas_I_UNO_InfSquad, Peacekeeper Squad
+	[[[configFile >> "CfgGroups" >> "Indep" >> "Atlas_IND_UNO_F" >> "Infantry" >> "Atlas_I_UNO_InfSquad"]],1],
+	// Atlas_I_UNO_InfTeam, Peacekeeper Team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "Atlas_IND_UNO_F" >> "Infantry" >> "Atlas_I_UNO_InfTeam"]],0.3]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, resistance, "Atlas_IND_UNO_F", _arr,
+	gosa_date_default, [250,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
+//-- Atlas_IND_UNO_wdl_F, ООН (Woodland)
+_arr = [
+	//- Infantry, Пехота
+	// Atlas_I_UNO_wdl_InfSquad, Peacekeeper Squad
+	[[[configFile >> "CfgGroups" >> "Indep" >> "Atlas_IND_UNO_wdl_F" >> "Infantry" >> "Atlas_I_UNO_wdl_InfSquad"]],1],
+	// Atlas_I_UNO_wdl_InfTeam, Peacekeeper Team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "Atlas_IND_UNO_wdl_F" >> "Infantry" >> "Atlas_I_UNO_wdl_InfTeam"]],0.3]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, resistance, "Atlas_IND_UNO_F", _arr,
+	gosa_date_default, [160,250-1],
+	[]
+] call gosa_fnc_map_groups_add;
