@@ -707,6 +707,34 @@ class Params {
 			default = -1;
 			
 		};
+		class gosa_faction_multiplier_Atlas_BLU_H_F {
+			title = "FACTION: Atlas_BLU_H_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+			
+		};
+		class gosa_faction_multiplier_Atlas_BLU_K_F {
+			title = "FACTION: Atlas_BLU_K_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+			
+		};
+		class gosa_faction_multiplier_Atlas_BLU_M_F {
+			title = "FACTION: Atlas_BLU_M_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+			
+		};
+		class gosa_faction_multiplier_Atlas_BLU_L_F {
+			title = "FACTION: Atlas_BLU_L_F";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+			
+		};
 	#else
 		class gosa_faction_multiplier_INS {
 			title="FACTION: BIS_INS";

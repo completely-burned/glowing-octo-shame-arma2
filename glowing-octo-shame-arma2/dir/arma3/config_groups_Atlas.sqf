@@ -404,3 +404,171 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 	gosa_date_default, [250,999],
 	["CUP_B_GER","BWA3"]
 ] call gosa_fnc_map_groups_add;
+
+//-- Atlas_BLU_H_F, HIMF
+#define __cfg configFile >> "CfgGroups" >> "West" >> "Atlas_BLU_H_F"
+_arr = [
+    //- SpecOps, Спецподразделения
+    // B_H_ReconTeam, Разведгруппа
+    [[[__cfg >> "SpecOps" >> "B_H_ReconTeam"]],0.5],
+    // B_H_ReconPatrol, Разведывательный патруль
+    [[[__cfg >> "SpecOps" >> "B_H_ReconPatrol"]],0.15],
+    // B_H_ReconSentry, Разведывательный дозор
+    [[[__cfg >> "SpecOps" >> "B_H_ReconSentry"]],0.01],
+    //- Infantry, Пехота
+    // B_H_InfSquad, Стрелковое отделение
+    [[[__cfg >> "Infantry" >> "B_H_InfSquad"]],1],
+    // B_H_InfSquad_Weapons, Отделение тяж. оружия
+    [[[__cfg >> "Infantry" >> "B_H_InfSquad_Weapons"]],0.5],
+    // B_H_InfTeam, Огневая группа
+    [[[__cfg >> "Infantry" >> "B_H_InfTeam"]],0.3],
+    // B_H_InfTeam_AT, Противотанковая группа
+    [[[__cfg >> "Infantry" >> "B_H_InfTeam_AT"]],0.4],
+    // B_H_InfSentry, Охрана
+    [[[__cfg >> "Infantry" >> "B_H_InfSentry"]],0.01],
+    //- Support, Пехота поддержки
+    // Atlas_B_H_Support_CLS, Группа поддержки (санитар)
+    [[[__cfg >> "Support" >> "Atlas_B_H_Support_CLS"]],0.01],
+    // Atlas_B_H_Support_EOD, Группа поддержки (сапер)
+    [[[__cfg >> "Support" >> "Atlas_B_H_Support_EOD"]],0.01],
+    // Atlas_B_H_Support_ENG, Группа поддержки (инженер)
+    [[[__cfg >> "Support" >> "Atlas_B_H_Support_ENG"]],0.01],
+    // Atlas_B_H_Support_Mort, Минометный расчет
+    [[[__cfg >> "Support" >> "Atlas_B_H_Support_Mort"]],0.01],
+    //- Motorized, Мотопехота
+    // B_H_MotInf_Squad, Механизированное стрелковое отделение
+    [[[__cfg >> "Motorized" >> "B_H_MotInf_Squad"]],1],
+    // B_H_MotInf_Team, Моторизованная группа
+    [[[__cfg >> "Motorized" >> "B_H_MotInf_Team"]],0.3],
+    // Atlas_B_H_MotInf_Reinforcements, Моторизованные подкрепления
+    [[[__cfg >> "Motorized" >> "Atlas_B_H_MotInf_Reinforcements"]],0.1],
+    // Atlas_B_H_MotInf_AT, Моторизованная противотанковая группа
+    [[[__cfg >> "Motorized" >> "Atlas_B_H_MotInf_AT"]],0.4],
+    // Atlas_B_H_MotInf_AA, Моторизованная группа ПВО
+    [[[__cfg >> "Motorized" >> "Atlas_B_H_MotInf_AA"]],0.2],
+    // Atlas_B_H_MotInf_MortTeam, Моторизованный минометный расчет
+    [[[__cfg >> "Motorized" >> "Atlas_B_H_MotInf_MortTeam"]],0.01],
+    //- Mechanized, Механизированая пехота
+    // Atlas_B_H_MechInfSquad, Механизированное стрелковое отделение
+    [[[__cfg >> "Mechanized" >> "Atlas_B_H_MechInfSquad"]],1],
+    // Atlas_B_H_MechInf_Support, Механизированное отделение поддержки
+    [[[__cfg >> "Mechanized" >> "Atlas_B_H_MechInf_Support"]],0.01]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, west, "Atlas_BLU_H_F", _arr,
+	gosa_date_default, [225,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
+//-- Atlas_BLU_K_F, Karzeghistan
+#define __cfg configFile >> "CfgGroups" >> "West" >> "Atlas_BLU_K_F"
+_arr = [
+    //- Infantry, Пехота
+    // Atlas_B_K_InfSquad, Стрелковое отделение
+    [[[__cfg >> "Infantry" >> "Atlas_B_K_InfSquad"]],1],
+    // Atlas_B_K_InfSquad_Weapons, Отделение тяж. оружия
+    [[[__cfg >> "Infantry" >> "Atlas_B_K_InfSquad_Weapons"]],0.5],
+    // Atlas_B_K_InfTeam, Огневая группа
+    [[[__cfg >> "Infantry" >> "Atlas_B_K_InfTeam"]],0.3],
+    // Atlas_B_K_InfSentry, Охрана
+    [[[__cfg >> "Infantry" >> "Atlas_B_K_InfSentry"]],0.01],
+    //- Support, Пехота поддержки
+    // Atlas_B_K_Support_CLS, Группа поддержки (санитар)
+    [[[__cfg >> "Support" >> "Atlas_B_K_Support_CLS"]],0.01],
+    // Atlas_B_K_Support_EOD, Группа поддержки (сапер)
+    [[[__cfg >> "Support" >> "Atlas_B_K_Support_EOD"]],0.01],
+    // Atlas_B_K_Support_ENG, Группа поддержки (инженер)
+    [[[__cfg >> "Support" >> "Atlas_B_K_Support_ENG"]],0.01],
+    // Atlas_B_K_Support_Mort, Минометный расчет
+    [[[__cfg >> "Support" >> "Atlas_B_K_Support_Mort"]],0.01],
+    //- Motorized, Мотопехота
+    // Atlas_B_K_MotInf_Team, Моторизованная группа
+    [[[__cfg >> "Motorized" >> "Atlas_B_K_MotInf_Team"]],1],
+    // Atlas_B_K_MotInf_AT, Моторизованная противотанковая группа
+    [[[__cfg >> "Motorized" >> "Atlas_B_K_MotInf_AT"]],0.4],
+    // Atlas_B_K_MotInf_Reinforcements, Моторизованные подкрепления
+    [[[__cfg >> "Motorized" >> "Atlas_B_K_MotInf_Reinforcements"]],0.1],
+    // Atlas_B_K_MotInf_AA, Моторизованная группа ПВО
+    [[[__cfg >> "Motorized" >> "Atlas_B_K_MotInf_AA"]],0.2],
+    // Atlas_B_K_MotInf_MortTeam, Моторизованный минометный расчет
+    [[[__cfg >> "Motorized" >> "Atlas_B_K_MotInf_MortTeam"]],0.01],
+    //- Mechanized, Механизированая пехота
+    // Atlas_B_K_MechInfSquad, Механизированное стрелковое отделение
+    [[[__cfg >> "Mechanized" >> "Atlas_B_K_MechInfSquad"]],1],
+    // I_AR_MechInf_AT, Механизированное противотанковое отделение
+    [[[__cfg >> "Mechanized" >> "I_AR_MechInf_AT"]],0.4],
+    // I_AR_MechInf_Support, Механизированное отделение поддержки
+    [[[__cfg >> "Mechanized" >> "I_AR_MechInf_Support"]],0.01],
+    //- Armored, Бронетехника
+    // Atlas_B_K_TankPlatoon, Танковый взвод
+    [[[__cfg >> "Armored" >> "Atlas_B_K_TankPlatoon"]],0.5],
+    // Atlas_B_K_TankSection, Танковое отделение
+    [[[__cfg >> "Armored" >> "Atlas_B_K_TankSection"]],0.5]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, west, "Atlas_BLU_K_F", _arr,
+	gosa_date_default, [250,999],
+	[]
+] call gosa_fnc_map_groups_add;
+
+//-- Atlas_BLU_L_F, Легионеры
+#define __cfg configFile >> "CfgGroups" >> "West" >> "Atlas_BLU_L_F"
+_arr = [
+    //- Infantry, Пехота
+    // Atlas_B_L_InfSquad, Стрелковое отделение
+    [[[__cfg >> "Infantry" >> "Atlas_B_L_InfSquad"]],1],
+    // Atlas_B_L_InfTeam, Огневая группа
+    [[[__cfg >> "Infantry" >> "Atlas_B_L_InfTeam"]],0.5],
+    // Atlas_B_L_InfSentry, Охрана
+    [[[__cfg >> "Infantry" >> "Atlas_B_L_InfSentry"]],0.01],
+    //- Motorized, Мотопехота
+    // Atlas_B_L_MotInf_Team, Моторизованная группа
+    [[[__cfg >> "Motorized" >> "Atlas_B_L_MotInf_Team"]],1],
+    // Atlas_B_L_MotInf_AT, Моторизованная противотанковая группа
+    [[[__cfg >> "Motorized" >> "Atlas_B_L_MotInf_AT"]],0.4],
+    // Atlas_B_L_MotInf_AA, Моторизованная группа ПВО
+    [[[__cfg >> "Motorized" >> "Atlas_B_L_MotInf_AA"]],0.2],
+    // Atlas_B_L_MotInf_Reinforcements, Моторизованные подкрепления
+    [[[__cfg >> "Motorized" >> "Atlas_B_L_MotInf_Reinforcements"]],0.1],
+    //- Armored, Бронетехника
+    // Atlas_B_L_TankDestrSection_Rhino, Отделение истребителей танков
+    [[[__cfg >> "Armored" >> "Atlas_B_L_TankDestrSection_Rhino"]],0.5],
+    // Atlas_B_L_TankDestrSection_RhinoUP, Отделение истребителей танков (UP)
+    [[[__cfg >> "Armored" >> "Atlas_B_L_TankDestrSection_RhinoUP"]],0.2]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, west, "Atlas_BLU_L_F", _arr,
+	gosa_date_default, [160,250-1],
+	[]
+] call gosa_fnc_map_groups_add;
+
+//-- Atlas_BLU_M_F, Marar
+#define __cfg configFile >> "CfgGroups" >> "West" >> "Atlas_BLU_M_F"
+_arr = [
+    //- Infantry, Пехота
+    // B_M_InfSquad, Стрелковое отделение
+    [[[__cfg >> "Infantry" >> "B_M_InfSquad"]],1],
+    // B_M_InfTeam, Огневая группа
+    [[[__cfg >> "Infantry" >> "B_M_InfTeam"]],0.5],
+    // B_M_InfSentry, Охрана
+    [[[__cfg >> "Infantry" >> "B_M_InfSentry"]],0.01],
+    //- Motorized, Мотопехота
+    // B_M_MotInf_Team, Моторизованная группа
+    [[[__cfg >> "Motorized" >> "B_M_MotInf_Team"]],1],
+    // B_M_MotInf_AT, Моторизованная противотанковая группа
+    [[[__cfg >> "Motorized" >> "B_M_MotInf_AT"]],0.4],
+    // Atlas_B_M_MotInf_Reinforcements, Моторизованные подкрепления
+    [[[__cfg >> "Motorized" >> "Atlas_B_M_MotInf_Reinforcements"]],0.1],
+    //- Mechanized, Механизированая пехота
+    // B_M_MechInfSquad, Механизированное стрелковое отделение
+    [[[__cfg >> "Mechanized" >> "B_M_MechInfSquad"]],1]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
+[_groups_map, west, "Atlas_BLU_M_F", _arr,
+	gosa_date_default, [275,999],
+	[]
+] call gosa_fnc_map_groups_add;
