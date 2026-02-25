@@ -6,6 +6,16 @@
 				<Original>Позиция для размещения объекта не найдена.</Original>
 				<English>Position for placing object not found.</English>
 			</Key>
+			<Key ID="STR_gosa_Task_Global">
+				<Original>Capture and defend.</Original>
+				<English>Capture and defend.</English>
+				<Russian>Захватить и защитить.</Russian>
+			</Key>
+			<Key ID="STR_gosa_Task_Global_LongText">
+				<Original>Capture and defend the area in the black circle.</Original>
+				<English>Capture and defend the area in the black circle.</English>
+				<Russian>Захватите и защитите область в черном круге.</Russian>
+			</Key>
 			<Key ID="STR_gosa_version">
 				<Original>v0.0.5.998</Original>
 			</Key>

@@ -1421,6 +1421,7 @@ class CfgFunctions
 		// Systems or unsorted.
 		class Systems
 		{
+			class initSimpleTask {};
 			class SSM_updateMenu {};
 			class setSquadRole {};
 			class menu_join {};

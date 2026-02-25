@@ -5,6 +5,9 @@
 private ["_str","_n","_arr","_arr0","_player","_side"];
 
 [player] call gosa_fnc_initBriefing;
+#ifndef __ARMA3__
+	[player] call gosa_fnc_initSimpleTask;
+#endif
 
 // playerSide не меняется самостоятельно.
 if (isMultiplayer) then {
