@@ -26,11 +26,17 @@ for "_i" from (0) to ((count (missionConfigFile/"Params")) - 1) do {
 missionNamespace setVariable ["enemyCoefficient", (missionNamespace getVariable "enemyCoefficient") / 100];
 
 _z = missionNamespace getVariable "gosa_Vehicle_in_Vehicle";
+	if (isNil "_z") then {
+		_z = 0;
+	};
 	if (_z == -1) then {
 		missionNamespace setVariable ["gosa_Vehicle_in_Vehicle", 0];
 	};
 
 _z = missionNamespace getVariable "gosa_gamemode_vr";
+	if (isNil "_z") then {
+		_z = 0;
+	};
 	if (_z < 0) then {
 		if (toLower worldName in ["vr"]) then {
 			_z = 1;
