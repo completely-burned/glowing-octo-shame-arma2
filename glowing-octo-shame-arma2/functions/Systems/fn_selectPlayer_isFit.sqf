@@ -5,7 +5,7 @@
  */
 
 private ["_n","_b","_t_om","_t_bl","_weapon","_veh","_str","_arr","_cfgWea",
-	"_obj","_side"];
+	"_obj","_side","_unit"];
 scopeName "root";
 
 // timeout за пределами карты.
@@ -14,45 +14,46 @@ _t_om = 25;
 _t_bl = 10;
 
 _cfgWea = LIB_cfgWea;
-_side = _this select 2;
+_unit = _this select 0;
 _sides_friendly = _this select 1;
+_side = _this select 2;
 
 if !(_side in _sides_friendly) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, Не дружественная сторона", _this];
 	false;
 };
 
-if (isNull _this) exitWith {
+if (isNull _unit) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1", _this];
 	false;
 };
 
-if !(isNil{_this getVariable "selectPlayerDisable"}) exitWith {
+if !(isNil{_unit getVariable "selectPlayerDisable"}) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, var selectPlayerDisable", _this];
 	false;
 };
 
-if (_this call gosa_fnc_isPlayer) exitWith {
+if (_unit call gosa_fnc_isPlayer) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, isPlayer", _this];
 	false;
 };
 
-if !(alive _this) exitWith {
+if !(alive _unit) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, not alive", _this];
 	false;
 };
 
-if (damage _this >= 0.9) exitWith {
+if (damage _unit >= 0.9) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, damage", _this];
 	false;
 };
 
-if (_this call gosa_fnc_isUAV) exitWith {
+if (_unit call gosa_fnc_isUAV) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, isUAV", _this];
 	false;
 };
 
-if (isNil{group _this getVariable "grp_created"}) exitWith {
+if (isNil{group _unit getVariable "grp_created"}) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, group not completed", _this];
 	false;
 };
@@ -97,7 +98,7 @@ if (isNil "gosa_player_needs_revival") then {
 };
 
 if (_b) then {
-	if (_this call gosa_fnc_withinMap) then {
+	if (_unit call gosa_fnc_withinMap) then {
 		_b = false;
 	};
 };
@@ -111,12 +112,12 @@ if (_b) exitWith {
 // TODO: Улучшить переключение на далёкий патруль.
 // TODO: Перенести в другую функцию с сортировкой по дистанции или приоритетом.
 // TODO: Заданий должно быть больше одноо.
-if (vehicle _this distance civilianBasePos > (safeSpawnDistance select 1)) then {
-	_obj = _this call gosa_fnc_assignedVeh;
-	if (_obj distance _this < 500 && canMove _obj) then {
+if (vehicle _unit distance civilianBasePos > (safeSpawnDistance select 1)) then {
+	_obj = _unit call gosa_fnc_assignedVeh;
+	if (_obj distance _unit < 500 && canMove _obj) then {
 		breakTo "root";
 	};
-	if !(isNil {group _this getVariable "patrol"}) then {
+	if !(isNil {group _unit getVariable "patrol"}) then {
 		_b = true;
 	};
 };
@@ -129,7 +130,7 @@ if (_b) exitWith {
 
 #ifndef __A2OA__
 // v1.11 Не передает управление игроку если юнит не локальный.
-if !(local _this) exitWith {
+if !(local _unit) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, not local", _this];
 	false;
 };
@@ -138,10 +139,10 @@ if !(local _this) exitWith {
 
 
 // черный список временный
-_n = _this getVariable "gosa_respawn_blt";
+_n = _unit getVariable "gosa_respawn_blt";
 if !(isNil "_n") then {
 	if (_n + _t_bl < time) then {
-		_this setVariable ["gosa_respawn_blt", nil];
+		_unit setVariable ["gosa_respawn_blt", nil];
 	} else {
 		_b = true;
 	};
@@ -153,20 +154,20 @@ if (_b) exitWith {
 };
 
 // TODO: Нужно реализовать десант с игроками тоже.
-if (group _this != group player) then {
-	if (vehicle _this isKindOf "StaticWeapon") exitWith {
+if (group _unit != group player) then {
+	if (vehicle _unit isKindOf "StaticWeapon") exitWith {
 		_b = true;
 	};
 
-	if (vehicle _this isKindOf "Air") exitWith {
+	if (vehicle _unit isKindOf "Air") exitWith {
 		_b = true;
 	};
 
-	if (vehicle _this isKindOf "Ship") exitWith {
+	if (vehicle _unit isKindOf "Ship") exitWith {
 		_b = true;
 	};
 	#ifdef __ARMA3__
-		if !(isNull isVehicleCargo vehicle _this) exitWith {
+		if !(isNull isVehicleCargo vehicle _unit) exitWith {
 			_b = true;
 		};		 
 	#endif
