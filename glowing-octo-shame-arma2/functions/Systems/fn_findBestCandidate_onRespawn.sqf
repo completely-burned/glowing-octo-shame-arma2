@@ -1,3 +1,6 @@
+/*
+ * TODO: gosa_fnc_selectPlayer_isFit вызывается слишком часто, можно пройтись 1 раз.
+ */
 
 private ["_bestCandidate","_grp","_sides_friendly","_pos",
 	"_sorted","_subordinate",
@@ -23,7 +26,7 @@ if (true) then {
 			_units = ([_arr select _i0] call gosa_fnc_sortUnits_onRank);
 			for "_i" from (count _units -1) to 0 step -1 do {
 				_obj = _units select _i;
-				if (_obj call gosa_fnc_selectPlayer_isFit) then {
+				if ([_obj, _sides_friendly, side _obj] call gosa_fnc_selectPlayer_isFit) then {
 					_bestCandidate = _obj;
 					breakTo "root";
 				};
@@ -33,7 +36,7 @@ if (true) then {
 		_units = ([units _grp] call gosa_fnc_sortUnits_onRank);
 		for "_i" from 0 to (count _units -1) do {
 			_obj = _units select _i;
-			if (_obj call gosa_fnc_selectPlayer_isFit) then {
+			if ([_obj, _sides_friendly, side _obj] call gosa_fnc_selectPlayer_isFit) then {
 				_bestCandidate = _obj;
 				breakTo "root";
 			};
@@ -55,7 +58,7 @@ if (true) then {
 					_units = ([_arr select _i0] call gosa_fnc_sortUnits_onRank);
 					for "_i" from (count _units -1) to 0 step -1 do {
 						_obj = _units select _i;
-						if (_obj call gosa_fnc_selectPlayer_isFit) then {
+						if ([_obj, _sides_friendly, side _obj] call gosa_fnc_selectPlayer_isFit) then {
 							_bestCandidate = _obj;
 							breakTo "root";
 						};
@@ -86,7 +89,7 @@ if (true) then {
 					_units = ([_arr] call gosa_fnc_sortUnits_onRank);
 					for "_i" from (count _units -1) to 0 step -1 do {
 						_obj = _units select _i;
-						if (_obj call gosa_fnc_selectPlayer_isFit) then {
+						if ([_obj, _sides_friendly, side _obj] call gosa_fnc_selectPlayer_isFit) then {
 							_bestCandidate = _obj;
 							breakTo "root";
 						};
@@ -108,7 +111,7 @@ if (true) then {
 				_units = ([_arr select _i0] call gosa_fnc_sortUnits_onRank);
 				for "_i" from (count _units -1) to 0 step -1 do {
 					_obj = _units select _i;
-					if (_obj call gosa_fnc_selectPlayer_isFit) then {
+					if ([_obj, _sides_friendly, side _obj] call gosa_fnc_selectPlayer_isFit) then {
 						_bestCandidate = _obj;
 						breakTo "root";
 					};
@@ -122,14 +125,14 @@ if (true) then {
 			_grp = (_sorted select _i select 0);
 			diag_log format ["Log: [respawnRandom] Ищем среди остальных групп %1", _grp];
 			_obj = leader _grp;
-			if (_obj call gosa_fnc_selectPlayer_isFit) then {
+			if ([_obj, _sides_friendly, side _obj] call gosa_fnc_selectPlayer_isFit) then {
 				_arr set [count _arr, _obj];
 			};
 		};
 		_units = ([_arr, _pos] call gosa_fnc_sortObjects_onDist);
 		for "_i" from 0 to (count _units -1) do {
 			_obj = (_units select _i);
-			if (_obj call gosa_fnc_selectPlayer_isFit) then {
+			if ([_obj, _sides_friendly, side _obj] call gosa_fnc_selectPlayer_isFit) then {
 				_bestCandidate = _obj;
 				breakTo "root";
 			};			
@@ -144,7 +147,7 @@ if (true) then {
 			_units = ([_arr select _i0] call gosa_fnc_sortUnits_onRank);
 			for "_i" from 0 to (count _units -1) do {
 				_obj = _units select _i;
-				if (_obj call gosa_fnc_selectPlayer_isFit) then {
+				if ([_obj, _sides_friendly, side _obj] call gosa_fnc_selectPlayer_isFit) then {
 					_bestCandidate = _obj;
 					breakTo "root";
 				};

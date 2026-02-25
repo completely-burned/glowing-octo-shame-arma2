@@ -5,7 +5,7 @@
  */
 
 private ["_n","_b","_t_om","_t_bl","_weapon","_veh","_str","_arr","_cfgWea",
-	"_obj","_pvp"];
+	"_obj","_side"];
 scopeName "root";
 
 // timeout за пределами карты.
@@ -14,14 +14,10 @@ _t_om = 25;
 _t_bl = 10;
 
 _cfgWea = LIB_cfgWea;
-_pvp = gosa_pvp;
-if (_pvp) then {
-	_sides_friendly = [gosa_playerSide];
-}else{
-	_sides_friendly = gosa_friendlyside;
-};
+_side = _this select 2;
+_sides_friendly = _this select 1;
 
-if !(side _this in _sides_friendly) exitWith {
+if !(_side in _sides_friendly) exitWith {
 	diag_log format ["Log: [fnc_selectPlayer_isFit] %1, Не дружественная сторона", _this];
 	false;
 };
@@ -113,6 +109,8 @@ if (_b) exitWith {
 
 
 // TODO: Улучшить переключение на далёкий патруль.
+// TODO: Перенести в другую функцию с сортировкой по дистанции или приоритетом.
+// TODO: Заданий должно быть больше одноо.
 if (vehicle _this distance civilianBasePos > (safeSpawnDistance select 1)) then {
 	_obj = _this call gosa_fnc_assignedVeh;
 	if (_obj distance _this < 500 && canMove _obj) then {
