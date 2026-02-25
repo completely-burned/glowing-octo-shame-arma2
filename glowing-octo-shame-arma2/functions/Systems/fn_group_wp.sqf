@@ -558,15 +558,17 @@ if({alive _x} count _units > 0)then{
 				};
 
 				// TODO: временное решение, для возобновления маршрута остановленных групп вне боя
-				if(count waypoints _grp > 0)then{
-					if (!_StopWP) then {
-						if (_NoCreateWP or !_CreateWP or !_DeleteWP) then {
-							if (isNil {_grp getVariable "patrol"}) then {
-								if (waypointPosition _wp distance civilianBasePos > gosa_locationSize) then {
-									diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 маршрут не на точке", _grp];
-									_NoCreateWP = false;
-									_CreateWP = true;
-									_DeleteWP = true;
+				if !("StaticWeapon" in _grp_type) then {
+					if(count waypoints _grp > 0)then{
+						if (!_StopWP) then {
+							if (_NoCreateWP or !_CreateWP or !_DeleteWP) then {
+								if (isNil {_grp getVariable "patrol"}) then {
+									if (waypointPosition _wp distance civilianBasePos > gosa_locationSize) then {
+										diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 маршрут не на точке", _grp];
+										_NoCreateWP = false;
+										_CreateWP = true;
+										_DeleteWP = true;
+									};
 								};
 							};
 						};
@@ -576,16 +578,18 @@ if({alive _x} count _units > 0)then{
 
 			if !(isNil {_grp getVariable "patrol"}) then {
 				// Отряду ии с подчиненным игроком нужен маршрут к миссии.
-				if({_x call gosa_fnc_isPlayer} count _units > 0)then{
-					diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 установлен маршрут патрулирования, сброс группы на атакующий тип", _grp];
-					_grp setVariable ["patrol", nil];
-					_NoCreateWP = false;
-					_CreateWP = true;
-					_DeleteWP = true;
+				if !("StaticWeapon" in _grp_type) then {
+					if({_x call gosa_fnc_isPlayer} count _units > 0)then{
+						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 установлен маршрут патрулирования, сброс группы на атакующий тип", _grp];
+						_grp setVariable ["patrol", nil];
+						_NoCreateWP = false;
+						_CreateWP = true;
+						_DeleteWP = true;
+					};
 				};
 				// Патрульные отряды можно отдать другим скриптам.
 				if (isNil {_grp getVariable "lambs_danger_enableGroupReinforce"}) then {
-					if !("Artillery" in _grp_type) then {
+					if (!("StaticWeapon" in _grp_type) && !("Artillery" in _grp_type))then {
 						_grp setVariable ["lambs_danger_enableGroupReinforce", true, true];
 					};
 				};
