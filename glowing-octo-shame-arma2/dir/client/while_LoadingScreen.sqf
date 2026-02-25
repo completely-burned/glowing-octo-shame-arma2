@@ -10,7 +10,7 @@ _timeOut = ((_this select 2) +time);
 // При любой ошибке в коде он не доходит до endLoadingScreen, поэтому используется scriptDone spawn
 _script = _this spawn {
 	private ["_timeOut","_resource","_condition","_progress_conditions","_arr",
-		"_progress","_progress_step","_code","_time_start","_n"];
+		"_progress","_progress_step","_code","_time_start","_n","_emptydoor"];
 	_resource = _this select 0;
 	// {}
 	_condition = _this select 1;
@@ -20,15 +20,25 @@ _script = _this spawn {
 
 	// TODO: Проверить на отказоустойчивость.
 	if !(call _condition) then {
+		// TODO: Функция скрытия.
+		if (configName(LIB_cfgVeh >> "BIS_alice_emptydoor") != "") then {
+			_emptydoor = "BIS_alice_emptydoor" createVehicleLocal getPos player;
+			gosa_emptydoor = _emptydoor;
+			player moveInCargo _emptydoor;
+			diag_log format ["Log: [LoadingScreen] _emptydoor, %1 moveInCargo %2", player, _emptydoor];
+		};
+
 		// Брифинг уже должен быть закрыт.
+		diag_log format ["Log: [LoadingScreen] waitUntil {time > 0}", nil];
 		waitUntil {time > 0};
 
 		if (isNil "BIS_fnc_startLoadingScreen") then {
-		startLoadingScreen _resource;
+			disableUserInput true;
+			startLoadingScreen _resource;
 		}else{
 			[_resource select 1] call BIS_fnc_startLoadingScreen;
 		};
-		diag_log format ["Log: [LoadingScreen] %1, startLoadingScreen %2", time, _this];
+		diag_log format ["Log: [LoadingScreen] %1, started %2", time, _this];
 		_progress = 0;
 
 		_time_start = time;
@@ -70,7 +80,8 @@ _script = _this spawn {
 waitUntil {scriptDone _script or time >= _timeOut};
 diag_log format ["Log: [LoadingScreen] %1, endLoadingScreen", time];
 if (isNil "BIS_fnc_endLoadingScreen") then {
-endLoadingScreen;
+	endLoadingScreen;
+	disableUserInput false;
 }else{
 	_resource select 1 call BIS_fnc_endLoadingScreen;
 };
