@@ -28,6 +28,7 @@ missionNamespace setVariable ["enemyCoefficient", (missionNamespace getVariable 
 _z = missionNamespace getVariable "gosa_Vehicle_in_Vehicle";
 	if (isNil "_z") then {
 		_z = 0;
+		missionNamespace setVariable ["gosa_Vehicle_in_Vehicle", _z];
 	};
 	if (_z == -1) then {
 		missionNamespace setVariable ["gosa_Vehicle_in_Vehicle", 0];
@@ -36,6 +37,7 @@ _z = missionNamespace getVariable "gosa_Vehicle_in_Vehicle";
 _z = missionNamespace getVariable "gosa_gamemode_vr";
 	if (isNil "_z") then {
 		_z = 0;
+		missionNamespace setVariable ["gosa_gamemode_vr", _z];
 	};
 	if (_z < 0) then {
 		if (toLower worldName in ["vr"]) then {
