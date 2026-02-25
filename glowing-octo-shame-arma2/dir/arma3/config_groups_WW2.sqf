@@ -1,5 +1,10 @@
 // LIB_RKKA
 _arr = [
+	// Boat
+	[[[["LIB_SOV_sergeant","LIB_SOV_smgunner","LIB_SOV_mgunner","LIB_SOV_grenadier","O_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
+		["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE"],[[],[],[],[],["LIB_SOV_rifleman"]]]
+	],0.1],
+
 	// LIB_SOV_P39_Group
 	[[[["LIB_P39","LIB_P39","LIB_P39","LIB_P39"],[[0,20,0],[20,0,0],[-20,0,0],[40,-20,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.5],
 	// LIB_SOV_Pe2_Group
@@ -90,6 +95,11 @@ _arr append [
 
 // LIB_WEHRMACHT
 _arr = [
+	// Boat
+	[[[["SG_sturmtrooper_unterofficer","SG_sturmtrooper_stggunner","SG_sturmtrooper_mgunner2","SG_sturmtrooper_ober_grenadier","B_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
+		["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE"],[[],[],[],[],["SG_sturmtrooper_rifleman"]]]
+	],0.1],
+
 	// LIB_GER_infantry_squad
 	[[[["LIB_GER_unterofficer","LIB_GER_mgunner","LIB_GER_medic","LIB_GER_scout_ober_rifleman","LIB_GER_ober_rifleman","LIB_GER_rifleman","LIB_GER_LAT_Rifleman","LIB_GER_ober_grenadier","LIB_GER_rifleman","LIB_GER_scout_rifleman"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
 	// LIB_GER_AT_squad
@@ -214,6 +224,11 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 
 // LIB_US_ARMY
 _arr = [
+	// Boat
+	[[[["LIB_US_SMGunner","LIB_US_SMGunner","LIB_US_MGunner","LIB_US_Grenadier","I_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
+		["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE"],[[],[],[],[],["LIB_US_Rifleman"]]]
+	],0.1],
+
 	// LIB_US_P47_Group
 	[[[["LIB_P47","LIB_P47","LIB_P47"],[[0,20,0],[20,0,0],[-20,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.5],
 	// LIB_Motorized_Infantry_Squad
@@ -325,6 +340,11 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 
 // LIB_UK_ARMY
 _arr = [
+	// Boat
+	[[[["LIB_UK_Sergeant","LIB_UK_Rifleman","LIB_UK_LanceCorporal","LIB_UK_Grenadier","I_Boat_Transport_01_F"],[[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0],[0,0,0]],
+		["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE"],[[],[],[],[],["LIB_UK_Rifleman"]]]
+	],0.1],
+
 	// LIB_UK_machine_gun_team
 	[[[["LIB_UK_Sergeant","LIB_UK_LanceCorporal","LIB_UK_Corporal","LIB_UK_Rifleman"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
 	// LIB_UK_infantry_squad
