@@ -125,10 +125,6 @@ if (count _this > 3) then {
 					_n = 0;
 					_arr0 select _i select 1 set [_i0, _n];
 				};
-				if ("Ship" in _arr) then {
-					_n = 0;
-					_arr0 select _i select 1 set [_i0, _n];
-				};
 				if ("Air" in _arr) then {
 					_n = 0;
 					_arr0 select _i select 1 set [_i0, _n];
