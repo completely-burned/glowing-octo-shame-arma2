@@ -15,9 +15,7 @@ if (isMultiplayer) then {
 
 // Заметки приходится добавлять для нового объекта снова.
 [_this select 0] call gosa_fnc_initBriefing;
-#ifndef __ARMA3__
-	[_this select 0] call gosa_fnc_initSimpleTask;
-#endif
+[_this select 0] call gosa_fnc_initSimpleTask;
 
 if (gosa_loglevel > 0 && !isNil "gosa_MARTA_showRules") then { //diag_log
 	_this select 0 setVariable ["MARTA_showRules", gosa_MARTA_showRules]; //diag_log
