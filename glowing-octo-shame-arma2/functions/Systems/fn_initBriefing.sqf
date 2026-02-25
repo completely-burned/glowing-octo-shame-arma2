@@ -10,6 +10,7 @@ _subject = "Diary";
 _textInfo = [localize "STR_gosa_Situation", localize "STR_gosa_Situation2"];
 
 _b = true;
+#ifdef __ARMA3__
 	_arr = _obj allDiaryRecords _subject;
 	scopeName "root";
 	for "_i" from 0 to (count _arr -1) do {
@@ -21,6 +22,7 @@ _b = true;
 			};
 		};
 	};
+#endif
 
 if (_b) then {
 	_obj createDiaryRecord [_subject, _textInfo];
