@@ -16,6 +16,16 @@
 				<English>Capture and defend the area in the black circle.</English>
 				<Russian>Захватите и защитите область в черном круге.</Russian>
 			</Key>
+			<Key ID="STR_gosa_Task_Chill">
+				<Original>Idler.</Original>
+				<English>Idler.</English>
+				<Russian>Бездельник.</Russian>
+			</Key>
+			<Key ID="STR_gosa_Task_Chill_LongText">
+				<Original>You have chosen the role of a civilian. They don't have a task, because they are only needed for compatibility with SP, so you can just mess around or choose the other side.</Original>
+				<English>You have chosen the role of a civilian. They don't have a task, because they are only needed for compatibility with SP, so you can just mess around or choose the other side.</English>
+				<Russian>Вы выбрали роль гражданского лица. У них нет задачи, потому что они нужны только для совместимости с SP, так что вы можете просто валять дурака или выбрать другую сторону.</Russian>
+			</Key>
 			<Key ID="STR_gosa_version">
 				<Original>v0.0.5.998</Original>
 			</Key>
