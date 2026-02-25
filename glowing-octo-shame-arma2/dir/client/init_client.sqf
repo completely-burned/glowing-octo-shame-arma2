@@ -4,6 +4,8 @@
  */
 private ["_str","_n","_arr","_arr0","_player","_side"];
 
+[player] call gosa_fnc_initBriefing;
+
 // playerSide не меняется самостоятельно.
 if (isMultiplayer) then {
 _side = side player;

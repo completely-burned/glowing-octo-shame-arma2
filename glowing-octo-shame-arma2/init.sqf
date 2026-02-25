@@ -39,7 +39,6 @@ if !(requiredVersion "1.60") then {
 
 	if (!IsDedicated) then {
 		[] execVM "dir\client\playerStartPos.sqf";
-		[] execVM "dir\client\briefing.sqf";
 	};
 
 	[] Call Compile preprocessFileLineNumbers "dir\common\params.sqf";

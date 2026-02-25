@@ -14,7 +14,7 @@ if (isMultiplayer) then {
 #endif
 
 // Заметки приходится добавлять для нового объекта снова.
-_this select 0 call gosa_fnc_initBriefing;
+[_this select 0] call gosa_fnc_initBriefing;
 
 if (gosa_loglevel > 0 && !isNil "gosa_MARTA_showRules") then { //diag_log
 	_this select 0 setVariable ["MARTA_showRules", gosa_MARTA_showRules]; //diag_log
