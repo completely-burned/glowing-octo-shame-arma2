@@ -65,6 +65,12 @@ _arr = [
 ];
 _pos_resp = _arr call gosa_fnc_findSafePos;
 
+if (count _pos_resp <= 0) exitWith {
+	diag_log format ["Log: [fnc_failoverGroup] _pos_resp %1", _pos_resp];
+	diag_log format ["Log: [fnc_failoverGroup] Законцились попытки поиска позиции для размещения отряда %1", _types];
+	_types
+};
+
 _groups = ([_pos_resp, _side, _grp1 select 0] call gosa_fnc_spawnGroup);
 for "_i" from 0 to (count _groups - 1) do {
 	_groups select _i setVariable ["grp_created", true, true];

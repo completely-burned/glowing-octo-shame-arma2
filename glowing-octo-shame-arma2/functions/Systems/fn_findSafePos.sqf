@@ -303,6 +303,6 @@ while {!_allowPos} do {
 };
 
 diag_log format ["gosa_fnc_findSafePos.sqf time %1", time - _run_timer];
-diag_log format ["gosa_fnc_findSafePos.sqf %1", [_testPos, _roads]];
+diag_log format ["gosa_fnc_findSafePos.sqf _r %1", _r];
 
 _r;
