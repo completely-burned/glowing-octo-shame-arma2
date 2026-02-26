@@ -11,6 +11,7 @@ if (isMultiplayer) then {
 	// В одиночной игре меню дублируется.
 	[_this select 0, "menu"] call BIS_fnc_addCommMenuItem;
 };
+	[_this select 0] call gosa_fnc_unit_addFlashlight;
 #endif
 
 // Заметки приходится добавлять для нового объекта снова.

@@ -1247,6 +1247,14 @@ class Params {
 		default = 1;
 	};
 
+	#ifdef __ARMA3__
+		class gosa_Flashlights {
+			title="MODULE: Flashlights";
+			values[] = {1,0};
+			texts[] = {STR_ENABLED,STR_DISABLED};
+			default = 1;
+		};
+	#endif
 	// Осветительные ракеты.
 	class gosa_flares {
 		title="MODULE: Flares";
@@ -1643,7 +1651,9 @@ class CfgFunctions
 			class createMenu_uavs {};
 			class interface_uav {};
 			class groups_get_factions {};
+			class unit_addFlashlight {};
 			#ifdef __ARMA3__
+				class unit_addWeapon {};
 				class eh_HandleDamage {};
 				class unit_addParachute {};
 			#endif

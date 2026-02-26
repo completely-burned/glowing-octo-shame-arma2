@@ -26,6 +26,7 @@ gosa_playerSide = _side;
 [] execVM "dir\client\while_markers.sqf";
 
 #ifdef __ARMA3__
+	[player] call gosa_fnc_unit_addFlashlight;
 	if (gosa_playerSide == sideLogic) then {
 		[] spawn gosa_fnc_spectator_init;
 	};
