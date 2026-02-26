@@ -125,6 +125,12 @@ if (gosa_playerSide == sideLogic) exitWith {
 [] execVM "dir\testing\while_act_laserBomb.sqf";
 [] spawn gosa_fnc_SSM_updateMenu;
 [] execVM "dir\client\while_survival.sqf";
+#ifdef __ARMA3__
+	_n = missionNamespace getVariable "gosa_setApertureNew_night";
+	if !(isNil "_n") then {
+		[_n] execVM "dir\client\while_aperture.sqf";
+	};
+#endif
 
 /*
 // TODO: Нужна функция.
