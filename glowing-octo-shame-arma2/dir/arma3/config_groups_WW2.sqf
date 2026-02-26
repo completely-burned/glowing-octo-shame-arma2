@@ -44,6 +44,15 @@ _arr = [
 	// LIB_SOV_JS2_43_Platoon
 	[[[["LIB_JS2_43","LIB_JS2_43"],[[0,0,0],[10,0,0]],["CAPTAIN","LIEUTENANT"]]],0.3]
 ];
+if (_landing in [1,2,23,24]) then {
+	_arr append [
+		// LIB_Li2
+		[[[["LIB_Li2"],[],[]],
+			[["LIB_SOV_scout_sergeant","LIB_SOV_scout_smgunner","LIB_SOV_scout_rifleman","LIB_SOV_scout_mgunner","LIB_SOV_scout_sniper","LIB_SOV_assault_smgunner","LIB_SOV_assault_smgunner","LIB_SOV_scout_smgunner","LIB_SOV_scout_smgunner","LIB_SOV_scout_smgunner","LIB_SOV_scout_smgunner"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
+		],0+0.1]
+	];
+};
+
 [_groups_map, east, "LIB_RKKA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1900,1950], [160,999],
 []
