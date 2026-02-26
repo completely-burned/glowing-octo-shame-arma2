@@ -35,7 +35,7 @@ if (configName (_cfgWea >> _str) isNotEqualTo "") then {
 	};
 	if (_n isEqualTo 2) then {
 		if (handgunWeapon _obj isEqualTo "") exitWith {
-			diag_log format ["Log: [fn_unit_addWeapon] %1 addWeapon %2", _obj, (_arr select _i)];
+			diag_log format ["Log: [fn_unit_addWeapon] %1 addWeapon %2", _obj, _str];
 			_obj addWeapon [_str, false];
 			for "_i" from 1 to 3 do {
 				if (_arr select _i isNotEqualTo "") then {
