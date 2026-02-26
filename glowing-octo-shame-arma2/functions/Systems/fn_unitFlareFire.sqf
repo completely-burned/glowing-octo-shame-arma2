@@ -101,7 +101,7 @@ for "_iW" from 0 to _iW_to do {
 										#ifdef __ARMA3__
 											_arr = ([_u, 50 + random 100, getDir _u -45 +random 90] call BIS_fnc_relPos);
 											_height = _ammo call gosa_fnc_flareHeight;
-											_height = _height + random (_height/3);
+											_height = _height +50 + random (_height/3);
 										#else
 											_arr = ([_u, 50, getDir _u] call BIS_fnc_relPos);
 											_height = (140 + random 20);
@@ -216,7 +216,7 @@ if (isNil "_obj") then {
 		_arr set [1, (_arr select 1) - _n + random _n0];
 
 		_n = _ammo call gosa_fnc_flareHeight;
-		_arr set [2, _n - (_n/4) + random (_n/2)];
+		_arr set [2, (_n - (_n/4) + random (_n/2)) +50];
 			/*
 			private _sound = "SN_Flare_Fired_4";
 			private _soundSourceClass = "SoundFlareLoop_F";
