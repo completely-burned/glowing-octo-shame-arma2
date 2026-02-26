@@ -12,7 +12,7 @@ ScopeName "Check";
 
 	#ifdef __ARMA3__
 		if (_str isEqualTo "nvgoggles") then {
-			if (_x isKindOf "SPE_Flashlight_base") then {
+			if (getNumber(_cfg >> _x >> "SPE_isFlashLight") > 0) then {
 				_str = "gosa_flashight";
 			};
 		};
