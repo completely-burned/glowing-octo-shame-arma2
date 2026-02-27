@@ -1,73 +1,96 @@
+//-- gm_pl_army, Poland
 [
-	// gm_pl_army_motorizedinfantly_squad_ural4320_cargo_80
-	[[[["gm_pl_army_ural4320_cargo_oli","gm_pl_army_squadleader_akm_80_Moro","gm_pl_army_rifleman_akm_80_Moro","gm_pl_army_machinegunner_pk_80_Moro","gm_pl_army_machinegunner_assistant_akm_pk_80_Moro","gm_pl_army_squadleader_akm_80_Moro","gm_pl_army_antitank_akm_rpg7_80_Moro","gm_pl_army_antitank_assistant_akm_rpg7_80_Moro","gm_pl_army_rifleman_akm_80_Moro","gm_pl_army_rifleman_akm_80_Moro"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0],
-	// gm_pl_army_motorizedinfantly_squad_bmp1sp2_80
-	[[[["gm_pl_army_bmp1sp2_oli","gm_pl_army_squadleader_akm_80_moro","gm_pl_army_rifleman_akm_80_moro","gm_pl_army_machinegunner_pk_80_moro","gm_pl_army_machinegunner_assistant_akm_pk_80_moro","gm_pl_army_squadleader_akm_80_moro","gm_pl_army_antitank_akm_rpg7_80_moro","gm_pl_army_antitank_assistant_akm_rpg7_80_moro","gm_pl_army_rifleman_akm_80_moro"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_motorizedinfantly_squad_ot64a_80
-	[[[["gm_pl_army_ot64a_oli","gm_pl_army_squadleader_akm_80_moro","gm_pl_army_rifleman_akm_80_moro","gm_pl_army_machinegunner_pk_80_moro","gm_pl_army_machinegunner_assistant_akm_pk_80_moro","gm_pl_army_squadleader_akm_80_moro","gm_pl_army_antitank_akm_rpg7_80_moro","gm_pl_army_antitank_assistant_akm_rpg7_80_moro","gm_pl_army_rifleman_akm_80_moro"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_supply_team_01
-	[[[["gm_pl_army_ural4320_repair_oli","gm_pl_army_ural375d_refuel_oli","gm_pl_army_ural4320_reammo_oli"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_2p16_oli
-	[[[["gm_pl_army_2p16_oli","gm_pl_army_2p16_oli"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_2s1_oli
-	[[[["gm_pl_army_2s1_oli","gm_pl_army_2s1_oli","gm_pl_army_2s1_oli"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_ural375d_mlrs_oli
-	[[[["gm_pl_army_ural375d_mlrs_oli","gm_pl_army_ural375d_mlrs_oli","gm_pl_army_ural375d_mlrs_oli","gm_pl_army_ural375d_mlrs_oli"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_pt76b_oli
-	[[[["gm_pl_army_pt76b_oli","gm_pl_army_pt76b_oli"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_t55a_oli
-	[[[["gm_pl_army_t55a_oli","gm_pl_army_t55a_oli","gm_pl_army_t55a_oli"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_zsu234v1_oli
-	[[[["gm_pl_army_zsu234v1_oli","gm_pl_army_zsu234v1_oli"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_brdm2_oli
-	[[[["gm_pl_army_brdm2_oli","gm_pl_army_brdm2_oli"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0],
-	// gm_pl_army_infantry_squad_80_moro
-	[[[["gm_pl_army_squadleader_akm_80_moro","gm_pl_army_rifleman_akm_80_moro","gm_pl_army_rifleman_akm_80_moro","gm_pl_army_machinegunner_pk_80_moro","gm_pl_army_machinegunner_assistant_akm_pk_80_moro","gm_pl_army_antitank_akm_rpg7_80_moro","gm_pl_army_antitank_assistant_akm_rpg7_80_moro","gm_pl_army_marksman_svd_80_moro","gm_pl_army_grenadier_akm_pallad_80_moro"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// gm_pl_army_infantry_mggroup_80_moro
-	[[[["gm_pl_army_squadleader_akm_80_moro","gm_pl_army_machinegunner_pk_80_moro","gm_pl_army_machinegunner_assistant_akm_pk_80_moro"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_infantry_atgroup_80_moro
-	[[[["gm_pl_army_squadleader_akm_80_moro","gm_pl_army_antitank_akm_rpg7_80_moro","gm_pl_army_antitank_assistant_akm_rpg7_80_moro"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_infantry_aagroup_80_moro
-	[[[["gm_pl_army_squadleader_akm_80_moro","gm_pl_army_antiair_akm_9k32m_80_moro","gm_pl_army_antiair_akm_9k32m_80_moro"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0],
-	// gm_pl_army_infantry_atgmgroup_80_moro
-	[[[["gm_pl_army_squadleader_akm_80_moro","gm_pl_army_antitank_akm_fagot_80_moro","gm_pl_army_rifleman_akm_80_moro"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_sf_infantry_specops_80_moro
-	[[[["gm_pl_army_sf_squadleader_akmn_80_moro","gm_pl_army_sf_machinegunner_rpk_80_moro","gm_pl_army_sf_marksman_svd_80_moro","gm_pl_army_sf_antitank_akmn_fagot_80_moro","gm_pl_army_sf_demolition_pm63_80_moro","gm_pl_army_sf_grenadier_akm_pallad_80_moro"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0]
+//- gm_motorizedinfantry_80, Motorized Infantry '80
+// gm_pl_army_motorizedinfantly_squad_ural4320_cargo_80, Squad (Truck gel. 5 Transport)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_motorizedinfantry_80" >> "gm_pl_army_motorizedinfantly_squad_ural4320_cargo_80"]],0],
+// gm_pl_army_motorizedinfantly_squad_bmp1sp2_80, Squad (BWP-1)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_motorizedinfantry_80" >> "gm_pl_army_motorizedinfantly_squad_bmp1sp2_80"]],0],
+// gm_pl_army_motorizedinfantly_squad_ot64a_80, Squad (SKOT-2A)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_motorizedinfantry_80" >> "gm_pl_army_motorizedinfantly_squad_ot64a_80"]],0],
+//- gm_infantry_80, Infantry '80
+// gm_pl_army_infantry_squad_80_moro, Squad
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_infantry_80" >> "gm_pl_army_infantry_squad_80_moro"]],0],
+// gm_pl_army_infantry_mggroup_80_moro, MG-Group
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_infantry_80" >> "gm_pl_army_infantry_mggroup_80_moro"]],0],
+// gm_pl_army_infantry_atgroup_80_moro, AT-Group
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_infantry_80" >> "gm_pl_army_infantry_atgroup_80_moro"]],0],
+// gm_pl_army_infantry_aagroup_80_moro, AA-Group
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_infantry_80" >> "gm_pl_army_infantry_aagroup_80_moro"]],0],
+// gm_pl_army_infantry_atgmgroup_80_moro, ATGM-Group
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_infantry_80" >> "gm_pl_army_infantry_atgmgroup_80_moro"]],0],
+// gm_pl_army_sf_infantry_specops_80_moro, Special Force
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_infantry_80" >> "gm_pl_army_sf_infantry_specops_80_moro"]],0],
+//- gm_artillery, Artillery
+// gm_platoon_gm_pl_army_2p16_oli, Battery (2P16)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_artillery" >> "gm_platoon_gm_pl_army_2p16_oli"]],0],
+// gm_platoon_gm_pl_army_2s1_oli, Platoon (2S1)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_artillery" >> "gm_platoon_gm_pl_army_2s1_oli"]],0],
+// gm_platoon_gm_pl_army_ural375d_mlrs_oli, Battery (BM-21)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_artillery" >> "gm_platoon_gm_pl_army_ural375d_mlrs_oli"]],0],
+//- gm_antitank, Anti Tank
+// gm_squad_gm_pl_army_brdm2_9p133_oli, Squad (9P133)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_antitank" >> "gm_squad_gm_pl_army_brdm2_9p133_oli"]],0],
+//- gm_supply, Supply
+// gm_pl_army_supply_team_01, Supply Convoy
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_supply" >> "gm_pl_army_supply_team_01"]],0],
+//- gm_recon, Recon
+// gm_platoon_gm_pl_army_brdm2_oli, Recon Patrol (BRDM-2)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_recon" >> "gm_platoon_gm_pl_army_brdm2_oli"]],0],
+//- gm_armored, Armored
+// gm_platoon_gm_pl_army_pt76b_oli, Platoon (PT-76B)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_armored" >> "gm_platoon_gm_pl_army_pt76b_oli"]],0],
+// gm_platoon_gm_pl_army_t55a_oli, Platoon (T-55A)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_armored" >> "gm_platoon_gm_pl_army_t55a_oli"]],0],
+//- gm_antiair, Air Defence
+// gm_platoon_gm_pl_army_zsu234v1_oli, Platoon (ZSU-23-4V1)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army" >> "gm_antiair" >> "gm_platoon_gm_pl_army_zsu234v1_oli"]],0]
 ];
-// gm_pl_army_win
+
+//-- gm_pl_army_win, Poland (Winter)
 [
-	// gm_pl_army_motorizedinfantly_squad_ural4320_cargo_80
-	[[[["gm_pl_army_ural4320_cargo_olw","gm_pl_army_squadleader_akm_80_win","gm_pl_army_rifleman_akm_80_win","gm_pl_army_machinegunner_pk_80_win","gm_pl_army_machinegunner_assistant_akm_pk_80_win","gm_pl_army_squadleader_akm_80_win","gm_pl_army_antitank_akm_rpg7_80_win","gm_pl_army_antitank_assistant_akm_rpg7_80_win","gm_pl_army_rifleman_akm_80_win","gm_pl_army_rifleman_akm_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[-20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0],
-	// gm_pl_army_motorizedinfantly_squad_bmp1sp2_80
-	[[[["gm_pl_army_bmp1sp2_olw","gm_pl_army_squadleader_akm_80_win","gm_pl_army_rifleman_akm_80_win","gm_pl_army_machinegunner_pk_80_win","gm_pl_army_machinegunner_assistant_akm_pk_80_win","gm_pl_army_squadleader_akm_80_win","gm_pl_army_antitank_akm_rpg7_80_win","gm_pl_army_antitank_assistant_akm_rpg7_80_win","gm_pl_army_rifleman_akm_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_motorizedinfantly_squad_ot64a_80
-	[[[["gm_pl_army_ot64a_olw","gm_pl_army_squadleader_akm_80_win","gm_pl_army_rifleman_akm_80_win","gm_pl_army_machinegunner_pk_80_win","gm_pl_army_machinegunner_assistant_akm_pk_80_win","gm_pl_army_squadleader_akm_80_win","gm_pl_army_antitank_akm_rpg7_80_win","gm_pl_army_antitank_assistant_akm_rpg7_80_win","gm_pl_army_rifleman_akm_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","SERGEANT","PRIVATE","CORPORAL","CORPORAL","SERGEANT","CORPORAL","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_supply_team_01
-	[[[["gm_pl_army_ural4320_repair_olw","gm_pl_army_ural375d_refuel_olw","gm_pl_army_ural4320_reammo_olw"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_2p16_olw
-	[[[["gm_pl_army_2p16_olw","gm_pl_army_2p16_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_2s1_olw
-	[[[["gm_pl_army_2s1_olw","gm_pl_army_2s1_olw","gm_pl_army_2s1_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_ural375d_mlrs_olw
-	[[[["gm_pl_army_ural375d_mlrs_olw","gm_pl_army_ural375d_mlrs_olw","gm_pl_army_ural375d_mlrs_olw","gm_pl_army_ural375d_mlrs_olw"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["SERGEANT","SERGEANT","SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_pt76b_olw
-	[[[["gm_pl_army_pt76b_olw","gm_pl_army_pt76b_olw"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_t55a_olw
-	[[[["gm_pl_army_t55a_olw","gm_pl_army_t55a_olw","gm_pl_army_t55a_olw"],[[0,0,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_zsu234v1_olw
-	[[[["gm_pl_army_zsu234v1_olw","gm_pl_army_zsu234v1_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0],
-	// gm_platoon_gm_pl_army_brdm2_olw
-	[[[["gm_pl_army_brdm2_olw","gm_pl_army_brdm2_olw"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0],
-	// gm_pl_army_infantry_squad_80_win
-	[[[["gm_pl_army_squadleader_akm_80_win","gm_pl_army_rifleman_akm_80_win","gm_pl_army_rifleman_akm_80_win","gm_pl_army_machinegunner_pk_80_win","gm_pl_army_machinegunner_assistant_akm_pk_80_win","gm_pl_army_antitank_akm_rpg7_80_win","gm_pl_army_antitank_assistant_akm_rpg7_80_win","gm_pl_army_marksman_svd_80_win","gm_pl_army_grenadier_akm_pallad_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// gm_pl_army_infantry_mggroup_80_win
-	[[[["gm_pl_army_squadleader_akm_80_win","gm_pl_army_machinegunner_pk_80_win","gm_pl_army_machinegunner_assistant_akm_pk_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_infantry_atgroup_80_win
-	[[[["gm_pl_army_squadleader_akm_80_win","gm_pl_army_antitank_akm_rpg7_80_win","gm_pl_army_antitank_assistant_akm_rpg7_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_infantry_aagroup_80_win
-	[[[["gm_pl_army_squadleader_akm_80_win","gm_pl_army_antiair_akm_9k32m_80_win","gm_pl_army_antiair_akm_9k32m_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL"]]],0],
-	// gm_pl_army_infantry_atgmgroup_80_win
-	[[[["gm_pl_army_squadleader_akm_80_win","gm_pl_army_antitank_akm_fagot_80_win","gm_pl_army_rifleman_akm_80_win"],[[0,0,0],[5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE"]]],0],
-	// gm_pl_army_sf_infantry_specops_80_win
-	[[[["gm_pl_army_sf_squadleader_akmn_80_win","gm_pl_army_sf_machinegunner_rpk_80_win","gm_pl_army_sf_marksman_svd_80_win","gm_pl_army_sf_antitank_akmn_fagot_80_win","gm_pl_army_sf_demolition_pm63_80_win","gm_pl_army_sf_grenadier_akm_pallad_80_win"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0]
+//- gm_motorizedinfantry_80, Motorized Infantry '80
+// gm_pl_army_motorizedinfantly_squad_ural4320_cargo_80, Squad (Truck gel. 5 Transport)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_motorizedinfantry_80" >> "gm_pl_army_motorizedinfantly_squad_ural4320_cargo_80"]],0],
+// gm_pl_army_motorizedinfantly_squad_bmp1sp2_80, Squad (BWP-1)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_motorizedinfantry_80" >> "gm_pl_army_motorizedinfantly_squad_bmp1sp2_80"]],0],
+// gm_pl_army_motorizedinfantly_squad_ot64a_80, Squad (SKOT-2A)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_motorizedinfantry_80" >> "gm_pl_army_motorizedinfantly_squad_ot64a_80"]],0],
+//- gm_infantry_80, Infantry '80
+// gm_pl_army_infantry_squad_80_win, Squad
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_infantry_80" >> "gm_pl_army_infantry_squad_80_win"]],0],
+// gm_pl_army_infantry_mggroup_80_win, MG-Group
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_infantry_80" >> "gm_pl_army_infantry_mggroup_80_win"]],0],
+// gm_pl_army_infantry_atgroup_80_win, AT-Group
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_infantry_80" >> "gm_pl_army_infantry_atgroup_80_win"]],0],
+// gm_pl_army_infantry_aagroup_80_win, AA-Group
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_infantry_80" >> "gm_pl_army_infantry_aagroup_80_win"]],0],
+// gm_pl_army_infantry_atgmgroup_80_win, ATGM-Group
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_infantry_80" >> "gm_pl_army_infantry_atgmgroup_80_win"]],0],
+// gm_pl_army_sf_infantry_specops_80_win, Special Force
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_infantry_80" >> "gm_pl_army_sf_infantry_specops_80_win"]],0],
+//- gm_artillery, Artillery
+// gm_platoon_gm_pl_army_2p16_olw, Battery (2P16)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_artillery" >> "gm_platoon_gm_pl_army_2p16_olw"]],0],
+// gm_platoon_gm_pl_army_2s1_olw, Platoon (2S1)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_artillery" >> "gm_platoon_gm_pl_army_2s1_olw"]],0],
+// gm_platoon_gm_pl_army_ural375d_mlrs_olw, Battery (BM-21)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_artillery" >> "gm_platoon_gm_pl_army_ural375d_mlrs_olw"]],0],
+//- gm_antitank, Anti Tank
+// gm_squad_gm_pl_army_brdm2_9p133_olw, Squad (9P133)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_antitank" >> "gm_squad_gm_pl_army_brdm2_9p133_olw"]],0],
+//- gm_supply, Supply
+// gm_pl_army_supply_team_01, Supply Convoy
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_supply" >> "gm_pl_army_supply_team_01"]],0],
+//- gm_recon, Recon
+// gm_platoon_gm_pl_army_brdm2_olw, Recon Patrol (BRDM-2)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_recon" >> "gm_platoon_gm_pl_army_brdm2_olw"]],0],
+//- gm_armored, Armored
+// gm_platoon_gm_pl_army_pt76b_olw, Platoon (PT-76B)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_armored" >> "gm_platoon_gm_pl_army_pt76b_olw"]],0],
+// gm_platoon_gm_pl_army_t55a_olw, Platoon (T-55A)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_armored" >> "gm_platoon_gm_pl_army_t55a_olw"]],0],
+//- gm_antiair, Air Defence
+// gm_platoon_gm_pl_army_zsu234v1_olw, Platoon (ZSU-23-4V1)
+[[[configFile >> "CfgGroups" >> "East" >> "gm_pl_army_win" >> "gm_antiair" >> "gm_platoon_gm_pl_army_zsu234v1_olw"]],0]
 ];
+

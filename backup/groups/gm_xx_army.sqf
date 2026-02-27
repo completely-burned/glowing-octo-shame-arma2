@@ -1,1 +1,11 @@
-["// configName gm_xx_army_infantry_squad_80",[[[["gm_xx_army_squadleader_m16a1_80_grn","gm_xx_army_rifleman_01_akm_alp","gm_xx_army_medic_01_mpikms72_m84","gm_xx_army_machinegunner_rpk_80_oli","gm_xx_army_assault_ak74nk_80_wdl","gm_xx_army_antitank_hk53a2_rpg7_80_oli","gm_xx_army_demolition_mp2a1_80_blk","gm_xx_army_marksman_svd_80_wdl","gm_xx_army_engineer_hk33a2_80_brn"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0],"// configName gm_xx_army_infantry_detachment_80",[[[["gm_xx_army_squadleader_m16a1_80_grn","gm_xx_army_machinegunner_rpk_80_oli","gm_xx_army_marksman_svd_80_wdl","gm_xx_army_antitank_hk53a2_rpg7_80_oli","gm_xx_army_medic_01_mpikms72_m84","gm_xx_army_assault_ak74nk_80_wdl"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0],"// configName gm_xx_army_infantry_post_80",[[[["gm_xx_army_assault_ak74nk_80_wdl","gm_xx_army_rifleman_01_akm_alp"],[[0,0,0],[5,-5,0]],["LIEUTENANT","SERGEANT"]]],0]]
+//-- gm_xx_army, Revolutionaries
+[
+//- gm_infantry_80, Infantry '80
+// gm_xx_army_infantry_squad_80, Squad
+[[[configFile >> "CfgGroups" >> "Indep" >> "gm_xx_army" >> "gm_infantry_80" >> "gm_xx_army_infantry_squad_80"]],0],
+// gm_xx_army_infantry_detachment_80, Detachment
+[[[configFile >> "CfgGroups" >> "Indep" >> "gm_xx_army" >> "gm_infantry_80" >> "gm_xx_army_infantry_detachment_80"]],0],
+// gm_xx_army_infantry_post_80, Post
+[[[configFile >> "CfgGroups" >> "Indep" >> "gm_xx_army" >> "gm_infantry_80" >> "gm_xx_army_infantry_post_80"]],0]
+];
+
