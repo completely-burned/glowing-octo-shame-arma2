@@ -47,6 +47,7 @@ _tmp_arr=[
 	["setGroupIconsVisible","","#USER:setGroupIconsVisible_0"],
 	[localize "STR_gosa_setTerrainGrid","","#USER:setTerrainGrid_0"],
 	[localize "STR_gosa_setViewDistance","","#USER:setViewDistance_0"],
+	["setApertureNew, night only","","#USER:gosa_setApertureNew_night_0"],
 
 	// TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
 	// 					_g selectLeader _p;
@@ -108,7 +109,40 @@ _list_BIS_FNC_createmenu = _tmp_arr call _list_BIS_FNC_createmenu2;
 	["-1","2000","2500","3000","3500","4000","4500","5000","5500","6000","6500","7000","7500","8000","8500","9000","9500","10000"]
 ], "","setViewDistance %1"] call BIS_FNC_createmenu;
 
-#ifndef __ARMA3__
+#ifdef __ARMA3__
+	["gosa_setApertureNew_night", "setApertureNew, night only", [[
+		[-1],
+		[4, 6, 9, 0.9],
+		[2, 8, 14, 0.9],
+			[2, 8, 14, 0.8],
+			[2, 8, 14, 0.7],
+			[2, 8, 14, 0.6],
+			[2, 8, 14, 0.5],
+			[2, 8, 14, 0.4],
+		[2, 5, 9, 0.8]
+			[2, 5, 9, 0.9],
+			[2, 5, 9, 0.7],
+			[2, 5, 9, 0.6],
+			[2, 5, 9, 0.5],
+			[2, 5, 9, 0.4],
+		[0.99, 0.99, 0.99, 0.9]],
+		["Default",
+		"[4, 6, 9, 0.9] VN_fnc_set_aperture_based_on_light_level",
+		"[2, 8, 14, 0.9] Simulate eye adjustment at night"
+			"[2, 8, 14, 0.8]",
+			"[2, 8, 14, 0.7]",
+			"[2, 8, 14, 0.6]",
+			"[2, 8, 14, 0.5]",
+			"[2, 8, 14, 0.4]",
+		"[2, 5, 9, 0.8] Narrower range for a subtler effect",
+			"[2, 5, 9, 0.9]",
+			"[2, 5, 9, 0.7]",
+			"[2, 5, 9, 0.6]",
+			"[2, 5, 9, 0.5]",
+			"[2, 5, 9, 0.4]",
+		"[0.99, 0.99, 0.99, 0.9]"
+	]], "","gosa_setApertureNew_night = %1"] call BIS_FNC_createmenu;
+#else
 BIS_MENU_GroupCommunication = [
 	["User menu",true],
 	[localize "str_more_menu", [2], "#USER:c_0", -5, [["expression", ""]], "1", "1"],
