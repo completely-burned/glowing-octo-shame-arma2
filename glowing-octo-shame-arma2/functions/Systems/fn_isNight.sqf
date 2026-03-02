@@ -7,10 +7,7 @@ private ["_arr"];
 	//[0,-1] - polar summer (i.e., no sunset)
 	if (_arr select 1 < 0) exitWith {false};
 #else
-	// FIXME: Для a2 нужно?
-	if (toLower worldName in ["hyde_sark","mcn_neaville"]) exitWith {
-		if (_this select 0 > 15.85 || _this select 0 < 7.5) then {true} else {false};
-	};
+	// FIXME: В A2 время восхода и заката одинаково для всех карт.
 	_arr = [5.5, 18.5];
 #endif
 
