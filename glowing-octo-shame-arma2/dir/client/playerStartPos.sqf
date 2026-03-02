@@ -29,6 +29,7 @@ _code = {(!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "
 	waitUntil {!isNil "gosa_playerSide"};
 	// FIXME: Можно не запускать при возрождении на базе.
 	[["Loading My Mission","RscDisplayLoadMission"], _code, _n, [
+		{!isNil "gosa_init_common_done"},
 		{!isNil "gosa_init_gameMode_done"},
 		{!isNil format["gosa_listHQ_%1", gosa_playerSide]},
 		{!isNil "gosa_list_LocationAirport"},
