@@ -47,7 +47,9 @@ _tmp_arr=[
 	["setGroupIconsVisible","","#USER:setGroupIconsVisible_0"],
 	[localize "STR_gosa_setTerrainGrid","","#USER:setTerrainGrid_0"],
 	[localize "STR_gosa_setViewDistance","","#USER:setViewDistance_0"],
+	#ifdef __ARMA3__
 	["setApertureNew, night only","","#USER:gosa_setApertureNew_night_0"],
+	#endif
 
 	// TODO: лидер переключаеся на ии снова в данном коде, возможно группа должна быть локальной или owner ии принадлежать игроку
 	// 					_g selectLeader _p;
