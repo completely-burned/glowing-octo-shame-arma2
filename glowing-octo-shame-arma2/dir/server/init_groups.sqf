@@ -56,11 +56,7 @@ _fnc6={
 	nil;
 };
 
-#ifdef __ARMA3__
-	[] call gosa_fnc_config_groups;
-#else
-[] call compile preprocessFileLineNumbers "dir\server\config_groups.sqf";
-#endif
+[] call gosa_fnc_config_groups;
 
 //AllGroupsWestOld 		= AllGroupsWest;
 //AllGroupsEastOld 		= AllGroupsEast;

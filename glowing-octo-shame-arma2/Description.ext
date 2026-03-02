@@ -1642,7 +1642,11 @@ class CfgFunctions
 		{
 			class config_groups
 			{
-				file = "dir\arma3\config_groups.sqf";
+				#ifdef __ARMA3__
+					file = "dir\arma3\config_groups.sqf";
+				#else
+					file = "dir\server\config_groups.sqf";
+				#endif
 			};
 		};
 	};
