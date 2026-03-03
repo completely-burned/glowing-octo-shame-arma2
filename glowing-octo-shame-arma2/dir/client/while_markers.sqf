@@ -396,6 +396,9 @@ if ((count _respawnMarkers
 {
 	diag_log format ["Log: [while_markers] no base", nil];
 	_pos = getArray(configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
+	if (count _pos <= 0) then {
+		_pos = getPos (allUnits select 0);
+	};
 	_marker = createMarkerLocal [format["respawn_%1",_side_str], _pos];
 	_respawnMarkers = [_marker];
 };
