@@ -1228,6 +1228,13 @@ class Params {
 			texts[] = {STR_ENABLED,STR_DISABLED};
 			default = 1;
 		};
+	#else
+		class gosa_I44_Module_tankPenetration {
+			title="MODULE: I44_Module_tankPenetration";
+			values[] = {1,0};
+			texts[] = {STR_ENABLED,STR_DISABLED};
+			default = 1;
+		};
 	#endif
 	// Осветительные ракеты.
 	class gosa_flares {
