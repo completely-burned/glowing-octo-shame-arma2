@@ -16,12 +16,12 @@ for game in ${games}; do
 			MAP=$(echo ${DIR} | sed -e 's/.*\.\(.*\)/\1/')
 			TMP=$(grep briefingName ${DIR}/mission.sqm)
 			#pbo_VERSION=$(echo ${TMP} | sed -e 's/.*".*gosa.* \(v.*[[:digit:]]\).*/\1/' -e 's/\./\-/gi')
-			pbo_VERSION="debug-rsync"
+			pbo_VERSION="debug"
 			SIDE=$(echo ${TMP} | sed -e 's/.*".*gosa.* .* \(.*\) v.*".*/\1/')
 			DLC2=$(echo ${TMP} | sed -e 's/.*"\(.*\)CO.*".*/\1/')
 			DLC=$(echo "${DLC2}" | sed -e 's/\ /_/gi')
 
-			TMPDIRNAME="${DLC,,}co_00_${NAME,,}-${game,,}-${SIDE,,}-${pbo_VERSION,,}.${MAP,,}"
+			TMPDIRNAME="${DLC,,}_${NAME,,}-${game,,}-${SIDE,,}-${pbo_VERSION,,}.${MAP,,}"
 
 			MISSION="${OUT}/${TMPDIRNAME}"
 
