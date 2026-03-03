@@ -21,7 +21,7 @@ for game in ${games}; do
 			DLC2=$(echo ${TMP} | sed -e 's/.*"\(.*\)CO.*".*/\1/')
 			DLC=$(echo "${DLC2}" | sed -e 's/\ /_/gi')
 
-			TMPDIRNAME="${DLC,,}_${NAME,,}-${game,,}-${SIDE,,}-${pbo_VERSION,,}.${MAP,,}"
+			TMPDIRNAME="${DLC,,}${NAME,,}-${game,,}-${SIDE,,}-${pbo_VERSION,,}.${MAP,,}"
 
 			MISSION="${OUT}/${TMPDIRNAME}"
 
