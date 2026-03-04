@@ -23,10 +23,10 @@ for "_i" from 0 to ((count _cfgVeh) - 1) do {
 			) then {
 				_libEnabled = [_entry] call gosa_fnc_libEnabled;
 				if (_libEnabled) then {
-					_vehicleClass = getText(_entry >> "vehicleclass");
-					if (_vehicleClass in ["MenStory"]) exitWith {};
+					_vehicleClass = toLower getText(_entry >> "vehicleclass");
+					if (_vehicleClass in ["menstory"]) exitWith {};
 					_true = false;
-					if (_vehicleClass in ["Ammo","ACE_Ammunition"]) then {
+					if (_vehicleClass in ["i44_ammo","backpacks","ammo","ace_ammunition"]) then {
 						_true = true;
 					};
 					_sim = toLower getText(_entry >> "simulation");

@@ -4,7 +4,7 @@
 
 private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 	"_arr","_count","_b","_cfg","_0","_1","_2","_3","_obj","_n","_allow",
-	"_mod_i44","_startingClass","_types_pilot","_types_mhq_virt","_str",
+	"_startingClass","_types_pilot","_types_mhq_virt","_str",
 	"_availableWeapons","_availableBackpacks",
 	"_availableVehicles","_availableMagazines",
 	"_menu_expression_default","_cfgVeh",
@@ -15,7 +15,6 @@ private ["_list_BIS_FNC_createmenu2","_list_BIS_FNC_createmenu","_tmp_arr",
 _cfgVeh = LIB_cfgVeh;
 _startingClass = gosa_playerStartingClass;
 _types_pilot = gosa_pilotL;
-_mod_i44 = if (configName(configFile >> "CfgVehicles" >> "I44_Man") != "") then{true}else{false};
 
 waitUntil{!isNil "BIS_FNC_createmenu"};
 waitUntil{!isNil "gosa_types_mhq_virt"};
@@ -183,7 +182,7 @@ waitUntil{!isNil "BIS_FNC_createmenu"};
 			"_expression","_coin"];
 		_list = _this select 0;
 		_current = _this select 1;
-		_coin = if (_current in ["StaticWeapon","Ammo","House","GhostPreview"]) then {true} else {false};
+		_coin = if (_current in ["StaticWeapon","Ammo","House","GhostPreview","i44_ammo","ace_ammunition"]) then {true} else {false};
 		if (missionNamespace getVariable "gosa_coin_v2" <= 0) then {_coin = false};
 
 		_items = []; _itemsName = [];
@@ -278,11 +277,7 @@ if (_b) then {
 		"_find_faction","_vehicleclasses","_find_vehicleclass",
 		"_count","_types","_vehicleclass"];
 
-		if (_mod_i44) then {
-			_allow = ["i44_ammo","backpacks"];
-		}else{
-			_allow = ["ammo","ace_ammunition","backpacks"];
-		};
+		_allow = ["i44_ammo","backpacks","ammo","ace_ammunition"];
 		_tmp_arr = [[],[],[]];
 		{
 
