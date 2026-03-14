@@ -94,7 +94,7 @@ if (count (_arr select 0) > 0) then {
 	if (_n >= 0) then {
 		_cost = _cost + ((_arr select 1 select _n)*2);
 	}else{
-		_n = (_arr select 0 find "LandLehicle");
+		_n = (_arr select 0 find "LandVehicle");
 		if (_n >= 0) then {
 			_cost = _cost + (_arr select 1 select _n);
 		};

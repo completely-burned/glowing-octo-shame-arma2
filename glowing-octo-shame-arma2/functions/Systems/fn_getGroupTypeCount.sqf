@@ -53,7 +53,7 @@ for "_i" from 0 to (count _units -1) do {
 		ADD
 	};
 
-	_z = "LandLehicle";
+	_z = "LandVehicle";
 	if(_veh_str isKindOf _z) then {
 		ADD
 	};

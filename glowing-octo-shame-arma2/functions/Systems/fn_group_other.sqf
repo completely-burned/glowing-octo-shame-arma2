@@ -486,7 +486,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		};
 
 		// Техника теперь не покидает строй, поэтому можно RED.
-		if ("LandLehicle" in _grp_type) then {
+		if ("LandVehicle" in _grp_type) then {
 			_CombatMode = "RED";
 		};
 

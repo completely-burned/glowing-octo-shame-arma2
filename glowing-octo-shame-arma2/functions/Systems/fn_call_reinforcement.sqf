@@ -164,7 +164,7 @@ if (count _this > 3) then {
 						_arr0 select _i select 1 set [_i0, _n];
 						breakTo "scope1";
 					};
-					if ("LandLehicle" in _arr) then {
+					if ("LandVehicle" in _arr) then {
 						_n = (_arr0 select _i select 1 select _i0) / 20;
 						_arr0 select _i select 1 set [_i0, _n];
 						breakTo "scope1";
