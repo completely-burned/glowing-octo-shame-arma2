@@ -129,7 +129,7 @@ _list_BIS_FNC_createmenu = _tmp_arr call _list_BIS_FNC_createmenu2;
 		[0.99, 0.99, 0.99, 0.9]],
 		["Default",
 		"[4, 6, 9, 0.9] VN_fnc_set_aperture_based_on_light_level",
-		"[2, 8, 14, 0.9] Simulate eye adjustment at night"
+		"[2, 8, 14, 0.9] Simulate eye adjustment at night",
 			"[2, 8, 14, 0.8]",
 			"[2, 8, 14, 0.7]",
 			"[2, 8, 14, 0.6]",
