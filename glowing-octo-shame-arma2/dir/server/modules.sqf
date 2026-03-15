@@ -12,6 +12,8 @@ _grp = gosa_grpLogic;
 	{
 		// FIXME: Эта функция просто делает I44_tankPenetration = true;
 		_z = (_grp) createUnit ["__str",[1000,10,0],[],0,"NONE"];
+		gosa_module___str = _z;
+		publicVariable "gosa_module___str";
 		diag_log format ["Log: [modules] __str %1 created", _z];
 	}else{
 		// Error Undefined variable in expression: i44_tankpenetration
