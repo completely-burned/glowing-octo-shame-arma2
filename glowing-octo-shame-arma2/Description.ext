@@ -89,6 +89,19 @@ class Params {
 		default=1;
 	};
 
+	class gosa_Multiplier_LandVehicle {
+		title = "UNITS: Multiplier Land vehicles [gp]";
+		values[] = {-1,0.00,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		texts[] = {STR_DEFAULT,STR_DISABLED,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		default = -1;
+	};
+	class gosa_Multiplier_Amphibious {
+		title = "UNITS: Multiplier Amphibious vehicles [gp]";
+		values[] = {-1,0.00,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		texts[] = {STR_DEFAULT,STR_DISABLED,0.25,0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50,2.75,3.00,3.25,3.50,3.75,4.00};
+		default = -1;
+	};
+
 	// Множитель отрядов пехоты, в том числе в отряде с тс.
 	// TODO: Отсеять тс.
 	class Man {
@@ -1503,6 +1516,7 @@ class CfgFunctions
 			class map_groups_add {};
 			class arr_fix_configName {};
 			class filtering_squads_byAvail_v2 {};
+			class getWaterCoefficient {};
 			class getDepthAverage {};
 			class findStartingPos {};
 			class skill_normalize_CfgAISkill {};

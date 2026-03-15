@@ -165,6 +165,11 @@ for "_i" from 0 to (count _units -1) do {
 		ADD
 	};
 
+	_z = "Amphibious";
+	if (getNumber(_entry >> "canFloat") > 0) then {
+		ADD
+	};
+
 	_z = "Loiter";
 	for "_i0" from 0 to (count _Loiter -1) do {
 		if (_veh_str isKindOf (_Loiter select _i0)) then {

@@ -11,6 +11,7 @@ private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams","_obj",
 	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
 	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat","_n0",
 	"_positions_static","_withinMap","_grp_current",
+	"_arr1","_mAmphibious","_mLandVehicle",
 	"_pos_resp","_pos","_typeList","_patrol","_dir","_n"];
 
 _side = _this select 0;
@@ -86,6 +87,39 @@ if ([daytime - 1] call gosa_fnc_isNight) then {
 		};
 	};
 };
+
+//- LandVehicle + Амфибии.
+_mAmphibious = missionNamespace getVariable "gosa_Multiplier_Amphibious";
+_mLandVehicle = missionNamespace getVariable "gosa_Multiplier_LandVehicle";
+if (_mAmphibious == -1) then {
+	// FIXME: Считывать 1 раз при старте миссии.
+	_n0 = ([[0,0],gosa_worldSize] call gosa_fnc_getWaterCoefficient select 0);
+};
+for "_i" from 0 to (count _arr0 -1) do {
+	for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
+		_arr = _arr0 select _i select 0 select _i0;
+		_arr = ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
+		// TODO: Учитывать смешанные отряды.
+		if ("LandVehicle" in _arr) then {
+			if ("Amphibious" in _arr) then {
+				if (_mAmphibious == -1) then {
+					// TODO: Должно быть чтото вроде: _n = _n * (_n0 * глобальное_соотношение_LandVehicle_и_Amphibious). Но я не понимаю.
+					_n = (_arr0 select _i select 1 select _i0) * (1 + _n0);
+				}else{
+					_n = (_arr0 select _i select 1 select _i0) * _mAmphibious;
+				};
+			}else{
+				if (_mLandVehicle == -1) then {
+					_n = (_arr0 select _i select 1 select _i0) * (1 - _n0);
+				}else{
+					_n = (_arr0 select _i select 1 select _i0) * _mLandVehicle;
+				};
+			};
+			_arr0 select _i select 1 set [_i0, _n];
+		};
+	};
+};
+
 
 //- Учёт присутствующих отрядов.
 if (count _this > 3) then {
