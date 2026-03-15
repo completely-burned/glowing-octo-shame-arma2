@@ -10,10 +10,11 @@
  * TODO: так-же можно проверять фонари, пожар и прочие источники света
  */
 private ["_magazines","_max","_ammo","_mag","_arr","_str","_obj","_type",
-	"_cfgMag","_cfgAmm","_cfgVeh","_cfgWea","_crew","_exit"];
+	"_cfgMag","_cfgAmm","_cfgVeh","_cfgWea","_crew","_exit","_weapons"];
 
 if (typeName _this == typeName "") then {
 	_type = _this;
+	_obj = objNull;
 }else{
 	_obj = _this;
 	_type = typeOf _obj;
@@ -27,37 +28,32 @@ if (getNumber(_cfgVeh >> _type >> "isMan") <= 0) then {
 
 //- ПНВ.
 if (isNil "_crew") then {
-	if (isNil "_obj") then {
+	if (isNull _obj) then {
 		#ifdef __ARMA3__
-		if ([_cfgWea, getArray(_cfgVeh >> _type >> "linkedItems"), "simulation", "NVGoggles"] call gosa_fnc_check_config_use) then
+			_weapons = getArray(_cfgVeh >> _type >> "linkedItems");
 		#else
-		if ([_cfgWea, getArray(_cfgVeh >> _type >> "weapons"), "simulation", "NVGoggles"] call gosa_fnc_check_config_use) then
+			_weapons = getArray(_cfgVeh >> _type >> "weapons");
 		#endif
-		{
-			diag_log format ["Log: [fnc_canSee] 6, NVGoggles, %1", _type];
-			_exit = 6;
-		};
 	}else{
+		_weapons = weapons _obj;
 		#ifdef __ARMA3__
-		if ([_cfgWea, [hmd _obj], "simulation", "NVGoggles"] call gosa_fnc_check_config_use) then
-		#else
-		if ([_cfgWea, weapons _obj, "simulation", "NVGoggles"] call gosa_fnc_check_config_use) then
+			_str = hmd _obj;
+			if (_str isNotEqualTo "") then {
+				_weapons pushBack _str;
+			};
 		#endif
-		{
-			diag_log format ["Log: [fnc_canSee] 6, NVGoggles, %1", _obj];
-			_exit = 6;
-		};
 	};
 }else{
 	#ifdef __ARMA3__
-	if ([_cfgWea, getArray(_cfgVeh >> _crew >> "linkedItems"), "simulation", "NVGoggles"] call gosa_fnc_check_config_use) then
+		_weapons = getArray(_cfgVeh >> _crew >> "linkedItems");
 	#else
-	if ([_cfgWea, getArray(_cfgVeh >> _crew >> "weapons"), "simulation", "NVGoggles"] call gosa_fnc_check_config_use) then
+		_weapons = getArray(_cfgVeh >> _crew >> "weapons");
 	#endif
-	{
-			diag_log format ["Log: [fnc_canSee] 6, NVGoggles, %1", _type];
-			_exit = 6;
-	};
+};
+
+if ([_cfgWea, _weapons, "simulation", "NVGoggles"] call gosa_fnc_check_config_use) then {
+	diag_log format ["Log: [fnc_canSee] 6, NVGoggles, %1", [_obj, _type]];
+	_exit = 6;
 };
 if !(isNil "_exit") exitwith {_exit};
 
@@ -78,12 +74,24 @@ if !(isNil "_exit") exitwith {_exit};
 	if !(isNil "_exit") exitwith {_exit};
 #endif
 
+//- Фонарики.
+if !(_type isKindOf "Air") then {
+	for "_i" from 0 to (count _weapons -1) do {
+		// VN
+		if (count getArray(_cfgWea >> _weapons select _i >> "FlashLight" >> "color") >= 3) exitwith {
+			_exit = 2;
+			diag_log format ["Log: [fnc_canSee] %1, _cfgWea >> FlashLight", _exit];
+		};
+	};
+};
+if !(isNil "_exit") exitwith {_exit};
+
 _max = 0;
 if !(_type isKindOf "Air") then {
 	_cfgMag = configfile >> "cfgMagazines";
 	_cfgAmm = LIB_cfgAmm;
 	if (isNil "_crew") then {
-		if (isNil "_obj") then {
+		if (isNull _obj) then {
 			_magazines = getArray(_cfgVeh >> _type >> "magazines");
 		}else{
 			_magazines = magazines _this;
