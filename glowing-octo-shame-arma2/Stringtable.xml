@@ -27,7 +27,7 @@
 				<Russian>Вы выбрали роль гражданского лица. У них нет задачи, потому что они нужны только для совместимости с SP, так что вы можете просто валять дурака или выбрать другую сторону.</Russian>
 			</Key>
 			<Key ID="STR_gosa_version">
-				<Original>v0.0.5.998</Original>
+				<Original>v0.0.5.999</Original>
 			</Key>
 			<Key ID="STR_ACT_Crew">
 				<Original>Crew</Original>
