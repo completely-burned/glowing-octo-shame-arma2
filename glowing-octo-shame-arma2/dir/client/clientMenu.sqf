@@ -111,7 +111,7 @@ _list_BIS_FNC_createmenu = _tmp_arr call _list_BIS_FNC_createmenu2;
 ], "","setViewDistance %1"] call BIS_FNC_createmenu;
 
 #ifdef __ARMA3__
-	["gosa_setApertureNew_night", "setApertureNew, night only", [[
+	["gosa_setApertureNew_night", "gosa_setApertureNew_night", [[
 		[-1],
 		[4, 6, 9, 0.9],
 		[2, 8, 14, 0.9],
