@@ -94,7 +94,7 @@ if !(_type isKindOf "Air") then {
 		if (isNull _obj) then {
 			_magazines = getArray(_cfgVeh >> _type >> "magazines");
 		}else{
-			_magazines = magazines _this;
+			_magazines = magazines _obj;
 		};
 	}else{
 			_magazines = getArray(_cfgVeh >> _crew >> "magazines");
