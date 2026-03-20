@@ -43,6 +43,7 @@ if (configName (_cfgWea >> _str) isNotEqualTo "") then {
 					_obj addHandgunItem (_arr select _i);
 				};
 			};
+			breakTo "root";
 		};
 	};
 
