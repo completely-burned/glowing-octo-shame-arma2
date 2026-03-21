@@ -215,7 +215,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName="VN CO 00 gosa dong_giang Multi v0.0.5.1001 DEBUG";
+		briefingName="VN CO 00 gosa dong_giang Multi v0.0.5.1002 DEBUG";
 		startWeather=0.2;
 		startWind=0.1;
 		startWaves=0.1;
