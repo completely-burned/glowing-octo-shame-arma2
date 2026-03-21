@@ -4,17 +4,17 @@ private ["_z","_grp"];
 #endif
 waitUntil {!isNil "gosa_grpLogic"};
 _grp = gosa_grpLogic;
+diag_log format ["Log: [modules] waitUntil post, %1, %2", _grp, time];
 
 #ifndef __ARMA3__
-	#define __str I44_Module_tankPenetration
-	if (missionNamespace getVariable "gosa___str" > 0
-		&& configName(configFile >> "CfgVehicles" >> "__str") != "") then
+	if (missionNamespace getVariable "gosa_I44_Module_tankPenetration" > 0
+		&& configName(configFile >> "CfgVehicles" >> "I44_Module_tankPenetration") != "") then
 	{
 		// FIXME: Эта функция просто делает I44_tankPenetration = true;
-		_z = (_grp) createUnit ["__str",[1000,10,0],[],0,"NONE"];
-		gosa_module___str = _z;
-		publicVariable "gosa_module___str";
-		diag_log format ["Log: [modules] __str %1 created", _z];
+		_z = (_grp) createUnit ["I44_Module_tankPenetration",[1000,10,0],[],0,"NONE"];
+		gosa_module_I44_Module_tankPenetration = _z;
+		publicVariable "gosa_module_I44_Module_tankPenetration";
+		diag_log format ["Log: [modules] I44_Module_tankPenetration %1 created", _z];
 	}else{
 		// Error Undefined variable in expression: i44_tankpenetration
 		// File x\inv44\addons\i44_scripts_vehicles\s\post_init.sqf, line 3
@@ -28,14 +28,18 @@ _grp = gosa_grpLogic;
 // пока сделаю просто задержку инициализации, нет необходимости срочном запуске модуля
 waitUntil {time > 15};
 // военные обозначения
-#define __str MartaManager
-if (missionNamespace getVariable "gosa___str" > 0
-	or (missionNamespace getVariable "gosa___str" == -1 && cadetMode)) then
+if ((missionNamespace getVariable "gosa_MartaManager" > 0
+	or (missionNamespace getVariable "gosa_MartaManager" == -1 && cadetMode))
+	&& configName(configFile >> "CfgVehicles" >> "MartaManager") != "") then
 {
-	_z = (_grp) createUnit ["__str",[1000,10,0],[],0,"NONE"];
+		diag_log format ["Log: [modules] MartaManager create", time];
+	_z = (_grp) createUnit ["MartaManager",[1000,10,0],[],0,"NONE"];
 	_z setVariable ["duration", 60, true];
 	//--- 3 цвета
-	if (missionNamespace getVariable "gosa___str" == 3) then {
+	if (missionNamespace getVariable "gosa_MartaManager" == 3) then {
 		_z setVariable ["disableEnemyColors", true, true];
 	};
+		diag_log format ["Log: [modules] MartaManager %1 created", _z];
 };
+
+diag_log format ["Log: [modules] end %1", time];
