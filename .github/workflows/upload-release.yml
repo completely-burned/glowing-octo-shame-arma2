@@ -12,25 +12,24 @@ jobs:
       - name: Dependencies
         uses: daaku/gh-action-apt-install@v4
         with:
-          packages: rsync sed rdfind liblingua-translit-perl transmission-cli ctorrent
+          packages: rsync sed rdfind liblingua-translit-perl transmission-cli ctorrent wget
 
-      - name: curl depbo-tools
-        uses: sozo-design/curl@v1.0.2
-        with:
-          args: -O https://mikero.bytex.digital/api/download?filename=depbo-tools-0.10.13-linux-amd64.tgz
+      - name: get depbo-tools
+        run: wget https://mikero.bytex.digital/api/download?filename=depbo-tools-0.10.13-linux-amd64.tgz
       - name: Extract depbo-tools
-        uses: a7ul/tar-action@v1.1.0
-        id: extract
-        with:
-          command: x
-          files: *.tgz
+        run: tar -xf depbo*
+      - name: mv depbo-tools
+        run: mv depbo* depbo-tools
 
       - name: gosa checkout
         uses: actions/checkout@v4
 
       - name: Set Path
         run: |
-          echo "/lib64/bin" >> $GITHUB_PATH
+          echo "depbo-tools/bin" >> $GITHUB_PATH
+      - name: Set Path
+        run: |
+          echo "depbo-tools/lib64" >> $GITHUB_PATH
       - name: gosa build
         run: bash ./tools/build_pbo_linux.sh -ltza
 
