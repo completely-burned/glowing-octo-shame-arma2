@@ -20,7 +20,7 @@ jobs:
         run: tar -xf depbo*
 
       - name: rm depbo-tools tar
-        run: rm depbo*
+        run: find $PWD -maxdepth 1 -type f -name 'depbo*' -delete
 
       - name: mv depbo
         run: mv $PWD/depbo* $PWD/depbo-tools
