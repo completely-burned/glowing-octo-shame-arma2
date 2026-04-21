@@ -23,7 +23,7 @@ jobs:
         id: extract
         with:
           command: x
-          files: depbo-tools-0.10.13-linux-amd64.tgz
+          files: *.tgz
 
       - name: gosa checkout
         uses: actions/checkout@v4
