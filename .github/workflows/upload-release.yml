@@ -24,12 +24,15 @@ jobs:
       - name: gosa checkout
         uses: actions/checkout@v4
 
+      - name: Get PWD
+        run: |
+          echo $PWD
       - name: Set Path
         run: |
-          echo "$PWD/depbo-tools/lib" >> $GITHUB_PATH
+          echo "$PWD/depbo-tools/lib" >> "$GITHUB_PATH"
       - name: Set Path
         run: |
-          echo "$PWD/depbo-tools/bin" >> $GITHUB_PATH
+          echo "$PWD/depbo-tools/bin" >> "$GITHUB_PATH"
       - name: Get Path
         run: |
           echo $GITHUB_PATH
