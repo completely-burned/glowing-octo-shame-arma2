@@ -17,7 +17,7 @@ jobs:
       - name: curl depbo-tools
         uses: sozo-design/curl@v1.0.2
         with:
-          args: https://mikero.bytex.digital/api/download?filename=depbo-tools-0.10.13-linux-amd64.tgz
+          args: -O https://mikero.bytex.digital/api/download?filename=depbo-tools-0.10.13-linux-amd64.tgz
       - name: Extract depbo-tools
         uses: a7ul/tar-action@v1.1.0
         id: extract
