@@ -20,10 +20,6 @@ jobs:
         run: tar -xf depbo*
       - name: mv depbo-tools/bin
         run: mv depbo*/bin/* /usr/local/bin/
-      - name: mv depbo-tools/lib
-        run: mv depbo*/lib/* /usr/local/lib/
-      - name: ldconfig
-        run: ldconfig /usr/local/lib
 
       - name: gosa checkout
         uses: actions/checkout@v4
