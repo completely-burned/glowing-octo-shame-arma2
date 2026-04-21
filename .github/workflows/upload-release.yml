@@ -26,10 +26,10 @@ jobs:
 
       - name: Set Path
         run: |
-          echo "depbo-tools/bin" >> $GITHUB_PATH
+          echo "$PWD/depbo-tools/lib" >> $GITHUB_PATH
       - name: Set Path
         run: |
-          echo "depbo-tools/lib" >> $GITHUB_PATH
+          echo "$PWD/depbo-tools/bin" >> $GITHUB_PATH
       - name: gosa build
         run: bash ./tools/build_pbo_linux.sh -ltza
 
