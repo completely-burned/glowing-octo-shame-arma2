@@ -18,20 +18,12 @@ jobs:
         run: wget -O depbo-tools.tgz https://mikero.bytex.digital/api/download?filename=depbo-tools-0.10.13-linux-amd64.tgz
       - name: Extract depbo-tools
         run: tar -xf depbo*
-      - name: mv depbo-tools
-        run: mv depbo*/ depbo-tools
-      - name: Get PWD
-        run: |
-          echo $PWD
-      - name: Set Path
-        run: |
-          echo "$PWD/depbo-tools/lib" >> "$GITHUB_PATH"
-      - name: Set Path
-        run: |
-          echo "$PWD/depbo-tools/bin" >> "$GITHUB_PATH"
-      - name: Get Path
-        run: |
-          echo $PATH
+      - name: mv depbo-tools/bin
+        run: mv depbo*/bin/* /usr/local/bin/
+      - name: mv depbo-tools/lib
+        run: mv depbo*/lib/* /usr/local/lib/
+      - name: ldconfig
+        run: ldconfig /usr/local/lib
 
       - name: gosa checkout
         uses: actions/checkout@v4
