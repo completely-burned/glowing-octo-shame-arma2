@@ -19,6 +19,12 @@ jobs:
       - name: Extract depbo-tools
         run: tar -xf depbo*
 
+      - name: rm depbo-tools tar
+        run: rm depbo*
+
+      - name: mv depbo
+        run: mv $PWD/depbo* $PWD/depbo-tools
+
       - name: find PWD
         run: find $PWD
 
