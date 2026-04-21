@@ -15,7 +15,7 @@ jobs:
           packages: rsync sed rdfind liblingua-translit-perl transmission-cli ctorrent wget
 
       - name: get depbo-tools
-        run: wget https://mikero.bytex.digital/api/download?filename=depbo-tools-0.10.13-linux-amd64.tgz
+        run: wget -O depbo-tools.tgz https://mikero.bytex.digital/api/download?filename=depbo-tools-0.10.13-linux-amd64.tgz
       - name: Extract depbo-tools
         run: tar -xf depbo*
       - name: mv depbo-tools
