@@ -19,7 +19,7 @@ jobs:
       - name: Extract depbo-tools
         run: tar -xf depbo*
       - name: mv depbo-tools
-        run: mv depbo* depbo-tools
+        run: mv depbo*/ depbo-tools
 
       - name: gosa checkout
         uses: actions/checkout@v4
@@ -29,7 +29,7 @@ jobs:
           echo "depbo-tools/bin" >> $GITHUB_PATH
       - name: Set Path
         run: |
-          echo "depbo-tools/lib64" >> $GITHUB_PATH
+          echo "depbo-tools/lib" >> $GITHUB_PATH
       - name: gosa build
         run: bash ./tools/build_pbo_linux.sh -ltza
 
