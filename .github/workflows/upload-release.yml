@@ -14,25 +14,53 @@ jobs:
         with:
           packages: rsync sed rdfind liblingua-translit-perl transmission-cli ctorrent wget
 
-      - name: get depbo-tools
+
+      - name: depbo-tools get
         run: wget -O depbo-tools.tgz https://mikero.bytex.digital/api/download?filename=depbo-tools-0.10.13-linux-amd64.tgz
-      - name: Extract depbo-tools
+      - name: depbo-tools Extract
         run: tar -xf depbo*
-      - name: rm depbo-tools tar
+      - name: depbo-tools rm tar
         run: find $PWD -maxdepth 1 -type f -name 'depbo*' -delete
-      - name: mv depbo
-        run: mv $PWD/depbo* $PWD/depbo-tools
+
+      - name: depbo-tools Create package structure
+        run: |
+          mkdir -p mypackage/DEBIAN
+          mkdir -p mypackage/usr/bin
+          mkdir -p mypackage/usr/lib
+      - name: depbo-tools mv bin
+        run: mv depbo*/bin mypackage/usr/
+      - name: depbo-tools mv lib
+        run: mv depbo*/lib mypackage/usr/
+
+      - name: depbo-tools Create control file
+        run: |
+          cat > mypackage/DEBIAN/control << EOF
+Package: depbo-tools
+Version: 0.10.13
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: libc6
+Maintainer: in7j0 <205167430+in7j0@users.noreply.github.com>
+Description: depbo-tools
+EOF
+
+      - name: depbo-tools Build deb package
+        run: dpkg-deb --build mypackage
+      - name: depbo-tools rm mypackage/
+        run: depbo-tools rm -rf mypackage/
+      - name: depbo-tools dpkg -i
+        run: dpkg -i mypackage.deb
+
 
       - name: gosa checkout
         uses: actions/checkout@v4
       - name: gosa build
-        env:
-          PATH: $PWD/depbo-tools/bin:$PATH
-          LD_LIBRARY_PATH: $PWD/depbo-tools/lib:$LD_LIBRARY_PATH
         run: bash ./tools/build_pbo_linux.sh -ltza
 
       - name: gosa clean
         run: rm -rf arma-glowing-octo-shame/*workshop*
+
 
       - name: GitHub release
         uses: softprops/action-gh-release@v2
