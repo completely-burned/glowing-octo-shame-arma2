@@ -45,7 +45,7 @@ jobs:
       - name: depbo-tools Build deb package
         run: dpkg-deb --build mypackage
       - name: depbo-tools rm mypackage/
-        run: depbo-tools rm -rf mypackage/
+        run: rm -rf mypackage/
       - name: depbo-tools dpkg -i
         run: dpkg -i mypackage.deb
 
