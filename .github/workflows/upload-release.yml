@@ -34,16 +34,13 @@ jobs:
 
       - name: depbo-tools Create control file
         run: |
-          cat > mypackage/DEBIAN/control << EOF
-Package: depbo-tools
-Version: 0.10.13
-Section: base
-Priority: optional
-Architecture: amd64
-Depends: libc6
-Maintainer: in7j0 <205167430+in7j0@users.noreply.github.com>
-Description: depbo-tools
-EOF
+          echo "Package: depbo-tools" > mypackage/DEBIAN/control
+          echo "Version: 0.10.13" >> mypackage/DEBIAN/control
+          echo "Section: base" >> mypackage/DEBIAN/control
+          echo "Priority: optional" >> mypackage/DEBIAN/control
+          echo "Architecture: amd64" >> mypackage/DEBIAN/control
+          echo "Depends: libc6" >> mypackage/DEBIAN/control
+          echo "Maintainer: in7j0 <205167430+in7j0@users.noreply.github.com>" >> mypackage/DEBIAN/control
 
       - name: depbo-tools Build deb package
         run: dpkg-deb --build mypackage
