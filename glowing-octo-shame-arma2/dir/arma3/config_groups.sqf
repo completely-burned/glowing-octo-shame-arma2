@@ -79,30 +79,30 @@ _steep_date = 10;
 _steep_climate = 10;
 
 
-#include "config_groups_LS.sqf"
+#include "config_groups_ls.sqf"
 
-#include "config_groups_SPE.sqf"
-#include "config_groups_WW2.sqf"
+#include "config_groups_spe.sqf"
+#include "config_groups_ww2.sqf"
 
-#include "config_groups_CSLA.sqf"
-#include "config_groups_VN.sqf"
-#include "config_groups_GM.sqf"
+#include "config_groups_csla.sqf"
+#include "config_groups_vn.sqf"
+#include "config_groups_gm.sqf"
 
-#include "config_groups_Atlas.sqf"
-#include "config_groups_Aegis.sqf"
+#include "config_groups_atlas.sqf"
+#include "config_groups_aegis.sqf"
 
-#include "config_groups_BWA3.sqf"
+#include "config_groups_bwa3.sqf"
 
-#include "config_groups_RHS.sqf"
-#include "config_groups_CUP.sqf"
+#include "config_groups_rhs.sqf"
+#include "config_groups_cup.sqf"
 
-#include "config_groups_EF.sqf"
-#include "config_groups_lxWS.sqf"
+#include "config_groups_ef.sqf"
+#include "config_groups_lxws.sqf"
 
-#include "config_groups_Enoch.sqf"
-#include "config_groups_Apex.sqf"
-#include "config_groups_GEN.sqf"
-#include "config_groups_FIA.sqf"
+#include "config_groups_enoch.sqf"
+#include "config_groups_apex.sqf"
+#include "config_groups_gen.sqf"
+#include "config_groups_fia.sqf"
 
 
 //////////////////////////////
@@ -1244,7 +1244,7 @@ if (count _guer <= 0) then {
 
 //////////////////////////////
 
-//#include "config_groups_TEST.sqf"
+//#include "config_groups_test.sqf"
 
 _eastN = [_eastN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 _westN = [_westN, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;

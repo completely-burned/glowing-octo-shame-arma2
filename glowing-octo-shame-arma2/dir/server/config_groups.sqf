@@ -2594,7 +2594,7 @@ if(_mod_acr)then{
 };
 
 // dir\server\
-#include "config_groups_OFrP.sqf"
+#include "config_groups_ofrp.sqf"
 #include "config_groups_vme_pla.sqf"
 
 _tmp = missionNamespace getVariable ("gosa_faction_multiplier_"+"unfinished");
