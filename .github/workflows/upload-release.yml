@@ -22,33 +22,6 @@ jobs:
       - name: depbo-tools rm tar
         run: find $PWD -maxdepth 1 -type f -name 'depbo*' -delete
 
-      - name: depbo-tools Create package structure
-        run: |
-          mkdir -p mypackage/DEBIAN
-          mkdir -p mypackage/usr/bin
-          mkdir -p mypackage/usr/lib
-      - name: depbo-tools mv bin
-        run: mv depbo*/bin mypackage/usr/
-      - name: depbo-tools mv lib
-        run: mv depbo*/lib mypackage/usr/
-
-      - name: depbo-tools Create control file
-        run: |
-          echo "Package: depbo-tools" > mypackage/DEBIAN/control
-          echo "Version: 0.10.13" >> mypackage/DEBIAN/control
-          echo "Section: base" >> mypackage/DEBIAN/control
-          echo "Priority: optional" >> mypackage/DEBIAN/control
-          echo "Architecture: amd64" >> mypackage/DEBIAN/control
-          echo "Depends: libc6" >> mypackage/DEBIAN/control
-          echo "Maintainer: in7j0 <205167430+in7j0@users.noreply.github.com>" >> mypackage/DEBIAN/control
-
-      - name: depbo-tools Build deb package
-        run: dpkg-deb --build mypackage
-      - name: depbo-tools rm mypackage/
-        run: rm -rf mypackage/
-      - name: depbo-tools dpkg -i
-        run: dpkg -i mypackage.deb
-
 
       - name: gosa checkout
         uses: actions/checkout@v4
