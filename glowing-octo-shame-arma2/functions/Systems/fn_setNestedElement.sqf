@@ -1,4 +1,4 @@
-scriptName "Functions\arrays\fn_setNestedElement.sqf";
+scriptName "functions\arrays\fn_setnestedelement.sqf";
 /*
 	File: fn_setNestedElement.sqf
 

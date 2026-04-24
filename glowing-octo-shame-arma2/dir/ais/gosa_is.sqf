@@ -1,4 +1,4 @@
-// scriptName "AIS\data\scripts\IS.sqf";
+// scriptName "ais\data\scripts\is.sqf";
 /*
 Alternative Injury Simulation init - executed on all clients, parameter is group associated with AIS logic
 */
@@ -148,7 +148,7 @@ if (!isDedicated) then {
 						_x addEventHandler ["killed", "[_this select 0] call BIS_IS_initDamVars;"]; //switches AIS health variables to 0 (prevent Agony.fsm going to Agony state)
 
 						if (true) then {
-							_nic = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "FA_addActions.sqf"; //on this client add F-A actions for _x   //TODO: works when locality is changed?
+							_nic = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "fa_addactions.sqf"; //on this client add F-A actions for _x   //TODO: works when locality is changed?
 						};
 
 					}; //kind of man
@@ -173,11 +173,11 @@ if (!isDedicated) then {
 				if (_x isKindOf "Man") then {
 					_gosa_FA_addActions = _x getVariable "gosa_FA_addActions";
 					if (isNil {_gosa_FA_addActions}) then {
-						_gosa_FA_addActions = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "FA_addActions.sqf";
+						_gosa_FA_addActions = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "fa_addactions.sqf";
 						_x setVariable ["gosa_FA_addActions", [_gosa_FA_addActions,_x]];
 					}else{
 						if (_gosa_FA_addActions select 1 != _x) then {
-							_gosa_FA_addActions = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "FA_addActions.sqf";
+							_gosa_FA_addActions = [_x] execVM BIS_FA_Path + BIS_PATH_SQF + "fa_addactions.sqf";
 							_x setVariable ["gosa_FA_addActions", [_gosa_FA_addActions,_x]];
 						};
 					};

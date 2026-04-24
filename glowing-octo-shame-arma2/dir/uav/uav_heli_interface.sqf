@@ -1,4 +1,4 @@
-scriptName "UAV_Heli\data\scripts\uav_interface.sqf";
+scriptName "uav_heli\data\scripts\uav_interface.sqf";
 /*
 	File: uav_interface.sqf
 
@@ -78,7 +78,7 @@ BIS_UAV_HELI_PLANE = _uav;
 //--- Action!
 _action_fire = _uav addaction [
 	localize "STR_usract_fire",
-	"ca\modules_e\uav_heli\data\scripts\uav_actionCommit.sqf",
+	"ca\modules_e\uav_heli\data\scripts\uav_actioncommit.sqf",
 	[0],
 	1,
 	false,
@@ -88,7 +88,7 @@ _action_fire = _uav addaction [
 ];
 _action_leave = _uav addaction [
 	localize "STR_EP1_ULB_action_exit",
-	"ca\modules_e\uav_heli\data\scripts\uav_actionCommit.sqf",
+	"ca\modules_e\uav_heli\data\scripts\uav_actioncommit.sqf",
 	[1],
 	1,
 	false,

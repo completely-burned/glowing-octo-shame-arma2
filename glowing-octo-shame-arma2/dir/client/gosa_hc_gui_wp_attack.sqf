@@ -40,7 +40,7 @@ _GUI_WP_ATTACK = {scriptname "HC: _GUI_WP_ATTACK";
 	[_target,"hc_attackedby",[_group]] call bis_fnc_variablespaceadd;
 
 	//_sound = ["ready to kick ass","attacking","assaulting enemy positions","engaging","moving to contact","advancing"] call BIS_fnc_selectRandom;
-	//[_sound] execVM ("ca\modules\HC\data\scripts\HC_sound.sqf");
+	//[_sound] execVM ("ca\modules\hc\data\scripts\hc_sound.sqf");
 
 	//--- Report
 	if (count _selected > 1) then {_selected = _selected - [group player]};

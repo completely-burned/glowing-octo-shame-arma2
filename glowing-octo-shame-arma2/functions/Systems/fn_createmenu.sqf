@@ -1,4 +1,4 @@
-scriptName "Functions\misc\fn_createmenu.sqf";
+scriptName "functions\misc\fn_createmenu.sqf";
 /*
 	File: fn_createMenu.sqf
 

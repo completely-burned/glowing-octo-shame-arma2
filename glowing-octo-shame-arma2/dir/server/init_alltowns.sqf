@@ -9,7 +9,7 @@
 Private["_buildings","_constructFunction","_count","_customCamps","_customOwners","_locationsInitialized"];
 Private["_marker","_markedPosition","_markedRegions","_path","_rangeSize","_side","_townNodeNames","_total","_towns"];
 
-_constructFunction = Compile preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectMapper.sqf";
+_constructFunction = Compile preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectmapper.sqf";
 
 _locationsInitialized = 0;
 _towns = [];
@@ -81,7 +81,7 @@ for [{_count = 0},{_count < _total},{_count = _count + 1}] do
 		//TODO:FIXME: nearObjects read map -> bad at startup
 		  //... news:gg6e8i$r75$1@new-server.localdomain - going thru whole map & using nearestObjects crashes the game
 		//Calculate size.
-		//debugLog ("WF_NEAROBJ  "+ str call compile "350" + " in o:\arma\ca\warfare2\Scripts\Server\Init\Init_AllTowns.sqf");
+		//debugLog ("WF_NEAROBJ  "+ str call compile "350" + " in o:\arma\ca\warfare2\scripts\server\init\init_alltowns.sqf");
 		_buildings = Count (_position NearObjects ["house",350]);
 		_size = Round (_buildings / 15) * 10 + 30;
 		if (_size > 200) then {_size = 200};

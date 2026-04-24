@@ -17,9 +17,9 @@ waitUntil {!isNil "gosa_init_common_done"};
 waitUntil {!isNil "gosa_grpLogic"};
 _grp = gosa_grpLogic;
 
-OnPlayerDisconnected "[_id, _uid, _name] ExecVM (""dir\server\eh_PlayerDisconnected.sqf"")";
+OnPlayerDisconnected "[_id, _uid, _name] ExecVM (""dir\server\eh_playerdisconnected.sqf"")";
 
-[] execVM ("dir\server\" + "server_update_respawnVehicles.sqf");
+[] execVM ("dir\server\" + "server_update_respawnvehicles.sqf");
 
 //--- настройки миссии
 

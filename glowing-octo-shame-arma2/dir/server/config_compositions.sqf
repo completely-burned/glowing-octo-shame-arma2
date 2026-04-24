@@ -1,17 +1,17 @@
-//scriptName format ["%1Scripts\Server\Config\Config_Compositions.sqf",BIS_WFdPath];
+//scriptName format ["%1scripts\server\config\config_compositions.sqf",BIS_WFdPath];
 //Last modified 5/13/9
 //*****************************************************************************************
 /*
 Description: Compile any list of compositions being used such as camps.
 
 Example:
-_l = _l		+ [corePath + "Server\Compositions\Camp1.sqf"];
+_l = _l		+ [corePath + "server\compositions\camp1.sqf"];
 
 You can make copies of the same line to increase the chance of it being selected. Example:
 
-_l = _l		+ [corePath + "Server\Compositions\Camp1.sqf"];
-_l = _l		+ [corePath + "Server\Compositions\Camp2.sqf"];
-_l = _l		+ [corePath + "Server\Compositions\Camp2.sqf"];
+_l = _l		+ [corePath + "server\compositions\camp1.sqf"];
+_l = _l		+ [corePath + "server\compositions\camp2.sqf"];
+_l = _l		+ [corePath + "server\compositions\camp2.sqf"];
 
 Above example would have a 67% chance of creating Camp2 and 33% chance of creating Camp1.
 */
@@ -24,7 +24,7 @@ Private["_l"];
 
 _l = [];
 
-_l = _l		+ ["\CA\Warfare2\Scripts\" + "Server\Compositions\Depot1.sqf"];
+_l = _l		+ ["\CA\Warfare2\Scripts\" + "server\compositions\depot1.sqf"];
 
 for [{_count = Count _l - 1},{_count >= 0},{_count = _count - 1}] do
 {
@@ -39,8 +39,8 @@ gosa_depotCompositions = _l;
 
 _l = [];
 
-_l = _l		+ ["\CA\Warfare2\Scripts\" + "Server\Compositions\Camp1.sqf"];
-_l = _l		+ ["\CA\Warfare2\Scripts\" + "Server\Compositions\Camp2.sqf"];
+_l = _l		+ ["\CA\Warfare2\Scripts\" + "server\compositions\camp1.sqf"];
+_l = _l		+ ["\CA\Warfare2\Scripts\" + "server\compositions\camp2.sqf"];
 
 for [{_count = Count _l - 1},{_count >= 0},{_count = _count - 1}] do
 {
@@ -82,20 +82,20 @@ gosa_campCompositions = _l;
 
 
 
-// scriptName format ["%1Scripts\Server\Config\Config_Compositions.sqf",BIS_WFdPath];
+// scriptName format ["%1scripts\server\config\config_compositions.sqf",BIS_WFdPath];
 //Last modified 5/11/10
 //*****************************************************************************************
 /*
 Description: Compile any list of compositions being used such as camps.
 
 Example:
-_l = _l		+ [corePath + "Server\Compositions\Camp1.sqf"];
+_l = _l		+ [corePath + "server\compositions\camp1.sqf"];
 
 You can make copies of the same line to increase the chance of it being selected. Example:
 
-_l = _l		+ [corePath + "Server\Compositions\Camp1.sqf"];
-_l = _l		+ [corePath + "Server\Compositions\Camp2.sqf"];
-_l = _l		+ [corePath + "Server\Compositions\Camp2.sqf"];
+_l = _l		+ [corePath + "server\compositions\camp1.sqf"];
+_l = _l		+ [corePath + "server\compositions\camp2.sqf"];
+_l = _l		+ [corePath + "server\compositions\camp2.sqf"];
 
 Above example would have a 67% chance of creating Camp2 and 33% chance of creating Camp1.
 //*****************************************************************************************
@@ -103,7 +103,7 @@ Private["_l"];
 
 _l = [];
 
-_l = _l		+ ["\CA\Warfare2\Scripts\" + "Server\Compositions\Depot1.sqf"];
+_l = _l		+ ["\CA\Warfare2\Scripts\" + "server\compositions\depot1.sqf"];
 
 for [{_count = Count _l - 1},{_count >= 0},{_count = _count - 1}] do
 {
@@ -117,8 +117,8 @@ gosa_depotCompositions = _l;
 _l = [];
 
 //Commented out compositions that are not working for now.
-//_l = _l		+ [corePath + "Server\Compositions\Camp1.sqf"];
-//_l = _l		+ [corePath + "Server\Compositions\Camp2.sqf"];
+//_l = _l		+ [corePath + "server\compositions\camp1.sqf"];
+//_l = _l		+ [corePath + "server\compositions\camp2.sqf"];
 
 for [{_count = Count _l - 1},{_count >= 0},{_count = _count - 1}] do
 {

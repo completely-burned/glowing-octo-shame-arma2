@@ -1,4 +1,4 @@
-scriptName "Alice\data\scripts\fnc_createDoor.sqf";
+scriptName "alice\data\scripts\fnc_createdoor.sqf";
 /*
 	Невидимая дверь.
 */

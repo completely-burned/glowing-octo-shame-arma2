@@ -32,7 +32,7 @@ while {true} do {
 			_act set [1,
 				_act select 0 addAction [
 					"laserBomb (testing)",
-					"dir\actions\act_laserBomb.sqf"
+					"dir\actions\act_laserbomb.sqf"
 				]
 			];
 		};

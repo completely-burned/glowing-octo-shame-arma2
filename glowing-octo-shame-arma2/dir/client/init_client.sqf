@@ -82,7 +82,7 @@ waitUntil{!isNil "gosa_fnc_init"};
 	// BIS_Effects_AirDestructionStage2
 	waitUntil {!isNil "BIS_Effects_Secondaries"};
 	if (ACE_Avail) then {waitUntil {!isNil "WARFX_Effects_Init"}};
-	BIS_Effects_AirDestructionStage2 = compile preprocessFileLineNumbers "dir\Client\AirDestructionStage2.sqf";
+	BIS_Effects_AirDestructionStage2 = compile preprocessFileLineNumbers "dir\client\airdestructionstage2.sqf";
 };
 */
 
@@ -120,8 +120,8 @@ if (gosa_playerSide == sideLogic) exitWith {
 [] execVM "dir\client\while_localgroup.sqf";
 [] execVM "dir\client\while_act_buymenu.sqf";
 [] execVM ("dir\client\while_aa_hidden.sqf");
-[] execVM ("dir\client\while_keyEH_smoke.sqf");
-[] execVM ("dir\client\while_assignedVehicle.sqf");
+[] execVM ("dir\client\while_keyeh_smoke.sqf");
+[] execVM ("dir\client\while_assignedvehicle.sqf");
 [] execVM ("dir\ban\while_ban.sqf");
 [] execVM "dir\testing\while_act_laserbomb.sqf";
 [] spawn gosa_fnc_SSM_updateMenu;
@@ -136,7 +136,7 @@ if ([[player], Officers] call gosa_fnc_CheckIsKindOfArray) then {
 	waitUntil{!isNil "gosa_HC_logic"};
 	[] call compile preprocessFileLineNumbers "dir\client\gosa_hc.sqf";
 	[] execVM "dir\client\while_hc.sqf";
-	[player] execVM ("\ca\modules\hc\data\scripts\HC_GUI.sqf");
+	[player] execVM ("\ca\modules\hc\data\scripts\hc_gui.sqf");
 	[] execVM "dir\client\gosa_hc_gui_wp_attack.sqf";
 };
 */
