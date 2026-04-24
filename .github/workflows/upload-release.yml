@@ -21,12 +21,26 @@ jobs:
         run: tar -xf depbo*
       - name: depbo-tools rm tar
         run: find $PWD -maxdepth 1 -type f -name 'depbo*' -delete
+      - name: depbo-tools Find directory
+        id: find-depbo
+        run: |
+          DEPBO_DIR=$(find "$GITHUB_WORKSPACE" -maxdepth 1 -type d -name "depbo-tools-*" -print -quit 2>/dev/null)
+          if [ -z "$DEPBO_DIR" ]; then
+            echo "Error: depbo-tools directory not found after extraction"
+            exit 1
+          fi
+          echo "Found depbo-tools in: $DEPBO_DIR"
+          echo "depbo-dir=$DEPBO_DIR" >> $GITHUB_OUTPUT
 
 
       - name: gosa checkout
         uses: actions/checkout@v4
       - name: gosa build
-        run: bash ./tools/build_pbo_linux.sh -ltza
+        run: |
+        DEPBO_DIR="${{ steps.find-depbo.outputs.depbo-dir }}"
+        export PATH="$DEPBO_DIR/bin:$PATH"
+        export LD_LIBRARY_PATH="$DEPBO_DIR/lib:$LD_LIBRARY_PATH"
+        bash ./tools/build_pbo_linux.sh -ltza
 
       - name: gosa clean
         run: rm -rf arma-glowing-octo-shame/*workshop*

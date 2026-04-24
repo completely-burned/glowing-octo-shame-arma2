@@ -152,14 +152,6 @@ then
 	mkdir "${TMPDIR}/.build.tmp"
 fi
 
-# external tools
-			DEPBO_DIR=$(find ~ -type d -name "depbo-tools*" -print -quit)
-				echo "Found depbo-tools in: $DEPBO_DIR"
-				export PATH="$DEPBO_DIR/bin:$PATH"
-				export LD_LIBRARY_PATH="$DEPBO_DIR/lib:$LD_LIBRARY_PATH"
-                echo "PATH updated with: $DEPBO_DIR/bin"
-                echo "LD_LIBRARY_PATH updated with: $DEPBO_DIR/lib"
-
 # "FDF CTF@ 24 Flag Rambos v1 beta"
 # https://forums.bohemia.net/forums/topic/217676-mission-name-standard/
 
