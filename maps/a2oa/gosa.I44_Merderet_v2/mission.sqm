@@ -22,7 +22,7 @@ class Mission
 	randomSeed=11274136;
 	class Intel
 	{
-		briefingName="I44 CO 00 gosa I44_Merderet_v2 Multi v0.0.5.1002 DEBUG";
+		briefingName="I44 CO 00 gosa I44_Merderet_v2 Multi v0.0.5.1003 DEBUG";
 		startWeather=0.10000002;
 		forecastWeather=0.30000001;
 		year=1944;
