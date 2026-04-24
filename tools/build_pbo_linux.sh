@@ -168,6 +168,7 @@ then
                 echo "PATH updated with: $DEPBO_DIR/bin"
                 echo "LD_LIBRARY_PATH updated with: $DEPBO_DIR/lib"
 			fi
+		fi
 	fi
 fi
 
