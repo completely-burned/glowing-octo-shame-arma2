@@ -54,7 +54,7 @@ _tmp_arr=[
 	// 					_g selectLeader _p;
 	["selectLeader (%SELECTED_UNIT_ID)","[] call gosa_fnc_menu_selectLeader"],
 	[Localize "STR_gosa_dismiss_unit" + " (%SELECTED_UNIT_ID)","([]+GroupSelectedUnits player) call gosa_fnc_groupUnitsDismiss"],
-	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpNull.sqf'"],
+	[localize "STR_gosa_leave_the_squad", "[] execVM 'dir\actions\act_join_grpnull.sqf'"],
 	[Localize "STR_gosa_join_the_squad",
 		"[[]+GroupSelectedUnits player] spawn gosa_fnc_menu_join"]
 	/*
@@ -374,7 +374,7 @@ if (_b) then {
 		} forEach availableVehicles;
 		[_tmp_arr, "GhostPreview"] call _fnc_create_buy_menu;
 
-	// _dataListAmmoBox = _dataListAmmoBox + [["all","[] execvm 'm\functions\gosa_fnc_MegaAmmoBox.sqf'"]];
+	// _dataListAmmoBox = _dataListAmmoBox + [["all","[] execvm 'm\functions\gosa_fnc_megaammobox.sqf'"]];
 		// _dataListAmmoBox = _dataListAmmoBox call _list_BIS_FNC_createmenu2;
 
 	//-- Units
