@@ -37,10 +37,10 @@ jobs:
         uses: actions/checkout@v4
       - name: gosa build
         run: |
-        DEPBO_DIR="${{ steps.find-depbo.outputs.depbo-dir }}"
-        export PATH="$DEPBO_DIR/bin:$PATH"
-        export LD_LIBRARY_PATH="$DEPBO_DIR/lib:$LD_LIBRARY_PATH"
-        bash ./tools/build_pbo_linux.sh -ltza
+          DEPBO_DIR="${{ steps.find-depbo.outputs.depbo-dir }}"
+          export PATH="$DEPBO_DIR/bin:$PATH"
+          export LD_LIBRARY_PATH="$DEPBO_DIR/lib:$LD_LIBRARY_PATH"
+          bash ./tools/build_pbo_linux.sh -ltza
 
       - name: gosa clean
         run: rm -rf arma-glowing-octo-shame/*workshop*
