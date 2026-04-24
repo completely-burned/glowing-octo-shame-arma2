@@ -38,15 +38,15 @@ if !(requiredVersion "1.60") then {
 	[] execVM "dir\common\mpf_override.sqf";
 
 	if (!IsDedicated) then {
-		[] execVM "dir\client\playerStartPos.sqf";
+		[] execVM "dir\client\playerstartpos.sqf";
 	};
 
 	[] Call Compile preprocessFileLineNumbers "dir\common\params.sqf";
 
-	[] execVM "dir\common\setOvercast.sqf";
+	[] execVM "dir\common\setovercast.sqf";
 
 	if (isServer) then {
-		[] execVM "dir\server\StartTime.sqf"
+		[] execVM "dir\server\starttime.sqf"
 	};
 
 	if (missionNamespace getVariable "gosa_gamemode" == 0) then {
@@ -73,7 +73,7 @@ if !(requiredVersion "1.60") then {
 		if (hasInterface) then {
 			[] execVM "dir\client\init_client.sqf";
 		}else{
-			execVM "dir\init_HC.sqf";
+			execVM "dir\init_hc.sqf";
 		};
 	};
 #ifdef __A2OA__

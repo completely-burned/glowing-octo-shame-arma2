@@ -180,7 +180,7 @@ waitUntil{!isNil "gosa_fnc_init"};
 //-- Стартовый список штабов и построек.
 [] execVM "dir\server\init_hq.sqf";
 [] execVM "dir\server\while_hq.sqf";
-[] execVM "dir\server\init_LocationBase.sqf";
+[] execVM "dir\server\init_locationbase.sqf";
 
 //--- создание и удаление объектов, базы
 if(worldName == "Chernarus")then{
@@ -215,7 +215,7 @@ if (missionNamespace getVariable "gosa_locations" == 2) then {
 };
 
 // обновление техники и ботов, удаление
-[] execVM "dir\server\updateServer.sqf";
+[] execVM "dir\server\updateserver.sqf";
 
 // с авторестартом
 [] execVM "dir\server\while_failover.sqf";

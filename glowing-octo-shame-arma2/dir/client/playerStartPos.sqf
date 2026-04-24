@@ -46,7 +46,7 @@ _code = {(!isNil "gosa_respawnDone" && (!isNil "gosa_respawnMarkers" or !isNil "
 			{!isNil "BIS_fnc_init"},
 		#endif
 		{!isNull player}
-	]] execVM "dir\client\while_LoadingScreen.sqf";
+	]] execVM "dir\client\while_loadingscreen.sqf";
 
 #ifndef __ARMA3__
 waitUntil {!isNull player};
