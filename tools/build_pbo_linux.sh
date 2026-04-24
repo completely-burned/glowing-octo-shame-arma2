@@ -157,9 +157,7 @@ if [[ $WINDOWS -le 0 ]]
 then
 	if ! command -v makepbo
 	then
-		if [[ -n "$HOME" ]]
-		then
-			DEPBO_DIR=$(find "$HOME" -type d -name "depbo-tools*" -print -quit 2>/dev/null)
+			DEPBO_DIR=$(find ~ -type d -name "depbo-tools*" -print -quit 2>/dev/null)
 			if [[ -n "$DEPBO_DIR" ]]
 			then
 				echo "Found depbo-tools in: $DEPBO_DIR"
@@ -168,7 +166,6 @@ then
                 echo "PATH updated with: $DEPBO_DIR/bin"
                 echo "LD_LIBRARY_PATH updated with: $DEPBO_DIR/lib"
 			fi
-		fi
 	fi
 fi
 
