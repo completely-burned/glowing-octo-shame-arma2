@@ -157,9 +157,9 @@ if [[ $WINDOWS -le 0 ]]
 then
 	if ! command -v makepbo
 	then
-		if [[ ! -z "$HOME" ]]
+		if [[ -n "$HOME" ]]
 		then
-			DEPBO_DIR=$(find "$HOME" -maxdepth 1 -type d -name "depbo-tools*" -print -quit 2>/dev/null)
+			DEPBO_DIR=$(find "$HOME" -type d -name "depbo-tools*" -print -quit 2>/dev/null)
 			if [[ -n "$DEPBO_DIR" ]]
 			then
 				echo "Found depbo-tools in: $DEPBO_DIR"
