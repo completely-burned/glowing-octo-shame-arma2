@@ -157,15 +157,17 @@ if [[ $WINDOWS -le 0 ]]
 then
 	if ! command -v makepbo
 	then
-		if [[ ! -z "$GITHUB_WORKSPACE" ]]
+		if [[ ! -z "$HOME" ]]
 		then
-			DEPBO_DIR=$(find "$GITHUB_WORKSPACE" -maxdepth 1 -type d -name "depbo-tools*" -print -quit 2>/dev/null)
+			DEPBO_DIR=$(find "$HOME" -maxdepth 1 -type d -name "depbo-tools*" -print -quit 2>/dev/null)
 			if [[ -n "$DEPBO_DIR" ]]
 			then
+				echo "Found depbo-tools in: $DEPBO_DIR"
 				export PATH="$DEPBO_DIR/bin:$PATH"
 				export LD_LIBRARY_PATH="$DEPBO_DIR/lib:$LD_LIBRARY_PATH"
+                echo "PATH updated with: $DEPBO_DIR/bin"
+                echo "LD_LIBRARY_PATH updated with: $DEPBO_DIR/lib"
 			fi
-		fi
 	fi
 fi
 
