@@ -141,7 +141,7 @@ if ([[player], Officers] call gosa_fnc_CheckIsKindOfArray) then {
 };
 */
 
-// [] call compile preprocessFileLineNumbers  "dir\Client\coin.sqf";
+// [] call compile preprocessFileLineNumbers  "dir\client\coin.sqf";
 
 /* _player = (createVehicle [typeOf player, position player, [], 0, "FORM"]);
 selectPlayer _player;
@@ -225,7 +225,7 @@ if (isMultiplayer) then {
 };
 
 // радио 0-0, чтоб разные скрипты тестировать
-[] call compile preprocessFileLineNumbers  "dir\Client\radio\init.sqf";
+[] call compile preprocessFileLineNumbers  "dir\client\radio\init.sqf";
 
 if (gosa_loglevel > 0) then {	//diag_log
 	gosa_MARTA_showRules = [] call gosa_fnc_MARTA_showRules_all;	//diag_log

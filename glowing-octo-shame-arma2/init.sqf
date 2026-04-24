@@ -31,7 +31,7 @@ if !(requiredVersion "1.60") then {
 		[] call compile preprocessFileLineNumbers "dir\server\init_server0.sqf";
 	};
 
-	[] call compile preprocessFileLineNumbers "dir\functions\INIT_fnc.sqf";
+	[] call compile preprocessFileLineNumbers "dir\functions\init_fnc.sqf";
 
 	[] execVM "dir\common\init_debug.sqf";//diag_log
 

@@ -184,7 +184,7 @@ waitUntil{!isNil "gosa_fnc_init"};
 
 //--- создание и удаление объектов, базы
 if(worldName == "Chernarus")then{
-	// [] call compile preprocessFileLineNumbers "\ca\missions\campaign\missions\C3_Manhattan.Chernarus\manhattansetup.sqf";
+	// [] call compile preprocessFileLineNumbers "\ca\missions\campaign\missions\c3_manhattan.chernarus\manhattansetup.sqf";
 	{
 		_x = [4727.5889,8.9828243,2543.7881] nearestObject _x;
 		_x setDamage 1;
