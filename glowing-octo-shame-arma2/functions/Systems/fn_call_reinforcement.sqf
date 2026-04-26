@@ -125,7 +125,7 @@ for "_i" from 0 to (count _arr0 -1) do {
 if (count _this > 3) then {
 	_grp_current = _this select 3;
 	_n0 = count (_grp_current select 0) + count (_grp_current select 1);
-	if (_n0 < 10) then {
+	if (_n0 < 4) then {
 		for "_i" from 0 to (count _arr0 -1) do {
 			for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
 				_arr = _arr0 select _i select 0 select _i0;
@@ -171,7 +171,7 @@ if (count _this > 3) then {
 				};
 			};
 		};
-		if (_n0 < 5) then {
+		if (_n0 < 2) then {
 			for "_i" from 0 to (count _arr0 -1) do {
 				scopeName "scope1";
 				for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
