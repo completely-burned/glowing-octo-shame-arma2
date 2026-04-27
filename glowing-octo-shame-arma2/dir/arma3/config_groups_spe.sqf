@@ -300,6 +300,8 @@ _arr = [
 
 // SPEX_CW_ARMY_TROP
 _arr = [
+	[[[["SPEX_CW_Trop_Humber_MkII","SPEX_CW_Trop_Humber_LRC"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
+
 	// SPEX_CW_Trop_Motorized_Infantry_Squad
 	[[[["SPEX_CW_KD_42_Section_Lead","SPEX_CW_trop_Bedford_MWD","SPEX_CW_KD_42_Team_Lead","SPEX_CW_KD_42_piat_gunner","SPEX_CW_KD_42_Bren_gunner","SPEX_CW_KD_42_piat_asst","SPEX_CW_KD_42_Bren_asst","SPEX_CW_KD_42_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
 	// SPEX_CW_Trop_Jeep_Command_Section
@@ -360,8 +362,11 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 ] call gosa_fnc_map_groups_add;
 
 // SPEX_CW_Army
+// TODO: Баланс.
 _arr = [
-	// TODO: Баланс.
+	[[[["SPEX_CW_Humber_MkIV_PLM","SPEX_CW_Humber_MkIV"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
+	[[[["SPEX_CW_Humber_MkII","SPEX_CW_Humber_LRC"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
+
 	// SPEX_CW_Command_Section
 	[[[["SPEX_CW_BD_CAN_Officer_1LT","SPEX_CW_BD_CAN_Sergeant","SPEX_CW_BD_CAN_Medic_SB","SPEX_CW_BD_CAN_radioman","SPEX_CW_BD_CAN_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0+6/3],
 	// SPEX_CW_Bren_Group
