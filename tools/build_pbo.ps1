@@ -108,13 +108,13 @@ try {
         } else {
             # Копируем файл
             if (-not (Test-Path $destinationFullPath)) {
-                try {
+                #try {
                     # Пытаемся создать жесткую ссылку
-                    New-Item -ItemType HardLink -Path $destinationFullPath -Target $item.FullName -ErrorAction Stop
-                } catch {
+                    #New-Item -ItemType HardLink -Path $destinationFullPath -Target $item.FullName -ErrorAction Stop
+                #} catch {
                     # Если не получилось - копируем обычным способом
                     Copy-Item -Path $item.FullName -Destination $destinationFullPath -Force
-                }
+                #}
             }
         }
     }
