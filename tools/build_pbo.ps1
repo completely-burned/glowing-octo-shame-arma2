@@ -226,6 +226,7 @@ try {
                     Where-Object { $_ -notmatch '^.*#define.*__A2OA__.*$' }
                 # Проверяем, изменилось ли содержимое
                 if ($filteredContent -join "`n" -ne $originalContent -join "`n") {
+                    # FIXME: Set-Content влияет на жесткие ссылки тоже.
                     # Создаем временный файл
                     $tempFile = [System.IO.Path]::GetTempFileName()
                     try {
