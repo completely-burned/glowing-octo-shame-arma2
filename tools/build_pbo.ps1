@@ -221,9 +221,21 @@ try {
             # Ищем все файлы и удаляем строки с #define __A2OA__
             Get-ChildItem -Path $tmp_game -Recurse -File | 
             ForEach-Object {
-                (Get-Content $_.FullName) | 
-                Where-Object { $_ -notmatch '^.*#define.*__A2OA__.*$' } | 
-                Set-Content $_.FullName
+                $originalContent = Get-Content $_.FullName
+                $filteredContent = $originalContent | 
+                    Where-Object { $_ -notmatch '^.*#define.*__A2OA__.*$' }
+                # Проверяем, изменилось ли содержимое
+                if ($filteredContent -join "`n" -ne $originalContent -join "`n") {
+                    # Создаем временный файл
+                    $tempFile = [System.IO.Path]::GetTempFileName()
+                    try {
+                        $filteredContent | Set-Content $tempFile
+                        # Если содержимое изменилось, заменяем оригинальный файл
+                        Move-Item -Path $tempFile -Destination $_.FullName -Force
+                    } finally {
+                        Remove-Item $tempFile -ErrorAction SilentlyContinue
+                    }
+                }
             }
         }
 
@@ -346,29 +358,38 @@ try {
                     Write-Host "DEBUG deleted in briefingName $missionFile"
                 }
 
-                # Инициализация переменной
-                $binarize = $false
-
                 # Проверка значения SIDE
                 if ($SIDE.ToLower() -eq "multi") {
                     $binarize = $true
-                    
                     # Удаление include из Description.ext
                     Write-Host "delete include in description.ext $MISSION"
                     
                     # Поиск и обработка файлов Description.ext
-                    Get-ChildItem -Path $MISSION -Recurse -Filter 'description.ext' | ForEach-Object {
-                        $fileContent = Get-Content $_.FullName
+                    Get-ChildItem -Path $MISSION -Recurse -Filter 'description.ext' |
+                    ForEach-Object {
+                        $originalContent = Get-Content $_.FullName
                         
-                        # Удаление строк с #include mission.sqm
-                        $updatedContent = $fileContent | ForEach-Object {
-                            if ($_ -notmatch '^.*#include.*mission.sqm.*$') {
-                                $_
+                        # Создаем временный файл
+                        $tempFile = [System.IO.Path]::GetTempFileName()
+                        try {
+                            # Фильтруем содержимое
+                            $filteredContent = $originalContent | 
+                                Where-Object { 
+                                    $_ -notmatch '^.*#include.*mission.sqm.*$' 
+                                }
+                            
+                            # Сохраняем во временный файл
+                            $filteredContent | Set-Content $tempFile
+                            
+                            # Сравниваем содержимое
+                            if ($filteredContent -join "`n" -ne $originalContent -join "`n") {
+                                # Если изменилось - заменяем оригинальный файл
+                                Move-Item -Path $tempFile -Destination $_.FullName -Force
                             }
+                        } finally {
+                            # Удаляем временный файл
+                            Remove-Item $tempFile -ErrorAction SilentlyContinue
                         }
-                        
-                        # Сохранение изменений
-                        $updatedContent | Set-Content $_.FullName
                     }
                 } else {
                     $binarize = $false
