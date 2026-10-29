@@ -36,12 +36,13 @@ private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked","_arr0",
 	"_grp","_groups_failover","_factions_used","_climate","_date",
 	"_groups_failover_map","_sides_friendly","_copyRef",
-	"_groups_enabled","_factions_enabled","_groups_enabled_map",
+	"_groups_enabled","_factions_enabled","_groups_enabled_map","_Artillery",
 	"_groups_pending_map","_str","_param_default","_side",
 	"_sl","_tl","_steep_date","_steep_climate","_arr1","_n0",
 	"_alliances","_alliances_enabled","_alliance","_sides",
 	"_default_east","_default_west","_default_guer"];
 
+// Плохие отряды, не играбельные, но и не сломанные.
 _rarity_bad = 0.01;
 // Пехота
 _rarity_InfSquad = 1;
@@ -86,6 +87,7 @@ _vivt = false;
 if (missionNamespace getVariable "gosa_Vehicle_in_Vehicle" == 1) then {
 	_vivt = true;
 };
+_Artillery = if (isNil "lambs_wp_fnc_taskArtilleryRegister") then {false} else {true};
 
 waitUntil{!isNil "availableVehicles"};
 _copyRef = availableVehicles;
@@ -365,7 +367,7 @@ _arr = _default_west;
 		],0.1]
 	];
 	// Arty.
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			[[[["APC_Wheeled_01_mortar_base_lxWS","APC_Wheeled_01_mortar_base_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.05],
 			[[[["B_MBT_01_arty_F","B_MBT_01_arty_F","B_MBT_01_arty_F","B_MBT_01_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.05],
@@ -873,7 +875,7 @@ _arr = _default_east;
 		[[[["O_MBT_02_railgun_F","O_MBT_02_railgun_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
 	];
 	// Arty.
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			// OIA_SPGPlatoon_Scorcher
 			[[[["O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.1],
@@ -1141,7 +1143,7 @@ _arr = _default_guer;
 			[[[["CUP_I_AH1Z_Dynamic_AAF","CUP_I_AH1Z_Dynamic_AAF"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.2]
 		];
 		// Arty.
-		if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+		if (_Artillery) then {
 			_arr append [
 				[[[["I_Truck_02_MRL_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.1],
 				[[[["I_Truck_02_MRL_F","I_Truck_02_MRL_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1]

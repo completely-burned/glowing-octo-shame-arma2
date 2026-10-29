@@ -620,7 +620,7 @@
 		[[[["CUP_O_RU_Sniper_VDV_EMR","CUP_O_RU_Spotter_VDV_EMR"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
 	*/
 
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr = [
 			[[[["CUP_O_BM21_RU","CUP_O_BM21_RU"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
 		];
@@ -1324,7 +1324,7 @@
 		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
 	};
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
 		];
@@ -1389,7 +1389,7 @@
 		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
 	};
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
 		];
@@ -1421,7 +1421,7 @@
 		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
 	};
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
 		];

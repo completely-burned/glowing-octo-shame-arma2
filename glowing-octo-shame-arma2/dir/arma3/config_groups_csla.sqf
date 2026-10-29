@@ -101,7 +101,7 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 diag_log format ["Log: [config_groups_CSLA] count CSLA Desert %1", [count _arr, _n]];
 if (count _arr * 1.5 >= _n) then {_n=250}else{_n=1000};
 // Вспомогательные отряды не должны учитываться.
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		[[[["CSLA_ShKH77_Des","CSLA_ShKH77_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
 		[[[["CSLA_RM51_Des","CSLA_RM51_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
@@ -223,7 +223,7 @@ _arr = [
 	[[[["CSLA_lrrSnpG","CSLA_lrrSptG"],[[0,0,0],[4,0,0]],["Sergeant","Corporal"]]],0.1]
 ];
 // Вспомогательные отряды можно исключить.
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		[[[["CSLA_ShKH77","CSLA_ShKH77"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
 		[[[["CSLA_RM51","CSLA_RM51"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
@@ -344,7 +344,7 @@ _arr = [
 		[[[["AFMC_UH60M240","AFMC_UH60M240"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
 		],0.07]
 	];
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			// AFMC_infM252Sqd
 			[[[["AFMC_infM252g","AFMC_infMB","AFMC_infM252m","AFMC_infM252m"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Private"]]],0.1],
@@ -435,7 +435,7 @@ _n = count _arr;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 diag_log format ["Log: [config_groups_CSLA] count US85 Desert %1", [count _arr, _n]];
 if (count _arr * 1.5 >= _n) then {_n=250}else{_n=1000};
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		[[[["US85_M270_DES","US85_M270_DES"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
 		// configName US85_infM252Sqd
@@ -528,7 +528,7 @@ _arr = [
 _arr = [
 	[[[["US85_sfM21G","US85_sfSptG"],[[0,0,0],[4,0,0]],["Sergeant","Corporal"]]],0.1]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		[[[["US85_M270","US85_M270"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
 		// configName US85_infM252Sqd

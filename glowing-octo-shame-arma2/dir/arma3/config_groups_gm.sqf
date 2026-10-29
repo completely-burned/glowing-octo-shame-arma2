@@ -61,7 +61,7 @@ _arr append [
 		[["gm_gc_army_sf_squadleader_mpikms72_80_str","gm_gc_army_sf_machinegunner_lmgrpk_80_str","gm_gc_army_sf_marksman_svd_80_str","gm_gc_army_sf_antitank_mpikms72_rpg7_80_str","gm_gc_army_sf_demolition_pm63_80_str","gm_gc_army_sf_antitank_mpikms72_rpg18_80_str"]]
 		],0.1]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// configName gm_platoon_gm_gc_army_2p16_oli
 		[[[["gm_gc_army_2p16_oli","gm_gc_army_2p16_oli"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
@@ -127,7 +127,7 @@ _arr append [
 		[["gm_gc_army_sf_squadleader_mpikms72_80_blk","gm_gc_army_sf_machinegunner_lmgrpk_80_blk","gm_gc_army_sf_marksman_svd_80_blk","gm_gc_army_sf_antitank_mpikms72_rpg7_80_blk","gm_gc_army_sf_demolition_pm63_80_blk","gm_gc_army_sf_antitank_mpikms72_rpg18_80_blk"]]
 		],0.1]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// configName gm_platoon_gm_gc_army_2p16_oli
 		[[[["gm_gc_army_2p16_des","gm_gc_army_2p16_des"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
@@ -186,7 +186,7 @@ _arr append [
 	[[[["gm_gc_army_ural4320_repair_olw","gm_gc_army_ural375d_refuel_olw","gm_gc_army_ural4320_reammo_olw"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05],
 	[[[["gm_gc_army_ural375d_medic_olw"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// gm_platoon_gm_gc_army_2p16_olw
 		[[[["gm_gc_army_2p16_olw","gm_gc_army_2p16_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
@@ -241,7 +241,7 @@ _arr append [
 	[[[["gm_pl_airforce_mi2urp","gm_pl_airforce_mi2urp"],[[0,0,0],[10,-10,0]],["CAPITAN","CAPITAN"]]],0.1],
 	[[[["gm_pl_airforce_mi2urpg","gm_pl_airforce_mi2urpg"],[[0,0,0],[10,-10,0]],["CAPITAN","CAPITAN"]]],0.1]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// configName gm_platoon_gm_pl_army_2p16_oli
 		[[[["gm_pl_army_2p16_oli","gm_pl_army_2p16_oli"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
@@ -291,7 +291,7 @@ _arr append [
 	[[[["gm_pl_army_ural4320_repair_olw","gm_pl_army_ural375d_refuel_olw","gm_pl_army_ural4320_reammo_olw"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05],
 	[[[["gm_pl_army_ural375d_medic_olw"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// gm_platoon_gm_pl_army_2p16_olw
 		[[[["gm_pl_army_2p16_olw","gm_pl_army_2p16_olw"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
@@ -362,7 +362,7 @@ _arr append [
 	[[[["gmx_chdkz_ural4320_repair_wdl","gmx_chdkz_ural375d_refuel_wdl","gmx_chdkz_ural4320_reammo_wdl"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05],
 	[[[["gmx_chdkz_ural375d_medic_wdr"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		[[[["gmx_chdkz_2p16_wdr"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
 		[[[["gmx_chdkz_2s1_wdr","gmx_chdkz_2s1_wdr"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.1],
@@ -424,7 +424,7 @@ _arr append [
 	[[[["gmx_tak_army_ural4320_repair_des","gmx_tak_army_ural375d_refuel_des","gmx_tak_army_ural4320_reammo_des"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.5],
 	[[[["gmx_tak_army_ural375d_medic"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		[[[["gmx_tak_army_2p16_des"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],
 		[[[["gmx_tak_army_2s1_des","gmx_tak_army_2s1_des"],[[0,0,0],[10,-10,0],[-10,-10,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.1],
@@ -531,7 +531,7 @@ _arr append [
 		[["gm_ge_bgs_sf_squadleader_mp5a2_80_blk","gm_ge_bgs_sf_rifleman_mp5a2_80_blk","gm_ge_bgs_sf_marksman_psg1_80_blk","gm_ge_bgs_sf_machinegunner_g8_80_blk","gm_ge_bgs_sf_demolition_mp5a2_80_blk","gm_ge_bgs_sf_specialist_hk512_80_blk"]]
 		],0.1]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// configName gm_platoon_gm_ge_army_m109g_wdl
 		[[[["gm_ge_army_m109g_wdl","gm_ge_army_m109g_wdl","gm_ge_army_m109g_wdl","gm_ge_army_m109g_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1],
@@ -610,7 +610,7 @@ _arr append [
 		[["gm_ge_bgs_sf_squadleader_mp5a2_80_blk","gm_ge_bgs_sf_rifleman_mp5a2_80_blk","gm_ge_bgs_sf_marksman_psg1_80_blk","gm_ge_bgs_sf_machinegunner_g8_80_blk","gm_ge_bgs_sf_demolition_mp5a2_80_blk","gm_ge_bgs_sf_specialist_hk512_80_blk"]]
 		],0.1]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// configName gm_platoon_gm_ge_army_m109g_wdl
 		[[[["gm_ge_army_m109g_des","gm_ge_army_m109g_des","gm_ge_army_m109g_des","gm_ge_army_m109g_des"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1],
@@ -695,7 +695,7 @@ _arr append [
 	[[[["gm_ge_army_m113a1g_medic_win"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.025],
 	[[[["gm_ge_army_u1300l_medic_win"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.025]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// gm_platoon_gm_ge_army_m109g_win
 		[[[["gm_ge_army_m109g_win","gm_ge_army_m109g_win","gm_ge_army_m109g_win","gm_ge_army_m109g_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1],
@@ -729,7 +729,7 @@ _arr = [
 _arr append [
 	[[[["gm_dk_army_m113a1dk_medic"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// configName gm_platoon_gm_dk_army_m109_wdl
 		[[[["gm_dk_army_m109_wdl","gm_dk_army_m109_wdl","gm_dk_army_m109_wdl","gm_dk_army_m109_wdl"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1]
@@ -757,7 +757,7 @@ _arr = [
 _arr append [
 	[[[["gm_dk_army_m113a1dk_medic_des_rc"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// configName gm_platoon_gm_dk_army_m109_wdl
 		[[[["gm_dk_army_m109_des","gm_dk_army_m109_des","gm_dk_army_m109_des","gm_dk_army_m109_des"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1]
@@ -856,7 +856,7 @@ _arr = [
 _arr append [
 	[[[["gm_dk_army_m113a1dk_medic_win"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// gm_platoon_gm_dk_army_m109_win
 		[[[["gm_dk_army_m109_win","gm_dk_army_m109_win","gm_dk_army_m109_win","gm_dk_army_m109_win"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","SERGEANT"]]],0.1]
@@ -920,7 +920,7 @@ _arr append [
 	[[[["gmx_cdf_ural4320_repair_wdl","gmx_cdf_ural375d_refuel_wdl","gmx_cdf_ural4320_reammo_wdl"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0],
 	[[[["gmx_cdf_ural375d_medic_wdl"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 	// gmx_cdf_platoon_2p16_wdl
 	[[[["gmx_cdf_2p16_wdl","gmx_cdf_2p16_wdl"],[[0,0,0],[10,-10,0]],["SERGEANT","SERGEANT"]]],0.01],

@@ -31,7 +31,7 @@ _arr = [
 		[[[["O_SFIA_Soldier_TL_lxWS","O_SFIA_Soldier_AR_lxWS","O_SFIA_Soldier_GL_lxWS","O_SFIA_sharpshooter_lxWS","O_SFIA_soldier_at_lxWS","O_SFIA_soldier_lxWS","O_SFIA_Soldier_AAT_lxWS","O_SFIA_medic_lxWS"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
 ];
 // артиллерия
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		[[[["O_SFIA_Truck_02_MRL_lxWS","O_SFIA_Truck_02_MRL_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1]
 	];
@@ -121,7 +121,7 @@ _arr = [
 ];
 
 // артиллерия
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		[[[["B_D_APC_Wheeled_01_mortar_lxWS","B_D_APC_Wheeled_01_mortar_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.05],
 		// BUS_D_SPGPlatoon_Scorcher_lxWS

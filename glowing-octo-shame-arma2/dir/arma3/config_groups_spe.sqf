@@ -222,7 +222,7 @@ if (_landing in [1,4,24,34]) then {
 		],0.1]
 	];
 };
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// SPE_GER_Nashorn_TD_Platoon
 		[[[["SPE_Nashorn","SPE_Nashorn","SPE_Nashorn","SPE_Nashorn"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25]
