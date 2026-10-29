@@ -7,173 +7,178 @@
 _arr = [
 	//- rhs_group_rus_msv_infantry, Мотострелки (флора)
 	// rhs_group_rus_msv_infantry_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_chq"]],_rarity_bad/2],
 	// rhs_group_rus_msv_infantry_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad"]],_rarity_InfSquad],
 	// rhs_group_rus_msv_infantry_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_2mg"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_sniper"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_mg_sniper"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_section_mg, Пулемётное отделение
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_mg"]],_rarity_InfTeam_MG],
 	// rhs_group_rus_msv_infantry_section_marksman, Снайперская группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_marksman"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_marksman"]],_rarity_SniperTeam],
 	// rhs_group_rus_msv_infantry_section_AT, Гранатомётное отделение
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AT"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AT"]],_rarity_InfTeam_AT],
 	// rhs_group_rus_msv_infantry_section_AA, Отделение ПВО
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AA"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AA"]],_rarity_InfTeam_AA],
 	// rhs_group_rus_msv_infantry_fireteam, Огневая группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_fireteam"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_fireteam"]],_rarity_InfTeam],
 	// rhs_group_rus_msv_infantry_MANEUVER, Маневренная группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_MANEUVER"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_MANEUVER"]],_rarity_InfSentry],
 	//- rhs_group_rus_msv_infantry_emr, Мотострелки (ЕМР)
 	// rhs_group_rus_msv_infantry_emr_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_chq"]],_rarity_bad/2],
 	// rhs_group_rus_msv_infantry_emr_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad"]],_rarity_InfSquad],
 	// rhs_group_rus_msv_infantry_emr_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_2mg"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_emr_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_sniper"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_emr_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_mg_sniper"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_emr_section_mg, Пулемётное отделение
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_mg"]],_rarity_InfTeam_MG],
 	// rhs_group_rus_msv_infantry_emr_section_marksman, Снайперская группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_marksman"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_marksman"]],_rarity_SniperTeam],
 	// rhs_group_rus_msv_infantry_emr_section_AT, Гранатомётное отделение
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AT"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AT"]],_rarity_InfTeam_AT],
 	// rhs_group_rus_msv_infantry_emr_section_AA, Отделение ПВО
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AA"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AA"]],_rarity_InfTeam_AA],
 	// rhs_group_rus_msv_infantry_emr_fireteam, Огневая группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"]],_rarity_InfTeam],
 	// rhs_group_rus_msv_infantry_emr_MANEUVER, Маневренная группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_MANEUVER"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_MANEUVER"]],_rarity_InfSentry],
 	//- rhs_group_rus_msv_Ural, Мотострелки (Урал-4320)
 	// rhs_group_rus_msv_Ural_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_chq"]],_rarity_bad/2],
 	// rhs_group_rus_msv_Ural_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_Ural_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_2mg"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_Ural_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_sniper"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_Ural_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_Ural_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_aa"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_aa"]],_rarity_MotInf_Reinforce/5/2],
 	//- rhs_group_rus_msv_gaz66, Десантники (ГАЗ-66)
 	// rhs_group_rus_msv_gaz66_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_chq"]],_rarity_bad/2],
 	// rhs_group_rus_msv_gaz66_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_gaz66_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_2mg"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_gaz66_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_sniper"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_gaz66_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_gaz66_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_aa"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_aa"]],_rarity_MotInf_Reinforce/5/2],
 	//- rhs_group_rus_msv_btr70, Мотострелки (БТР-70)
 	// rhs_group_rus_msv_btr70_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_chq"]],_rarity_bad/3],
 	// rhs_group_rus_msv_btr70_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad"]],_rarity_MotInf_Team/3],
 	// rhs_group_rus_msv_btr70_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_2mg"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_btr70_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_sniper"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_btr70_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_btr70_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_aa"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_aa"]],_rarity_MotInf_AA/3],
 	//- rhs_group_rus_msv_BTR80, Пехота (БТР-80)
 	// rhs_group_rus_msv_BTR80_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_chq"]],_rarity_bad/3],
 	// rhs_group_rus_msv_BTR80_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad"]],_rarity_MotInf_Team/3],
 	// rhs_group_rus_msv_BTR80_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_2mg"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_BTR80_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_sniper"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_BTR80_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_BTR80_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_aa"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_aa"]],_rarity_MotInf_AA/3],
 	//- rhs_group_rus_msv_BTR80a, Пехота (БТР-80А)
 	// rhs_group_rus_msv_BTR80a_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_chq"]],_rarity_bad/3],
 	// rhs_group_rus_msv_BTR80a_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad"]],_rarity_MotInf_Team/3],
 	// rhs_group_rus_msv_BTR80a_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_2mg"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_BTR80a_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_sniper"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_BTR80a_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_BTR80a_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_aa"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_aa"]],_rarity_MotInf_AA/3],
 	//- rhs_group_rus_msv_bmp1, Мотострелки (БМП-1)
 	// rhs_group_rus_msv_bmp1_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_chq"]],_rarity_bad/4],
 	// rhs_group_rus_msv_bmp1_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad"]],_rarity_MechInfSquad/4],
 	// rhs_group_rus_msv_bmp1_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_2mg"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_msv_bmp1_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_msv_bmp1_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_msv_bmp1_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_aa"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_aa"]],_rarity_MotInf_AA/4],
 	//- rhs_group_rus_MSV_BMP3, Мотострелки (БМП-3)
 	// rhs_group_rus_MSV_BMP3_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_chq"]],_rarity_bad/4],
 	// rhs_group_rus_MSV_BMP3_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad"]],_rarity_MechInfSquad/4],
 	// rhs_group_rus_MSV_BMP3_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_2mg"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_MSV_BMP3_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_MSV_BMP3_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_MSV_BMP3_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_aa"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_aa"]],_rarity_MotInf_AA/4],
 	//- rhs_group_rus_MSV_bmp3m, МСВ (БМП-3М)
 	// rhs_group_rus_MSV_bmp3m_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_chq"]],_rarity_bad/4],
 	// rhs_group_rus_MSV_bmp3m_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad"]],_rarity_MechInfSquad/4],
 	// rhs_group_rus_MSV_bmp3m_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_2mg"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_MSV_bmp3m_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_MSV_bmp3m_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_MSV_bmp3m_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_aa"]],0.75],
-	//- rhs_group_rus_msv_bm21, BM-21 Artillery
-	// RHS_SPGPlatoon_msv_bm21, BM-21 Platoon
-	[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGPlatoon_msv_bm21"]],0],
-	// RHS_SPGSection_msv_bm21, BM-21 Section
-	[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGSection_msv_bm21"]],0],
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_aa"]],_rarity_MotInf_AA/4],
 	//- rhs_group_rus_msv_bmp2, Мотострелки (БМП-2)
 	// rhs_group_rus_msv_bmp2_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_chq"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_chq"]],_rarity_bad/4],
 	// rhs_group_rus_msv_bmp2_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad"]],_rarity_MechInfSquad/4],
 	// rhs_group_rus_msv_bmp2_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_2mg"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_msv_bmp2_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_msv_bmp2_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_msv_bmp2_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_aa"]],0.75]
-]; [_arr] call gosa_fnc_groups_convNormal;
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_aa"]],_rarity_MotInf_AA/4]
+];
+if (_Artillery) then {
+	_arr append [
+		//- rhs_group_rus_msv_bm21, BM-21 Artillery
+		// RHS_SPGPlatoon_msv_bm21, BM-21 Platoon
+		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGPlatoon_msv_bm21"]],_rarity_MotInf_MortTeam/2],
+		// RHS_SPGSection_msv_bm21, BM-21 Section
+		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGSection_msv_bm21"]],_rarity_MotInf_MortTeam/2]
+	];
+};
+[_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1990,2100], [160,999],
 ["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
