@@ -530,427 +530,163 @@ if (_Artillery) then {
 
 
 //--- West
-// nato_usmc_wd
-[_groups_map, west, "RHS_USMC_WD", [[
-	// configName "rhs_group_nato_usmc_wd_infantry_squad",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_wd_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE","CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_weaponsquad",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_usmc_marpat_wd_machinegunner_ass","rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_machinegunner","rhsusf_usmc_marpat_wd_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","CORPORAL",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_squad_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_sniper","rhsusf_usmc_marpat_wd_spotter",
-		"rhsusf_usmc_marpat_wd_sniper","rhsusf_usmc_marpat_wd_spotter",
-		"rhsusf_usmc_marpat_wd_sniper","rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_usmc_marpat_wd_riflemanat"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team_MG",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_machinegunner","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_rifleman_m4"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team_AA",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_usmc_marpat_wd_stinger"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team_support",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_navy_marpat_wd_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team_heavy_AT",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_usmc_marpat_wd_javelin"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader",
-		"rhsusf_usmc_recon_marpat_wd_marksman","rhsusf_usmc_recon_marpat_wd_autorifleman",
-		"rhsusf_usmc_recon_marpat_wd_rifleman_at","rhsusf_usmc_recon_marpat_wd_rifleman",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner_m249"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL",
-		"CORPORAL","CORPORAL",
-		"CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team_MG",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader",
-		"rhsusf_usmc_recon_marpat_wd_marksman","rhsusf_usmc_recon_marpat_wd_autorifleman",
-		"rhsusf_usmc_recon_marpat_wd_rifleman_at","rhsusf_usmc_recon_marpat_wd_rifleman",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team_support",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader",
-		"rhsusf_usmc_recon_marpat_wd_marksman","rhsusf_usmc_recon_marpat_wd_autorifleman",
-		"rhsusf_navy_sarc_w","rhsusf_usmc_recon_marpat_wd_rifleman",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner_m249"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team_lite",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader_lite",
-		"rhsusf_usmc_recon_marpat_wd_marksman_lite","rhsusf_usmc_recon_marpat_wd_autorifleman_lite",
-		"rhsusf_usmc_recon_marpat_wd_rifleman_at_lite","rhsusf_usmc_recon_marpat_wd_rifleman_lite",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner_m249_lite"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL",
-		"CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team_fast",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader_fast",
-		"rhsusf_usmc_recon_marpat_wd_marksman_fast","rhsusf_usmc_recon_marpat_wd_autorifleman_fast",
-		"rhsusf_usmc_recon_marpat_wd_rifleman_at_fast","rhsusf_usmc_recon_marpat_wd_rifleman_fast",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner_m249_fast"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "BUS_MotInf_Team_GMG",
-	[[[["rhsusf_m1025_w_s_Mk19",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_rifleman"],[[0,0,0],[-12,-12,0],[14,-13,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL"]]],0],
-	// configName "BUS_MotInf_Team_HMG",
-	[[[["rhsusf_m1025_w_s_m2",
-		"rhsusf_usmc_marpat_wd_rifleman","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_rifleman"],[[0,0,0],[-12,-12,0],[14,-13,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL"]]],0],
-	// configName "BUS_MotInf_AT",
-	[[[["rhsusf_m1025_w_s",
-		"rhsusf_usmc_marpat_wd_rifleman","rhsusf_usmc_marpat_wd_javelin",
-		"rhsusf_usmc_marpat_wd_javelin"],[[0,0,0],[13,-12,0],[-12,-13,0],[18,-17,-2]],
-		["SERGEANT",
-		"CORPORAL","CORPORAL",
-		"PRIVATE"]]],0],
-	// configName "BUS_MotInf_AA",
-	[[[["rhsusf_m1025_w_s",
-		"rhsusf_usmc_marpat_wd_rifleman","rhsusf_usmc_marpat_wd_stinger",
-		"rhsusf_usmc_marpat_wd_stinger"],[[0,0,0],[13,-12,0],[-12,-13,0],[18,-17,-2]],
-		["SERGEANT",
-		"CORPORAL","CORPORAL",
-		"PRIVATE"]]],0],
-	// configName "rhs_group_nato_usmc_wd_RG33_squad",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_rg33_usmc_wd","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_squad_2mg",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_rg33_usmc_wd","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_usmc_marpat_wd_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_squad_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_rg33_usmc_wd","rhsusf_usmc_marpat_wd_spotter",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_squad_mg_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_army_ocp_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_rg33_usmc_wd","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_m2_squad",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_rg33_m2_usmc_wd","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_m2_squad_2mg",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_rg33_m2_usmc_wd","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_usmc_marpat_wd_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_m2_squad_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_rg33_m2_usmc_wd","rhsusf_usmc_marpat_wd_spotter",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_m2_squad_mg_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_rg33_m2_usmc_wd","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "RHS_M1A1AIM_wd_Platoon",
-	[[[["rhsusf_m1a1fep_wd",
-		"rhsusf_m1a1fep_wd","rhsusf_m1a1fep_wd",
-		"rhsusf_m1a1fep_wd"],[[0,0,0],[-20,-30,3],[20,-30,3],[40,-60,3]],
-		["LIEUTENANT",
-		"SERGEANT","SERGEANT","CORPORAL"]]],0],
-	// configName "RHS_M1A1FEP_wd_Section",
-	[[[["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_wd"],[[0,0,0],[-20,-30,2]],
-		["LIEUTENANT","SERGEANT"]]],0]
-], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1990,2100], [160,249],
-["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+#define __exclude ["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+//-- rhs_faction_usmc_wd, США (КМП - Лесной)
+_arr = [
+	// >2005 FROG MARPAT
+	//- rhs_group_nato_usmc_wd_infantry, Пехота
+	// rhs_group_nato_usmc_wd_infantry_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad"]],0.75],
+	// rhs_group_nato_usmc_wd_infantry_weaponsquad, Ор. отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_weaponsquad"]],0.75],
+	// rhs_group_nato_usmc_wd_infantry_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad_sniper"]],0.75],
+	// rhs_group_nato_usmc_wd_infantry_team, Команда
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team"]],0.75],
+	// rhs_group_nato_usmc_wd_infantry_team_MG, Команда (пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_MG"]],0.75],
+	// rhs_group_nato_usmc_wd_infantry_team_AA, Команда (ПВО)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_AA"]],0.75],
+	// rhs_group_nato_usmc_wd_infantry_team_support, Команда (подд.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_support"]],0.75],
+	// rhs_group_nato_usmc_wd_infantry_team_heavy_AT, Команда (ПТ)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_heavy_AT"]],0.75],
+
+	//- rhs_group_nato_usmc_recon_wd_infantry, Пехота (разведка)
+	// rhs_group_nato_usmc_recon_wd_infantry_team, Команда
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team"]],0.75],
+	// rhs_group_nato_usmc_recon_wd_infantry_team_MG, Команда (пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_MG"]],0.75],
+	// rhs_group_nato_usmc_recon_wd_infantry_team_support, Команда (подд.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_support"]],0.75],
+	// rhs_group_nato_usmc_recon_wd_infantry_team_lite, Команда (лёгк.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_lite"]],0.75],
+	// rhs_group_nato_usmc_recon_wd_infantry_team_fast, Команда (Fast)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_fast"]],0.75],
+
+	// >1985
+	//- rhs_group_nato_usmc_wd_HMMWV, Пехота (HMMWV)
+	// BUS_MotInf_Team_GMG, Mot. Team (GMG)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_Team_GMG"]],0],
+	// BUS_MotInf_Team_HMG, Mot. Team (HMG)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_Team_HMG"]],0],
+	// BUS_MotInf_AT, Mot. Anti-armor Team
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_AT"]],0],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_AA"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "RHS_USMC_WD", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1985,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	//- rhs_group_nato_usmc_wd_RG33, Пехота (RG-33)
+	// rhs_group_nato_usmc_wd_RG33_squad, Отряд (RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad"]],0.75],
+	// rhs_group_nato_usmc_wd_RG33_squad_2mg, Отряд (2x пул./RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_2mg"]],0.75],
+	// rhs_group_nato_usmc_wd_RG33_squad_sniper, Отряд (Снайпер/RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_sniper"]],0.75],
+	// rhs_group_nato_usmc_wd_RG33_squad_mg_sniper, Отряд (Снайпер + пул./RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_mg_sniper"]],0.75],
+	// rhs_group_nato_usmc_wd_RG33_m2_squad, Отряд (RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad"]],0.75],
+	// rhs_group_nato_usmc_wd_RG33_m2_squad_2mg, Отряд (2x пул./RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_2mg"]],0.75],
+	// rhs_group_nato_usmc_wd_RG33_m2_squad_sniper, Отряд (Снайпер/RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_sniper"]],0.75],
+	// rhs_group_nato_usmc_wd_RG33_m2_squad_mg_sniper, Отряд (Снайпер + пул./RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_mg_sniper"]],0.75]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "RHS_USMC_WD", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2007,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	//- rhs_group_nato_usmc_wd_m1a1, M1A1 Groups
+	// RHS_M1A1AIM_wd_Platoon, M1A1FEP Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon"]],0],
+	// RHS_M1A1FEP_wd_Section, M1A1FEP Section
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1FEP_wd_Section"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "RHS_USMC_WD", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1995,2100], [160,250-1], __exclude
 ] call gosa_fnc_map_groups_add;
 
-// nato_usmc_d
-[_groups_map, west, "RHS_USMC_D", [[
-	// configName "rhs_group_nato_usmc_d_infantry_squad",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_rifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_riflemanat",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_weaponsquad",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_usmc_marpat_d_machinegunner_ass","rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_machinegunner","rhsusf_usmc_marpat_d_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_squad_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_sniper","rhsusf_usmc_marpat_d_spotter",
-		"rhsusf_usmc_marpat_d_sniper","rhsusf_usmc_marpat_d_spotter",
-		"rhsusf_usmc_marpat_d_sniper","rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_usmc_marpat_d_riflemanat"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team_MG",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_machinegunner","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_rifleman_m4"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team_AA",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_usmc_marpat_d_stinger"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team_support",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_navy_marpat_d_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team_heavy_AT",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_usmc_marpat_d_javelin"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader",
-		"rhsusf_usmc_recon_marpat_d_marksman","rhsusf_usmc_recon_marpat_d_autorifleman",
-		"rhsusf_usmc_recon_marpat_d_rifleman_at","rhsusf_usmc_recon_marpat_d_rifleman",
-		"rhsusf_usmc_recon_marpat_d_machinegunner_m249"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team_MG",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader",
-		"rhsusf_usmc_recon_marpat_d_marksman","rhsusf_usmc_recon_marpat_d_autorifleman",
-		"rhsusf_usmc_recon_marpat_d_rifleman_at","rhsusf_usmc_recon_marpat_d_rifleman",
-		"rhsusf_usmc_recon_marpat_d_machinegunner"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team_support",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader",
-		"rhsusf_usmc_recon_marpat_d_marksman","rhsusf_usmc_recon_marpat_d_autorifleman",
-		"rhsusf_navy_sarc_d","rhsusf_usmc_recon_marpat_d_rifleman",
-		"rhsusf_usmc_recon_marpat_d_machinegunner_m249"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team_lite",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader_lite",
-		"rhsusf_usmc_recon_marpat_d_marksman_lite","rhsusf_usmc_recon_marpat_d_autorifleman_lite",
-		"rhsusf_usmc_recon_marpat_d_rifleman_at_lite","rhsusf_usmc_recon_marpat_d_rifleman_lite",
-		"rhsusf_usmc_recon_marpat_d_machinegunner_m249_lite"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team_fast",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader_fast",
-		"rhsusf_usmc_recon_marpat_d_marksman_fast","rhsusf_usmc_recon_marpat_d_autorifleman_fast",
-		"rhsusf_usmc_recon_marpat_d_rifleman_at_fast","rhsusf_usmc_recon_marpat_d_rifleman_fast",
-		"rhsusf_usmc_recon_marpat_d_machinegunner_m249_fast"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_squad",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_rg33_usmc_d","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_riflemanat",
-		"rhsusf_usmc_marpat_d_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_squad_2mg",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_rg33_usmc_d","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_usmc_marpat_d_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_squad_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_rg33_usmc_d","rhsusf_usmc_marpat_d_spotter",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_squad_mg_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_army_ocp_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_rg33_usmc_d","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_m2_squad",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_rg33_m2_usmc_d","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_riflemanat",
-		"rhsusf_usmc_marpat_d_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_m2_squad_2mg",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_rg33_m2_usmc_d","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_usmc_marpat_d_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_m2_squad_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_rg33_m2_usmc_d","rhsusf_usmc_marpat_d_spotter",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_rg33_m2_usmc_d","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "BUS_MotInf_Team_GMG",
-	[[[["rhsusf_m1025_d_s_Mk19",
-	"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_riflemanat",
-	"rhsusf_usmc_marpat_d_rifleman"],[[0,0,0],[-12,-12,0],[14,-13,0],[5,0,0]],
-	["SERGEANT",
-	"CORPORAL","PRIVATE","CORPORAL"]]],0],
-	// configName "BUS_MotInf_Team_HMG",
-	[[[["rhsusf_m1025_d_s_m2",
-		"rhsusf_usmc_marpat_d_rifleman","rhsusf_usmc_marpat_d_riflemanat",
-		"rhsusf_usmc_marpat_d_rifleman"],[[0,0,0],[-12,-12,0],[14,-13,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE","CORPORAL"]]],0],
-	// configName "BUS_MotInf_AT",
-	[[[["rhsusf_m1025_d_s",
-		"rhsusf_usmc_marpat_d_rifleman","rhsusf_usmc_marpat_d_javelin",
-		"rhsusf_usmc_marpat_d_javelin"],[[0,0,0],[13,-12,0],[-12,-13,0],[18,-17,-2]],
-		["SERGEANT",
-		"CORPORAL","CORPORAL","PRIVATE"]]],0],
-	// configName "BUS_MotInf_AA",
-	[[[["rhsusf_m1025_d_s",
-		"rhsusf_usmc_marpat_d_rifleman","rhsusf_usmc_marpat_d_stinger",
-		"rhsusf_usmc_marpat_d_stinger"],[[0,0,0],[13,-12,0],[-12,-13,0],[18,-17,-2]],
-		["SERGEANT",
-		"CORPORAL","CORPORAL","PRIVATE"]]],0],
-	// configName "RHS_M1A1AIM_d_Platoon",
-	[[[["rhsusf_m1a1fep_d",
-		"rhsusf_m1a1fep_d","rhsusf_m1a1fep_d",
-		"rhsusf_m1a1fep_d"],[[0,0,0],[-20,-30,3],[20,-30,3],[40,-60,3]],
-		["LIEUTENANT",
-		"SERGEANT","SERGEANT","CORPORAL"]]],0],
-	// configName "RHS_M1A1FEP_d_Section",
-	[[[["rhsusf_m1a1fep_d","rhsusf_m1a1fep_d"],[[0,0,0],[-20,-30,2]],
-		["LIEUTENANT","SERGEANT"]]],0]
-], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1990,2100], [250,999],
-["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+//-- rhs_faction_usmc_d, США (КМП - Пустынный)
+_arr = [
+	//- rhs_group_nato_usmc_d_infantry, Пехота
+	// rhs_group_nato_usmc_d_infantry_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad"]],0.75],
+	// rhs_group_nato_usmc_d_infantry_weaponsquad, Ор. отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_weaponsquad"]],0.75],
+	// rhs_group_nato_usmc_d_infantry_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad_sniper"]],0.75],
+	// rhs_group_nato_usmc_d_infantry_team, Команда
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team"]],0.75],
+	// rhs_group_nato_usmc_d_infantry_team_MG, Команда (пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_MG"]],0.75],
+	// rhs_group_nato_usmc_d_infantry_team_AA, Команда (ПВО)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_AA"]],0.75],
+	// rhs_group_nato_usmc_d_infantry_team_support, Команда (подд.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_support"]],0.75],
+	// rhs_group_nato_usmc_d_infantry_team_heavy_AT, Команда (ПТ)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_heavy_AT"]],0.75],
+
+	//- rhs_group_nato_usmc_recon_d_infantry, Пехота (разведка)
+	// rhs_group_nato_usmc_recon_d_infantry_team, Команда
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team"]],0.75],
+	// rhs_group_nato_usmc_recon_d_infantry_team_MG, Команда (пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_MG"]],0.75],
+	// rhs_group_nato_usmc_recon_d_infantry_team_support, Команда (подд.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_support"]],0.75],
+	// rhs_group_nato_usmc_recon_d_infantry_team_lite, Команда (лёгк.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_lite"]],0.75],
+	// rhs_group_nato_usmc_recon_d_infantry_team_fast, Команда (Fast)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_fast"]],0.75],
+
+	//- rhs_group_nato_usmc_d_HMMWV, Пехота (HMMWV)
+	// BUS_MotInf_Team_GMG, Mot. Team (GMG)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_Team_GMG"]],0],
+	// BUS_MotInf_Team_HMG, Mot. Team (HMG)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_Team_HMG"]],0],
+	// BUS_MotInf_AT, Mot. Anti-armor Team
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_AT"]],0],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_AA"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "RHS_USMC_D", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1985,2100], [250,999], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	//- rhs_group_nato_usmc_d_RG33, Пехота (RG-33)
+	// rhs_group_nato_usmc_d_RG33_squad, Отряд (RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad"]],0.75],
+	// rhs_group_nato_usmc_d_RG33_squad_2mg, Отряд (2x пул./RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_2mg"]],0.75],
+	// rhs_group_nato_usmc_d_RG33_squad_sniper, Отряд (Снайпер/RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_sniper"]],0.75],
+	// rhs_group_nato_usmc_d_RG33_squad_mg_sniper, Отряд (Снайпер + пул./RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_mg_sniper"]],0.75],
+	// rhs_group_nato_usmc_d_RG33_m2_squad, Отряд (RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad"]],0.75],
+	// rhs_group_nato_usmc_d_RG33_m2_squad_2mg, Отряд (2x пул./RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_2mg"]],0.75],
+	// rhs_group_nato_usmc_d_RG33_m2_squad_sniper, Отряд (Снайпер/RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_sniper"]],0.75],
+	// rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper, Отряд (Снайпер + пул./RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper"]],0.75]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "RHS_USMC_D", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2007,2100], [250,999], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	//- rhs_group_nato_usmc_d_m1a1, M1A1 Groups
+	// RHS_M1A1AIM_d_Platoon, M1A1FEP Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_m1a1" >> "RHS_M1A1AIM_d_Platoon"]],0],
+	// RHS_M1A1FEP_d_Section, M1A1FEP Section
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_m1a1" >> "RHS_M1A1FEP_d_Section"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "RHS_USMC_D", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1995,2100], [250,999], __exclude
 ] call gosa_fnc_map_groups_add;
 
 #define __cfg configFile >> "CfgGroups" >> "West" >> "rhsgref_faction_hidf"
