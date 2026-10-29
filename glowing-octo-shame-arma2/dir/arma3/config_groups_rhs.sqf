@@ -953,6 +953,46 @@ if (_Artillery) then {
 ["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
 ] call gosa_fnc_map_groups_add;
 
+#define __cfg configFile >> "CfgGroups" >> "West" >> "rhsgref_faction_hidf"
+//-- rhsgref_faction_hidf, Horizon Islands Defence Force
+_arr = [
+	//- rhsgref_group_hidf_infantry, Infantry
+	// rhsgref_group_hidf_infantry_squad, Отряд
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhsgref_group_hidf_infantry_squad"]],_rarity_InfSquad],
+	// rhs_group_hidf_infantry_weaponsquad, Ор. отряд
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_weaponsquad"]],_rarity_InfSquad_Weapon],
+	// rhs_group_hidf_infantry_squad_sniper, Отряд (снайпер)
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_squad_sniper"]],_rarity_InfSquad_Weapon],
+	// rhs_group_hidf_infantry_team, Команда
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_team"]],_rarity_InfTeam],
+	// rhs_group_hidf_infantry_team_MG, Команда (пул.)
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_team_MG"]],_rarity_InfTeam_MG],
+	// rhs_group_hidf_infantry_team_AT, Команда (ПТ)
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_team_AT"]],_rarity_InfTeam_AT],
+	// rhs_group_hidf_infantry_team_support, Команда (подд.)
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_team_support"]],_rarity_bad],
+	//- rhsgref_group_hidf_m113, Mechanized (M113)
+	// rhsgref_group_hidf_m113_squad, Squad
+	[[[__cfg >>"rhsgref_group_hidf_m113" >> "rhsgref_group_hidf_m113_squad"]],_rarity_MechInfSquad],
+	// rhsgref_group_hidf_m113_squad_2mg, Squad (2x GPMG)
+	[[[__cfg >>"rhsgref_group_hidf_m113" >> "rhsgref_group_hidf_m113_squad_2mg"]],_rarity_MechInf_HMG]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhsgref_faction_hidf", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1964,1990], [150,250-1],
+	[]
+] call gosa_fnc_map_groups_add;
+_arr = [
+	//- rhsgref_group_hidf_hmmwv, Motorized (M1025)
+	// rhsgref_group_hidf_m1025_gmg, Mot. Team (GMG)
+	[[[__cfg >>"rhsgref_group_hidf_hmmwv" >> "rhsgref_group_hidf_m1025_gmg"]],_rarity_MechInf_GMG],
+	// rhsgref_group_hidf_m1025_hmg, Mot. Team (HMG)
+	[[[__cfg >>"rhsgref_group_hidf_hmmwv" >> "rhsgref_group_hidf_m1025_hmg"]],_rarity_MechInf_HMG]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhsgref_faction_hidf", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1983,2000], [150,250-1],
+	[]
+] call gosa_fnc_map_groups_add;
+
 
 //--- Indep
 _arr = [
