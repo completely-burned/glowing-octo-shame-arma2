@@ -2,6 +2,7 @@
 #include "..\include\ranks.sqf"
 
 //--- East
+#define __exclude ["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
 #define __cfg configFile >> "CfgGroups" >> "East" >> "rhs_faction_msv"
 //-- rhs_faction_msv, Россия (МСВ)
 _arr = [
@@ -173,155 +174,282 @@ if (_Artillery) then {
 	_arr append [
 		//- rhs_group_rus_msv_bm21, BM-21 Artillery
 		// RHS_SPGPlatoon_msv_bm21, BM-21 Platoon
-		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGPlatoon_msv_bm21"]],_rarity_MotInf_MortTeam/2],
+		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGPlatoon_msv_bm21"]],_rarity_MotInf_MortTeam/2/2],
 		// RHS_SPGSection_msv_bm21, BM-21 Section
-		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGSection_msv_bm21"]],_rarity_MotInf_MortTeam/2]
+		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGSection_msv_bm21"]],_rarity_MotInf_MortTeam/2/2]
 	];
 };
 [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1990,2100], [160,999],
-["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
+__exclude
 ] call gosa_fnc_map_groups_add;
 
-	[_groups_map, east, "RHS_TV", [[
-		// configName "RHS_T14Platoon",
-		[[[["RHS_T14_tv","RHS_T14_tv","RHS_T14_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T14Platoon_AA",
-		[[[["RHS_T14_tv","rhs_zsu234_aa","RHS_T14_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T14Section",
-		[[[["RHS_T14_tv","RHS_T14_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BAPlatoon",
-		[[[["rhs_t72ba_tv","rhs_t72ba_tv","rhs_t72ba_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BAPlatoon_AA",
-		[[[["rhs_t72ba_tv","rhs_zsu234_aa","rhs_t72ba_tv","rhs_zsu234_aa"],[[0,0,0],[20,-30,3],[-21,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T72BASection",
-		[[[["rhs_t72ba_tv","rhs_t72ba_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BBPlatoon",
-		[[[["RHS_T72BB_tv","RHS_T72BB_tv","RHS_T72BB_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BBPlatoon_AA",
-		[[[["RHS_T72BB_tv","rhs_zsu234_aa","RHS_T72BB_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BBSection",
-		[[[["RHS_T72BB_tv","RHS_T72BB_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BCPlatoon",
-		[[[["RHS_T72BC_tv","RHS_T72BC_tv","RHS_T72BC_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BCPlatoon_AA",
-		[[[["RHS_T72BC_tv","rhs_zsu234_aa","RHS_T72BC_tv","rhs_zsu234_aa"],[[0,0,0],[20,-30,3],[-21,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T72BCSection",
-		[[[["RHS_T72BC_tv","RHS_T72BC_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BDPlatoon",
-		[[[["RHS_T72BD_tv","RHS_T72BD_tv","RHS_T72BD_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BDPlatoon_AA",
-		[[[["RHS_T72BD_tv","rhs_zsu234_aa","RHS_T72BD_tv","rhs_zsu234_aa"],[[0,0,0],[20,-30,3],[-21,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T72BDSection",
-		[[[["RHS_T72BD_tv","RHS_T72BD_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BEPlatoon",
-		[[[["rhs_t72be_tv","rhs_t72be_tv","rhs_t72be_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BEPlatoon_AA",
-		[[[["rhs_t72be_tv","rhs_zsu234_aa","rhs_t72be_tv","rhs_zsu234_aa"],[[0,0,0],[20,-30,3],[-21,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T72BESection",
-		[[[["rhs_t72be_tv","rhs_t72be_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80Platoon",
-		[[[["RHS_T80","RHS_T80","RHS_T80"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80Platoon_AA",
-		[[[["RHS_T80","rhs_zsu234_aa","RHS_T80"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80Section",
-		[[[["RHS_T80","RHS_T80"],[[0,0,0],[-20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80BPlatoon",
-		[[[["RHS_T80B","RHS_T80B","RHS_T80B"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80BPlatoon_AA",
-		[[[["RHS_T80B","rhs_zsu234_aa","RHS_T80B","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80BSection",
-		[[[["RHS_T80B","RHS_T80B"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80BVPlatoon",
-		[[[["RHS_T80BV","RHS_T80BV","RHS_T80BV"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80BVPlatoon_AA",
-		[[[["RHS_T80BV","rhs_zsu234_aa","RHS_T80BV","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80BVSection",
-		[[[["RHS_T80BV","RHS_T80BV"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80APlatoon",
-		[[[["RHS_T80A","RHS_T80A","RHS_T80A"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80APlatoon_AA",
-		[[[["RHS_T80A","rhs_zsu234_aa","RHS_T80A","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80ASection",
-		[[[["RHS_T80A","RHS_T80A"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80UPlatoon",
-		[[[["RHS_T80U","RHS_T80U","RHS_T80U"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80UPlatoon_AA",
-		[[[["RHS_T80U","rhs_zsu234_aa","RHS_T80U","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80USection",
-		[[[["RHS_T80U","RHS_T80U"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80UMPlatoon",
-		[[[["RHS_T80UM","RHS_T80UM","RHS_T80UM"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80UMPlatoon_AA",
-		[[[["RHS_T80UM","rhs_zsu234_aa","RHS_T80UM","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80UMSection",
-		[[[["RHS_T80UM","RHS_T80UM"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "rhs_t80ue1Platoon",
-		[[[["rhs_t80ue1","rhs_t80ue1","rhs_t80ue1"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "rhs_t80ue1Platoon_AA",
-		[[[["rhs_t80ue1","rhs_zsu234_aa","rhs_t80ue1","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "rhs_t80ue1Section",
-		[[[["rhs_t80ue1","rhs_t80ue1"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "rhs_t80u45mPlatoon",
-		[[[["rhs_t80u45m","rhs_t80u45m","rhs_t80u45m"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "rhs_t80u45mPlatoon_AA",
-		[[[["rhs_t80u45m","rhs_zsu234_aa","rhs_t80u45m","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "rhs_t80u45mSection",
-		[[[["rhs_t80u45m","rhs_t80u45m"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90Platoon",
-		[[[["RHS_T90_tv","RHS_T90_tv","RHS_T90_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90Platoon_AA",
-		[[[["RHS_T90_tv","rhs_zsu234_aa","RHS_T90_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90Section",
-		[[[["RHS_T90_tv","RHS_T90_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_t90aPlatoon",
-		[[[["RHS_t90a_tv","RHS_t90a_tv","RHS_t90a_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_t90aPlatoon_AA",
-		[[[["RHS_t90a_tv","rhs_zsu234_aa","RHS_t90a_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_t90aSection",
-		[[[["RHS_t90a_tv","RHS_t90a_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90AMPlatoon",
-		[[[["RHS_T90AM_tv","RHS_T90AM_tv","RHS_T90AM_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90AMPlatoon_AA",
-		[[[["RHS_T90AM_tv","rhs_zsu234_aa","RHS_T90AM_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90AMSection",
-		[[[["RHS_T90AM_tv","RHS_T90AM_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SMPlatoon",
-		[[[["RHS_T90SM_tv","RHS_T90SM_tv","RHS_T90SM_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SMPlatoon_AA",
-		[[[["RHS_T90SM_tv","rhs_zsu234_aa","RHS_T90SM_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SMSection",
-		[[[["RHS_T90SM_tv","RHS_T90SM_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SAPlatoon",
-		[[[["rhs_t90saa_tv","rhs_t90saa_tv","rhs_t90saa_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SAPlatoon_AA",
-		[[[["rhs_t90saa_tv","rhs_zsu234_aa","rhs_t90saa_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SASection",
-		[[[["rhs_t90saa_tv","rhs_t90saa_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SABPlatoon",
-		[[[["rhs_t90sab_tv","rhs_t90sab_tv","rhs_t90sab_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SABPlatoon_AA",
-		[[[["rhs_t90sab_tv","rhs_zsu234_aa","rhs_t90sab_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SABSection",
-		[[[["rhs_t90sab_tv","rhs_t90sab_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025]
-	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [160,999],
-	["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F"]
+#define __cfg configFile >> "CfgGroups" >> "East" >> "rhs_faction_tv"
+//-- rhs_faction_tv, Россия (ТВ)
+_arr = [
+	//- rhs_group_rus_tv_14, T-14 Groups
+	// RHS_T14Platoon, T-14 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_14" >> "RHS_T14Platoon"]],_rarity_TankPlatoon],
+	// RHS_T14Platoon_AA, T-14 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_14" >> "RHS_T14Platoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T14Section, T-14 Section
+	[[[__cfg >> "rhs_group_rus_tv_14" >> "RHS_T14Section"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2021,2100], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+
+//- rhs_group_rus_tv_72, T-72 Groups
+_arr = [
+	// RHS_T72BAPlatoon, T-72B g.1984 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BAPlatoon"]],_rarity_TankPlatoon/2],
+	// RHS_T72BAPlatoon_AA, T-72B g.1984 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BAPlatoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_T72BASection, T-72B g.1984 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BASection"]],_rarity_TankSection/2]
+	// RHS_T72BBPlatoon, T-72B g.1985 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BBPlatoon"]],_rarity_TankPlatoon/2],
+	// RHS_T72BBPlatoon_AA, T-72B g.1985 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BBPlatoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_T72BBSection, T-72B g.1985 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BBSection"]],_rarity_TankSection/2]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1984,2015], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// RHS_T72BCPlatoon, T-72B g.1989 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BCPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T72BCPlatoon_AA, T-72B g.1989 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BCPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T72BCSection, T-72B g.1989 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BCSection"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1989,2020], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// RHS_T72BDPlatoon, T-72B3 g.2012 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BDPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T72BDPlatoon_AA, T-72B3 g.2012 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BDPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T72BDSection, T-72B3 g.2012 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BDSection"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2011,2030], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// RHS_T72BEPlatoon, T-72B3 g.2016 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BEPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T72BEPlatoon_AA, T-72B3 g.2016 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BEPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T72BESection, T-72B3 g.2016 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BESection"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2016,2100], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+
+//- rhs_group_rus_tv_80, T-80 Groups
+_arr = [
+	// >1976
+	// RHS_T80Platoon, T-80 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80Platoon"]],_rarity_TankPlatoon],
+	// RHS_T80Platoon_AA, T-80 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80Platoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80Section, T-80 Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80Section"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1976,1995], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// >1978
+	// RHS_T80BPlatoon, T-80B Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T80BPlatoon_AA, T-80B Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80BSection, T-80B Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BSection"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1978,1997], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// 1982-1984
+	// RHS_T80APlatoon, T-80A Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80APlatoon"]],_rarity_TankPlatoon/10],
+	// RHS_T80APlatoon_AA, T-80A Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80APlatoon_AA"]],_rarity_TankPlatoon_AA/10],
+	// RHS_T80ASection, T-80A Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80ASection"]],_rarity_TankSection/10]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1982,1984], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// >1984
+	// RHS_T80BVPlatoon, T-80BV Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BVPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T80BVPlatoon_AA, T-80BV Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BVPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80BVSection, T-80BV Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BVSection"]],_rarity_TankSection],
+	// RHS_T80UPlatoon, T-80U Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T80UPlatoon_AA, T-80U Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80USection, T-80U Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80USection"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1984,2010], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// >1992
+	// RHS_T80UMPlatoon, T-80UM Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UMPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T80UMPlatoon_AA, T-80UM Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UMPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80UMSection, T-80UM Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UMSection"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1992,2020], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// >2005
+	// rhs_t80ue1Platoon, T-80UE-1 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80ue1Platoon"]],_rarity_TankPlatoon/10],
+	// rhs_t80ue1Platoon_AA, T-80UE-1 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80ue1Platoon_AA"]],_rarity_TankPlatoon_AA/10],
+	// rhs_t80ue1Section, T-80UE-1 Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80ue1Section"]],_rarity_TankSection/10]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2005,2020], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// >2009
+	// rhs_t80u45mPlatoon, T-80U (45m) Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80u45mPlatoon"]],_rarity_TankPlatoon/10],
+	// rhs_t80u45mPlatoon_AA, T-80U (45m) Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80u45mPlatoon_AA"]],_rarity_TankPlatoon_AA/10],
+	// rhs_t80u45mSection, T-80U (45m) Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80u45mSection"]],_rarity_TankSection/10]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2009,2020], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+
+//- rhs_group_rus_tv_90, T-90 Groups
+// >1992, Чечня
+_arr = [
+	// RHS_T90Platoon, T-90 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Platoon"]],0],
+	// RHS_T90Platoon_AA, T-90 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Platoon_AA"]],0],
+	// RHS_T90Section, T-90 Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Section"]],0],
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1992,2015], [160,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+
+// >2004, Сирия с 2015
+_arr = [
+	// RHS_t90aPlatoon, T-90A Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aPlatoon"]],0],
+	// RHS_t90aPlatoon_AA, T-90A Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aPlatoon_AA"]],0],
+	// RHS_t90aSection, T-90A Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aSection"]],0],
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2004,2020], [160,225-1],
+	__exclude
+] call gosa_fnc_map_groups_add;
+
+// 2020-е
+_arr = [
+	// RHS_T90AMPlatoon, T-90AM Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMPlatoon"]],0],
+	// RHS_T90AMPlatoon_AA, T-90AM Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMPlatoon_AA"]],0],
+	// RHS_T90AMSection, T-90AM Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMSection"]],0],
+
+	// RHS_T90SMPlatoon, T-90SM Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMPlatoon"]],0],
+	// RHS_T90SMPlatoon_AA, T-90SM Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMPlatoon_AA"]],0],
+	// RHS_T90SMSection, T-90SM Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMSection"]],0],
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2016,2030], [160,225-1],
+	__exclude
+] call gosa_fnc_map_groups_add;
+
+// Экспорт
+_arr = [
+	// RHS_T90SAPlatoon, T-90SA g.2004 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SAPlatoon"]],0],
+	// RHS_T90SAPlatoon_AA, T-90SA g.2004 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SAPlatoon_AA"]],0],
+	// RHS_T90SASection, T-90SA g.2004 Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SASection"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2004,2020], [225,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// RHS_T90SABPlatoon, T-90SA g.2016 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABPlatoon"]],0],
+	// RHS_T90SABPlatoon_AA, T-90SA g.2016 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABPlatoon_AA"]],0],
+	// RHS_T90SABSection, T-90SA g.2016 Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABSection"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2016,2030], [225,999],
+	__exclude
+] call gosa_fnc_map_groups_add;
+
+if (_Artillery) then {
+	_arr = [
+		//- rhs_group_rus_tv_2S1, 2S1 Artillery
+		// RHS_SPGPlatoon_tv_2S1, Artillery 2S1 Platoon
+		[[[__cfg >> "rhs_group_rus_tv_2S1" >> "RHS_SPGPlatoon_tv_2S1"]],_rarity_MotInf_MortTeam/4/2],
+		// RHS_SPGSection_tv_2S1, Artillery 2S1 Section
+		[[[__cfg >> "rhs_group_rus_tv_2S1" >> "RHS_SPGSection_tv_2S1"]],_rarity_MotInf_MortTeam/4/2],
+		//- rhs_group_rus_tv_2s3, 2S3 Artillery
+		// RHS_SPGPlatoon_tv_2s3, Artillery 2S3 Platoon
+		[[[__cfg >> "rhs_group_rus_tv_2s3" >> "RHS_SPGPlatoon_tv_2s3"]],_rarity_MotInf_MortTeam/4/2],
+		// RHS_SPGSection_tv_2s3, Artillery 2S3 Section
+		[[[__cfg >> "rhs_group_rus_tv_2s3" >> "RHS_SPGSection_tv_2s3"]],_rarity_MotInf_MortTeam/4/2]
+	]; [_arr] call gosa_fnc_groups_convNormal;
+	[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		[1970,2100], [160,999],
+		__exclude
 	] call gosa_fnc_map_groups_add;
-	// Arty
-	/*
-	_east=_east+[
-		// configName "RHS_SPGPlatoon_tv_2S1",
-		[[[["rhs_2S1_tv","rhs_2S1_tv","rhs_2S1_tv","rhs_2S1_tv"],[[0,0,0],[20,-30,3],[-20.1,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_SPGSection_tv_2S1",
-		[[[["rhs_2S1_tv","rhs_2S1_tv"],[[0,0,0],[20,-30,3]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_SPGPlatoon_tv_2s3",
-		[[[["rhs_2s3_tv","rhs_2s3_tv","rhs_2s3_tv","rhs_2s3_tv"],[[0,0,0],[20,-30,3],[-20.1,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_SPGSection_tv_2s3",
-		[[[["rhs_2s3_tv","rhs_2s3_tv"],[[0,0,0],[20,-30,3]],["LIEUTENANT","SERGEANT"]]],0.025]
-	];
-	*/
+};
 
 
 //--- West
