@@ -68,6 +68,10 @@ if (_w in ["vn_khe_sanh","vn_the_bra","cam_lao_nam","dong_giang","vnx_rssz"]) th
 {
 	_r set [1,1968];
 };
+if (_w in ["rhspkl"]) then
+{
+	_r set [1,1979];
+};
 if (_w in ["gm_weferlingen_summer","gm_weferlingen_winter"]) then
 {
 	_r set [1,1983];
@@ -129,7 +133,7 @@ if (_w in ["tem_anizay"]) then
 {
 	_r set [1,2018];
 };
-if (_w in ["rhspkl","dogechnya"]) then
+if (_w in ["dogechnya"]) then
 {
 	_r set [1,2019];
 };

@@ -209,7 +209,7 @@ class Mission
 		forecastWind=0.1;
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
-		year=2019;
+		year=1979;
 		month=6;
 		day=6;
 		hour=17;
