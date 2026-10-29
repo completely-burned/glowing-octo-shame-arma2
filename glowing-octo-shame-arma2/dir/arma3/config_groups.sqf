@@ -23,6 +23,15 @@
 #include "..\include\ranks.sqf"
 
 private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
+	"_rarity_InfSquad", "_rarity_InfSquad_Weapon", "_rarity_InfTeam",
+	"_rarity_InfTeam_AT", "_rarity_InfTeam_AA", "_rarity_InfTeam_MG",
+	"_rarity_InfSentry", "_rarity_ReconTeam", "_rarity_ReconPatrol",
+	"_rarity_ReconSentry", "_rarity_SniperTeam", "_rarity_MotInf_Team",
+	"_rarity_MotInf_AT", "_rarity_MotInf_AA", "_rarity_MotInf_MGTeam",
+	"_rarity_MotInf_GMGTeam", "_rarity_MotInf_MortTeam", "_rarity_bad",
+	"_rarity_MotInf_Reinforce", "_rarity_MechInfSquad", "_rarity_MechInf_AT",
+	"_rarity_MechInf_AA", "_rarity_MechInf_Support", "_rarity_TankPlatoon",
+	"_rarity_TankPlatoon_AA", "_rarity_TankSection", "_rarity_reconSquad",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth","_vivt",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked","_arr0",
 	"_grp","_groups_failover","_factions_used","_climate","_date",
@@ -32,6 +41,44 @@ private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
 	"_sl","_tl","_steep_date","_steep_climate","_arr1","_n0",
 	"_alliances","_alliances_enabled","_alliance","_sides",
 	"_default_east","_default_west","_default_guer"];
+
+_rarity_bad = 0.01;
+// Пехота
+_rarity_InfSquad = 1;
+_rarity_InfSquad_Weapon = 0.5;
+_rarity_InfTeam = 0.3;
+_rarity_InfTeam_AT = 0.4;
+_rarity_InfTeam_AA = 0.2;
+_rarity_InfTeam_MG = _rarity_InfTeam;
+_rarity_InfSentry = 0.05;
+
+// Стелс пехота или разведчики
+_rarity_reconSquad = 0.5;
+_rarity_ReconTeam = 0.25;
+_rarity_ReconPatrol = 0.25;
+_rarity_ReconSentry = 0.05;
+_rarity_SniperTeam = 0.1;
+
+// Колеса
+_rarity_MotInf_Team = _rarity_InfSquad;
+_rarity_MotInf_AT = _rarity_InfTeam_AT;
+_rarity_MotInf_AA = _rarity_InfTeam_AA;
+_rarity_MotInf_MGTeam = _rarity_InfTeam_MG;
+_rarity_MotInf_GMGTeam = _rarity_InfTeam_MG;
+// Артиллерийская машина
+_rarity_MotInf_MortTeam = 0.05;
+// Грузовик с пехотой беззащитен совсем
+_rarity_MotInf_Reinforce = 0.05;
+
+_rarity_MechInfSquad = _rarity_InfSquad;
+_rarity_MechInf_AT = _rarity_InfTeam_AT;
+_rarity_MechInf_AA = _rarity_InfTeam_AA;
+_rarity_MechInf_Support = 0.05;
+
+_rarity_TankPlatoon = 0.5;
+_rarity_TankPlatoon_AA = 0.05;
+_rarity_TankSection = 0.5;
+
 
 _pvp = gosa_pvp;
 _landing = missionNamespace getVariable "gosa_landing";
