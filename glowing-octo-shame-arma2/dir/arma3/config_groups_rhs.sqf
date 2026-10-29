@@ -689,6 +689,253 @@ _arr = [
 	[1995,2100], [250,999], __exclude
 ] call gosa_fnc_map_groups_add;
 
+//-- rhs_faction_usarmy_wd, США (Армия - Лесной)
+_arr = [
+	// >2004, UCP
+	//- rhs_group_nato_usarmy_wd_infantry, Пехота
+	// rhs_group_nato_usarmy_wd_company_hq, Группа командира роты
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_company_hq"]],0.75],
+	// rhs_group_nato_usarmy_wd_platoon_hq, Отделение (Взвод)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_platoon_hq"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_weaponsquad, Ор. отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_weaponsquad"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team, Команда
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team_MG, Команда (пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_MG"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team_AA, Команда (ПВО)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_AA"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team_support, Команда (подд.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_support"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team_heavy_AT, Команда (ПТ)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_heavy_AT"]],0.75],
+
+	//- rhs_group_nato_usarmy_wd_infantry_arb, Пехота (Arb)
+	// rhs_group_nato_usarmy_wd_company_hq, Группа командира роты
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_company_hq"]],0.75],
+	// rhs_group_nato_usarmy_wd_platoon_hq, Отделение (Взвод)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_platoon_hq"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_weaponsquad, Ор. отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_weaponsquad"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team, Команда
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team_MG, Команда (пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team_MG"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team_AA, Команда (ПВО)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team_AA"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team_support, Команда (подд.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team_support"]],0.75],
+	// rhs_group_nato_usarmy_wd_infantry_team_heavy_AT, Команда (ПТ)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team_heavy_AT"]],0.75]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhs_faction_usarmy_wd", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1985,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	//- rhs_group_nato_usarmy_wd_RG33, Пехота (RG-33)
+	// rhs_group_nato_usarmy_wd_RG33_squad, Отряд (RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_RG33_squad_2mg, Отряд (2x пул./RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_RG33_squad_sniper, Отряд (Снайпер/RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_RG33_squad_mg_sniper, Отряд (Снайпер + пул./RG-33)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_squad_mg_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_RG33_m2_squad, Отряд (RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_m2_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_RG33_m2_squad_2mg, Отряд (2x пул./RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_m2_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_RG33_m2_squad_sniper, Отряд (Снайпер/RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_m2_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_RG33_m2_squad_mg_sniper, Отряд (Снайпер + пул./RG-33 М2)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_m2_squad_mg_sniper"]],0.75]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhs_faction_usarmy_wd", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2007,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// >1996
+	//- rhs_group_nato_usarmy_wd_FMTV, Пехота (FMTV)
+	// rhs_group_nato_usarmy_wd_FMTV_1078_squad, Отряд (М1078)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1078_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_FMTV_1078_squad_2mg, Отряд (2x пул./М1078)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1078_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_FMTV_1078_squad_sniper, Отряд (Снайпер/М1078)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1078_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_FMTV_1078_squad_mg_sniper, Отряд (Снайпер + пул./М1078)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1078_squad_mg_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_FMTV_1083_squad, Отряд (М1083)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1083_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_FMTV_1083_squad_2mg, Отряд (2x пул./М1083)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1083_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_FMTV_1083_squad_sniper, Отряд (Снайпер/М1083)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1083_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_FMTV_1083_squad_mg_sniper, Отряд (Снайпер + пул./М1083)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1083_squad_mg_sniper"]],0.75],
+
+	// >1995
+	//- rhs_group_nato_usarmy_wd_m1a1, M1A1 Groups
+	// RHS_M1A1AIM_wd_Platoon, M1A1AIM Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon"]],0],
+	// RHS_M1A1AIM_wd_Platoon_AA, M1A1AIM Platoon (Combined)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon_AA"]],0],
+	// RHS_M1A1AIM_wd_Section, M1A1AIM Section
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_Section"]],0],
+	// RHS_M1A1AIM_wd_TUSK_Platoon, M1A1AIM (TUSK I) Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_TUSK_Platoon"]],0],
+	// RHS_M1A1AIM_wd_TUSK_Platoon_AA, M1A1AIM (TUSK I) Platoon (Combined)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_TUSK_Platoon_AA"]],0],
+	// RHS_M1A1AIM_wd_TUSK_Section, M1A1AIM (TUSK I) Section
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_TUSK_Section"]],0],
+	//- rhs_group_nato_usarmy_wd_M1A2, M1A2 Groups
+	// RHS_M1A2SEP_wd_Platoon, M1A2SEPv1 Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_Platoon"]],0],
+	// RHS_M1A2SEP_wd_Platoon_AA, M1A2SEPv1 Platoon (Combined)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_Platoon_AA"]],0],
+	// RHS_M1A2SEP_wd_Section, M1A2SEPv1 Section
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_Section"]],0],
+	// RHS_M1A2SEP_wd_TUSK_Platoon, M1A2SEPv1 (TUSK I) Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK_Platoon"]],0],
+	// RHS_M1A2SEP_wd_TUSK_Platoon_AA, M1A2SEPv1 (TUSK I) Platoon (Combined)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK_Platoon_AA"]],0],
+	// RHS_M1A2SEP_wd_TUSK_Section, M1A2SEPv1 (TUSK I) Section
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK_Section"]],0],
+	// RHS_M1A2SEP_wd_TUSK2_Platoon, M1A2SEPv1 (TUSK II) Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK2_Platoon"]],0],
+	// RHS_M1A2SEP_wd_TUSK2_Platoon_AA, M1A2SEPv1 (TUSK II) Platoon (Combined)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK2_Platoon_AA"]],0],
+	// RHS_M1A2SEP_wd_TUSK2_Section, M1A2SEPv1 (TUSK II) Section
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK2_Section"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhs_faction_usarmy_wd", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1995,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	//- rhs_group_nato_usarmy_wd_HMMWV, Пехота (HMMWV)
+	// BUS_MotInf_Team_GMG, Mot. Team (GMG)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_HMMWV" >> "BUS_MotInf_Team_GMG"]],0],
+	// BUS_MotInf_Team_HMG, Mot. Team (HMG)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_HMMWV" >> "BUS_MotInf_Team_HMG"]],0],
+	// BUS_MotInf_AT, Mot. Anti-armor Team
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_HMMWV" >> "BUS_MotInf_AT"]],0],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_HMMWV" >> "BUS_MotInf_AA"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhs_faction_usarmy_wd", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1985,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	//- rhs_group_nato_usarmy_wd_M113, Пехота (М113)
+	// rhs_group_nato_usarmy_wd_M113_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M113" >> "rhs_group_nato_usarmy_wd_M113_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_M113_squad_2mg, Отряд (2x пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M113" >> "rhs_group_nato_usarmy_wd_M113_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_M113_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M113" >> "rhs_group_nato_usarmy_wd_M113_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_M113_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M113" >> "rhs_group_nato_usarmy_wd_M113_squad_mg_sniper"]],0.75]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhs_faction_usarmy_wd", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1985,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// >1988
+	//- rhs_group_nato_usarmy_wd_bradley, Пехота (М2А2)
+	// rhs_group_nato_usarmy_wd_bradley_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_wd_bradley_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradley_squad_2mg, Отряд (2x пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_wd_bradley_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradley_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_wd_bradley_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradley_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_wd_bradley_squad_mg_sniper"]],0.75],
+	// rhs_group_nato_usarmy_d_bradley_aa, Команда (ПВО)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_d_bradley_aa"]],0.75],
+	//- rhs_group_nato_usarmy_wd_bradley_busk, Пехота (М2А2 BUSK I)
+	// rhs_group_nato_usarmy_wd_bradley_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_wd_bradley_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradley_squad_2mg, Отряд (2x пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_wd_bradley_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradley_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_wd_bradley_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradley_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_wd_bradley_squad_mg_sniper"]],0.75],
+	// rhs_group_nato_usarmy_d_bradley_aa, Команда (ПВО)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_d_bradley_aa"]],0.75]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhs_faction_usarmy_wd", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1988,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// >2000
+	//- rhs_group_nato_usarmy_wd_bradleyA3, Пехота (М2А3)
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg, Отряд (2x пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper"]],0.75],
+	// rhs_group_nato_usarmy_d_bradleyA3_aa, Команда (ПВО)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_d_bradleyA3_aa"]],0.75],
+	//- rhs_group_nato_usarmy_wd_bradleyA3_busk, Пехота (М2А3 BUSK I)
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg, Отряд (2x пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper"]],0.75],
+	// rhs_group_nato_usarmy_d_bradleyA3_aa, Команда (ПВО)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_d_bradleyA3_aa"]],0.75],
+	//- rhs_group_nato_usarmy_wd_bradleyA3_busk3, Пехота (М2А3 BUSK III)
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg, Отряд (2x пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper, Отряд (снайпер)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper"]],0.75],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper"]],0.75],
+	// rhs_group_nato_usarmy_d_bradleyA3_aa, Команда (ПВО)
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_d_bradleyA3_aa"]],0.75]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhs_faction_usarmy_wd", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2000,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	// >2003
+	//- rhs_group_nato_usarmy_wd_stryker, Пехота (Stryker)
+	// rhs_group_nato_usarmy_wd_stryker_squad, Отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_stryker" >> "rhs_group_nato_usarmy_wd_stryker_squad"]],0.75],
+	// rhs_group_nato_usarmy_wd_stryker_wpnsquad, Ор. отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_stryker" >> "rhs_group_nato_usarmy_wd_stryker_wpnsquad"]],0.75]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhs_faction_usarmy_wd", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[2003,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+_arr = [
+	//- rhs_group_nato_usarmy_wd_M109, M109 Artillery
+	// RHS_M109_wd_Platoon, Artillery M109 Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M109" >> "RHS_M109_wd_Platoon"]],0],
+	// RHS_M109_wd_Section, Artillery M109 Section
+	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd" >> "rhs_group_nato_usarmy_wd_M109" >> "RHS_M109_wd_Section"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, west, "rhs_faction_usarmy_wd", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1973,2100], [160,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+
+
 #define __cfg configFile >> "CfgGroups" >> "West" >> "rhsgref_faction_hidf"
 //-- rhsgref_faction_hidf, Horizon Islands Defence Force
 _arr = [

@@ -524,6 +524,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_rhs_faction_usarmy_wd {
+			title="FACTION: RHS_USARMY_WD";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_RHS_USMC_D {
 			title="FACTION: RHS_USMC_D";
 			values[] = {-1,1,0};
