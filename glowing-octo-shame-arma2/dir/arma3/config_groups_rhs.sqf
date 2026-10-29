@@ -9,27 +9,27 @@ _arr = [
 	// >1998
 	//- rhs_group_rus_msv_infantry, Мотострелки (флора)
 	// rhs_group_rus_msv_infantry_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_chq"]],_rarity_bad/2/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_chq"]],_rarity_bad/2],
 	// rhs_group_rus_msv_infantry_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad"]],_rarity_InfSquad/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad"]],_rarity_InfSquad],
 	// rhs_group_rus_msv_infantry_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_2mg"]],_rarity_InfSquad_Weapon/3/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_2mg"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_sniper"]],_rarity_InfSquad_Weapon/3/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_sniper"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_mg_sniper"]],_rarity_InfSquad_Weapon/3/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_mg_sniper"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_section_mg, Пулемётное отделение
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_mg"]],_rarity_InfTeam_MG/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_mg"]],_rarity_InfTeam_MG],
 	// rhs_group_rus_msv_infantry_section_marksman, Снайперская группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_marksman"]],_rarity_SniperTeam/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_marksman"]],_rarity_SniperTeam],
 	// rhs_group_rus_msv_infantry_section_AT, Гранатомётное отделение
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AT"]],_rarity_InfTeam_AT/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AT"]],_rarity_InfTeam_AT],
 	// rhs_group_rus_msv_infantry_section_AA, Отделение ПВО
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AA"]],_rarity_InfTeam_AA/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AA"]],_rarity_InfTeam_AA],
 	// rhs_group_rus_msv_infantry_fireteam, Огневая группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_fireteam"]],_rarity_InfTeam/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_fireteam"]],_rarity_InfTeam],
 	// rhs_group_rus_msv_infantry_MANEUVER, Маневренная группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_MANEUVER"]],_rarity_InfSentry/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_MANEUVER"]],_rarity_InfSentry],
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1964,2010], [160,999],
@@ -40,27 +40,27 @@ _arr = [
 	// >2009
 	//- rhs_group_rus_msv_infantry_emr, Мотострелки (ЕМР)
 	// rhs_group_rus_msv_infantry_emr_chq, Группа командира роты
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_chq"]],_rarity_bad/2/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_chq"]],_rarity_bad/2],
 	// rhs_group_rus_msv_infantry_emr_squad, Отряд
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad"]],_rarity_InfSquad/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad"]],_rarity_InfSquad],
 	// rhs_group_rus_msv_infantry_emr_squad_2mg, Отряд (2x ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_2mg"]],_rarity_InfSquad_Weapon/3/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_2mg"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_emr_squad_sniper, Отряд (снайпер)
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_sniper"]],_rarity_InfSquad_Weapon/3/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_sniper"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_emr_squad_mg_sniper, Отряд (снайпер + ПКМ)
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_mg_sniper"]],_rarity_InfSquad_Weapon/3/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_mg_sniper"]],_rarity_InfSquad_Weapon/3],
 	// rhs_group_rus_msv_infantry_emr_section_mg, Пулемётное отделение
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_mg"]],_rarity_InfTeam_MG/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_mg"]],_rarity_InfTeam_MG],
 	// rhs_group_rus_msv_infantry_emr_section_marksman, Снайперская группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_marksman"]],_rarity_SniperTeam/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_marksman"]],_rarity_SniperTeam],
 	// rhs_group_rus_msv_infantry_emr_section_AT, Гранатомётное отделение
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AT"]],_rarity_InfTeam_AT/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AT"]],_rarity_InfTeam_AT],
 	// rhs_group_rus_msv_infantry_emr_section_AA, Отделение ПВО
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AA"]],_rarity_InfTeam_AA/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AA"]],_rarity_InfTeam_AA],
 	// rhs_group_rus_msv_infantry_emr_fireteam, Огневая группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"]],_rarity_InfTeam/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"]],_rarity_InfTeam],
 	// rhs_group_rus_msv_infantry_emr_MANEUVER, Маневренная группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_MANEUVER"]],_rarity_InfSentry/2],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_MANEUVER"]],_rarity_InfSentry],
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [2010,2100], [160,999],
