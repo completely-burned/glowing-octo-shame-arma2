@@ -29,7 +29,7 @@ _arr = [
 	// rhs_group_rus_msv_infantry_fireteam, Огневая группа
 	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_fireteam"]],_rarity_InfTeam],
 	// rhs_group_rus_msv_infantry_MANEUVER, Маневренная группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_MANEUVER"]],_rarity_InfSentry],
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_MANEUVER"]],_rarity_InfSentry]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1964,2010], [160,999],
@@ -60,7 +60,7 @@ _arr = [
 	// rhs_group_rus_msv_infantry_emr_fireteam, Огневая группа
 	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"]],_rarity_InfTeam],
 	// rhs_group_rus_msv_infantry_emr_MANEUVER, Маневренная группа
-	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_MANEUVER"]],_rarity_InfSentry],
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_MANEUVER"]],_rarity_InfSentry]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [2010,2100], [160,999],
@@ -81,7 +81,7 @@ _arr = [
 	// rhs_group_rus_msv_Ural_squad_mg_sniper, Отряд (снайпер + ПКМ)
 	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_Ural_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_aa"]],_rarity_MotInf_Reinforce/5/2],
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_aa"]],_rarity_MotInf_Reinforce/5/2]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1973,2100], [160,999],
@@ -102,7 +102,7 @@ _arr = [
 	// rhs_group_rus_msv_gaz66_squad_mg_sniper, Отряд (снайпер + ПКМ)
 	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5/2],
 	// rhs_group_rus_msv_gaz66_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_aa"]],_rarity_MotInf_Reinforce/5/2],
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_aa"]],_rarity_MotInf_Reinforce/5/2]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1964,2000], [160,999],
@@ -123,7 +123,7 @@ _arr = [
 	// rhs_group_rus_msv_btr70_squad_mg_sniper, Отряд (снайпер + ПКМ)
 	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_btr70_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_aa"]],_rarity_MotInf_AA/3],
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_aa"]],_rarity_MotInf_AA/3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1972,1990], [160,999],
@@ -144,7 +144,7 @@ _arr = [
 	// rhs_group_rus_msv_BTR80_squad_mg_sniper, Отряд (снайпер + ПКМ)
 	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_BTR80_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_aa"]],_rarity_MotInf_AA/3],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_aa"]],_rarity_MotInf_AA/3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1982,2100], [160,999],
@@ -165,7 +165,7 @@ _arr = [
 	// rhs_group_rus_msv_BTR80a_squad_mg_sniper, Отряд (снайпер + ПКМ)
 	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/3],
 	// rhs_group_rus_msv_BTR80a_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_aa"]],_rarity_MotInf_AA/3],
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_aa"]],_rarity_MotInf_AA/3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1990,2100], [160,999],
@@ -186,7 +186,7 @@ _arr = [
 	// rhs_group_rus_msv_bmp1_squad_mg_sniper, Отряд (снайпер + ПКМ)
 	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_msv_bmp1_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_aa"]],_rarity_MotInf_AA/4],
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_aa"]],_rarity_MotInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1966,1990], [160,999],
@@ -220,7 +220,7 @@ _arr = [
 	// rhs_group_rus_MSV_bmp3m_squad_mg_sniper, Отряд (снайпер + ПКМ)
 	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
 	// rhs_group_rus_MSV_bmp3m_squad_aa, Отряд ПВО
-	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_aa"]],_rarity_MotInf_AA/4],
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_aa"]],_rarity_MotInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 [1987,2100], [160,999],
@@ -249,19 +249,18 @@ __exclude
 ] call gosa_fnc_map_groups_add;
 
 if (_Artillery) then {
-	_arr append [
+	_arr = [
 		//- rhs_group_rus_msv_bm21, BM-21 Artillery
 		// RHS_SPGPlatoon_msv_bm21, BM-21 Platoon
 		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGPlatoon_msv_bm21"]],_rarity_MotInf_MortTeam/2/2],
 		// RHS_SPGSection_msv_bm21, BM-21 Section
 		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGSection_msv_bm21"]],_rarity_MotInf_MortTeam/2/2]
-	];
+	]; [_arr] call gosa_fnc_groups_convNormal;
+	[_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1964,2100], [160,999],
+	__exclude
+	] call gosa_fnc_map_groups_add;
 };
-[_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1964,2100], [160,999],
-__exclude
-] call gosa_fnc_map_groups_add;
 
 #define __cfg configFile >> "CfgGroups" >> "East" >> "rhs_faction_tv"
 //-- rhs_faction_tv, Россия (ТВ)
@@ -286,7 +285,7 @@ _arr = [
 	// RHS_T72BAPlatoon_AA, T-72B g.1984 Platoon (Combined)
 	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BAPlatoon_AA"]],_rarity_TankPlatoon_AA/2],
 	// RHS_T72BASection, T-72B g.1984 Section
-	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BASection"]],_rarity_TankSection/2]
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BASection"]],_rarity_TankSection/2],
 	// RHS_T72BBPlatoon, T-72B g.1985 Platoon
 	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BBPlatoon"]],_rarity_TankPlatoon/2],
 	// RHS_T72BBPlatoon_AA, T-72B g.1985 Platoon (Combined)
@@ -442,7 +441,7 @@ _arr = [
 	// RHS_T90Platoon_AA, T-90 Platoon (Combined)
 	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Platoon_AA"]],0],
 	// RHS_T90Section, T-90 Section
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Section"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Section"]],0]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1992,2015], [160,999],
@@ -456,7 +455,7 @@ _arr = [
 	// RHS_t90aPlatoon_AA, T-90A Platoon (Combined)
 	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aPlatoon_AA"]],0],
 	// RHS_t90aSection, T-90A Section
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aSection"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aSection"]],0]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[2004,2020], [160,225-1],
@@ -477,7 +476,7 @@ _arr = [
 	// RHS_T90SMPlatoon_AA, T-90SM Platoon (Combined)
 	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMPlatoon_AA"]],0],
 	// RHS_T90SMSection, T-90SM Section
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMSection"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMSection"]],0]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[2016,2030], [160,225-1],
