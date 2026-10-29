@@ -64,7 +64,8 @@ _rarity_SniperTeam = 0.1;
 _rarity_MotInf_Team = _rarity_InfSquad;
 _rarity_MotInf_AT = _rarity_InfTeam_AT;
 _rarity_MotInf_AA = _rarity_InfTeam_AA;
-_rarity_MotInf_MGTeam = _rarity_InfTeam_MG;
+_rarity_MotInf_MG = _rarity_InfTeam_MG;
+_rarity_MotInf_HMGTeam = _rarity_InfTeam_MG;
 _rarity_MotInf_GMGTeam = _rarity_InfTeam_MG;
 // Артиллерийская машина
 _rarity_MotInf_MortTeam = 0.05;
@@ -81,6 +82,8 @@ _rarity_MechInf_Support = 0.05;
 _rarity_TankPlatoon = 0.5;
 _rarity_TankPlatoon_AA = 0.05;
 _rarity_TankSection = 0.5;
+
+_rarity_MotInf_MGTeam = _rarity_MotInf_MG;
 
 
 _pvp = gosa_pvp;

@@ -548,6 +548,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
+		class gosa_faction_multiplier_rhsgref_faction_nationalist {
+			title="FACTION: rhsgref_nationalist";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 
 		class gosa_faction_multiplier_CUP_O_RUS_M {
 			title="FACTION: CUP_O_RUS_M";

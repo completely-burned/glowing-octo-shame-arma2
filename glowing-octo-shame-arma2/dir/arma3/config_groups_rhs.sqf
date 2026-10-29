@@ -995,6 +995,7 @@ _arr = [
 
 
 //--- Indep
+#define __exclude ["IND_F","IND_E_F","IND_G_F","IND_C_F"]
 _arr = [
 	// rhssaf_group_army_m93_oakleaf_company_hq
 	[[[["rhssaf_army_m93_oakleaf_summer_officer","rhssaf_army_m93_oakleaf_summer_officer","rhssaf_army_m93_oakleaf_summer_sq_lead","rhssaf_army_m93_oakleaf_summer_rifleman_m70"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT","PRIVATE"]]
@@ -1121,4 +1122,66 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 [_groups_map, resistance, "rhssaf_army", _arr,
 	[1990,2100], [160,999],
 	["IND_F","IND_E_F","IND_G_F","IND_C_F"]
+] call gosa_fnc_map_groups_add;
+
+#define __cfg configFile >> "CfgGroups" >> "Indep" >> "rhsgref_faction_nationalist"
+//-- rhsgref_faction_nationalist, Nationalist Militia
+_arr = [
+	//- rhsgref_group_national_infantry, Infantry
+	// rhsgref_group_national_infantry_squad, Group (Mixed)
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_squad"]],_rarity_InfSquad],
+	// rhsgref_group_national_infantry_squad_2, Group (AT)
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_squad_2"]],_rarity_InfSquad_Weapon],
+	// rhsgref_group_national_infantry_patrol, Cell
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_patrol"]],_rarity_InfTeam],
+	// rhsgref_group_national_infantry_mg, MG pair
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_mg"]],_rarity_InfTeam_MG],
+	// rhsgref_group_national_infantry_at, AT pair
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_at"]],_rarity_InfTeam_AT]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, resistance, "rhsgref_faction_nationalist", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1964,2030], [150,250-1], __exclude
+] call gosa_fnc_map_groups_add;
+
+_arr = [
+	//- rhs_group_indp_nat_ural, Motorized (Ural-4320)
+	// rhs_group_nat_ural_chq, Группа командира роты
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_chq"]],_rarity_bad/5],
+	// rhs_group_nat_ural_squad, Отряд
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_nat_ural_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad_2mg"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_nat_ural_squad_sniper, Отряд (снайпер)
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad_sniper"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_nat_ural_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_nat_ural_squad_aa, Отряд ПВО
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad_aa"]],_rarity_MotInf_Reinforce/5],
+
+	//- rhs_group_nat_uaz, Motorized (UAZ)
+	// BUS_MotInf_Team_GMG, Mot. Team (AGS-30)
+	[[[__cfg >>"rhs_group_nat_uaz" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
+	// BUS_MotInf_Team_HMG, Mot. Team (DShkM)
+	[[[__cfg >>"rhs_group_nat_uaz" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
+	// BUS_MotInf_AT, Mot. Team (SPG-9)
+	[[[__cfg >>"rhs_group_nat_uaz" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[__cfg >>"rhs_group_nat_uaz" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
+
+	//- rhs_group_indp_nat_btr70, Motorized (BTR-70)
+	// rhs_group_nat_btr70_chq, Группа командира роты
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_chq"]],_rarity_bad],
+	// rhs_group_nat_btr70_squad, Отряд
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad"]],_rarity_MotInf_Team],
+	// rhs_group_nat_btr70_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad_2mg"]],_rarity_MotInf_MG/3],
+	// rhs_group_nat_btr70_squad_sniper, Отряд (снайпер)
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad_sniper"]],_rarity_MotInf_MG/3],
+	// rhs_group_nat_btr70_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad_mg_sniper"]],_rarity_MotInf_MG/3],
+	// rhs_group_nat_btr70_squad_aa, Отряд ПВО
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad_aa"]],_rarity_MotInf_AA]
+]; [_arr] call gosa_fnc_groups_convNormal;
+[_groups_map, resistance, "rhsgref_faction_nationalist", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[1973,2030], [150,250-1], __exclude
 ] call gosa_fnc_map_groups_add;
