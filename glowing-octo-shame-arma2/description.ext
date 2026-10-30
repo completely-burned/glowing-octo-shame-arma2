@@ -524,6 +524,12 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
+		class gosa_faction_multiplier_rhsgref_faction_chdkz {
+			title="FACTION: rhsgref_chdkz";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
 		class gosa_faction_multiplier_rhs_faction_usarmy_d {
 			title="FACTION: RHS_USARMY_D";
 			values[] = {-1,1,0};

@@ -306,6 +306,7 @@ if (_Artillery) then {
 []
 ] call gosa_fnc_map_groups_add;
 
+#define __exclude ["rhsgref_faction_chdkz","CUP_O_ChDKZ","OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
 // gmx_chdkz
 _arr = [
 	// gm_platoon_gmx_chdkz_pt76b_wdl
@@ -370,8 +371,7 @@ if (_Artillery) then {
 	];
 };
 [_groups_map, east, "gmx_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160,249],
-	["CUP_O_ChDKZ"]
+	[1960,1990], [160,249], __exclude
 ] call gosa_fnc_map_groups_add;
 
 // gmx_tak_army
