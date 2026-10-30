@@ -532,6 +532,7 @@ if (_Artillery) then {
 
 #define __exclude ["CUP_O_ChDKZ","gmx_chdkz","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
 #define __cfg configFile >> "CfgGroups" >> "East" >> "rhsgref_faction_chdkz"
+#define __date_dead_chdkz 2015
 //-- rhsgref_faction_chdkz, ChDKZ Insurgents
 _arr = [
 	//- rhsgref_group_chdkz_insurgents_infantry, Infantry
@@ -547,7 +548,7 @@ _arr = [
 	[[[__cfg >> "rhsgref_group_chdkz_insurgents_infantry" >> "rhsgref_group_chdkz_infantry_aa"]],_rarity_InfTeam_AA]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1964,2030], [150,999],
+	[1964,__date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -558,7 +559,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_bm21" >> "RHS_SPGSection_ins_bm21"]],_rarity_MotInf_MortTeam/2]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1963,2030], [150,999],
+	[1963,__date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -577,7 +578,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_bmd1" >> "rhs_group_rus_ins_bmd1_squad_aa"]],_rarity_MechInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1969,2010], [150,999],
+	[1969,2010 min __date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -596,7 +597,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_bmd2" >> "rhs_group_rus_ins_bmd2_squad_aa"]],_rarity_MechInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1985,2030], [150,999],
+	[1985,__date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -615,7 +616,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_bmp1" >> "rhs_group_indp_ins_bmp1_squad_aa"]],_rarity_MechInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1966,2010], [150,999],
+	[1966,2010 min __date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -634,7 +635,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_bmp2" >> "rhs_group_indp_ins_bmp2_squad_aa"]],_rarity_MechInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1980,2030], [150,999],
+	[1980,__date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -653,7 +654,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_btr70" >> "rhs_group_chdkz_btr70_squad_aa"]],_rarity_MotInf_AA/2]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1972,2010], [150,999],
+	[1972,2010 min __date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -672,7 +673,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_btr60" >> "rhs_group_chdkz_btr60_squad_aa"]],_rarity_MotInf_AA/2]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1964,2000], [150,999],
+	[1964,2000 min __date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -701,7 +702,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_uaz" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1973,2030], [150,999],
+	[1973,__date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -720,7 +721,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_gaz66" >> "rhs_group_chdkz_gaz66_squad_aa"]],_rarity_MotInf_Reinforce/5]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1964,2000], [150,999],
+	[1964,2000 min __date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -740,7 +741,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_T72BBSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1984,2000], [150,999],
+	[1984,2000 min __date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -752,7 +753,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_t72bcSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "rhsgref_faction_chdkz", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1989,2030], [150,999],
+	[1989,__date_dead_chdkz], [150,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 
