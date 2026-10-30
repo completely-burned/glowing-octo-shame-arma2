@@ -1435,6 +1435,7 @@ class CfgFunctions
 			class veh_getinfo {};
 			class faction_getinfo {};
 			class getinfo {};
+			class cfg_grp_getinfo {};
 			class groups_convnormal {};
 			class group_cfg_to_array {};
 			class type_camoclass {};
