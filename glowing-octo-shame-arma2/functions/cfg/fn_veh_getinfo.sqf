@@ -52,6 +52,34 @@ switch (true) do {
 	case (_type isKindOf "rhs_t72ba_tv"): {
 		_date = [1984,2015];
 	};
+	// t90sa g.2016
+	case (_type isKindOf "rhs_t90sab_tv"): {
+		_date = [2016,2035];
+	};
+	// t90sa g.2004
+	case (_type isKindOf "rhs_t90saa_tv"): {
+		_date = [2004,2025];
+	};
+	// t90a
+	case (_type isKindOf "rhs_t90a_tv"): {
+		_date = [2006,2025];
+	};
+	// t90sm
+	case (_type isKindOf "rhs_t90sm_tv"): {
+		_date = [2020,2050];
+	};
+	// t90am
+	case (_type isKindOf "rhs_t90am_tv"): {
+		_date = [2020,2050];
+	};
+	// t90
+	case (_type isKindOf "rhs_t90_tv"): {
+		_date = [1992,2010];
+	};
+	case (_type isKindOf "rhs_t14_base"): {
+		_date = [2021,2050];
+	};
+
 	case (_type isKindOf "rhs_bmp3tank_base"): {
 		_date = [1987,2050];
 	};
@@ -103,6 +131,15 @@ switch (true) do {
 	};
 	case (_type isKindOf "rhsusf_m998_w_2dr"): {
 		_date = [1985,__date_us_iraq_exit];
+	};
+	case (_type isKindOf "rhs_2s3tank_base"): {
+		_date = [1973,2050];
+	};
+	case (_type isKindOf "rhs_2s1tank_base"): {
+		_date = [1970,2050];
+	};
+	case (_type isKindOf "RHS_BM21_MSV_01"): {
+		_date = [1963,2050];
 	};
 
 	// GM 1990
