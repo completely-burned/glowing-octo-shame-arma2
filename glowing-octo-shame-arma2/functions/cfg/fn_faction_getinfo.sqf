@@ -9,13 +9,18 @@ for "_i" from 0 to (count _cfg -1) do {
 _arr;
 */
 
+#define __date_dead_ussa 1991
 
 private ["_f","_date"];
 _f = _this select 0;
 if (typeName _f == typeName objNull) then {
 	_f = toLower faction _f;
 }else{
-	_f = toLower getText (LIB_cfgVeh >> _f >> "faction");
+	if (configName(configFile >> "CfgFactionClasses" >> (_this select 0)) == "") then {
+		_f = toLower getText (LIB_cfgVeh >> _f >> "faction");
+	}else{
+		_f = toLower (_this select 0);
+	};
 };
 
 switch (true) do {
@@ -60,22 +65,47 @@ switch (true) do {
 			_date = [1980,1990];
 	};
 	// RHS >VN >WW2
-	case (_f in ["rhs_faction_msv","rhs_faction_vdv","rhs_faction_vdv_45",
-		"rhs_faction_vmf","rhs_faction_vv","rhs_faction_tv","rhs_faction_vpvo",
-		"rhs_faction_vvs","rhs_faction_vvs_c","rhs_faction_rva",
-		"rhs_faction_usarmy","rhs_faction_usmc","rhs_faction_usarmy_wd",
-		"rhs_faction_usarmy_d","rhs_faction_usmc_wd","rhs_faction_usmc_d",
-		"rhs_faction_usaf","rhs_faction_usn","rhs_faction_socom",
-		"rhs_faction_insurgents","rhsgref_faction_cdf_ground",
-		"rhsgref_faction_cdf_ground_b","rhsgref_faction_cdf_air",
-		"rhsgref_faction_cdf_air_b","rhsgref_faction_cdf_ng",
-		"rhsgref_faction_cdf_ng_b","rhsgref_faction_un",
-		"rhsgref_faction_nationalist","rhsgref_faction_chdkz",
-		"rhsgref_faction_chdkz_g","rhsgref_faction_hidf","rhsgref_faction_tla",
-		"rhsgref_faction_tla_g","rhssaf_faction_army",
-		"rhssaf_faction_army_opfor","rhssaf_faction_airforce",
-		"rhssaf_faction_airforce_opfor","rhssaf_faction_un"]): {
-			_date = [1970,2020];
+	// ЧДКЗ — период по лору Arma 2
+	case (_f in ["rhsgref_faction_chdkz", "rhsgref_faction_chdkz_g"]): {
+		_date = [1999, 2015];
+	};
+	// RHS: советские/российские фракции (MSV, VDV, ВМФ и т.п.)
+	case (_f in [
+		"rhs_faction_msv", "rhs_faction_vdv", "rhs_faction_vdv_45",
+		"rhs_faction_vmf", "rhs_faction_vv", "rhs_faction_tv", "rhs_faction_vpvo",
+		"rhs_faction_vvs", "rhs_faction_vvs_c", "rhs_faction_rva"
+	]): {
+		_date = [1970, 2050];
+	};
+	// RHS: американские фракции (Армия, Морская пехота, ВВС, ВМС, SOCOM)
+	case (_f in [
+		"rhs_faction_usarmy", "rhs_faction_usmc", "rhs_faction_usarmy_wd",
+		"rhs_faction_usarmy_d", "rhs_faction_usmc_wd", "rhs_faction_usmc_d",
+		"rhs_faction_usaf", "rhs_faction_usn", "rhs_faction_socom"
+	]): {
+		_date = [1970, 2050];
+	};
+	// RHS: повстанцы и CDF (включая варианты ground/air/NG) — 1970–2020
+	case (_f in [
+		"rhs_faction_insurgents",
+		"rhsgref_faction_cdf_ground", "rhsgref_faction_cdf_ground_b",
+		"rhsgref_faction_cdf_air", "rhsgref_faction_cdf_air_b",
+		"rhsgref_faction_cdf_ng", "rhsgref_faction_cdf_ng_b"
+	]): {
+		_date = [__date_dead_ussa, 2020];
+	};
+	// RHS: остальные (UN, националисты, HIDF, TLA, SAF) — 1970–2020
+	case (_f in [
+		"rhsgref_faction_un",
+		"rhsgref_faction_nationalist",
+		"rhsgref_faction_tla", "rhsgref_faction_tla_g",
+		"rhssaf_faction_army", "rhssaf_faction_army_opfor",
+		"rhssaf_faction_airforce", "rhssaf_faction_airforce_opfor", "rhssaf_faction_un"
+	]): {
+		_date = [1970, 2020];
+	};
+	case (_f in ["rhsgref_faction_hidf"]): {
+		_date = [1975, 1995];
 	};
 	// A2 2008
 	// A2OA 2012
