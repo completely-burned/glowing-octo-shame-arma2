@@ -128,7 +128,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_aa"]],_rarity_MotInf_AA/3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1972,1990], [160,999],
+[1972,1990 min __date_emr], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -191,7 +191,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_aa"]],_rarity_MotInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1966,1990], [160,999],
+[1966,1990 min __date_emr], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -246,7 +246,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_aa"]],_rarity_MotInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1980,2030], [160,999],
+[1980,2030 min __date_emr], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
