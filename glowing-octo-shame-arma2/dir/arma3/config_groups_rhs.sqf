@@ -85,8 +85,9 @@ _arr = [
 	// rhs_group_rus_msv_Ural_squad_aa, Отряд ПВО
 	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_aa"]],_rarity_MotInf_Reinforce/5/2]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1973,2100], [160,999],
+_date_rip, [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -106,8 +107,9 @@ _arr = [
 	// rhs_group_rus_msv_gaz66_squad_aa, Отряд ПВО
 	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_aa"]],_rarity_MotInf_Reinforce/5/2]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1964,2000], [160,999],
+_date_rip, [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -127,8 +129,9 @@ _arr = [
 	// rhs_group_rus_msv_btr70_squad_aa, Отряд ПВО
 	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_aa"]],_rarity_MotInf_AA/3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1972,1990 min __date_emr], [160,999],
+[(_date_rip select 0), (_date_rip select 1) min __date_emr], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -148,8 +151,9 @@ _arr = [
 	// rhs_group_rus_msv_BTR80_squad_aa, Отряд ПВО
 	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_aa"]],_rarity_MotInf_AA/3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1982 max __date_emr,2100], [160,999],
+[(_date_rip select 0) max __date_emr, (_date_rip select 1)], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -169,8 +173,9 @@ _arr = [
 	// rhs_group_rus_msv_BTR80a_squad_aa, Отряд ПВО
 	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_aa"]],_rarity_MotInf_AA/3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1990 max __date_emr,2100], [160,999],
+[(_date_rip select 0) max __date_emr, (_date_rip select 1)], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -190,8 +195,9 @@ _arr = [
 	// rhs_group_rus_msv_bmp1_squad_aa, Отряд ПВО
 	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_aa"]],_rarity_MotInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1966,1990 min __date_emr], [160,999],
+[(_date_rip select 0), (_date_rip select 1) min __date_emr], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -224,8 +230,9 @@ _arr = [
 	// rhs_group_rus_MSV_bmp3m_squad_aa, Отряд ПВО
 	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_aa"]],_rarity_MotInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1987 max __date_emr,2100], [160,999],
+[(_date_rip select 0) max __date_emr, (_date_rip select 1)], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -245,8 +252,9 @@ _arr = [
 	// rhs_group_rus_msv_bmp2_squad_aa, Отряд ПВО
 	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_aa"]],_rarity_MotInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1980,2030 min __date_emr], [160,999],
+[(_date_rip select 0), (_date_rip select 1) min __date_emr], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -258,8 +266,9 @@ if (_Artillery) then {
 		// RHS_SPGSection_msv_bm21, BM-21 Section
 		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGSection_msv_bm21"]],_rarity_MotInf_MortTeam/2/2]
 	]; [_arr] call gosa_fnc_groups_convNormal;
+	_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 	[_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1964,2100], [160,999],
+	[(_date_rip select 0), (_date_rip select 1)], [160,999],
 	__exclude
 	] call gosa_fnc_map_groups_add;
 };
@@ -275,8 +284,9 @@ _arr = [
 	// RHS_T14Section, T-14 Section
 	[[[__cfg >> "rhs_group_rus_tv_14" >> "RHS_T14Section"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2021,2100], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -295,8 +305,9 @@ _arr = [
 	// RHS_T72BBSection, T-72B g.1985 Section
 	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BBSection"]],_rarity_TankSection/2]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1984,2015], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -307,8 +318,9 @@ _arr = [
 	// RHS_T72BCSection, T-72B g.1989 Section
 	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BCSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1989,2020], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -319,8 +331,9 @@ _arr = [
 	// RHS_T72BDSection, T-72B3 g.2012 Section
 	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BDSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2011,2030], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -331,8 +344,9 @@ _arr = [
 	// RHS_T72BESection, T-72B3 g.2016 Section
 	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BESection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2016,2100], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -346,8 +360,9 @@ _arr = [
 	// RHS_T80Section, T-80 Section
 	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80Section"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1976,1995], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -359,8 +374,9 @@ _arr = [
 	// RHS_T80BSection, T-80B Section
 	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1978,1997], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -372,8 +388,9 @@ _arr = [
 	// RHS_T80ASection, T-80A Section
 	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80ASection"]],_rarity_TankSection/10]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1982,1984], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -391,8 +408,9 @@ _arr = [
 	// RHS_T80USection, T-80U Section
 	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80USection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1984,2010], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -404,8 +422,9 @@ _arr = [
 	// RHS_T80UMSection, T-80UM Section
 	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UMSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1992,2020], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -417,8 +436,9 @@ _arr = [
 	// rhs_t80ue1Section, T-80UE-1 Section
 	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80ue1Section"]],_rarity_TankSection/10]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2005,2020], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -430,8 +450,9 @@ _arr = [
 	// rhs_t80u45mSection, T-80U (45m) Section
 	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80u45mSection"]],_rarity_TankSection/10]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2009,2020], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -445,8 +466,9 @@ _arr = [
 	// RHS_T90Section, T-90 Section
 	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Section"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1992,2015], [160,999],
+	_date_rip, [160,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -459,8 +481,9 @@ _arr = [
 	// RHS_t90aSection, T-90A Section
 	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2004,2020], [160,225-1],
+	_date_rip, [160,225-1],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -480,8 +503,9 @@ _arr = [
 	// RHS_T90SMSection, T-90SM Section
 	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2016,2030], [160,225-1],
+	_date_rip, [160,225-1],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -494,8 +518,9 @@ _arr = [
 	// RHS_T90SASection, T-90SA g.2004 Section
 	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SASection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2004,2020], [225,999],
+	_date_rip, [225,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 _arr = [
@@ -506,8 +531,9 @@ _arr = [
 	// RHS_T90SABSection, T-90SA g.2016 Section
 	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[2016,2030], [225,999],
+	_date_rip, [225,999],
 	__exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -524,8 +550,9 @@ if (_Artillery) then {
 		// RHS_SPGSection_tv_2s3, Artillery 2S3 Section
 		[[[__cfg >> "rhs_group_rus_tv_2s3" >> "RHS_SPGSection_tv_2s3"]],_rarity_MotInf_MortTeam/4/2]
 	]; [_arr] call gosa_fnc_groups_convNormal;
+	_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
 	[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1970,2100], [160,999],
+		_date_rip, [160,999],
 		__exclude
 	] call gosa_fnc_map_groups_add;
 };
