@@ -4,6 +4,8 @@
 //--- East
 #define __exclude ["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
 #define __cfg configFile >> "CfgGroups" >> "East" >> "rhs_faction_msv"
+// Отряды бмп3*, бтр80* идут с камуфляжем ЕМР.
+#define __date_emr 2009
 //-- rhs_faction_msv, Россия (МСВ)
 _arr = [
 	// >1998
@@ -32,7 +34,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_MANEUVER"]],_rarity_InfSentry]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1964,2010], [160,999],
+[1964,__date_emr], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -63,7 +65,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_MANEUVER"]],_rarity_InfSentry]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[2010,2100], [160,999],
+[__date_emr,2100], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -147,7 +149,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_aa"]],_rarity_MotInf_AA/3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1982,2100], [160,999],
+[1982 max __date_emr,2100], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -168,7 +170,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_aa"]],_rarity_MotInf_AA/3]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1990,2100], [160,999],
+[1990 max __date_emr,2100], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
@@ -223,7 +225,7 @@ _arr = [
 	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_aa"]],_rarity_MotInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1987,2100], [160,999],
+[1987 max __date_emr,2100], [160,999],
 __exclude
 ] call gosa_fnc_map_groups_add;
 
