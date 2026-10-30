@@ -439,11 +439,11 @@ _arr = [
 // >1992, Чечня
 _arr = [
 	// RHS_T90Platoon, T-90 Platoon
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Platoon"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Platoon"]],_rarity_TankPlatoon],
 	// RHS_T90Platoon_AA, T-90 Platoon (Combined)
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Platoon_AA"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Platoon_AA"]],_rarity_TankPlatoon_AA],
 	// RHS_T90Section, T-90 Section
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Section"]],0]
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Section"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[1992,2015], [160,999],
@@ -453,11 +453,11 @@ _arr = [
 // >2004, Сирия с 2015
 _arr = [
 	// RHS_t90aPlatoon, T-90A Platoon
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aPlatoon"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aPlatoon"]],_rarity_TankPlatoon],
 	// RHS_t90aPlatoon_AA, T-90A Platoon (Combined)
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aPlatoon_AA"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aPlatoon_AA"]],_rarity_TankPlatoon_AA],
 	// RHS_t90aSection, T-90A Section
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aSection"]],0]
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[2004,2020], [160,225-1],
@@ -467,18 +467,18 @@ _arr = [
 // 2020-е
 _arr = [
 	// RHS_T90AMPlatoon, T-90AM Platoon
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMPlatoon"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMPlatoon"]],_rarity_TankPlatoon],
 	// RHS_T90AMPlatoon_AA, T-90AM Platoon (Combined)
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMPlatoon_AA"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMPlatoon_AA"]],_rarity_TankPlatoon_AA],
 	// RHS_T90AMSection, T-90AM Section
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMSection"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMSection"]],_rarity_TankSection],
 
 	// RHS_T90SMPlatoon, T-90SM Platoon
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMPlatoon"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMPlatoon"]],_rarity_TankPlatoon],
 	// RHS_T90SMPlatoon_AA, T-90SM Platoon (Combined)
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMPlatoon_AA"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMPlatoon_AA"]],_rarity_TankPlatoon_AA],
 	// RHS_T90SMSection, T-90SM Section
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMSection"]],0]
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[2016,2030], [160,225-1],
@@ -488,11 +488,11 @@ _arr = [
 // Экспорт
 _arr = [
 	// RHS_T90SAPlatoon, T-90SA g.2004 Platoon
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SAPlatoon"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SAPlatoon"]],_rarity_TankPlatoon],
 	// RHS_T90SAPlatoon_AA, T-90SA g.2004 Platoon (Combined)
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SAPlatoon_AA"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SAPlatoon_AA"]],_rarity_TankPlatoon_AA],
 	// RHS_T90SASection, T-90SA g.2004 Section
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SASection"]],0]
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SASection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[2004,2020], [225,999],
@@ -500,11 +500,11 @@ _arr = [
 ] call gosa_fnc_map_groups_add;
 _arr = [
 	// RHS_T90SABPlatoon, T-90SA g.2016 Platoon
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABPlatoon"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABPlatoon"]],_rarity_TankPlatoon],
 	// RHS_T90SABPlatoon_AA, T-90SA g.2016 Platoon (Combined)
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABPlatoon_AA"]],0],
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABPlatoon_AA"]],_rarity_TankPlatoon_AA],
 	// RHS_T90SABSection, T-90SA g.2016 Section
-	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABSection"]],0]
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 [_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[2016,2030], [225,999],
