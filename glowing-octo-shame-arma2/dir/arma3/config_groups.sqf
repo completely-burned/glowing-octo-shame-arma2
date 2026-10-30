@@ -75,6 +75,7 @@ _rarity_MotInf_Reinforce = 0.05;
 _rarity_MechInfSquad = _rarity_InfSquad;
 _rarity_MechInf_AT = _rarity_InfTeam_AT;
 _rarity_MechInf_AA = _rarity_InfTeam_AA;
+_rarity_MechInf_MG = _rarity_InfTeam_MG;
 _rarity_MechInf_HMG = _rarity_InfTeam_MG;
 _rarity_MechInf_GMG = _rarity_InfTeam_MG;
 _rarity_MechInf_Support = 0.05;
