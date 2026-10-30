@@ -16,7 +16,7 @@ if (count (_arr select 0) >= 2 && count (_arr0 select 0) >= 2) then {
 };
 
 diag_log format ["Log: [fn_getinfo] %1", _this];
-diag_log format ["Log: [fn_getinfo] %1", [_arr0, _arr1]];
+diag_log format ["Log: [fn_getinfo] %1", [_arr, _arr0]];
 diag_log format ["Log: [fn_getinfo] %1", _r];
 
 _r;
