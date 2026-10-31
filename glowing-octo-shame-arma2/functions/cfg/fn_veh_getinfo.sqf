@@ -104,7 +104,7 @@ switch (true) do {
 	case (_type isKindOf "rhs_bmd1"): {
 		_date = [1969,2000];
 	};
-	case ([[_type], ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_mk19","rhsgref_hidf_m113a3_unarmed"]] call gosa_fnc_CheckIsKindOfArray): {
+	case (_type isKindOf "rhsusf_m113tank_base"): {
 		_date = [1987,__date_us_iraq_exit];
 	};
 	case (_type isKindOf "rhs_btr80a_msv"): {
