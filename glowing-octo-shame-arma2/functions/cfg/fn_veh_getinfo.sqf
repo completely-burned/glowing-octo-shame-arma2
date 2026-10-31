@@ -195,6 +195,9 @@ switch (true) do {
 	case (_type isKindOf "rhsusf_RG33L_base"): {
 		_date = [2007,2020];
 	};
+	case (_type isKindOf "rhsusf_RG33_base"): {
+		_date = [2007,2020];
+	};
 	case (_type isKindOf "rhsusf_M1083A1P2_fmtv_usarmy"): {
 		_date = [1996,2050];
 	};
