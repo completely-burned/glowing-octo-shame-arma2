@@ -164,7 +164,7 @@ switch (true) do {
 	case (_type isKindOf "RHS_M2A2"): {
 		_date = [1991,2011];
 	};
-	// m113a3
+	// m113a3 >1987
 	case (_type isKindOf "rhsusf_m113tank_base"): {
 		_date = [1987,__date_us_iraq_exit];
 	};
@@ -210,8 +210,9 @@ switch (true) do {
 	case (_type isKindOf "rhsusf_HEMTT_A4_base"): {
 		_date = [2005,2050];
 	};
+	// m1025 > 1995
 	case (_type isKindOf "rhsusf_m1025_w"): {
-		_date = [1995,__date_us_iraq_exit];
+		_date = [1985,__date_us_iraq_exit];
 	};
 	case (_type isKindOf "rhsusf_m998_w_2dr"): {
 		_date = [1985,__date_us_iraq_exit];
@@ -260,11 +261,38 @@ switch (true) do {
 
 	// >1973
 	case (toLower getText(_cfgVeh >> _type >> "vehicleClass") == "rhs_vehclass_infantry_flora"): {
-		_date = [1970, __date_emr];
+		_date = [1973, __date_emr];
 	};
 	// >2009
-	case (toLower getText(_cfgVeh >> _type >> "vehicleClass") == "rhs_vehclass_infantry_emr"): {
+	case (toLower getText(_cfgVeh >> _type >> "vehicleClass") in ["rhs_vehclass_infantry_emr","rhs_vehclass_infantry_emr_des"]): {
 		_date = [__date_emr, 2050];
+	};
+
+	/*
+		UCP 2004-2019
+		FROG-MARPAT 2005-2014
+		OEF-CP 2010-2019
+		OCP 2015-2019
+
+		usarmy wd
+		vehicleClass = "rhs_vehclass_infantry_ucp";
+		vehicleClass = "rhs_vehclass_infantry_ucp_arb";
+		usarmy d
+		vehicleClass = "rhs_vehclass_infantry_ocp";
+		usmc wd
+		uniformClass = "rhs_uniform_FROG01_wd";
+		usmc d
+		uniformClass = "rhs_uniform_FROG01_d";
+	*/
+	case (toLower getText(_cfgVeh >> _type >> "vehicleClass") in ["rhs_vehclass_infantry_ocp","rhs_vehclass_infantry_ocp_arb"]): {
+		_date = [2015, 2050];
+	};
+	case (toLower getText(_cfgVeh >> _type >> "vehicleClass") in ["rhs_vehclass_infantry_ucp","rhs_vehclass_infantry_ucp_arb"]): {
+		_date = [2004, __date_us_iraq_exit];
+	};
+	// FROG-MARPAT 2005-2014
+	case (toLower getText(_cfgVeh >> _type >> "uniformClass") in ["rhs_uniform_frog01_wd","rhs_uniform_frog01_d"]): {
+		_date = [2005, 2014];
 	};
 
 	default {
