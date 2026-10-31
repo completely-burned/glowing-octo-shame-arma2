@@ -231,6 +231,9 @@ if(!_patrol && count _this > 2 && (count (_this select 2) > 0))then
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] count _typeList %1", count _typeList];
 
 _grp1 = (_typeList call gosa_fnc_selectRandomWeighted);
+if (isNil "_grp1") exitWith {
+	diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] isNil _grp1", nil];
+};
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
 _uav = false;
