@@ -1435,7 +1435,6 @@ _arr = [
 
 
 #define __cfg configFile >> "CfgGroups" >> "West" >> "rhsgref_faction_hidf"
-_faction_rip = (["rhsgref_faction_hidf"] call gosa_fnc_faction_getinfo) select 0;
 //-- rhsgref_faction_hidf, Horizon Islands Defence Force
 _arr = [
 	//- rhsgref_group_hidf_infantry, Infantry
@@ -1457,23 +1456,21 @@ _arr = [
 	// rhsgref_group_hidf_m113_squad, Squad
 	[[[__cfg >>"rhsgref_group_hidf_m113" >> "rhsgref_group_hidf_m113_squad"]],_rarity_MechInfSquad],
 	// rhsgref_group_hidf_m113_squad_2mg, Squad (2x GPMG)
-	[[[__cfg >>"rhsgref_group_hidf_m113" >> "rhsgref_group_hidf_m113_squad_2mg"]],_rarity_MechInf_HMG]
-]; [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, west, "rhsgref_faction_hidf", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1964 max (_faction_rip select 0),1990 min (_faction_rip select 1)], [150,250-1],
-	[]
-] call gosa_fnc_map_groups_add;
-_arr = [
+	[[[__cfg >>"rhsgref_group_hidf_m113" >> "rhsgref_group_hidf_m113_squad_2mg"]],_rarity_MechInf_HMG],
 	//- rhsgref_group_hidf_hmmwv, Motorized (M1025)
 	// rhsgref_group_hidf_m1025_gmg, Mot. Team (GMG)
 	[[[__cfg >>"rhsgref_group_hidf_hmmwv" >> "rhsgref_group_hidf_m1025_gmg"]],_rarity_MechInf_GMG],
 	// rhsgref_group_hidf_m1025_hmg, Mot. Team (HMG)
 	[[[__cfg >>"rhsgref_group_hidf_hmmwv" >> "rhsgref_group_hidf_m1025_hmg"]],_rarity_MechInf_HMG]
 ]; [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, west, "rhsgref_faction_hidf", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1983 max (_faction_rip select 0),2000 min (_faction_rip select 1)], [150,250-1],
-	[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "rhsgref_faction_hidf",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [150,250-1],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 
 //--- Indep
@@ -1606,6 +1603,7 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 	["IND_F","IND_E_F","IND_G_F","IND_C_F"]
 ] call gosa_fnc_map_groups_add;
 
+#define __exclude ["IND_F","IND_E_F","IND_G_F","IND_C_F","CUP_I_NAPA"]
 #define __cfg configFile >> "CfgGroups" >> "Indep" >> "rhsgref_faction_nationalist"
 //-- rhsgref_faction_nationalist, Nationalist Militia
 _arr = [
@@ -1619,13 +1617,7 @@ _arr = [
 	// rhsgref_group_national_infantry_mg, MG pair
 	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_mg"]],_rarity_InfTeam_MG],
 	// rhsgref_group_national_infantry_at, AT pair
-	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_at"]],_rarity_InfTeam_AT]
-]; [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, resistance, "rhsgref_faction_nationalist", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1964,2030], [150,250-1], __exclude
-] call gosa_fnc_map_groups_add;
-
-_arr = [
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_at"]],_rarity_InfTeam_AT],
 	//- rhs_group_indp_nat_ural, Motorized (Ural-4320)
 	// rhs_group_nat_ural_chq, Группа командира роты
 	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_chq"]],_rarity_bad/5],
@@ -1664,6 +1656,10 @@ _arr = [
 	// rhs_group_nat_btr70_squad_aa, Отряд ПВО
 	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad_aa"]],_rarity_MotInf_AA]
 ]; [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, resistance, "rhsgref_faction_nationalist", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1973,2030], [150,250-1], __exclude
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "rhsgref_faction_nationalist",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [150,250-1], __exclude
+	] call gosa_fnc_map_groups_add;
+};
