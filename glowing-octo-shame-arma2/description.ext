@@ -513,55 +513,55 @@ class Params {
 
 		// RHS
 		class gosa_faction_multiplier_RHS_MSV {
-			title="FACTION: RHS_MSV";
+			title="FACTION: RHS_MSV (1973(flora)-(emr))";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
 		class gosa_faction_multiplier_RHS_TV {
-			title="FACTION: RHS_TV";
+			title="FACTION: RHS_TV (1973(flora)-(emr))";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
 		class gosa_faction_multiplier_rhsgref_faction_chdkz {
-			title="FACTION: rhsgref_chdkz";
+			title="FACTION: rhsgref chdkz (1999-)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_rhs_faction_usarmy_d {
-			title="FACTION: RHS_USARMY_D";
+			title="FACTION: RHS_USARMY_D (2015- OCP)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_rhs_faction_usarmy_wd {
-			title="FACTION: RHS_USARMY_WD";
+			title="FACTION: RHS_USARMY_WD (2004-2021 UCP)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_RHS_USMC_D {
-			title="FACTION: RHS_USMC_D";
+			title="FACTION: RHS_USMC_D (2004-2014 FROG-MARPAT)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
 		class gosa_faction_multiplier_RHS_USMC_WD {
-			title="FACTION: RHS_USMC_WD";
+			title="FACTION: RHS_USMC_WD (2004-2014 FROG-MARPAT)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
 		class gosa_faction_multiplier_rhsgref_faction_cdf_ground_b {
-			title="FACTION: rhsgref cdf_ground_b";
+			title="FACTION: rhsgref CDF ground blu (1991-)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_rhsgref_faction_hidf {
-			title="FACTION: rhsgref_hidf";
+			title="FACTION: rhsgref HI DF (1970-1995)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
@@ -573,7 +573,7 @@ class Params {
 			default = -1;
 		};
 		class gosa_faction_multiplier_rhsgref_faction_nationalist {
-			title="FACTION: rhsgref_nationalist";
+			title="FACTION: rhsgref nationalist (1970-)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
