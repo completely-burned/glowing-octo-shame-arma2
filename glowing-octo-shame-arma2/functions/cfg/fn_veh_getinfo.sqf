@@ -5,12 +5,14 @@
 	#define == isEqualTo
 #endif
 
-private ["_type","_date","_cfgVeh"];
+private ["_type","_date","_cfgVeh","_faction"];
 _type = _this select 0;
 if (typeName _type == typeName objNull) then {
 	_type = typeOf _type;
 };
 _cfgVeh = LIB_cfgVeh;
+
+_faction = toLower getText(_cfgVeh >> _type >> "faction");
 
 switch (true) do {
 	// t80, важен порядок cfgVehicles
@@ -297,6 +299,22 @@ switch (true) do {
 
 	default {
 		_date = []
+	};
+};
+
+if (count _date >= 2) then {
+	// Страны-импортеры имеют более длительный срок эксплуатации.
+	if !(_faction in ["blu_f","opf_f","ind_f","blu_t_f","blu_ctrg_f",
+		"opf_t_f","opf_v_f","ind_e_f","blu_w_f","opf_r_f",
+
+		"rhs_faction_msv","rhs_faction_vdv","rhs_faction_vdv_45",
+		"rhs_faction_vmf","rhs_faction_vv","rhs_faction_tv","rhs_faction_vpvo",
+		"rhs_faction_vvs","rhs_faction_vvs_c","rhs_faction_rva",
+		"rhs_faction_usarmy","rhs_faction_usmc","rhs_faction_usarmy_wd",
+		"rhs_faction_usarmy_d","rhs_faction_usmc_wd","rhs_faction_usmc_d",
+		"rhs_faction_usaf","rhs_faction_usn","rhs_faction_socom"]) then
+	{
+		_date set [1, (_date select 1) + 15];
 	};
 };
 
