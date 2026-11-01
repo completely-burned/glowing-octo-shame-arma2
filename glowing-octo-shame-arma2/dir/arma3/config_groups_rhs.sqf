@@ -536,73 +536,74 @@ for "_i" from 0 to (count (_date_rip select 1) -1) do {
 
 //--- West
 #define __exclude ["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+#define __cfg configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd"
 //-- rhs_faction_usmc_wd, США (КМП - Лесной)
 _arr = [
 	// >2005 FROG MARPAT
 	//- rhs_group_nato_usmc_wd_infantry, Пехота
 	// rhs_group_nato_usmc_wd_infantry_squad, Отряд
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad"]],_rarity_InfSquad/2],
 	// rhs_group_nato_usmc_wd_infantry_weaponsquad, Ор. отряд
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_weaponsquad"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_weaponsquad"]],_rarity_InfSquad_Weapon],
 	// rhs_group_nato_usmc_wd_infantry_squad_sniper, Отряд (снайпер)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad_sniper"]],_rarity_InfSquad/2],
 	// rhs_group_nato_usmc_wd_infantry_team, Команда
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team"]],_rarity_InfTeam],
 	// rhs_group_nato_usmc_wd_infantry_team_MG, Команда (пул.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_MG"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_MG"]],_rarity_InfTeam_MG],
 	// rhs_group_nato_usmc_wd_infantry_team_AA, Команда (ПВО)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_AA"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_AA"]],_rarity_InfTeam_AA],
 	// rhs_group_nato_usmc_wd_infantry_team_support, Команда (подд.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_support"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_support"]],_rarity_bad],
 	// rhs_group_nato_usmc_wd_infantry_team_heavy_AT, Команда (ПТ)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_heavy_AT"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_heavy_AT"]],_rarity_InfTeam_AT],
 
 	//- rhs_group_nato_usmc_recon_wd_infantry, Пехота (разведка)
 	// rhs_group_nato_usmc_recon_wd_infantry_team, Команда
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team"]],_rarity_InfSquad*_rarity_reconSquad],
 	// rhs_group_nato_usmc_recon_wd_infantry_team_MG, Команда (пул.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_MG"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_MG"]],_rarity_InfTeam_MG*_rarity_reconSquad],
 	// rhs_group_nato_usmc_recon_wd_infantry_team_support, Команда (подд.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_support"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_support"]],_rarity_bad*_rarity_reconSquad],
 	// rhs_group_nato_usmc_recon_wd_infantry_team_lite, Команда (лёгк.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_lite"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_lite"]],_rarity_InfTeam*_rarity_reconSquad/2],
 	// rhs_group_nato_usmc_recon_wd_infantry_team_fast, Команда (Fast)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_fast"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_fast"]],_rarity_InfTeam*_rarity_reconSquad/2],
 
 	// >1985
 	//- rhs_group_nato_usmc_wd_HMMWV, Пехота (HMMWV)
 	// BUS_MotInf_Team_GMG, Mot. Team (GMG)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_Team_GMG"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
 	// BUS_MotInf_Team_HMG, Mot. Team (HMG)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_Team_HMG"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
 	// BUS_MotInf_AT, Mot. Anti-armor Team
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_AT"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
 	// BUS_MotInf_AA, Mot. Air-defense Team
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_AA"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
 
 	//- rhs_group_nato_usmc_wd_RG33, Пехота (RG-33)
 	// rhs_group_nato_usmc_wd_RG33_squad, Отряд (RG-33)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad"]],_rarity_MotInf_Team/4],
 	// rhs_group_nato_usmc_wd_RG33_squad_2mg, Отряд (2x пул./RG-33)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_2mg"]],_rarity_MotInf_Team/4],
 	// rhs_group_nato_usmc_wd_RG33_squad_sniper, Отряд (Снайпер/RG-33)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_sniper"]],_rarity_MotInf_Team/4],
 	// rhs_group_nato_usmc_wd_RG33_squad_mg_sniper, Отряд (Снайпер + пул./RG-33)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_mg_sniper"]],_rarity_MotInf_Team/4],
 	// rhs_group_nato_usmc_wd_RG33_m2_squad, Отряд (RG-33 М2)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad"]],_rarity_MotInf_HMGTeam/4],
 	// rhs_group_nato_usmc_wd_RG33_m2_squad_2mg, Отряд (2x пул./RG-33 М2)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_2mg"]],_rarity_MotInf_HMGTeam/4],
 	// rhs_group_nato_usmc_wd_RG33_m2_squad_sniper, Отряд (Снайпер/RG-33 М2)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_sniper"]],_rarity_MotInf_HMGTeam/4],
 	// rhs_group_nato_usmc_wd_RG33_m2_squad_mg_sniper, Отряд (Снайпер + пул./RG-33 М2)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_mg_sniper"]],_rarity_MotInf_HMGTeam/4],
 
 	//- rhs_group_nato_usmc_wd_m1a1, M1A1 Groups
 	// RHS_M1A1AIM_wd_Platoon, M1A1FEP Platoon
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon"]],_rarity_TankPlatoon],
 	// RHS_M1A1FEP_wd_Section, M1A1FEP Section
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd" >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1FEP_wd_Section"]],0]
+	[[[__cfg >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1FEP_wd_Section"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
@@ -612,71 +613,72 @@ for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	] call gosa_fnc_map_groups_add;
 };
 
+#define __cfg configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d"
 //-- rhs_faction_usmc_d, США (КМП - Пустынный)
 _arr = [
 	//- rhs_group_nato_usmc_d_infantry, Пехота
 	// rhs_group_nato_usmc_d_infantry_squad, Отряд
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad"]],_rarity_InfSquad/2],
 	// rhs_group_nato_usmc_d_infantry_weaponsquad, Ор. отряд
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_weaponsquad"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_weaponsquad"]],_rarity_InfSquad_Weapon],
 	// rhs_group_nato_usmc_d_infantry_squad_sniper, Отряд (снайпер)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad_sniper"]],_rarity_InfSquad/2],
 	// rhs_group_nato_usmc_d_infantry_team, Команда
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team"]],_rarity_InfTeam],
 	// rhs_group_nato_usmc_d_infantry_team_MG, Команда (пул.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_MG"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_MG"]],_rarity_InfTeam_MG],
 	// rhs_group_nato_usmc_d_infantry_team_AA, Команда (ПВО)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_AA"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_AA"]],_rarity_InfTeam_AA],
 	// rhs_group_nato_usmc_d_infantry_team_support, Команда (подд.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_support"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_support"]],_rarity_bad],
 	// rhs_group_nato_usmc_d_infantry_team_heavy_AT, Команда (ПТ)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_heavy_AT"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_heavy_AT"]],_rarity_InfTeam_AT],
 
 	//- rhs_group_nato_usmc_recon_d_infantry, Пехота (разведка)
 	// rhs_group_nato_usmc_recon_d_infantry_team, Команда
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team"]],_rarity_InfSquad*_rarity_reconSquad],
 	// rhs_group_nato_usmc_recon_d_infantry_team_MG, Команда (пул.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_MG"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_MG"]],_rarity_InfTeam_MG*_rarity_reconSquad],
 	// rhs_group_nato_usmc_recon_d_infantry_team_support, Команда (подд.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_support"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_support"]],_rarity_bad*_rarity_reconSquad],
 	// rhs_group_nato_usmc_recon_d_infantry_team_lite, Команда (лёгк.)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_lite"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_lite"]],_rarity_InfTeam*_rarity_reconSquad/2],
 	// rhs_group_nato_usmc_recon_d_infantry_team_fast, Команда (Fast)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_fast"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_fast"]],_rarity_InfTeam*_rarity_reconSquad/2],
 
 	//- rhs_group_nato_usmc_d_HMMWV, Пехота (HMMWV)
 	// BUS_MotInf_Team_GMG, Mot. Team (GMG)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_Team_GMG"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
 	// BUS_MotInf_Team_HMG, Mot. Team (HMG)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_Team_HMG"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
 	// BUS_MotInf_AT, Mot. Anti-armor Team
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_AT"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
 	// BUS_MotInf_AA, Mot. Air-defense Team
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_AA"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
 
 	//- rhs_group_nato_usmc_d_RG33, Пехота (RG-33)
 	// rhs_group_nato_usmc_d_RG33_squad, Отряд (RG-33)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad"]],_rarity_MotInf_Team/4],
 	// rhs_group_nato_usmc_d_RG33_squad_2mg, Отряд (2x пул./RG-33)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_2mg"]],_rarity_MotInf_Team/4],
 	// rhs_group_nato_usmc_d_RG33_squad_sniper, Отряд (Снайпер/RG-33)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_sniper"]],_rarity_MotInf_Team/4],
 	// rhs_group_nato_usmc_d_RG33_squad_mg_sniper, Отряд (Снайпер + пул./RG-33)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_mg_sniper"]],_rarity_MotInf_Team/4],
 	// rhs_group_nato_usmc_d_RG33_m2_squad, Отряд (RG-33 М2)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad"]],_rarity_MotInf_HMGTeam/4],
 	// rhs_group_nato_usmc_d_RG33_m2_squad_2mg, Отряд (2x пул./RG-33 М2)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_2mg"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_2mg"]],_rarity_MotInf_HMGTeam/4],
 	// rhs_group_nato_usmc_d_RG33_m2_squad_sniper, Отряд (Снайпер/RG-33 М2)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_sniper"]],_rarity_MotInf_HMGTeam/4],
 	// rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper, Отряд (Снайпер + пул./RG-33 М2)
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper"]],0.75],
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper"]],_rarity_MotInf_HMGTeam/4],
 
 	//- rhs_group_nato_usmc_d_m1a1, M1A1 Groups
 	// RHS_M1A1AIM_d_Platoon, M1A1FEP Platoon
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_m1a1" >> "RHS_M1A1AIM_d_Platoon"]],0],
+	[[[__cfg >> "rhs_group_nato_usmc_d_m1a1" >> "RHS_M1A1AIM_d_Platoon"]],_rarity_TankPlatoon],
 	// RHS_M1A1FEP_d_Section, M1A1FEP Section
-	[[[configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d" >> "rhs_group_nato_usmc_d_m1a1" >> "RHS_M1A1FEP_d_Section"]],0]
+	[[[__cfg >> "rhs_group_nato_usmc_d_m1a1" >> "RHS_M1A1FEP_d_Section"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
