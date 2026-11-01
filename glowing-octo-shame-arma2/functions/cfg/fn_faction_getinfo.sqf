@@ -105,7 +105,7 @@ switch (true) do {
 		_date = [1970, 2020];
 	};
 	case (_f in ["rhsgref_faction_hidf"]): {
-		_date = [1975, 1995];
+		_date = [1970, 1995];
 	};
 	// A2 2008
 	// A2OA 2012
