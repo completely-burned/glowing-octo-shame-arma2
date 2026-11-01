@@ -14,6 +14,8 @@
  * №3 Горы.
  *
  * TODO: Проверка по зависимостям карты и другой информации.
+ *
+ * Для переопределения в редакторе пропишите в Init: gosa_IslandType_replace = [nil,1991];
  */
 
 if !(isNil "gosa_IslandType") exitWith {gosa_IslandType};
