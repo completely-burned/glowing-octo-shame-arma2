@@ -1,3 +1,6 @@
+/*
+ * Проверить в редакторе можно так [[[[[get3DENSelected "object"]]]]] call gosa_fnc_cfg_grp_getinfo;
+ */
 private ["_arr","_date","_rip","_n","_dates","_groups"];
 
 _arr = _this select 0;
