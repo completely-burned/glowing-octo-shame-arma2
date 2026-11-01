@@ -1,5 +1,6 @@
 /*
- * Проверить в редакторе можно так [[[[[get3DENSelected "object"]]]]] call gosa_fnc_cfg_grp_getinfo;
+ * Проверить в редакторе можно так [[[[[ get3DENSelected "object"]]]]] call gosa_fnc_cfg_grp_getinfo;
+ * Проверить в режиме наблюдателя  [[[[[[typeOf vehicle cameraon]]]]]] call gosa_fnc_cfg_grp_getinfo;
  */
 private ["_arr","_date","_date_local","_rip","_n","_dates","_groups"];
 
