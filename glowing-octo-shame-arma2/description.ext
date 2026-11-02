@@ -512,14 +512,8 @@ class Params {
 		};
 
 		// RHS
-		class gosa_faction_multiplier_RHS_MSV {
-			title="FACTION: RHS_MSV (1973(flora)-(emr))";
-			values[] = {-1,1,0};
-			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-			default=-1;
-		};
-		class gosa_faction_multiplier_RHS_TV {
-			title="FACTION: RHS_TV (1973(flora)-(emr))";
+		class gosa_faction_multiplier_RHS_AFRF {
+			title="FACTION: RHS AFRF (1973(flora)-(emr))";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;

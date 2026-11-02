@@ -1,8 +1,6 @@
 
 #include "..\include\ranks.sqf"
 
-// TODO: [RHS_MSV, RHS_TV] > RHS_AFRF
-
 //--- East
 #define __exclude ["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
 #define __cfg configFile >> "CfgGroups" >> "East" >> "rhs_faction_msv"
@@ -178,7 +176,7 @@ _arr = [
 ]; [_arr] call gosa_fnc_groups_convNormal;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
-	[_groups_map, east, "RHS_MSV",
+	[_groups_map, east, "RHS_AFRF",
 		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		_date_rip select 1 select _i, [160,999], __exclude
 	] call gosa_fnc_map_groups_add;
@@ -193,7 +191,7 @@ if (_Artillery) then {
 		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGSection_msv_bm21"]],_rarity_MotInf_MortTeam/2/2]
 	]; [_arr] call gosa_fnc_groups_convNormal;
 	_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
-	[_groups_map, east, "RHS_MSV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[_groups_map, east, "RHS_AFRF", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 	[(_date_rip select 0), (_date_rip select 1)], [160,999],
 	__exclude
 	] call gosa_fnc_map_groups_add;
@@ -332,7 +330,7 @@ _arr = [
 ]; [_arr] call gosa_fnc_groups_convNormal;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
-	[_groups_map, east, "RHS_TV",
+	[_groups_map, east, "RHS_AFRF",
 		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		_date_rip select 1 select _i, [160,999], __exclude
 	] call gosa_fnc_map_groups_add;
@@ -352,7 +350,7 @@ if (_Artillery) then {
 		[[[__cfg >> "rhs_group_rus_tv_2s3" >> "RHS_SPGSection_tv_2s3"]],_rarity_MotInf_MortTeam/4/2]
 	]; [_arr] call gosa_fnc_groups_convNormal;
 	_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
-	[_groups_map, east, "RHS_TV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+	[_groups_map, east, "RHS_AFRF", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		_date_rip, [160,999],
 		__exclude
 	] call gosa_fnc_map_groups_add;
