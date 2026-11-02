@@ -8,7 +8,7 @@
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams","_obj",
-	"_groups","_units","_vehicles","_crew","_cargo","_reweapon",
+	"_groups","_units","_vehicles","_crew","_cargo","_reweapon","_exit",
 	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat","_n0",
 	"_positions_static","_withinMap","_grp_current",
 	"_arr1","_mAmphibious","_mLandVehicle",
@@ -32,6 +32,7 @@ if(count _this > 1 && (typeName (_this select 1) == typeName objNull))then
 	// Если нет объекта, то getPos вернет [0,0,0]
 	if (isNull (_this select 1)) exitWith {
 		diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _patrol, _obj %1, _pos %2", _this select 1, _pos];
+		_exit = true;
 	};
 
 	_patrol = true;
@@ -43,6 +44,8 @@ if(count _this > 1 && (typeName (_this select 1) == typeName objNull))then
 	_patrol = _this select 1;
 	//_typeList=GroupsAll;
 };
+
+if !(isNil "_exit") exitWith {};
 
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _patrol %1", _patrol];
 
