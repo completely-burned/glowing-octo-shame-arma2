@@ -536,14 +536,8 @@ class Params {
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
-		class gosa_faction_multiplier_RHS_USMC_D {
-			title="FACTION: RHS_USMC_D (2004-2014 FROG-MARPAT)";
-			values[] = {-1,1,0};
-			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-			default=-1;
-		};
-		class gosa_faction_multiplier_RHS_USMC_WD {
-			title="FACTION: RHS_USMC_WD (2004-2014 FROG-MARPAT)";
+		class gosa_faction_multiplier_RHS_USMC {
+			title="FACTION: RHS_USMC (2004-2014 FROG-MARPAT)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
