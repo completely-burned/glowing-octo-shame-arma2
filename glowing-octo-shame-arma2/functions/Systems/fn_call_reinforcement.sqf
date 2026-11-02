@@ -30,7 +30,7 @@ if(count _this > 1 && (typeName (_this select 1) == typeName objNull))then
 
 	_pos = getPos (_this select 1);
 	// Если нет объекта, то getPos вернет [0,0,0]
-	if (isNull (_this select 1)) exitWith {
+	if (isNull (_this select 1)) then {
 		diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _patrol, _obj %1, _pos %2", _this select 1, _pos];
 		_pos = civilianBasePos;
 		//_exit = true;
