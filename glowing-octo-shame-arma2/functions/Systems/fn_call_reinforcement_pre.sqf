@@ -63,6 +63,7 @@ _n = ((_arr select 0) + ((_arr select 2) * (_this select 15)) +
 diag_log format ["Log: [fnc_call_reinforcement_pre] %1 < %2", _n, _this select 9];
 if (_n < (_this select 9)) then
 {
+	diag_log format ["Log: [fnc_call_reinforcement_pre] attack spawn gosa_fnc_call_reinforcement", nil];
 	#ifdef __ARMA3__
 		(_this select 0) pushBack 
 	#else
@@ -86,6 +87,7 @@ _n = ((_arr select 1) + ((_arr select 3) * (_this select 15)) +
 diag_log format ["Log: [fnc_call_reinforcement_pre] %1 < %2", _n, _this select 10];
 if (_n < (_this select 10)) then
 {
+	diag_log format ["Log: [fnc_call_reinforcement_pre] patrol spawn gosa_fnc_call_reinforcement", nil];
 	#ifdef __ARMA3__
 		(_this select 0) pushBack 
 	#else
