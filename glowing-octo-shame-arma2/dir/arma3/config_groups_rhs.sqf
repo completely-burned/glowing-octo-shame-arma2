@@ -328,6 +328,14 @@ _arr = [
 	// RHS_T90SABSection, T-90SA g.2016 Section
 	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["RHS_Su25SM_vvs","RHS_Su25SM_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhs_mig29sm_vvs","rhs_mig29sm_vvs"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhs_mig29s_vvs","rhs_mig29s_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["RHS_T50_vvs_generic","RHS_T50_vvs_generic"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4]
+];
+
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, east, "RHS_AFRF",
@@ -603,6 +611,12 @@ _arr = [
 	// RHS_M1A1FEP_wd_Section, M1A1FEP Section
 	[[[__cfg >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1FEP_wd_Section"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
+	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
+];
+
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "RHS_USMC",
@@ -678,6 +692,12 @@ _arr = [
 	// RHS_M1A1FEP_d_Section, M1A1FEP Section
 	[[[__cfg >> "rhs_group_nato_usmc_d_m1a1" >> "RHS_M1A1FEP_d_Section"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
+	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
+];
+
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "RHS_USMC",
@@ -898,6 +918,12 @@ _arr = [
 	// RHS_M109_wd_Section, Artillery M109 Section
 	[[[__cfg >> "rhs_group_nato_usarmy_wd_M109" >> "RHS_M109_wd_Section"]],0]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
+	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
+];
+
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "rhs_faction_usarmy",

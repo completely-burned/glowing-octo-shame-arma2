@@ -270,6 +270,30 @@ switch (true) do {
 		_date = [__date_emr, 2050];
 	};
 
+	case (_type isKindOf "RHS_Su25SM_vvs"): {
+		_date = [2012, 2050];
+	};
+	case (_type isKindOf "RHS_su25_base"): {
+		_date = [1981, 2050];
+	};
+	case (_type isKindOf "rhs_mig29s_base"): {
+		_date = [1995, 2050];
+	};
+	case (_type isKindOf "rhs_mig29_base"): {
+		_date = [1983, 2050];
+	};
+	case (_type isKindOf "RHS_T50_base"): {
+		_date = [2011, 2050];
+	};
+
+	case (_type isKindOf "RHS_A10"): {
+		_date = [1977, 2050];
+	};
+	case (_type isKindOf "rhsusf_f22"): {
+		_date = [2001, 2050];
+	};
+
+
 	/*
 		UCP 2004-2019
 		FROG-MARPAT 2005-2014

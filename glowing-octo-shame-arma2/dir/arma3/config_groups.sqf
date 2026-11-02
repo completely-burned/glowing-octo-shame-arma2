@@ -84,6 +84,8 @@ _rarity_TankPlatoon = 0.5;
 _rarity_TankPlatoon_AA = 0.05;
 _rarity_TankSection = 0.5;
 
+_rarity_Plane = 0.5;
+
 _rarity_MotInf_MGTeam = _rarity_MotInf_MG;
 
 
