@@ -900,7 +900,7 @@ _arr = [
 ]; [_arr] call gosa_fnc_groups_convNormal;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
-	[_groups_map, west, "rhs_faction_usarmy_wd",
+	[_groups_map, west, "rhs_faction_usarmy",
 		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		_date_rip select 1 select _i, [160,250-1], __exclude
 	] call gosa_fnc_map_groups_add;
@@ -1114,7 +1114,7 @@ _arr = [
 ]; [_arr] call gosa_fnc_groups_convNormal;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
-	[_groups_map, west, "rhs_faction_usarmy_d",
+	[_groups_map, west, "rhs_faction_usarmy",
 		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
 		_date_rip select 1 select _i, [250,999], __exclude
 	] call gosa_fnc_map_groups_add;
