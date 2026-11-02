@@ -63,14 +63,22 @@ _n = ((_arr select 0) + ((_arr select 2) * (_this select 15)) +
 diag_log format ["Log: [fnc_call_reinforcement_pre] %1 < %2", _n, _this select 9];
 if (_n < (_this select 9)) then
 {
-	(_this select 0) set [count (_this select 0),
-		[[
-			(_this select 2),
-			false, _fl,
-			[_this select 7, _this select 8]
-		] spawn gosa_fnc_call_reinforcement, 
-		_this select 11
-	]];
+	#ifdef __ARMA3__
+		(_this select 0) pushBack 
+	#else
+		(_this select 0) set [count (_this select 0),
+	#endif
+			[
+				[
+					(_this select 2),
+					false, _fl,
+					[_this select 7, _this select 8]
+				] spawn gosa_fnc_call_reinforcement, 
+				_this select 11
+			]
+		#ifndef __ARMA3__
+		];
+	#endif
 };
 
 _n = ((_arr select 1) + ((_arr select 3) * (_this select 15)) +
@@ -78,11 +86,20 @@ _n = ((_arr select 1) + ((_arr select 3) * (_this select 15)) +
 diag_log format ["Log: [fnc_call_reinforcement_pre] %1 < %2", _n, _this select 10];
 if (_n < (_this select 10)) then
 {
-	(_this select 0) set [count (_this select 0), [
-		[
-			(_this select 2),
-			(_this select 14) call BIS_fnc_selectRandom, _fl,
-			[_this select 7, _this select 8]
-		] spawn gosa_fnc_call_reinforcement, _this select 12
-	]];
+	#ifdef __ARMA3__
+		(_this select 0) pushBack 
+	#else
+		(_this select 0) set [count (_this select 0),
+	#endif
+			[
+				[
+					(_this select 2),
+					(_this select 14) call BIS_fnc_selectRandom, _fl,
+					[_this select 7, _this select 8]
+				] spawn gosa_fnc_call_reinforcement,
+				_this select 12
+			]
+	#ifndef __ARMA3__
+		];
+	#endif
 };

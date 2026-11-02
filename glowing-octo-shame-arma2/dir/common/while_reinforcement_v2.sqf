@@ -168,12 +168,19 @@ while{_run}do{
 
 
 	//--- conveyer ---
-		for "_i" from 0 to count _conveyer -1 do {
+		for "_i" from (count _conveyer -1) to 0 step -1 do {
 			if (scriptDone (_conveyer select _i select 0)) then {
+				diag_log format ["Log: [reinforcements] _conveyer Removing element %1 %2", _i, _conveyer select _i];
+				#ifdef __ARMA3__
+					_conveyer deleteAt _i;
+				#else
 				_conveyer set [_i, -1];
+				#endif
 			};
 		};
+		#ifndef __ARMA3__
 		_conveyer = _conveyer -[-1];
+		#endif
 		diag_log format ["Log: [reinforcements] count conveyer %1", count _conveyer];
 
 	// Патрули клиента будут ему локальны.
