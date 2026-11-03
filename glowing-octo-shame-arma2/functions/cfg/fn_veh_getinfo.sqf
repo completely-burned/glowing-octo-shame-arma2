@@ -261,6 +261,60 @@ switch (true) do {
 		_date = [1980,2000];
 	};
 
+	case (_type isKindOf "RHS_Mi24D_Base"): {
+		_date = [1973, 2050];
+	};
+	case (_type isKindOf "rhsgref_mi24g_base"): {
+		_date = [1980, 2050];
+	};
+	case (_type isKindOf "RHS_Mi24V_Base"): {
+		_date = [1976, 2050];
+	};
+	case (_type isKindOf "RHS_Mi24P_VVS_Base"): {
+		_date = [1980, 2050];
+	};
+	case (_type isKindOf "rhs_mi8mtv3_base"): {
+		_date = [1990, 2050];
+	};
+	case (_type isKindOf "rhs_mi28_base"): {
+		_date = [1996, 2050];
+	};
+	case (_type isKindOf "RHS_Ka52_base"): {
+		_date = [1997, 2050];
+	};
+	case (_type isKindOf "RHS_Mi24_base"): {
+		_date = [1970, 2050];
+	};
+	case (_type isKindOf "rhs_mi8amt_base"): {
+		_date = [1989, 2050];
+	};
+	case (_type isKindOf "RHS_Mi8mt_vvs"): {
+		_date = [1977, 2050];
+	};
+	case (_type isKindOf "RHS_Mi8_base"): {
+		_date = [1968, 2050];
+	};
+
+	case (_type isKindOf "RHS_AH1Z_base"): {
+		_date = [2003, 2050];
+	};
+	case (_type isKindOf "rhsusf_CH53E_USMC"): {
+		_date = [1990, 2050];
+	};
+	case (_type isKindOf "RHS_UH1Y_base"): {
+		_date = [2001, 2050];
+	};
+
+	case (_type isKindOf "RHS_L39_base"): {
+		_date = [1968, 2050];
+	};
+	case (_type isKindOf "RHS_L159_base"): {
+		_date = [1997, 2050];
+	};
+	case (_type isKindOf "RHSGREF_A29_Base"): {
+		_date = [1985, 2050];
+	};
+
 	// >1973
 	case (toLower getText(_cfgVeh >> _type >> "vehicleClass") == "rhs_vehclass_infantry_flora"): {
 		_date = [1973, __date_emr];

@@ -330,6 +330,12 @@ _arr = [
 ]; [_arr] call gosa_fnc_groups_convNormal;
 
 _arr append [
+	[[[["RHS_Mi24V_vvs","RHS_Mi24V_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["RHS_Mi24P_vvs","RHS_Mi24P_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["RHS_Ka52_vvs","RHS_Ka52_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["rhs_mi28n_vvs","rhs_mi28n_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["RHS_Mi8MTV3_vvs","RHS_Mi8MTV3_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["rhs_pchela1t_vvs"],[],["CORPORAL"]]],_rarity_Plane/10],
 	[[[["RHS_Su25SM_vvs","RHS_Su25SM_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
 	[[[["rhs_mig29sm_vvs","rhs_mig29sm_vvs"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
 	[[[["rhs_mig29s_vvs","rhs_mig29s_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
@@ -366,7 +372,6 @@ if (_Artillery) then {
 
 #define __exclude ["CUP_O_ChDKZ","gmx_chdkz","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
 #define __cfg configFile >> "CfgGroups" >> "East" >> "rhsgref_faction_chdkz"
-_faction_rip = (["rhsgref_faction_chdkz"] call gosa_fnc_faction_getinfo) select 0;
 //-- rhsgref_faction_chdkz, ChDKZ Insurgents
 _arr = [
 	//- rhsgref_group_chdkz_insurgents_infantry, Infantry
@@ -531,6 +536,11 @@ _arr = [
 	// RHS_t72bcSection, T-72 g.1989 Section
 	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_t72bcSection"]],_rarity_TankSection]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["rhsgref_ins_Mi8amt"],[],["CAPTAIN"]]],_rarity_Heli/10]
+];
+
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, east, "rhsgref_faction_chdkz",
@@ -613,6 +623,9 @@ _arr = [
 ]; [_arr] call gosa_fnc_groups_convNormal;
 
 _arr append [
+	[[[["rhsusf_CH53E_USMC_GAU21"],[],["CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_UH1Y","RHS_UH1Y"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/2],
+	[[[["RHS_AH1Z_wd","RHS_AH1Z_wd"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli],
 	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
 	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
 ];
@@ -694,6 +707,9 @@ _arr = [
 ]; [_arr] call gosa_fnc_groups_convNormal;
 
 _arr append [
+	[[[["rhsusf_CH53E_USMC_GAU21_D"],[],["CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_UH1Y_d","RHS_UH1Y_d"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/2],
+	[[[["RHS_AH1Z","RHS_AH1Z"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli],
 	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
 	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
 ];
@@ -920,6 +936,9 @@ _arr = [
 ]; [_arr] call gosa_fnc_groups_convNormal;
 
 _arr append [
+	[[[["RHS_UH60M","RHS_UH60M"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_CH_47F"],[],["CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_AH64D_wd","RHS_AH64D_wd"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli],
 	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
 	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
 ];
@@ -1138,6 +1157,15 @@ _arr = [
 	// RHS_M109_Section, Artillery M109 Section
 	[[[__cfg >> "rhs_group_nato_usarmy_d_M109" >> "RHS_M109_Section"]],0]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["RHS_UH60M_d","RHS_UH60M_d"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_CH_47F_10"],[],["CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_AH64D","RHS_AH64D"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli],
+	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
+	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
+];
+
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "rhs_faction_usarmy",
@@ -1319,6 +1347,17 @@ _arr = [
 	[[[__cfg >> "rhs_group_cdf_80" >> "RHS_T80bvSection"]],_rarity_TankSection/2]
 ];
 [_arr] call gosa_fnc_groups_convNormal;
+_arr append [
+	[[[["rhsgref_cdf_b_Mi24D","rhsgref_cdf_b_Mi24D"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	[[[["rhsgref_b_mi24g_CAS","rhsgref_b_mi24g_CAS"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	[[[["rhsgref_cdf_b_Mi35","rhsgref_cdf_b_Mi35"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	[[[["rhsgref_cdf_b_reg_Mi17Sh","rhsgref_cdf_b_reg_Mi17Sh"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	
+	[[[["rhsgref_cdf_b_mig29s","rhsgref_cdf_b_mig29s"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhs_l39_cdf_b_cdf","rhs_l39_cdf_b_cdf"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhs_l159_cdf_b_CDF","rhs_l159_cdf_b_CDF"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhsgref_cdf_b_su25","rhsgref_cdf_b_su25"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4]
+];
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "rhsgref_faction_cdf_ground_b",
@@ -1357,6 +1396,15 @@ _arr = [
 	// rhsgref_group_hidf_m1025_hmg, Mot. Team (HMG)
 	[[[__cfg >>"rhsgref_group_hidf_hmmwv" >> "rhsgref_group_hidf_m1025_hmg"]],_rarity_MechInf_HMG]
 ]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["rhs_uh1h_hidf_gunship","rhs_uh1h_hidf_gunship"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	[[[["rhs_uh1h_hidf","rhs_uh1h_hidf"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	
+	[[[["rhsgred_hidf_cessna_o3a"],[],["CAPTAIN"]]],_rarity_Plane/10],
+	[[[["RHSGREF_A29B_HIDF","RHSGREF_A29B_HIDF"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane]
+];
+
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "rhsgref_faction_hidf",
