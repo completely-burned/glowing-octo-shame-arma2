@@ -150,7 +150,7 @@ for "_i" from 0 to (count _arr0 -1) do {
 				};
 			}else{
 				if (_mLandVehicle == -1) then {
-					_n = (_arr0 select _i select 1 select _i0) * (1 - _n0);
+					//_n = (_arr0 select _i select 1 select _i0) * (1 - _n0);
 				}else{
 					_n = (_arr0 select _i select 1 select _i0) * _mLandVehicle;
 				};
