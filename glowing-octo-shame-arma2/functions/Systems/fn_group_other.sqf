@@ -26,7 +26,7 @@ if !(isDedicated) then {
 // запускается у всех
 if (local _leader)then{
 	private["_grp","_leaderPos","_currentWP","_wp","_typeWP",
-		"_diag_log",
+		"_diag_log","_currentWaypoint","_currentWaypointType","_wPos","_str",
 		"_units","_vehicles","_types","_cargo","_assignedVehicles",
 		"_arr","_deep","_limit","_limit_old","_speed","_minDeep",
 		"_veh","_assignedVehicle","_follow",
@@ -396,11 +396,11 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 		_CombatMode = "YELLOW";
 		_Behaviour = "AWARE";
 
-		private["_currentWaypoint","_currentWaypointType"];
-		_currentWaypoint = [_grp, currentWaypoint _grp];
+		_currentWaypoint = [_grp] call gosa_fnc_wp_currentWaypoint;
+		_wPos = waypointPosition _currentWaypoint;
 		_currentWaypointType = waypointType _currentWaypoint;
 
-		if ((vehicle _leader distance civilianBasePos) > gosa_locationSize + gosa_locationSize/2) then {
+		if ((vehicle _leader distance _wPos) > gosa_locationSize + gosa_locationSize/2) then {
 			if ({_x call gosa_fnc_isPlayer} count _units <= 0) then {
 				_SpeedMode = "FULL";
 			};
@@ -414,7 +414,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			};
 		};
 
-		if ((vehicle _leader distance civilianBasePos) <= gosa_locationSize) then {
+		if ((vehicle _leader distance _wPos) <= gosa_locationSize) then {
 			_Behaviour = "COMBAT";
 		};
 
@@ -426,6 +426,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			_Behaviour = "COMBAT";
 		};
 
+		// TODO: Добавить в _grp_type тип отряда Stealth
 		_Stealth = false;
 		_countStealth = 0;
 		{
@@ -479,32 +480,34 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 			};
 		};
 
-		if(_currentWaypointType in ["SUPPORT"])then{
+		if ("SUPPORT" in _grp_type) then {
 			_CombatMode = "GREEN";
 			_Behaviour = "SAFE";
 			_SpeedMode = "FULL";
 		};
 
 		// Техника теперь не покидает строй, поэтому можно RED.
+		// FIXME: теперь - Это когда?
 		if ("LandVehicle" in _grp_type) then {
 			_CombatMode = "RED";
 		};
 
-		if(speedMode _grp != _SpeedMode)then{
+		_str = speedMode _grp;
+		if (_str != _SpeedMode) then {
+			diag_log format ["Log: [gosa_fnc_group_other] %1 setSpeedMode %2 > %3", _grp, _str, _SpeedMode];
 			_grp setSpeedMode _SpeedMode;
 		};
-		if(combatMode _grp != _CombatMode)then{
+		_str = combatMode _grp;
+		if (_str != _CombatMode) then {
+			diag_log format ["Log: [gosa_fnc_group_other] %1 setCombatMode %2 > %3", _grp, _str, _CombatMode];
 			_grp setCombatMode _CombatMode;
 		};
-		if(behaviour _leader != _Behaviour)then{
+		_str = behaviour _leader;
+		if (_str != _Behaviour) then {
+			diag_log format ["Log: [gosa_fnc_group_other] %1 setBehaviour %2 > %3", _grp, _str, _Behaviour];
 			_grp setBehaviour _Behaviour;
 		};
-
-
-
-
 	};
-
 };
 
 if (gosa_loglevel > 0) then { // diag_log
