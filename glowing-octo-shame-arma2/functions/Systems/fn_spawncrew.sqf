@@ -3,6 +3,7 @@
  * TODO: a3 Экипажу после успешного размещения
  * все равно отдается приказ покинуть тс.
  * TODO: Исправить беспилотнико A3.
+ * Проверить _side = east; _grp = createGroup _side; _crew_types = []; _veh = cursortarget; _type = typeOf _veh; _entry = (configFile >> "CfgVehicles" >> _type); _pos = getpos _veh; [_veh,_grp,_side,_type,[],_entry,_pos] call gosa_fnc_spawnCrew;
  */
 
 diag_log format ["Log: [fnc_spawnCrew.sqf] %1", _this];
