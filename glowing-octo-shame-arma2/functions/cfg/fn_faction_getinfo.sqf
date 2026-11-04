@@ -80,9 +80,11 @@ switch (true) do {
 			_date = [1980,2000];
 	};
 	// CSLA 1986
-	case (_f in ["csla","csla_des","us85","us85_des","afmc","fia_civ",
-		"fia_des","csla_civ"]): {
-			_date = [1980,1990];
+	case (_f in ["csla","csla_des","us85","us85_des","afmc","fia","fia_des"]): {
+			_date = [1980,1996];
+	};
+	case (_f in ["fia_civ","csla_civ"]): {
+			_date = [1000,3000];
 	};
 	// RHS >VN >WW2
 	// ЧДКЗ — период по лору Arma 2
