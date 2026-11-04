@@ -5,14 +5,14 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=517;
 	mods[]=
 	{
 		"3denEnhanced"
 	};
+	toggles=1541;
 	class ItemIDProvider
 	{
-		nextID=361;
+		nextID=369;
 	};
 	class MarkerIDProvider
 	{
@@ -261,7 +261,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=134;
+		items=139;
 		class Item0
 		{
 			dataType="Logic";
@@ -4595,7 +4595,7 @@ class Mission
 			{
 				position[]={7267,36.677464,2438};
 			};
-			init="this setVariable ['gosa_Location_type', 0];";
+			init="this setVariable ['gosa_Location_type', 1];";
 			id=340;
 			type="LocationBase_F";
 		};
@@ -4792,16 +4792,79 @@ class Mission
 			id=360;
 			type="LocationVillage_F";
 		};
+		class Item134
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6820.7124,43.528614,2592.2991};
+			};
+			id=361;
+			type="LocationRespawnPoint_F";
+			atlOffset=2.2888184e-05;
+		};
+		class Item135
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7188,35.343079,2445};
+			};
+			id=362;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.00024414062;
+		};
+		class Item136
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7266,36.673557,2438};
+			};
+			id=363;
+			type="LocationRespawnPoint_F";
+			atlOffset=-3.8146973e-06;
+		};
+		class Item137
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7212,42.012943,2508};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=367;
+			type="Land_HelipadCircle_F";
+		};
+		class Item138
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7233,42.012943,2508};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=368;
+			type="Land_HelipadCircle_F";
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=30;
+			nextID=35;
 		};
 		class Links
 		{
-			items=30;
+			items=35;
 			class Item0
 			{
 				linkID=0;
@@ -5097,6 +5160,56 @@ class Mission
 				linkID=29;
 				item0=346;
 				item1=347;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item30
+			{
+				linkID=30;
+				item0=361;
+				item1=340;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item31
+			{
+				linkID=31;
+				item0=362;
+				item1=340;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item32
+			{
+				linkID=32;
+				item0=363;
+				item1=340;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item33
+			{
+				linkID=33;
+				item0=367;
+				item1=340;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item34
+			{
+				linkID=34;
+				item0=368;
+				item1=340;
 				class CustomData
 				{
 					type="Sync";

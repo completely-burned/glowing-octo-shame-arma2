@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=10;
+	toggles=514;
 	class ItemIDProvider
 	{
-		nextID=545;
+		nextID=560;
 	};
 	class MarkerIDProvider
 	{
@@ -243,7 +243,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=123;
+		items=128;
 		class Item0
 		{
 			dataType="Marker";
@@ -3998,7 +3998,7 @@ class Mission
 			{
 				position[]={7267,36.677464,2438};
 			};
-			init="this setVariable ['gosa_Location_type', 0];";
+			init="this setVariable ['gosa_Location_type', 1];";
 			id=509;
 			type="LocationBase_F";
 		};
@@ -4284,16 +4284,79 @@ class Mission
 			type="Land_HelipadCircle_F";
 			atlOffset=0.21243286;
 		};
+		class Item123
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={6820.7124,43.528614,2592.2991};
+			};
+			id=555;
+			type="LocationRespawnPoint_F";
+			atlOffset=2.2888184e-05;
+		};
+		class Item124
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7212,42.012943,2508};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=556;
+			type="Land_HelipadCircle_F";
+		};
+		class Item125
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={7233,42.012943,2508};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=557;
+			type="Land_HelipadCircle_F";
+		};
+		class Item126
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7266,36.673557,2438};
+			};
+			id=558;
+			type="LocationRespawnPoint_F";
+			atlOffset=-3.8146973e-06;
+		};
+		class Item127
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7188,35.343079,2445};
+			};
+			id=559;
+			type="LocationRespawnPoint_F";
+			atlOffset=0.00024414062;
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=29;
+			nextID=34;
 		};
 		class Links
 		{
-			items=29;
+			items=34;
 			class Item0
 			{
 				linkID=0;
@@ -4579,6 +4642,56 @@ class Mission
 				linkID=28;
 				item0=492;
 				item1=486;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item29
+			{
+				linkID=29;
+				item0=555;
+				item1=509;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item30
+			{
+				linkID=30;
+				item0=556;
+				item1=509;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item31
+			{
+				linkID=31;
+				item0=557;
+				item1=509;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item32
+			{
+				linkID=32;
+				item0=559;
+				item1=509;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item33
+			{
+				linkID=33;
+				item0=558;
+				item1=509;
 				class CustomData
 				{
 					type="Sync";
