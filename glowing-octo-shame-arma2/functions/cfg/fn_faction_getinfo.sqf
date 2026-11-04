@@ -10,6 +10,8 @@ _arr;
 */
 
 #define __date_dead_ussa 1991
+#define __vn_start 1957
+#define __vn_end 1979
 
 private ["_f","_date"];
 _f = _this select 0;
@@ -32,12 +34,30 @@ switch (true) do {
 		"spe_supports","spe_modules"]): {
 			_date = [1930,1957];
 	};
-	// VN 1968
-	case (_f in ["vn_vietnammodules","vn_vietnamcinematics","b_macv",
-		"b_aus","b_nz","b_rok","o_pavn","o_vc","o_pl","o_cam","i_arvn",
-		"i_lao","i_cam","c_viet","b_cia","b_medt"]): {
-			_date = [1957,1976];
+
+	// VN FIXME: Вьетнамская война 1957-1976
+	// 1970
+	case (_f in ["o_cam","i_cam"]): {
+			_date = [1970, __vn_end];
 	};
+	// 65
+	case (_f in ["b_rok","o_pavn"]): {
+			_date = [__vn_start, __vn_end];
+	};
+	// 66
+	case (_f in ["b_macv","b_aus","b_nz","b_cia","b_medt"]): {
+			_date = [__vn_start, __vn_end];
+	};
+	// TODO: gg?
+	case (_f in ["o_vc","o_pl","i_arvn","i_lao"]): {
+			_date = [__vn_start, __vn_end];
+	};
+	// Гражданские
+	// TODO: Ограничить даты для транспорта.
+	case (_f in ["c_viet"]): {
+			_date = [1000, 3000];
+	};
+
 	// GM 1983 
 	case (_f in [
 		"gm_fc_bu","gm_fc_bu_bgs","gm_fc_bu_civ","gm_fc_cs","gm_fc_cs_bgs",

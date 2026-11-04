@@ -379,10 +379,14 @@ _arr append [
 		"vn_o_armor_btr50pk_01"],[[0,-5,0],[0,-10,0],[0,-15,0],[0,-20,0],[0,-25,0],[0,-65,0],[0,-35,0],[0,-40,0],[0,-45,0],[0,-50,0],[0,-55,0],[0,-70,0],[10,10]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL"]]],
 		0.5]
 ];
-[_groups_map, east, "VN_PAVN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1960,1990], [160,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "VN_PAVN",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 // VN_KR
 #define __cfg configFile >> "CfgGroups" >> "East" >> "VN_KR"
@@ -478,10 +482,14 @@ _arr = [
 	// Сампаны (снабжение)
 	//[[[__cfg >> "vn_o_group_boats_kr_70" >> "vn_o_group_boat_kr_75_06"]],0.5]
 ]; [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, east, "VN_KR", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160,999],
-	[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "VN_KR",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 // VN_VC
 #define __cfg configFile >> "CfgGroups" >> "East" >> "VN_VC"
@@ -605,10 +613,14 @@ _arr = [
 	[[[__cfg >> "vn_o_group_static_vcmf" >> "vn_o_group_static_vcmf_17"]],0.5]
 	*/
 ]; [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, east, "VN_VC", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160,999],
-	[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "VN_VC",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 #define __cfg configFile >> "CfgGroups" >> "East" >> "VN_PL"
 _arr = [
@@ -695,10 +707,14 @@ _arr = [
 	[[[__cfg >> "vn_o_group_static_pl" >> "vn_o_group_static_pl_10"]],0.5]
 	*/
 ]; [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, east, "VN_PL", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160,999],
-	[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "VN_PL",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 
 // west
@@ -1318,10 +1334,14 @@ _arr append [
 _arr append [
 	[[[["vnx_b_air_ac119_01_01"],[],["CAPTAIN"]]],0.1]
 ];
-[_groups_map, west, "VN_MACV", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1960,1990], [160,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "VN_MACV",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 #define __cfg configFile >> "CfgGroups" >> "West" >> "VN_NZ"
 _arr = [
@@ -1419,10 +1439,14 @@ _arr = [
 	[[[__cfg >> "vn_b_group_static_nz_army" >> "vn_b_group_static_nz_army_08"]],0.5]
 	*/
 ]; [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, west, "VN_NZ", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1960,1990], [160,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "VN_NZ",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 #define __cfg configFile >> "CfgGroups" >> "West" >> "VN_ROK"
 _arr = [
@@ -1572,10 +1596,14 @@ _arr = [
 	[[[__cfg >> "vn_b_group_static_rok_marines" >> "vn_b_group_static_rok_marines_08"]],0.5]
 	*/
 ]; [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, west, "VN_ROK", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1960,1990], [160,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "VN_ROK",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 #define __cfg configFile >> "CfgGroups" >> "West" >> "VN_AUS"
 _arr = [
@@ -1713,10 +1741,14 @@ _arr = [
 	[[[__cfg >> "vn_b_group_air_raaf" >> "vnx_b_group_air_aus_army_01"]],0.5]
 ];
 [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, west, "VN_AUS", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1960,1990], [160,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "VN_AUS",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 
 // resistance
@@ -1917,10 +1949,14 @@ _arr = [
 	*/
 ];
 [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, resistance, "VN_ARVN", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1960,1990], [160,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "VN_ARVN",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 #define __cfg configFile >> "CfgGroups" >> "Indep" >> "VN_FANK"
 _arr = [
@@ -2071,10 +2107,14 @@ _arr = [
 	*/
 ];
 [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, resistance, "VN_FANK", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1960,1990], [160,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "VN_FANK",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 #define __cfg configFile >> "CfgGroups" >> "Indep" >> "VN_RLA"
 _arr = [
@@ -2137,7 +2177,11 @@ _arr = [
 	*/
 ];
 [_arr] call gosa_fnc_groups_convNormal;
-[_groups_map, resistance, "VN_RLA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1960,1990], [160,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "VN_RLA",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
