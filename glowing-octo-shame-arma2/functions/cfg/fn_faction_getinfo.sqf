@@ -11,7 +11,7 @@ _arr;
 
 #define __date_dead_ussa 1991
 #define __vn_start 1957
-#define __vn_end 1979
+#define __vn_end 1980
 
 private ["_f","_date"];
 _f = _this select 0;

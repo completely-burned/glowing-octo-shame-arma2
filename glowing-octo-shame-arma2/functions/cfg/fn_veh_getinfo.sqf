@@ -6,7 +6,7 @@
 #define __date_us_iraq_exit 2021
 // VN FIXME: Вьетнамская война 1957-1976
 #define __vn_start 1957
-#define __vn_end 1979
+#define __vn_end 1980
 #define __date_emr 2009
 #define __importer 15
 #ifdef __ARMA3__
