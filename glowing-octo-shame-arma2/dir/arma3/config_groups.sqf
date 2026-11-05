@@ -35,7 +35,7 @@ private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth","_vivt",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked","_arr0",
 	"_grp","_groups_failover","_factions_used","_climate","_date","_date_rip",
-	"_groups_failover_map","_sides_friendly","_copyRef","_faction_rip",
+	"_groups_failover_map","_sides_friendly","_copyRef","_faction_rip","_n2",
 	"_groups_enabled","_factions_enabled","_groups_enabled_map","_Artillery",
 	"_groups_pending_map","_str","_param_default","_side",
 	"_sl","_tl","_steep_date","_steep_climate","_arr1","_n0",
@@ -1182,11 +1182,12 @@ gosa_date_default, [250,999],
 
 //////////////////////////////
 
-{
-	_side = _x;
-	_n = 0; _n0 = 0;
-	_b = true;
-	while {_b} do {
+_n = 0; _n0 = 0;
+_b = true;
+_sides = [east, west, resistance];
+while {_b} do {
+	for "_i0" from 0 to (count _sides -1) do {
+		_side = _sides select _i0;
 		diag_log format ["Log: [config_groups.sqf] Формирование списка отрядов для %1, допустимое отклонение %2", _side, [_n, _n0]];
 		_arr1 = [_groups_map, [_side], [_date, _climate], 
 			[[-_n, _n], [-_n0, _n0]]
@@ -1199,106 +1200,75 @@ gosa_date_default, [250,999],
 				_arr append (_arr0 select 2);
 			};
 		};
-		if (count _arr > 0 or _n > 999 or _n0 > 999) then {
-			_b = false;
-		}else{
-			_n = _n + _steep_date;
-			_n0 = _n0 + _steep_climate;
-		};
-	};
 
-	switch (_side) do {
-		case east: {
-			_groups_enabled_map_east = _arr1;
-		};
-		case west: {
-			_groups_enabled_map_west = _arr1;
-		};
-		case resistance: {
-			_groups_enabled_map_guer = _arr1;
-		};
-		default {};
-	};
-
-	for "_i" from 0 to (count _arr1 -1) do {
-		_arr = _arr1 select _i;
-		if (_arr1 select _i select 0 isEqualTo _side) then {
-			_groups_enabled_map pushBack _arr;
-			switch (_arr select 0) do {
-				case east: {_east append (_arr select 2)};
-				case west: {_west append (_arr select 2)};
-				case resistance: {_guer append (_arr select 2)};
-				default {};
-			};
-		};
-	};
-} forEach [east, west, resistance];
-
-//- Союзы.
-// TODO: Баланс PvP.
-if !(_pvp) then {
-{
-	_alliance = _x;
-	_n = 0;
-	_sides = [];
-	{
-		_str = _x;
-		{
-			_arr = _x;
-			if (count (_x select 2) > 0) then {
-				if (_x select 1 == _str) then {
-					_n = _n +1;
-					_sides set [count _sides, _x select 0];
+		for "_i" from 0 to (count _arr1 -1) do {
+			_arr = _arr1 select _i;
+			if (_arr1 select _i select 0 isEqualTo _side) then {
+				_groups_enabled_map pushBack _arr;
+				switch (_arr select 0) do {
+					case east: {_east append (_arr select 2)};
+					case west: {_west append (_arr select 2)};
+					case resistance: {_guer append (_arr select 2)};
+					default {};
 				};
 			};
-		} forEach _groups_enabled_map;
-	} forEach _alliance;
-	if (_n > 1) then {
-		_alliances_enabled set [count _alliances_enabled, [_alliance,_sides]];
+		};
 	};
-} forEach _alliances;
+
+	//- Союзы.
+	if (_pvp) then {
+		// FIXME: Для PvP вообще не нужны боты, их всегда можно просто включить.
+		//if ((count _east min 1) + (count _west min 1) + (count _guer min 1) >= 2) then {
+			_b = false;
+		//};
+	}else{
+		{
+			_alliance = _x;
+			_n2 = 0;
+			_sides = [];
+			{
+				_str = _x;
+				{
+					if (count (_x select 2) > 0) then {
+						if (_x select 1 == _str) then {
+							_n2 = _n2 +1;
+							_sides set [count _sides, _x select 0];
+						};
+					};
+				} forEach _groups_enabled_map;
+			} forEach _alliance;
+			if (_n2 > 1) then {
+				_alliances_enabled set [count _alliances_enabled, [_alliance,_sides]];
+			};
+		} forEach _alliances;
+		// Для PvE как минимум одна сторона должна иметь отряды для ботов в режиме MP (сторона противников конечно) или две стороны с учетом союзов в режиме SP.
+		if (isMultiplayer) then {
+			if (((count _east min 1) + (count _west min 1) + (count _guer min 1) > 0) or _n > 999 or _n0 > 999) then {
+				_b = false;
+			};
+		}else{
+			_arr = [[
+				[_east, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2 call gosa_fnc_arrSorting_confGroups,
+				[_west, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2 call gosa_fnc_arrSorting_confGroups,
+				[_guer, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2 call gosa_fnc_arrSorting_confGroups],
+				_alliances_enabled
+			] call gosa_fnc_init_side_balance;
+			if ((count(_arr select 3 select 0 select 0) + count(_arr select 3 select 0 select 1) >= 2) or _n > 999 or _n0 > 999) then {
+				_b = false;
+			};
+		};
+	};
+
+
+	if (_b) then {
+		_east resize 0; _west resize 0; _guer resize 0;
+		_n = _n + _steep_date;
+		_n0 = _n0 + _steep_climate;
+	};
 };
 diag_log format ["Log: [config_groups.sqf] alliances %1", _alliances_enabled];
 gosa_Groups_alliances = _alliances_enabled;
 
-
-if (count _east <= 0) then {
-	diag_log format ["Log: [config_groups.sqf] count _east %1", count _east];
-	_east = [_default_east select 2];
-	/*
-	#ifdef __ARMA3__
-		["wrong_groups", false] call BIS_fnc_endMission;
-	#else
-		failMission "LOSER";
-	#endif
-	// После BIS_fnc_endMission скрипт должен быть завершен.
-	waitUntil {time > 60};
-	*/
-};
-if (count _west <= 0) then {
-	diag_log format ["Log: [config_groups.sqf] count _west %1", count _west];
-	_west = [_default_west select 2];
-	/*
-	#ifdef __ARMA3__
-		["wrong_groups", false] call BIS_fnc_endMission;
-	#else
-		failMission "LOSER";
-	#endif
-	waitUntil {time > 60};
-	*/
-};
-if (count _guer <= 0) then {
-	diag_log format ["Log: [config_groups.sqf] count _guer %1", count _guer];
-	_guer = [_default_guer select 2];
-	/*
-	#ifdef __ARMA3__
-		["wrong_groups", false] call BIS_fnc_endMission;
-	#else
-		failMission "LOSER";
-	#endif
-	waitUntil {time > 60};
-	*/
-};
 
 //////////////////////////////
 
