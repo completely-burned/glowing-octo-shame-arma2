@@ -1,1 +1,56 @@
-["// configName AFMC_cpSentryTeam",[[[["AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0],"// configName AFMC_cpFireTeam",[[[["AFMC_infFAL","AFMC_infFAL","AFMC_infM249"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]],0],"// configName AFMC_cpRifleTeam",[[[["AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infLAW"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]],0],"// configName AFMC_infSqd",[[[["AFMC_infSgt","AFMC_infM60","AFMC_infFAL","AFMC_infMdc","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infFAL","AFMC_infLAW","AFMC_infLAW","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infM249"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]],0],"// configName AFMC_infPLTeam",[[[["AFMC_infOfc","AFMC_infSgt","AFMC_infMdc","AFMC_infRTO"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Sergeant","Corporal","Private"]]],0],"// configName AFMC_infTeam",[[[["AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infLAW"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Corporal","Private","Private","Private"]]],0],"// configName AFMC_infM60Team",[[[["AFMC_infM60","AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]],0],"// configName AFMC_infADSqd",[[[["AFMC_infFIM92","AFMC_infFIM92","AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Sergeant","Corporal","Private","Private"]]],0],"// configName AFMC_infM252Sqd",[[[["AFMC_infM252g","AFMC_infMB","AFMC_infM252m","AFMC_infM252m"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Private"]]],0],"// configName AFMC_infAslSqd",[[[["AFMC_infSMAWg","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infSMAWa"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Corporal"]]],0],"// configName AFMC_infCHQ",[[[["AFMC_infOfc","AFMC_infOfc","AFMC_infSgt","AFMC_infMdc","AFMC_infRTO","AFMC_infM21"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Captain","Lieutenant","Sergeant","Corporal","Corporal","Corporal"]]],0],"// configName AFMC_M113Sec",[[[["AFMC_infSgt","AFMC_infM249","AFMC_infFAL","AFMC_infMdc","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infFAL","AFMC_M113A1","AFMC_M113A1","AFMC_infLAW","AFMC_infLAW","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infM249"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0],[56,0,0],[-56,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]],0],"// configName AFMC_M113Sqd",[[[["AFMC_M113A1","AFMC_infSMAWg","AFMC_infLAW","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infM249"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0]],["Corporal","Corporal","Private","Private","Private","Private","Private"]]],0],"// configName AFMC_M113ADSqd",[[[["AFMC_M113A1","AFMC_infFIM92","AFMC_infFIM92","AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0]],["Corporal","Sergeant","Corporal","Private","Private"]]],0],"// configName AFMC_LAV25sqd",[[[["AFMC_infSgt","AFMC_infFAL","AFMC_infFAL","AFMC_infLAW","AFMC_infFAL","AFMC_infM60","AFMC_LAV25"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Corporal"]]],0],"// configName AFMC_M1008Team",[[[["AFMC_M1008","AFMC_infSgt","AFMC_infLAW","AFMC_infM249","AFMC_infFAL"],[[0,0,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0]],["Corporal","Sergeant","Corporal","Private","Private"]]],0],"// configName AFMC_M1008HfSqd",[[[["AFMC_M1008","AFMC_infSgt","AFMC_infMrks","AFMC_infMdc","AFMC_infSMAWa","AFMC_infLAW","AFMC_infSMAWg","AFMC_infM249","AFMC_infM249"],[[0,0,0],[-1.5,-5,0],[1.5,-5,0],[-2.5,-2,0],[2.5,-2,0],[-2.5,1,0],[2.5,1,0],[-2.5,4,0],[2.5,4,0]],["Private","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private"]]],0],"// configName AFMC_TruckSqd",[[[["AFMC_infSgt","AFMC_infM60","AFMC_infFAL","AFMC_infM47","AFMC_infM60","AFMC_infSMAWg","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infSMAWa","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infMdc","AFMC_M923c"],[[3,6,0],[3,4,0],[-3,4,0],[3,2,0],[-3,2,0],[3,0,0],[-3,0,0],[3,-2,0],[-3,-2,0],[3,-4,0],[-3,-4,0],[3,-6,0],[-3,-6,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]],0],"// configName AFMC_abSqd",[[[["AFMC_ptSgt","AFMC_ptM60","AFMC_ptM60","AFMC_ptMdc","AFMC_ptMdc","AFMC_ptM136","AFMC_ptM136","AFMC_ptM249","AFMC_ptM249"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0]],["Sergeant","Private","Private","Private","Private","Private","Private","Private","Private"]]],0],"// configName AFMC_abDtmt",[[[["AFMC_ptSgt","AFMC_ptM60","AFMC_ptM21","AFMC_ptRTO","AFMC_ptMdc","AFMC_ptMdc","AFMC_ptM47g","AFMC_ptM47a","AFMC_ptMAAWSg","AFMC_ptMAAWSa","AFMC_ptM136","AFMC_ptM136","AFMC_ptEng","AFMC_ptEng","AFMC_ptDrv","AFMC_ptM249","AFMC_ptM249"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0],[0,-48,0],[4,-52,0],[0,-56,0],[4,-60,0],[0,-64,0]],["Sergeant","Private","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]],0],"// configName AFMC_sfSqd",[[[["AFMC_sfCmd","AFMC_sfSpr","AFMC_sfM21","AFMC_sfDrv","AFMC_sfMdc","AFMC_sfRTO"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0],[4,-12,0],[-4,-12,0]],["Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal"]]],0],"// configName AFMC_M1A1ptn",[[[["AFMC_M1A1","AFMC_M1A1","AFMC_M1A1","AFMC_M1A1"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]],0],"// configName AFMC_M1A1scM113sqd",[[[["AFMC_M1A1","AFMC_M1A1","AFMC_infSgt","AFMC_infFAL","AFMC_infFAL","AFMC_infLAW","AFMC_infLAW","AFMC_infM249","AFMC_infM249","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_M113A2ext"],[[17,0,0],[-17,0,0],[0,-12,0],[17,-7,0],[-17,-7,0],[15,-7,0],[-15,-7,0],[19,-7,0],[-19,-7,0],[2,-12,0],[-2,-12,0],[0,-7,0]],["Sergeant","Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal","Private","Corporal"]]],0]]
+//-- AFMC, AFMC
+[
+//- AFMC_InfantryUnits, Infantry Units
+// AFMC_cpSentryTeam, Sentry team
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_cpSentryTeam"]],0],
+// AFMC_cpFireTeam, Fire team
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_cpFireTeam"]],0],
+// AFMC_cpRifleTeam, Riflemen team AT
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_cpRifleTeam"]],0],
+// AFMC_infSqd, Rifle Squad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infSqd"]],0],
+// AFMC_infPLTeam, PL Team
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infPLTeam"]],0],
+// AFMC_infTeam, Infantry Team
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infTeam"]],0],
+// AFMC_infM60Team, M60 Team
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infM60Team"]],0],
+// AFMC_infADSqd, AD Squad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infADSqd"]],0],
+// AFMC_infM252Sqd, M252 Squad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infM252Sqd"]],0],
+// AFMC_infAslSqd, Assault Squad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infAslSqd"]],0],
+// AFMC_infCHQ, Company HQ
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infCHQ"]],0],
+//- AFMC_MechanizedUnits, Mechanized Units
+// AFMC_M113Sec, M113 Infantry Section
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MechanizedUnits" >> "AFMC_M113Sec"]],0],
+// AFMC_M113Sqd, M113 Squad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MechanizedUnits" >> "AFMC_M113Sqd"]],0],
+// AFMC_M113ADSqd, M113 AA Squad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MechanizedUnits" >> "AFMC_M113ADSqd"]],0],
+// AFMC_LAV25sqd, LAV-25 Squad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MechanizedUnits" >> "AFMC_LAV25sqd"]],0],
+//- AFMC_MotorizedUnits, Motorized Units
+// AFMC_M1008Team, M1008 Team
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MotorizedUnits" >> "AFMC_M1008Team"]],0],
+// AFMC_M1008HfSqd, M1008 Halfsquad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MotorizedUnits" >> "AFMC_M1008HfSqd"]],0],
+// AFMC_TruckSqd, Motorized Squad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MotorizedUnits" >> "AFMC_TruckSqd"]],0],
+//- AFMC_AirbornUnits, Airborne Units
+// AFMC_abSqd, Rifle Squad
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_AirbornUnits" >> "AFMC_abSqd"]],0],
+// AFMC_abDtmt, Sabotage Detachment
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_AirbornUnits" >> "AFMC_abDtmt"]],0],
+//- AFMC_SpecForUnits, Special Forces Units
+// AFMC_sfSqd, Special Forces Team
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_SpecForUnits" >> "AFMC_sfSqd"]],0],
+//- AFMC_TankUnits, Tank Units
+// AFMC_M1A1ptn, M1A1 Platoon
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_TankUnits" >> "AFMC_M1A1ptn"]],0],
+// AFMC_M1A1scM113sqd, M1A1 Section with Squad on M113
+[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_TankUnits" >> "AFMC_M1A1scM113sqd"]],0]
+];
+
