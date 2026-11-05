@@ -174,13 +174,6 @@ _arr = [
 	// rhs_group_rus_msv_bmp2_squad_aa, Отряд ПВО
 	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_aa"]],_rarity_MotInf_AA/4]
 ]; [_arr] call gosa_fnc_groups_convNormal;
-_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
-for "_i" from 0 to (count (_date_rip select 1) -1) do {
-	[_groups_map, east, "RHS_AFRF",
-		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		_date_rip select 1 select _i, [160,999], __exclude
-	] call gosa_fnc_map_groups_add;
-};
 
 if (_Artillery) then {
 	_arr = [
@@ -189,11 +182,13 @@ if (_Artillery) then {
 		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGPlatoon_msv_bm21"]],_rarity_MotInf_MortTeam/2/2],
 		// RHS_SPGSection_msv_bm21, BM-21 Section
 		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGSection_msv_bm21"]],_rarity_MotInf_MortTeam/2/2]
-	]; [_arr] call gosa_fnc_groups_convNormal;
-	_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
-	[_groups_map, east, "RHS_AFRF", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[(_date_rip select 0), (_date_rip select 1)], [160,999],
-	__exclude
+	];
+};
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "RHS_AFRF",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999], __exclude
 	] call gosa_fnc_map_groups_add;
 };
 
