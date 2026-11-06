@@ -1,12 +1,14 @@
 /*
  * FIXME: В функции проверяются реальные модели ТС, а не их типы из игры.
  * FIXME: т.е. проверка вроде getText(_cfgVeh >> _type >> "dlc") == "VN" не приемлема.
+ * Дата завершения эксклюзивная, <, до.
  */
 
 #define __date_us_iraq_exit 2021
 // VN FIXME: Вьетнамская война 1957-1976
 #define __vn_start 1957
 #define __vn_end 1980
+#define __date_ww2_end 1947
 #define __date_emr 2009
 #define __importer 15
 #ifdef __ARMA3__
@@ -15,13 +17,15 @@
 	#define == isEqualTo
 #endif
 
-private ["_type","_date","_cfgVeh","_faction","_n","_fnc_date_update","_type0"];
+private ["_type","_date","_cfgVeh","_faction","_n","_fnc_date_update","_arr",
+	"_type0","_str","_cfgWea"];
 
 _type0 = _this select 0;
 if (typeName _type0 == typeName objNull) then {
 	_type0 = typeOf _type0;
 };
 _cfgVeh = LIB_cfgVeh;
+_cfgWea = LIB_cfgWea;
 //_cfgVeh = configFile >> "CfgVehicles";
 
 _faction = toLower getText(_cfgVeh >> _type0 >> "faction");
@@ -389,6 +393,228 @@ switch (true) do {
 		[2001, 2050] call _fnc_date_update;
 	};
 
+	//--- Вермахт
+	// PzKpfw III Ausf.J: 1941 (бронебойная модернизация к Барбароссе)
+		// PzKpfw III Ausf.L/M/N: 1942
+		if ([[_type], ["SPE_PzKpfwIII_L","SPE_PzKpfwIII_M","SPE_PzKpfwIII_N"]] call gosa_fnc_CheckIsKindOfArray) then {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+	// SPE_PzKpfwIII_J
+		case (_type isKindOf "SPE_PzKpfwIII_Base"): {
+			[1941, __date_ww2_end] call _fnc_date_update;
+		};
+	// PzKpfw IV Ausf.G: 1942 (Ausf.F - 1941, Ausf.H - 1943)
+		case (_type isKindOf "SPE_PzKpfwIV_G_base"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+	// Tiger (PzKpfw VI Ausf.H1): 1942
+		case (_type isKindOf "SPE_PzKpfwVI_H1_base"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+	// Panther (PzKpfw V Ausf.G): 1944 (Ausf.D - 1943)
+		// "SPE_PzKpfwV_G","SPE_PzKpfwV_base"
+		case (_type isKindOf "SPE_PzKpfwV_G"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "SPE_PzKpfwV_base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+	// StuG III Ausf.G (ранняя): 1942
+		// StuG III Ранняя G (угловатая маска, без фартуков): декабрь 1942
+		// StuG III Поздняя G (угловатая маска + Schürzen): фартуки с осени 1943
+		// StuG III SKB (литая маска Saukopfblende): с октября-ноября 1943
+		// StuH 42: с октября 1942
+		// "SPE_StuG_III_G_Early","SPE_StuG_III_G_Early_base","SPE_StuG_III_G_base","SPE_StuG_III_base","SPE_Tank_base"
+		// "SPE_StuG_III_G_Late","SPE_StuG_III_G_Late_base","SPE_StuG_III_G_base","SPE_StuG_III_base","SPE_Tank_base"
+		// "SPE_StuG_III_G_SKB","SPE_StuG_III_G_SKB_base","SPE_StuG_III_G_base","SPE_StuG_III_base","SPE_Tank_base"
+		// "SPE_StuH_42","SPE_StuH_42_base","SPE_StuG_III_G_Early_base","SPE_StuG_III_G_base","SPE_StuG_III_base","SPE_Tank_base"
+		case (_type isKindOf "SPE_StuH_42_base"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "SPE_StuG_III_G_Early"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "SPE_StuG_III_G_Late"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "SPE_StuG_III_G_SKB"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "SPE_StuG_III_base"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+	// Nashorn (Sd.Kfz. 164): 1943
+	// Jagdpanther (Sd.Kfz. 173): 1944
+		// "SPE_Jagdpanther_G1","SPE_Jagdpanther_G1_base","SPE_Tank_base"
+		case (_type isKindOf "SPE_Jagdpanther_G1_base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+	// Sd.Kfz. 250: 1941
+		// Sd.Kfz. 251: Ausf.C - 1942, Ausf.D - 1943
+		// "SPE_SdKfz250_base","SPE_WheeledTracked_APC_base","SPE_Truck_base"
+		case (_type isKindOf "SPE_SdKfz250_base"): {
+			[1941, __date_ww2_end] call _fnc_date_update;
+		};
+	// Opel Blitz: 1937
+		// "SPE_OpelBlitz_base","SPE_Truck_base"
+		case (_type isKindOf "SPE_OpelBlitz_base"): {
+			[1937, __date_ww2_end] call _fnc_date_update;
+		};
+	// Kubelwagen: 1940
+	// Fw 190 F-8: 1944
+		case (_type isKindOf "SPE_FW190F8"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+
+	//--- Британцы/коммонвельт (SPEX)
+	// Bedford MWD: 1939
+	// Humber LRC: 1941, Humber Mk.II: 1942, Humber Mk.IV: 1943
+	// Horsa Glider: 1942
+	// Sherman II — британское имя M4A1 с литым корпусом, воевал от Туниса до Нормандии; с октября 1942
+		// Sherman II Late — поздняя версия M4A1 у британцев: большие люки, улучшенная броня и укладка боекомплекта; массово в Нормандии с июня 1944, активно воевал в 1944–1945 (Италия, Франция, Германия); с 1944 и до конца войны
+		case (_type isKindOf "SPEX_Sherman_II_Late_Base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		// Sherman II Early — ранние литые машины с узкими люками, Тунис против Роммеля; примерно с 1942 по 1943
+		if ([[_type], ["SPEX_CW_Trop_Sherman_II","SPEX_CW_Sherman_II_Early"]] call gosa_fnc_CheckIsKindOfArray) then {
+			[1942, 1944] call _fnc_date_update;
+		};
+		// "SPEX_Sherman_II_Late_Base","SPEX_Sherman_II_Base","SPEX_Sherman_I_Base","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		case (_type isKindOf "SPEX_Sherman_II_Base"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+	// Sherman V — британское имя M4A4 с пятиблочным мотором Chrysler A57 и удлинённым корпусом, любимец польской 1-й бронетанковой дивизии; с 1943 и до конца войны
+		// Sherman V Early — ранние серии, Италия 1943; примерно с 1943 по 1944
+		case (_type isKindOf "SPEX_Sherman_V_Early_Base"): {
+			[1943, 1945] call _fnc_date_update;
+		};
+		// "SPEX_Sherman_V_Early_Base","SPEX_Sherman_V_Base","SPEX_Sherman_I_Base","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		case (_type isKindOf "SPEX_Sherman_V_Base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+	// Sherman I — британское имя M4, массовый ленд-лиз, Эль-Аламейн в октябре 1942; примерно с 1942 по 1943, далее вытеснялся поздними типами
+		// Sherman I Early — ранние серии с прямой прорезью водителя и составной башней, Северная Африка 1942–1943; примерно с 1942 по 1943
+		case (_type isKindOf "SPEX_Sherman_I_Early_Base"): {
+			[1942, 1944] call _fnc_date_update;
+		};
+		// Sherman I Hybrid — композитный корпус, узкое окно выпуска август 1943 – январь 1944; в боях с Нормандии 1944, встречался ограниченно
+		case (_type isKindOf "SPEX_Sherman_I_Hybrid_Base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		// "SPEX_Sherman_I_Early_Base","SPEX_Sherman_I_Base","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		// "SPEX_Sherman_I_Hybrid_Base","SPEX_Sherman_I_Base","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		case (_type isKindOf "SPEX_Sherman_I_Base"): {
+			[1942, 1944] call _fnc_date_update;
+		};
+	// Sherman VC Firefly — Firefly на базе длинного M4A4, самый массовый вариант Firefly; с Нормандии июня 1944 и до конца войны
+		// "SPEX_Sherman_Vc_Base","SPEX_Sherman_Ic_Base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		case (_type isKindOf "SPEX_Sherman_Vc_Base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+	// Sherman IC Firefly — 17-фунтовка в обычном M4, единственный западный танк, бивший Tiger лоб в лоб; немцы охотились за ним в первую очередь, на взвод один; с Нормандии июня 1944 и до конца войны
+	// Sherman IC Hybrid Firefly — Firefly на композитном корпусе, редкая комбинация; с Нормандии 1944, встречался ограниченно
+		// "SPEX_Sherman_Ic_Hybrid_Base","SPEX_Sherman_Ic_Base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		case (_type isKindOf "SPEX_Sherman_Ic_Base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+	// Cromwell Mk VI Type C — 95-мм гаубичная версия огневой поддержки, аналог M4(105); с Нормандии 1944 и до конца войны
+		// "SPEX_Cromwell_Mk6_Base","SPEX_Cromwell_Base","SPE_Tank_base"
+		case (_type isKindOf "SPEX_Cromwell_Mk6_Base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+	// Cromwell Mk V Type C — самый быстрый британский танк войны, около 64 км/ч, крещение 14 июня 1944 в Нормандии у 7-й бронетанковой «Desert Rats»; с 1944 и до конца войны
+		case (_type isKindOf "SPEX_Cromwell_Base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+	// M10 «Ахиллес» — ленд-лизовский M10 с британской 17-фунтовкой, около 1100 переоборудованных машин; базовая версия с Италии 1943, Ахиллес — с 1944 и до конца войны
+
+	//--- США
+	// Willys MB: 1941
+	// M3 Halftrack: 1941
+		// "SPE_US_M16_Halftrack_base","SPE_Halftrack_base","SPE_WheeledTracked_APC_base","SPE_Truck_base","Truck_F","Car_F","Car","LandVehicle"
+		case (_type isKindOf "SPE_Halftrack_base"): {
+			[1941, __date_ww2_end] call _fnc_date_update;
+		};
+	// M4 базовый — стандартный сварной корпус, основной средний танк США 1942–1943; с конца 1942 по 1943
+		// M4 Composite — литая передняя часть плюс сварная задняя, выпускался Детройтским арсеналом с августа 1943 по январь 1944; в боях с Нормандии 1944, редкая машина
+		case (_type isKindOf "SPE_M4A0_composite"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		// M4(105) — штурмовая гаубица огневой поддержки, аналог StuH 42; с Нормандии лета 1944 и до конца войны
+		case (_type isKindOf "SPE_M4A0_105"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		// M4 поздний — большие люки и усиленная защита, типичная машина Италии и Нормандии; с 1943
+		case (_type isKindOf "SPE_M4A0_75"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		// M4A0 75 Early — первый «Шерман», дебют у британцев под Эль-Аламейном в октябре 1942, у американцев — Тунис в декабре 1942; применялись примерно с 1942 по 1943
+		case (_type isKindOf "SPE_M4A0_75_Early"): {
+			[1942, 1944] call _fnc_date_update;
+		};
+		// "SPE_M4A0_composite","SPE_M4A0_75","SPE_M4A0_75_Early","SPE_M4A1_75","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		// "SPE_M4A0_105","SPE_M4A0_75","SPE_M4A0_75_Early","SPE_M4A1_75","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+	// M4A3(75)W — «мокрый» БК, основной танк пехотных дивизий в Арденнах; с лета 1944 и до конца войны
+		// M4A3(76)W — лучший баланс пушки и защиты среди 75-76-мм Шерманов, Зигфридская линия и Рур; с осени 1944 и до конца войны
+		// M4A3(105) — гаубичная версия на шасси M4A3, подавление укреплений; с Нормандии 1944 и до конца войны
+		// M4A3 с T34 Calliope — та же установка на M4A3, Саар и Рур в 1945; реальные бои с декабря 1944
+		// "SPE_M4A3_T34_Calliope","SPE_M4A3_Sherman_HullMG_base","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		case (_type isKindOf "SPE_M4A3_Sherman_HullMG_base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+	// M4A1 — литой корпус, «круглый Шерман», первый бой — операция «Torch» в ноябре 1942; с 1942 и до конца войны
+		// M4A1 ранний — узкие люки и ранняя маска, машины Туниса 1943, немцы прозвали их «Tommy cooker»; примерно с 1942 по 1943
+		case (_type isKindOf "SPE_M4A1_75_erla"): {
+			[1942, 1944] call _fnc_date_update;
+		};
+		case (_type isKindOf "SPEX_M4A1_75_DV"): {
+			[1942, 1944] call _fnc_date_update;
+		};
+		// M4A1 поздний — большие люки, те Шерманы, что высаживались в Нормандии в июне 1944; с 1944
+		case (_type isKindOf "SPE_M4A1_75"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		// M4A1(76)W — 76-мм пушка и «мокрый» боекомплект, ответ на Tiger и Panther; единичные бои летом 1944, массово с осени 1944 и до конца войны
+		case (_type isKindOf "SPE_M4A1_76"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		// M4A1 с T34 Calliope — РСЗО из 60 труб, прозванная в честь духового органа за звук залпа; реальные бои только с декабря 1944 (Арденны), всего около 100 машин
+		case (_type isKindOf "SPE_M4A1_T34_Calliope"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		// "SPE_M4A1_75_erla","SPE_M4A1_75","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		// "SPE_M4A1_76","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		// "SPE_M4A1_T34_Calliope","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		case (_type isKindOf "SPE_M4A1_Sherman_base"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+
+	// M10 — истребитель танков с открытой башней по доктрине tank destroyer, первый бой — Тунис в марте 1943; к 1945 вытеснен M36
+		// "SPE_M10_base","SPE_Tank_base"
+		case (_type isKindOf "SPE_M10_base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+	// M18 Hellcat — самый быстрый истребитель войны, около 72 км/ч, дебют под Анцио в феврале 1944; с 1944 и до конца войны
+		// "SPE_M18_Hellcat_Base","SPE_Tank_base"
+		case (_type isKindOf "SPE_M18_Hellcat_Base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+
+	// M8 Greyhound — лёгкий разведывательный бронеавтомобиль Ford, 6×6, 37-мм пушка в башне, до 90 км/ч; создан в 1941–1942 по заказу противотанкового управления, серийно с марта 1943, всего 8523 машины; первые бои — Сицилия в июле 1943, далее высадка в Италии, Нормандия и Арденны; в конце войны зенитный пулемёт стал штатным не сразу — с апреля 1944 утвердили шкворневую установку; служил до конца войны, затем в Корее и по всему миру
+		// "SPE_M8_LAC_base","SPE_ArmoredCar_base"
+		case (_type isKindOf "SPE_M8_LAC_base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+	// M20 Armored Utility Car — безбашенный вариант M8 под командира и корректировщика: открытый корпус, радиостанции, скамьи и зенитный M2 Browning на кольцевой турели; разрабатывался как разведчик M10, но переименован, чтобы не путать с истребителем танков M10; выпуск с июля 1943 по июнь 1945, 3791 машина, почти все на заводе в Чикаго; с 1943 до конца войны в Европе, также санитарные, грузовые и разведывательные роли; знаменитая личная машина Паттона с двойными клаксонами и сиреной — её было слышно за несколько километров
+		// "SPE_M20_AUC_Base","SPE_ArmoredCar_base"
+		case (_type isKindOf "SPE_M20_AUC_Base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+	// C-47 Skytrain: 1936
+	// Waco CG-4 (гайдропланер): 1943
+	case (_type isKindOf "SPE_P47"): {
+		[1943, __date_ww2_end] call _fnc_date_update;
+	};
 
 	// Кхмеры 70,75
 	// "vn_o_men_kr_75_base","vn_o_men_kr_70_base"
@@ -649,6 +875,73 @@ switch (true) do {
 	default {
 	};
 };
+	#ifdef __ARMA3__
+		_arr = getArray(_cfgVeh >> _type >> "weapons");
+		for "_i" from 0 to (count _arr -1) do {
+			_str = (_arr select _i);
+			if (_str isKindOf ["SPE_Faustpatrone", _cfgWea]) exitwith {
+				[1942,1944] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_PzFaust_60m", _cfgWea]) exitwith {
+				[1944,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_PzFaust_30m", _cfgWea]) exitwith {
+				[1943,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_RPzB_43", _cfgWea]) exitwith {
+				[1943,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_RPzB_54", _cfgWea]) exitwith {
+				[1944,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_M9_Bazooka", _cfgWea]) exitwith {
+				[1944,nil] call _fnc_date_update;
+			};
+			// m1 42g, m1a1 43g
+			if (_str isKindOf ["SPE_M1A1_Bazooka", _cfgWea]) exitwith {
+				[1942,1944] call _fnc_date_update;
+			};
+
+			// Нет смысла устанавливать начальные даты <=1942 года для обычного оружия из SPE.
+			if (_str isKindOf ["SPE_K98_Late", _cfgWea]) exitwith {
+				[1944,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_FG42_E", _cfgWea]) exitwith {
+				[1943,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_G43", _cfgWea]) exitwith {
+				[1943,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_STG44", _cfgWea]) exitwith {
+				[1944,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_MG42", _cfgWea]) exitwith {
+				[1943,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_M3_GreaseGun", _cfgWea]) exitwith {
+				[1944,nil] call _fnc_date_update;
+			};
+			//if (_str isKindOf ["SPE_M1A1_Thompson", _cfgWea]) exitwith {
+				//[1942,nil] call _fnc_date_update;
+			//};
+			if (_str isKindOf ["SPE_Flamethrower_base", _cfgWea]) exitwith {
+				[1943,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPEX_Sten_Mk5", _cfgWea]) exitwith {
+				[1944,nil] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPE_M1919A6", _cfgWea]) exitwith {
+				[1943,nil] call _fnc_date_update;
+			};
+			//if (_str isKindOf ["SPE_M1919A4", _cfgWea]) exitwith {
+				//[1940,nil] call _fnc_date_update;
+			//};
+
+			if (_str isKindOf ["SPE_LAUNCHER", _cfgWea]) exitwith {
+				[1942,nil] call _fnc_date_update;
+			};
+		};
+	#endif
 };
 
 // Для совместимости.
