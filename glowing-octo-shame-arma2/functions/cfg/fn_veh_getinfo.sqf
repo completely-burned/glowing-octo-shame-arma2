@@ -27,6 +27,7 @@ if (typeName _type0 == typeName objNull) then {
 _cfgVeh = LIB_cfgVeh;
 _cfgWea = LIB_cfgWea;
 //_cfgVeh = configFile >> "CfgVehicles";
+//_cfgVeh = configFile >> "CfgWeapons";
 
 _faction = toLower getText(_cfgVeh >> _type0 >> "faction");
 
@@ -883,19 +884,19 @@ switch (true) do {
 				[1942,1944] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_PzFaust_60m", _cfgWea]) exitwith {
-				[1944,nil] call _fnc_date_update;
+				[1944,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_PzFaust_30m", _cfgWea]) exitwith {
-				[1943,nil] call _fnc_date_update;
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_RPzB_43", _cfgWea]) exitwith {
-				[1943,nil] call _fnc_date_update;
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_RPzB_54", _cfgWea]) exitwith {
-				[1944,nil] call _fnc_date_update;
+				[1944,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_M9_Bazooka", _cfgWea]) exitwith {
-				[1944,nil] call _fnc_date_update;
+				[1944,__date_ww2_end] call _fnc_date_update;
 			};
 			// m1 42g, m1a1 43g
 			if (_str isKindOf ["SPE_M1A1_Bazooka", _cfgWea]) exitwith {
@@ -904,41 +905,41 @@ switch (true) do {
 
 			// Нет смысла устанавливать начальные даты <=1942 года для обычного оружия из SPE.
 			if (_str isKindOf ["SPE_K98_Late", _cfgWea]) exitwith {
-				[1944,nil] call _fnc_date_update;
+				[1944,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_FG42_E", _cfgWea]) exitwith {
-				[1943,nil] call _fnc_date_update;
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_G43", _cfgWea]) exitwith {
-				[1943,nil] call _fnc_date_update;
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_STG44", _cfgWea]) exitwith {
-				[1944,nil] call _fnc_date_update;
+				[1944,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_MG42", _cfgWea]) exitwith {
-				[1943,nil] call _fnc_date_update;
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_M3_GreaseGun", _cfgWea]) exitwith {
-				[1944,nil] call _fnc_date_update;
+				[1944,__date_ww2_end] call _fnc_date_update;
 			};
 			//if (_str isKindOf ["SPE_M1A1_Thompson", _cfgWea]) exitwith {
-				//[1942,nil] call _fnc_date_update;
+				//[1942,__date_ww2_end] call _fnc_date_update;
 			//};
 			if (_str isKindOf ["SPE_Flamethrower_base", _cfgWea]) exitwith {
-				[1943,nil] call _fnc_date_update;
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPEX_Sten_Mk5", _cfgWea]) exitwith {
-				[1944,nil] call _fnc_date_update;
+				[1944,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_M1919A6", _cfgWea]) exitwith {
-				[1943,nil] call _fnc_date_update;
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			//if (_str isKindOf ["SPE_M1919A4", _cfgWea]) exitwith {
-				//[1940,nil] call _fnc_date_update;
+				//[1940,__date_ww2_end] call _fnc_date_update;
 			//};
 
 			if (_str isKindOf ["SPE_LAUNCHER", _cfgWea]) exitwith {
-				[1942,nil] call _fnc_date_update;
+				[1942,__date_ww2_end] call _fnc_date_update;
 			};
 		};
 	#endif
