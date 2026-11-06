@@ -881,7 +881,7 @@ switch (true) do {
 		for "_i" from 0 to (count _arr -1) do {
 			_str = (_arr select _i);
 			if (_str isKindOf ["SPE_Faustpatrone", _cfgWea]) exitwith {
-				[1942,1944] call _fnc_date_update;
+				[1942,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_PzFaust_60m", _cfgWea]) exitwith {
 				[1944,__date_ww2_end] call _fnc_date_update;
@@ -900,7 +900,10 @@ switch (true) do {
 			};
 			// m1 42g, m1a1 43g
 			if (_str isKindOf ["SPE_M1A1_Bazooka", _cfgWea]) exitwith {
-				[1942,1944] call _fnc_date_update;
+				[1943,__date_ww2_end] call _fnc_date_update;
+			};
+			if (_str isKindOf ["SPEX_PIAT", _cfgWea]) exitwith {
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 
 			// Нет смысла устанавливать начальные даты <=1942 года для обычного оружия из SPE.
