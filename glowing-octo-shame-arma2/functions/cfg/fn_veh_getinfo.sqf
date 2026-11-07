@@ -915,9 +915,10 @@ switch (true) do {
 			};
 
 			// Нет смысла устанавливать начальные даты <=1942 года для обычного оружия из SPE.
-			if (_str isKindOf ["SPE_K98_Late", _cfgWea]) exitwith {
-				[1944,__date_ww2_end] call _fnc_date_update;
-			};
+			// K98 44г, у всех по умолчанию.
+			//if (_str isKindOf ["SPE_K98_Late", _cfgWea]) exitwith {
+				//[1944,__date_ww2_end] call _fnc_date_update;
+			//};
 			if (_str isKindOf ["SPE_FG42_E", _cfgWea]) exitwith {
 				[1943,__date_ww2_end] call _fnc_date_update;
 			};
