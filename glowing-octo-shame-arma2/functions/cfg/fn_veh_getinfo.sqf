@@ -617,6 +617,14 @@ switch (true) do {
 		[1943, __date_ww2_end] call _fnc_date_update;
 	};
 
+	case (_type isKindOf "SPE_US_Soldier_base_late"): {
+		[1944, __date_ww2_end] call _fnc_date_update;
+	};
+	case (toLower getText(_cfgVeh >> _type >> "editorSubcategory") in ["spe_edsubcat_us_late"]): {
+		[1944, __date_ww2_end] call _fnc_date_update;
+	};
+
+
 	// Кхмеры 70,75
 	// "vn_o_men_kr_75_base","vn_o_men_kr_70_base"
 	case (_type isKindOf "vn_o_men_kr_75_base"): {
