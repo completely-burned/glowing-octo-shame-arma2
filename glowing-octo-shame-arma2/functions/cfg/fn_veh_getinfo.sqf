@@ -400,17 +400,39 @@ switch (true) do {
 		if ([[_type], ["SPE_PzKpfwIII_L","SPE_PzKpfwIII_M","SPE_PzKpfwIII_N"]] call gosa_fnc_CheckIsKindOfArray) then {
 			[1942, __date_ww2_end] call _fnc_date_update;
 		};
-	// SPE_PzKpfwIII_J
+		// SPE_PzKpfwIII_J
 		case (_type isKindOf "SPE_PzKpfwIII_Base"): {
 			[1941, __date_ww2_end] call _fnc_date_update;
+		};
+		// StuG III Ausf. G: 1942
+		case (_type isKindOf "LIB_StuG_III_G_base"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
 		};
 	// PzKpfw IV Ausf.G: 1942 (Ausf.F - 1941, Ausf.H - 1943)
 		case (_type isKindOf "SPE_PzKpfwIV_G_base"): {
 			[1942, __date_ww2_end] call _fnc_date_update;
 		};
+		case (_type isKindOf "LIB_FlakPanzerIV_Wirbelwind"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "LIB_PzKpfwIV_H_base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
 	// Tiger (PzKpfw VI Ausf.H1): 1942
 		case (_type isKindOf "SPE_PzKpfwVI_H1_base"): {
 			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+		// FIXME: Ausf.E.2 это поздняя версия?
+		case (_type isKindOf "LIB_PzKpfwVI_E_1"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		// FIXME: Ausf.E это переименованный Ausf.H1?
+		case (_type isKindOf "LIB_PzKpfwVI_E_base"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+		// Tiger2
+		case (_type isKindOf "LIB_PzKpfwVI_B_base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
 		};
 	// Panther (PzKpfw V Ausf.G): 1944 (Ausf.D - 1943)
 		// "SPE_PzKpfwV_G","SPE_PzKpfwV_base"
@@ -418,6 +440,10 @@ switch (true) do {
 			[1944, __date_ww2_end] call _fnc_date_update;
 		};
 		case (_type isKindOf "SPE_PzKpfwV_base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		// Ausf.A: 1943
+		case (_type isKindOf "LIB_PzKpfwV_base"): {
 			[1943, __date_ww2_end] call _fnc_date_update;
 		};
 	// StuG III Ausf.G (ранняя): 1942
@@ -445,6 +471,9 @@ switch (true) do {
 			[1942, __date_ww2_end] call _fnc_date_update;
 		};
 	// Nashorn (Sd.Kfz. 164): 1943
+		case (_type isKindOf "LIB_SdKfz124_base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
 	// Jagdpanther (Sd.Kfz. 173): 1944
 		// "SPE_Jagdpanther_G1","SPE_Jagdpanther_G1_base","SPE_Tank_base"
 		case (_type isKindOf "SPE_Jagdpanther_G1_base"): {
@@ -453,18 +482,34 @@ switch (true) do {
 	// Sd.Kfz. 250: 1941
 		// Sd.Kfz. 251: Ausf.C - 1942, Ausf.D - 1943
 		// "SPE_SdKfz250_base","SPE_WheeledTracked_APC_base","SPE_Truck_base"
+		// "LIB_SdKfz_7_base","LIB_WheeledTracked_APC_base","LIB_Truck_base","Truck_F","Car_F","Car"
 		case (_type isKindOf "SPE_SdKfz250_base"): {
 			[1941, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "LIB_SdKfz_7_base"): {
+			[1938, __date_ww2_end] call _fnc_date_update;
 		};
 	// Opel Blitz: 1937
 		// "SPE_OpelBlitz_base","SPE_Truck_base"
 		case (_type isKindOf "SPE_OpelBlitz_base"): {
 			[1937, __date_ww2_end] call _fnc_date_update;
 		};
+		case (_type isKindOf "LIB_OpelBlitz_base"): {
+			[1937, __date_ww2_end] call _fnc_date_update;
+		};
 	// Kubelwagen: 1940
 	// Fw 190 F-8: 1944
+		// "LIB_FW190F8","LIB_GER_Plane_base","LIB_Plane_base"
 		case (_type isKindOf "SPE_FW190F8"): {
 			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "LIB_FW190F8"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+	// Junkers Ju 87: 1936
+		// Ju 87 D-5: 1943
+		case (_type isKindOf "LIB_Ju87"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
 		};
 
 	//--- Британцы/коммонвельт (SPEX)
