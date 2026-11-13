@@ -933,11 +933,20 @@ switch (true) do {
 		_arr = getArray(_cfgVeh >> _type >> "weapons");
 		for "_i" from 0 to (count _arr -1) do {
 			_str = (_arr select _i);
+			if (_str isKindOf ["LIB_Faustpatrone", _cfgWea]) exitwith {
+				[1942,__date_ww2_end] call _fnc_date_update;
+			};
 			if (_str isKindOf ["SPE_Faustpatrone", _cfgWea]) exitwith {
 				[1942,__date_ww2_end] call _fnc_date_update;
 			};
+			if (_str isKindOf ["LIB_PzFaust_60m", _cfgWea]) exitwith {
+				[1944,__date_ww2_end] call _fnc_date_update;
+			};
 			if (_str isKindOf ["SPE_PzFaust_60m", _cfgWea]) exitwith {
 				[1944,__date_ww2_end] call _fnc_date_update;
+			};
+			if (_str isKindOf ["LIB_PzFaust_30m", _cfgWea]) exitwith {
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_PzFaust_30m", _cfgWea]) exitwith {
 				[1943,__date_ww2_end] call _fnc_date_update;
@@ -948,11 +957,20 @@ switch (true) do {
 			if (_str isKindOf ["SPE_RPzB_54", _cfgWea]) exitwith {
 				[1944,__date_ww2_end] call _fnc_date_update;
 			};
+			if (_str isKindOf ["LIB_RPzB", _cfgWea]) exitwith {
+				[1944,__date_ww2_end] call _fnc_date_update;
+			};
 			if (_str isKindOf ["SPE_M9_Bazooka", _cfgWea]) exitwith {
 				[1944,__date_ww2_end] call _fnc_date_update;
 			};
 			// m1 42g, m1a1 43g
+			if (_str isKindOf ["LIB_M1A1_Bazooka", _cfgWea]) exitwith {
+				[1943,__date_ww2_end] call _fnc_date_update;
+			};
 			if (_str isKindOf ["SPE_M1A1_Bazooka", _cfgWea]) exitwith {
+				[1943,__date_ww2_end] call _fnc_date_update;
+			};
+			if (_str isKindOf ["LIB_PIAT", _cfgWea]) exitwith {
 				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPEX_PIAT", _cfgWea]) exitwith {
@@ -960,33 +978,70 @@ switch (true) do {
 			};
 
 			// Нет смысла устанавливать начальные даты <=1942 года для обычного оружия из SPE.
+			// "LIB_M44","LIB_M9130","LIB_RIFLE","Rifle_Base_F"
+			// Мосина М44
+			if (_str isKindOf ["LIB_M44", _cfgWea]) exitwith {
+				[1944,__date_ww2_end] call _fnc_date_update;
+			};
+			//if (_str isKindOf ["LIB_G3340", _cfgWea]) exitwith {
+				//[1940,__date_ww2_end] call _fnc_date_update;
+			//};
 			// K98 44г, у всех по умолчанию.
+			//if (_str isKindOf ["LIB_K98_Late", _cfgWea]) exitwith {
+				//[1944,__date_ww2_end] call _fnc_date_update;
+			//};
 			//if (_str isKindOf ["SPE_K98_Late", _cfgWea]) exitwith {
 				//[1944,__date_ww2_end] call _fnc_date_update;
 			//};
+			if (_str isKindOf ["LIB_FG42G", _cfgWea]) exitwith {
+				[1944,__date_ww2_end] call _fnc_date_update;
+			};
 			if (_str isKindOf ["SPE_FG42_E", _cfgWea]) exitwith {
+				[1943,__date_ww2_end] call _fnc_date_update;
+			};
+			//if (_str isKindOf ["LIB_G41", _cfgWea]) exitwith {
+				//[1942,__date_ww2_end] call _fnc_date_update;
+			//};
+			if (_str isKindOf ["LIB_G43", _cfgWea]) exitwith {
 				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_G43", _cfgWea]) exitwith {
 				[1943,__date_ww2_end] call _fnc_date_update;
 			};
+			if (_str isKindOf ["LIB_MP44", _cfgWea]) exitwith {
+				[1944,__date_ww2_end] call _fnc_date_update;
+			};
 			if (_str isKindOf ["SPE_STG44", _cfgWea]) exitwith {
 				[1944,__date_ww2_end] call _fnc_date_update;
+			};
+			if (_str isKindOf ["LIB_MG42", _cfgWea]) exitwith {
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_MG42", _cfgWea]) exitwith {
 				[1943,__date_ww2_end] call _fnc_date_update;
 			};
+			if (_str isKindOf ["LIB_M3_GreaseGun", _cfgWea]) exitwith {
+				[1944,__date_ww2_end] call _fnc_date_update;
+			};
 			if (_str isKindOf ["SPE_M3_GreaseGun", _cfgWea]) exitwith {
 				[1944,__date_ww2_end] call _fnc_date_update;
 			};
+			// "LIB_M1928_Thompson","LIB_M1A1_Thompson","LIB_SMG","Rifle_Short_Base_F"
 			//if (_str isKindOf ["SPE_M1A1_Thompson", _cfgWea]) exitwith {
 				//[1942,__date_ww2_end] call _fnc_date_update;
 			//};
 			if (_str isKindOf ["SPE_Flamethrower_base", _cfgWea]) exitwith {
 				[1943,__date_ww2_end] call _fnc_date_update;
 			};
+			if (_str isKindOf ["LIB_Sten_Mk5", _cfgWea]) exitwith {
+				[1944,__date_ww2_end] call _fnc_date_update;
+			};
 			if (_str isKindOf ["SPEX_Sten_Mk5", _cfgWea]) exitwith {
 				[1944,__date_ww2_end] call _fnc_date_update;
+			};
+			// Браунинг
+			if (_str isKindOf ["LIB_M1919A6", _cfgWea]) exitwith {
+				[1943,__date_ww2_end] call _fnc_date_update;
 			};
 			if (_str isKindOf ["SPE_M1919A6", _cfgWea]) exitwith {
 				[1943,__date_ww2_end] call _fnc_date_update;
@@ -994,7 +1049,13 @@ switch (true) do {
 			//if (_str isKindOf ["SPE_M1919A4", _cfgWea]) exitwith {
 				//[1940,__date_ww2_end] call _fnc_date_update;
 			//};
+			if (_str isKindOf ["LIB_DELISLE", _cfgWea]) exitwith {
+				[1943,__date_ww2_end] call _fnc_date_update;
+			};
 
+			if (_str isKindOf ["LIB_LAUNCHER", _cfgWea]) exitwith {
+				[1942,__date_ww2_end] call _fnc_date_update;
+			};
 			if (_str isKindOf ["SPE_LAUNCHER", _cfgWea]) exitwith {
 				[1942,__date_ww2_end] call _fnc_date_update;
 			};
