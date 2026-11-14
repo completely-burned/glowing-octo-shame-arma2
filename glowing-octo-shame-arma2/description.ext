@@ -447,31 +447,31 @@ class Params {
 		// TODO: Убрать конфликты [SPE, WW2, LIB, IFA, I44]
 		// SPE
 		class gosa_faction_multiplier_SPE_WEHRMACHT {
-			title="FACTION: SPE_WEHRMACHT";
+			title="FACTION: SPE_WEHRMACHT ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPE_STURM {
-			title="FACTION: SPE_STURM";
+			title="FACTION: SPE_STURM ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPE_US_ARMY {
-			title="FACTION: SPE_US_ARMY";
+			title="FACTION: SPE_US_ARMY ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPE_FFI {
-			title="FACTION: SPE_FFI";
+			title="FACTION: SPE_FFI ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPEX_CW_Army {
-			title="FACTION: SPEX_CW_Army";
+			title="FACTION: SPEX_CW_Army ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
