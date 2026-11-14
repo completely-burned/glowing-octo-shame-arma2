@@ -568,6 +568,9 @@ switch (true) do {
 		};
 	// Sherman VC Firefly — Firefly на базе длинного M4A4, самый массовый вариант Firefly; с Нормандии июня 1944 и до конца войны
 		// "SPEX_Sherman_Vc_Base","SPEX_Sherman_Ic_Base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
+		case (_type isKindOf "LIB_M4A4_FIREFLY"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
 		case (_type isKindOf "SPEX_Sherman_Vc_Base"): {
 			[1944, __date_ww2_end] call _fnc_date_update;
 		};
@@ -577,12 +580,21 @@ switch (true) do {
 		case (_type isKindOf "SPEX_Sherman_Ic_Base"): {
 			[1944, __date_ww2_end] call _fnc_date_update;
 		};
-	// Cromwell Mk VI Type C — 95-мм гаубичная версия огневой поддержки, аналог M4(105); с Нормандии 1944 и до конца войны
+	// Churchill
+		case (_type isKindOf "LIB_Churchill_Mk7"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+	// Cromwell
+		// Type E
+		case (_type isKindOf "LIB_Cromwell_Mk4"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		// Cromwell Mk VI Type C — 95-мм гаубичная версия огневой поддержки, аналог M4(105); с Нормандии 1944 и до конца войны
 		// "SPEX_Cromwell_Mk6_Base","SPEX_Cromwell_Base","SPE_Tank_base"
 		case (_type isKindOf "SPEX_Cromwell_Mk6_Base"): {
 			[1944, __date_ww2_end] call _fnc_date_update;
 		};
-	// Cromwell Mk V Type C — самый быстрый британский танк войны, около 64 км/ч, крещение 14 июня 1944 в Нормандии у 7-й бронетанковой «Desert Rats»; с 1944 и до конца войны
+		// Cromwell Mk V Type C — самый быстрый британский танк войны, около 64 км/ч, крещение 14 июня 1944 в Нормандии у 7-й бронетанковой «Desert Rats»; с 1944 и до конца войны
 		case (_type isKindOf "SPEX_Cromwell_Base"): {
 			[1944, __date_ww2_end] call _fnc_date_update;
 		};
@@ -594,6 +606,11 @@ switch (true) do {
 		// "SPE_US_M16_Halftrack_base","SPE_Halftrack_base","SPE_WheeledTracked_APC_base","SPE_Truck_base","Truck_F","Car_F","Car","LandVehicle"
 		case (_type isKindOf "SPE_Halftrack_base"): {
 			[1941, __date_ww2_end] call _fnc_date_update;
+		};
+	// Stuart
+		// "LIB_M5A1_Stuart","LIB_M3A3_Stuart","LIB_M4A3_75","LIB_M4A3_75_base","LIB_Tank_base"
+		case (_type isKindOf "LIB_M3A3_Stuart"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
 		};
 	// M4 базовый — стандартный сварной корпус, основной средний танк США 1942–1943; с конца 1942 по 1943
 		// M4 Composite — литая передняя часть плюс сварная задняя, выпускался Детройтским арсеналом с августа 1943 по январь 1944; в боях с Нормандии 1944, редкая машина
@@ -615,6 +632,16 @@ switch (true) do {
 		// "SPE_M4A0_composite","SPE_M4A0_75","SPE_M4A0_75_Early","SPE_M4A1_75","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
 		// "SPE_M4A0_105","SPE_M4A0_75","SPE_M4A0_75_Early","SPE_M4A1_75","SPE_M4A1_Sherman_HullMG_base","SPE_M4A1_Sherman_base","SPE_Sherman_base","SPE_Tank_base"
 	// M4A3(75)W — «мокрый» БК, основной танк пехотных дивизий в Арденнах; с лета 1944 и до конца войны
+		// "LIB_M4A3_76_HVSS","LIB_M4A3_76","LIB_M4A3_75","LIB_M4A3_75_base","LIB_Tank_base"
+		case (_type isKindOf "LIB_M4A3_76_HVSS"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "LIB_M4A3_76"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "LIB_M4A3_75"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
 		// M4A3(76)W — лучший баланс пушки и защиты среди 75-76-мм Шерманов, Зигфридская линия и Рур; с осени 1944 и до конца войны
 		// M4A3(105) — гаубичная версия на шасси M4A3, подавление укреплений; с Нормандии 1944 и до конца войны
 		// M4A3 с T34 Calliope — та же установка на M4A3, Саар и Рур в 1945; реальные бои с декабря 1944
