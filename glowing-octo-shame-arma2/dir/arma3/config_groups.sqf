@@ -37,7 +37,7 @@ private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
 	"_grp","_groups_failover","_factions_used","_climate","_date","_date_rip",
 	"_groups_failover_map","_sides_friendly","_copyRef","_faction_rip","_n2",
 	"_groups_enabled","_factions_enabled","_groups_enabled_map","_Artillery",
-	"_groups_pending_map","_str","_param_default","_side",
+	"_groups_pending_map","_str","_param_default","_side","_rarity_Command",
 	"_sl","_tl","_steep_date","_steep_climate","_arr1","_n0",
 	"_alliances","_alliances_enabled","_alliance","_sides",
 	"_default_east","_default_west","_default_guer"];
@@ -52,6 +52,7 @@ _rarity_InfTeam_AT = 0.4;
 _rarity_InfTeam_AA = 0.2;
 _rarity_InfTeam_MG = _rarity_InfTeam;
 _rarity_InfSentry = 0.05;
+_rarity_Command = _rarity_bad;
 
 // Стелс пехота или разведчики
 _rarity_reconSquad = 0.5;
