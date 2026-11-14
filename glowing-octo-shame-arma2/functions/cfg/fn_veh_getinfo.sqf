@@ -394,6 +394,20 @@ switch (true) do {
 		[2001, 2050] call _fnc_date_update;
 	};
 
+	//--- РККА
+		case (_type isKindOf "LIB_JS2_43_base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "LIB_SU85_base"): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "LIB_T34_76_base"): {
+			[1940, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "LIB_T34_85_base"): {
+			[1944, __date_ww2_end] call _fnc_date_update;
+		};
+
 	//--- Вермахт
 	// PzKpfw III Ausf.J: 1941 (бронебойная модернизация к Барбароссе)
 		// PzKpfw III Ausf.L/M/N: 1942
@@ -658,9 +672,18 @@ switch (true) do {
 		};
 	// C-47 Skytrain: 1936
 	// Waco CG-4 (гайдропланер): 1943
-	case (_type isKindOf "SPE_P47"): {
-		[1943, __date_ww2_end] call _fnc_date_update;
-	};
+	// P-47 Thunderbolt: 1942
+		case (_type isKindOf "LIB_P47"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "SPE_P47"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+	// P-39: 1939
+		// P-39Q: 1943
+		case ([[_type], ["LIB_US_P39_2","LIB_RA_P39_2"]] call gosa_fnc_CheckIsKindOfArray): {
+			[1943, __date_ww2_end] call _fnc_date_update;
+		};
 
 	case (_type isKindOf "SPE_US_Soldier_base_late"): {
 		[1944, __date_ww2_end] call _fnc_date_update;
