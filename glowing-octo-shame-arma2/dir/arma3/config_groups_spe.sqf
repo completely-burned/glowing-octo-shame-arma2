@@ -108,6 +108,7 @@ _arr = [
 	// SPE_FSJ_81mm_Mortar_Team
 	[[[["SPE_FSJ_SquadLead","SPE_FSJ_Mortar_Gunner","SPE_FSJ_Mortar_AGunner","SPE_FSJ_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","SERGEANT"]]],0+0.1],
 
+	/*
 	// SPE_OST_Platoon_Troop
 	[[[["SPE_OST_lieutenant","SPE_OST_rifleman_2","SPE_OST_Medic","SPE_OST_radioman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.6],
 	// SPE_OST_infantry_squad
@@ -132,6 +133,7 @@ _arr = [
 	[[[["SPE_OST_SquadLead","SPE_OST_hmgunner","SPE_OST_ahmgunner","SPE_OST_HMG_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
 	// SPE_OST_81_Mortar_Team
 	[[[["SPE_OST_SquadLead","SPE_OST_Mortar_Gunner","SPE_OST_Mortar_AGunner","SPE_OST_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
+	*/
 
 	// SPE_GER_fw190f8_Group
 	[[[["SPE_fw190f8","SPE_fw190f8"],[[0,20,0],[-10,-10,0]],["CAPTAIN","LIEUTENANT"]]],0.5],
@@ -236,6 +238,21 @@ if (_Artillery) then {
 	];
 };
 _arr append [
+	// 1942г. mg42 > mg34, stg44 > mp40, at.
+	// SPE_GER_infantry_squad_42
+	[[[["SPE_GER_SquadLead","SPE_GER_mgunner2","SPE_GER_medic","SPE_GER_Assist_SquadLead","SPE_GER_rifleman","SPE_GER_amgunner","SPE_GER_LAT_Klein_Rifleman","SPE_GER_ober_grenadier","SPE_GER_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
+	// SPE_GER_AT_squad_42
+	[[[["SPE_GER_SquadLead","SPE_GER_AT_grenadier","SPE_GER_AT_grenadier","SPE_GER_Assist_SquadLead","SPE_GER_LAT_Klein_Rifleman","SPE_GER_LAT_Klein_Rifleman","SPE_GER_LAT_Klein_Rifleman","SPE_GER_ober_grenadier","SPE_GER_LAT_Klein_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// SPE_GER_scout_squad_42
+	[[[["SPE_GER_scout_Assist_SquadLead","SPE_GER_scout_mgunner2","SPE_GER_scout_sniper","SPE_GER_scout_Assist_SquadLead","SPE_GER_scout_ober_rifleman","SPE_GER_scout_amgunner","SPE_GER_scout_rifleman","SPE_GER_scout_ober_grenadier","SPE_GER_scout_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// SPE_GER_sentry_squad_3_42
+	[[[["SPE_GER_SquadLead","SPE_GER_rifleman","SPE_GER_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.4],
+	// SPE_GER_Assault_Engineer_Squad_42
+	[[[["SPE_GER_SquadLead","SPE_GER_mgunner2","SPE_GER_mgunner2","SPE_GER_sapper_gefr","SPE_GER_rifleman_2","SPE_GER_amgunner","SPE_GER_sapper","SPE_GER_sapper","SPE_GER_amgunner","SPE_GER_Flamethrower_Operator","SPE_GER_AT_grenadier","SPE_GER_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+	// SPE_GER_MG_team_42
+	[[[["SPE_GER_SquadLead","SPE_GER_mgunner2","SPE_GER_rifleman","SPE_GER_amgunner"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5]
+];
+_arr append [
 	[[[["SPE_FlaK_36","SPE_FlaK_36"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT"]]],0.01],
 	[[[["SPE_FlaK_36_AA","SPE_FlaK_36_AA"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT"]]],0.01]
 ];
@@ -301,6 +318,21 @@ _arr = [
 	[[[["SPE_ST_StuH_42","SPE_ST_StuH_42"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
 	// SPE_ST_Jagdpanther_Section
 	[[[["SPE_ST_Jagdpanther_G1","SPE_ST_Jagdpanther_G1"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25]
+];
+_arr append [
+	// 1942г. mg42 > mg34, stg44 > mp40, at.
+	// SPE_sturmtrooper_MG_team_42
+	[[[["SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_ober_rifleman","SPE_sturmtrooper_amgunner"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.4],
+	// SPE_sturmtrooper_sentry_team_2_42
+	[[[["SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_rifleman"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.8],
+	// SPE_sturmtrooper_infantry_squad_42
+	[[[["SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_medic","SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_rifleman","SPE_sturmtrooper_amgunner","SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_ober_grenadier","SPE_sturmtrooper_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
+	// SPE_sturmtrooper_AT_squad_42
+	[[[["SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_AT_grenadier","SPE_sturmtrooper_AT_grenadier","SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_ober_grenadier","SPE_sturmtrooper_LAT_Klein_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
+	// SPE_sturmtrooper_Assault_Engineer_Squad_42
+	[[[["SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_sapper_gefr","SPE_sturmtrooper_rifleman","SPE_sturmtrooper_amgunner","SPE_sturmtrooper_sapper","SPE_sturmtrooper_sapper","SPE_sturmtrooper_amgunner","SPE_sturmtrooper_Flamethrower_Operator","SPE_sturmtrooper_AT_grenadier","SPE_sturmtrooper_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
+	// SPE_ST_Panzerjaeger_squad_42
+	[[[["SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_AT_grenadier","SPE_sturmtrooper_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4]
 ];
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
