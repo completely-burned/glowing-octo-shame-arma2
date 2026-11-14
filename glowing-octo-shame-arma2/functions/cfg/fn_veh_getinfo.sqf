@@ -418,10 +418,6 @@ switch (true) do {
 		case (_type isKindOf "SPE_PzKpfwIII_Base"): {
 			[1941, __date_ww2_end] call _fnc_date_update;
 		};
-		// StuG III Ausf. G: 1942
-		case (_type isKindOf "LIB_StuG_III_G_base"): {
-			[1942, __date_ww2_end] call _fnc_date_update;
-		};
 	// PzKpfw IV Ausf.G: 1942 (Ausf.F - 1941, Ausf.H - 1943)
 		case (_type isKindOf "SPE_PzKpfwIV_G_base"): {
 			[1942, __date_ww2_end] call _fnc_date_update;
@@ -470,6 +466,9 @@ switch (true) do {
 		// "SPE_StuG_III_G_SKB","SPE_StuG_III_G_SKB_base","SPE_StuG_III_G_base","SPE_StuG_III_base","SPE_Tank_base"
 		// "SPE_StuH_42","SPE_StuH_42_base","SPE_StuG_III_G_Early_base","SPE_StuG_III_G_base","SPE_StuG_III_base","SPE_Tank_base"
 		case (_type isKindOf "SPE_StuH_42_base"): {
+			[1942, __date_ww2_end] call _fnc_date_update;
+		};
+		case (_type isKindOf "LIB_StuG_III_G_base"): {
 			[1942, __date_ww2_end] call _fnc_date_update;
 		};
 		case (_type isKindOf "SPE_StuG_III_G_Early"): {
