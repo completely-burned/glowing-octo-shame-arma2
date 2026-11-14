@@ -280,31 +280,31 @@ class Params {
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_KR {
-			title="FACTION: VN_KR";
+			title="FACTION: VN_KR 70,75";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_MACV {
-			title="FACTION: VN_MACV";
+			title="FACTION: VN_MACV 66,68,70";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_NZ {
-			title="FACTION: VN_NZ";
+			title="FACTION: VN_NZ 66,68,70";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_ROK {
-			title="FACTION: VN_ROK";
+			title="FACTION: VN_ROK 65,68";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_AUS {
-			title="FACTION: VN_AUS";
+			title="FACTION: VN_AUS 66,68,70";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
@@ -316,7 +316,7 @@ class Params {
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_FANK {
-			title="FACTION: VN_FANK";
+			title="FACTION: VN_FANK 70,71";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
