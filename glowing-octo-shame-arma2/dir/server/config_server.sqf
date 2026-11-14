@@ -19,9 +19,10 @@ if !(_pvp) then {
 	publicVariable "gosa_friendlyside";
 };
 
-gosa_playerside = _arr select 5 call BIS_fnc_selectRandomWeighted;
-diag_log format ["Log: [config_server] _playerside %1, _arr0 %2", gosa_playerside, _arr select 5];
-
+if !(isMultiplayer) then {
+	gosa_playerside = _arr select 5 call BIS_fnc_selectRandomWeighted;
+	diag_log format ["Log: [config_server] _playerside %1, _arr0 %2", gosa_playerside, _arr select 5];
+};
 
 [] call compile preprocessFileLineNumbers "dir\server\cfg_mhq.sqf";
 
