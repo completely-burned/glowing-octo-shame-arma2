@@ -17,8 +17,8 @@ for "_i" from 0 to (count _arr -1) do {
 			_rip = [_arr select _i select 0 select _i0 select 0 select _i1] call gosa_fnc_getInfo;
 			if (count (_rip select 0) >= 2) then {
 				if (count _date_local < 2) then {
-					_date_local set [0, _rip select 0 select 0];
 					_date_local set [1, _rip select 0 select 1];
+					_date_local set [0, _rip select 0 select 0];
 				}else{
 					_date_local set [0, (_date_local select 0) max (_rip select 0 select 0)];
 					_date_local set [1, (_date_local select 1) min (_rip select 0 select 1)];
@@ -27,7 +27,11 @@ for "_i" from 0 to (count _arr -1) do {
 		};
 	};
 
-	if (count _date_local >= 2) then {
+	if (count _date_local < 2) then {
+		_date_local set [1,  9999];
+		_date_local set [0, -9999];
+	};
+
 		_n = _dates find _date_local;
 
 		if (_n >= 0) then {
@@ -54,8 +58,8 @@ for "_i" from 0 to (count _arr -1) do {
 		};
 
 		if (count _date < 2) then {
-			_date set [0, _date_local select 0];
 			_date set [1, _date_local select 1];
+			_date set [0, _date_local select 0];
 		}else{
 			_date set [0, (_date select 0) max (_date_local select 0)];
 			_date set [1, (_date select 1) min (_date_local select 1)];
@@ -63,7 +67,6 @@ for "_i" from 0 to (count _arr -1) do {
 
 		// Для каждой группы нужны свои вычисления.
 		_date_local resize 0;
-	};
 };
 
 diag_log format ["Log: [fn_cfg_grp_getinfo] %1", [_date,_dates, count _groups]];
