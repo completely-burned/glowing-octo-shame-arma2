@@ -1,108 +1,121 @@
+//-- CSLA, CSLA
 [
-// CSLA_T72Mptn
-[[[["CSLA_T72M","CSLA_T72M","CSLA_T72M"],[[0,0,0],[50,0,0],[-50,0,0]],["Lieutenant","Sergeant","Sergeant"]]],0],
-// CSLA_T72infTeam
-[[[["CSLA_T72M","CSLA_mrVG70","CSLA_mrRPG75","CSLA_mrSa58P","CSLA_mrUK59L"],[[0,0,0],[1.5,-5.5,0],[-1.5,-5.5,0],[2.5,-2.5,0],[-2.5,-2.5,0]],["Sergeant","Corporal","Private","Private","Private"]]],0],
-// CSLA_mrSqdBVP1
-[[[["CSLA_mrSgt","CSLA_mrRPG75","CSLA_mrSa58Pp","CSLA_mrVG70","CSLA_mrVG70","CSLA_mrUK59L","CSLA_mrUK59L","CSLA_BVP1"],[[3,-4.5,0],[-3,-4.5,0],[3,1.5,0],[-3,1.5,0],[-1.5,-5.5,0],[3,-1.5,0],[-3,-1.5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal"]]],0],
-// CSLA_mrSqdOT64
-[[[["CSLA_mrSgt","CSLA_mrVG70","CSLA_mrVG70","CSLA_mrSa58Pp","CSLA_mrRPG7","CSLA_mrRPG75","CSLA_mrRPG7a","CSLA_mrUK59L","CSLA_mrUK59L","CSLA_OT64C"],[[1,-6.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4.5,0],[-1,-5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Corporal"]]],0],
-// CSLA_mrSqdHWOT64
-[[[["CSLA_mrSgt","CSLA_mrAGS17g","CSLA_mrAGS17a","CSLA_mrAGS17m","CSLA_mrAGS17g","CSLA_mrAGS17a","CSLA_mrAGS17m","CSLA_mrM52g","CSLA_mrM52a","CSLA_mrM52m","CSLA_mrM52m","CSLA_OT64C"],[[1,-6.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4.5,0],[-1,-5,0],[-2.5,-8.5,0],[2.5,-8.5,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Private","Private","Private","Corporal"]]],0],
-// CSLA_mrSqdOT62
-[[[["CSLA_mrSgt","CSLA_mrVG70","CSLA_mrVG70","CSLA_mrSa58Pp","CSLA_mrRPG7","CSLA_mrRPG75","CSLA_mrRPG7a","CSLA_mrUK59L","CSLA_mrUK59L","CSLA_OT62"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4,0],[-1,-4,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Corporal"]]],0],
-// CSLA_mrADTeamOT65
-[[[["CSLA_mr9K32","CSLA_mr9K32","CSLA_mr9K32","CSLA_OT65A"],[[2.5,1,0],[-2.5,-2,0],[2.5,-2,0],[0,0,0]],["Sergeant","Corporal","Private","Corporal"]]],0],
-// CSLA_cpSentryTeam
-[[[["CSLA_rSa58P","CSLA_rSa58P"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0],
-// CSLA_cpFireTeam
-[[[["CSLA_rSa58P","CSLA_rSa58P","CSLA_rUK59L"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]],0],
-// CSLA_cpRifleTeam
-[[[["CSLA_rSa58P","CSLA_rSa58P","CSLA_rSa58P","CSLA_rRPG75"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rSqd
-[[[["CSLA_rSgt","CSLA_rRPG7","CSLA_rRPG75","CSLA_rRPG7a","CSLA_rVG70","CSLA_rVG70","CSLA_rUK59L","CSLA_rUK59L"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]],0],
-// CSLA_rTeam
-[[[["CSLA_rSa58P","CSLA_rRPG75","CSLA_rVG70","CSLA_rUK59L"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rPLTeam
-[[[["CSLA_rOfc","CSLA_rRF10","CSLA_rOP63","CSLA_rMedi"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Corporal","Corporal","Corporal"]]],0],
-// CSLA_rUK59Team
-[[[["CSLA_rUK59a","CSLA_rUK59m","CSLA_rUK59m"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]],0],
-// CSLA_rDSKMTeam
-[[[["CSLA_rDSKMg","CSLA_rDSKMa","CSLA_rDSKMm","CSLA_rDSKMm"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rAGS17Team
-[[[["CSLA_rAGS17g","CSLA_rAGS17a","CSLA_rAGS17m","CSLA_rAGS17m"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rM52Team
-[[[["CSLA_rM52g","CSLA_rM52a","CSLA_rM52m","CSLA_rM52m"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rT21Team
-[[[["CSLA_rT21","CSLA_rT21a","CSLA_rT21a"],[[0,0,0],[2,-1,0],[-4,-2,0]],["Corporal","Private","Private"]]],0],
-// CSLA_r9P135MTeam
-[[[["CSLA_r9P135M","CSLA_r9M113","CSLA_r9M113"],[[0,0,0],[2,-1,0],[-4,-2,0]],["Corporal","Private","Private"]]],0],
-// CSLA_rADTeamAZU
-[[[["CSLA_AZU","CSLA_r9K32","CSLA_r9K32","CSLA_r9K32"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]],0],
-// CSLA_rADTeamInf
-[[[["CSLA_r9K32","CSLA_r9K32","CSLA_r9K32","CSLA_rUK59L"],[[0,0,0],[2,-2,0],[-2,-2,0],[0,-4,0]],["Sergeant","Corporal","Private","Private"]]],0],
-// CSLA_rADTeamV3S
-[[[["CSLA_rSgt","CSLA_V3S","CSLA_rRF10","CSLA_rSa58V","CSLA_rUK59L","CSLA_rUK59L","CSLA_rRPG7","CSLA_rRPG7a","CSLA_rMedi","CSLA_rVG70","CSLA_r9K32"],[[3,-3,0],[0,0,0],[0,-12,0],[-3,-3,0],[-3,-9,0],[3,-9,0],[3,-12,0],[-3,-12,0],[0,-15,0],[3,-15,0],[-3,-15,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]],0],
-// CSLA_abSqd
-[[[["CSLA_ptSgt","CSLA_ptSa58Pp","CSLA_ptVG70","CSLA_ptVG70","CSLA_ptRPG75","CSLA_ptRPG75","CSLA_ptUK59","CSLA_ptUK59"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]],0],
-// CSLA_abDtmt
-[[[["CSLA_ptSgt","CSLA_ptUK59","CSLA_ptOP63","CSLA_ptSa58Pp","CSLA_ptSa58Pp","CSLA_ptRF10","CSLA_ptMedi","CSLA_ptMedi","CSLA_ptVG70","CSLA_ptVG70","CSLA_ptSpr","CSLA_ptSpr","CSLA_ptRPG75","CSLA_ptRPG75","CSLA_ptUK59","CSLA_ptUK59"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0],[0,-48,0],[4,-52,0],[0,-56,0],[4,-60,0]],["Sergeant","Private","Corporal","Private","Private","Private","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private"]]],0],
-// CSLA_lrrAbPrl
-[[[["CSLA_lrrCmd","CSLA_lrrSnp","CSLA_lrrSpr","CSLA_lrrMedi","CSLA_lrrDrM","CSLA_lrrRTO"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0]],["Lieutenant","Sergeant","Corporal","Sergeant","Corporal","Corporal"]]],0],
-// CSLA_lrrSbtDtmt
-[[[["CSLA_lrrCmd","CSLA_lrrSnp","CSLA_lrrSnp","CSLA_lrrMedi","CSLA_lrrMedi","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrDrM","CSLA_lrrDrM","CSLA_lrrRTO"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0]],["Lieutenant","Sergeant","Sergeant","Sergeant","Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal"]]],0],
-// CSLA_lrrOT65Prl
-[[[["CSLA_lrrCmd","CSLA_OT65A_lrr","CSLA_lrrSnp","CSLA_lrrMedi"],[[0,0,0],[0,-12,0],[10,-6,0],[-10,-6,0]],["Lieutenant","Sergeant","Sergeant","Corporal"]]],0]
+//- CSLA_TankUnits, Armored Units
+// CSLA_T72Mptn, T-72 platoon
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_TankUnits" >> "CSLA_T72Mptn"]],0],
+// CSLA_T72infTeam, T-72 with rifle team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_TankUnits" >> "CSLA_T72infTeam"]],0],
+//- CSLA_MotoriflemanUnits, Motorized Rifle Units
+// CSLA_mrSqdBVP1, Motorized squad on BMP-1
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrSqdBVP1"]],0],
+// CSLA_mrSqdOT64, Motorized squad on OT-64
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrSqdOT64"]],0],
+// CSLA_mrSqdHWOT64, Motorized Heavy Weapon squad on OT-64
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrSqdHWOT64"]],0],
+// CSLA_mrSqdOT62, Motorized squad on OT-62
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrSqdOT62"]],0],
+// CSLA_mrADTeamOT65, AA team on OT-65
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrADTeamOT65"]],0],
+//- CSLA_RiflemanUnits, Rifle Units
+// CSLA_cpSentryTeam, Sentry team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_cpSentryTeam"]],0],
+// CSLA_cpFireTeam, Fire team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_cpFireTeam"]],0],
+// CSLA_cpRifleTeam, Riflemen team AT
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_cpRifleTeam"]],0],
+// CSLA_rSqd, Riflemen squad
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rSqd"]],0],
+// CSLA_rTeam, Riflemen team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rTeam"]],0],
+// CSLA_rPLTeam, Platoon leader team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rPLTeam"]],0],
+// CSLA_rUK59Team, UK-59 Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rUK59Team"]],0],
+// CSLA_rDSKMTeam, DSKM Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rDSKMTeam"]],0],
+// CSLA_rAGS17Team, AGS-17 Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rAGS17Team"]],0],
+// CSLA_rM52Team, M-52 Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rM52Team"]],0],
+// CSLA_rT21Team, T21 Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rT21Team"]],0],
+// CSLA_r9P135MTeam, 9P135M Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_r9P135MTeam"]],0],
+// CSLA_rADTeamAZU, AA team on AZU 469
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rADTeamAZU"]],0],
+// CSLA_rADTeamInf, Infantry AA team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rADTeamInf"]],0],
+// CSLA_rADTeamV3S, Squad on V3S
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rADTeamV3S"]],0],
+//- CSLA_AirbornUnits, Airborne Units
+// CSLA_abSqd, Airborne squad
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_AirbornUnits" >> "CSLA_abSqd"]],0],
+// CSLA_abDtmt, Airborne Detachment
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_AirbornUnits" >> "CSLA_abDtmt"]],0],
+//- CSLA_LongRangeReconUnits, Recon Units
+// CSLA_lrrAbPrl, Long Range Recon Patrol
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_LongRangeReconUnits" >> "CSLA_lrrAbPrl"]],0],
+// CSLA_lrrSbtDtmt, Long-Range Recon Sabotage Detachment
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_LongRangeReconUnits" >> "CSLA_lrrSbtDtmt"]],0],
+// CSLA_lrrOT65Prl, Recon patrol on OT-65
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_LongRangeReconUnits" >> "CSLA_lrrOT65Prl"]],0]
 ];
+
+//-- CSLA_DES, CSLA (Desert)
 [
-// CSLA_T72MptnDes
-[[[["CSLA_T72M_Des","CSLA_T72M_Des","CSLA_T72M_Des"],[[0,0,0],[50,0,0],[-50,0,0]],["Lieutenant","Sergeant","Sergeant"]]],0],
-// CSLA_T72infTeamDes
-[[[["CSLA_T72M_Des","CSLA_mrVG70Des","CSLA_mrRPG75Des","CSLA_mrSa58PDes","CSLA_mrUK59LDes"],[[0,0,0],[1.5,-5.5,0],[-1.5,-5.5,0],[2.5,-2.5,0],[-2.5,-2.5,0]],["Sergeant","Corporal","Private","Private","Private"]]],0],
-// CSLA_mrSqdBVP1Des
-[[[["CSLA_mrSgtDes","CSLA_mrRPG75Des","CSLA_mrSa58PpDes","CSLA_mrVG70Des","CSLA_mrVG70Des","CSLA_mrUK59LDes","CSLA_mrUK59LDes","CSLA_BVP1_Des"],[[3,-4.5,0],[-3,-4.5,0],[3,1.5,0],[-3,1.5,0],[-1.5,-5.5,0],[3,-1.5,0],[-3,-1.5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal"]]],0],
-// CSLA_mrSqdOT64Des
-[[[["CSLA_mrSgtDes","CSLA_mrVG70Des","CSLA_mrVG70Des","CSLA_mrSa58PpDes","CSLA_mrRPG7Des","CSLA_mrRPG75Des","CSLA_mrRPG7aDes","CSLA_mrUK59LDes","CSLA_mrUK59LDes","CSLA_OT64C_Des"],[[1,-6.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4.5,0],[-1,-5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Corporal"]]],0],
-// CSLA_mrSqdHWOT64Des
-[[[["CSLA_mrSgtDes","CSLA_mrAGS17gDes","CSLA_mrAGS17aDes","CSLA_mrAGS17mDes","CSLA_mrAGS17gDes","CSLA_mrAGS17aDes","CSLA_mrAGS17mDes","CSLA_mrM52gDes","CSLA_mrM52aDes","CSLA_mrM52mDes","CSLA_mrM52mDes","CSLA_OT64C_Des"],[[1,-6.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4.5,0],[-1,-5,0],[-2.5,-8.5,0],[2.5,-8.5,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Private","Private","Private","Corporal"]]],0],
-// CSLA_mrSqdOT62Des
-[[[["CSLA_mrSgtDes","CSLA_mrVG70Des","CSLA_mrVG70Des","CSLA_mrSa58PpDes","CSLA_mrRPG7Des","CSLA_mrRPG75Des","CSLA_mrRPG7aDes","CSLA_mrUK59LDes","CSLA_mrUK59LDes","CSLA_OT62_Des"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4,0],[-1,-4,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Corporal"]]],0],
-// CSLA_mrADTeamOT65Des
-[[[["CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_OT65A_Des"],[[2.5,1,0],[-2.5,-2,0],[2.5,-2,0],[0,0,0]],["Sergeant","Corporal","Private","Corporal"]]],0],
-// CSLA_cpSentryTeamDes
-[[[["CSLA_mrSa58PDes","CSLA_mrSa58PDes"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0],
-// CSLA_cpFireTeamDes
-[[[["CSLA_mrSa58PDes","CSLA_mrSa58PDes","CSLA_mrUK59LDes"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]],0],
-// CSLA_cpRifleTeamDes
-[[[["CSLA_mrSa58PDes","CSLA_mrSa58PDes","CSLA_mrSa58PDes","CSLA_mrRPG75Des"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rSqdDes
-[[[["CSLA_mrSgtDes","CSLA_mrRPG7Des","CSLA_mrRPG75Des","CSLA_mrRPG7aDes","CSLA_mrVG70Des","CSLA_mrVG70Des","CSLA_mrUK59LDes","CSLA_mrUK59LDes"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]],0],
-// CSLA_rTeamDes
-[[[["CSLA_mrSa58PDes","CSLA_mrRPG75Des","CSLA_mrVG70Des","CSLA_mrUK59LDes"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rPLTeamDes
-[[[["CSLA_mrOfcDes","CSLA_mrRF10Des","CSLA_mrOP63Des","CSLA_mrMediDes"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Corporal","Corporal","Corporal"]]],0],
-// CSLA_rUK59TeamDes
-[[[["CSLA_mrUK59aDes","CSLA_mrUK59mDes","CSLA_mrUK59mDes"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]],0],
-// CSLA_rDSKMTeamDes
-[[[["CSLA_mrDSKMgDes","CSLA_mrDSKMaDes","CSLA_mrDSKMmDes","CSLA_mrDSKMmDes"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rAGS17TeamDes
-[[[["CSLA_mrAGS17gDes","CSLA_mrAGS17aDes","CSLA_mrAGS17mDes","CSLA_mrAGS17mDes"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rM52TeamDes
-[[[["CSLA_mrM52gDes","CSLA_mrM52aDes","CSLA_mrM52mDes","CSLA_mrM52mDes"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0],
-// CSLA_rT21TeamDes
-[[[["CSLA_mrT21Des","CSLA_mrT21aDes","CSLA_mrT21aDes"],[[0,0,0],[2,-1,0],[-4,-2,0]],["Corporal","Private","Private"]]],0],
-// CSLA_r9P135MTeamDes
-[[[["CSLA_mr9P135MDes","CSLA_mr9M113Des","CSLA_mr9M113Des"],[[0,0,0],[2,-1,0],[-4,-2,0]],["Corporal","Private","Private"]]],0],
-// CSLA_rADTeamAZUDes
-[[[["CSLA_AZU_Des","CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_mr9K32Des"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]],0],
-// CSLA_rADTeamInfDes
-[[[["CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_mrUK59LDes"],[[0,0,0],[2,-2,0],[-2,-2,0],[0,-4,0]],["Sergeant","Corporal","Private","Private"]]],0],
-// CSLA_rADTeamV3SDes
-[[[["CSLA_mrSgtDes","CSLA_V3S_Des","CSLA_mrRF10Des","CSLA_mrSa58VDes","CSLA_mrUK59LDes","CSLA_mrUK59LDes","CSLA_mrRPG7Des","CSLA_mrRPG7aDes","CSLA_mrMediDes","CSLA_mrVG70Des","CSLA_mr9K32Des"],[[3,-3,0],[0,0,0],[0,-12,0],[-3,-3,0],[-3,-9,0],[3,-9,0],[3,-12,0],[-3,-12,0],[0,-15,0],[3,-15,0],[-3,-15,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]],0],
-// CSLA_lrrAbPrlDes
-[[[["CSLA_lrrCmdDes","CSLA_lrrSnpDes","CSLA_lrrSprDes","CSLA_lrrMediDes","CSLA_lrrDrMDes","CSLA_lrrRTODes"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0]],["Lieutenant","Sergeant","Corporal","Sergeant","Corporal","Corporal"]]],0],
-// CSLA_lrrSbtDtmtDes
-[[[["CSLA_lrrCmdDes","CSLA_lrrSnpDes","CSLA_lrrSnpDes","CSLA_lrrMediDes","CSLA_lrrMediDes","CSLA_lrrSprDes","CSLA_lrrSprDes","CSLA_lrrSprDes","CSLA_lrrSprDes","CSLA_lrrDrMDes","CSLA_lrrDrMDes","CSLA_lrrRTODes"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0]],["Lieutenant","Sergeant","Sergeant","Sergeant","Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal"]]],0],
-// CSLA_lrrOT65PrlDes
-[[[["CSLA_lrrCmdDes","CSLA_OT65A_lrr_Des","CSLA_lrrSnpDes","CSLA_lrrMediDes"],[[0,0,0],[0,-12,0],[10,-6,0],[-10,-6,0]],["Lieutenant","Sergeant","Sergeant","Corporal"]]],0]
+//- CSLA_TankUnitsDes, Armored Units
+// CSLA_T72MptnDes, T-72 platoon
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_TankUnitsDes" >> "CSLA_T72MptnDes"]],0],
+// CSLA_T72infTeamDes, T-72 with rifle team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_TankUnitsDes" >> "CSLA_T72infTeamDes"]],0],
+//- CSLA_MotoriflemanUnitsDes, Motorized Rifle Units
+// CSLA_mrSqdBVP1Des, Motorized squad on BMP-1
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrSqdBVP1Des"]],0],
+// CSLA_mrSqdOT64Des, Motorized squad on OT-64
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrSqdOT64Des"]],0],
+// CSLA_mrSqdHWOT64Des, Motorized Heavy Weapon squad on OT-64
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrSqdHWOT64Des"]],0],
+// CSLA_mrSqdOT62Des, Motorized squad on OT-62
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrSqdOT62Des"]],0],
+// CSLA_mrADTeamOT65Des, AA team on OT-65
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrADTeamOT65Des"]],0],
+//- CSLA_RiflemanUnitsDes, Rifle Units
+// CSLA_cpSentryTeamDes, Sentry team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_cpSentryTeamDes"]],0],
+// CSLA_cpFireTeamDes, Fire team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_cpFireTeamDes"]],0],
+// CSLA_cpRifleTeamDes, Riflemen team AT
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_cpRifleTeamDes"]],0],
+// CSLA_rSqdDes, Riflemen squad
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rSqdDes"]],0],
+// CSLA_rTeamDes, Riflemen team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rTeamDes"]],0],
+// CSLA_rPLTeamDes, Platoon leader team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rPLTeamDes"]],0],
+// CSLA_rUK59TeamDes, UK-59 Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rUK59TeamDes"]],0],
+// CSLA_rDSKMTeamDes, DSKM Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rDSKMTeamDes"]],0],
+// CSLA_rAGS17TeamDes, AGS-17 Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rAGS17TeamDes"]],0],
+// CSLA_rM52TeamDes, M-52 Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rM52TeamDes"]],0],
+// CSLA_rT21TeamDes, T21 Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rT21TeamDes"]],0],
+// CSLA_r9P135MTeamDes, 9P135M Crew
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_r9P135MTeamDes"]],0],
+// CSLA_rADTeamAZUDes, AA team on AZU 469
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rADTeamAZUDes"]],0],
+// CSLA_rADTeamInfDes, Infantry AA team
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rADTeamInfDes"]],0],
+// CSLA_rADTeamV3SDes, Squad on V3S
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rADTeamV3SDes"]],0],
+//- CSLA_LongRangeReconUnitsDes, Recon Units
+// CSLA_lrrAbPrlDes, Long Range Recon Patrol
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_LongRangeReconUnitsDes" >> "CSLA_lrrAbPrlDes"]],0],
+// CSLA_lrrSbtDtmtDes, Long-Range Recon Sabotage Detachment
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_LongRangeReconUnitsDes" >> "CSLA_lrrSbtDtmtDes"]],0],
+// CSLA_lrrOT65PrlDes, Recon patrol on OT-65
+[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_LongRangeReconUnitsDes" >> "CSLA_lrrOT65PrlDes"]],0]
 ];
+

@@ -2,1266 +2,1416 @@
 #include "..\include\ranks.sqf"
 
 //--- East
-[_groups_map, east, "RHS_MSV", [[
-	// configName "rhs_group_rus_msv_infantry_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_officer_armored",
-		"rhs_msv_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_squad",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_efreitor","rhs_msv_grenadier_rpg",
-		"rhs_msv_strelok_rpg_assist","rhs_msv_machinegunner",
-		"rhs_msv_LAT","rhs_msv_strelok_rpg_assist",
-		"rhs_msv_rifleman","rhs_msv_rifleman",
-		"rhs_msv_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_squad_2mg",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_machinegunner",
-		"rhs_msv_rifleman","rhs_msv_machinegunner",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_squad_sniper",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_marksman",
-		"rhs_msv_rifleman","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_squad_mg_sniper",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_machinegunner",
-		"rhs_msv_rifleman","rhs_msv_marksman",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_section_mg",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_machinegunner","rhs_msv_machinegunner_assistant",
-		"rhs_msv_grenadier","rhs_msv_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_section_marksman",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_machinegunner","rhs_msv_machinegunner_assistant",
-		"rhs_msv_grenadier","rhs_msv_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_section_AT",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_at","rhs_msv_strelok_rpg_assist",
-		"rhs_msv_lat","rhs_msv_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_section_AA",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_msv_aa",
-		"rhs_msv_aa","rhs_msv_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_fireteam",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_machinegunner","rhs_msv_at",
-		"rhs_msv_strelok_rpg_assist"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_MANEUVER",
-	[[[["rhs_msv_efreitor",
-		"rhs_msv_rifleman","rhs_msv_rifleman"],[[0,5,0],[-5,0,0],[3,0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_chq",
-	[[[["rhs_msv_emr_officer",
-		"rhs_msv_emr_officer_armored","rhs_msv_emr_officer_armored",
-		"rhs_msv_emr_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_squad",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_msv_emr_grenadier_rpg",
-		"rhs_msv_emr_strelok_rpg_assist","rhs_msv_emr_machinegunner",
-		"rhs_msv_emr_LAT","rhs_msv_emr_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_squad_2mg",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_msv_emr_grenadier_rpg",
-		"rhs_msv_emr_strelok_rpg_assist","rhs_msv_emr_machinegunner",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_squad_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_msv_emr_grenadier_rpg",
-		"rhs_msv_emr_strelok_rpg_assist","rhs_msv_emr_machinegunner",
-		"rhs_msv_emr_LAT","rhs_msv_emr_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_squad_mg_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_msv_emr_grenadier_rpg",
-		"rhs_msv_emr_strelok_rpg_assist","rhs_msv_emr_machinegunner",
-		"rhs_msv_emr_machinegunner_assistant","rhs_msv_emr_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_section_mg",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner_assistant",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner_assistant",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner_assistant",
-		"rhs_msv_emr_grenadier_rpg"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_section_marksman",
-	[[[["rhs_msv_emr_junior_sergeant",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner_assistant",
-		"rhs_msv_emr_grenadier","rhs_msv_emr_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_section_AT",
-	[[[["rhs_msv_emr_junior_sergeant",
-		"rhs_msv_emr_at","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_lat","rhs_msv_emr_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_section_AA",
-	[[[["rhs_msv_emr_junior_sergeant",
-		"rhs_msv_emr_aa","rhs_msv_emr_aa",
-		"rhs_msv_emr_aa","rhs_msv_emr_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0]],
-		["LIEUTENANT",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_fireteam",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_grenadier_rpg",
-		"rhs_msv_emr_strelok_rpg_assist"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"PRIVATE","PRIVATE",
-		"CORPORAL"]]],0.75],
-	// configName "rhs_group_rus_msv_infantry_emr_MANEUVER",
-	[[[["rhs_msv_emr_efreitor",
-		"rhs_msv_emr_LAT","rhs_msv_emr_rifleman"],[[0,5,0],[-5,0,0],[3,0,0]],
-		["CORPORAL",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_Ural_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_crew_commander",
-		"rhs_uaz_msv_01"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_msv_Ural_squad",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_grenadier",
-		"rhs_Ural_msv_01","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_strelok_rpg_assist",
-		"rhs_msv_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_Ural_squad_2mg",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_machinegunner",
-		"rhs_Ural_msv_01","rhs_msv_machinegunner",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_Ural_squad_sniper",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_marksman",
-		"rhs_Ural_msv_01","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_Ural_squad_mg_sniper",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_machinegunner",
-		"rhs_Ural_msv_01","rhs_msv_marksman",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_Ural_squad_aa",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_msv_aa",
-		"rhs_Ural_Zu23_msv_01","rhs_vdv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_gaz66_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_crew_commander",
-		"rhs_uaz_msv_01"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_msv_gaz66_squad",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_grenadier",
-		"rhs_gaz66_msv","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_strelok_rpg_assist",
-		"rhs_msv_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_gaz66_squad_2mg",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_machinegunner",
-		"rhs_gaz66_msv","rhs_msv_machinegunner",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_gaz66_squad_sniper",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_marksman",
-		"rhs_gaz66_msv","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_gaz66_squad_mg_sniper",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_machinegunner",
-		"rhs_gaz66_msv","rhs_msv_marksman",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_gaz66_squad_aa",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_gaz66_Zu23_msv"],[[0,5,0],[-5,0,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_rus_msv_btr70_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_crew_commander",
-		"rhs_btr70_msv"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_msv_btr70_squad",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_grenadier",
-		"rhs_btr70_msv","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_strelok_rpg_assist",
-		"rhs_msv_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_btr70_squad_2mg",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_machinegunner",
-		"rhs_btr70_msv","rhs_msv_machinegunner",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_btr70_squad_sniper",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_marksman",
-		"rhs_btr70_msv","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_btr70_squad_mg_sniper",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_machinegunner",
-		"rhs_btr70_msv","rhs_msv_marksman",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_btr70_squad_aa",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_msv_aa",
-		"rhs_btr70_msv","rhs_msv_machinegunner",
-		"rhs_msv_grenadier","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_crew_commander",
-		"rhs_btr80_msv"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80_squad",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_btr80_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80_squad_2mg",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_btr80_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner",
-		"rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80_squad_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_btr80_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_marksman",
-		"rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80_squad_mg_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_btr80_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner_assistant",
-		"rhs_msv_emr_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80_squad_aa",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_msv_aa",
-		"rhs_btr80_msv","rhs_msv_machinegunner",
-		"rhs_msv_grenadier","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80a_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_crew_commander",
-		"rhs_BTR80a_msv"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80a_squad",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_BTR80a_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80a_squad_2mg",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_BTR80a_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner",
-		"rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80a_squad_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_BTR80a_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_marksman",
-		"rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80a_squad_mg_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_BTR80a_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner_assistant",
-		"rhs_msv_emr_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_BTR80a_squad_aa",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_msv_aa",
-		"rhs_BTR80a_msv","rhs_msv_machinegunner",
-		"rhs_msv_grenadier","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp1_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_crew_commander",
-		"rhs_bmp1k_msv"],[[0,0,0],[5,-5,0],[-5,-5,0],[19,-22,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp1_squad",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_grenadier",
-		"rhs_bmp1p_msv","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_strelok_rpg_assist",
-		"rhs_msv_rifleman","rhs_msv_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[19,-22,0],[-10,-11,0],[31,-39,0],[-15,-15,0],[37,-44,0],[-20,-20,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp1_squad_2mg",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_machinegunner",
-		"rhs_bmp1p_msv","rhs_msv_machinegunner",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT",
-		"rhs_msv_rifleman","rhs_msv_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[19,-22,0],[-10,-11,0],[31,-39,0],[-15,-15,0],[37,-44,0],[-20,-20,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp1_squad_sniper",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_marksman",
-		"rhs_bmp1p_msv","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_medic",
-		"rhs_msv_rifleman","rhs_msv_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[19,-22,0],[-10,-11,0],[31,-39,0],[-15,-15,0],[37,-44,0],[-20,-20,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp1_squad_mg_sniper",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_machinegunner",
-		"rhs_bmp1p_msv","rhs_msv_marksman",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT",
-		"rhs_msv_rifleman","rhs_msv_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[19,-22,0],[-10,-11,0],[31,-39,0],[-15,-15,0],[37,-44,0],[-20,-20,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp1_squad_aa",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_msv_aa",
-		"rhs_bmp1p_msv","rhs_msv_machinegunner",
-		"rhs_msv_grenadier","rhs_msv_LAT"],[[0,0,0],[5,-5,0],[-5,-5,0],[19,-22,0],[-10,-11,0],[31,-39,0],[-15,-15,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_BMP3_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_crew_commander",
-		"rhs_bmp3_msv"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_MSV_BMP3_squad",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_bmp3_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_BMP3_squad_2mg",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_bmp3_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner",
-		"rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_BMP3_squad_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_bmp3_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_marksman",
-		"rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_BMP3_squad_mg_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_bmp3_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner_assistant",
-		"rhs_msv_emr_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_BMP3_squad_aa",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_msv_aa",
-		"rhs_bmp3_msv","rhs_msv_machinegunner",
-		"rhs_msv_grenadier","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_bmp3m_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_crew_commander",
-		"rhs_bmp3m_msv"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_MSV_bmp3m_squad",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_bmp3m_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_bmp3m_squad_2mg",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_bmp3m_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner",
-		"rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_bmp3m_squad_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_bmp3m_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_marksman",
-		"rhs_msv_emr_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_bmp3m_squad_mg_sniper",
-	[[[["rhs_msv_emr_sergeant",
-		"rhs_msv_emr_efreitor","rhs_bmp3m_msv",
-		"rhs_msv_emr_grenadier_rpg","rhs_msv_emr_strelok_rpg_assist",
-		"rhs_msv_emr_machinegunner","rhs_msv_emr_machinegunner_assistant",
-		"rhs_msv_emr_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_MSV_bmp3m_squad_aa",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_msv_aa",
-		"rhs_bmp3m_msv","rhs_msv_machinegunner",
-		"rhs_msv_grenadier","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "RHS_SPGPlatoon_msv_bm21",
-	[[[["RHS_BM21_MSV_01",
-		"RHS_BM21_MSV_01","RHS_BM21_MSV_01",
-		"RHS_BM21_MSV_01","RHS_BM21_MSV_01",
-		"RHS_BM21_MSV_01"],[[0,0,0],[-20,-30,3],[20,-30,3],[40,-60,3],[60,-60,3],[80,-60,3]],
-		["LIEUTENANT",
-		"SERGEANT","SERGEANT",
-		"CORPORAL","SERGEANT",
-		"CORPORAL"]]],0],
-	// configName "RHS_SPGSection_msv_bm21",
-	[[[["RHS_BM21_MSV_01","RHS_BM21_MSV_01"],[[0,0,0],[-20,-30,3]],
-		["LIEUTENANT","SERGEANT"]]],0],
-	// configName "rhs_group_rus_msv_bmp2_chq",
-	[[[["rhs_msv_officer",
-		"rhs_msv_officer_armored","rhs_msv_crew_commander",
-		"rhs_bmp2k_msv"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["CAPTAIN",
-		"LIEUTENANT","LIEUTENANT",
-		"SERGEANT"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp2_squad",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_grenadier",
-		"rhs_bmp2_msv","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_strelok_rpg_assist",
-		"rhs_msv_rifleman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp2_squad_2mg",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_machinegunner",
-		"rhs_bmp2_msv","rhs_msv_machinegunner",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp2_squad_sniper",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_efreitor","rhs_msv_marksman",
-		"rhs_bmp2_msv","rhs_msv_machinegunner",
-		"rhs_msv_at","rhs_msv_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp2_squad_mg_sniper",
-	[[[["rhs_msv_sergeant",
-		"rhs_msv_junior_sergeant","rhs_msv_machinegunner",
-		"rhs_bmp2_msv","rhs_msv_marksman",
-		"rhs_msv_machinegunner_assistant","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_rus_msv_bmp2_squad_aa",
-	[[[["rhs_msv_junior_sergeant",
-		"rhs_msv_aa","rhs_msv_aa",
-		"rhs_bmp2_msv","rhs_msv_machinegunner",
-		"rhs_msv_grenadier","rhs_msv_LAT"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE"]]],0.75]
-], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1990,2100], [160,999],
-["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
-] call gosa_fnc_map_groups_add;
+#define __exclude ["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
+#define __cfg configFile >> "CfgGroups" >> "East" >> "rhs_faction_msv"
+//-- rhs_faction_msv, Россия (МСВ)
+_arr = [
+	//- rhs_group_rus_msv_infantry, Мотострелки (флора)
+	// rhs_group_rus_msv_infantry_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_chq"]],_rarity_bad/2],
+	// rhs_group_rus_msv_infantry_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad"]],_rarity_InfSquad],
+	// rhs_group_rus_msv_infantry_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_2mg"]],_rarity_InfSquad_Weapon/3],
+	// rhs_group_rus_msv_infantry_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_sniper"]],_rarity_InfSquad_Weapon/3],
+	// rhs_group_rus_msv_infantry_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_squad_mg_sniper"]],_rarity_InfSquad_Weapon/3],
+	// rhs_group_rus_msv_infantry_section_mg, Пулемётное отделение
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_mg"]],_rarity_InfTeam_MG],
+	// rhs_group_rus_msv_infantry_section_marksman, Снайперская группа
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_marksman"]],_rarity_SniperTeam],
+	// rhs_group_rus_msv_infantry_section_AT, Гранатомётное отделение
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AT"]],_rarity_InfTeam_AT],
+	// rhs_group_rus_msv_infantry_section_AA, Отделение ПВО
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_section_AA"]],_rarity_InfTeam_AA],
+	// rhs_group_rus_msv_infantry_fireteam, Огневая группа
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_fireteam"]],_rarity_InfTeam],
+	// rhs_group_rus_msv_infantry_MANEUVER, Маневренная группа
+	[[[__cfg >> "rhs_group_rus_msv_infantry" >> "rhs_group_rus_msv_infantry_MANEUVER"]],_rarity_InfSentry],
 
-	[_groups_map, east, "RHS_TV", [[
-		// configName "RHS_T14Platoon",
-		[[[["RHS_T14_tv","RHS_T14_tv","RHS_T14_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T14Platoon_AA",
-		[[[["RHS_T14_tv","rhs_zsu234_aa","RHS_T14_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T14Section",
-		[[[["RHS_T14_tv","RHS_T14_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BAPlatoon",
-		[[[["rhs_t72ba_tv","rhs_t72ba_tv","rhs_t72ba_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BAPlatoon_AA",
-		[[[["rhs_t72ba_tv","rhs_zsu234_aa","rhs_t72ba_tv","rhs_zsu234_aa"],[[0,0,0],[20,-30,3],[-21,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T72BASection",
-		[[[["rhs_t72ba_tv","rhs_t72ba_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BBPlatoon",
-		[[[["RHS_T72BB_tv","RHS_T72BB_tv","RHS_T72BB_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BBPlatoon_AA",
-		[[[["RHS_T72BB_tv","rhs_zsu234_aa","RHS_T72BB_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BBSection",
-		[[[["RHS_T72BB_tv","RHS_T72BB_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BCPlatoon",
-		[[[["RHS_T72BC_tv","RHS_T72BC_tv","RHS_T72BC_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BCPlatoon_AA",
-		[[[["RHS_T72BC_tv","rhs_zsu234_aa","RHS_T72BC_tv","rhs_zsu234_aa"],[[0,0,0],[20,-30,3],[-21,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T72BCSection",
-		[[[["RHS_T72BC_tv","RHS_T72BC_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BDPlatoon",
-		[[[["RHS_T72BD_tv","RHS_T72BD_tv","RHS_T72BD_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BDPlatoon_AA",
-		[[[["RHS_T72BD_tv","rhs_zsu234_aa","RHS_T72BD_tv","rhs_zsu234_aa"],[[0,0,0],[20,-30,3],[-21,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T72BDSection",
-		[[[["RHS_T72BD_tv","RHS_T72BD_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BEPlatoon",
-		[[[["rhs_t72be_tv","rhs_t72be_tv","rhs_t72be_tv"],[[0,0,0],[20,-30,3],[-21,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T72BEPlatoon_AA",
-		[[[["rhs_t72be_tv","rhs_zsu234_aa","rhs_t72be_tv","rhs_zsu234_aa"],[[0,0,0],[20,-30,3],[-21,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T72BESection",
-		[[[["rhs_t72be_tv","rhs_t72be_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80Platoon",
-		[[[["RHS_T80","RHS_T80","RHS_T80"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80Platoon_AA",
-		[[[["RHS_T80","rhs_zsu234_aa","RHS_T80"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80Section",
-		[[[["RHS_T80","RHS_T80"],[[0,0,0],[-20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80BPlatoon",
-		[[[["RHS_T80B","RHS_T80B","RHS_T80B"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80BPlatoon_AA",
-		[[[["RHS_T80B","rhs_zsu234_aa","RHS_T80B","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80BSection",
-		[[[["RHS_T80B","RHS_T80B"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80BVPlatoon",
-		[[[["RHS_T80BV","RHS_T80BV","RHS_T80BV"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80BVPlatoon_AA",
-		[[[["RHS_T80BV","rhs_zsu234_aa","RHS_T80BV","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80BVSection",
-		[[[["RHS_T80BV","RHS_T80BV"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80APlatoon",
-		[[[["RHS_T80A","RHS_T80A","RHS_T80A"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80APlatoon_AA",
-		[[[["RHS_T80A","rhs_zsu234_aa","RHS_T80A","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80ASection",
-		[[[["RHS_T80A","RHS_T80A"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80UPlatoon",
-		[[[["RHS_T80U","RHS_T80U","RHS_T80U"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80UPlatoon_AA",
-		[[[["RHS_T80U","rhs_zsu234_aa","RHS_T80U","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80USection",
-		[[[["RHS_T80U","RHS_T80U"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80UMPlatoon",
-		[[[["RHS_T80UM","RHS_T80UM","RHS_T80UM"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T80UMPlatoon_AA",
-		[[[["RHS_T80UM","rhs_zsu234_aa","RHS_T80UM","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_T80UMSection",
-		[[[["RHS_T80UM","RHS_T80UM"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "rhs_t80ue1Platoon",
-		[[[["rhs_t80ue1","rhs_t80ue1","rhs_t80ue1"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "rhs_t80ue1Platoon_AA",
-		[[[["rhs_t80ue1","rhs_zsu234_aa","rhs_t80ue1","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "rhs_t80ue1Section",
-		[[[["rhs_t80ue1","rhs_t80ue1"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "rhs_t80u45mPlatoon",
-		[[[["rhs_t80u45m","rhs_t80u45m","rhs_t80u45m"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "rhs_t80u45mPlatoon_AA",
-		[[[["rhs_t80u45m","rhs_zsu234_aa","rhs_t80u45m","rhs_zsu234_aa"],[[0,0,0],[20.1,-30,3],[-20,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "rhs_t80u45mSection",
-		[[[["rhs_t80u45m","rhs_t80u45m"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90Platoon",
-		[[[["RHS_T90_tv","RHS_T90_tv","RHS_T90_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90Platoon_AA",
-		[[[["RHS_T90_tv","rhs_zsu234_aa","RHS_T90_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90Section",
-		[[[["RHS_T90_tv","RHS_T90_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_t90aPlatoon",
-		[[[["RHS_t90a_tv","RHS_t90a_tv","RHS_t90a_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_t90aPlatoon_AA",
-		[[[["RHS_t90a_tv","rhs_zsu234_aa","RHS_t90a_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_t90aSection",
-		[[[["RHS_t90a_tv","RHS_t90a_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90AMPlatoon",
-		[[[["RHS_T90AM_tv","RHS_T90AM_tv","RHS_T90AM_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90AMPlatoon_AA",
-		[[[["RHS_T90AM_tv","rhs_zsu234_aa","RHS_T90AM_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90AMSection",
-		[[[["RHS_T90AM_tv","RHS_T90AM_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SMPlatoon",
-		[[[["RHS_T90SM_tv","RHS_T90SM_tv","RHS_T90SM_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SMPlatoon_AA",
-		[[[["RHS_T90SM_tv","rhs_zsu234_aa","RHS_T90SM_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SMSection",
-		[[[["RHS_T90SM_tv","RHS_T90SM_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SAPlatoon",
-		[[[["rhs_t90saa_tv","rhs_t90saa_tv","rhs_t90saa_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SAPlatoon_AA",
-		[[[["rhs_t90saa_tv","rhs_zsu234_aa","rhs_t90saa_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SASection",
-		[[[["rhs_t90saa_tv","rhs_t90saa_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SABPlatoon",
-		[[[["rhs_t90sab_tv","rhs_t90sab_tv","rhs_t90sab_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SABPlatoon_AA",
-		[[[["rhs_t90sab_tv","rhs_zsu234_aa","rhs_t90sab_tv"],[[0,0,0],[20.1,-30,3],[-20,-30,3]],["LIEUTENANT","SERGEANT","SERGEANT"]]],0.025],
-		// configName "RHS_T90SABSection",
-		[[[["rhs_t90sab_tv","rhs_t90sab_tv"],[[0,0,0],[20,-30,2]],["LIEUTENANT","SERGEANT"]]],0.025]
-	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [160,999],
-	["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F"]
-	] call gosa_fnc_map_groups_add;
-	// Arty
-	/*
-	_east=_east+[
-		// configName "RHS_SPGPlatoon_tv_2S1",
-		[[[["rhs_2S1_tv","rhs_2S1_tv","rhs_2S1_tv","rhs_2S1_tv"],[[0,0,0],[20,-30,3],[-20.1,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_SPGSection_tv_2S1",
-		[[[["rhs_2S1_tv","rhs_2S1_tv"],[[0,0,0],[20,-30,3]],["LIEUTENANT","SERGEANT"]]],0.025],
-		// configName "RHS_SPGPlatoon_tv_2s3",
-		[[[["rhs_2s3_tv","rhs_2s3_tv","rhs_2s3_tv","rhs_2s3_tv"],[[0,0,0],[20,-30,3],[-20.1,-30,3],[40,-60,3]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.025],
-		// configName "RHS_SPGSection_tv_2s3",
-		[[[["rhs_2s3_tv","rhs_2s3_tv"],[[0,0,0],[20,-30,3]],["LIEUTENANT","SERGEANT"]]],0.025]
+	//- rhs_group_rus_msv_infantry_emr, Мотострелки (ЕМР)
+	// rhs_group_rus_msv_infantry_emr_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_chq"]],_rarity_bad/2],
+	// rhs_group_rus_msv_infantry_emr_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad"]],_rarity_InfSquad],
+	// rhs_group_rus_msv_infantry_emr_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_2mg"]],_rarity_InfSquad_Weapon/3],
+	// rhs_group_rus_msv_infantry_emr_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_sniper"]],_rarity_InfSquad_Weapon/3],
+	// rhs_group_rus_msv_infantry_emr_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_squad_mg_sniper"]],_rarity_InfSquad_Weapon/3],
+	// rhs_group_rus_msv_infantry_emr_section_mg, Пулемётное отделение
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_mg"]],_rarity_InfTeam_MG],
+	// rhs_group_rus_msv_infantry_emr_section_marksman, Снайперская группа
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_marksman"]],_rarity_SniperTeam],
+	// rhs_group_rus_msv_infantry_emr_section_AT, Гранатомётное отделение
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AT"]],_rarity_InfTeam_AT],
+	// rhs_group_rus_msv_infantry_emr_section_AA, Отделение ПВО
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_section_AA"]],_rarity_InfTeam_AA],
+	// rhs_group_rus_msv_infantry_emr_fireteam, Огневая группа
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_fireteam"]],_rarity_InfTeam],
+	// rhs_group_rus_msv_infantry_emr_MANEUVER, Маневренная группа
+	[[[__cfg >> "rhs_group_rus_msv_infantry_emr" >> "rhs_group_rus_msv_infantry_emr_MANEUVER"]],_rarity_InfSentry],
+
+	//- rhs_group_rus_msv_Ural, Мотострелки (Урал-4320)
+	// rhs_group_rus_msv_Ural_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_chq"]],_rarity_bad/2],
+	// rhs_group_rus_msv_Ural_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad"]],_rarity_MotInf_Reinforce/5/2],
+	// rhs_group_rus_msv_Ural_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_2mg"]],_rarity_MotInf_Reinforce/5/2],
+	// rhs_group_rus_msv_Ural_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_sniper"]],_rarity_MotInf_Reinforce/5/2],
+	// rhs_group_rus_msv_Ural_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5/2],
+	// rhs_group_rus_msv_Ural_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_rus_msv_Ural" >> "rhs_group_rus_msv_Ural_squad_aa"]],_rarity_MotInf_Reinforce/5/2],
+	//- rhs_group_rus_msv_gaz66, Десантники (ГАЗ-66)
+	// rhs_group_rus_msv_gaz66_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_chq"]],_rarity_bad/2],
+	// rhs_group_rus_msv_gaz66_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad"]],_rarity_MotInf_Reinforce/5/2],
+	// rhs_group_rus_msv_gaz66_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_2mg"]],_rarity_MotInf_Reinforce/5/2],
+	// rhs_group_rus_msv_gaz66_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_sniper"]],_rarity_MotInf_Reinforce/5/2],
+	// rhs_group_rus_msv_gaz66_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5/2],
+	// rhs_group_rus_msv_gaz66_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_rus_msv_gaz66" >> "rhs_group_rus_msv_gaz66_squad_aa"]],_rarity_MotInf_Reinforce/5/2],
+
+	//- rhs_group_rus_msv_btr70, Мотострелки (БТР-70)
+	// rhs_group_rus_msv_btr70_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_chq"]],_rarity_bad/3],
+	// rhs_group_rus_msv_btr70_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad"]],_rarity_MotInf_Team/3],
+	// rhs_group_rus_msv_btr70_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_2mg"]],_rarity_MotInf_MGTeam/3/3],
+	// rhs_group_rus_msv_btr70_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_sniper"]],_rarity_MotInf_MGTeam/3/3],
+	// rhs_group_rus_msv_btr70_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/3],
+	// rhs_group_rus_msv_btr70_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_rus_msv_btr70" >> "rhs_group_rus_msv_btr70_squad_aa"]],_rarity_MotInf_AA/3],
+	//- rhs_group_rus_msv_BTR80, Пехота (БТР-80)
+	// rhs_group_rus_msv_BTR80_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_chq"]],_rarity_bad/3],
+	// rhs_group_rus_msv_BTR80_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad"]],_rarity_MotInf_Team/3],
+	// rhs_group_rus_msv_BTR80_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_2mg"]],_rarity_MotInf_MGTeam/3/3],
+	// rhs_group_rus_msv_BTR80_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_sniper"]],_rarity_MotInf_MGTeam/3/3],
+	// rhs_group_rus_msv_BTR80_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/3],
+	// rhs_group_rus_msv_BTR80_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_rus_msv_BTR80" >> "rhs_group_rus_msv_BTR80_squad_aa"]],_rarity_MotInf_AA/3],
+	//- rhs_group_rus_msv_BTR80a, Пехота (БТР-80А)
+	// rhs_group_rus_msv_BTR80a_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_chq"]],_rarity_bad/3],
+	// rhs_group_rus_msv_BTR80a_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad"]],_rarity_MotInf_Team/3],
+	// rhs_group_rus_msv_BTR80a_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_2mg"]],_rarity_MotInf_MGTeam/3/3],
+	// rhs_group_rus_msv_BTR80a_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_sniper"]],_rarity_MotInf_MGTeam/3/3],
+	// rhs_group_rus_msv_BTR80a_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/3],
+	// rhs_group_rus_msv_BTR80a_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_rus_msv_BTR80a" >> "rhs_group_rus_msv_BTR80a_squad_aa"]],_rarity_MotInf_AA/3],
+
+	//- rhs_group_rus_msv_bmp1, Мотострелки (БМП-1)
+	// rhs_group_rus_msv_bmp1_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_chq"]],_rarity_bad/4],
+	// rhs_group_rus_msv_bmp1_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad"]],_rarity_MechInfSquad/4],
+	// rhs_group_rus_msv_bmp1_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_2mg"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_msv_bmp1_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_sniper"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_msv_bmp1_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_msv_bmp1_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_rus_msv_bmp1" >> "rhs_group_rus_msv_bmp1_squad_aa"]],_rarity_MotInf_AA/4],
+	//- rhs_group_rus_MSV_BMP3, Мотострелки (БМП-3)
+	// rhs_group_rus_MSV_BMP3_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_chq"]],_rarity_bad/4],
+	// rhs_group_rus_MSV_BMP3_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad"]],_rarity_MechInfSquad/4],
+	// rhs_group_rus_MSV_BMP3_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_2mg"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_MSV_BMP3_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_sniper"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_MSV_BMP3_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_MSV_BMP3_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_rus_MSV_BMP3" >> "rhs_group_rus_MSV_BMP3_squad_aa"]],_rarity_MotInf_AA/4],
+	//- rhs_group_rus_MSV_bmp3m, МСВ (БМП-3М)
+	// rhs_group_rus_MSV_bmp3m_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_chq"]],_rarity_bad/4],
+	// rhs_group_rus_MSV_bmp3m_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad"]],_rarity_MechInfSquad/4],
+	// rhs_group_rus_MSV_bmp3m_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_2mg"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_MSV_bmp3m_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_sniper"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_MSV_bmp3m_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_MSV_bmp3m_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_rus_MSV_bmp3m" >> "rhs_group_rus_MSV_bmp3m_squad_aa"]],_rarity_MotInf_AA/4],
+	//- rhs_group_rus_msv_bmp2, Мотострелки (БМП-2)
+	// rhs_group_rus_msv_bmp2_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_chq"]],_rarity_bad/4],
+	// rhs_group_rus_msv_bmp2_squad, Отряд
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad"]],_rarity_MechInfSquad/4],
+	// rhs_group_rus_msv_bmp2_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_2mg"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_msv_bmp2_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_sniper"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_msv_bmp2_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_mg_sniper"]],_rarity_MotInf_MGTeam/3/4],
+	// rhs_group_rus_msv_bmp2_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_rus_msv_bmp2" >> "rhs_group_rus_msv_bmp2_squad_aa"]],_rarity_MotInf_AA/4]
+]; [_arr] call gosa_fnc_groups_convNormal;
+
+if (_Artillery) then {
+	_arr = [
+		//- rhs_group_rus_msv_bm21, BM-21 Artillery
+		// RHS_SPGPlatoon_msv_bm21, BM-21 Platoon
+		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGPlatoon_msv_bm21"]],_rarity_MotInf_MortTeam/2/2],
+		// RHS_SPGSection_msv_bm21, BM-21 Section
+		[[[__cfg >> "rhs_group_rus_msv_bm21" >> "RHS_SPGSection_msv_bm21"]],_rarity_MotInf_MortTeam/2/2]
 	];
-	*/
+};
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "RHS_AFRF",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
+
+#define __cfg configFile >> "CfgGroups" >> "East" >> "rhs_faction_tv"
+//-- rhs_faction_tv, Россия (ТВ)
+_arr = [
+	//- rhs_group_rus_tv_14, T-14 Groups
+	// RHS_T14Platoon, T-14 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_14" >> "RHS_T14Platoon"]],_rarity_TankPlatoon],
+	// RHS_T14Platoon_AA, T-14 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_14" >> "RHS_T14Platoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T14Section, T-14 Section
+	[[[__cfg >> "rhs_group_rus_tv_14" >> "RHS_T14Section"]],_rarity_TankSection],
+
+	//- rhs_group_rus_tv_72, T-72 Groups
+	// RHS_T72BAPlatoon, T-72B g.1984 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BAPlatoon"]],_rarity_TankPlatoon/2],
+	// RHS_T72BAPlatoon_AA, T-72B g.1984 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BAPlatoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_T72BASection, T-72B g.1984 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BASection"]],_rarity_TankSection/2],
+	// RHS_T72BBPlatoon, T-72B g.1985 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BBPlatoon"]],_rarity_TankPlatoon/2],
+	// RHS_T72BBPlatoon_AA, T-72B g.1985 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BBPlatoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_T72BBSection, T-72B g.1985 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BBSection"]],_rarity_TankSection/2],
+	// RHS_T72BCPlatoon, T-72B g.1989 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BCPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T72BCPlatoon_AA, T-72B g.1989 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BCPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T72BCSection, T-72B g.1989 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BCSection"]],_rarity_TankSection],
+	// RHS_T72BDPlatoon, T-72B3 g.2012 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BDPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T72BDPlatoon_AA, T-72B3 g.2012 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BDPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T72BDSection, T-72B3 g.2012 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BDSection"]],_rarity_TankSection],
+	// RHS_T72BEPlatoon, T-72B3 g.2016 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BEPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T72BEPlatoon_AA, T-72B3 g.2016 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BEPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T72BESection, T-72B3 g.2016 Section
+	[[[__cfg >> "rhs_group_rus_tv_72" >> "RHS_T72BESection"]],_rarity_TankSection],
+
+	//- rhs_group_rus_tv_80, T-80 Groups
+	// RHS_T80Platoon, T-80 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80Platoon"]],_rarity_TankPlatoon],
+	// RHS_T80Platoon_AA, T-80 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80Platoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80Section, T-80 Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80Section"]],_rarity_TankSection],
+	// RHS_T80BPlatoon, T-80B Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T80BPlatoon_AA, T-80B Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80BSection, T-80B Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BSection"]],_rarity_TankSection],
+	// RHS_T80APlatoon, T-80A Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80APlatoon"]],_rarity_TankPlatoon/10],
+	// RHS_T80APlatoon_AA, T-80A Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80APlatoon_AA"]],_rarity_TankPlatoon_AA/10],
+	// RHS_T80ASection, T-80A Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80ASection"]],_rarity_TankSection/10],
+	// RHS_T80BVPlatoon, T-80BV Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BVPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T80BVPlatoon_AA, T-80BV Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BVPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80BVSection, T-80BV Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80BVSection"]],_rarity_TankSection],
+	// RHS_T80UPlatoon, T-80U Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T80UPlatoon_AA, T-80U Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80USection, T-80U Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80USection"]],_rarity_TankSection],
+	// RHS_T80UMPlatoon, T-80UM Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UMPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T80UMPlatoon_AA, T-80UM Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UMPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T80UMSection, T-80UM Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "RHS_T80UMSection"]],_rarity_TankSection],
+	// rhs_t80ue1Platoon, T-80UE-1 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80ue1Platoon"]],_rarity_TankPlatoon/10],
+	// rhs_t80ue1Platoon_AA, T-80UE-1 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80ue1Platoon_AA"]],_rarity_TankPlatoon_AA/10],
+	// rhs_t80ue1Section, T-80UE-1 Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80ue1Section"]],_rarity_TankSection/10],
+	// rhs_t80u45mPlatoon, T-80U (45m) Platoon
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80u45mPlatoon"]],_rarity_TankPlatoon/10],
+	// rhs_t80u45mPlatoon_AA, T-80U (45m) Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80u45mPlatoon_AA"]],_rarity_TankPlatoon_AA/10],
+	// rhs_t80u45mSection, T-80U (45m) Section
+	[[[__cfg >> "rhs_group_rus_tv_80" >> "rhs_t80u45mSection"]],_rarity_TankSection/10],
+
+	//- rhs_group_rus_tv_90, T-90 Groups
+	// RHS_T90Platoon, T-90 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Platoon"]],_rarity_TankPlatoon],
+	// RHS_T90Platoon_AA, T-90 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Platoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T90Section, T-90 Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90Section"]],_rarity_TankSection],
+	// RHS_t90aPlatoon, T-90A Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aPlatoon"]],_rarity_TankPlatoon],
+	// RHS_t90aPlatoon_AA, T-90A Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_t90aSection, T-90A Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_t90aSection"]],_rarity_TankSection],
+	// RHS_T90AMPlatoon, T-90AM Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T90AMPlatoon_AA, T-90AM Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T90AMSection, T-90AM Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90AMSection"]],_rarity_TankSection],
+	// RHS_T90SMPlatoon, T-90SM Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T90SMPlatoon_AA, T-90SM Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T90SMSection, T-90SM Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SMSection"]],_rarity_TankSection],
+	// RHS_T90SAPlatoon, T-90SA g.2004 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SAPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T90SAPlatoon_AA, T-90SA g.2004 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SAPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T90SASection, T-90SA g.2004 Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SASection"]],_rarity_TankSection],
+	// RHS_T90SABPlatoon, T-90SA g.2016 Platoon
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T90SABPlatoon_AA, T-90SA g.2016 Platoon (Combined)
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T90SABSection, T-90SA g.2016 Section
+	[[[__cfg >> "rhs_group_rus_tv_90" >> "RHS_T90SABSection"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["RHS_Mi24V_vvs","RHS_Mi24V_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["RHS_Mi24P_vvs","RHS_Mi24P_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["RHS_Ka52_vvs","RHS_Ka52_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["rhs_mi28n_vvs","rhs_mi28n_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["RHS_Mi8MTV3_vvs","RHS_Mi8MTV3_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/5],
+	[[[["rhs_pchela1t_vvs"],[],["CORPORAL"]]],_rarity_Plane/10],
+	[[[["RHS_Su25SM_vvs","RHS_Su25SM_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhs_mig29sm_vvs","rhs_mig29sm_vvs"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhs_mig29s_vvs","rhs_mig29s_vvs"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["RHS_T50_vvs_generic","RHS_T50_vvs_generic"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4]
+];
+
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "RHS_AFRF",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
+
+if (_Artillery) then {
+	_arr = [
+		//- rhs_group_rus_tv_2S1, 2S1 Artillery
+		// RHS_SPGPlatoon_tv_2S1, Artillery 2S1 Platoon
+		[[[__cfg >> "rhs_group_rus_tv_2S1" >> "RHS_SPGPlatoon_tv_2S1"]],_rarity_MotInf_MortTeam/4/2],
+		// RHS_SPGSection_tv_2S1, Artillery 2S1 Section
+		[[[__cfg >> "rhs_group_rus_tv_2S1" >> "RHS_SPGSection_tv_2S1"]],_rarity_MotInf_MortTeam/4/2],
+		//- rhs_group_rus_tv_2s3, 2S3 Artillery
+		// RHS_SPGPlatoon_tv_2s3, Artillery 2S3 Platoon
+		[[[__cfg >> "rhs_group_rus_tv_2s3" >> "RHS_SPGPlatoon_tv_2s3"]],_rarity_MotInf_MortTeam/4/2],
+		// RHS_SPGSection_tv_2s3, Artillery 2S3 Section
+		[[[__cfg >> "rhs_group_rus_tv_2s3" >> "RHS_SPGSection_tv_2s3"]],_rarity_MotInf_MortTeam/4/2]
+	]; [_arr] call gosa_fnc_groups_convNormal;
+	_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo select 0;
+	[_groups_map, east, "RHS_AFRF", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip, [160,999],
+		__exclude
+	] call gosa_fnc_map_groups_add;
+};
+
+#define __exclude ["CUP_O_ChDKZ","gmx_chdkz","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
+#define __cfg configFile >> "CfgGroups" >> "East" >> "rhsgref_faction_chdkz"
+//-- rhsgref_faction_chdkz, ChDKZ Insurgents
+_arr = [
+	//- rhsgref_group_chdkz_insurgents_infantry, Infantry
+	// rhsgref_group_chdkz_insurgents_squad, Team
+	[[[__cfg >> "rhsgref_group_chdkz_insurgents_infantry" >> "rhsgref_group_chdkz_insurgents_squad"]],_rarity_InfSquad],
+	// rhsgref_group_chdkz_infantry_patrol, Patrol
+	[[[__cfg >> "rhsgref_group_chdkz_insurgents_infantry" >> "rhsgref_group_chdkz_infantry_patrol"]],_rarity_InfTeam],
+	// rhsgref_group_chdkz_infantry_mg, MG pair
+	[[[__cfg >> "rhsgref_group_chdkz_insurgents_infantry" >> "rhsgref_group_chdkz_infantry_mg"]],_rarity_InfTeam_MG],
+	// rhsgref_group_chdkz_infantry_at, AT pair
+	[[[__cfg >> "rhsgref_group_chdkz_insurgents_infantry" >> "rhsgref_group_chdkz_infantry_at"]],_rarity_InfTeam_AT],
+	// rhsgref_group_chdkz_infantry_aa, AA pair
+	[[[__cfg >> "rhsgref_group_chdkz_insurgents_infantry" >> "rhsgref_group_chdkz_infantry_aa"]],_rarity_InfTeam_AA],
+
+	//- rhs_group_indp_ins_bm21, BM-21 Artillery
+	// RHS_SPGPlatoon_ins_bm21, BM-21 Platoon
+	//[[[__cfg >> "rhs_group_indp_ins_bm21" >> "RHS_SPGPlatoon_ins_bm21"]],_rarity_MotInf_MortTeam/2],
+	// RHS_SPGSection_ins_bm21, BM-21 Section
+	//[[[__cfg >> "rhs_group_indp_ins_bm21" >> "RHS_SPGSection_ins_bm21"]],_rarity_MotInf_MortTeam/2],
+
+	//- rhs_group_indp_ins_bmd1, Mechanized (BMD-1)
+	// rhs_group_rus_ins_bmd1_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_indp_ins_bmd1" >> "rhs_group_rus_ins_bmd1_chq"]],_rarity_bad/4],
+	// rhs_group_rus_ins_bmd1_squad, Отряд
+	[[[__cfg >> "rhs_group_indp_ins_bmd1" >> "rhs_group_rus_ins_bmd1_squad"]],_rarity_MechInfSquad/4],
+	// rhs_group_rus_ins_bmd1_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_bmd1" >> "rhs_group_rus_ins_bmd1_squad_2mg"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_rus_ins_bmd1_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_indp_ins_bmd1" >> "rhs_group_rus_ins_bmd1_squad_sniper"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_rus_ins_bmd1_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_bmd1" >> "rhs_group_rus_ins_bmd1_squad_mg_sniper"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_rus_ins_bmd1_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_indp_ins_bmd1" >> "rhs_group_rus_ins_bmd1_squad_aa"]],_rarity_MechInf_AA/4],
+
+	//- rhs_group_indp_ins_bmd2, Mechanized (BMD-2)
+	// rhs_group_rus_ins_bmd2_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_indp_ins_bmd2" >> "rhs_group_rus_ins_bmd2_chq"]],_rarity_bad/4],
+	// rhs_group_rus_ins_bmd2_squad, Отряд
+	[[[__cfg >> "rhs_group_indp_ins_bmd2" >> "rhs_group_rus_ins_bmd2_squad"]],_rarity_MechInfSquad/4],
+	// rhs_group_rus_ins_bmd2_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_bmd2" >> "rhs_group_rus_ins_bmd2_squad_2mg"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_rus_ins_bmd2_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_indp_ins_bmd2" >> "rhs_group_rus_ins_bmd2_squad_sniper"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_rus_ins_bmd2_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_bmd2" >> "rhs_group_rus_ins_bmd2_squad_mg_sniper"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_rus_ins_bmd2_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_indp_ins_bmd2" >> "rhs_group_rus_ins_bmd2_squad_aa"]],_rarity_MechInf_AA/4],
+
+	//- rhs_group_indp_ins_bmp1, Mechanized (BMP-1)
+	// rhs_group_indp_ins_bmp1_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_indp_ins_bmp1" >> "rhs_group_indp_ins_bmp1_chq"]],_rarity_bad/4],
+	// rhs_group_indp_ins_bmp1_squad, Отряд
+	[[[__cfg >> "rhs_group_indp_ins_bmp1" >> "rhs_group_indp_ins_bmp1_squad"]],_rarity_MechInfSquad/4],
+	// rhs_group_indp_ins_bmp1_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_bmp1" >> "rhs_group_indp_ins_bmp1_squad_2mg"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_indp_ins_bmp1_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_indp_ins_bmp1" >> "rhs_group_indp_ins_bmp1_squad_sniper"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_indp_ins_bmp1_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_bmp1" >> "rhs_group_indp_ins_bmp1_squad_mg_sniper"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_indp_ins_bmp1_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_indp_ins_bmp1" >> "rhs_group_indp_ins_bmp1_squad_aa"]],_rarity_MechInf_AA/4],
+
+	//- rhs_group_indp_ins_bmp2, Mechanized (BMP-2)
+	// rhs_group_indp_ins_bmp2_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_indp_ins_bmp2" >> "rhs_group_indp_ins_bmp2_chq"]],_rarity_bad/4],
+	// rhs_group_indp_ins_bmp2_squad, Отряд
+	[[[__cfg >> "rhs_group_indp_ins_bmp2" >> "rhs_group_indp_ins_bmp2_squad"]],_rarity_MechInfSquad/4],
+	// rhs_group_indp_ins_bmp2_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_bmp2" >> "rhs_group_indp_ins_bmp2_squad_2mg"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_indp_ins_bmp2_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_indp_ins_bmp2" >> "rhs_group_indp_ins_bmp2_squad_sniper"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_indp_ins_bmp2_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_bmp2" >> "rhs_group_indp_ins_bmp2_squad_mg_sniper"]],_rarity_MechInf_MG/3/4],
+	// rhs_group_indp_ins_bmp2_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_indp_ins_bmp2" >> "rhs_group_indp_ins_bmp2_squad_aa"]],_rarity_MechInf_AA/4],
+
+	//- rhs_group_indp_ins_btr70, Motorized (BTR-70)
+	// rhs_group_chdkz_btr70_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_indp_ins_btr70" >> "rhs_group_chdkz_btr70_chq"]],_rarity_bad/2],
+	// rhs_group_chdkz_btr70_squad, Отряд
+	[[[__cfg >> "rhs_group_indp_ins_btr70" >> "rhs_group_chdkz_btr70_squad"]],_rarity_MotInf_Team/2],
+	// rhs_group_chdkz_btr70_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_btr70" >> "rhs_group_chdkz_btr70_squad_2mg"]],_rarity_MotInf_MG/3/2],
+	// rhs_group_chdkz_btr70_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_indp_ins_btr70" >> "rhs_group_chdkz_btr70_squad_sniper"]],_rarity_MotInf_MG/3/2],
+	// rhs_group_chdkz_btr70_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_btr70" >> "rhs_group_chdkz_btr70_squad_mg_sniper"]],_rarity_MotInf_MG/3/2],
+	// rhs_group_chdkz_btr70_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_indp_ins_btr70" >> "rhs_group_chdkz_btr70_squad_aa"]],_rarity_MotInf_AA/2],
+
+	//- rhs_group_indp_ins_btr60, Motorized (BTR-60)
+	// rhs_group_chdkz_btr60_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_indp_ins_btr60" >> "rhs_group_chdkz_btr60_chq"]],_rarity_bad/2],
+	// rhs_group_chdkz_btr60_squad, Отряд
+	[[[__cfg >> "rhs_group_indp_ins_btr60" >> "rhs_group_chdkz_btr60_squad"]],_rarity_MotInf_Team/2],
+	// rhs_group_chdkz_btr60_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_btr60" >> "rhs_group_chdkz_btr60_squad_2mg"]],_rarity_MotInf_MG/3/2],
+	// rhs_group_chdkz_btr60_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_indp_ins_btr60" >> "rhs_group_chdkz_btr60_squad_sniper"]],_rarity_MotInf_MG/3/2],
+	// rhs_group_chdkz_btr60_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_btr60" >> "rhs_group_chdkz_btr60_squad_mg_sniper"]],_rarity_MotInf_MG/3/2],
+	// rhs_group_chdkz_btr60_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_indp_ins_btr60" >> "rhs_group_chdkz_btr60_squad_aa"]],_rarity_MotInf_AA/2],
+
+	//- rhs_group_indp_ins_ural, Motorized (Ural-4320)
+	// rhs_group_chdkz_ural_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_indp_ins_ural" >> "rhs_group_chdkz_ural_chq"]],_rarity_bad/5],
+	// rhs_group_chdkz_ural_squad, Отряд
+	[[[__cfg >> "rhs_group_indp_ins_ural" >> "rhs_group_chdkz_ural_squad"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_chdkz_ural_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_ural" >> "rhs_group_chdkz_ural_squad_2mg"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_chdkz_ural_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_indp_ins_ural" >> "rhs_group_chdkz_ural_squad_sniper"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_chdkz_ural_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_ural" >> "rhs_group_chdkz_ural_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_chdkz_ural_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_indp_ins_ural" >> "rhs_group_chdkz_ural_squad_aa"]],_rarity_MotInf_Reinforce/5],
+
+	//- rhs_group_indp_ins_uaz, Motorized (UAZ)
+	// BUS_MotInf_Team_GMG, Mot. Team (AGS-30)
+	[[[__cfg >> "rhs_group_indp_ins_uaz" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
+	// BUS_MotInf_Team_HMG, Mot. Team (DShkM)
+	[[[__cfg >> "rhs_group_indp_ins_uaz" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
+	// BUS_MotInf_AT, Mot. Team (SPG-9)
+	[[[__cfg >> "rhs_group_indp_ins_uaz" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[__cfg >> "rhs_group_indp_ins_uaz" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
+
+	//- rhs_group_indp_ins_gaz66, Motorized (GAZ-66)
+	// rhs_group_chdkz_gaz66_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_indp_ins_gaz66" >> "rhs_group_chdkz_gaz66_chq"]],_rarity_bad/5],
+	// rhs_group_chdkz_gaz66_squad, Отряд
+	[[[__cfg >> "rhs_group_indp_ins_gaz66" >> "rhs_group_chdkz_gaz66_squad"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_chdkz_gaz66_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_gaz66" >> "rhs_group_chdkz_gaz66_squad_2mg"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_chdkz_gaz66_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_indp_ins_gaz66" >> "rhs_group_chdkz_gaz66_squad_sniper"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_chdkz_gaz66_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_indp_ins_gaz66" >> "rhs_group_chdkz_gaz66_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_chdkz_gaz66_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_indp_ins_gaz66" >> "rhs_group_chdkz_gaz66_squad_aa"]],_rarity_MotInf_Reinforce/5],
+
+	//- rhs_group_indp_ins_72, T-72 Groups
+	// RHS_T72baPlatoon, T-72 g.1984 Platoon
+	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_T72baPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T72baPlatoon_AA, T-72 g.1984 Platoon (Combined)
+	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_T72baPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T72baSection, T-72 g.1984 Section
+	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_T72baSection"]],_rarity_TankSection],
+
+	// RHS_T72BBPlatoon, T-72 g.1985 Platoon
+	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_T72BBPlatoon"]],_rarity_TankPlatoon],
+	// RHS_T72BBPlatoon_AA, T-72 g.1985 Platoon (Combined)
+	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_T72BBPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_T72BBSection, T-72 g.1985 Section
+	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_T72BBSection"]],_rarity_TankSection],
+
+	// RHS_t72bcPlatoon, T-72 g.1989 Platoon
+	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_t72bcPlatoon"]],_rarity_TankPlatoon],
+	// RHS_t72bcPlatoon_AA, T-72 g.1989 Platoon (Combined)
+	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_t72bcPlatoon_AA"]],_rarity_TankPlatoon_AA],
+	// RHS_t72bcSection, T-72 g.1989 Section
+	[[[__cfg >> "rhs_group_indp_ins_72" >> "RHS_t72bcSection"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["rhsgref_ins_Mi8amt"],[],["CAPTAIN"]]],_rarity_Heli/10]
+];
+
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "rhsgref_faction_chdkz",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [150,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 
 
 //--- West
-// nato_usmc_wd
-[_groups_map, west, "RHS_USMC_WD", [[
-	// configName "rhs_group_nato_usmc_wd_infantry_squad",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_rifleman_m4","rhsusf_usmc_marpat_wd_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE","CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_weaponsquad",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_usmc_marpat_wd_machinegunner_ass","rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_machinegunner","rhsusf_usmc_marpat_wd_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","CORPORAL",
-		"PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_squad_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_sniper","rhsusf_usmc_marpat_wd_spotter",
-		"rhsusf_usmc_marpat_wd_sniper","rhsusf_usmc_marpat_wd_spotter",
-		"rhsusf_usmc_marpat_wd_sniper","rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_usmc_marpat_wd_riflemanat"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team_MG",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_machinegunner","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_rifleman_m4"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team_AA",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_usmc_marpat_wd_stinger"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team_support",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_navy_marpat_wd_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_infantry_team_heavy_AT",
-	[[[["rhsusf_usmc_marpat_wd_teamleader",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_rifleman_m4",
-		"rhsusf_usmc_marpat_wd_javelin"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader",
-		"rhsusf_usmc_recon_marpat_wd_marksman","rhsusf_usmc_recon_marpat_wd_autorifleman",
-		"rhsusf_usmc_recon_marpat_wd_rifleman_at","rhsusf_usmc_recon_marpat_wd_rifleman",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner_m249"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL",
-		"CORPORAL","CORPORAL",
-		"CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team_MG",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader",
-		"rhsusf_usmc_recon_marpat_wd_marksman","rhsusf_usmc_recon_marpat_wd_autorifleman",
-		"rhsusf_usmc_recon_marpat_wd_rifleman_at","rhsusf_usmc_recon_marpat_wd_rifleman",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team_support",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader",
-		"rhsusf_usmc_recon_marpat_wd_marksman","rhsusf_usmc_recon_marpat_wd_autorifleman",
-		"rhsusf_navy_sarc_w","rhsusf_usmc_recon_marpat_wd_rifleman",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner_m249"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team_lite",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader_lite",
-		"rhsusf_usmc_recon_marpat_wd_marksman_lite","rhsusf_usmc_recon_marpat_wd_autorifleman_lite",
-		"rhsusf_usmc_recon_marpat_wd_rifleman_at_lite","rhsusf_usmc_recon_marpat_wd_rifleman_lite",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner_m249_lite"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL",
-		"CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_wd_infantry_team_fast",
-	[[[["rhsusf_usmc_recon_marpat_wd_teamleader_fast",
-		"rhsusf_usmc_recon_marpat_wd_marksman_fast","rhsusf_usmc_recon_marpat_wd_autorifleman_fast",
-		"rhsusf_usmc_recon_marpat_wd_rifleman_at_fast","rhsusf_usmc_recon_marpat_wd_rifleman_fast",
-		"rhsusf_usmc_recon_marpat_wd_machinegunner_m249_fast"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "BUS_MotInf_Team_GMG",
-	[[[["rhsusf_m1025_w_s_Mk19",
-		"rhsusf_usmc_marpat_wd_autorifleman","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_rifleman"],[[0,0,0],[-12,-12,0],[14,-13,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL"]]],0],
-	// configName "BUS_MotInf_Team_HMG",
-	[[[["rhsusf_m1025_w_s_m2",
-		"rhsusf_usmc_marpat_wd_rifleman","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_rifleman"],[[0,0,0],[-12,-12,0],[14,-13,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL"]]],0],
-	// configName "BUS_MotInf_AT",
-	[[[["rhsusf_m1025_w_s",
-		"rhsusf_usmc_marpat_wd_rifleman","rhsusf_usmc_marpat_wd_javelin",
-		"rhsusf_usmc_marpat_wd_javelin"],[[0,0,0],[13,-12,0],[-12,-13,0],[18,-17,-2]],
-		["SERGEANT",
-		"CORPORAL","CORPORAL",
-		"PRIVATE"]]],0],
-	// configName "BUS_MotInf_AA",
-	[[[["rhsusf_m1025_w_s",
-		"rhsusf_usmc_marpat_wd_rifleman","rhsusf_usmc_marpat_wd_stinger",
-		"rhsusf_usmc_marpat_wd_stinger"],[[0,0,0],[13,-12,0],[-12,-13,0],[18,-17,-2]],
-		["SERGEANT",
-		"CORPORAL","CORPORAL",
-		"PRIVATE"]]],0],
-	// configName "rhs_group_nato_usmc_wd_RG33_squad",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_rg33_usmc_wd","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_squad_2mg",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_rg33_usmc_wd","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_usmc_marpat_wd_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_squad_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_rg33_usmc_wd","rhsusf_usmc_marpat_wd_spotter",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_squad_mg_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_army_ocp_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_rg33_usmc_wd","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_m2_squad",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_rg33_m2_usmc_wd","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_riflemanat",
-		"rhsusf_usmc_marpat_wd_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_m2_squad_2mg",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_rg33_m2_usmc_wd","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_usmc_marpat_wd_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_m2_squad_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_autorifleman",
-		"rhsusf_rg33_m2_usmc_wd","rhsusf_usmc_marpat_wd_spotter",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_wd_RG33_m2_squad_mg_sniper",
-	[[[["rhsusf_usmc_marpat_wd_squadleader",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_machinegunner",
-		"rhsusf_rg33_m2_usmc_wd","rhsusf_usmc_marpat_wd_machinegunner_ass",
-		"rhsusf_usmc_marpat_wd_teamleader","rhsusf_usmc_marpat_wd_sniper",
-		"rhsusf_usmc_marpat_wd_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "RHS_M1A1AIM_wd_Platoon",
-	[[[["rhsusf_m1a1fep_wd",
-		"rhsusf_m1a1fep_wd","rhsusf_m1a1fep_wd",
-		"rhsusf_m1a1fep_wd"],[[0,0,0],[-20,-30,3],[20,-30,3],[40,-60,3]],
-		["LIEUTENANT",
-		"SERGEANT","SERGEANT","CORPORAL"]]],0],
-	// configName "RHS_M1A1FEP_wd_Section",
-	[[[["rhsusf_m1a1fep_wd","rhsusf_m1a1fep_wd"],[[0,0,0],[-20,-30,2]],
-		["LIEUTENANT","SERGEANT"]]],0]
-], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1990,2100], [160,249],
-["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
-] call gosa_fnc_map_groups_add;
+#define __exclude ["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+#define __cfg configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_wd"
+//-- rhs_faction_usmc_wd, США (КМП - Лесной)
+_arr = [
+	// >2005 FROG MARPAT
+	//- rhs_group_nato_usmc_wd_infantry, Пехота
+	// rhs_group_nato_usmc_wd_infantry_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad"]],_rarity_InfSquad/2],
+	// rhs_group_nato_usmc_wd_infantry_weaponsquad, Ор. отряд
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_weaponsquad"]],_rarity_InfSquad_Weapon],
+	// rhs_group_nato_usmc_wd_infantry_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_squad_sniper"]],_rarity_InfSquad/2],
+	// rhs_group_nato_usmc_wd_infantry_team, Команда
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team"]],_rarity_InfTeam],
+	// rhs_group_nato_usmc_wd_infantry_team_MG, Команда (пул.)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_MG"]],_rarity_InfTeam_MG],
+	// rhs_group_nato_usmc_wd_infantry_team_AA, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_AA"]],_rarity_InfTeam_AA],
+	// rhs_group_nato_usmc_wd_infantry_team_support, Команда (подд.)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_support"]],_rarity_bad],
+	// rhs_group_nato_usmc_wd_infantry_team_heavy_AT, Команда (ПТ)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_infantry" >> "rhs_group_nato_usmc_wd_infantry_team_heavy_AT"]],_rarity_InfTeam_AT],
 
-// nato_usmc_d
-[_groups_map, west, "RHS_USMC_D", [[
-	// configName "rhs_group_nato_usmc_d_infantry_squad",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_rifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_riflemanat",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_rifleman_m4","rhsusf_usmc_marpat_d_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0],[21,0,0],[23,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"PRIVATE","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_weaponsquad",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_usmc_marpat_d_machinegunner_ass","rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_machinegunner","rhsusf_usmc_marpat_d_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","CORPORAL","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_squad_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_sniper","rhsusf_usmc_marpat_d_spotter",
-		"rhsusf_usmc_marpat_d_sniper","rhsusf_usmc_marpat_d_spotter",
-		"rhsusf_usmc_marpat_d_sniper","rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[9,0,0],[11,0,0],[13,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE",
-		"CORPORAL","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_usmc_marpat_d_riflemanat"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team_MG",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_machinegunner","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_rifleman_m4"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team_AA",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_usmc_marpat_d_stinger"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team_support",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_navy_marpat_d_medic"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_infantry_team_heavy_AT",
-	[[[["rhsusf_usmc_marpat_d_teamleader",
-		"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_rifleman_m4",
-		"rhsusf_usmc_marpat_d_javelin"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],
-		["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader",
-		"rhsusf_usmc_recon_marpat_d_marksman","rhsusf_usmc_recon_marpat_d_autorifleman",
-		"rhsusf_usmc_recon_marpat_d_rifleman_at","rhsusf_usmc_recon_marpat_d_rifleman",
-		"rhsusf_usmc_recon_marpat_d_machinegunner_m249"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team_MG",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader",
-		"rhsusf_usmc_recon_marpat_d_marksman","rhsusf_usmc_recon_marpat_d_autorifleman",
-		"rhsusf_usmc_recon_marpat_d_rifleman_at","rhsusf_usmc_recon_marpat_d_rifleman",
-		"rhsusf_usmc_recon_marpat_d_machinegunner"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team_support",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader",
-		"rhsusf_usmc_recon_marpat_d_marksman","rhsusf_usmc_recon_marpat_d_autorifleman",
-		"rhsusf_navy_sarc_d","rhsusf_usmc_recon_marpat_d_rifleman",
-		"rhsusf_usmc_recon_marpat_d_machinegunner_m249"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team_lite",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader_lite",
-		"rhsusf_usmc_recon_marpat_d_marksman_lite","rhsusf_usmc_recon_marpat_d_autorifleman_lite",
-		"rhsusf_usmc_recon_marpat_d_rifleman_at_lite","rhsusf_usmc_recon_marpat_d_rifleman_lite",
-		"rhsusf_usmc_recon_marpat_d_machinegunner_m249_lite"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_recon_d_infantry_team_fast",
-	[[[["rhsusf_usmc_recon_marpat_d_teamleader_fast",
-		"rhsusf_usmc_recon_marpat_d_marksman_fast","rhsusf_usmc_recon_marpat_d_autorifleman_fast",
-		"rhsusf_usmc_recon_marpat_d_rifleman_at_fast","rhsusf_usmc_recon_marpat_d_rifleman_fast",
-		"rhsusf_usmc_recon_marpat_d_machinegunner_m249_fast"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0]],
-		["SERGEANT",
-		"SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_squad",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_rg33_usmc_d","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_riflemanat",
-		"rhsusf_usmc_marpat_d_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_squad_2mg",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_rg33_usmc_d","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_usmc_marpat_d_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_squad_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_rg33_usmc_d","rhsusf_usmc_marpat_d_spotter",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_squad_mg_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_army_ocp_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_rg33_usmc_d","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_m2_squad",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_rg33_m2_usmc_d","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_riflemanat",
-		"rhsusf_usmc_marpat_d_marksman"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_m2_squad_2mg",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_rg33_m2_usmc_d","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_usmc_marpat_d_machinegunner_ass"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_m2_squad_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_autorifleman",
-		"rhsusf_rg33_m2_usmc_d","rhsusf_usmc_marpat_d_spotter",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper",
-	[[[["rhsusf_usmc_marpat_d_squadleader",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_machinegunner",
-		"rhsusf_rg33_m2_usmc_d","rhsusf_usmc_marpat_d_machinegunner_ass",
-		"rhsusf_usmc_marpat_d_teamleader","rhsusf_usmc_marpat_d_sniper",
-		"rhsusf_usmc_marpat_d_spotter"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[15,0,0]],
-		["SERGEANT",
-		"SERGEANT","PRIVATE",
-		"CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.75],
-	// configName "BUS_MotInf_Team_GMG",
-	[[[["rhsusf_m1025_d_s_Mk19",
-	"rhsusf_usmc_marpat_d_autorifleman","rhsusf_usmc_marpat_d_riflemanat",
-	"rhsusf_usmc_marpat_d_rifleman"],[[0,0,0],[-12,-12,0],[14,-13,0],[5,0,0]],
-	["SERGEANT",
-	"CORPORAL","PRIVATE","CORPORAL"]]],0],
-	// configName "BUS_MotInf_Team_HMG",
-	[[[["rhsusf_m1025_d_s_m2",
-		"rhsusf_usmc_marpat_d_rifleman","rhsusf_usmc_marpat_d_riflemanat",
-		"rhsusf_usmc_marpat_d_rifleman"],[[0,0,0],[-12,-12,0],[14,-13,0],[5,0,0]],
-		["SERGEANT",
-		"CORPORAL","PRIVATE","CORPORAL"]]],0],
-	// configName "BUS_MotInf_AT",
-	[[[["rhsusf_m1025_d_s",
-		"rhsusf_usmc_marpat_d_rifleman","rhsusf_usmc_marpat_d_javelin",
-		"rhsusf_usmc_marpat_d_javelin"],[[0,0,0],[13,-12,0],[-12,-13,0],[18,-17,-2]],
-		["SERGEANT",
-		"CORPORAL","CORPORAL","PRIVATE"]]],0],
-	// configName "BUS_MotInf_AA",
-	[[[["rhsusf_m1025_d_s",
-		"rhsusf_usmc_marpat_d_rifleman","rhsusf_usmc_marpat_d_stinger",
-		"rhsusf_usmc_marpat_d_stinger"],[[0,0,0],[13,-12,0],[-12,-13,0],[18,-17,-2]],
-		["SERGEANT",
-		"CORPORAL","CORPORAL","PRIVATE"]]],0],
-	// configName "RHS_M1A1AIM_d_Platoon",
-	[[[["rhsusf_m1a1fep_d",
-		"rhsusf_m1a1fep_d","rhsusf_m1a1fep_d",
-		"rhsusf_m1a1fep_d"],[[0,0,0],[-20,-30,3],[20,-30,3],[40,-60,3]],
-		["LIEUTENANT",
-		"SERGEANT","SERGEANT","CORPORAL"]]],0],
-	// configName "RHS_M1A1FEP_d_Section",
-	[[[["rhsusf_m1a1fep_d","rhsusf_m1a1fep_d"],[[0,0,0],[-20,-30,2]],
-		["LIEUTENANT","SERGEANT"]]],0]
-], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1990,2100], [250,999],
-["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
-] call gosa_fnc_map_groups_add;
+	//- rhs_group_nato_usmc_recon_wd_infantry, Пехота (разведка)
+	// rhs_group_nato_usmc_recon_wd_infantry_team, Команда
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team"]],_rarity_InfSquad*_rarity_reconSquad],
+	// rhs_group_nato_usmc_recon_wd_infantry_team_MG, Команда (пул.)
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_MG"]],_rarity_InfTeam_MG*_rarity_reconSquad],
+	// rhs_group_nato_usmc_recon_wd_infantry_team_support, Команда (подд.)
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_support"]],_rarity_bad*_rarity_reconSquad],
+	// rhs_group_nato_usmc_recon_wd_infantry_team_lite, Команда (лёгк.)
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_lite"]],_rarity_InfTeam*_rarity_reconSquad/2],
+	// rhs_group_nato_usmc_recon_wd_infantry_team_fast, Команда (Fast)
+	[[[__cfg >> "rhs_group_nato_usmc_recon_wd_infantry" >> "rhs_group_nato_usmc_recon_wd_infantry_team_fast"]],_rarity_InfTeam*_rarity_reconSquad/2],
+
+	// >1985
+	//- rhs_group_nato_usmc_wd_HMMWV, Пехота (HMMWV)
+	// BUS_MotInf_Team_GMG, Mot. Team (GMG)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
+	// BUS_MotInf_Team_HMG, Mot. Team (HMG)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
+	// BUS_MotInf_AT, Mot. Anti-armor Team
+	[[[__cfg >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[__cfg >> "rhs_group_nato_usmc_wd_HMMWV" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
+
+	//- rhs_group_nato_usmc_wd_RG33, Пехота (RG-33)
+	// rhs_group_nato_usmc_wd_RG33_squad, Отряд (RG-33)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usmc_wd_RG33_squad_2mg, Отряд (2x пул./RG-33)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_2mg"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usmc_wd_RG33_squad_sniper, Отряд (Снайпер/RG-33)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_sniper"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usmc_wd_RG33_squad_mg_sniper, Отряд (Снайпер + пул./RG-33)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_squad_mg_sniper"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usmc_wd_RG33_m2_squad, Отряд (RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usmc_wd_RG33_m2_squad_2mg, Отряд (2x пул./RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_2mg"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usmc_wd_RG33_m2_squad_sniper, Отряд (Снайпер/RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_sniper"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usmc_wd_RG33_m2_squad_mg_sniper, Отряд (Снайпер + пул./RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usmc_wd_RG33" >> "rhs_group_nato_usmc_wd_RG33_m2_squad_mg_sniper"]],_rarity_MotInf_HMGTeam/4],
+
+	//- rhs_group_nato_usmc_wd_m1a1, M1A1 Groups
+	// RHS_M1A1AIM_wd_Platoon, M1A1FEP Platoon
+	[[[__cfg >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon"]],_rarity_TankPlatoon],
+	// RHS_M1A1FEP_wd_Section, M1A1FEP Section
+	[[[__cfg >> "rhs_group_nato_usmc_wd_m1a1" >> "RHS_M1A1FEP_wd_Section"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["rhsusf_CH53E_USMC_GAU21"],[],["CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_UH1Y","RHS_UH1Y"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/2],
+	[[[["RHS_AH1Z_wd","RHS_AH1Z_wd"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli],
+	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
+	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
+];
+
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "RHS_USMC",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,250-1], __exclude
+	] call gosa_fnc_map_groups_add;
+};
+
+#define __cfg configFile >> "CfgGroups" >> "West" >> "rhs_faction_usmc_d"
+//-- rhs_faction_usmc_d, США (КМП - Пустынный)
+_arr = [
+	//- rhs_group_nato_usmc_d_infantry, Пехота
+	// rhs_group_nato_usmc_d_infantry_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad"]],_rarity_InfSquad/2],
+	// rhs_group_nato_usmc_d_infantry_weaponsquad, Ор. отряд
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_weaponsquad"]],_rarity_InfSquad_Weapon],
+	// rhs_group_nato_usmc_d_infantry_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_squad_sniper"]],_rarity_InfSquad/2],
+	// rhs_group_nato_usmc_d_infantry_team, Команда
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team"]],_rarity_InfTeam],
+	// rhs_group_nato_usmc_d_infantry_team_MG, Команда (пул.)
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_MG"]],_rarity_InfTeam_MG],
+	// rhs_group_nato_usmc_d_infantry_team_AA, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_AA"]],_rarity_InfTeam_AA],
+	// rhs_group_nato_usmc_d_infantry_team_support, Команда (подд.)
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_support"]],_rarity_bad],
+	// rhs_group_nato_usmc_d_infantry_team_heavy_AT, Команда (ПТ)
+	[[[__cfg >> "rhs_group_nato_usmc_d_infantry" >> "rhs_group_nato_usmc_d_infantry_team_heavy_AT"]],_rarity_InfTeam_AT],
+
+	//- rhs_group_nato_usmc_recon_d_infantry, Пехота (разведка)
+	// rhs_group_nato_usmc_recon_d_infantry_team, Команда
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team"]],_rarity_InfSquad*_rarity_reconSquad],
+	// rhs_group_nato_usmc_recon_d_infantry_team_MG, Команда (пул.)
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_MG"]],_rarity_InfTeam_MG*_rarity_reconSquad],
+	// rhs_group_nato_usmc_recon_d_infantry_team_support, Команда (подд.)
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_support"]],_rarity_bad*_rarity_reconSquad],
+	// rhs_group_nato_usmc_recon_d_infantry_team_lite, Команда (лёгк.)
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_lite"]],_rarity_InfTeam*_rarity_reconSquad/2],
+	// rhs_group_nato_usmc_recon_d_infantry_team_fast, Команда (Fast)
+	[[[__cfg >> "rhs_group_nato_usmc_recon_d_infantry" >> "rhs_group_nato_usmc_recon_d_infantry_team_fast"]],_rarity_InfTeam*_rarity_reconSquad/2],
+
+	//- rhs_group_nato_usmc_d_HMMWV, Пехота (HMMWV)
+	// BUS_MotInf_Team_GMG, Mot. Team (GMG)
+	[[[__cfg >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
+	// BUS_MotInf_Team_HMG, Mot. Team (HMG)
+	[[[__cfg >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
+	// BUS_MotInf_AT, Mot. Anti-armor Team
+	[[[__cfg >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[__cfg >> "rhs_group_nato_usmc_d_HMMWV" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
+
+	//- rhs_group_nato_usmc_d_RG33, Пехота (RG-33)
+	// rhs_group_nato_usmc_d_RG33_squad, Отряд (RG-33)
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usmc_d_RG33_squad_2mg, Отряд (2x пул./RG-33)
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_2mg"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usmc_d_RG33_squad_sniper, Отряд (Снайпер/RG-33)
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_sniper"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usmc_d_RG33_squad_mg_sniper, Отряд (Снайпер + пул./RG-33)
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_squad_mg_sniper"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usmc_d_RG33_m2_squad, Отряд (RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usmc_d_RG33_m2_squad_2mg, Отряд (2x пул./RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_2mg"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usmc_d_RG33_m2_squad_sniper, Отряд (Снайпер/RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_sniper"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper, Отряд (Снайпер + пул./RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usmc_d_RG33" >> "rhs_group_nato_usmc_d_RG33_m2_squad_mg_sniper"]],_rarity_MotInf_HMGTeam/4],
+
+	//- rhs_group_nato_usmc_d_m1a1, M1A1 Groups
+	// RHS_M1A1AIM_d_Platoon, M1A1FEP Platoon
+	[[[__cfg >> "rhs_group_nato_usmc_d_m1a1" >> "RHS_M1A1AIM_d_Platoon"]],_rarity_TankPlatoon],
+	// RHS_M1A1FEP_d_Section, M1A1FEP Section
+	[[[__cfg >> "rhs_group_nato_usmc_d_m1a1" >> "RHS_M1A1FEP_d_Section"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["rhsusf_CH53E_USMC_GAU21_D"],[],["CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_UH1Y_d","RHS_UH1Y_d"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/2],
+	[[[["RHS_AH1Z","RHS_AH1Z"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli],
+	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
+	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
+];
+
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "RHS_USMC",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [250,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
+
+// TODO: Форму UCP можно заменить на OEF-CP.
+#define __cfg configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_wd"
+//-- rhs_faction_usarmy_wd, США (Армия - Лесной)
+_arr = [
+	// >2004, UCP
+	//- rhs_group_nato_usarmy_wd_infantry, Пехота
+	// rhs_group_nato_usarmy_wd_company_hq, Группа командира роты
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_company_hq"]],_rarity_bad/2],
+	// rhs_group_nato_usarmy_wd_platoon_hq, Отделение (Взвод)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_platoon_hq"]],_rarity_bad/2],
+	// rhs_group_nato_usarmy_wd_infantry_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_squad"]],_rarity_InfSquad/2],
+	// rhs_group_nato_usarmy_wd_infantry_weaponsquad, Ор. отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_weaponsquad"]],_rarity_InfSquad_Weapon],
+	// rhs_group_nato_usarmy_wd_infantry_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_squad_sniper"]],_rarity_InfSquad/2],
+	// rhs_group_nato_usarmy_wd_infantry_team, Команда
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team"]],_rarity_InfTeam],
+	// rhs_group_nato_usarmy_wd_infantry_team_MG, Команда (пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_MG"]],_rarity_InfTeam_MG],
+	// rhs_group_nato_usarmy_wd_infantry_team_AA, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_AA"]],_rarity_InfTeam_AA],
+	// rhs_group_nato_usarmy_wd_infantry_team_support, Команда (подд.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_support"]],_rarity_bad],
+	// rhs_group_nato_usarmy_wd_infantry_team_heavy_AT, Команда (ПТ)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry" >> "rhs_group_nato_usarmy_wd_infantry_team_heavy_AT"]],_rarity_InfTeam_AT],
+
+	//- rhs_group_nato_usarmy_wd_infantry_arb, Пехота (Arb)
+	// rhs_group_nato_usarmy_wd_company_hq, Группа командира роты
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_company_hq"]],_rarity_bad*_rarity_ReconTeam/2],
+	// rhs_group_nato_usarmy_wd_platoon_hq, Отделение (Взвод)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_platoon_hq"]],_rarity_bad*_rarity_ReconTeam/2],
+	// rhs_group_nato_usarmy_wd_infantry_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_squad"]],_rarity_reconSquad/2],
+	// rhs_group_nato_usarmy_wd_infantry_weaponsquad, Ор. отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_weaponsquad"]],_rarity_reconSquad*_rarity_InfSquad_Weapon],
+	// rhs_group_nato_usarmy_wd_infantry_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_squad_sniper"]],_rarity_reconSquad/2],
+	// rhs_group_nato_usarmy_wd_infantry_team, Команда
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team"]],_rarity_ReconTeam],
+	// rhs_group_nato_usarmy_wd_infantry_team_MG, Команда (пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team_MG"]],_rarity_ReconTeam*_rarity_InfTeam_MG],
+	// rhs_group_nato_usarmy_wd_infantry_team_AA, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team_AA"]],_rarity_ReconTeam*_rarity_InfTeam_AA],
+	// rhs_group_nato_usarmy_wd_infantry_team_support, Команда (подд.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team_support"]],_rarity_ReconTeam*_rarity_bad],
+	// rhs_group_nato_usarmy_wd_infantry_team_heavy_AT, Команда (ПТ)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_infantry_arb" >> "rhs_group_nato_usarmy_wd_infantry_team_heavy_AT"]],_rarity_ReconTeam*_rarity_InfTeam_AT],
+
+	//- rhs_group_nato_usarmy_wd_RG33, Пехота (RG-33)
+	// rhs_group_nato_usarmy_wd_RG33_squad, Отряд (RG-33)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_squad"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usarmy_wd_RG33_squad_2mg, Отряд (2x пул./RG-33)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_squad_2mg"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usarmy_wd_RG33_squad_sniper, Отряд (Снайпер/RG-33)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_squad_sniper"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usarmy_wd_RG33_squad_mg_sniper, Отряд (Снайпер + пул./RG-33)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_squad_mg_sniper"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usarmy_wd_RG33_m2_squad, Отряд (RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_m2_squad"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usarmy_wd_RG33_m2_squad_2mg, Отряд (2x пул./RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_m2_squad_2mg"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usarmy_wd_RG33_m2_squad_sniper, Отряд (Снайпер/RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_m2_squad_sniper"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usarmy_wd_RG33_m2_squad_mg_sniper, Отряд (Снайпер + пул./RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_RG33" >> "rhs_group_nato_usarmy_wd_RG33_m2_squad_mg_sniper"]],_rarity_MotInf_HMGTeam/4],
+
+	// >1996
+	//- rhs_group_nato_usarmy_wd_FMTV, Пехота (FMTV)
+	// rhs_group_nato_usarmy_wd_FMTV_1078_squad, Отряд (М1078)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1078_squad"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_wd_FMTV_1078_squad_2mg, Отряд (2x пул./М1078)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1078_squad_2mg"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_wd_FMTV_1078_squad_sniper, Отряд (Снайпер/М1078)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1078_squad_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_wd_FMTV_1078_squad_mg_sniper, Отряд (Снайпер + пул./М1078)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1078_squad_mg_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_wd_FMTV_1083_squad, Отряд (М1083)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1083_squad"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_wd_FMTV_1083_squad_2mg, Отряд (2x пул./М1083)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1083_squad_2mg"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_wd_FMTV_1083_squad_sniper, Отряд (Снайпер/М1083)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1083_squad_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_wd_FMTV_1083_squad_mg_sniper, Отряд (Снайпер + пул./М1083)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_FMTV" >> "rhs_group_nato_usarmy_wd_FMTV_1083_squad_mg_sniper"]],_rarity_MotInf_Reinforce/4/2],
+
+	// >1995
+	//- rhs_group_nato_usarmy_wd_m1a1, M1A1 Groups
+	// RHS_M1A1AIM_wd_Platoon, M1A1AIM Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A1AIM_wd_Platoon_AA, M1A1AIM Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A1AIM_wd_Section, M1A1AIM Section
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_Section"]],_rarity_TankSection/2],
+	// RHS_M1A1AIM_wd_TUSK_Platoon, M1A1AIM (TUSK I) Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_TUSK_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A1AIM_wd_TUSK_Platoon_AA, M1A1AIM (TUSK I) Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_TUSK_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A1AIM_wd_TUSK_Section, M1A1AIM (TUSK I) Section
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_m1a1" >> "RHS_M1A1AIM_wd_TUSK_Section"]],_rarity_TankSection/2],
+	//- rhs_group_nato_usarmy_wd_M1A2, M1A2 Groups
+	// RHS_M1A2SEP_wd_Platoon, M1A2SEPv1 Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A2SEP_wd_Platoon_AA, M1A2SEPv1 Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A2SEP_wd_Section, M1A2SEPv1 Section
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_Section"]],_rarity_TankSection/2],
+	// RHS_M1A2SEP_wd_TUSK_Platoon, M1A2SEPv1 (TUSK I) Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A2SEP_wd_TUSK_Platoon_AA, M1A2SEPv1 (TUSK I) Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A2SEP_wd_TUSK_Section, M1A2SEPv1 (TUSK I) Section
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK_Section"]],_rarity_TankSection/2],
+	// RHS_M1A2SEP_wd_TUSK2_Platoon, M1A2SEPv1 (TUSK II) Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK2_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A2SEP_wd_TUSK2_Platoon_AA, M1A2SEPv1 (TUSK II) Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK2_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A2SEP_wd_TUSK2_Section, M1A2SEPv1 (TUSK II) Section
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M1A2" >> "RHS_M1A2SEP_wd_TUSK2_Section"]],_rarity_TankSection/2],
+
+	//- rhs_group_nato_usarmy_wd_HMMWV, Пехота (HMMWV)
+	// BUS_MotInf_Team_GMG, Mot. Team (GMG)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_HMMWV" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
+	// BUS_MotInf_Team_HMG, Mot. Team (HMG)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_HMMWV" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
+	// BUS_MotInf_AT, Mot. Anti-armor Team
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_HMMWV" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_HMMWV" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
+
+	//- rhs_group_nato_usarmy_wd_M113, Пехота (М113)
+	// rhs_group_nato_usarmy_wd_M113_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M113" >> "rhs_group_nato_usarmy_wd_M113_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_M113_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M113" >> "rhs_group_nato_usarmy_wd_M113_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_M113_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M113" >> "rhs_group_nato_usarmy_wd_M113_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_M113_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M113" >> "rhs_group_nato_usarmy_wd_M113_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+
+	// >1988
+	//- rhs_group_nato_usarmy_wd_bradley, Пехота (М2А2)
+	// rhs_group_nato_usarmy_wd_bradley_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_wd_bradley_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradley_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_wd_bradley_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradley_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_wd_bradley_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradley_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_wd_bradley_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley" >> "rhs_group_nato_usarmy_d_bradley_aa"]],_rarity_MechInf_AA/4],
+	//- rhs_group_nato_usarmy_wd_bradley_busk, Пехота (М2А2 BUSK I)
+	// rhs_group_nato_usarmy_wd_bradley_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_wd_bradley_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradley_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_wd_bradley_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradley_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_wd_bradley_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradley_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_wd_bradley_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradley_busk" >> "rhs_group_nato_usarmy_d_bradley_aa"]],_rarity_MechInf_AA/4],
+
+	// >2000
+	//- rhs_group_nato_usarmy_wd_bradleyA3, Пехота (М2А3)
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad"]],_rarity_MechInfSquad/4/45],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3" >> "rhs_group_nato_usarmy_d_bradleyA3_aa"]],_rarity_MechInf_AA/4],
+	//- rhs_group_nato_usarmy_wd_bradleyA3_busk, Пехота (М2А3 BUSK I)
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk" >> "rhs_group_nato_usarmy_d_bradleyA3_aa"]],_rarity_MechInf_AA/4],
+	//- rhs_group_nato_usarmy_wd_bradleyA3_busk3, Пехота (М2А3 BUSK III)
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_wd_bradleyA3_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_bradleyA3_busk3" >> "rhs_group_nato_usarmy_d_bradleyA3_aa"]],_rarity_MechInf_AA/4],
+
+	// >2003
+	//- rhs_group_nato_usarmy_wd_stryker, Пехота (Stryker)
+	// rhs_group_nato_usarmy_wd_stryker_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_stryker" >> "rhs_group_nato_usarmy_wd_stryker_squad"]],_rarity_MechInfSquad],
+	// rhs_group_nato_usarmy_wd_stryker_wpnsquad, Ор. отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_stryker" >> "rhs_group_nato_usarmy_wd_stryker_wpnsquad"]],_rarity_MechInfSquad*_rarity_InfSquad_Weapon],
+
+	//- rhs_group_nato_usarmy_wd_M109, M109 Artillery
+	// RHS_M109_wd_Platoon, Artillery M109 Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M109" >> "RHS_M109_wd_Platoon"]],0],
+	// RHS_M109_wd_Section, Artillery M109 Section
+	[[[__cfg >> "rhs_group_nato_usarmy_wd_M109" >> "RHS_M109_wd_Section"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["RHS_UH60M","RHS_UH60M"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_CH_47F"],[],["CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_AH64D_wd","RHS_AH64D_wd"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli],
+	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
+	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
+];
+
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "rhs_faction_usarmy",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,250-1], __exclude
+	] call gosa_fnc_map_groups_add;
+};
+
+#define __cfg configFile >> "CfgGroups" >> "West" >> "rhs_faction_usarmy_d"
+//-- rhs_faction_usarmy_d, США (Армия - Пустынный)
+_arr = [
+	// >2015 OCP
+	//- rhs_group_nato_usarmy_d_infantry, Пехота
+	// rhs_group_nato_usarmy_d_company_hq, Группа командира роты
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_company_hq"]],_rarity_bad/2],
+	// rhs_group_nato_usarmy_d_platoon_hq, Отделение (Взвод)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_platoon_hq"]],_rarity_bad/2],
+	// rhs_group_nato_usarmy_d_infantry_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_squad"]],_rarity_InfSquad/2],
+	// rhs_group_nato_usarmy_d_infantry_weaponsquad, Ор. отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_weaponsquad"]],_rarity_InfSquad_Weapon],
+	// rhs_group_nato_usarmy_d_infantry_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_squad_sniper"]],_rarity_InfSquad/2],
+	// rhs_group_nato_usarmy_d_infantry_team, Команда
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team"]],_rarity_InfTeam],
+	// rhs_group_nato_usarmy_d_infantry_team_MG, Команда (пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team_MG"]],_rarity_InfTeam_MG],
+	// rhs_group_nato_usarmy_d_infantry_team_AA, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team_AA"]],_rarity_InfTeam_AA],
+	// rhs_group_nato_usarmy_d_infantry_team_AT, Команда (ПТ)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team_AT"]],_rarity_InfTeam_AT],
+	// rhs_group_nato_usarmy_d_infantry_team_support, Команда (подд.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry" >> "rhs_group_nato_usarmy_d_infantry_team_support"]],_rarity_bad],
+
+	//- rhs_group_nato_usarmy_d_infantry_arb, Пехота (Arb)
+	// rhs_group_nato_usarmy_d_company_hq, Группа командира роты
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_company_hq"]],_rarity_bad*_rarity_ReconTeam/2],
+	// rhs_group_nato_usarmy_d_platoon_hq, Отделение (Взвод)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_platoon_hq"]],_rarity_bad*_rarity_ReconTeam/2],
+	// rhs_group_nato_usarmy_d_infantry_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_infantry_squad"]],_rarity_reconSquad/2],
+	// rhs_group_nato_usarmy_d_infantry_weaponsquad, Ор. отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_infantry_weaponsquad"]],_rarity_reconSquad*_rarity_InfSquad_Weapon],
+	// rhs_group_nato_usarmy_d_infantry_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_infantry_squad_sniper"]],_rarity_reconSquad/2],
+	// rhs_group_nato_usarmy_d_infantry_team, Команда
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_infantry_team"]],_rarity_ReconTeam],
+	// rhs_group_nato_usarmy_d_infantry_team_MG, Команда (пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_infantry_team_MG"]],_rarity_ReconTeam*_rarity_InfTeam_MG],
+	// rhs_group_nato_usarmy_d_infantry_team_AA, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_infantry_team_AA"]],_rarity_ReconTeam*_rarity_InfTeam_AA],
+	// rhs_group_nato_usarmy_d_infantry_team_AT, Команда (ПТ)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_infantry_team_AT"]],_rarity_ReconTeam*_rarity_InfTeam_AT],
+	// rhs_group_nato_usarmy_d_infantry_team_support, Команда (подд.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_infantry_arb" >> "rhs_group_nato_usarmy_d_infantry_team_support"]],_rarity_ReconTeam*_rarity_bad],
+
+	//- rhs_group_nato_usarmy_d_RG33, Пехота (RG-33)
+	// rhs_group_nato_usarmy_d_RG33_squad, Отряд (RG-33)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_RG33" >> "rhs_group_nato_usarmy_d_RG33_squad"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usarmy_d_RG33_squad_2mg, Отряд (2x пул./RG-33)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_RG33" >> "rhs_group_nato_usarmy_d_RG33_squad_2mg"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usarmy_d_RG33_squad_sniper, Отряд (Снайпер/RG-33)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_RG33" >> "rhs_group_nato_usarmy_d_RG33_squad_sniper"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usarmy_d_RG33_squad_mg_sniper, Отряд (Снайпер + пул./RG-33)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_RG33" >> "rhs_group_nato_usarmy_d_RG33_squad_mg_sniper"]],_rarity_MotInf_Team/4],
+	// rhs_group_nato_usarmy_d_RG33_m2_squad, Отряд (RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_RG33" >> "rhs_group_nato_usarmy_d_RG33_m2_squad"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usarmy_d_RG33_m2_squad_2mg, Отряд (2x пул./RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_RG33" >> "rhs_group_nato_usarmy_d_RG33_m2_squad_2mg"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usarmy_d_RG33_m2_squad_sniper, Отряд (Снайпер/RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_RG33" >> "rhs_group_nato_usarmy_d_RG33_m2_squad_sniper"]],_rarity_MotInf_HMGTeam/4],
+	// rhs_group_nato_usarmy_d_RG33_m2_squad_mg_sniper, Отряд (Снайпер + пул./RG-33 М2)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_RG33" >> "rhs_group_nato_usarmy_d_RG33_m2_squad_mg_sniper"]],_rarity_MotInf_HMGTeam/4],
+
+	//- rhs_group_nato_usarmy_d_FMTV, Пехота (FMTV)
+	// rhs_group_nato_usarmy_d_FMTV_1078_squad, Отряд (М1078)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_FMTV" >> "rhs_group_nato_usarmy_d_FMTV_1078_squad"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_d_FMTV_1078_squad_2mg, Отряд (2x пул./М1078)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_FMTV" >> "rhs_group_nato_usarmy_d_FMTV_1078_squad_2mg"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_d_FMTV_1078_squad_sniper, Отряд (Снайпер/М1078)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_FMTV" >> "rhs_group_nato_usarmy_d_FMTV_1078_squad_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_d_FMTV_1078_squad_mg_sniper, Отряд (Снайпер + пул./М1078)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_FMTV" >> "rhs_group_nato_usarmy_d_FMTV_1078_squad_mg_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_d_FMTV_1083_squad, Отряд (М1083)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_FMTV" >> "rhs_group_nato_usarmy_d_FMTV_1083_squad"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_d_FMTV_1083_squad_2mg, Отряд (2x пул./М1083)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_FMTV" >> "rhs_group_nato_usarmy_d_FMTV_1083_squad_2mg"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_d_FMTV_1083_squad_sniper, Отряд (Снайпер/М1083)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_FMTV" >> "rhs_group_nato_usarmy_d_FMTV_1083_squad_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_nato_usarmy_d_FMTV_1083_squad_mg_sniper, Отряд (Снайпер + пул./М1083)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_FMTV" >> "rhs_group_nato_usarmy_d_FMTV_1083_squad_mg_sniper"]],_rarity_MotInf_Reinforce/4/2],
+
+	//- rhs_group_nato_usarmy_d_m1a1, M1A1 Groups
+	// RHS_M1A1AIM_Platoon, M1A1AIM Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A1AIM_Platoon_AA, M1A1AIM Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A1AIM_Section, M1A1AIM Section
+	[[[__cfg >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_Section"]],_rarity_TankSection/2],
+	// RHS_M1A1AIM_TUSK_Platoon, M1A1AIM (TUSK I) Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_TUSK_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A1AIM_TUSK_Platoon_AA, M1A1AIM (TUSK I) Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_TUSK_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A1AIM_TUSK_Section, M1A1AIM (TUSK I) Section
+	[[[__cfg >> "rhs_group_nato_usarmy_d_m1a1" >> "RHS_M1A1AIM_TUSK_Section"]],_rarity_TankSection/2],
+	//- rhs_group_nato_usarmy_d_M1A2, M1A2 Groups
+	// RHS_M1A2SEP_Platoon, M1A2SEPv1 Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A2SEP_Platoon_AA, M1A2SEPv1 Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A2SEP_Section, M1A2SEPv1 Section
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_Section"]],_rarity_TankSection/2],
+	// RHS_M1A2SEP_TUSK_Platoon, M1A2SEPv1 (TUSK I) Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_TUSK_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A2SEP_TUSK_Platoon_AA, M1A2SEPv1 (TUSK I) Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_TUSK_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A2SEP_TUSK_Section, M1A2SEPv1 (TUSK I) Section
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_TUSK_Section"]],_rarity_TankSection/2],
+	// RHS_M1A2SEP_d_TUSK2_Platoon, M1A2SEPv1 (TUSK II) Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_d_TUSK2_Platoon"]],_rarity_TankPlatoon/2],
+	// RHS_M1A2SEP_d_TUSK2_Platoon_AA, M1A2SEPv1 (TUSK II) Platoon (Combined)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_d_TUSK2_Platoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_M1A2SEP_d_TUSK2_Section, M1A2SEPv1 (TUSK II) Section
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M1A2" >> "RHS_M1A2SEP_d_TUSK2_Section"]],_rarity_TankSection/2],
+
+	//- rhs_group_nato_usarmy_d_HMMWV, Пехота (HMMWV)
+	// BUS_MotInf_Team_GMG, Mot. Team (GMG)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_HMMWV" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
+	// BUS_MotInf_Team_HMG, Mot. Team (HMG)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_HMMWV" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
+	// BUS_MotInf_AT, Mot. Anti-armor Team
+	[[[__cfg >> "rhs_group_nato_usarmy_d_HMMWV" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[__cfg >> "rhs_group_nato_usarmy_d_HMMWV" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
+
+	//- rhs_group_nato_usarmy_d_M113, Пехота (М113)
+	// rhs_group_nato_usarmy_d_M113_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M113" >> "rhs_group_nato_usarmy_d_M113_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_M113_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M113" >> "rhs_group_nato_usarmy_d_M113_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_M113_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M113" >> "rhs_group_nato_usarmy_d_M113_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_M113_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M113" >> "rhs_group_nato_usarmy_d_M113_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+
+	//- rhs_group_nato_usarmy_d_bradley, Пехота (М2А2)
+	// rhs_group_nato_usarmy_d_bradley_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley" >> "rhs_group_nato_usarmy_d_bradley_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley" >> "rhs_group_nato_usarmy_d_bradley_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley" >> "rhs_group_nato_usarmy_d_bradley_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley" >> "rhs_group_nato_usarmy_d_bradley_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley" >> "rhs_group_nato_usarmy_d_bradley_aa"]],_rarity_MechInf_AA/4],
+	//- rhs_group_nato_usarmy_d_bradley_busk, Пехота (М2А2 BUSK I)
+	// rhs_group_nato_usarmy_d_bradley_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley_busk" >> "rhs_group_nato_usarmy_d_bradley_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley_busk" >> "rhs_group_nato_usarmy_d_bradley_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley_busk" >> "rhs_group_nato_usarmy_d_bradley_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley_busk" >> "rhs_group_nato_usarmy_d_bradley_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradley_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradley_busk" >> "rhs_group_nato_usarmy_d_bradley_aa"]],_rarity_MechInf_AA/4],
+
+	//- rhs_group_nato_usarmy_d_bradleyA3, Пехота (М2А3)
+	// rhs_group_nato_usarmy_d_bradleyA3_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3" >> "rhs_group_nato_usarmy_d_bradleyA3_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3" >> "rhs_group_nato_usarmy_d_bradleyA3_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3" >> "rhs_group_nato_usarmy_d_bradleyA3_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3" >> "rhs_group_nato_usarmy_d_bradleyA3_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3" >> "rhs_group_nato_usarmy_d_bradleyA3_aa"]],_rarity_MechInf_AA/4],
+	//- rhs_group_nato_usarmy_d_bradleyA3_busk, Пехота (М2А3 BUSK I)
+	// rhs_group_nato_usarmy_d_bradleyA3_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk" >> "rhs_group_nato_usarmy_d_bradleyA3_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk" >> "rhs_group_nato_usarmy_d_bradleyA3_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk" >> "rhs_group_nato_usarmy_d_bradleyA3_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk" >> "rhs_group_nato_usarmy_d_bradleyA3_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk" >> "rhs_group_nato_usarmy_d_bradleyA3_aa"]],_rarity_MechInf_AA/4],
+	//- rhs_group_nato_usarmy_d_bradleyA3_busk3, Пехота (М2А3 BUSK III)
+	// rhs_group_nato_usarmy_d_bradleyA3_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk3" >> "rhs_group_nato_usarmy_d_bradleyA3_squad"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_squad_2mg, Отряд (2x пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk3" >> "rhs_group_nato_usarmy_d_bradleyA3_squad_2mg"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk3" >> "rhs_group_nato_usarmy_d_bradleyA3_squad_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_squad_mg_sniper, Отряд (Снайпер + пул.)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk3" >> "rhs_group_nato_usarmy_d_bradleyA3_squad_mg_sniper"]],_rarity_MechInfSquad/4/4],
+	// rhs_group_nato_usarmy_d_bradleyA3_aa, Команда (ПВО)
+	[[[__cfg >> "rhs_group_nato_usarmy_d_bradleyA3_busk3" >> "rhs_group_nato_usarmy_d_bradleyA3_aa"]],_rarity_MechInf_AA/4],
+
+	//- rhs_group_nato_usarmy_d_stryker, Пехота (Stryker)
+	// rhs_group_nato_usarmy_d_stryker_squad, Отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_stryker" >> "rhs_group_nato_usarmy_d_stryker_squad"]],_rarity_MechInfSquad],
+	// rhs_group_nato_usarmy_d_stryker_wpnsquad, Ор. отряд
+	[[[__cfg >> "rhs_group_nato_usarmy_d_stryker" >> "rhs_group_nato_usarmy_d_stryker_wpnsquad"]],_rarity_MechInfSquad*_rarity_InfSquad_Weapon],
+
+	//- rhs_group_nato_usarmy_d_M109, M109 Artillery
+	// RHS_M109_Platoon, Artillery M109 Platoon
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M109" >> "RHS_M109_Platoon"]],0],
+	// RHS_M109_Section, Artillery M109 Section
+	[[[__cfg >> "rhs_group_nato_usarmy_d_M109" >> "RHS_M109_Section"]],0]
+]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["RHS_UH60M_d","RHS_UH60M_d"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_CH_47F_10"],[],["CAPTAIN"]]],_rarity_Heli/10],
+	[[[["RHS_AH64D","RHS_AH64D"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli],
+	[[[["RHS_A10","RHS_A10"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2],
+	[[[["rhsusf_f22","rhsusf_f22"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/2]
+];
+
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "rhs_faction_usarmy",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [250,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
+
+
+#define __cfg configFile >> "CfgGroups" >> "West" >> "rhsgref_faction_cdf_ground_b"
+//-- rhsgref_faction_cdf_ground_b, Chernarus (Ground Forces)
+_arr = [
+	//- rhs_group_cdf_b_bm21, BM-21 Artillery
+	// RHS_SPGPlatoon_ins_g_bm21, BM-21 Platoon
+	[[[__cfg >> "rhs_group_cdf_b_bm21" >> "RHS_SPGPlatoon_ins_g_bm21"]],0],
+	// RHS_SPGSection_ins_g_bm21, BM-21 Section
+	[[[__cfg >> "rhs_group_cdf_b_bm21" >> "RHS_SPGSection_ins_g_bm21"]],0],
+	//- rhsgref_group_cdf_b_reg_infantry, Regular Infantry
+	// rhsgref_group_cdf_b_reg_infantry_squad, Squad
+	[[[__cfg >> "rhsgref_group_cdf_b_reg_infantry" >> "rhsgref_group_cdf_b_reg_infantry_squad"]],_rarity_InfSquad],
+	// rhsgref_group_cdf_b_reg_infantry_squad_weap, Squad (Weapons)
+	[[[__cfg >> "rhsgref_group_cdf_b_reg_infantry" >> "rhsgref_group_cdf_b_reg_infantry_squad_weap"]],_rarity_InfSquad_Weapon],
+	//- rhs_group_cdf_b_bmp1, Mechanized (BMP-1)
+	// rhs_group_cdf_b_bmp1_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_cdf_b_bmp1" >> "rhs_group_cdf_b_bmp1_chq"]],_rarity_bad/2],
+	// rhs_group_cdf_b_bmp1_squad, Отряд
+	[[[__cfg >> "rhs_group_cdf_b_bmp1" >> "rhs_group_cdf_b_bmp1_squad"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmp1_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_bmp1" >> "rhs_group_cdf_b_bmp1_squad_2mg"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmp1_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_cdf_b_bmp1" >> "rhs_group_cdf_b_bmp1_squad_sniper"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmp1_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_bmp1" >> "rhs_group_cdf_b_bmp1_squad_mg_sniper"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmp1_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_cdf_b_bmp1" >> "rhs_group_cdf_b_bmp1_squad_aa"]],_rarity_MechInf_AA/2],
+	//- rhs_group_cdf_b_bmp2, Mechanized (BMP-2)
+	// rhs_group_cdf_b_bmp2_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_cdf_b_bmp2" >> "rhs_group_cdf_b_bmp2_chq"]],_rarity_bad/2],
+	// rhs_group_cdf_b_bmp2_squad, Отряд
+	[[[__cfg >> "rhs_group_cdf_b_bmp2" >> "rhs_group_cdf_b_bmp2_squad"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmp2_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_bmp2" >> "rhs_group_cdf_b_bmp2_squad_2mg"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmp2_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_cdf_b_bmp2" >> "rhs_group_cdf_b_bmp2_squad_sniper"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmp2_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_bmp2" >> "rhs_group_cdf_b_bmp2_squad_mg_sniper"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmp2_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_cdf_b_bmp2" >> "rhs_group_cdf_b_bmp2_squad_aa"]],_rarity_MechInf_AA/2],
+	//- rhs_group_cdf_b_btr70, Motorized (BTR-70)
+	// rhs_group_cdf_b_btr70_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_cdf_b_btr70" >> "rhs_group_cdf_b_btr70_chq"]],_rarity_bad/2],
+	// rhs_group_cdf_b_btr70_squad, Отряд
+	[[[__cfg >> "rhs_group_cdf_b_btr70" >> "rhs_group_cdf_b_btr70_squad"]],_rarity_MotInf_Team/4/2],
+	// rhs_group_cdf_b_btr70_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_btr70" >> "rhs_group_cdf_b_btr70_squad_2mg"]],_rarity_MotInf_Team/4/2],
+	// rhs_group_cdf_b_btr70_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_cdf_b_btr70" >> "rhs_group_cdf_b_btr70_squad_sniper"]],_rarity_MotInf_Team/4/2],
+	// rhs_group_cdf_b_btr70_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_btr70" >> "rhs_group_cdf_b_btr70_squad_mg_sniper"]],_rarity_MotInf_Team/4/2],
+	// rhs_group_cdf_b_btr70_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_cdf_b_btr70" >> "rhs_group_cdf_b_btr70_squad_aa"]],_rarity_MotInf_AA/2],
+	//- rhs_group_cdf_b_btr60, Motorized (BTR-60)
+	// rhs_group_cdf_b_btr60_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_cdf_b_btr60" >> "rhs_group_cdf_b_btr60_chq"]],_rarity_bad/2],
+	// rhs_group_cdf_b_btr60_squad, Отряд
+	[[[__cfg >> "rhs_group_cdf_b_btr60" >> "rhs_group_cdf_b_btr60_squad"]],_rarity_MotInf_Team/4/2],
+	// rhs_group_cdf_b_btr60_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_btr60" >> "rhs_group_cdf_b_btr60_squad_2mg"]],_rarity_MotInf_Team/4/2],
+	// rhs_group_cdf_b_btr60_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_cdf_b_btr60" >> "rhs_group_cdf_b_btr60_squad_sniper"]],_rarity_MotInf_Team/4/2],
+	// rhs_group_cdf_b_btr60_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_btr60" >> "rhs_group_cdf_b_btr60_squad_mg_sniper"]],_rarity_MotInf_Team/4/2],
+	// rhs_group_cdf_b_btr60_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_cdf_b_btr60" >> "rhs_group_cdf_b_btr60_squad_aa"]],_rarity_MotInf_AA/2],
+	//- rhs_group_cdf_b_ural, Motorized (Ural-4320)
+	// rhs_group_cdf_b_ural_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_cdf_b_ural" >> "rhs_group_cdf_b_ural_chq"]],_rarity_bad/2],
+	// rhs_group_cdf_b_ural_squad, Отряд
+	[[[__cfg >> "rhs_group_cdf_b_ural" >> "rhs_group_cdf_b_ural_squad"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_cdf_b_ural_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_ural" >> "rhs_group_cdf_b_ural_squad_2mg"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_cdf_b_ural_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_cdf_b_ural" >> "rhs_group_cdf_b_ural_squad_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_cdf_b_ural_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_ural" >> "rhs_group_cdf_b_ural_squad_mg_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_cdf_b_ural_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_cdf_b_ural" >> "rhs_group_cdf_b_ural_squad_aa"]],_rarity_MotInf_AA/2],
+	//- rhs_group_cdf_b_gaz66, Motorized (GAZ-66)
+	// rhs_group_cdf_b_gaz66_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_cdf_b_gaz66" >> "rhs_group_cdf_b_gaz66_chq"]],_rarity_bad/2],
+	// rhs_group_cdf_b_gaz66_squad, Отряд
+	[[[__cfg >> "rhs_group_cdf_b_gaz66" >> "rhs_group_cdf_b_gaz66_squad"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_cdf_b_gaz66_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_gaz66" >> "rhs_group_cdf_b_gaz66_squad_2mg"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_cdf_b_gaz66_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_cdf_b_gaz66" >> "rhs_group_cdf_b_gaz66_squad_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_cdf_b_gaz66_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_gaz66" >> "rhs_group_cdf_b_gaz66_squad_mg_sniper"]],_rarity_MotInf_Reinforce/4/2],
+	// rhs_group_cdf_b_gaz66_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_cdf_b_gaz66" >> "rhs_group_cdf_b_gaz66_squad_aa"]],_rarity_MotInf_AA/2],
+	//- rhs_group_cdf_b_uaz, Motorized (UAZ)
+	// BUS_MotInf_Team_GMG, Mot. Team (AGS-30)
+	[[[__cfg >> "rhs_group_cdf_b_uaz" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
+	// BUS_MotInf_Team_HMG, Mot. Team (DShkM)
+	[[[__cfg >> "rhs_group_cdf_b_uaz" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
+	// BUS_MotInf_AT, Mot. Team (SPG-9)
+	[[[__cfg >> "rhs_group_cdf_b_uaz" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[__cfg >> "rhs_group_cdf_b_uaz" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
+	//- rhsgref_group_cdf_b_para_infantry, Airborne Infantry
+	// rhsgref_group_cdf_b_para_infantry_squad, Squad
+	[[[__cfg >> "rhsgref_group_cdf_b_para_infantry" >> "rhsgref_group_cdf_b_para_infantry_squad"]],_rarity_reconSquad],
+	// rhsgref_group_cdf_b_para_infantry_squad_weap, Squad (Weapons)
+	[[[__cfg >> "rhsgref_group_cdf_b_para_infantry" >> "rhsgref_group_cdf_b_para_infantry_squad_weap"]],_rarity_ReconTeam],
+	//- rhs_group_cdf_b_bmd1, Mechanized (BMD-1)
+	// rhs_group_cdf_b_bmd1_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_cdf_b_bmd1" >> "rhs_group_cdf_b_bmd1_chq"]],_rarity_bad/2],
+	// rhs_group_cdf_b_bmd1_squad, Отряд
+	[[[__cfg >> "rhs_group_cdf_b_bmd1" >> "rhs_group_cdf_b_bmd1_squad"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmd1_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_bmd1" >> "rhs_group_cdf_b_bmd1_squad_2mg"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmd1_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_cdf_b_bmd1" >> "rhs_group_cdf_b_bmd1_squad_sniper"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmd1_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_bmd1" >> "rhs_group_cdf_b_bmd1_squad_mg_sniper"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmd1_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_cdf_b_bmd1" >> "rhs_group_cdf_b_bmd1_squad_aa"]],0.75],
+	//- rhs_group_cdf_b_bmd2, Mechanized (BMD-2)
+	// rhs_group_cdf_b_bmd2_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_cdf_b_bmd2" >> "rhs_group_cdf_b_bmd2_chq"]],_rarity_bad/2],
+	// rhs_group_cdf_b_bmd2_squad, Отряд
+	[[[__cfg >> "rhs_group_cdf_b_bmd2" >> "rhs_group_cdf_b_bmd2_squad"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmd2_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_bmd2" >> "rhs_group_cdf_b_bmd2_squad_2mg"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmd2_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_cdf_b_bmd2" >> "rhs_group_cdf_b_bmd2_squad_sniper"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmd2_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_bmd2" >> "rhs_group_cdf_b_bmd2_squad_mg_sniper"]],_rarity_MechInfSquad/4/2],
+	// rhs_group_cdf_b_bmd2_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_cdf_b_bmd2" >> "rhs_group_cdf_b_bmd2_squad_aa"]],_rarity_MechInf_AA/2],
+	//- rhs_group_cdf_b_gaz66_para, Motorized (GAZ-66/Para)
+	// rhs_group_cdf_b_gaz66_chq, Группа командира роты
+	[[[__cfg >> "rhs_group_cdf_b_gaz66_para" >> "rhs_group_cdf_b_gaz66_chq"]],_rarity_bad/4],
+	// rhs_group_cdf_b_gaz66_squad, Отряд
+	[[[__cfg >> "rhs_group_cdf_b_gaz66_para" >> "rhs_group_cdf_b_gaz66_squad"]],_rarity_MotInf_Reinforce/4/4],
+	// rhs_group_cdf_b_gaz66_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_gaz66_para" >> "rhs_group_cdf_b_gaz66_squad_2mg"]],_rarity_MotInf_Reinforce/4/4],
+	// rhs_group_cdf_b_gaz66_squad_sniper, Отряд (снайпер)
+	[[[__cfg >> "rhs_group_cdf_b_gaz66_para" >> "rhs_group_cdf_b_gaz66_squad_sniper"]],_rarity_MotInf_Reinforce/4/4],
+	// rhs_group_cdf_b_gaz66_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >> "rhs_group_cdf_b_gaz66_para" >> "rhs_group_cdf_b_gaz66_squad_mg_sniper"]],_rarity_MotInf_Reinforce/4/4],
+	// rhs_group_cdf_b_gaz66_squad_aa, Отряд ПВО
+	[[[__cfg >> "rhs_group_cdf_b_gaz66_para" >> "rhs_group_cdf_b_gaz66_squad_aa"]],_rarity_MotInf_AA/4],
+	//- rhs_group_cdf_b_72, T-72 Groups
+	// RHS_T72baPlatoon, T-72 g.1984 Platoon
+	[[[__cfg >> "rhs_group_cdf_b_72" >> "RHS_T72baPlatoon"]],_rarity_TankPlatoon/2],
+	// RHS_T72baPlatoon_AA, T-72 g.1984 Platoon (Combined)
+	[[[__cfg >> "rhs_group_cdf_b_72" >> "RHS_T72baPlatoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_T72baSection, T-72 g.1984 Section
+	[[[__cfg >> "rhs_group_cdf_b_72" >> "RHS_T72baSection"]],_rarity_TankSection/2],
+	// RHS_T72BBPlatoon, T-72 g.1985 Platoon
+	[[[__cfg >> "rhs_group_cdf_b_72" >> "RHS_T72BBPlatoon"]],_rarity_TankPlatoon/2],
+	// RHS_T72BBPlatoon_AA, T-72 g.1985 Platoon (Combined)
+	[[[__cfg >> "rhs_group_cdf_b_72" >> "RHS_T72BBPlatoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_T72BBSection, T-72 g.1985 Section
+	[[[__cfg >> "rhs_group_cdf_b_72" >> "RHS_T72BBSection"]],_rarity_TankSection/2],
+	//- rhs_group_cdf_80, T-80 Groups
+	// RHS_T80bPlatoon, T-80B Platoon
+	[[[__cfg >> "rhs_group_cdf_80" >> "RHS_T80bPlatoon"]],_rarity_TankPlatoon/2],
+	// RHS_T80bPlatoon_AA, T-80B Platoon (Combined)
+	[[[__cfg >> "rhs_group_cdf_80" >> "RHS_T80bPlatoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_T80bSection, T-80B Section
+	[[[__cfg >> "rhs_group_cdf_80" >> "RHS_T80bSection"]],_rarity_TankSection/2],
+	// RHS_T80bvPlatoon, T-80BV Platoon
+	[[[__cfg >> "rhs_group_cdf_80" >> "RHS_T80bvPlatoon"]],_rarity_TankPlatoon/2],
+	// RHS_T80bvPlatoon_AA, T-80BV Platoon (Combined)
+	[[[__cfg >> "rhs_group_cdf_80" >> "RHS_T80bvPlatoon_AA"]],_rarity_TankPlatoon_AA/2],
+	// RHS_T80bvSection, T-80BV Section
+	[[[__cfg >> "rhs_group_cdf_80" >> "RHS_T80bvSection"]],_rarity_TankSection/2]
+];
+[_arr] call gosa_fnc_groups_convNormal;
+_arr append [
+	[[[["rhsgref_cdf_b_Mi24D","rhsgref_cdf_b_Mi24D"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	[[[["rhsgref_b_mi24g_CAS","rhsgref_b_mi24g_CAS"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	[[[["rhsgref_cdf_b_Mi35","rhsgref_cdf_b_Mi35"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	[[[["rhsgref_cdf_b_reg_Mi17Sh","rhsgref_cdf_b_reg_Mi17Sh"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	
+	[[[["rhsgref_cdf_b_mig29s","rhsgref_cdf_b_mig29s"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhs_l39_cdf_b_cdf","rhs_l39_cdf_b_cdf"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhs_l159_cdf_b_CDF","rhs_l159_cdf_b_CDF"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4],
+	[[[["rhsgref_cdf_b_su25","rhsgref_cdf_b_su25"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane/4]
+];
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "rhsgref_faction_cdf_ground_b",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [150,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
+
+
+#define __cfg configFile >> "CfgGroups" >> "West" >> "rhsgref_faction_hidf"
+//-- rhsgref_faction_hidf, Horizon Islands Defence Force
+_arr = [
+	//- rhsgref_group_hidf_infantry, Infantry
+	// rhsgref_group_hidf_infantry_squad, Отряд
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhsgref_group_hidf_infantry_squad"]],_rarity_InfSquad],
+	// rhs_group_hidf_infantry_weaponsquad, Ор. отряд
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_weaponsquad"]],_rarity_InfSquad_Weapon],
+	// rhs_group_hidf_infantry_squad_sniper, Отряд (снайпер)
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_squad_sniper"]],_rarity_InfSquad_Weapon],
+	// rhs_group_hidf_infantry_team, Команда
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_team"]],_rarity_InfTeam],
+	// rhs_group_hidf_infantry_team_MG, Команда (пул.)
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_team_MG"]],_rarity_InfTeam_MG],
+	// rhs_group_hidf_infantry_team_AT, Команда (ПТ)
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_team_AT"]],_rarity_InfTeam_AT],
+	// rhs_group_hidf_infantry_team_support, Команда (подд.)
+	[[[__cfg >>"rhsgref_group_hidf_infantry" >> "rhs_group_hidf_infantry_team_support"]],_rarity_bad],
+	//- rhsgref_group_hidf_m113, Mechanized (M113)
+	// rhsgref_group_hidf_m113_squad, Squad
+	[[[__cfg >>"rhsgref_group_hidf_m113" >> "rhsgref_group_hidf_m113_squad"]],_rarity_MechInfSquad],
+	// rhsgref_group_hidf_m113_squad_2mg, Squad (2x GPMG)
+	[[[__cfg >>"rhsgref_group_hidf_m113" >> "rhsgref_group_hidf_m113_squad_2mg"]],_rarity_MechInf_HMG],
+	//- rhsgref_group_hidf_hmmwv, Motorized (M1025)
+	// rhsgref_group_hidf_m1025_gmg, Mot. Team (GMG)
+	[[[__cfg >>"rhsgref_group_hidf_hmmwv" >> "rhsgref_group_hidf_m1025_gmg"]],_rarity_MechInf_GMG],
+	// rhsgref_group_hidf_m1025_hmg, Mot. Team (HMG)
+	[[[__cfg >>"rhsgref_group_hidf_hmmwv" >> "rhsgref_group_hidf_m1025_hmg"]],_rarity_MechInf_HMG]
+]; [_arr] call gosa_fnc_groups_convNormal;
+
+_arr append [
+	[[[["rhs_uh1h_hidf_gunship","rhs_uh1h_hidf_gunship"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	[[[["rhs_uh1h_hidf","rhs_uh1h_hidf"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Heli/4],
+	
+	[[[["rhsgred_hidf_cessna_o3a"],[],["CAPTAIN"]]],_rarity_Plane/10],
+	[[[["RHSGREF_A29B_HIDF","RHSGREF_A29B_HIDF"],[[0,0,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],_rarity_Plane]
+];
+
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "rhsgref_faction_hidf",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [150,250-1],
+		[]
+	] call gosa_fnc_map_groups_add;
+};
 
 
 //--- Indep
+#define __exclude ["IND_F","IND_E_F","IND_G_F","IND_C_F"]
 _arr = [
 	// rhssaf_group_army_m93_oakleaf_company_hq
 	[[[["rhssaf_army_m93_oakleaf_summer_officer","rhssaf_army_m93_oakleaf_summer_officer","rhssaf_army_m93_oakleaf_summer_sq_lead","rhssaf_army_m93_oakleaf_summer_rifleman_m70"],[[0,5,0],[-5,0,0],[3,0,0],[5,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT","PRIVATE"]]
@@ -1389,3 +1539,64 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 	[1990,2100], [160,999],
 	["IND_F","IND_E_F","IND_G_F","IND_C_F"]
 ] call gosa_fnc_map_groups_add;
+
+#define __exclude ["IND_F","IND_E_F","IND_G_F","IND_C_F","CUP_I_NAPA"]
+#define __cfg configFile >> "CfgGroups" >> "Indep" >> "rhsgref_faction_nationalist"
+//-- rhsgref_faction_nationalist, Nationalist Militia
+_arr = [
+	//- rhsgref_group_national_infantry, Infantry
+	// rhsgref_group_national_infantry_squad, Group (Mixed)
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_squad"]],_rarity_InfSquad],
+	// rhsgref_group_national_infantry_squad_2, Group (AT)
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_squad_2"]],_rarity_InfSquad_Weapon],
+	// rhsgref_group_national_infantry_patrol, Cell
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_patrol"]],_rarity_InfTeam],
+	// rhsgref_group_national_infantry_mg, MG pair
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_mg"]],_rarity_InfTeam_MG],
+	// rhsgref_group_national_infantry_at, AT pair
+	[[[__cfg >>"rhsgref_group_national_infantry" >> "rhsgref_group_national_infantry_at"]],_rarity_InfTeam_AT],
+	//- rhs_group_indp_nat_ural, Motorized (Ural-4320)
+	// rhs_group_nat_ural_chq, Группа командира роты
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_chq"]],_rarity_bad/5],
+	// rhs_group_nat_ural_squad, Отряд
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_nat_ural_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad_2mg"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_nat_ural_squad_sniper, Отряд (снайпер)
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad_sniper"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_nat_ural_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad_mg_sniper"]],_rarity_MotInf_Reinforce/5],
+	// rhs_group_nat_ural_squad_aa, Отряд ПВО
+	[[[__cfg >>"rhs_group_indp_nat_ural" >> "rhs_group_nat_ural_squad_aa"]],_rarity_MotInf_Reinforce/5],
+
+	//- rhs_group_nat_uaz, Motorized (UAZ)
+	// BUS_MotInf_Team_GMG, Mot. Team (AGS-30)
+	[[[__cfg >>"rhs_group_nat_uaz" >> "BUS_MotInf_Team_GMG"]],_rarity_MotInf_GMGTeam],
+	// BUS_MotInf_Team_HMG, Mot. Team (DShkM)
+	[[[__cfg >>"rhs_group_nat_uaz" >> "BUS_MotInf_Team_HMG"]],_rarity_MotInf_HMGTeam],
+	// BUS_MotInf_AT, Mot. Team (SPG-9)
+	[[[__cfg >>"rhs_group_nat_uaz" >> "BUS_MotInf_AT"]],_rarity_MotInf_AT],
+	// BUS_MotInf_AA, Mot. Air-defense Team
+	[[[__cfg >>"rhs_group_nat_uaz" >> "BUS_MotInf_AA"]],_rarity_MotInf_AA],
+
+	//- rhs_group_indp_nat_btr70, Motorized (BTR-70)
+	// rhs_group_nat_btr70_chq, Группа командира роты
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_chq"]],_rarity_bad],
+	// rhs_group_nat_btr70_squad, Отряд
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad"]],_rarity_MotInf_Team],
+	// rhs_group_nat_btr70_squad_2mg, Отряд (2x ПКМ)
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad_2mg"]],_rarity_MotInf_MG/3],
+	// rhs_group_nat_btr70_squad_sniper, Отряд (снайпер)
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad_sniper"]],_rarity_MotInf_MG/3],
+	// rhs_group_nat_btr70_squad_mg_sniper, Отряд (снайпер + ПКМ)
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad_mg_sniper"]],_rarity_MotInf_MG/3],
+	// rhs_group_nat_btr70_squad_aa, Отряд ПВО
+	[[[__cfg >>"rhs_group_indp_nat_btr70" >> "rhs_group_nat_btr70_squad_aa"]],_rarity_MotInf_AA]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "rhsgref_faction_nationalist",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [150,250-1], __exclude
+	] call gosa_fnc_map_groups_add;
+};

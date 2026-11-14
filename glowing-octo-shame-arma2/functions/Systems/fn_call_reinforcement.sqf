@@ -8,7 +8,7 @@
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] %1", _this];
 
 private["_side","_b","_run","_uav","_grp1","_types","_SafePosParams","_obj",
-	"_players","_groups","_units","_vehicles","_crew","_cargo","_reweapon",
+	"_groups","_units","_vehicles","_crew","_cargo","_reweapon","_exit",
 	"_skill","_grp","_veh","_var_grp_ready","_var_grp_ready_compat","_n0",
 	"_positions_static","_withinMap","_grp_current",
 	"_arr1","_mAmphibious","_mLandVehicle",
@@ -21,32 +21,32 @@ _var_grp_ready = "gosa_grp_ready";
 _var_grp_ready_compat = "grp_created";
 
 #ifdef __A2OA__
-if(count _this > 1 && {!isNull(_this select 1)})then
+if(count _this > 1 && {typeName (_this select 1) == typeName objNull})then
 #else
-if(count _this > 1 && (!isNull(_this select 1)))then
+if(count _this > 1 && (typeName (_this select 1) == typeName objNull))then
 #endif
 {
-	if (typeName (_this select 1) == typeName objNull) then {
-		_pos = getPos (_this select 1);
-		_players = [_this select 1];
-	} else {
-	if(isMultiplayer)then{
-		_players = ([] call gosa_fnc_listPlayers);
-	}else{
-		_players = [player];
-	};
-	if (count _players > 0) then {
-		_pos = getPos (_players call BIS_fnc_selectRandom);
-	}else{
+	// TODO: Патруль с закрепленным объектом следования.
+
+	_pos = getPos (_this select 1);
+	// Если нет объекта, то getPos вернет [0,0,0]
+	if (isNull (_this select 1)) then {
+		diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _patrol, _obj %1, _pos %2", _this select 1, _pos];
 		_pos = civilianBasePos;
+		//_exit = true;
 	};
-	};
+
 	_patrol = true;
 }else{
+	// TODO: Патруль без объекта следования.
+
+	// TODO: Позиция в аргументах.
 	_pos = civilianBasePos;
-	_patrol = false;
+	_patrol = _this select 1;
 	//_typeList=GroupsAll;
 };
+
+if !(isNil "_exit") exitWith {};
 
 diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _patrol %1", _patrol];
 
@@ -88,6 +88,46 @@ if ([daytime - 1] call gosa_fnc_isNight) then {
 	};
 };
 
+// Переопределять переменную _patrol в этой функции нельзя,
+// иначе ограничения на количество отрядов будут работать некорректно.
+// Поэтому уберем неподходящие группы сразу.
+if !(_patrol) then {
+	for "_i" from 0 to (count _arr0 -1) do {
+		for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
+			_arr = _arr0 select _i select 0 select _i0;
+			if ("UAV" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr0 select _i select 1 set [_i0, 0];
+			};
+			if ("SUPPORT" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr0 select _i select 1 set [_i0, 0];
+			};
+			if ("Frigate" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr0 select _i select 1 set [_i0, 0];
+			};
+			if ("AA" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr0 select _i select 1 set [_i0, 0];
+			};
+			if ("Artillery" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr0 select _i select 1 set [_i0, 0];
+			};
+			if ("Police" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr0 select _i select 1 set [_i0, 0];
+			};
+			// Только самолеты, а вертолеты неплохо атакуют или сразу обламываются.
+			if ("Plane" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr0 select _i select 1 set [_i0, 0];
+			};
+			// FIXME: LCVP и Ship скорее проблемные чем не_атакующие.
+			if ("LCVP" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr0 select _i select 1 set [_i0, 0];
+			};
+			if ("Ship" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr0 select _i select 1 set [_i0, 0];
+			};
+		};
+	};
+};
+
 //- LandVehicle + Амфибии.
 _mAmphibious = missionNamespace getVariable "gosa_Multiplier_Amphibious";
 _mLandVehicle = missionNamespace getVariable "gosa_Multiplier_LandVehicle";
@@ -110,7 +150,7 @@ for "_i" from 0 to (count _arr0 -1) do {
 				};
 			}else{
 				if (_mLandVehicle == -1) then {
-					_n = (_arr0 select _i select 1 select _i0) * (1 - _n0);
+					//_n = (_arr0 select _i select 1 select _i0) * (1 - _n0);
 				}else{
 					_n = (_arr0 select _i select 1 select _i0) * _mLandVehicle;
 				};
@@ -228,9 +268,12 @@ if(!_patrol && count _this > 2 && (count (_this select 2) > 0))then
 	_dir = [];
 };
 
-diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] count _typeList %1", count _typeList];
+diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] count _typeList %1", count (_typeList select 0)];
 
 _grp1 = (_typeList call gosa_fnc_selectRandomWeighted);
+if (isNil "_grp1") exitWith {
+	diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] isNil _grp1", nil];
+};
 _types = [_grp1, [0, 0, 0]] call BIS_fnc_returnNestedElement;
 
 _uav = false;
@@ -238,18 +281,14 @@ _uav = ([_types, ["UAV"]] call gosa_fnc_CheckIsKindOfArray);
 if({getNumber (LIB_cfgVeh >> _x >> "isUav") == 1} count _types > 0)then{
 	_uav = true;
 };
-if(_uav)then{
-	_patrol = true;
-};
 
 _b = ([_types, ["StaticWeapon"]] call gosa_fnc_CheckIsKindOfArray);
 if(_b)then{
 	_pos = civilianBasePos;
-	_patrol = false;
 };
 
 if (_pos call gosa_fnc_isZeroPos) exitWith {
-		diag_log format ["gosa_fnc_call_reinforcement.sqf _pos = [0,0] _players = %1 ", _players];
+	diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] exitWith, _pos %1", _pos];
 };
 
 
@@ -331,7 +370,9 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 		_x call gosa_fnc_vehInit;
 	} foreach _units + _vehicles;
 
-	#ifndef __ARMA3__
+	#ifdef __ARMA3__
+		//[_units] call gosa_fnc_unit_uniformReplace;
+	#else
 	if (_reweapon) then {
 		[_units + _vehicles] call gosa_fnc_reweapon;
 	};

@@ -23,15 +23,73 @@
 #include "..\include\ranks.sqf"
 
 private ["_west","_east","_guer","_groups_map","_n","_d","_pvp","_landing",
+	"_rarity_InfSquad", "_rarity_InfSquad_Weapon", "_rarity_InfTeam",
+	"_rarity_InfTeam_AT", "_rarity_InfTeam_AA", "_rarity_InfTeam_MG",
+	"_rarity_InfSentry", "_rarity_ReconTeam", "_rarity_ReconPatrol",
+	"_rarity_ReconSentry", "_rarity_SniperTeam", "_rarity_MotInf_Team",
+	"_rarity_MotInf_AT", "_rarity_MotInf_AA", "_rarity_MotInf_MGTeam",
+	"_rarity_MotInf_GMGTeam", "_rarity_MotInf_MortTeam", "_rarity_bad",
+	"_rarity_MotInf_Reinforce", "_rarity_MechInfSquad", "_rarity_MechInf_AT",
+	"_rarity_MechInf_AA", "_rarity_MechInf_Support", "_rarity_TankPlatoon",
+	"_rarity_TankPlatoon_AA", "_rarity_TankSection", "_rarity_reconSquad",
 	"_westN","_eastN","_guerN","_westD","_eastD","_guerD","_depth","_vivt",
 	"_arr","_cfg_factions_def","_groups_use","_factions_blocked","_arr0",
-	"_grp","_groups_failover","_factions_used","_climate","_date",
-	"_groups_failover_map","_sides_friendly","_copyRef",
-	"_groups_enabled","_factions_enabled","_groups_enabled_map",
-	"_groups_pending_map","_str","_param_default","_side",
+	"_grp","_groups_failover","_factions_used","_climate","_date","_date_rip",
+	"_groups_failover_map","_sides_friendly","_copyRef","_faction_rip","_n2",
+	"_groups_enabled","_factions_enabled","_groups_enabled_map","_Artillery",
+	"_groups_pending_map","_str","_param_default","_side","_rarity_Command",
 	"_sl","_tl","_steep_date","_steep_climate","_arr1","_n0",
 	"_alliances","_alliances_enabled","_alliance","_sides",
 	"_default_east","_default_west","_default_guer"];
+
+// Плохие отряды, не играбельные, но и не сломанные.
+_rarity_bad = 0.01;
+// Пехота
+_rarity_InfSquad = 1;
+_rarity_InfSquad_Weapon = 0.5;
+_rarity_InfTeam = 0.3;
+_rarity_InfTeam_AT = 0.4;
+_rarity_InfTeam_AA = 0.2;
+_rarity_InfTeam_MG = _rarity_InfTeam;
+_rarity_InfSentry = 0.05;
+_rarity_Command = _rarity_bad;
+
+// Стелс пехота или разведчики
+_rarity_reconSquad = 0.5;
+_rarity_ReconTeam = 0.25;
+_rarity_ReconPatrol = 0.25;
+_rarity_ReconSentry = 0.05;
+_rarity_SniperTeam = 0.1;
+
+// Колеса
+_rarity_MotInf_Team = _rarity_InfSquad;
+_rarity_MotInf_AT = _rarity_InfTeam_AT;
+_rarity_MotInf_AA = _rarity_InfTeam_AA;
+_rarity_MotInf_MG = _rarity_InfTeam_MG;
+_rarity_MotInf_HMGTeam = _rarity_InfTeam_MG;
+_rarity_MotInf_GMGTeam = _rarity_InfTeam_MG;
+// Артиллерийская машина
+_rarity_MotInf_MortTeam = 0.05;
+// Грузовик с пехотой беззащитен совсем
+_rarity_MotInf_Reinforce = 0.05;
+
+_rarity_MechInfSquad = _rarity_InfSquad;
+_rarity_MechInf_AT = _rarity_InfTeam_AT;
+_rarity_MechInf_AA = _rarity_InfTeam_AA;
+_rarity_MechInf_MG = _rarity_InfTeam_MG;
+_rarity_MechInf_HMG = _rarity_InfTeam_MG;
+_rarity_MechInf_GMG = _rarity_InfTeam_MG;
+_rarity_MechInf_Support = 0.05;
+
+_rarity_TankPlatoon = 0.5;
+_rarity_TankPlatoon_AA = 0.05;
+_rarity_TankSection = 0.5;
+
+_rarity_Plane = 0.5;
+_rarity_Heli = 0.5;
+
+_rarity_MotInf_MGTeam = _rarity_MotInf_MG;
+
 
 _pvp = gosa_pvp;
 _landing = missionNamespace getVariable "gosa_landing";
@@ -39,6 +97,7 @@ _vivt = false;
 if (missionNamespace getVariable "gosa_Vehicle_in_Vehicle" == 1) then {
 	_vivt = true;
 };
+_Artillery = if (isNil "lambs_wp_fnc_taskArtilleryRegister") then {false} else {true};
 
 waitUntil{!isNil "availableVehicles"};
 _copyRef = availableVehicles;
@@ -318,7 +377,7 @@ _arr = _default_west;
 		],0.1]
 	];
 	// Arty.
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			[[[["APC_Wheeled_01_mortar_base_lxWS","APC_Wheeled_01_mortar_base_lxWS"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.05],
 			[[[["B_MBT_01_arty_F","B_MBT_01_arty_F","B_MBT_01_arty_F","B_MBT_01_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.05],
@@ -826,7 +885,7 @@ _arr = _default_east;
 		[[[["O_MBT_02_railgun_F","O_MBT_02_railgun_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.01]
 	];
 	// Arty.
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			// OIA_SPGPlatoon_Scorcher
 			[[[["O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F","O_MBT_02_arty_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.1],
@@ -1094,7 +1153,7 @@ _arr = _default_guer;
 			[[[["CUP_I_AH1Z_Dynamic_AAF","CUP_I_AH1Z_Dynamic_AAF"],[[0,20,0],[20,0,0]],["CAPTAIN","CAPTAIN"]]],0.2]
 		];
 		// Arty.
-		if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+		if (_Artillery) then {
 			_arr append [
 				[[[["I_Truck_02_MRL_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","LIEUTENANT","LIEUTENANT","LIEUTENANT"]]],0.1],
 				[[[["I_Truck_02_MRL_F","I_Truck_02_MRL_F"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1]
@@ -1124,11 +1183,12 @@ gosa_date_default, [250,999],
 
 //////////////////////////////
 
-{
-	_side = _x;
-	_n = 0; _n0 = 0;
-	_b = true;
-	while {_b} do {
+_n = 0; _n0 = 0;
+_b = true;
+_sides = [east, west, resistance];
+while {_b} do {
+	for "_i0" from 0 to (count _sides -1) do {
+		_side = _sides select _i0;
 		diag_log format ["Log: [config_groups.sqf] Формирование списка отрядов для %1, допустимое отклонение %2", _side, [_n, _n0]];
 		_arr1 = [_groups_map, [_side], [_date, _climate], 
 			[[-_n, _n], [-_n0, _n0]]
@@ -1141,106 +1201,75 @@ gosa_date_default, [250,999],
 				_arr append (_arr0 select 2);
 			};
 		};
-		if (count _arr > 0 or _n > 999 or _n0 > 999) then {
-			_b = false;
-		}else{
-			_n = _n + _steep_date;
-			_n0 = _n0 + _steep_climate;
-		};
-	};
 
-	switch (_side) do {
-		case east: {
-			_groups_enabled_map_east = _arr1;
-		};
-		case west: {
-			_groups_enabled_map_west = _arr1;
-		};
-		case resistance: {
-			_groups_enabled_map_guer = _arr1;
-		};
-		default {};
-	};
-
-	for "_i" from 0 to (count _arr1 -1) do {
-		_arr = _arr1 select _i;
-		if (_arr1 select _i select 0 isEqualTo _side) then {
-			_groups_enabled_map pushBack _arr;
-			switch (_arr select 0) do {
-				case east: {_east append (_arr select 2)};
-				case west: {_west append (_arr select 2)};
-				case resistance: {_guer append (_arr select 2)};
-				default {};
-			};
-		};
-	};
-} forEach [east, west, resistance];
-
-//- Союзы.
-// TODO: Баланс PvP.
-if !(_pvp) then {
-{
-	_alliance = _x;
-	_n = 0;
-	_sides = [];
-	{
-		_str = _x;
-		{
-			_arr = _x;
-			if (count (_x select 2) > 0) then {
-				if (_x select 1 == _str) then {
-					_n = _n +1;
-					_sides set [count _sides, _x select 0];
+		for "_i" from 0 to (count _arr1 -1) do {
+			_arr = _arr1 select _i;
+			if (_arr1 select _i select 0 isEqualTo _side) then {
+				_groups_enabled_map pushBack _arr;
+				switch (_arr select 0) do {
+					case east: {_east append (_arr select 2)};
+					case west: {_west append (_arr select 2)};
+					case resistance: {_guer append (_arr select 2)};
+					default {};
 				};
 			};
-		} forEach _groups_enabled_map;
-	} forEach _alliance;
-	if (_n > 1) then {
-		_alliances_enabled set [count _alliances_enabled, [_alliance,_sides]];
+		};
 	};
-} forEach _alliances;
+
+	//- Союзы.
+	if (_pvp) then {
+		// FIXME: Для PvP вообще не нужны боты, их всегда можно просто включить.
+		//if ((count _east min 1) + (count _west min 1) + (count _guer min 1) >= 2) then {
+			_b = false;
+		//};
+	}else{
+		{
+			_alliance = _x;
+			_n2 = 0;
+			_sides = [];
+			{
+				_str = _x;
+				{
+					if (count (_x select 2) > 0) then {
+						if (_x select 1 == _str) then {
+							_n2 = _n2 +1;
+							_sides set [count _sides, _x select 0];
+						};
+					};
+				} forEach _groups_enabled_map;
+			} forEach _alliance;
+			if (_n2 > 1) then {
+				_alliances_enabled set [count _alliances_enabled, [_alliance,_sides]];
+			};
+		} forEach _alliances;
+		// Для PvE как минимум одна сторона должна иметь отряды для ботов в режиме MP (сторона противников конечно) или две стороны с учетом союзов в режиме SP.
+		if (isMultiplayer) then {
+			if (((count _east min 1) + (count _west min 1) + (count _guer min 1) > 0) or _n > 999 or _n0 > 999) then {
+				_b = false;
+			};
+		}else{
+			_arr = [[
+				[_east, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2 call gosa_fnc_arrSorting_confGroups,
+				[_west, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2 call gosa_fnc_arrSorting_confGroups,
+				[_guer, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2 call gosa_fnc_arrSorting_confGroups],
+				_alliances_enabled
+			] call gosa_fnc_init_side_balance;
+			if ((count(_arr select 3 select 0 select 0) + count(_arr select 3 select 0 select 1) >= 2) or _n > 999 or _n0 > 999) then {
+				_b = false;
+			};
+		};
+	};
+
+
+	if (_b) then {
+		_east resize 0; _west resize 0; _guer resize 0;
+		_n = _n + _steep_date;
+		_n0 = _n0 + _steep_climate;
+	};
 };
 diag_log format ["Log: [config_groups.sqf] alliances %1", _alliances_enabled];
 gosa_Groups_alliances = _alliances_enabled;
 
-
-if (count _east <= 0) then {
-	diag_log format ["Log: [config_groups.sqf] count _east %1", count _east];
-	_east = [_default_east select 2];
-	/*
-	#ifdef __ARMA3__
-		["wrong_groups", false] call BIS_fnc_endMission;
-	#else
-		failMission "LOSER";
-	#endif
-	// После BIS_fnc_endMission скрипт должен быть завершен.
-	waitUntil {time > 60};
-	*/
-};
-if (count _west <= 0) then {
-	diag_log format ["Log: [config_groups.sqf] count _west %1", count _west];
-	_west = [_default_west select 2];
-	/*
-	#ifdef __ARMA3__
-		["wrong_groups", false] call BIS_fnc_endMission;
-	#else
-		failMission "LOSER";
-	#endif
-	waitUntil {time > 60};
-	*/
-};
-if (count _guer <= 0) then {
-	diag_log format ["Log: [config_groups.sqf] count _guer %1", count _guer];
-	_guer = [_default_guer select 2];
-	/*
-	#ifdef __ARMA3__
-		["wrong_groups", false] call BIS_fnc_endMission;
-	#else
-		failMission "LOSER";
-	#endif
-	waitUntil {time > 60};
-	*/
-};
 
 //////////////////////////////
 
@@ -1254,15 +1283,17 @@ _east = [_east, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 _west = [_west, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 _guer = [_guer, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 
-gosa_Groups_Night = [];
-gosa_Groups_Night set [0, _eastN call gosa_fnc_arrSorting_confGroups];
-gosa_Groups_Night set [1, _westN call gosa_fnc_arrSorting_confGroups];
-gosa_Groups_Night set [2, _guerN call gosa_fnc_arrSorting_confGroups];
+_arr = [];
+_arr set [0, _eastN call gosa_fnc_arrSorting_confGroups];
+_arr set [1, _westN call gosa_fnc_arrSorting_confGroups];
+_arr set [2, _guerN call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_Night = _arr;
 
-gosa_Groups_common = [];
-gosa_Groups_common set [0, _east call gosa_fnc_arrSorting_confGroups];
-gosa_Groups_common set [1, _west call gosa_fnc_arrSorting_confGroups];
-gosa_Groups_common set [2, _guer call gosa_fnc_arrSorting_confGroups];
+_arr = [];
+_arr set [0, _east call gosa_fnc_arrSorting_confGroups];
+_arr set [1, _west call gosa_fnc_arrSorting_confGroups];
+_arr set [2, _guer call gosa_fnc_arrSorting_confGroups];
+gosa_Groups_common = _arr;
 
 // Для совместимости с устаревшим кодом.
 AllGroupsEast = (gosa_Groups_common select 0);

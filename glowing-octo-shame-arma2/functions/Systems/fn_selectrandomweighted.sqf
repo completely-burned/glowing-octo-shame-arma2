@@ -1,4 +1,5 @@
-private ["_array","_weights","_chunks","_total","_weight","_index","_s","_r"];
+private ["_array","_weights","_chunks","_total","_weight","_index","_s","_r",
+	"_m","_n","_m0"];
 
 _array = _this select 0;
 _weights = _this select 1;
@@ -6,15 +7,48 @@ _weights = _this select 1;
 _chunks = [];
 _total = 0;
 
-for "_i" from 0 to ((count _weights) - 1) do {
+// Находим минимум в 0-1
+for "_i" from 0 to (count _weights -1) do {
+    _n = _weights select _i;
+    if (_n < 1 && _n > 0) then {
+		if (isNil "_m") then {
+        	_m = _n;
+		}else{
+			if (_n < _m) then {
+				_m = _n;
+			};
+		};
+    };
+};
 
-	// кусок должен быть целым числом
-	// TODO: множитель нужно сделать динимическим, не работает с _weight меньше 0.0001
-	_weight = (_weights select _i) * 10000;
+if !(isNil "_m") then {
+	// Считаем множитель через ceil. 
+	// Если m = 0.2, то 1/0.2 = 5, ceil(5) = 5. Вес станет 1.0.
+	// Если m = 0.23, то 1/0.23 ≈ 4.34, ceil(4.34) = 5. Вес станет 1.15 (≥ 1).
+	_m = ceil(1 / _m);
+	// Жёсткий потолок: множитель не будет больше этого числа.
+	_m = _m min 1000000000;
+};
+
+for "_i" from 0 to (count _weights -1) do {
+	_weight = _weights select _i;
+
+	if (_weight < 0) then {
+		_weight = 0;
+	}else{
+		if !(isNil "_m") then {
+			if (_weight > 0) then {
+				_weight = (_weight * _m) max 1;
+			};
+		};
+	};
 
 	_total = _total + _weight;
-	_chunks set [count _chunks, _weight];
-
+	#ifdef __ARMA3__
+		_chunks pushBack _weight;
+	#else
+		_chunks set [count _chunks, _weight];
+	#endif
 };
 
 _index = floor random _total;
@@ -52,7 +86,7 @@ scopename "scope1";
 _s = 0;
 for "_i" from 0 to ((count _chunks) - 1) do {
 
-	if (_chunks select _i != 0) then {
+	if (_chunks select _i > 0) then {
 		_s = _s + (_chunks select _i);
 		if (_index < _s) then {
 			diag_log format ["Log: [fnc_selectRandomWeighted] _index %2, _s %3, _i %1", _i, _index, _s];

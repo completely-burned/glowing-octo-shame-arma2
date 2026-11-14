@@ -14,6 +14,8 @@
  * №3 Горы.
  *
  * TODO: Проверка по зависимостям карты и другой информации.
+ *
+ * Для переопределения в редакторе пропишите в Init: gosa_IslandType_replace = [nil,1991];
  */
 
 if !(isNil "gosa_IslandType") exitWith {gosa_IslandType};
@@ -67,6 +69,10 @@ if (_w in ["i44_omaha","i44_omaha_v2","mcn_neaville","i44_merderet_winter",
 if (_w in ["vn_khe_sanh","vn_the_bra","cam_lao_nam","dong_giang","vnx_rssz"]) then
 {
 	_r set [1,1968];
+};
+if (_w in ["rhspkl"]) then
+{
+	_r set [1,1979];
 };
 if (_w in ["gm_weferlingen_summer","gm_weferlingen_winter"]) then
 {
@@ -129,7 +135,7 @@ if (_w in ["tem_anizay"]) then
 {
 	_r set [1,2018];
 };
-if (_w in ["rhspkl","dogechnya"]) then
+if (_w in ["dogechnya"]) then
 {
 	_r set [1,2019];
 };

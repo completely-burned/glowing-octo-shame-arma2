@@ -58,6 +58,13 @@ if (gosa_playerStartingClass == 1) exitWith {
 	diag_log format ["Log: [respawnRandom] Player class %1, exitWith", gosa_playerStartingClass];
 };
 
+waitUntil{!isNil "gosa_Groups_common"};
+_n = gosa_playerSide call gosa_fnc_getSideNum;
+if (count (gosa_Groups_common select _n select 1) <= 0) exitWith {
+	gosa_respawnDone = true;
+	diag_log format ["Log: [respawnRandom] Нет отрядов для %1, exitWith", gosa_playerSide];
+};
+
 gosa_respawnRandom = true;
 
 #ifdef __ARMA3__

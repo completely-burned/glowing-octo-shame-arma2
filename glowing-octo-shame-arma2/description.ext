@@ -280,31 +280,31 @@ class Params {
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_KR {
-			title="FACTION: VN_KR";
+			title="FACTION: VN_KR 70,75";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_MACV {
-			title="FACTION: VN_MACV";
+			title="FACTION: VN_MACV 66,68,70";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_NZ {
-			title="FACTION: VN_NZ";
+			title="FACTION: VN_NZ 66,68,70";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_ROK {
-			title="FACTION: VN_ROK";
+			title="FACTION: VN_ROK 65,68";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_AUS {
-			title="FACTION: VN_AUS";
+			title="FACTION: VN_AUS 66,68,70";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
@@ -316,7 +316,7 @@ class Params {
 			default = -1;
 		};
 		class gosa_faction_multiplier_VN_FANK {
-			title="FACTION: VN_FANK";
+			title="FACTION: VN_FANK 70,71";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
@@ -447,31 +447,31 @@ class Params {
 		// TODO: Убрать конфликты [SPE, WW2, LIB, IFA, I44]
 		// SPE
 		class gosa_faction_multiplier_SPE_WEHRMACHT {
-			title="FACTION: SPE_WEHRMACHT";
+			title="FACTION: SPE_WEHRMACHT ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPE_STURM {
-			title="FACTION: SPE_STURM";
+			title="FACTION: SPE_STURM ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPE_US_ARMY {
-			title="FACTION: SPE_US_ARMY";
+			title="FACTION: SPE_US_ARMY ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPE_FFI {
-			title="FACTION: SPE_FFI";
+			title="FACTION: SPE_FFI ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPEX_CW_Army {
-			title="FACTION: SPEX_CW_Army";
+			title="FACTION: SPEX_CW_Army ~1944";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
@@ -512,32 +512,50 @@ class Params {
 		};
 
 		// RHS
-		class gosa_faction_multiplier_RHS_MSV {
-			title="FACTION: RHS_MSV";
+		class gosa_faction_multiplier_RHS_AFRF {
+			title="FACTION: RHS AFRF (1973(flora)-(emr))";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
-		class gosa_faction_multiplier_RHS_TV {
-			title="FACTION: RHS_TV";
+		class gosa_faction_multiplier_rhsgref_faction_chdkz {
+			title="FACTION: rhsgref chdkz (1999-)";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_rhs_faction_usarmy {
+			title="FACTION: RHS USARMY (2004-2021 UCP WD, 2015- OCP D)";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_RHS_USMC {
+			title="FACTION: RHS_USMC (2004-2014 FROG-MARPAT)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default=-1;
 		};
-		class gosa_faction_multiplier_RHS_USMC_D {
-			title="FACTION: RHS_USMC_D";
+		class gosa_faction_multiplier_rhsgref_faction_cdf_ground_b {
+			title="FACTION: rhsgref CDF ground blu (1991-)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-			default=-1;
+			default = -1;
 		};
-		class gosa_faction_multiplier_RHS_USMC_WD {
-			title="FACTION: RHS_USMC_WD";
+		class gosa_faction_multiplier_rhsgref_faction_hidf {
+			title="FACTION: rhsgref HI DF (1970-1995)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
-			default=-1;
+			default = -1;
 		};
 		class gosa_faction_multiplier_rhssaf_army {
 			title="FACTION: rhssaf_army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_rhsgref_faction_nationalist {
+			title="FACTION: rhsgref nationalist (1970-)";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
@@ -1405,6 +1423,7 @@ class CfgFunctions
 			class veh_getinfo {};
 			class faction_getinfo {};
 			class getinfo {};
+			class cfg_grp_getinfo {};
 			class groups_convnormal {};
 			class group_cfg_to_array {};
 			class type_camoclass {};

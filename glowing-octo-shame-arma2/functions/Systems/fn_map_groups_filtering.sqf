@@ -40,7 +40,7 @@ for "_i" from 0 to (count _groups_map -1) do {
 		};
 		//- Проверка даты.
 		if (((_arr select 3 select 0) + (_date_tolerance select 0)*_n) > _date or 
-			((_arr select 3 select 1) + (_date_tolerance select 1)*_n) < _date) then
+			((_arr select 3 select 1) + (_date_tolerance select 1)*_n) <= _date) then
 		{
 			diag_log format ["Log: [fnc_map_groups] %1 исключена, дата %2", _str, [_date, _arr select 3]];
 			_b = false;

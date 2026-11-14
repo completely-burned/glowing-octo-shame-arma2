@@ -620,7 +620,7 @@
 		[[[["CUP_O_RU_Sniper_VDV_EMR","CUP_O_RU_Spotter_VDV_EMR"],[[0,5,0],[3,0,0]],["SERGEANT","SERGEANT"]]],0.05],
 	*/
 
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr = [
 			[[[["CUP_O_BM21_RU","CUP_O_BM21_RU"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
 		];
@@ -686,6 +686,7 @@
 	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS","Atlas_OPF_T_F"]
 	] call gosa_fnc_map_groups_add;
 
+#define __exclude ["rhsgref_faction_chdkz","gmx_chdkz","OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
 //-- CUP_O_ChDKZ
 	[_groups_map, east, "CUP_O_ChDKZ", [[
 			// configName CUP_O_ChDKZ_MotInfSquad
@@ -713,8 +714,7 @@
 			// configName CUP_O_ChDKZ_SniperTeam
 			[[[["CUP_O_INS_Sniper","CUP_O_INS_Sniper","CUP_O_INS_Soldier"],[[0,5,0],[3,0,0],[5,0,0]],["CORPORAL","CORPORAL","PRIVATE"]]],0.2]
 	], _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1990,2100], [160,250],
-	["OPF_G_F","OPF_F","OPF_T_F","OPF_R_F","OPF_SFIA_lxWS","OPF_TURA_lxWS"]
+	[1990,2100], [160,250], __exclude
 	] call gosa_fnc_map_groups_add;
 
 
@@ -1324,7 +1324,7 @@
 		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
 	};
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
 		];
@@ -1389,7 +1389,7 @@
 		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
 	};
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
 		];
@@ -1421,7 +1421,7 @@
 		[[[["CUP_B_ZUBR_CDF"],[],["CAPTAIN"]]], _depth min 0.5]
 	];
 	};
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			[[[["CUP_B_BM21_CDF","CUP_B_BM21_CDF"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.05]
 		];

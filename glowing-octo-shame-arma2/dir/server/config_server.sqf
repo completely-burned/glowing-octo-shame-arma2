@@ -1,8 +1,28 @@
-private ["_i","_ii","_E","_players","_side","_arr","_n"];
+/*
+ * TODO: Рефакторинг.
+ */
+private ["_i","_ii","_E","_players","_side","_arr","_n","_arr0","_problems",
+	"_pvp"];
+_pvp = false;
 
 waitUntil {!isNil "gosa_Groups_common"};
 waitUntil {!isNil "gosa_Groups_alliances"};
 _arr = [gosa_Groups_common, gosa_Groups_alliances] call gosa_fnc_init_side_balance;
+
+if !(_pvp) then {
+	gosa_sides_friendly_num = _arr select 3 select 1 select 1;
+	publicVariable "gosa_sides_friendly_num";
+
+	m_sideEnemy = _arr select 3 select 0 select 0;
+	gosa_friendlyside = _arr select 3 select 0 select 1;
+	publicVariable "m_sideEnemy";
+	publicVariable "gosa_friendlyside";
+};
+
+if !(isMultiplayer) then {
+	gosa_playerside = _arr select 5 call BIS_fnc_selectRandomWeighted;
+	diag_log format ["Log: [config_server] _playerside %1, _arr0 %2", gosa_playerside, _arr select 5];
+};
 
 [] call compile preprocessFileLineNumbers "dir\server\cfg_mhq.sqf";
 
@@ -129,6 +149,8 @@ for "_i" from 0 to 999 do {
 gosa_zone_limit_berthing = _arr;
 publicVariable "gosa_zone_limit_berthing";
 
+
+// TODO: Сделать нормальный запрос поддержки с воздуха.
 _woodland=false; _deserted=false;
 if(toLower worldname in ["zargabad", "takistan", "desert_e", "shapur_baf", "mountains_acr"])then{_deserted=true};
 if(toLower worldname in ["chernarus", "utes", "fdf_isle1_a",  "woodland_acr","namalsk","bootcamp_acr"])then{_woodland=true};
