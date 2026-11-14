@@ -52,11 +52,13 @@ if (_landing in [1,2,23,24]) then {
 		],0+0.1]
 	];
 };
-
-[_groups_map, east, "LIB_RKKA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1900,1950], [160,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "LIB_RKKA",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 // LIB_RKKA_w
 _arr = [
 	// LIB_SOV_sentry
@@ -96,10 +98,13 @@ _arr append [
 	[[[["LIB_Zis6_parm_w","LIB_Zis5v_fuel_w"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05],
 	[[[["LIB_Zis5v_med_w"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-[_groups_map, east, "LIB_RKKA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1900,1950], [-999,159],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "LIB_RKKA",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [-999,159], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 
 
 // LIB_WEHRMACHT
@@ -144,10 +149,13 @@ _arr = [
 	// LIB_GER_PzKpfwVI_E_Platoon
 	[[[["LIB_PzKpfwVI_E","LIB_PzKpfwVI_E","LIB_PzKpfwVI_E","LIB_PzKpfwVI_E"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["CAPTAIN","LIEUTENANT","LIEUTENANT","SERGEANT"]]],0.2]
 ];
-[_groups_map, west, "LIB_WEHRMACHT", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1900,1950], [160,279],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "LIB_WEHRMACHT",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,279], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 // LIB_WEHRMACHT_w
 _arr = [
 	// LIB_GER_infantry_squad
@@ -199,10 +207,13 @@ _arr append [
 	[[[["LIB_OpelBlitz_Parm_w","LIB_OpelBlitz_Ammo_w","LIB_OpelBlitz_Fuel_w"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05],
 	[[[["LIB_OpelBlitz_Ambulance_w"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-[_groups_map, west, "LIB_WEHRMACHT", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1900,1950], [-999,159],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "LIB_WEHRMACHT",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [-999,159], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 // LIB_DAK
 _arr = [
 	// LIB_DAK_infantry_squad
@@ -224,11 +235,13 @@ _arr = [
 	// LIB_GER_PzKpfwVI_E_Platoon
 	[[[["LIB_DAK_PzKpfwVI_E","LIB_DAK_PzKpfwVI_E"],[[0,10,0],[10,0,0]],["CAPTAIN","LIEUTENANT"]]],0.2]
 ];
-_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
-[_groups_map, west, "LIB_WEHRMACHT", _arr,
-[1900,1950], [280,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "LIB_WEHRMACHT",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [280,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 
 
 // LIB_US_ARMY
@@ -279,10 +292,13 @@ _arr append [
 	[[[["LIB_US_GMC_Parm","LIB_US_GMC_Ammo","LIB_US_GMC_Fuel"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05],
 	[[[["LIB_US_GMC_Ambulance"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-[_groups_map, resistance, "LIB_US_ARMY", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1900,1950], [160,279],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "LIB_US_ARMY",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,279], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 // LIB_US_ARMY_w
 _arr = [
 	// LIB_Motorized_Infantry_Squad
@@ -310,10 +326,13 @@ _arr append [
 	[[[["LIB_US_GMC_Parm_w","LIB_US_GMC_Parm_w","LIB_US_GMC_Fuel_w"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05],
 	[[[["LIB_US_GMC_Ambulance_w"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
-[_groups_map, resistance, "LIB_US_ARMY", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1900,1950], [-999,159],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "LIB_US_ARMY",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [-999,159], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 // LIB_NAC
 _arr = [
 	// LIB_US_NAC_motorized_infantry_squad
@@ -341,11 +360,13 @@ _arr = [
 	// LIB_US_NAC_M4A3_75_Platoon
 	[[[["LIB_US_NAC_M4A3_75","LIB_US_NAC_M4A3_75","LIB_US_NAC_M4A3_75","LIB_US_NAC_M4A3_75"],[[0,10,0],[10,0,0],[20,0,0],[30,0,0]],["LIEUTENANT","SERGEANT","SERGEANT","PRIVATE"]]],0.3]
 ];
-_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
-[_groups_map, resistance, "LIB_US_ARMY", _arr,
-[1900,1950], [280,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "LIB_US_ARMY",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [280,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 
 // LIB_UK_ARMY
 _arr = [
@@ -374,10 +395,13 @@ _arr = [
 _arr append [
 	[[[["LIB_Churchill_Mk7","LIB_Churchill_Mk7","LIB_Churchill_Mk7"],[[0,10,0],[10,0,0],[20,0,0]],["LIEUTENANT","SERGEANT","PRIVATE"]]],0.15]
 ];
-[_groups_map, resistance, "LIB_UK_ARMY", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1900,1950], [160,279],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "LIB_UK_ARMY",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160,279], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 // LIB_UK_ARMY_w
 _arr = [
 	// LIB_UK_machine_gun_team_w
@@ -402,10 +426,13 @@ _arr append [
 		[["LIB_UK_Para_Sergeant_w","LIB_UK_Para_LanceCorporal_w","LIB_UK_Para_Corporal_w","LIB_UK_Para_Corporal_w","LIB_UK_Para_Grenadier_w","LIB_UK_Para_Rifleman_w","LIB_UK_Para_Rifleman_w","LIB_UK_Para_Rifleman_w","LIB_UK_Para_Rifleman_w","LIB_UK_Para_Medic_w"],[[0,5,0],[3,0,0],[5,0,0],[7,0,0],[9,0,0],[11,0,0],[13,0,0],[15,0,0],[17,0,0],[19,0,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]
 	],0.1]
 ];
-[_groups_map, resistance, "LIB_UK_ARMY", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-[1900,1950], [-999,159],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "LIB_UK_ARMY",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [-999,159], __exclude
+	] call gosa_fnc_map_groups_add;
+};
 // LIB_UK_DR
 _arr = [
 	// LIB_Motorized_Infantry_Squad
@@ -431,8 +458,10 @@ _arr = [
 	// LIB_UK_Italy_M4A3_75_Platoon
 	[[[["LIB_UK_Italy_M4A3_75"],[[0,10,0]],["LIEUTENANT"]]],0.3]
 ];
-_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
-[_groups_map, resistance, "LIB_UK_ARMY", _arr,
-[1900,1950], [280,999],
-[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "LIB_UK_ARMY",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [280,999], __exclude
+	] call gosa_fnc_map_groups_add;
+};
