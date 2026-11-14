@@ -409,6 +409,7 @@ switch (true) do {
 		};
 
 	//--- Вермахт
+	// TODO: Экраны с 1943, но они убираются скриптами.
 	// PzKpfw III Ausf.J: 1941 (бронебойная модернизация к Барбароссе)
 		// PzKpfw III Ausf.L/M/N: 1942
 		if ([[_type], ["SPE_PzKpfwIII_L","SPE_PzKpfwIII_M","SPE_PzKpfwIII_N"]] call gosa_fnc_CheckIsKindOfArray) then {
