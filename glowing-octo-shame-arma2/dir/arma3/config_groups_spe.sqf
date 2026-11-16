@@ -244,7 +244,9 @@ _arr = [
 	// SPE_GER_PzKpfwIII_J_Platoon, Взвод PzKpfw III Ausf.J
 	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_J_Platoon"]],0.25],
 	// SPE_GER_Nashorn_TD_Platoon, Взвод Sd.Kfz. 164 Panzerjäger
+	/*
 	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_Nashorn_TD_Platoon"]],0.25],
+	*/
 	// SPE_GER_PzKpfwVI_H1_Platoon, Взвод PzKpfw VI Ausf.H1
 	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwVI_H1_Platoon"]],0.25],
 	// SPE_GER_PzKpfwV_G_Platoon, Взвод PzKpfw V Ausf.G
@@ -320,8 +322,8 @@ if (_landing in [1,4,24,34]) then {
 };
 if (_Artillery) then {
 	_arr append [
-		// SPE_GER_Nashorn_TD_Platoon
-		[[[["SPE_Nashorn","SPE_Nashorn","SPE_Nashorn","SPE_Nashorn"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25]
+		// SPE_GER_Nashorn_TD_Platoon, Взвод Sd.Kfz. 164 Panzerjäger
+		[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_Nashorn_TD_Platoon"]],0.25]
 	];
 };
 _arr append [
@@ -781,7 +783,9 @@ _arr = [
 	// SPE_M18_TD_Platoon, Взвод истребителей танков M18 Hellcat
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M18_TD_Platoon"]],0.3],
 	// SPE_M4A1_Calliope_Section, Расчет реактивной артиллерии «Каллиопа»
+	/*
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A1_Calliope_Section"]],0.3],
+	*/
 	// SPE_M4A3_75_Platoon, Взвод M4A3 Sherman
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A3_75_Platoon"]],0.3],
 	// SPE_M4A3_76_Platoon, Взвод M4A3 (76) Sherman
@@ -874,8 +878,8 @@ if (isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 	];
 }else{
 	_arr append [
-		// SPE_M4A1_Calliope_Section
-		[[[["SPE_M4A1_T34_Calliope","SPE_M4A1_T34_Calliope"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.3]
+		// SPE_M4A1_Calliope_Section, Расчет реактивной артиллерии «Каллиопа»
+		[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A1_Calliope_Section"]],0.3]
 	];
 };
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
