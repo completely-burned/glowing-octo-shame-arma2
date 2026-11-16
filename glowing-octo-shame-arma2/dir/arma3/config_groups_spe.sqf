@@ -330,6 +330,7 @@ _arr append [
 	[[[["SPE_FlaK_36","SPE_FlaK_36"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT"]]],0.01],
 	[[[["SPE_FlaK_36_AA","SPE_FlaK_36_AA"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT"]]],0.01]
 ];
+[_arr] call gosa_fnc_groups_convNormal;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "SPE_WEHRMACHT",
@@ -995,6 +996,7 @@ if (_Artillery) then {
 		[[[["SPE_M4A3_T34_Calliope_Direct","SPE_M4A3_T34_Calliope_Direct"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.03]
 	];
 };
+[_arr] call gosa_fnc_groups_convNormal;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, resistance, "SPE_US_ARMY",
