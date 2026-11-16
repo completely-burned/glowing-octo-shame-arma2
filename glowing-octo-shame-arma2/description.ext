@@ -1422,6 +1422,9 @@ class CfgFunctions
 	{
 		class cfg
 		{
+			class cfg_grp_fixRarity {};
+			class cfg_grp_setRarity {};
+			class cfg_grp_getRarity {};
 			class marta_showrules_all {};
 			class menu_pre {};
 			class unit_findleaderbydisplayname {};
