@@ -985,14 +985,14 @@ if (_landing in [1,2,23,24]) then {
 		],0.1]
 	];
 };
-if (isNil "lambs_wp_fnc_taskArtilleryRegister") then {
-	_arr append [
-		[[[["SPE_M4A3_T34_Calliope_Direct","SPE_M4A3_T34_Calliope_Direct"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.03]
-	];
-}else{
+if (_Artillery) then {
 	_arr append [
 		// SPE_M4A1_Calliope_Section, Расчет реактивной артиллерии «Каллиопа»
 		[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A1_Calliope_Section"]],0.3]
+	];
+}else{
+	_arr append [
+		[[[["SPE_M4A3_T34_Calliope_Direct","SPE_M4A3_T34_Calliope_Direct"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.03]
 	];
 };
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
