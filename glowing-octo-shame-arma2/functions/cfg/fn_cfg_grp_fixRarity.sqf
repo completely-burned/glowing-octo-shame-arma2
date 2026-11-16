@@ -39,3 +39,4 @@ if (_f != 1 && _f > 0) then {
         //} forEach _g;
     //};
 };
+[_g, _t] call gosa_fnc_cfg_grp_getRarity; // diag_log
