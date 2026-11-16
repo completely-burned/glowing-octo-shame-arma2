@@ -1283,6 +1283,10 @@ _east = [_east, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 _west = [_west, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 _guer = [_guer, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 
+[_east,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
+[_west,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
+[_guer,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
+
 _arr = [];
 _arr set [0, _eastN call gosa_fnc_arrSorting_confGroups];
 _arr set [1, _westN call gosa_fnc_arrSorting_confGroups];
