@@ -465,13 +465,19 @@ class Params {
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPE_FFI {
-			title="FACTION: SPE_FFI ~1944";
+			title="FACTION: SPE_FFI";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
 		};
 		class gosa_faction_multiplier_SPEX_CW_Army {
-			title="FACTION: SPEX_CW_Army ~1944";
+			title="FACTION: SPEX_CW_Army";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+		class gosa_faction_multiplier_SPEX_PL_ARMY {
+			title="FACTION: SPEX_PL_ARMY";
 			values[] = {-1,1,0};
 			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
 			default = -1;
