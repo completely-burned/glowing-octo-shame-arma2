@@ -86,113 +86,179 @@ for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	] call gosa_fnc_map_groups_add;
 };
 
-// SPE_WEHRMACHT
+//-- SPE_WEHRMACHT, [SPE] Вермахт
 _arr = [
-	// TODO: Баланс.
-	// SPE_FSJ_Infantry_Patrol
-	[[[["SPE_FSJ_Soldier_FG42","SPE_FSJ_Soldier","SPE_FSJ_Soldier"],[[0,0,0],[5,-5,0],[-5,-5,0]],["PRIVATE","PRIVATE","PRIVATE"]]],0+0.1],
-	// SPE_FSJ_Infantry_HQ
-	[[[["SPE_FSJ_Lieutenant","SPE_FSJ_SquadLead","SPE_FSJ_radioman","SPE_FSJ_medic","SPE_FSJ_LAT_Soldier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0+0.1],
-	// SPE_FSJ_Infantry_Team
-	[[[["SPE_FSJ_Assist_SquadLead","SPE_FSJ_Soldier_FG42","SPE_FSJ_LAT_Soldier","SPE_FSJ_grenadier","SPE_FSJ_Soldier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0+0.1],
-	// SPE_FSJ_Infantry_MG_Team
-	[[[["SPE_FSJ_SquadLead","SPE_FSJ_Mgunner2","SPE_FSJ_amgunner","SPE_FSJ_amgunner","SPE_FSJ_Mgunner"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0+0.1],
-	// SPE_FSJ_Infantry_squad
-	[[[["SPE_FSJ_SquadLead","SPE_FSJ_Mgunner","SPE_FSJ_amgunner","SPE_FSJ_Sniper_FG42","SPE_FSJ_Assist_SquadLead","SPE_FSJ_Mgunner2","SPE_FSJ_amgunner","SPE_FSJ_grenadier","SPE_FSJ_grenadier","SPE_FSJ_LAT_Soldier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0+0.1],
-	// SPE_FSJ_Infantry_Assault_squad
-	[[[["SPE_FSJ_SquadLead","SPE_FSJ_Mgunner","SPE_FSJ_amgunner","SPE_FSJ_Assist_SquadLead","SPE_FSJ_Soldier_STG44","SPE_FSJ_Soldier_STG44","SPE_FSJ_Sniper_FG42","SPE_FSJ_Soldier_FG42","SPE_FSJ_grenadier","SPE_FSJ_LAT_Soldier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0+0.1],
-	// SPE_FSJ_Infantry_Panzerjaeger
-	[[[["SPE_FSJ_AT_Soldier_SquadLead","SPE_FSJ_AT_soldier","SPE_FSJ_AT_Soldier_Assistant","SPE_FSJ_AT_soldier","SPE_FSJ_AT_Soldier_Assistant"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0+0.1],
-	// SPE_FSJ_HMG_team
-	[[[["SPE_FSJ_NCO","SPE_FSJ_hmgunner","SPE_FSJ_ahmgunner","SPE_FSJ_HMG_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0+0.1],
-	// SPE_FSJ_81mm_Mortar_Team
-	[[[["SPE_FSJ_SquadLead","SPE_FSJ_Mortar_Gunner","SPE_FSJ_Mortar_AGunner","SPE_FSJ_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","SERGEANT"]]],0+0.1],
-
-	/*
-	// SPE_OST_Platoon_Troop
-	[[[["SPE_OST_lieutenant","SPE_OST_rifleman_2","SPE_OST_Medic","SPE_OST_radioman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_OST_infantry_squad
-	[[[["SPE_OST_SquadLead","SPE_OST_mgunner","SPE_OST_Medic","SPE_OST_Assist_SquadLead","SPE_OST_rifleman","SPE_OST_amgunner","SPE_OST_LAT_Rifleman","SPE_OST_ober_grenadier","SPE_OST_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_OST_AT_squad
-	[[[["SPE_OST_SquadLead","SPE_OST_AT_grenadier","SPE_OST_AT_grenadier","SPE_OST_Assist_SquadLead","SPE_OST_LAT_Rifleman","SPE_OST_LAT_Rifleman","SPE_OST_LAT_Rifleman","SPE_OST_ober_grenadier","SPE_OST_LAT_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_OST_CSK_squad
-	[[[["SPE_OST_CSK_SquadLead","SPE_OST_CSK_mgunner","SPE_OST_CSK_sniper","SPE_OST_CSK_Assist_SquadLead","SPE_OST_CSK_ober_rifleman","SPE_OST_CSK_amgunner","SPE_OST_CSK_rifleman","SPE_OST_CSK_ober_grenadier","SPE_OST_CSK_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_OST_sentry_squad_2
-	[[[["SPE_OST_SquadLead","SPE_OST_rifleman"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_OST_sentry_squad_3
-	[[[["SPE_OST_stggunner","SPE_OST_rifleman","SPE_OST_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_OST_sniper_team
-	[[[["SPE_OST_CSK_sniper","SPE_OST_CSK_sniper"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_OST_Flamethrower_Team
-	[[[["SPE_OST_sapper_gefr","SPE_OST_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
-	// SPE_OST_Assault_Engineer_Squad
-	[[[["SPE_OST_SquadLead","SPE_OST_mgunner","SPE_OST_mgunner","SPE_OST_sapper_gefr","SPE_OST_rifleman_2","SPE_OST_amgunner","SPE_OST_sapper","SPE_OST_sapper","SPE_OST_amgunner","SPE_OST_Flamethrower_Operator","SPE_OST_AT_grenadier","SPE_OST_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// SPE_OST_MG_team
-	[[[["SPE_OST_SquadLead","SPE_OST_mgunner","SPE_OST_rifleman","SPE_OST_amgunner"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// SPE_OST_HMG_team
-	[[[["SPE_OST_SquadLead","SPE_OST_hmgunner","SPE_OST_ahmgunner","SPE_OST_HMG_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// SPE_OST_81_Mortar_Team
-	[[[["SPE_OST_SquadLead","SPE_OST_Mortar_Gunner","SPE_OST_Mortar_AGunner","SPE_OST_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-	*/
-
-	// SPE_GER_fw190f8_Group
-	[[[["SPE_fw190f8","SPE_fw190f8"],[[0,20,0],[-10,-10,0]],["CAPTAIN","LIEUTENANT"]]],0.5],
-	// SPE_GER_Lehr_Panzergrenadier_Squad
-	[[[["SPE_GER_lehr_SquadLead","SPE_GER_lehr_mgunner","SPE_GER_lehr_amgunner","SPE_GER_lehr_LAT_Rifleman","SPE_GER_lehr_Assist_SquadLead","SPE_GER_lehr_mgunner","SPE_GER_lehr_amgunner","SPE_GER_lehr_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_GER_Lehr_Panzergrenadier_MG_Team
-	[[[["SPE_GER_lehr_Assist_SquadLead","SPE_GER_lehr_mgunner","SPE_GER_lehr_amgunner","SPE_GER_lehr_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_GER_Platoon_Troop
-	[[[["SPE_GER_lieutenant","SPE_GER_rifleman_2","SPE_GER_medic","SPE_GER_radioman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_GER_infantry_squad
-	[[[["SPE_GER_SquadLead","SPE_GER_mgunner","SPE_GER_medic","SPE_GER_Assist_SquadLead","SPE_GER_rifleman","SPE_GER_amgunner","SPE_GER_LAT_Rifleman","SPE_GER_ober_grenadier","SPE_GER_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_GER_AT_squad
-	[[[["SPE_GER_SquadLead","SPE_GER_AT_grenadier","SPE_GER_AT_grenadier","SPE_GER_Assist_SquadLead","SPE_GER_LAT_Rifleman","SPE_GER_LAT_Rifleman","SPE_GER_LAT_Rifleman","SPE_GER_ober_grenadier","SPE_GER_LAT_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_GER_scout_squad
-	[[[["SPE_GER_scout_SquadLead","SPE_GER_scout_mgunner","SPE_GER_scout_sniper","SPE_GER_scout_Assist_SquadLead","SPE_GER_scout_ober_rifleman","SPE_GER_scout_amgunner","SPE_GER_scout_rifleman","SPE_GER_scout_ober_grenadier","SPE_GER_scout_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_GER_sentry_squad_2
-	[[[["SPE_GER_SquadLead","SPE_GER_rifleman"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_GER_sentry_squad_3
-	[[[["SPE_GER_stggunner","SPE_GER_rifleman","SPE_GER_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_GER_sniper_team
-	[[[["SPE_GER_scout_sniper","SPE_GER_scout_sniper"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_GER_Flamethrower_Team
-	[[[["SPE_GER_sapper_gefr","SPE_GER_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
-	// SPE_GER_Assault_Engineer_Squad
-	[[[["SPE_GER_SquadLead","SPE_GER_mgunner","SPE_GER_mgunner","SPE_GER_sapper_gefr","SPE_GER_rifleman_2","SPE_GER_amgunner","SPE_GER_sapper","SPE_GER_sapper","SPE_GER_amgunner","SPE_GER_Flamethrower_Operator","SPE_GER_AT_grenadier","SPE_GER_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// SPE_GER_MG_team
-	[[[["SPE_GER_SquadLead","SPE_GER_mgunner","SPE_GER_rifleman","SPE_GER_amgunner"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// SPE_GER_Panzerjaeger_squad
-	[[[["SPE_GER_AT_Soldier_SquadLead","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier_Assistant","SPE_GER_AT_Soldier_Assistant"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_GER_HMG_team
-	[[[["SPE_GER_SquadLead","SPE_GER_hmgunner","SPE_GER_ahmgunner","SPE_GER_HMG_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// SPE_GER_81_Mortar_Team
-	[[[["SPE_GER_SquadLead","SPE_GER_Mortar_Gunner","SPE_GER_Mortar_AGunner","SPE_GER_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-
-	// SPE_Motorized_Infantry_Squad
-	[[[["SPE_GER_SquadLead","SPE_OpelBlitz_Open","SPE_GER_mgunner","SPE_GER_medic","SPE_GER_Assist_SquadLead","SPE_GER_rifleman","SPE_GER_amgunner","SPE_GER_LAT_Rifleman","SPE_GER_ober_grenadier","SPE_GER_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_Command_Section
-	[[[["SPE_GER_lieutenant","SPE_GER_R200_Unarmed","SPE_GER_medic","SPE_GER_radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_GER_Scout_250_Recon_Team
-	[[[["SPE_GER_scout_SquadLead","SPE_SdKfz250_1","SPE_GER_scout_mgunner","SPE_GER_scout_amgunner","SPE_GER_scout_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-
-	// SPEX_GER_Bedford_MWD_Open, SPE_GER_MG_team
-	[[[["SPE_GER_SquadLead","SPEX_GER_Bedford_MWD_Open","SPE_GER_mgunner","SPE_GER_rifleman","SPE_GER_amgunner"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPEX_GER_Bedford_MWD_Open, SPE_GER_Panzerjaeger_squad
-	[[[["SPE_GER_AT_Soldier_SquadLead","SPEX_GER_Bedford_MWD_Open","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier","SPE_GER_AT_Soldier_Assistant","SPE_GER_AT_Soldier_Assistant"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-
-	// SPE_GER_PzKpfwIV_G_Platoon
-	[[[["SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G","SPE_PzKpfwIV_G"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_PzKpfwIII_L_Platoon
-	[[[["SPE_PzKpfwIII_L","SPE_PzKpfwIII_L","SPE_PzKpfwIII_L","SPE_PzKpfwIII_L"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_PzKpfwIII_J_Platoon
-	[[[["SPE_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J","SPE_PzKpfwIII_J"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_PzKpfwVI_H1_Platoon
-	[[[["SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1","SPE_PzKpfwVI_H1"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_STUG_G_Early_Section
-	[[[["SPE_StuG_III_G_Early","SPE_StuG_III_G_Early"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_STUH_42_Section
-	[[[["SPE_StuH_42","SPE_StuH_42"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25]
+	//- InfantryVolkGren, Infantry (Volks-Grenadier)
+	// SEP_B_GER_Infantry_VolkGren_Command_Section, Command Section
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_Command_Section"]],0.5],
+	// SEP_B_GER_Infantry_VolkGren_Sqd, Infantry Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_VolkGren_AT_Sqd, AT Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_AT_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_VolkGren_MG_Team, Machine Gun Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_MG_Team"]],0.5],
+	// SEP_B_GER_Infantry_VolkGren_Sniper_Team, Sniper Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_Sniper_Team"]],0.5],
+	// SEP_B_GER_Infantry_VolkGren_Flamethrower_Team, Flamethrower Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_Flamethrower_Team"]],0.5],
+	// SEP_B_GER_Infantry_VolkGren_2Man_Sentry, 2 Man Sentry
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_2Man_Sentry"]],0.5],
+	// SEP_B_GER_Infantry_VolkGren_3Man_Sentry, 3 Man Sentry 
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_3Man_Sentry"]],0.5],
+	//- InfantryBlueDivision, Infantry (Blue Division)
+	// SEP_B_GER_Infantry_BD_Command_Section, Command Section
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_Command_Section"]],0.5],
+	// SEP_B_GER_Infantry_BD_Sqd, Infantry Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_BD_AT_Sqd, AT Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_AT_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_BD_MG_Team, Machine Gun Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_MG_Team"]],0.5],
+	// SEP_B_GER_Infantry_BD_2Man_Sentry, 2 Man Sentry
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_2Man_Sentry"]],0.5],
+	// SEP_B_GER_Infantry_BD_3Man_Sentry, 3 Man Sentry 
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_3Man_Sentry"]],0.5],
+	//- InfantryEarly, Infantry (Early)
+	// SEP_B_GER_Infantry_Early_Command_Section, Command Section
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_Command_Section"]],0.5],
+	// SEP_B_GER_Infantry_Early_Sqd, Infantry Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_Early_MG_Team, Machine Gun Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_MG_Team"]],0.5],
+	// SEP_B_GER_Infantry_Early_Flamethrower_Team, Flamethrower Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_Flamethrower_Team"]],0.5],
+	// SEP_B_GER_Infantry_Early_2Man_Sentry, 2 Man Sentry
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_2Man_Sentry"]],0.5],
+	// SEP_B_GER_Infantry_Early_3Man_Sentry, 3 Man Sentry 
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_3Man_Sentry"]],0.5],
+	//- InfantryLwFD, Infantry (Field Division)
+	// SEP_B_GER_Infantry_LwFD_Sqd, Infantry Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_LwFD_AT_Sqd, AT Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_AT_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_LwFD_MG_Team, Machine Gun Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_MG_Team"]],0.5],
+	// SEP_B_GER_Infantry_LwFD_Sniper_Team, Sniper Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_Sniper_Team"]],0.5],
+	// SEP_B_GER_Infantry_LwFD_2Man_Sentry, 2 Man Sentry
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_2Man_Sentry"]],0.5],
+	// SEP_B_GER_Infantry_LwFD_3Man_Sentry, 3 Man Sentry 
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_3Man_Sentry"]],0.5],
+	//- SPE_FSJ, Десантники
+	// SPE_FSJ_Infantry_Patrol, 3 часовых
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_Infantry_Patrol"]],0],
+	// SPE_FSJ_Infantry_HQ, Командный отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_Infantry_HQ"]],0],
+	// SPE_FSJ_Infantry_Team, Стрелковая команда
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_Infantry_Team"]],0],
+	// SPE_FSJ_Infantry_MG_Team, Пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_Infantry_MG_Team"]],0],
+	// SPE_FSJ_Infantry_squad, Пехотное отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_Infantry_squad"]],0],
+	// SPE_FSJ_Infantry_Assault_squad, Штурмовое отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_Infantry_Assault_squad"]],0],
+	// SPE_FSJ_Infantry_Panzerjaeger, Отряд Panzerjäger
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_Infantry_Panzerjaeger"]],0],
+	// SPE_FSJ_HMG_team, Расчет тяжелого пулемета
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_HMG_team"]],0],
+	// SPE_FSJ_81mm_Mortar_Team, Минометный расчет
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_81mm_Mortar_Team"]],0],
+	//- Infantry_OST, POA
+	// SPE_OST_Platoon_Troop, Командный отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_Platoon_Troop"]],0.6],
+	// SPE_OST_infantry_squad, Пехотное отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_infantry_squad"]],0.8],
+	// SPE_OST_AT_squad, Противотанковое отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_AT_squad"]],0.4],
+	// SPE_OST_CSK_squad, Разведывательное отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_CSK_squad"]],0.4],
+	// SPE_OST_sentry_squad_2, 2 часовых
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_sentry_squad_2"]],0.4],
+	// SPE_OST_sentry_squad_3, 3 часовых
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_sentry_squad_3"]],0.4],
+	// SPE_OST_sniper_team, Снайперская группа
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_sniper_team"]],0.4],
+	// SPE_OST_Flamethrower_Team, Команда огнеметчиков
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_Flamethrower_Team"]],0.4],
+	// SPE_OST_Assault_Engineer_Squad, Штурмовой инженерный отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_Assault_Engineer_Squad"]],0.5],
+	// SPE_OST_MG_team, Пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry_OST" >> "SPE_OST_MG_team"]],0.5],
+	//- Support_OST, Поддержка POA
+	// SPE_OST_HMG_team, Расчет тяжелого пулемета
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support_OST" >> "SPE_OST_HMG_team"]],0.5],
+	// SPE_OST_81_Mortar_Team, Минометный расчет
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support_OST" >> "SPE_OST_81_Mortar_Team"]],0.4],
+	//- Support, Поддержка пехоты
+	// SPE_GER_HMG_team, Расчет тяжелого пулемета
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support" >> "SPE_GER_HMG_team"]],0.5],
+	// SPE_GER_81_Mortar_Team, Минометный расчет
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support" >> "SPE_GER_81_Mortar_Team"]],0.4],
+	//- Infantry, Пехота
+	// SPE_GER_Lehr_Panzergrenadier_Squad, Бронепехотное отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_Lehr_Panzergrenadier_Squad"]],0.4],
+	// SPE_GER_Lehr_Panzergrenadier_MG_Team, Бронепехотная группа с легкими пулеметами
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_Lehr_Panzergrenadier_MG_Team"]],0.4],
+	// SPE_GER_Platoon_Troop, Командный отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_Platoon_Troop"]],0.6],
+	// SPE_GER_infantry_squad, Пехотное отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_infantry_squad"]],0.8],
+	// SPE_GER_AT_squad, Противотанковое отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_AT_squad"]],0.4],
+	// SPE_GER_scout_squad, Разведывательное отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_scout_squad"]],0.4],
+	// SPE_GER_sentry_squad_2, 2 часовых
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_sentry_squad_2"]],0.4],
+	// SPE_GER_sentry_squad_3, 3 часовых
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_sentry_squad_3"]],0.4],
+	// SPE_GER_sniper_team, Снайперская группа
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_sniper_team"]],0.4],
+	// SPE_GER_Flamethrower_Team, Команда огнеметчиков
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_Flamethrower_Team"]],0.4],
+	// SPE_GER_Assault_Engineer_Squad, Штурмовой инженерный отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_Assault_Engineer_Squad"]],0.5],
+	// SPE_GER_MG_team, Пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_MG_team"]],0.5],
+	// SPE_GER_Panzerjaeger_squad, Отряд Panzerjäger
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_Panzerjaeger_squad"]],0.4],
+	//- Motorized, Моторизованная пехота
+	// SPE_Motorized_Infantry_Squad, Моторизованное пехотное отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Motorized" >> "SPE_Motorized_Infantry_Squad"]],0.6],
+	// SPE_Command_Section, Командный отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Motorized" >> "SPE_Command_Section"]],0.6],
+	//- Mechanized, Механизированная пехота
+	// SPE_GER_Scout_250_Recon_Team, Механизированная разведывательная группа
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Mechanized" >> "SPE_GER_Scout_250_Recon_Team"]],0.6],
+	//- Air, Воздушная
+	// SPE_GER_fw190f8_Group, Звено Fw 190 F-8
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Air" >> "SPE_GER_fw190f8_Group"]],0.5],
+	//- Armored, Бронетанковая
+	// SPE_GER_PzKpfwIV_G_Platoon, Взвод PzKpfw IV Ausf.G
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIV_G_Platoon"]],0.25],
+	// SPE_GER_PzKpfwIII_M_Platoon, Взвод PzKpfw III Ausf.M
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_M_Platoon"]],0.25],
+	// SPE_GER_PzKpfwIII_N_Platoon, Взвод PzKpfw III Ausf.N
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_N_Platoon"]],0.25],
+	// SPE_GER_PzKpfwIII_L_Platoon, Взвод PzKpfw III Ausf.L
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_L_Platoon"]],0.25],
+	// SPE_GER_PzKpfwIII_J_Platoon, Взвод PzKpfw III Ausf.J
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_J_Platoon"]],0.25],
+	// SPE_GER_Nashorn_TD_Platoon, Взвод Sd.Kfz. 164 Panzerjäger
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_Nashorn_TD_Platoon"]],0.25],
+	// SPE_GER_PzKpfwVI_H1_Platoon, Взвод PzKpfw VI Ausf.H1
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwVI_H1_Platoon"]],0.25],
+	// SPE_GER_PzKpfwV_G_Platoon, Взвод PzKpfw V Ausf.G
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwV_G_Platoon"]],0.25],
+	// SPE_GER_STUG_G_Late_Section, Отделение Sd.Kfz. 142/1 StuG (поздн.)
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_STUG_G_Late_Section"]],0.25],
+	// SPE_GER_STUG_G_Early_Section, Отделение Sd.Kfz. 142/1 StuG (ранний)
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_STUG_G_Early_Section"]],0.25],
+	// SPE_GER_STUH_42_Section, Отделение Sd.Kfz. 142/2 StuH 42
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_STUH_42_Section"]],0.25],
+	// SPE_GER_Jagdpanther_Section, Отделение Sd.Kfz. 173 Jagdpanther
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_Jagdpanther_Section"]],0.25]
 ];
+[_arr] call gosa_fnc_groups_convNormal;
 _arr append [
 	// 1942г. mg42 > mg34, stg44 > mp40, at.
 	// SPE_GER_infantry_squad_42
@@ -270,61 +336,99 @@ for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	] call gosa_fnc_map_groups_add;
 };
 
-// SPE_STURM
+//-- SPE_STURM, [SPE] Штурмовики
 _arr = [
-	// SPE_sturmtrooper_MG_team
-	[[[["SPE_sturmtrooper_SquadLead","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_ober_rifleman","SPE_sturmtrooper_amgunner"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL"]]],0.4],
-	// SPE_sturmtrooper_sniper_team
-	[[[["SPE_sturmtrooper_sniper","SPE_sturmtrooper_sniper"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_sturmtrooper_sentry_team_2
-	[[[["SPE_sturmtrooper_SquadLead","SPE_sturmtrooper_rifleman"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.8],
-	// SPE_sturmtrooper_sentry_team_3
-	[[[["SPE_sturmtrooper_stggunner","SPE_sturmtrooper_rifleman","SPE_sturmtrooper_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0]],["CORPORAL","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_sturmtrooper_Flamethrower_Team
-	[[[["SPE_sturmtrooper_sapper_gefr","SPE_sturmtrooper_Flamethrower_Operator"],[[0,0,0],[5,-5,0]],["CORPORAL","PRIVATE"]]],0.01],
-	// SPE_sturmtrooper_command_section
-	[[[["SPE_sturmtrooper_untersturmfuhrer","SPE_sturmtrooper_rifleman","SPE_sturmtrooper_medic","SPE_sturmtrooper_radioman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_sturmtrooper_infantry_squad
-	[[[["SPE_sturmtrooper_SquadLead","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_medic","SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_stggunner","SPE_sturmtrooper_amgunner","SPE_sturmtrooper_LAT_Rifleman","SPE_sturmtrooper_ober_grenadier","SPE_sturmtrooper_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_sturmtrooper_AT_squad
-	[[[["SPE_sturmtrooper_SquadLead","SPE_sturmtrooper_AT_grenadier","SPE_sturmtrooper_AT_grenadier","SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_LAT_Rifleman","SPE_sturmtrooper_LAT_Rifleman","SPE_sturmtrooper_LAT_Rifleman","SPE_sturmtrooper_ober_grenadier","SPE_sturmtrooper_LAT_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_sturmtrooper_Assault_Engineer_Squad
-	[[[["SPE_sturmtrooper_SquadLead","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_sapper_gefr","SPE_sturmtrooper_stggunner","SPE_sturmtrooper_amgunner","SPE_sturmtrooper_sapper","SPE_sturmtrooper_sapper","SPE_sturmtrooper_amgunner","SPE_sturmtrooper_Flamethrower_Operator","SPE_sturmtrooper_AT_grenadier","SPE_sturmtrooper_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// SPE_ST_Panzerjaeger_squad
-	[[[["SPE_ST_AT_Soldier_SquadLead","SPE_ST_AT_Soldier","SPE_ST_AT_Soldier","SPE_ST_AT_Soldier_Assistant","SPE_ST_AT_Soldier_Assistant"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_sturmtrooper_HMG_team
-	[[[["SPE_sturmtrooper_SquadLead","SPE_sturmtrooper_hmgunner2","SPE_sturmtrooper_ahmgunner","SPE_sturmtrooper_HMG_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0.5],
-	// SPE_sturmtrooper_81_Mortar_Team
-	[[[["SPE_sturmtrooper_SquadLead","SPE_sturmtrooper_Mortar_Gunner","SPE_sturmtrooper_Mortar_AGunner","SPE_sturmtrooper_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_Motorized_Infantry_Squad
-	[[[["SPE_sturmtrooper_SquadLead","SPE_ST_OpelBlitz","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_medic","SPE_sturmtrooper_Assist_SquadLead","SPE_sturmtrooper_stggunner","SPE_sturmtrooper_amgunner","SPE_sturmtrooper_LAT_Rifleman","SPE_sturmtrooper_ober_grenadier","SPE_sturmtrooper_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_Command_Section
-	[[[["SPE_sturmtrooper_untersturmfuhrer","SPE_ST_R200_Unarmed","SPE_sturmtrooper_medic","SPE_sturmtrooper_radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_Sturm_Scout_250_Recon_Team
-	[[[["SPE_sturmtrooper_SquadLead","SPE_ST_SdKfz250_1","SPE_sturmtrooper_mgunner","SPE_sturmtrooper_amgunner","SPE_sturmtrooper_ober_rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_GER_PzKpfwIV_G_Platoon
-	[[[["SPE_ST_PzKpfwIV_G","SPE_ST_PzKpfwIV_G","SPE_ST_PzKpfwIV_G","SPE_ST_PzKpfwIV_G"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_PzKpfwIII_M_Platoon
-	[[[["SPE_ST_PzKpfwIII_M","SPE_ST_PzKpfwIII_M","SPE_ST_PzKpfwIII_M","SPE_ST_PzKpfwIII_M"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_PzKpfwIII_L_Platoon
-	[[[["SPE_ST_PzKpfwIII_L","SPE_ST_PzKpfwIII_L","SPE_ST_PzKpfwIII_L","SPE_ST_PzKpfwIII_L"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_GER_PzKpfwIII_J_Platoon
-	[[[["SPE_ST_PzKpfwIII_J","SPE_ST_PzKpfwIII_J","SPE_ST_PzKpfwIII_J","SPE_ST_PzKpfwIII_J"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_STUR_PzKpfwIII_N_Platoon
-	[[[["SPE_ST_PzKpfwIII_N","SPE_ST_PzKpfwIII_N","SPE_ST_PzKpfwIII_N","SPE_ST_PzKpfwIII_N"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_STUR_PzKpfwVI_H1_Platoon
-	[[[["SPE_ST_PzKpfwVI_H1","SPE_ST_PzKpfwVI_H1","SPE_ST_PzKpfwVI_H1","SPE_ST_PzKpfwVI_H1"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_ST_PzKpfwV_G_Platoon
-	[[[["SPE_ST_PzKpfwV_G","SPE_ST_PzKpfwV_G","SPE_ST_PzKpfwV_G","SPE_ST_PzKpfwV_G"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.25],
-	// SPE_ST_STUG_G_Late_Section
-	[[[["SPE_ST_StuG_III_G_Late","SPE_ST_StuG_III_G_SKB"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
-	// SPE_ST_STUG_G_Early_Section
-	[[[["SPE_ST_StuG_III_G_Early","SPE_ST_StuG_III_G_Early"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
-	// SPE_ST_STUH_42_Section
-	[[[["SPE_ST_StuH_42","SPE_ST_StuH_42"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
-	// SPE_ST_Jagdpanther_Section
-	[[[["SPE_ST_Jagdpanther_G1","SPE_ST_Jagdpanther_G1"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25]
+	//- InfantryFrench, Infantry (French Volunteers)
+	// SEP_B_GER_Infantry_French_Command_Section, Command Section
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_Command_Section"]],0.5],
+	// SEP_B_GER_Infantry_French_Sqd, Infantry Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_French_AT_Sqd, AT Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_AT_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_French_MG_Team, Machine Gun Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_MG_Team"]],0.5],
+	// SEP_B_GER_Infantry_French_Flamethrower_Team, Flamethrower Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_Flamethrower_Team"]],0.5],
+	// SEP_B_GER_Infantry_French_Sniper_Team, Sniper Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_Sniper_Team"]],0.5],
+	// SEP_B_GER_Infantry_French_2Man_Sentry, 2 Man Sentry
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_2Man_Sentry"]],0.5],
+	// SEP_B_GER_Infantry_French_3Man_Sentry, 3 Man Sentry 
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_3Man_Sentry"]],0.5],
+	//- InfantryEarlySturm, Infantry (Early)
+	// SEP_B_GER_Infantry_Sturm_Early_Command_Section, Command Section
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_Command_Section"]],0.5],
+	// SEP_B_GER_Infantry_Sturm_Early_Sqd, Infantry Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_Sqd"]],0.5],
+	// SEP_B_GER_Infantry_Sturm_Early_MG_Team, Machine Gun Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_MG_Team"]],0.5],
+	// SEP_B_GER_Infantry_Sturm_Early_Flamethrower_Team, Flamethrower Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_Flamethrower_Team"]],0.5],
+	// SEP_B_GER_Infantry_Sturm_Early_Sniper_Team, Sniper Team
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_Sniper_Team"]],0.5],
+	// SEP_B_GER_Infantry_Sturm_Early_2Man_Sentry, 2 Man Sentry
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_2Man_Sentry"]],0.5],
+	// SEP_B_GER_Infantry_Sturm_Early_3Man_Sentry, 3 Man Sentry 
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_3Man_Sentry"]],0.5],
+	//- Support, Поддержка пехоты
+	// SPE_sturmtrooper_HMG_team, Расчет тяжелого пулемета
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Support" >> "SPE_sturmtrooper_HMG_team"]],0.5],
+	// SPE_sturmtrooper_81_Mortar_Team, Минометный расчет
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Support" >> "SPE_sturmtrooper_81_Mortar_Team"]],0.4],
+	//- Infantry, Пехота
+	// SPE_sturmtrooper_MG_team, Пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_MG_team"]],0.4],
+	// SPE_sturmtrooper_sniper_team, Снайперская группа
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_sniper_team"]],0.4],
+	// SPE_sturmtrooper_sentry_team_2, 2 часовых
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_sentry_team_2"]],0.8],
+	// SPE_sturmtrooper_sentry_team_3, 3 часовых
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_sentry_team_3"]],0.8],
+	// SPE_sturmtrooper_Flamethrower_Team, Команда огнеметчиков
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_Flamethrower_Team"]],0.4],
+	// SPE_sturmtrooper_command_section, Командный отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_command_section"]],0.8],
+	// SPE_sturmtrooper_infantry_squad, Пехотное отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_infantry_squad"]],0.8],
+	// SPE_sturmtrooper_AT_squad, Противотанковое отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_AT_squad"]],0.4],
+	// SPE_sturmtrooper_Assault_Engineer_Squad, Штурмовой инженерный отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_Assault_Engineer_Squad"]],0.5],
+	// SPE_ST_Panzerjaeger_squad, Отряд Panzerjäger
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_ST_Panzerjaeger_squad"]],0.4],
+	//- Motorized, Моторизованная пехота
+	// SPE_Motorized_Infantry_Squad, Моторизованное пехотное отделение
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Motorized" >> "SPE_Motorized_Infantry_Squad"]],0.6],
+	// SPE_Command_Section, Командный отряд
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Motorized" >> "SPE_Command_Section"]],0.6],
+	//- Mechanized, Механизированная пехота
+	// SPE_Sturm_Scout_250_Recon_Team, Механизированная разведывательная группа
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Mechanized" >> "SPE_Sturm_Scout_250_Recon_Team"]],0.6],
+	//- Armored, Бронетанковая
+	// SPE_GER_PzKpfwIV_G_Platoon, Взвод PzKpfw IV Ausf.G
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIV_G_Platoon"]],0.25],
+	// SPE_GER_PzKpfwIII_M_Platoon, Взвод PzKpfw III Ausf.M
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIII_M_Platoon"]],0.25],
+	// SPE_GER_PzKpfwIII_L_Platoon, Взвод PzKpfw III Ausf.L
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIII_L_Platoon"]],0.25],
+	// SPE_GER_PzKpfwIII_J_Platoon, Взвод PzKpfw III Ausf.J
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIII_J_Platoon"]],0.25],
+	// SPE_STUR_PzKpfwIII_N_Platoon, Взвод PzKpfw III Ausf.N
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_STUR_PzKpfwIII_N_Platoon"]],0.25],
+	// SPE_STUR_PzKpfwVI_H1_Platoon, Взвод PzKpfw VI Ausf.H1
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_STUR_PzKpfwVI_H1_Platoon"]],0.25],
+	// SPE_ST_PzKpfwV_G_Platoon, Взвод PzKpfw V Ausf.G
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_PzKpfwV_G_Platoon"]],0.25],
+	// SPE_ST_STUG_G_Late_Section, Отделение Sd.Kfz. 142/1 StuG (поздн.)
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_STUG_G_Late_Section"]],0.25],
+	// SPE_ST_STUG_G_Early_Section, Отделение Sd.Kfz. 142/1 StuG (ранний)
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_STUG_G_Early_Section"]],0.25],
+	// SPE_ST_STUH_42_Section, Отделение Sd.Kfz. 142/2 StuH 42
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_STUH_42_Section"]],0.25],
+	// SPE_ST_Jagdpanther_Section, Отделение Sd.Kfz. 173 Jagdpanther
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_Jagdpanther_Section"]],0.25]
 ];
+[_arr] call gosa_fnc_groups_convNormal;
 _arr append [
 	// 1942г. mg42 > mg34, stg44 > mp40, at.
 	// SPE_sturmtrooper_MG_team_42
@@ -528,157 +632,199 @@ for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	] call gosa_fnc_map_groups_add;
 };
 
-// SPE_US_ARMY
+//-- SPE_US_ARMY, [SPE] Армия США
 _arr = [
-	// SPE_US_Command_Section
-	[[[["SPE_US_First_Lieutenant","SPE_US_Rifleman","SPE_US_Medic","SPE_US_Radioman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_Command_Squad
-	[[[["SPE_US_Second_Lieutenant","SPE_US_Radioman","SPE_US_Rifleman","SPE_US_Medic","SPE_US_Rifleman","SPE_US_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_Infantry_Squad
-	[[[["SPE_US_SquadLead","SPE_US_Autorifleman","SPE_US_Medic","SPE_US_Assist_SquadLead","SPE_US_Autorifleman","SPE_US_Rifleman_AmmoBearer","SPE_US_Grenadier","SPE_US_Grenadier","SPE_US_Assist_Autorifleman","SPE_US_Assist_Autorifleman","SPE_US_Rifleman","SPE_US_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_US_AT_Squad
-	[[[["SPE_US_SquadLead","SPE_US_Assist_SquadLead","SPE_US_AT_Soldier","SPE_US_AT_Soldier","SPE_US_AT_Soldier","SPE_US_Autorifleman","SPE_US_Assist_Autorifleman","SPE_US_Grenadier","SPE_US_Grenadier","SPE_US_Rifleman_AmmoBearer","SPE_US_Rifleman","SPE_US_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Scout_Squad
-	[[[["SPE_US_SquadLead","SPE_US_Assist_SquadLead","SPE_US_Sniper","SPE_US_Medic","SPE_US_Autorifleman","SPE_US_Rifleman_AmmoBearer","SPE_US_Grenadier","SPE_US_Grenadier","SPE_US_Assist_Autorifleman","SPE_US_Rifleman","SPE_US_Rifleman","SPE_US_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Flamethrower_Team
-	[[[["SPE_US_Flamethrower_Operator","SPE_US_Rifleman"],[[0,0,0],[5,-5,0]],["Private","PRIVATE"]]],0.01],
-	// SPE_US_Sentry_Squad_2
-	[[[["SPE_US_SquadLead","SPE_US_Rifleman"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_US_Sentry_Squad_3
-	[[[["SPE_US_SquadLead","SPE_US_Rifleman","SPE_US_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Sniper_Team
-	[[[["SPE_US_Sniper","SPE_US_Sniper"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_US_Rifle_Team
-	[[[["SPE_US_Assist_SquadLead","SPE_US_Grenadier","SPE_US_Grenadier","SPE_US_Rifleman","SPE_US_Rifleman","SPE_US_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_BAR_Team
-	[[[["SPE_US_SquadLead","SPE_US_Autorifleman","SPE_US_Assist_Autorifleman","SPE_US_Rifleman","SPE_US_Rifleman","SPE_US_Rifleman_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_2AD_Dismounted_Platoon_HQ
-	[[[["SPE_US_HBT44_Second_Lieutenant","SPE_US_HBT44_Radioman","SPE_US_HBT44_Sniper","SPE_US_HBT44_Medic","SPE_US_HBT44_SquadLead","SPE_US_HBT44_AT_Soldier","SPE_US_HBT44_Grenadier","SPE_US_HBT44_Grenadier","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0]],["LIEUTENANT","PRIVATE","CORPORAL","PRIVATE","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_2AD_Dismounted_RifleSquad
-	[[[["SPE_US_HBT44_SquadLead","SPE_US_HBT44_Autorifleman","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Assist_SquadLead","SPE_US_HBT44_Autorifleman","SPE_US_HBT44_AT_Soldier","SPE_US_HBT44_Grenadier","SPE_US_HBT44_Grenadier","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_US_2AD_Dismounted_MGSquad
-	[[[["SPE_US_HBT44_SquadLead","SPE_US_HBT44_HMGunner","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Assist_SquadLead","SPE_US_HBT44_HMGunner","SPE_US_HBT44_AT_Soldier","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Rifleman","SPE_US_HBT44_AHMGunner","SPE_US_HBT44_AHMGunner","SPE_US_HBT44_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_US_2AD_Dismounted_AssaultEngineer_Squad
-	[[[["SPE_US_HBT44_SquadLead","SPE_US_HBT44_Flamethrower_Operator","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Assist_SquadLead","SPE_US_HBT44_Flamethrower_Operator","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Engineer","SPE_US_HBT44_Engineer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Heavy_Machine_Gun_Team
-	[[[["SPE_US_SquadLead","SPE_US_HMGunner","SPE_US_AHMGunner","SPE_US_HMG_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_81_Mortar_Team
-	[[[["SPE_US_SquadLead","SPE_US_Mortar_Gunner","SPE_US_Mortar_AGunner","SPE_US_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_M2_Heavy_Machine_Gun_Team
-	[[[["SPE_US_SquadLead","SPE_US_HMGunner_M2","SPE_US_AHMGunner_M2","SPE_US_HMG_AmmoBearer_M2","SPE_US_HMG_AmmoBearer_M2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Rangers_Assault_Section
-	[[[["SPE_US_Rangers_SquadLead","SPE_US_Rangers_HMGunner","SPE_US_Rangers_medic","SPE_US_Rangers_Assist_SquadLead","SPE_US_Rangers_AHMGunner","SPE_US_Rangers_Rifleman","SPE_US_Rangers_Rifleman","SPE_US_Rangers_grenadier","SPE_US_Rangers_Rifleman_AmmoBearer","SPE_US_Rangers_Rifleman_AmmoBearer","SPE_US_Rangers_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_US_Rangers_Assault_Section_BAR
-	[[[["SPE_US_Rangers_SquadLead","SPE_US_Rangers_Autorifleman","SPE_US_Rangers_medic","SPE_US_Rangers_Assist_SquadLead","SPE_US_Rangers_Autorifleman","SPE_US_Rangers_Rifleman","SPE_US_Rangers_Rifleman","SPE_US_Rangers_grenadier","SPE_US_Rangers_Assist_Autorifleman","SPE_US_Rangers_Assist_Autorifleman","SPE_US_Rangers_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_US_Rangers_AT_squad
-	[[[["SPE_US_Rangers_SquadLead","SPE_US_Rangers_AT_soldier","SPE_US_Rangers_AT_soldier","SPE_US_Rangers_AT_soldier","SPE_US_Rangers_Assist_SquadLead","SPE_US_Rangers_rifleman","SPE_US_Rangers_grenadier","SPE_US_Rangers_rifleman","SPE_US_Rangers_rifleman","SPE_US_Rangers_rifleman","SPE_US_Rangers_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Rangers_MG_Squad
-	[[[["SPE_US_Rangers_SquadLead","SPE_US_Rangers_HMGunner","SPE_US_Rangers_AHMGunner","SPE_US_Rangers_Rifleman_AmmoBearer","SPE_US_Rangers_Rifleman_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_US_Rangers_Rifle_Squad
-	[[[["SPE_US_Rangers_Assist_SquadLead","SPE_US_Rangers_grenadier","SPE_US_Rangers_medic","SPE_US_Rangers_Rifleman","SPE_US_Rangers_Rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_US_Ranger_scout_squad
-	[[[["SPE_US_Rangers_SquadLead","SPE_US_Rangers_sniper","SPE_US_Rangers_sniper","SPE_US_Rangers_rifleman","SPE_US_Rangers_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE"]]],0.4],
-	// SPE_US_Ranger_Assault_Engineer_Squad
-	[[[["SPE_US_Rangers_SquadLead","SPE_US_Rangers_Engineer","SPE_US_Rangers_engineer_bangalore","SPE_US_Rangers_Flamethrower_Operator","SPE_US_Rangers_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","CORPORAL","CORPORAL","PRIVATE"]]],0.2],
-
-	// SPE_US_101AB_Infantry_squad
-	[[[["SPE_US_101AB_SquadLead","SPE_US_101AB_mgunner","SPE_US_101AB_mgunner_assistant","SPE_US_101AB_Rifleman_AmmoBearer","SPE_US_101AB_rifleman","SPE_US_101AB_rifleman","SPE_US_101AB_Assist_SquadLead","SPE_US_101AB_grenadier","SPE_US_101AB_smgunner","SPE_US_101AB_rifleman","SPE_US_101AB_rifleman","SPE_US_101AB_medic"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_101AB_HQ_squad
-	[[[["SPE_US_101AB_CO","SPE_US_101AB_CO","SPE_US_101AB_SquadLead","SPE_US_101AB_radioman","SPE_US_101AB_rifleman","SPE_US_101AB_AT_soldier","SPE_US_101AB_Sniper"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_101AB_Rifle_Team
-	[[[["SPE_US_101AB_SquadLead","SPE_US_101AB_grenadier","SPE_US_101AB_smgunner","SPE_US_101AB_rifleman","SPE_US_101AB_rifleman","SPE_US_101AB_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_101AB_MG_Team
-	[[[["SPE_US_101AB_Assist_SquadLead","SPE_US_101AB_mgunner","SPE_US_101AB_mgunner_assistant","SPE_US_101AB_medic","SPE_US_101AB_rifleman","SPE_US_101AB_Rifleman_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_101AB_Assault_Squad
-	[[[["SPE_US_101AB_SquadLead","SPE_US_101AB_mgunner","SPE_US_101AB_mgunner_assistant","SPE_US_101AB_smgunner","SPE_US_101AB_rifleman_carbine","SPE_US_101AB_grenadier","SPE_US_101AB_Assist_SquadLead","SPE_US_101AB_Autorifleman","SPE_US_101AB_Assist_Autorifleman","SPE_US_101AB_smgunner","SPE_US_101AB_smgunner","SPE_US_101AB_Rifleman_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_101AB_Assault_Engineer_Squad
-	[[[["SPE_US_101AB_SquadLead","SPE_US_101AB_Engineer","SPE_US_101AB_Engineer","SPE_US_101AB_Flamethrower_Operator","SPE_US_101AB_smgunner","SPE_US_101AB_smgunner"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_101AB_AT_Team
-	[[[["SPE_US_101AB_Assist_SquadLead","SPE_US_101AB_AT_soldier","SPE_US_101AB_Rifleman_AmmoBearer","SPE_US_101AB_grenadier","SPE_US_101AB_AT_soldier","SPE_US_101AB_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_101AB_HMG_Team
-	[[[["SPE_US_101AB_SquadLead","SPE_US_101AB_HMGunner_M2","SPE_US_101AB_AHMGunner_M2","SPE_US_101AB_HMG_AmmoBearer_M2","SPE_US_101AB_HMG_AmmoBearer_M2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_101AB_81mm_Mortar_Team
-	[[[["SPE_US_101AB_SquadLead","SPE_US_101AB_Mortar_Gunner","SPE_US_101AB_Mortar_AGunner","SPE_US_101AB_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_82AB_Infantry_squad
-	[[[["SPE_US_82AB_SquadLead","SPE_US_82AB_mgunner","SPE_US_82AB_mgunner_assistant","SPE_US_82AB_Rifleman_AmmoBearer","SPE_US_82AB_rifleman","SPE_US_82AB_rifleman","SPE_US_82AB_Assist_SquadLead","SPE_US_82AB_grenadier","SPE_US_82AB_smgunner","SPE_US_82AB_rifleman","SPE_US_82AB_rifleman","SPE_US_82AB_medic"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_82AB_HQ_squad
-	[[[["SPE_US_82AB_CO","SPE_US_82AB_CO","SPE_US_82AB_SquadLead","SPE_US_82AB_radioman","SPE_US_82AB_rifleman","SPE_US_82AB_AT_soldier","SPE_US_82AB_Sniper"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0]],["LIEUTENANT","LIEUTENANT","SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_82AB_Rifle_Team
-	[[[["SPE_US_82AB_SquadLead","SPE_US_82AB_grenadier","SPE_US_82AB_smgunner","SPE_US_82AB_rifleman","SPE_US_82AB_rifleman","SPE_US_82AB_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_82AB_MG_Team
-	[[[["SPE_US_82AB_Assist_SquadLead","SPE_US_82AB_mgunner","SPE_US_82AB_mgunner_assistant","SPE_US_82AB_medic","SPE_US_82AB_rifleman","SPE_US_82AB_Rifleman_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_82AB_Assault_Squad
-	[[[["SPE_US_82AB_SquadLead","SPE_US_82AB_mgunner","SPE_US_82AB_mgunner_assistant","SPE_US_82AB_smgunner","SPE_US_82AB_rifleman_carbine","SPE_US_82AB_grenadier","SPE_US_82AB_Assist_SquadLead","SPE_US_82AB_Autorifleman","SPE_US_82AB_Assist_Autorifleman","SPE_US_82AB_smgunner","SPE_US_82AB_smgunner","SPE_US_82AB_Rifleman_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_82AB_Assault_Engineer_Squad
-	[[[["SPE_US_82AB_SquadLead","SPE_US_82AB_Engineer","SPE_US_82AB_Engineer","SPE_US_82AB_Flamethrower_Operator","SPE_US_82AB_smgunner","SPE_US_82AB_smgunner"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_82AB_AT_Team
-	[[[["SPE_US_82AB_Assist_SquadLead","SPE_US_82AB_AT_soldier","SPE_US_82AB_Rifleman_AmmoBearer","SPE_US_82AB_grenadier","SPE_US_82AB_AT_soldier","SPE_US_82AB_rifleman"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_82AB_HMG_Team
-	[[[["SPE_US_82AB_SquadLead","SPE_US_82AB_HMGunner_M2","SPE_US_82AB_AHMGunner_M2","SPE_US_82AB_HMG_AmmoBearer_M2","SPE_US_82AB_HMG_AmmoBearer_M2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0],
-	// SPE_US_82AB_81mm_Mortar_Team
-	[[[["SPE_US_82AB_SquadLead","SPE_US_82AB_Mortar_Gunner","SPE_US_82AB_Mortar_AGunner","SPE_US_82AB_Mortar_AmmoBearer"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],0],
-
-	// SPE_US_Command_Section
-	[[[["SPE_US_First_Lieutenant_late","SPE_US_Rifleman_late","SPE_US_Medic_late","SPE_US_Radioman_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_Command_Squad
-	[[[["SPE_US_Second_Lieutenant_late","SPE_US_Radioman_late","SPE_US_Rifleman_late","SPE_US_Medic_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_Infantry_Squad
-	[[[["SPE_US_SquadLead_late","SPE_US_Autorifleman_late","SPE_US_Medic_late","SPE_US_Assist_SquadLead_late","SPE_US_Autorifleman_late","SPE_US_Rifleman_AmmoBearer_late","SPE_US_Grenadier_late","SPE_US_Grenadier_late","SPE_US_Assist_Autorifleman_late","SPE_US_Assist_Autorifleman_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_US_AT_Squad
-	[[[["SPE_US_SquadLead_late","SPE_US_Assist_SquadLead_late","SPE_US_AT_Soldier_late","SPE_US_AT_Soldier_late","SPE_US_AT_Soldier_late","SPE_US_Autorifleman_late","SPE_US_Assist_Autorifleman_late","SPE_US_Grenadier_late","SPE_US_Grenadier_late","SPE_US_Rifleman_AmmoBearer_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Scout_Squad
-	[[[["SPE_US_SquadLead_late","SPE_US_Assist_SquadLead_late","SPE_US_Sniper_late","SPE_US_Medic_late","SPE_US_Autorifleman_late","SPE_US_Rifleman_AmmoBearer_late","SPE_US_Grenadier_late","SPE_US_Grenadier_late","SPE_US_Assist_Autorifleman_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Flamethrower_Team
-	[[[["SPE_US_Flamethrower_Operator_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0]],["Private","PRIVATE"]]],0.01],
-	// SPE_US_Sentry_Squad_2
-	[[[["SPE_US_SquadLead_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_US_Sentry_Squad_3
-	[[[["SPE_US_SquadLead_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Sniper_Team
-	[[[["SPE_US_Sniper_late","SPE_US_Sniper_late"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_US_Rifle_Team
-	[[[["SPE_US_Assist_SquadLead_late","SPE_US_Grenadier_late","SPE_US_Grenadier_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_BAR_Team
-	[[[["SPE_US_SquadLead_late","SPE_US_Autorifleman_late","SPE_US_Assist_Autorifleman_late","SPE_US_Rifleman_late","SPE_US_Rifleman_late","SPE_US_Rifleman_AmmoBearer_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_Heavy_Machine_Gun_Team
-	[[[["SPE_US_SquadLead_late","SPE_US_HMGunner_late","SPE_US_AHMGunner_late","SPE_US_HMG_AmmoBearer_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_81_Mortar_Team
-	[[[["SPE_US_SquadLead_late","SPE_US_Mortar_Gunner_late","SPE_US_Mortar_AGunner_late","SPE_US_Mortar_AmmoBearer_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_US_M2_Heavy_Machine_Gun_Team
-	[[[["SPE_US_SquadLead_late","SPE_US_HMGunner_M2_late","SPE_US_AHMGunner_M2_late","SPE_US_HMG_AmmoBearer_M2_late","SPE_US_HMG_AmmoBearer_M2_late"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_Motorized_Infantry_Squad
-	[[[["SPE_US_SquadLead","SPE_CCKW_353","SPE_US_Autorifleman","SPE_US_Medic","SPE_US_Assist_SquadLead","SPE_US_Rifleman_AmmoBearer","SPE_US_Assist_Autorifleman","SPE_US_Grenadier","SPE_US_Grenadier","SPE_US_Autorifleman","SPE_US_Assist_Autorifleman","SPE_US_Rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[-25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_Jeep_Command_Section
-	[[[["SPE_US_First_Lieutenant","SPE_US_G503_MB","SPE_US_Medic","SPE_US_Radioman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","CORPORAL","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_2AD_Mechanized_Platoon_HQ
-	[[[["SPE_US_HBT44_Second_Lieutenant","SPE_US_M3_Halftrack","SPE_US_HBT44_Radioman","SPE_US_HBT44_Sniper","SPE_US_HBT44_Assist_SquadLead","SPE_US_HBT44_Medic","SPE_US_HBT44_AT_Soldier","SPE_US_HBT44_Grenadier","SPE_US_HBT44_Grenadier","SPE_US_HBT44_Rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_2AD_Mechanized_Infantry_Squad
-	[[[["SPE_US_HBT44_SquadLead","SPE_US_M3_Halftrack","SPE_US_HBT44_Autorifleman","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Assist_SquadLead","SPE_US_HBT44_Autorifleman","SPE_US_HBT44_AT_Soldier","SPE_US_HBT44_Grenadier","SPE_US_HBT44_Grenadier","SPE_US_HBT44_Rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_2AD_Mechanized_MG_Squad
-	[[[["SPE_US_HBT44_SquadLead","SPE_US_M3_Halftrack","SPE_US_HBT44_HMGunner","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Assist_SquadLead","SPE_US_HBT44_HMGunner","SPE_US_HBT44_AT_Soldier","SPE_US_HBT44_AHMGunner","SPE_US_HBT44_AHMGunner","SPE_US_HBT44_Rifleman"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_US_2AD_Mechanized_Engineer_Squad
-	[[[["SPE_US_HBT44_SquadLead","SPE_US_M3_Halftrack","SPE_US_HBT44_Flamethrower_Operator","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Assist_SquadLead","SPE_US_HBT44_Flamethrower_Operator","SPE_US_HBT44_Rifleman","SPE_US_HBT44_Engineer","SPE_US_HBT44_Engineer"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_M4A1_75_Platoon
-	[[[["SPE_M4A0_75","SPE_M4A1_75","SPE_M4A1_75","SPE_M4A0_75_Early"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
-	// SPE_M4A1_76_Platoon
-	[[[["SPE_M4A1_76","SPE_M4A0_75","SPE_M4A0_75_Early","SPE_M4A1_76"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
-	// SPE_M10_TD_Platoon
-	[[[["SPE_M10","SPE_M10","SPE_M10","SPE_M10"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
-	// SPE_M18_TD_Platoon
-	[[[["SPE_M18_Hellcat","SPE_M18_Hellcat","SPE_M18_Hellcat","SPE_M18_Hellcat"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
-	// SPE_M4A3_75_Platoon
-	[[[["SPE_M4A3_75","SPE_M4A3_75","SPE_M4A3_75","SPE_M4A3_75"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
-	// SPE_M4A3_76_Platoon
-	[[[["SPE_M4A3_76","SPE_M4A3_76","SPE_M4A3_76","SPE_M4A1_76"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
-	// SPE_M4_105_Platoon
-	[[[["SPE_M4A3_105","SPE_M4A0_105","SPE_M4A0_105","SPE_M4A3_105"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
-	// SPE_M8_Recon_Section
-	[[[["SPE_M8_LAC_ringMount","SPE_M8_LAC"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
-	// SPE_M20_AUC_Section
-	[[[["SPE_M20_AUC","SPE_M20_AUC"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
-	// SPE_US_P47_Group
-	[[[["SPE_P47","SPE_P47","SPE_P47"],[[0,20,0],[-10,-10,0],[-20,0,0]],["CAPTAIN","LIEUTENANT","SERGEANT"]]],0.5]
+	//- Support, Поддержка пехоты
+	// SPE_US_Heavy_Machine_Gun_Team, Расчет тяжелого пулемета
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support" >> "SPE_US_Heavy_Machine_Gun_Team"]],0.4],
+	// SPE_US_81_Mortar_Team, Минометный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support" >> "SPE_US_81_Mortar_Team"]],0.4],
+	// SPE_US_M2_Heavy_Machine_Gun_Team, Расчет тяжелого пулемета (M2)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support" >> "SPE_US_M2_Heavy_Machine_Gun_Team"]],0.4],
+	//- SpecOps, 5-й батальон рейнджеров
+	// SPE_US_Rangers_Assault_Section, Штурмовое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "SpecOps" >> "SPE_US_Rangers_Assault_Section"]],0.8],
+	// SPE_US_Rangers_Assault_Section_BAR, Штурмовое отделение (BAR)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "SpecOps" >> "SPE_US_Rangers_Assault_Section_BAR"]],0.8],
+	// SPE_US_Rangers_AT_squad, Противотанковое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "SpecOps" >> "SPE_US_Rangers_AT_squad"]],0.4],
+	// SPE_US_Rangers_MG_Squad, Отделение с легкими пулеметами
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "SpecOps" >> "SPE_US_Rangers_MG_Squad"]],0.8],
+	// SPE_US_Rangers_Rifle_Squad, Стрелковое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "SpecOps" >> "SPE_US_Rangers_Rifle_Squad"]],0.8],
+	// SPE_US_Ranger_scout_squad, Разведывательное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "SpecOps" >> "SPE_US_Ranger_scout_squad"]],0.4],
+	// SPE_US_Ranger_Assault_Engineer_Squad, Штурмовой инженерный отряд
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "SpecOps" >> "SPE_US_Ranger_Assault_Engineer_Squad"]],0.2],
+	//- Infantry_101st_AB, Пехота (101-я воздушно-десантная)
+	// SPE_US_101AB_Infantry_squad, Пехотное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_101st_AB" >> "SPE_US_101AB_Infantry_squad"]],0],
+	// SPE_US_101AB_HQ_squad, Командное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_101st_AB" >> "SPE_US_101AB_HQ_squad"]],0],
+	// SPE_US_101AB_Rifle_Team, Стрелковая команда
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_101st_AB" >> "SPE_US_101AB_Rifle_Team"]],0],
+	// SPE_US_101AB_MG_Team, Пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_101st_AB" >> "SPE_US_101AB_MG_Team"]],0],
+	// SPE_US_101AB_Assault_Squad, Штурмовое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_101st_AB" >> "SPE_US_101AB_Assault_Squad"]],0],
+	// SPE_US_101AB_Assault_Engineer_Squad, Штурмовой инженерный отряд
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_101st_AB" >> "SPE_US_101AB_Assault_Engineer_Squad"]],0],
+	// SPE_US_101AB_AT_Team, Противотанковое группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_101st_AB" >> "SPE_US_101AB_AT_Team"]],0],
+	//- Support_101st_AB, Поддержка пехоты (101-я воздушно-десантная)
+	// SPE_US_101AB_HMG_Team, Расчет тяжелого пулемета (M2)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_101st_AB" >> "SPE_US_101AB_HMG_Team"]],0],
+	// SPE_US_101AB_81mm_Mortar_Team, Минометный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_101st_AB" >> "SPE_US_101AB_81mm_Mortar_Team"]],0],
+	//- Infantry_82d_AB, Пехота (82-я воздушно-десантная)
+	// SPE_US_82AB_Infantry_squad, Пехотное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_82d_AB" >> "SPE_US_82AB_Infantry_squad"]],0],
+	// SPE_US_82AB_HQ_squad, Командное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_82d_AB" >> "SPE_US_82AB_HQ_squad"]],0],
+	// SPE_US_82AB_Rifle_Team, Стрелковая команда
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_82d_AB" >> "SPE_US_82AB_Rifle_Team"]],0],
+	// SPE_US_82AB_MG_Team, Пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_82d_AB" >> "SPE_US_82AB_MG_Team"]],0],
+	// SPE_US_82AB_Assault_Squad, Штурмовое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_82d_AB" >> "SPE_US_82AB_Assault_Squad"]],0],
+	// SPE_US_82AB_Assault_Engineer_Squad, Штурмовой инженерный отряд
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_82d_AB" >> "SPE_US_82AB_Assault_Engineer_Squad"]],0],
+	// SPE_US_82AB_AT_Team, Противотанковое группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_82d_AB" >> "SPE_US_82AB_AT_Team"]],0],
+	//- Support_82d_AB, Поддержка пехоты (82-я воздушно-десантная)
+	// SPE_US_82AB_HMG_Team, Расчет тяжелого пулемета (M2)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_82d_AB" >> "SPE_US_82AB_HMG_Team"]],0],
+	// SPE_US_82AB_81mm_Mortar_Team, Минометный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_82d_AB" >> "SPE_US_82AB_81mm_Mortar_Team"]],0],
+	//- Infantry_Late, Пехота (поздн.)
+	// SPE_US_Command_Section, Командный отряд
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_Command_Section"]],0.6],
+	// SPE_US_Command_Squad, Командное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_Command_Squad"]],0.6],
+	// SPE_US_Infantry_Squad, Пехотное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_Infantry_Squad"]],0.8],
+	// SPE_US_AT_Squad, Противотанковое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_AT_Squad"]],0.4],
+	// SPE_US_Scout_Squad, Разведывательное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_Scout_Squad"]],0.4],
+	// SPE_US_Flamethrower_Team, Команда огнеметчиков
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_Flamethrower_Team"]],0.4],
+	// SPE_US_Sentry_Squad_2, 2 часовых
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_Sentry_Squad_2"]],0.4],
+	// SPE_US_Sentry_Squad_3, 3 часовых
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_Sentry_Squad_3"]],0.4],
+	// SPE_US_Sniper_Team, Снайперская группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_Sniper_Team"]],0.4],
+	// SPE_US_Rifle_Team, Стрелковая команда
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_Rifle_Team"]],0.4],
+	// SPE_US_BAR_Team, Группа с BAR
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Late" >> "SPE_US_BAR_Team"]],0.4],
+	//- Support_Late, Поддержка пехоты (поздн.)
+	// SPE_US_Heavy_Machine_Gun_Team, Расчет тяжелого пулемета
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_Late" >> "SPE_US_Heavy_Machine_Gun_Team"]],0.4],
+	// SPE_US_81_Mortar_Team, Минометный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_Late" >> "SPE_US_81_Mortar_Team"]],0.4],
+	// SPE_US_M2_Heavy_Machine_Gun_Team, Расчет тяжелого пулемета (M2)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_Late" >> "SPE_US_M2_Heavy_Machine_Gun_Team"]],0.4],
+	//- Air, Воздушная
+	// SPE_US_P47_Group, Звено P-47D Thunderbolt
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Air" >> "SPE_US_P47_Group"]],0.5],
+	//- Infantry_Gliderborne, Infantry (Glider-borne)
+	// SPE_US_AB_327AB_Command_Section, Командный отряд
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_Command_Section"]],0.6],
+	// SPE_US_AB_327AB_Command_Squad, Командное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_Command_Squad"]],0.6],
+	// SPE_US_AB_327AB_Infantry_Squad, Пехотное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_Infantry_Squad"]],0.8],
+	// SPE_US_AB_327AB_AT_Squad, Противотанковое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_AT_Squad"]],0.4],
+	// SPE_US_AB_327AB_Scout_Squad, Разведывательное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_Scout_Squad"]],0.4],
+	// SPE_US_AB_327AB_Flamethrower_Team, Команда огнеметчиков
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_Flamethrower_Team"]],0.4],
+	// SPE_US_AB_327AB_Sentry_Squad_2, 2 часовых
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_Sentry_Squad_2"]],0.4],
+	// SPE_US_AB_327AB_Sentry_Squad_3, 3 часовых
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_Sentry_Squad_3"]],0.4],
+	// SPE_US_AB_327AB_Sniper_Team, Снайперская группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_Sniper_Team"]],0.4],
+	// SPE_US_AB_327AB_Rifle_Team, Стрелковая команда
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_Rifle_Team"]],0.4],
+	// SPE_US_AB_327AB_BAR_Team, Группа с BAR
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry_Gliderborne" >> "SPE_US_AB_327AB_BAR_Team"]],0.4],
+	//- Support_Gliderborne, Support Infantry (Glider-borne)
+	// SPE_US_AB_327AB_Heavy_Machine_Gun_Team, Расчет тяжелого пулемета
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_Gliderborne" >> "SPE_US_AB_327AB_Heavy_Machine_Gun_Team"]],0.4],
+	// SPE_US_AB_327AB_81_Mortar_Team, Минометный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_Gliderborne" >> "SPE_US_AB_327AB_81_Mortar_Team"]],0.4],
+	//- Motorized, Моторизованная пехота
+	// SPE_Motorized_Infantry_Squad, Моторизованное пехотное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Motorized" >> "SPE_Motorized_Infantry_Squad"]],0.6],
+	// SPE_US_Jeep_Command_Section, Командный отряд
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Motorized" >> "SPE_US_Jeep_Command_Section"]],0.6],
+	//- Mechanized, 2-й бронепехотный
+	// SPE_US_2AD_Mechanized_Platoon_HQ, Штаб бронетанкового взвода
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Mechanized" >> "SPE_US_2AD_Mechanized_Platoon_HQ"]],0.6],
+	// SPE_US_2AD_Mechanized_Infantry_Squad, Бронепехотное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Mechanized" >> "SPE_US_2AD_Mechanized_Infantry_Squad"]],0.6],
+	// SPE_US_2AD_Mechanized_MG_Squad, Бронепехотное отделение с легкими пулеметами
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Mechanized" >> "SPE_US_2AD_Mechanized_MG_Squad"]],0.6],
+	// SPE_US_2AD_Mechanized_Engineer_Squad, Бронетанковый штурмовой инженерный отряд
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Mechanized" >> "SPE_US_2AD_Mechanized_Engineer_Squad"]],0.6],
+	//- Armored, Бронетанковая
+	// SPE_M4A1_75_Platoon, Взвод M4 Sherman
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A1_75_Platoon"]],0.3],
+	// SPE_M4A1_76_Platoon, Взвод M4 (76) Sherman
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A1_76_Platoon"]],0.3],
+	// SPE_M10_TD_Platoon, Взвод истребителей танков M10
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M10_TD_Platoon"]],0.3],
+	// SPE_M18_TD_Platoon, Взвод истребителей танков M18 Hellcat
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M18_TD_Platoon"]],0.3],
+	// SPE_M4A1_Calliope_Section, Расчет реактивной артиллерии «Каллиопа»
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A1_Calliope_Section"]],0.3],
+	// SPE_M4A3_75_Platoon, Взвод M4A3 Sherman
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A3_75_Platoon"]],0.3],
+	// SPE_M4A3_76_Platoon, Взвод M4A3 (76) Sherman
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A3_76_Platoon"]],0.3],
+	// SPE_M4_105_Platoon, Взвод M4 (105) Sherman
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4_105_Platoon"]],0.3],
+	// SPE_M8_Recon_Section, Отделение разведки M8 LAC
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M8_Recon_Section"]],0.25],
+	// SPE_M20_AUC_Section, Отделение разведки M20 AUC
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M20_AUC_Section"]],0.25],
+	//- Infantry, Пехота
+	// SPE_US_Command_Section, Командный отряд
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Command_Section"]],0.6],
+	// SPE_US_Command_Squad, Командное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Command_Squad"]],0.6],
+	// SPE_US_Infantry_Squad, Пехотное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Infantry_Squad"]],0.8],
+	// SPE_US_AT_Squad, Противотанковое отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_AT_Squad"]],0.4],
+	// SPE_US_Scout_Squad, Разведывательное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Scout_Squad"]],0.4],
+	// SPE_US_Flamethrower_Team, Команда огнеметчиков
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Flamethrower_Team"]],0.4],
+	// SPE_US_Sentry_Squad_2, 2 часовых
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Sentry_Squad_2"]],0.4],
+	// SPE_US_Sentry_Squad_3, 3 часовых
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Sentry_Squad_3"]],0.4],
+	// SPE_US_Sniper_Team, Снайперская группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Sniper_Team"]],0.4],
+	// SPE_US_Rifle_Team, Стрелковая команда
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Rifle_Team"]],0.4],
+	// SPE_US_BAR_Team, Группа с BAR
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_BAR_Team"]],0.4],
+	// SPE_US_2AD_Dismounted_Platoon_HQ, Штаб бронетанкового взвода
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_Platoon_HQ"]],0.6],
+	// SPE_US_2AD_Dismounted_RifleSquad, Бронепехотное отделение
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_RifleSquad"]],0.8],
+	// SPE_US_2AD_Dismounted_MGSquad, Бронепехотное отделение с легкими пулеметами
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_MGSquad"]],0.8],
+	// SPE_US_2AD_Dismounted_AssaultEngineer_Squad, Бронетанковый штурмовой инженерный отряд
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_AssaultEngineer_Squad"]],0.4]
 ];
+[_arr] call gosa_fnc_groups_convNormal;
 _arr append [
 	[[[["MWB_M24Chaffee","MWB_M24Chaffee"],[[0,0,0],[10,-10,0]],["SERGEANT","CORPORAL"]]],0.25],
 	[[[["MWB_M36B2","MWB_M36B2","MWB_M36B2","MWB_M36B2"],[[0,0,0],[10,-10,0],[-10,-10,0],[20,-20,0]],["LIEUTENANT","SERGEANT","SERGEANT","CORPORAL"]]],0.3],
@@ -740,33 +886,38 @@ for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	] call gosa_fnc_map_groups_add;
 };
 
-// SPE_FFI
+//-- SPE_FFI, [SPE] Французские внутренние войска
 _arr = [
-	// SPE_FFI_Command_Circle
-	[[[["SPE_FFI_Cellleader","SPE_FFI_TeamLeader_Sten","SPE_FFI_Doctor","SPE_FFI_Fighter_MP40"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["LIEUTENANT","SERGEANT","PRIVATE","PRIVATE"]]],0.6],
-	// SPE_FFI_FighterCell
-	[[[["SPE_FFI_TeamLeader_Sten","SPE_FFI_Autorifleman","SPE_FFI_Autorifleman_303_LMG","SPE_FFI_Fighter_MP40","SPE_FFI_Fighter_No3","SPE_FFI_Fighter_Garand","SPE_FFI_Grenadier","SPE_FFI_Tankhunter","SPE_FFI_Tankhunter","SPE_FFI_Fighter_G43","SPE_FFI_Fighter_M3","SPE_FFI_Fighter"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0],[-25,-25,0],[30,-30,0]],["SERGEANT","PRIVATE","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.8],
-	// SPE_FFI_Tankhunter_team
-	[[[["SPE_FFI_Teamleader","SPE_FFI_Grenadier","SPE_FFI_Tankhunter","SPE_FFI_Tankhunter","SPE_FFI_Tankhunter"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_FFI_Sentry_Squad_2
-	[[[["SPE_FFI_Fighter_MP40","SPE_FFI_Fighter"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_FFI_Sentry_Squad_3
-	[[[["SPE_FFI_Fighter_Sten","SPE_FFI_Fighter_Garand","SPE_FFI_Fighter_No3"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_FFI_Sniper_Team
-	[[[["SPE_FFI_Sniper","SPE_FFI_Sniper"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.4],
-	// SPE_FFI_Assault_Team
-	[[[["SPE_FFI_Teamleader_Sten","SPE_FFI_Fighter_MP40","SPE_FFI_Fighter_M3","SPE_FFI_Fighter_MP40","SPE_FFI_Fighter_Sten","SPE_FFI_Fighter_Carbine"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_FFI_Machinegun_team
-	[[[["SPE_FFI_Teamleader","SPE_FFI_Mgunner","SPE_FFI_Mgunner","SPE_FFI_Fighter","SPE_FFI_Fighter_Garand","SPE_FFI_Fighter_Carbine"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_FFI_Sapper_Team
-	[[[["SPE_FFI_TeamLeader_Sten","SPE_FFI_Sapper","SPE_FFI_Sapper_Mle208"],[[0,0,0],[5,-5,0],[-5,-5,0]],["SERGEANT","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_FFI_Saboteur_Team
-	[[[["SPE_FFI_Saboteur_M3A1","SPE_FFI_Saboteur"],[[0,0,0],[5,-5,0]],["SERGEANT","PRIVATE"]]],0.9],
-	// SPE_FFI_Militia_Group
-	[[[["SPE_FFI_Teamleader","SPE_FFI_Militia","SPE_FFI_Militia_No3","SPE_FFI_Militia_M37_Shotgun","SPE_FFI_Militia_Shotgun","SPE_FFI_Militia_No3"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0.4],
-	// SPE_FFI_250_Team
-	[[[["SPE_FFI_TeamLeader_Sten","SPE_FFI_SdKfz250_1","SPE_FFI_Fighter_G43","SPE_FFI_Fighter_MP40","SPE_FFI_Sniper"],[[5,-5,0],[0,0,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["SERGEANT","CORPORAL","PRIVATE","PRIVATE","PRIVATE"]]],0.6]
+	//- Mechanized, Механизированная пехота
+	// SPE_FFI_250_Team, Механизированная разведывательная группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Mechanized" >> "SPE_FFI_250_Team"]],0.6],
+	//- Infantry, Пехота
+	// SEP_I_FFI_Partisan_Team, Partisan Team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SEP_I_FFI_Partisan_Team"]],0.5],
+	// SPE_FFI_Command_Circle, Командование
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Command_Circle"]],0.6],
+	// SPE_FFI_FighterCell, Боевая ячейка
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_FighterCell"]],0.8],
+	// SPE_FFI_Tankhunter_team, Группа истребителей танков
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Tankhunter_team"]],0.4],
+	// SPE_FFI_Sentry_Squad_2, 2 часовых
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Sentry_Squad_2"]],0.4],
+	// SPE_FFI_Sentry_Squad_3, 3 часовых
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Sentry_Squad_3"]],0.4],
+	// SPE_FFI_Sniper_Team, Снайперская группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Sniper_Team"]],0.4],
+	// SPE_FFI_Assault_Team, Штурмовая группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Assault_Team"]],0.4],
+	// SPE_FFI_Machinegun_team, Пулеметный расчет
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Machinegun_team"]],0.4],
+	// SPE_FFI_Sapper_Team, Саперная группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Sapper_Team"]],0.4],
+	// SPE_FFI_Saboteur_Team, Диверсионная группа
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Saboteur_Team"]],0.9],
+	// SPE_FFI_Militia_Group, Отряд ополченцев
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Militia_Group"]],0.4]
 ];
+[_arr] call gosa_fnc_groups_convNormal;
 _arr append [
 	[[[["SPE_FFI_OpelBlitz_Ambulance"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
