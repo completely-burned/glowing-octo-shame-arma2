@@ -78,6 +78,7 @@ _n = count _arr;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 diag_log format ["Log: [config_groups_SPE] count SPEX_GER_DAK %1", [count _arr, _n]];
 if (count _arr * 1.5 >= _n) then {_n=225}else{_n=1000};
+[_arr,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "SPE_WEHRMACHT",
@@ -282,6 +283,7 @@ _arr append [
 	[[[["SPE_GER_SquadLead","SPE_GER_mgunner2","SPE_GER_rifleman","SPE_GER_amgunner"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0]],["SERGEANT","PRIVATE","PRIVATE","PRIVATE"]]],
 	_rarity_InfTeam_MG]
 ];
+[_arr,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "SPE_WEHRMACHT",
@@ -331,6 +333,7 @@ _arr append [
 	[[[["SPE_FlaK_36_AA","SPE_FlaK_36_AA"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT"]]],0.01]
 ];
 [_arr] call gosa_fnc_groups_convNormal;
+[_arr,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "SPE_WEHRMACHT",
@@ -453,6 +456,7 @@ _arr append [
 	[[[["SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_LAT_Klein_Rifleman","SPE_sturmtrooper_AT_grenadier","SPE_sturmtrooper_AT_grenadier"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0]],["CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],
 	_rarity_InfTeam_AT/2]
 ];
+[_arr,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, west, "SPE_STURM",
@@ -567,6 +571,7 @@ _arr = [
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY_TROP" >> "Armored" >> "SPEX_CW_Trop_sherman_V_Troop"]],_rarity_TankPlatoon/3]
 ];
 [_arr] call gosa_fnc_groups_convNormal;
+[_arr,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, resistance, "SPEX_CW_Army",
@@ -740,6 +745,7 @@ if (_landing in [1,2,23,24]) then {
 			[["SPEX_CW_Para_Section_Lead","SPEX_CW_Para_rifleman","SPEX_CW_Para_Team_Lead","SPEX_CW_Para_mortar_gunner","SPEX_CW_Para_Bren_gunner","SPEX_CW_Para_rifleman_2","SPEX_CW_Para_Bren_asst","SPEX_CW_Para_rifleman","SPEX_CW_Para_rifleman_AmmoBearer","SPEX_CW_Para_rifleman_2"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[-10,-10,0],[15,-15,0],[-15,-15,0],[20,-20,0],[-20,-20,0],[25,-25,0]],["SERGEANT","PRIVATE","CORPORAL","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE","PRIVATE"]]],0+0.1]
 	];
 };
+[_arr,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, resistance, "SPEX_CW_Army",
@@ -997,6 +1003,7 @@ if (_Artillery) then {
 	];
 };
 [_arr] call gosa_fnc_groups_convNormal;
+[_arr,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, resistance, "SPE_US_ARMY",
@@ -1040,6 +1047,7 @@ _arr = [
 _arr append [
 	[[[["SPE_FFI_OpelBlitz_Ambulance"],[[0,0,0],[0,-15,0],[0,-30,0]],["SERGEANT","SERGEANT","SERGEANT"]]],0.05]
 ];
+[_arr,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, resistance, "SPE_FFI",
@@ -1086,6 +1094,7 @@ _arr = [
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Infantry" >> "SPEX_PL_infantry_Section"]],0]
 ];
 [_arr] call gosa_fnc_groups_convNormal;
+[_arr,["Tank"],0.03] call gosa_fnc_cfg_grp_fixRarity;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
 for "_i" from 0 to (count (_date_rip select 1) -1) do {
 	[_groups_map, resistance, "SPEX_PL_ARMY",
