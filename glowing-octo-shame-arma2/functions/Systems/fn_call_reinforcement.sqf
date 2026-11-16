@@ -59,30 +59,29 @@ if (_n < 0 or _n > 2) exitWith {};
 
 //-- Типы отрядов.
 // Копия, потому что значения изменяются в дальнейшем.
-_arr = [gosa_Groups_common select _n select 0, +(gosa_Groups_common select _n select 1)];
-_arr0 = [_arr];
-_arr1 = [count (_arr select 1)];
+_arr0 = gosa_Groups_common select _n select 0;
+_arr1 = +(gosa_Groups_common select _n select 1);
 
 // TODO: Изменения производить в отдельной функции.
 if ([daytime - 1] call gosa_fnc_isNight) then {
-	_arr = [gosa_Groups_Night select _n select 0, +(gosa_Groups_Night select _n select 1)];
-	_arr0 set [count _arr0, _arr];
-	_arr1 set [count _arr1, count (_arr select 1)];
+	#ifdef __ARMA3__
+		_arr0 append (gosa_Groups_Night select _n select 0);
+	#else
+		_arr0 = _arr0 +(gosa_Groups_Night select _n select 0);
+	#endif
+	_arr1 = _arr1 +(gosa_Groups_Night select _n select 1);
 };
 
 //-- Изменения неподходящих отрядов.
 //- Не могут действовать ночью. Например самолёты времён ww2.
 if ([daytime - 1] call gosa_fnc_isNight) then {
 	for "_i" from 0 to (count _arr0 -1) do {
-		for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
-			_arr = _arr0 select _i select 0 select _i0;
-			if ("Air" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				if (({_x call gosa_fnc_canSee <= 5} count (_arr select 0 select 0 select 0)) >= 
-					(count (_arr select 0 select 0 select 0) * 0.9)) then
-				{
-				_n = (_arr0 select _i select 1 select _i0) / 20;
-				_arr0 select _i select 1 set [_i0, _n];
-				};
+		if ("Air" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+			if (({_x call gosa_fnc_canSee <= 5} count (_arr0 select _i select 0 select 0 select 0)) >= 
+				(count (_arr0 select _i select 0 select 0 select 0) * 0.9)) then
+			{
+				_n = (_arr1 select _i) / 20;
+				_arr1 set [_i, _n];
 			};
 		};
 	};
@@ -93,38 +92,35 @@ if ([daytime - 1] call gosa_fnc_isNight) then {
 // Поэтому уберем неподходящие группы сразу.
 if !(_patrol) then {
 	for "_i" from 0 to (count _arr0 -1) do {
-		for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
-			_arr = _arr0 select _i select 0 select _i0;
-			if ("UAV" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				_arr0 select _i select 1 set [_i0, 0];
+			if ("UAV" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr1 set [_i, 0];
 			};
-			if ("SUPPORT" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				_arr0 select _i select 1 set [_i0, 0];
+			if ("SUPPORT" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr1 set [_i, 0];
 			};
-			if ("Frigate" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				_arr0 select _i select 1 set [_i0, 0];
+			if ("Frigate" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr1 set [_i, 0];
 			};
-			if ("AA" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				_arr0 select _i select 1 set [_i0, 0];
+			if ("AA" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr1 set [_i, 0];
 			};
-			if ("Artillery" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				_arr0 select _i select 1 set [_i0, 0];
+			if ("Artillery" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr1 set [_i, 0];
 			};
-			if ("Police" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				_arr0 select _i select 1 set [_i0, 0];
+			if ("Police" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr1 set [_i, 0];
 			};
 			// Только самолеты, а вертолеты неплохо атакуют или сразу обламываются.
-			if ("Plane" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				_arr0 select _i select 1 set [_i0, 0];
+			if ("Plane" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr1 set [_i, 0];
 			};
 			// FIXME: LCVP и Ship скорее проблемные чем не_атакующие.
-			if ("LCVP" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				_arr0 select _i select 1 set [_i0, 0];
+			if ("LCVP" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr1 set [_i, 0];
 			};
-			if ("Ship" in ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
-				_arr0 select _i select 1 set [_i0, 0];
+			if ("Ship" in ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0)) then {
+				_arr1 set [_i, 0];
 			};
-		};
 	};
 };
 
@@ -136,28 +132,26 @@ if (_mAmphibious == -1) then {
 	_n0 = ([[0,0],gosa_worldSize] call gosa_fnc_getWaterCoefficient select 0);
 };
 for "_i" from 0 to (count _arr0 -1) do {
-	for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
-		_arr = _arr0 select _i select 0 select _i0;
-		_arr = ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
+		_arr = ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
 		// TODO: Учитывать смешанные отряды.
 		if ("LandVehicle" in _arr) then {
 			if ("Amphibious" in _arr) then {
 				if (_mAmphibious == -1) then {
 					// TODO: Должно быть чтото вроде: _n = _n * (_n0 * глобальное_соотношение_LandVehicle_и_Amphibious). Но я не понимаю.
-					_n = (_arr0 select _i select 1 select _i0) * (1 + _n0);
+					_n = (_arr1 select _i) * (1 + _n0);
 				}else{
-					_n = (_arr0 select _i select 1 select _i0) * _mAmphibious;
+					_n = (_arr1 select _i) * _mAmphibious;
 				};
+				_arr1 set [_i, _n];
 			}else{
 				if (_mLandVehicle == -1) then {
 					//_n = (_arr0 select _i select 1 select _i0) * (1 - _n0);
 				}else{
-					_n = (_arr0 select _i select 1 select _i0) * _mLandVehicle;
+					_n = (_arr1 select _i) * _mLandVehicle;
+					_arr1 set [_i, _n];
 				};
 			};
-			_arr0 select _i select 1 set [_i0, _n];
 		};
-	};
 };
 
 
@@ -167,95 +161,86 @@ if (count _this > 3) then {
 	_n0 = count (_grp_current select 0) + count (_grp_current select 1);
 	if (_n0 < 4) then {
 		for "_i" from 0 to (count _arr0 -1) do {
-			for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
-				_arr = _arr0 select _i select 0 select _i0;
-				_arr = ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
+				_arr = ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
 
 				if ("SUPPORT" in _arr) then {
 					_n = 0;
-					_arr0 select _i select 1 set [_i0, _n];
+					_arr1 set [_i, _n];
 				};
 				if ("Frigate" in _arr) then {
 					_n = 0;
-					_arr0 select _i select 1 set [_i0, _n];
+					_arr1 set [_i, _n];
 				};
 				if ("Artillery" in _arr) then {
 					_n = 0;
-					_arr0 select _i select 1 set [_i0, _n];
+					_arr1 set [_i, _n];
 				};
 				if ("Loiter" in _arr) then {
 					_n = 0;
-					_arr0 select _i select 1 set [_i0, _n];
+					_arr1 set [_i, _n];
 				};
 				if ("LCVP" in _arr) then {
 					_n = 0;
-					_arr0 select _i select 1 set [_i0, _n];
+					_arr1 set [_i, _n];
 				};
 				if ("UAV" in _arr) then {
 					_n = 0;
-					_arr0 select _i select 1 set [_i0, _n];
+					_arr1 set [_i, _n];
 				};
 				if ("StaticWeapon" in _arr) then {
 					_n = 0;
-					_arr0 select _i select 1 set [_i0, _n];
+					_arr1 set [_i, _n];
 				};
 				if ("Air" in _arr) then {
 					_n = 0;
-					_arr0 select _i select 1 set [_i0, _n];
+					_arr1 set [_i, _n];
 				};
 				if !(_patrol) then {
 					if ("Police" in _arr) then {
 						_n = 0;
-						_arr0 select _i select 1 set [_i0, _n];
+						_arr1 set [_i, _n];
 					};
 				};
-			};
 		};
 		if (_n0 < 2) then {
 			for "_i" from 0 to (count _arr0 -1) do {
 				scopeName "scope1";
-				for "_i0" from 0 to (count (_arr0 select _i select 0) -1) do {
-					_arr = _arr0 select _i select 0 select _i0;
-					_arr = ([_arr select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
+					_arr = ([_arr0 select _i select 0 select 0 select 0] call gosa_fnc_getGroupTypeCount select 0);
 
 					if ("Tank" in _arr) then {
-						_n = (_arr0 select _i select 1 select _i0) / 20;
-						_arr0 select _i select 1 set [_i0, _n];
+						_n = (_arr1 select _i) / 20;
+						_arr1 set [_i, _n];
 						breakTo "scope1";
 					};
 					if ("Car" in _arr) then {
-						_n = (_arr0 select _i select 1 select _i0) / 20;
-						_arr0 select _i select 1 set [_i0, _n];
+						_n = (_arr1 select _i) / 20;
+						_arr1 set [_i, _n];
 						breakTo "scope1";
 					};
 					if ("Tracked_APC" in _arr) then {
-						_n = (_arr0 select _i select 1 select _i0) / 20;
-						_arr0 select _i select 1 set [_i0, _n];
+						_n = (_arr1 select _i) / 20;
+						_arr1 set [_i, _n];
 						breakTo "scope1";
 					};
 					if ("Wheeled_APC" in _arr) then {
-						_n = (_arr0 select _i select 1 select _i0) / 20;
-						_arr0 select _i select 1 set [_i0, _n];
+						_n = (_arr1 select _i) / 20;
+						_arr1 set [_i, _n];
 						breakTo "scope1";
 					};
 					if ("LandVehicle" in _arr) then {
-						_n = (_arr0 select _i select 1 select _i0) / 20;
-						_arr0 select _i select 1 set [_i0, _n];
+						_n = (_arr1 select _i) / 20;
+						_arr1 set [_i, _n];
 						breakTo "scope1";
 					};
-				};
 			};
 		};
 	};
 };
 
-
-_typeList = ([_arr0, _arr1] call gosa_fnc_selectRandomWeighted);
-
-if (isNil "_typeList") exitWith {
-	diag_log format ["Log: [while_patrols.sqf] isNil _typeList", nil];
+if (count _arr1 <= 0) exitWith {
+	diag_log format ["Log: [gosa_fnc_call_reinforcement.sqf] _arr1 <= 0", nil];
 };
-
+_typeList = [_arr0, _arr1];
 
 #ifdef __A2OA__
 if(!_patrol && count _this > 2 && {count (_this select 2) > 0})then
