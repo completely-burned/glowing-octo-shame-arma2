@@ -8,7 +8,7 @@ diag_log format ["Log: [fnc_getGroupTypeCount] %1", _this];
 #define ADD _n = (_t find _z); if (_n >= 0) then {_c set [_n, (_c select _n) +1]}else{_t set [count _t, _z]; _c set [count _c, 1]};
 
 private["_t","_z","_str","_cfgVeh","_entry","_return","_c","_n","_units",
-	"_obj","_Loiter","_LCVP","_Police","_veh","_veh_str"];
+	"_obj","_Loiter","_LCVP","_Police","_veh","_arr","_veh_str"];
 _units = _this select 0;
 _cfgVeh = LIB_cfgVeh;
 _Loiter = gosa_vehiclesKindOf_Loiter;
@@ -163,6 +163,19 @@ for "_i" from 0 to (count _units -1) do {
 	_z = "Artillery";
 	if (getNumber(_entry >> "artilleryScanner") > 0) then {
 		ADD
+	};
+	if (getNumber(_entry >> "ARTY_IsArtyVehicle") > 0) then {
+		ADD
+	};
+	if (toLower getText(_entry >> "unitInfoType") == "rscunitinfotank_artillery_spe") then {
+		ADD
+	};
+	_arr = getArray(_entry >> "availableForSupportTypes");
+	for "_i0" from 0 to (count _arr -1) do {
+		if (toLower (_arr select _i0) == "artillery") then {
+			ADD
+			breakOut "scope1";
+		};
 	};
 
 	_z = "Amphibious";
