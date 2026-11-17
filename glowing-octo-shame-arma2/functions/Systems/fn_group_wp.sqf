@@ -580,6 +580,7 @@ if({alive _x} count _units > 0)then{
 
 			if !(isNil {_grp getVariable "patrol"}) then {
 				// Отряду ии с подчиненным игроком нужен маршрут к миссии.
+				// FIXME: Частая смена отряда игроком может привести к дисбалансу.
 				if !("StaticWeapon" in _grp_type) then {
 					if({_x call gosa_fnc_isPlayer} count _units > 0)then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 установлен маршрут патрулирования, сброс группы на атакующий тип", _grp];

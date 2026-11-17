@@ -90,7 +90,7 @@ locationNext={
 					gosa_pvp or
 				 side _grp in gosa_friendlyside ) then {
 					// чтобы отряды ушли от точки можно их сделать патрулями
-					_grp setVariable ["patrol", true, true];
+					//_grp setVariable ["patrol", true, true];
 					// мусоросборщик вычисляет дистанцию удаления из длины очереди
 					_z = 60*2 + random (60*5);
 					{
