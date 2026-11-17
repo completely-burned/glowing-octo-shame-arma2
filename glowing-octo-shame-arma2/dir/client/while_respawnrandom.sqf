@@ -11,7 +11,7 @@
  */
 
 private ["_bestCandidate","_p","_units","_leader","_grp","_pos","_first","_n",
-	"_fnc_prio_units","_findBody","_arr","_sides_friendly","_pvp",
+	"_fnc_prio_units","_findBody","_arr","_sides_friendly","_pvp","_v",
 	"_pre","_sorted","_str","_obj",
 	"_listPlayers","_deathTime","_cam","_b","_o","_z","_p_name"];
 
@@ -146,6 +146,16 @@ while {true} do {
 		_b = true;
 		diag_log format ["Log: [respawnRandom] %1 blacklisted lifeState %2", player, _str];
 	};
+	/*
+	// TODO: Нужно сделать чистку предыдущего тела.
+	_v = player getVariable "ACE_isUnconscious";
+	if !(isNil "_v") then {
+		if (_v) then {
+			_b = true;
+			diag_log format ["Log: [respawnRandom] ACE_isUnconscious %1", player];
+		};
+	};
+	*/
 	_str = _p getVariable "gosa_player_owner";
 	if !(isNil "_str") then {
 		if (_str != _o) then {
