@@ -5,27 +5,31 @@
 private ["_str","_cfgWea","_cfVeh"];
 	scopeName "root";
 	if (missionNamespace getVariable "gosa_Flashlights" > 0) then {
+		scopeName "scope1";
 		_cfgWea = LIB_cfgWea;
 		_cfVeh = LIB_cfgVeh;
-		/*
-		// FIXME: Не требует покупки CDLC.
-		_str = "SPEX_CW_LE_No4_Signal_Flashlight";
-		if (configName (_cfgWea >> _str) isNotEqualTo "") then {
-			_this select 0 linkItem _str;
-			breakTo "root";
-		};
-		*/
-		if (side (_this select 0) in [east, resistance]) then {
-			_str = "SPE_US_FL_TL122";
+		// TODO: Проверить работоспособность в MP.
+		if (true) then {
+			if (side (_this select 0) in [east, resistance]) then {
+				_str = "SPE_US_FL_TL122";
+				if (configName (_cfgWea >> _str) isNotEqualTo "") then {
+					[_this select 0, [_str, "", "", "", [], [], ""]] call gosa_fnc_unit_addWeapon;
+					breakTo "scope1";
+				};
+			};
+			_str = "SPE_GER_FL_Signal_Flashlight";
 			if (configName (_cfgWea >> _str) isNotEqualTo "") then {
 				[_this select 0, [_str, "", "", "", [], [], ""]] call gosa_fnc_unit_addWeapon;
-				breakTo "root";
+				breakTo "scope1";
 			};
-		};
-		_str = "SPE_GER_FL_Signal_Flashlight";
-		if (configName (_cfgWea >> _str) isNotEqualTo "") then {
-			[_this select 0, [_str, "", "", "", [], [], ""]] call gosa_fnc_unit_addWeapon;
-			breakTo "root";
+			/*
+			// FIXME: Не требует покупки CDLC.
+			_str = "SPEX_CW_LE_No4_Signal_Flashlight";
+			if (configName (_cfgWea >> _str) isNotEqualTo "") then {
+				_this select 0 linkItem _str;
+				breakTo "scope1";
+			};
+			*/
 		};
 
 		// VN
