@@ -8,7 +8,7 @@ _grp = gosa_grpLogic;
 diag_log format ["Log: [modules] waitUntil post, %1, %2", _grp, time];
 
 #ifdef __ARMA3__
-	if (missionNamespace getVariable "gosa_SPE_Module_Indirect_Fire_Support" > 0) then {
+	if (false && missionNamespace getVariable "gosa_SPE_Module_Indirect_Fire_Support" > 0) then {
 		_str = "SPE_Module_Indirect_Fire_Support_Hotfix";
 		if (configName(configFile >> "CfgVehicles" >> _str) == "") then {
 			_str = "SPE_Module_Indirect_Fire_Support";

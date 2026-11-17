@@ -103,10 +103,10 @@ _z = missionNamespace getVariable "gosa_MartaManager";
 			missionNamespace setVariable ["gosa_MartaManager", 1];
 	};
 
-_z = missionNamespace getVariable "gosa_SPE_Module_Indirect_Fire_Support";
-	if (_z == -1) then {
-		missionNamespace setVariable ["gosa_SPE_Module_Indirect_Fire_Support", 1];
-	};
+//_z = missionNamespace getVariable "gosa_SPE_Module_Indirect_Fire_Support";
+	//if (_z == -1) then {
+	//	missionNamespace setVariable ["gosa_SPE_Module_Indirect_Fire_Support", 1];
+	//};
 
 #ifdef __ARMA3__
 _str = "gosa_faction_multiplier_";
