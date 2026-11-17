@@ -61,7 +61,8 @@ scopename "scope1";
 for "_iW" from 0 to _iW_to do {
 	for "_i" from 0 to (count _units -1) do {
 		_u = _units select _i;
-		if (_u == vehicle _u && speed _u < 1) then {
+		//  && speed _u < 1
+		if (_u == vehicle _u) then {
 			switch (_iW) do {
 				#ifdef __ARMA3__
 					case 1: {_w = secondaryWeapon _u};
@@ -205,19 +206,20 @@ if (isNil "_obj") then {
 				};
 			};
 
-		_n = _ammo call gosa_fnc_flareDist;
-					if (_ammo in ["gm_shell_122x447mm_illum_s463","gm_shell_155mm_illum_m485","gm_rocket_84x245mm_illum_dm16","gm_flare_illum_wht"]) then {
-						// Светят очень ярко.
-						if (random 10 >= 1) then {
-							breakTo "scope1";
-						};
-					};
-		_n0 = _n*2;
-		_arr set [0, (_arr select 0) - _n + random _n0];
-		_arr set [1, (_arr select 1) - _n + random _n0];
+			_n = _ammo call gosa_fnc_flareDist;
+			if (_ammo in ["gm_shell_122x447mm_illum_s463","gm_shell_155mm_illum_m485","gm_rocket_84x245mm_illum_dm16","gm_flare_illum_wht"]) then {
+				// Светят очень ярко.
+				if (random 10 >= 1) then {
+					breakTo "scope1";
+				};
+			};
+			_n0 = _n*2;
+			_arr set [0, (_arr select 0) - _n + random _n0];
+			_arr set [1, (_arr select 1) - _n + random _n0];
 
-		_n = _ammo call gosa_fnc_flareHeight;
-		_arr set [2, (_n - (_n/4) + random (_n/2)) + _flareHeightOffset];
+			_n = _ammo call gosa_fnc_flareHeight;
+			_arr set [2, (_n - (_n/4) + random (_n/2)) + _flareHeightOffset];
+
 			/*
 			private _sound = "SN_Flare_Fired_4";
 			private _soundSourceClass = "SoundFlareLoop_F";
