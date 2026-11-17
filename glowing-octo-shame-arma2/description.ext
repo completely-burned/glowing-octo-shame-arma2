@@ -1225,7 +1225,14 @@ class Params {
 		default=0;
 	};
 
-	#ifndef __ARMA3__
+	#ifdef __ARMA3__
+		class gosa_SPE_Module_Indirect_Fire_Support {
+			title="MODULE: SPE_Module_Indirect_Fire_Support";
+			values[] = {-1,1,0};
+			texts[] = {STR_DEFAULT,STR_ENABLED,STR_DISABLED};
+			default = -1;
+		};
+	#else
 		// Модуль управления БПЛА.
 		class gosa_UAVManager {
 			title="MODULE: UAV Manager";
