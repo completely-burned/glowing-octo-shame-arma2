@@ -77,10 +77,8 @@ _wpType_VehInVehUNLOAD = "VEHICLEINVEHICLEUNLOAD";
 #ifdef __ARMA3__
 	// Тип маршрута "сброс груза" не сажает самолёт.
 	_wpType_TrUNLOAD_Plane = "UNHOOK";
-	_Artillery = if (isNil "lambs_wp_fnc_taskArtilleryRegister") then {false} else {true};
 #else
 	_wpType_TrUNLOAD_Plane = _wpType_TrUNLOAD;
-	_Artillery = false;
 #endif
 _wpType_UNLOAD = "UNLOAD";
 _wpType_GETOUT = "GETOUT";
@@ -229,8 +227,8 @@ if({alive _x} count _units > 0)then{
 
 
 	// Артиллерия.
-	if (_Artillery) then {
-		if ("Artillery" in _grp_type) then {
+	if ("Artillery" in _grp_type) then {
+		if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			if (isNil {_grp getVariable "gosa_taskArtilleryRegistered"}) then {
 				_grp setVariable ["gosa_taskArtilleryRegistered", _grp call lambs_wp_fnc_taskArtilleryRegister];
 			};
@@ -871,7 +869,6 @@ if({alive _x} count _units > 0)then{
 			// Артиллерия.
 			// TODO: Менять позицию после выстрела или при обнаружении противником.
 			// TODO: Выполнять задание при отсутствии союзных отрядов.
-			if (_Artillery) then {
 				if ("Artillery" in _grp_type) then {
 					_arr = [_types] call gosa_fnc_returnVehicleRange;
 					if (_arr select 0 > 500) then {
@@ -879,7 +876,6 @@ if({alive _x} count _units > 0)then{
 						_CreateWP = false;
 					};
 				};
-			};
 
 			// остановиться
 			if(_StopWP or (_NoCreateWP && _DeleteWP))then{
