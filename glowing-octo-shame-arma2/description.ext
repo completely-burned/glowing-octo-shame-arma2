@@ -1451,6 +1451,9 @@ class CfgFunctions
 		};
 		class spawning
 		{
+			#ifdef __ARMA3__
+				class vehReplace {};
+			#endif
 			class unit_loadout {};
 			class flaredist {};
 			class flareheight {};

@@ -357,6 +357,7 @@ if (missionNamespace getVariable "gosa_rearmament" > 0) then {
 
 	#ifdef __ARMA3__
 		//[_units] call gosa_fnc_unit_uniformReplace;
+		[_vehicles] call gosa_fnc_vehReplace;
 	#else
 	if (_reweapon) then {
 		[_units + _vehicles] call gosa_fnc_reweapon;
