@@ -234,31 +234,31 @@ _arr = [
 	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Air" >> "SPE_GER_fw190f8_Group"]],0.5],
 	//- Armored, Бронетанковая
 	// SPE_GER_PzKpfwIV_G_Platoon, Взвод PzKpfw IV Ausf.G
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIV_G_Platoon"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIV_G_Platoon"]],0.25],
 	// SPE_GER_PzKpfwIII_M_Platoon, Взвод PzKpfw III Ausf.M
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_M_Platoon"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_M_Platoon"]],0.25],
 	// SPE_GER_PzKpfwIII_N_Platoon, Взвод PzKpfw III Ausf.N
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_N_Platoon"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_N_Platoon"]],0.25],
 	// SPE_GER_PzKpfwIII_L_Platoon, Взвод PzKpfw III Ausf.L
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_L_Platoon"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_L_Platoon"]],0.25],
 	// SPE_GER_PzKpfwIII_J_Platoon, Взвод PzKpfw III Ausf.J
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_J_Platoon"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIII_J_Platoon"]],0.25],
 	// SPE_GER_Nashorn_TD_Platoon, Взвод Sd.Kfz. 164 Panzerjäger
 	/*
 	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_Nashorn_TD_Platoon"]],0.25],
 	*/
 	// SPE_GER_PzKpfwVI_H1_Platoon, Взвод PzKpfw VI Ausf.H1
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwVI_H1_Platoon"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwVI_H1_Platoon"]],0.25],
 	// SPE_GER_PzKpfwV_G_Platoon, Взвод PzKpfw V Ausf.G
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwV_G_Platoon"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwV_G_Platoon"]],0.25],
 	// SPE_GER_STUG_G_Late_Section, Отделение Sd.Kfz. 142/1 StuG (поздн.)
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_STUG_G_Late_Section"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_STUG_G_Late_Section"]],0.25],
 	// SPE_GER_STUG_G_Early_Section, Отделение Sd.Kfz. 142/1 StuG (ранний)
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_STUG_G_Early_Section"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_STUG_G_Early_Section"]],0.25],
 	// SPE_GER_STUH_42_Section, Отделение Sd.Kfz. 142/2 StuH 42
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_STUH_42_Section"]],_rarity_TankPlatoon/16],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_STUH_42_Section"]],0.25],
 	// SPE_GER_Jagdpanther_Section, Отделение Sd.Kfz. 173 Jagdpanther
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_Jagdpanther_Section"]],_rarity_TankPlatoon/16]
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_Jagdpanther_Section"]],0.25]
 ];
 [_arr] call gosa_fnc_groups_convNormal;
 _arr append [
@@ -409,27 +409,27 @@ _arr = [
 	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Mechanized" >> "SPE_Sturm_Scout_250_Recon_Team"]],0.6],
 	//- Armored, Бронетанковая
 	// SPE_GER_PzKpfwIV_G_Platoon, Взвод PzKpfw IV Ausf.G
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIV_G_Platoon"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIV_G_Platoon"]],0.25],
 	// SPE_GER_PzKpfwIII_M_Platoon, Взвод PzKpfw III Ausf.M
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIII_M_Platoon"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIII_M_Platoon"]],0.25],
 	// SPE_GER_PzKpfwIII_L_Platoon, Взвод PzKpfw III Ausf.L
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIII_L_Platoon"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIII_L_Platoon"]],0.25],
 	// SPE_GER_PzKpfwIII_J_Platoon, Взвод PzKpfw III Ausf.J
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIII_J_Platoon"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_GER_PzKpfwIII_J_Platoon"]],0.25],
 	// SPE_STUR_PzKpfwIII_N_Platoon, Взвод PzKpfw III Ausf.N
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_STUR_PzKpfwIII_N_Platoon"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_STUR_PzKpfwIII_N_Platoon"]],0.25],
 	// SPE_STUR_PzKpfwVI_H1_Platoon, Взвод PzKpfw VI Ausf.H1
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_STUR_PzKpfwVI_H1_Platoon"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_STUR_PzKpfwVI_H1_Platoon"]],0.25],
 	// SPE_ST_PzKpfwV_G_Platoon, Взвод PzKpfw V Ausf.G
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_PzKpfwV_G_Platoon"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_PzKpfwV_G_Platoon"]],0.25],
 	// SPE_ST_STUG_G_Late_Section, Отделение Sd.Kfz. 142/1 StuG (поздн.)
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_STUG_G_Late_Section"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_STUG_G_Late_Section"]],0.25],
 	// SPE_ST_STUG_G_Early_Section, Отделение Sd.Kfz. 142/1 StuG (ранний)
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_STUG_G_Early_Section"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_STUG_G_Early_Section"]],0.25],
 	// SPE_ST_STUH_42_Section, Отделение Sd.Kfz. 142/2 StuH 42
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_STUH_42_Section"]],_rarity_TankPlatoon/11],
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_STUH_42_Section"]],0.25],
 	// SPE_ST_Jagdpanther_Section, Отделение Sd.Kfz. 173 Jagdpanther
-	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_Jagdpanther_Section"]],_rarity_TankPlatoon/11]
+	[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Armored" >> "SPE_ST_Jagdpanther_Section"]],0.25]
 ];
 [_arr] call gosa_fnc_groups_convNormal;
 _arr append [
@@ -560,11 +560,11 @@ _arr = [
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY_TROP" >> "Mechanized" >> "SPEX_CW_Trop_Mechanized_Infantry_Squad"]],0.6],
 	//- Armored, Бронетанковая
 	// SPEX_CW_Trop_sherman_II_Troop, Взвод Sherman II
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY_TROP" >> "Armored" >> "SPEX_CW_Trop_sherman_II_Troop"]],_rarity_TankPlatoon/3],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY_TROP" >> "Armored" >> "SPEX_CW_Trop_sherman_II_Troop"]],0.3],
 	// SPEX_CW_Trop_M10_TD_Troop, Взвод истребителей танков M10
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY_TROP" >> "Armored" >> "SPEX_CW_Trop_M10_TD_Troop"]],_rarity_TankPlatoon/3],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY_TROP" >> "Armored" >> "SPEX_CW_Trop_M10_TD_Troop"]],0.3],
 	// SPEX_CW_Trop_sherman_V_Troop, Взвод Sherman V
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY_TROP" >> "Armored" >> "SPEX_CW_Trop_sherman_V_Troop"]],_rarity_TankPlatoon/3]
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY_TROP" >> "Armored" >> "SPEX_CW_Trop_sherman_V_Troop"]],0.3]
 ];
 [_arr] call gosa_fnc_groups_convNormal;
 _date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
@@ -705,17 +705,17 @@ _arr = [
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Mechanized" >> "SPEX_CW_Mechanized_Infantry_Squad"]],0.6],
 	//- Armored, Бронетанковая
 	// SPEX_CW_sherman_II_Troop, Взвод Sherman II
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_sherman_II_Troop"]],_rarity_TankPlatoon/6],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_sherman_II_Troop"]],0.3],
 	// SPEX_CW_sherman_I_Troop, Взвод Sherman I
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_sherman_I_Troop"]],_rarity_TankPlatoon/6],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_sherman_I_Troop"]],0.3],
 	// SPEX_CW_M10_TD_Troop, Взвод истребителей танков M10
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_M10_TD_Troop"]],_rarity_TankPlatoon/6],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_M10_TD_Troop"]],0.3],
 	// SPEX_CW_sherman_V_Troop, Взвод Sherman V
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_sherman_V_Troop"]],_rarity_TankPlatoon/6],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_sherman_V_Troop"]],0.3],
 	// SPEX_CW_Cromwell_Troop, Взвод Cromwell
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_Cromwell_Troop"]],_rarity_TankPlatoon/6],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_Cromwell_Troop"]],0.3],
 	// SPEX_CW_Cromwell_CS_Troop, Взвод Cromwell HQ
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_Cromwell_CS_Troop"]],_rarity_TankPlatoon/6],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Armored" >> "SPEX_CW_Cromwell_CS_Troop"]],0.3],
 	//- Infantry, Пехота
 	// SPEX_CW_Command_Section, Командный отряд
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_CW_ARMY" >> "Infantry" >> "SPEX_CW_Command_Section"]],0],
@@ -901,15 +901,15 @@ _arr = [
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A1_Calliope_Section"]],0.3],
 	*/
 	// SPE_M4A3_75_Platoon, Взвод M4A3 Sherman
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A3_75_Platoon"]],_rarity_TankPlatoon/5],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A3_75_Platoon"]],0.3],
 	// SPE_M4A3_76_Platoon, Взвод M4A3 (76) Sherman
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A3_76_Platoon"]],_rarity_TankPlatoon/5],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4A3_76_Platoon"]],0.3],
 	// SPE_M4_105_Platoon, Взвод M4 (105) Sherman
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4_105_Platoon"]],_rarity_TankPlatoon/5],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M4_105_Platoon"]],0.3],
 	// SPE_M8_Recon_Section, Отделение разведки M8 LAC
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M8_Recon_Section"]],_rarity_TankPlatoon/5],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M8_Recon_Section"]],0.25],
 	// SPE_M20_AUC_Section, Отделение разведки M20 AUC
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M20_AUC_Section"]],_rarity_TankPlatoon/5],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M20_AUC_Section"]],0.25],
 	//- Infantry, Пехота
 	// SPE_US_Command_Section, Командный отряд
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Command_Section"]],0.6],
@@ -1062,13 +1062,13 @@ _arr = [
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Mechanized" >> "SPEX_CW_Mechanized_Infantry_Squad"]],0.6],
 	//- Armored, Бронетанковая
 	// SPEX_PL_M10_TD_Troop, Взвод истребителей танков M10
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Armored" >> "SPEX_PL_M10_TD_Troop"]],_rarity_TankPlatoon/4],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Armored" >> "SPEX_PL_M10_TD_Troop"]],0.3],
 	// SPEX_PL_sherman_V_Troop, Взвод Sherman V
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Armored" >> "SPEX_PL_sherman_V_Troop"]],_rarity_TankPlatoon/4],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Armored" >> "SPEX_PL_sherman_V_Troop"]],0.3],
 	// SPEX_PL_Cromwell_Troop, Взвод Cromwell
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Armored" >> "SPEX_PL_Cromwell_Troop"]],_rarity_TankPlatoon/4],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Armored" >> "SPEX_PL_Cromwell_Troop"]],0.3],
 	// SPEX_PL_Cromwell_CS_Troop, Взвод Cromwell HQ
-	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Armored" >> "SPEX_PL_Cromwell_CS_Troop"]],_rarity_TankPlatoon/4],
+	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Armored" >> "SPEX_PL_Cromwell_CS_Troop"]],0.3],
 	//- Infantry, Пехота
 	// SPEX_PL_Command_Section, Командный отряд
 	[[[configFile >> "CfgGroups" >> "Indep" >> "SPEX_PL_ARMY" >> "Infantry" >> "SPEX_PL_Command_Section"]],0],
