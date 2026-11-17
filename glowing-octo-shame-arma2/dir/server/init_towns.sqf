@@ -104,6 +104,7 @@ locationNext={
 		{
 			// _x fire "SmokeShellMuzzle";
 		}forEach allUnits;
+		// TODO: Нужна функции восстанавливающая область.
 		{_x setDamage 0} forEach (nearestObjects [civilianBasePos, [], 1000]);
 		// {_x setDamage 0} forEach (nearestObjects [getMarkerpos "", [], 1000]);
 		// {_x setDamage 0} forEach (nearestObjects [getMarkerpos "", [], 1000]);
