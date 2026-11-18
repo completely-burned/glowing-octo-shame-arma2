@@ -1,5 +1,5 @@
 /*
- * Соотношние количества отрядов стороны.
+ * Соотношение количества отрядов стороны.
  * Если отрядов [15, 5], то вернёт [0.75, 0.25].
  */
 diag_log format ["Log: [fnc_groups_get_cfi_side] %1", _this];
@@ -16,8 +16,10 @@ for "_i" from 0 to (count _sides -1) do {
 	_return set [_i, _n];
 	_total = _total + _n;
 };
-for "_i" from 0 to (count _sides -1) do {
-	_return set [_i, (_return select _i) / _total];
+if (_total > 0) then {
+	for "_i" from 0 to (count _sides -1) do {
+		_return set [_i, (_return select _i) / _total];
+	};
 };
 
 diag_log format ["Log: [fnc_groups_get_cfi_side] _return %1", _return];
