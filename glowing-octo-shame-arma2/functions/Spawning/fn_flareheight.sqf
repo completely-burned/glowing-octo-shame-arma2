@@ -1,4 +1,8 @@
-private ["_n"];
-_n = getNumber(LIB_cfgAmm >> _this >> "timeToLive");
-// Без учета сопротивления воздуха.
-0.5 * 9.81 * _n * _n;
+private ["_h","_g","_k","_TTL"];
+_g = 9.81;
+_k = 0.2;
+_TTL = getNumber(LIB_cfgAmm >> _this >> "timeToLive");
+
+_h = sqrt(_g / _k) * _TTL;
+
+_h;
