@@ -30,7 +30,7 @@ _flare_failover = gosa_flare_Weighted;
 
 _arr = [];
 
-while {sleep 0.01} do {
+while {sleep 0.01; true} do {
 	if ([daytime] call gosa_fnc_isNight) then {
 		_players = ([] call gosa_fnc_listPlayers);
 		for "_iP" from 0 to (count _players -1) do {
