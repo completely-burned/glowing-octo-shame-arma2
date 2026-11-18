@@ -1697,6 +1697,7 @@ class CfgFunctions
 		class loops
 		{
 			class loop_base {};
+			class loop_flare {};
 		};
 
 		class compile
