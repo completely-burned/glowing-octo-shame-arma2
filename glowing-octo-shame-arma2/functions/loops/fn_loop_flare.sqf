@@ -3,8 +3,10 @@
  * TODO: Освещать не только игроков, а также бои и окружение.
  */
 private [ "_flare_dist","_players","_player","_types_flare","_m","_multi_def",
-	"_flare_dist_player","_obj","_str","_pos","_flareHeightOffset",
+	"_flare_dist_player","_obj","_str","_pos","_flareHeightOffset","_cfgAmm",
 	"_item","_arr","_b","_blacklist","_flare_failover","_n"];
+
+_cfgAmm = LIB_cfgAmm;
 
 _flare_dist_player = 750;
 _multi_def = 3;
@@ -66,6 +68,15 @@ while {sleep 0.01; true} do {
 
 						diag_log format["Log: [while_flare] call spawnFlare %1", [_pos, _str, _flareHeightOffset]];
 						[_pos, _str, _flareHeightOffset] call gosa_fnc_spawnFlare;
+						// В a2oa они очень яркие.
+						#ifndef __ARMA3__
+							_n = getNumber (_cfgAmm >> _str >> "timeToLive");
+							// ~3 одновременно.
+							//sleep (_n/6) + random (_n/3);
+							// ~2 одновременно.
+							sleep (_n/4) + random (_n/2);
+							//sleep (_n/2) + random _n;
+						#endif
 					};
 				};
 			};
