@@ -1,7 +1,6 @@
 /*
  * Скрипт запускает световые ракеты.
- * TODO: Рефакторинг.
- * TODO: Оптимизация.
+ * TODO: Освещать не только игроков, а также бои и окружение.
  */
 private [ "_flare_dist","_players","_player","_types_flare","_m","_multi_def",
 	"_flare_dist_player","_obj","_str","_pos","_flareHeightOffset",
