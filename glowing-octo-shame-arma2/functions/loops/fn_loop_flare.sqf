@@ -27,6 +27,8 @@ _flareHeightOffset = 70;
 _blacklist = gosa_flare_blacklist;
 _flare_failover = gosa_flare_Weighted;
 
+diag_log format["Log: [while_flare] Started %1", time];
+
 _arr = [];
 
 while {sleep 0.01; true} do {
