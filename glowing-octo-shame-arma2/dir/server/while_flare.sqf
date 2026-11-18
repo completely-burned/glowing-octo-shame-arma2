@@ -8,8 +8,8 @@ private [ "_flare_dist","_players","_player","_types_flare","_m","_multi_def",
 	"_item","_arr","_b","_blacklist","_flare_failover","_n"];
 
 _flare_dist_player = 750;
-_multi_def = 15;
-_flareHeightOffset = 0;
+_multi_def = 3;
+_flareHeightOffset = 70;
 #ifdef __ARMA3__
 	_flare_dist = 75;
 #else
@@ -30,7 +30,7 @@ _flare_failover = gosa_flare_Weighted;
 
 _arr = [];
 
-while {sleep 1 + random 2; true} do {
+while {sleep 0.01} do {
 	if ([daytime] call gosa_fnc_isNight) then {
 		_players = ([] call gosa_fnc_listPlayers);
 		for "_iP" from 0 to (count _players -1) do {
@@ -44,29 +44,33 @@ while {sleep 1 + random 2; true} do {
 			_pos = getPos _player;
 
 			if !(isNull _player) then {
-				_n = ((_n / 7) * (_player call gosa_fnc_canSee));
 				_m = missionNamespace getVariable "gosa_flares";
 				_n = (_n*(_m/100));
 				sleep ((_n + random (_n/2))/(count _players));
 
-				// Ночи стали заметно темнее, поэтому огни должны быть даже если нет юнитов.
-				// TODO: Нужна функция для выбора между selectRandom и selectRandomWeighted.
-				if (count _flare_failover > 0) then {
-					if (typeName (_flare_failover select 0) == typeName []) then {
-						if (count (_flare_failover select 0) > 0) then {
-							_str = _flare_failover call gosa_fnc_selectRandomWeighted;
+				// random 7 никогда не будет == 7
+				if (random 7.01 >= (_player call gosa_fnc_canSee)) then {
+					// Ночи стали заметно темнее, поэтому огни должны быть даже если нет юнитов.
+					// TODO: Нужна функция для выбора между selectRandom и selectRandomWeighted.
+					if (count _flare_failover > 0) then {
+						if (typeName (_flare_failover select 0) == typeName []) then {
+							if (count (_flare_failover select 0) > 0) then {
+								_str = _flare_failover call gosa_fnc_selectRandomWeighted;
+							}else{
+								breakTo "scope1";
+							};
 						}else{
-							breakTo "scope1";
+							_str = _flare_failover call BIS_fnc_selectRandom;
 						};
-					}else{
-						_str = _flare_failover call BIS_fnc_selectRandom;
-					};
 
-					diag_log format["Log: [while_flare] call spawnFlare %1", [_pos, _str, _flareHeightOffset]];
-					[_pos, _str, _flareHeightOffset] call gosa_fnc_spawnFlare;
+						diag_log format["Log: [while_flare] call spawnFlare %1", [_pos, _str, _flareHeightOffset]];
+						[_pos, _str, _flareHeightOffset] call gosa_fnc_spawnFlare;
+					};
 				};
 			};
 		};
-	// FIXME: Слишком долгая пауза плохо сказывается при отладке с ускоренным временем.
-	}else{sleep 60};
+	}else{
+		// FIXME: Слишком долгая пауза плохо сказывается при отладке с ускоренным временем.
+		sleep 10;
+	};
 };
