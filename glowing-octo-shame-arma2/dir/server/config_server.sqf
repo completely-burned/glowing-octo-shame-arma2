@@ -20,7 +20,13 @@ if !(_pvp) then {
 };
 
 if !(isMultiplayer) then {
-	gosa_playerside = _arr select 5 call BIS_fnc_selectRandomWeighted;
+	// TODO: В SP если отряды доступны только для одной стороны, то эта сторона должна быть противником наоборот.
+	if (count (_arr select 5 select 0) > 0) then {
+		gosa_playerside = _arr select 5 call gosa_fnc_selectRandomWeighted;
+	}else{
+		// TODO: Нуждается в проверке.
+		gosa_playerside = civilian;
+	};
 	diag_log format ["Log: [config_server] _playerside %1, _arr0 %2", gosa_playerside, _arr select 5];
 };
 
