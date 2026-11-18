@@ -1458,6 +1458,8 @@ class CfgFunctions
 		};
 		class spawning
 		{
+			class createFlare {};
+			class spawnFlare {};
 			#ifdef __ARMA3__
 				class vehReplace {};
 			#endif
