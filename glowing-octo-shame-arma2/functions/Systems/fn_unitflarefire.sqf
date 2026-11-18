@@ -43,7 +43,7 @@ if (count _this > 2) then {
 	};
 };
 
-_flareHeightOffset = 80;
+_flareHeightOffset = 0;
 _target = objNull;
 _grp = grpNull;
 #ifdef __ARMA3__
