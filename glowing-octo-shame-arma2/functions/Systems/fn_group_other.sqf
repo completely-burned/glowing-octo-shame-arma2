@@ -307,7 +307,7 @@ if({alive _x} count _units > 0 && {_x call gosa_fnc_isPlayer} count _units == 0)
 						}else{
 								if (count _arr > 1) then {
 									// FIXME: Перезапись для надёжности.
-									if (_arr select 1 +15 > time) then {
+									if ((_arr select 1) +15 > time) then {
 										_b = true
 									};
 								};
