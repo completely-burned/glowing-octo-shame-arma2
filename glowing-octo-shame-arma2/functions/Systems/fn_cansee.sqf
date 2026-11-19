@@ -12,6 +12,8 @@
 private ["_magazines","_max","_ammo","_mag","_arr","_str","_obj","_type",
 	"_cfgMag","_cfgAmm","_cfgVeh","_cfgWea","_crew","_exit","_weapons"];
 
+scopeName "root";
+
 if (typeName _this == typeName "") then {
 	_type = _this;
 	_obj = objNull;
@@ -77,10 +79,14 @@ if !(isNil "_exit") exitwith {_exit};
 //- Фонарики.
 if !(_type isKindOf "Air") then {
 	for "_i" from 0 to (count _weapons -1) do {
-		// VN
-		if (count getArray(_cfgWea >> _weapons select _i >> "FlashLight" >> "color") >= 3) exitwith {
-			_exit = 2;
-			diag_log format ["Log: [fnc_canSee] %1, _cfgWea >> FlashLight", _exit];
+		if (isClass (_cfgWea >> _weapons select _i >> "FlashLight")) then {
+			if (getNumber (_cfgWea >> _weapons select _i >> "FlashLight" >> "scope") in [1,2]) then {
+				if (count getArray(_cfgWea >> _weapons select _i >> "FlashLight" >> "color") >= 3) exitwith {
+					_exit = 2;
+					diag_log format ["Log: [fnc_canSee] %1, _cfgWea >> FlashLight", _exit];
+					breakTo "root";
+				};
+			};
 		};
 	};
 };
