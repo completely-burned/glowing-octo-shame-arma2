@@ -9,11 +9,12 @@ private [ "_flare_dist","_players","_player","_types_flare","_m","_multi_def",
 _cfgAmm = LIB_cfgAmm;
 
 _flare_dist_player = 750;
-_multi_def = 3;
 _flareHeightOffset = 70;
 #ifdef __ARMA3__
+	_multi_def = 3;
 	_flare_dist = 75;
 #else
+	_multi_def = 80;
  _flare_dist = 500;
 #endif
  _types_flare = [
@@ -53,7 +54,7 @@ while {sleep 0.01; true} do {
 					sleep ((_n + random (_n/2))/(count _players));
 
 					// random 7 никогда не будет == 7
-					if (random 7.01 >= (_player call gosa_fnc_canSee)) then {
+					if (random 6.05 >= (_player call gosa_fnc_canSee)) then {
 						// Ночи стали заметно темнее, поэтому огни должны быть даже если нет юнитов.
 						// TODO: Нужна функция для выбора между selectRandom и selectRandomWeighted.
 						if (count _flare_failover > 0) then {
