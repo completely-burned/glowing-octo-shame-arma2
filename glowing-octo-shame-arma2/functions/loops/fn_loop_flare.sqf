@@ -70,11 +70,12 @@ while {sleep 0.01; true} do {
 							diag_log format["Log: [while_flare] call spawnFlare %1", [_pos, _str, _flareHeightOffset]];
 							[_pos, _str, _flareHeightOffset] call gosa_fnc_spawnFlare;
 							// В a2oa они очень яркие.
+							// FIXME: Этот метод не подходит.
 							#ifndef __ARMA3__
-								_n = getNumber (_cfgAmm >> _str >> "timeToLive");
-								_n = (_n*(_m/100));
+								//_n = getNumber (_cfgAmm >> _str >> "timeToLive");
+								//_n = (_n*(_m/100));
 								// 80% +-10%
-								sleep (_n*0.8) + random (_n*0.1);
+								//sleep (_n*0.8) + random (_n*0.1);
 							#endif
 						};
 					};
