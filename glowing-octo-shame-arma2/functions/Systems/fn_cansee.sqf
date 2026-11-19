@@ -80,7 +80,7 @@ if !(isNil "_exit") exitwith {_exit};
 if !(_type isKindOf "Air") then {
 	for "_i" from 0 to (count _weapons -1) do {
 		if (isClass (_cfgWea >> _weapons select _i >> "FlashLight")) then {
-			if (getNumber (_cfgWea >> _weapons select _i >> "FlashLight" >> "scope") in [1,2]) then {
+			if (getNumber (_cfgWea >> _weapons select _i >> "scope") in [1,2]) then {
 				if (count getArray(_cfgWea >> _weapons select _i >> "FlashLight" >> "color") >= 3) exitwith {
 					_exit = 2;
 					diag_log format ["Log: [fnc_canSee] %1, _cfgWea >> FlashLight", _exit];
