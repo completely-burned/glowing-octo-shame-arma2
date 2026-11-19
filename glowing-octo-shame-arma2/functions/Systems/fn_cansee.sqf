@@ -89,6 +89,23 @@ if !(_type isKindOf "Air") then {
 			};
 		};
 	};
+	// модули на основном, вторичном и пистолете:
+	#ifdef __ARMA3__
+		_arr = primaryWeaponItems _obj;
+		_arr append secondaryWeaponItems _obj;
+		_arr append handgunItems _obj;
+		for "_i" from 0 to (count _arr -1) do {
+			if (_arr select _i isNotEqualTo "") then {
+				if (isClass (_cfgWea >> (_arr select _i) >> "ItemInfo" >> "FlashLight")) then {
+					if (getNumber (_cfgWea >> (_arr select _i) >> "ItemInfo" >> "type") isEqualTo 301) then {
+						_exit = 2;
+						diag_log format ["Log: [fnc_canSee] %1, _cfgWea >> ItemInfo >> FlashLight", _exit];
+						breakTo "root";
+					};
+				};
+			};
+		};
+	#endif
 };
 if !(isNil "_exit") exitwith {_exit};
 
