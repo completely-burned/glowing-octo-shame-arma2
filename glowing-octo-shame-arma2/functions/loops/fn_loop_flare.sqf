@@ -9,11 +9,12 @@ private [ "_flare_dist","_players","_player","_types_flare","_m","_multi_def",
 _cfgAmm = LIB_cfgAmm;
 
 _flare_dist_player = 750;
-_flareHeightOffset = 70;
 #ifdef __ARMA3__
+	_flareHeightOffset = 70;
 	_multi_def = 3;
 	_flare_dist = 75;
 #else
+	_flareHeightOffset = 10;
 	_multi_def = 80;
  _flare_dist = 500;
 #endif
