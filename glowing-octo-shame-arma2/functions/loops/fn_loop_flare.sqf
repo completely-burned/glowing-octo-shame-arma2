@@ -74,7 +74,7 @@ while {sleep 0.01; true} do {
 							// ~3 одновременно.
 							//sleep (_n/6) + random (_n/3);
 							// ~2 одновременно.
-							sleep (_n/4) + random (_n/2);
+							//sleep (_n/4) + random (_n/2);
 							//sleep (_n/2) + random _n;
 						#endif
 					};
