@@ -51,7 +51,7 @@ while {sleep 0.01; true} do {
 			if !(isNull _player) then {
 				_m = missionNamespace getVariable "gosa_flares";
 				if (_m > 0) then {
-					_n = (_n*(_m/100));
+					_n = (_n*(100/_m));
 					sleep ((_n + random (_n/2))/(count _players));
 
 					// random 7 никогда не будет == 7
