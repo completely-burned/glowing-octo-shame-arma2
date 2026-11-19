@@ -23,7 +23,7 @@ for "_i" from 0 to (count _cfgAmm -1) do {
 		{
 			if (getNumber (_entry >> "timeToLive") <= 600) then {
 				_arr = getArray (_entry >> "lightColor");
-				diag_log format["Log: [fn_flare_weighted] Проверка %1, lightColor %2, brightness %3, intensity %4, timeToLive %5", _entry, _arr, getNumber (_entry >> "brightness"), getNumber (_entry >> "intensity"), getNumber (_entry >> "timeToLive")];
+				diag_log format["Log: [fn_flare_weighted] Проверка %1, lightColor %2, brightness %3, intensity %4, timeToLive %5, deflecting %6", _entry, _arr, getNumber (_entry >> "brightness"), getNumber (_entry >> "intensity"), getNumber (_entry >> "timeToLive"), getNumber (_entry >> "deflecting")];
 				if ((_arr select 0) == (_arr select 1) && (_arr select 0) == (_arr select 2)) then {
 					if (isNil "_intensity_best") then {
 						_n = 1;
