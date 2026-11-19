@@ -48,35 +48,35 @@ while {sleep 0.01; true} do {
 
 			if !(isNull _player) then {
 				_m = missionNamespace getVariable "gosa_flares";
-				_n = (_n*(_m/100));
-				sleep ((_n + random (_n/2))/(count _players));
+				if (_m > 0) then {
+					_n = (_n*(_m/100));
+					sleep ((_n + random (_n/2))/(count _players));
 
-				// random 7 никогда не будет == 7
-				if (random 7.01 >= (_player call gosa_fnc_canSee)) then {
-					// Ночи стали заметно темнее, поэтому огни должны быть даже если нет юнитов.
-					// TODO: Нужна функция для выбора между selectRandom и selectRandomWeighted.
-					if (count _flare_failover > 0) then {
-						if (typeName (_flare_failover select 0) == typeName []) then {
-							if (count (_flare_failover select 0) > 0) then {
-								_str = _flare_failover call gosa_fnc_selectRandomWeighted;
+					// random 7 никогда не будет == 7
+					if (random 7.01 >= (_player call gosa_fnc_canSee)) then {
+						// Ночи стали заметно темнее, поэтому огни должны быть даже если нет юнитов.
+						// TODO: Нужна функция для выбора между selectRandom и selectRandomWeighted.
+						if (count _flare_failover > 0) then {
+							if (typeName (_flare_failover select 0) == typeName []) then {
+								if (count (_flare_failover select 0) > 0) then {
+									_str = _flare_failover call gosa_fnc_selectRandomWeighted;
+								}else{
+									breakTo "scope1";
+								};
 							}else{
-								breakTo "scope1";
+								_str = _flare_failover call BIS_fnc_selectRandom;
 							};
-						}else{
-							_str = _flare_failover call BIS_fnc_selectRandom;
-						};
 
-						diag_log format["Log: [while_flare] call spawnFlare %1", [_pos, _str, _flareHeightOffset]];
-						[_pos, _str, _flareHeightOffset] call gosa_fnc_spawnFlare;
-						// В a2oa они очень яркие.
-						#ifndef __ARMA3__
-							_n = getNumber (_cfgAmm >> _str >> "timeToLive");
-							// ~3 одновременно.
-							//sleep (_n/6) + random (_n/3);
-							// ~2 одновременно.
-							//sleep (_n/4) + random (_n/2);
-							//sleep (_n/2) + random _n;
-						#endif
+							diag_log format["Log: [while_flare] call spawnFlare %1", [_pos, _str, _flareHeightOffset]];
+							[_pos, _str, _flareHeightOffset] call gosa_fnc_spawnFlare;
+							// В a2oa они очень яркие.
+							#ifndef __ARMA3__
+								_n = getNumber (_cfgAmm >> _str >> "timeToLive");
+								_n = (_n*(_m/100));
+								// 80% +-10%
+								sleep (_n*0.8) + random (_n*0.1);
+							#endif
+						};
 					};
 				};
 			};
