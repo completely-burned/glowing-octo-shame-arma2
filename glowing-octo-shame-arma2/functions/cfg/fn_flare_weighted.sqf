@@ -25,7 +25,7 @@ for "_i" from 0 to (count _cfgAmm -1) do {
 				_arr = getArray (_entry >> "lightColor");
 				diag_log format["Log: [fn_flare_weighted] Проверка %1, lightColor %2, brightness %3, intensity %4, timeToLive %5, deflecting %6, flareAirFriction %7, flareSize %8", _entry, _arr, getNumber (_entry >> "brightness"), getNumber (_entry >> "intensity"), getNumber (_entry >> "timeToLive"), getNumber (_entry >> "deflecting"), getNumber (_entry >> "flareAirFriction"), getNumber (_entry >> "flareSize")];
 				#ifdef __ARMA3__
-				if (getNumber (_entry >> "flareAirFriction") > 0) then {
+				if (abs getNumber (_entry >> "flareAirFriction") > 0) then {
 				#endif
 					if ((_arr select 0) == (_arr select 1) && (_arr select 0) == (_arr select 2)) then {
 						if (isNil "_intensity_best") then {
