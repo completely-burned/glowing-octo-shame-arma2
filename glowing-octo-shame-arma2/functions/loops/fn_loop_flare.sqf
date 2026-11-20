@@ -4,7 +4,7 @@
  */
 private [ "_flare_dist","_players","_player","_types_flare","_m","_multi_def",
 	"_flare_dist_player","_obj","_str","_pos","_flareHeightOffset","_cfgAmm",
-	"_item","_arr","_b","_blacklist","_flare_failover","_n"];
+	"_item","_arr","_b","_blacklist","_flare_failover","_n","_n0"];
 
 _cfgAmm = LIB_cfgAmm;
 
@@ -52,33 +52,44 @@ while {sleep 0.01; true} do {
 				_m = missionNamespace getVariable "gosa_flares";
 				if (_m > 0) then {
 					_n = (_n*(100/_m));
+
+					// Если много игроков рядом, то нет нужды множить факелы.
+					_n0 = 0;
+					_arr = _pos nearEntities _flare_dist_player;
 					sleep ((_n + random (_n/2))/(count _players));
+					//_arr = _arr -[_player];
+					for "_i" from 0 to (count _arr -1) do {
+						if (_arr select _i call gosa_fnc_isPlayer) then {
+							_n0 = _n0 +1;
+						};
+					};
 
-					// random 7 никогда не будет == 7
-					if (random 6.05 >= (_player call gosa_fnc_canSee)) then {
-						// Ночи стали заметно темнее, поэтому огни должны быть даже если нет юнитов.
-						// TODO: Нужна функция для выбора между selectRandom и selectRandomWeighted.
-						if (count _flare_failover > 0) then {
-							if (typeName (_flare_failover select 0) == typeName []) then {
-								if (count (_flare_failover select 0) > 0) then {
-									_str = _flare_failover call gosa_fnc_selectRandomWeighted;
+					if (_n0 > 1) then {
+						_b = if (random _n0 < 1) then {true} else {false};
+					}else{
+						_b = if (_n0 > 0) then {true} else {false};
+					};
+
+					if (_b) then {
+						// random 7 никогда не будет == 7
+						if (random 6.05 >= (_player call gosa_fnc_canSee)) then {
+							// Ночи стали заметно темнее, поэтому огни должны быть даже если нет юнитов.
+							// TODO: Нужна функция для выбора между selectRandom и selectRandomWeighted.
+							if (count _flare_failover > 0) then {
+								if (typeName (_flare_failover select 0) == typeName []) then {
+									if (count (_flare_failover select 0) > 0) then {
+										_str = _flare_failover call gosa_fnc_selectRandomWeighted;
+									}else{
+										breakTo "scope1";
+									};
 								}else{
-									breakTo "scope1";
+									_str = _flare_failover call BIS_fnc_selectRandom;
 								};
-							}else{
-								_str = _flare_failover call BIS_fnc_selectRandom;
-							};
 
-							diag_log format["Log: [while_flare] call spawnFlare %1", [_pos, _str, _flareHeightOffset]];
-							[_pos, _str, _flareHeightOffset] call gosa_fnc_spawnFlare;
-							// В a2oa они очень яркие.
-							// FIXME: Этот метод не подходит.
-							#ifndef __ARMA3__
-								//_n = getNumber (_cfgAmm >> _str >> "timeToLive");
-								//_n = (_n*(_m/100));
-								// 80% +-10%
-								//sleep (_n*0.8) + random (_n*0.1);
-							#endif
+								diag_log format["Log: [while_flare] call spawnFlare %1", [_pos, _str, _flareHeightOffset]];
+								// TODO: Сдвигать центр в сторону взгляда игрока.
+								[_pos, _str, _flareHeightOffset] call gosa_fnc_spawnFlare;
+							};
 						};
 					};
 				};
