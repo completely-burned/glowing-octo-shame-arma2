@@ -1,4 +1,5 @@
-private ["_z","_grp"];
+private ["_z","_grp","_pos","_str","_obj"];
+_pos = [1000,10,0];
 #ifndef __ARMA3__
 	waitUntil {!isNil "BIS_fnc_init"};
 #endif
@@ -6,7 +7,23 @@ waitUntil {!isNil "gosa_grpLogic"};
 _grp = gosa_grpLogic;
 diag_log format ["Log: [modules] waitUntil post, %1, %2", _grp, time];
 
-#ifndef __ARMA3__
+#ifdef __ARMA3__
+	if (false && missionNamespace getVariable "gosa_SPE_Module_Indirect_Fire_Support" > 0) then {
+		_str = "SPE_Module_Indirect_Fire_Support_Hotfix";
+		if (configName(configFile >> "CfgVehicles" >> _str) == "") then {
+			_str = "SPE_Module_Indirect_Fire_Support";
+		};
+		if (configName(configFile >> "CfgVehicles" >> _str) != "") then {
+			if (isServer) then {
+				_obj = _grp createUnit [_str,_pos,[],0,"NONE"];
+				_obj setVariable ["BIS_fnc_initModules_disableAutoActivation", false, true];
+				[_obj] call BIS_fnc_initModules;
+
+				diag_log format ["Log: [modules] SPE_Module_Indirect_Fire_Support %1 created", _obj];
+			};
+		};
+	};
+#else
 	if (missionNamespace getVariable "gosa_I44_Module_tankPenetration" > 0
 		&& configName(configFile >> "CfgVehicles" >> "I44_Module_tankPenetration") != "") then
 	{

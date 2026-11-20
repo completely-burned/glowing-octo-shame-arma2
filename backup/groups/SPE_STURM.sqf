@@ -1,5 +1,42 @@
 //-- SPE_STURM, [SPE] Штурмовики
 [
+//- InfantryFrench, Infantry (French Volunteers)
+// SEP_B_GER_Infantry_French_Command_Section, Command Section
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_Command_Section"]],0.5],
+// SEP_B_GER_Infantry_French_Sqd, Infantry Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_Sqd"]],0.5],
+// SEP_B_GER_Infantry_French_AT_Sqd, AT Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_AT_Sqd"]],0.5],
+// SEP_B_GER_Infantry_French_MG_Team, Machine Gun Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_MG_Team"]],0.5],
+// SEP_B_GER_Infantry_French_Flamethrower_Team, Flamethrower Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_Flamethrower_Team"]],0.5],
+// SEP_B_GER_Infantry_French_Sniper_Team, Sniper Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_Sniper_Team"]],0.5],
+// SEP_B_GER_Infantry_French_2Man_Sentry, 2 Man Sentry
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_2Man_Sentry"]],0.5],
+// SEP_B_GER_Infantry_French_3Man_Sentry, 3 Man Sentry 
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryFrench" >> "SEP_B_GER_Infantry_French_3Man_Sentry"]],0.5],
+//- InfantryEarlySturm, Infantry (Early)
+// SEP_B_GER_Infantry_Sturm_Early_Command_Section, Command Section
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_Command_Section"]],0.5],
+// SEP_B_GER_Infantry_Sturm_Early_Sqd, Infantry Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_Sqd"]],0.5],
+// SEP_B_GER_Infantry_Sturm_Early_MG_Team, Machine Gun Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_MG_Team"]],0.5],
+// SEP_B_GER_Infantry_Sturm_Early_Flamethrower_Team, Flamethrower Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_Flamethrower_Team"]],0.5],
+// SEP_B_GER_Infantry_Sturm_Early_Sniper_Team, Sniper Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_Sniper_Team"]],0.5],
+// SEP_B_GER_Infantry_Sturm_Early_2Man_Sentry, 2 Man Sentry
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_2Man_Sentry"]],0.5],
+// SEP_B_GER_Infantry_Sturm_Early_3Man_Sentry, 3 Man Sentry 
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "InfantryEarlySturm" >> "SEP_B_GER_Infantry_Sturm_Early_3Man_Sentry"]],0.5],
+//- Support, Поддержка пехоты
+// SPE_sturmtrooper_HMG_team, Расчет тяжелого пулемета
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Support" >> "SPE_sturmtrooper_HMG_team"]],0.5],
+// SPE_sturmtrooper_81_Mortar_Team, Минометный расчет
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Support" >> "SPE_sturmtrooper_81_Mortar_Team"]],0.4],
 //- Infantry, Пехота
 // SPE_sturmtrooper_MG_team, Пулеметный расчет
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_MG_team"]],0.4],
@@ -21,11 +58,6 @@
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_sturmtrooper_Assault_Engineer_Squad"]],0.5],
 // SPE_ST_Panzerjaeger_squad, Отряд Panzerjäger
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Infantry" >> "SPE_ST_Panzerjaeger_squad"]],0.4],
-//- Support, Поддержка пехоты
-// SPE_sturmtrooper_HMG_team, Расчет тяжелого пулемета
-[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Support" >> "SPE_sturmtrooper_HMG_team"]],0.5],
-// SPE_sturmtrooper_81_Mortar_Team, Минометный расчет
-[[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Support" >> "SPE_sturmtrooper_81_Mortar_Team"]],0.4],
 //- Motorized, Моторизованная пехота
 // SPE_Motorized_Infantry_Squad, Моторизованное пехотное отделение
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_STURM" >> "Motorized" >> "SPE_Motorized_Infantry_Squad"]],0.6],

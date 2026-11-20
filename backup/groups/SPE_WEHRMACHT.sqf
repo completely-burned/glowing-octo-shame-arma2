@@ -1,5 +1,61 @@
 //-- SPE_WEHRMACHT, [SPE] Вермахт
 [
+//- InfantryVolkGren, Infantry (Volks-Grenadier)
+// SEP_B_GER_Infantry_VolkGren_Command_Section, Command Section
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_Command_Section"]],0.5],
+// SEP_B_GER_Infantry_VolkGren_Sqd, Infantry Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_Sqd"]],0.5],
+// SEP_B_GER_Infantry_VolkGren_AT_Sqd, AT Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_AT_Sqd"]],0.5],
+// SEP_B_GER_Infantry_VolkGren_MG_Team, Machine Gun Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_MG_Team"]],0.5],
+// SEP_B_GER_Infantry_VolkGren_Sniper_Team, Sniper Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_Sniper_Team"]],0.5],
+// SEP_B_GER_Infantry_VolkGren_Flamethrower_Team, Flamethrower Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_Flamethrower_Team"]],0.5],
+// SEP_B_GER_Infantry_VolkGren_2Man_Sentry, 2 Man Sentry
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_2Man_Sentry"]],0.5],
+// SEP_B_GER_Infantry_VolkGren_3Man_Sentry, 3 Man Sentry 
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryVolkGren" >> "SEP_B_GER_Infantry_VolkGren_3Man_Sentry"]],0.5],
+//- InfantryBlueDivision, Infantry (Blue Division)
+// SEP_B_GER_Infantry_BD_Command_Section, Command Section
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_Command_Section"]],0.5],
+// SEP_B_GER_Infantry_BD_Sqd, Infantry Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_Sqd"]],0.5],
+// SEP_B_GER_Infantry_BD_AT_Sqd, AT Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_AT_Sqd"]],0.5],
+// SEP_B_GER_Infantry_BD_MG_Team, Machine Gun Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_MG_Team"]],0.5],
+// SEP_B_GER_Infantry_BD_2Man_Sentry, 2 Man Sentry
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_2Man_Sentry"]],0.5],
+// SEP_B_GER_Infantry_BD_3Man_Sentry, 3 Man Sentry 
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryBlueDivision" >> "SEP_B_GER_Infantry_BD_3Man_Sentry"]],0.5],
+//- InfantryEarly, Infantry (Early)
+// SEP_B_GER_Infantry_Early_Command_Section, Command Section
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_Command_Section"]],0.5],
+// SEP_B_GER_Infantry_Early_Sqd, Infantry Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_Sqd"]],0.5],
+// SEP_B_GER_Infantry_Early_MG_Team, Machine Gun Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_MG_Team"]],0.5],
+// SEP_B_GER_Infantry_Early_Flamethrower_Team, Flamethrower Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_Flamethrower_Team"]],0.5],
+// SEP_B_GER_Infantry_Early_2Man_Sentry, 2 Man Sentry
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_2Man_Sentry"]],0.5],
+// SEP_B_GER_Infantry_Early_3Man_Sentry, 3 Man Sentry 
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryEarly" >> "SEP_B_GER_Infantry_Early_3Man_Sentry"]],0.5],
+//- InfantryLwFD, Infantry (Field Division)
+// SEP_B_GER_Infantry_LwFD_Sqd, Infantry Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_Sqd"]],0.5],
+// SEP_B_GER_Infantry_LwFD_AT_Sqd, AT Squad
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_AT_Sqd"]],0.5],
+// SEP_B_GER_Infantry_LwFD_MG_Team, Machine Gun Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_MG_Team"]],0.5],
+// SEP_B_GER_Infantry_LwFD_Sniper_Team, Sniper Team
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_Sniper_Team"]],0.5],
+// SEP_B_GER_Infantry_LwFD_2Man_Sentry, 2 Man Sentry
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_2Man_Sentry"]],0.5],
+// SEP_B_GER_Infantry_LwFD_3Man_Sentry, 3 Man Sentry 
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "InfantryLwFD" >> "SEP_B_GER_Infantry_LwFD_3Man_Sentry"]],0.5],
 //- SPE_FSJ, Десантники
 // SPE_FSJ_Infantry_Patrol, 3 часовых
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "SPE_FSJ" >> "SPE_FSJ_Infantry_Patrol"]],0],
@@ -45,9 +101,11 @@
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support_OST" >> "SPE_OST_HMG_team"]],0.5],
 // SPE_OST_81_Mortar_Team, Минометный расчет
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support_OST" >> "SPE_OST_81_Mortar_Team"]],0.4],
-//- Air, Воздушная
-// SPE_GER_fw190f8_Group, Звено Fw 190 F-8
-[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Air" >> "SPE_GER_fw190f8_Group"]],0.5],
+//- Support, Поддержка пехоты
+// SPE_GER_HMG_team, Расчет тяжелого пулемета
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support" >> "SPE_GER_HMG_team"]],0.5],
+// SPE_GER_81_Mortar_Team, Минометный расчет
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support" >> "SPE_GER_81_Mortar_Team"]],0.4],
 //- Infantry, Пехота
 // SPE_GER_Lehr_Panzergrenadier_Squad, Бронепехотное отделение
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_Lehr_Panzergrenadier_Squad"]],0.4],
@@ -75,11 +133,6 @@
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_MG_team"]],0.5],
 // SPE_GER_Panzerjaeger_squad, Отряд Panzerjäger
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Infantry" >> "SPE_GER_Panzerjaeger_squad"]],0.4],
-//- Support, Поддержка пехоты
-// SPE_GER_HMG_team, Расчет тяжелого пулемета
-[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support" >> "SPE_GER_HMG_team"]],0.5],
-// SPE_GER_81_Mortar_Team, Минометный расчет
-[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Support" >> "SPE_GER_81_Mortar_Team"]],0.4],
 //- Motorized, Моторизованная пехота
 // SPE_Motorized_Infantry_Squad, Моторизованное пехотное отделение
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Motorized" >> "SPE_Motorized_Infantry_Squad"]],0.6],
@@ -88,6 +141,9 @@
 //- Mechanized, Механизированная пехота
 // SPE_GER_Scout_250_Recon_Team, Механизированная разведывательная группа
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Mechanized" >> "SPE_GER_Scout_250_Recon_Team"]],0.6],
+//- Air, Воздушная
+// SPE_GER_fw190f8_Group, Звено Fw 190 F-8
+[[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Air" >> "SPE_GER_fw190f8_Group"]],0.5],
 //- Armored, Бронетанковая
 // SPE_GER_PzKpfwIV_G_Platoon, Взвод PzKpfw IV Ausf.G
 [[[configFile >> "CfgGroups" >> "West" >> "SPE_WEHRMACHT" >> "Armored" >> "SPE_GER_PzKpfwIV_G_Platoon"]],0.25],

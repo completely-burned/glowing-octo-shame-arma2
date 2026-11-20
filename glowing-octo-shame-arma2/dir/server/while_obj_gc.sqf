@@ -294,14 +294,6 @@ while {sleep 5; true} do {
 
 	// vehicles - allDead;
 
-	// TODO: это писано в нездоровом состоянии?
-	if ( !isMultiplayer ) then {
-		private["_playerSP"];
-		waitUntil {_playerSP = player; !alive _playerSP};
-		_deleteListManAlive = _deleteListManAlive - [_playerSP];
-		_deleteListManDead = _deleteListManDead - [_playerSP];
-	};
-
 	if (_min_vehicles_count > 0) then {
 		_min_dist2 = (_min_dist-(_noDeleteCount*(_min_dist/_min_vehicles_count))+_min_vehicles_count);
 		diag_log format ["Log: [GC2] min_dist %1", _min_dist2];

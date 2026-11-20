@@ -123,37 +123,6 @@
 [[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_Gliderborne" >> "SPE_US_AB_327AB_Heavy_Machine_Gun_Team"]],0.4],
 // SPE_US_AB_327AB_81_Mortar_Team, Минометный расчет
 [[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Support_Gliderborne" >> "SPE_US_AB_327AB_81_Mortar_Team"]],0.4],
-//- Infantry, Пехота
-// SPE_US_Command_Section, Командный отряд
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Command_Section"]],0.6],
-// SPE_US_Command_Squad, Командное отделение
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Command_Squad"]],0.6],
-// SPE_US_Infantry_Squad, Пехотное отделение
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Infantry_Squad"]],0.8],
-// SPE_US_AT_Squad, Противотанковое отделение
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_AT_Squad"]],0.4],
-// SPE_US_Scout_Squad, Разведывательное отделение
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Scout_Squad"]],0.4],
-// SPE_US_Flamethrower_Team, Команда огнеметчиков
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Flamethrower_Team"]],0.4],
-// SPE_US_Sentry_Squad_2, 2 часовых
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Sentry_Squad_2"]],0.4],
-// SPE_US_Sentry_Squad_3, 3 часовых
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Sentry_Squad_3"]],0.4],
-// SPE_US_Sniper_Team, Снайперская группа
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Sniper_Team"]],0.4],
-// SPE_US_Rifle_Team, Стрелковая команда
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Rifle_Team"]],0.4],
-// SPE_US_BAR_Team, Группа с BAR
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_BAR_Team"]],0.4],
-// SPE_US_2AD_Dismounted_Platoon_HQ, Штаб бронетанкового взвода
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_Platoon_HQ"]],0.6],
-// SPE_US_2AD_Dismounted_RifleSquad, Бронепехотное отделение
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_RifleSquad"]],0.8],
-// SPE_US_2AD_Dismounted_MGSquad, Бронепехотное отделение с легкими пулеметами
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_MGSquad"]],0.8],
-// SPE_US_2AD_Dismounted_AssaultEngineer_Squad, Бронетанковый штурмовой инженерный отряд
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_AssaultEngineer_Squad"]],0.4],
 //- Motorized, Моторизованная пехота
 // SPE_Motorized_Infantry_Squad, Моторизованное пехотное отделение
 [[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Motorized" >> "SPE_Motorized_Infantry_Squad"]],0.6],
@@ -188,6 +157,37 @@
 // SPE_M8_Recon_Section, Отделение разведки M8 LAC
 [[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M8_Recon_Section"]],0.25],
 // SPE_M20_AUC_Section, Отделение разведки M20 AUC
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M20_AUC_Section"]],0.25]
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Armored" >> "SPE_M20_AUC_Section"]],0.25],
+//- Infantry, Пехота
+// SPE_US_Command_Section, Командный отряд
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Command_Section"]],0.6],
+// SPE_US_Command_Squad, Командное отделение
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Command_Squad"]],0.6],
+// SPE_US_Infantry_Squad, Пехотное отделение
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Infantry_Squad"]],0.8],
+// SPE_US_AT_Squad, Противотанковое отделение
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_AT_Squad"]],0.4],
+// SPE_US_Scout_Squad, Разведывательное отделение
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Scout_Squad"]],0.4],
+// SPE_US_Flamethrower_Team, Команда огнеметчиков
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Flamethrower_Team"]],0.4],
+// SPE_US_Sentry_Squad_2, 2 часовых
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Sentry_Squad_2"]],0.4],
+// SPE_US_Sentry_Squad_3, 3 часовых
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Sentry_Squad_3"]],0.4],
+// SPE_US_Sniper_Team, Снайперская группа
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Sniper_Team"]],0.4],
+// SPE_US_Rifle_Team, Стрелковая команда
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_Rifle_Team"]],0.4],
+// SPE_US_BAR_Team, Группа с BAR
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_BAR_Team"]],0.4],
+// SPE_US_2AD_Dismounted_Platoon_HQ, Штаб бронетанкового взвода
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_Platoon_HQ"]],0.6],
+// SPE_US_2AD_Dismounted_RifleSquad, Бронепехотное отделение
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_RifleSquad"]],0.8],
+// SPE_US_2AD_Dismounted_MGSquad, Бронепехотное отделение с легкими пулеметами
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_MGSquad"]],0.8],
+// SPE_US_2AD_Dismounted_AssaultEngineer_Squad, Бронетанковый штурмовой инженерный отряд
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_US_ARMY" >> "Infantry" >> "SPE_US_2AD_Dismounted_AssaultEngineer_Squad"]],0.4]
 ];
 

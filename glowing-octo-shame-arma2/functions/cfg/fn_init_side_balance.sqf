@@ -205,21 +205,6 @@ for "_i" from 0 to (count _problems_num -1) do {
 	};
 };
 
-_arr = [];
-for "_i" from 0 to (count (_problems select 1) -1) do {
-	_arr set [_i, _problems select 1 select _i call gosa_fnc_getSideNum];
-};
-
-if !(_pvp) then {
-gosa_sides_friendly_num = _arr;
-publicVariable "gosa_sides_friendly_num";
-
-	m_sideEnemy = _problems select 0;
-	gosa_friendlyside = _problems select 1;
-	publicVariable "m_sideEnemy";
-	publicVariable "gosa_friendlyside";
-};
-
 _arr0 = [[],[]];
 if !(isMultiplayer) then {
 	for "_i" from 0 to (count (_problems_num select 1) -1) do {
@@ -230,8 +215,6 @@ if !(isMultiplayer) then {
 			_arr0 select 1 set [count (_arr0 select 1), _sides_cfi select _n];
 		};
 	};
-	gosa_playerside = _arr0 call BIS_fnc_selectRandomWeighted;
-	diag_log format ["Log: [init_side_balance] _playerside %1, _arr0 %2", gosa_playerside, _arr0];
 };
 
 _arr = [_sides, _sides_cfi, _superpowers_rating, [_problems, _problems_num], [_players_cfi, _allDead, _players], _arr0];

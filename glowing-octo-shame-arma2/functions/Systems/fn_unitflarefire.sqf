@@ -7,6 +7,7 @@
  * TODO: Лучше заменить на сохданный объект, без выстрела.
  * FIXME: Некоторые ракеты горят, но света почти не излучают.
  * TODO: Рандомизация.
+ * В общем это была неудачная попытка заставить юнитов использовать осветительные ракеты из своих карманов.
  */
 
 #ifdef __ARMA3__
@@ -42,18 +43,14 @@ if (count _this > 2) then {
 	};
 };
 
-_flareHeightOffset = 80;
+_flareHeightOffset = 70;
 _target = objNull;
 _grp = grpNull;
-_windX = wind select 0;
-_windZ = wind select 1;
 #ifdef __ARMA3__
 	_iW_to = 2;
-	if (_windX isEqualTo 0) then {_windX = random [-0.5, 0.1, 0.5];};
 #else
 	_iW_to = 1;
 #endif
-_velocity = [_windX, _windZ, 30];
 
 scopename "scope1";
 
@@ -61,7 +58,8 @@ scopename "scope1";
 for "_iW" from 0 to _iW_to do {
 	for "_i" from 0 to (count _units -1) do {
 		_u = _units select _i;
-		if (_u == vehicle _u && speed _u < 1) then {
+		//  && speed _u < 1
+		if (_u == vehicle _u) then {
 			switch (_iW) do {
 				#ifdef __ARMA3__
 					case 1: {_w = secondaryWeapon _u};
@@ -98,7 +96,6 @@ for "_iW" from 0 to _iW_to do {
 								_str = toLower getText (_cfgAmm >> _ammo >> "simulation");
 								if (_str == "shotilluminating") then {
 									if (true) then {
-										// TODO: Звук запуска ракеты.
 										#ifdef __ARMA3__
 											_arr = ([_u, 50 + random 100, getDir _u -45 +random 90] call BIS_fnc_relPos);
 											_height = _ammo call gosa_fnc_flareHeight;
@@ -108,8 +105,7 @@ for "_iW" from 0 to _iW_to do {
 											_height = (140 + random 20);
 										#endif
 										_arr set [2, _height];
-										_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
-										_obj setVelocity _velocity;
+										_obj = [_arr, _ammo] call gosa_fnc_createFlare;
 										diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _ammo, _mag, _obj, _arr]];
 									}else{
 										_u_mags = magazines _u;
@@ -205,43 +201,15 @@ if (isNil "_obj") then {
 				};
 			};
 
-		_n = _ammo call gosa_fnc_flareDist;
-					if (_ammo in ["gm_shell_122x447mm_illum_s463","gm_shell_155mm_illum_m485","gm_rocket_84x245mm_illum_dm16","gm_flare_illum_wht"]) then {
-						// Светят очень ярко.
-						if (random 10 >= 1) then {
-							breakTo "scope1";
-						};
-					};
-		_n0 = _n*2;
-		_arr set [0, (_arr select 0) - _n + random _n0];
-		_arr set [1, (_arr select 1) - _n + random _n0];
-
-		_n = _ammo call gosa_fnc_flareHeight;
-		_arr set [2, (_n - (_n/4) + random (_n/2)) + _flareHeightOffset];
-			/*
-			private _sound = "SN_Flare_Fired_4";
-			private _soundSourceClass = "SoundFlareLoop_F";
-			private _minDist = _options getOrDefault [QUOTE(PARAM_NAME(mindist)), 300];
-			*/
-
-			// Spawn the flare projectile
-			_obj = createVehicle [_ammo, _arr, [], 0, "FLY"];
-					//_projectile setPos _pos;
-					_obj setVelocity _velocity;
-					diag_log format["Log: [fnc_unitFlareFire] %1 fire and exit", [_u, _ammo, _obj, _arr]];
+			if (_ammo in ["gm_shell_122x447mm_illum_s463","gm_shell_155mm_illum_m485","gm_rocket_84x245mm_illum_dm16","gm_flare_illum_wht"]) then {
+				// Светят очень ярко.
+				if (random 10 >= 1) then {
+					diag_log format["Log: [fnc_unitFlareFire] breakTo scope1, _ammo %1", _ammo];
 					breakTo "scope1";
-			/*
-			// Play the flare sound lighting up
-			[[_projectile,_sound,"say3D"],"bis_fnc_sayMessage"] call bis_fnc_mp;
-			// Create sound source of burning sound and attach to projectile
-			private _soundSource = createSoundSource [_soundSourceClass, _pos, [], 0];
-			_soundSource attachTo [_projectile, [0, 0, 0]];
-			// Trigger is used as a data structure as we cannot store variables in projectiles and sound sources
-			private _trigger = createTrigger ["EmptyDetector", _pos];
-			_trigger attachTo [_projectile, [0, 0, 0]];
-			_trigger setVariable [QUOTE(PARAM_NAME(soundSource)), _soundSource];
-			_trigger setVariable [QUOTE(PARAM_NAME(projectile)), _projectile];
-			*/
+				};
+			};
+
+			_obj = [_arr, _ammo, _flareHeightOffset] call gosa_fnc_spawnFlare;
 		};
 	};
 };

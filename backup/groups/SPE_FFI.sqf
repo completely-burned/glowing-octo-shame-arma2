@@ -1,6 +1,11 @@
 //-- SPE_FFI, [SPE] Французские внутренние войска
 [
+//- Mechanized, Механизированная пехота
+// SPE_FFI_250_Team, Механизированная разведывательная группа
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Mechanized" >> "SPE_FFI_250_Team"]],0.6],
 //- Infantry, Пехота
+// SEP_I_FFI_Partisan_Team, Partisan Team
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SEP_I_FFI_Partisan_Team"]],0.5],
 // SPE_FFI_Command_Circle, Командование
 [[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Command_Circle"]],0.6],
 // SPE_FFI_FighterCell, Боевая ячейка
@@ -22,9 +27,6 @@
 // SPE_FFI_Saboteur_Team, Диверсионная группа
 [[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Saboteur_Team"]],0.9],
 // SPE_FFI_Militia_Group, Отряд ополченцев
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Militia_Group"]],0.4],
-//- Mechanized, Механизированная пехота
-// SPE_FFI_250_Team, Механизированная разведывательная группа
-[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Mechanized" >> "SPE_FFI_250_Team"]],0.6]
+[[[configFile >> "CfgGroups" >> "Indep" >> "SPE_FFI" >> "Infantry" >> "SPE_FFI_Militia_Group"]],0.4]
 ];
 

@@ -221,5 +221,5 @@ if (missionNamespace getVariable "gosa_locations" == 2) then {
 [] execVM "dir\server\while_failover.sqf";
 
 if (missionNamespace getVariable "gosa_flares" > 0) then {
-	[] execVM "dir\server\while_flare.sqf";
+	[] spawn gosa_fnc_loop_flare;
 };

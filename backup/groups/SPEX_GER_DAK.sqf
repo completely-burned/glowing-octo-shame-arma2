@@ -1,5 +1,10 @@
 //-- SPEX_GER_DAK, [SPEX] Wehrmacht (Tropic)
 [
+//- Support, Поддержка пехоты
+// SPEX_GER_DAK_HMG_team, Расчет тяжелого пулемета
+[[[configFile >> "CfgGroups" >> "West" >> "SPEX_GER_DAK" >> "Support" >> "SPEX_GER_DAK_HMG_team"]],0.5],
+// SPEX_GER_DAK_81_Mortar_Team, Минометный расчет
+[[[configFile >> "CfgGroups" >> "West" >> "SPEX_GER_DAK" >> "Support" >> "SPEX_GER_DAK_81_Mortar_Team"]],0.4],
 //- SPEX_FSJ_DAK, Десантники
 // SPEX_FSJ_DAK_Infantry_Patrol, 3 часовых
 [[[configFile >> "CfgGroups" >> "West" >> "SPEX_GER_DAK" >> "SPEX_FSJ_DAK" >> "SPEX_FSJ_DAK_Infantry_Patrol"]],0],
@@ -39,11 +44,6 @@
 // SPEX_GER_DAK_MG_team, Пулеметный расчет
 [[[configFile >> "CfgGroups" >> "West" >> "SPEX_GER_DAK" >> "Infantry" >> "SPEX_GER_DAK_MG_team"]],0.5],
 // SPEX_GER_DAK_Panzerjaeger_squad, Отряд Panzerjäger
-[[[configFile >> "CfgGroups" >> "West" >> "SPEX_GER_DAK" >> "Infantry" >> "SPEX_GER_DAK_Panzerjaeger_squad"]],0.4],
-//- Support, Поддержка пехоты
-// SPEX_GER_DAK_HMG_team, Расчет тяжелого пулемета
-[[[configFile >> "CfgGroups" >> "West" >> "SPEX_GER_DAK" >> "Support" >> "SPEX_GER_DAK_HMG_team"]],0.5],
-// SPEX_GER_DAK_81_Mortar_Team, Минометный расчет
-[[[configFile >> "CfgGroups" >> "West" >> "SPEX_GER_DAK" >> "Support" >> "SPEX_GER_DAK_81_Mortar_Team"]],0.4]
+[[[configFile >> "CfgGroups" >> "West" >> "SPEX_GER_DAK" >> "Infantry" >> "SPEX_GER_DAK_Panzerjaeger_squad"]],0.4]
 ];
 
