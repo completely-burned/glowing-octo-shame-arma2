@@ -83,7 +83,7 @@ switch (_n) do {
 		civilian setFriend [east, 1];
 		civilian setFriend [west, 1];
 		civilian setFriend [resistance, 1];
-		east setFriend [civilian];
+		east setFriend [civilian, 1];
 		west setFriend [civilian, 1];
 		resistance setFriend [civilian, 1];
 	};
@@ -99,7 +99,7 @@ switch (_n) do {
 		civilian setFriend [east, 1];
 		civilian setFriend [west, 1];
 		civilian setFriend [resistance, 1];
-		east setFriend [civilian];
+		east setFriend [civilian, 1];
 		west setFriend [civilian, 1];
 		resistance setFriend [civilian, 1];
 	};
@@ -115,7 +115,7 @@ switch (_n) do {
 		civilian setFriend [east, 1];
 		civilian setFriend [west, 1];
 		civilian setFriend [resistance, 1];
-		east setFriend [civilian];
+		east setFriend [civilian, 1];
 		west setFriend [civilian, 1];
 		resistance setFriend [civilian, 1];
 	};
@@ -132,7 +132,7 @@ switch (_n) do {
 		civilian setFriend [east, 1];
 		civilian setFriend [west, 1];
 		civilian setFriend [resistance, 1];
-		east setFriend [civilian];
+		east setFriend [civilian, 1];
 		west setFriend [civilian, 1];
 		resistance setFriend [civilian, 1];
 	};
