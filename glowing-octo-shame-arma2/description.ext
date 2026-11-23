@@ -922,8 +922,9 @@ class Params {
 
 	class gosa_side_alliances {
 		title="SIDE: Alliances [gp]";
-		values[] = {1,0};
-		texts[] = {STR_ENABLED,STR_DISABLED};
+		values[] = {1,0,112,121,122,123};
+		texts[] = {STR_ENABLED,STR_DISABLED,
+			"East+West/Indep","East+Indep/West","West+Indep/East","East/West/Indep"};
 		default = 1;
 	};
 
