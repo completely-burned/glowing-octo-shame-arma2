@@ -96,7 +96,7 @@ _arr = [
 	// EF_B_MJTF_Wdl_ATSection
 	[[[["EF_B_MRAP_01_AT_MJTF_Wdl","EF_B_MRAP_01_AT_MJTF_Wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// EF_B_MJTF_Wdl_SPGSection_MLRS
 		[[[["EF_B_MBT_01_mlrs_MJTF_Wdl","EF_B_MBT_01_mlrs_MJTF_Wdl"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1]
@@ -221,7 +221,7 @@ _arr = [
 	// EF_B_MJTF_Des_ATSection
 	[[[["EF_B_MRAP_01_AT_MJTF_Des","EF_B_MRAP_01_AT_MJTF_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1]
 ];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
 		// EF_B_MJTF_Des_SPGSection_MLRS
 		[[[["EF_B_MBT_01_mlrs_MJTF_Des","EF_B_MBT_01_mlrs_MJTF_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","SERGEANT"]]],0.1]

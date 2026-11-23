@@ -9,13 +9,20 @@ for "_i" from 0 to (count _cfg -1) do {
 _arr;
 */
 
+#define __date_dead_ussa 1991
+#define __vn_start 1957
+#define __vn_end 1980
 
 private ["_f","_date"];
 _f = _this select 0;
 if (typeName _f == typeName objNull) then {
 	_f = toLower faction _f;
 }else{
-	_f = toLower getText (LIB_cfgVeh >> _f >> "faction");
+	if (configName(configFile >> "CfgFactionClasses" >> (_this select 0)) == "") then {
+		_f = toLower getText (LIB_cfgVeh >> _f >> "faction");
+	}else{
+		_f = toLower (_this select 0);
+	};
 };
 
 switch (true) do {
@@ -27,12 +34,30 @@ switch (true) do {
 		"spe_supports","spe_modules"]): {
 			_date = [1930,1957];
 	};
-	// VN 1968
-	case (_f in ["vn_vietnammodules","vn_vietnamcinematics","b_macv",
-		"b_aus","b_nz","b_rok","o_pavn","o_vc","o_pl","o_cam","i_arvn",
-		"i_lao","i_cam","c_viet","b_cia","b_medt"]): {
-			_date = [1957,1976];
+
+	// VN FIXME: Вьетнамская война 1957-1976
+	// 1970
+	case (_f in ["o_cam","i_cam"]): {
+			_date = [1970, __vn_end];
 	};
+	// 65
+	case (_f in ["b_rok","o_pavn"]): {
+			_date = [__vn_start, __vn_end];
+	};
+	// 66
+	case (_f in ["b_macv","b_aus","b_nz","b_cia","b_medt"]): {
+			_date = [__vn_start, __vn_end];
+	};
+	// TODO: gg?
+	case (_f in ["o_vc","o_pl","i_arvn","i_lao"]): {
+			_date = [__vn_start, __vn_end];
+	};
+	// Гражданские
+	// TODO: Ограничить даты для транспорта.
+	case (_f in ["c_viet"]): {
+			_date = [1000, 3000];
+	};
+
 	// GM 1983 
 	case (_f in [
 		"gm_fc_bu","gm_fc_bu_bgs","gm_fc_bu_civ","gm_fc_cs","gm_fc_cs_bgs",
@@ -55,27 +80,54 @@ switch (true) do {
 			_date = [1980,2000];
 	};
 	// CSLA 1986
-	case (_f in ["csla","csla_des","us85","us85_des","afmc","fia_civ",
-		"fia_des","csla_civ"]): {
-			_date = [1980,1990];
+	case (_f in ["csla","csla_des","us85","us85_des","afmc","fia","fia_des"]): {
+			_date = [1980,1996];
+	};
+	case (_f in ["fia_civ","csla_civ"]): {
+			_date = [1000,3000];
 	};
 	// RHS >VN >WW2
-	case (_f in ["rhs_faction_msv","rhs_faction_vdv","rhs_faction_vdv_45",
-		"rhs_faction_vmf","rhs_faction_vv","rhs_faction_tv","rhs_faction_vpvo",
-		"rhs_faction_vvs","rhs_faction_vvs_c","rhs_faction_rva",
-		"rhs_faction_usarmy","rhs_faction_usmc","rhs_faction_usarmy_wd",
-		"rhs_faction_usarmy_d","rhs_faction_usmc_wd","rhs_faction_usmc_d",
-		"rhs_faction_usaf","rhs_faction_usn","rhs_faction_socom",
-		"rhs_faction_insurgents","rhsgref_faction_cdf_ground",
-		"rhsgref_faction_cdf_ground_b","rhsgref_faction_cdf_air",
-		"rhsgref_faction_cdf_air_b","rhsgref_faction_cdf_ng",
-		"rhsgref_faction_cdf_ng_b","rhsgref_faction_un",
-		"rhsgref_faction_nationalist","rhsgref_faction_chdkz",
-		"rhsgref_faction_chdkz_g","rhsgref_faction_hidf","rhsgref_faction_tla",
-		"rhsgref_faction_tla_g","rhssaf_faction_army",
-		"rhssaf_faction_army_opfor","rhssaf_faction_airforce",
-		"rhssaf_faction_airforce_opfor","rhssaf_faction_un"]): {
-			_date = [1970,2020];
+	// ЧДКЗ — период по лору Arma 2
+	case (_f in ["rhsgref_faction_chdkz", "rhsgref_faction_chdkz_g"]): {
+		_date = [1999, 2015];
+	};
+	// RHS: советские/российские фракции (MSV, VDV, ВМФ и т.п.)
+	case (_f in [
+		"rhs_faction_msv", "rhs_faction_vdv", "rhs_faction_vdv_45",
+		"rhs_faction_vmf", "rhs_faction_vv", "rhs_faction_tv", "rhs_faction_vpvo",
+		"rhs_faction_vvs", "rhs_faction_vvs_c", "rhs_faction_rva"
+	]): {
+		_date = [1970, 2050];
+	};
+	// RHS: американские фракции (Армия, Морская пехота, ВВС, ВМС, SOCOM)
+	case (_f in [
+		"rhs_faction_usarmy", "rhs_faction_usmc", "rhs_faction_usarmy_wd",
+		"rhs_faction_usarmy_d", "rhs_faction_usmc_wd", "rhs_faction_usmc_d",
+		"rhs_faction_usaf", "rhs_faction_usn", "rhs_faction_socom"
+	]): {
+		_date = [1970, 2050];
+	};
+	// RHS: повстанцы и CDF (включая варианты ground/air/NG) — 1970–2020
+	case (_f in [
+		"rhs_faction_insurgents",
+		"rhsgref_faction_cdf_ground", "rhsgref_faction_cdf_ground_b",
+		"rhsgref_faction_cdf_air", "rhsgref_faction_cdf_air_b",
+		"rhsgref_faction_cdf_ng", "rhsgref_faction_cdf_ng_b"
+	]): {
+		_date = [__date_dead_ussa, 2020];
+	};
+	// RHS: остальные (UN, националисты, HIDF, TLA, SAF) — 1970–2020
+	case (_f in [
+		"rhsgref_faction_un",
+		"rhsgref_faction_nationalist",
+		"rhsgref_faction_tla", "rhsgref_faction_tla_g",
+		"rhssaf_faction_army", "rhssaf_faction_army_opfor",
+		"rhssaf_faction_airforce", "rhssaf_faction_airforce_opfor", "rhssaf_faction_un"
+	]): {
+		_date = [1970, 2020];
+	};
+	case (_f in ["rhsgref_faction_hidf"]): {
+		_date = [1970, 1995];
 	};
 	// A2 2008
 	// A2OA 2012

@@ -50,7 +50,6 @@ if (isNil "_gosa_init") then {
 		_o setObjectScale 1;
 		// Отказоустойчивость
 		[_o, true] remoteExec ["allowDamage"];
-		[_o, 1] remoteExec ["setObjectScale"];
 		[_o, true] remoteExec ["enableSimulation"];
 	#endif
 };

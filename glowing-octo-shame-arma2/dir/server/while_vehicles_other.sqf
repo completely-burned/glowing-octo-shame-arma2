@@ -259,6 +259,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 			// В A2 отсутсвуют vehicleMoveInfo и sendSimpleCommand "STOPTURNING";
 			#ifdef __ARMA3__
 			if (_veh isKindOf "Tank") then {
+				if (!_isPlayer or {driver _veh call gosa_fnc_isPlayer}) then {
 				// TODO: Учитывать ограничения поворота пушки.
 				//_turret = [0];
 				//_turretLimits = _veh getTurretLimits _turret;
@@ -300,6 +301,7 @@ _count_transportammo = 0; _count_transportrepair = 0; _count_transportfuel = 0;
 							//};
 						};
 					};
+				};
 			};
 			#endif
 

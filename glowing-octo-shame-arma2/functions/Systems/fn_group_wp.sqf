@@ -68,7 +68,7 @@ private["_grp","_leader","_leaderPos","_currentWP","_wp","_typeWP","_units",
 	"_waypoints","_createWP","_NoCreateWP","_DeleteWP","_StopWP","_pvp",
 	"_wpType_TrUNLOAD_Plane","_veh","_obj","_pos","_wpType_VehInVehUNLOAD",
 	"_isUAVConnected","_side","_sides_friendly","_arr0","_vehicles_all",
-	"_grp_wp_completed","_g2","_z","_v","_b","_wp_Loiter"];
+	"_grp_wp_completed","_g2","_z","_v","_b","_wp_Loiter","_Artillery"];
 _grp=_this;
 
 
@@ -227,8 +227,8 @@ if({alive _x} count _units > 0)then{
 
 
 	// Артиллерия.
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
-		if ("Artillery" in _grp_type) then {
+	if ("Artillery" in _grp_type) then {
+		if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 			if (isNil {_grp getVariable "gosa_taskArtilleryRegistered"}) then {
 				_grp setVariable ["gosa_taskArtilleryRegistered", _grp call lambs_wp_fnc_taskArtilleryRegister];
 			};
@@ -578,6 +578,7 @@ if({alive _x} count _units > 0)then{
 
 			if !(isNil {_grp getVariable "patrol"}) then {
 				// Отряду ии с подчиненным игроком нужен маршрут к миссии.
+				// FIXME: Частая смена отряда игроком может привести к дисбалансу.
 				if !("StaticWeapon" in _grp_type) then {
 					if({_x call gosa_fnc_isPlayer} count _units > 0)then{
 						diag_log format ["Log: [gosa_fnc_group_wp.sqf] %1 установлен маршрут патрулирования, сброс группы на атакующий тип", _grp];
@@ -868,7 +869,6 @@ if({alive _x} count _units > 0)then{
 			// Артиллерия.
 			// TODO: Менять позицию после выстрела или при обнаружении противником.
 			// TODO: Выполнять задание при отсутствии союзных отрядов.
-			if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
 				if ("Artillery" in _grp_type) then {
 					_arr = [_types] call gosa_fnc_returnVehicleRange;
 					if (_arr select 0 > 500) then {
@@ -876,7 +876,6 @@ if({alive _x} count _units > 0)then{
 						_CreateWP = false;
 					};
 				};
-			};
 
 			// остановиться
 			if(_StopWP or (_NoCreateWP && _DeleteWP))then{

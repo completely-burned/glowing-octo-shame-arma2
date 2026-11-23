@@ -1,5 +1,5 @@
 #define __A2OA__
-private ["_grp","_n"];
+private ["_grp","_n","_sideCreated"];
 
 #ifndef __ARMA3__
 	waitUntil {!isNil "BIS_fnc_init"};
@@ -63,51 +63,121 @@ diag_log format ["Log: [init_server] Создан белый список объ
 [] call compile preprocessFileLineNumbers "dir\server\config_server.sqf";
 
 //--- создание сторон
-if (( sideLogic CountSide AllUnits ) < 1) then { CreateCenter sideLogic };
-if (( civilian CountSide AllUnits ) < 1) then { CreateCenter civilian };
-if (gosa_pvp) then {
-	west setFriend [east, 0];
-	west setFriend [resistance, 0];
-	west setFriend [civilian, 1];
-	east setFriend [west, 0];
-	east setFriend [resistance, 0];
-	east setFriend [civilian, 1];
-	resistance setFriend [west, 0];
-	resistance setFriend [east, 0];
-	resistance setFriend [civilian, 1];
-	civilian setFriend [west, 1];
-	civilian setFriend [east, 1];
-	civilian setFriend [resistance, 1];
-	civilian setFriend [civilian, 1];
-} else {
 {
 	if ((_x CountSide AllUnits) < 1) then {
 		CreateCenter _x;
 	};
-	Private["_sideCreated"];
-	_sideCreated = _x;
-	{
-		if (_x != _sideCreated) then {
-			if ((_x in gosa_friendlyside && !(_sideCreated in gosa_friendlyside)) or (!(_x in gosa_friendlyside) && _sideCreated in gosa_friendlyside)) then {
-				_x SetFriend [_sideCreated,0];
-				_sideCreated SetFriend [_x,0];
-			}else{
-				_x SetFriend [_sideCreated,1];
-				_sideCreated SetFriend [_x,1];
-			};
-		};
-	} ForEach [East,West,Resistance];
-	if (_sideCreated in gosa_friendlyside) then {
-		_sideCreated SetFriend [civilian,1];
-		civilian SetFriend [_sideCreated,1];
-	}else{
-		// стреляют по машинам и бочкам при <0.6
-		_sideCreated SetFriend [civilian,1];
-		civilian SetFriend [_sideCreated,1];
+} ForEach [East,West,Resistance,civilian,sideLogic];
+
+_n = missionNamespace getVariable "gosa_side_alliances";
+switch (_n) do {
+	case 112: {
+		east setFriend [resistance, 0];
+		resistance setFriend [east, 0];
+		west setFriend [resistance, 0];
+		resistance setFriend [west, 0];
+
+		east setFriend [west, 1];
+		west setFriend [east, 1];
+
+		civilian setFriend [east, 1];
+		civilian setFriend [west, 1];
+		civilian setFriend [resistance, 1];
+		east setFriend [civilian, 1];
+		west setFriend [civilian, 1];
+		resistance setFriend [civilian, 1];
 	};
-	// _x SetFriend [sideUnknown ,0];
-	// sideUnknown  SetFriend [_x,0];
-} ForEach [East,West,Resistance];
+	case 121: {
+		east setFriend [west, 0];
+		west setFriend [east, 0];
+		west setFriend [resistance, 0];
+		resistance setFriend [west, 0];
+
+		east setFriend [resistance, 1];
+		resistance setFriend [east, 1];
+
+		civilian setFriend [east, 1];
+		civilian setFriend [west, 1];
+		civilian setFriend [resistance, 1];
+		east setFriend [civilian, 1];
+		west setFriend [civilian, 1];
+		resistance setFriend [civilian, 1];
+	};
+	case 122: {
+		east setFriend [west, 0];
+		west setFriend [east, 0];
+		east setFriend [resistance, 0];
+		resistance setFriend [east, 0];
+
+		west setFriend [resistance, 1];
+		resistance setFriend [west, 1];
+
+		civilian setFriend [east, 1];
+		civilian setFriend [west, 1];
+		civilian setFriend [resistance, 1];
+		east setFriend [civilian, 1];
+		west setFriend [civilian, 1];
+		resistance setFriend [civilian, 1];
+	};
+	case 123: {
+		east setFriend [west, 0];
+		west setFriend [east, 0];
+
+		east setFriend [resistance, 0];
+		resistance setFriend [east, 0];
+
+		west setFriend [resistance, 0];
+		resistance setFriend [west, 0];
+
+		civilian setFriend [east, 1];
+		civilian setFriend [west, 1];
+		civilian setFriend [resistance, 1];
+		east setFriend [civilian, 1];
+		west setFriend [civilian, 1];
+		resistance setFriend [civilian, 1];
+	};
+	default {
+		if (gosa_pvp) then {
+			west setFriend [east, 0];
+			west setFriend [resistance, 0];
+			west setFriend [civilian, 1];
+			east setFriend [west, 0];
+			east setFriend [resistance, 0];
+			east setFriend [civilian, 1];
+			resistance setFriend [west, 0];
+			resistance setFriend [east, 0];
+			resistance setFriend [civilian, 1];
+			civilian setFriend [west, 1];
+			civilian setFriend [east, 1];
+			civilian setFriend [resistance, 1];
+			civilian setFriend [civilian, 1];
+		} else {
+			{
+				_sideCreated = _x;
+				{
+					if (_x != _sideCreated) then {
+						if ((_x in gosa_friendlyside && !(_sideCreated in gosa_friendlyside)) or (!(_x in gosa_friendlyside) && _sideCreated in gosa_friendlyside)) then {
+							_x SetFriend [_sideCreated,0];
+							_sideCreated SetFriend [_x,0];
+						}else{
+							_x SetFriend [_sideCreated,1];
+							_sideCreated SetFriend [_x,1];
+						};
+					};
+				} ForEach [East,West,Resistance];
+				if (_sideCreated in gosa_friendlyside) then {
+					_sideCreated SetFriend [civilian,1];
+					civilian SetFriend [_sideCreated,1];
+				}else{
+					// стреляют по машинам и бочкам при <0.6
+					_sideCreated SetFriend [civilian,1];
+					civilian SetFriend [_sideCreated,1];
+				};
+				// _x SetFriend [sideUnknown ,0];
+				// sideUnknown  SetFriend [_x,0];
+			} ForEach [East,West,Resistance];
+		};
+	};
 };
 
 gosa_logic_ArsenalBox = _grp createUnit ["logic",[1000,10,0],[],0,"none"];
@@ -221,5 +291,5 @@ if (missionNamespace getVariable "gosa_locations" == 2) then {
 [] execVM "dir\server\while_failover.sqf";
 
 if (missionNamespace getVariable "gosa_flares" > 0) then {
-	[] execVM "dir\server\while_flare.sqf";
+	[] spawn gosa_fnc_loop_flare;
 };

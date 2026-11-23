@@ -53,6 +53,10 @@ if (_air) then {
 		_str = "FORM";
 	#endif
 	_veh = createVehicle [_type, _pos, [], 0, _str];
+	#ifdef __ARMA3__
+		_veh enableSimulation false;
+		_veh allowDamage false;
+	#endif
 	_veh setDir _azi;
 	#ifdef __ARMA3__
 		// a3, тс на некоторых позициях взрываются из-за наклона поверхности.
@@ -70,6 +74,14 @@ if (_air) then {
 		if !(_veh setVehiclePosition [_pos, [], 0, "NONE"]) then {
 			_veh setPos _pos;
 			diag_log format ["Log: [fnc_spawnVehicle] %1, command setVehiclePosition failed, setPos used", _this];
+		};
+
+		_veh enableSimulation true;
+		[_veh, true] remoteExec ["enableSimulation"];
+		_veh spawn {
+			sleep 1;
+			_this allowDamage true;
+			[_this, true] remoteExec ["allowDamage"];
 		};
 	#else
 	// FIXME: Почему здесь -1?

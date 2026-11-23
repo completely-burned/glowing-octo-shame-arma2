@@ -1,99 +1,73 @@
 //-- East
-//- CSLA Desert
+#define __exclude ["CUP_O_RU","OPF_SFIA_lxWS","OPF_TURA_lxWS","OPF_T_F","OPF_F","OPF_G_F","OPF_R_F"]
+//-- CSLA_DES, CSLA (Desert)
 _arr = [
+	//- CSLA_TankUnitsDes, Armored Units
+	// CSLA_T72MptnDes, T-72 platoon
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_TankUnitsDes" >> "CSLA_T72MptnDes"]],_rarity_TankPlatoon/2],
+	// CSLA_T72infTeamDes, T-72 with rifle team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_TankUnitsDes" >> "CSLA_T72infTeamDes"]],_rarity_TankSection],
+	//- CSLA_MotoriflemanUnitsDes, Motorized Rifle Units
+	// CSLA_mrSqdBVP1Des, Motorized squad on BMP-1
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrSqdBVP1Des"]],_rarity_MechInfSquad/2],
+	// CSLA_mrSqdOT64Des, Motorized squad on OT-64
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrSqdOT64Des"]],_rarity_MotInf_Team/2],
+	// CSLA_mrSqdHWOT64Des, Motorized Heavy Weapon squad on OT-64
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrSqdHWOT64Des"]],_rarity_MotInf_Team/2],
+	// CSLA_mrSqdOT62Des, Motorized squad on OT-62
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrSqdOT62Des"]],_rarity_MechInfSquad/2],
+	// CSLA_mrADTeamOT65Des, AA team on OT-65
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_MotoriflemanUnitsDes" >> "CSLA_mrADTeamOT65Des"]],_rarity_MotInf_AA/2],
+	//- CSLA_RiflemanUnitsDes, Rifle Units
+	// CSLA_cpSentryTeamDes, Sentry team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_cpSentryTeamDes"]],_rarity_InfSentry],
+	// CSLA_cpFireTeamDes, Fire team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_cpFireTeamDes"]],_rarity_InfTeam_MG],
+	// CSLA_cpRifleTeamDes, Riflemen team AT
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_cpRifleTeamDes"]],_rarity_InfTeam_AT],
+	// CSLA_rSqdDes, Riflemen squad
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rSqdDes"]],_rarity_InfSquad],
+	// CSLA_rTeamDes, Riflemen team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rTeamDes"]],_rarity_InfTeam],
+	// CSLA_rPLTeamDes, Platoon leader team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rPLTeamDes"]],_rarity_bad],
+	// CSLA_rUK59TeamDes, UK-59 Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rUK59TeamDes"]],_rarity_bad],
+	// CSLA_rDSKMTeamDes, DSKM Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rDSKMTeamDes"]],_rarity_bad],
+	// CSLA_rAGS17TeamDes, AGS-17 Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rAGS17TeamDes"]],_rarity_bad],
+	// CSLA_rM52TeamDes, M-52 Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rM52TeamDes"]],_rarity_bad],
+	// CSLA_rT21TeamDes, T21 Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rT21TeamDes"]],_rarity_bad],
+	// CSLA_r9P135MTeamDes, 9P135M Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_r9P135MTeamDes"]],_rarity_bad],
+	// CSLA_rADTeamAZUDes, AA team on AZU 469
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rADTeamAZUDes"]],_rarity_MotInf_AA/2],
+	// CSLA_rADTeamInfDes, Infantry AA team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rADTeamInfDes"]],_rarity_InfTeam_AA],
+	// CSLA_rADTeamV3SDes, Squad on V3S
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_RiflemanUnitsDes" >> "CSLA_rADTeamV3SDes"]],_rarity_MotInf_Reinforce/2],
+	//- CSLA_LongRangeReconUnitsDes, Recon Units
+	// CSLA_lrrAbPrlDes, Long Range Recon Patrol
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_LongRangeReconUnitsDes" >> "CSLA_lrrAbPrlDes"]],_rarity_reconSquad],
+	// CSLA_lrrSbtDtmtDes, Long-Range Recon Sabotage Detachment
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_LongRangeReconUnitsDes" >> "CSLA_lrrSbtDtmtDes"]],_rarity_ReconPatrol],
+	// CSLA_lrrOT65PrlDes, Recon patrol on OT-65
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA_DES" >> "CSLA_LongRangeReconUnitsDes" >> "CSLA_lrrOT65PrlDes"]],_rarity_reconSquad*_rarity_MotInf_Team]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_arr append [
 	// User
-	[[[["CSLA_OZV90_Des"],[],[]]],0.06],
+	[[[["CSLA_OZV90_Des"],[],[]]],_rarity_MotInf_AA],
 	[[[["CSLA_V3Sa_Des","CSLA_V3Sf_Des","CSLA_V3Sr_Des","CSLA_CS_CATOR"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
-	],0.03],
-
+	],_rarity_bad],
 	//[[[["CSLA_lrrSnpG","CSLA_lrrSptG"],[[0,0,0],[4,0,0]],["Sergeant","Corporal"]]],0.1],
 	[[[["CSLA_T72M1_Des","CSLA_T72M1_Des","CSLA_T72M1_Des","CSLA_T72M1_Des"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.1],
-
+	],_rarity_TankPlatoon/2],
 	[[[["CSLA_rSgtDes","CSLA_rSgtDes","CSLA_F813_Des","CSLA_rRF10Des","CSLA_rSa58VDes","CSLA_rUK59LDes","CSLA_rUK59LDes","CSLA_rRPG7Des","CSLA_rRPG7aDes","CSLA_rMediDes","CSLA_rVG70Des","CSLA_r9K32Des","CSLA_rRPG7Des","CSLA_rUK59LDes","CSLA_mrSa58PpDes","CSLA_mrSa58PpDes","CSLA_engSapperDes","CSLA_mrOP63Des"],[[3,-3,0],[6,-3,0],[0,0,0],[0,-12,0],[-3,-3,0],[-3,-9,0],[3,-9,0],[3,-12,0],[-3,-12,0],[0,-15,0],[3,-15,0],[-3,-15,0],[6,-6,0],[6,-9,0],[-6,-3,0],[-6,-6,0],[-6,-9,0],[-6,-12,0]],
 		["Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.1],
-
-	// CSLA_T72MptnDes
-	[[[["CSLA_T72M_Des","CSLA_T72M_Des","CSLA_T72M_Des"],[[0,0,0],[50,0,0],[-50,0,0]],["Lieutenant","Sergeant","Sergeant"]]
-	],0.3],
-	// CSLA_T72infTeamDes
-	[[[["CSLA_T72M_Des","CSLA_mrVG70Des","CSLA_mrRPG75Des","CSLA_mrSa58PDes","CSLA_mrUK59LDes"],[[0,0,0],[1.5,-5.5,0],[-1.5,-5.5,0],[2.5,-2.5,0],[-2.5,-2.5,0]],["Sergeant","Corporal","Private","Private","Private"]]
-	],0.2],
-
-	// CSLA_mrSqdBVP1Des
-	[[[["CSLA_mrSgtDes","CSLA_mrRPG75Des","CSLA_mrSa58PpDes","CSLA_mrVG70Des","CSLA_mrVG70Des","CSLA_mrUK59LDes","CSLA_mrUK59LDes","CSLA_BVP1_Des"],[[3,-4.5,0],[-3,-4.5,0],[3,1.5,0],[-3,1.5,0],[-1.5,-5.5,0],[3,-1.5,0],[-3,-1.5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal"]]
-	],0.3],
-	// CSLA_mrSqdOT64Des
-	[[[["CSLA_mrSgtDes","CSLA_mrVG70Des","CSLA_mrVG70Des","CSLA_mrSa58PpDes","CSLA_mrRPG7Des","CSLA_mrRPG75Des","CSLA_mrRPG7aDes","CSLA_mrUK59LDes","CSLA_mrUK59LDes","CSLA_OT64C_Des"],[[1,-6.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4.5,0],[-1,-5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Corporal"]]
-	],0.3],
-	// CSLA_mrSqdHWOT64Des
-	[[[["CSLA_mrSgtDes","CSLA_mrAGS17gDes","CSLA_mrAGS17aDes","CSLA_mrAGS17mDes","CSLA_mrAGS17gDes","CSLA_mrAGS17aDes","CSLA_mrAGS17mDes","CSLA_mrM52gDes","CSLA_mrM52aDes","CSLA_mrM52mDes","CSLA_mrM52mDes","CSLA_OT64C_Des"],[[1,-6.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4.5,0],[-1,-5,0],[-2.5,-8.5,0],[2.5,-8.5,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Private","Private","Private","Corporal"]]
-	],0.3],
-	// CSLA_mrSqdOT62Des
-	[[[["CSLA_mrSgtDes","CSLA_mrVG70Des","CSLA_mrVG70Des","CSLA_mrSa58PpDes","CSLA_mrRPG7Des","CSLA_mrRPG75Des","CSLA_mrRPG7aDes","CSLA_mrUK59LDes","CSLA_mrUK59LDes","CSLA_OT62_Des"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4,0],[-1,-4,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Corporal"]]
-	],0.2],
-	// CSLA_mrADTeamOT65Des
-	[[[["CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_OT65A_Des"],[[2.5,1,0],[-2.5,-2,0],[2.5,-2,0],[0,0,0]],["Sergeant","Corporal","Private","Corporal"]]
-	],0.2],
-
-	// CSLA_cpSentryTeamDes
-	[[[["CSLA_mrSa58PDes","CSLA_mrSa58PDes"],[[0,0,0],[4,0,0]],["Corporal","Private"]]
-	],0.1],
-	// CSLA_cpFireTeamDes
-	[[[["CSLA_mrSa58PDes","CSLA_mrSa58PDes","CSLA_mrUK59LDes"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]
-	],0.2],
-	// CSLA_cpRifleTeamDes
-	[[[["CSLA_mrSa58PDes","CSLA_mrSa58PDes","CSLA_mrSa58PDes","CSLA_mrRPG75Des"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]
-	],0.2],
-	// CSLA_rSqdDes
-	[[[["CSLA_mrSgtDes","CSLA_mrRPG7Des","CSLA_mrRPG75Des","CSLA_mrRPG7aDes","CSLA_mrVG70Des","CSLA_mrVG70Des","CSLA_mrUK59LDes","CSLA_mrUK59LDes"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],0.2],
-	// CSLA_rTeamDes
-	[[[["CSLA_mrSa58PDes","CSLA_mrRPG75Des","CSLA_mrVG70Des","CSLA_mrUK59LDes"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Corporal","Private","Private","Private"]]
-	],0.2],
-	// CSLA_rPLTeamDes
-	[[[["CSLA_mrOfcDes","CSLA_mrRF10Des","CSLA_mrOP63Des","CSLA_mrMediDes"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Corporal","Corporal","Corporal"]]
-	],0.1],
-
-	// CSLA_rUK59TeamDes
-	[[[["CSLA_mrUK59aDes","CSLA_mrUK59mDes","CSLA_mrUK59mDes"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]
-	],0.01],
-	// CSLA_rDSKMTeamDes
-	[[[["CSLA_mrDSKMgDes","CSLA_mrDSKMaDes","CSLA_mrDSKMmDes","CSLA_mrDSKMmDes"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]
-	],0.01],
-	// CSLA_rAGS17TeamDes
-	[[[["CSLA_mrAGS17gDes","CSLA_mrAGS17aDes","CSLA_mrAGS17mDes","CSLA_mrAGS17mDes"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]
-	],0.01],
-	// CSLA_rM52TeamDes
-	[[[["CSLA_mrM52gDes","CSLA_mrM52aDes","CSLA_mrM52mDes","CSLA_mrM52mDes"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]
-	],0.01],
-	// CSLA_rT21TeamDes
-	[[[["CSLA_mrT21Des","CSLA_mrT21aDes","CSLA_mrT21aDes"],[[0,0,0],[2,-1,0],[-4,-2,0]],["Corporal","Private","Private"]]
-	],0.01],
-	// CSLA_r9P135MTeamDes
-	[[[["CSLA_mr9P135MDes","CSLA_mr9M113Des","CSLA_mr9M113Des"],[[0,0,0],[2,-1,0],[-4,-2,0]],["Corporal","Private","Private"]]
-	],0.01],
-
-	// CSLA_rADTeamAZUDes
-	[[[["CSLA_AZU_para_Des","CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_mr9K32Des"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]
-	],0.1],
-	// CSLA_rADTeamInfDes
-	[[[["CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_mr9K32Des","CSLA_mrUK59LDes"],[[0,0,0],[2,-2,0],[-2,-2,0],[0,-4,0]],["Sergeant","Corporal","Private","Private"]]
-	],0.1],
-	// CSLA_rADTeamV3SDes
-	[[[["CSLA_mrSgtDes","CSLA_V3S_Des","CSLA_mrRF10Des","CSLA_mrSa58VDes","CSLA_mrUK59LDes","CSLA_mrUK59LDes","CSLA_mrRPG7Des","CSLA_mrRPG7aDes","CSLA_mrMediDes","CSLA_mrVG70Des","CSLA_mr9K32Des"],[[3,-3,0],[0,0,0],[0,-12,0],[-3,-3,0],[-3,-9,0],[3,-9,0],[3,-12,0],[-3,-12,0],[0,-15,0],[3,-15,0],[-3,-15,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.1],
-	// CSLA_lrrAbPrlDes
-	[[[["CSLA_lrrCmdDes","CSLA_lrrSnpDes","CSLA_lrrSprDes","CSLA_lrrMediDes","CSLA_lrrDrMDes","CSLA_lrrRTODes"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0]],["Lieutenant","Sergeant","Corporal","Sergeant","Corporal","Corporal"]]
-	],0.01],
-	// CSLA_lrrSbtDtmtDes
-	[[[["CSLA_lrrCmdDes","CSLA_lrrSnpDes","CSLA_lrrSnpDes","CSLA_lrrMediDes","CSLA_lrrMediDes","CSLA_lrrSprDes","CSLA_lrrSprDes","CSLA_lrrSprDes","CSLA_lrrSprDes","CSLA_lrrDrMDes","CSLA_lrrDrMDes","CSLA_lrrRTODes"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0]],["Lieutenant","Sergeant","Sergeant","Sergeant","Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal"]]
-	],0.01],
-
-	// CSLA_lrrOT65PrlDes
-	[[[["CSLA_lrrCmdDes","CSLA_OT65A_lrr_Des","CSLA_lrrSnpDes","CSLA_lrrMediDes"],[[0,0,0],[0,-12,0],[10,-6,0],[-10,-6,0]],["Lieutenant","Sergeant","Sergeant","Corporal"]]
-	],0.05]
+	],_rarity_MotInf_Reinforce/2]
 ];
 // Если юнитов с пустынным камуфляжем недостаточно, то обычные тоже будут добавлены. FIXME: Это временное решение.
 _n = count _arr;
@@ -101,589 +75,550 @@ _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 diag_log format ["Log: [config_groups_CSLA] count CSLA Desert %1", [count _arr, _n]];
 if (count _arr * 1.5 >= _n) then {_n=250}else{_n=1000};
 // Вспомогательные отряды не должны учитываться.
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
-		[[[["CSLA_ShKH77_Des","CSLA_ShKH77_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
-		[[[["CSLA_RM51_Des","CSLA_RM51_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
-		// configName CSLA_rM52Team
-		[[[["CSLA_rM52g_Des","CSLA_rM52a_Des","CSLA_rM52m_Des","CSLA_rM52m_Des"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0.1]
+		[[[["CSLA_ShKH77_Des","CSLA_ShKH77_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],_rarity_MotInf_MortTeam/2],
+		[[[["CSLA_RM51_Des","CSLA_RM51_Des"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],_rarity_MotInf_MortTeam/2]
 	];
 };
-[_groups_map, east, "CSLA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [250,999],
-	[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "CSLA",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [250,999],
+		__exclude
+	] call gosa_fnc_map_groups_add;
+};
 
-//- CSLA Wdl
+//-- CSLA, CSLA
 _arr = [
+	//- CSLA_TankUnits, Armored Units
+	// CSLA_T72Mptn, T-72 platoon
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_TankUnits" >> "CSLA_T72Mptn"]],_rarity_TankPlatoon/2],
+	// CSLA_T72infTeam, T-72 with rifle team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_TankUnits" >> "CSLA_T72infTeam"]],_rarity_TankSection],
+	//- CSLA_MotoriflemanUnits, Motorized Rifle Units
+	// CSLA_mrSqdBVP1, Motorized squad on BMP-1
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrSqdBVP1"]],_rarity_MechInfSquad/2],
+	// CSLA_mrSqdOT64, Motorized squad on OT-64
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrSqdOT64"]],_rarity_MotInf_Team/2],
+	// CSLA_mrSqdHWOT64, Motorized Heavy Weapon squad on OT-64
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrSqdHWOT64"]],_rarity_MotInf_Team/2],
+	// CSLA_mrSqdOT62, Motorized squad on OT-62
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrSqdOT62"]],_rarity_MechInfSquad/2],
+	// CSLA_mrADTeamOT65, AA team on OT-65
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_MotoriflemanUnits" >> "CSLA_mrADTeamOT65"]],_rarity_MotInf_AA/2],
+	//- CSLA_RiflemanUnits, Rifle Units
+	// CSLA_cpSentryTeam, Sentry team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_cpSentryTeam"]],_rarity_InfSentry],
+	// CSLA_cpFireTeam, Fire team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_cpFireTeam"]],_rarity_InfTeam_MG],
+	// CSLA_cpRifleTeam, Riflemen team AT
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_cpRifleTeam"]],_rarity_InfTeam_AT],
+	// CSLA_rSqd, Riflemen squad
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rSqd"]],_rarity_InfSquad],
+	// CSLA_rTeam, Riflemen team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rTeam"]],_rarity_InfTeam],
+	// CSLA_rPLTeam, Platoon leader team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rPLTeam"]],_rarity_bad],
+	// CSLA_rUK59Team, UK-59 Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rUK59Team"]],_rarity_bad],
+	// CSLA_rDSKMTeam, DSKM Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rDSKMTeam"]],_rarity_bad],
+	// CSLA_rAGS17Team, AGS-17 Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rAGS17Team"]],_rarity_bad],
+	// CSLA_rM52Team, M-52 Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rM52Team"]],_rarity_bad],
+	// CSLA_rT21Team, T21 Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rT21Team"]],_rarity_bad],
+	// CSLA_r9P135MTeam, 9P135M Crew
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_r9P135MTeam"]],_rarity_bad],
+	// CSLA_rADTeamAZU, AA team on AZU 469
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rADTeamAZU"]],_rarity_MotInf_AA/2],
+	// CSLA_rADTeamInf, Infantry AA team
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rADTeamInf"]],_rarity_InfTeam_AA],
+	// CSLA_rADTeamV3S, Squad on V3S
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_RiflemanUnits" >> "CSLA_rADTeamV3S"]],_rarity_MotInf_Reinforce/2],
+	//- CSLA_AirbornUnits, Airborne Units
+	// CSLA_abSqd, Airborne squad
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_AirbornUnits" >> "CSLA_abSqd"]],_rarity_reconSquad*0.25/2],
+	// CSLA_abDtmt, Airborne Detachment
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_AirbornUnits" >> "CSLA_abDtmt"]],_rarity_ReconPatrol*0.25/2],
+	//- CSLA_LongRangeReconUnits, Recon Units
+	// CSLA_lrrAbPrl, Long Range Recon Patrol
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_LongRangeReconUnits" >> "CSLA_lrrAbPrl"]],_rarity_reconSquad*0.75/2],
+	// CSLA_lrrSbtDtmt, Long-Range Recon Sabotage Detachment
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_LongRangeReconUnits" >> "CSLA_lrrSbtDtmt"]],_rarity_ReconPatrol*0.75/2],
+	// CSLA_lrrOT65Prl, Recon patrol on OT-65
+	[[[configFile >> "CfgGroups" >> "East" >> "CSLA" >> "CSLA_LongRangeReconUnits" >> "CSLA_lrrOT65Prl"]],_rarity_reconSquad*_rarity_MotInf_Team]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_arr append [
 	// User
 	// AA
-	[[[["CSLA_OZV90"],[],[]]],0.06],
+	[[[["CSLA_OZV90"],[],[]]],_rarity_MotInf_AA],
 	// Support
 	[[[["CSLA_V3Sa","CSLA_V3Sf","CSLA_V3Sr","CSLA_CS_CATOR"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
-	],0.03],
+	],_rarity_bad],
 	// T72M1
 	[[[["CSLA_T72M1","CSLA_T72M1","CSLA_T72M1","CSLA_T72M1"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.1],
+	],_rarity_TankPlatoon/2],
 	// F813
 	[[[["CSLA_rSgt","CSLA_rSgt","CSLA_F813","CSLA_rRF10","CSLA_rSa58V","CSLA_rUK59L","CSLA_rUK59L","CSLA_rRPG7","CSLA_rRPG7a","CSLA_rMedi","CSLA_rVG70","CSLA_r9K32","CSLA_rRPG7","CSLA_rUK59L","CSLA_mrSa58Pp","CSLA_mrSa58Pp","CSLA_engSapper","CSLA_mrOP63"],[[3,-3,0],[6,-3,0],[0,0,0],[0,-12,0],[-3,-3,0],[-3,-9,0],[3,-9,0],[3,-12,0],[-3,-12,0],[0,-15,0],[3,-15,0],[-3,-15,0],[6,-6,0],[6,-9,0],[-6,-3,0],[-6,-6,0],[-6,-9,0],[-6,-12,0]],
 		["Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.1],
-
-	// CSLA_T72Mptn
-	[[[["CSLA_T72M","CSLA_T72M","CSLA_T72M"],[[0,0,0],[50,0,0],[-50,0,0]],["Lieutenant","Sergeant","Sergeant"]]
-	],0.3],
-	// CSLA_T72infTeam
-	[[[["CSLA_T72M","CSLA_mrVG70","CSLA_mrRPG75","CSLA_mrSa58P","CSLA_mrUK59L"],[[0,0,0],[1.5,-5.5,0],[-1.5,-5.5,0],[2.5,-2.5,0],[-2.5,-2.5,0]],["Sergeant","Corporal","Private","Private","Private"]]
-	],0.2],
-
-	// CSLA_mrSqdBVP1
-	[[[["CSLA_mrSgt","CSLA_mrRPG75","CSLA_mrSa58Pp","CSLA_mrVG70","CSLA_mrVG70","CSLA_mrUK59L","CSLA_mrUK59L","CSLA_BVP1"],[[3,-4.5,0],[-3,-4.5,0],[3,1.5,0],[-3,1.5,0],[-1.5,-5.5,0],[3,-1.5,0],[-3,-1.5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal"]]
-	],0.3],
-	// CSLA_mrSqdOT64
-	[[[["CSLA_mrSgt","CSLA_mrVG70","CSLA_mrVG70","CSLA_mrSa58Pp","CSLA_mrRPG7","CSLA_mrRPG75","CSLA_mrRPG7a","CSLA_mrUK59L","CSLA_mrUK59L","CSLA_OT64C"],[[1,-6.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4.5,0],[-1,-5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Corporal"]]
-	],0.3],
-	// CSLA_mrSqdHWOT64
-	[[[["CSLA_mrSgt","CSLA_mrAGS17g","CSLA_mrAGS17a","CSLA_mrAGS17m","CSLA_mrAGS17g","CSLA_mrAGS17a","CSLA_mrAGS17m","CSLA_mrM52g","CSLA_mrM52a","CSLA_mrM52m","CSLA_mrM52m","CSLA_OT64C"],[[1,-6.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4.5,0],[-1,-5,0],[-2.5,-8.5,0],[2.5,-8.5,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Private","Private","Private","Corporal"]]
-	],0],
-	// CSLA_mrSqdOT62
-	[[[["CSLA_mrSgt","CSLA_mrVG70","CSLA_mrVG70","CSLA_mrSa58Pp","CSLA_mrRPG7","CSLA_mrRPG75","CSLA_mrRPG7a","CSLA_mrUK59L","CSLA_mrUK59L","CSLA_OT62"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0],[1,-4,0],[-1,-4,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Corporal"]]
-	],0.2],
-	// CSLA_mrADTeamOT65
-	[[[["CSLA_mr9K32","CSLA_mr9K32","CSLA_mr9K32","CSLA_OT65A"],[[2.5,1,0],[-2.5,-2,0],[2.5,-2,0],[0,0,0]],["Sergeant","Corporal","Private","Corporal"]]
-	],0.2],
-
-	// CSLA_cpSentryTeam
-	[[[["CSLA_rSa58P","CSLA_rSa58P"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.1],
-	// CSLA_cpFireTeam
-	[[[["CSLA_rSa58P","CSLA_rSa58P","CSLA_rUK59L"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]
-	],0.2],
-	// CSLA_cpRifleTeam
-	[[[["CSLA_rSa58P","CSLA_rSa58P","CSLA_rSa58P","CSLA_rRPG75"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]
-	],0.2],
-	// CSLA_rSqd
-	[[[["CSLA_rSgt","CSLA_rRPG7","CSLA_rRPG75","CSLA_rRPG7a","CSLA_rVG70","CSLA_rVG70","CSLA_rUK59L","CSLA_rUK59L"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],0.2],
-	// CSLA_rTeam
-	[[[["CSLA_rSa58P","CSLA_rRPG75","CSLA_rVG70","CSLA_rUK59L"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Corporal","Private","Private","Private"]]
-	],0.2],
-	// CSLA_rPLTeam
-	[[[["CSLA_rOfc","CSLA_rRF10","CSLA_rOP63","CSLA_rMedi"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Corporal","Corporal","Corporal"]]
-	],0.1],
-
-	// CSLA_rUK59Team
-	[[[["CSLA_rUK59a","CSLA_rUK59m","CSLA_rUK59m"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]],0.01],
-	// CSLA_rDSKMTeam
-	[[[["CSLA_rDSKMg","CSLA_rDSKMa","CSLA_rDSKMm","CSLA_rDSKMm"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]
-	],0.01],
-	// CSLA_rAGS17Team
-	[[[["CSLA_rAGS17g","CSLA_rAGS17a","CSLA_rAGS17m","CSLA_rAGS17m"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]
-	],0.01],
-	// CSLA_rM52Team
-	[[[["CSLA_rM52g","CSLA_rM52a","CSLA_rM52m","CSLA_rM52m"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]
-	],0.01],
-	// CSLA_rT21Team
-	[[[["CSLA_rT21","CSLA_rT21a","CSLA_rT21a"],[[0,0,0],[2,-1,0],[-4,-2,0]],["Corporal","Private","Private"]]],0.01],
-	// CSLA_r9P135MTeam
-	[[[["CSLA_r9P135M","CSLA_r9M113","CSLA_r9M113"],[[0,0,0],[2,-1,0],[-4,-2,0]],["Corporal","Private","Private"]]],0.01],
-
-	// CSLA_rADTeamAZU
-	[[[["CSLA_AZU","CSLA_r9K32","CSLA_r9K32","CSLA_r9K32"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]
-	],0.1],
-	// CSLA_rADTeamInf
-	[[[["CSLA_r9K32","CSLA_r9K32","CSLA_r9K32","CSLA_rUK59L"],[[0,0,0],[2,-2,0],[-2,-2,0],[0,-4,0]],["Sergeant","Corporal","Private","Private"]]
-	],0.1],
-	// CSLA_rADTeamV3S
-	[[[["CSLA_rSgt","CSLA_V3S","CSLA_rRF10","CSLA_rSa58V","CSLA_rUK59L","CSLA_rUK59L","CSLA_rRPG7","CSLA_rRPG7a","CSLA_rMedi","CSLA_rVG70","CSLA_r9K32"],[[3,-3,0],[0,0,0],[0,-12,0],[-3,-3,0],[-3,-9,0],[3,-9,0],[3,-12,0],[-3,-12,0],[0,-15,0],[3,-15,0],[-3,-15,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.1],
-
-	// CSLA_abSqd
-	[[[["CSLA_ptSgt","CSLA_ptSa58Pp","CSLA_ptVG70","CSLA_ptVG70","CSLA_ptRPG75","CSLA_ptRPG75","CSLA_ptUK59","CSLA_ptUK59"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],0.01],
-	// CSLA_abDtmt
-	[[[["CSLA_ptSgt","CSLA_ptUK59","CSLA_ptOP63","CSLA_ptSa58Pp","CSLA_ptSa58Pp","CSLA_ptRF10","CSLA_ptMedi","CSLA_ptMedi","CSLA_ptVG70","CSLA_ptVG70","CSLA_ptSpr","CSLA_ptSpr","CSLA_ptRPG75","CSLA_ptRPG75","CSLA_ptUK59","CSLA_ptUK59"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0],[0,-48,0],[4,-52,0],[0,-56,0],[4,-60,0]],["Sergeant","Private","Corporal","Private","Private","Private","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.01],
-	// CSLA_lrrAbPrl
-	[[[["CSLA_lrrCmd","CSLA_lrrSnp","CSLA_lrrSpr","CSLA_lrrMedi","CSLA_lrrDrM","CSLA_lrrRTO"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0]],["Lieutenant","Sergeant","Corporal","Sergeant","Corporal","Corporal"]]
-	],0.01],
-	// CSLA_lrrSbtDtmt
-	[[[["CSLA_lrrCmd","CSLA_lrrSnp","CSLA_lrrSnp","CSLA_lrrMedi","CSLA_lrrMedi","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrSpr","CSLA_lrrDrM","CSLA_lrrDrM","CSLA_lrrRTO"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0]],["Lieutenant","Sergeant","Sergeant","Sergeant","Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal"]]
-	],0.01],
-	// CSLA_lrrOT65Prl
-	[[[["CSLA_lrrCmd","CSLA_OT65A_lrr","CSLA_lrrSnp","CSLA_lrrMedi"],[[0,0,0],[0,-12,0],[10,-6,0],[-10,-6,0]],["Lieutenant","Sergeant","Sergeant","Corporal"]]
-	],0.05]
+	],_rarity_MotInf_Reinforce/2]
 ];
-[_groups_map, east, "CSLA", _arr,
-	[1960,1990], [160, _n-1],
-	[]
-] call gosa_fnc_map_groups_add;
+// Вспомогательные отряды можно исключить.
+if (_Artillery) then {
+	_arr append [
+		[[[["CSLA_ShKH77","CSLA_ShKH77"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],_rarity_MotInf_MortTeam/2],
+		[[[["CSLA_RM51","CSLA_RM51"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],_rarity_MotInf_MortTeam/2]
+	];
+};
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "CSLA",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160, _n-1],
+		__exclude
+	] call gosa_fnc_map_groups_add;
+};
+
 // Без альтернативного камуфляжа.
 _arr = [
 	// Снайперы
-	[[[["CSLA_lrrSnpG","CSLA_lrrSptG"],[[0,0,0],[4,0,0]],["Sergeant","Corporal"]]],0.1]
+	[[[["CSLA_lrrSnpG","CSLA_lrrSptG"],[[0,0,0],[4,0,0]],["Sergeant","Corporal"]]],_rarity_SniperTeam]
 ];
-// Вспомогательные отряды можно исключить.
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
-	_arr append [
-		[[[["CSLA_ShKH77","CSLA_ShKH77"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
-		[[[["CSLA_RM51","CSLA_RM51"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
-		// configName CSLA_rM52Team
-		[[[["CSLA_rM52g","CSLA_rM52a","CSLA_rM52m","CSLA_rM52m"],[[0,0,0],[2,-1,0],[-4,-2,0],[6,-2,0]],["Corporal","Private","Private","Private"]]],0.1]
-	];
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "CSLA",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160, 250-1],
+		__exclude
+	] call gosa_fnc_map_groups_add;
 };
-[_groups_map, east, "CSLA", _arr,
-	[1960,1990], [160, 249],
-	[]
-] call gosa_fnc_map_groups_add;
 
 //- CSLA Common. Общие для Des и Wdl.
 _arr = [
 	// User
 	[[[["CSLA_lodka","CSLA_rSa58P","CSLA_rRPG75","CSLA_rVG70","CSLA_rUK59L"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0]],
 		["Private","Corporal","Private","Private","Private"]]
-	],0.1],
+	],_rarity_bad],
 	// Air
 	[[[["CSLA_Mi24V","CSLA_Mi24V"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.1],
+	],_rarity_Heli/3],
 	[[[["CSLA_Mi17pylons","CSLA_Mi17pylons"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.08],
+	],_rarity_Heli/3],
 	[[[["CSLA_Mi17mg","CSLA_Mi17mg"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.07]
+	],_rarity_Heli/3]
 ];
-[_groups_map, east, "CSLA", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160, 999],
-	[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, east, "CSLA",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160, 999],
+		__exclude
+	] call gosa_fnc_map_groups_add;
+};
 
 
 //-- West
-//- AFMC
-	_arr = [
-		// AFMC_cpSentryTeam
-		[[[["AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.1],
-		// AFMC_cpFireTeam
-		[[[["AFMC_infFAL","AFMC_infFAL","AFMC_infM249"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]
-		],0.2],
-		// AFMC_cpRifleTeam
-		[[[["AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infLAW"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]
-		],0.3],
-		// AFMC_infSqd
-		[[[["AFMC_infSgt","AFMC_infM60","AFMC_infFAL","AFMC_infMdc","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infFAL","AFMC_infLAW","AFMC_infLAW","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infM249"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]
-		],0.8],
-		// AFMC_infPLTeam
-		[[[["AFMC_infOfc","AFMC_infSgt","AFMC_infMdc","AFMC_infRTO"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Sergeant","Corporal","Private"]]
-		],0.1],
-		// FIXME: AFMC_cpRifleTeam == AFMC_infTeam?
-		// AFMC_infTeam
-		[[[["AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infLAW"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Corporal","Private","Private","Private"]]
-		],0.3],
-		// AFMC_infM60Team
-		[[[["AFMC_infM60","AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]
-		],0.3],
-		// AFMC_infADSqd
-		[[[["AFMC_infFIM92","AFMC_infFIM92","AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Sergeant","Corporal","Private","Private"]]
-		],0.1],
-		// AFMC_infAslSqd
-		[[[["AFMC_infSMAWg","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infSMAWa"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Corporal"]]
-		],0.3],
-		// AFMC_infCHQ
-		[[[["AFMC_infOfc","AFMC_infOfc","AFMC_infSgt","AFMC_infMdc","AFMC_infRTO","AFMC_infM21"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Captain","Lieutenant","Sergeant","Corporal","Corporal","Corporal"]]
-		],0.1],
+#define __exclude ["CUP_B_US_Army","CUP_B_USMC","BLU_G_F","BLU_F","BLU_T_F","BLU_NATO_lxWS","BLU_TURA_lxWS","BLU_W_F"]
+//-- AFMC, AFMC
+_arr = [
+	//- AFMC_InfantryUnits, Infantry Units
+	// AFMC_cpSentryTeam, Sentry team
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_cpSentryTeam"]],_rarity_InfSentry],
+	// AFMC_cpFireTeam, Fire team
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_cpFireTeam"]],_rarity_InfTeam_MG/2],
+	// AFMC_cpRifleTeam, Riflemen team AT
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_cpRifleTeam"]],_rarity_InfTeam_AT/2],
+	// AFMC_infSqd, Rifle Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infSqd"]],_rarity_InfSquad],
+	// AFMC_infPLTeam, PL Team
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infPLTeam"]],_rarity_bad],
+	// AFMC_infTeam, Infantry Team
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infTeam"]],_rarity_InfTeam],
+	// AFMC_infM60Team, M60 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infM60Team"]],_rarity_InfTeam_MG/2],
+	// AFMC_infADSqd, AD Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infADSqd"]],_rarity_InfTeam_AA],
+	// AFMC_infM252Sqd, M252 Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infM252Sqd"]],_rarity_bad],
+	// AFMC_infAslSqd, Assault Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infAslSqd"]],_rarity_InfTeam_AT/2],
+	// AFMC_infCHQ, Company HQ
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_InfantryUnits" >> "AFMC_infCHQ"]],_rarity_bad],
+	//- AFMC_MechanizedUnits, Mechanized Units
+	// AFMC_M113Sec, M113 Infantry Section
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MechanizedUnits" >> "AFMC_M113Sec"]],_rarity_MechInfSquad/2],
+	// AFMC_M113Sqd, M113 Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MechanizedUnits" >> "AFMC_M113Sqd"]],_rarity_MechInfSquad/2],
+	// AFMC_M113ADSqd, M113 AA Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MechanizedUnits" >> "AFMC_M113ADSqd"]],_rarity_MechInf_AA],
+	// AFMC_LAV25sqd, LAV-25 Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MechanizedUnits" >> "AFMC_LAV25sqd"]],_rarity_MotInf_Team],
+	//- AFMC_MotorizedUnits, Motorized Units
+	// AFMC_M1008Team, M1008 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MotorizedUnits" >> "AFMC_M1008Team"]],_rarity_MotInf_Team/2],
+	// AFMC_M1008HfSqd, M1008 Halfsquad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MotorizedUnits" >> "AFMC_M1008HfSqd"]],_rarity_MotInf_Team/2],
+	// AFMC_TruckSqd, Motorized Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_MotorizedUnits" >> "AFMC_TruckSqd"]],_rarity_MotInf_Reinforce],
+	//- AFMC_AirbornUnits, Airborne Units
+	// AFMC_abSqd, Rifle Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_AirbornUnits" >> "AFMC_abSqd"]],_rarity_ReconTeam],
+	// AFMC_abDtmt, Sabotage Detachment
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_AirbornUnits" >> "AFMC_abDtmt"]],_rarity_reconSquad/2],
+	//- AFMC_SpecForUnits, Special Forces Units
+	// AFMC_sfSqd, Special Forces Team
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_SpecForUnits" >> "AFMC_sfSqd"]],_rarity_reconSquad/2],
+	//- AFMC_TankUnits, Tank Units
+	// AFMC_M1A1ptn, M1A1 Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_TankUnits" >> "AFMC_M1A1ptn"]],_rarity_TankPlatoon],
+	// AFMC_M1A1scM113sqd, M1A1 Section with Squad on M113
+	[[[configFile >> "CfgGroups" >> "West" >> "AFMC" >> "AFMC_TankUnits" >> "AFMC_M1A1scM113sqd"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
 
-		// AFMC_M113Sec
-		[[[["AFMC_infSgt","AFMC_infM249","AFMC_infFAL","AFMC_infMdc","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infFAL","AFMC_M113A1","AFMC_M113A1","AFMC_infLAW","AFMC_infLAW","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infM249"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0],[56,0,0],[-56,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"],[],0]
-		],0.4],
-		// AFMC_M113Sqd
-		[[[["AFMC_M113A1","AFMC_infSMAWg","AFMC_infLAW","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infM249"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0]],["Corporal","Corporal","Private","Private","Private","Private","Private"]]
-		],0.4],
-		// AFMC_M113ADSqd
-		[[[["AFMC_M113A1","AFMC_infFIM92","AFMC_infFIM92","AFMC_infFAL","AFMC_infFAL"],[[0,0,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0]],["Corporal","Sergeant","Corporal","Private","Private"],[],1]
-		],0.1],
-
-		// AFMC_LAV25sqd
-		[[[["AFMC_infSgt","AFMC_infFAL","AFMC_infFAL","AFMC_infLAW","AFMC_infFAL","AFMC_infM60","AFMC_LAV25"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Corporal"],[],0]
-		],0.8],
-
-		// AFMC_M1008Team
-		[[[["AFMC_M1008","AFMC_infSgt","AFMC_infLAW","AFMC_infM249","AFMC_infFAL"],[[0,0,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0]],["Corporal","Sergeant","Corporal","Private","Private"],[],1]
-		],0.1],
-		// AFMC_M1008HfSqd
-		[[[["AFMC_M1008","AFMC_infSgt","AFMC_infMrks","AFMC_infMdc","AFMC_infSMAWa","AFMC_infLAW","AFMC_infSMAWg","AFMC_infM249","AFMC_infM249"],[[0,0,0],[-1.5,-5,0],[1.5,-5,0],[-2.5,-2,0],[2.5,-2,0],[-2.5,1,0],[2.5,1,0],[-2.5,4,0],[2.5,4,0]],["Private","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Private"],[],1]
-		],0.1],
-		// AFMC_TruckSqd
-		[[[["AFMC_infSgt","AFMC_infM60","AFMC_infFAL","AFMC_infM47","AFMC_infM60","AFMC_infSMAWg","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_infSMAWa","AFMC_infFAL","AFMC_infFAL","AFMC_infM249","AFMC_infMdc","AFMC_M923c"],[[3,6,0],[3,4,0],[-3,4,0],[3,2,0],[-3,2,0],[3,0,0],[-3,0,0],[3,-2,0],[-3,-2,0],[3,-4,0],[-3,-4,0],[3,-6,0],[-3,-6,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"],[],0]
-		],0.1],
-
-		// AFMC_abSqd
-		[[[["AFMC_ptSgt","AFMC_ptM60","AFMC_ptM60","AFMC_ptMdc","AFMC_ptMdc","AFMC_ptM136","AFMC_ptM136","AFMC_ptM249","AFMC_ptM249"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0]],["Sergeant","Private","Private","Private","Private","Private","Private","Private","Private"]]
-		],0.01],
-		// AFMC_abDtmt
-		[[[["AFMC_ptSgt","AFMC_ptM60","AFMC_ptM21","AFMC_ptRTO","AFMC_ptMdc","AFMC_ptMdc","AFMC_ptM47g","AFMC_ptM47a","AFMC_ptMAAWSg","AFMC_ptMAAWSa","AFMC_ptM136","AFMC_ptM136","AFMC_ptEng","AFMC_ptEng","AFMC_ptDrv","AFMC_ptM249","AFMC_ptM249"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0],[0,-48,0],[4,-52,0],[0,-56,0],[4,-60,0],[0,-64,0]],["Sergeant","Private","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-		],0.01],
-		// AFMC_sfSqd
-		[[[["AFMC_sfCmd","AFMC_sfSpr","AFMC_sfM21","AFMC_sfDrv","AFMC_sfMdc","AFMC_sfRTO"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0],[4,-12,0],[-4,-12,0]],["Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal"]]
-		],0.1],
-
-		// AFMC_M1A1ptn
-		[[[["AFMC_M1A1","AFMC_M1A1","AFMC_M1A1","AFMC_M1A1"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-		],0.3],
-		// AFMC_M1A1scM113sqd
-		[[[["AFMC_M1A1","AFMC_M1A1","AFMC_infSgt","AFMC_infFAL","AFMC_infFAL","AFMC_infLAW","AFMC_infLAW","AFMC_infM249","AFMC_infM249","AFMC_infSMAWg","AFMC_infSMAWa","AFMC_M113A2ext"],[[17,0,0],[-17,0,0],[0,-12,0],[17,-7,0],[-17,-7,0],[15,-7,0],[-15,-7,0],[19,-7,0],[-19,-7,0],[2,-12,0],[-2,-12,0],[0,-7,0]],["Sergeant","Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal","Private","Corporal"]]
-		],0.2]
-	];
 	_arr append [
-		[[[["AFMC_M113A2_AMB"],[],[]]],0.04],
-		[[[["AFMC_M113A2_DTP"],[],[]]],0.03],
+		[[[["AFMC_M113A2_AMB"],[],[]]],_rarity_bad],
+		[[[["AFMC_M113A2_DTP"],[],[]]],_rarity_bad],
 		[[[["AFMC_M923a","AFMC_M923f","AFMC_M923r"],[[0,12,0],[0,0,0],[0,-12,0]],["CORPORAL","PRIVATE","PRIVATE"]]
-		],0.03],
+		],_rarity_bad],
 
-		[[[["AFMC_sfM21G","AFMC_sfSptG"],[[0,0,0],[4,0,0]],["Sergeant","Corporal"]]],0.1],
+		[[[["AFMC_sfM21G","AFMC_sfSptG"],[[0,0,0],[4,0,0]],["Sergeant","Corporal"]]],_rarity_SniperTeam],
 
 		[[[["AFMC_AH1F"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-		],0.05],
+		],_rarity_Heli/2],
 		[[[["AFMC_UH60M240","AFMC_UH60M240"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-		],0.07]
+		],_rarity_Heli/2]
 	];
-	if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+	if (_Artillery) then {
 		_arr append [
 			// AFMC_infM252Sqd
-			[[[["AFMC_infM252g","AFMC_infMB","AFMC_infM252m","AFMC_infM252m"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Private"]]],0.1],
-			[[[["AFMC_M270","AFMC_M270"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1]
+			[[[["AFMC_infM252g","AFMC_infMB","AFMC_infM252m","AFMC_infM252m"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Private"]]],_rarity_MotInf_MortTeam/2],
+			[[[["AFMC_M270","AFMC_M270"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],_rarity_MotInf_MortTeam/2]
 		];
 	};
-	[_groups_map, west, "AFMC", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-		[1960,1990], [160,249],
-		[]
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "AFMC",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160, 250-1],
+		__exclude
 	] call gosa_fnc_map_groups_add;
+};
 
-//- US85 Desert
+//-- US85_DES, US '85 (Desert)
 _arr = [
+	//- US85_InfantryUnitsDes, Infantry Units
+	// US85_cpSentryTeamDes, Sentry team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_cpSentryTeamDes"]],_rarity_InfSentry],
+	// US85_cpFireTeamDes, Fire team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_cpFireTeamDes"]],_rarity_InfTeam],
+	// US85_cpRifleTeamDes, Riflemen team AT
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_cpRifleTeamDes"]],_rarity_InfTeam_AT/2],
+	// US85_infSqdDes, Rifle Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infSqdDes"]],_rarity_InfSquad],
+	// US85_infPLTeamDes, PL Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infPLTeamDes"]],_rarity_bad],
+	// US85_infTeamDes, Infantry Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infTeamDes"]],_rarity_InfTeam],
+	// US85_infM60TeamDes, M60 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infM60TeamDes"]],_rarity_InfTeam_MG],
+	// US85_infM2TeamDes, M2 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infM2TeamDes"]],_rarity_bad],
+	// US85_infMk19TeamDes, Mk. 19 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infMk19TeamDes"]],_rarity_bad],
+	// US85_infADSqdDes, AD Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infADSqdDes"]],_rarity_InfTeam_AA],
+	// US85_infM252SqdDes, M252 Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infM252SqdDes"]],_rarity_bad],
+	// US85_infAslSqdDes, Assault Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infAslSqdDes"]],_rarity_InfTeam_AT/2],
+	// US85_infCHQDes, Company HQ
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_InfantryUnitsDes" >> "US85_infCHQDes"]],_rarity_bad],
+	//- US85_MechanizedUnitsDes, Mechanized Units
+	// US85_M113SecDes, M113 Infantry Section
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_MechanizedUnitsDes" >> "US85_M113SecDes"]],_rarity_MechInfSquad/2],
+	// US85_M113SqdDes, M113 Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_MechanizedUnitsDes" >> "US85_M113SqdDes"]],_rarity_MechInfSquad/2],
+	// US85_M113ADSqdDes, M113 AA Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_MechanizedUnitsDes" >> "US85_M113ADSqdDes"]],_rarity_MechInf_AA],
+	// US85_LAV25SqdDes, LAV-25 Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_MechanizedUnitsDes" >> "US85_LAV25SqdDes"]],_rarity_MotInf_Team],
+	//- US85_MotorizedUnitsDes, Motorized Units
+	// US85_M1043TeamDes, M1043 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_MotorizedUnitsDes" >> "US85_M1043TeamDes"]],_rarity_MotInf_Team],
+	// US85_LCvlAssaultScnDes, Light Cavalry Assault Section
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_MotorizedUnitsDes" >> "US85_LCvlAssaultScnDes"]],_rarity_MotInf_GMGTeam],
+	// US85_LCvlScoutScnDes, Light Cavalry Scout Section
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_MotorizedUnitsDes" >> "US85_LCvlScoutScnDes"]],_rarity_MotInf_HMGTeam/2],
+	// US85_LCvlATScnDes, Light Cavalry Anti-Tank Section
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_MotorizedUnitsDes" >> "US85_LCvlATScnDes"]],_rarity_MotInf_AT],
+	// US85_TruckSqdDes, Motorized Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_MotorizedUnitsDes" >> "US85_TruckSqdDes"]],_rarity_MotInf_Reinforce],
+	//- US85_SpecForUnitsDes, Special Forces Units
+	// US85_sfSqdDes, Special Forces Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_SpecForUnitsDes" >> "US85_sfSqdDes"]],_rarity_reconSquad],
+	// US85_sfTLDTeam, LTD Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_SpecForUnitsDes" >> "US85_sfTLDTeam"]],_rarity_SniperTeam],
+	//- US85_TankUnitsDes, Tank Units
+	// US85_M1A1ptnDes, M1A1 Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_TankUnitsDes" >> "US85_M1A1ptnDes"]],_rarity_TankPlatoon/2],
+	// US85_M1A1scM113SqdDes, M1A1 Section with Squad on M113
+	[[[configFile >> "CfgGroups" >> "West" >> "US85_DES" >> "US85_TankUnitsDes" >> "US85_M1A1scM113SqdDes"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_arr append [
 	// User
-	[[[["US85_M113_AMB_DES"],[],[]]],0.04],
-	[[[["US85_M113_DTP_DES"],[],[]]],0.03],
+	[[[["US85_M113_AMB_DES"],[],[]]],_rarity_bad],
+	[[[["US85_M113_DTP_DES"],[],[]]],_rarity_bad],
 	[[[["US85_M1025_M60_DES","US85_M923a_DES","US85_M923f_DES","US85_M923r_DES"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
-	],0.03],
+	],_rarity_bad],
 	//[[[["US85_sfM21G","US85_sfSptG"],[[0,0,0],[4,0,0]],["Sergeant","Corporal"]]],0.1],
 	[[[["US85_M1IP_DES","US85_M1IP_DES","US85_M1IP_DES","US85_M1IP_DES"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.1],
+	],_rarity_TankPlatoon/2],
 	// TruckM2
 	[[[["US85_mcSgtDES","US85_mcM60DES","US85_mcM16GLDES","US85_mcM16DES","US85_mcM60DES","US85_mcCGDES","US85_mcCGDES","US85_mcM47DES","US85_mcM16DES","US85_mcM16DES","US85_mcM16DES","US85_mcCprsDES","US85_M923a1om2_DES"],[[3,6,0],[3,4,0],[-3,4,0],[3,2,0],[-3,2,0],[3,0,0],[-3,0,0],[3,-2,0],[-3,-2,0],[3,-4,0],[-3,-4,0],[3,-6,0],[-3,-6,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.1],
-
-	// configName US85_cpSentryTeam
-	[[[["US85_mcM16DES","US85_mcM16DES"],[[0,0,0],[4,0,0]],["Corporal","Private"]]
-	],0.1],
-	// configName US85_cpFireTeam
-	[[[["US85_mcM16DES","US85_mcM16DES","US85_mcM60DES"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]
-	],0.2],
-	// configName US85_cpRifleTeam
-	[[[["US85_mcM16DES","US85_mcM16DES","US85_mcM16DES","US85_mcLAWDES"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]
-	],0.2],
-	// configName US85_infSqd
-	[[[["US85_mcSgtDES","US85_mcM249DES","US85_mcM16GLDES","US85_mcCprsDES","US85_mcSMAWDES","US85_mcM16DES","US85_mcM16DES","US85_mcLAWDES","US85_mcLAWDES","US85_mcM16GLDES","US85_mcM16GLDES","US85_mcM249DES","US85_mcM249DES"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],1],
-	// configName US85_infPLTeam
-	[[[["US85_mcOfcDES","US85_mcSgtDES","US85_mcCprsDES","US85_mcRTODES"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Sergeant","Corporal","Private"]]
-	],0.05],
-	// configName US85_infTeam
-	[[[["US85_mcM16DES","US85_mcM16GLDES","US85_mcM249DES","US85_mcLAWDES"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Corporal","Private","Private","Private"]]
-	],0.2],
-	// configName US85_infM60Team
-	[[[["US85_mcM60DES","US85_mcM16DES","US85_mcM16DES"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]
-	],0.2],
-	// configName US85_infADSqd
-	[[[["US85_mcFIM92DES","US85_mcFIM92DES","US85_mcM16DES","US85_mcM16DES"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Sergeant","Corporal","Private","Private"]]
-	],0.1],
-	// configName US85_infAslSqd
-	[[[["US85_mcSMAWDES","US85_mcSMAWDES","US85_mcM16DES","US85_mcM16DES"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Corporal"]]
-	],0.2],
-	// configName US85_infCHQ
-	[[[["US85_mcOfcDES","US85_mcOfcDES","US85_mcSgtDES","US85_mcCprsDES","US85_mcRTODES","US85_mcM16DES"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Captain","Lieutenant","Sergeant","Corporal","Corporal","Corporal"]]
-	],0.05],
-	// configName US85_sfSqd
-	[[[["US85_sfGLDES","US85_sfSprDES","US85_sfM21DES","US85_sfDrvDES","US85_sfMdcDES","US85_sfRTODES"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0],[4,-12,0],[-4,-12,0]],["Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal"]]
-	],0.1],
-
-	// configName US85_M113Sec
-	[[[["US85_mcSgtDES","US85_mcM249DES","US85_mcM16GLDES","US85_mcCprsDES","US85_mcSMAWDES","US85_mcM16DES","US85_mcM16DES","US85_M113_DES","US85_M113_DES","US85_mcLAWDES","US85_mcLAWDES","US85_mcM16GLDES","US85_mcM16GLDES","US85_mcM249DES","US85_mcM249DES"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0],[56,0,0],[-56,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],0.4],
-	// configName US85_M113Sqd
-	[[[["US85_M113_DES","US85_mcM136DES","US85_mcLAWDES","US85_mcM16GLDES","US85_mcM16GLDES","US85_mcM249DES","US85_mcM249DES"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0]],["Corporal","Corporal","Private","Private","Private","Private","Private"]]
-	],0.4],
-	// configName US85_M113ADSqd
-	[[[["US85_M113_DES","US85_mcFIM92DES","US85_mcFIM92DES","US85_mcM16DES","US85_mcM16DES"],[[0,0,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0]],["Corporal","Sergeant","Corporal","Private","Private"]]
-	],0.1],
-	// configName US85_LAV25sqd
-	[[[["US85_mcSgtDES","US85_mcM16GLDES","US85_mcM16DES","US85_mcLAWDES","US85_mcM16DES","US85_mcM60DES","US85_lav25_DES"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Corporal"]]
-	],0.9],
-
-	// configName US85_M1043Team
-	[[[["US85_M1043_M60_DES","US85_mcSgtDES","US85_mcM16DES","US85_mcM249DES"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]
-	],0.1],
-	// configName US85_TruckSqd
-	[[[["US85_mcSgtDES","US85_mcM60DES","US85_mcM16GLDES","US85_mcM16DES","US85_mcM60DES","US85_mcCGDES","US85_mcCGDES","US85_mcM47DES","US85_mcM16DES","US85_mcM16DES","US85_mcM16DES","US85_mcM249DES","US85_mcCprsDES","US85_M923_DES"],[[3,6,0],[3,4,0],[-3,4,0],[3,2,0],[-3,2,0],[3,0,0],[-3,0,0],[3,-2,0],[-3,-2,0],[3,-4,0],[-3,-4,0],[3,-6,0],[-3,-6,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.1],
-
-	// configName US85_M1A1ptn
-	[[[["US85_M1A1_DES","US85_M1A1_DES","US85_M1A1_DES","US85_M1A1_DES"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.3],
-	// configName US85_M1A1scM113sqd
-	[[[["US85_M1A1_DES","US85_M1A1_DES","US85_mcSgtDES","US85_mcM16GLDES","US85_mcM16GLDES","US85_mcLAWDES","US85_mcLAWDES","US85_mcM249DES","US85_mcM249DES","US85_mcSMAWDES","US85_mcM16DES","US85_M113_DES"],[[17,0,0],[-17,0,0],[0,-12,0],[17,-7,0],[-17,-7,0],[15,-7,0],[-15,-7,0],[19,-7,0],[-19,-7,0],[2,-12,0],[-2,-12,0],[0,-7,0]],["Sergeant","Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal","Private","Corporal"]]
-	],0.2]
+	],_rarity_MotInf_HMGTeam/2]
 ];
 _n = count _arr;
 _arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
 diag_log format ["Log: [config_groups_CSLA] count US85 Desert %1", [count _arr, _n]];
 if (count _arr * 1.5 >= _n) then {_n=250}else{_n=1000};
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
-		[[[["US85_M270_DES","US85_M270_DES"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
-		// configName US85_infM252Sqd
-		[[[["US85_M252_Stat_DES","US85_mcM16DES","US85_mcM16DES","US85_mcM16DES","US85_mcM16DES","US85_mcM16DES"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Sergeant","Corporal","Private","Private","Private","Private"]]],0.1]
+		[[[["US85_M270_DES","US85_M270_DES"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],_rarity_MotInf_MortTeam]
 	];
 };
-[_groups_map, west, "US85", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [250,999],
-	[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "US85",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [250,999],
+		__exclude
+	] call gosa_fnc_map_groups_add;
+};
 
-//- US85 Wdl
+//-- US85, US '85
 _arr = [
+	//- US85_InfantryUnits, Infantry Units
+	// US85_cpSentryTeam, Sentry team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_cpSentryTeam"]],_rarity_InfSentry],
+	// US85_cpFireTeam, Fire team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_cpFireTeam"]],_rarity_InfTeam],
+	// US85_cpRifleTeam, Riflemen team AT
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_cpRifleTeam"]],_rarity_InfTeam_AT/2],
+	// US85_infSqd, Rifle Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infSqd"]],_rarity_InfSquad],
+	// US85_infPLTeam, PL Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infPLTeam"]],_rarity_bad],
+	// US85_infTeam, Infantry Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infTeam"]],_rarity_InfTeam],
+	// US85_infM60Team, M60 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infM60Team"]],_rarity_InfTeam_MG],
+	// US85_infM2Team, M2 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infM2Team"]],_rarity_bad],
+	// US85_infMk19Team, Mk. 19 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infMk19Team"]],_rarity_bad],
+	// US85_infADSqd, AD Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infADSqd"]],_rarity_InfTeam_AA],
+	// US85_infM252Sqd, M252 Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infM252Sqd"]],_rarity_bad],
+	// US85_infAslSqd, Assault Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infAslSqd"]],_rarity_InfTeam_AT/2],
+	// US85_infCHQ, Company HQ
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_InfantryUnits" >> "US85_infCHQ"]],_rarity_bad],
+	//- US85_MechanizedUnits, Mechanized Units
+	// US85_M113Sec, M113 Infantry Section
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_MechanizedUnits" >> "US85_M113Sec"]],_rarity_MechInfSquad/2],
+	// US85_M113Sqd, M113 Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_MechanizedUnits" >> "US85_M113Sqd"]],_rarity_MechInfSquad/2],
+	// US85_M113ADSqd, M113 AA Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_MechanizedUnits" >> "US85_M113ADSqd"]],_rarity_MechInf_AA],
+	// US85_LAV25sqd, LAV-25 Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_MechanizedUnits" >> "US85_LAV25sqd"]],_rarity_MotInf_Team],
+	//- US85_MotorizedUnits, Motorized Units
+	// US85_M1043Team, M1043 Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_MotorizedUnits" >> "US85_M1043Team"]],_rarity_MotInf_Team],
+	// US85_LCvlAssaultScn, Light Cavalry Assault Section
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_MotorizedUnits" >> "US85_LCvlAssaultScn"]],_rarity_MotInf_GMGTeam],
+	// US85_LCvlScoutScn, Light Cavalry Scout Section
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_MotorizedUnits" >> "US85_LCvlScoutScn"]],_rarity_MotInf_HMGTeam/2],
+	// US85_LCvlATScn, Light Cavalry Anti-Tank Section
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_MotorizedUnits" >> "US85_LCvlATScn"]],_rarity_MotInf_AT],
+	// US85_TruckSqd, Motorized Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_MotorizedUnits" >> "US85_TruckSqd"]],_rarity_MotInf_Reinforce],
+	//- US85_AirbornUnits, Airborne Units
+	// US85_abSqd, Rifle Squad
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_AirbornUnits" >> "US85_abSqd"]],_rarity_reconSquad*0.25/2],
+	// US85_abDtmt, Sabotage Detachment
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_AirbornUnits" >> "US85_abDtmt"]],_rarity_ReconPatrol/2],
+	//- US85_SpecForUnits, Special Forces Units
+	// US85_sfSqd, Special Forces Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_SpecForUnits" >> "US85_sfSqd"]],_rarity_reconSquad*0.75],
+	// US85_sfSnpTeam, Sniper Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_SpecForUnits" >> "US85_sfSnpTeam"]],_rarity_SniperTeam],
+	// US85_sfTLDTeam, LTD Team
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_SpecForUnits" >> "US85_sfTLDTeam"]],_rarity_SniperTeam],
+	//- US85_TankUnits, Tank Units
+	// US85_M1A1ptn, M1A1 Platoon
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_TankUnits" >> "US85_M1A1ptn"]],_rarity_TankPlatoon/2],
+	// US85_M1A1scM113sqd, M1A1 Section with Squad on M113
+	[[[configFile >> "CfgGroups" >> "West" >> "US85" >> "US85_TankUnits" >> "US85_M1A1scM113sqd"]],_rarity_TankSection]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_arr append [
 	// User
-	[[[["US85_M113_AMB"],[],[]]],0.04],
-	[[[["US85_M113_DTP"],[],[]]],0.03],
+	[[[["US85_M113_AMB"],[],[]]],_rarity_bad],
+	[[[["US85_M113_DTP"],[],[]]],_rarity_bad],
 	[[[["US85_M1025_M60","US85_M923a","US85_M923f","US85_M923r"],[[0,-12,0],[0,-24,0],[0,-36,0],[0,-48,0],[0,-60,0]],["LIEUTENANT","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
-	],0.03],
+	],_rarity_bad],
 	[[[["US85_M1IP","US85_M1IP","US85_M1IP","US85_M1IP"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.1],
+	],_rarity_TankPlatoon/2],
 	// TruckM2
 	[[[["US85_mcSgt","US85_mcM60","US85_mcM16GL","US85_mcM16","US85_mcM60","US85_mcCG","US85_mcCG","US85_mcM47","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcCprs","US85_M923a1om2"],[[3,6,0],[3,4,0],[-3,4,0],[3,2,0],[-3,2,0],[3,0,0],[-3,0,0],[3,-2,0],[-3,-2,0],[3,-4,0],[-3,-4,0],[3,-6,0],[-3,-6,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.1],
-
-	// configName US85_cpSentryTeam
-	[[[["US85_mcM16","US85_mcM16"],[[0,0,0],[4,0,0]],["Corporal","Private"]]
-	],0.1],
-	// configName US85_cpFireTeam
-	[[[["US85_mcM16","US85_mcM16","US85_mcM60"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]
-	],0.2],
-	// configName US85_cpRifleTeam
-	[[[["US85_mcM16","US85_mcM16","US85_mcM16","US85_mcLAW"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]
-	],0.2],
-	// configName US85_infSqd
-	[[[["US85_mcSgt","US85_mcM249","US85_mcM16GL","US85_mcCprs","US85_mcSMAW","US85_mcM16","US85_mcM16","US85_mcLAW","US85_mcLAW","US85_mcM16GL","US85_mcM16GL","US85_mcM249","US85_mcM249"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],1],
-	// configName US85_infPLTeam
-	[[[["US85_mcOfc","US85_mcSgt","US85_mcCprs","US85_mcRTO"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Lieutenant","Sergeant","Corporal","Private"]]
-	],0.05],
-	// configName US85_infTeam
-	[[[["US85_mcM16","US85_mcM16GL","US85_mcM249","US85_mcLAW"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Corporal","Private","Private","Private"]]
-	],0.2],
-	// configName US85_infM60Team
-	[[[["US85_mcM60","US85_mcM16","US85_mcM16"],[[0,0,0],[2,-1,0],[-3,-2,0]],["Corporal","Private","Private"]]
-	],0.2],
-	// configName US85_infADSqd
-	[[[["US85_mcFIM92","US85_mcFIM92","US85_mcM16","US85_mcM16"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0]],["Sergeant","Corporal","Private","Private"]]
-	],0.1],
-	// configName US85_infAslSqd
-	[[[["US85_mcSMAW","US85_mcSMAW","US85_mcM16","US85_mcM16"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Sergeant","Corporal","Private","Corporal"]]
-	],0.2],
-	// configName US85_infCHQ
-	[[[["US85_mcOfc","US85_mcOfc","US85_mcSgt","US85_mcCprs","US85_mcRTO","US85_mcM16"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Captain","Lieutenant","Sergeant","Corporal","Corporal","Corporal"]]
-	],0.05],
-	// configName US85_sfSqd
-	[[[["US85_sfGL","US85_sfSpr","US85_sfM21","US85_sfDrv","US85_sfMdc","US85_sfRTO"],[[0,0,0],[4,-4,0],[-4,-4,0],[0,-8,0],[4,-12,0],[-4,-12,0]],["Sergeant","Corporal","Corporal","Corporal","Corporal","Corporal"]]
-	],0.1],
-
-	// configName US85_M113Sec
-	[[[["US85_mcSgt","US85_mcM249","US85_mcM16GL","US85_mcCprs","US85_mcSMAW","US85_mcM16","US85_mcM16","US85_M113","US85_M113","US85_mcLAW","US85_mcLAW","US85_mcM16GL","US85_mcM16GL","US85_mcM249","US85_mcM249"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0],[56,0,0],[-56,0,0]],["Sergeant","Private","Private","Corporal","Corporal","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],0.4],
-	// configName US85_M113Sqd
-	[[[["US85_M113","US85_mcM136","US85_mcLAW","US85_mcM16GL","US85_mcM16GL","US85_mcM249","US85_mcM249"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[-2.5,4.5,0]],["Corporal","Corporal","Private","Private","Private","Private","Private"]]
-	],0.4],
-	// configName US85_M113ADSqd
-	[[[["US85_M113","US85_mcFIM92","US85_mcFIM92","US85_mcM16","US85_mcM16"],[[0,0,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0]],["Corporal","Sergeant","Corporal","Private","Private"]]
-	],0.1],
-	// configName US85_LAV25sqd
-	[[[["US85_mcSgt","US85_mcM16GL","US85_mcM16","US85_mcLAW","US85_mcM16","US85_mcM60","US85_lav25"],[[1,-5.5,0],[2.5,-2,0],[-2.5,-2,0],[2.5,1,0],[-2.5,1,0],[2.5,4.5,0],[0,0,0]],["Sergeant","Corporal","Corporal","Private","Private","Private","Corporal"]]
-	],0.9],
-
-	// configName US85_M1043Team
-	[[[["US85_M1043_M60","US85_mcSgt","US85_mcM16","US85_mcM249"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]
-	],0.1],
-	// configName US85_TruckSqd
-	[[[["US85_mcSgt","US85_mcM60","US85_mcM16GL","US85_mcM16","US85_mcM60","US85_mcCG","US85_mcCG","US85_mcM47","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcM249","US85_mcCprs","US85_M923c"],[[3,6,0],[3,4,0],[-3,4,0],[3,2,0],[-3,2,0],[3,0,0],[-3,0,0],[3,-2,0],[-3,-2,0],[3,-4,0],[-3,-4,0],[3,-6,0],[-3,-6,0],[0,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.1],
-
-	// configName US85_M1A1ptn
-	[[[["US85_M1A1","US85_M1A1","US85_M1A1","US85_M1A1"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.3],
-	// configName US85_M1A1scM113sqd
-	[[[["US85_M1A1","US85_M1A1","US85_mcSgt","US85_mcM16GL","US85_mcM16GL","US85_mcLAW","US85_mcLAW","US85_mcM249","US85_mcM249","US85_mcSMAW","US85_mcM16","US85_M113"],[[17,0,0],[-17,0,0],[0,-12,0],[17,-7,0],[-17,-7,0],[15,-7,0],[-15,-7,0],[19,-7,0],[-19,-7,0],[2,-12,0],[-2,-12,0],[0,-7,0]],["Sergeant","Sergeant","Sergeant","Corporal","Corporal","Private","Private","Private","Private","Corporal","Private","Corporal"]]
-	],0.2]
+	],_rarity_MotInf_HMGTeam/2]
 ];
-[_groups_map, west, "US85", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160, _n-1],
-	[]
-] call gosa_fnc_map_groups_add;
-_arr = [
-	[[[["US85_sfM21G","US85_sfSptG"],[[0,0,0],[4,0,0]],["Sergeant","Corporal"]]],0.1]
-];
-if !(isNil "lambs_wp_fnc_taskArtilleryRegister") then {
+if (_Artillery) then {
 	_arr append [
-		[[[["US85_M270","US85_M270"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],0.1],
-		// configName US85_infM252Sqd
-		[[[["US85_M252_Stat","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcM16","US85_mcM16"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0]],["Sergeant","Corporal","Private","Private","Private","Private"]]],0.1]
+		[[[["US85_M270","US85_M270"],[[0,0,0],[10,-10,0]],["LIEUTENANT","LIEUTENANT"]]],_rarity_MotInf_MortTeam]
 	];
 };
-[_groups_map, west, "US85", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160, 249],
-	[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "US85",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160, _n-1],
+		__exclude
+	] call gosa_fnc_map_groups_add;
+};
 
 //- US85 Common
 _arr = [
 	// User
 	[[[["US85_zodiac","US85_mcM16","US85_mcM16GL","US85_mcM249","US85_mcLAW"],[[0,0,0],[5,-5,0],[-5,-5,0],[10,-10,0],[0,-10,0]],
 		["PRIVATE","SERGEANT","CORPORAL","PRIVATE","PRIVATE"]]
-	],0.1],
+	],_rarity_bad],
 	[[[["US85_AH1F","US85_AH1F"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.1],
+	],_rarity_Heli/3],
 	[[[["US85_MH60FFAR","US85_MH60FFAR"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.08],
+	],_rarity_Heli/3],
 	[[[["US85_MH60M134","US85_MH60M134"],[[0,0,0],[33,0,0],[-33,0,0],[66,0,0]],["Lieutenant","Sergeant","Corporal","Corporal"]]
-	],0.07],
-
-	// configName US85_abSqd
-	[[[["US85_ptSgt","US85_ptM16GL","US85_ptM16GL","US85_ptMdc","US85_ptMdc","US85_ptM136","US85_ptM136","US85_ptM60","US85_ptM60"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0]],["Sergeant","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.01],
-	// configName US85_abDtmt
-	[[[["US85_ptSgt","US85_ptM60","US85_ptM21","US85_ptRTO","US85_ptMdc","US85_ptMdc","US85_ptM16GL","US85_ptM16GL","US85_ptM136","US85_ptM136","US85_ptM16","US85_ptM16","US85_ptEng","US85_ptEng","US85_ptDrv","US85_ptM249","US85_ptM249"],[[0,0,0],[4,-4,0],[0,-8,0],[4,-12,0],[0,-16,0],[4,-20,0],[0,-24,0],[4,-28,0],[0,-32,0],[4,-36,0],[0,-40,0],[4,-44,0],[0,-48,0],[4,-52,0],[0,-56,0],[4,-60,0],[0,-64,0]],["Sergeant","Private","Corporal","Corporal","Corporal","Corporal","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private","Private"]]
-	],0.01]
+	],_rarity_Heli/3]
 ];
-[_groups_map, west, "US85", [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
-	[1960,1990], [160, 999],
-	[]
-] call gosa_fnc_map_groups_add;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, west, "US85",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160, 999],
+		__exclude
+	] call gosa_fnc_map_groups_add;
+};
 
 
-//-- FIA_CSLA
+#define __exclude ["IND_F","IND_E_F","IND_G_F","IND_C_F"]
+//-- FIA, FIA [CSLA]
 _arr = [
-	// configName FIA_cpSentryTeam
-	[[[["FIA_mcM16","FIA_mcFAL"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.1],
-	// configName FIA_cpFireTeam
-	[[[["FIA_mcM16","FIA_mcFAL","FIA_mcUK59L"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]],0.2],
-	// configName FIA_cpRifleTeam
-	[[[["FIA_mcM16","FIA_mcSa58","FIA_mcFAL","FIA_mcRPG7"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]],0.2],
-	// configName FIA_rScn
-	[[[["FIA_mcCmd","FIA_mcUK59L","FIA_mcVG70","FIA_mcVG70","FIA_mcRPG7","FIA_mcSa58v","FIA_mcFAL","FIA_mcUK59L","FIA_mcMdc","FIA_mcM16","FIA_mcSa58","FIA_mcSa58"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private"]]
-	],0.2],
-	// configName FIA_rTeam
-	[[[["FIA_mcM16","FIA_mcSa58","FIA_mcFAL","FIA_mcSa58V","FIA_mcFAL"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0]],["Sergeant","Corporal","Private","Private","Private"]]
-	],0.2],
-	// configName FIA_rSqd
-	[[[["FIA_mcM16","FIA_mcSa58","FIA_mcSa58v","FIA_mcUK59L","FIA_mcSa61","FIA_mcM16","FIA_mcRPG7","FIA_mc9K32"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],0.2],
-	// configName FIA_rTeamRPG
-	[[[["FIA_mcM16","FIA_mcSa58v","FIA_mcRPG7","FIA_mcRPG7"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Corporal","Private","Private","Private"]]
-	],0.4],
-
-	// configName FIA_rTeamBTR40DSKM
-	[[[["FIA_BTR40_DSKM","FIA_mcRPG7","FIA_mcSa58","FIA_mcUK59L"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]],0.5],
-	// configName FIA_rTeamBTR40
-	[[[["FIA_BTR40","FIA_mcM16","FIA_mcSa58","FIA_mcUK59L"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]],0.5],
-
-	// configName FIA_cpCldsSentryTeam
-	[[[["FIA_cldsRPG75","FIA_cldsSa24"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.1],
-	// configName FIA_cpCldsFireTeam
-	[[[["FIA_cldsRPG75","FIA_cldsUK59L","FIA_cldsUK59L"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]
-	],0.3],
-	// configName FIA_cpCldsRifleTeam
-	[[[["FIA_cldsRPG75","FIA_cldsRPG7","FIA_cldsRPG7","FIA_cldsUK59L"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]
-	],0.4],
-	// configName FIA_cldsScn
-	[[[["FIA_cldsCmd","FIA_cldsSa24","FIA_cldsMdc","FIA_cldsRPG75","FIA_cldsSa24Crw","FIA_cldsSvc","FIA_cldsSpr","FIA_cldsRPG7","FIA_clds9K32","FIA_cldsDrM","FIA_cldsUK59L","FIA_cldsOP63"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private"]]
-	],0.2],
-	// configName FIA_cldsSqd
-	[[[["FIA_cldsCmd","FIA_cldsRPG75","FIA_cldsRPG75","FIA_cldsOP63","FIA_cldsOP63","FIA_cldsSpr","FIA_cldsSpr","FIA_cldsMdc","FIA_cldsMdc","FIA_cldsRPG7","FIA_cldsRPG7","FIA_cldsUK59L","FIA_cldsUK59L"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private","Private"]]
-	],0.2],
-
-	// configName FIA_cldsSqdBTR40DSKM
-	[[[["FIA_BTR40_DSKM_clds","FIA_cldsCmd","FIA_cldsRPG7","FIA_cldsRPG7","FIA_cldsUK59L","FIA_cldsUK59L"],[[0,0,0],[1.5,-3,0],[-2,0,0],[2,0,0],[-2,2.5,0],[2,2.5,0]],["Corporal","Sergeant","Private","Private","Private","Private"]]
-	],0.1],
-	// configName FIA_cldsPtrAZUpara
-	[[[["FIA_AZU_para_clds","FIA_cldsCmd","FIA_cldsOP63","FIA_cldsMdc","FIA_cldsRPG7","FIA_cldsSpr","FIA_cldsRPG75","FIA_cldsUK59L"],[[0,0,0],[1,-3,0],[-2,-2.5,0],[2,-2.5,0],[-2,0,0],[2,0,0],[-2,2.5,0],[2,2.5,0]],["Corporal","Sergeant","Corporal","Private","Private","Private","Private","Private"]]
-	],0.1],
-	// configName FIA_cldsPtrAZUT21
-	[[[["FIA_AZU_T21_clds","FIA_cldsUK59L"],[[0,0,0],[2,2.5,0]],["Corporal","Private"]]
-	],0.1],
-	// configName FIA_cdPtrAZUDSKM
-	[[[["FIA_AZU_DSKM_clds","FIA_cldsRPG7"],[[0,0,0],[2,2.5,0]],["Corporal","Private"]]
-	],0.1],
-	// configName FIA_cldsSqdAZUAslt
-	[[[["FIA_AZU_DSKM_clds","FIA_AZU_T21_clds","FIA_cldsRPG7","FIA_cldsUK59L"],[[0,0,0],[10,0,0],[-2,2.5,0],[12,2.5,0]],["Sergeant","Corporal","Private","Private"]]
-	],0.1],
-	// configName FIA_cldsSqdV3S
-	[[[["FIA_cldsCmd","CSLA_FIA_V3So_clds","FIA_cldsRPG75","FIA_cldsRPG75","FIA_cldsOP63","FIA_cldsOP63","FIA_cldsSpr","FIA_cldsSpr","FIA_cldsMdc","FIA_cldsMdc","FIA_cldsRPG7","FIA_cldsRPG7","FIA_cldsUK59L","FIA_cldsUK59L"],[[-4,0,0],[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Private","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private","Private"]]
-	],0.1],
-
-	// configName FIA_cdDtmt
-	[[[["FIA_cdCmd","FIA_cdSa26RPG75","FIA_cdSa26RPG75","FIA_cdMdc","FIA_cdMdc","FIA_cdSpr","FIA_cdSpr","FIA_cdRPG7","FIA_cdRPG7","FIA_cdUK59L","FIA_cdUK59L","FIA_cdOP63","FIA_cdOP63","FIA_cdFAL","FIA_cdFAL"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0],[56,0,0],[-56,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],0.1],
-	// configName FIA_cdPrl
-	[[[["FIA_cdCmd","FIA_cdFAL","FIA_cdUK59L","FIA_cdSa26RPG75","FIA_cdMdc","FIA_cdSpr","FIA_cdRPG7"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private"]]
-	],0.1]
-];
-_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
-[_groups_map, resistance, "FIA_CSLA", _arr,
-[1960,1990], [160,249],
-[]
-] call gosa_fnc_map_groups_add;
-//- FIA_CSLA Des
+	//- FIA_RiflemanUnits, Guerrillas
+	// FIA_cpSentryTeam, Sentry team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_RiflemanUnits" >> "FIA_cpSentryTeam"]],_rarity_InfSentry/2],
+	// FIA_cpFireTeam, Fire team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_RiflemanUnits" >> "FIA_cpFireTeam"]],_rarity_InfTeam/3/2],
+	// FIA_cpRifleTeam, Riflemen team AT
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_RiflemanUnits" >> "FIA_cpRifleTeam"]],_rarity_InfTeam_AT/2/2],
+	// FIA_rScn, Rifle Section
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_RiflemanUnits" >> "FIA_rScn"]],_rarity_InfTeam/3/2],
+	// FIA_rTeam, Riflemen team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_RiflemanUnits" >> "FIA_rTeam"]],_rarity_InfTeam/3/2],
+	// FIA_rSqd, Riflemen squad
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_RiflemanUnits" >> "FIA_rSqd"]],_rarity_InfSquad/2],
+	// FIA_rTeamRPG, AT Team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_RiflemanUnits" >> "FIA_rTeamRPG"]],_rarity_InfTeam_AT/2/2],
+	// FIA_rTeamBTR40DSKM, Motorized Patrol (BTR-40 DShKM)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_RiflemanUnits" >> "FIA_rTeamBTR40DSKM"]],_rarity_MotInf_HMGTeam/2],
+	// FIA_rTeamBTR40, Motorized Patrol (BTR-40)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_RiflemanUnits" >> "FIA_rTeamBTR40"]],_rarity_MotInf_Team/2],
+	//- FIA_CloudsUnits, Clouds Camo
+	// FIA_cpCldsSentryTeam, Sentry team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cpCldsSentryTeam"]],_rarity_InfSentry/2],
+	// FIA_cpCldsFireTeam, Fire team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cpCldsFireTeam"]],_rarity_InfTeam/2/2],
+	// FIA_cpCldsRifleTeam, Riflemen team AT
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cpCldsRifleTeam"]],_rarity_InfTeam_AT/2],
+	// FIA_cldsScn, Rifle Section
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cldsScn"]],_rarity_InfTeam/2/2],
+	// FIA_cldsSqd, Riflemen squad
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cldsSqd"]],_rarity_InfSquad/2],
+	// FIA_cldsSqdBTR40DSKM, Motorized Squad (BTR-40 DShKM)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cldsSqdBTR40DSKM"]],_rarity_MotInf_HMGTeam/3/2],
+	// FIA_cldsPtrAZUpara, Motorized Patrol (AZU Para)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cldsPtrAZUpara"]],_rarity_MotInf_Team/2/2],
+	// FIA_cldsPtrAZUT21, Motorized Patrol (AZU T21)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cldsPtrAZUT21"]],_rarity_MotInf_AT],
+	// FIA_cldsPtrAZUDSKM, Motorized Patrol (AZU DshKM)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cldsPtrAZUDSKM"]],_rarity_MotInf_HMGTeam/3/2],
+	// FIA_cldsSqdAZUAslt, Motorized Assault Squad (AZU)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cldsSqdAZUAslt"]],_rarity_MotInf_Team/2/2],
+	// FIA_cldsSqdV3S, Motorized Infantry Squad (V3S)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cldsSqdV3S"]],_rarity_MotInf_Reinforce],
+	// FIA_cldsSqdV3SGT, Gun Truck Patrol (V3S GT)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CloudsUnits" >> "FIA_cldsSqdV3SGT"]],_rarity_MotInf_HMGTeam/3/2],
+	//- FIA_CommandoUnits, Commando
+	// FIA_cdDtmt, Airborne Detachment
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CommandoUnits" >> "FIA_cdDtmt"]],_rarity_reconSquad],
+	// FIA_cdPrl, Long Range Recon Patrol
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA" >> "FIA_CommandoUnits" >> "FIA_cdPrl"]],_rarity_ReconPatrol]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "FIA_CSLA",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [160, 250-1],
+		__exclude
+	] call gosa_fnc_map_groups_add;
+};
+//-- FIA_DES, FIA [CSLA] (Desert)
 _arr = [
-	// FIA_cpSentryTeamDes
-	[[[["FIA_mcSa24DES","FIA_mcSa24DES"],[[0,0,0],[4,0,0]],["Corporal","Private"]]],0.1],
-	// FIA_cpFireTeamDes
-	[[[["FIA_mcSa24DES","FIA_mcSa24DES","FIA_mcUK59LDes"],[[0,0,0],[4,0,0],[-4,0,0]],["Corporal","Private","Private"]]],0.3],
-	// FIA_cpRifleTeamDes
-	[[[["FIA_mcSa24DES","FIA_mcPu52Des","FIA_mcSa24DES","FIA_mcP27Des"],[[0,0,0],[4,0,0],[-4,0,0],[0,-4,0]],["Corporal","Private","Private","Private"]]],0.2],
-	// FIA_desScnInf
-	[[[["FIA_mcCmdDes","FIA_mcUK59LDes","FIA_mcSa24DES","FIA_mcSa24DES","FIA_mcP27Des","FIA_mcRPG7DES","FIA_mcOP54DES","FIA_mcUK59LDes","FIA_mcMdcDes","FIA_mcOP54DES","FIA_mcPu52Des","FIA_mcPu52Des"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0]],["Sergeant","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private"]]
-	],0.2],
-	// FIA_desTeamInf
-	[[[["FIA_mcSa24DES","FIA_mcPu52Des","FIA_mcSa24DES","FIA_mcPu52Des","FIA_mcSa24DES"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0]],["Sergeant","Corporal","Private","Private","Private"]]],0.2],
-	// FIA_desSqdInf
-	[[[["FIA_mcSa24DES","FIA_mcOP54Des","FIA_mcUK59LDes","FIA_mcUK59LDes","FIA_mcSa24DES","FIA_mcSa24DES","FIA_mcRPG7DES","FIA_mc9K32Des"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],1],
-	// FIA_desSqdInf76243
-	[[[["FIA_mcSa58vDES","FIA_mcPu57DES","FIA_mcPu57DES","FIA_mcLK57DES","FIA_mcPu57DES","FIA_mcPu57DES","FIA_mcRPG7DES","FIA_mc9K32Des"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],0.2],
-	// FIA_desSqdInf76252
-	[[[["FIA_mcPu52Des","FIA_mcPu52Des","FIA_mcLK52DES","FIA_mcLK52DES","FIA_mcPu52Des","FIA_mcPu52Des","FIA_mcP27DES","FIA_mc9K32Des"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0]],["Sergeant","Corporal","Private","Private","Private","Private","Private","Private"]]
-	],0.2],
-	// FIA_desTeamRPG
-	[[[["FIA_mcSa24DES","FIA_mcPu52Des","FIA_mcP27Des","FIA_mcP27Des"],[[0,0,0],[8,0,0],[-8,0,0],[16,0,0]],["Corporal","Private","Private","Private"]]],0.4],
-
-	// FIA_desTeamBTR40DSKM
-	[[[["CSLA_FIA_BTR40_DSKM_Des","FIA_mcP27Des","FIA_mcPu52Des","FIA_mcUK59LDes"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]],0.1],
-	// FIA_desTeamBTR40
-	[[[["CSLA_FIA_BTR40_Des","FIA_mcSa24DES","FIA_mcPu52Des","FIA_mcUK59LDes"],[[0,0,0],[2.5,1,0],[-2.5,-2,0],[2.5,-2,0]],["Corporal","Sergeant","Corporal","Private"]]],0.1],
-	// FIA_desPtrAZUpara
-	[[[["FIA_AZU_para_Des","FIA_mcCmdDes","FIA_mcOP54Des","FIA_mcMdcDes","FIA_mcP27Des","FIA_mcSprDes","FIA_mcPu52Des","FIA_mcUK59LDes"],[[0,0,0],[1,-3,0],[-2,-2.5,0],[2,-2.5,0],[-2,0,0],[2,0,0],[-2,2.5,0],[2,2.5,0]],["Corporal","Sergeant","Corporal","Private","Private","Private","Private","Private"]]
-	],0.1],
-	// FIA_desPtrAZUT21
-	[[[["CSLA_FIA_AZU_T21_des","FIA_mcUK59LDes"],[[0,0,0],[2,2.5,0]],["Corporal","Private"]]],0.1],
-	// FIA_desPtrAZUDSKM
-	[[[["CSLA_FIA_AZU_DSKM_des","FIA_mcP27Des"],[[0,0,0],[2,2.5,0]],["Corporal","Private"]]],0.1],
-	// FIA_desSqdAZUAslt
-	[[[["CSLA_FIA_AZU_DSKM_des","CSLA_FIA_AZU_T21_des","FIA_mcP27Des","FIA_mcUK59LDes"],[[0,0,0],[10,0,0],[-2,2.5,0],[12,2.5,0]],["Sergeant","Corporal","Private","Private"]]],0.1],
-	// FIA_desSqdV3S
-	[[[["FIA_mcCmdDes","CSLA_FIA_V3S_des","FIA_mcP27Des","FIA_mcP27Des","FIA_mcOP54Des","FIA_mcOP54Des","FIA_mcSprDes","FIA_mcSprDes","FIA_mcMdcDes","FIA_mcMdcDes","FIA_mcSa24DES","FIA_mcSa24DES","FIA_mcUK59LDes","FIA_mcUK59LDes"],[[-4,0,0],[0,0,0],[8,0,0],[-8,0,0],[16,0,0],[-16,0,0],[24,0,0],[-24,0,0],[32,0,0],[-32,0,0],[40,0,0],[-40,0,0],[48,0,0],[-48,0,0]],["Sergeant","Private","Corporal","Private","Private","Corporal","Private","Private","Corporal","Corporal","Private","Private","Private","Private"]]
-	],0.1],
-	// FIA_desSqdV3SGT
-	[[[["CSLA_FIA_V3S_GT_Des","FIA_mcOP54Des","FIA_mcRPG7Des","FIA_mcSa24DES"],[[0,0,0],[-4,0,0],[8,0,0],[-8,0,0]],["Sergeant","Corporal","Private","Private"]]],0.1]
-];
-_arr = [_arr, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2;
-[_groups_map, resistance, "FIA_CSLA", _arr,
-	[1960,1990], [250,999],
-	[]
-] call gosa_fnc_map_groups_add;
+	//- FIA_RiflemanUnitsDes, Desert Camo
+	// FIA_cpSentryTeamDes, Sentry team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_cpSentryTeamDes"]],_rarity_InfSentry],
+	// FIA_cpFireTeamDes, Fire team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_cpFireTeamDes"]],_rarity_InfTeam],
+	// FIA_cpRifleTeamDes, Riflemen team AT
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_cpRifleTeamDes"]],_rarity_InfTeam_AT/2],
+	// FIA_desScnInf, Rifle Section
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desScnInf"]],_rarity_InfSquad/4],
+	// FIA_desTeamInf, Riflemen team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desTeamInf"]],_rarity_InfTeam],
+	// FIA_desSqdInf, Riflemen squad
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desSqdInf"]],_rarity_InfSquad/4],
+	// FIA_desSqdInf76243, Riflemen squad (7.62×39)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desSqdInf76243"]],_rarity_InfSquad/4],
+	// FIA_desSqdInf76252, Riflemen squad (7.62×45)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desSqdInf76252"]],_rarity_InfSquad/4],
+	// FIA_desTeamRPG, AT Team
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desTeamRPG"]],_rarity_InfTeam_AT/2],
+	// FIA_desTeamBTR40DSKM, Motorized Patrol (BTR-40 DShKM)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desTeamBTR40DSKM"]],_rarity_MotInf_HMGTeam/3],
+	// FIA_desTeamBTR40, Motorized Patrol (BTR-40)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desTeamBTR40"]],_rarity_MotInf_Team/2],
+	// FIA_desPtrAZUpara, Motorized Patrol (AZU Para)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desPtrAZUpara"]],_rarity_MotInf_Team/2],
+	// FIA_desPtrAZUT21, Motorized Patrol (AZU T21)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desPtrAZUT21"]],_rarity_MotInf_AT],
+	// FIA_desPtrAZUDSKM, Motorized Patrol (AZU DshKM)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desPtrAZUDSKM"]],_rarity_MotInf_HMGTeam/3],
+	// FIA_desSqdAZUAslt, Motorized Assault Squad (AZU)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desSqdAZUAslt"]],_rarity_MotInf_GMGTeam],
+	// FIA_desSqdV3S, Motorized Infantry Squad (V3S)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desSqdV3S"]],_rarity_MotInf_Reinforce],
+	// FIA_desSqdV3SGT, Gun Truck Patrol (V3S GT)
+	[[[configFile >> "CfgGroups" >> "Indep" >> "FIA_DES" >> "FIA_RiflemanUnitsDes" >> "FIA_desSqdV3SGT"]],_rarity_MotInf_HMGTeam/3]
+]; [_arr] call gosa_fnc_groups_convNormal;
+_date_rip = [_arr] call gosa_fnc_cfg_grp_getinfo;
+for "_i" from 0 to (count (_date_rip select 1) -1) do {
+	[_groups_map, resistance, "FIA_CSLA",
+		[_date_rip select 2 select _i, _copyRef] call gosa_fnc_filtering_squads_byAvail_v2,
+		_date_rip select 1 select _i, [250, 999],
+		__exclude
+	] call gosa_fnc_map_groups_add;
+};
