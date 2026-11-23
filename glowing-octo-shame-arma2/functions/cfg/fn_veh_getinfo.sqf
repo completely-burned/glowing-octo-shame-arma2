@@ -3,13 +3,14 @@
  * FIXME: т.е. проверка вроде getText(_cfgVeh >> _type >> "dlc") == "VN" не приемлема.
  * Дата завершения эксклюзивная, <, до.
  */
-
-#define __date_us_iraq_exit 2021
+// WW2 в Европе <1947
+#define __date_ww2_end 1957
 // VN FIXME: Вьетнамская война 1957-1976
 #define __vn_start 1957
 #define __vn_end 1980
-#define __date_ww2_end 1947
 #define __date_emr 2009
+#define __date_us_iraq_exit 2021
+
 #define __importer 15
 #ifdef __ARMA3__
 	#define toLower toLowerANSI
