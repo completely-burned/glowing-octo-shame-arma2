@@ -1,9 +1,10 @@
 /*
  * Баланс сторон.
  * TODO: Должен быть динамичным, с возможностью вкл/выключать стороны после старта.
+ * TODO: Переместить PvE код в другую функцию.
  */
 
-private ["_alliances","_alliance","_side","_arr0","_Groups",
+private ["_alliances","_alliance","_side","_arr0","_Groups","_param",
 	"_count","_spectator",
 	"_allDead",
 	"_cfgVeh",
@@ -28,6 +29,7 @@ private ["_alliances","_alliance","_side","_arr0","_Groups",
 
 _Groups = _this select 0;
 _alliances = _this select 1;
+_param = _this select 2;
 
 _cfgVeh = LIB_cfgVeh;
 _pvp = false;
@@ -124,8 +126,8 @@ if (isMultiplayer) then {
 			diag_log format ["Log: [init_side_balance] _superpowers_rating %1", _superpowers_rating];
 			failMission "LOSER";
 		}else{
-			// Негласное голосование выбором слота. Сторона с меньшим количесвом игроков станет противником.
-			// TODO: Выбравших её игроков неободимо возвратить к выбору роли, а сторону сделать недоступной для выбора.
+			// Негласное голосование выбором слота. Сторона с меньшим количеством игроков станет противником.
+			// TODO: Выбравших её игроков необходимо возвратить к выбору роли, а сторону сделать недоступной для выбора.
 			if (count _problem1 == count _superpowers_rating) then {
 				_min = 9999999999999;
 				for "_i" from 0 to (count _superpowers_rating) do {
@@ -197,6 +199,23 @@ if !(_pvp) then {
 if !(_pvp) then {
 	_problems = [_problem0, _problem1];
 };
+
+switch (_param) do {
+	case 112: {
+		_problems = [[east,west],[resistance]];
+	};
+	case 121: {
+		_problems = [[east,resistance],[west]];
+	};
+	case 122: {
+		_problems = [[west,resistance],[east]];
+	};
+	case 123: {
+		_problems = [[east],[west],[resistance]];
+	};
+	default {};
+};
+
 _problems_num =+ _problems;
 for "_i" from 0 to (count _problems_num -1) do {
 	_arr = _problems_num select _i;

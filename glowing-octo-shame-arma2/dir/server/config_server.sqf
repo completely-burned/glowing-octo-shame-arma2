@@ -7,7 +7,7 @@ _pvp = false;
 
 waitUntil {!isNil "gosa_Groups_common"};
 waitUntil {!isNil "gosa_Groups_alliances"};
-_arr = [gosa_Groups_common, gosa_Groups_alliances] call gosa_fnc_init_side_balance;
+_arr = [gosa_Groups_common, gosa_Groups_alliances, missionNamespace getVariable "gosa_side_alliances"] call gosa_fnc_init_side_balance;
 
 if !(_pvp) then {
 	gosa_sides_friendly_num = _arr select 3 select 1 select 1;
