@@ -1,5 +1,5 @@
 #define __A2OA__
-private ["_grp","_n"];
+private ["_grp","_n","_sideCreated"];
 
 #ifndef __ARMA3__
 	waitUntil {!isNil "BIS_fnc_init"};
@@ -137,46 +137,45 @@ switch (_n) do {
 		resistance setFriend [civilian, 1];
 	};
 	default {
-if (gosa_pvp) then {
-	west setFriend [east, 0];
-	west setFriend [resistance, 0];
-	west setFriend [civilian, 1];
-	east setFriend [west, 0];
-	east setFriend [resistance, 0];
-	east setFriend [civilian, 1];
-	resistance setFriend [west, 0];
-	resistance setFriend [east, 0];
-	resistance setFriend [civilian, 1];
-	civilian setFriend [west, 1];
-	civilian setFriend [east, 1];
-	civilian setFriend [resistance, 1];
-	civilian setFriend [civilian, 1];
-} else {
-{
-	Private["_sideCreated"];
-	_sideCreated = _x;
-	{
-		if (_x != _sideCreated) then {
-			if ((_x in gosa_friendlyside && !(_sideCreated in gosa_friendlyside)) or (!(_x in gosa_friendlyside) && _sideCreated in gosa_friendlyside)) then {
-				_x SetFriend [_sideCreated,0];
-				_sideCreated SetFriend [_x,0];
-			}else{
-				_x SetFriend [_sideCreated,1];
-				_sideCreated SetFriend [_x,1];
-			};
-		};
-	} ForEach [East,West,Resistance];
-	if (_sideCreated in gosa_friendlyside) then {
-		_sideCreated SetFriend [civilian,1];
-		civilian SetFriend [_sideCreated,1];
-	}else{
-		// стреляют по машинам и бочкам при <0.6
-		_sideCreated SetFriend [civilian,1];
-		civilian SetFriend [_sideCreated,1];
-	};
-	// _x SetFriend [sideUnknown ,0];
-	// sideUnknown  SetFriend [_x,0];
-} ForEach [East,West,Resistance];
+		if (gosa_pvp) then {
+			west setFriend [east, 0];
+			west setFriend [resistance, 0];
+			west setFriend [civilian, 1];
+			east setFriend [west, 0];
+			east setFriend [resistance, 0];
+			east setFriend [civilian, 1];
+			resistance setFriend [west, 0];
+			resistance setFriend [east, 0];
+			resistance setFriend [civilian, 1];
+			civilian setFriend [west, 1];
+			civilian setFriend [east, 1];
+			civilian setFriend [resistance, 1];
+			civilian setFriend [civilian, 1];
+		} else {
+			{
+				_sideCreated = _x;
+				{
+					if (_x != _sideCreated) then {
+						if ((_x in gosa_friendlyside && !(_sideCreated in gosa_friendlyside)) or (!(_x in gosa_friendlyside) && _sideCreated in gosa_friendlyside)) then {
+							_x SetFriend [_sideCreated,0];
+							_sideCreated SetFriend [_x,0];
+						}else{
+							_x SetFriend [_sideCreated,1];
+							_sideCreated SetFriend [_x,1];
+						};
+					};
+				} ForEach [East,West,Resistance];
+				if (_sideCreated in gosa_friendlyside) then {
+					_sideCreated SetFriend [civilian,1];
+					civilian SetFriend [_sideCreated,1];
+				}else{
+					// стреляют по машинам и бочкам при <0.6
+					_sideCreated SetFriend [civilian,1];
+					civilian SetFriend [_sideCreated,1];
+				};
+				// _x SetFriend [sideUnknown ,0];
+				// sideUnknown  SetFriend [_x,0];
+			} ForEach [East,West,Resistance];
 		};
 	};
 };
